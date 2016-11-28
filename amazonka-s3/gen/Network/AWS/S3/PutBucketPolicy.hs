@@ -52,11 +52,11 @@ data PutBucketPolicy = PutBucketPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbpContentMD5'
+-- * 'pbpContentMD5' - Undocumented member.
 --
--- * 'pbpBucket'
+-- * 'pbpBucket' - Undocumented member.
 --
--- * 'pbpPolicy'
+-- * 'pbpPolicy' - The bucket policy as a JSON document.
 putBucketPolicy
     :: BucketName -- ^ 'pbpBucket'
     -> HashMap Text Value -- ^ 'pbpPolicy'

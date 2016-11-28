@@ -20,7 +20,7 @@
 --
 -- Creates or updates the image manifest associated with an image.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.PutImage
     (
     -- * Creating a Request
@@ -57,11 +57,11 @@ data PutImage = PutImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piRegistryId'
+-- * 'piRegistryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 --
--- * 'piRepositoryName'
+-- * 'piRepositoryName' - The name of the repository in which to put the image.
 --
--- * 'piImageManifest'
+-- * 'piImageManifest' - The image manifest corresponding to the image to be uploaded.
 putImage
     :: Text -- ^ 'piRepositoryName'
     -> Text -- ^ 'piImageManifest'
@@ -132,9 +132,9 @@ data PutImageResponse = PutImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pirsImage'
+-- * 'pirsImage' - Details of the image uploaded.
 --
--- * 'pirsResponseStatus'
+-- * 'pirsResponseStatus' - -- | The response status code.
 putImageResponse
     :: Int -- ^ 'pirsResponseStatus'
     -> PutImageResponse
@@ -148,7 +148,7 @@ putImageResponse pResponseStatus_ =
 pirsImage :: Lens' PutImageResponse (Maybe Image)
 pirsImage = lens _pirsImage (\ s a -> s{_pirsImage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 pirsResponseStatus :: Lens' PutImageResponse Int
 pirsResponseStatus = lens _pirsResponseStatus (\ s a -> s{_pirsResponseStatus = a});
 

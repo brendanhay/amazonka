@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.
+--
+--
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeImageAttribute.
 --
+--
+--
 -- /See:/ 'describeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
     { _diaiDryRun    :: !(Maybe Bool)
@@ -64,11 +68,11 @@ data DescribeImageAttribute = DescribeImageAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diaiDryRun'
+-- * 'diaiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'diaiImageId'
+-- * 'diaiImageId' - The ID of the AMI.
 --
--- * 'diaiAttribute'
+-- * 'diaiAttribute' - The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
 describeImageAttribute
     :: Text -- ^ 'diaiImageId'
     -> ImageAttributeName -- ^ 'diaiAttribute'
@@ -80,7 +84,7 @@ describeImageAttribute pImageId_ pAttribute_ =
     , _diaiAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
 
@@ -88,9 +92,7 @@ diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
 diaiImageId :: Lens' DescribeImageAttribute Text
 diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 
--- | The AMI attribute.
---
--- __Note__: Depending on your account privileges, the 'blockDeviceMapping' attribute may return a 'Client.AuthFailure' error. If this happens, use < DescribeImages> to get information about the block device mapping for the AMI.
+-- | The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
 diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a});
 
@@ -138,6 +140,8 @@ instance ToQuery DescribeImageAttribute where
 
 -- | Describes an image attribute.
 --
+--
+--
 -- /See:/ 'describeImageAttributeResponse' smart constructor.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
@@ -155,23 +159,23 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diarsLaunchPermissions'
+-- * 'diarsLaunchPermissions' - One or more launch permissions.
 --
--- * 'diarsRAMDiskId'
+-- * 'diarsRAMDiskId' - The RAM disk ID.
 --
--- * 'diarsKernelId'
+-- * 'diarsKernelId' - The kernel ID.
 --
--- * 'diarsSRIOVNetSupport'
+-- * 'diarsSRIOVNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
--- * 'diarsImageId'
+-- * 'diarsImageId' - The ID of the AMI.
 --
--- * 'diarsProductCodes'
+-- * 'diarsProductCodes' - One or more product codes.
 --
--- * 'diarsDescription'
+-- * 'diarsDescription' - A description for the AMI.
 --
--- * 'diarsBlockDeviceMappings'
+-- * 'diarsBlockDeviceMappings' - One or more block device mapping entries.
 --
--- * 'diarsResponseStatus'
+-- * 'diarsResponseStatus' - -- | The response status code.
 describeImageAttributeResponse
     :: Int -- ^ 'diarsResponseStatus'
     -> DescribeImageAttributeResponse
@@ -220,7 +224,7 @@ diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
 diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
 diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
 diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a});
 

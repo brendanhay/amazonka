@@ -20,7 +20,9 @@
 --
 -- Describes the specified policies.
 --
--- If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don\'t specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the 'ELBSample-' prefix.
+--
+-- If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the @ELBSample-@ prefix.
+--
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicies.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
     { _dlbpPolicyNames      :: !(Maybe [Text])
@@ -57,9 +61,9 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbpPolicyNames'
+-- * 'dlbpPolicyNames' - The names of the policies.
 --
--- * 'dlbpLoadBalancerName'
+-- * 'dlbpLoadBalancerName' - The name of the load balancer.
 describeLoadBalancerPolicies
     :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
@@ -112,6 +116,8 @@ instance ToQuery DescribeLoadBalancerPolicies where
 
 -- | Contains the output of DescribeLoadBalancerPolicies.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
@@ -122,9 +128,9 @@ data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbprsPolicyDescriptions'
+-- * 'dlbprsPolicyDescriptions' - Information about the policies.
 --
--- * 'dlbprsResponseStatus'
+-- * 'dlbprsResponseStatus' - -- | The response status code.
 describeLoadBalancerPoliciesResponse
     :: Int -- ^ 'dlbprsResponseStatus'
     -> DescribeLoadBalancerPoliciesResponse
@@ -138,7 +144,7 @@ describeLoadBalancerPoliciesResponse pResponseStatus_ =
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprsResponseStatus = lens _dlbprsResponseStatus (\ s a -> s{_dlbprsResponseStatus = a});
 

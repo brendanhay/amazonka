@@ -20,7 +20,9 @@
 --
 -- Describes the specified policies or all policies used for SSL negotiation.
 --
+--
 -- Note that the only supported policy at this time is ELBSecurityPolicy-2015-05.
+--
 module Network.AWS.ELBv2.DescribeSSLPolicies
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSSLPolicies.
 --
+--
+--
 -- /See:/ 'describeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
     { _dspNames    :: !(Maybe [Text])
@@ -60,11 +64,11 @@ data DescribeSSLPolicies = DescribeSSLPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspNames'
+-- * 'dspNames' - The names of the policies.
 --
--- * 'dspMarker'
+-- * 'dspMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dspPageSize'
+-- * 'dspPageSize' - The maximum number of results to return with this call.
 describeSSLPolicies
     :: DescribeSSLPolicies
 describeSSLPolicies =
@@ -120,6 +124,8 @@ instance ToQuery DescribeSSLPolicies where
 
 -- | Contains the output of DescribeSSLPolicies.
 --
+--
+--
 -- /See:/ 'describeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
     { _dsprsSSLPolicies    :: !(Maybe [SSLPolicy])
@@ -131,11 +137,11 @@ data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsprsSSLPolicies'
+-- * 'dsprsSSLPolicies' - Information about the policies.
 --
--- * 'dsprsNextMarker'
+-- * 'dsprsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dsprsResponseStatus'
+-- * 'dsprsResponseStatus' - -- | The response status code.
 describeSSLPoliciesResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DescribeSSLPoliciesResponse
@@ -154,7 +160,7 @@ dsprsSSLPolicies = lens _dsprsSSLPolicies (\ s a -> s{_dsprsSSLPolicies = a}) . 
 dsprsNextMarker :: Lens' DescribeSSLPoliciesResponse (Maybe Text)
 dsprsNextMarker = lens _dsprsNextMarker (\ s a -> s{_dsprsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeSSLPoliciesResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 

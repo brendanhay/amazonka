@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/.
+-- Gets the suggesters configured for a domain. A suggester enables you to display possible matches before users finish typing their queries. Can be limited to specific suggesters by name. By default, shows all suggesters and includes any pending changes to the configuration. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeSuggester' operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
+-- | Container for the parameters to the @'DescribeSuggester' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
+--
+--
 --
 -- /See:/ 'describeSuggesters' smart constructor.
 data DescribeSuggesters = DescribeSuggesters'
@@ -57,11 +61,11 @@ data DescribeSuggesters = DescribeSuggesters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssDeployed'
+-- * 'dssDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 --
--- * 'dssSuggesterNames'
+-- * 'dssSuggesterNames' - The suggesters you want to describe.
 --
--- * 'dssDomainName'
+-- * 'dssDomainName' - The name of the domain you want to describe.
 describeSuggesters
     :: Text -- ^ 'dssDomainName'
     -> DescribeSuggesters
@@ -72,7 +76,7 @@ describeSuggesters pDomainName_ =
     , _dssDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
 dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
 
@@ -117,7 +121,9 @@ instance ToQuery DescribeSuggesters where
                    (toQueryList "member" <$> _dssSuggesterNames),
                "DomainName" =: _dssDomainName]
 
--- | The result of a 'DescribeSuggesters' request.
+-- | The result of a @DescribeSuggesters@ request.
+--
+--
 --
 -- /See:/ 'describeSuggestersResponse' smart constructor.
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
@@ -129,9 +135,9 @@ data DescribeSuggestersResponse = DescribeSuggestersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 --
--- * 'dssrsSuggesters'
+-- * 'dssrsSuggesters' - The suggesters configured for the domain specified in the request.
 describeSuggestersResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSuggestersResponse
@@ -141,7 +147,7 @@ describeSuggestersResponse pResponseStatus_ =
     , _dssrsSuggesters = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSuggestersResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 

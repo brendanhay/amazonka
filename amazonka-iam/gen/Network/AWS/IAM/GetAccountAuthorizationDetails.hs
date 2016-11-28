@@ -20,7 +20,9 @@
 --
 -- Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another. Use this API to obtain a snapshot of the configuration of IAM permissions (users, groups, roles, and policies) in your account.
 --
--- You can optionally filter the results using the 'Filter' parameter. You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- You can optionally filter the results using the @Filter@ parameter. You can paginate the results using the @MaxItems@ and @Marker@ parameters.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
@@ -65,11 +67,11 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaadMarker'
+-- * 'gaadMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'gaadMaxItems'
+-- * 'gaadMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'gaadFilter'
+-- * 'gaadFilter' - A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies. The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
 getAccountAuthorizationDetails
     :: GetAccountAuthorizationDetails
 getAccountAuthorizationDetails =
@@ -79,19 +81,15 @@ getAccountAuthorizationDetails =
     , _gaadFilter = Nothing
     }
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
 gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
 gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
 
--- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value 'LocalManagedPolicy' to include customer managed policies.
---
--- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
+-- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies. The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
 gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default . _Coerce;
 
@@ -149,7 +147,9 @@ instance ToQuery GetAccountAuthorizationDetails where
                "Filter" =:
                  toQuery (toQueryList "member" <$> _gaadFilter)]
 
--- | Contains the response to a successful < GetAccountAuthorizationDetails> request.
+-- | Contains the response to a successful 'GetAccountAuthorizationDetails' request.
+--
+--
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
@@ -166,19 +166,19 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaadrsRoleDetailList'
+-- * 'gaadrsRoleDetailList' - A list containing information about IAM roles.
 --
--- * 'gaadrsGroupDetailList'
+-- * 'gaadrsGroupDetailList' - A list containing information about IAM groups.
 --
--- * 'gaadrsUserDetailList'
+-- * 'gaadrsUserDetailList' - A list containing information about IAM users.
 --
--- * 'gaadrsMarker'
+-- * 'gaadrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'gaadrsIsTruncated'
+-- * 'gaadrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'gaadrsPolicies'
+-- * 'gaadrsPolicies' - A list containing information about managed policies.
 --
--- * 'gaadrsResponseStatus'
+-- * 'gaadrsResponseStatus' - -- | The response status code.
 getAccountAuthorizationDetailsResponse
     :: Int -- ^ 'gaadrsResponseStatus'
     -> GetAccountAuthorizationDetailsResponse
@@ -205,11 +205,11 @@ gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\ s a -> s{_gaadrsGroupDeta
 gaadrsUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
 gaadrsUserDetailList = lens _gaadrsUserDetailList (\ s a -> s{_gaadrsUserDetailList = a}) . _Default . _Coerce;
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 gaadrsMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
 gaadrsMarker = lens _gaadrsMarker (\ s a -> s{_gaadrsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 gaadrsIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
 gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a});
 
@@ -217,7 +217,7 @@ gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a})
 gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
 gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrsResponseStatus = lens _gaadrsResponseStatus (\ s a -> s{_gaadrsResponseStatus = a});
 

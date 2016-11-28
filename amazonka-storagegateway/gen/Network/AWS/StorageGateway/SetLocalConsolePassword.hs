@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the password for your VM local console. When you log in to the local console for the first time, you log in to the VM with the default credentials. We recommend that you set a new password. You don\'t need to know the default password to set a new password.
+-- Sets the password for your VM local console. When you log in to the local console for the first time, you log in to the VM with the default credentials. We recommend that you set a new password. You don't need to know the default password to set a new password.
+--
+--
 module Network.AWS.StorageGateway.SetLocalConsolePassword
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | SetLocalConsolePasswordInput
 --
+--
+--
 -- /See:/ 'setLocalConsolePassword' smart constructor.
 data SetLocalConsolePassword = SetLocalConsolePassword'
     { _slcpGatewayARN           :: !Text
@@ -55,9 +59,9 @@ data SetLocalConsolePassword = SetLocalConsolePassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slcpGatewayARN'
+-- * 'slcpGatewayARN' - Undocumented member.
 --
--- * 'slcpLocalConsolePassword'
+-- * 'slcpLocalConsolePassword' - The password you want to set for your VM local console.
 setLocalConsolePassword
     :: Text -- ^ 'slcpGatewayARN'
     -> Text -- ^ 'slcpLocalConsolePassword'
@@ -125,9 +129,9 @@ data SetLocalConsolePasswordResponse = SetLocalConsolePasswordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slcprsGatewayARN'
+-- * 'slcprsGatewayARN' - Undocumented member.
 --
--- * 'slcprsResponseStatus'
+-- * 'slcprsResponseStatus' - -- | The response status code.
 setLocalConsolePasswordResponse
     :: Int -- ^ 'slcprsResponseStatus'
     -> SetLocalConsolePasswordResponse
@@ -141,7 +145,7 @@ setLocalConsolePasswordResponse pResponseStatus_ =
 slcprsGatewayARN :: Lens' SetLocalConsolePasswordResponse (Maybe Text)
 slcprsGatewayARN = lens _slcprsGatewayARN (\ s a -> s{_slcprsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 slcprsResponseStatus :: Lens' SetLocalConsolePasswordResponse Int
 slcprsResponseStatus = lens _slcprsResponseStatus (\ s a -> s{_slcprsResponseStatus = a});
 

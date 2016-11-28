@@ -309,7 +309,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2014-11-12' of the Amazon Config SDK configuration.
+-- | API version @2014-11-12@ of the Amazon Config SDK configuration.
 config :: Service
 config =
     Service
@@ -344,139 +344,194 @@ config =
       | otherwise = Nothing
 
 -- | The specified time range is not valid. The earlier time is not chronologically before the later time.
+--
+--
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
     _ServiceError . hasCode "InvalidTimeRangeException"
 
 -- | The specified Amazon SNS topic does not exist.
+--
+--
 _InvalidSNSTopicARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSNSTopicARNException =
     _ServiceError . hasCode "InvalidSNSTopicARNException"
 
 -- | AWS Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values could also be incorrectly formatted.
+--
+--
 _InvalidRecordingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRecordingGroupException =
     _ServiceError . hasCode "InvalidRecordingGroupException"
 
 -- | The requested action is not valid.
+--
+--
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | You have provided a null or empty role ARN.
+--
+--
 _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
 
 -- | You cannot delete the delivery channel you specified because the configuration recorder is running.
+--
+--
 _LastDeliveryChannelDeleteFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _LastDeliveryChannelDeleteFailedException =
     _ServiceError . hasCode "LastDeliveryChannelDeleteFailedException"
 
 -- | The specified limit is outside the allowable range.
+--
+--
 _InvalidLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLimitException = _ServiceError . hasCode "InvalidLimitException"
 
 -- | The specified delivery channel name is not valid.
+--
+--
 _InvalidDeliveryChannelNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeliveryChannelNameException =
     _ServiceError . hasCode "InvalidDeliveryChannelNameException"
 
 -- | One or more of the specified parameters are invalid. Verify that your parameters are valid and try again.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasCode "InvalidParameterValueException"
 
 -- | The result token is invalid.
+--
+--
 _InvalidResultTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResultTokenException =
     _ServiceError . hasCode "InvalidResultTokenException"
 
 -- | You have specified a delivery channel that does not exist.
+--
+--
 _NoSuchDeliveryChannelException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDeliveryChannelException =
     _ServiceError . hasCode "NoSuchDeliveryChannelException"
 
 -- | One or more AWS Config rules in the request are invalid. Verify that the rule names are correct and try again.
+--
+--
 _NoSuchConfigRuleException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigRuleException =
     _ServiceError . hasCode "NoSuchConfigRuleException"
 
 -- | Indicates one of the following errors:
 --
--- -   The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.
--- -   The AWS Lambda function cannot be invoked. Check the function ARN, and check the function\'s permissions.
+--
+--     * The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.    * The AWS Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.
+--
 _InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =
     _ServiceError . hasCode "InsufficientPermissionsException"
 
 -- | You have specified a resource that is either unknown or has not been discovered.
+--
+--
 _ResourceNotDiscoveredException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotDiscoveredException =
     _ServiceError . hasCode "ResourceNotDiscoveredException"
 
--- | The specified next token is invalid. Specify the 'nextToken' string that was returned in the previous response to get the next page of results.
+-- | The specified next token is invalid. Specify the @nextToken@ string that was returned in the previous response to get the next page of results.
+--
+--
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | Failed to add the AWS Config rule because the account already contains the maximum number of 25 rules. Consider deleting any deactivated rules before adding new rules.
+--
+--
 _MaxNumberOfConfigRulesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfConfigRulesExceededException =
     _ServiceError . hasCode "MaxNumberOfConfigRulesExceededException"
 
 -- | There are no configuration recorders available to provide the role needed to describe your resources. Create a configuration recorder.
+--
+--
 _NoAvailableConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableConfigurationRecorderException =
     _ServiceError . hasCode "NoAvailableConfigurationRecorderException"
 
 -- | The specified Amazon S3 bucket does not exist.
+--
+--
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
 
 -- | There is no delivery channel available to record configurations.
+--
+--
 _NoAvailableDeliveryChannelException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoAvailableDeliveryChannelException =
     _ServiceError . hasCode "NoAvailableDeliveryChannelException"
 
 -- | You have provided a configuration recorder name that is not valid.
+--
+--
 _InvalidConfigurationRecorderNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationRecorderNameException =
     _ServiceError . hasCode "InvalidConfigurationRecorderNameException"
 
 -- | There is no configuration recorder running.
+--
+--
 _NoRunningConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoRunningConfigurationRecorderException =
     _ServiceError . hasCode "NoRunningConfigurationRecorderException"
 
 -- | You have reached the limit on the number of recorders you can create.
+--
+--
 _MaxNumberOfConfigurationRecordersExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfConfigurationRecordersExceededException =
     _ServiceError .
     hasCode "MaxNumberOfConfigurationRecordersExceededException"
 
 -- | Your Amazon S3 bucket policy does not permit AWS Config to write to it.
+--
+--
 _InsufficientDeliveryPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientDeliveryPolicyException =
     _ServiceError . hasCode "InsufficientDeliveryPolicyException"
 
 -- | You have reached the limit on the number of delivery channels you can create.
+--
+--
 _MaxNumberOfDeliveryChannelsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxNumberOfDeliveryChannelsExceededException =
     _ServiceError . hasCode "MaxNumberOfDeliveryChannelsExceededException"
 
 -- | You have specified a configuration recorder that does not exist.
+--
+--
 _NoSuchConfigurationRecorderException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchConfigurationRecorderException =
     _ServiceError . hasCode "NoSuchConfigurationRecorderException"
 
 -- | The specified Amazon S3 key prefix is not valid.
+--
+--
 _InvalidS3KeyPrefixException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3KeyPrefixException =
     _ServiceError . hasCode "InvalidS3KeyPrefixException"
 
--- | This exception is thrown if an evaluation is in progress or if you call the < StartConfigRulesEvaluation> API more than once per minute.
+-- | This exception is thrown if an evaluation is in progress or if you call the 'StartConfigRulesEvaluation' API more than once per minute.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
 -- | The rule is currently being deleted or the rule is deleting your evaluation results. Try your request again later.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

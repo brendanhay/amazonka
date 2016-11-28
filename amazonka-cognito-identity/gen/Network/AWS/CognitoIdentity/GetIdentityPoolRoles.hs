@@ -20,7 +20,9 @@
 --
 -- Gets the roles for an identity pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the 'GetIdentityPoolRoles' action.
+-- | Input to the @GetIdentityPoolRoles@ action.
+--
+--
 --
 -- /See:/ 'getIdentityPoolRoles' smart constructor.
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
@@ -56,7 +60,7 @@ newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giprIdentityPoolId'
+-- * 'giprIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 getIdentityPoolRoles
     :: Text -- ^ 'giprIdentityPoolId'
     -> GetIdentityPoolRoles
@@ -107,7 +111,9 @@ instance ToPath GetIdentityPoolRoles where
 instance ToQuery GetIdentityPoolRoles where
         toQuery = const mempty
 
--- | Returned in response to a successful 'GetIdentityPoolRoles' operation.
+-- | Returned in response to a successful @GetIdentityPoolRoles@ operation.
+--
+--
 --
 -- /See:/ 'getIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
@@ -120,11 +126,11 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giprrsRoles'
+-- * 'giprrsRoles' - The map of roles associated with this pool. Currently only authenticated and unauthenticated roles are supported.
 --
--- * 'giprrsIdentityPoolId'
+-- * 'giprrsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'giprrsResponseStatus'
+-- * 'giprrsResponseStatus' - -- | The response status code.
 getIdentityPoolRolesResponse
     :: Int -- ^ 'giprrsResponseStatus'
     -> GetIdentityPoolRolesResponse
@@ -143,7 +149,7 @@ giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map
 giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 giprrsResponseStatus :: Lens' GetIdentityPoolRolesResponse Int
 giprrsResponseStatus = lens _giprrsResponseStatus (\ s a -> s{_giprrsResponseStatus = a});
 

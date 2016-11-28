@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the device, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminGetDevice
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get the device, as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetDevice' smart constructor.
 data AdminGetDevice = AdminGetDevice'
     { _agdDeviceKey  :: !Text
@@ -57,11 +61,11 @@ data AdminGetDevice = AdminGetDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agdDeviceKey'
+-- * 'agdDeviceKey' - The device key.
 --
--- * 'agdUserPoolId'
+-- * 'agdUserPoolId' - The user pool ID.
 --
--- * 'agdUsername'
+-- * 'agdUsername' - The user name.
 adminGetDevice
     :: Text -- ^ 'agdDeviceKey'
     -> Text -- ^ 'agdUserPoolId'
@@ -125,6 +129,8 @@ instance ToQuery AdminGetDevice where
 
 -- | Gets the device response, as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetDeviceResponse' smart constructor.
 data AdminGetDeviceResponse = AdminGetDeviceResponse'
     { _agdrsResponseStatus :: !Int
@@ -135,9 +141,9 @@ data AdminGetDeviceResponse = AdminGetDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agdrsResponseStatus'
+-- * 'agdrsResponseStatus' - -- | The response status code.
 --
--- * 'agdrsDevice'
+-- * 'agdrsDevice' - The device.
 adminGetDeviceResponse
     :: Int -- ^ 'agdrsResponseStatus'
     -> DeviceType -- ^ 'agdrsDevice'
@@ -148,7 +154,7 @@ adminGetDeviceResponse pResponseStatus_ pDevice_ =
     , _agdrsDevice = pDevice_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 agdrsResponseStatus :: Lens' AdminGetDeviceResponse Int
 agdrsResponseStatus = lens _agdrsResponseStatus (\ s a -> s{_agdrsResponseStatus = a});
 

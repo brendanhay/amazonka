@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a CA certificate registration code.
+--
+--
 module Network.AWS.IoT.DeleteRegistrationCode
     (
     -- * Creating a Request
@@ -40,6 +42,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The input for the DeleteRegistrationCode operation.
+--
+--
 --
 -- /See:/ 'deleteRegistrationCode' smart constructor.
 data DeleteRegistrationCode =
@@ -77,6 +81,8 @@ instance ToQuery DeleteRegistrationCode where
 
 -- | The output for the DeleteRegistrationCode operation.
 --
+--
+--
 -- /See:/ 'deleteRegistrationCodeResponse' smart constructor.
 newtype DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
     { _drcrsResponseStatus :: Int
@@ -86,7 +92,7 @@ newtype DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcrsResponseStatus'
+-- * 'drcrsResponseStatus' - -- | The response status code.
 deleteRegistrationCodeResponse
     :: Int -- ^ 'drcrsResponseStatus'
     -> DeleteRegistrationCodeResponse
@@ -95,7 +101,7 @@ deleteRegistrationCodeResponse pResponseStatus_ =
     { _drcrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drcrsResponseStatus :: Lens' DeleteRegistrationCodeResponse Int
 drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
 

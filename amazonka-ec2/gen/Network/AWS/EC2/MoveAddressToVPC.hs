@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the < RestoreAddressToClassic> request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.
+-- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The Elastic IP address must be allocated to your account for more than 24 hours, and it must not be associated with an instance. After the Elastic IP address is moved, it is no longer available for use in the EC2-Classic platform, unless you move it back using the 'RestoreAddressToClassic' request. You cannot move an Elastic IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.
+--
+--
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for MoveAddressToVpc.
 --
+--
+--
 -- /See:/ 'moveAddressToVPC' smart constructor.
 data MoveAddressToVPC = MoveAddressToVPC'
     { _matvDryRun   :: !(Maybe Bool)
@@ -56,9 +60,9 @@ data MoveAddressToVPC = MoveAddressToVPC'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'matvDryRun'
+-- * 'matvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'matvPublicIP'
+-- * 'matvPublicIP' - The Elastic IP address.
 moveAddressToVPC
     :: Text -- ^ 'matvPublicIP'
     -> MoveAddressToVPC
@@ -68,7 +72,7 @@ moveAddressToVPC pPublicIP_ =
     , _matvPublicIP = pPublicIP_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
 matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
 
@@ -105,6 +109,8 @@ instance ToQuery MoveAddressToVPC where
 
 -- | Contains the output of MoveAddressToVpc.
 --
+--
+--
 -- /See:/ 'moveAddressToVPCResponse' smart constructor.
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrsStatus         :: !(Maybe AddressStatus)
@@ -116,11 +122,11 @@ data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'matvrsStatus'
+-- * 'matvrsStatus' - The status of the move of the IP address.
 --
--- * 'matvrsAllocationId'
+-- * 'matvrsAllocationId' - The allocation ID for the Elastic IP address.
 --
--- * 'matvrsResponseStatus'
+-- * 'matvrsResponseStatus' - -- | The response status code.
 moveAddressToVPCResponse
     :: Int -- ^ 'matvrsResponseStatus'
     -> MoveAddressToVPCResponse
@@ -139,7 +145,7 @@ matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a});
 matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 matvrsResponseStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsResponseStatus = lens _matvrsResponseStatus (\ s a -> s{_matvrsResponseStatus = a});
 

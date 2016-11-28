@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field and public key. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.
+--
+--
 module Network.AWS.IoT.RegisterCACertificate
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input to the RegisterCACertificate operation.
 --
+--
+--
 -- /See:/ 'registerCACertificate' smart constructor.
 data RegisterCACertificate = RegisterCACertificate'
     { _rcacSetAsActive             :: !(Maybe Bool)
@@ -60,13 +64,13 @@ data RegisterCACertificate = RegisterCACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcacSetAsActive'
+-- * 'rcacSetAsActive' - A boolean value that specifies if the CA certificate is set to active.
 --
--- * 'rcacAllowAutoRegistration'
+-- * 'rcacAllowAutoRegistration' - Allows this CA certificate to be used for auto registration of device certificates.
 --
--- * 'rcacCaCertificate'
+-- * 'rcacCaCertificate' - The CA certificate.
 --
--- * 'rcacVerificationCertificate'
+-- * 'rcacVerificationCertificate' - The private key verification certificate.
 registerCACertificate
     :: Text -- ^ 'rcacCaCertificate'
     -> Text -- ^ 'rcacVerificationCertificate'
@@ -134,6 +138,8 @@ instance ToQuery RegisterCACertificate where
 
 -- | The output from the RegisterCACertificateResponse operation.
 --
+--
+--
 -- /See:/ 'registerCACertificateResponse' smart constructor.
 data RegisterCACertificateResponse = RegisterCACertificateResponse'
     { _rcacrsCertificateARN :: !(Maybe Text)
@@ -145,11 +151,11 @@ data RegisterCACertificateResponse = RegisterCACertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcacrsCertificateARN'
+-- * 'rcacrsCertificateARN' - The CA certificate ARN.
 --
--- * 'rcacrsCertificateId'
+-- * 'rcacrsCertificateId' - The CA certificate identifier.
 --
--- * 'rcacrsResponseStatus'
+-- * 'rcacrsResponseStatus' - -- | The response status code.
 registerCACertificateResponse
     :: Int -- ^ 'rcacrsResponseStatus'
     -> RegisterCACertificateResponse
@@ -168,7 +174,7 @@ rcacrsCertificateARN = lens _rcacrsCertificateARN (\ s a -> s{_rcacrsCertificate
 rcacrsCertificateId :: Lens' RegisterCACertificateResponse (Maybe Text)
 rcacrsCertificateId = lens _rcacrsCertificateId (\ s a -> s{_rcacrsCertificateId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcacrsResponseStatus :: Lens' RegisterCACertificateResponse Int
 rcacrsResponseStatus = lens _rcacrsResponseStatus (\ s a -> s{_rcacrsResponseStatus = a});
 

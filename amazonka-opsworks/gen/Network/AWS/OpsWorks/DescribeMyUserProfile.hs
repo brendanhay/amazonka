@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a user\'s SSH information.
+-- Describes a user's SSH information.
 --
--- __Required Permissions__: To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeMyUserProfile
     (
     -- * Creating a Request
@@ -86,7 +88,9 @@ instance ToPath DescribeMyUserProfile where
 instance ToQuery DescribeMyUserProfile where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeMyUserProfile' request.
+-- | Contains the response to a @DescribeMyUserProfile@ request.
+--
+--
 --
 -- /See:/ 'describeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
@@ -98,9 +102,9 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmuprsUserProfile'
+-- * 'dmuprsUserProfile' - A @UserProfile@ object that describes the user's SSH information.
 --
--- * 'dmuprsResponseStatus'
+-- * 'dmuprsResponseStatus' - -- | The response status code.
 describeMyUserProfileResponse
     :: Int -- ^ 'dmuprsResponseStatus'
     -> DescribeMyUserProfileResponse
@@ -110,11 +114,11 @@ describeMyUserProfileResponse pResponseStatus_ =
     , _dmuprsResponseStatus = pResponseStatus_
     }
 
--- | A 'UserProfile' object that describes the user\'s SSH information.
+-- | A @UserProfile@ object that describes the user's SSH information.
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
 dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});
 

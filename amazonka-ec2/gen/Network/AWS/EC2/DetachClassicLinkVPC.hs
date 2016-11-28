@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it\'s stopped.
+-- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.
+--
+--
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'detachClassicLinkVPC' smart constructor.
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
     { _dclvDryRun     :: !(Maybe Bool)
@@ -57,11 +61,11 @@ data DetachClassicLinkVPC = DetachClassicLinkVPC'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclvDryRun'
+-- * 'dclvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dclvInstanceId'
+-- * 'dclvInstanceId' - The ID of the instance to unlink from the VPC.
 --
--- * 'dclvVPCId'
+-- * 'dclvVPCId' - The ID of the VPC to which the instance is linked.
 detachClassicLinkVPC
     :: Text -- ^ 'dclvInstanceId'
     -> Text -- ^ 'dclvVPCId'
@@ -73,7 +77,7 @@ detachClassicLinkVPC pInstanceId_ pVPCId_ =
     , _dclvVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
 dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
 
@@ -116,6 +120,8 @@ instance ToQuery DetachClassicLinkVPC where
 
 -- | Contains the output of DetachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
     { _dclvrsReturn         :: !(Maybe Bool)
@@ -126,9 +132,9 @@ data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclvrsReturn'
+-- * 'dclvrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dclvrsResponseStatus'
+-- * 'dclvrsResponseStatus' - -- | The response status code.
 detachClassicLinkVPCResponse
     :: Int -- ^ 'dclvrsResponseStatus'
     -> DetachClassicLinkVPCResponse
@@ -138,11 +144,11 @@ detachClassicLinkVPCResponse pResponseStatus_ =
     , _dclvrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dclvrsResponseStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsResponseStatus = lens _dclvrsResponseStatus (\ s a -> s{_dclvrsResponseStatus = a});
 

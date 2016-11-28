@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the notification types that are supported by Auto Scaling.
+--
+--
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     (
     -- * Creating a Request
@@ -90,6 +92,8 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 
 -- | Contains the output of DescribeAutoScalingNotificationTypes.
 --
+--
+--
 -- /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
@@ -100,9 +104,9 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasntrsAutoScalingNotificationTypes'
+-- * 'dasntrsAutoScalingNotificationTypes' - The notification types.
 --
--- * 'dasntrsResponseStatus'
+-- * 'dasntrsResponseStatus' - -- | The response status code.
 describeAutoScalingNotificationTypesResponse
     :: Int -- ^ 'dasntrsResponseStatus'
     -> DescribeAutoScalingNotificationTypesResponse
@@ -116,7 +120,7 @@ describeAutoScalingNotificationTypesResponse pResponseStatus_ =
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a});
 

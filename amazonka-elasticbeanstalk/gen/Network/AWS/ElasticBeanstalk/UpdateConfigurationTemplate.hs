@@ -20,11 +20,11 @@
 --
 -- Updates the specified configuration template to have the specified properties or configuration option values.
 --
--- If a property (for example, 'ApplicationName') is not provided, its value remains unchanged. To clear such properties, specify an empty string.
 --
 -- Related Topics
 --
--- -   < DescribeConfigurationOptions>
+--     * 'DescribeConfigurationOptions'
+--
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Creating a Request
@@ -61,6 +61,8 @@ import           Network.AWS.Response
 
 -- | The result message containing the options for the specified solution stack.
 --
+--
+--
 -- /See:/ 'updateConfigurationTemplate' smart constructor.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
     { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
@@ -74,15 +76,15 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uctOptionsToRemove'
+-- * 'uctOptionsToRemove' - A list of configuration options to remove from the configuration set.  Constraint: You can remove only @UserDefined@ configuration options.
 --
--- * 'uctOptionSettings'
+-- * 'uctOptionSettings' - A list of configuration option settings to update with the new specified option value.
 --
--- * 'uctDescription'
+-- * 'uctDescription' - A new description for the configuration.
 --
--- * 'uctApplicationName'
+-- * 'uctApplicationName' - The name of the application associated with the configuration template to update. If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 --
--- * 'uctTemplateName'
+-- * 'uctTemplateName' - The name of the configuration template to update. If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 updateConfigurationTemplate
     :: Text -- ^ 'uctApplicationName'
     -> Text -- ^ 'uctTemplateName'
@@ -96,9 +98,7 @@ updateConfigurationTemplate pApplicationName_ pTemplateName_ =
     , _uctTemplateName = pTemplateName_
     }
 
--- | A list of configuration options to remove from the configuration set.
---
--- Constraint: You can remove only 'UserDefined' configuration options.
+-- | A list of configuration options to remove from the configuration set.  Constraint: You can remove only @UserDefined@ configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
 
@@ -110,15 +110,11 @@ uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a})
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
 uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a});
 
--- | The name of the application associated with the configuration template to update.
---
--- If no application is found with this name, 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
+-- | The name of the application associated with the configuration template to update. If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a});
 
--- | The name of the configuration template to update.
---
--- If no configuration template is found with this name, 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
+-- | The name of the configuration template to update. If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
 

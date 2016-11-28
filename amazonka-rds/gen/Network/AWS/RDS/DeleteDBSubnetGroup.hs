@@ -20,7 +20,7 @@
 --
 -- Deletes a DB subnet group.
 --
--- The specified database subnet group must not be associated with any DB instances.
+--
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Creating a Request
@@ -43,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBSubnetGroup' smart constructor.
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     { _ddbsgDBSubnetGroupName :: Text
@@ -52,7 +54,7 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbsgDBSubnetGroupName'
+-- * 'ddbsgDBSubnetGroupName' - The name of the database subnet group to delete. Constraints: Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 deleteDBSubnetGroup
     :: Text -- ^ 'ddbsgDBSubnetGroupName'
     -> DeleteDBSubnetGroup
@@ -61,15 +63,7 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
     { _ddbsgDBSubnetGroupName = pDBSubnetGroupName_
     }
 
--- | The name of the database subnet group to delete.
---
--- You cannot delete the default subnet group.
---
--- Constraints:
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
---
--- Example: 'mySubnetgroup'
+-- | The name of the database subnet group to delete. Constraints: Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
 ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 

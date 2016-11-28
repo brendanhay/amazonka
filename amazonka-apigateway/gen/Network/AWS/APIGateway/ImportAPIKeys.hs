@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Import API keys from an external source, such as a CSV-formatted file.
+--
+--
 module Network.AWS.APIGateway.ImportAPIKeys
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The POST request to import API keys from an external source, such as a CSV-formatted file.
 --
+--
+--
 -- /See:/ 'importAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
     { _iakFailOnWarnings :: !(Maybe Bool)
@@ -58,11 +62,11 @@ data ImportAPIKeys = ImportAPIKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iakFailOnWarnings'
+-- * 'iakFailOnWarnings' - A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 --
--- * 'iakBody'
+-- * 'iakBody' - The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 --
--- * 'iakFormat'
+-- * 'iakFormat' - A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
 importAPIKeys
     :: HashMap Text Value -- ^ 'iakBody'
     -> APIKeysFormat -- ^ 'iakFormat'
@@ -74,15 +78,15 @@ importAPIKeys pBody_ pFormat_ =
     , _iakFormat = pFormat_
     }
 
--- | A query parameter to indicate whether to rollback < ApiKey> importation ('true') or not ('false') when error is encountered.
+-- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 iakFailOnWarnings :: Lens' ImportAPIKeys (Maybe Bool)
 iakFailOnWarnings = lens _iakFailOnWarnings (\ s a -> s{_iakFailOnWarnings = a});
 
--- | The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format>.
+-- | The payload of the POST request to import API keys. For the payload format, see <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 iakBody :: Lens' ImportAPIKeys (HashMap Text Value)
 iakBody = lens _iakBody (\ s a -> s{_iakBody = a});
 
--- | A query parameter to specify the input format to imported API keys. Currently, only the 'csv' format is supported.
+-- | A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
 iakFormat :: Lens' ImportAPIKeys APIKeysFormat
 iakFormat = lens _iakFormat (\ s a -> s{_iakFormat = a});
 
@@ -121,6 +125,8 @@ instance ToQuery ImportAPIKeys where
 
 -- | The identifier of an API key used to reference an API key in a usage plan.
 --
+--
+--
 -- /See:/ 'importAPIKeysResponse' smart constructor.
 data ImportAPIKeysResponse = ImportAPIKeysResponse'
     { _iakrsIds            :: !(Maybe [Text])
@@ -132,11 +138,11 @@ data ImportAPIKeysResponse = ImportAPIKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iakrsIds'
+-- * 'iakrsIds' - A list of all the 'ApiKey' identifiers.
 --
--- * 'iakrsWarnings'
+-- * 'iakrsWarnings' - A list of warning messages.
 --
--- * 'iakrsResponseStatus'
+-- * 'iakrsResponseStatus' - -- | The response status code.
 importAPIKeysResponse
     :: Int -- ^ 'iakrsResponseStatus'
     -> ImportAPIKeysResponse
@@ -147,7 +153,7 @@ importAPIKeysResponse pResponseStatus_ =
     , _iakrsResponseStatus = pResponseStatus_
     }
 
--- | A list of all the < ApiKey> identifiers.
+-- | A list of all the 'ApiKey' identifiers.
 iakrsIds :: Lens' ImportAPIKeysResponse [Text]
 iakrsIds = lens _iakrsIds (\ s a -> s{_iakrsIds = a}) . _Default . _Coerce;
 
@@ -155,7 +161,7 @@ iakrsIds = lens _iakrsIds (\ s a -> s{_iakrsIds = a}) . _Default . _Coerce;
 iakrsWarnings :: Lens' ImportAPIKeysResponse [Text]
 iakrsWarnings = lens _iakrsWarnings (\ s a -> s{_iakrsWarnings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 iakrsResponseStatus :: Lens' ImportAPIKeysResponse Int
 iakrsResponseStatus = lens _iakrsResponseStatus (\ s a -> s{_iakrsResponseStatus = a});
 

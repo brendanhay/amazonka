@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tags that have been added to the specified resource.
+--
+--
 module Network.AWS.StorageGateway.ListTagsForResource
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | ListTagsForResourceInput
 --
+--
+--
 -- /See:/ 'listTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
     { _ltfrMarker      :: !(Maybe Text)
@@ -59,11 +63,11 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrMarker'
+-- * 'ltfrMarker' - An opaque string that indicates the position at which to begin returning the list of tags.
 --
--- * 'ltfrLimit'
+-- * 'ltfrLimit' - Specifies that the list of tags returned be limited to the specified number of items.
 --
--- * 'ltfrResourceARN'
+-- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
 listTagsForResource
     :: Text -- ^ 'ltfrResourceARN'
     -> ListTagsForResource
@@ -128,6 +132,8 @@ instance ToQuery ListTagsForResource where
 
 -- | ListTagsForResourceOutput
 --
+--
+--
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsResourceARN    :: !(Maybe Text)
@@ -140,13 +146,13 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResourceARN'
+-- * 'ltfrrsResourceARN' - he Amazon Resource Name (ARN) of the resource for which you want to list tags.
 --
--- * 'ltfrrsMarker'
+-- * 'ltfrrsMarker' - An opaque string that indicates the position at which to stop returning the list of tags.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - An array that contains the tags for the specified resource.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -170,7 +176,7 @@ ltfrrsMarker = lens _ltfrrsMarker (\ s a -> s{_ltfrrsMarker = a});
 ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Creates an AWS IoT policy.
 --
--- The created policy is the default version for the policy. This operation creates a policy version with a version identifier of __1__ and sets __1__ as the policy\'s default version.
+--
+-- The created policy is the default version for the policy. This operation creates a policy version with a version identifier of __1__ and sets __1__ as the policy's default version.
+--
 module Network.AWS.IoT.CreatePolicy
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreatePolicy operation.
 --
+--
+--
 -- /See:/ 'createPolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
     { _cpPolicyName     :: !Text
@@ -60,9 +64,9 @@ data CreatePolicy = CreatePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPolicyName'
+-- * 'cpPolicyName' - The policy name.
 --
--- * 'cpPolicyDocument'
+-- * 'cpPolicyDocument' - The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
 createPolicy
     :: Text -- ^ 'cpPolicyName'
     -> Text -- ^ 'cpPolicyDocument'
@@ -115,6 +119,8 @@ instance ToQuery CreatePolicy where
 
 -- | The output from the CreatePolicy operation.
 --
+--
+--
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
     { _cprsPolicyName      :: !(Maybe Text)
@@ -128,15 +134,15 @@ data CreatePolicyResponse = CreatePolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsPolicyName'
+-- * 'cprsPolicyName' - The policy name.
 --
--- * 'cprsPolicyDocument'
+-- * 'cprsPolicyDocument' - The JSON document that describes the policy.
 --
--- * 'cprsPolicyVersionId'
+-- * 'cprsPolicyVersionId' - The policy version ID.
 --
--- * 'cprsPolicyARN'
+-- * 'cprsPolicyARN' - The policy ARN.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createPolicyResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
@@ -165,7 +171,7 @@ cprsPolicyVersionId = lens _cprsPolicyVersionId (\ s a -> s{_cprsPolicyVersionId
 cprsPolicyARN :: Lens' CreatePolicyResponse (Maybe Text)
 cprsPolicyARN = lens _cprsPolicyARN (\ s a -> s{_cprsPolicyARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

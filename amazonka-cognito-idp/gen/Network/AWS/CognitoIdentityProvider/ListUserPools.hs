@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the user pools associated with an AWS account.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListUserPools
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list user pools.
 --
+--
+--
 -- /See:/ 'listUserPools' smart constructor.
 data ListUserPools = ListUserPools'
     { _lupNextToken  :: !(Maybe Text)
@@ -56,9 +60,9 @@ data ListUserPools = ListUserPools'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lupNextToken'
+-- * 'lupNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lupMaxResults'
+-- * 'lupMaxResults' - The maximum number of results you want the request to return when listing the user pools.
 listUserPools
     :: Natural -- ^ 'lupMaxResults'
     -> ListUserPools
@@ -116,6 +120,8 @@ instance ToQuery ListUserPools where
 
 -- | Represents the response to list user pools.
 --
+--
+--
 -- /See:/ 'listUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
     { _luprsUserPools      :: !(Maybe [UserPoolDescriptionType])
@@ -127,11 +133,11 @@ data ListUserPoolsResponse = ListUserPoolsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luprsUserPools'
+-- * 'luprsUserPools' - The user pools from the response to list users.
 --
--- * 'luprsNextToken'
+-- * 'luprsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'luprsResponseStatus'
+-- * 'luprsResponseStatus' - -- | The response status code.
 listUserPoolsResponse
     :: Int -- ^ 'luprsResponseStatus'
     -> ListUserPoolsResponse
@@ -150,7 +156,7 @@ luprsUserPools = lens _luprsUserPools (\ s a -> s{_luprsUserPools = a}) . _Defau
 luprsNextToken :: Lens' ListUserPoolsResponse (Maybe Text)
 luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 luprsResponseStatus :: Lens' ListUserPoolsResponse Int
 luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
 

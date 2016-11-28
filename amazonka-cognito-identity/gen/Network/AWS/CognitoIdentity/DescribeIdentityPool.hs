@@ -20,7 +20,9 @@
 --
 -- Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Creating a Request
@@ -61,7 +63,7 @@ newtype DescribeIdentityPool = DescribeIdentityPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipIdentityPoolId'
+-- * 'dipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 describeIdentityPool
     :: Text -- ^ 'dipIdentityPoolId'
     -> DescribeIdentityPool

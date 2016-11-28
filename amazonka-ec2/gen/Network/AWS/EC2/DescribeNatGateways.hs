@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of the your NAT gateways.
+--
+--
 module Network.AWS.EC2.DescribeNatGateways
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeNatGateways.
 --
+--
+--
 -- /See:/ 'describeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
     { _dngNatGatewayIds :: !(Maybe [Text])
@@ -60,13 +64,13 @@ data DescribeNatGateways = DescribeNatGateways'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dngNatGatewayIds'
+-- * 'dngNatGatewayIds' - One or more NAT gateway IDs.
 --
--- * 'dngNextToken'
+-- * 'dngNextToken' - The token to retrieve the next page of results.
 --
--- * 'dngFilter'
+-- * 'dngFilter' - One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 --
--- * 'dngMaxResults'
+-- * 'dngMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value specified is greater than 1000, we return only 1000 items.
 describeNatGateways
     :: DescribeNatGateways
 describeNatGateways =
@@ -85,22 +89,11 @@ dngNatGatewayIds = lens _dngNatGatewayIds (\ s a -> s{_dngNatGatewayIds = a}) . 
 dngNextToken :: Lens' DescribeNatGateways (Maybe Text)
 dngNextToken = lens _dngNextToken (\ s a -> s{_dngNextToken = a});
 
--- | One or more filters.
---
--- -   'nat-gateway-id' - The ID of the NAT gateway.
---
--- -   'state' - The state of the NAT gateway ('pending' | 'failed' | 'available' | 'deleting' | 'deleted').
---
--- -   'subnet-id' - The ID of the subnet in which the NAT gateway resides.
---
--- -   'vpc-id' - The ID of the VPC in which the NAT gateway resides.
---
+-- | One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 dngFilter :: Lens' DescribeNatGateways [Filter]
 dngFilter = lens _dngFilter (\ s a -> s{_dngFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
---
--- Constraint: If the value specified is greater than 1000, we return only 1000 items.
+-- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value specified is greater than 1000, we return only 1000 items.
 dngMaxResults :: Lens' DescribeNatGateways (Maybe Int)
 dngMaxResults = lens _dngMaxResults (\ s a -> s{_dngMaxResults = a});
 
@@ -140,6 +133,8 @@ instance ToQuery DescribeNatGateways where
 
 -- | Contains the output of DescribeNatGateways.
 --
+--
+--
 -- /See:/ 'describeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
     { _dngrsNatGateways    :: !(Maybe [NatGateway])
@@ -151,11 +146,11 @@ data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dngrsNatGateways'
+-- * 'dngrsNatGateways' - Information about the NAT gateways.
 --
--- * 'dngrsNextToken'
+-- * 'dngrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dngrsResponseStatus'
+-- * 'dngrsResponseStatus' - -- | The response status code.
 describeNatGatewaysResponse
     :: Int -- ^ 'dngrsResponseStatus'
     -> DescribeNatGatewaysResponse
@@ -170,11 +165,11 @@ describeNatGatewaysResponse pResponseStatus_ =
 dngrsNatGateways :: Lens' DescribeNatGatewaysResponse [NatGateway]
 dngrsNatGateways = lens _dngrsNatGateways (\ s a -> s{_dngrsNatGateways = a}) . _Default . _Coerce;
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dngrsNextToken :: Lens' DescribeNatGatewaysResponse (Maybe Text)
 dngrsNextToken = lens _dngrsNextToken (\ s a -> s{_dngrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dngrsResponseStatus :: Lens' DescribeNatGatewaysResponse Int
 dngrsResponseStatus = lens _dngrsResponseStatus (\ s a -> s{_dngrsResponseStatus = a});
 

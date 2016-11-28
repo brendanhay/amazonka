@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Elastic File System
+-- __Amazon Elastic File System__
 module Network.AWS.EFS
     (
     -- * Service Configuration

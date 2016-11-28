@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the running instances for the specified Spot fleet.
+--
+--
 module Network.AWS.EC2.DescribeSpotFleetInstances
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSpotFleetInstances.
 --
+--
+--
 -- /See:/ 'describeSpotFleetInstances' smart constructor.
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
     { _dsfiNextToken          :: !(Maybe Text)
@@ -61,13 +65,13 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfiNextToken'
+-- * 'dsfiNextToken' - The token for the next set of results.
 --
--- * 'dsfiDryRun'
+-- * 'dsfiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsfiMaxResults'
+-- * 'dsfiMaxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 --
--- * 'dsfiSpotFleetRequestId'
+-- * 'dsfiSpotFleetRequestId' - The ID of the Spot fleet request.
 describeSpotFleetInstances
     :: Text -- ^ 'dsfiSpotFleetRequestId'
     -> DescribeSpotFleetInstances
@@ -83,11 +87,11 @@ describeSpotFleetInstances pSpotFleetRequestId_ =
 dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
 dsfiNextToken = lens _dsfiNextToken (\ s a -> s{_dsfiNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsfiDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
 dsfiDryRun = lens _dsfiDryRun (\ s a -> s{_dsfiDryRun = a});
 
--- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 dsfiMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
 dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a});
 
@@ -132,6 +136,8 @@ instance ToQuery DescribeSpotFleetInstances where
 
 -- | Contains the output of DescribeSpotFleetInstances.
 --
+--
+--
 -- /See:/ 'describeSpotFleetInstancesResponse' smart constructor.
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
     { _dsfirsNextToken          :: !(Maybe Text)
@@ -144,13 +150,13 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfirsNextToken'
+-- * 'dsfirsNextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 --
--- * 'dsfirsResponseStatus'
+-- * 'dsfirsResponseStatus' - -- | The response status code.
 --
--- * 'dsfirsSpotFleetRequestId'
+-- * 'dsfirsSpotFleetRequestId' - The ID of the Spot fleet request.
 --
--- * 'dsfirsActiveInstances'
+-- * 'dsfirsActiveInstances' - The running instances. Note that this list is refreshed periodically and might be out of date.
 describeSpotFleetInstancesResponse
     :: Int -- ^ 'dsfirsResponseStatus'
     -> Text -- ^ 'dsfirsSpotFleetRequestId'
@@ -163,11 +169,11 @@ describeSpotFleetInstancesResponse pResponseStatus_ pSpotFleetRequestId_ =
     , _dsfirsActiveInstances = mempty
     }
 
--- | The token required to retrieve the next set of results. This value is 'null' when there are no more results to return.
+-- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
 dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
 dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsfirsResponseStatus :: Lens' DescribeSpotFleetInstancesResponse Int
 dsfirsResponseStatus = lens _dsfirsResponseStatus (\ s a -> s{_dsfirsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the specified user by user name in a user pool as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminGetUser
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get the specified user as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetUser' smart constructor.
 data AdminGetUser = AdminGetUser'
     { _aguUserPoolId :: !Text
@@ -61,9 +65,9 @@ data AdminGetUser = AdminGetUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aguUserPoolId'
+-- * 'aguUserPoolId' - The user pool ID for the user pool where you want to get information about the user.
 --
--- * 'aguUsername'
+-- * 'aguUsername' - The user name of the user you wish to retrieve.
 adminGetUser
     :: Text -- ^ 'aguUserPoolId'
     -> Text -- ^ 'aguUsername'
@@ -126,6 +130,8 @@ instance ToQuery AdminGetUser where
 
 -- | Represents the response from the server from the request to get the specified user as an administrator.
 --
+--
+--
 -- /See:/ 'adminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'
     { _agursEnabled              :: !(Maybe Bool)
@@ -142,21 +148,21 @@ data AdminGetUserResponse = AdminGetUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agursEnabled'
+-- * 'agursEnabled' - Indicates that the status is enabled.
 --
--- * 'agursUserStatus'
+-- * 'agursUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
 --
--- * 'agursUserAttributes'
+-- * 'agursUserAttributes' - An array of name-value pairs representing user attributes.
 --
--- * 'agursUserCreateDate'
+-- * 'agursUserCreateDate' - The date the user was created.
 --
--- * 'agursMFAOptions'
+-- * 'agursMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
 --
--- * 'agursUserLastModifiedDate'
+-- * 'agursUserLastModifiedDate' - The date the user was last modified.
 --
--- * 'agursResponseStatus'
+-- * 'agursResponseStatus' - -- | The response status code.
 --
--- * 'agursUsername'
+-- * 'agursUsername' - The user name of the user about whom you are receiving information.
 adminGetUserResponse
     :: Int -- ^ 'agursResponseStatus'
     -> Text -- ^ 'agursUsername'
@@ -177,13 +183,7 @@ adminGetUserResponse pResponseStatus_ pUsername_ =
 agursEnabled :: Lens' AdminGetUserResponse (Maybe Bool)
 agursEnabled = lens _agursEnabled (\ s a -> s{_agursEnabled = a});
 
--- | The user status. Can be one of the following:
---
--- -   UNCONFIRMED - User has been created but not confirmed.
--- -   CONFIRMED - User has been confirmed.
--- -   ARCHIVED - User is no longer active.
--- -   COMPROMISED - User is disabled due to a potential security threat.
--- -   UNKNOWN - User status is not known.
+-- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
 agursUserStatus :: Lens' AdminGetUserResponse (Maybe UserStatusType)
 agursUserStatus = lens _agursUserStatus (\ s a -> s{_agursUserStatus = a});
 
@@ -203,7 +203,7 @@ agursMFAOptions = lens _agursMFAOptions (\ s a -> s{_agursMFAOptions = a}) . _De
 agursUserLastModifiedDate :: Lens' AdminGetUserResponse (Maybe UTCTime)
 agursUserLastModifiedDate = lens _agursUserLastModifiedDate (\ s a -> s{_agursUserLastModifiedDate = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 agursResponseStatus :: Lens' AdminGetUserResponse Int
 agursResponseStatus = lens _agursResponseStatus (\ s a -> s{_agursResponseStatus = a});
 

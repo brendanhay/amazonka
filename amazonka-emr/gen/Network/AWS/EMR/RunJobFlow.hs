@@ -18,15 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. Once the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the < JobFlowInstancesConfig> 'KeepJobFlowAliveWhenNoSteps' parameter is set to 'TRUE', the job flow will transition to the WAITING state rather than shutting down once the steps have completed.
+-- RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. Once the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the 'JobFlowInstancesConfig' @KeepJobFlowAliveWhenNoSteps@ parameter is set to @TRUE@ , the job flow will transition to the WAITING state rather than shutting down once the steps have completed.
 --
--- For additional protection, you can set the < JobFlowInstancesConfig> 'TerminationProtected' parameter to 'TRUE' to lock the job flow and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.
+--
+-- For additional protection, you can set the 'JobFlowInstancesConfig' @TerminationProtected@ parameter to @TRUE@ to lock the job flow and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.
 --
 -- A maximum of 256 steps are allowed in each job flow.
 --
--- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce Developer\'s Guide/.
+-- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce Developer's Guide/ .
 --
 -- For long running job flows, we recommend that you periodically store your results.
+--
 module Network.AWS.EMR.RunJobFlow
     (
     -- * Creating a Request
@@ -65,7 +67,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the < RunJobFlow> operation.
+-- | Input to the 'RunJobFlow' operation.
+--
+--
 --
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
@@ -91,37 +95,37 @@ data RunJobFlow = RunJobFlow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjfAMIVersion'
+-- * 'rjfAMIVersion' - The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer's Guide./
 --
--- * 'rjfAdditionalInfo'
+-- * 'rjfAdditionalInfo' - A JSON string for selecting additional features.
 --
--- * 'rjfConfigurations'
+-- * 'rjfConfigurations' - The list of configurations supplied for the EMR cluster you are creating.
 --
--- * 'rjfSteps'
+-- * 'rjfSteps' - A list of steps to be executed by the job flow.
 --
--- * 'rjfJobFlowRole'
+-- * 'rjfJobFlowRole' - Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is @EMR_EC2_DefaultRole@ . In order to use the default role, you must have already created it using the CLI or console.
 --
--- * 'rjfBootstrapActions'
+-- * 'rjfBootstrapActions' - A list of bootstrap actions that will be run before Hadoop is started on the cluster nodes.
 --
--- * 'rjfReleaseLabel'
+-- * 'rjfReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 --
--- * 'rjfLogURI'
+-- * 'rjfLogURI' - The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
 --
--- * 'rjfNewSupportedProducts'
+-- * 'rjfNewSupportedProducts' - A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop> . Currently supported values are:     * "mapr-m3" - launch the cluster using MapR M3 Edition.     * "mapr-m5" - launch the cluster using MapR M5 Edition.     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.     * "mapr-m7" - launch the cluster using MapR M7 Edition.     * "hunk" - launch the cluster with the Hunk Big Data Analtics Platform.     * "hue"- launch the cluster with Hue installed.     * "spark" - launch the cluster with Apache Spark installed.     * "ganglia" - launch the cluster with the Ganglia Monitoring System installed.
 --
--- * 'rjfVisibleToAllUsers'
+-- * 'rjfVisibleToAllUsers' - Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and (if they have the proper policy permissions set) manage the job flow. If it is set to @false@ , only the IAM user that created the job flow can view and manage it.
 --
--- * 'rjfSupportedProducts'
+-- * 'rjfSupportedProducts' - A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
--- * 'rjfApplications'
+-- * 'rjfApplications' - A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
 --
--- * 'rjfTags'
+-- * 'rjfTags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
 --
--- * 'rjfServiceRole'
+-- * 'rjfServiceRole' - The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
 --
--- * 'rjfName'
+-- * 'rjfName' - The name of the job flow.
 --
--- * 'rjfInstances'
+-- * 'rjfInstances' - A specification of the number and type of Amazon EC2 instances on which to run the job flow.
 runJobFlow
     :: Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
@@ -146,15 +150,7 @@ runJobFlow pName_ pInstances_ =
     , _rjfInstances = pInstances_
     }
 
--- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use ReleaseLabel.
---
--- The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:
---
--- -   The version number of the AMI to use, for example, \"2.0.\"
---
--- If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the < JobFlowInstancesConfig> 'HadoopVersion' parameter to modify the version of Hadoop from the defaults shown above.
---
--- For details about the AMI versions currently supported by Amazon Elastic MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer\'s Guide./
+-- | The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer's Guide./
 rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
 
@@ -162,9 +158,7 @@ rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
 rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a});
 
--- | Amazon EMR releases 4.x or later.
---
--- The list of configurations supplied for the EMR cluster you are creating.
+-- | The list of configurations supplied for the EMR cluster you are creating.
 rjfConfigurations :: Lens' RunJobFlow [Configuration]
 rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
 
@@ -172,7 +166,7 @@ rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a})
 rjfSteps :: Lens' RunJobFlow [StepConfig]
 rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
 
--- | Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is 'EMR_EC2_DefaultRole'. In order to use the default role, you must have already created it using the CLI or console.
+-- | Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is @EMR_EC2_DefaultRole@ . In order to use the default role, you must have already created it using the CLI or console.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 
@@ -180,9 +174,7 @@ rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default . _Coerce;
 
--- | Amazon EMR releases 4.x or later.
---
--- The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
+-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 rjfReleaseLabel :: Lens' RunJobFlow (Maybe Text)
 rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
 
@@ -190,47 +182,19 @@ rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
 rjfLogURI :: Lens' RunJobFlow (Maybe Text)
 rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 
--- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use Applications.
---
--- A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>. Currently supported values are:
---
--- -   \"mapr-m3\" - launch the cluster using MapR M3 Edition.
---
--- -   \"mapr-m5\" - launch the cluster using MapR M5 Edition.
---
--- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition respectively.
---
--- -   \"mapr-m7\" - launch the cluster using MapR M7 Edition.
---
--- -   \"hunk\" - launch the cluster with the Hunk Big Data Analtics Platform.
---
--- -   \"hue\"- launch the cluster with Hue installed.
---
--- -   \"spark\" - launch the cluster with Apache Spark installed.
---
--- -   \"ganglia\" - launch the cluster with the Ganglia Monitoring System installed.
---
+-- | A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop> . Currently supported values are:     * "mapr-m3" - launch the cluster using MapR M3 Edition.     * "mapr-m5" - launch the cluster using MapR M5 Edition.     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.     * "mapr-m7" - launch the cluster using MapR M7 Edition.     * "hunk" - launch the cluster with the Hunk Big Data Analtics Platform.     * "hue"- launch the cluster with Hue installed.     * "spark" - launch the cluster with Apache Spark installed.     * "ganglia" - launch the cluster with the Ganglia Monitoring System installed.
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default . _Coerce;
 
--- | Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to 'true', all IAM users of that AWS account can view and (if they have the proper policy permissions set) manage the job flow. If it is set to 'false', only the IAM user that created the job flow can view and manage it.
+-- | Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and (if they have the proper policy permissions set) manage the job flow. If it is set to @false@ , only the IAM user that created the job flow can view and manage it.
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
 
--- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use Applications.
---
--- A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>. Currently supported values are:
---
--- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
---
--- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
---
+-- | A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 
--- | Amazon EMR releases 4.x or later.
---
--- A list of applications for the cluster. Valid values are: \"Hadoop\", \"Hive\", \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.
+-- | A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
 rjfApplications :: Lens' RunJobFlow [Application]
 rjfApplications = lens _rjfApplications (\ s a -> s{_rjfApplications = a}) . _Default . _Coerce;
 
@@ -300,7 +264,9 @@ instance ToPath RunJobFlow where
 instance ToQuery RunJobFlow where
         toQuery = const mempty
 
--- | The result of the < RunJobFlow> operation.
+-- | The result of the 'RunJobFlow' operation.
+--
+--
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
@@ -312,9 +278,9 @@ data RunJobFlowResponse = RunJobFlowResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjfrsJobFlowId'
+-- * 'rjfrsJobFlowId' - An unique identifier for the job flow.
 --
--- * 'rjfrsResponseStatus'
+-- * 'rjfrsResponseStatus' - -- | The response status code.
 runJobFlowResponse
     :: Int -- ^ 'rjfrsResponseStatus'
     -> RunJobFlowResponse
@@ -328,7 +294,7 @@ runJobFlowResponse pResponseStatus_ =
 rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rjfrsResponseStatus :: Lens' RunJobFlowResponse Int
 rjfrsResponseStatus = lens _rjfrsResponseStatus (\ s a -> s{_rjfrsResponseStatus = a});
 

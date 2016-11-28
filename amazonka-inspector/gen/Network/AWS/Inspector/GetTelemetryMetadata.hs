@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Information about the data that is collected for the specified assessment run.
+--
+--
 module Network.AWS.Inspector.GetTelemetryMetadata
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetTelemetryMetadata = GetTelemetryMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtmAssessmentRunARN'
+-- * 'gtmAssessmentRunARN' - The ARN that specifies the assessment run that has the telemetry data that you want to obtain.
 getTelemetryMetadata
     :: Text -- ^ 'gtmAssessmentRunARN'
     -> GetTelemetryMetadata
@@ -111,9 +113,9 @@ data GetTelemetryMetadataResponse = GetTelemetryMetadataResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtmrsResponseStatus'
+-- * 'gtmrsResponseStatus' - -- | The response status code.
 --
--- * 'gtmrsTelemetryMetadata'
+-- * 'gtmrsTelemetryMetadata' - Telemetry details.
 getTelemetryMetadataResponse
     :: Int -- ^ 'gtmrsResponseStatus'
     -> GetTelemetryMetadataResponse
@@ -123,7 +125,7 @@ getTelemetryMetadataResponse pResponseStatus_ =
     , _gtmrsTelemetryMetadata = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gtmrsResponseStatus :: Lens' GetTelemetryMetadataResponse Int
 gtmrsResponseStatus = lens _gtmrsResponseStatus (\ s a -> s{_gtmrsResponseStatus = a});
 

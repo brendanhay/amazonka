@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes tags from an Amazon Directory Services directory.
+--
+--
 module Network.AWS.DirectoryService.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceId'
+-- * 'rtfrResourceId' - Identifier (ID) of the directory from which to remove the tag.
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceId'
     -> RemoveTagsFromResource
@@ -118,7 +120,7 @@ newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
@@ -127,7 +129,7 @@ removeTagsFromResourceResponse pResponseStatus_ =
     { _rtfrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 

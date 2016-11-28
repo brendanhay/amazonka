@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about a resource.
+--
+--
 module Network.AWS.APIGateway.GetResource
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Request to list information about a resource.
 --
+--
+--
 -- /See:/ 'getResource' smart constructor.
 data GetResource = GetResource'
     { _grRestAPIId  :: !Text
@@ -58,9 +62,9 @@ data GetResource = GetResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRestAPIId'
+-- * 'grRestAPIId' - The 'RestApi' identifier for the resource.
 --
--- * 'grResourceId'
+-- * 'grResourceId' - The identifier for the 'Resource' resource.
 getResource
     :: Text -- ^ 'grRestAPIId'
     -> Text -- ^ 'grResourceId'
@@ -71,11 +75,11 @@ getResource pRestAPIId_ pResourceId_ =
     , _grResourceId = pResourceId_
     }
 
--- | The < RestApi> identifier for the resource.
+-- | The 'RestApi' identifier for the resource.
 grRestAPIId :: Lens' GetResource Text
 grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
 
--- | The identifier for the < Resource> resource.
+-- | The identifier for the 'Resource' resource.
 grResourceId :: Lens' GetResource Text
 grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
 

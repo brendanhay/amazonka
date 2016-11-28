@@ -20,7 +20,9 @@
 --
 -- Creates a VPC endpoint for a specified AWS service. An endpoint enables you to create a private connection between your VPC and another AWS service in your account. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.
 --
+--
 -- Currently, only endpoints to Amazon S3 are supported.
+--
 module Network.AWS.EC2.CreateVPCEndpoint
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpcEndpoint.
 --
+--
+--
 -- /See:/ 'createVPCEndpoint' smart constructor.
 data CreateVPCEndpoint = CreateVPCEndpoint'
     { _cvePolicyDocument :: !(Maybe Text)
@@ -66,17 +70,17 @@ data CreateVPCEndpoint = CreateVPCEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvePolicyDocument'
+-- * 'cvePolicyDocument' - A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.
 --
--- * 'cveClientToken'
+-- * 'cveClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
--- * 'cveDryRun'
+-- * 'cveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cveRouteTableIds'
+-- * 'cveRouteTableIds' - One or more route table IDs.
 --
--- * 'cveVPCId'
+-- * 'cveVPCId' - The ID of the VPC in which the endpoint will be used.
 --
--- * 'cveServiceName'
+-- * 'cveServiceName' - The AWS service name, in the form @com.amazonaws./region/ ./service/ @ . To get a list of available services, use the 'DescribeVpcEndpointServices' request.
 createVPCEndpoint
     :: Text -- ^ 'cveVPCId'
     -> Text -- ^ 'cveServiceName'
@@ -95,11 +99,11 @@ createVPCEndpoint pVPCId_ pServiceName_ =
 cvePolicyDocument :: Lens' CreateVPCEndpoint (Maybe Text)
 cvePolicyDocument = lens _cvePolicyDocument (\ s a -> s{_cvePolicyDocument = a});
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 cveClientToken :: Lens' CreateVPCEndpoint (Maybe Text)
 cveClientToken = lens _cveClientToken (\ s a -> s{_cveClientToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cveDryRun :: Lens' CreateVPCEndpoint (Maybe Bool)
 cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 
@@ -111,7 +115,7 @@ cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . 
 cveVPCId :: Lens' CreateVPCEndpoint Text
 cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
--- | The AWS service name, in the form 'com.amazonaws.region.service '. To get a list of available services, use the < DescribeVpcEndpointServices> request.
+-- | The AWS service name, in the form @com.amazonaws./region/ ./service/ @ . To get a list of available services, use the 'DescribeVpcEndpointServices' request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
 
@@ -150,6 +154,8 @@ instance ToQuery CreateVPCEndpoint where
 
 -- | Contains the output of CreateVpcEndpoint.
 --
+--
+--
 -- /See:/ 'createVPCEndpointResponse' smart constructor.
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cversClientToken    :: !(Maybe Text)
@@ -161,11 +167,11 @@ data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cversClientToken'
+-- * 'cversClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
 --
--- * 'cversVPCEndpoint'
+-- * 'cversVPCEndpoint' - Information about the endpoint.
 --
--- * 'cversResponseStatus'
+-- * 'cversResponseStatus' - -- | The response status code.
 createVPCEndpointResponse
     :: Int -- ^ 'cversResponseStatus'
     -> CreateVPCEndpointResponse
@@ -184,7 +190,7 @@ cversClientToken = lens _cversClientToken (\ s a -> s{_cversClientToken = a});
 cversVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cversResponseStatus :: Lens' CreateVPCEndpointResponse Int
 cversResponseStatus = lens _cversResponseStatus (\ s a -> s{_cversResponseStatus = a});
 

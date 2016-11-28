@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Assigns or changes an Amazon Identity and Access Management (IAM) role to the managed instance.
+--
+--
 module Network.AWS.SSM.UpdateManagedInstanceRole
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data UpdateManagedInstanceRole = UpdateManagedInstanceRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umirInstanceId'
+-- * 'umirInstanceId' - The ID of the managed instance where you want to update the role.
 --
--- * 'umirIAMRole'
+-- * 'umirIAMRole' - The IAM role you want to assign or change.
 updateManagedInstanceRole
     :: Text -- ^ 'umirInstanceId'
     -> Text -- ^ 'umirIAMRole'
@@ -119,7 +121,7 @@ newtype UpdateManagedInstanceRoleResponse = UpdateManagedInstanceRoleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umirrsResponseStatus'
+-- * 'umirrsResponseStatus' - -- | The response status code.
 updateManagedInstanceRoleResponse
     :: Int -- ^ 'umirrsResponseStatus'
     -> UpdateManagedInstanceRoleResponse
@@ -128,7 +130,7 @@ updateManagedInstanceRoleResponse pResponseStatus_ =
     { _umirrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 umirrsResponseStatus :: Lens' UpdateManagedInstanceRoleResponse Int
 umirrsResponseStatus = lens _umirrsResponseStatus (\ s a -> s{_umirrsResponseStatus = a});
 

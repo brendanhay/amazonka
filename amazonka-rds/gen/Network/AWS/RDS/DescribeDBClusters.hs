@@ -20,7 +20,9 @@
 --
 -- Returns information about provisioned Aurora DB clusters. This API supports pagination.
 --
+--
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.DescribeDBClusters
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
     { _ddcDBClusterIdentifier :: !(Maybe Text)
@@ -62,13 +66,13 @@ data DescribeDBClusters = DescribeDBClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDBClusterIdentifier'
+-- * 'ddcDBClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddcFilters'
+-- * 'ddcFilters' - This parameter is not currently supported.
 --
--- * 'ddcMarker'
+-- * 'ddcMarker' - An optional pagination token provided by a previous 'DescribeDBClusters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddcMaxRecords'
+-- * 'ddcMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeDBClusters
     :: DescribeDBClusters
 describeDBClusters =
@@ -79,16 +83,7 @@ describeDBClusters =
     , _ddcMaxRecords = Nothing
     }
 
--- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddcDBClusterIdentifier :: Lens' DescribeDBClusters (Maybe Text)
 ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\ s a -> s{_ddcDBClusterIdentifier = a});
 
@@ -96,15 +91,11 @@ ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\ s a -> s{_ddcDBClusterI
 ddcFilters :: Lens' DescribeDBClusters [Filter]
 ddcFilters = lens _ddcFilters (\ s a -> s{_ddcFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous < DescribeDBClusters> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeDBClusters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcMarker :: Lens' DescribeDBClusters (Maybe Text)
 ddcMarker = lens _ddcMarker (\ s a -> s{_ddcMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddcMaxRecords :: Lens' DescribeDBClusters (Maybe Int)
 ddcMaxRecords = lens _ddcMaxRecords (\ s a -> s{_ddcMaxRecords = a});
 
@@ -142,7 +133,9 @@ instance ToQuery DescribeDBClusters where
                "Marker" =: _ddcMarker,
                "MaxRecords" =: _ddcMaxRecords]
 
--- | Contains the result of a successful invocation of the < DescribeDBClusters> action.
+-- | Contains the result of a successful invocation of the 'DescribeDBClusters' action.
+--
+--
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
@@ -155,11 +148,11 @@ data DescribeDBClustersResponse = DescribeDBClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcrsDBClusters'
+-- * 'ddcrsDBClusters' - Contains a list of DB clusters for the user.
 --
--- * 'ddcrsMarker'
+-- * 'ddcrsMarker' - A pagination token that can be used in a subsequent DescribeDBClusters request.
 --
--- * 'ddcrsResponseStatus'
+-- * 'ddcrsResponseStatus' - -- | The response status code.
 describeDBClustersResponse
     :: Int -- ^ 'ddcrsResponseStatus'
     -> DescribeDBClustersResponse
@@ -178,7 +171,7 @@ ddcrsDBClusters = lens _ddcrsDBClusters (\ s a -> s{_ddcrsDBClusters = a}) . _De
 ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
 ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddcrsResponseStatus :: Lens' DescribeDBClustersResponse Int
 ddcrsResponseStatus = lens _ddcrsResponseStatus (\ s a -> s{_ddcrsResponseStatus = a});
 

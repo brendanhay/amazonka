@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can\'t access any contents of the deleted file system.
+-- Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can't access any contents of the deleted file system.
 --
--- You can\'t delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see < DescribeMountTargets> and < DeleteMountTarget>.
 --
--- The 'DeleteFileSystem' call returns while the file system state is still 'deleting'. You can check the file system deletion status by calling the < DescribeFileSystems> operation, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the < DescribeFileSystems> returns a '404 FileSystemNotFound' error.
+-- You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see 'DescribeMountTargets' and 'DeleteMountTarget' .
 --
--- This operation requires permissions for the 'elasticfilesystem:DeleteFileSystem' action.
+-- This operation requires permissions for the @elasticfilesystem:DeleteFileSystem@ action.
+--
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request
@@ -47,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteFileSystem' smart constructor.
 newtype DeleteFileSystem = DeleteFileSystem'
     { _delFileSystemId :: Text
@@ -56,7 +58,7 @@ newtype DeleteFileSystem = DeleteFileSystem'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delFileSystemId'
+-- * 'delFileSystemId' - ID of the file system you want to delete.
 deleteFileSystem
     :: Text -- ^ 'delFileSystemId'
     -> DeleteFileSystem

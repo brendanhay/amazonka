@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a unique endpoint specific to the AWS account making the call.
+--
+--
 module Network.AWS.IoT.DescribeEndpoint
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The input for the DescribeEndpoint operation.
+--
+--
 --
 -- /See:/ 'describeEndpoint' smart constructor.
 data DescribeEndpoint =
@@ -77,6 +81,8 @@ instance ToQuery DescribeEndpoint where
 
 -- | The output from the DescribeEndpoint operation.
 --
+--
+--
 -- /See:/ 'describeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
     { _dersEndpointAddress :: !(Maybe Text)
@@ -87,9 +93,9 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersEndpointAddress'
+-- * 'dersEndpointAddress' - The endpoint. The format of the endpoint is as follows: /identifier/ .iot./region/ .amazonaws.com.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEndpointResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEndpointResponse
@@ -99,11 +105,11 @@ describeEndpointResponse pResponseStatus_ =
     , _dersResponseStatus = pResponseStatus_
     }
 
--- | The endpoint. The format of the endpoint is as follows: /identifier/.iot./region/.amazonaws.com.
+-- | The endpoint. The format of the endpoint is as follows: /identifier/ .iot./region/ .amazonaws.com.
 dersEndpointAddress :: Lens' DescribeEndpointResponse (Maybe Text)
 dersEndpointAddress = lens _dersEndpointAddress (\ s a -> s{_dersEndpointAddress = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEndpointResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS CloudHSM Service
+-- __AWS CloudHSM Service__
 module Network.AWS.CloudHSM
     (
     -- * Service Configuration

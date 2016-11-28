@@ -20,7 +20,9 @@
 --
 -- Exports a running or stopped instance to an S3 bucket.
 --
--- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import\/Export> in the /VM Import\/Export User Guide/.
+--
+-- For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html Exporting an Instance as a VM Using VM Import/Export> in the /VM Import\/Export User Guide/ .
+--
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateInstanceExportTask.
 --
+--
+--
 -- /See:/ 'createInstanceExportTask' smart constructor.
 data CreateInstanceExportTask = CreateInstanceExportTask'
     { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
@@ -61,13 +65,13 @@ data CreateInstanceExportTask = CreateInstanceExportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cietTargetEnvironment'
+-- * 'cietTargetEnvironment' - The target virtualization environment.
 --
--- * 'cietExportToS3Task'
+-- * 'cietExportToS3Task' - The format and location for an instance export task.
 --
--- * 'cietDescription'
+-- * 'cietDescription' - A description for the conversion task or the resource being exported. The maximum length is 255 bytes.
 --
--- * 'cietInstanceId'
+-- * 'cietInstanceId' - The ID of the instance.
 createInstanceExportTask
     :: Text -- ^ 'cietInstanceId'
     -> CreateInstanceExportTask
@@ -128,6 +132,8 @@ instance ToQuery CreateInstanceExportTask where
 
 -- | Contains the output for CreateInstanceExportTask.
 --
+--
+--
 -- /See:/ 'createInstanceExportTaskResponse' smart constructor.
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrsExportTask     :: !(Maybe ExportTask)
@@ -138,9 +144,9 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cietrsExportTask'
+-- * 'cietrsExportTask' - Information about the instance export task.
 --
--- * 'cietrsResponseStatus'
+-- * 'cietrsResponseStatus' - -- | The response status code.
 createInstanceExportTaskResponse
     :: Int -- ^ 'cietrsResponseStatus'
     -> CreateInstanceExportTaskResponse
@@ -154,7 +160,7 @@ createInstanceExportTaskResponse pResponseStatus_ =
 cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cietrsResponseStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsResponseStatus = lens _cietrsResponseStatus (\ s a -> s{_cietrsResponseStatus = a});
 

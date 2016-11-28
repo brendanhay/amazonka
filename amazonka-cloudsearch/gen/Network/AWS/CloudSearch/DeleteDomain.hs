@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain> in the /Amazon CloudSearch Developer Guide/.
+-- Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DeleteDomain
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteDomain' operation. Specifies the name of the domain you want to delete.
+-- | Container for the parameters to the @'DeleteDomain' @ operation. Specifies the name of the domain you want to delete.
+--
+--
 --
 -- /See:/ 'deleteDomain' smart constructor.
 newtype DeleteDomain = DeleteDomain'
@@ -53,7 +57,7 @@ newtype DeleteDomain = DeleteDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dddDomainName'
+-- * 'dddDomainName' - The name of the domain you want to permanently delete.
 deleteDomain
     :: Text -- ^ 'dddDomainName'
     -> DeleteDomain
@@ -92,7 +96,9 @@ instance ToQuery DeleteDomain where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _dddDomainName]
 
--- | The result of a 'DeleteDomain' request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.
+-- | The result of a @DeleteDomain@ request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.
+--
+--
 --
 -- /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
@@ -104,9 +110,9 @@ data DeleteDomainResponse = DeleteDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsDomainStatus'
+-- * 'ddrsDomainStatus' - Undocumented member.
 --
--- * 'ddrsResponseStatus'
+-- * 'ddrsResponseStatus' - -- | The response status code.
 deleteDomainResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DeleteDomainResponse
@@ -120,7 +126,7 @@ deleteDomainResponse pResponseStatus_ =
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddrsResponseStatus :: Lens' DeleteDomainResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 

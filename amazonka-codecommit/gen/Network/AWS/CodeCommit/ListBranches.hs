@@ -20,6 +20,8 @@
 --
 -- Gets information about one or more branches in a repository.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListBranches
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list branches operation.
 --
+--
+--
 -- /See:/ 'listBranches' smart constructor.
 data ListBranches = ListBranches'
     { _lbNextToken      :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListBranches = ListBranches'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbNextToken'
+-- * 'lbNextToken' - An enumeration token that allows the operation to batch the results.
 --
--- * 'lbRepositoryName'
+-- * 'lbRepositoryName' - The name of the repository that contains the branches.
 listBranches
     :: Text -- ^ 'lbRepositoryName'
     -> ListBranches
@@ -124,6 +128,8 @@ instance ToQuery ListBranches where
 
 -- | Represents the output of a list branches operation.
 --
+--
+--
 -- /See:/ 'listBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
     { _lbrsBranches       :: !(Maybe [Text])
@@ -135,11 +141,11 @@ data ListBranchesResponse = ListBranchesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbrsBranches'
+-- * 'lbrsBranches' - The list of branch names.
 --
--- * 'lbrsNextToken'
+-- * 'lbrsNextToken' - An enumeration token that returns the batch of the results.
 --
--- * 'lbrsResponseStatus'
+-- * 'lbrsResponseStatus' - -- | The response status code.
 listBranchesResponse
     :: Int -- ^ 'lbrsResponseStatus'
     -> ListBranchesResponse
@@ -158,7 +164,7 @@ lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _
 lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
 lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lbrsResponseStatus :: Lens' ListBranchesResponse Int
 lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
 

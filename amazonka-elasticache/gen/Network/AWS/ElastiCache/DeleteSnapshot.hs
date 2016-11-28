@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a successful response from this action, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this action.
+--
+--
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteSnapshot/ action.
 --
+--
+--
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
     { _dSnapshotName :: Text
@@ -53,7 +57,7 @@ newtype DeleteSnapshot = DeleteSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSnapshotName'
+-- * 'dSnapshotName' - The name of the snapshot to be deleted.
 deleteSnapshot
     :: Text -- ^ 'dSnapshotName'
     -> DeleteSnapshot
@@ -102,9 +106,9 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSnapshot'
+-- * 'dsrsSnapshot' - Undocumented member.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 deleteSnapshotResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
@@ -118,7 +122,7 @@ deleteSnapshotResponse pResponseStatus_ =
 dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

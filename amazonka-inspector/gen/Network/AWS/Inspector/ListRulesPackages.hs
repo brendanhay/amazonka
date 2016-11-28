@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all available Amazon Inspector rules packages.
+--
+--
 module Network.AWS.Inspector.ListRulesPackages
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data ListRulesPackages = ListRulesPackages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrpNextToken'
+-- * 'lrpNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListRulesPackages__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'lrpMaxResults'
+-- * 'lrpMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 listRulesPackages
     :: ListRulesPackages
 listRulesPackages =
@@ -120,11 +122,11 @@ data ListRulesPackagesResponse = ListRulesPackagesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrprsNextToken'
+-- * 'lrprsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'lrprsResponseStatus'
+-- * 'lrprsResponseStatus' - -- | The response status code.
 --
--- * 'lrprsRulesPackageARNs'
+-- * 'lrprsRulesPackageARNs' - The list of ARNs that specifies the rules packages returned by the action.
 listRulesPackagesResponse
     :: Int -- ^ 'lrprsResponseStatus'
     -> ListRulesPackagesResponse
@@ -139,7 +141,7 @@ listRulesPackagesResponse pResponseStatus_ =
 lrprsNextToken :: Lens' ListRulesPackagesResponse (Maybe Text)
 lrprsNextToken = lens _lrprsNextToken (\ s a -> s{_lrprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrprsResponseStatus :: Lens' ListRulesPackagesResponse Int
 lrprsResponseStatus = lens _lrprsResponseStatus (\ s a -> s{_lrprsResponseStatus = a});
 

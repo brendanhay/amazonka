@@ -20,7 +20,7 @@
 --
 -- The /DeleteCacheSecurityGroup/ action deletes a cache security group.
 --
--- You cannot delete a cache security group if it is associated with any cache clusters.
+--
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Creating a Request
@@ -43,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheSecurityGroup/ action.
 --
+--
+--
 -- /See:/ 'deleteCacheSecurityGroup' smart constructor.
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
     { _dcsgCacheSecurityGroupName :: Text
@@ -52,7 +54,7 @@ newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsgCacheSecurityGroupName'
+-- * 'dcsgCacheSecurityGroupName' - The name of the cache security group to delete.
 deleteCacheSecurityGroup
     :: Text -- ^ 'dcsgCacheSecurityGroupName'
     -> DeleteCacheSecurityGroup
@@ -62,8 +64,6 @@ deleteCacheSecurityGroup pCacheSecurityGroupName_ =
     }
 
 -- | The name of the cache security group to delete.
---
--- You cannot delete the default security group.
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
 

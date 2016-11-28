@@ -20,6 +20,8 @@
 --
 -- Retrieves a list of policies attached to a key.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.KMS.ListKeyPolicies
     (
@@ -60,11 +62,11 @@ data ListKeyPolicies = ListKeyPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkpMarker'
+-- * 'lkpMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
 --
--- * 'lkpLimit'
+-- * 'lkpLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 --
--- * 'lkpKeyId'
+-- * 'lkpKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 listKeyPolicies
     :: Text -- ^ 'lkpKeyId'
     -> ListKeyPolicies
@@ -75,28 +77,15 @@ listKeyPolicies pKeyId_ =
     , _lkpKeyId = pKeyId_
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of 'NextMarker' from the response you just received.
+-- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the 'Truncated' element in the response is set to true.
---
--- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
---
--- Currently only 1 policy can be attached to a key.
+-- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
--- -   Alias Name Example - alias\/MyAliasName
---
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
 
@@ -158,13 +147,13 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkprsPolicyNames'
+-- * 'lkprsPolicyNames' - A list of policy names. Currently, there is only one policy and it is named "Default".
 --
--- * 'lkprsTruncated'
+-- * 'lkprsTruncated' - A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
 --
--- * 'lkprsNextMarker'
+-- * 'lkprsNextMarker' - When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'lkprsResponseStatus'
+-- * 'lkprsResponseStatus' - -- | The response status code.
 listKeyPoliciesResponse
     :: Int -- ^ 'lkprsResponseStatus'
     -> ListKeyPoliciesResponse
@@ -176,19 +165,19 @@ listKeyPoliciesResponse pResponseStatus_ =
     , _lkprsResponseStatus = pResponseStatus_
     }
 
--- | A list of policy names. Currently, there is only one policy and it is named \"Default\".
+-- | A list of policy names. Currently, there is only one policy and it is named "Default".
 lkprsPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
 lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default . _Coerce;
 
--- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the 'Marker' parameter to make a subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
 lkprsTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a});
 
--- | When 'Truncated' is true, this value is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lkprsResponseStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsResponseStatus = lens _lkprsResponseStatus (\ s a -> s{_lkprsResponseStatus = a});
 

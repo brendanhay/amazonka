@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a < WebACL>. You can\'t delete a 'WebACL' if it still contains any 'Rules'.
+-- Permanently deletes a 'WebACL' . You can't delete a @WebACL@ if it still contains any @Rules@ .
 --
--- To delete a 'WebACL', perform the following steps:
 --
--- 1.  Update the 'WebACL' to remove 'Rules', if any. For more information, see < UpdateWebACL>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteWebACL' request.
--- 3.  Submit a 'DeleteWebACL' request.
+-- To delete a @WebACL@ , perform the following steps:
+--
+--     * Update the @WebACL@ to remove @Rules@ , if any. For more information, see 'UpdateWebACL' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteWebACL@ request.    * Submit a @DeleteWebACL@ request.
+--
 module Network.AWS.WAF.DeleteWebACL
     (
     -- * Creating a Request
@@ -59,9 +59,9 @@ data DeleteWebACL = DeleteWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwaWebACLId'
+-- * 'dwaWebACLId' - The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 --
--- * 'dwaChangeToken'
+-- * 'dwaChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 deleteWebACL
     :: Text -- ^ 'dwaWebACLId'
     -> Text -- ^ 'dwaChangeToken'
@@ -72,11 +72,11 @@ deleteWebACL pWebACLId_ pChangeToken_ =
     , _dwaChangeToken = pChangeToken_
     }
 
--- | The 'WebACLId' of the < WebACL> that you want to delete. 'WebACLId' is returned by < CreateWebACL> and by < ListWebACLs>.
+-- | The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 dwaWebACLId :: Lens' DeleteWebACL Text
 dwaWebACLId = lens _dwaWebACLId (\ s a -> s{_dwaWebACLId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 dwaChangeToken :: Lens' DeleteWebACL Text
 dwaChangeToken = lens _dwaChangeToken (\ s a -> s{_dwaChangeToken = a});
 
@@ -125,9 +125,9 @@ data DeleteWebACLResponse = DeleteWebACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwarsChangeToken'
+-- * 'dwarsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'dwarsResponseStatus'
+-- * 'dwarsResponseStatus' - -- | The response status code.
 deleteWebACLResponse
     :: Int -- ^ 'dwarsResponseStatus'
     -> DeleteWebACLResponse
@@ -137,11 +137,11 @@ deleteWebACLResponse pResponseStatus_ =
     , _dwarsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteWebACL' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dwarsChangeToken :: Lens' DeleteWebACLResponse (Maybe Text)
 dwarsChangeToken = lens _dwarsChangeToken (\ s a -> s{_dwarsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dwarsResponseStatus :: Lens' DeleteWebACLResponse Int
 dwarsResponseStatus = lens _dwarsResponseStatus (\ s a -> s{_dwarsResponseStatus = a});
 

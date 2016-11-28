@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads the specified certificate.
+--
+--
 module Network.AWS.DMS.ImportCertificate
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data ImportCertificate = ImportCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icCertificatePem'
+-- * 'icCertificatePem' - The contents of the .pem X.509 certificate file.
 --
--- * 'icCertificateIdentifier'
+-- * 'icCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
 importCertificate
     :: Text -- ^ 'icCertificateIdentifier'
     -> ImportCertificate
@@ -121,9 +123,9 @@ data ImportCertificateResponse = ImportCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icrsCertificate'
+-- * 'icrsCertificate' - The certificate to be uploaded.
 --
--- * 'icrsResponseStatus'
+-- * 'icrsResponseStatus' - -- | The response status code.
 importCertificateResponse
     :: Int -- ^ 'icrsResponseStatus'
     -> ImportCertificateResponse
@@ -137,7 +139,7 @@ importCertificateResponse pResponseStatus_ =
 icrsCertificate :: Lens' ImportCertificateResponse (Maybe Certificate)
 icrsCertificate = lens _icrsCertificate (\ s a -> s{_icrsCertificate = a});
 
--- | The response status code.
+-- | -- | The response status code.
 icrsResponseStatus :: Lens' ImportCertificateResponse Int
 icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Resets permission settings for the specified snapshot.
 --
--- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ResetSnapshotAttribute.
 --
+--
+--
 -- /See:/ 'resetSnapshotAttribute' smart constructor.
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
     { _rsaDryRun     :: !(Maybe Bool)
@@ -56,11 +60,11 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsaDryRun'
+-- * 'rsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rsaSnapshotId'
+-- * 'rsaSnapshotId' - The ID of the snapshot.
 --
--- * 'rsaAttribute'
+-- * 'rsaAttribute' - The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.
 resetSnapshotAttribute
     :: Text -- ^ 'rsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'rsaAttribute'
@@ -72,7 +76,7 @@ resetSnapshotAttribute pSnapshotId_ pAttribute_ =
     , _rsaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
 rsaDryRun = lens _rsaDryRun (\ s a -> s{_rsaDryRun = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the < RestApi> resource in the collection.
+-- Lists the 'RestApi' resource in the collection.
+--
+--
 module Network.AWS.APIGateway.GetRestAPI
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The GET request to list an existing < RestApi> defined for your collection.
+-- | The GET request to list an existing 'RestApi' defined for your collection.
+--
+--
 --
 -- /See:/ 'getRestAPI' smart constructor.
 newtype GetRestAPI = GetRestAPI'
@@ -56,7 +60,7 @@ newtype GetRestAPI = GetRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'graRestAPIId'
+-- * 'graRestAPIId' - The identifier of the 'RestApi' resource.
 getRestAPI
     :: Text -- ^ 'graRestAPIId'
     -> GetRestAPI
@@ -65,7 +69,7 @@ getRestAPI pRestAPIId_ =
     { _graRestAPIId = pRestAPIId_
     }
 
--- | The identifier of the < RestApi> resource.
+-- | The identifier of the 'RestApi' resource.
 graRestAPIId :: Lens' GetRestAPI Text
 graRestAPIId = lens _graRestAPIId (\ s a -> s{_graRestAPIId = a});
 

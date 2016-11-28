@@ -20,6 +20,8 @@
 --
 -- Describes one or more launch configurations.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLaunchConfigurations.
 --
+--
+--
 -- /See:/ 'describeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames :: !(Maybe [Text])
@@ -61,11 +65,11 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcLaunchConfigurationNames'
+-- * 'dlcLaunchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
 --
--- * 'dlcNextToken'
+-- * 'dlcNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlcMaxRecords'
+-- * 'dlcMaxRecords' - The maximum number of items to return with this call. The default is 100.
 describeLaunchConfigurations
     :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
@@ -133,6 +137,8 @@ instance ToQuery DescribeLaunchConfigurations where
 
 -- | Contains the output of DescribeLaunchConfigurations.
 --
+--
+--
 -- /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken            :: !(Maybe Text)
@@ -144,11 +150,11 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcrsNextToken'
+-- * 'dlcrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dlcrsResponseStatus'
+-- * 'dlcrsResponseStatus' - -- | The response status code.
 --
--- * 'dlcrsLaunchConfigurations'
+-- * 'dlcrsLaunchConfigurations' - The launch configurations.
 describeLaunchConfigurationsResponse
     :: Int -- ^ 'dlcrsResponseStatus'
     -> DescribeLaunchConfigurationsResponse
@@ -163,7 +169,7 @@ describeLaunchConfigurationsResponse pResponseStatus_ =
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlcrsResponseStatus :: Lens' DescribeLaunchConfigurationsResponse Int
 dlcrsResponseStatus = lens _dlcrsResponseStatus (\ s a -> s{_dlcrsResponseStatus = a});
 

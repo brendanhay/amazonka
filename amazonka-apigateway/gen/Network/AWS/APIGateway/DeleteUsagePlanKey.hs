@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a usage plan key and remove the underlying API key from the associated usage plan.
+--
+--
 module Network.AWS.APIGateway.DeleteUsagePlanKey
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.
 --
+--
+--
 -- /See:/ 'deleteUsagePlanKey' smart constructor.
 data DeleteUsagePlanKey = DeleteUsagePlanKey'
     { _dupkUsagePlanId :: !Text
@@ -52,9 +56,9 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupkUsagePlanId'
+-- * 'dupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'dupkKeyId'
+-- * 'dupkKeyId' - The Id of the 'UsagePlanKey' resource to be deleted.
 deleteUsagePlanKey
     :: Text -- ^ 'dupkUsagePlanId'
     -> Text -- ^ 'dupkKeyId'
@@ -65,11 +69,11 @@ deleteUsagePlanKey pUsagePlanId_ pKeyId_ =
     , _dupkKeyId = pKeyId_
     }
 
--- | The Id of the < UsagePlan> resource representing the usage plan containing the to-be-deleted < UsagePlanKey> resource representing a plan customer.
+-- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
 dupkUsagePlanId :: Lens' DeleteUsagePlanKey Text
 dupkUsagePlanId = lens _dupkUsagePlanId (\ s a -> s{_dupkUsagePlanId = a});
 
--- | The Id of the < UsagePlanKey> resource to be deleted.
+-- | The Id of the 'UsagePlanKey' resource to be deleted.
 dupkKeyId :: Lens' DeleteUsagePlanKey Text
 dupkKeyId = lens _dupkKeyId (\ s a -> s{_dupkKeyId = a});
 

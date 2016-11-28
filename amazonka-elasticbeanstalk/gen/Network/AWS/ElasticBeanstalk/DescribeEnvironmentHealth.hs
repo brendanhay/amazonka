@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the overall health of the specified environment. The __DescribeEnvironmentHealth__ operation is only available with AWS Elastic Beanstalk Enhanced Health.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | See the example below to learn how to create a request body.
 --
+--
+--
 -- /See:/ 'describeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
     { _dehEnvironmentName :: !(Maybe Text)
@@ -64,11 +68,11 @@ data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dehEnvironmentName'
+-- * 'dehEnvironmentName' - Specifies the AWS Elastic Beanstalk environment name. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'dehAttributeNames'
+-- * 'dehAttributeNames' - Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns the name of the environment.
 --
--- * 'dehEnvironmentId'
+-- * 'dehEnvironmentId' - Specifies the AWS Elastic Beanstalk environment ID. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 describeEnvironmentHealth
     :: DescribeEnvironmentHealth
 describeEnvironmentHealth =
@@ -78,9 +82,7 @@ describeEnvironmentHealth =
     , _dehEnvironmentId = Nothing
     }
 
--- | Specifies the AWS Elastic Beanstalk environment name.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | Specifies the AWS Elastic Beanstalk environment name. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
 
@@ -88,9 +90,7 @@ dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = 
 dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
 dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
 
--- | Specifies the AWS Elastic Beanstalk environment ID.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | Specifies the AWS Elastic Beanstalk environment ID. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
 
@@ -137,6 +137,8 @@ instance ToQuery DescribeEnvironmentHealth where
 
 -- | See the example below for a sample response.
 --
+--
+--
 -- /See:/ 'describeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
     { _dehrsStatus             :: !(Maybe EnvironmentHealth)
@@ -154,23 +156,23 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dehrsStatus'
+-- * 'dehrsStatus' - Returns the health status value of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
--- * 'dehrsCauses'
+-- * 'dehrsCauses' - Returns potential causes for the reported status.
 --
--- * 'dehrsApplicationMetrics'
+-- * 'dehrsApplicationMetrics' - Undocumented member.
 --
--- * 'dehrsColor'
+-- * 'dehrsColor' - Returns the color indicator that tells you information about the health of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
--- * 'dehrsEnvironmentName'
+-- * 'dehrsEnvironmentName' - The AWS Elastic Beanstalk environment name.
 --
--- * 'dehrsHealthStatus'
+-- * 'dehrsHealthStatus' - Contains the response body with information about the health of the environment.
 --
--- * 'dehrsInstancesHealth'
+-- * 'dehrsInstancesHealth' - Undocumented member.
 --
--- * 'dehrsRefreshedAt'
+-- * 'dehrsRefreshedAt' - The date and time the information was last refreshed.
 --
--- * 'dehrsResponseStatus'
+-- * 'dehrsResponseStatus' - -- | The response status code.
 describeEnvironmentHealthResponse
     :: Int -- ^ 'dehrsResponseStatus'
     -> DescribeEnvironmentHealthResponse
@@ -187,7 +189,7 @@ describeEnvironmentHealthResponse pResponseStatus_ =
     , _dehrsResponseStatus = pResponseStatus_
     }
 
--- | Returns the health status value of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the health status value of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
 dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
 
@@ -199,7 +201,7 @@ dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coe
 dehrsApplicationMetrics :: Lens' DescribeEnvironmentHealthResponse (Maybe ApplicationMetrics)
 dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a});
 
--- | Returns the color indicator that tells you information about the health of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+-- | Returns the color indicator that tells you information about the health of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 dehrsColor :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a});
 
@@ -219,7 +221,7 @@ dehrsInstancesHealth = lens _dehrsInstancesHealth (\ s a -> s{_dehrsInstancesHea
 dehrsRefreshedAt :: Lens' DescribeEnvironmentHealthResponse (Maybe UTCTime)
 dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
 dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});
 

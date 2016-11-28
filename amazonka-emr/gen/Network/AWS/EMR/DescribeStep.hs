@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides more detail about the cluster step.
+--
+--
 module Network.AWS.EMR.DescribeStep
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | This input determines which step to describe.
 --
+--
+--
 -- /See:/ 'describeStep' smart constructor.
 data DescribeStep = DescribeStep'
     { _dsClusterId :: !Text
@@ -55,9 +59,9 @@ data DescribeStep = DescribeStep'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsClusterId'
+-- * 'dsClusterId' - The identifier of the cluster with steps to describe.
 --
--- * 'dsStepId'
+-- * 'dsStepId' - The identifier of the step to describe.
 describeStep
     :: Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
@@ -113,6 +117,8 @@ instance ToQuery DescribeStep where
 
 -- | This output contains the description of the cluster step.
 --
+--
+--
 -- /See:/ 'describeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
     { _dsrsStep           :: !(Maybe Step)
@@ -123,9 +129,9 @@ data DescribeStepResponse = DescribeStepResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStep'
+-- * 'dsrsStep' - The step details for the requested step identifier.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeStepResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStepResponse
@@ -139,7 +145,7 @@ describeStepResponse pResponseStatus_ =
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStepResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

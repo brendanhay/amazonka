@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified project name, given the project ARN and a new name.
+--
+--
 module Network.AWS.DeviceFarm.UpdateProject
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the update project operation.
 --
+--
+--
 -- /See:/ 'updateProject' smart constructor.
 data UpdateProject = UpdateProject'
     { _upName :: !(Maybe Text)
@@ -55,9 +59,9 @@ data UpdateProject = UpdateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upName'
+-- * 'upName' - A string representing the new name of the project that you are updating.
 --
--- * 'upArn'
+-- * 'upArn' - The Amazon Resource Name (ARN) of the project whose name you wish to update.
 updateProject
     :: Text -- ^ 'upArn'
     -> UpdateProject
@@ -111,6 +115,8 @@ instance ToQuery UpdateProject where
 
 -- | Represents the result of an update project request.
 --
+--
+--
 -- /See:/ 'updateProjectResponse' smart constructor.
 data UpdateProjectResponse = UpdateProjectResponse'
     { _uprsProject        :: !(Maybe Project)
@@ -121,9 +127,9 @@ data UpdateProjectResponse = UpdateProjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uprsProject'
+-- * 'uprsProject' - Undocumented member.
 --
--- * 'uprsResponseStatus'
+-- * 'uprsResponseStatus' - -- | The response status code.
 updateProjectResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdateProjectResponse
@@ -137,7 +143,7 @@ updateProjectResponse pResponseStatus_ =
 uprsProject :: Lens' UpdateProjectResponse (Maybe Project)
 uprsProject = lens _uprsProject (\ s a -> s{_uprsProject = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdateProjectResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 

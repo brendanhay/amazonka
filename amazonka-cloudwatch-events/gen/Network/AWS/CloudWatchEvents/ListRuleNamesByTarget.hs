@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the names of the rules that the given target is put to. You can see which of the rules in Amazon CloudWatch Events can invoke a specific target in your account. If you have more rules in your account than the given limit, the results will be paginated. In that case, use the next token returned in the response and repeat ListRulesByTarget until the NextToken in the response is returned as null.
+--
+--
 module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < ListRuleNamesByTarget> operation.
+-- | Container for the parameters to the 'ListRuleNamesByTarget' operation.
+--
+--
 --
 -- /See:/ 'listRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
@@ -58,11 +62,11 @@ data ListRuleNamesByTarget = ListRuleNamesByTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrnbtNextToken'
+-- * 'lrnbtNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'lrnbtLimit'
+-- * 'lrnbtLimit' - The maximum number of results to return.
 --
--- * 'lrnbtTargetARN'
+-- * 'lrnbtTargetARN' - The Amazon Resource Name (ARN) of the target resource that you want to list the rules for.
 listRuleNamesByTarget
     :: Text -- ^ 'lrnbtTargetARN'
     -> ListRuleNamesByTarget
@@ -124,7 +128,9 @@ instance ToPath ListRuleNamesByTarget where
 instance ToQuery ListRuleNamesByTarget where
         toQuery = const mempty
 
--- | The result of the < ListRuleNamesByTarget> operation.
+-- | The result of the 'ListRuleNamesByTarget' operation.
+--
+--
 --
 -- /See:/ 'listRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
@@ -137,11 +143,11 @@ data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrnbtrsRuleNames'
+-- * 'lrnbtrsRuleNames' - List of rules names that can invoke the given target.
 --
--- * 'lrnbtrsNextToken'
+-- * 'lrnbtrsNextToken' - Indicates that there are additional results to retrieve.
 --
--- * 'lrnbtrsResponseStatus'
+-- * 'lrnbtrsResponseStatus' - -- | The response status code.
 listRuleNamesByTargetResponse
     :: Int -- ^ 'lrnbtrsResponseStatus'
     -> ListRuleNamesByTargetResponse
@@ -160,7 +166,7 @@ lrnbtrsRuleNames = lens _lrnbtrsRuleNames (\ s a -> s{_lrnbtrsRuleNames = a}) . 
 lrnbtrsNextToken :: Lens' ListRuleNamesByTargetResponse (Maybe Text)
 lrnbtrsNextToken = lens _lrnbtrsNextToken (\ s a -> s{_lrnbtrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrnbtrsResponseStatus :: Lens' ListRuleNamesByTargetResponse Int
 lrnbtrsResponseStatus = lens _lrnbtrsResponseStatus (\ s a -> s{_lrnbtrsResponseStatus = a});
 

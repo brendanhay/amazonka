@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP\/HTTPS listeners.
+-- Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.
+--
 --
 -- When a load balancer implements this policy, the load balancer uses a special cookie to track the instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request. If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load-balancing algorithm.
 --
 -- A cookie is inserted into the response for binding subsequent requests from the same user to that server. The validity of the cookie is based on the cookie expiration time, which is specified in the policy configuration.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness> in the /Classic Load Balancers Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration Duration-Based Session Stickiness> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateLBCookieStickinessPolicy.
 --
+--
+--
 -- /See:/ 'createLBCookieStickinessPolicy' smart constructor.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
@@ -62,11 +66,11 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbcspCookieExpirationPeriod'
+-- * 'clbcspCookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.
 --
--- * 'clbcspLoadBalancerName'
+-- * 'clbcspLoadBalancerName' - The name of the load balancer.
 --
--- * 'clbcspPolicyName'
+-- * 'clbcspPolicyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 createLBCookieStickinessPolicy
     :: Text -- ^ 'clbcspLoadBalancerName'
     -> Text -- ^ 'clbcspPolicyName'
@@ -126,6 +130,8 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 
 -- | Contains the output for CreateLBCookieStickinessPolicy.
 --
+--
+--
 -- /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
     { _clbcsprsResponseStatus :: Int
@@ -135,7 +141,7 @@ newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyR
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbcsprsResponseStatus'
+-- * 'clbcsprsResponseStatus' - -- | The response status code.
 createLBCookieStickinessPolicyResponse
     :: Int -- ^ 'clbcsprsResponseStatus'
     -> CreateLBCookieStickinessPolicyResponse
@@ -144,7 +150,7 @@ createLBCookieStickinessPolicyResponse pResponseStatus_ =
     { _clbcsprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 clbcsprsResponseStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
 clbcsprsResponseStatus = lens _clbcsprsResponseStatus (\ s a -> s{_clbcsprsResponseStatus = a});
 

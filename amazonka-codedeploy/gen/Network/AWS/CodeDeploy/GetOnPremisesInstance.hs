@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an on-premises instance.
+--
+--
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get on-premises instance operation.
 --
+--
+--
 -- /See:/ 'getOnPremisesInstance' smart constructor.
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
     { _gopiInstanceName :: Text
@@ -53,7 +57,7 @@ newtype GetOnPremisesInstance = GetOnPremisesInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gopiInstanceName'
+-- * 'gopiInstanceName' - The name of the on-premises instance about which to get information.
 getOnPremisesInstance
     :: Text -- ^ 'gopiInstanceName'
     -> GetOnPremisesInstance
@@ -104,6 +108,8 @@ instance ToQuery GetOnPremisesInstance where
 
 -- | Represents the output of a get on-premises instance operation.
 --
+--
+--
 -- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo   :: !(Maybe InstanceInfo)
@@ -114,9 +120,9 @@ data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gopirsInstanceInfo'
+-- * 'gopirsInstanceInfo' - Information about the on-premises instance.
 --
--- * 'gopirsResponseStatus'
+-- * 'gopirsResponseStatus' - -- | The response status code.
 getOnPremisesInstanceResponse
     :: Int -- ^ 'gopirsResponseStatus'
     -> GetOnPremisesInstanceResponse
@@ -130,7 +136,7 @@ getOnPremisesInstanceResponse pResponseStatus_ =
 gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
 gopirsResponseStatus = lens _gopirsResponseStatus (\ s a -> s{_gopirsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a statement from a topic\'s access control policy.
+-- Removes a statement from a topic's access control policy.
+--
+--
 module Network.AWS.SNS.RemovePermission
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for RemovePermission action.
 --
+--
+--
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
     { _rpTopicARN :: !Text
@@ -52,9 +56,9 @@ data RemovePermission = RemovePermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpTopicARN'
+-- * 'rpTopicARN' - The ARN of the topic whose access control policy you wish to modify.
 --
--- * 'rpLabel'
+-- * 'rpLabel' - The unique label of the statement you want to remove.
 removePermission
     :: Text -- ^ 'rpTopicARN'
     -> Text -- ^ 'rpLabel'

@@ -20,9 +20,11 @@
 --
 -- Returns a list containing all of the email addresses that have been verified.
 --
--- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.
+--
+-- /Important:/ The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Creating a Request
@@ -88,6 +90,8 @@ instance ToQuery ListVerifiedEmailAddresses where
 
 -- | A list of email addresses that you have verified with Amazon SES under your AWS account.
 --
+--
+--
 -- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
@@ -98,9 +102,9 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvearsVerifiedEmailAddresses'
+-- * 'lvearsVerifiedEmailAddresses' - A list of email addresses that have been verified.
 --
--- * 'lvearsResponseStatus'
+-- * 'lvearsResponseStatus' - -- | The response status code.
 listVerifiedEmailAddressesResponse
     :: Int -- ^ 'lvearsResponseStatus'
     -> ListVerifiedEmailAddressesResponse
@@ -114,7 +118,7 @@ listVerifiedEmailAddressesResponse pResponseStatus_ =
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lvearsResponseStatus :: Lens' ListVerifiedEmailAddressesResponse Int
 lvearsResponseStatus = lens _lvearsResponseStatus (\ s a -> s{_lvearsResponseStatus = a});
 

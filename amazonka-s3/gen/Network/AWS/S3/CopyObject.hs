@@ -119,67 +119,67 @@ data CopyObject = CopyObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coCopySourceIfModifiedSince'
+-- * 'coCopySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
 --
--- * 'coCopySourceIfUnmodifiedSince'
+-- * 'coCopySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
 --
--- * 'coCopySourceSSECustomerKeyMD5'
+-- * 'coCopySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'coMetadataDirective'
+-- * 'coMetadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
 --
--- * 'coExpires'
+-- * 'coExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'coGrantReadACP'
+-- * 'coGrantReadACP' - Allows grantee to read the object ACL.
 --
--- * 'coCopySourceIfNoneMatch'
+-- * 'coCopySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
 --
--- * 'coSSECustomerAlgorithm'
+-- * 'coSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'coSSECustomerKey'
+-- * 'coSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 --
--- * 'coRequestPayer'
+-- * 'coRequestPayer' - Undocumented member.
 --
--- * 'coGrantWriteACP'
+-- * 'coGrantWriteACP' - Allows grantee to write the ACL for the applicable object.
 --
--- * 'coCopySourceIfMatch'
+-- * 'coCopySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
 --
--- * 'coWebsiteRedirectLocation'
+-- * 'coWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'coGrantRead'
+-- * 'coGrantRead' - Allows grantee to read the object data and its metadata.
 --
--- * 'coStorageClass'
+-- * 'coStorageClass' - The type of storage to use for the object. Defaults to 'STANDARD'.
 --
--- * 'coSSECustomerKeyMD5'
+-- * 'coSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'coSSEKMSKeyId'
+-- * 'coSSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 --
--- * 'coGrantFullControl'
+-- * 'coGrantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 --
--- * 'coContentEncoding'
+-- * 'coContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'coMetadata'
+-- * 'coMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'coCacheControl'
+-- * 'coCacheControl' - Specifies caching behavior along the request/reply chain.
 --
--- * 'coContentLanguage'
+-- * 'coContentLanguage' - The language the content is in.
 --
--- * 'coCopySourceSSECustomerKey'
+-- * 'coCopySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
 --
--- * 'coCopySourceSSECustomerAlgorithm'
+-- * 'coCopySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (e.g., AES256).
 --
--- * 'coACL'
+-- * 'coACL' - The canned ACL to apply to the object.
 --
--- * 'coContentDisposition'
+-- * 'coContentDisposition' - Specifies presentational information for the object.
 --
--- * 'coServerSideEncryption'
+-- * 'coServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'coContentType'
+-- * 'coContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'coBucket'
+-- * 'coBucket' - Undocumented member.
 --
--- * 'coCopySource'
+-- * 'coCopySource' - The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
 --
--- * 'coKey'
+-- * 'coKey' - Undocumented member.
 copyObject
     :: BucketName -- ^ 'coBucket'
     -> Text -- ^ 'coCopySource'
@@ -224,7 +224,7 @@ copyObject pBucket_ pCopySource_ pKey_ =
 coCopySourceIfModifiedSince :: Lens' CopyObject (Maybe UTCTime)
 coCopySourceIfModifiedSince = lens _coCopySourceIfModifiedSince (\ s a -> s{_coCopySourceIfModifiedSince = a}) . mapping _Time;
 
--- | Copies the object if it hasn\'t been modified since the specified time.
+-- | Copies the object if it hasn't been modified since the specified time.
 coCopySourceIfUnmodifiedSince :: Lens' CopyObject (Maybe UTCTime)
 coCopySourceIfUnmodifiedSince = lens _coCopySourceIfUnmodifiedSince (\ s a -> s{_coCopySourceIfUnmodifiedSince = a}) . mapping _Time;
 
@@ -276,7 +276,7 @@ coWebsiteRedirectLocation = lens _coWebsiteRedirectLocation (\ s a -> s{_coWebsi
 coGrantRead :: Lens' CopyObject (Maybe Text)
 coGrantRead = lens _coGrantRead (\ s a -> s{_coGrantRead = a});
 
--- | The type of storage to use for the object. Defaults to \'STANDARD\'.
+-- | The type of storage to use for the object. Defaults to 'STANDARD'.
 coStorageClass :: Lens' CopyObject (Maybe StorageClass)
 coStorageClass = lens _coStorageClass (\ s a -> s{_coStorageClass = a});
 
@@ -284,7 +284,7 @@ coStorageClass = lens _coStorageClass (\ s a -> s{_coStorageClass = a});
 coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 coSSEKMSKeyId :: Lens' CopyObject (Maybe Text)
 coSSEKMSKeyId = lens _coSSEKMSKeyId (\ s a -> s{_coSSEKMSKeyId = a}) . mapping _Sensitive;
 
@@ -300,7 +300,7 @@ coContentEncoding = lens _coContentEncoding (\ s a -> s{_coContentEncoding = a})
 coMetadata :: Lens' CopyObject (HashMap Text Text)
 coMetadata = lens _coMetadata (\ s a -> s{_coMetadata = a}) . _Map;
 
--- | Specifies caching behavior along the request\/reply chain.
+-- | Specifies caching behavior along the request/reply chain.
 coCacheControl :: Lens' CopyObject (Maybe Text)
 coCacheControl = lens _coCacheControl (\ s a -> s{_coCacheControl = a});
 
@@ -336,7 +336,7 @@ coContentType = lens _coContentType (\ s a -> s{_coContentType = a});
 coBucket :: Lens' CopyObject BucketName
 coBucket = lens _coBucket (\ s a -> s{_coBucket = a});
 
--- | The name of the source bucket and key name of the source object, separated by a slash (\/). Must be URL-encoded.
+-- | The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.
 coCopySource :: Lens' CopyObject Text
 coCopySource = lens _coCopySource (\ s a -> s{_coCopySource = a});
 
@@ -441,25 +441,25 @@ data CopyObjectResponse = CopyObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'corsRequestCharged'
+-- * 'corsRequestCharged' - Undocumented member.
 --
--- * 'corsVersionId'
+-- * 'corsVersionId' - Version ID of the newly created copy.
 --
--- * 'corsExpiration'
+-- * 'corsExpiration' - If the object expiration is configured, the response includes this header.
 --
--- * 'corsSSECustomerAlgorithm'
+-- * 'corsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'corsCopySourceVersionId'
+-- * 'corsCopySourceVersionId' - Undocumented member.
 --
--- * 'corsSSECustomerKeyMD5'
+-- * 'corsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'corsSSEKMSKeyId'
+-- * 'corsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'corsServerSideEncryption'
+-- * 'corsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'corsCopyObjectResult'
+-- * 'corsCopyObjectResult' - Undocumented member.
 --
--- * 'corsResponseStatus'
+-- * 'corsResponseStatus' - -- | The response status code.
 copyObjectResponse
     :: Int -- ^ 'corsResponseStatus'
     -> CopyObjectResponse
@@ -513,7 +513,7 @@ corsServerSideEncryption = lens _corsServerSideEncryption (\ s a -> s{_corsServe
 corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 corsResponseStatus :: Lens' CopyObjectResponse Int
 corsResponseStatus = lens _corsResponseStatus (\ s a -> s{_corsResponseStatus = a});
 

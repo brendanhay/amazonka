@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Represents a named directory attribute.
 --
+--
+--
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
     { _aValue :: !(Maybe Text)
@@ -33,9 +35,9 @@ data Attribute = Attribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aValue'
+-- * 'aValue' - The value of the attribute.
 --
--- * 'aName'
+-- * 'aName' - The name of the attribute.
 attribute
     :: Attribute
 attribute =
@@ -70,6 +72,8 @@ instance ToJSON Attribute where
 
 -- | Contains information about a computer account in a directory.
 --
+--
+--
 -- /See:/ 'computer' smart constructor.
 data Computer = Computer'
     { _cComputerId         :: !(Maybe Text)
@@ -81,11 +85,11 @@ data Computer = Computer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cComputerId'
+-- * 'cComputerId' - The identifier of the computer.
 --
--- * 'cComputerAttributes'
+-- * 'cComputerAttributes' - An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
 --
--- * 'cComputerName'
+-- * 'cComputerName' - The computer name.
 computer
     :: Computer
 computer =
@@ -99,7 +103,7 @@ computer =
 cComputerId :: Lens' Computer (Maybe Text)
 cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 
--- | An array of < Attribute> objects containing the LDAP attributes that belong to the computer account.
+-- | An array of 'Attribute' objects containing the LDAP attributes that belong to the computer account.
 cComputerAttributes :: Lens' Computer [Attribute]
 cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default . _Coerce;
 
@@ -122,6 +126,8 @@ instance NFData Computer
 
 -- | Points to a remote domain with which you are setting up a trust relationship. Conditional forwarders are required in order to set up a trust relationship with another domain.
 --
+--
+--
 -- /See:/ 'conditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
     { _cfDNSIPAddrs       :: !(Maybe [Text])
@@ -133,11 +139,11 @@ data ConditionalForwarder = ConditionalForwarder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfDNSIPAddrs'
+-- * 'cfDNSIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.
 --
--- * 'cfRemoteDomainName'
+-- * 'cfRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domains pointed to by the conditional forwarder.
 --
--- * 'cfReplicationScope'
+-- * 'cfReplicationScope' - The replication scope of the conditional forwarder. The only allowed value is @Domain@ , which will replicate the conditional forwarder to all of the domain controllers for your AWS directory.
 conditionalForwarder
     :: ConditionalForwarder
 conditionalForwarder =
@@ -155,7 +161,7 @@ cfDNSIPAddrs = lens _cfDNSIPAddrs (\ s a -> s{_cfDNSIPAddrs = a}) . _Default . _
 cfRemoteDomainName :: Lens' ConditionalForwarder (Maybe Text)
 cfRemoteDomainName = lens _cfRemoteDomainName (\ s a -> s{_cfRemoteDomainName = a});
 
--- | The replication scope of the conditional forwarder. The only allowed value is 'Domain', which will replicate the conditional forwarder to all of the domain controllers for your AWS directory.
+-- | The replication scope of the conditional forwarder. The only allowed value is @Domain@ , which will replicate the conditional forwarder to all of the domain controllers for your AWS directory.
 cfReplicationScope :: Lens' ConditionalForwarder (Maybe ReplicationScope)
 cfReplicationScope = lens _cfReplicationScope (\ s a -> s{_cfReplicationScope = a});
 
@@ -172,7 +178,9 @@ instance Hashable ConditionalForwarder
 
 instance NFData ConditionalForwarder
 
--- | Contains information for the < ConnectDirectory> operation when an AD Connector directory is being created.
+-- | Contains information for the 'ConnectDirectory' operation when an AD Connector directory is being created.
+--
+--
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
 data DirectoryConnectSettings = DirectoryConnectSettings'
@@ -186,13 +194,13 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsVPCId'
+-- * 'dcsVPCId' - The identifier of the VPC in which the AD Connector is created.
 --
--- * 'dcsSubnetIds'
+-- * 'dcsSubnetIds' - A list of subnet identifiers in the VPC in which the AD Connector is created.
 --
--- * 'dcsCustomerDNSIPs'
+-- * 'dcsCustomerDNSIPs' - A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
 --
--- * 'dcsCustomerUserName'
+-- * 'dcsCustomerUserName' - The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:     * Read users and groups     * Create computer objects     * Join computers to the domain
 directoryConnectSettings
     :: Text -- ^ 'dcsVPCId'
     -> Text -- ^ 'dcsCustomerUserName'
@@ -217,14 +225,7 @@ dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a}) . _Coerce;
 dcsCustomerDNSIPs :: Lens' DirectoryConnectSettings [Text]
 dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a}) . _Coerce;
 
--- | The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:
---
--- -   Read users and groups
---
--- -   Create computer objects
---
--- -   Join computers to the domain
---
+-- | The username of an account in the on-premises directory that is used to connect to the directory. This account must have the following privileges:     * Read users and groups     * Create computer objects     * Join computers to the domain
 dcsCustomerUserName :: Lens' DirectoryConnectSettings Text
 dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName = a});
 
@@ -243,6 +244,8 @@ instance ToJSON DirectoryConnectSettings where
 
 -- | Contains information about an AD Connector directory.
 --
+--
+--
 -- /See:/ 'directoryConnectSettingsDescription' smart constructor.
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
     { _dcsdCustomerUserName  :: !(Maybe Text)
@@ -257,17 +260,17 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsdCustomerUserName'
+-- * 'dcsdCustomerUserName' - The username of the service account in the on-premises directory.
 --
--- * 'dcsdSubnetIds'
+-- * 'dcsdSubnetIds' - A list of subnet identifiers in the VPC that the AD connector is in.
 --
--- * 'dcsdVPCId'
+-- * 'dcsdVPCId' - The identifier of the VPC that the AD Connector is in.
 --
--- * 'dcsdSecurityGroupId'
+-- * 'dcsdSecurityGroupId' - The security group identifier for the AD Connector directory.
 --
--- * 'dcsdConnectIPs'
+-- * 'dcsdConnectIPs' - The IP addresses of the AD Connector servers.
 --
--- * 'dcsdAvailabilityZones'
+-- * 'dcsdAvailabilityZones' - A list of the Availability Zones that the directory is in.
 directoryConnectSettingsDescription
     :: DirectoryConnectSettingsDescription
 directoryConnectSettingsDescription =
@@ -323,6 +326,8 @@ instance NFData DirectoryConnectSettingsDescription
 
 -- | Contains information about an AWS Directory Service directory.
 --
+--
+--
 -- /See:/ 'directoryDescription' smart constructor.
 data DirectoryDescription = DirectoryDescription'
     { _ddRadiusStatus             :: !(Maybe RadiusStatus)
@@ -349,41 +354,41 @@ data DirectoryDescription = DirectoryDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddRadiusStatus'
+-- * 'ddRadiusStatus' - The status of the RADIUS MFA server connection.
 --
--- * 'ddStage'
+-- * 'ddStage' - The current stage of the directory.
 --
--- * 'ddDirectoryId'
+-- * 'ddDirectoryId' - The directory identifier.
 --
--- * 'ddAccessURL'
+-- * 'ddAccessURL' - The access URL for the directory, such as @http://<alias>.awsapps.com@ . If no alias has been created for the directory, @<alias>@ is the directory identifier, such as @d-XXXXXXXXXX@ .
 --
--- * 'ddShortName'
+-- * 'ddShortName' - The short name of the directory.
 --
--- * 'ddSize'
+-- * 'ddSize' - The directory size.
 --
--- * 'ddRadiusSettings'
+-- * 'ddRadiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server configured for this directory.
 --
--- * 'ddLaunchTime'
+-- * 'ddLaunchTime' - Specifies when the directory was created.
 --
--- * 'ddAlias'
+-- * 'ddAlias' - The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
 --
--- * 'ddName'
+-- * 'ddName' - The fully-qualified name of the directory.
 --
--- * 'ddStageLastUpdatedDateTime'
+-- * 'ddStageLastUpdatedDateTime' - The date and time that the stage was last updated.
 --
--- * 'ddSSOEnabled'
+-- * 'ddSSOEnabled' - Indicates if single-sign on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
 --
--- * 'ddDNSIPAddrs'
+-- * 'ddDNSIPAddrs' - The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
 --
--- * 'ddVPCSettings'
+-- * 'ddVPCSettings' - A 'DirectoryVpcSettingsDescription' object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
 --
--- * 'ddType'
+-- * 'ddType' - The directory size.
 --
--- * 'ddStageReason'
+-- * 'ddStageReason' - Additional information about the directory stage.
 --
--- * 'ddConnectSettings'
+-- * 'ddConnectSettings' - A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
 --
--- * 'ddDescription'
+-- * 'ddDescription' - The textual description for the directory.
 directoryDescription
     :: DirectoryDescription
 directoryDescription =
@@ -420,7 +425,7 @@ ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
 ddDirectoryId :: Lens' DirectoryDescription (Maybe Text)
 ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 
--- | The access URL for the directory, such as 'http:\/\/\<alias>.awsapps.com'. If no alias has been created for the directory, '\<alias>' is the directory identifier, such as 'd-XXXXXXXXXX'.
+-- | The access URL for the directory, such as @http://<alias>.awsapps.com@ . If no alias has been created for the directory, @<alias>@ is the directory identifier, such as @d-XXXXXXXXXX@ .
 ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
 ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
@@ -432,7 +437,7 @@ ddShortName = lens _ddShortName (\ s a -> s{_ddShortName = a});
 ddSize :: Lens' DirectoryDescription (Maybe DirectorySize)
 ddSize = lens _ddSize (\ s a -> s{_ddSize = a});
 
--- | A < RadiusSettings> object that contains information about the RADIUS server configured for this directory.
+-- | A 'RadiusSettings' object that contains information about the RADIUS server configured for this directory.
 ddRadiusSettings :: Lens' DirectoryDescription (Maybe RadiusSettings)
 ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 
@@ -440,7 +445,7 @@ ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 ddLaunchTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddLaunchTime = lens _ddLaunchTime (\ s a -> s{_ddLaunchTime = a}) . mapping _Time;
 
--- | The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as 'd-XXXXXXXXXX'.
+-- | The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
 ddAlias :: Lens' DirectoryDescription (Maybe Text)
 ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
 
@@ -452,7 +457,7 @@ ddName = lens _ddName (\ s a -> s{_ddName = a});
 ddStageLastUpdatedDateTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddStageLastUpdatedDateTime = lens _ddStageLastUpdatedDateTime (\ s a -> s{_ddStageLastUpdatedDateTime = a}) . mapping _Time;
 
--- | Indicates if single-sign on is enabled for the directory. For more information, see < EnableSso> and < DisableSso>.
+-- | Indicates if single-sign on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
 ddSSOEnabled :: Lens' DirectoryDescription (Maybe Bool)
 ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 
@@ -460,7 +465,7 @@ ddSSOEnabled = lens _ddSSOEnabled (\ s a -> s{_ddSSOEnabled = a});
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
 ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default . _Coerce;
 
--- | A < DirectoryVpcSettingsDescription> object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
+-- | A 'DirectoryVpcSettingsDescription' object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
 ddVPCSettings :: Lens' DirectoryDescription (Maybe DirectoryVPCSettingsDescription)
 ddVPCSettings = lens _ddVPCSettings (\ s a -> s{_ddVPCSettings = a});
 
@@ -472,7 +477,7 @@ ddType = lens _ddType (\ s a -> s{_ddType = a});
 ddStageReason :: Lens' DirectoryDescription (Maybe Text)
 ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
 
--- | A < DirectoryConnectSettingsDescription> object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
+-- | A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
 ddConnectSettings :: Lens' DirectoryDescription (Maybe DirectoryConnectSettingsDescription)
 ddConnectSettings = lens _ddConnectSettings (\ s a -> s{_ddConnectSettings = a});
 
@@ -509,6 +514,8 @@ instance NFData DirectoryDescription
 
 -- | Contains directory limit information for a region.
 --
+--
+--
 -- /See:/ 'directoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
@@ -526,23 +533,23 @@ data DirectoryLimits = DirectoryLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlConnectedDirectoriesCurrentCount'
+-- * 'dlConnectedDirectoriesCurrentCount' - The current number of connected directories in the region.
 --
--- * 'dlCloudOnlyMicrosoftADLimitReached'
+-- * 'dlCloudOnlyMicrosoftADLimitReached' - Indicates if the Microsoft AD directory limit has been reached.
 --
--- * 'dlConnectedDirectoriesLimit'
+-- * 'dlConnectedDirectoriesLimit' - The maximum number of connected directories allowed in the region.
 --
--- * 'dlConnectedDirectoriesLimitReached'
+-- * 'dlConnectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.
 --
--- * 'dlCloudOnlyMicrosoftADLimit'
+-- * 'dlCloudOnlyMicrosoftADLimit' - The maximum number of Microsoft AD directories allowed in the region.
 --
--- * 'dlCloudOnlyDirectoriesLimit'
+-- * 'dlCloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the region.
 --
--- * 'dlCloudOnlyDirectoriesCurrentCount'
+-- * 'dlCloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the region.
 --
--- * 'dlCloudOnlyDirectoriesLimitReached'
+-- * 'dlCloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
 --
--- * 'dlCloudOnlyMicrosoftADCurrentCount'
+-- * 'dlCloudOnlyMicrosoftADCurrentCount' - The current number of Microsoft AD directories in the region.
 directoryLimits
     :: DirectoryLimits
 directoryLimits =
@@ -613,7 +620,9 @@ instance Hashable DirectoryLimits
 
 instance NFData DirectoryLimits
 
--- | Contains VPC information for the < CreateDirectory> or < CreateMicrosoftAD> operation.
+-- | Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
+--
+--
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
@@ -625,9 +634,9 @@ data DirectoryVPCSettings = DirectoryVPCSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvsVPCId'
+-- * 'dvsVPCId' - The identifier of the VPC in which to create the directory.
 --
--- * 'dvsSubnetIds'
+-- * 'dvsSubnetIds' - The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service creates a directory server and a DNS server in each of these subnets.
 directoryVPCSettings
     :: Text -- ^ 'dvsVPCId'
     -> DirectoryVPCSettings
@@ -658,6 +667,8 @@ instance ToJSON DirectoryVPCSettings where
 
 -- | Contains information about the directory.
 --
+--
+--
 -- /See:/ 'directoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
     { _dvsdSubnetIds         :: !(Maybe [Text])
@@ -670,13 +681,13 @@ data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvsdSubnetIds'
+-- * 'dvsdSubnetIds' - The identifiers of the subnets for the directory servers.
 --
--- * 'dvsdVPCId'
+-- * 'dvsdVPCId' - The identifier of the VPC that the directory is in.
 --
--- * 'dvsdSecurityGroupId'
+-- * 'dvsdSecurityGroupId' - The security group identifier for the directory. If the directory was created before 8/1/2014, this is the identifier of the directory members security group that was created when the directory was created. If the directory was created after this date, this value is null.
 --
--- * 'dvsdAvailabilityZones'
+-- * 'dvsdAvailabilityZones' - The list of Availability Zones that the directory is in.
 directoryVPCSettingsDescription
     :: DirectoryVPCSettingsDescription
 directoryVPCSettingsDescription =
@@ -695,7 +706,7 @@ dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default 
 dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdVPCId = lens _dvsdVPCId (\ s a -> s{_dvsdVPCId = a});
 
--- | The security group identifier for the directory. If the directory was created before 8\/1\/2014, this is the identifier of the directory members security group that was created when the directory was created. If the directory was created after this date, this value is null.
+-- | The security group identifier for the directory. If the directory was created before 8/1/2014, this is the identifier of the directory members security group that was created when the directory was created. If the directory was created after this date, this value is null.
 dvsdSecurityGroupId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
 dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\ s a -> s{_dvsdSecurityGroupId = a});
 
@@ -719,6 +730,8 @@ instance NFData DirectoryVPCSettingsDescription
 
 -- | Information about SNS topic and AWS Directory Service directory associations.
 --
+--
+--
 -- /See:/ 'eventTopic' smart constructor.
 data EventTopic = EventTopic'
     { _etStatus          :: !(Maybe TopicStatus)
@@ -732,15 +745,15 @@ data EventTopic = EventTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etStatus'
+-- * 'etStatus' - The topic registration status.
 --
--- * 'etDirectoryId'
+-- * 'etDirectoryId' - The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.
 --
--- * 'etTopicName'
+-- * 'etTopicName' - The name of an AWS SNS topic the receives status messages from the directory.
 --
--- * 'etTopicARN'
+-- * 'etTopicARN' - The SNS topic ARN (Amazon Resource Name).
 --
--- * 'etCreatedDateTime'
+-- * 'etCreatedDateTime' - The date and time of when you associated your directory with the SNS topic.
 eventTopic
     :: EventTopic
 eventTopic =
@@ -788,6 +801,8 @@ instance NFData EventTopic
 
 -- | IP address block. This is often the address block of the DNS server used for your on-premises domain.
 --
+--
+--
 -- /See:/ 'ipRoute' smart constructor.
 data IPRoute = IPRoute'
     { _irCIdRIP      :: !(Maybe Text)
@@ -798,9 +813,9 @@ data IPRoute = IPRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irCIdRIP'
+-- * 'irCIdRIP' - IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
 --
--- * 'irDescription'
+-- * 'irDescription' - Description of the address block.
 ipRoute
     :: IPRoute
 ipRoute =
@@ -809,7 +824,7 @@ ipRoute =
     , _irDescription = Nothing
     }
 
--- | IP address block using CIDR format, for example 10.0.0.0\/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with \/32. For example 10.0.0.0\/32.
+-- | IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
 irCIdRIP :: Lens' IPRoute (Maybe Text)
 irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
@@ -830,6 +845,8 @@ instance ToJSON IPRoute where
 
 -- | Information about one or more IP address blocks.
 --
+--
+--
 -- /See:/ 'ipRouteInfo' smart constructor.
 data IPRouteInfo = IPRouteInfo'
     { _iriDirectoryId         :: !(Maybe Text)
@@ -844,17 +861,17 @@ data IPRouteInfo = IPRouteInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iriDirectoryId'
+-- * 'iriDirectoryId' - Identifier (ID) of the directory associated with the IP addresses.
 --
--- * 'iriIPRouteStatusReason'
+-- * 'iriIPRouteStatusReason' - The reason for the IpRouteStatusMsg.
 --
--- * 'iriAddedDateTime'
+-- * 'iriAddedDateTime' - The date and time the address block was added to the directory.
 --
--- * 'iriCIdRIP'
+-- * 'iriCIdRIP' - IP address block in the 'IpRoute' .
 --
--- * 'iriIPRouteStatusMsg'
+-- * 'iriIPRouteStatusMsg' - The status of the IP address block.
 --
--- * 'iriDescription'
+-- * 'iriDescription' - Description of the 'IpRouteInfo' .
 ipRouteInfo
     :: IPRouteInfo
 ipRouteInfo =
@@ -879,7 +896,7 @@ iriIPRouteStatusReason = lens _iriIPRouteStatusReason (\ s a -> s{_iriIPRouteSta
 iriAddedDateTime :: Lens' IPRouteInfo (Maybe UTCTime)
 iriAddedDateTime = lens _iriAddedDateTime (\ s a -> s{_iriAddedDateTime = a}) . mapping _Time;
 
--- | IP address block in the < IpRoute>.
+-- | IP address block in the 'IpRoute' .
 iriCIdRIP :: Lens' IPRouteInfo (Maybe Text)
 iriCIdRIP = lens _iriCIdRIP (\ s a -> s{_iriCIdRIP = a});
 
@@ -887,7 +904,7 @@ iriCIdRIP = lens _iriCIdRIP (\ s a -> s{_iriCIdRIP = a});
 iriIPRouteStatusMsg :: Lens' IPRouteInfo (Maybe IPRouteStatusMsg)
 iriIPRouteStatusMsg = lens _iriIPRouteStatusMsg (\ s a -> s{_iriIPRouteStatusMsg = a});
 
--- | Description of the < IpRouteInfo>.
+-- | Description of the 'IpRouteInfo' .
 iriDescription :: Lens' IPRouteInfo (Maybe Text)
 iriDescription = lens _iriDescription (\ s a -> s{_iriDescription = a});
 
@@ -909,6 +926,8 @@ instance NFData IPRouteInfo
 
 -- | Contains information about a Remote Authentication Dial In User Service (RADIUS) server.
 --
+--
+--
 -- /See:/ 'radiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
     { _rsDisplayLabel           :: !(Maybe Text)
@@ -925,21 +944,21 @@ data RadiusSettings = RadiusSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsDisplayLabel'
+-- * 'rsDisplayLabel' - Not currently used.
 --
--- * 'rsRadiusRetries'
+-- * 'rsRadiusRetries' - The maximum number of times that communication with the RADIUS server is attempted.
 --
--- * 'rsAuthenticationProtocol'
+-- * 'rsAuthenticationProtocol' - The protocol specified for your RADIUS endpoints.
 --
--- * 'rsRadiusServers'
+-- * 'rsRadiusServers' - An array of strings that contains the IP addresses of the RADIUS server endpoints, or the IP addresses of your RADIUS server load balancer.
 --
--- * 'rsUseSameUsername'
+-- * 'rsUseSameUsername' - Not currently used.
 --
--- * 'rsSharedSecret'
+-- * 'rsSharedSecret' - Not currently used.
 --
--- * 'rsRadiusTimeout'
+-- * 'rsRadiusTimeout' - The amount of time, in seconds, to wait for the RADIUS server to respond.
 --
--- * 'rsRadiusPort'
+-- * 'rsRadiusPort' - The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
 radiusSettings
     :: RadiusSettings
 radiusSettings =
@@ -1019,6 +1038,8 @@ instance ToJSON RadiusSettings where
 
 -- | Describes a directory snapshot.
 --
+--
+--
 -- /See:/ 'snapshot' smart constructor.
 data Snapshot = Snapshot'
     { _sStatus      :: !(Maybe SnapshotStatus)
@@ -1033,17 +1054,17 @@ data Snapshot = Snapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus'
+-- * 'sStatus' - The snapshot status.
 --
--- * 'sDirectoryId'
+-- * 'sDirectoryId' - The directory identifier.
 --
--- * 'sStartTime'
+-- * 'sStartTime' - The date and time that the snapshot was taken.
 --
--- * 'sName'
+-- * 'sName' - The descriptive name of the snapshot.
 --
--- * 'sType'
+-- * 'sType' - The snapshot type.
 --
--- * 'sSnapshotId'
+-- * 'sSnapshotId' - The snapshot identifier.
 snapshot
     :: Snapshot
 snapshot =
@@ -1097,6 +1118,8 @@ instance NFData Snapshot
 
 -- | Contains manual snapshot limit information for a directory.
 --
+--
+--
 -- /See:/ 'snapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
     { _slManualSnapshotsLimitReached :: !(Maybe Bool)
@@ -1108,11 +1131,11 @@ data SnapshotLimits = SnapshotLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slManualSnapshotsLimitReached'
+-- * 'slManualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
 --
--- * 'slManualSnapshotsCurrentCount'
+-- * 'slManualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
 --
--- * 'slManualSnapshotsLimit'
+-- * 'slManualSnapshotsLimit' - The maximum number of manual snapshots allowed.
 snapshotLimits
     :: SnapshotLimits
 snapshotLimits =
@@ -1149,6 +1172,8 @@ instance NFData SnapshotLimits
 
 -- | Metadata assigned to an Amazon Directory Services directory consisting of a key-value pair.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -1159,9 +1184,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 --
--- * 'tagValue'
+-- * 'tagValue' - The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -1172,11 +1197,11 @@ tag pKey_ pValue_ =
     , _tagValue = pValue_
     }
 
--- | Required name of the tag. The string value can be Unicode characters and cannot be prefixed with \"aws:\". The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+-- | Required name of the tag. The string value can be Unicode characters and cannot be prefixed with "aws:". The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
--- | The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+-- | The optional value of the tag. The string value can be Unicode characters. The string can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
@@ -1198,6 +1223,8 @@ instance ToJSON Tag where
 
 -- | Describes a trust relationship between an Microsoft AD in the AWS cloud and an external domain.
 --
+--
+--
 -- /See:/ 'trust' smart constructor.
 data Trust = Trust'
     { _tDirectoryId              :: !(Maybe Text)
@@ -1216,25 +1243,25 @@ data Trust = Trust'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tDirectoryId'
+-- * 'tDirectoryId' - The Directory ID of the AWS directory involved in the trust relationship.
 --
--- * 'tTrustState'
+-- * 'tTrustState' - The trust relationship state.
 --
--- * 'tLastUpdatedDateTime'
+-- * 'tLastUpdatedDateTime' - The date and time that the trust relationship was last updated.
 --
--- * 'tTrustDirection'
+-- * 'tTrustDirection' - The trust relationship direction.
 --
--- * 'tStateLastUpdatedDateTime'
+-- * 'tStateLastUpdatedDateTime' - The date and time that the TrustState was last updated.
 --
--- * 'tTrustType'
+-- * 'tTrustType' - The trust relationship type.
 --
--- * 'tTrustStateReason'
+-- * 'tTrustStateReason' - The reason for the TrustState.
 --
--- * 'tRemoteDomainName'
+-- * 'tRemoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust relationship.
 --
--- * 'tTrustId'
+-- * 'tTrustId' - The unique ID of the trust relationship.
 --
--- * 'tCreatedDateTime'
+-- * 'tCreatedDateTime' - The date and time that the trust relationship was created.
 trust
     :: Trust
 trust =

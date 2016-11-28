@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists iSCSI initiators that are connected to a volume. You can use this operation to determine whether a volume is being used or not.
+--
+--
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | ListVolumeInitiatorsInput
 --
+--
+--
 -- /See:/ 'listVolumeInitiators' smart constructor.
 newtype ListVolumeInitiators = ListVolumeInitiators'
     { _lviVolumeARN :: Text
@@ -53,7 +57,7 @@ newtype ListVolumeInitiators = ListVolumeInitiators'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lviVolumeARN'
+-- * 'lviVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
 listVolumeInitiators
     :: Text -- ^ 'lviVolumeARN'
     -> ListVolumeInitiators
@@ -62,7 +66,7 @@ listVolumeInitiators pVolumeARN_ =
     { _lviVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes for the gateway.
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes for the gateway.
 lviVolumeARN :: Lens' ListVolumeInitiators Text
 lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
 
@@ -104,6 +108,8 @@ instance ToQuery ListVolumeInitiators where
 
 -- | ListVolumeInitiatorsOutput
 --
+--
+--
 -- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
     { _lvirsInitiators     :: !(Maybe [Text])
@@ -114,9 +120,9 @@ data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvirsInitiators'
+-- * 'lvirsInitiators' - The host names and port numbers of all iSCSI initiators that are connected to the gateway.
 --
--- * 'lvirsResponseStatus'
+-- * 'lvirsResponseStatus' - -- | The response status code.
 listVolumeInitiatorsResponse
     :: Int -- ^ 'lvirsResponseStatus'
     -> ListVolumeInitiatorsResponse
@@ -130,7 +136,7 @@ listVolumeInitiatorsResponse pResponseStatus_ =
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lvirsResponseStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsResponseStatus = lens _lvirsResponseStatus (\ s a -> s{_lvirsResponseStatus = a});
 

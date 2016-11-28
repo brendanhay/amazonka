@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes image repositories in a registry.
+--
+--
 module Network.AWS.ECR.DescribeRepositories
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data DescribeRepositories = DescribeRepositories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRegistryId'
+-- * 'drRegistryId' - The AWS account ID associated with the registry that contains the repositories to be described. If you do not specify a registry, the default registry is assumed.
 --
--- * 'drRepositoryNames'
+-- * 'drRepositoryNames' - A list of repositories to describe. If this parameter is omitted, then all repositories in a registry are described.
 --
--- * 'drNextToken'
+-- * 'drNextToken' - The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'drMaxResults'
+-- * 'drMaxResults' - The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable.
 describeRepositories
     :: DescribeRepositories
 describeRepositories =
@@ -83,13 +85,11 @@ drRegistryId = lens _drRegistryId (\ s a -> s{_drRegistryId = a});
 drRepositoryNames :: Lens' DescribeRepositories (Maybe (NonEmpty Text))
 drRepositoryNames = lens _drRepositoryNames (\ s a -> s{_drRepositoryNames = a}) . mapping _List1;
 
--- | The 'nextToken' value returned from a previous paginated 'DescribeRepositories' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
---
--- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
+-- | The @nextToken@ value returned from a previous paginated @DescribeRepositories@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 drNextToken :: Lens' DescribeRepositories (Maybe Text)
 drNextToken = lens _drNextToken (\ s a -> s{_drNextToken = a});
 
--- | The maximum number of repository results returned by 'DescribeRepositories' in paginated output. When this parameter is used, 'DescribeRepositories' only returns 'maxResults' results in a single page along with a 'nextToken' response element. The remaining results of the initial request can be seen by sending another 'DescribeRepositories' request with the returned 'nextToken' value. This value can be between 1 and 100. If this parameter is not used, then 'DescribeRepositories' returns up to 100 results and a 'nextToken' value, if applicable.
+-- | The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable.
 drMaxResults :: Lens' DescribeRepositories (Maybe Natural)
 drMaxResults = lens _drMaxResults (\ s a -> s{_drMaxResults = a}) . mapping _Nat;
 
@@ -145,11 +145,11 @@ data DescribeRepositoriesResponse = DescribeRepositoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsRepositories'
+-- * 'drrsRepositories' - A list of repository objects corresponding to valid repositories.
 --
--- * 'drrsNextToken'
+-- * 'drrsNextToken' - The @nextToken@ value to include in a future @DescribeRepositories@ request. When the results of a @DescribeRepositories@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 describeRepositoriesResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRepositoriesResponse
@@ -164,11 +164,11 @@ describeRepositoriesResponse pResponseStatus_ =
 drrsRepositories :: Lens' DescribeRepositoriesResponse [Repository]
 drrsRepositories = lens _drrsRepositories (\ s a -> s{_drrsRepositories = a}) . _Default . _Coerce;
 
--- | The 'nextToken' value to include in a future 'DescribeRepositories' request. When the results of a 'DescribeRepositories' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The @nextToken@ value to include in a future @DescribeRepositories@ request. When the results of a @DescribeRepositories@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drrsNextToken :: Lens' DescribeRepositoriesResponse (Maybe Text)
 drrsNextToken = lens _drrsNextToken (\ s a -> s{_drrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRepositoriesResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

@@ -18,15 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for 'SupportedLoginProviders' are as follows:
+-- Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for @SupportedLoginProviders@ are as follows:     * Facebook: @graph.facebook.com@     * Google: @accounts.google.com@     * Amazon: @www.amazon.com@     * Twitter: @api.twitter.com@     * Digits: @www.digits.com@
 --
--- -   Facebook: 'graph.facebook.com'
--- -   Google: 'accounts.google.com'
--- -   Amazon: 'www.amazon.com'
--- -   Twitter: 'api.twitter.com'
--- -   Digits: 'www.digits.com'
 --
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
     -- * Creating a Request
@@ -64,6 +60,8 @@ import           Network.AWS.Response
 
 -- | Input to the CreateIdentityPool action.
 --
+--
+--
 -- /See:/ 'createIdentityPool' smart constructor.
 data CreateIdentityPool = CreateIdentityPool'
     { _cipSamlProviderARNs               :: !(Maybe [Text])
@@ -79,19 +77,19 @@ data CreateIdentityPool = CreateIdentityPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipSamlProviderARNs'
+-- * 'cipSamlProviderARNs' - An array of Amazon Resource Names (ARNs) of the SAML provider for your identity pool.
 --
--- * 'cipSupportedLoginProviders'
+-- * 'cipSupportedLoginProviders' - Optional key:value pairs mapping provider names to provider app IDs.
 --
--- * 'cipDeveloperProviderName'
+-- * 'cipDeveloperProviderName' - The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (@.@ ), underscore (@_@ ), and dash (@-@ ). Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
 --
--- * 'cipOpenIdConnectProviderARNs'
+-- * 'cipOpenIdConnectProviderARNs' - A list of OpendID Connect provider ARNs.
 --
--- * 'cipCognitoIdentityProviders'
+-- * 'cipCognitoIdentityProviders' - An array of Amazon Cognito Identity user pools.
 --
--- * 'cipIdentityPoolName'
+-- * 'cipIdentityPoolName' - A string that you provide.
 --
--- * 'cipAllowUnauthenticatedIdentities'
+-- * 'cipAllowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
 createIdentityPool
     :: Text -- ^ 'cipIdentityPoolName'
     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
@@ -115,9 +113,7 @@ cipSamlProviderARNs = lens _cipSamlProviderARNs (\ s a -> s{_cipSamlProviderARNs
 cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
 
--- | The \"domain\" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the 'DeveloperProviderName', you can use letters as well as period ('.'), underscore ('_'), and dash ('-').
---
--- Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
+-- | The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. For the @DeveloperProviderName@ , you can use letters as well as period (@.@ ), underscore (@_@ ), and dash (@-@ ). Once you have set a developer provider name, you cannot change it. Please take care in setting this parameter.
 cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a});
 

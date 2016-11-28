@@ -18,23 +18,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the results of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
+-- Returns the results of the Trusted Advisor check that has the specified check ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks' .
 --
--- The response contains a < TrustedAdvisorCheckResult> object, which contains these three objects:
 --
--- -   < TrustedAdvisorCategorySpecificSummary>
+-- The response contains a 'TrustedAdvisorCheckResult' object, which contains these three objects:
 --
--- -   < TrustedAdvisorResourceDetail>
+--     * 'TrustedAdvisorCategorySpecificSummary'
 --
--- -   < TrustedAdvisorResourcesSummary>
+--     * 'TrustedAdvisorResourceDetail'
+--
+--     * 'TrustedAdvisorResourcesSummary'
+--
+--
 --
 -- In addition, the response contains these fields:
 --
--- -   __status.__ The alert status of the check: \"ok\" (green), \"warning\" (yellow), \"error\" (red), or \"not_available\".
+--     * __status.__ The alert status of the check: "ok" (green), "warning" (yellow), "error" (red), or "not_available".
 --
--- -   __timestamp.__ The time of the last refresh of the check.
+--     * __timestamp.__ The time of the last refresh of the check.
 --
--- -   __checkId.__ The unique identifier for the check.
+--     * __checkId.__ The unique identifier for the check.
+--
+--
 --
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
@@ -62,6 +67,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
     { _dtacrLanguage :: !(Maybe Text)
@@ -72,9 +79,9 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrLanguage'
+-- * 'dtacrLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
--- * 'dtacrCheckId'
+-- * 'dtacrCheckId' - The unique identifier for the Trusted Advisor check.
 describeTrustedAdvisorCheckResult
     :: Text -- ^ 'dtacrCheckId'
     -> DescribeTrustedAdvisorCheckResult
@@ -84,7 +91,7 @@ describeTrustedAdvisorCheckResult pCheckId_ =
     , _dtacrCheckId = pCheckId_
     }
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
 dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
 
@@ -134,7 +141,9 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
          where
         toQuery = const mempty
 
--- | The result of the Trusted Advisor check returned by the < DescribeTrustedAdvisorCheckResult> operation.
+-- | The result of the Trusted Advisor check returned by the 'DescribeTrustedAdvisorCheckResult' operation.
+--
+--
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
@@ -146,9 +155,9 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrrsResult'
+-- * 'dtacrrsResult' - The detailed results of the Trusted Advisor check.
 --
--- * 'dtacrrsResponseStatus'
+-- * 'dtacrrsResponseStatus' - -- | The response status code.
 describeTrustedAdvisorCheckResultResponse
     :: Int -- ^ 'dtacrrsResponseStatus'
     -> DescribeTrustedAdvisorCheckResultResponse
@@ -162,7 +171,7 @@ describeTrustedAdvisorCheckResultResponse pResponseStatus_ =
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtacrrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
 dtacrrsResponseStatus = lens _dtacrrsResponseStatus (\ s a -> s{_dtacrrsResponseStatus = a});
 

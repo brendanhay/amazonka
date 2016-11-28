@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Describes a quota for an AWS account, for example, the number of replication instances allowed.
 --
+--
+--
 -- /See:/ 'accountQuota' smart constructor.
 data AccountQuota = AccountQuota'
     { _aqMax              :: !(Maybe Integer)
@@ -34,11 +36,11 @@ data AccountQuota = AccountQuota'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aqMax'
+-- * 'aqMax' - The maximum allowed value for the quota.
 --
--- * 'aqUsed'
+-- * 'aqUsed' - The amount currently used toward the quota maximum.
 --
--- * 'aqAccountQuotaName'
+-- * 'aqAccountQuotaName' - The name of the AWS DMS quota for this AWS account.
 accountQuota
     :: AccountQuota
 accountQuota =
@@ -74,6 +76,8 @@ instance NFData AccountQuota
 
 -- |
 --
+--
+--
 -- /See:/ 'availabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
@@ -83,7 +87,7 @@ newtype AvailabilityZone = AvailabilityZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'azName'
+-- * 'azName' - The name of the availability zone.
 availabilityZone
     :: AvailabilityZone
 availabilityZone =
@@ -106,6 +110,8 @@ instance NFData AvailabilityZone
 
 -- | The SSL certificate that can be used to encrypt connections between the endpoints and the replication instance.
 --
+--
+--
 -- /See:/ 'certificate' smart constructor.
 data Certificate = Certificate'
     { _cCertificateOwner        :: !(Maybe Text)
@@ -123,23 +129,23 @@ data Certificate = Certificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCertificateOwner'
+-- * 'cCertificateOwner' - The owner of the certificate.
 --
--- * 'cSigningAlgorithm'
+-- * 'cSigningAlgorithm' - The signing algorithm for the certificate.
 --
--- * 'cValidFromDate'
+-- * 'cValidFromDate' - The beginning date the certificate is valid.
 --
--- * 'cCertificatePem'
+-- * 'cCertificatePem' - The contents of the .pem X.509 certificate file.
 --
--- * 'cCertificateARN'
+-- * 'cCertificateARN' - The Amazon Resource Name (ARN) for the certificate.
 --
--- * 'cCertificateCreationDate'
+-- * 'cCertificateCreationDate' - the date the certificate was created.
 --
--- * 'cCertificateIdentifier'
+-- * 'cCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
 --
--- * 'cKeyLength'
+-- * 'cKeyLength' - The key length of the cryptographic algorithm being used.
 --
--- * 'cValidToDate'
+-- * 'cValidToDate' - the final date the certificate is valid.
 certificate
     :: Certificate
 certificate =
@@ -212,6 +218,8 @@ instance NFData Certificate
 
 -- |
 --
+--
+--
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
     { _cStatus                        :: !(Maybe Text)
@@ -226,17 +234,17 @@ data Connection = Connection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cStatus'
+-- * 'cStatus' - The connection status.
 --
--- * 'cReplicationInstanceARN'
+-- * 'cReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'cEndpointIdentifier'
+-- * 'cEndpointIdentifier' - The identifier of the endpoint. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 --
--- * 'cReplicationInstanceIdentifier'
+-- * 'cReplicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string.
 --
--- * 'cEndpointARN'
+-- * 'cEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'cLastFailureMessage'
+-- * 'cLastFailureMessage' - The error message when the connection last failed.
 connection
     :: Connection
 connection =
@@ -290,6 +298,8 @@ instance NFData Connection
 
 -- |
 --
+--
+--
 -- /See:/ 'endpoint' smart constructor.
 data Endpoint = Endpoint'
     { _eStatus                    :: !(Maybe Text)
@@ -311,31 +321,31 @@ data Endpoint = Endpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eStatus'
+-- * 'eStatus' - The status of the endpoint.
 --
--- * 'eServerName'
+-- * 'eServerName' - The name of the server at the endpoint.
 --
--- * 'eCertificateARN'
+-- * 'eCertificateARN' - The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
 --
--- * 'eExtraConnectionAttributes'
+-- * 'eExtraConnectionAttributes' - Additional connection attributes used to connect to the endpoint.
 --
--- * 'eEndpointType'
+-- * 'eEndpointType' - The type of endpoint.
 --
--- * 'eUsername'
+-- * 'eUsername' - The user name used to connect to the endpoint.
 --
--- * 'eEngineName'
+-- * 'eEngineName' - The database engine name.
 --
--- * 'eKMSKeyId'
+-- * 'eKMSKeyId' - The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
--- * 'eSSLMode'
+-- * 'eSSLMode' - The SSL mode used to connect to the endpoint. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
--- * 'eDatabaseName'
+-- * 'eDatabaseName' - The name of the database at the endpoint.
 --
--- * 'eEndpointIdentifier'
+-- * 'eEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 --
--- * 'eEndpointARN'
+-- * 'eEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'ePort'
+-- * 'ePort' - The port value used to access the endpoint.
 endpoint
     :: Endpoint
 endpoint =
@@ -387,11 +397,7 @@ eEngineName = lens _eEngineName (\ s a -> s{_eEngineName = a});
 eKMSKeyId :: Lens' Endpoint (Maybe Text)
 eKMSKeyId = lens _eKMSKeyId (\ s a -> s{_eKMSKeyId = a});
 
--- | The SSL mode used to connect to the endpoint.
---
--- SSL mode can be one of four values: none, require, verify-ca, verify-full.
---
--- The default value is none.
+-- | The SSL mode used to connect to the endpoint. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 eSSLMode :: Lens' Endpoint (Maybe DmsSSLModeValue)
 eSSLMode = lens _eSSLMode (\ s a -> s{_eSSLMode = a});
 
@@ -435,6 +441,8 @@ instance NFData Endpoint
 
 -- |
 --
+--
+--
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
     { _fName   :: !Text
@@ -445,9 +453,9 @@ data Filter = Filter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fName'
+-- * 'fName' - The name of the filter.
 --
--- * 'fValues'
+-- * 'fValues' - The filter value.
 filter'
     :: Text -- ^ 'fName'
     -> Filter
@@ -478,6 +486,8 @@ instance ToJSON Filter where
 
 -- |
 --
+--
+--
 -- /See:/ 'orderableReplicationInstance' smart constructor.
 data OrderableReplicationInstance = OrderableReplicationInstance'
     { _oriEngineVersion            :: !(Maybe Text)
@@ -493,19 +503,19 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oriEngineVersion'
+-- * 'oriEngineVersion' - The version of the replication engine.
 --
--- * 'oriMinAllocatedStorage'
+-- * 'oriMinAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 --
--- * 'oriIncludedAllocatedStorage'
+-- * 'oriIncludedAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 --
--- * 'oriMaxAllocatedStorage'
+-- * 'oriMaxAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 --
--- * 'oriReplicationInstanceClass'
+-- * 'oriReplicationInstanceClass' - The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 --
--- * 'oriDefaultAllocatedStorage'
+-- * 'oriDefaultAllocatedStorage' - The default amount of storage (in gigabytes) that is allocated for the replication instance.
 --
--- * 'oriStorageType'
+-- * 'oriStorageType' - The type of storage used by the replication instance.
 orderableReplicationInstance
     :: OrderableReplicationInstance
 orderableReplicationInstance =
@@ -535,9 +545,7 @@ oriIncludedAllocatedStorage = lens _oriIncludedAllocatedStorage (\ s a -> s{_ori
 oriMaxAllocatedStorage :: Lens' OrderableReplicationInstance (Maybe Int)
 oriMaxAllocatedStorage = lens _oriMaxAllocatedStorage (\ s a -> s{_oriMaxAllocatedStorage = a});
 
--- | The compute and memory capacity of the replication instance.
---
--- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- | The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 oriReplicationInstanceClass :: Lens' OrderableReplicationInstance (Maybe Text)
 oriReplicationInstanceClass = lens _oriReplicationInstanceClass (\ s a -> s{_oriReplicationInstanceClass = a});
 
@@ -568,6 +576,8 @@ instance NFData OrderableReplicationInstance
 
 -- |
 --
+--
+--
 -- /See:/ 'refreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
     { _rssStatus                 :: !(Maybe RefreshSchemasStatusTypeValue)
@@ -581,15 +591,15 @@ data RefreshSchemasStatus = RefreshSchemasStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rssStatus'
+-- * 'rssStatus' - The status of the schema.
 --
--- * 'rssLastRefreshDate'
+-- * 'rssLastRefreshDate' - The date the schema was last refreshed.
 --
--- * 'rssReplicationInstanceARN'
+-- * 'rssReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'rssEndpointARN'
+-- * 'rssEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rssLastFailureMessage'
+-- * 'rssLastFailureMessage' - The last failure message for the schema.
 refreshSchemasStatus
     :: RefreshSchemasStatus
 refreshSchemasStatus =
@@ -637,6 +647,8 @@ instance NFData RefreshSchemasStatus
 
 -- |
 --
+--
+--
 -- /See:/ 'replicationInstance' smart constructor.
 data ReplicationInstance = ReplicationInstance'
     { _riEngineVersion                         :: !(Maybe Text)
@@ -665,45 +677,45 @@ data ReplicationInstance = ReplicationInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riEngineVersion'
+-- * 'riEngineVersion' - The engine version number of the replication instance.
 --
--- * 'riPubliclyAccessible'
+-- * 'riPubliclyAccessible' - Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
 --
--- * 'riAutoMinorVersionUpgrade'
+-- * 'riAutoMinorVersionUpgrade' - Boolean value indicating if minor version upgrades will be automatically applied to the instance.
 --
--- * 'riReplicationInstancePublicIPAddresses'
+-- * 'riReplicationInstancePublicIPAddresses' - The public IP address of the replication instance.
 --
--- * 'riReplicationSubnetGroup'
+-- * 'riReplicationSubnetGroup' - The subnet group for the replication instance.
 --
--- * 'riInstanceCreateTime'
+-- * 'riInstanceCreateTime' - The time the replication instance was created.
 --
--- * 'riReplicationInstanceStatus'
+-- * 'riReplicationInstanceStatus' - The status of the replication instance.
 --
--- * 'riReplicationInstancePrivateIPAddresses'
+-- * 'riReplicationInstancePrivateIPAddresses' - The private IP address of the replication instance.
 --
--- * 'riPreferredMaintenanceWindow'
+-- * 'riPreferredMaintenanceWindow' - The maintenance window times for the replication instance.
 --
--- * 'riReplicationInstancePrivateIPAddress'
+-- * 'riReplicationInstancePrivateIPAddress' - The private IP address of the replication instance.
 --
--- * 'riKMSKeyId'
+-- * 'riKMSKeyId' - The KMS key identifier that is used to encrypt the content on the replication instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
--- * 'riAvailabilityZone'
+-- * 'riAvailabilityZone' - The Availability Zone for the instance.
 --
--- * 'riVPCSecurityGroups'
+-- * 'riVPCSecurityGroups' - The VPC security group for the instance.
 --
--- * 'riMultiAZ'
+-- * 'riMultiAZ' - Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 --
--- * 'riReplicationInstanceARN'
+-- * 'riReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'riAllocatedStorage'
+-- * 'riAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 --
--- * 'riReplicationInstancePublicIPAddress'
+-- * 'riReplicationInstancePublicIPAddress' - The public IP address of the replication instance.
 --
--- * 'riReplicationInstanceClass'
+-- * 'riReplicationInstanceClass' - The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 --
--- * 'riReplicationInstanceIdentifier'
+-- * 'riReplicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
 --
--- * 'riPendingModifiedValues'
+-- * 'riPendingModifiedValues' - The pending modification values.
 replicationInstance
     :: ReplicationInstance
 replicationInstance =
@@ -734,7 +746,7 @@ replicationInstance =
 riEngineVersion :: Lens' ReplicationInstance (Maybe Text)
 riEngineVersion = lens _riEngineVersion (\ s a -> s{_riEngineVersion = a});
 
--- | Specifies the accessibility options for the replication instance. A value of 'true' represents an instance with a public IP address. A value of 'false' represents an instance with a private IP address. The default value is 'true'.
+-- | Specifies the accessibility options for the replication instance. A value of @true@ represents an instance with a public IP address. A value of @false@ represents an instance with a private IP address. The default value is @true@ .
 riPubliclyAccessible :: Lens' ReplicationInstance (Maybe Bool)
 riPubliclyAccessible = lens _riPubliclyAccessible (\ s a -> s{_riPubliclyAccessible = a});
 
@@ -782,7 +794,7 @@ riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = 
 riVPCSecurityGroups :: Lens' ReplicationInstance [VPCSecurityGroupMembership]
 riVPCSecurityGroups = lens _riVPCSecurityGroups (\ s a -> s{_riVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 riMultiAZ :: Lens' ReplicationInstance (Maybe Bool)
 riMultiAZ = lens _riMultiAZ (\ s a -> s{_riMultiAZ = a});
 
@@ -798,23 +810,11 @@ riAllocatedStorage = lens _riAllocatedStorage (\ s a -> s{_riAllocatedStorage = 
 riReplicationInstancePublicIPAddress :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstancePublicIPAddress = lens _riReplicationInstancePublicIPAddress (\ s a -> s{_riReplicationInstancePublicIPAddress = a});
 
--- | The compute and memory capacity of the replication instance.
---
--- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- | The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 riReplicationInstanceClass :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceClass = lens _riReplicationInstanceClass (\ s a -> s{_riReplicationInstanceClass = a});
 
--- | The replication instance identifier. This parameter is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'myrepinstance'
+-- | The replication instance identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @myrepinstance@
 riReplicationInstanceIdentifier :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceIdentifier = lens _riReplicationInstanceIdentifier (\ s a -> s{_riReplicationInstanceIdentifier = a});
 
@@ -858,6 +858,8 @@ instance NFData ReplicationInstance
 
 -- |
 --
+--
+--
 -- /See:/ 'replicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
     { _rpmvEngineVersion            :: !(Maybe Text)
@@ -870,13 +872,13 @@ data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpmvEngineVersion'
+-- * 'rpmvEngineVersion' - The engine version number of the replication instance.
 --
--- * 'rpmvMultiAZ'
+-- * 'rpmvMultiAZ' - Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 --
--- * 'rpmvAllocatedStorage'
+-- * 'rpmvAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 --
--- * 'rpmvReplicationInstanceClass'
+-- * 'rpmvReplicationInstanceClass' - The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 replicationPendingModifiedValues
     :: ReplicationPendingModifiedValues
 replicationPendingModifiedValues =
@@ -891,7 +893,7 @@ replicationPendingModifiedValues =
 rpmvEngineVersion :: Lens' ReplicationPendingModifiedValues (Maybe Text)
 rpmvEngineVersion = lens _rpmvEngineVersion (\ s a -> s{_rpmvEngineVersion = a});
 
--- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the 'AvailabilityZone' parameter if the Multi-AZ parameter is set to 'true'.
+-- | Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 rpmvMultiAZ :: Lens' ReplicationPendingModifiedValues (Maybe Bool)
 rpmvMultiAZ = lens _rpmvMultiAZ (\ s a -> s{_rpmvMultiAZ = a});
 
@@ -899,9 +901,7 @@ rpmvMultiAZ = lens _rpmvMultiAZ (\ s a -> s{_rpmvMultiAZ = a});
 rpmvAllocatedStorage :: Lens' ReplicationPendingModifiedValues (Maybe Int)
 rpmvAllocatedStorage = lens _rpmvAllocatedStorage (\ s a -> s{_rpmvAllocatedStorage = a});
 
--- | The compute and memory capacity of the replication instance.
---
--- Valid Values: 'dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge '
+-- | The compute and memory capacity of the replication instance. Valid Values: @dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge @
 rpmvReplicationInstanceClass :: Lens' ReplicationPendingModifiedValues (Maybe Text)
 rpmvReplicationInstanceClass = lens _rpmvReplicationInstanceClass (\ s a -> s{_rpmvReplicationInstanceClass = a});
 
@@ -921,6 +921,8 @@ instance NFData ReplicationPendingModifiedValues
 
 -- |
 --
+--
+--
 -- /See:/ 'replicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
     { _rsgVPCId                             :: !(Maybe Text)
@@ -934,15 +936,15 @@ data ReplicationSubnetGroup = ReplicationSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsgVPCId'
+-- * 'rsgVPCId' - The ID of the VPC.
 --
--- * 'rsgSubnets'
+-- * 'rsgSubnets' - The subnets that are in the subnet group.
 --
--- * 'rsgReplicationSubnetGroupIdentifier'
+-- * 'rsgReplicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.
 --
--- * 'rsgSubnetGroupStatus'
+-- * 'rsgSubnetGroupStatus' - The status of the subnet group.
 --
--- * 'rsgReplicationSubnetGroupDescription'
+-- * 'rsgReplicationSubnetGroupDescription' - The description of the replication subnet group.
 replicationSubnetGroup
     :: ReplicationSubnetGroup
 replicationSubnetGroup =
@@ -990,6 +992,8 @@ instance NFData ReplicationSubnetGroup
 
 -- |
 --
+--
+--
 -- /See:/ 'replicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
     { _rtReplicationTaskSettings     :: !(Maybe Text)
@@ -1011,31 +1015,31 @@ data ReplicationTask = ReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtReplicationTaskSettings'
+-- * 'rtReplicationTaskSettings' - The settings for the replication task.
 --
--- * 'rtStatus'
+-- * 'rtStatus' - The status of the replication task.
 --
--- * 'rtTargetEndpointARN'
+-- * 'rtTargetEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rtReplicationTaskIdentifier'
+-- * 'rtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'rtReplicationTaskStartDate'
+-- * 'rtReplicationTaskStartDate' - The date the replication task is scheduled to start.
 --
--- * 'rtSourceEndpointARN'
+-- * 'rtSourceEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rtTableMappings'
+-- * 'rtTableMappings' - Table mappings specified in the task.
 --
--- * 'rtReplicationTaskCreationDate'
+-- * 'rtReplicationTaskCreationDate' - The date the replication task was created.
 --
--- * 'rtMigrationType'
+-- * 'rtMigrationType' - The type of migration.
 --
--- * 'rtReplicationTaskARN'
+-- * 'rtReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 --
--- * 'rtReplicationTaskStats'
+-- * 'rtReplicationTaskStats' - The statistics for the task, including elapsed time, tables loaded, and table errors.
 --
--- * 'rtReplicationInstanceARN'
+-- * 'rtReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'rtLastFailureMessage'
+-- * 'rtLastFailureMessage' - The last error (failure) message generated for the replication instance.
 replicationTask
     :: ReplicationTask
 replicationTask =
@@ -1067,16 +1071,7 @@ rtStatus = lens _rtStatus (\ s a -> s{_rtStatus = a});
 rtTargetEndpointARN :: Lens' ReplicationTask (Maybe Text)
 rtTargetEndpointARN = lens _rtTargetEndpointARN (\ s a -> s{_rtTargetEndpointARN = a});
 
--- | The replication task identifier.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
+-- | The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 rtReplicationTaskIdentifier :: Lens' ReplicationTask (Maybe Text)
 rtReplicationTaskIdentifier = lens _rtReplicationTaskIdentifier (\ s a -> s{_rtReplicationTaskIdentifier = a});
 
@@ -1141,6 +1136,8 @@ instance NFData ReplicationTask
 
 -- |
 --
+--
+--
 -- /See:/ 'replicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
     { _rtsFullLoadProgressPercent :: !(Maybe Int)
@@ -1155,17 +1152,17 @@ data ReplicationTaskStats = ReplicationTaskStats'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtsFullLoadProgressPercent'
+-- * 'rtsFullLoadProgressPercent' - The percent complete for the full load migration task.
 --
--- * 'rtsElapsedTimeMillis'
+-- * 'rtsElapsedTimeMillis' - The elapsed time of the task, in milliseconds.
 --
--- * 'rtsTablesErrored'
+-- * 'rtsTablesErrored' - The number of errors that have occurred during this task.
 --
--- * 'rtsTablesLoaded'
+-- * 'rtsTablesLoaded' - The number of tables loaded for this task.
 --
--- * 'rtsTablesQueued'
+-- * 'rtsTablesQueued' - The number of tables queued for this task.
 --
--- * 'rtsTablesLoading'
+-- * 'rtsTablesLoading' - The number of tables currently loading for this task.
 replicationTaskStats
     :: ReplicationTaskStats
 replicationTaskStats =
@@ -1220,6 +1217,8 @@ instance NFData ReplicationTaskStats
 
 -- |
 --
+--
+--
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
@@ -1231,11 +1230,11 @@ data Subnet = Subnet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSubnetStatus'
+-- * 'sSubnetStatus' - The status of the subnet.
 --
--- * 'sSubnetIdentifier'
+-- * 'sSubnetIdentifier' - The subnet identifier.
 --
--- * 'sSubnetAvailabilityZone'
+-- * 'sSubnetAvailabilityZone' - The Availability Zone of the subnet.
 subnet
     :: Subnet
 subnet =
@@ -1271,6 +1270,8 @@ instance NFData Subnet
 
 -- |
 --
+--
+--
 -- /See:/ 'supportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
     { _setEndpointType :: !(Maybe ReplicationEndpointTypeValue)
@@ -1282,11 +1283,11 @@ data SupportedEndpointType = SupportedEndpointType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'setEndpointType'
+-- * 'setEndpointType' - The type of endpoint.
 --
--- * 'setEngineName'
+-- * 'setEngineName' - The database engine name.
 --
--- * 'setSupportsCDC'
+-- * 'setSupportsCDC' - Indicates if Change Data Capture (CDC) is supported.
 supportedEndpointType
     :: SupportedEndpointType
 supportedEndpointType =
@@ -1322,6 +1323,8 @@ instance NFData SupportedEndpointType
 
 -- |
 --
+--
+--
 -- /See:/ 'tableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
     { _tsFullLoadRows   :: !(Maybe Integer)
@@ -1339,23 +1342,23 @@ data TableStatistics = TableStatistics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tsFullLoadRows'
+-- * 'tsFullLoadRows' - The number of rows added during the Full Load operation.
 --
--- * 'tsInserts'
+-- * 'tsInserts' - The number of insert actions performed on a table.
 --
--- * 'tsSchemaName'
+-- * 'tsSchemaName' - The schema name.
 --
--- * 'tsTableState'
+-- * 'tsTableState' - The state of the table.
 --
--- * 'tsDdls'
+-- * 'tsDdls' - The Data Definition Language (DDL) used to build and modify the structure of your tables.
 --
--- * 'tsDeletes'
+-- * 'tsDeletes' - The number of delete actions performed on a table.
 --
--- * 'tsUpdates'
+-- * 'tsUpdates' - The number of update actions performed on a table.
 --
--- * 'tsLastUpdateTime'
+-- * 'tsLastUpdateTime' - The last time the table was updated.
 --
--- * 'tsTableName'
+-- * 'tsTableName' - The name of the table.
 tableStatistics
     :: TableStatistics
 tableStatistics =
@@ -1427,6 +1430,8 @@ instance NFData TableStatistics
 
 -- |
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -1437,9 +1442,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 --
--- * 'tagKey'
+-- * 'tagKey' - A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tag
     :: Tag
 tag =
@@ -1448,11 +1453,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+-- | A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with \"aws:\" or \"dms:\". The string can only contain only the set of Unicode letters, digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)>\").
+-- | A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and cannot be prefixed with "aws:" or "dms:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -1473,6 +1478,8 @@ instance ToJSON Tag where
 
 -- |
 --
+--
+--
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
     { _vsgmStatus             :: !(Maybe Text)
@@ -1483,9 +1490,9 @@ data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vsgmStatus'
+-- * 'vsgmStatus' - The status of the VPC security group.
 --
--- * 'vsgmVPCSecurityGroupId'
+-- * 'vsgmVPCSecurityGroupId' - The VPC security group Id.
 vpcSecurityGroupMembership
     :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =

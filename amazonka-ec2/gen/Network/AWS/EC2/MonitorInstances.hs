@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Enables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for MonitorInstances.
 --
+--
+--
 -- /See:/ 'monitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
     { _miDryRun      :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data MonitorInstances = MonitorInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'miDryRun'
+-- * 'miDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'miInstanceIds'
+-- * 'miInstanceIds' - One or more instance IDs.
 monitorInstances
     :: MonitorInstances
 monitorInstances =
@@ -66,7 +70,7 @@ monitorInstances =
     , _miInstanceIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 miDryRun :: Lens' MonitorInstances (Maybe Bool)
 miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 
@@ -105,6 +109,8 @@ instance ToQuery MonitorInstances where
 
 -- | Contains the output of MonitorInstances.
 --
+--
+--
 -- /See:/ 'monitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
@@ -115,9 +121,9 @@ data MonitorInstancesResponse = MonitorInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mirsInstanceMonitorings'
+-- * 'mirsInstanceMonitorings' - Monitoring information for one or more instances.
 --
--- * 'mirsResponseStatus'
+-- * 'mirsResponseStatus' - -- | The response status code.
 monitorInstancesResponse
     :: Int -- ^ 'mirsResponseStatus'
     -> MonitorInstancesResponse
@@ -131,7 +137,7 @@ monitorInstancesResponse pResponseStatus_ =
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mirsResponseStatus :: Lens' MonitorInstancesResponse Int
 mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a});
 

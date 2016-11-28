@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a usage plan key of a given key identifier.
+--
+--
 module Network.AWS.APIGateway.GetUsagePlanKey
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The GET request to get a usage plan key of a given key identifier.
 --
+--
+--
 -- /See:/ 'getUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
     { _gUsagePlanId :: !Text
@@ -57,9 +61,9 @@ data GetUsagePlanKey = GetUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gUsagePlanId'
+-- * 'gUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'gKeyId'
+-- * 'gKeyId' - The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 getUsagePlanKey
     :: Text -- ^ 'gUsagePlanId'
     -> Text -- ^ 'gKeyId'
@@ -70,11 +74,11 @@ getUsagePlanKey pUsagePlanId_ pKeyId_ =
     , _gKeyId = pKeyId_
     }
 
--- | The Id of the < UsagePlan> resource representing the usage plan containing the to-be-retrieved < UsagePlanKey> resource representing a plan customer.
+-- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gUsagePlanId :: Lens' GetUsagePlanKey Text
 gUsagePlanId = lens _gUsagePlanId (\ s a -> s{_gUsagePlanId = a});
 
--- | The key Id of the to-be-retrieved < UsagePlanKey> resource representing a plan customer.
+-- | The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gKeyId :: Lens' GetUsagePlanKey Text
 gKeyId = lens _gKeyId (\ s a -> s{_gKeyId = a});
 

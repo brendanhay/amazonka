@@ -20,7 +20,7 @@
 --
 -- Resets an attribute of an AMI to its default value.
 --
--- The productCodes attribute can\'t be reset.
+--
 module Network.AWS.EC2.ResetImageAttribute
     (
     -- * Creating a Request
@@ -45,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ResetImageAttribute.
 --
+--
+--
 -- /See:/ 'resetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
     { _resDryRun    :: !(Maybe Bool)
@@ -56,11 +58,11 @@ data ResetImageAttribute = ResetImageAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'resDryRun'
+-- * 'resDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'resImageId'
+-- * 'resImageId' - The ID of the AMI.
 --
--- * 'resAttribute'
+-- * 'resAttribute' - The attribute to reset (currently you can only reset the launch permission attribute).
 resetImageAttribute
     :: Text -- ^ 'resImageId'
     -> ResetImageAttributeName -- ^ 'resAttribute'
@@ -72,7 +74,7 @@ resetImageAttribute pImageId_ pAttribute_ =
     , _resAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
 resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 

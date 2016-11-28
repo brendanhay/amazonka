@@ -20,7 +20,7 @@
 --
 -- Deletes the specified interconnect.
 --
--- This is intended for use by AWS Direct Connect partners only.
+--
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteInterconnect operation.
 --
+--
+--
 -- /See:/ 'deleteInterconnect' smart constructor.
 newtype DeleteInterconnect = DeleteInterconnect'
     { _dInterconnectId :: Text
@@ -55,7 +57,7 @@ newtype DeleteInterconnect = DeleteInterconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dInterconnectId'
+-- * 'dInterconnectId' - Undocumented member.
 deleteInterconnect
     :: Text -- ^ 'dInterconnectId'
     -> DeleteInterconnect
@@ -105,6 +107,8 @@ instance ToQuery DeleteInterconnect where
 
 -- | The response received when DeleteInterconnect is called.
 --
+--
+--
 -- /See:/ 'deleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _drsInterconnectState :: !(Maybe InterconnectState)
@@ -115,9 +119,9 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsInterconnectState'
+-- * 'drsInterconnectState' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteInterconnectResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteInterconnectResponse
@@ -131,7 +135,7 @@ deleteInterconnectResponse pResponseStatus_ =
 drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteInterconnectResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

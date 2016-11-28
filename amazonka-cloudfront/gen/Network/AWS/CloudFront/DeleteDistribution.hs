@@ -52,9 +52,9 @@ data DeleteDistribution = DeleteDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddIfMatch'
+-- * 'ddIfMatch' - The value of the ETag header you received when you disabled the distribution. For example: E2QWRUHAPOMQZL.
 --
--- * 'ddId'
+-- * 'ddId' - The distribution id.
 deleteDistribution
     :: Text -- ^ 'ddId'
     -> DeleteDistribution

@@ -48,7 +48,7 @@ newtype DeleteBucketTagging = DeleteBucketTagging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbtBucket'
+-- * 'dbtBucket' - Undocumented member.
 deleteBucketTagging
     :: BucketName -- ^ 'dbtBucket'
     -> DeleteBucketTagging

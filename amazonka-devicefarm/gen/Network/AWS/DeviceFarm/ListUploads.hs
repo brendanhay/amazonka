@@ -20,6 +20,8 @@
 --
 -- Gets information about uploads.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUploads
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list uploads operation.
 --
+--
+--
 -- /See:/ 'listUploads' smart constructor.
 data ListUploads = ListUploads'
     { _luNextToken :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListUploads = ListUploads'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luNextToken'
+-- * 'luNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'luArn'
+-- * 'luArn' - The uploads' ARNs.
 listUploads
     :: Text -- ^ 'luArn'
     -> ListUploads
@@ -75,7 +79,7 @@ listUploads pArn_ =
 luNextToken :: Lens' ListUploads (Maybe Text)
 luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
 
--- | The uploads\' ARNs.
+-- | The uploads' ARNs.
 luArn :: Lens' ListUploads Text
 luArn = lens _luArn (\ s a -> s{_luArn = a});
 
@@ -124,6 +128,8 @@ instance ToQuery ListUploads where
 
 -- | Represents the result of a list uploads request.
 --
+--
+--
 -- /See:/ 'listUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
     { _lursNextToken      :: !(Maybe Text)
@@ -135,11 +141,11 @@ data ListUploadsResponse = ListUploadsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lursNextToken'
+-- * 'lursNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'lursUploads'
+-- * 'lursUploads' - Information about the uploads.
 --
--- * 'lursResponseStatus'
+-- * 'lursResponseStatus' - -- | The response status code.
 listUploadsResponse
     :: Int -- ^ 'lursResponseStatus'
     -> ListUploadsResponse
@@ -158,7 +164,7 @@ lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 lursUploads :: Lens' ListUploadsResponse [Upload]
 lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lursResponseStatus :: Lens' ListUploadsResponse Int
 lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
 

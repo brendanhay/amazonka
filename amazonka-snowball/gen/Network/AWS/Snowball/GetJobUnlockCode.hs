@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the 'UnlockCode' code value for the specified job. A particular 'UnlockCode' value can be accessed for up to 90 days after the associated job has been created.
+-- Returns the @UnlockCode@ code value for the specified job. A particular @UnlockCode@ value can be accessed for up to 90 days after the associated job has been created.
 --
--- The 'UnlockCode' value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
 --
--- As a best practice, we recommend that you don\'t save a copy of the 'UnlockCode' in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+-- The @UnlockCode@ value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
+--
+-- As a best practice, we recommend that you don't save a copy of the @UnlockCode@ in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+--
 module Network.AWS.Snowball.GetJobUnlockCode
     (
     -- * Creating a Request
@@ -55,7 +57,7 @@ newtype GetJobUnlockCode = GetJobUnlockCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjucJobId'
+-- * 'gjucJobId' - The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 getJobUnlockCode
     :: Text -- ^ 'gjucJobId'
     -> GetJobUnlockCode
@@ -64,7 +66,7 @@ getJobUnlockCode pJobId_ =
     { _gjucJobId = pJobId_
     }
 
--- | The ID for the job that you want to get the 'UnlockCode' value for, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The ID for the job that you want to get the @UnlockCode@ value for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjucJobId :: Lens' GetJobUnlockCode Text
 gjucJobId = lens _gjucJobId (\ s a -> s{_gjucJobId = a});
 
@@ -111,9 +113,9 @@ data GetJobUnlockCodeResponse = GetJobUnlockCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjucrsUnlockCode'
+-- * 'gjucrsUnlockCode' - The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
 --
--- * 'gjucrsResponseStatus'
+-- * 'gjucrsResponseStatus' - -- | The response status code.
 getJobUnlockCodeResponse
     :: Int -- ^ 'gjucrsResponseStatus'
     -> GetJobUnlockCodeResponse
@@ -123,11 +125,11 @@ getJobUnlockCodeResponse pResponseStatus_ =
     , _gjucrsResponseStatus = pResponseStatus_
     }
 
--- | The 'UnlockCode' value for the specified job. The 'UnlockCode' value can be accessed for up to 90 days after the job has been created.
+-- | The @UnlockCode@ value for the specified job. The @UnlockCode@ value can be accessed for up to 90 days after the job has been created.
 gjucrsUnlockCode :: Lens' GetJobUnlockCodeResponse (Maybe Text)
 gjucrsUnlockCode = lens _gjucrsUnlockCode (\ s a -> s{_gjucrsUnlockCode = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gjucrsResponseStatus :: Lens' GetJobUnlockCodeResponse Int
 gjucrsResponseStatus = lens _gjucrsResponseStatus (\ s a -> s{_gjucrsResponseStatus = a});
 

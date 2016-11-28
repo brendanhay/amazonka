@@ -20,7 +20,9 @@
 --
 -- Specifies the health check settings to use when evaluating the health state of your EC2 instances.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancers Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ConfigureHealthCheck.
 --
+--
+--
 -- /See:/ 'configureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
     { _chcLoadBalancerName :: !Text
@@ -57,9 +61,9 @@ data ConfigureHealthCheck = ConfigureHealthCheck'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcLoadBalancerName'
+-- * 'chcLoadBalancerName' - The name of the load balancer.
 --
--- * 'chcHealthCheck'
+-- * 'chcHealthCheck' - The configuration information.
 configureHealthCheck
     :: Text -- ^ 'chcLoadBalancerName'
     -> HealthCheck -- ^ 'chcHealthCheck'
@@ -108,6 +112,8 @@ instance ToQuery ConfigureHealthCheck where
 
 -- | Contains the output of ConfigureHealthCheck.
 --
+--
+--
 -- /See:/ 'configureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrsHealthCheck    :: !(Maybe HealthCheck)
@@ -118,9 +124,9 @@ data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcrsHealthCheck'
+-- * 'chcrsHealthCheck' - The updated health check.
 --
--- * 'chcrsResponseStatus'
+-- * 'chcrsResponseStatus' - -- | The response status code.
 configureHealthCheckResponse
     :: Int -- ^ 'chcrsResponseStatus'
     -> ConfigureHealthCheckResponse
@@ -134,7 +140,7 @@ configureHealthCheckResponse pResponseStatus_ =
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
--- | The response status code.
+-- | -- | The response status code.
 chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
 chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
 

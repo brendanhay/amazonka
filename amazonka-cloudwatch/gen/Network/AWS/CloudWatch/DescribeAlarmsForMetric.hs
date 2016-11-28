@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further.
+--
+--
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for DescribeAlarmsForMetric.
 --
+--
+--
 -- /See:/ 'describeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
     { _dafmPeriod     :: !(Maybe Nat)
@@ -63,17 +67,17 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dafmPeriod'
+-- * 'dafmPeriod' - The period in seconds over which the statistic is applied.
 --
--- * 'dafmDimensions'
+-- * 'dafmDimensions' - The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
 --
--- * 'dafmUnit'
+-- * 'dafmUnit' - The unit for the metric.
 --
--- * 'dafmStatistic'
+-- * 'dafmStatistic' - The statistic for the metric.
 --
--- * 'dafmMetricName'
+-- * 'dafmMetricName' - The name of the metric.
 --
--- * 'dafmNamespace'
+-- * 'dafmNamespace' - The namespace of the metric.
 describeAlarmsForMetric
     :: Text -- ^ 'dafmMetricName'
     -> Text -- ^ 'dafmNamespace'
@@ -147,7 +151,9 @@ instance ToQuery DescribeAlarmsForMetric where
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | The output for < DescribeAlarmsForMetric>.
+-- | The output for 'DescribeAlarmsForMetric' .
+--
+--
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
@@ -159,9 +165,9 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dafmrsMetricAlarms'
+-- * 'dafmrsMetricAlarms' - A list of information for each alarm with the specified metric.
 --
--- * 'dafmrsResponseStatus'
+-- * 'dafmrsResponseStatus' - -- | The response status code.
 describeAlarmsForMetricResponse
     :: Int -- ^ 'dafmrsResponseStatus'
     -> DescribeAlarmsForMetricResponse
@@ -175,7 +181,7 @@ describeAlarmsForMetricResponse pResponseStatus_ =
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
 dafmrsResponseStatus = lens _dafmrsResponseStatus (\ s a -> s{_dafmrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Synchronizes the specified MFA device with its IAM resource object on the AWS servers.
 --
--- For more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /IAM User Guide/.
+--
+-- For more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.ResyncMFADevice
     (
     -- * Creating a Request
@@ -56,13 +58,13 @@ data ResyncMFADevice = ResyncMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmdUserName'
+-- * 'rmdUserName' - The name of the user whose MFA device you want to resynchronize. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rmdSerialNumber'
+-- * 'rmdSerialNumber' - Serial number that uniquely identifies the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rmdAuthenticationCode1'
+-- * 'rmdAuthenticationCode1' - An authentication code emitted by the device. The format for this parameter is a sequence of six digits.
 --
--- * 'rmdAuthenticationCode2'
+-- * 'rmdAuthenticationCode2' - A subsequent authentication code emitted by the device. The format for this parameter is a sequence of six digits.
 resyncMFADevice
     :: Text -- ^ 'rmdUserName'
     -> Text -- ^ 'rmdSerialNumber'
@@ -77,27 +79,19 @@ resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationC
     , _rmdAuthenticationCode2 = pAuthenticationCode2_
     }
 
--- | The name of the user whose MFA device you want to resynchronize.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user whose MFA device you want to resynchronize. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rmdUserName :: Lens' ResyncMFADevice Text
 rmdUserName = lens _rmdUserName (\ s a -> s{_rmdUserName = a});
 
--- | Serial number that uniquely identifies the MFA device.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | Serial number that uniquely identifies the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rmdSerialNumber :: Lens' ResyncMFADevice Text
 rmdSerialNumber = lens _rmdSerialNumber (\ s a -> s{_rmdSerialNumber = a});
 
--- | An authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
+-- | An authentication code emitted by the device. The format for this parameter is a sequence of six digits.
 rmdAuthenticationCode1 :: Lens' ResyncMFADevice Text
 rmdAuthenticationCode1 = lens _rmdAuthenticationCode1 (\ s a -> s{_rmdAuthenticationCode1 = a});
 
--- | A subsequent authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
+-- | A subsequent authentication code emitted by the device. The format for this parameter is a sequence of six digits.
 rmdAuthenticationCode2 :: Lens' ResyncMFADevice Text
 rmdAuthenticationCode2 = lens _rmdAuthenticationCode2 (\ s a -> s{_rmdAuthenticationCode2 = a});
 

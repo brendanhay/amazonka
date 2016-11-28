@@ -20,9 +20,11 @@
 --
 -- Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted.
 --
--- 'DeleteAttributes' is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response.
 --
--- Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a < GetAttributes> or < Select> operation (read) immediately after a 'DeleteAttributes' or < PutAttributes> operation (write) might not return updated item data.
+-- @DeleteAttributes@ is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response.
+--
+-- Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a 'GetAttributes' or 'Select' operation (read) immediately after a @DeleteAttributes@ or 'PutAttributes' operation (write) might not return updated item data.
+--
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data DeleteAttributes = DeleteAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAttributes'
+-- * 'daAttributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 --
--- * 'daExpected'
+-- * 'daExpected' - The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
 --
--- * 'daDomainName'
+-- * 'daDomainName' - The name of the domain in which to perform the operation.
 --
--- * 'daItemName'
+-- * 'daItemName' - The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
 deleteAttributes
     :: Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'

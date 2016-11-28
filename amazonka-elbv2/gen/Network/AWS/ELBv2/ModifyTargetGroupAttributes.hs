@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attributes of the specified target group.
+--
+--
 module Network.AWS.ELBv2.ModifyTargetGroupAttributes
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyTargetGroupAttributes.
 --
+--
+--
 -- /See:/ 'modifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
     { _mtgaTargetGroupARN :: !Text
@@ -55,9 +59,9 @@ data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgaTargetGroupARN'
+-- * 'mtgaTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'mtgaAttributes'
+-- * 'mtgaAttributes' - The attributes.
 modifyTargetGroupAttributes
     :: Text -- ^ 'mtgaTargetGroupARN'
     -> ModifyTargetGroupAttributes
@@ -109,6 +113,8 @@ instance ToQuery ModifyTargetGroupAttributes where
 
 -- | Contains the output of ModifyTargetGroupAttributes.
 --
+--
+--
 -- /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
     { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
@@ -119,9 +125,9 @@ data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgarsAttributes'
+-- * 'mtgarsAttributes' - Information about the attributes.
 --
--- * 'mtgarsResponseStatus'
+-- * 'mtgarsResponseStatus' - -- | The response status code.
 modifyTargetGroupAttributesResponse
     :: Int -- ^ 'mtgarsResponseStatus'
     -> ModifyTargetGroupAttributesResponse
@@ -135,7 +141,7 @@ modifyTargetGroupAttributesResponse pResponseStatus_ =
 mtgarsAttributes :: Lens' ModifyTargetGroupAttributesResponse [TargetGroupAttribute]
 mtgarsAttributes = lens _mtgarsAttributes (\ s a -> s{_mtgarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mtgarsResponseStatus :: Lens' ModifyTargetGroupAttributesResponse Int
 mtgarsResponseStatus = lens _mtgarsResponseStatus (\ s a -> s{_mtgarsResponseStatus = a});
 

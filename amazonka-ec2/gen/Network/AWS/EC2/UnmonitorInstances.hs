@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Disables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.UnmonitorInstances
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for UnmonitorInstances.
 --
+--
+--
 -- /See:/ 'unmonitorInstances' smart constructor.
 data UnmonitorInstances = UnmonitorInstances'
     { _uiDryRun      :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data UnmonitorInstances = UnmonitorInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiDryRun'
+-- * 'uiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'uiInstanceIds'
+-- * 'uiInstanceIds' - One or more instance IDs.
 unmonitorInstances
     :: UnmonitorInstances
 unmonitorInstances =
@@ -66,7 +70,7 @@ unmonitorInstances =
     , _uiInstanceIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
 uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
 
@@ -106,6 +110,8 @@ instance ToQuery UnmonitorInstances where
 
 -- | Contains the output of UnmonitorInstances.
 --
+--
+--
 -- /See:/ 'unmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
@@ -116,9 +122,9 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uirsInstanceMonitorings'
+-- * 'uirsInstanceMonitorings' - Monitoring information for one or more instances.
 --
--- * 'uirsResponseStatus'
+-- * 'uirsResponseStatus' - -- | The response status code.
 unmonitorInstancesResponse
     :: Int -- ^ 'uirsResponseStatus'
     -> UnmonitorInstancesResponse
@@ -132,7 +138,7 @@ unmonitorInstancesResponse pResponseStatus_ =
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
 uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a});
 

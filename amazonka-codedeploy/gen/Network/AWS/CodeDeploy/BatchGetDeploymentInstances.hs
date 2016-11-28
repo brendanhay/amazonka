@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more instance that are part of a deployment group.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetDeploymentInstances
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get deployment instances operation.
 --
+--
+--
 -- /See:/ 'batchGetDeploymentInstances' smart constructor.
 data BatchGetDeploymentInstances = BatchGetDeploymentInstances'
     { _bgdiDeploymentId :: !Text
@@ -56,9 +60,9 @@ data BatchGetDeploymentInstances = BatchGetDeploymentInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdiDeploymentId'
+-- * 'bgdiDeploymentId' - The unique ID of a deployment.
 --
--- * 'bgdiInstanceIds'
+-- * 'bgdiInstanceIds' - The unique IDs of instances in the deployment group.
 batchGetDeploymentInstances
     :: Text -- ^ 'bgdiDeploymentId'
     -> BatchGetDeploymentInstances
@@ -117,6 +121,8 @@ instance ToQuery BatchGetDeploymentInstances where
 
 -- | Represents the output of a batch get deployment instance operation.
 --
+--
+--
 -- /See:/ 'batchGetDeploymentInstancesResponse' smart constructor.
 data BatchGetDeploymentInstancesResponse = BatchGetDeploymentInstancesResponse'
     { _bgdirsInstancesSummary :: !(Maybe [InstanceSummary])
@@ -128,11 +134,11 @@ data BatchGetDeploymentInstancesResponse = BatchGetDeploymentInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdirsInstancesSummary'
+-- * 'bgdirsInstancesSummary' - Information about the instance.
 --
--- * 'bgdirsErrorMessage'
+-- * 'bgdirsErrorMessage' - Information about errors that may have occurred during the API call.
 --
--- * 'bgdirsResponseStatus'
+-- * 'bgdirsResponseStatus' - -- | The response status code.
 batchGetDeploymentInstancesResponse
     :: Int -- ^ 'bgdirsResponseStatus'
     -> BatchGetDeploymentInstancesResponse
@@ -151,7 +157,7 @@ bgdirsInstancesSummary = lens _bgdirsInstancesSummary (\ s a -> s{_bgdirsInstanc
 bgdirsErrorMessage :: Lens' BatchGetDeploymentInstancesResponse (Maybe Text)
 bgdirsErrorMessage = lens _bgdirsErrorMessage (\ s a -> s{_bgdirsErrorMessage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 bgdirsResponseStatus :: Lens' BatchGetDeploymentInstancesResponse Int
 bgdirsResponseStatus = lens _bgdirsResponseStatus (\ s a -> s{_bgdirsResponseStatus = a});
 

@@ -20,7 +20,11 @@
 --
 -- The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and cannot be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
 --
+--
+--
+--
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.DeleteDBCluster
     (
     -- * Creating a Request
@@ -48,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
     { _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
@@ -59,11 +65,11 @@ data DeleteDBCluster = DeleteDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcFinalDBSnapshotIdentifier'
+-- * 'ddbcFinalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddbcSkipFinalSnapshot'
+-- * 'ddbcSkipFinalSnapshot' - Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If @true@ is specified, no DB cluster snapshot is created. If @false@ is specified, a DB cluster snapshot is created before the DB cluster is deleted.  Default: @false@
 --
--- * 'ddbcDBClusterIdentifier'
+-- * 'ddbcDBClusterIdentifier' - The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 deleteDBCluster
     :: Text -- ^ 'ddbcDBClusterIdentifier'
     -> DeleteDBCluster
@@ -74,39 +80,15 @@ deleteDBCluster pDBClusterIdentifier_ =
     , _ddbcDBClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | The DB cluster snapshot identifier of the new DB cluster snapshot created when 'SkipFinalSnapshot' is set to 'false'.
---
--- Specifying this parameter and also setting the 'SkipFinalShapshot' parameter to true results in an error.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The DB cluster snapshot identifier of the new DB cluster snapshot created when @SkipFinalSnapshot@ is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a});
 
--- | Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If 'true' is specified, no DB cluster snapshot is created. If 'false' is specified, a DB cluster snapshot is created before the DB cluster is deleted.
---
--- You must specify a 'FinalDBSnapshotIdentifier' parameter if 'SkipFinalSnapshot' is 'false'.
---
--- Default: 'false'
+-- | Determines whether a final DB cluster snapshot is created before the DB cluster is deleted. If @true@ is specified, no DB cluster snapshot is created. If @false@ is specified, a DB cluster snapshot is created before the DB cluster is deleted.  Default: @false@
 ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
 ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
 
--- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbcDBClusterIdentifier :: Lens' DeleteDBCluster Text
 ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
 
@@ -149,9 +131,9 @@ data DeleteDBClusterResponse = DeleteDBClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbcrsDBCluster'
+-- * 'ddbcrsDBCluster' - Undocumented member.
 --
--- * 'ddbcrsResponseStatus'
+-- * 'ddbcrsResponseStatus' - -- | The response status code.
 deleteDBClusterResponse
     :: Int -- ^ 'ddbcrsResponseStatus'
     -> DeleteDBClusterResponse
@@ -165,7 +147,7 @@ deleteDBClusterResponse pResponseStatus_ =
 ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
 ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddbcrsResponseStatus :: Lens' DeleteDBClusterResponse Int
 ddbcrsResponseStatus = lens _ddbcrsResponseStatus (\ s a -> s{_ddbcrsResponseStatus = a});
 

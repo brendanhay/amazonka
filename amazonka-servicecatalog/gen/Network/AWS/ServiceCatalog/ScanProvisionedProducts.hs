@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a paginated list of all the ProvisionedProduct objects that are currently available (not terminated).
+--
+--
 module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data ScanProvisionedProducts = ScanProvisionedProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sppAcceptLanguage'
+-- * 'sppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'sppPageToken'
+-- * 'sppPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 --
--- * 'sppPageSize'
+-- * 'sppPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 scanProvisionedProducts
     :: ScanProvisionedProducts
 scanProvisionedProducts =
@@ -70,23 +72,15 @@ scanProvisionedProducts =
     , _sppPageSize = Nothing
     }
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 sppAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
 sppAcceptLanguage = lens _sppAcceptLanguage (\ s a -> s{_sppAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size 'PageSize'.
+-- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 sppPageToken :: Lens' ScanProvisionedProducts (Maybe Text)
 sppPageToken = lens _sppPageToken (\ s a -> s{_sppPageToken = a});
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified 'PageSize', the value of 'NextPageToken' in the response is non-null.
+-- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 sppPageSize :: Lens' ScanProvisionedProducts (Maybe Natural)
 sppPageSize = lens _sppPageSize (\ s a -> s{_sppPageSize = a}) . mapping _Nat;
 
@@ -141,11 +135,11 @@ data ScanProvisionedProductsResponse = ScanProvisionedProductsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spprsNextPageToken'
+-- * 'spprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'spprsProvisionedProducts'
+-- * 'spprsProvisionedProducts' - A list of ProvisionedProduct detail objects.
 --
--- * 'spprsResponseStatus'
+-- * 'spprsResponseStatus' - -- | The response status code.
 scanProvisionedProductsResponse
     :: Int -- ^ 'spprsResponseStatus'
     -> ScanProvisionedProductsResponse
@@ -164,7 +158,7 @@ spprsNextPageToken = lens _spprsNextPageToken (\ s a -> s{_spprsNextPageToken = 
 spprsProvisionedProducts :: Lens' ScanProvisionedProductsResponse [ProvisionedProductDetail]
 spprsProvisionedProducts = lens _spprsProvisionedProducts (\ s a -> s{_spprsProvisionedProducts = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 spprsResponseStatus :: Lens' ScanProvisionedProductsResponse Int
 spprsResponseStatus = lens _spprsResponseStatus (\ s a -> s{_spprsResponseStatus = a});
 

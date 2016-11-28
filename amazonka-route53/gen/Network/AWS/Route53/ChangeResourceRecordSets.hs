@@ -18,45 +18,45 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create, change, update, or delete authoritative DNS information on all Amazon Route 53 servers. Send a 'POST' request to:
+-- Create, change, update, or delete authoritative DNS information on all Amazon Route 53 servers. Send a @POST@ request to:
 --
--- '\/2013-04-01\/hostedzone\/Amazon Route 53 hosted Zone ID\/rrset' resource.
 --
--- The request body must include a document with a 'ChangeResourceRecordSetsRequest' element. The request body contains a list of change items, known as a change batch. Change batches are considered transactional changes. When using the Amazon Route 53 API to change resource record sets, Amazon Route 53 either makes all or none of the changes in a change batch request. This ensures that Amazon Route 53 never partially implements the intended changes to the resource record sets in a hosted zone.
+-- @/2013-04-01/hostedzone//Amazon Route 53 hosted Zone ID/ /rrset@ resource.
 --
--- For example, a change batch request that deletes the 'CNAME'record for www.example.com and creates an alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates the second resource record set in a single operation. If either the 'DELETE' or the 'CREATE' action fails, then both changes (plus any other changes in the batch) fail, and the original 'CNAME' record continues to exist.
+-- The request body must include a document with a @ChangeResourceRecordSetsRequest@ element. The request body contains a list of change items, known as a change batch. Change batches are considered transactional changes. When using the Amazon Route 53 API to change resource record sets, Amazon Route 53 either makes all or none of the changes in a change batch request. This ensures that Amazon Route 53 never partially implements the intended changes to the resource record sets in a hosted zone.
 --
--- Due to the nature of transactional changes, you cannot delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an 'InvalidChangeBatch' error.
+-- For example, a change batch request that deletes the @CNAME@ record for www.example.com and creates an alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates the second resource record set in a single operation. If either the @DELETE@ or the @CREATE@ action fails, then both changes (plus any other changes in the batch) fail, and the original @CNAME@ record continues to exist.
 --
--- To create resource record sets for complex routing configurations, use either the traffic flow visual editor in the Amazon Route 53 console or the API actions for traffic policies and traffic policy instances. Save the configuration as a traffic policy, then associate the traffic policy with one or more domain names (such as example.com) or subdomain names (such as www.example.com), in the same hosted zone or in multiple hosted zones. You can roll back the updates if the new configuration isn\'t performing as expected. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/traffic-flow.html Using Traffic Flow to Route DNS Traffic> in the Amazon Route 53 API Reference or <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/actions-on-polices Actions on Traffic Policies and Traffic Policy Instances> in this guide.
+-- /Important:/ Due to the nature of transactional changes, you cannot delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an @InvalidChangeBatch@ error.
 --
--- Use 'ChangeResourceRecordsSetsRequest' to perform the following actions:
+-- Use @ChangeResourceRecordsSetsRequest@ to perform the following actions:
 --
--- -   'CREATE':Creates a resource record set that has the specified values.
+--     * @CREATE@ :Creates a resource record set that has the specified values.
 --
--- -   'DELETE': Deletes an existing resource record set that has the specified values for 'Name', 'Type', 'Set Identifier' (for code latency, weighted, geolocation, and failover resource record sets), and 'TTL' (except alias resource record sets, for which the TTL is determined by the AWS resource you\'re routing queries to).
+--     * @DELETE@ : Deletes an existing resource record set that has the specified values for @Name@ , @Type@ , @Set Identifier@ (for code latency, weighted, geolocation, and failover resource record sets), and @TTL@ (except alias resource record sets, for which the TTL is determined by the AWS resource you're routing queries to).
 --
--- -   'UPSERT': If a resource record set does not already exist, AWS creates it. If a resource set does exist, Amazon Route 53 updates it with the values in the request. Amazon Route 53 can update an existing resource record set only when all of the following values match: 'Name', 'Type', and 'Set Identifier' (for weighted, latency, geolocation, and failover resource record sets).
+--     * @UPSERT@ : If a resource record set does not already exist, AWS creates it. If a resource set does exist, Amazon Route 53 updates it with the values in the request. Amazon Route 53 can update an existing resource record set only when all of the following values match: @Name@ , @Type@ , and @Set Identifier@ (for weighted, latency, geolocation, and failover resource record sets).
 --
--- In response to a 'ChangeResourceRecordSets' request, the DNS data is changed on all Amazon Route 53 DNS servers. Initially, the status of a change is 'PENDING', meaning the change has not yet propagated to all the authoritative Amazon Route 53 DNS servers. When the change is propagated to all hosts, the change returns a status of 'INSYNC'.
 --
--- After sending a change request, confirm your change has propagated to all Amazon Route 53 DNS servers. Changes generally propagate to all Amazon Route 53 name servers in a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more information, see < GetChange>.
 --
--- Note the following limitations on a 'ChangeResourceRecordSets' request:
+-- In response to a @ChangeResourceRecordSets@ request, the DNS data is changed on all Amazon Route 53 DNS servers. Initially, the status of a change is @PENDING@ , meaning the change has not yet propagated to all the authoritative Amazon Route 53 DNS servers. When the change is propagated to all hosts, the change returns a status of @INSYNC@ .
 --
--- -   A request cannot contain more than 100 Change elements.
+-- After sending a change request, confirm your change has propagated to all Amazon Route 53 DNS servers. Changes generally propagate to all Amazon Route 53 name servers in a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more information, see 'GetChange' .
 --
--- -   A request cannot contain more than 1000 ResourceRecord elements.
+-- Note the following limitations on a @ChangeResourceRecordSets@ request:
 --
--- -   The sum of the number of characters (including spaces) in all 'Value' elements in a request cannot exceed 32,000 characters.
+--     * A request cannot contain more than 100 Change elements.
 --
--- -   If the value of the Action element in a ChangeResourceRecordSets request is 'UPSERT' and the resource record set already exists, Amazon Route 53 automatically performs a 'DELETE' request and a 'CREATE' request. When Amazon Route 53 calculates the number of characters in the Value elements of a change batch request, it adds the number of characters in the Value element of the resource record set being deleted and the number of characters in the Value element of the resource record set being created.
+--     * A request cannot contain more than 1000 ResourceRecord elements.
 --
--- -   The same resource cannot be deleted more than once in a single batch.
+--     * The sum of the number of characters (including spaces) in all @Value@ elements in a request cannot exceed 32,000 characters.
 --
--- If the value of the Action element in a ChangeResourceRecordSets request is 'UPSERT' and the resource record set already exists, Amazon Route 53 automatically performs a 'DELETE' request and a 'CREATE' request. When Amazon Route 53 calculates the number of characters in the Value elements of a change batch request, it adds the number of characters in the Value element of the resource record set being deleted and the number of characters in the Value element of the resource record set being created.
+--     *     * The same resource cannot be deleted more than once in a single batch.
 --
--- For more information on transactional changes, see < ChangeResourceRecordSets>.
+--
+--
+-- For more information on transactional changes, see 'ChangeResourceRecordSets' .
+--
 module Network.AWS.Route53.ChangeResourceRecordSets
     (
     -- * Creating a Request
@@ -83,6 +83,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains change information for the resource record set.
 --
+--
+--
 -- /See:/ 'changeResourceRecordSets' smart constructor.
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
     { _crrsHostedZoneId :: !Text
@@ -93,9 +95,9 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsHostedZoneId'
+-- * 'crrsHostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to change.
 --
--- * 'crrsChangeBatch'
+-- * 'crrsChangeBatch' - A complex type that contains an optional comment and the @Changes@ element.
 changeResourceRecordSets
     :: Text -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
@@ -110,7 +112,7 @@ changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
 
--- | A complex type that contains an optional comment and the 'Changes' element.
+-- | A complex type that contains an optional comment and the @Changes@ element.
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
 
@@ -151,6 +153,8 @@ instance ToXML ChangeResourceRecordSets where
 
 -- | A complex type containing the response for the request.
 --
+--
+--
 -- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     { _crrsrsResponseStatus :: !Int
@@ -161,9 +165,9 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsrsResponseStatus'
+-- * 'crrsrsResponseStatus' - -- | The response status code.
 --
--- * 'crrsrsChangeInfo'
+-- * 'crrsrsChangeInfo' - A complex type that contains information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 changeResourceRecordSetsResponse
     :: Int -- ^ 'crrsrsResponseStatus'
     -> ChangeInfo -- ^ 'crrsrsChangeInfo'
@@ -174,13 +178,11 @@ changeResourceRecordSetsResponse pResponseStatus_ pChangeInfo_ =
     , _crrsrsChangeInfo = pChangeInfo_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crrsrsResponseStatus :: Lens' ChangeResourceRecordSetsResponse Int
 crrsrsResponseStatus = lens _crrsrsResponseStatus (\ s a -> s{_crrsrsResponseStatus = a});
 
--- | A complex type that contains information about changes made to your hosted zone.
---
--- This element contains an ID that you use when performing a < GetChange> action to get detailed information about the change.
+-- | A complex type that contains information about changes made to your hosted zone. This element contains an ID that you use when performing a 'GetChange' action to get detailed information about the change.
 crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});
 

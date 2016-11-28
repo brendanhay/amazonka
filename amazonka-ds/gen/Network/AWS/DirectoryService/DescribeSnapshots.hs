@@ -20,9 +20,11 @@
 --
 -- Obtains information about the directory snapshots that belong to this account.
 --
--- This operation supports pagination with the use of the /NextToken/ request and response parameters. If more results are available, the /DescribeSnapshots.NextToken/ member contains a token that you pass in the next call to < DescribeSnapshots> to retrieve the next set of items.
+--
+-- This operation supports pagination with the use of the /NextToken/ request and response parameters. If more results are available, the /DescribeSnapshots.NextToken/ member contains a token that you pass in the next call to 'DescribeSnapshots' to retrieve the next set of items.
 --
 -- You can also specify a maximum number of return results with the /Limit/ parameter.
+--
 module Network.AWS.DirectoryService.DescribeSnapshots
     (
     -- * Creating a Request
@@ -50,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DescribeSnapshots> operation.
+-- | Contains the inputs for the 'DescribeSnapshots' operation.
+--
+--
 --
 -- /See:/ 'describeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
@@ -64,13 +68,13 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsDirectoryId'
+-- * 'dsDirectoryId' - The identifier of the directory for which to retrieve snapshot information.
 --
--- * 'dsNextToken'
+-- * 'dsNextToken' - The /DescribeSnapshotsResult.NextToken/ value from a previous call to 'DescribeSnapshots' . Pass null if this is the first call.
 --
--- * 'dsSnapshotIds'
+-- * 'dsSnapshotIds' - A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the /Limit/ and /NextToken/ members.
 --
--- * 'dsLimit'
+-- * 'dsLimit' - The maximum number of objects to return.
 describeSnapshots
     :: DescribeSnapshots
 describeSnapshots =
@@ -85,7 +89,7 @@ describeSnapshots =
 dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
 dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 
--- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to < DescribeSnapshots>. Pass null if this is the first call.
+-- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to 'DescribeSnapshots' . Pass null if this is the first call.
 dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
 dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 
@@ -137,7 +141,9 @@ instance ToPath DescribeSnapshots where
 instance ToQuery DescribeSnapshots where
         toQuery = const mempty
 
--- | Contains the results of the < DescribeSnapshots> operation.
+-- | Contains the results of the 'DescribeSnapshots' operation.
+--
+--
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
@@ -150,11 +156,11 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsNextToken'
+-- * 'dssrsNextToken' - If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to 'DescribeSnapshots' .
 --
--- * 'dssrsSnapshots'
+-- * 'dssrsSnapshots' - The list of 'Snapshot' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeSnapshotsResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotsResponse
@@ -165,17 +171,15 @@ describeSnapshotsResponse pResponseStatus_ =
     , _dssrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to < DescribeSnapshots>.
+-- | If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to 'DescribeSnapshots' .
 dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 
--- | The list of < Snapshot> objects that were retrieved.
---
--- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- | The list of 'Snapshot' objects that were retrieved. It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 

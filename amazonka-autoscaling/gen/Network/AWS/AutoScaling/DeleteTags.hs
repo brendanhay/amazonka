@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified tags.
+--
+--
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteTags.
 --
+--
+--
 -- /See:/ 'deleteTags' smart constructor.
 newtype DeleteTags = DeleteTags'
     { _dtTags :: [Tag]
@@ -50,7 +54,7 @@ newtype DeleteTags = DeleteTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTags'
+-- * 'dtTags' - One or more tags.
 deleteTags
     :: DeleteTags
 deleteTags =

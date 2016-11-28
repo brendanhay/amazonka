@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Amazon ECS cluster. By default, your account receives a 'default' cluster when you launch your first container instance. However, you can create your own cluster with a unique name with the 'CreateCluster' action.
+-- Creates a new Amazon ECS cluster. By default, your account receives a @default@ cluster when you launch your first container instance. However, you can create your own cluster with a unique name with the @CreateCluster@ action.
+--
+--
 module Network.AWS.ECS.CreateCluster
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype CreateCluster = CreateCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccClusterName'
+-- * 'ccClusterName' - The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 createCluster
     :: CreateCluster
 createCluster =
@@ -59,7 +61,7 @@ createCluster =
     { _ccClusterName = Nothing
     }
 
--- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named 'default'. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+-- | The name of your cluster. If you do not specify a name for your cluster, you create a cluster named @default@ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 ccClusterName :: Lens' CreateCluster (Maybe Text)
 ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 
@@ -107,9 +109,9 @@ data CreateClusterResponse = CreateClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccrsCluster'
+-- * 'ccrsCluster' - The full description of your new cluster.
 --
--- * 'ccrsResponseStatus'
+-- * 'ccrsResponseStatus' - -- | The response status code.
 createClusterResponse
     :: Int -- ^ 'ccrsResponseStatus'
     -> CreateClusterResponse
@@ -123,7 +125,7 @@ createClusterResponse pResponseStatus_ =
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccrsResponseStatus :: Lens' CreateClusterResponse Int
 ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
 

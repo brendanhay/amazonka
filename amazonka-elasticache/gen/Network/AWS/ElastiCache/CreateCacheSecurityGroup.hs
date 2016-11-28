@@ -20,7 +20,9 @@
 --
 -- The /CreateCacheSecurityGroup/ action creates a new cache security group. Use a cache security group to control access to one or more cache clusters.
 --
--- Cache security groups are only used when you are creating a cache cluster outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside of a VPC, use a cache subnet group instead. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup>.
+--
+-- Cache security groups are only used when you are creating a cache cluster outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside of a VPC, use a cache subnet group instead. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup> .
+--
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSecurityGroup/ action.
 --
+--
+--
 -- /See:/ 'createCacheSecurityGroup' smart constructor.
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName :: !Text
@@ -57,9 +61,9 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsgCacheSecurityGroupName'
+-- * 'ccsgCacheSecurityGroupName' - A name for the cache security group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default". Example: @mysecuritygroup@
 --
--- * 'ccsgDescription'
+-- * 'ccsgDescription' - A description for the cache security group.
 createCacheSecurityGroup
     :: Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
@@ -70,11 +74,7 @@ createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
     , _ccsgDescription = pDescription_
     }
 
--- | A name for the cache security group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".
---
--- Example: 'mysecuritygroup'
+-- | A name for the cache security group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default". Example: @mysecuritygroup@
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a});
 
@@ -122,9 +122,9 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsgrsCacheSecurityGroup'
+-- * 'ccsgrsCacheSecurityGroup' - Undocumented member.
 --
--- * 'ccsgrsResponseStatus'
+-- * 'ccsgrsResponseStatus' - -- | The response status code.
 createCacheSecurityGroupResponse
     :: Int -- ^ 'ccsgrsResponseStatus'
     -> CreateCacheSecurityGroupResponse
@@ -138,7 +138,7 @@ createCacheSecurityGroupResponse pResponseStatus_ =
 ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateCacheSecurityGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
 

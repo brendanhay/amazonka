@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the destination with the specified name and eventually disables all the subscription filters that publish to it. This will not delete the physical resource encapsulated by the destination.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteDestination = DeleteDestination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDestinationName'
+-- * 'ddDestinationName' - The name of destination to delete.
 deleteDestination
     :: Text -- ^ 'ddDestinationName'
     -> DeleteDestination

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Previews the agents installed on the EC2 instances that are part of the specified assessment target.
+--
+--
 module Network.AWS.Inspector.PreviewAgents
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data PreviewAgents = PreviewAgents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paNextToken'
+-- * 'paNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'paMaxResults'
+-- * 'paMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 --
--- * 'paPreviewAgentsARN'
+-- * 'paPreviewAgentsARN' - The ARN of the assessment target whose agents you want to preview.
 previewAgents
     :: Text -- ^ 'paPreviewAgentsARN'
     -> PreviewAgents
@@ -131,11 +133,11 @@ data PreviewAgentsResponse = PreviewAgentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'parsNextToken'
+-- * 'parsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'parsResponseStatus'
+-- * 'parsResponseStatus' - -- | The response status code.
 --
--- * 'parsAgentPreviews'
+-- * 'parsAgentPreviews' - The resulting list of agents.
 previewAgentsResponse
     :: Int -- ^ 'parsResponseStatus'
     -> PreviewAgentsResponse
@@ -150,7 +152,7 @@ previewAgentsResponse pResponseStatus_ =
 parsNextToken :: Lens' PreviewAgentsResponse (Maybe Text)
 parsNextToken = lens _parsNextToken (\ s a -> s{_parsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 parsResponseStatus :: Lens' PreviewAgentsResponse Int
 parsResponseStatus = lens _parsResponseStatus (\ s a -> s{_parsResponseStatus = a});
 

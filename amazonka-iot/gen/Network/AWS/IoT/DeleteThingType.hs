@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified thing type . You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling < DeprecateThingType>, then remove any associated things by calling < UpdateThing> to change the thing type on any associated thing, and finally use < DeleteThingType> to delete the thing type.
+-- Deletes the specified thing type . You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling 'DeprecateThingType' , then remove any associated things by calling 'UpdateThing' to change the thing type on any associated thing, and finally use 'DeleteThingType' to delete the thing type.
+--
+--
 module Network.AWS.IoT.DeleteThingType
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | The input for the DeleteThingType operation.
 --
+--
+--
 -- /See:/ 'deleteThingType' smart constructor.
 newtype DeleteThingType = DeleteThingType'
     { _dttThingTypeName :: Text
@@ -52,7 +56,7 @@ newtype DeleteThingType = DeleteThingType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttThingTypeName'
+-- * 'dttThingTypeName' - The name of the thing type.
 deleteThingType
     :: Text -- ^ 'dttThingTypeName'
     -> DeleteThingType
@@ -89,6 +93,8 @@ instance ToQuery DeleteThingType where
 
 -- | The output for the DeleteThingType operation.
 --
+--
+--
 -- /See:/ 'deleteThingTypeResponse' smart constructor.
 newtype DeleteThingTypeResponse = DeleteThingTypeResponse'
     { _dttrsResponseStatus :: Int
@@ -98,7 +104,7 @@ newtype DeleteThingTypeResponse = DeleteThingTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dttrsResponseStatus'
+-- * 'dttrsResponseStatus' - -- | The response status code.
 deleteThingTypeResponse
     :: Int -- ^ 'dttrsResponseStatus'
     -> DeleteThingTypeResponse
@@ -107,7 +113,7 @@ deleteThingTypeResponse pResponseStatus_ =
     { _dttrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dttrsResponseStatus :: Lens' DeleteThingTypeResponse Int
 dttrsResponseStatus = lens _dttrsResponseStatus (\ s a -> s{_dttrsResponseStatus = a});
 

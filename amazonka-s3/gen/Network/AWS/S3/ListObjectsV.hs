@@ -76,21 +76,21 @@ data ListObjectsV = ListObjectsV'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lStartAfter'
+-- * 'lStartAfter' - StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 --
--- * 'lContinuationToken'
+-- * 'lContinuationToken' - ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key
 --
--- * 'lFetchOwner'
+-- * 'lFetchOwner' - The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true
 --
--- * 'lPrefix'
+-- * 'lPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lEncodingType'
+-- * 'lEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lMaxKeys'
+-- * 'lMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lDelimiter'
+-- * 'lDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lBucket'
+-- * 'lBucket' - Name of the bucket to list.
 listObjectsV
     :: BucketName -- ^ 'lBucket'
     -> ListObjectsV
@@ -200,31 +200,31 @@ data ListObjectsVResponse = ListObjectsVResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsStartAfter'
+-- * 'lrsStartAfter' - StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket
 --
--- * 'lrsKeyCount'
+-- * 'lrsKeyCount' - KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys
 --
--- * 'lrsContents'
+-- * 'lrsContents' - Metadata about each object returned.
 --
--- * 'lrsContinuationToken'
+-- * 'lrsContinuationToken' - ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key
 --
--- * 'lrsPrefix'
+-- * 'lrsPrefix' - Limits the response to keys that begin with the specified prefix.
 --
--- * 'lrsCommonPrefixes'
+-- * 'lrsCommonPrefixes' - CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter
 --
--- * 'lrsEncodingType'
+-- * 'lrsEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
--- * 'lrsName'
+-- * 'lrsName' - Name of the bucket to list.
 --
--- * 'lrsNextContinuationToken'
+-- * 'lrsNextContinuationToken' - NextContinuationToken is sent when isTruncated is true which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key
 --
--- * 'lrsMaxKeys'
+-- * 'lrsMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
--- * 'lrsIsTruncated'
+-- * 'lrsIsTruncated' - A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.
 --
--- * 'lrsDelimiter'
+-- * 'lrsDelimiter' - A delimiter is a character you use to group keys.
 --
--- * 'lrsResponseStatus'
+-- * 'lrsResponseStatus' - -- | The response status code.
 listObjectsVResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListObjectsVResponse
@@ -293,7 +293,7 @@ lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 lrsDelimiter :: Lens' ListObjectsVResponse (Maybe Delimiter)
 lrsDelimiter = lens _lrsDelimiter (\ s a -> s{_lrsDelimiter = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrsResponseStatus :: Lens' ListObjectsVResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 

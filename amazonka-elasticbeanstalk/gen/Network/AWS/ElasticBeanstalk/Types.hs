@@ -414,7 +414,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2010-12-01' of the Amazon Elastic Beanstalk SDK configuration.
+-- | API version @2010-12-01@ of the Amazon Elastic Beanstalk SDK configuration.
 elasticBeanstalk :: Service
 elasticBeanstalk =
     Service
@@ -449,69 +449,95 @@ elasticBeanstalk =
       | otherwise = Nothing
 
 -- | One or more input parameters is not valid. Please correct the input parameters and try the operation again.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
 
 -- | The specified account has reached its limit of Amazon S3 buckets.
+--
+--
 _TooManyBucketsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyBucketsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
 -- | The specified account does not have a subscription to Amazon S3.
+--
+--
 _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3SubscriptionRequiredException =
     _ServiceError . hasStatus 400 . hasCode "S3SubscriptionRequiredException"
 
 -- | Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
+--
+--
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
 
 -- | The specified account has reached its limit of application versions.
+--
+--
 _TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationVersionsException =
     _ServiceError . hasCode "TooManyApplicationVersionsException"
 
 -- | The specified account has reached its limit of configuration templates.
+--
+--
 _TooManyConfigurationTemplatesException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyConfigurationTemplatesException =
     _ServiceError .
     hasStatus 400 . hasCode "TooManyConfigurationTemplatesException"
 
 -- | The specified account does not have sufficient privileges for one of more AWS services.
+--
+--
 _InsufficientPrivilegesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPrivilegesException =
     _ServiceError . hasStatus 403 . hasCode "InsufficientPrivilegesException"
 
 -- | A generic service exception has occurred.
+--
+--
 _ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ElasticBeanstalkServiceException =
     _ServiceError . hasCode "ElasticBeanstalkServiceException"
 
 -- | The specified account has reached its limit of applications.
+--
+--
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyApplicationsException"
 
 -- | Cannot modify the managed action in its current state.
+--
+--
 _ManagedActionInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _ManagedActionInvalidStateException =
     _ServiceError .
     hasStatus 400 . hasCode "ManagedActionInvalidStateException"
 
 -- | Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.
+--
+--
 _SourceBundleDeletionException :: AsError a => Getting (First ServiceError) a ServiceError
 _SourceBundleDeletionException =
     _ServiceError . hasStatus 400 . hasCode "SourceBundleDeletionFailure"
 
 -- | The specified S3 bucket does not belong to the S3 region in which the service is running.
+--
+--
 _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3LocationNotInServiceRegionException =
     _ServiceError .
     hasStatus 400 . hasCode "S3LocationNotInServiceRegionException"
 
 -- | The specified account has reached its limit of environments.
+--
+--
 _TooManyEnvironmentsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyEnvironmentsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyEnvironmentsException"

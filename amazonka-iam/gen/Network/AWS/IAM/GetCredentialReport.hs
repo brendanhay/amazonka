@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/.
+-- Retrieves a credential report for the AWS account. For more information about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Creating a Request
@@ -82,7 +84,9 @@ instance ToQuery GetCredentialReport where
                  ["Action" =: ("GetCredentialReport" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < GetCredentialReport> request.
+-- | Contains the response to a successful 'GetCredentialReport' request.
+--
+--
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
@@ -96,13 +100,13 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsContent'
+-- * 'grsContent' - Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'grsGeneratedTime'
+-- * 'grsGeneratedTime' - The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
 --
--- * 'grsReportFormat'
+-- * 'grsReportFormat' - The format (MIME type) of the credential report.
 --
--- * 'grsResponseStatus'
+-- * 'grsResponseStatus' - -- | The response status code.
 getCredentialReportResponse
     :: Int -- ^ 'grsResponseStatus'
     -> GetCredentialReportResponse
@@ -114,17 +118,11 @@ getCredentialReportResponse pResponseStatus_ =
     , _grsResponseStatus = pResponseStatus_
     }
 
--- | Contains the credential report. The report is Base64-encoded.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | Contains the credential report. The report is Base64-encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
 grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64;
 
--- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
+-- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
 grsGeneratedTime :: Lens' GetCredentialReportResponse (Maybe UTCTime)
 grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . mapping _Time;
 
@@ -132,7 +130,7 @@ grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . 
 grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grsResponseStatus :: Lens' GetCredentialReportResponse Int
 grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 

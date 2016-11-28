@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.
 --
+--
+--
 -- /See:/ 'event' smart constructor.
 data Event = Event'
     { _eUsername        :: !(Maybe Text)
@@ -37,17 +39,17 @@ data Event = Event'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eUsername'
+-- * 'eUsername' - A user name or role name of the requester that called the API in the event returned.
 --
--- * 'eResources'
+-- * 'eResources' - A list of resources referenced by the event returned.
 --
--- * 'eEventTime'
+-- * 'eEventTime' - The date and time of the event returned.
 --
--- * 'eCloudTrailEvent'
+-- * 'eCloudTrailEvent' - A JSON string that contains a representation of the event returned.
 --
--- * 'eEventName'
+-- * 'eEventName' - The name of the event returned.
 --
--- * 'eEventId'
+-- * 'eEventId' - The CloudTrail ID of the event returned.
 event
     :: Event
 event =
@@ -101,6 +103,8 @@ instance NFData Event
 
 -- | Specifies an attribute and value that filter the events returned.
 --
+--
+--
 -- /See:/ 'lookupAttribute' smart constructor.
 data LookupAttribute = LookupAttribute'
     { _laAttributeKey   :: !LookupAttributeKey
@@ -111,9 +115,9 @@ data LookupAttribute = LookupAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laAttributeKey'
+-- * 'laAttributeKey' - Specifies an attribute on which to filter the events returned.
 --
--- * 'laAttributeValue'
+-- * 'laAttributeValue' - Specifies a value for the specified AttributeKey.
 lookupAttribute
     :: LookupAttributeKey -- ^ 'laAttributeKey'
     -> Text -- ^ 'laAttributeValue'
@@ -145,6 +149,8 @@ instance ToJSON LookupAttribute where
 
 -- | Contains information about a returned public key.
 --
+--
+--
 -- /See:/ 'publicKey' smart constructor.
 data PublicKey = PublicKey'
     { _pkFingerprint       :: !(Maybe Text)
@@ -157,13 +163,13 @@ data PublicKey = PublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pkFingerprint'
+-- * 'pkFingerprint' - The fingerprint of the public key.
 --
--- * 'pkValidityEndTime'
+-- * 'pkValidityEndTime' - The ending time of validity of the public key.
 --
--- * 'pkValue'
+-- * 'pkValue' - The DER encoded public key value in PKCS#1 format.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'pkValidityStartTime'
+-- * 'pkValidityStartTime' - The starting time of validity of the public key.
 publicKey
     :: PublicKey
 publicKey =
@@ -182,13 +188,7 @@ pkFingerprint = lens _pkFingerprint (\ s a -> s{_pkFingerprint = a});
 pkValidityEndTime :: Lens' PublicKey (Maybe UTCTime)
 pkValidityEndTime = lens _pkValidityEndTime (\ s a -> s{_pkValidityEndTime = a}) . mapping _Time;
 
--- | The DER encoded public key value in PKCS#1 format.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The DER encoded public key value in PKCS#1 format.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 pkValue :: Lens' PublicKey (Maybe ByteString)
 pkValue = lens _pkValue (\ s a -> s{_pkValue = a}) . mapping _Base64;
 
@@ -211,6 +211,8 @@ instance NFData PublicKey
 
 -- | Specifies the type and name of a resource referenced by an event.
 --
+--
+--
 -- /See:/ 'resource' smart constructor.
 data Resource = Resource'
     { _rResourceType :: !(Maybe Text)
@@ -221,9 +223,9 @@ data Resource = Resource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rResourceType'
+-- * 'rResourceType' - The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup> .
 --
--- * 'rResourceName'
+-- * 'rResourceName' - The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
 resource
     :: Resource
 resource =
@@ -232,11 +234,11 @@ resource =
     , _rResourceName = Nothing
     }
 
--- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.
+-- | The type of a resource referenced by the event returned. When the resource type cannot be determined, null is returned. Some examples of resource types are: __Instance__ for EC2, __Trail__ for CloudTrail, __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup> .
 rResourceType :: Lens' Resource (Maybe Text)
 rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
 
--- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be \"auto-scaling-test-group\" for an Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
+-- | The name of the resource referenced by the event returned. These are user-created names whose values will depend on the environment. For example, the resource name might be "auto-scaling-test-group" for an Auto Scaling Group or "i-1234567" for an EC2 Instance.
 rResourceName :: Lens' Resource (Maybe Text)
 rResourceName = lens _rResourceName (\ s a -> s{_rResourceName = a});
 
@@ -253,6 +255,8 @@ instance NFData Resource
 
 -- | A resource tag.
 --
+--
+--
 -- /See:/ 'resourceTag' smart constructor.
 data ResourceTag = ResourceTag'
     { _rResourceId :: !(Maybe Text)
@@ -263,9 +267,9 @@ data ResourceTag = ResourceTag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rResourceId'
+-- * 'rResourceId' - Specifies the ARN of the resource.
 --
--- * 'rTagsList'
+-- * 'rTagsList' - Undocumented member.
 resourceTag
     :: ResourceTag
 resourceTag =
@@ -296,6 +300,8 @@ instance NFData ResourceTag
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail trail.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -306,9 +312,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
@@ -344,6 +350,8 @@ instance ToJSON Tag where
 
 -- | The settings for a trail.
 --
+--
+--
 -- /See:/ 'trail' smart constructor.
 data Trail = Trail'
     { _tLogFileValidationEnabled   :: !(Maybe Bool)
@@ -365,31 +373,31 @@ data Trail = Trail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tLogFileValidationEnabled'
+-- * 'tLogFileValidationEnabled' - Specifies whether log file validation is enabled.
 --
--- * 'tTrailARN'
+-- * 'tTrailARN' - Specifies the ARN of the trail. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 --
--- * 'tS3KeyPrefix'
+-- * 'tS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
 --
--- * 'tSNSTopicARN'
+-- * 'tSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
 --
--- * 'tSNSTopicName'
+-- * 'tSNSTopicName' - This field is deprecated. Use SnsTopicARN.
 --
--- * 'tCloudWatchLogsLogGroupARN'
+-- * 'tCloudWatchLogsLogGroupARN' - Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
 --
--- * 'tKMSKeyId'
+-- * 'tKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 --
--- * 'tHomeRegion'
+-- * 'tHomeRegion' - The region in which the trail was created.
 --
--- * 'tName'
+-- * 'tName' - Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
 --
--- * 'tIncludeGlobalServiceEvents'
+-- * 'tIncludeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
 --
--- * 'tCloudWatchLogsRoleARN'
+-- * 'tCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
--- * 'tS3BucketName'
+-- * 'tS3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
 --
--- * 'tIsMultiRegionTrail'
+-- * 'tIsMultiRegionTrail' - Specifies whether the trail belongs only to one region or exists in all regions.
 trail
     :: Trail
 trail =
@@ -413,19 +421,15 @@ trail =
 tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
 tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\ s a -> s{_tLogFileValidationEnabled = a});
 
--- | Specifies the ARN of the trail. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the ARN of the trail. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 tTrailARN :: Lens' Trail (Maybe Text)
 tTrailARN = lens _tTrailARN (\ s a -> s{_tTrailARN = a});
 
--- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.The maximum length is 200 characters.
+-- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
 tS3KeyPrefix :: Lens' Trail (Maybe Text)
 tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a});
 
--- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
---
--- 'arn:aws:sns:us-east-1:123456789012:MyTopic'
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-1:123456789012:MyTopic@
 tSNSTopicARN :: Lens' Trail (Maybe Text)
 tSNSTopicARN = lens _tSNSTopicARN (\ s a -> s{_tSNSTopicARN = a});
 
@@ -437,9 +441,7 @@ tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
 tCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
 tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tCloudWatchLogsLogGroupARN = a});
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
---
--- 'arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012'
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
 tKMSKeyId :: Lens' Trail (Maybe Text)
 tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
 
@@ -447,19 +449,19 @@ tKMSKeyId = lens _tKMSKeyId (\ s a -> s{_tKMSKeyId = a});
 tHomeRegion :: Lens' Trail (Maybe Text)
 tHomeRegion = lens _tHomeRegion (\ s a -> s{_tHomeRegion = a});
 
--- | Name of the trail set by calling < CreateTrail>. The maximum length is 128 characters.
+-- | Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
 tName :: Lens' Trail (Maybe Text)
 tName = lens _tName (\ s a -> s{_tName = a});
 
--- | Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__.
+-- | Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
 tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
 tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a});
 
--- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user\'s log group.
+-- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
 tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a});
 
--- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements>.
+-- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
 tS3BucketName :: Lens' Trail (Maybe Text)
 tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a});
 

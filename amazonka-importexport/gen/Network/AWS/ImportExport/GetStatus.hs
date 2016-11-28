@@ -70,9 +70,9 @@ data GetStatus = GetStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsAPIVersion'
+-- * 'gsAPIVersion' - Undocumented member.
 --
--- * 'gsJobId'
+-- * 'gsJobId' - Undocumented member.
 getStatus
     :: Text -- ^ 'gsJobId'
     -> GetStatus
@@ -161,39 +161,39 @@ data GetStatusResponse = GetStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrsCarrier'
+-- * 'gsrsCarrier' - Undocumented member.
 --
--- * 'gsrsTrackingNumber'
+-- * 'gsrsTrackingNumber' - Undocumented member.
 --
--- * 'gsrsSignature'
+-- * 'gsrsSignature' - Undocumented member.
 --
--- * 'gsrsJobType'
+-- * 'gsrsJobType' - Undocumented member.
 --
--- * 'gsrsJobId'
+-- * 'gsrsJobId' - Undocumented member.
 --
--- * 'gsrsSignatureFileContents'
+-- * 'gsrsSignatureFileContents' - Undocumented member.
 --
--- * 'gsrsErrorCount'
+-- * 'gsrsErrorCount' - Undocumented member.
 --
--- * 'gsrsCurrentManifest'
+-- * 'gsrsCurrentManifest' - Undocumented member.
 --
--- * 'gsrsArtifactList'
+-- * 'gsrsArtifactList' - Undocumented member.
 --
--- * 'gsrsLogBucket'
+-- * 'gsrsLogBucket' - Undocumented member.
 --
--- * 'gsrsCreationDate'
+-- * 'gsrsCreationDate' - Undocumented member.
 --
--- * 'gsrsProgressCode'
+-- * 'gsrsProgressCode' - Undocumented member.
 --
--- * 'gsrsLocationCode'
+-- * 'gsrsLocationCode' - Undocumented member.
 --
--- * 'gsrsLogKey'
+-- * 'gsrsLogKey' - Undocumented member.
 --
--- * 'gsrsLocationMessage'
+-- * 'gsrsLocationMessage' - Undocumented member.
 --
--- * 'gsrsProgressMessage'
+-- * 'gsrsProgressMessage' - Undocumented member.
 --
--- * 'gsrsResponseStatus'
+-- * 'gsrsResponseStatus' - -- | The response status code.
 getStatusResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetStatusResponse
@@ -282,7 +282,7 @@ gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage
 gsrsProgressMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsrsResponseStatus :: Lens' GetStatusResponse Int
 gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a});
 

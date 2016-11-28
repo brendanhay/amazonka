@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about an HSM client.
+--
+--
 module Network.AWS.CloudHSM.DescribeLunaClient
     (
     -- * Creating a Request
@@ -57,9 +59,9 @@ data DescribeLunaClient = DescribeLunaClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcClientARN'
+-- * 'dlcClientARN' - The ARN of the client.
 --
--- * 'dlcCertificateFingerprint'
+-- * 'dlcCertificateFingerprint' - The certificate fingerprint.
 describeLunaClient
     :: DescribeLunaClient
 describeLunaClient =
@@ -133,17 +135,17 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsClientARN'
+-- * 'drsClientARN' - The ARN of the client.
 --
--- * 'drsLastModifiedTimestamp'
+-- * 'drsLastModifiedTimestamp' - The date and time the client was last modified.
 --
--- * 'drsCertificateFingerprint'
+-- * 'drsCertificateFingerprint' - The certificate fingerprint.
 --
--- * 'drsCertificate'
+-- * 'drsCertificate' - The certificate installed on the HSMs used by this client.
 --
--- * 'drsLabel'
+-- * 'drsLabel' - The label of the client.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeLunaClientResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeLunaClientResponse
@@ -177,7 +179,7 @@ drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a});
 drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeLunaClientResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

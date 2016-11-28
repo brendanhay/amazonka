@@ -18,21 +18,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new queue, or returns the URL of an existing one. When you request 'CreateQueue', you provide a name for the queue. To successfully create a new queue, you must provide a name that is unique within the scope of your own queues.
+-- Creates a new queue, or returns the URL of an existing one. When you request @CreateQueue@ , you provide a name for the queue. To successfully create a new queue, you must provide a name that is unique within the scope of your own queues.
 --
--- If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.
 --
 -- You may pass one or more attributes in the request. If you do not provide a value for any attribute, the queue will have the default value for that attribute.
 --
--- Use < GetQueueUrl> to get a queue\'s URL. < GetQueueUrl> requires only the 'QueueName' parameter.
+-- If you provide the name of an existing queue, along with the exact names and values of all the queue's attributes, @CreateQueue@ returns the queue URL for the existing queue. If the queue name, attribute names, or attribute values do not match an existing queue, @CreateQueue@ returns an error.
 --
--- If you provide the name of an existing queue, along with the exact names and values of all the queue\'s attributes, 'CreateQueue' returns the queue URL for the existing queue. If the queue name, attribute names, or attribute values do not match an existing queue, 'CreateQueue' returns an error.
 --
--- Some API actions take lists of parameters. These lists are specified using the 'param.n' notation. Values of 'n' are integers starting from 1. For example, a parameter list with two elements looks like this:
 --
--- '&amp;Attribute.1=this'
 --
--- '&amp;Attribute.2=that'
+--
 module Network.AWS.SQS.CreateQueue
     (
     -- * Creating a Request
@@ -59,6 +55,8 @@ import           Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'createQueue' smart constructor.
 data CreateQueue = CreateQueue'
     { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
@@ -69,9 +67,9 @@ data CreateQueue = CreateQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cqAttributes'
+-- * 'cqAttributes' - A map of attributes with their corresponding values. The following lists the names, descriptions, and values of the special request parameters the @CreateQueue@ action uses:     * @DelaySeconds@ - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).     * @MaximumMessageSize@ - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).     * @MessageRetentionPeriod@ - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).     * @Policy@ - The queue's policy. A valid AWS policy. For more information about policy structure, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies> in the /Amazon IAM User Guide/ .     * @ReceiveMessageWaitTimeSeconds@ - The time for which a 'ReceiveMessage' call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0.     * @RedrivePolicy@ - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/ .     * @VisibilityTimeout@ - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/ . Any other valid special request parameters that are specified (such as @ApproximateNumberOfMessages@ , @ApproximateNumberOfMessagesDelayed@ , @ApproximateNumberOfMessagesNotVisible@ , @CreatedTimestamp@ , @LastModifiedTimestamp@ , and @QueueArn@ ) will be ignored.
 --
--- * 'cqQueueName'
+-- * 'cqQueueName' - The name for the queue to be created. Queue names are case-sensitive.
 createQueue
     :: Text -- ^ 'cqQueueName'
     -> CreateQueue
@@ -81,31 +79,11 @@ createQueue pQueueName_ =
     , _cqQueueName = pQueueName_
     }
 
--- | A map of attributes with their corresponding values.
---
--- The following lists the names, descriptions, and values of the special request parameters the 'CreateQueue' action uses:
---
--- -   'DelaySeconds' - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).
---
--- -   'MaximumMessageSize' - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
---
--- -   'MessageRetentionPeriod' - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
---
--- -   'Policy' - The queue\'s policy. A valid AWS policy. For more information about policy structure, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies> in the /Amazon IAM User Guide/.
---
--- -   'ReceiveMessageWaitTimeSeconds' - The time for which a < ReceiveMessage> call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0.
---
--- -   'RedrivePolicy' - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/.
---
--- -   'VisibilityTimeout' - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/.
---
--- Any other valid special request parameters that are specified (such as 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'CreatedTimestamp', 'LastModifiedTimestamp', and 'QueueArn') will be ignored.
+-- | A map of attributes with their corresponding values. The following lists the names, descriptions, and values of the special request parameters the @CreateQueue@ action uses:     * @DelaySeconds@ - The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 (zero).     * @MaximumMessageSize@ - The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).     * @MessageRetentionPeriod@ - The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).     * @Policy@ - The queue's policy. A valid AWS policy. For more information about policy structure, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies> in the /Amazon IAM User Guide/ .     * @ReceiveMessageWaitTimeSeconds@ - The time for which a 'ReceiveMessage' call will wait for a message to arrive. An integer from 0 to 20 (seconds). The default for this attribute is 0.     * @RedrivePolicy@ - The parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/ .     * @VisibilityTimeout@ - The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout> in the /Amazon SQS Developer Guide/ . Any other valid special request parameters that are specified (such as @ApproximateNumberOfMessages@ , @ApproximateNumberOfMessagesDelayed@ , @ApproximateNumberOfMessagesNotVisible@ , @CreatedTimestamp@ , @LastModifiedTimestamp@ , and @QueueArn@ ) will be ignored.
 cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
 cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _Map;
 
--- | The name for the queue to be created.
---
--- Queue names are case-sensitive.
+-- | The name for the queue to be created. Queue names are case-sensitive.
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
 
@@ -140,6 +118,8 @@ instance ToQuery CreateQueue where
 
 -- | Returns the QueueUrl element of the created queue.
 --
+--
+--
 -- /See:/ 'createQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
     { _cqrsQueueURL       :: !(Maybe Text)
@@ -150,9 +130,9 @@ data CreateQueueResponse = CreateQueueResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cqrsQueueURL'
+-- * 'cqrsQueueURL' - The URL for the created Amazon SQS queue.
 --
--- * 'cqrsResponseStatus'
+-- * 'cqrsResponseStatus' - -- | The response status code.
 createQueueResponse
     :: Int -- ^ 'cqrsResponseStatus'
     -> CreateQueueResponse
@@ -166,7 +146,7 @@ createQueueResponse pResponseStatus_ =
 cqrsQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cqrsResponseStatus :: Lens' CreateQueueResponse Int
 cqrsResponseStatus = lens _cqrsResponseStatus (\ s a -> s{_cqrsResponseStatus = a});
 

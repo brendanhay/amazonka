@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets a stack policy for a specified stack.
+--
+--
 module Network.AWS.CloudFormation.SetStackPolicy
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < SetStackPolicy> action.
+-- | The input for the 'SetStackPolicy' action.
+--
+--
 --
 -- /See:/ 'setStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
@@ -54,11 +58,11 @@ data SetStackPolicy = SetStackPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sspStackPolicyBody'
+-- * 'sspStackPolicyBody' - Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
--- * 'sspStackPolicyURL'
+-- * 'sspStackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
--- * 'sspStackName'
+-- * 'sspStackName' - The name or unique stack ID that you want to associate a policy with.
 setStackPolicy
     :: Text -- ^ 'sspStackName'
     -> SetStackPolicy
@@ -69,11 +73,11 @@ setStackPolicy pStackName_ =
     , _sspStackName = pStackName_
     }
 
--- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but not both.
+-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyBody = lens _sspStackPolicyBody (\ s a -> s{_sspStackPolicyBody = a});
 
--- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but not both.
+-- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
 sspStackPolicyURL = lens _sspStackPolicyURL (\ s a -> s{_sspStackPolicyURL = a});
 

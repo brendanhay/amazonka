@@ -20,7 +20,9 @@
 --
 -- Requests the details of a job for a third party action. Only used for partner actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
 module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get third party job details action.
 --
+--
+--
 -- /See:/ 'getThirdPartyJobDetails' smart constructor.
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
     { _gtpjdJobId       :: !Text
@@ -57,9 +61,9 @@ data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpjdJobId'
+-- * 'gtpjdJobId' - The unique system-generated ID used for identifying the job.
 --
--- * 'gtpjdClientToken'
+-- * 'gtpjdClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 getThirdPartyJobDetails
     :: Text -- ^ 'gtpjdJobId'
     -> Text -- ^ 'gtpjdClientToken'
@@ -117,6 +121,8 @@ instance ToQuery GetThirdPartyJobDetails where
 
 -- | Represents the output of a get third party job details action.
 --
+--
+--
 -- /See:/ 'getThirdPartyJobDetailsResponse' smart constructor.
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails     :: !(Maybe ThirdPartyJobDetails)
@@ -127,9 +133,9 @@ data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpjdrsJobDetails'
+-- * 'gtpjdrsJobDetails' - The details of the job, including any protected values defined for the job.
 --
--- * 'gtpjdrsResponseStatus'
+-- * 'gtpjdrsResponseStatus' - -- | The response status code.
 getThirdPartyJobDetailsResponse
     :: Int -- ^ 'gtpjdrsResponseStatus'
     -> GetThirdPartyJobDetailsResponse
@@ -143,7 +149,7 @@ getThirdPartyJobDetailsResponse pResponseStatus_ =
 gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobDetails)
 gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gtpjdrsResponseStatus :: Lens' GetThirdPartyJobDetailsResponse Int
 gtpjdrsResponseStatus = lens _gtpjdrsResponseStatus (\ s a -> s{_gtpjdrsResponseStatus = a});
 

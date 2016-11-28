@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Applies a repository policy on a specified repository to control access permissions.
+--
+--
 module Network.AWS.ECR.SetRepositoryPolicy
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srpForce'
+-- * 'srpForce' - If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
 --
--- * 'srpRegistryId'
+-- * 'srpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'srpRepositoryName'
+-- * 'srpRepositoryName' - The name of the repository to receive the policy.
 --
--- * 'srpPolicyText'
+-- * 'srpPolicyText' - The JSON repository policy text to apply to the repository.
 setRepositoryPolicy
     :: Text -- ^ 'srpRepositoryName'
     -> Text -- ^ 'srpPolicyText'
@@ -78,7 +80,7 @@ setRepositoryPolicy pRepositoryName_ pPolicyText_ =
     , _srpPolicyText = pPolicyText_
     }
 
--- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the < SetRepositoryPolicy> operation. This is intended to prevent accidental repository lock outs.
+-- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
 srpForce :: Lens' SetRepositoryPolicy (Maybe Bool)
 srpForce = lens _srpForce (\ s a -> s{_srpForce = a});
 
@@ -147,13 +149,13 @@ data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srprsRegistryId'
+-- * 'srprsRegistryId' - The registry ID associated with the request.
 --
--- * 'srprsRepositoryName'
+-- * 'srprsRepositoryName' - The repository name associated with the request.
 --
--- * 'srprsPolicyText'
+-- * 'srprsPolicyText' - The JSON repository policy text applied to the repository.
 --
--- * 'srprsResponseStatus'
+-- * 'srprsResponseStatus' - -- | The response status code.
 setRepositoryPolicyResponse
     :: Int -- ^ 'srprsResponseStatus'
     -> SetRepositoryPolicyResponse
@@ -177,7 +179,7 @@ srprsRepositoryName = lens _srprsRepositoryName (\ s a -> s{_srprsRepositoryName
 srprsPolicyText :: Lens' SetRepositoryPolicyResponse (Maybe Text)
 srprsPolicyText = lens _srprsPolicyText (\ s a -> s{_srprsPolicyText = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srprsResponseStatus :: Lens' SetRepositoryPolicyResponse Int
 srprsResponseStatus = lens _srprsResponseStatus (\ s a -> s{_srprsResponseStatus = a});
 

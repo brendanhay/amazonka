@@ -20,7 +20,9 @@
 --
 -- Deletes the specified target group.
 --
+--
 -- You can delete a target group if it is not referenced by any actions. Deleting a target group also deletes any associated health checks.
+--
 module Network.AWS.ELBv2.DeleteTargetGroup
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteTargetGroup.
 --
+--
+--
 -- /See:/ 'deleteTargetGroup' smart constructor.
 newtype DeleteTargetGroup = DeleteTargetGroup'
     { _dtgTargetGroupARN :: Text
@@ -54,7 +58,7 @@ newtype DeleteTargetGroup = DeleteTargetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgTargetGroupARN'
+-- * 'dtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 deleteTargetGroup
     :: Text -- ^ 'dtgTargetGroupARN'
     -> DeleteTargetGroup
@@ -94,6 +98,8 @@ instance ToQuery DeleteTargetGroup where
 
 -- | Contains the output of DeleteTargetGroup.
 --
+--
+--
 -- /See:/ 'deleteTargetGroupResponse' smart constructor.
 newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
     { _dtgrsResponseStatus :: Int
@@ -103,7 +109,7 @@ newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgrsResponseStatus'
+-- * 'dtgrsResponseStatus' - -- | The response status code.
 deleteTargetGroupResponse
     :: Int -- ^ 'dtgrsResponseStatus'
     -> DeleteTargetGroupResponse
@@ -112,7 +118,7 @@ deleteTargetGroupResponse pResponseStatus_ =
     { _dtgrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtgrsResponseStatus :: Lens' DeleteTargetGroupResponse Int
 dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a});
 

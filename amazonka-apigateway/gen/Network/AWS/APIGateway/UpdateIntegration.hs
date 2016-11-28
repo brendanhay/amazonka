@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents an update integration.
+--
+--
 module Network.AWS.APIGateway.UpdateIntegration
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- | Represents an update integration request.
 --
+--
+--
 -- /See:/ 'updateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
     { _updPatchOperations :: !(Maybe [PatchOperation])
@@ -67,13 +71,13 @@ data UpdateIntegration = UpdateIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'updPatchOperations'
+-- * 'updPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'updRestAPIId'
+-- * 'updRestAPIId' - Represents an update integration request's API identifier.
 --
--- * 'updResourceId'
+-- * 'updResourceId' - Represents an update integration request's resource identifier.
 --
--- * 'updHttpMethod'
+-- * 'updHttpMethod' - Represents an update integration request's HTTP method.
 updateIntegration
     :: Text -- ^ 'updRestAPIId'
     -> Text -- ^ 'updResourceId'
@@ -91,15 +95,15 @@ updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
 updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
 updPatchOperations = lens _updPatchOperations (\ s a -> s{_updPatchOperations = a}) . _Default . _Coerce;
 
--- | Represents an update integration request\'s API identifier.
+-- | Represents an update integration request's API identifier.
 updRestAPIId :: Lens' UpdateIntegration Text
 updRestAPIId = lens _updRestAPIId (\ s a -> s{_updRestAPIId = a});
 
--- | Represents an update integration request\'s resource identifier.
+-- | Represents an update integration request's resource identifier.
 updResourceId :: Lens' UpdateIntegration Text
 updResourceId = lens _updResourceId (\ s a -> s{_updResourceId = a});
 
--- | Represents an update integration request\'s HTTP method.
+-- | Represents an update integration request's HTTP method.
 updHttpMethod :: Lens' UpdateIntegration Text
 updHttpMethod = lens _updHttpMethod (\ s a -> s{_updHttpMethod = a});
 

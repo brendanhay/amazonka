@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an HSM client.
+--
+--
 module Network.AWS.CloudHSM.CreateLunaClient
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateLunaClient> action.
+-- | Contains the inputs for the 'CreateLunaClient' action.
+--
+--
 --
 -- /See:/ 'createLunaClient' smart constructor.
 data CreateLunaClient = CreateLunaClient'
@@ -55,9 +59,9 @@ data CreateLunaClient = CreateLunaClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clcLabel'
+-- * 'clcLabel' - The label for the client.
 --
--- * 'clcCertificate'
+-- * 'clcCertificate' - The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used by this client.
 createLunaClient
     :: Text -- ^ 'clcCertificate'
     -> CreateLunaClient
@@ -111,7 +115,9 @@ instance ToPath CreateLunaClient where
 instance ToQuery CreateLunaClient where
         toQuery = const mempty
 
--- | Contains the output of the < CreateLunaClient> action.
+-- | Contains the output of the 'CreateLunaClient' action.
+--
+--
 --
 -- /See:/ 'createLunaClientResponse' smart constructor.
 data CreateLunaClientResponse = CreateLunaClientResponse'
@@ -123,9 +129,9 @@ data CreateLunaClientResponse = CreateLunaClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clcrsClientARN'
+-- * 'clcrsClientARN' - The ARN of the client.
 --
--- * 'clcrsResponseStatus'
+-- * 'clcrsResponseStatus' - -- | The response status code.
 createLunaClientResponse
     :: Int -- ^ 'clcrsResponseStatus'
     -> CreateLunaClientResponse
@@ -139,7 +145,7 @@ createLunaClientResponse pResponseStatus_ =
 clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 clcrsResponseStatus :: Lens' CreateLunaClientResponse Int
 clcrsResponseStatus = lens _clcrsResponseStatus (\ s a -> s{_clcrsResponseStatus = a});
 

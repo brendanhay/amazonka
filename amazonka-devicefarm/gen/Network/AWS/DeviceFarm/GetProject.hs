@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a project.
+--
+--
 module Network.AWS.DeviceFarm.GetProject
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get project operation.
 --
+--
+--
 -- /See:/ 'getProject' smart constructor.
 newtype GetProject = GetProject'
     { _gpArn :: Text
@@ -53,7 +57,7 @@ newtype GetProject = GetProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpArn'
+-- * 'gpArn' - The project's ARN.
 getProject
     :: Text -- ^ 'gpArn'
     -> GetProject
@@ -62,7 +66,7 @@ getProject pArn_ =
     { _gpArn = pArn_
     }
 
--- | The project\'s ARN.
+-- | The project's ARN.
 gpArn :: Lens' GetProject Text
 gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetProject where
 
 -- | Represents the result of a get project request.
 --
+--
+--
 -- /See:/ 'getProjectResponse' smart constructor.
 data GetProjectResponse = GetProjectResponse'
     { _gprsProject        :: !(Maybe Project)
@@ -110,9 +116,9 @@ data GetProjectResponse = GetProjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsProject'
+-- * 'gprsProject' - Undocumented member.
 --
--- * 'gprsResponseStatus'
+-- * 'gprsResponseStatus' - -- | The response status code.
 getProjectResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetProjectResponse
@@ -126,7 +132,7 @@ getProjectResponse pResponseStatus_ =
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gprsResponseStatus :: Lens' GetProjectResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 

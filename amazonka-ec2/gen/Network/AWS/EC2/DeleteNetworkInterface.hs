@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified network interface. You must detach the network interface before you can delete it.
+--
+--
 module Network.AWS.EC2.DeleteNetworkInterface
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteNetworkInterface.
 --
+--
+--
 -- /See:/ 'deleteNetworkInterface' smart constructor.
 data DeleteNetworkInterface = DeleteNetworkInterface'
     { _dninDryRun             :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteNetworkInterface = DeleteNetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dninDryRun'
+-- * 'dninDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dninNetworkInterfaceId'
+-- * 'dninNetworkInterfaceId' - The ID of the network interface.
 deleteNetworkInterface
     :: Text -- ^ 'dninNetworkInterfaceId'
     -> DeleteNetworkInterface
@@ -64,7 +68,7 @@ deleteNetworkInterface pNetworkInterfaceId_ =
     , _dninNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dninDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
 dninDryRun = lens _dninDryRun (\ s a -> s{_dninDryRun = a});
 

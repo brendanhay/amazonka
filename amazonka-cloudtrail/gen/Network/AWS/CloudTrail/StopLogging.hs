@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Suspends the recording of AWS API calls and log file delivery for the specified trail. Under most circumstances, there is no need to use this action. You can update a trail without stopping it first. This action is the only way to stop recording. For a trail enabled in all regions, this operation must be called from the region in which the trail was created, or an 'InvalidHomeRegionException' will occur. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail enabled in all regions.
+-- Suspends the recording of AWS API calls and log file delivery for the specified trail. Under most circumstances, there is no need to use this action. You can update a trail without stopping it first. This action is the only way to stop recording. For a trail enabled in all regions, this operation must be called from the region in which the trail was created, or an @InvalidHomeRegionException@ will occur. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail enabled in all regions.
+--
+--
 module Network.AWS.CloudTrail.StopLogging
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the specified account.
 --
+--
+--
 -- /See:/ 'stopLogging' smart constructor.
 newtype StopLogging = StopLogging'
     { _slName :: Text
@@ -52,7 +56,7 @@ newtype StopLogging = StopLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slName'
+-- * 'slName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 stopLogging
     :: Text -- ^ 'slName'
     -> StopLogging
@@ -61,9 +65,7 @@ stopLogging pName_ =
     { _slName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 slName :: Lens' StopLogging Text
 slName = lens _slName (\ s a -> s{_slName = a});
 
@@ -101,6 +103,8 @@ instance ToQuery StopLogging where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'stopLoggingResponse' smart constructor.
 newtype StopLoggingResponse = StopLoggingResponse'
     { _slrsResponseStatus :: Int
@@ -110,7 +114,7 @@ newtype StopLoggingResponse = StopLoggingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slrsResponseStatus'
+-- * 'slrsResponseStatus' - -- | The response status code.
 stopLoggingResponse
     :: Int -- ^ 'slrsResponseStatus'
     -> StopLoggingResponse
@@ -119,7 +123,7 @@ stopLoggingResponse pResponseStatus_ =
     { _slrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 slrsResponseStatus :: Lens' StopLoggingResponse Int
 slrsResponseStatus = lens _slrsResponseStatus (\ s a -> s{_slrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an on-premises instance.
+--
+--
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a deregister on-premises instance operation.
 --
+--
+--
 -- /See:/ 'deregisterOnPremisesInstance' smart constructor.
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
     { _dopiInstanceName :: Text
@@ -50,7 +54,7 @@ newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dopiInstanceName'
+-- * 'dopiInstanceName' - The name of the on-premises instance to deregister.
 deregisterOnPremisesInstance
     :: Text -- ^ 'dopiInstanceName'
     -> DeregisterOnPremisesInstance

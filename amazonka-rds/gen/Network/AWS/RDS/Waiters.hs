@@ -23,8 +23,7 @@ import           Network.AWS.RDS.DescribeDBSnapshots
 import           Network.AWS.RDS.Types
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbInstanceAvailable :: Wait DescribeDBInstances
 dbInstanceAvailable =
     Wait
@@ -73,8 +72,7 @@ dbInstanceAvailable =
                               diDBInstanceStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 dbSnapshotCompleted :: Wait DescribeDBSnapshots
 dbSnapshotCompleted =
     Wait
@@ -89,8 +87,7 @@ dbSnapshotCompleted =
                               dsStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.RDS.DescribeDBInstances' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 dbInstanceDeleted :: Wait DescribeDBInstances
 dbInstanceDeleted =
     Wait

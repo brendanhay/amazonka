@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a device pool given the pool ARN. Does not allow deletion of curated pools owned by the system.
+--
+--
 module Network.AWS.DeviceFarm.DeleteDevicePool
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the delete device pool operation.
 --
+--
+--
 -- /See:/ 'deleteDevicePool' smart constructor.
 newtype DeleteDevicePool = DeleteDevicePool'
     { _ddpArn :: Text
@@ -52,7 +56,7 @@ newtype DeleteDevicePool = DeleteDevicePool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddpArn'
+-- * 'ddpArn' - Represents the Amazon Resource Name (ARN) of the Device Farm device pool you wish to delete.
 deleteDevicePool
     :: Text -- ^ 'ddpArn'
     -> DeleteDevicePool
@@ -99,6 +103,8 @@ instance ToQuery DeleteDevicePool where
 
 -- | Represents the result of a delete device pool request.
 --
+--
+--
 -- /See:/ 'deleteDevicePoolResponse' smart constructor.
 newtype DeleteDevicePoolResponse = DeleteDevicePoolResponse'
     { _ddprsResponseStatus :: Int
@@ -108,7 +114,7 @@ newtype DeleteDevicePoolResponse = DeleteDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddprsResponseStatus'
+-- * 'ddprsResponseStatus' - -- | The response status code.
 deleteDevicePoolResponse
     :: Int -- ^ 'ddprsResponseStatus'
     -> DeleteDevicePoolResponse
@@ -117,7 +123,7 @@ deleteDevicePoolResponse pResponseStatus_ =
     { _ddprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ddprsResponseStatus :: Lens' DeleteDevicePoolResponse Int
 ddprsResponseStatus = lens _ddprsResponseStatus (\ s a -> s{_ddprsResponseStatus = a});
 

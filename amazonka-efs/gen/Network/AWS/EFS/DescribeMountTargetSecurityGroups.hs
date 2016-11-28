@@ -18,13 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not 'deleted'.
+-- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not @deleted@ .
+--
 --
 -- This operation requires permissions for the following actions:
 --
--- -   'elasticfilesystem:DescribeMountTargetSecurityGroups' action on the mount target\'s file system.
+--     * @elasticfilesystem:DescribeMountTargetSecurityGroups@ action on the mount target's file system.
 --
--- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount target\'s network interface.
+--     * @ec2:DescribeNetworkInterfaceAttribute@ action on the mount target's network interface.
+--
+--
 --
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
@@ -51,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeMountTargetSecurityGroups' smart constructor.
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId :: Text
@@ -60,7 +65,7 @@ newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmtsgMountTargetId'
+-- * 'dmtsgMountTargetId' - ID of the mount target whose security groups you want to retrieve.
 describeMountTargetSecurityGroups
     :: Text -- ^ 'dmtsgMountTargetId'
     -> DescribeMountTargetSecurityGroups
@@ -114,9 +119,9 @@ data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGrou
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmtsgrsResponseStatus'
+-- * 'dmtsgrsResponseStatus' - -- | The response status code.
 --
--- * 'dmtsgrsSecurityGroups'
+-- * 'dmtsgrsSecurityGroups' - Array of security groups.
 describeMountTargetSecurityGroupsResponse
     :: Int -- ^ 'dmtsgrsResponseStatus'
     -> DescribeMountTargetSecurityGroupsResponse
@@ -126,7 +131,7 @@ describeMountTargetSecurityGroupsResponse pResponseStatus_ =
     , _dmtsgrsSecurityGroups = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
 dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a});
 

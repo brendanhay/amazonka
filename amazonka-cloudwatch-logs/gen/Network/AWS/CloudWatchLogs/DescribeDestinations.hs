@@ -20,7 +20,9 @@
 --
 -- Returns all the destinations that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by destination name.
 --
--- By default, this operation returns up to 50 destinations. If there are more destinations to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of destinations returned in the response by specifying the 'limit' parameter in the request.
+--
+-- By default, this operation returns up to 50 destinations. If there are more destinations to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of destinations returned in the response by specifying the @limit@ parameter in the request.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
@@ -61,11 +63,11 @@ data DescribeDestinations = DescribeDestinations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddNextToken'
+-- * 'ddNextToken' - Undocumented member.
 --
--- * 'ddLimit'
+-- * 'ddLimit' - Undocumented member.
 --
--- * 'ddDestinationNamePrefix'
+-- * 'ddDestinationNamePrefix' - Will only return destinations that match the provided destinationNamePrefix. If you don't specify a value, no prefix is applied.
 describeDestinations
     :: DescribeDestinations
 describeDestinations =
@@ -83,7 +85,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 ddLimit :: Lens' DescribeDestinations (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
--- | Will only return destinations that match the provided destinationNamePrefix. If you don\'t specify a value, no prefix is applied.
+-- | Will only return destinations that match the provided destinationNamePrefix. If you don't specify a value, no prefix is applied.
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
 
@@ -145,11 +147,11 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsNextToken'
+-- * 'ddrsNextToken' - Undocumented member.
 --
--- * 'ddrsDestinations'
+-- * 'ddrsDestinations' - Undocumented member.
 --
--- * 'ddrsResponseStatus'
+-- * 'ddrsResponseStatus' - -- | The response status code.
 describeDestinationsResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDestinationsResponse
@@ -168,7 +170,7 @@ ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDestinationsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 

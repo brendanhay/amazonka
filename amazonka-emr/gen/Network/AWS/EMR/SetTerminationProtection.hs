@@ -20,11 +20,13 @@
 --
 -- SetTerminationProtection locks a job flow so the Amazon EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on all of the EC2 instances in a cluster.
 --
+--
 -- SetTerminationProtection is used to prevent accidental termination of a job flow and to ensure that in the event of an error, the instances will persist so you can recover any data stored in their ephemeral instance storage.
 --
--- To terminate a job flow that has been locked by setting SetTerminationProtection to 'true', you must first unlock the job flow by a subsequent call to SetTerminationProtection in which you set the value to 'false'.
+-- To terminate a job flow that has been locked by setting SetTerminationProtection to @true@ , you must first unlock the job flow by a subsequent call to SetTerminationProtection in which you set the value to @false@ .
 --
--- For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce Developer\'s Guide./
+-- For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce Developer's Guide./
+--
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input argument to the < TerminationProtection> operation.
+-- | The input argument to the 'TerminationProtection' operation.
+--
+--
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
@@ -58,9 +62,9 @@ data SetTerminationProtection = SetTerminationProtection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stpJobFlowIds'
+-- * 'stpJobFlowIds' - A list of strings that uniquely identify the job flows to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
 --
--- * 'stpTerminationProtected'
+-- * 'stpTerminationProtected' - A Boolean that indicates whether to protect the job flow and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
 setTerminationProtection
     :: Bool -- ^ 'stpTerminationProtected'
     -> SetTerminationProtection
@@ -70,7 +74,7 @@ setTerminationProtection pTerminationProtected_ =
     , _stpTerminationProtected = pTerminationProtected_
     }
 
--- | A list of strings that uniquely identify the job flows to protect. This identifier is returned by < RunJobFlow> and can also be obtained from < DescribeJobFlows> .
+-- | A list of strings that uniquely identify the job flows to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
 stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce;
 

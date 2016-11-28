@@ -55,7 +55,7 @@ newtype CreateDistribution = CreateDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDistributionConfig'
+-- * 'cdDistributionConfig' - The distribution's configuration information.
 createDistribution
     :: DistributionConfig -- ^ 'cdDistributionConfig'
     -> CreateDistribution
@@ -64,7 +64,7 @@ createDistribution pDistributionConfig_ =
     { _cdDistributionConfig = pDistributionConfig_
     }
 
--- | The distribution\'s configuration information.
+-- | The distribution's configuration information.
 cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
@@ -114,13 +114,13 @@ data CreateDistributionResponse = CreateDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsETag'
+-- * 'cdrsETag' - The current version of the distribution created.
 --
--- * 'cdrsDistribution'
+-- * 'cdrsDistribution' - The distribution's information.
 --
--- * 'cdrsLocation'
+-- * 'cdrsLocation' - The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDistributionResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDistributionResponse
@@ -136,15 +136,15 @@ createDistributionResponse pResponseStatus_ =
 cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
 
--- | The distribution\'s information.
+-- | The distribution's information.
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDistributionResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 

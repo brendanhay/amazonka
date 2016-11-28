@@ -48,7 +48,7 @@ newtype HeadBucket = HeadBucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hbBucket'
+-- * 'hbBucket' - Undocumented member.
 headBucket
     :: BucketName -- ^ 'hbBucket'
     -> HeadBucket

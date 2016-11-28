@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Unassigns one or more secondary private IP addresses from a network interface.
+--
+--
 module Network.AWS.EC2.UnassignPrivateIPAddresses
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for UnassignPrivateIpAddresses.
 --
+--
+--
 -- /See:/ 'unassignPrivateIPAddresses' smart constructor.
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId :: !Text
@@ -52,9 +56,9 @@ data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upiaNetworkInterfaceId'
+-- * 'upiaNetworkInterfaceId' - The ID of the network interface.
 --
--- * 'upiaPrivateIPAddresses'
+-- * 'upiaPrivateIPAddresses' - The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.
 unassignPrivateIPAddresses
     :: Text -- ^ 'upiaNetworkInterfaceId'
     -> UnassignPrivateIPAddresses

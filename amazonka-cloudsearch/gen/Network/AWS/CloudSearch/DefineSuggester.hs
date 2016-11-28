@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/.
+-- Configures a suggester for a domain. A suggester enables you to display possible matches before users finish typing their queries. When you configure a suggester, you must specify the name of the text field you want to search for possible matches and a unique name for the suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DefineSuggester' operation. Specifies the name of the domain you want to update and the suggester configuration.
+-- | Container for the parameters to the @'DefineSuggester' @ operation. Specifies the name of the domain you want to update and the suggester configuration.
+--
+--
 --
 -- /See:/ 'defineSuggester' smart constructor.
 data DefineSuggester = DefineSuggester'
@@ -55,9 +59,9 @@ data DefineSuggester = DefineSuggester'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'defDomainName'
+-- * 'defDomainName' - Undocumented member.
 --
--- * 'defSuggester'
+-- * 'defSuggester' - Undocumented member.
 defineSuggester
     :: Text -- ^ 'defDomainName'
     -> Suggester -- ^ 'defSuggester'
@@ -103,7 +107,9 @@ instance ToQuery DefineSuggester where
                "DomainName" =: _defDomainName,
                "Suggester" =: _defSuggester]
 
--- | The result of a 'DefineSuggester' request. Contains the status of the newly-configured suggester.
+-- | The result of a @DefineSuggester@ request. Contains the status of the newly-configured suggester.
+--
+--
 --
 -- /See:/ 'defineSuggesterResponse' smart constructor.
 data DefineSuggesterResponse = DefineSuggesterResponse'
@@ -115,9 +121,9 @@ data DefineSuggesterResponse = DefineSuggesterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 --
--- * 'dsrsSuggester'
+-- * 'dsrsSuggester' - Undocumented member.
 defineSuggesterResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> SuggesterStatus -- ^ 'dsrsSuggester'
@@ -128,7 +134,7 @@ defineSuggesterResponse pResponseStatus_ pSuggester_ =
     , _dsrsSuggester = pSuggester_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DefineSuggesterResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

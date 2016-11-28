@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for 'ListPlatformApplications' are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call 'ListPlatformApplications' using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for @ListPlatformApplications@ are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call @ListPlatformApplications@ using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListPlatformApplications
@@ -48,6 +50,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for ListPlatformApplications action.
 --
+--
+--
 -- /See:/ 'listPlatformApplications' smart constructor.
 newtype ListPlatformApplications = ListPlatformApplications'
     { _lpaNextToken :: Maybe Text
@@ -57,7 +61,7 @@ newtype ListPlatformApplications = ListPlatformApplications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpaNextToken'
+-- * 'lpaNextToken' - NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.
 listPlatformApplications
     :: ListPlatformApplications
 listPlatformApplications =
@@ -109,6 +113,8 @@ instance ToQuery ListPlatformApplications where
 
 -- | Response for ListPlatformApplications action.
 --
+--
+--
 -- /See:/ 'listPlatformApplicationsResponse' smart constructor.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparsPlatformApplications :: !(Maybe [PlatformApplication])
@@ -120,11 +126,11 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lparsPlatformApplications'
+-- * 'lparsPlatformApplications' - Platform applications returned when calling ListPlatformApplications action.
 --
--- * 'lparsNextToken'
+-- * 'lparsNextToken' - NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
 --
--- * 'lparsResponseStatus'
+-- * 'lparsResponseStatus' - -- | The response status code.
 listPlatformApplicationsResponse
     :: Int -- ^ 'lparsResponseStatus'
     -> ListPlatformApplicationsResponse
@@ -143,7 +149,7 @@ lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPl
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lparsResponseStatus :: Lens' ListPlatformApplicationsResponse Int
 lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a});
 

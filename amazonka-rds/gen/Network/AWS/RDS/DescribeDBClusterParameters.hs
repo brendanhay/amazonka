@@ -20,7 +20,9 @@
 --
 -- Returns the detailed parameter list for a particular DB cluster parameter group.
 --
+--
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.DescribeDBClusterParameters
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBClusterParameters' smart constructor.
 data DescribeDBClusterParameters = DescribeDBClusterParameters'
     { _ddcpFilters                     :: !(Maybe [Filter])
@@ -64,15 +68,15 @@ data DescribeDBClusterParameters = DescribeDBClusterParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcpFilters'
+-- * 'ddcpFilters' - This parameter is not currently supported.
 --
--- * 'ddcpMarker'
+-- * 'ddcpMarker' - An optional pagination token provided by a previous @DescribeDBClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddcpMaxRecords'
+-- * 'ddcpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddcpSource'
+-- * 'ddcpSource' - A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
 --
--- * 'ddcpDBClusterParameterGroupName'
+-- * 'ddcpDBClusterParameterGroupName' - The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 describeDBClusterParameters
     :: Text -- ^ 'ddcpDBClusterParameterGroupName'
     -> DescribeDBClusterParameters
@@ -89,32 +93,19 @@ describeDBClusterParameters pDBClusterParameterGroupName_ =
 ddcpFilters :: Lens' DescribeDBClusterParameters [Filter]
 ddcpFilters = lens _ddcpFilters (\ s a -> s{_ddcpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous 'DescribeDBClusterParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcpMarker :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddcpMaxRecords :: Lens' DescribeDBClusterParameters (Maybe Int)
 ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 
--- | A value that indicates to return only parameters for a specific source. Parameter sources can be 'engine', 'service', or 'customer'.
+-- | A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
 ddcpSource :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
 
--- | The name of a specific DB cluster parameter group to return parameter details for.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of a specific DB cluster parameter group to return parameter details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddcpDBClusterParameterGroupName :: Lens' DescribeDBClusterParameters Text
 ddcpDBClusterParameterGroupName = lens _ddcpDBClusterParameterGroupName (\ s a -> s{_ddcpDBClusterParameterGroupName = a});
 
@@ -158,6 +149,8 @@ instance ToQuery DescribeDBClusterParameters where
 
 -- | Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.
 --
+--
+--
 -- /See:/ 'describeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
     { _ddcprsMarker         :: !(Maybe Text)
@@ -169,11 +162,11 @@ data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcprsMarker'
+-- * 'ddcprsMarker' - An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddcprsParameters'
+-- * 'ddcprsParameters' - Provides a list of parameters for the DB cluster parameter group.
 --
--- * 'ddcprsResponseStatus'
+-- * 'ddcprsResponseStatus' - -- | The response status code.
 describeDBClusterParametersResponse
     :: Int -- ^ 'ddcprsResponseStatus'
     -> DescribeDBClusterParametersResponse
@@ -184,7 +177,7 @@ describeDBClusterParametersResponse pResponseStatus_ =
     , _ddcprsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddcprsMarker :: Lens' DescribeDBClusterParametersResponse (Maybe Text)
 ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
 
@@ -192,7 +185,7 @@ ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
 ddcprsParameters :: Lens' DescribeDBClusterParametersResponse [Parameter]
 ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddcprsResponseStatus :: Lens' DescribeDBClusterParametersResponse Int
 ddcprsResponseStatus = lens _ddcprsResponseStatus (\ s a -> s{_ddcprsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Requests a description of one or more stacks.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeStacks
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype DescribeStacks = DescribeStacks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsStackIds'
+-- * 'dsStackIds' - An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
 describeStacks
     :: DescribeStacks
 describeStacks =
@@ -61,7 +63,7 @@ describeStacks =
     { _dsStackIds = Nothing
     }
 
--- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, 'DescribeStacks' returns a description of every stack.
+-- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
 dsStackIds :: Lens' DescribeStacks [Text]
 dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
 
@@ -98,7 +100,9 @@ instance ToPath DescribeStacks where
 instance ToQuery DescribeStacks where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeStacks' request.
+-- | Contains the response to a @DescribeStacks@ request.
+--
+--
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
@@ -110,9 +114,9 @@ data DescribeStacksResponse = DescribeStacksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStacks'
+-- * 'dsrsStacks' - An array of @Stack@ objects that describe the stacks.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeStacksResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStacksResponse
@@ -122,11 +126,11 @@ describeStacksResponse pResponseStatus_ =
     , _dsrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'Stack' objects that describe the stacks.
+-- | An array of @Stack@ objects that describe the stacks.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

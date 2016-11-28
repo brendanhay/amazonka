@@ -24,8 +24,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 cacheClusterAvailable :: Wait DescribeCacheClusters
 cacheClusterAvailable =
     Wait
@@ -59,8 +58,7 @@ cacheClusterAvailable =
                               ccCacheClusterStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 cacheClusterDeleted :: Wait DescribeCacheClusters
 cacheClusterDeleted =
     Wait
@@ -85,8 +83,7 @@ cacheClusterDeleted =
                               ccCacheClusterStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationGroupDeleted :: Wait DescribeReplicationGroups
 replicationGroupDeleted =
     Wait
@@ -113,8 +110,7 @@ replicationGroupDeleted =
                               rgStatus . _Just . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a
--- successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 replicationGroupAvailable :: Wait DescribeReplicationGroups
 replicationGroupAvailable =
     Wait

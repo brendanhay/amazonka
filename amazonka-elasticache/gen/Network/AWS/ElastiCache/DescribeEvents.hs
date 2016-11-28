@@ -20,7 +20,9 @@
 --
 -- The /DescribeEvents/ action returns events related to cache clusters, cache security groups, and cache parameter groups. You can obtain events specific to a particular cache cluster, cache security group, or cache parameter group by providing the name as a parameter.
 --
--- By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days\' worth of events if necessary.
+--
+-- By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeEvents/ action.
 --
+--
+--
 -- /See:/ 'describeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
     { _deStartTime        :: !(Maybe ISO8601)
@@ -71,19 +75,19 @@ data DescribeEvents = DescribeEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deStartTime'
+-- * 'deStartTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
 --
--- * 'deSourceType'
+-- * 'deSourceType' - The event source to retrieve events for. If no value is specified, all events are returned. Valid values are: @cache-cluster@ | @cache-parameter-group@ | @cache-security-group@ | @cache-subnet-group@
 --
--- * 'deSourceIdentifier'
+-- * 'deSourceIdentifier' - The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
 --
--- * 'deMarker'
+-- * 'deMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
 --
--- * 'deMaxRecords'
+-- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
--- * 'deEndTime'
+-- * 'deEndTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format.
 --
--- * 'deDuration'
+-- * 'deDuration' - The number of minutes' worth of events to retrieve.
 describeEvents
     :: DescribeEvents
 describeEvents =
@@ -101,9 +105,7 @@ describeEvents =
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
--- | The event source to retrieve events for. If no value is specified, all events are returned.
---
--- Valid values are: 'cache-cluster' | 'cache-parameter-group' | 'cache-security-group' | 'cache-subnet-group'
+-- | The event source to retrieve events for. If no value is specified, all events are returned. Valid values are: @cache-cluster@ | @cache-parameter-group@ | @cache-security-group@ | @cache-subnet-group@
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
@@ -111,15 +113,11 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: minimum 20; maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
 deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
@@ -127,7 +125,7 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
--- | The number of minutes\' worth of events to retrieve.
+-- | The number of minutes' worth of events to retrieve.
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 
@@ -173,6 +171,8 @@ instance ToQuery DescribeEvents where
 
 -- | Represents the output of a /DescribeEvents/ action.
 --
+--
+--
 -- /See:/ 'describeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersEvents         :: !(Maybe [Event])
@@ -184,11 +184,11 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dersEvents'
+-- * 'dersEvents' - A list of events. Each element in the list contains detailed information about one event.
 --
--- * 'dersMarker'
+-- * 'dersMarker' - Provides an identifier to allow retrieval of paginated results.
 --
--- * 'dersResponseStatus'
+-- * 'dersResponseStatus' - -- | The response status code.
 describeEventsResponse
     :: Int -- ^ 'dersResponseStatus'
     -> DescribeEventsResponse
@@ -207,7 +207,7 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dersResponseStatus :: Lens' DescribeEventsResponse Int
 dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a});
 

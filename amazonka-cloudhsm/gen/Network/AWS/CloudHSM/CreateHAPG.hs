@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.
+--
+--
 module Network.AWS.CloudHSM.CreateHAPG
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateHapgRequest> action.
+-- | Contains the inputs for the 'CreateHapgRequest' action.
+--
+--
 --
 -- /See:/ 'createHAPG' smart constructor.
 newtype CreateHAPG = CreateHAPG'
@@ -53,7 +57,7 @@ newtype CreateHAPG = CreateHAPG'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chLabel'
+-- * 'chLabel' - The label of the new high-availability partition group.
 createHAPG
     :: Text -- ^ 'chLabel'
     -> CreateHAPG
@@ -98,7 +102,9 @@ instance ToPath CreateHAPG where
 instance ToQuery CreateHAPG where
         toQuery = const mempty
 
--- | Contains the output of the < CreateHAPartitionGroup> action.
+-- | Contains the output of the 'CreateHAPartitionGroup' action.
+--
+--
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
@@ -110,9 +116,9 @@ data CreateHAPGResponse = CreateHAPGResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chapgrsHAPGARN'
+-- * 'chapgrsHAPGARN' - The ARN of the high-availability partition group.
 --
--- * 'chapgrsResponseStatus'
+-- * 'chapgrsResponseStatus' - -- | The response status code.
 createHAPGResponse
     :: Int -- ^ 'chapgrsResponseStatus'
     -> CreateHAPGResponse
@@ -126,7 +132,7 @@ createHAPGResponse pResponseStatus_ =
 chapgrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chapgrsHAPGARN = lens _chapgrsHAPGARN (\ s a -> s{_chapgrsHAPGARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
 chapgrsResponseStatus = lens _chapgrsResponseStatus (\ s a -> s{_chapgrsResponseStatus = a});
 

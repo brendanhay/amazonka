@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a conditional forwarder that has been set up for your AWS directory.
+--
+--
 module Network.AWS.DirectoryService.DeleteConditionalForwarder
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Deletes a conditional forwarder.
 --
+--
+--
 -- /See:/ 'deleteConditionalForwarder' smart constructor.
 data DeleteConditionalForwarder = DeleteConditionalForwarder'
     { _delDirectoryId      :: !Text
@@ -54,9 +58,9 @@ data DeleteConditionalForwarder = DeleteConditionalForwarder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delDirectoryId'
+-- * 'delDirectoryId' - The directory ID for which you are deleting the conditional forwarder.
 --
--- * 'delRemoteDomainName'
+-- * 'delRemoteDomainName' - The fully qualified domain name (FQDN) of the remote domain with which you are deleting the conditional forwarder.
 deleteConditionalForwarder
     :: Text -- ^ 'delDirectoryId'
     -> Text -- ^ 'delRemoteDomainName'
@@ -114,6 +118,8 @@ instance ToQuery DeleteConditionalForwarder where
 
 -- | The result of a DeleteConditionalForwarder request.
 --
+--
+--
 -- /See:/ 'deleteConditionalForwarderResponse' smart constructor.
 newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
     { _drsResponseStatus :: Int
@@ -123,7 +129,7 @@ newtype DeleteConditionalForwarderResponse = DeleteConditionalForwarderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteConditionalForwarderResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteConditionalForwarderResponse
@@ -132,7 +138,7 @@ deleteConditionalForwarderResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteConditionalForwarderResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

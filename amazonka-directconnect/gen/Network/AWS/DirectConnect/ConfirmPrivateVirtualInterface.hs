@@ -20,7 +20,9 @@
 --
 -- Accept ownership of a private virtual interface created by another customer.
 --
+--
 -- After the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway, and will be available for handling traffic.
+--
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the ConfirmPrivateVirtualInterface operation.
 --
+--
+--
 -- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId :: !Text
@@ -57,9 +61,9 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpviVirtualInterfaceId'
+-- * 'cpviVirtualInterfaceId' - Undocumented member.
 --
--- * 'cpviVirtualGatewayId'
+-- * 'cpviVirtualGatewayId' - ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
 confirmPrivateVirtualInterface
     :: Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
@@ -74,11 +78,7 @@ confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
 cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
 
--- | ID of the virtual private gateway that will be attached to the virtual interface.
---
--- A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
---
--- Default: None
+-- | ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
 cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
 
@@ -125,6 +125,8 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 
 -- | The response received when ConfirmPrivateVirtualInterface is called.
 --
+--
+--
 -- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
@@ -135,9 +137,9 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpvirsVirtualInterfaceState'
+-- * 'cpvirsVirtualInterfaceState' - Undocumented member.
 --
--- * 'cpvirsResponseStatus'
+-- * 'cpvirsResponseStatus' - -- | The response status code.
 confirmPrivateVirtualInterfaceResponse
     :: Int -- ^ 'cpvirsResponseStatus'
     -> ConfirmPrivateVirtualInterfaceResponse
@@ -151,7 +153,7 @@ confirmPrivateVirtualInterfaceResponse pResponseStatus_ =
 cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
 cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});
 

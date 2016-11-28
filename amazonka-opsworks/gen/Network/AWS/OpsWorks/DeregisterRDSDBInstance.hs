@@ -20,7 +20,9 @@
 --
 -- Deregisters an Amazon RDS instance.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdiRDSDBInstanceARN'
+-- * 'drdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 deregisterRDSDBInstance
     :: Text -- ^ 'drdiRDSDBInstanceARN'
     -> DeregisterRDSDBInstance
@@ -59,7 +61,7 @@ deregisterRDSDBInstance pRDSDBInstanceARN_ =
     { _drdiRDSDBInstanceARN = pRDSDBInstanceARN_
     }
 
--- | The Amazon RDS instance\'s ARN.
+-- | The Amazon RDS instance's ARN.
 drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
 drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
 

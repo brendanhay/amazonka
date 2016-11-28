@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
+--
+--
 module Network.AWS.Discovery.DescribeConfigurations
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DescribeConfigurations = DescribeConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcConfigurationIds'
+-- * 'dcConfigurationIds' - One or more configuration IDs.
 describeConfigurations
     :: DescribeConfigurations
 describeConfigurations =
@@ -110,9 +112,9 @@ data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsConfigurations'
+-- * 'dcrsConfigurations' - A key in the response map. The value is an array of data.
 --
--- * 'dcrsResponseStatus'
+-- * 'dcrsResponseStatus' - -- | The response status code.
 describeConfigurationsResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeConfigurationsResponse
@@ -126,7 +128,7 @@ describeConfigurationsResponse pResponseStatus_ =
 dcrsConfigurations :: Lens' DescribeConfigurationsResponse [HashMap Text Text]
 dcrsConfigurations = lens _dcrsConfigurations (\ s a -> s{_dcrsConfigurations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcrsResponseStatus :: Lens' DescribeConfigurationsResponse Int
 dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
 

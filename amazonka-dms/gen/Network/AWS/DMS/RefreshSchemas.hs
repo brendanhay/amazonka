@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the DescribeRefreshSchemasStatus operation.
+--
+--
 module Network.AWS.DMS.RefreshSchemas
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'refreshSchemas' smart constructor.
 data RefreshSchemas = RefreshSchemas'
     { _rsEndpointARN            :: !Text
@@ -55,9 +59,9 @@ data RefreshSchemas = RefreshSchemas'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsEndpointARN'
+-- * 'rsEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'rsReplicationInstanceARN'
+-- * 'rsReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 refreshSchemas
     :: Text -- ^ 'rsEndpointARN'
     -> Text -- ^ 'rsReplicationInstanceARN'
@@ -116,6 +120,8 @@ instance ToQuery RefreshSchemas where
 
 -- |
 --
+--
+--
 -- /See:/ 'refreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
     { _rsrsRefreshSchemasStatus :: !(Maybe RefreshSchemasStatus)
@@ -126,9 +132,9 @@ data RefreshSchemasResponse = RefreshSchemasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsrsRefreshSchemasStatus'
+-- * 'rsrsRefreshSchemasStatus' - The status of the refreshed schema.
 --
--- * 'rsrsResponseStatus'
+-- * 'rsrsResponseStatus' - -- | The response status code.
 refreshSchemasResponse
     :: Int -- ^ 'rsrsResponseStatus'
     -> RefreshSchemasResponse
@@ -142,7 +148,7 @@ refreshSchemasResponse pResponseStatus_ =
 rsrsRefreshSchemasStatus :: Lens' RefreshSchemasResponse (Maybe RefreshSchemasStatus)
 rsrsRefreshSchemasStatus = lens _rsrsRefreshSchemasStatus (\ s a -> s{_rsrsRefreshSchemasStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rsrsResponseStatus :: Lens' RefreshSchemasResponse Int
 rsrsResponseStatus = lens _rsrsResponseStatus (\ s a -> s{_rsrsResponseStatus = a});
 

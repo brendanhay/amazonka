@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it\'s linked. For more information about ClassicLink, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
+-- Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked. For more information about ClassicLink, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
+--
+--
 module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisableVpcClassicLinkDnsSupport.
 --
+--
+--
 -- /See:/ 'disableVPCClassicLinkDNSSupport' smart constructor.
 newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
     { _dvcldsVPCId :: Maybe Text
@@ -53,7 +57,7 @@ newtype DisableVPCClassicLinkDNSSupport = DisableVPCClassicLinkDNSSupport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvcldsVPCId'
+-- * 'dvcldsVPCId' - The ID of the VPC.
 disableVPCClassicLinkDNSSupport
     :: DisableVPCClassicLinkDNSSupport
 disableVPCClassicLinkDNSSupport =
@@ -98,6 +102,8 @@ instance ToQuery DisableVPCClassicLinkDNSSupport
 
 -- | Contains the output of DisableVpcClassicLinkDnsSupport.
 --
+--
+--
 -- /See:/ 'disableVPCClassicLinkDNSSupportResponse' smart constructor.
 data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportResponse'
     { _dvcldsrsReturn         :: !(Maybe Bool)
@@ -108,9 +114,9 @@ data DisableVPCClassicLinkDNSSupportResponse = DisableVPCClassicLinkDNSSupportRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvcldsrsReturn'
+-- * 'dvcldsrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dvcldsrsResponseStatus'
+-- * 'dvcldsrsResponseStatus' - -- | The response status code.
 disableVPCClassicLinkDNSSupportResponse
     :: Int -- ^ 'dvcldsrsResponseStatus'
     -> DisableVPCClassicLinkDNSSupportResponse
@@ -120,11 +126,11 @@ disableVPCClassicLinkDNSSupportResponse pResponseStatus_ =
     , _dvcldsrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvcldsrsReturn :: Lens' DisableVPCClassicLinkDNSSupportResponse (Maybe Bool)
 dvcldsrsReturn = lens _dvcldsrsReturn (\ s a -> s{_dvcldsrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvcldsrsResponseStatus :: Lens' DisableVPCClassicLinkDNSSupportResponse Int
 dvcldsrsResponseStatus = lens _dvcldsrsResponseStatus (\ s a -> s{_dvcldsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified endpoint.
+--
+--
 module Network.AWS.DMS.ModifyEndpoint
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyEndpoint' smart constructor.
 data ModifyEndpoint = ModifyEndpoint'
     { _meServerName                :: !(Maybe Text)
@@ -75,29 +79,29 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'meServerName'
+-- * 'meServerName' - The name of the server where the endpoint database resides.
 --
--- * 'meCertificateARN'
+-- * 'meCertificateARN' - The Amazon Resource Name (ARN) of the certificate used for SSL connection.
 --
--- * 'meExtraConnectionAttributes'
+-- * 'meExtraConnectionAttributes' - Additional attributes associated with the connection.
 --
--- * 'meEndpointType'
+-- * 'meEndpointType' - The type of endpoint.
 --
--- * 'meUsername'
+-- * 'meUsername' - The user name to be used to login to the endpoint database.
 --
--- * 'meEngineName'
+-- * 'meEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
 --
--- * 'meSSLMode'
+-- * 'meSSLMode' - The SSL mode to be used. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
--- * 'mePassword'
+-- * 'mePassword' - The password to be used to login to the endpoint database.
 --
--- * 'meDatabaseName'
+-- * 'meDatabaseName' - The name of the endpoint database.
 --
--- * 'meEndpointIdentifier'
+-- * 'meEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 --
--- * 'mePort'
+-- * 'mePort' - The port used by the endpoint database.
 --
--- * 'meEndpointARN'
+-- * 'meEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 modifyEndpoint
     :: Text -- ^ 'meEndpointARN'
     -> ModifyEndpoint
@@ -141,11 +145,7 @@ meUsername = lens _meUsername (\ s a -> s{_meUsername = a});
 meEngineName :: Lens' ModifyEndpoint (Maybe Text)
 meEngineName = lens _meEngineName (\ s a -> s{_meEngineName = a});
 
--- | The SSL mode to be used.
---
--- SSL mode can be one of four values: none, require, verify-ca, verify-full.
---
--- The default value is none.
+-- | The SSL mode to be used. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 meSSLMode :: Lens' ModifyEndpoint (Maybe DmsSSLModeValue)
 meSSLMode = lens _meSSLMode (\ s a -> s{_meSSLMode = a});
 
@@ -217,6 +217,8 @@ instance ToQuery ModifyEndpoint where
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyEndpointResponse' smart constructor.
 data ModifyEndpointResponse = ModifyEndpointResponse'
     { _mersEndpoint       :: !(Maybe Endpoint)
@@ -227,9 +229,9 @@ data ModifyEndpointResponse = ModifyEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mersEndpoint'
+-- * 'mersEndpoint' - The modified endpoint.
 --
--- * 'mersResponseStatus'
+-- * 'mersResponseStatus' - -- | The response status code.
 modifyEndpointResponse
     :: Int -- ^ 'mersResponseStatus'
     -> ModifyEndpointResponse
@@ -243,7 +245,7 @@ modifyEndpointResponse pResponseStatus_ =
 mersEndpoint :: Lens' ModifyEndpointResponse (Maybe Endpoint)
 mersEndpoint = lens _mersEndpoint (\ s a -> s{_mersEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mersResponseStatus :: Lens' ModifyEndpointResponse Int
 mersResponseStatus = lens _mersResponseStatus (\ s a -> s{_mersResponseStatus = a});
 

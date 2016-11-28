@@ -20,7 +20,7 @@
 --
 -- Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.
 --
--- CloudTrail uses different private\/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.
+--
 module Network.AWS.CloudTrail.ListPublicKeys
     (
     -- * Creating a Request
@@ -49,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Requests the public keys for a specified time range.
 --
+--
+--
 -- /See:/ 'listPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
     { _lpkStartTime :: !(Maybe POSIX)
@@ -60,11 +62,11 @@ data ListPublicKeys = ListPublicKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpkStartTime'
+-- * 'lpkStartTime' - Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
 --
--- * 'lpkNextToken'
+-- * 'lpkNextToken' - Reserved for future use.
 --
--- * 'lpkEndTime'
+-- * 'lpkEndTime' - Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
 listPublicKeys
     :: ListPublicKeys
 listPublicKeys =
@@ -127,6 +129,8 @@ instance ToQuery ListPublicKeys where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'listPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
     { _lpkrsPublicKeyList  :: !(Maybe [PublicKey])
@@ -138,11 +142,11 @@ data ListPublicKeysResponse = ListPublicKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpkrsPublicKeyList'
+-- * 'lpkrsPublicKeyList' - Contains an array of PublicKey objects.
 --
--- * 'lpkrsNextToken'
+-- * 'lpkrsNextToken' - Reserved for future use.
 --
--- * 'lpkrsResponseStatus'
+-- * 'lpkrsResponseStatus' - -- | The response status code.
 listPublicKeysResponse
     :: Int -- ^ 'lpkrsResponseStatus'
     -> ListPublicKeysResponse
@@ -154,8 +158,6 @@ listPublicKeysResponse pResponseStatus_ =
     }
 
 -- | Contains an array of PublicKey objects.
---
--- The returned public keys may have validity time ranges that overlap.
 lpkrsPublicKeyList :: Lens' ListPublicKeysResponse [PublicKey]
 lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\ s a -> s{_lpkrsPublicKeyList = a}) . _Default . _Coerce;
 
@@ -163,7 +165,7 @@ lpkrsPublicKeyList = lens _lpkrsPublicKeyList (\ s a -> s{_lpkrsPublicKeyList = 
 lpkrsNextToken :: Lens' ListPublicKeysResponse (Maybe Text)
 lpkrsNextToken = lens _lpkrsNextToken (\ s a -> s{_lpkrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lpkrsResponseStatus :: Lens' ListPublicKeysResponse Int
 lpkrsResponseStatus = lens _lpkrsResponseStatus (\ s a -> s{_lpkrsResponseStatus = a});
 

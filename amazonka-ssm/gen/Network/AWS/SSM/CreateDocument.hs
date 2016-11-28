@@ -20,7 +20,9 @@
 --
 -- Creates an SSM document.
 --
+--
 -- After you create an SSM document, you can use CreateAssociation to associate it with one or more running instances.
+--
 module Network.AWS.SSM.CreateDocument
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data CreateDocument = CreateDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdContent'
+-- * 'cdContent' - A valid JSON string.
 --
--- * 'cdName'
+-- * 'cdName' - A name for the SSM document.
 createDocument
     :: Text -- ^ 'cdContent'
     -> Text -- ^ 'cdName'
@@ -122,9 +124,9 @@ data CreateDocumentResponse = CreateDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDocumentDescription'
+-- * 'cdrsDocumentDescription' - Information about the SSM document.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDocumentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDocumentResponse
@@ -138,7 +140,7 @@ createDocumentResponse pResponseStatus_ =
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDocumentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 

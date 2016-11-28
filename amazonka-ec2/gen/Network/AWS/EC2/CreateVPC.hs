@@ -20,11 +20,13 @@
 --
 -- Creates a VPC with the specified CIDR block.
 --
--- The smallest VPC you can create uses a \/28 netmask (16 IP addresses), and the largest uses a \/16 netmask (65,536 IP addresses). To help you decide how big to make your VPC, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/.
 --
--- By default, each instance you launch in the VPC has the default DHCP options, which includes only a default DNS server that we provide (AmazonProvidedDNS). For more information about DHCP options, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/.
+-- The smallest VPC you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP addresses). To help you decide how big to make your VPC, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html Your VPC and Subnets> in the /Amazon Virtual Private Cloud User Guide/ .
 --
--- You can specify the instance tenancy value for the VPC when you create it. You can\'t change this value for the VPC after you create it. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html Dedicated Instances> in the /Amazon Virtual Private Cloud User Guide/.
+-- By default, each instance you launch in the VPC has the default DHCP options, which includes only a default DNS server that we provide (AmazonProvidedDNS). For more information about DHCP options, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+-- You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html Dedicated Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateVPC
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpc.
 --
+--
+--
 -- /See:/ 'createVPC' smart constructor.
 data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
@@ -63,11 +67,11 @@ data CreateVPC = CreateVPC'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvInstanceTenancy'
+-- * 'cvInstanceTenancy' - The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.  __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only. Default: @default@
 --
--- * 'cvDryRun'
+-- * 'cvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cvCIdRBlock'
+-- * 'cvCIdRBlock' - The network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ .
 createVPC
     :: Text -- ^ 'cvCIdRBlock'
     -> CreateVPC
@@ -78,19 +82,15 @@ createVPC pCIdRBlock_ =
     , _cvCIdRBlock = pCIdRBlock_
     }
 
--- | The tenancy options for instances launched into the VPC. For 'default', instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For 'dedicated', instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of 'dedicated' or 'host' into a dedicated tenancy VPC.
---
--- __Important:__ The 'host' value cannot be used with this parameter. Use the 'default' or 'dedicated' values only.
---
--- Default: 'default'
+-- | The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.  __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only. Default: @default@
 cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
 cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvDryRun :: Lens' CreateVPC (Maybe Bool)
 cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
 
--- | The network range for the VPC, in CIDR notation. For example, '10.0.0.0\/16'.
+-- | The network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ .
 cvCIdRBlock :: Lens' CreateVPC Text
 cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
 
@@ -123,6 +123,8 @@ instance ToQuery CreateVPC where
 
 -- | Contains the output of CreateVpc.
 --
+--
+--
 -- /See:/ 'createVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrsVPC            :: !(Maybe VPC)
@@ -133,9 +135,9 @@ data CreateVPCResponse = CreateVPCResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvrsVPC'
+-- * 'cvrsVPC' - Information about the VPC.
 --
--- * 'cvrsResponseStatus'
+-- * 'cvrsResponseStatus' - -- | The response status code.
 createVPCResponse
     :: Int -- ^ 'cvrsResponseStatus'
     -> CreateVPCResponse
@@ -149,7 +151,7 @@ createVPCResponse pResponseStatus_ =
 cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cvrsResponseStatus :: Lens' CreateVPCResponse Int
 cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a});
 

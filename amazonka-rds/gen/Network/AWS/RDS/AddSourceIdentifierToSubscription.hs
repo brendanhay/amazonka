@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds a source identifier to an existing RDS event notification subscription.
+--
+--
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'addSourceIdentifierToSubscription' smart constructor.
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
     { _asitsSubscriptionName :: !Text
@@ -55,9 +59,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asitsSubscriptionName'
+-- * 'asitsSubscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
 --
--- * 'asitsSourceIdentifier'
+-- * 'asitsSourceIdentifier' - The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
 addSourceIdentifierToSubscription
     :: Text -- ^ 'asitsSubscriptionName'
     -> Text -- ^ 'asitsSourceIdentifier'
@@ -72,18 +76,7 @@ addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
 asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
 asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
 
--- | The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
---
--- Constraints:
---
--- -   If the source type is a DB instance, then a 'DBInstanceIdentifier' must be supplied.
---
--- -   If the source type is a DB security group, a 'DBSecurityGroupName' must be supplied.
---
--- -   If the source type is a DB parameter group, a 'DBParameterGroupName' must be supplied.
---
--- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must be supplied.
---
+-- | The identifier of the event source to be added. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens. Constraints:     * If the source type is a DB instance, then a @DBInstanceIdentifier@ must be supplied.     * If the source type is a DB security group, a @DBSecurityGroupName@ must be supplied.     * If the source type is a DB parameter group, a @DBParameterGroupName@ must be supplied.     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must be supplied.
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 
@@ -131,9 +124,9 @@ data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscripti
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asitsrsEventSubscription'
+-- * 'asitsrsEventSubscription' - Undocumented member.
 --
--- * 'asitsrsResponseStatus'
+-- * 'asitsrsResponseStatus' - -- | The response status code.
 addSourceIdentifierToSubscriptionResponse
     :: Int -- ^ 'asitsrsResponseStatus'
     -> AddSourceIdentifierToSubscriptionResponse
@@ -147,7 +140,7 @@ addSourceIdentifierToSubscriptionResponse pResponseStatus_ =
 asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 asitsrsResponseStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
 asitsrsResponseStatus = lens _asitsrsResponseStatus (\ s a -> s{_asitsrsResponseStatus = a});
 

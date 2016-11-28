@@ -20,7 +20,9 @@
 --
 -- Gets usage details (for example, data storage) about a particular identity pool.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
     -- * Creating a Request
@@ -55,7 +57,7 @@ newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipuIdentityPoolId'
+-- * 'dipuIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 describeIdentityPoolUsage
     :: Text -- ^ 'dipuIdentityPoolId'
     -> DescribeIdentityPoolUsage
@@ -109,9 +111,9 @@ data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipursIdentityPoolUsage'
+-- * 'dipursIdentityPoolUsage' - Information about the usage of the identity pool.
 --
--- * 'dipursResponseStatus'
+-- * 'dipursResponseStatus' - -- | The response status code.
 describeIdentityPoolUsageResponse
     :: Int -- ^ 'dipursResponseStatus'
     -> DescribeIdentityPoolUsageResponse
@@ -125,7 +127,7 @@ describeIdentityPoolUsageResponse pResponseStatus_ =
 dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
 dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dipursResponseStatus :: Lens' DescribeIdentityPoolUsageResponse Int
 dipursResponseStatus = lens _dipursResponseStatus (\ s a -> s{_dipursResponseStatus = a});
 

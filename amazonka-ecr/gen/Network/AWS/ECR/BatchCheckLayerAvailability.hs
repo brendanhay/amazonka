@@ -20,7 +20,7 @@
 --
 -- Check the availability of multiple image layers in a specified registry and repository.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.BatchCheckLayerAvailability
     (
     -- * Creating a Request
@@ -58,11 +58,11 @@ data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bclaRegistryId'
+-- * 'bclaRegistryId' - The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
 --
--- * 'bclaRepositoryName'
+-- * 'bclaRepositoryName' - The name of the repository that is associated with the image layers to check.
 --
--- * 'bclaLayerDigests'
+-- * 'bclaLayerDigests' - The digests of the image layers to check.
 batchCheckLayerAvailability
     :: Text -- ^ 'bclaRepositoryName'
     -> NonEmpty Text -- ^ 'bclaLayerDigests'
@@ -137,11 +137,11 @@ data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bclarsFailures'
+-- * 'bclarsFailures' - Any failures associated with the call.
 --
--- * 'bclarsLayers'
+-- * 'bclarsLayers' - A list of image layer objects corresponding to the image layer references in the request.
 --
--- * 'bclarsResponseStatus'
+-- * 'bclarsResponseStatus' - -- | The response status code.
 batchCheckLayerAvailabilityResponse
     :: Int -- ^ 'bclarsResponseStatus'
     -> BatchCheckLayerAvailabilityResponse
@@ -160,7 +160,7 @@ bclarsFailures = lens _bclarsFailures (\ s a -> s{_bclarsFailures = a}) . _Defau
 bclarsLayers :: Lens' BatchCheckLayerAvailabilityResponse [Layer]
 bclarsLayers = lens _bclarsLayers (\ s a -> s{_bclarsLayers = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bclarsResponseStatus :: Lens' BatchCheckLayerAvailabilityResponse Int
 bclarsResponseStatus = lens _bclarsResponseStatus (\ s a -> s{_bclarsResponseStatus = a});
 

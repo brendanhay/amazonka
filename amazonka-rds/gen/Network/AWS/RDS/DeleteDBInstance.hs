@@ -18,19 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted by 'DeleteDBInstance' are not deleted.
+-- The DeleteDBInstance action deletes a previously provisioned DB instance. When you delete a DB instance, all automated backups for that instance are deleted and cannot be recovered. Manual DB snapshots of the DB instance to be deleted by @DeleteDBInstance@ are not deleted.
 --
--- If you request a final DB snapshot the status of the Amazon RDS DB instance is 'deleting' until the DB snapshot is created. The API action 'DescribeDBInstance' is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted.
 --
--- Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', you can only delete it when the 'SkipFinalSnapshot' parameter is set to 'true'.
+-- If you request a final DB snapshot the status of the Amazon RDS DB instance is @deleting@ until the DB snapshot is created. The API action @DescribeDBInstance@ is used to monitor the status of this operation. The action cannot be canceled or reverted once submitted.
+--
+-- Note that when a DB instance is in a failure state and has a status of @failed@ , @incompatible-restore@ , or @incompatible-network@ , you can only delete it when the @SkipFinalSnapshot@ parameter is set to @true@ .
 --
 -- If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete the DB instance if the following are true:
 --
--- -   The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
+--     * The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
 --
--- -   The DB instance is the only instance in the DB cluster.
+--     * The DB instance is the only instance in the DB cluster.
 --
--- To delete a DB instance in this case, first call the < PromoteReadReplicaDBCluster> API action to promote the DB cluster so it\'s no longer a Read Replica. After the promotion completes, then call the 'DeleteDBInstance' API action to delete the final instance in the DB cluster.
+--
+--
+-- To delete a DB instance in this case, first call the 'PromoteReadReplicaDBCluster' API action to promote the DB cluster so it's no longer a Read Replica. After the promotion completes, then call the @DeleteDBInstance@ API action to delete the final instance in the DB cluster.
+--
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Creating a Request
@@ -58,6 +62,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
     { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
@@ -69,11 +75,11 @@ data DeleteDBInstance = DeleteDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddiFinalDBSnapshotIdentifier'
+-- * 'ddiFinalDBSnapshotIdentifier' - The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
 --
--- * 'ddiSkipFinalSnapshot'
+-- * 'ddiSkipFinalSnapshot' - Determines whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DBSnapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true". Specify @true@ when deleting a Read Replica. Default: @false@
 --
--- * 'ddiDBInstanceIdentifier'
+-- * 'ddiDBInstanceIdentifier' - The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 deleteDBInstance
     :: Text -- ^ 'ddiDBInstanceIdentifier'
     -> DeleteDBInstance
@@ -84,45 +90,15 @@ deleteDBInstance pDBInstanceIdentifier_ =
     , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to 'false'.
---
--- Specifying this parameter and also setting the SkipFinalShapshot parameter to true results in an error.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- -   Cannot be specified when deleting a Read Replica.
---
+-- | The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Cannot be specified when deleting a Read Replica.
 ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
 
--- | Determines whether a final DB snapshot is created before the DB instance is deleted. If 'true' is specified, no DBSnapshot is created. If 'false' is specified, a DB snapshot is created before the DB instance is deleted.
---
--- Note that when a DB instance is in a failure state and has a status of \'failed\', \'incompatible-restore\', or \'incompatible-network\', it can only be deleted when the SkipFinalSnapshot parameter is set to \"true\".
---
--- Specify 'true' when deleting a Read Replica.
---
--- The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is 'false'.
---
--- Default: 'false'
+-- | Determines whether a final DB snapshot is created before the DB instance is deleted. If @true@ is specified, no DBSnapshot is created. If @false@ is specified, a DB snapshot is created before the DB instance is deleted.  Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter is set to "true". Specify @true@ when deleting a Read Replica. Default: @false@
 ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
 
--- | The DB instance identifier for the DB instance to be deleted. This parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
 ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
 
@@ -165,9 +141,9 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddirsDBInstance'
+-- * 'ddirsDBInstance' - Undocumented member.
 --
--- * 'ddirsResponseStatus'
+-- * 'ddirsResponseStatus' - -- | The response status code.
 deleteDBInstanceResponse
     :: Int -- ^ 'ddirsResponseStatus'
     -> DeleteDBInstanceResponse
@@ -181,7 +157,7 @@ deleteDBInstanceResponse pResponseStatus_ =
 ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddirsResponseStatus :: Lens' DeleteDBInstanceResponse Int
 ddirsResponseStatus = lens _ddirsResponseStatus (\ s a -> s{_ddirsResponseStatus = a});
 

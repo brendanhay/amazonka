@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of unmetered iOS and\/or unmetered Android devices that have been purchased by the account.
+-- Returns the number of unmetered iOS and/or unmetered Android devices that have been purchased by the account.
+--
+--
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | Represents the request sent to retrieve the account settings.
+--
+--
 --
 -- /See:/ 'getAccountSettings' smart constructor.
 data GetAccountSettings =
@@ -86,7 +90,9 @@ instance ToPath GetAccountSettings where
 instance ToQuery GetAccountSettings where
         toQuery = const mempty
 
--- | Represents the account settings return values from the 'GetAccountSettings' request.
+-- | Represents the account settings return values from the @GetAccountSettings@ request.
+--
+--
 --
 -- /See:/ 'getAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
@@ -98,9 +104,9 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsAccountSettings'
+-- * 'gasrsAccountSettings' - Undocumented member.
 --
--- * 'gasrsResponseStatus'
+-- * 'gasrsResponseStatus' - -- | The response status code.
 getAccountSettingsResponse
     :: Int -- ^ 'gasrsResponseStatus'
     -> GetAccountSettingsResponse
@@ -114,7 +120,7 @@ getAccountSettingsResponse pResponseStatus_ =
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
 gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
 

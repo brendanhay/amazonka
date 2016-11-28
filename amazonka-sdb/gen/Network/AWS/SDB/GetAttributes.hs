@@ -20,7 +20,9 @@
 --
 -- Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter.
 --
+--
 -- If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas.
+--
 module Network.AWS.SDB.GetAttributes
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data GetAttributes = GetAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaConsistentRead'
+-- * 'gaConsistentRead' - @true@
 --
--- * 'gaAttributeNames'
+-- * 'gaAttributeNames' - The names of the attributes.
 --
--- * 'gaDomainName'
+-- * 'gaDomainName' - The name of the domain in which to perform the operation.
 --
--- * 'gaItemName'
+-- * 'gaItemName' - The name of the item.
 getAttributes
     :: Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
@@ -78,7 +80,7 @@ getAttributes pDomainName_ pItemName_ =
     , _gaItemName = pItemName_
     }
 
--- | Determines whether or not strong consistency should be enforced when data is read from SimpleDB. If 'true', any data previously written to SimpleDB will be returned. Otherwise, results will be consistent eventually, and the client may not see data that was written immediately before your read.
+-- | @true@
 gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
 gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
 
@@ -135,9 +137,9 @@ data GetAttributesResponse = GetAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsAttributes'
+-- * 'garsAttributes' - The list of attributes returned by the operation.
 --
--- * 'garsResponseStatus'
+-- * 'garsResponseStatus' - -- | The response status code.
 getAttributesResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAttributesResponse
@@ -151,7 +153,7 @@ getAttributesResponse pResponseStatus_ =
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
 garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 garsResponseStatus :: Lens' GetAttributesResponse Int
 garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
 

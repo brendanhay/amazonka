@@ -18,21 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an AMI. When you\'re creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- For Amazon EBS-backed instances, < CreateImage> creates and registers the AMI in a single request, so you don\'t have to register the AMI yourself.
 --
--- You can also use 'RegisterImage' to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
+-- You can also use @RegisterImage@ to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 'billingProduct' code associated with an AMI to verify subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and subsequent instances launched from such an AMI will not be able to connect to package update infrastructure.
+-- /Important:/ Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 @billingProduct@ code associated with an AMI to verify subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and subsequent instances launched from such an AMI will not be able to connect to package update infrastructure.
 --
--- Similarly, although you can create a Windows AMI from a snapshot, you can\'t successfully launch an instance from the AMI.
+-- Similarly, although you can create a Windows AMI from a snapshot, you can't successfully launch an instance from the AMI.
 --
--- To create Windows AMIs or to create AMIs for Linux operating systems that must retain AMI billing codes to work properly, see < CreateImage>.
+-- To create Windows AMIs or to create AMIs for Linux operating systems that must retain AMI billing codes to work properly, see 'CreateImage' .
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.
 --
--- You can\'t register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
 module Network.AWS.EC2.RegisterImage
     (
     -- * Creating a Request
@@ -69,6 +67,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RegisterImage.
 --
+--
+--
 -- /See:/ 'registerImage' smart constructor.
 data RegisterImage = RegisterImage'
     { _riVirtualizationType  :: !(Maybe Text)
@@ -89,29 +89,29 @@ data RegisterImage = RegisterImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riVirtualizationType'
+-- * 'riVirtualizationType' - The type of virtualization. Default: @paravirtual@
 --
--- * 'riImageLocation'
+-- * 'riImageLocation' - The full path to your AMI manifest in Amazon S3 storage.
 --
--- * 'riEnaSupport'
+-- * 'riEnaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
--- * 'riRAMDiskId'
+-- * 'riRAMDiskId' - The ID of the RAM disk.
 --
--- * 'riKernelId'
+-- * 'riKernelId' - The ID of the kernel.
 --
--- * 'riRootDeviceName'
+-- * 'riRootDeviceName' - The name of the root device (for example, @/dev/sda1@ , or @/dev/xvda@ ).
 --
--- * 'riSRIOVNetSupport'
+-- * 'riSRIOVNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI. There is no way to disable @sriovNetSupport@ at this time. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
--- * 'riArchitecture'
+-- * 'riArchitecture' - The architecture of the AMI. Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
 --
--- * 'riDescription'
+-- * 'riDescription' - A description for your AMI.
 --
--- * 'riBlockDeviceMappings'
+-- * 'riBlockDeviceMappings' - One or more block device mapping entries.
 --
--- * 'riDryRun'
+-- * 'riDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'riName'
+-- * 'riName' - A name for your AMI. Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
 registerImage
     :: Text -- ^ 'riName'
     -> RegisterImage
@@ -131,9 +131,7 @@ registerImage pName_ =
     , _riName = pName_
     }
 
--- | The type of virtualization.
---
--- Default: 'paravirtual'
+-- | The type of virtualization. Default: @paravirtual@
 riVirtualizationType :: Lens' RegisterImage (Maybe Text)
 riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationType = a});
 
@@ -141,9 +139,7 @@ riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationT
 riImageLocation :: Lens' RegisterImage (Maybe Text)
 riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
 
--- | Set to 'true' to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
---
--- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
+-- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riEnaSupport :: Lens' RegisterImage (Maybe Bool)
 riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a});
 
@@ -155,21 +151,15 @@ riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
 riKernelId :: Lens' RegisterImage (Maybe Text)
 riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
 
--- | The name of the root device (for example, '\/dev\/sda1', or '\/dev\/xvda').
+-- | The name of the root device (for example, @/dev/sda1@ , or @/dev/xvda@ ).
 riRootDeviceName :: Lens' RegisterImage (Maybe Text)
 riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
 
--- | Set to 'simple' to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
---
--- There is no way to disable 'sriovNetSupport' at this time.
---
--- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
+-- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI. There is no way to disable @sriovNetSupport@ at this time. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
 riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a});
 
--- | The architecture of the AMI.
---
--- Default: For Amazon EBS-backed AMIs, 'i386'. For instance store-backed AMIs, the architecture specified in the manifest file.
+-- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
 riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
@@ -181,13 +171,11 @@ riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
 riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 riDryRun :: Lens' RegisterImage (Maybe Bool)
 riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
 
--- | A name for your AMI.
---
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single quotes (\'), at-signs (\'), or underscores(_)
+-- | A name for your AMI. Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
 riName :: Lens' RegisterImage Text
 riName = lens _riName (\ s a -> s{_riName = a});
 
@@ -231,6 +219,8 @@ instance ToQuery RegisterImage where
 
 -- | Contains the output of RegisterImage.
 --
+--
+--
 -- /See:/ 'registerImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
     { _rirsImageId        :: !(Maybe Text)
@@ -241,9 +231,9 @@ data RegisterImageResponse = RegisterImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirsImageId'
+-- * 'rirsImageId' - The ID of the newly registered AMI.
 --
--- * 'rirsResponseStatus'
+-- * 'rirsResponseStatus' - -- | The response status code.
 registerImageResponse
     :: Int -- ^ 'rirsResponseStatus'
     -> RegisterImageResponse
@@ -257,7 +247,7 @@ registerImageResponse pResponseStatus_ =
 rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rirsResponseStatus :: Lens' RegisterImageResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
 

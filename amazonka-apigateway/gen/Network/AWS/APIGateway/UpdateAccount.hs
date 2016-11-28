@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the current < Account> resource.
+-- Changes information about the current 'Account' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateAccount
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about the current < Account> resource.
+-- | Requests Amazon API Gateway to change information about the current 'Account' resource.
+--
+--
 --
 -- /See:/ 'updateAccount' smart constructor.
 newtype UpdateAccount = UpdateAccount'
@@ -55,7 +59,7 @@ newtype UpdateAccount = UpdateAccount'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaPatchOperations'
+-- * 'uaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 updateAccount
     :: UpdateAccount
 updateAccount =

@@ -20,7 +20,7 @@
 --
 -- Returns the SAML provider metadocument that was uploaded when the IAM SAML provider resource object was created or updated.
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
 module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Creating a Request
@@ -55,7 +55,7 @@ newtype GetSAMLProvider = GetSAMLProvider'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsamlpSAMLProviderARN'
+-- * 'gsamlpSAMLProviderARN' - The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 getSAMLProvider
     :: Text -- ^ 'gsamlpSAMLProviderARN'
     -> GetSAMLProvider
@@ -64,9 +64,7 @@ getSAMLProvider pSAMLProviderARN_ =
     { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 
@@ -98,7 +96,9 @@ instance ToQuery GetSAMLProvider where
                "Version" =: ("2010-05-08" :: ByteString),
                "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
 
--- | Contains the response to a successful < GetSAMLProvider> request.
+-- | Contains the response to a successful 'GetSAMLProvider' request.
+--
+--
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
@@ -112,13 +112,13 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsamlprsCreateDate'
+-- * 'gsamlprsCreateDate' - The date and time when the SAML provider was created.
 --
--- * 'gsamlprsValidUntil'
+-- * 'gsamlprsValidUntil' - The expiration date and time for the SAML provider.
 --
--- * 'gsamlprsSAMLMetadataDocument'
+-- * 'gsamlprsSAMLMetadataDocument' - The XML metadata document that includes information about an identity provider.
 --
--- * 'gsamlprsResponseStatus'
+-- * 'gsamlprsResponseStatus' - -- | The response status code.
 getSAMLProviderResponse
     :: Int -- ^ 'gsamlprsResponseStatus'
     -> GetSAMLProviderResponse
@@ -142,7 +142,7 @@ gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = 
 gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsamlprsResponseStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprsResponseStatus = lens _gsamlprsResponseStatus (\ s a -> s{_gsamlprsResponseStatus = a});
 

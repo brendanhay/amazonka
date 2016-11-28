@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more applications.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get applications operation.
 --
+--
+--
 -- /See:/ 'batchGetApplications' smart constructor.
 newtype BatchGetApplications = BatchGetApplications'
     { _bgaApplicationNames :: Maybe [Text]
@@ -53,7 +57,7 @@ newtype BatchGetApplications = BatchGetApplications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgaApplicationNames'
+-- * 'bgaApplicationNames' - A list of application names separated by spaces.
 batchGetApplications
     :: BatchGetApplications
 batchGetApplications =
@@ -104,6 +108,8 @@ instance ToQuery BatchGetApplications where
 
 -- | Represents the output of a batch get applications operation.
 --
+--
+--
 -- /See:/ 'batchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
@@ -114,9 +120,9 @@ data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgarsApplicationsInfo'
+-- * 'bgarsApplicationsInfo' - Information about the applications.
 --
--- * 'bgarsResponseStatus'
+-- * 'bgarsResponseStatus' - -- | The response status code.
 batchGetApplicationsResponse
     :: Int -- ^ 'bgarsResponseStatus'
     -> BatchGetApplicationsResponse
@@ -130,7 +136,7 @@ batchGetApplicationsResponse pResponseStatus_ =
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgarsResponseStatus :: Lens' BatchGetApplicationsResponse Int
 bgarsResponseStatus = lens _bgarsResponseStatus (\ s a -> s{_bgarsResponseStatus = a});
 

@@ -58,11 +58,11 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfoaiIfMatch'
+-- * 'ucfoaiIfMatch' - The value of the ETag header you received when retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+-- * 'ucfoaiCloudFrontOriginAccessIdentityConfig' - The identity's configuration information.
 --
--- * 'ucfoaiId'
+-- * 'ucfoaiId' - The identity's id.
 updateCloudFrontOriginAccessIdentity
     :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
@@ -74,15 +74,15 @@ updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_
     , _ucfoaiId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the identity\'s configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoaiIfMatch = lens _ucfoaiIfMatch (\ s a -> s{_ucfoaiIfMatch = a});
 
--- | The identity\'s configuration information.
+-- | The identity's configuration information.
 ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ucfoaiCloudFrontOriginAccessIdentityConfig = lens _ucfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ucfoaiCloudFrontOriginAccessIdentityConfig = a});
 
--- | The identity\'s id.
+-- | The identity's id.
 ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
 ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
 
@@ -140,11 +140,11 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfoairsETag'
+-- * 'ucfoairsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'ucfoairsCloudFrontOriginAccessIdentity'
+-- * 'ucfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
 --
--- * 'ucfoairsResponseStatus'
+-- * 'ucfoairsResponseStatus' - -- | The response status code.
 updateCloudFrontOriginAccessIdentityResponse
     :: Int -- ^ 'ucfoairsResponseStatus'
     -> UpdateCloudFrontOriginAccessIdentityResponse
@@ -159,11 +159,11 @@ updateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
 ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ucfoairsETag = lens _ucfoairsETag (\ s a -> s{_ucfoairsETag = a});
 
--- | The origin access identity\'s information.
+-- | The origin access identity's information.
 ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairsCloudFrontOriginAccessIdentity = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ucfoairsResponseStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairsResponseStatus = lens _ucfoairsResponseStatus (\ s a -> s{_ucfoairsResponseStatus = a});
 

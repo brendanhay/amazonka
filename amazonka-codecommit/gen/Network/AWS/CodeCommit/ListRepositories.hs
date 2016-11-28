@@ -20,6 +20,8 @@
 --
 -- Gets information about one or more repositories.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListRepositories
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list repositories operation.
 --
+--
+--
 -- /See:/ 'listRepositories' smart constructor.
 data ListRepositories = ListRepositories'
     { _lrNextToken :: !(Maybe Text)
@@ -61,11 +65,11 @@ data ListRepositories = ListRepositories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrNextToken'
+-- * 'lrNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 --
--- * 'lrOrder'
+-- * 'lrOrder' - The order in which to sort the results of a list repositories operation.
 --
--- * 'lrSortBy'
+-- * 'lrSortBy' - The criteria used to sort the results of a list repositories operation.
 listRepositories
     :: ListRepositories
 listRepositories =
@@ -135,6 +139,8 @@ instance ToQuery ListRepositories where
 
 -- | Represents the output of a list repositories operation.
 --
+--
+--
 -- /See:/ 'listRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
     { _lrrsRepositories   :: !(Maybe [RepositoryNameIdPair])
@@ -146,11 +152,11 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrrsRepositories'
+-- * 'lrrsRepositories' - Lists the repositories called by the list repositories operation.
 --
--- * 'lrrsNextToken'
+-- * 'lrrsNextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 --
--- * 'lrrsResponseStatus'
+-- * 'lrrsResponseStatus' - -- | The response status code.
 listRepositoriesResponse
     :: Int -- ^ 'lrrsResponseStatus'
     -> ListRepositoriesResponse
@@ -169,7 +175,7 @@ lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . 
 lrrsNextToken :: Lens' ListRepositoriesResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrrsResponseStatus :: Lens' ListRepositoriesResponse Int
 lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
 

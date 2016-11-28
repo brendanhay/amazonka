@@ -20,7 +20,9 @@
 --
 -- Updates a specified user profile.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.UpdateUserProfile
     (
     -- * Creating a Request
@@ -56,13 +58,13 @@ data UpdateUserProfile = UpdateUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupAllowSelfManagement'
+-- * 'uupAllowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 --
--- * 'uupSSHPublicKey'
+-- * 'uupSSHPublicKey' - The user's new SSH public key.
 --
--- * 'uupSSHUsername'
+-- * 'uupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
 --
--- * 'uupIAMUserARN'
+-- * 'uupIAMUserARN' - The user IAM ARN.
 updateUserProfile
     :: Text -- ^ 'uupIAMUserARN'
     -> UpdateUserProfile
@@ -74,15 +76,15 @@ updateUserProfile pIAMUserARN_ =
     , _uupIAMUserARN = pIAMUserARN_
     }
 
--- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+-- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
 uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
 uupAllowSelfManagement = lens _uupAllowSelfManagement (\ s a -> s{_uupAllowSelfManagement = a});
 
--- | The user\'s new SSH public key.
+-- | The user's new SSH public key.
 uupSSHPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHPublicKey = lens _uupSSHPublicKey (\ s a -> s{_uupSSHPublicKey = a});
 
--- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], \'-\', and \'_\'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, 'my.name' will be changed to 'myname'. If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
 uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHUsername = lens _uupSSHUsername (\ s a -> s{_uupSSHUsername = a});
 

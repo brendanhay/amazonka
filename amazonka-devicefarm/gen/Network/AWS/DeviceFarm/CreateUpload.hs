@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads an app or test scripts.
+--
+--
 module Network.AWS.DeviceFarm.CreateUpload
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the create upload operation.
 --
+--
+--
 -- /See:/ 'createUpload' smart constructor.
 data CreateUpload = CreateUpload'
     { _cuContentType :: !(Maybe Text)
@@ -59,13 +63,13 @@ data CreateUpload = CreateUpload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuContentType'
+-- * 'cuContentType' - The upload's content type (for example, "application/octet-stream").
 --
--- * 'cuProjectARN'
+-- * 'cuProjectARN' - The ARN of the project for the upload.
 --
--- * 'cuName'
+-- * 'cuName' - The upload's file name. The name should not contain the '/' character.
 --
--- * 'cuType'
+-- * 'cuType' - The upload's upload type. Must be one of the following values:     * ANDROID_APP: An Android upload.     * IOS_APP: An iOS upload.     * WEB_APP: A web appliction upload.     * EXTERNAL_DATA: An external data upload.     * APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * CALABASH_TEST_PACKAGE: A Calabash test package upload.     * INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.     * UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.     * UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.     * XCTEST_TEST_PACKAGE: An XCode test package upload.     * XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload. __Note__ If you call @CreateUpload@ with @WEB_APP@ specified, AWS Device Farm throws an @ArgumentException@ error.
 createUpload
     :: Text -- ^ 'cuProjectARN'
     -> Text -- ^ 'cuName'
@@ -79,7 +83,7 @@ createUpload pProjectARN_ pName_ pType_ =
     , _cuType = pType_
     }
 
--- | The upload\'s content type (for example, \"application\/octet-stream\").
+-- | The upload's content type (for example, "application/octet-stream").
 cuContentType :: Lens' CreateUpload (Maybe Text)
 cuContentType = lens _cuContentType (\ s a -> s{_cuContentType = a});
 
@@ -87,47 +91,11 @@ cuContentType = lens _cuContentType (\ s a -> s{_cuContentType = a});
 cuProjectARN :: Lens' CreateUpload Text
 cuProjectARN = lens _cuProjectARN (\ s a -> s{_cuProjectARN = a});
 
--- | The upload\'s file name. The name should not contain the \'\/\' character.
+-- | The upload's file name. The name should not contain the '/' character.
 cuName :: Lens' CreateUpload Text
 cuName = lens _cuName (\ s a -> s{_cuName = a});
 
--- | The upload\'s upload type.
---
--- Must be one of the following values:
---
--- -   ANDROID_APP: An Android upload.
---
--- -   IOS_APP: An iOS upload.
---
--- -   WEB_APP: A web appliction upload.
---
--- -   EXTERNAL_DATA: An external data upload.
---
--- -   APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.
---
--- -   APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.
---
--- -   APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
---
--- -   APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.
---
--- -   APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.
---
--- -   APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload.
---
--- -   CALABASH_TEST_PACKAGE: A Calabash test package upload.
---
--- -   INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.
---
--- -   UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.
---
--- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
---
--- -   XCTEST_TEST_PACKAGE: An XCode test package upload.
---
--- -   XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload.
---
--- __Note__ If you call 'CreateUpload' with 'WEB_APP' specified, AWS Device Farm throws an 'ArgumentException' error.
+-- | The upload's upload type. Must be one of the following values:     * ANDROID_APP: An Android upload.     * IOS_APP: An iOS upload.     * WEB_APP: A web appliction upload.     * EXTERNAL_DATA: An external data upload.     * APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.     * APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload.     * CALABASH_TEST_PACKAGE: A Calabash test package upload.     * INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.     * UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.     * UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.     * XCTEST_TEST_PACKAGE: An XCode test package upload.     * XCTEST_UI_TEST_PACKAGE: An XCode UI test package upload. __Note__ If you call @CreateUpload@ with @WEB_APP@ specified, AWS Device Farm throws an @ArgumentException@ error.
 cuType :: Lens' CreateUpload UploadType
 cuType = lens _cuType (\ s a -> s{_cuType = a});
 
@@ -169,6 +137,8 @@ instance ToQuery CreateUpload where
 
 -- | Represents the result of a create upload request.
 --
+--
+--
 -- /See:/ 'createUploadResponse' smart constructor.
 data CreateUploadResponse = CreateUploadResponse'
     { _cursUpload         :: !(Maybe Upload)
@@ -179,9 +149,9 @@ data CreateUploadResponse = CreateUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cursUpload'
+-- * 'cursUpload' - The newly created upload.
 --
--- * 'cursResponseStatus'
+-- * 'cursResponseStatus' - -- | The response status code.
 createUploadResponse
     :: Int -- ^ 'cursResponseStatus'
     -> CreateUploadResponse
@@ -195,7 +165,7 @@ createUploadResponse pResponseStatus_ =
 cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
 cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cursResponseStatus :: Lens' CreateUploadResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
 

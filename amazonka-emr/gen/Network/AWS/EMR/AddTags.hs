@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
+-- Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
+--
+--
 module Network.AWS.EMR.AddTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | This input identifies a cluster and a list of tags to attach.
 --
+--
+--
 -- /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
     { _atResourceId :: !Text
@@ -54,9 +58,9 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atResourceId'
+-- * 'atResourceId' - The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
 --
--- * 'atTags'
+-- * 'atTags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 addTags
     :: Text -- ^ 'atResourceId'
     -> AddTags
@@ -70,7 +74,7 @@ addTags pResourceId_ =
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 
--- | A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key\/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+-- | A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
@@ -109,6 +113,8 @@ instance ToQuery AddTags where
 
 -- | This output indicates the result of adding tags to a resource.
 --
+--
+--
 -- /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsResponseStatus :: Int
@@ -118,7 +124,7 @@ newtype AddTagsResponse = AddTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atrsResponseStatus'
+-- * 'atrsResponseStatus' - -- | The response status code.
 addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
@@ -127,7 +133,7 @@ addTagsResponse pResponseStatus_ =
     { _atrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 

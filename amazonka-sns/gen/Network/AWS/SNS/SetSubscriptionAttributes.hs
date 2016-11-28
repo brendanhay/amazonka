@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows a subscription owner to set an attribute of the topic to a new value.
+--
+--
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for SetSubscriptionAttributes action.
 --
+--
+--
 -- /See:/ 'setSubscriptionAttributes' smart constructor.
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
     { _ssaAttributeValue  :: !(Maybe Text)
@@ -54,11 +58,11 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssaAttributeValue'
+-- * 'ssaAttributeValue' - The new value for the attribute in JSON format.
 --
--- * 'ssaSubscriptionARN'
+-- * 'ssaSubscriptionARN' - The ARN of the subscription to modify.
 --
--- * 'ssaAttributeName'
+-- * 'ssaAttributeName' - The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable. Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
 setSubscriptionAttributes
     :: Text -- ^ 'ssaSubscriptionARN'
     -> Text -- ^ 'ssaAttributeName'
@@ -78,9 +82,7 @@ ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a})
 ssaSubscriptionARN :: Lens' SetSubscriptionAttributes Text
 ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a});
 
--- | The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.
---
--- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
+-- | The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable. Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
 ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 

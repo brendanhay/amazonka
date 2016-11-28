@@ -20,9 +20,11 @@
 --
 -- Modifies the specified rule.
 --
+--
 -- Any existing properties that you do not modify retain their current values.
 --
--- To modify the default action, use < ModifyListener>.
+-- To modify the default action, use 'ModifyListener' .
+--
 module Network.AWS.ELBv2.ModifyRule
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyRules.
 --
+--
+--
 -- /See:/ 'modifyRule' smart constructor.
 data ModifyRule = ModifyRule'
     { _mrActions    :: !(Maybe [Action])
@@ -61,11 +65,11 @@ data ModifyRule = ModifyRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrActions'
+-- * 'mrActions' - The actions.
 --
--- * 'mrConditions'
+-- * 'mrConditions' - The conditions.
 --
--- * 'mrRuleARN'
+-- * 'mrRuleARN' - The Amazon Resource Name (ARN) of the rule.
 modifyRule
     :: Text -- ^ 'mrRuleARN'
     -> ModifyRule
@@ -122,6 +126,8 @@ instance ToQuery ModifyRule where
 
 -- | Contains the output of ModifyRules.
 --
+--
+--
 -- /See:/ 'modifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
     { _mrrsRules          :: !(Maybe [Rule])
@@ -132,9 +138,9 @@ data ModifyRuleResponse = ModifyRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mrrsRules'
+-- * 'mrrsRules' - Information about the rule.
 --
--- * 'mrrsResponseStatus'
+-- * 'mrrsResponseStatus' - -- | The response status code.
 modifyRuleResponse
     :: Int -- ^ 'mrrsResponseStatus'
     -> ModifyRuleResponse
@@ -148,7 +154,7 @@ modifyRuleResponse pResponseStatus_ =
 mrrsRules :: Lens' ModifyRuleResponse [Rule]
 mrrsRules = lens _mrrsRules (\ s a -> s{_mrrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mrrsResponseStatus :: Lens' ModifyRuleResponse Int
 mrrsResponseStatus = lens _mrrsResponseStatus (\ s a -> s{_mrrsResponseStatus = a});
 

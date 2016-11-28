@@ -20,7 +20,7 @@
 --
 -- Deletes a deployment configuration.
 --
--- A deployment configuration cannot be deleted if it is currently in use. Predefined configurations cannot be deleted.
+--
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Creating a Request
@@ -43,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete deployment configuration operation.
 --
+--
+--
 -- /See:/ 'deleteDeploymentConfig' smart constructor.
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
     { _ddcDeploymentConfigName :: Text
@@ -52,7 +54,7 @@ newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcDeploymentConfigName'
+-- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
 deleteDeploymentConfig
     :: Text -- ^ 'ddcDeploymentConfigName'
     -> DeleteDeploymentConfig

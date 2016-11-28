@@ -20,7 +20,9 @@
 --
 -- Deletes an AWS Device Farm project, given the project ARN.
 --
+--
 -- __Note__ Deleting this resource does not stop an in-progress run.
+--
 module Network.AWS.DeviceFarm.DeleteProject
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the delete project operation.
 --
+--
+--
 -- /See:/ 'deleteProject' smart constructor.
 newtype DeleteProject = DeleteProject'
     { _dpArn :: Text
@@ -54,7 +58,7 @@ newtype DeleteProject = DeleteProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpArn'
+-- * 'dpArn' - Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
 deleteProject
     :: Text -- ^ 'dpArn'
     -> DeleteProject
@@ -100,6 +104,8 @@ instance ToQuery DeleteProject where
 
 -- | Represents the result of a delete project request.
 --
+--
+--
 -- /See:/ 'deleteProjectResponse' smart constructor.
 newtype DeleteProjectResponse = DeleteProjectResponse'
     { _dprsResponseStatus :: Int
@@ -109,7 +115,7 @@ newtype DeleteProjectResponse = DeleteProjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 deleteProjectResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DeleteProjectResponse
@@ -118,7 +124,7 @@ deleteProjectResponse pResponseStatus_ =
     { _dprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DeleteProjectResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 

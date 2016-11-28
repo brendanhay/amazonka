@@ -20,7 +20,9 @@
 --
 -- Determines whether there are any third party jobs for a job worker to act on. Only used for partner actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
+--
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a poll for third party jobs action.
 --
+--
+--
 -- /See:/ 'pollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
     { _pftpjMaxBatchSize :: !(Maybe Nat)
@@ -57,9 +61,9 @@ data PollForThirdPartyJobs = PollForThirdPartyJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pftpjMaxBatchSize'
+-- * 'pftpjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 --
--- * 'pftpjActionTypeId'
+-- * 'pftpjActionTypeId' - Undocumented member.
 pollForThirdPartyJobs
     :: ActionTypeId -- ^ 'pftpjActionTypeId'
     -> PollForThirdPartyJobs
@@ -116,6 +120,8 @@ instance ToQuery PollForThirdPartyJobs where
 
 -- | Represents the output of a poll for third party jobs action.
 --
+--
+--
 -- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
     { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
@@ -126,9 +132,9 @@ data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pftpjrsJobs'
+-- * 'pftpjrsJobs' - Information about the jobs to take action on.
 --
--- * 'pftpjrsResponseStatus'
+-- * 'pftpjrsResponseStatus' - -- | The response status code.
 pollForThirdPartyJobsResponse
     :: Int -- ^ 'pftpjrsResponseStatus'
     -> PollForThirdPartyJobsResponse
@@ -142,7 +148,7 @@ pollForThirdPartyJobsResponse pResponseStatus_ =
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
 pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
 pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a});
 

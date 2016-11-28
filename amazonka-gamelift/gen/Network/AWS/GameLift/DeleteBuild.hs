@@ -20,7 +20,9 @@
 --
 -- Deletes a build. This action permanently deletes the build record and any uploaded build files.
 --
+--
 -- To delete a build, specify its ID. Deleting a build does not affect the status of any active fleets using the build, but you can no longer create new fleets with the deleted build.
+--
 module Network.AWS.GameLift.DeleteBuild
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteBuild' smart constructor.
 newtype DeleteBuild = DeleteBuild'
     { _dbBuildId :: Text
@@ -52,7 +56,7 @@ newtype DeleteBuild = DeleteBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBuildId'
+-- * 'dbBuildId' - Unique identifier for the build you want to delete.
 deleteBuild
     :: Text -- ^ 'dbBuildId'
     -> DeleteBuild

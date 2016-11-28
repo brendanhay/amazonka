@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
+--
+--
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | CancelArchivalInput
 --
+--
+--
 -- /See:/ 'cancelArchival' smart constructor.
 data CancelArchival = CancelArchival'
     { _caGatewayARN :: !Text
@@ -55,9 +59,9 @@ data CancelArchival = CancelArchival'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caGatewayARN'
+-- * 'caGatewayARN' - Undocumented member.
 --
--- * 'caTapeARN'
+-- * 'caTapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
 cancelArchival
     :: Text -- ^ 'caGatewayARN'
     -> Text -- ^ 'caTapeARN'
@@ -114,6 +118,8 @@ instance ToQuery CancelArchival where
 
 -- | CancelArchivalOutput
 --
+--
+--
 -- /See:/ 'cancelArchivalResponse' smart constructor.
 data CancelArchivalResponse = CancelArchivalResponse'
     { _carsTapeARN        :: !(Maybe Text)
@@ -124,9 +130,9 @@ data CancelArchivalResponse = CancelArchivalResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsTapeARN'
+-- * 'carsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 cancelArchivalResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CancelArchivalResponse
@@ -140,7 +146,7 @@ cancelArchivalResponse pResponseStatus_ =
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CancelArchivalResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 

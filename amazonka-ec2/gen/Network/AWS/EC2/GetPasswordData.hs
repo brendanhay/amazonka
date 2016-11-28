@@ -20,11 +20,13 @@
 --
 -- Retrieves the encrypted administrator password for an instance running Windows.
 --
--- The Windows password is generated at boot if the 'EC2Config' service plugin, 'Ec2SetPassword', is enabled. This usually only happens the first time an AMI is launched, and then 'Ec2SetPassword' is automatically disabled. The password is not generated for rebundled AMIs unless 'Ec2SetPassword' is enabled before bundling.
+--
+-- The Windows password is generated at boot if the @EC2Config@ service plugin, @Ec2SetPassword@ , is enabled. This usually only happens the first time an AMI is launched, and then @Ec2SetPassword@ is automatically disabled. The password is not generated for rebundled AMIs unless @Ec2SetPassword@ is enabled before bundling.
 --
 -- The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
 --
 -- Password generation and encryption takes a few moments. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
+--
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for GetPasswordData.
 --
+--
+--
 -- /See:/ 'getPasswordData' smart constructor.
 data GetPasswordData = GetPasswordData'
     { _gpdDryRun     :: !(Maybe Bool)
@@ -63,9 +67,9 @@ data GetPasswordData = GetPasswordData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpdDryRun'
+-- * 'gpdDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'gpdInstanceId'
+-- * 'gpdInstanceId' - The ID of the Windows instance.
 getPasswordData
     :: Text -- ^ 'gpdInstanceId'
     -> GetPasswordData
@@ -75,7 +79,7 @@ getPasswordData pInstanceId_ =
     , _gpdInstanceId = pInstanceId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
 
@@ -114,6 +118,8 @@ instance ToQuery GetPasswordData where
 
 -- | Contains the output of GetPasswordData.
 --
+--
+--
 -- /See:/ 'getPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
     { _gpdrsResponseStatus :: !Int
@@ -126,13 +132,13 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpdrsResponseStatus'
+-- * 'gpdrsResponseStatus' - -- | The response status code.
 --
--- * 'gpdrsInstanceId'
+-- * 'gpdrsInstanceId' - The ID of the Windows instance.
 --
--- * 'gpdrsPasswordData'
+-- * 'gpdrsPasswordData' - The password of the instance.
 --
--- * 'gpdrsTimestamp'
+-- * 'gpdrsTimestamp' - The time the data was last updated.
 getPasswordDataResponse
     :: Int -- ^ 'gpdrsResponseStatus'
     -> Text -- ^ 'gpdrsInstanceId'
@@ -147,7 +153,7 @@ getPasswordDataResponse pResponseStatus_ pInstanceId_ pPasswordData_ pTimestamp_
     , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gpdrsResponseStatus :: Lens' GetPasswordDataResponse Int
 gpdrsResponseStatus = lens _gpdrsResponseStatus (\ s a -> s{_gpdrsResponseStatus = a});
 

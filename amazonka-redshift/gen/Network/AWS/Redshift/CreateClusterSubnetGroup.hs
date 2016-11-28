@@ -20,7 +20,9 @@
 --
 -- Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
 --
--- For information about subnet groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For information about subnet groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster Subnet Groups> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createClusterSubnetGroup' smart constructor.
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
     { _ccsgTags                   :: !(Maybe [Tag])
@@ -61,13 +65,13 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsgTags'
+-- * 'ccsgTags' - A list of tag instances.
 --
--- * 'ccsgClusterSubnetGroupName'
+-- * 'ccsgClusterSubnetGroupName' - The name for the subnet group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
 --
--- * 'ccsgDescription'
+-- * 'ccsgDescription' - A description for the subnet group.
 --
--- * 'ccsgSubnetIds'
+-- * 'ccsgSubnetIds' - An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
 createClusterSubnetGroup
     :: Text -- ^ 'ccsgClusterSubnetGroupName'
     -> Text -- ^ 'ccsgDescription'
@@ -84,15 +88,7 @@ createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
 ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
 
--- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
---
--- Constraints:
---
--- -   Must contain no more than 255 alphanumeric characters or hyphens.
--- -   Must not be \"Default\".
--- -   Must be unique for all subnet groups that are created by your AWS account.
---
--- Example: 'examplesubnetgroup'
+-- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
 
@@ -147,9 +143,9 @@ data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsgrsClusterSubnetGroup'
+-- * 'ccsgrsClusterSubnetGroup' - Undocumented member.
 --
--- * 'ccsgrsResponseStatus'
+-- * 'ccsgrsResponseStatus' - -- | The response status code.
 createClusterSubnetGroupResponse
     :: Int -- ^ 'ccsgrsResponseStatus'
     -> CreateClusterSubnetGroupResponse
@@ -163,7 +159,7 @@ createClusterSubnetGroupResponse pResponseStatus_ =
 ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccsgrsResponseStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsResponseStatus = lens _ccsgrsResponseStatus (\ s a -> s{_ccsgrsResponseStatus = a});
 

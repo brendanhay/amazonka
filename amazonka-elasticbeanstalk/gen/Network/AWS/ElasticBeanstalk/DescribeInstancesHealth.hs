@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns more detailed information about the health of the specified instances (for example, CPU utilization, load average, and causes). The __DescribeInstancesHealth__ operation is only available with AWS Elastic Beanstalk Enhanced Health.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | See the example below to learn how to create a request body.
 --
+--
+--
 -- /See:/ 'describeInstancesHealth' smart constructor.
 data DescribeInstancesHealth = DescribeInstancesHealth'
     { _dihNextToken       :: !(Maybe Text)
@@ -61,13 +65,13 @@ data DescribeInstancesHealth = DescribeInstancesHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihNextToken'
+-- * 'dihNextToken' - Specifies the next token of the request.
 --
--- * 'dihEnvironmentName'
+-- * 'dihEnvironmentName' - Specifies the AWS Elastic Beanstalk environment name.
 --
--- * 'dihAttributeNames'
+-- * 'dihAttributeNames' - Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns a list of instances.
 --
--- * 'dihEnvironmentId'
+-- * 'dihEnvironmentId' - Specifies the AWS Elastic Beanstalk environment ID.
 describeInstancesHealth
     :: DescribeInstancesHealth
 describeInstancesHealth =
@@ -133,6 +137,8 @@ instance ToQuery DescribeInstancesHealth where
 
 -- | See the example below for a sample response.
 --
+--
+--
 -- /See:/ 'describeInstancesHealthResponse' smart constructor.
 data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
     { _dihrsInstanceHealthList :: !(Maybe [SingleInstanceHealth])
@@ -145,13 +151,13 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihrsInstanceHealthList'
+-- * 'dihrsInstanceHealthList' - Contains the response body with information about the health of the instance.
 --
--- * 'dihrsNextToken'
+-- * 'dihrsNextToken' - The next token.
 --
--- * 'dihrsRefreshedAt'
+-- * 'dihrsRefreshedAt' - The date and time the information was last refreshed.
 --
--- * 'dihrsResponseStatus'
+-- * 'dihrsResponseStatus' - -- | The response status code.
 describeInstancesHealthResponse
     :: Int -- ^ 'dihrsResponseStatus'
     -> DescribeInstancesHealthResponse
@@ -175,7 +181,7 @@ dihrsNextToken = lens _dihrsNextToken (\ s a -> s{_dihrsNextToken = a});
 dihrsRefreshedAt :: Lens' DescribeInstancesHealthResponse (Maybe UTCTime)
 dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 dihrsResponseStatus :: Lens' DescribeInstancesHealthResponse Int
 dihrsResponseStatus = lens _dihrsResponseStatus (\ s a -> s{_dihrsResponseStatus = a});
 

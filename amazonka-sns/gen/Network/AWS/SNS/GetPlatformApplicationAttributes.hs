@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+--
+--
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for GetPlatformApplicationAttributes action.
 --
+--
+--
 -- /See:/ 'getPlatformApplicationAttributes' smart constructor.
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
     { _gpaaPlatformApplicationARN :: Text
@@ -53,7 +57,7 @@ newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpaaPlatformApplicationARN'
+-- * 'gpaaPlatformApplicationARN' - PlatformApplicationArn for GetPlatformApplicationAttributesInput.
 getPlatformApplicationAttributes
     :: Text -- ^ 'gpaaPlatformApplicationARN'
     -> GetPlatformApplicationAttributes
@@ -104,6 +108,8 @@ instance ToQuery GetPlatformApplicationAttributes
 
 -- | Response for GetPlatformApplicationAttributes action.
 --
+--
+--
 -- /See:/ 'getPlatformApplicationAttributesResponse' smart constructor.
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
     { _gpaarsAttributes     :: !(Maybe (Map Text Text))
@@ -114,9 +120,9 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpaarsAttributes'
+-- * 'gpaarsAttributes' - Attributes include the following:     * @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event notifications should be sent.     * @EventEndpointDeleted@ -- Topic ARN to which EndpointDeleted event notifications should be sent.     * @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event notifications should be sent.     * @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
 --
--- * 'gpaarsResponseStatus'
+-- * 'gpaarsResponseStatus' - -- | The response status code.
 getPlatformApplicationAttributesResponse
     :: Int -- ^ 'gpaarsResponseStatus'
     -> GetPlatformApplicationAttributesResponse
@@ -126,20 +132,11 @@ getPlatformApplicationAttributesResponse pResponseStatus_ =
     , _gpaarsResponseStatus = pResponseStatus_
     }
 
--- | Attributes include the following:
---
--- -   'EventEndpointCreated' -- Topic ARN to which EndpointCreated event notifications should be sent.
---
--- -   'EventEndpointDeleted' -- Topic ARN to which EndpointDeleted event notifications should be sent.
---
--- -   'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event notifications should be sent.
---
--- -   'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application\'s endpoints.
---
+-- | Attributes include the following:     * @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event notifications should be sent.     * @EventEndpointDeleted@ -- Topic ARN to which EndpointDeleted event notifications should be sent.     * @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event notifications should be sent.     * @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 gpaarsResponseStatus :: Lens' GetPlatformApplicationAttributesResponse Int
 gpaarsResponseStatus = lens _gpaarsResponseStatus (\ s a -> s{_gpaarsResponseStatus = a});
 

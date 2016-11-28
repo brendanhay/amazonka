@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items.
+--
+--
 module Network.AWS.Discovery.DeleteTags
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data DeleteTags = DeleteTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTags'
+-- * 'dtTags' - Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 --
--- * 'dtConfigurationIds'
+-- * 'dtConfigurationIds' - A list of configuration items with tags that you want to delete.
 deleteTags
     :: DeleteTags
 deleteTags =
@@ -63,9 +65,7 @@ deleteTags =
     , _dtConfigurationIds = mempty
     }
 
--- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/-/value/ format. For example:
---
--- '{\"key\": \"serverType\", \"value\": \"webServer\"}'
+-- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example: @{"key": "serverType", "value": "webServer"}@
 dtTags :: Lens' DeleteTags [Tag]
 dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Default . _Coerce;
 
@@ -117,7 +117,7 @@ newtype DeleteTagsResponse = DeleteTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
@@ -126,7 +126,7 @@ deleteTagsResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

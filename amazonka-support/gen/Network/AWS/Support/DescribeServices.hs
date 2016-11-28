@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current list of AWS services and a list of service categories that applies to each one. You then use service names and categories in your < CreateCase> requests. Each AWS service has its own set of categories.
+-- Returns the current list of AWS services and a list of service categories that applies to each one. You then use service names and categories in your 'CreateCase' requests. Each AWS service has its own set of categories.
 --
--- The service codes and category codes correspond to the values that are displayed in the __Service__ and __Category__ drop-down lists on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page. The values in those fields, however, do not necessarily match the service codes and categories returned by the 'DescribeServices' request. Always use the service codes and categories obtained programmatically. This practice ensures that you always have the most recent set of service and category codes.
+--
+-- The service codes and category codes correspond to the values that are displayed in the __Service__ and __Category__ drop-down lists on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page. The values in those fields, however, do not necessarily match the service codes and categories returned by the @DescribeServices@ request. Always use the service codes and categories obtained programmatically. This practice ensures that you always have the most recent set of service and category codes.
+--
 module Network.AWS.Support.DescribeServices
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'describeServices' smart constructor.
 data DescribeServices = DescribeServices'
     { _dsServiceCodeList :: !(Maybe [Text])
@@ -57,9 +61,9 @@ data DescribeServices = DescribeServices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsServiceCodeList'
+-- * 'dsServiceCodeList' - A JSON-formatted list of service codes available for AWS services.
 --
--- * 'dsLanguage'
+-- * 'dsLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 describeServices
     :: DescribeServices
 describeServices =
@@ -72,7 +76,7 @@ describeServices =
 dsServiceCodeList :: Lens' DescribeServices [Text]
 dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default . _Coerce;
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English (\"en\") and Japanese (\"ja\"). Language parameters must be passed explicitly for operations that take them.
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 dsLanguage :: Lens' DescribeServices (Maybe Text)
 dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
 
@@ -113,7 +117,9 @@ instance ToPath DescribeServices where
 instance ToQuery DescribeServices where
         toQuery = const mempty
 
--- | The list of AWS services returned by the < DescribeServices> operation.
+-- | The list of AWS services returned by the 'DescribeServices' operation.
+--
+--
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
@@ -125,9 +131,9 @@ data DescribeServicesResponse = DescribeServicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsServices'
+-- * 'dsrsServices' - A JSON-formatted list of AWS services.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeServicesResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeServicesResponse
@@ -141,7 +147,7 @@ describeServicesResponse pResponseStatus_ =
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
 dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeServicesResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

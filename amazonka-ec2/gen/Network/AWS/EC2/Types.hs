@@ -2043,7 +2043,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2016-04-01' of the Amazon Elastic Compute Cloud SDK configuration.
+-- | API version @2016-04-01@ of the Amazon Elastic Compute Cloud SDK configuration.
 ec2 :: Service
 ec2 =
     Service

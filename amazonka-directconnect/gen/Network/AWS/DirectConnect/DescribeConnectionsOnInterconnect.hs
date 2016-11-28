@@ -20,7 +20,7 @@
 --
 -- Return a list of connections that have been provisioned on the given interconnect.
 --
--- This is intended for use by AWS Direct Connect partners only.
+--
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request
@@ -45,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnectionsOnInterconnect operation.
 --
+--
+--
 -- /See:/ 'describeConnectionsOnInterconnect' smart constructor.
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
     { _dcoiInterconnectId :: Text
@@ -54,7 +56,7 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcoiInterconnectId'
+-- * 'dcoiInterconnectId' - ID of the interconnect on which a list of connection is provisioned. Example: dxcon-abc123 Default: None
 describeConnectionsOnInterconnect
     :: Text -- ^ 'dcoiInterconnectId'
     -> DescribeConnectionsOnInterconnect
@@ -63,11 +65,7 @@ describeConnectionsOnInterconnect pInterconnectId_ =
     { _dcoiInterconnectId = pInterconnectId_
     }
 
--- | ID of the interconnect on which a list of connection is provisioned.
---
--- Example: dxcon-abc123
---
--- Default: None
+-- | ID of the interconnect on which a list of connection is provisioned. Example: dxcon-abc123 Default: None
 dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
 dcoiInterconnectId = lens _dcoiInterconnectId (\ s a -> s{_dcoiInterconnectId = a});
 

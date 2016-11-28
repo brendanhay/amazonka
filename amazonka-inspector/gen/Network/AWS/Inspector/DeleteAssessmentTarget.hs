@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the assessment target that is specified by the ARN of the assessment target.
+--
+--
 module Network.AWS.Inspector.DeleteAssessmentTarget
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteAssessmentTarget = DeleteAssessmentTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTargetARN'
+-- * 'datAssessmentTargetARN' - The ARN that specifies the assessment target that you want to delete.
 deleteAssessmentTarget
     :: Text -- ^ 'datAssessmentTargetARN'
     -> DeleteAssessmentTarget

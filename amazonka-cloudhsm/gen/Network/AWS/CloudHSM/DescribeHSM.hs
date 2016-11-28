@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
+--
+--
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request
@@ -63,7 +65,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DescribeHsm> operation.
+-- | Contains the inputs for the 'DescribeHsm' operation.
+--
+--
 --
 -- /See:/ 'describeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
@@ -75,9 +79,9 @@ data DescribeHSM = DescribeHSM'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmHSMSerialNumber'
+-- * 'dhsmHSMSerialNumber' - The serial number of the HSM. Either the /HsmArn/ or the /HsmSerialNumber/ parameter must be specified.
 --
--- * 'dhsmHSMARN'
+-- * 'dhsmHSMARN' - The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter must be specified.
 describeHSM
     :: DescribeHSM
 describeHSM =
@@ -150,7 +154,9 @@ instance ToPath DescribeHSM where
 instance ToQuery DescribeHSM where
         toQuery = const mempty
 
--- | Contains the output of the < DescribeHsm> operation.
+-- | Contains the output of the 'DescribeHsm' operation.
+--
+--
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
@@ -182,49 +188,49 @@ data DescribeHSMResponse = DescribeHSMResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsStatus'
+-- * 'desrsStatus' - The status of the HSM.
 --
--- * 'desrsIAMRoleARN'
+-- * 'desrsIAMRoleARN' - The ARN of the IAM role assigned to the HSM.
 --
--- * 'desrsEniId'
+-- * 'desrsEniId' - The identifier of the elastic network interface (ENI) attached to the HSM.
 --
--- * 'desrsVPCId'
+-- * 'desrsVPCId' - The identifier of the VPC that the HSM is in.
 --
--- * 'desrsSSHKeyLastUpdated'
+-- * 'desrsSSHKeyLastUpdated' - The date and time that the SSH key was last updated.
 --
--- * 'desrsSubscriptionEndDate'
+-- * 'desrsSubscriptionEndDate' - The subscription end date.
 --
--- * 'desrsServerCertURI'
+-- * 'desrsServerCertURI' - The URI of the certificate server.
 --
--- * 'desrsSubscriptionType'
+-- * 'desrsSubscriptionType' - Undocumented member.
 --
--- * 'desrsSSHPublicKey'
+-- * 'desrsSSHPublicKey' - The public SSH key.
 --
--- * 'desrsSubnetId'
+-- * 'desrsSubnetId' - The identifier of the subnet that the HSM is in.
 --
--- * 'desrsStatusDetails'
+-- * 'desrsStatusDetails' - Contains additional information about the status of the HSM.
 --
--- * 'desrsPartitions'
+-- * 'desrsPartitions' - The list of partitions on the HSM.
 --
--- * 'desrsSubscriptionStartDate'
+-- * 'desrsSubscriptionStartDate' - The subscription start date.
 --
--- * 'desrsAvailabilityZone'
+-- * 'desrsAvailabilityZone' - The Availability Zone that the HSM is in.
 --
--- * 'desrsServerCertLastUpdated'
+-- * 'desrsServerCertLastUpdated' - The date and time that the server certificate was last updated.
 --
--- * 'desrsSoftwareVersion'
+-- * 'desrsSoftwareVersion' - The HSM software version.
 --
--- * 'desrsVendorName'
+-- * 'desrsVendorName' - The name of the HSM vendor.
 --
--- * 'desrsSerialNumber'
+-- * 'desrsSerialNumber' - The serial number of the HSM.
 --
--- * 'desrsHSMARN'
+-- * 'desrsHSMARN' - The ARN of the HSM.
 --
--- * 'desrsEniIP'
+-- * 'desrsEniIP' - The IP address assigned to the HSM's ENI.
 --
--- * 'desrsHSMType'
+-- * 'desrsHSMType' - The HSM model type.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeHSMResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeHSMResponse
@@ -330,7 +336,7 @@ desrsSerialNumber = lens _desrsSerialNumber (\ s a -> s{_desrsSerialNumber = a})
 desrsHSMARN :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMARN = lens _desrsHSMARN (\ s a -> s{_desrsHSMARN = a});
 
--- | The IP address assigned to the HSM\'s ENI.
+-- | The IP address assigned to the HSM's ENI.
 desrsEniIP :: Lens' DescribeHSMResponse (Maybe Text)
 desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 
@@ -338,7 +344,7 @@ desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 desrsHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeHSMResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 

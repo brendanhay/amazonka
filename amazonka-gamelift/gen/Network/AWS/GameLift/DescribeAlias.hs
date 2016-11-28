@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a specified alias. To get the alias, specify an alias ID. If successful, an < Alias> object is returned.
+-- Retrieves properties for a specified alias. To get the alias, specify an alias ID. If successful, an 'Alias' object is returned.
+--
+--
 module Network.AWS.GameLift.DescribeAlias
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeAlias' smart constructor.
 newtype DescribeAlias = DescribeAlias'
     { _dAliasId :: Text
@@ -53,7 +57,7 @@ newtype DescribeAlias = DescribeAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAliasId'
+-- * 'dAliasId' - Unique identifier for a fleet alias. Specify the alias you want to retrieve.
 describeAlias
     :: Text -- ^ 'dAliasId'
     -> DescribeAlias
@@ -100,6 +104,8 @@ instance ToQuery DescribeAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
     { _darsAlias          :: !(Maybe Alias)
@@ -110,9 +116,9 @@ data DescribeAliasResponse = DescribeAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAlias'
+-- * 'darsAlias' - Object containing the requested alias.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAliasResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAliasResponse
@@ -126,7 +132,7 @@ describeAliasResponse pResponseStatus_ =
 darsAlias :: Lens' DescribeAliasResponse (Maybe Alias)
 darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAliasResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

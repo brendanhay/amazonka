@@ -20,7 +20,9 @@
 --
 -- Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.
 --
+--
 -- This is a public API. You do not need any credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the 'GetCredentialsForIdentity' action.
+-- | Input to the @GetCredentialsForIdentity@ action.
+--
+--
 --
 -- /See:/ 'getCredentialsForIdentity' smart constructor.
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
@@ -60,11 +64,11 @@ data GetCredentialsForIdentity = GetCredentialsForIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfiCustomRoleARN'
+-- * 'gcfiCustomRoleARN' - The Amazon Resource Name (ARN) of the role to be assumed when multiple roles were received in the token from the identity provider. For example, a SAML-based identity provider. This parameter is optional for identity providers that do not support role customization.
 --
--- * 'gcfiLogins'
+-- * 'gcfiLogins' - A set of optional name-value pairs that map provider names to provider tokens.
 --
--- * 'gcfiIdentityId'
+-- * 'gcfiIdentityId' - A unique identifier in the format REGION:GUID.
 getCredentialsForIdentity
     :: Text -- ^ 'gcfiIdentityId'
     -> GetCredentialsForIdentity
@@ -126,7 +130,9 @@ instance ToPath GetCredentialsForIdentity where
 instance ToQuery GetCredentialsForIdentity where
         toQuery = const mempty
 
--- | Returned in response to a successful 'GetCredentialsForIdentity' operation.
+-- | Returned in response to a successful @GetCredentialsForIdentity@ operation.
+--
+--
 --
 -- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
@@ -139,11 +145,11 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfirsCredentials'
+-- * 'gcfirsCredentials' - Credentials for the provided identity ID.
 --
--- * 'gcfirsIdentityId'
+-- * 'gcfirsIdentityId' - A unique identifier in the format REGION:GUID.
 --
--- * 'gcfirsResponseStatus'
+-- * 'gcfirsResponseStatus' - -- | The response status code.
 getCredentialsForIdentityResponse
     :: Int -- ^ 'gcfirsResponseStatus'
     -> GetCredentialsForIdentityResponse
@@ -162,7 +168,7 @@ gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a})
 gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcfirsResponseStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirsResponseStatus = lens _gcfirsResponseStatus (\ s a -> s{_gcfirsResponseStatus = a});
 

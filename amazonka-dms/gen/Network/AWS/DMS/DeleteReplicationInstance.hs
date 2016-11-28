@@ -20,7 +20,8 @@
 --
 -- Deletes the specified replication instance.
 --
--- You must delete any migration tasks that are associated with the replication instance before you can delete it.
+--
+--
 --
 module Network.AWS.DMS.DeleteReplicationInstance
     (
@@ -47,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationInstance' smart constructor.
 newtype DeleteReplicationInstance = DeleteReplicationInstance'
     { _driReplicationInstanceARN :: Text
@@ -56,7 +59,7 @@ newtype DeleteReplicationInstance = DeleteReplicationInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'driReplicationInstanceARN'
+-- * 'driReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance to be deleted.
 deleteReplicationInstance
     :: Text -- ^ 'driReplicationInstanceARN'
     -> DeleteReplicationInstance
@@ -110,6 +113,8 @@ instance ToQuery DeleteReplicationInstance where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteReplicationInstanceResponse' smart constructor.
 data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
     { _drirsReplicationInstance :: !(Maybe ReplicationInstance)
@@ -120,9 +125,9 @@ data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drirsReplicationInstance'
+-- * 'drirsReplicationInstance' - The replication instance that was deleted.
 --
--- * 'drirsResponseStatus'
+-- * 'drirsResponseStatus' - -- | The response status code.
 deleteReplicationInstanceResponse
     :: Int -- ^ 'drirsResponseStatus'
     -> DeleteReplicationInstanceResponse
@@ -136,7 +141,7 @@ deleteReplicationInstanceResponse pResponseStatus_ =
 drirsReplicationInstance :: Lens' DeleteReplicationInstanceResponse (Maybe ReplicationInstance)
 drirsReplicationInstance = lens _drirsReplicationInstance (\ s a -> s{_drirsReplicationInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drirsResponseStatus :: Lens' DeleteReplicationInstanceResponse Int
 drirsResponseStatus = lens _drirsResponseStatus (\ s a -> s{_drirsResponseStatus = a});
 

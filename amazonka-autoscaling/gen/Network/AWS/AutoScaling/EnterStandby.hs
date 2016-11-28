@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves the specified instances into 'Standby' mode.
+-- Moves the specified instances into @Standby@ mode.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EnteStandby.
 --
+--
+--
 -- /See:/ 'enterStandby' smart constructor.
 data EnterStandby = EnterStandby'
     { _esInstanceIds                    :: !(Maybe [Text])
@@ -59,11 +63,11 @@ data EnterStandby = EnterStandby'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esInstanceIds'
+-- * 'esInstanceIds' - One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
 --
--- * 'esAutoScalingGroupName'
+-- * 'esAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'esShouldDecrementDesiredCapacity'
+-- * 'esShouldDecrementDesiredCapacity' - Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
 enterStandby
     :: Text -- ^ 'esAutoScalingGroupName'
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
@@ -75,7 +79,7 @@ enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
--- | One or more instances to move into 'Standby' mode. You must specify at least one instance ID.
+-- | One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
 esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
 
@@ -83,7 +87,7 @@ esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default 
 esAutoScalingGroupName :: Lens' EnterStandby Text
 esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
 
--- | Specifies whether the instances moved to 'Standby' mode count as part of the Auto Scaling group\'s desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to 'Standby' mode.
+-- | Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
 esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 
@@ -121,6 +125,8 @@ instance ToQuery EnterStandby where
 
 -- | Contains the output of EnterStandby.
 --
+--
+--
 -- /See:/ 'enterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
     { _ersActivities     :: !(Maybe [Activity])
@@ -131,9 +137,9 @@ data EnterStandbyResponse = EnterStandbyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ersActivities'
+-- * 'ersActivities' - The activities related to moving instances into @Standby@ mode.
 --
--- * 'ersResponseStatus'
+-- * 'ersResponseStatus' - -- | The response status code.
 enterStandbyResponse
     :: Int -- ^ 'ersResponseStatus'
     -> EnterStandbyResponse
@@ -143,11 +149,11 @@ enterStandbyResponse pResponseStatus_ =
     , _ersResponseStatus = pResponseStatus_
     }
 
--- | The activities related to moving instances into 'Standby' mode.
+-- | The activities related to moving instances into @Standby@ mode.
 ersActivities :: Lens' EnterStandbyResponse [Activity]
 ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ersResponseStatus :: Lens' EnterStandbyResponse Int
 ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
 

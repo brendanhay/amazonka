@@ -20,15 +20,17 @@
 --
 -- Adds one or more ingress rules to a security group.
 --
--- EC2-Classic: You can have up to 100 rules per group.
+--
+-- /Important:/ EC2-Classic: You can have up to 100 rules per group.
 --
 -- EC2-VPC: You can have up to 50 rules per group (covering both ingress and egress rules).
 --
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 --
--- [EC2-Classic] This action gives one or more CIDR IP address ranges permission to access a security group in your account, or gives one or more security groups (called the /source groups/) permission to access a security group for your account. A source group can be for your own AWS account, or another.
+-- [EC2-Classic] This action gives one or more CIDR IP address ranges permission to access a security group in your account, or gives one or more security groups (called the /source groups/ ) permission to access a security group for your account. A source group can be for your own AWS account, or another.
 --
--- [EC2-VPC] This action gives one or more CIDR IP address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the /source groups/) permission to access a security group for your VPC. The security groups must all be for the same VPC.
+-- [EC2-VPC] This action gives one or more CIDR IP address ranges permission to access a security group in your VPC, or gives one or more other security groups (called the /source groups/ ) permission to access a security group for your VPC. The security groups must all be for the same VPC.
+--
 module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Creating a Request
@@ -60,6 +62,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AuthorizeSecurityGroupIngress.
 --
+--
+--
 -- /See:/ 'authorizeSecurityGroupIngress' smart constructor.
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     { _asgiFromPort                   :: !(Maybe Int)
@@ -78,25 +82,25 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgiFromPort'
+-- * 'asgiFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all ICMP types.
 --
--- * 'asgiIPPermissions'
+-- * 'asgiIPPermissions' - A set of IP permissions. Can be used to specify multiple rules in a single command.
 --
--- * 'asgiIPProtocol'
+-- * 'asgiIPProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). (VPC only) Use @-1@ to specify all traffic. If you specify @-1@ , traffic on all ports is allowed, regardless of any ports you specify.
 --
--- * 'asgiGroupId'
+-- * 'asgiGroupId' - The ID of the security group. Required for a nondefault VPC.
 --
--- * 'asgiToPort'
+-- * 'asgiToPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
 --
--- * 'asgiCIdRIP'
+-- * 'asgiCIdRIP' - The CIDR IP address range. You can't specify this parameter when specifying a source security group.
 --
--- * 'asgiSourceSecurityGroupOwnerId'
+-- * 'asgiSourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account number for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
 --
--- * 'asgiGroupName'
+-- * 'asgiGroupName' - [EC2-Classic, default VPC] The name of the security group.
 --
--- * 'asgiSourceSecurityGroupName'
+-- * 'asgiSourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
 --
--- * 'asgiDryRun'
+-- * 'asgiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 authorizeSecurityGroupIngress
     :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress =
@@ -113,7 +117,7 @@ authorizeSecurityGroupIngress =
     , _asgiDryRun = Nothing
     }
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use '-1' to specify all ICMP types.
+-- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all ICMP types.
 asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 
@@ -121,7 +125,7 @@ asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
 asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). (VPC only) Use '-1' to specify all traffic. If you specify '-1', traffic on all ports is allowed, regardless of any ports you specify.
+-- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). (VPC only) Use @-1@ to specify all traffic. If you specify @-1@ , traffic on all ports is allowed, regardless of any ports you specify.
 asgiIPProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIPProtocol = lens _asgiIPProtocol (\ s a -> s{_asgiIPProtocol = a});
 
@@ -129,15 +133,15 @@ asgiIPProtocol = lens _asgiIPProtocol (\ s a -> s{_asgiIPProtocol = a});
 asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupId = lens _asgiGroupId (\ s a -> s{_asgiGroupId = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use '-1' to specify all ICMP codes for the ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
 asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 
--- | The CIDR IP address range. You can\'t specify this parameter when specifying a source security group.
+-- | The CIDR IP address range. You can't specify this parameter when specifying a source security group.
 asgiCIdRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiCIdRIP = lens _asgiCIdRIP (\ s a -> s{_asgiCIdRIP = a});
 
--- | [EC2-Classic] The AWS account number for the source security group, if the source security group is in a different account. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+-- | [EC2-Classic] The AWS account number for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
 
@@ -145,11 +149,11 @@ asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> 
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 
--- | [EC2-Classic, default VPC] The name of the source security group. You can\'t specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
 asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupName = lens _asgiSourceSecurityGroupName (\ s a -> s{_asgiSourceSecurityGroupName = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 asgiDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
 asgiDryRun = lens _asgiDryRun (\ s a -> s{_asgiDryRun = a});
 

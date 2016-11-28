@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures the access rules that control access to the domain\'s document and search endpoints. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
+-- Configures the access rules that control access to the domain's document and search endpoints. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain> .
+--
+--
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'UpdateServiceAccessPolicies' operation. Specifies the name of the domain you want to update and the access rules you want to configure.
+-- | Container for the parameters to the @'UpdateServiceAccessPolicies' @ operation. Specifies the name of the domain you want to update and the access rules you want to configure.
+--
+--
 --
 -- /See:/ 'updateServiceAccessPolicies' smart constructor.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
@@ -55,9 +59,9 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usapDomainName'
+-- * 'usapDomainName' - Undocumented member.
 --
--- * 'usapAccessPolicies'
+-- * 'usapAccessPolicies' - The access rules you want to configure. These rules replace any existing rules.
 updateServiceAccessPolicies
     :: Text -- ^ 'usapDomainName'
     -> Text -- ^ 'usapAccessPolicies'
@@ -106,7 +110,9 @@ instance ToQuery UpdateServiceAccessPolicies where
                "DomainName" =: _usapDomainName,
                "AccessPolicies" =: _usapAccessPolicies]
 
--- | The result of an 'UpdateServiceAccessPolicies' request. Contains the new access policies.
+-- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new access policies.
+--
+--
 --
 -- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
@@ -118,9 +124,9 @@ data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usaprsResponseStatus'
+-- * 'usaprsResponseStatus' - -- | The response status code.
 --
--- * 'usaprsAccessPolicies'
+-- * 'usaprsAccessPolicies' - The access rules configured for the domain.
 updateServiceAccessPoliciesResponse
     :: Int -- ^ 'usaprsResponseStatus'
     -> AccessPoliciesStatus -- ^ 'usaprsAccessPolicies'
@@ -131,7 +137,7 @@ updateServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
     , _usaprsAccessPolicies = pAccessPolicies_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 usaprsResponseStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
 usaprsResponseStatus = lens _usaprsResponseStatus (\ s a -> s{_usaprsResponseStatus = a});
 

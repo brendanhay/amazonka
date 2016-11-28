@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches a virtual private gateway from a VPC. You do this if you\'re planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).
+-- Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).
 --
--- You must wait for the attachment\'s state to switch to 'detached' before you can delete the VPC or attach a different VPC to the virtual private gateway.
+--
+-- You must wait for the attachment's state to switch to @detached@ before you can delete the VPC or attach a different VPC to the virtual private gateway.
+--
 module Network.AWS.EC2.DetachVPNGateway
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachVpnGateway.
 --
+--
+--
 -- /See:/ 'detachVPNGateway' smart constructor.
 data DetachVPNGateway = DetachVPNGateway'
     { _dvpngDryRun       :: !(Maybe Bool)
@@ -56,11 +60,11 @@ data DetachVPNGateway = DetachVPNGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpngDryRun'
+-- * 'dvpngDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpngVPNGatewayId'
+-- * 'dvpngVPNGatewayId' - The ID of the virtual private gateway.
 --
--- * 'dvpngVPCId'
+-- * 'dvpngVPCId' - The ID of the VPC.
 detachVPNGateway
     :: Text -- ^ 'dvpngVPNGatewayId'
     -> Text -- ^ 'dvpngVPCId'
@@ -72,7 +76,7 @@ detachVPNGateway pVPNGatewayId_ pVPCId_ =
     , _dvpngVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpngDryRun :: Lens' DetachVPNGateway (Maybe Bool)
 dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
 

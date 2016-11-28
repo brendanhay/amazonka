@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the principals associated with the specified thing.
+--
+--
 module Network.AWS.IoT.ListThingPrincipals
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'listThingPrincipals' smart constructor.
 newtype ListThingPrincipals = ListThingPrincipals'
     { _ltpThingName :: Text
@@ -53,7 +57,7 @@ newtype ListThingPrincipals = ListThingPrincipals'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltpThingName'
+-- * 'ltpThingName' - The name of the thing.
 listThingPrincipals
     :: Text -- ^ 'ltpThingName'
     -> ListThingPrincipals
@@ -94,6 +98,8 @@ instance ToQuery ListThingPrincipals where
 
 -- | The output from the ListThingPrincipals operation.
 --
+--
+--
 -- /See:/ 'listThingPrincipalsResponse' smart constructor.
 data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
     { _ltprsPrincipals     :: !(Maybe [Text])
@@ -104,9 +110,9 @@ data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltprsPrincipals'
+-- * 'ltprsPrincipals' - The principals associated with the thing.
 --
--- * 'ltprsResponseStatus'
+-- * 'ltprsResponseStatus' - -- | The response status code.
 listThingPrincipalsResponse
     :: Int -- ^ 'ltprsResponseStatus'
     -> ListThingPrincipalsResponse
@@ -120,7 +126,7 @@ listThingPrincipalsResponse pResponseStatus_ =
 ltprsPrincipals :: Lens' ListThingPrincipalsResponse [Text]
 ltprsPrincipals = lens _ltprsPrincipals (\ s a -> s{_ltprsPrincipals = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltprsResponseStatus :: Lens' ListThingPrincipalsResponse Int
 ltprsResponseStatus = lens _ltprsResponseStatus (\ s a -> s{_ltprsResponseStatus = a});
 

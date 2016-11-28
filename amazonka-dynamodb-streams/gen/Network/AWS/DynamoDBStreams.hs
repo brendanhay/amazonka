@@ -11,19 +11,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon DynamoDB
+-- __Amazon DynamoDB__
 --
 -- Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
 --
 -- The following are short descriptions of each low-level DynamoDB Streams action:
 --
--- -   /DescribeStream/ - Returns detailed information about a particular stream.
+--     * /DescribeStream/ - Returns detailed information about a particular stream.
 --
--- -   /GetRecords/ - Retrieves the stream records from within a shard.
+--     * /GetRecords/ - Retrieves the stream records from within a shard.
 --
--- -   /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
+--     * /GetShardIterator/ - Returns information on how to retrieve the streams record from a shard with a given shard ID.
 --
--- -   /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
+--     * /ListStreams/ - Returns a list of all the streams associated with the current AWS account and endpoint.
+--
+--
 --
 module Network.AWS.DynamoDBStreams
     (

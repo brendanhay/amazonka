@@ -20,7 +20,9 @@
 --
 -- Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.
 --
--- This operation requires permissions to perform the 'kinesisanalytics:DeleteApplicationOutput' action.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:DeleteApplicationOutput@ action.
+--
 module Network.AWS.KinesisAnalytics.DeleteApplicationOutput
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplicationOutput' smart constructor.
 data DeleteApplicationOutput = DeleteApplicationOutput'
     { _daoApplicationName             :: !Text
@@ -58,11 +62,11 @@ data DeleteApplicationOutput = DeleteApplicationOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daoApplicationName'
+-- * 'daoApplicationName' - Amazon Kinesis Analytics application name.
 --
--- * 'daoCurrentApplicationVersionId'
+-- * 'daoCurrentApplicationVersionId' - Amazon Kinesis Analytics application version. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
--- * 'daoOutputId'
+-- * 'daoOutputId' - The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the 'AddApplicationOutput' operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the 'DescribeApplication' operation to get the specific @OutputId@ .
 deleteApplicationOutput
     :: Text -- ^ 'daoApplicationName'
     -> Natural -- ^ 'daoCurrentApplicationVersionId'
@@ -79,11 +83,11 @@ deleteApplicationOutput pApplicationName_ pCurrentApplicationVersionId_ pOutputI
 daoApplicationName :: Lens' DeleteApplicationOutput Text
 daoApplicationName = lens _daoApplicationName (\ s a -> s{_daoApplicationName = a});
 
--- | Amazon Kinesis Analytics application version. You can use the < DescribeApplication> operation to get the current application version. If the version specified is not the current version, the 'ConcurrentModificationException' is returned.
+-- | Amazon Kinesis Analytics application version. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 daoCurrentApplicationVersionId :: Lens' DeleteApplicationOutput Natural
 daoCurrentApplicationVersionId = lens _daoCurrentApplicationVersionId (\ s a -> s{_daoCurrentApplicationVersionId = a}) . _Nat;
 
--- | The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the < AddApplicationOutput> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the < DescribeApplication> operation to get the specific 'OutputId'.
+-- | The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the 'AddApplicationOutput' operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the 'DescribeApplication' operation to get the specific @OutputId@ .
 daoOutputId :: Lens' DeleteApplicationOutput Text
 daoOutputId = lens _daoOutputId (\ s a -> s{_daoOutputId = a});
 
@@ -129,6 +133,8 @@ instance ToQuery DeleteApplicationOutput where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteApplicationOutputResponse' smart constructor.
 newtype DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
     { _daorsResponseStatus :: Int
@@ -138,7 +144,7 @@ newtype DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daorsResponseStatus'
+-- * 'daorsResponseStatus' - -- | The response status code.
 deleteApplicationOutputResponse
     :: Int -- ^ 'daorsResponseStatus'
     -> DeleteApplicationOutputResponse
@@ -147,7 +153,7 @@ deleteApplicationOutputResponse pResponseStatus_ =
     { _daorsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 daorsResponseStatus :: Lens' DeleteApplicationOutputResponse Int
 daorsResponseStatus = lens _daorsResponseStatus (\ s a -> s{_daorsResponseStatus = a});
 

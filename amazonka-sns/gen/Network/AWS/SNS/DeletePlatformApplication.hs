@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+--
+--
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for DeletePlatformApplication action.
 --
+--
+--
 -- /See:/ 'deletePlatformApplication' smart constructor.
 newtype DeletePlatformApplication = DeletePlatformApplication'
     { _dpaPlatformApplicationARN :: Text
@@ -50,7 +54,7 @@ newtype DeletePlatformApplication = DeletePlatformApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpaPlatformApplicationARN'
+-- * 'dpaPlatformApplicationARN' - PlatformApplicationArn of platform application object to delete.
 deletePlatformApplication
     :: Text -- ^ 'dpaPlatformApplicationARN'
     -> DeletePlatformApplication

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the principals associated with the specified policy.
+--
+--
 module Network.AWS.IoT.ListPolicyPrincipals
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListPolicyPrincipals operation.
 --
+--
+--
 -- /See:/ 'listPolicyPrincipals' smart constructor.
 data ListPolicyPrincipals = ListPolicyPrincipals'
     { _lMarker         :: !(Maybe Text)
@@ -60,13 +64,13 @@ data ListPolicyPrincipals = ListPolicyPrincipals'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lMarker'
+-- * 'lMarker' - The marker for the next set of results.
 --
--- * 'lAscendingOrder'
+-- * 'lAscendingOrder' - Specifies the order for results. If true, the results are returned in ascending creation order.
 --
--- * 'lPageSize'
+-- * 'lPageSize' - The result page size.
 --
--- * 'lPolicyName'
+-- * 'lPolicyName' - The policy name.
 listPolicyPrincipals
     :: Text -- ^ 'lPolicyName'
     -> ListPolicyPrincipals
@@ -126,6 +130,8 @@ instance ToQuery ListPolicyPrincipals where
 
 -- | The output from the ListPolicyPrincipals operation.
 --
+--
+--
 -- /See:/ 'listPolicyPrincipalsResponse' smart constructor.
 data ListPolicyPrincipalsResponse = ListPolicyPrincipalsResponse'
     { _lrsPrincipals     :: !(Maybe [Text])
@@ -137,11 +143,11 @@ data ListPolicyPrincipalsResponse = ListPolicyPrincipalsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsPrincipals'
+-- * 'lrsPrincipals' - The descriptions of the principals.
 --
--- * 'lrsNextMarker'
+-- * 'lrsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lrsResponseStatus'
+-- * 'lrsResponseStatus' - -- | The response status code.
 listPolicyPrincipalsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListPolicyPrincipalsResponse
@@ -160,7 +166,7 @@ lrsPrincipals = lens _lrsPrincipals (\ s a -> s{_lrsPrincipals = a}) . _Default 
 lrsNextMarker :: Lens' ListPolicyPrincipalsResponse (Maybe Text)
 lrsNextMarker = lens _lrsNextMarker (\ s a -> s{_lrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lrsResponseStatus :: Lens' ListPolicyPrincipalsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 

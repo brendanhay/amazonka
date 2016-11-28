@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the parameters of a DB parameter group to the engine\/system default value. To reset specific parameters submit a list of the following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group, specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters. When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to 'pending-reboot' to take effect on the next DB instance restart or 'RebootDBInstance' request.
+-- Modifies the parameters of a DB parameter group to the engine/system default value. To reset specific parameters submit a list of the following: @ParameterName@ and @ApplyMethod@ . To reset the entire DB parameter group, specify the @DBParameterGroup@ name and @ResetAllParameters@ parameters. When resetting the entire group, dynamic parameters are updated immediately and static parameters are set to @pending-reboot@ to take effect on the next DB instance restart or @RebootDBInstance@ request.
+--
+--
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'resetDBParameterGroup' smart constructor.
 data ResetDBParameterGroup = ResetDBParameterGroup'
     { _rdpgResetAllParameters   :: !(Maybe Bool)
@@ -56,11 +60,11 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdpgResetAllParameters'
+-- * 'rdpgResetAllParameters' - Specifies whether (@true@ ) or not (@false@ ) to reset all parameters in the DB parameter group to default values.  Default: @true@
 --
--- * 'rdpgParameters'
+-- * 'rdpgParameters' - An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request. __MySQL__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __MariaDB__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __Oracle__  Valid Values (for Apply method): @pending-reboot@
 --
--- * 'rdpgDBParameterGroupName'
+-- * 'rdpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 resetDBParameterGroup
     :: Text -- ^ 'rdpgDBParameterGroupName'
     -> ResetDBParameterGroup
@@ -71,42 +75,15 @@ resetDBParameterGroup pDBParameterGroupName_ =
     , _rdpgDBParameterGroupName = pDBParameterGroupName_
     }
 
--- | Specifies whether ('true') or not ('false') to reset all parameters in the DB parameter group to default values.
---
--- Default: 'true'
+-- | Specifies whether (@true@ ) or not (@false@ ) to reset all parameters in the DB parameter group to default values.  Default: @true@
 rdpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllParameters = a});
 
--- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request.
---
--- __MySQL__
---
--- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
---
--- You can use the immediate value with dynamic parameters only. You can use the 'pending-reboot' value for both dynamic and static parameters, and changes are applied when DB instance reboots.
---
--- __MariaDB__
---
--- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
---
--- You can use the immediate value with dynamic parameters only. You can use the 'pending-reboot' value for both dynamic and static parameters, and changes are applied when DB instance reboots.
---
--- __Oracle__
---
--- Valid Values (for Apply method): 'pending-reboot'
+-- | An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; subsequent arguments are optional. A maximum of 20 parameters can be modified in a single request. __MySQL__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __MariaDB__  Valid Values (for Apply method): @immediate@ | @pending-reboot@  You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots. __Oracle__  Valid Values (for Apply method): @pending-reboot@
 rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default . _Coerce;
 
--- | The name of the DB parameter group.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
 rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 

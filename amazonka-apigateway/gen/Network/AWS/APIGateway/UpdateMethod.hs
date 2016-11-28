@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing < Method> resource.
+-- Updates an existing 'Method' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateMethod
     (
     -- * Creating a Request
@@ -51,7 +53,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing < Method> resource.
+-- | Request to update an existing 'Method' resource.
+--
+--
 --
 -- /See:/ 'updateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
@@ -65,13 +69,13 @@ data UpdateMethod = UpdateMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ummPatchOperations'
+-- * 'ummPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'ummRestAPIId'
+-- * 'ummRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
 --
--- * 'ummResourceId'
+-- * 'ummResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
--- * 'ummHttpMethod'
+-- * 'ummHttpMethod' - The HTTP verb of the 'Method' resource.
 updateMethod
     :: Text -- ^ 'ummRestAPIId'
     -> Text -- ^ 'ummResourceId'
@@ -89,15 +93,15 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < Method> resource.
+-- | The 'RestApi' identifier for the 'Method' resource.
 ummRestAPIId :: Lens' UpdateMethod Text
 ummRestAPIId = lens _ummRestAPIId (\ s a -> s{_ummRestAPIId = a});
 
--- | The < Resource> identifier for the < Method> resource.
+-- | The 'Resource' identifier for the 'Method' resource.
 ummResourceId :: Lens' UpdateMethod Text
 ummResourceId = lens _ummResourceId (\ s a -> s{_ummResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 ummHttpMethod :: Lens' UpdateMethod Text
 ummHttpMethod = lens _ummHttpMethod (\ s a -> s{_ummHttpMethod = a});
 

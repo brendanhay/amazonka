@@ -20,13 +20,17 @@
 --
 -- Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:
 --
--- -   Enable\/disable communication over the peering connection between an EC2-Classic instance that\'s linked to your VPC (using ClassicLink) and instances in the peer VPC.
 --
--- -   Enable\/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that\'s linked to the peer VPC.
+--     * Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.
 --
--- -   Enable\/disable a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+--     * Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.
 --
--- If the peered VPCs are in different accounts, each owner must initiate a separate request to modify the peering connection options, depending on whether their VPC was the requester or accepter for the VPC peering connection. If the peered VPCs are in the same account, you can modify the requester and accepter options in the same request. To confirm which VPC is the accepter and requester for a VPC peering connection, use the < DescribeVpcPeeringConnections> command.
+--     * Enable/disable a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+--
+--
+--
+-- If the peered VPCs are in different accounts, each owner must initiate a separate request to modify the peering connection options, depending on whether their VPC was the requester or accepter for the VPC peering connection. If the peered VPCs are in the same account, you can modify the requester and accepter options in the same request. To confirm which VPC is the accepter and requester for a VPC peering connection, use the 'DescribeVpcPeeringConnections' command.
+--
 module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
     (
     -- * Creating a Request
@@ -66,13 +70,13 @@ data ModifyVPCPeeringConnectionOptions = ModifyVPCPeeringConnectionOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvpcoRequesterPeeringConnectionOptions'
+-- * 'mvpcoRequesterPeeringConnectionOptions' - The VPC peering connection options for the requester VPC.
 --
--- * 'mvpcoAccepterPeeringConnectionOptions'
+-- * 'mvpcoAccepterPeeringConnectionOptions' - The VPC peering connection options for the accepter VPC.
 --
--- * 'mvpcoDryRun'
+-- * 'mvpcoDryRun' - Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'mvpcoVPCPeeringConnectionId'
+-- * 'mvpcoVPCPeeringConnectionId' - The ID of the VPC peering connection.
 modifyVPCPeeringConnectionOptions
     :: Text -- ^ 'mvpcoVPCPeeringConnectionId'
     -> ModifyVPCPeeringConnectionOptions
@@ -92,7 +96,7 @@ mvpcoRequesterPeeringConnectionOptions = lens _mvpcoRequesterPeeringConnectionOp
 mvpcoAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
 mvpcoAccepterPeeringConnectionOptions = lens _mvpcoAccepterPeeringConnectionOptions (\ s a -> s{_mvpcoAccepterPeeringConnectionOptions = a});
 
--- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvpcoDryRun :: Lens' ModifyVPCPeeringConnectionOptions (Maybe Bool)
 mvpcoDryRun = lens _mvpcoDryRun (\ s a -> s{_mvpcoDryRun = a});
 
@@ -151,11 +155,11 @@ data ModifyVPCPeeringConnectionOptionsResponse = ModifyVPCPeeringConnectionOptio
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvpcorsRequesterPeeringConnectionOptions'
+-- * 'mvpcorsRequesterPeeringConnectionOptions' - Information about the VPC peering connection options for the requester VPC.
 --
--- * 'mvpcorsAccepterPeeringConnectionOptions'
+-- * 'mvpcorsAccepterPeeringConnectionOptions' - Information about the VPC peering connection options for the accepter VPC.
 --
--- * 'mvpcorsResponseStatus'
+-- * 'mvpcorsResponseStatus' - -- | The response status code.
 modifyVPCPeeringConnectionOptionsResponse
     :: Int -- ^ 'mvpcorsResponseStatus'
     -> ModifyVPCPeeringConnectionOptionsResponse
@@ -174,7 +178,7 @@ mvpcorsRequesterPeeringConnectionOptions = lens _mvpcorsRequesterPeeringConnecti
 mvpcorsAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
 mvpcorsAccepterPeeringConnectionOptions = lens _mvpcorsAccepterPeeringConnectionOptions (\ s a -> s{_mvpcorsAccepterPeeringConnectionOptions = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mvpcorsResponseStatus :: Lens' ModifyVPCPeeringConnectionOptionsResponse Int
 mvpcorsResponseStatus = lens _mvpcorsResponseStatus (\ s a -> s{_mvpcorsResponseStatus = a});
 

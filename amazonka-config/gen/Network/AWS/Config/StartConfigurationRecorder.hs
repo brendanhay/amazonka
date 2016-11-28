@@ -20,7 +20,9 @@
 --
 -- Starts recording configurations of the AWS resources you have selected to record in your AWS account.
 --
+--
 -- You must have created at least one delivery channel to successfully start the configuration recorder.
+--
 module Network.AWS.Config.StartConfigurationRecorder
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < StartConfigurationRecorder> action.
+-- | The input for the 'StartConfigurationRecorder' action.
+--
+--
 --
 -- /See:/ 'startConfigurationRecorder' smart constructor.
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
@@ -52,7 +56,7 @@ newtype StartConfigurationRecorder = StartConfigurationRecorder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sConfigurationRecorderName'
+-- * 'sConfigurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
 startConfigurationRecorder
     :: Text -- ^ 'sConfigurationRecorderName'
     -> StartConfigurationRecorder

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified Internet gateway. You must detach the Internet gateway from the VPC before you can delete it.
+--
+--
 module Network.AWS.EC2.DeleteInternetGateway
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteInternetGateway.
 --
+--
+--
 -- /See:/ 'deleteInternetGateway' smart constructor.
 data DeleteInternetGateway = DeleteInternetGateway'
     { _digiDryRun            :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteInternetGateway = DeleteInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'digiDryRun'
+-- * 'digiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'digiInternetGatewayId'
+-- * 'digiInternetGatewayId' - The ID of the Internet gateway.
 deleteInternetGateway
     :: Text -- ^ 'digiInternetGatewayId'
     -> DeleteInternetGateway
@@ -64,7 +68,7 @@ deleteInternetGateway pInternetGatewayId_ =
     , _digiInternetGatewayId = pInternetGatewayId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a});
 

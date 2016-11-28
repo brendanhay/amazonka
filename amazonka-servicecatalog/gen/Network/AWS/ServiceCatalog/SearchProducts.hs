@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a paginated list all of the 'Products' objects to which the caller has access.
+-- Returns a paginated list all of the @Products@ objects to which the caller has access.
 --
--- The output of this operation can be used as input for other operations, such as < DescribeProductView>.
+--
+-- The output of this operation can be used as input for other operations, such as 'DescribeProductView' .
+--
 module Network.AWS.ServiceCatalog.SearchProducts
     (
     -- * Creating a Request
@@ -65,17 +67,17 @@ data SearchProducts = SearchProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spFilters'
+-- * 'spFilters' - (Optional) The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
 --
--- * 'spSortOrder'
+-- * 'spSortOrder' - (Optional) The sort order specifier. If no value is specified, results are not sorted.
 --
--- * 'spAcceptLanguage'
+-- * 'spAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'spPageToken'
+-- * 'spPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 --
--- * 'spPageSize'
+-- * 'spPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 --
--- * 'spSortBy'
+-- * 'spSortBy' - (Optional) The sort field specifier. If no value is specified, results are not sorted.
 searchProducts
     :: SearchProducts
 searchProducts =
@@ -96,23 +98,15 @@ spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Map;
 spSortOrder :: Lens' SearchProducts (Maybe SortOrder)
 spSortOrder = lens _spSortOrder (\ s a -> s{_spSortOrder = a});
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 spAcceptLanguage :: Lens' SearchProducts (Maybe Text)
 spAcceptLanguage = lens _spAcceptLanguage (\ s a -> s{_spAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size 'PageSize'.
+-- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 spPageToken :: Lens' SearchProducts (Maybe Text)
 spPageToken = lens _spPageToken (\ s a -> s{_spPageToken = a});
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified 'PageSize', the value of 'NextPageToken' in the response is non-null.
+-- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 spPageSize :: Lens' SearchProducts (Maybe Natural)
 spPageSize = lens _spPageSize (\ s a -> s{_spPageSize = a}) . mapping _Nat;
 
@@ -175,13 +169,13 @@ data SearchProductsResponse = SearchProductsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sprsNextPageToken'
+-- * 'sprsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'sprsProductViewAggregations'
+-- * 'sprsProductViewAggregations' - A list of the product view aggregation value objects.
 --
--- * 'sprsProductViewSummaries'
+-- * 'sprsProductViewSummaries' - A list of the product view summary objects.
 --
--- * 'sprsResponseStatus'
+-- * 'sprsResponseStatus' - -- | The response status code.
 searchProductsResponse
     :: Int -- ^ 'sprsResponseStatus'
     -> SearchProductsResponse
@@ -205,7 +199,7 @@ sprsProductViewAggregations = lens _sprsProductViewAggregations (\ s a -> s{_spr
 sprsProductViewSummaries :: Lens' SearchProductsResponse [ProductViewSummary]
 sprsProductViewSummaries = lens _sprsProductViewSummaries (\ s a -> s{_sprsProductViewSummaries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 sprsResponseStatus :: Lens' SearchProductsResponse Int
 sprsResponseStatus = lens _sprsResponseStatus (\ s a -> s{_sprsResponseStatus = a});
 

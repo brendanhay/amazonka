@@ -55,7 +55,7 @@ newtype CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTag
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdwtStreamingDistributionConfigWithTags'
+-- * 'csdwtStreamingDistributionConfigWithTags' - The streaming distribution's configuration information.
 createStreamingDistributionWithTags
     :: StreamingDistributionConfigWithTags -- ^ 'csdwtStreamingDistributionConfigWithTags'
     -> CreateStreamingDistributionWithTags
@@ -64,7 +64,7 @@ createStreamingDistributionWithTags pStreamingDistributionConfigWithTags_ =
     { _csdwtStreamingDistributionConfigWithTags = pStreamingDistributionConfigWithTags_
     }
 
--- | The streaming distribution\'s configuration information.
+-- | The streaming distribution's configuration information.
 csdwtStreamingDistributionConfigWithTags :: Lens' CreateStreamingDistributionWithTags StreamingDistributionConfigWithTags
 csdwtStreamingDistributionConfigWithTags = lens _csdwtStreamingDistributionConfigWithTags (\ s a -> s{_csdwtStreamingDistributionConfigWithTags = a});
 
@@ -119,13 +119,13 @@ data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWi
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdwtrsETag'
+-- * 'csdwtrsETag' - The current version of the streaming distribution created.
 --
--- * 'csdwtrsLocation'
+-- * 'csdwtrsLocation' - The fully qualified URI of the new streaming distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 --
--- * 'csdwtrsStreamingDistribution'
+-- * 'csdwtrsStreamingDistribution' - The streaming distribution's information.
 --
--- * 'csdwtrsResponseStatus'
+-- * 'csdwtrsResponseStatus' - -- | The response status code.
 createStreamingDistributionWithTagsResponse
     :: Int -- ^ 'csdwtrsResponseStatus'
     -> CreateStreamingDistributionWithTagsResponse
@@ -141,15 +141,15 @@ createStreamingDistributionWithTagsResponse pResponseStatus_ =
 csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
 csdwtrsETag = lens _csdwtrsETag (\ s a -> s{_csdwtrsETag = a});
 
--- | The fully qualified URI of the new streaming distribution resource just created. For example: https:\/\/cloudfront.amazonaws.com\/2010-11-01\/streaming-distribution\/EGTXBD79H29TRA8.
+-- | The fully qualified URI of the new streaming distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
 csdwtrsLocation :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
 csdwtrsLocation = lens _csdwtrsLocation (\ s a -> s{_csdwtrsLocation = a});
 
--- | The streaming distribution\'s information.
+-- | The streaming distribution's information.
 csdwtrsStreamingDistribution :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe StreamingDistribution)
 csdwtrsStreamingDistribution = lens _csdwtrsStreamingDistribution (\ s a -> s{_csdwtrsStreamingDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 csdwtrsResponseStatus :: Lens' CreateStreamingDistributionWithTagsResponse Int
 csdwtrsResponseStatus = lens _csdwtrsResponseStatus (\ s a -> s{_csdwtrsResponseStatus = a});
 

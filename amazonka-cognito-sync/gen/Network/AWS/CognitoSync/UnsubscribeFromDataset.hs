@@ -20,7 +20,9 @@
 --
 -- Unsubscribes from receiving notifications when a dataset is modified by another device.
 --
+--
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
+--
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | A request to UnsubscribeFromDataset.
 --
+--
+--
 -- /See:/ 'unsubscribeFromDataset' smart constructor.
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
     { _ufdIdentityPoolId :: !Text
@@ -60,13 +64,13 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufdIdentityPoolId'
+-- * 'ufdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.
 --
--- * 'ufdIdentityId'
+-- * 'ufdIdentityId' - Unique ID for this identity.
 --
--- * 'ufdDatasetName'
+-- * 'ufdDatasetName' - The name of the dataset from which to unsubcribe.
 --
--- * 'ufdDeviceId'
+-- * 'ufdDeviceId' - The unique ID generated for this device by Cognito.
 unsubscribeFromDataset
     :: Text -- ^ 'ufdIdentityPoolId'
     -> Text -- ^ 'ufdIdentityId'
@@ -131,6 +135,8 @@ instance ToQuery UnsubscribeFromDataset where
 
 -- | Response to an UnsubscribeFromDataset request.
 --
+--
+--
 -- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
     { _ufdrsResponseStatus :: Int
@@ -140,7 +146,7 @@ newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufdrsResponseStatus'
+-- * 'ufdrsResponseStatus' - -- | The response status code.
 unsubscribeFromDatasetResponse
     :: Int -- ^ 'ufdrsResponseStatus'
     -> UnsubscribeFromDatasetResponse
@@ -149,7 +155,7 @@ unsubscribeFromDatasetResponse pResponseStatus_ =
     { _ufdrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ufdrsResponseStatus :: Lens' UnsubscribeFromDatasetResponse Int
 ufdrsResponseStatus = lens _ufdrsResponseStatus (\ s a -> s{_ufdrsResponseStatus = a});
 

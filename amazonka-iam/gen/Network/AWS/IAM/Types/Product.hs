@@ -23,9 +23,9 @@ import           Network.AWS.Prelude
 
 -- | Contains information about an AWS access key.
 --
--- This data type is used as a response element in the < CreateAccessKey> and < ListAccessKeys> actions.
 --
--- The 'SecretAccessKey' value is returned only in response to < CreateAccessKey>. You can get a secret access key only when you first create an access key; you cannot recover the secret access key later. If you lose a secret access key, you must create a new access key.
+-- This data type is used as a response element in the 'CreateAccessKey' and 'ListAccessKeys' actions.
+--
 --
 -- /See:/ 'accessKey' smart constructor.
 data AccessKey = AccessKey'
@@ -40,15 +40,15 @@ data AccessKey = AccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akCreateDate'
+-- * 'akCreateDate' - The date when the access key was created.
 --
--- * 'akUserName'
+-- * 'akUserName' - The name of the IAM user that the access key is associated with.
 --
--- * 'akAccessKeyId'
+-- * 'akAccessKeyId' - The ID for this access key.
 --
--- * 'akStatus'
+-- * 'akStatus' - The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
 --
--- * 'akSecretAccessKey'
+-- * 'akSecretAccessKey' - The secret key used to sign requests.
 accessKey
     :: Text -- ^ 'akUserName'
     -> Text -- ^ 'akAccessKeyId'
@@ -76,7 +76,7 @@ akUserName = lens _akUserName (\ s a -> s{_akUserName = a});
 akAccessKeyId :: Lens' AccessKey Text
 akAccessKeyId = lens _akAccessKeyId (\ s a -> s{_akAccessKeyId = a});
 
--- | The status of the access key. 'Active' means the key is valid for API calls, while 'Inactive' means it is not.
+-- | The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
 akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\ s a -> s{_akStatus = a});
 
@@ -98,7 +98,9 @@ instance NFData AccessKey
 
 -- | Contains information about the last time an AWS access key was used.
 --
--- This data type is used as a response element in the < GetAccessKeyLastUsed> action.
+--
+-- This data type is used as a response element in the 'GetAccessKeyLastUsed' action.
+--
 --
 -- /See:/ 'accessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'
@@ -111,11 +113,11 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akluLastUsedDate'
+-- * 'akluLastUsedDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 --
--- * 'akluServiceName'
+-- * 'akluServiceName' - The name of the AWS service with which this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 --
--- * 'akluRegion'
+-- * 'akluRegion' - The AWS region where this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 accessKeyLastUsed
     :: UTCTime -- ^ 'akluLastUsedDate'
     -> Text -- ^ 'akluServiceName'
@@ -128,37 +130,15 @@ accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
     , _akluRegion = pRegion_
     }
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the access key was most recently used. This field is null when:
---
--- -   The user does not have an access key.
---
--- -   An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.
---
--- -   There is no sign-in data associated with the user
---
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 akluLastUsedDate :: Lens' AccessKeyLastUsed UTCTime
 akluLastUsedDate = lens _akluLastUsedDate (\ s a -> s{_akluLastUsedDate = a}) . _Time;
 
--- | The name of the AWS service with which this access key was most recently used. This field is null when:
---
--- -   The user does not have an access key.
---
--- -   An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.
---
--- -   There is no sign-in data associated with the user
---
+-- | The name of the AWS service with which this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 akluServiceName :: Lens' AccessKeyLastUsed Text
 akluServiceName = lens _akluServiceName (\ s a -> s{_akluServiceName = a});
 
--- | The AWS region where this access key was most recently used. This field is null when:
---
--- -   The user does not have an access key.
---
--- -   An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.
---
--- -   There is no sign-in data associated with the user
---
--- For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
+-- | The AWS region where this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 akluRegion :: Lens' AccessKeyLastUsed Text
 akluRegion = lens _akluRegion (\ s a -> s{_akluRegion = a});
 
@@ -174,7 +154,9 @@ instance NFData AccessKeyLastUsed
 
 -- | Contains information about an AWS access key, without its secret key.
 --
--- This data type is used as a response element in the < ListAccessKeys> action.
+--
+-- This data type is used as a response element in the 'ListAccessKeys' action.
+--
 --
 -- /See:/ 'accessKeyMetadata' smart constructor.
 data AccessKeyMetadata = AccessKeyMetadata'
@@ -188,13 +170,13 @@ data AccessKeyMetadata = AccessKeyMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akmStatus'
+-- * 'akmStatus' - The status of the access key. @Active@ means the key is valid for API calls; @Inactive@ means it is not.
 --
--- * 'akmCreateDate'
+-- * 'akmCreateDate' - The date when the access key was created.
 --
--- * 'akmUserName'
+-- * 'akmUserName' - The name of the IAM user that the key is associated with.
 --
--- * 'akmAccessKeyId'
+-- * 'akmAccessKeyId' - The ID for this access key.
 accessKeyMetadata
     :: AccessKeyMetadata
 accessKeyMetadata =
@@ -205,7 +187,7 @@ accessKeyMetadata =
     , _akmAccessKeyId = Nothing
     }
 
--- | The status of the access key. 'Active' means the key is valid for API calls; 'Inactive' means it is not.
+-- | The status of the access key. @Active@ means the key is valid for API calls; @Inactive@ means it is not.
 akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\ s a -> s{_akmStatus = a});
 
@@ -234,9 +216,11 @@ instance NFData AccessKeyMetadata
 
 -- | Contains information about an attached policy.
 --
--- An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the < ListAttachedGroupPolicies>, < ListAttachedRolePolicies>, < ListAttachedUserPolicies>, and < GetAccountAuthorizationDetails> actions.
+--
+-- An attached policy is a managed policy that has been attached to a user, group, or role. This data type is used as a response element in the 'ListAttachedGroupPolicies' , 'ListAttachedRolePolicies' , 'ListAttachedUserPolicies' , and 'GetAccountAuthorizationDetails' actions.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'attachedPolicy' smart constructor.
 data AttachedPolicy = AttachedPolicy'
@@ -248,9 +232,9 @@ data AttachedPolicy = AttachedPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apPolicyName'
+-- * 'apPolicyName' - The friendly name of the attached policy.
 --
--- * 'apPolicyARN'
+-- * 'apPolicyARN' - Undocumented member.
 attachedPolicy
     :: AttachedPolicy
 attachedPolicy =
@@ -276,9 +260,11 @@ instance Hashable AttachedPolicy
 
 instance NFData AttachedPolicy
 
--- | Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the 'Condition' elements of the input policies.
+-- | Contains information about a condition context key. It includes the name of the key and specifies the value (or values, if the context key supports multiple values) to use in the simulation. This information is used when evaluating the @Condition@ elements of the input policies.
 --
--- This data type is used as an input parameter to ' SimulateCustomPolicy ' and ' SimulateCustomPolicy '.
+--
+-- This data type is used as an input parameter to @'SimulateCustomPolicy' @ and @'SimulateCustomPolicy' @ .
+--
 --
 -- /See:/ 'contextEntry' smart constructor.
 data ContextEntry = ContextEntry'
@@ -291,11 +277,11 @@ data ContextEntry = ContextEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ceContextKeyValues'
+-- * 'ceContextKeyValues' - The value (or values, if the condition context key supports multiple values) to provide to the simulation for use when the key is referenced by a @Condition@ element in an input policy.
 --
--- * 'ceContextKeyName'
+-- * 'ceContextKeyName' - The full name of a condition context key, including the service prefix. For example, @aws:SourceIp@ or @s3:VersionId@ .
 --
--- * 'ceContextKeyType'
+-- * 'ceContextKeyType' - The data type of the value (or values) specified in the @ContextKeyValues@ parameter.
 contextEntry
     :: ContextEntry
 contextEntry =
@@ -305,15 +291,15 @@ contextEntry =
     , _ceContextKeyType = Nothing
     }
 
--- | The value (or values, if the condition context key supports multiple values) to provide to the simulation for use when the key is referenced by a 'Condition' element in an input policy.
+-- | The value (or values, if the condition context key supports multiple values) to provide to the simulation for use when the key is referenced by a @Condition@ element in an input policy.
 ceContextKeyValues :: Lens' ContextEntry [Text]
 ceContextKeyValues = lens _ceContextKeyValues (\ s a -> s{_ceContextKeyValues = a}) . _Default . _Coerce;
 
--- | The full name of a condition context key, including the service prefix. For example, 'aws:SourceIp' or 's3:VersionId'.
+-- | The full name of a condition context key, including the service prefix. For example, @aws:SourceIp@ or @s3:VersionId@ .
 ceContextKeyName :: Lens' ContextEntry (Maybe Text)
 ceContextKeyName = lens _ceContextKeyName (\ s a -> s{_ceContextKeyName = a});
 
--- | The data type of the value (or values) specified in the 'ContextKeyValues' parameter.
+-- | The data type of the value (or values) specified in the @ContextKeyValues@ parameter.
 ceContextKeyType :: Lens' ContextEntry (Maybe ContextKeyTypeEnum)
 ceContextKeyType = lens _ceContextKeyType (\ s a -> s{_ceContextKeyType = a});
 
@@ -332,7 +318,9 @@ instance ToQuery ContextEntry where
 
 -- | Contains the results of a simulation.
 --
--- This data type is used by the return parameter of ' SimulateCustomPolicy ' and ' SimulatePrincipalPolicy '.
+--
+-- This data type is used by the return parameter of @'SimulateCustomPolicy' @ and @'SimulatePrincipalPolicy' @ .
+--
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
@@ -349,19 +337,19 @@ data EvaluationResult = EvaluationResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erMatchedStatements'
+-- * 'erMatchedStatements' - A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the action on the resource, if only one statement denies that action, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
 --
--- * 'erEvalDecisionDetails'
+-- * 'erEvalDecisionDetails' - Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html How IAM Roles Differ from Resource-based Policies>
 --
--- * 'erResourceSpecificResults'
+-- * 'erResourceSpecificResults' - The individual results of the simulation of the API action specified in EvalActionName on each resource.
 --
--- * 'erEvalResourceName'
+-- * 'erEvalResourceName' - The ARN of the resource that the indicated API action was tested on.
 --
--- * 'erMissingContextValues'
+-- * 'erMissingContextValues' - A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 --
--- * 'erEvalActionName'
+-- * 'erEvalActionName' - The name of the API action tested on the indicated resource.
 --
--- * 'erEvalDecision'
+-- * 'erEvalDecision' - The result of the simulation.
 evaluationResult
     :: Text -- ^ 'erEvalActionName'
     -> PolicyEvaluationDecisionType -- ^ 'erEvalDecision'
@@ -381,7 +369,7 @@ evaluationResult pEvalActionName_ pEvalDecision_ =
 erMatchedStatements :: Lens' EvaluationResult [Statement]
 erMatchedStatements = lens _erMatchedStatements (\ s a -> s{_erMatchedStatements = a}) . _Default . _Coerce;
 
--- | Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html How IAM Roles Differ from Resource-based Policies>
+-- | Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access. See <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html How IAM Roles Differ from Resource-based Policies>
 erEvalDecisionDetails :: Lens' EvaluationResult (HashMap Text PolicyEvaluationDecisionType)
 erEvalDecisionDetails = lens _erEvalDecisionDetails (\ s a -> s{_erEvalDecisionDetails = a}) . _Default . _Map;
 
@@ -393,7 +381,7 @@ erResourceSpecificResults = lens _erResourceSpecificResults (\ s a -> s{_erResou
 erEvalResourceName :: Lens' EvaluationResult (Maybe Text)
 erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = a});
 
--- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the 'ResourceArns' parameter blank. If you include a list of resources, then any missing context values are instead included under the 'ResourceSpecificResults' section. To discover the context keys used by a set of policies, you can call < GetContextKeysForCustomPolicy> or < GetContextKeysForPrincipalPolicy>.
+-- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 erMissingContextValues :: Lens' EvaluationResult [Text]
 erMissingContextValues = lens _erMissingContextValues (\ s a -> s{_erMissingContextValues = a}) . _Default . _Coerce;
 
@@ -427,7 +415,9 @@ instance Hashable EvaluationResult
 
 instance NFData EvaluationResult
 
--- | Contains the response to a successful < GetContextKeysForPrincipalPolicy> or < GetContextKeysForCustomPolicy> request.
+-- | Contains the response to a successful 'GetContextKeysForPrincipalPolicy' or 'GetContextKeysForCustomPolicy' request.
+--
+--
 --
 -- /See:/ 'getContextKeysForPolicyResponse' smart constructor.
 newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
@@ -438,7 +428,7 @@ newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gckfpContextKeyNames'
+-- * 'gckfpContextKeyNames' - The list of context keys that are referenced in the input policies.
 getContextKeysForPolicyResponse
     :: GetContextKeysForPolicyResponse
 getContextKeysForPolicyResponse =
@@ -463,13 +453,16 @@ instance NFData GetContextKeysForPolicyResponse
 
 -- | Contains information about an IAM group entity.
 --
+--
 -- This data type is used as a response element in the following actions:
 --
--- -   < CreateGroup>
+--     * 'CreateGroup'
 --
--- -   < GetGroup>
+--     * 'GetGroup'
 --
--- -   < ListGroups>
+--     * 'ListGroups'
+--
+--
 --
 --
 -- /See:/ 'group'' smart constructor.
@@ -485,15 +478,15 @@ data Group = Group'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gPath'
+-- * 'gPath' - The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'gGroupName'
+-- * 'gGroupName' - The friendly name that identifies the group.
 --
--- * 'gGroupId'
+-- * 'gGroupId' - The stable and unique string identifying the group. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'gARN'
+-- * 'gARN' - The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'gCreateDate'
+-- * 'gCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 group'
     :: Text -- ^ 'gPath'
     -> Text -- ^ 'gGroupName'
@@ -526,7 +519,7 @@ gGroupId = lens _gGroupId (\ s a -> s{_gGroupId = a});
 gARN :: Lens' Group Text
 gARN = lens _gARN (\ s a -> s{_gARN = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the group was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 gCreateDate :: Lens' Group UTCTime
 gCreateDate = lens _gCreateDate (\ s a -> s{_gCreateDate = a}) . _Time;
 
@@ -542,9 +535,11 @@ instance Hashable Group
 
 instance NFData Group
 
--- | Contains information about an IAM group, including all of the group\'s policies.
+-- | Contains information about an IAM group, including all of the group's policies.
 --
--- This data type is used as a response element in the < GetAccountAuthorizationDetails> action.
+--
+-- This data type is used as a response element in the 'GetAccountAuthorizationDetails' action.
+--
 --
 -- /See:/ 'groupDetail' smart constructor.
 data GroupDetail = GroupDetail'
@@ -561,19 +556,19 @@ data GroupDetail = GroupDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdARN'
+-- * 'gdARN' - Undocumented member.
 --
--- * 'gdPath'
+-- * 'gdPath' - The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'gdCreateDate'
+-- * 'gdCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 --
--- * 'gdGroupId'
+-- * 'gdGroupId' - The stable and unique string identifying the group. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'gdGroupPolicyList'
+-- * 'gdGroupPolicyList' - A list of the inline policies embedded in the group.
 --
--- * 'gdGroupName'
+-- * 'gdGroupName' - The friendly name that identifies the group.
 --
--- * 'gdAttachedManagedPolicies'
+-- * 'gdAttachedManagedPolicies' - A list of the managed policies attached to the group.
 groupDetail
     :: GroupDetail
 groupDetail =
@@ -595,7 +590,7 @@ gdARN = lens _gdARN (\ s a -> s{_gdARN = a});
 gdPath :: Lens' GroupDetail (Maybe Text)
 gdPath = lens _gdPath (\ s a -> s{_gdPath = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the group was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 gdCreateDate :: Lens' GroupDetail (Maybe UTCTime)
 gdCreateDate = lens _gdCreateDate (\ s a -> s{_gdCreateDate = a}) . mapping _Time;
 
@@ -635,15 +630,18 @@ instance NFData GroupDetail
 
 -- | Contains information about an instance profile.
 --
+--
 -- This data type is used as a response element in the following actions:
 --
--- -   < CreateInstanceProfile>
+--     * 'CreateInstanceProfile'
 --
--- -   < GetInstanceProfile>
+--     * 'GetInstanceProfile'
 --
--- -   < ListInstanceProfiles>
+--     * 'ListInstanceProfiles'
 --
--- -   < ListInstanceProfilesForRole>
+--     * 'ListInstanceProfilesForRole'
+--
+--
 --
 --
 -- /See:/ 'instanceProfile' smart constructor.
@@ -660,17 +658,17 @@ data InstanceProfile = InstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipPath'
+-- * 'ipPath' - The path to the instance profile. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'ipInstanceProfileName'
+-- * 'ipInstanceProfileName' - The name identifying the instance profile.
 --
--- * 'ipInstanceProfileId'
+-- * 'ipInstanceProfileId' - The stable and unique string identifying the instance profile. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'ipARN'
+-- * 'ipARN' - The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'ipCreateDate'
+-- * 'ipCreateDate' - The date when the instance profile was created.
 --
--- * 'ipRoles'
+-- * 'ipRoles' - The role associated with the instance profile.
 instanceProfile
     :: Text -- ^ 'ipPath'
     -> Text -- ^ 'ipInstanceProfileName'
@@ -728,7 +726,9 @@ instance NFData InstanceProfile
 
 -- | Contains the user name and password create date for a user.
 --
--- This data type is used as a response element in the < CreateLoginProfile> and < GetLoginProfile> actions.
+--
+-- This data type is used as a response element in the 'CreateLoginProfile' and 'GetLoginProfile' actions.
+--
 --
 -- /See:/ 'loginProfile' smart constructor.
 data LoginProfile = LoginProfile'
@@ -741,11 +741,11 @@ data LoginProfile = LoginProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpPasswordResetRequired'
+-- * 'lpPasswordResetRequired' - Specifies whether the user is required to set a new password on next sign-in.
 --
--- * 'lpUserName'
+-- * 'lpUserName' - The name of the user, which can be used for signing in to the AWS Management Console.
 --
--- * 'lpCreateDate'
+-- * 'lpCreateDate' - The date when the password for the user was created.
 loginProfile
     :: Text -- ^ 'lpUserName'
     -> UTCTime -- ^ 'lpCreateDate'
@@ -781,7 +781,9 @@ instance NFData LoginProfile
 
 -- | Contains information about an MFA device.
 --
--- This data type is used as a response element in the < ListMFADevices> action.
+--
+-- This data type is used as a response element in the 'ListMFADevices' action.
+--
 --
 -- /See:/ 'mfaDevice' smart constructor.
 data MFADevice = MFADevice'
@@ -794,11 +796,11 @@ data MFADevice = MFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdUserName'
+-- * 'mdUserName' - The user with whom the MFA device is associated.
 --
--- * 'mdSerialNumber'
+-- * 'mdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.
 --
--- * 'mdEnableDate'
+-- * 'mdEnableDate' - The date when the MFA device was enabled for the user.
 mfaDevice
     :: Text -- ^ 'mdUserName'
     -> Text -- ^ 'mdSerialNumber'
@@ -833,11 +835,13 @@ instance Hashable MFADevice
 
 instance NFData MFADevice
 
--- | Contains information about a managed policy, including the policy\'s ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
+-- | Contains information about a managed policy, including the policy's ARN, versions, and the number of principal entities (users, groups, and roles) that the policy is attached to.
 --
--- This data type is used as a response element in the < GetAccountAuthorizationDetails> action.
+--
+-- This data type is used as a response element in the 'GetAccountAuthorizationDetails' action.
 --
 -- For more information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'managedPolicyDetail' smart constructor.
 data ManagedPolicyDetail = ManagedPolicyDetail'
@@ -858,27 +862,27 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mpdPolicyName'
+-- * 'mpdPolicyName' - The friendly name (not ARN) identifying the policy.
 --
--- * 'mpdARN'
+-- * 'mpdARN' - Undocumented member.
 --
--- * 'mpdUpdateDate'
+-- * 'mpdUpdateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated. When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 --
--- * 'mpdPolicyId'
+-- * 'mpdPolicyId' - The stable and unique string identifying the policy. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'mpdPath'
+-- * 'mpdPath' - The path to the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'mpdPolicyVersionList'
+-- * 'mpdPolicyVersionList' - A list containing information about the versions of the policy.
 --
--- * 'mpdCreateDate'
+-- * 'mpdCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 --
--- * 'mpdIsAttachable'
+-- * 'mpdIsAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
 --
--- * 'mpdDefaultVersionId'
+-- * 'mpdDefaultVersionId' - The identifier for the version of the policy that is set as the default (operative) version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
 --
--- * 'mpdAttachmentCount'
+-- * 'mpdAttachmentCount' - The number of principal entities (users, groups, and roles) that the policy is attached to.
 --
--- * 'mpdDescription'
+-- * 'mpdDescription' - A friendly description of the policy.
 managedPolicyDetail
     :: ManagedPolicyDetail
 managedPolicyDetail =
@@ -904,21 +908,15 @@ mpdPolicyName = lens _mpdPolicyName (\ s a -> s{_mpdPolicyName = a});
 mpdARN :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdARN = lens _mpdARN (\ s a -> s{_mpdARN = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was last updated.
---
--- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated. When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 mpdUpdateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdUpdateDate = lens _mpdUpdateDate (\ s a -> s{_mpdUpdateDate = a}) . mapping _Time;
 
--- | The stable and unique string identifying the policy.
---
--- For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The stable and unique string identifying the policy. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 mpdPolicyId :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdPolicyId = lens _mpdPolicyId (\ s a -> s{_mpdPolicyId = a});
 
--- | The path to the policy.
---
--- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 mpdPath :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdPath = lens _mpdPath (\ s a -> s{_mpdPath = a});
 
@@ -926,7 +924,7 @@ mpdPath = lens _mpdPath (\ s a -> s{_mpdPath = a});
 mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
 mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default . _Coerce;
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 mpdCreateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _Time;
 
@@ -934,9 +932,7 @@ mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _
 mpdIsAttachable :: Lens' ManagedPolicyDetail (Maybe Bool)
 mpdIsAttachable = lens _mpdIsAttachable (\ s a -> s{_mpdIsAttachable = a});
 
--- | The identifier for the version of the policy that is set as the default (operative) version.
---
--- For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
+-- | The identifier for the version of the policy that is set as the default (operative) version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
 mpdDefaultVersionId :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdDefaultVersionId = lens _mpdDefaultVersionId (\ s a -> s{_mpdDefaultVersionId = a});
 
@@ -970,6 +966,8 @@ instance NFData ManagedPolicyDetail
 
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect provider.
 --
+--
+--
 -- /See:/ 'openIdConnectProviderListEntry' smart constructor.
 newtype OpenIdConnectProviderListEntry = OpenIdConnectProviderListEntry'
     { _oicpleARN :: Maybe Text
@@ -979,7 +977,7 @@ newtype OpenIdConnectProviderListEntry = OpenIdConnectProviderListEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oicpleARN'
+-- * 'oicpleARN' - Undocumented member.
 openIdConnectProviderListEntry
     :: OpenIdConnectProviderListEntry
 openIdConnectProviderListEntry =
@@ -1001,7 +999,9 @@ instance NFData OpenIdConnectProviderListEntry
 
 -- | Contains information about the account password policy.
 --
--- This data type is used as a response element in the < GetAccountPasswordPolicy> action.
+--
+-- This data type is used as a response element in the 'GetAccountPasswordPolicy' action.
+--
 --
 -- /See:/ 'passwordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
@@ -1021,25 +1021,25 @@ data PasswordPolicy = PasswordPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppExpirePasswords'
+-- * 'ppExpirePasswords' - Indicates whether passwords in the account expire. Returns true if MaxPasswordAge is contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.
 --
--- * 'ppMinimumPasswordLength'
+-- * 'ppMinimumPasswordLength' - Minimum length to require for IAM user passwords.
 --
--- * 'ppRequireNumbers'
+-- * 'ppRequireNumbers' - Specifies whether to require numbers for IAM user passwords.
 --
--- * 'ppPasswordReusePrevention'
+-- * 'ppPasswordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented from reusing.
 --
--- * 'ppRequireLowercaseCharacters'
+-- * 'ppRequireLowercaseCharacters' - Specifies whether to require lowercase characters for IAM user passwords.
 --
--- * 'ppMaxPasswordAge'
+-- * 'ppMaxPasswordAge' - The number of days that an IAM user password is valid.
 --
--- * 'ppHardExpiry'
+-- * 'ppHardExpiry' - Specifies whether IAM users are prevented from setting a new password after their password has expired.
 --
--- * 'ppRequireSymbols'
+-- * 'ppRequireSymbols' - Specifies whether to require symbols for IAM user passwords.
 --
--- * 'ppRequireUppercaseCharacters'
+-- * 'ppRequireUppercaseCharacters' - Specifies whether to require uppercase characters for IAM user passwords.
 --
--- * 'ppAllowUsersToChangePassword'
+-- * 'ppAllowUsersToChangePassword' - Specifies whether IAM users are allowed to change their own password.
 passwordPolicy
     :: PasswordPolicy
 passwordPolicy =
@@ -1116,9 +1116,11 @@ instance NFData PasswordPolicy
 
 -- | Contains information about a managed policy.
 --
--- This data type is used as a response element in the < CreatePolicy>, < GetPolicy>, and < ListPolicies> actions.
+--
+-- This data type is used as a response element in the 'CreatePolicy' , 'GetPolicy' , and 'ListPolicies' actions.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'policy' smart constructor.
 data Policy = Policy'
@@ -1138,25 +1140,25 @@ data Policy = Policy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pPolicyName'
+-- * 'pPolicyName' - The friendly name (not ARN) identifying the policy.
 --
--- * 'pARN'
+-- * 'pARN' - Undocumented member.
 --
--- * 'pUpdateDate'
+-- * 'pUpdateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated. When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 --
--- * 'pPolicyId'
+-- * 'pPolicyId' - The stable and unique string identifying the policy. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'pPath'
+-- * 'pPath' - The path to the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'pCreateDate'
+-- * 'pCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 --
--- * 'pIsAttachable'
+-- * 'pIsAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
 --
--- * 'pDefaultVersionId'
+-- * 'pDefaultVersionId' - The identifier for the version of the policy that is set as the default version.
 --
--- * 'pAttachmentCount'
+-- * 'pAttachmentCount' - The number of entities (users, groups, and roles) that the policy is attached to.
 --
--- * 'pDescription'
+-- * 'pDescription' - A friendly description of the policy. This element is included in the response to the 'GetPolicy' operation. It is not included in the response to the 'ListPolicies' operation.
 policy
     :: Policy
 policy =
@@ -1181,25 +1183,19 @@ pPolicyName = lens _pPolicyName (\ s a -> s{_pPolicyName = a});
 pARN :: Lens' Policy (Maybe Text)
 pARN = lens _pARN (\ s a -> s{_pARN = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was last updated.
---
--- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated. When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
 pUpdateDate :: Lens' Policy (Maybe UTCTime)
 pUpdateDate = lens _pUpdateDate (\ s a -> s{_pUpdateDate = a}) . mapping _Time;
 
--- | The stable and unique string identifying the policy.
---
--- For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The stable and unique string identifying the policy. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 pPolicyId :: Lens' Policy (Maybe Text)
 pPolicyId = lens _pPolicyId (\ s a -> s{_pPolicyId = a});
 
--- | The path to the policy.
---
--- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path to the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 pPath :: Lens' Policy (Maybe Text)
 pPath = lens _pPath (\ s a -> s{_pPath = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
 pCreateDate :: Lens' Policy (Maybe UTCTime)
 pCreateDate = lens _pCreateDate (\ s a -> s{_pCreateDate = a}) . mapping _Time;
 
@@ -1215,9 +1211,7 @@ pDefaultVersionId = lens _pDefaultVersionId (\ s a -> s{_pDefaultVersionId = a})
 pAttachmentCount :: Lens' Policy (Maybe Int)
 pAttachmentCount = lens _pAttachmentCount (\ s a -> s{_pAttachmentCount = a});
 
--- | A friendly description of the policy.
---
--- This element is included in the response to the < GetPolicy> operation. It is not included in the response to the < ListPolicies> operation.
+-- | A friendly description of the policy. This element is included in the response to the 'GetPolicy' operation. It is not included in the response to the 'ListPolicies' operation.
 pDescription :: Lens' Policy (Maybe Text)
 pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
@@ -1240,7 +1234,9 @@ instance NFData Policy
 
 -- | Contains information about an IAM policy, including the policy document.
 --
--- This data type is used as a response element in the < GetAccountAuthorizationDetails> action.
+--
+-- This data type is used as a response element in the 'GetAccountAuthorizationDetails' action.
+--
 --
 -- /See:/ 'policyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
@@ -1252,9 +1248,9 @@ data PolicyDetail = PolicyDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdPolicyDocument'
+-- * 'pdPolicyDocument' - The policy document.
 --
--- * 'pdPolicyName'
+-- * 'pdPolicyName' - The name of the policy.
 policyDetail
     :: PolicyDetail
 policyDetail =
@@ -1282,9 +1278,11 @@ instance NFData PolicyDetail
 
 -- | Contains information about a group that a managed policy is attached to.
 --
--- This data type is used as a response element in the < ListEntitiesForPolicy> action.
+--
+-- This data type is used as a response element in the 'ListEntitiesForPolicy' action.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'policyGroup' smart constructor.
 data PolicyGroup = PolicyGroup'
@@ -1296,9 +1294,9 @@ data PolicyGroup = PolicyGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pgGroupId'
+-- * 'pgGroupId' - The stable and unique string identifying the group. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
--- * 'pgGroupName'
+-- * 'pgGroupName' - The name (friendly name, not ARN) identifying the group.
 policyGroup
     :: PolicyGroup
 policyGroup =
@@ -1307,7 +1305,7 @@ policyGroup =
     , _pgGroupName = Nothing
     }
 
--- | The stable and unique string identifying the group. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/.
+-- | The stable and unique string identifying the group. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 pgGroupId :: Lens' PolicyGroup (Maybe Text)
 pgGroupId = lens _pgGroupId (\ s a -> s{_pgGroupId = a});
 
@@ -1326,9 +1324,11 @@ instance NFData PolicyGroup
 
 -- | Contains information about a role that a managed policy is attached to.
 --
--- This data type is used as a response element in the < ListEntitiesForPolicy> action.
+--
+-- This data type is used as a response element in the 'ListEntitiesForPolicy' action.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'policyRole' smart constructor.
 data PolicyRole = PolicyRole'
@@ -1340,9 +1340,9 @@ data PolicyRole = PolicyRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prRoleName'
+-- * 'prRoleName' - The name (friendly name, not ARN) identifying the role.
 --
--- * 'prRoleId'
+-- * 'prRoleId' - The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 policyRole
     :: PolicyRole
 policyRole =
@@ -1355,7 +1355,7 @@ policyRole =
 prRoleName :: Lens' PolicyRole (Maybe Text)
 prRoleName = lens _prRoleName (\ s a -> s{_prRoleName = a});
 
--- | The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/.
+-- | The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 prRoleId :: Lens' PolicyRole (Maybe Text)
 prRoleId = lens _prRoleId (\ s a -> s{_prRoleId = a});
 
@@ -1370,9 +1370,11 @@ instance NFData PolicyRole
 
 -- | Contains information about a user that a managed policy is attached to.
 --
--- This data type is used as a response element in the < ListEntitiesForPolicy> action.
+--
+-- This data type is used as a response element in the 'ListEntitiesForPolicy' action.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'policyUser' smart constructor.
 data PolicyUser = PolicyUser'
@@ -1384,9 +1386,9 @@ data PolicyUser = PolicyUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'puUserName'
+-- * 'puUserName' - The name (friendly name, not ARN) identifying the user.
 --
--- * 'puUserId'
+-- * 'puUserId' - The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 policyUser
     :: PolicyUser
 policyUser =
@@ -1399,7 +1401,7 @@ policyUser =
 puUserName :: Lens' PolicyUser (Maybe Text)
 puUserName = lens _puUserName (\ s a -> s{_puUserName = a});
 
--- | The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/.
+-- | The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 puUserId :: Lens' PolicyUser (Maybe Text)
 puUserId = lens _puUserId (\ s a -> s{_puUserId = a});
 
@@ -1414,9 +1416,11 @@ instance NFData PolicyUser
 
 -- | Contains information about a version of a managed policy.
 --
--- This data type is used as a response element in the < CreatePolicyVersion>, < GetPolicyVersion>, < ListPolicyVersions>, and < GetAccountAuthorizationDetails> actions.
+--
+-- This data type is used as a response element in the 'CreatePolicyVersion' , 'GetPolicyVersion' , 'ListPolicyVersions' , and 'GetAccountAuthorizationDetails' actions.
 --
 -- For more information about managed policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+--
 --
 -- /See:/ 'policyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
@@ -1430,13 +1434,13 @@ data PolicyVersion = PolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvVersionId'
+-- * 'pvVersionId' - The identifier for the policy version. Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
 --
--- * 'pvCreateDate'
+-- * 'pvCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
 --
--- * 'pvDocument'
+-- * 'pvDocument' - The policy document. The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
 --
--- * 'pvIsDefaultVersion'
+-- * 'pvIsDefaultVersion' - Specifies whether the policy version is set as the policy's default version.
 policyVersion
     :: PolicyVersion
 policyVersion =
@@ -1447,23 +1451,19 @@ policyVersion =
     , _pvIsDefaultVersion = Nothing
     }
 
--- | The identifier for the policy version.
---
--- Policy version identifiers always begin with 'v' (always lowercase). When a policy is created, the first policy version is 'v1'.
+-- | The identifier for the policy version. Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
 pvVersionId :: Lens' PolicyVersion (Maybe Text)
 pvVersionId = lens _pvVersionId (\ s a -> s{_pvVersionId = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy version was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
 pvCreateDate :: Lens' PolicyVersion (Maybe UTCTime)
 pvCreateDate = lens _pvCreateDate (\ s a -> s{_pvCreateDate = a}) . mapping _Time;
 
--- | The policy document.
---
--- The policy document is returned in the response to the < GetPolicyVersion> and < GetAccountAuthorizationDetails> operations. It is not returned in the response to the < CreatePolicyVersion> or < ListPolicyVersions> operations.
+-- | The policy document. The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
 pvDocument :: Lens' PolicyVersion (Maybe Text)
 pvDocument = lens _pvDocument (\ s a -> s{_pvDocument = a});
 
--- | Specifies whether the policy version is set as the policy\'s default version.
+-- | Specifies whether the policy version is set as the policy's default version.
 pvIsDefaultVersion :: Lens' PolicyVersion (Maybe Bool)
 pvIsDefaultVersion = lens _pvIsDefaultVersion (\ s a -> s{_pvIsDefaultVersion = a});
 
@@ -1478,9 +1478,11 @@ instance Hashable PolicyVersion
 
 instance NFData PolicyVersion
 
--- | Contains the row and column of a location of a 'Statement' element in a policy document.
+-- | Contains the row and column of a location of a @Statement@ element in a policy document.
 --
--- This data type is used as a member of the ' Statement ' type.
+--
+-- This data type is used as a member of the @'Statement' @ type.
+--
 --
 -- /See:/ 'position' smart constructor.
 data Position = Position'
@@ -1492,9 +1494,9 @@ data Position = Position'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pLine'
+-- * 'pLine' - The line containing the specified position in the document.
 --
--- * 'pColumn'
+-- * 'pColumn' - The column in the line containing the specified position in the document.
 position
     :: Position
 position =
@@ -1521,7 +1523,9 @@ instance NFData Position
 
 -- | Contains the result of the simulation of a single API action call on a single resource.
 --
--- This data type is used by a member of the < EvaluationResult> data type.
+--
+-- This data type is used by a member of the 'EvaluationResult' data type.
+--
 --
 -- /See:/ 'resourceSpecificResult' smart constructor.
 data ResourceSpecificResult = ResourceSpecificResult'
@@ -1536,15 +1540,15 @@ data ResourceSpecificResult = ResourceSpecificResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsrMatchedStatements'
+-- * 'rsrMatchedStatements' - A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the action on the resource, if /any/ statement denies that action, then the explicit deny overrides any allow, and the deny statement is the only entry included in the result.
 --
--- * 'rsrEvalDecisionDetails'
+-- * 'rsrEvalDecisionDetails' - Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
 --
--- * 'rsrMissingContextValues'
+-- * 'rsrMissingContextValues' - A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the @ResourceArns@ parameter instead of "*". If you do not specify individual resources, by setting @ResourceArns@ to "*" or by not including the @ResourceArns@ parameter, then any missing context values are instead included under the @EvaluationResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 --
--- * 'rsrEvalResourceName'
+-- * 'rsrEvalResourceName' - The name of the simulated resource, in Amazon Resource Name (ARN) format.
 --
--- * 'rsrEvalResourceDecision'
+-- * 'rsrEvalResourceDecision' - The result of the simulation of the simulated API action on the resource specified in @EvalResourceName@ .
 resourceSpecificResult
     :: Text -- ^ 'rsrEvalResourceName'
     -> PolicyEvaluationDecisionType -- ^ 'rsrEvalResourceDecision'
@@ -1562,11 +1566,11 @@ resourceSpecificResult pEvalResourceName_ pEvalResourceDecision_ =
 rsrMatchedStatements :: Lens' ResourceSpecificResult [Statement]
 rsrMatchedStatements = lens _rsrMatchedStatements (\ s a -> s{_rsrMatchedStatements = a}) . _Default . _Coerce;
 
--- | Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller\'s IAM policy must grant access.
+-- | Additional details about the results of the evaluation decision. When there are both IAM policies and resource policies, this parameter explains how each set of policies contributes to the final evaluation decision. When simulating cross-account access to a resource, both the resource-based policy and the caller's IAM policy must grant access.
 rsrEvalDecisionDetails :: Lens' ResourceSpecificResult (HashMap Text PolicyEvaluationDecisionType)
 rsrEvalDecisionDetails = lens _rsrEvalDecisionDetails (\ s a -> s{_rsrEvalDecisionDetails = a}) . _Default . _Map;
 
--- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the 'ResourceArns' parameter instead of \"*\". If you do not specify individual resources, by setting 'ResourceArns' to \"*\" or by not including the 'ResourceArns' parameter, then any missing context values are instead included under the 'EvaluationResults' section. To discover the context keys used by a set of policies, you can call < GetContextKeysForCustomPolicy> or < GetContextKeysForPrincipalPolicy>.
+-- | A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the @ResourceArns@ parameter instead of "*". If you do not specify individual resources, by setting @ResourceArns@ to "*" or by not including the @ResourceArns@ parameter, then any missing context values are instead included under the @EvaluationResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 rsrMissingContextValues :: Lens' ResourceSpecificResult [Text]
 rsrMissingContextValues = lens _rsrMissingContextValues (\ s a -> s{_rsrMissingContextValues = a}) . _Default . _Coerce;
 
@@ -1574,7 +1578,7 @@ rsrMissingContextValues = lens _rsrMissingContextValues (\ s a -> s{_rsrMissingC
 rsrEvalResourceName :: Lens' ResourceSpecificResult Text
 rsrEvalResourceName = lens _rsrEvalResourceName (\ s a -> s{_rsrEvalResourceName = a});
 
--- | The result of the simulation of the simulated API action on the resource specified in 'EvalResourceName'.
+-- | The result of the simulation of the simulated API action on the resource specified in @EvalResourceName@ .
 rsrEvalResourceDecision :: Lens' ResourceSpecificResult PolicyEvaluationDecisionType
 rsrEvalResourceDecision = lens _rsrEvalResourceDecision (\ s a -> s{_rsrEvalResourceDecision = a});
 
@@ -1598,13 +1602,16 @@ instance NFData ResourceSpecificResult
 
 -- | Contains information about an IAM role.
 --
+--
 -- This data type is used as a response element in the following actions:
 --
--- -   < CreateRole>
+--     * 'CreateRole'
 --
--- -   < GetRole>
+--     * 'GetRole'
 --
--- -   < ListRoles>
+--     * 'ListRoles'
+--
+--
 --
 --
 -- /See:/ 'role'' smart constructor.
@@ -1621,17 +1628,17 @@ data Role = Role'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rAssumeRolePolicyDocument'
+-- * 'rAssumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
--- * 'rPath'
+-- * 'rPath' - The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rRoleName'
+-- * 'rRoleName' - The friendly name that identifies the role.
 --
--- * 'rRoleId'
+-- * 'rRoleId' - The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rARN'
+-- * 'rARN' - The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rCreateDate'
+-- * 'rCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 role'
     :: Text -- ^ 'rPath'
     -> Text -- ^ 'rRoleName'
@@ -1669,7 +1676,7 @@ rRoleId = lens _rRoleId (\ s a -> s{_rRoleId = a});
 rARN :: Lens' Role Text
 rARN = lens _rARN (\ s a -> s{_rARN = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the role was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 rCreateDate :: Lens' Role UTCTime
 rCreateDate = lens _rCreateDate (\ s a -> s{_rCreateDate = a}) . _Time;
 
@@ -1686,9 +1693,11 @@ instance Hashable Role
 
 instance NFData Role
 
--- | Contains information about an IAM role, including all of the role\'s policies.
+-- | Contains information about an IAM role, including all of the role's policies.
 --
--- This data type is used as a response element in the < GetAccountAuthorizationDetails> action.
+--
+-- This data type is used as a response element in the 'GetAccountAuthorizationDetails' action.
+--
 --
 -- /See:/ 'roleDetail' smart constructor.
 data RoleDetail = RoleDetail'
@@ -1707,23 +1716,23 @@ data RoleDetail = RoleDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdAssumeRolePolicyDocument'
+-- * 'rdAssumeRolePolicyDocument' - The trust policy that grants permission to assume the role.
 --
--- * 'rdARN'
+-- * 'rdARN' - Undocumented member.
 --
--- * 'rdPath'
+-- * 'rdPath' - The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rdInstanceProfileList'
+-- * 'rdInstanceProfileList' - Undocumented member.
 --
--- * 'rdCreateDate'
+-- * 'rdCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 --
--- * 'rdRoleName'
+-- * 'rdRoleName' - The friendly name that identifies the role.
 --
--- * 'rdRoleId'
+-- * 'rdRoleId' - The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rdRolePolicyList'
+-- * 'rdRolePolicyList' - A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
 --
--- * 'rdAttachedManagedPolicies'
+-- * 'rdAttachedManagedPolicies' - A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 roleDetail
     :: RoleDetail
 roleDetail =
@@ -1755,7 +1764,7 @@ rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
 rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
 rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a}) . _Default . _Coerce;
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the role was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 rdCreateDate :: Lens' RoleDetail (Maybe UTCTime)
 rdCreateDate = lens _rdCreateDate (\ s a -> s{_rdCreateDate = a}) . mapping _Time;
 
@@ -1767,11 +1776,11 @@ rdRoleName = lens _rdRoleName (\ s a -> s{_rdRoleName = a});
 rdRoleId :: Lens' RoleDetail (Maybe Text)
 rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a});
 
--- | A list of inline policies embedded in the role. These policies are the role\'s access (permissions) policies.
+-- | A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.
 rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
 rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a}) . _Default . _Coerce;
 
--- | A list of managed policies attached to the role. These policies are the role\'s access (permissions) policies.
+-- | A list of managed policies attached to the role. These policies are the role's access (permissions) policies.
 rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
 rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a}) . _Default . _Coerce;
 
@@ -1799,6 +1808,8 @@ instance NFData RoleDetail
 
 -- | Contains the list of SAML providers for this account.
 --
+--
+--
 -- /See:/ 'sAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
     { _samlpleARN        :: !(Maybe Text)
@@ -1810,11 +1821,11 @@ data SAMLProviderListEntry = SAMLProviderListEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'samlpleARN'
+-- * 'samlpleARN' - The Amazon Resource Name (ARN) of the SAML provider.
 --
--- * 'samlpleCreateDate'
+-- * 'samlpleCreateDate' - The date and time when the SAML provider was created.
 --
--- * 'samlpleValidUntil'
+-- * 'samlpleValidUntil' - The expiration date and time for the SAML provider.
 sAMLProviderListEntry
     :: SAMLProviderListEntry
 sAMLProviderListEntry =
@@ -1848,7 +1859,9 @@ instance NFData SAMLProviderListEntry
 
 -- | Contains information about an SSH public key.
 --
--- This data type is used as a response element in the < GetSSHPublicKey> and < UploadSSHPublicKey> actions.
+--
+-- This data type is used as a response element in the 'GetSSHPublicKey' and 'UploadSSHPublicKey' actions.
+--
 --
 -- /See:/ 'sshPublicKey' smart constructor.
 data SSHPublicKey = SSHPublicKey'
@@ -1864,17 +1877,17 @@ data SSHPublicKey = SSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spkUploadDate'
+-- * 'spkUploadDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
 --
--- * 'spkUserName'
+-- * 'spkUserName' - The name of the IAM user associated with the SSH public key.
 --
--- * 'spkSSHPublicKeyId'
+-- * 'spkSSHPublicKeyId' - The unique identifier for the SSH public key.
 --
--- * 'spkFingerprint'
+-- * 'spkFingerprint' - The MD5 message digest of the SSH public key.
 --
--- * 'spkSSHPublicKeyBody'
+-- * 'spkSSHPublicKeyBody' - The SSH public key.
 --
--- * 'spkStatus'
+-- * 'spkStatus' - The status of the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 sshPublicKey
     :: Text -- ^ 'spkUserName'
     -> Text -- ^ 'spkSSHPublicKeyId'
@@ -1892,7 +1905,7 @@ sshPublicKey pUserName_ pSSHPublicKeyId_ pFingerprint_ pSSHPublicKeyBody_ pStatu
     , _spkStatus = pStatus_
     }
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH public key was uploaded.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
 spkUploadDate :: Lens' SSHPublicKey (Maybe UTCTime)
 spkUploadDate = lens _spkUploadDate (\ s a -> s{_spkUploadDate = a}) . mapping _Time;
 
@@ -1912,7 +1925,7 @@ spkFingerprint = lens _spkFingerprint (\ s a -> s{_spkFingerprint = a});
 spkSSHPublicKeyBody :: Lens' SSHPublicKey Text
 spkSSHPublicKeyBody = lens _spkSSHPublicKeyBody (\ s a -> s{_spkSSHPublicKeyBody = a});
 
--- | The status of the SSH public key. 'Active' means the key can be used for authentication with an AWS CodeCommit repository. 'Inactive' means the key cannot be used.
+-- | The status of the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 spkStatus :: Lens' SSHPublicKey StatusType
 spkStatus = lens _spkStatus (\ s a -> s{_spkStatus = a});
 
@@ -1929,9 +1942,11 @@ instance Hashable SSHPublicKey
 
 instance NFData SSHPublicKey
 
--- | Contains information about an SSH public key, without the key\'s body or fingerprint.
+-- | Contains information about an SSH public key, without the key's body or fingerprint.
 --
--- This data type is used as a response element in the < ListSSHPublicKeys> action.
+--
+-- This data type is used as a response element in the 'ListSSHPublicKeys' action.
+--
 --
 -- /See:/ 'sshPublicKeyMetadata' smart constructor.
 data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
@@ -1945,13 +1960,13 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spkmUserName'
+-- * 'spkmUserName' - The name of the IAM user associated with the SSH public key.
 --
--- * 'spkmSSHPublicKeyId'
+-- * 'spkmSSHPublicKeyId' - The unique identifier for the SSH public key.
 --
--- * 'spkmStatus'
+-- * 'spkmStatus' - The status of the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 --
--- * 'spkmUploadDate'
+-- * 'spkmUploadDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
 sshPublicKeyMetadata
     :: Text -- ^ 'spkmUserName'
     -> Text -- ^ 'spkmSSHPublicKeyId'
@@ -1974,11 +1989,11 @@ spkmUserName = lens _spkmUserName (\ s a -> s{_spkmUserName = a});
 spkmSSHPublicKeyId :: Lens' SSHPublicKeyMetadata Text
 spkmSSHPublicKeyId = lens _spkmSSHPublicKeyId (\ s a -> s{_spkmSSHPublicKeyId = a});
 
--- | The status of the SSH public key. 'Active' means the key can be used for authentication with an AWS CodeCommit repository. 'Inactive' means the key cannot be used.
+-- | The status of the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 spkmStatus :: Lens' SSHPublicKeyMetadata StatusType
 spkmStatus = lens _spkmStatus (\ s a -> s{_spkmStatus = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH public key was uploaded.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
 spkmUploadDate :: Lens' SSHPublicKeyMetadata UTCTime
 spkmUploadDate = lens _spkmUploadDate (\ s a -> s{_spkmUploadDate = a}) . _Time;
 
@@ -1995,7 +2010,9 @@ instance NFData SSHPublicKeyMetadata
 
 -- | Contains information about a server certificate.
 --
--- This data type is used as a response element in the < GetServerCertificate> action.
+--
+-- This data type is used as a response element in the 'GetServerCertificate' action.
+--
 --
 -- /See:/ 'serverCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
@@ -2008,11 +2025,11 @@ data ServerCertificate = ServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sCertificateChain'
+-- * 'sCertificateChain' - The contents of the public key certificate chain.
 --
--- * 'sServerCertificateMetadata'
+-- * 'sServerCertificateMetadata' - The meta information of the server certificate, such as its name, path, ID, and ARN.
 --
--- * 'sCertificateBody'
+-- * 'sCertificateBody' - The contents of the public key certificate.
 serverCertificate
     :: ServerCertificateMetadata -- ^ 'sServerCertificateMetadata'
     -> Text -- ^ 'sCertificateBody'
@@ -2049,7 +2066,9 @@ instance NFData ServerCertificate
 
 -- | Contains information about a server certificate without its certificate body, certificate chain, and private key.
 --
--- This data type is used as a response element in the < UploadServerCertificate> and < ListServerCertificates> actions.
+--
+-- This data type is used as a response element in the 'UploadServerCertificate' and 'ListServerCertificates' actions.
+--
 --
 -- /See:/ 'serverCertificateMetadata' smart constructor.
 data ServerCertificateMetadata = ServerCertificateMetadata'
@@ -2065,17 +2084,17 @@ data ServerCertificateMetadata = ServerCertificateMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scmUploadDate'
+-- * 'scmUploadDate' - The date when the server certificate was uploaded.
 --
--- * 'scmExpiration'
+-- * 'scmExpiration' - The date on which the certificate is set to expire.
 --
--- * 'scmPath'
+-- * 'scmPath' - The path to the server certificate. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'scmServerCertificateName'
+-- * 'scmServerCertificateName' - The name that identifies the server certificate.
 --
--- * 'scmServerCertificateId'
+-- * 'scmServerCertificateId' - The stable and unique string identifying the server certificate. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'scmARN'
+-- * 'scmARN' - The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 serverCertificateMetadata
     :: Text -- ^ 'scmPath'
     -> Text -- ^ 'scmServerCertificateName'
@@ -2131,7 +2150,9 @@ instance NFData ServerCertificateMetadata
 
 -- | Contains information about an X.509 signing certificate.
 --
--- This data type is used as a response element in the < UploadSigningCertificate> and < ListSigningCertificates> actions.
+--
+-- This data type is used as a response element in the 'UploadSigningCertificate' and 'ListSigningCertificates' actions.
+--
 --
 -- /See:/ 'signingCertificate' smart constructor.
 data SigningCertificate = SigningCertificate'
@@ -2146,15 +2167,15 @@ data SigningCertificate = SigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scUploadDate'
+-- * 'scUploadDate' - The date when the signing certificate was uploaded.
 --
--- * 'scUserName'
+-- * 'scUserName' - The name of the user the signing certificate is associated with.
 --
--- * 'scCertificateId'
+-- * 'scCertificateId' - The ID for the signing certificate.
 --
--- * 'scCertificateBody'
+-- * 'scCertificateBody' - The contents of the signing certificate.
 --
--- * 'scStatus'
+-- * 'scStatus' - The status of the signing certificate. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
 signingCertificate
     :: Text -- ^ 'scUserName'
     -> Text -- ^ 'scCertificateId'
@@ -2186,7 +2207,7 @@ scCertificateId = lens _scCertificateId (\ s a -> s{_scCertificateId = a});
 scCertificateBody :: Lens' SigningCertificate Text
 scCertificateBody = lens _scCertificateBody (\ s a -> s{_scCertificateBody = a});
 
--- | The status of the signing certificate. 'Active' means the key is valid for API calls, while 'Inactive' means it is not.
+-- | The status of the signing certificate. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
 scStatus :: Lens' SigningCertificate StatusType
 scStatus = lens _scStatus (\ s a -> s{_scStatus = a});
 
@@ -2202,7 +2223,9 @@ instance Hashable SigningCertificate
 
 instance NFData SigningCertificate
 
--- | Contains the response to a successful < SimulatePrincipalPolicy> or < SimulateCustomPolicy> request.
+-- | Contains the response to a successful 'SimulatePrincipalPolicy' or 'SimulateCustomPolicy' request.
+--
+--
 --
 -- /See:/ 'simulatePolicyResponse' smart constructor.
 data SimulatePolicyResponse = SimulatePolicyResponse'
@@ -2215,11 +2238,11 @@ data SimulatePolicyResponse = SimulatePolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spEvaluationResults'
+-- * 'spEvaluationResults' - The results of the simulation.
 --
--- * 'spMarker'
+-- * 'spMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'spIsTruncated'
+-- * 'spIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 simulatePolicyResponse
     :: SimulatePolicyResponse
 simulatePolicyResponse =
@@ -2233,11 +2256,11 @@ simulatePolicyResponse =
 spEvaluationResults :: Lens' SimulatePolicyResponse [EvaluationResult]
 spEvaluationResults = lens _spEvaluationResults (\ s a -> s{_spEvaluationResults = a}) . _Default . _Coerce;
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 spMarker :: Lens' SimulatePolicyResponse (Maybe Text)
 spMarker = lens _spMarker (\ s a -> s{_spMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 spIsTruncated :: Lens' SimulatePolicyResponse (Maybe Bool)
 spIsTruncated = lens _spIsTruncated (\ s a -> s{_spIsTruncated = a});
 
@@ -2253,9 +2276,11 @@ instance Hashable SimulatePolicyResponse
 
 instance NFData SimulatePolicyResponse
 
--- | Contains a reference to a 'Statement' element in a policy document that determines the result of the simulation.
+-- | Contains a reference to a @Statement@ element in a policy document that determines the result of the simulation.
 --
--- This data type is used by the 'MatchedStatements' member of the ' EvaluationResult ' type.
+--
+-- This data type is used by the @MatchedStatements@ member of the @'EvaluationResult' @ type.
+--
 --
 -- /See:/ 'statement' smart constructor.
 data Statement = Statement'
@@ -2269,13 +2294,13 @@ data Statement = Statement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSourcePolicyType'
+-- * 'sSourcePolicyType' - The type of the policy.
 --
--- * 'sSourcePolicyId'
+-- * 'sSourcePolicyId' - The identifier of the policy that was provided as an input.
 --
--- * 'sEndPosition'
+-- * 'sEndPosition' - The row and column of the end of a @Statement@ in an IAM policy.
 --
--- * 'sStartPosition'
+-- * 'sStartPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.
 statement
     :: Statement
 statement =
@@ -2294,11 +2319,11 @@ sSourcePolicyType = lens _sSourcePolicyType (\ s a -> s{_sSourcePolicyType = a})
 sSourcePolicyId :: Lens' Statement (Maybe Text)
 sSourcePolicyId = lens _sSourcePolicyId (\ s a -> s{_sSourcePolicyId = a});
 
--- | The row and column of the end of a 'Statement' in an IAM policy.
+-- | The row and column of the end of a @Statement@ in an IAM policy.
 sEndPosition :: Lens' Statement (Maybe Position)
 sEndPosition = lens _sEndPosition (\ s a -> s{_sEndPosition = a});
 
--- | The row and column of the beginning of the 'Statement' in an IAM policy.
+-- | The row and column of the beginning of the @Statement@ in an IAM policy.
 sStartPosition :: Lens' Statement (Maybe Position)
 sStartPosition = lens _sStartPosition (\ s a -> s{_sStartPosition = a});
 
@@ -2316,13 +2341,16 @@ instance NFData Statement
 
 -- | Contains information about an IAM user entity.
 --
+--
 -- This data type is used as a response element in the following actions:
 --
--- -   < CreateUser>
+--     * 'CreateUser'
 --
--- -   < GetUser>
+--     * 'GetUser'
 --
--- -   < ListUsers>
+--     * 'ListUsers'
+--
+--
 --
 --
 -- /See:/ 'user' smart constructor.
@@ -2339,17 +2367,17 @@ data User = User'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uPasswordLastUsed'
+-- * 'uPasswordLastUsed' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:     * The user does not have a password     * The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014     * there is no sign-in data associated with the user This value is returned only in the 'GetUser' and 'ListUsers' actions.
 --
--- * 'uPath'
+-- * 'uPath' - The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'uUserName'
+-- * 'uUserName' - The friendly name identifying the user.
 --
--- * 'uUserId'
+-- * 'uUserId' - The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'uARN'
+-- * 'uARN' - The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'uCreateDate'
+-- * 'uCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 user
     :: Text -- ^ 'uPath'
     -> Text -- ^ 'uUserName'
@@ -2367,15 +2395,7 @@ user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
     , _uCreateDate = _Time # pCreateDate_
     }
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user\'s password was last used to sign in to an AWS website. For a list of AWS websites that capture a user\'s last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:
---
--- -   The user does not have a password
---
--- -   The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014
---
--- -   there is no sign-in data associated with the user
---
--- This value is returned only in the < GetUser> and < ListUsers> actions.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Credential Reports> topic in the /Using IAM/ guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. This field is null (not present) when:     * The user does not have a password     * The password exists but has never been used (at least not since IAM started tracking this information on October 20th, 2014     * there is no sign-in data associated with the user This value is returned only in the 'GetUser' and 'ListUsers' actions.
 uPasswordLastUsed :: Lens' User (Maybe UTCTime)
 uPasswordLastUsed = lens _uPasswordLastUsed (\ s a -> s{_uPasswordLastUsed = a}) . mapping _Time;
 
@@ -2395,7 +2415,7 @@ uUserId = lens _uUserId (\ s a -> s{_uUserId = a});
 uARN :: Lens' User Text
 uARN = lens _uARN (\ s a -> s{_uARN = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 uCreateDate :: Lens' User UTCTime
 uCreateDate = lens _uCreateDate (\ s a -> s{_uCreateDate = a}) . _Time;
 
@@ -2412,9 +2432,11 @@ instance Hashable User
 
 instance NFData User
 
--- | Contains information about an IAM user, including all the user\'s policies and all the IAM groups the user is in.
+-- | Contains information about an IAM user, including all the user's policies and all the IAM groups the user is in.
 --
--- This data type is used as a response element in the < GetAccountAuthorizationDetails> action.
+--
+-- This data type is used as a response element in the 'GetAccountAuthorizationDetails' action.
+--
 --
 -- /See:/ 'userDetail' smart constructor.
 data UserDetail = UserDetail'
@@ -2432,21 +2454,21 @@ data UserDetail = UserDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udGroupList'
+-- * 'udGroupList' - A list of IAM groups that the user is in.
 --
--- * 'udARN'
+-- * 'udARN' - Undocumented member.
 --
--- * 'udPath'
+-- * 'udPath' - The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'udCreateDate'
+-- * 'udCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 --
--- * 'udUserName'
+-- * 'udUserName' - The friendly name identifying the user.
 --
--- * 'udUserId'
+-- * 'udUserId' - The stable and unique string identifying the user. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'udUserPolicyList'
+-- * 'udUserPolicyList' - A list of the inline policies embedded in the user.
 --
--- * 'udAttachedManagedPolicies'
+-- * 'udAttachedManagedPolicies' - A list of the managed policies attached to the user.
 userDetail
     :: UserDetail
 userDetail =
@@ -2473,7 +2495,7 @@ udARN = lens _udARN (\ s a -> s{_udARN = a});
 udPath :: Lens' UserDetail (Maybe Text)
 udPath = lens _udPath (\ s a -> s{_udPath = a});
 
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user was created.
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 udCreateDate :: Lens' UserDetail (Maybe UTCTime)
 udCreateDate = lens _udCreateDate (\ s a -> s{_udCreateDate = a}) . mapping _Time;
 
@@ -2516,6 +2538,8 @@ instance NFData UserDetail
 
 -- | Contains information about a virtual MFA device.
 --
+--
+--
 -- /See:/ 'virtualMFADevice' smart constructor.
 data VirtualMFADevice = VirtualMFADevice'
     { _vmdQRCodePNG        :: !(Maybe (Sensitive Base64))
@@ -2529,15 +2553,15 @@ data VirtualMFADevice = VirtualMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vmdQRCodePNG'
+-- * 'vmdQRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments, @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in Base32 format. The @Base32String@ value is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'vmdBase32StringSeed'
+-- * 'vmdBase32StringSeed' - The Base32 seed defined as specified in <http://www.ietf.org/rfc/rfc3548.txt RFC3548> . The @Base32StringSeed@ is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'vmdUser'
+-- * 'vmdUser' - Undocumented member.
 --
--- * 'vmdEnableDate'
+-- * 'vmdEnableDate' - The date and time on which the virtual MFA device was enabled.
 --
--- * 'vmdSerialNumber'
+-- * 'vmdSerialNumber' - The serial number associated with @VirtualMFADevice@ .
 virtualMFADevice
     :: Text -- ^ 'vmdSerialNumber'
     -> VirtualMFADevice
@@ -2550,23 +2574,11 @@ virtualMFADevice pSerialNumber_ =
     , _vmdSerialNumber = pSerialNumber_
     }
 
--- | A QR code PNG image that encodes 'otpauth:\/\/totp\/>virtualMFADeviceName\'>AccountName?secret=>Base32String' where '>virtualMFADeviceName' is one of the create call arguments, 'AccountName' is the user name if set (otherwise, the account ID otherwise), and 'Base32String' is the seed in Base32 format. The 'Base32String' value is Base64-encoded.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments, @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in Base32 format. The @Base32String@ value is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64);
 
--- | The Base32 seed defined as specified in <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The 'Base32StringSeed' is Base64-encoded.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The Base32 seed defined as specified in <http://www.ietf.org/rfc/rfc3548.txt RFC3548> . The @Base32StringSeed@ is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
 
@@ -2578,7 +2590,7 @@ vmdUser = lens _vmdUser (\ s a -> s{_vmdUser = a});
 vmdEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
 vmdEnableDate = lens _vmdEnableDate (\ s a -> s{_vmdEnableDate = a}) . mapping _Time;
 
--- | The serial number associated with 'VirtualMFADevice'.
+-- | The serial number associated with @VirtualMFADevice@ .
 vmdSerialNumber :: Lens' VirtualMFADevice Text
 vmdSerialNumber = lens _vmdSerialNumber (\ s a -> s{_vmdSerialNumber = a});
 

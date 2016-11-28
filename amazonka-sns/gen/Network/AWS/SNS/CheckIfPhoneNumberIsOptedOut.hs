@@ -20,7 +20,9 @@
 --
 -- Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.
 --
--- To resume sending messages, you can opt in the number by using the 'OptInPhoneNumber' action.
+--
+-- To resume sending messages, you can opt in the number by using the @OptInPhoneNumber@ action.
+--
 module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SNS.Types
 import           Network.AWS.SNS.Types.Product
 
--- | The input for the 'CheckIfPhoneNumberIsOptedOut' action.
+-- | The input for the @CheckIfPhoneNumberIsOptedOut@ action.
+--
+--
 --
 -- /See:/ 'checkIfPhoneNumberIsOptedOut' smart constructor.
 newtype CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
@@ -55,7 +59,7 @@ newtype CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipniooPhoneNumber'
+-- * 'cipniooPhoneNumber' - The phone number for which you want to check the opt out status.
 checkIfPhoneNumberIsOptedOut
     :: Text -- ^ 'cipniooPhoneNumber'
     -> CheckIfPhoneNumberIsOptedOut
@@ -98,7 +102,9 @@ instance ToQuery CheckIfPhoneNumberIsOptedOut where
                "Version" =: ("2010-03-31" :: ByteString),
                "phoneNumber" =: _cipniooPhoneNumber]
 
--- | The response from the 'CheckIfPhoneNumberIsOptedOut' action.
+-- | The response from the @CheckIfPhoneNumberIsOptedOut@ action.
+--
+--
 --
 -- /See:/ 'checkIfPhoneNumberIsOptedOutResponse' smart constructor.
 data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse'
@@ -110,9 +116,9 @@ data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cipnioorsIsOptedOut'
+-- * 'cipnioorsIsOptedOut' - Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
 --
--- * 'cipnioorsResponseStatus'
+-- * 'cipnioorsResponseStatus' - -- | The response status code.
 checkIfPhoneNumberIsOptedOutResponse
     :: Int -- ^ 'cipnioorsResponseStatus'
     -> CheckIfPhoneNumberIsOptedOutResponse
@@ -122,16 +128,11 @@ checkIfPhoneNumberIsOptedOutResponse pResponseStatus_ =
     , _cipnioorsResponseStatus = pResponseStatus_
     }
 
--- | Indicates whether the phone number is opted out:
---
--- -   'true' – The phone number is opted out, meaning you cannot publish SMS messages to it.
---
--- -   'false' – The phone number is opted in, meaning you can publish SMS messages to it.
---
+-- | Indicates whether the phone number is opted out:     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
 cipnioorsIsOptedOut :: Lens' CheckIfPhoneNumberIsOptedOutResponse (Maybe Bool)
 cipnioorsIsOptedOut = lens _cipnioorsIsOptedOut (\ s a -> s{_cipnioorsIsOptedOut = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cipnioorsResponseStatus :: Lens' CheckIfPhoneNumberIsOptedOutResponse Int
 cipnioorsResponseStatus = lens _cipnioorsResponseStatus (\ s a -> s{_cipnioorsResponseStatus = a});
 

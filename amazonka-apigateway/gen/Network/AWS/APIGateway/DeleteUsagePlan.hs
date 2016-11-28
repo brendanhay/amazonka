@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a usage plan of a given plan Id.
+--
+--
 module Network.AWS.APIGateway.DeleteUsagePlan
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | The DELETE request to delete a uasge plan of a given plan Id.
 --
+--
+--
 -- /See:/ 'deleteUsagePlan' smart constructor.
 newtype DeleteUsagePlan = DeleteUsagePlan'
     { _dupUsagePlanId :: Text
@@ -50,7 +54,7 @@ newtype DeleteUsagePlan = DeleteUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupUsagePlanId'
+-- * 'dupUsagePlanId' - The Id of the to-be-deleted usage plan.
 deleteUsagePlan
     :: Text -- ^ 'dupUsagePlanId'
     -> DeleteUsagePlan

@@ -20,7 +20,9 @@
 --
 -- Retrieves the identifiers of all of the HSMs provisioned for the current customer.
 --
--- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to < ListHsms> to retrieve the next set of items.
+--
+-- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to 'ListHsms' to retrieve the next set of items.
+--
 module Network.AWS.CloudHSM.ListHSMs
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype ListHSMs = ListHSMs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhsmNextToken'
+-- * 'lhsmNextToken' - The /NextToken/ value from a previous call to 'ListHsms' . Pass null if this is the first call.
 listHSMs
     :: ListHSMs
 listHSMs =
@@ -62,7 +64,7 @@ listHSMs =
     { _lhsmNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to < ListHsms>. Pass null if this is the first call.
+-- | The /NextToken/ value from a previous call to 'ListHsms' . Pass null if this is the first call.
 lhsmNextToken :: Lens' ListHSMs (Maybe Text)
 lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
 
@@ -100,7 +102,9 @@ instance ToPath ListHSMs where
 instance ToQuery ListHSMs where
         toQuery = const mempty
 
--- | Contains the output of the < ListHsms> operation.
+-- | Contains the output of the 'ListHsms' operation.
+--
+--
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
@@ -113,11 +117,11 @@ data ListHSMsResponse = ListHSMsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhsmrsNextToken'
+-- * 'lhsmrsNextToken' - If not null, more results are available. Pass this value to 'ListHsms' to retrieve the next set of items.
 --
--- * 'lhsmrsHSMList'
+-- * 'lhsmrsHSMList' - The list of ARNs that identify the HSMs.
 --
--- * 'lhsmrsResponseStatus'
+-- * 'lhsmrsResponseStatus' - -- | The response status code.
 listHSMsResponse
     :: Int -- ^ 'lhsmrsResponseStatus'
     -> ListHSMsResponse
@@ -128,7 +132,7 @@ listHSMsResponse pResponseStatus_ =
     , _lhsmrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value to < ListHsms> to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value to 'ListHsms' to retrieve the next set of items.
 lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
 lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 
@@ -136,7 +140,7 @@ lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
 lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lhsmrsResponseStatus :: Lens' ListHSMsResponse Int
 lhsmrsResponseStatus = lens _lhsmrsResponseStatus (\ s a -> s{_lhsmrsResponseStatus = a});
 

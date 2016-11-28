@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a hosted zone. Send a 'DELETE' request to the '\/Amazon Route 53 API version\/hostedzone\/hosted zone ID ' resource.
+-- Deletes a hosted zone. Send a @DELETE@ request to the @//Amazon Route 53 API version/ /hostedzone//hosted zone ID/ @ resource.
 --
--- Delete a hosted zone only if there are no resource record sets other than the default SOA record and NS resource record sets. If the hosted zone contains other resource record sets, delete them before deleting the hosted zone. If you try to delete a hosted zone that contains other resource record sets, Amazon Route 53 denies your request with a 'HostedZoneNotEmpty' error. For information about deleting records from your hosted zone, see < ChangeResourceRecordSets>.
+--
+-- /Important:/ Delete a hosted zone only if there are no resource record sets other than the default SOA record and NS resource record sets. If the hosted zone contains other resource record sets, delete them before deleting the hosted zone. If you try to delete a hosted zone that contains other resource record sets, Amazon Route 53 denies your request with a @HostedZoneNotEmpty@ error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets' .
+--
 module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the hosted zone that you want to delete.
 --
+--
+--
 -- /See:/ 'deleteHostedZone' smart constructor.
 newtype DeleteHostedZone = DeleteHostedZone'
     { _dhzId :: Text
@@ -55,7 +59,7 @@ newtype DeleteHostedZone = DeleteHostedZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhzId'
+-- * 'dhzId' - The ID of the hosted zone you want to delete.
 deleteHostedZone
     :: Text -- ^ 'dhzId'
     -> DeleteHostedZone
@@ -93,6 +97,8 @@ instance ToQuery DeleteHostedZone where
 
 -- | A complex type containing the response information for the request.
 --
+--
+--
 -- /See:/ 'deleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
     { _dhzrsResponseStatus :: !Int
@@ -103,9 +109,9 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhzrsResponseStatus'
+-- * 'dhzrsResponseStatus' - -- | The response status code.
 --
--- * 'dhzrsChangeInfo'
+-- * 'dhzrsChangeInfo' - A complex type that contains the ID, the status, and the date and time of your delete request.
 deleteHostedZoneResponse
     :: Int -- ^ 'dhzrsResponseStatus'
     -> ChangeInfo -- ^ 'dhzrsChangeInfo'
@@ -116,7 +122,7 @@ deleteHostedZoneResponse pResponseStatus_ pChangeInfo_ =
     , _dhzrsChangeInfo = pChangeInfo_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dhzrsResponseStatus :: Lens' DeleteHostedZoneResponse Int
 dhzrsResponseStatus = lens _dhzrsResponseStatus (\ s a -> s{_dhzrsResponseStatus = a});
 

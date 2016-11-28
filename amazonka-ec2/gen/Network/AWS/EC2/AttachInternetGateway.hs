@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.
+-- Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and Internet gateway, see the <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide> .
+--
+--
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachInternetGateway.
 --
+--
+--
 -- /See:/ 'attachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
     { _aigDryRun            :: !(Maybe Bool)
@@ -54,11 +58,11 @@ data AttachInternetGateway = AttachInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigDryRun'
+-- * 'aigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'aigInternetGatewayId'
+-- * 'aigInternetGatewayId' - The ID of the Internet gateway.
 --
--- * 'aigVPCId'
+-- * 'aigVPCId' - The ID of the VPC.
 attachInternetGateway
     :: Text -- ^ 'aigInternetGatewayId'
     -> Text -- ^ 'aigVPCId'
@@ -70,7 +74,7 @@ attachInternetGateway pInternetGatewayId_ pVPCId_ =
     , _aigVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
 aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a});
 

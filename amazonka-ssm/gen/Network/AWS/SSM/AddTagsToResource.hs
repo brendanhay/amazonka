@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account\'s managed instances that helps you track each instance\'s owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.
+-- Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.
 --
--- We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don\'t have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.
+--
+-- We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.
 --
 -- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> in the Amazon EC2 User Guide.
+--
 module Network.AWS.SSM.AddTagsToResource
     (
     -- * Creating a Request
@@ -58,11 +60,11 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceType'
+-- * 'attrResourceType' - Specifies the type of resource you are tagging.
 --
--- * 'attrResourceId'
+-- * 'attrResourceId' - The resource ID you want to tag.
 --
--- * 'attrTags'
+-- * 'attrTags' - One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 addTagsToResource
     :: ResourceTypeForTagging -- ^ 'attrResourceType'
     -> Text -- ^ 'attrResourceId'
@@ -82,7 +84,7 @@ attrResourceType = lens _attrResourceType (\ s a -> s{_attrResourceType = a});
 attrResourceId :: Lens' AddTagsToResource Text
 attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
 
--- | One or more tags. The value parameter is required, but if you don\'t want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+-- | One or more tags. The value parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
@@ -130,7 +132,7 @@ newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
@@ -139,7 +141,7 @@ addTagsToResourceResponse pResponseStatus_ =
     { _attrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 

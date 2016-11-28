@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a trail. This operation must be called from the region in which the trail was created. 'DeleteTrail' cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.
+-- Deletes a trail. This operation must be called from the region in which the trail was created. @DeleteTrail@ cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.
+--
+--
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | The request that specifies the name of a trail to delete.
 --
+--
+--
 -- /See:/ 'deleteTrail' smart constructor.
 newtype DeleteTrail = DeleteTrail'
     { _dtName :: Text
@@ -52,7 +56,7 @@ newtype DeleteTrail = DeleteTrail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtName'
+-- * 'dtName' - Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 deleteTrail
     :: Text -- ^ 'dtName'
     -> DeleteTrail
@@ -61,9 +65,7 @@ deleteTrail pName_ =
     { _dtName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 dtName :: Lens' DeleteTrail Text
 dtName = lens _dtName (\ s a -> s{_dtName = a});
 
@@ -101,6 +103,8 @@ instance ToQuery DeleteTrail where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'deleteTrailResponse' smart constructor.
 newtype DeleteTrailResponse = DeleteTrailResponse'
     { _drsResponseStatus :: Int
@@ -110,7 +114,7 @@ newtype DeleteTrailResponse = DeleteTrailResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteTrailResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTrailResponse
@@ -119,7 +123,7 @@ deleteTrailResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTrailResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

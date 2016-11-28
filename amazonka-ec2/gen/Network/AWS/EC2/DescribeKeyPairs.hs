@@ -20,7 +20,9 @@
 --
 -- Describes one or more of your key pairs.
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeKeyPairs.
 --
+--
+--
 -- /See:/ 'describeKeyPairs' smart constructor.
 data DescribeKeyPairs = DescribeKeyPairs'
     { _dkpsFilters  :: !(Maybe [Filter])
@@ -59,11 +63,11 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkpsFilters'
+-- * 'dkpsFilters' - One or more filters.     * @fingerprint@ - The fingerprint of the key pair.     * @key-name@ - The name of the key pair.
 --
--- * 'dkpsKeyNames'
+-- * 'dkpsKeyNames' - One or more key pair names. Default: Describes all your key pairs.
 --
--- * 'dkpsDryRun'
+-- * 'dkpsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeKeyPairs
     :: DescribeKeyPairs
 describeKeyPairs =
@@ -73,22 +77,15 @@ describeKeyPairs =
     , _dkpsDryRun = Nothing
     }
 
--- | One or more filters.
---
--- -   'fingerprint' - The fingerprint of the key pair.
---
--- -   'key-name' - The name of the key pair.
---
+-- | One or more filters.     * @fingerprint@ - The fingerprint of the key pair.     * @key-name@ - The name of the key pair.
 dkpsFilters :: Lens' DescribeKeyPairs [Filter]
 dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce;
 
--- | One or more key pair names.
---
--- Default: Describes all your key pairs.
+-- | One or more key pair names. Default: Describes all your key pairs.
 dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
 dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
 
@@ -124,6 +121,8 @@ instance ToQuery DescribeKeyPairs where
 
 -- | Contains the output of DescribeKeyPairs.
 --
+--
+--
 -- /See:/ 'describeKeyPairsResponse' smart constructor.
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprsKeyPairs       :: !(Maybe [KeyPairInfo])
@@ -134,9 +133,9 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkprsKeyPairs'
+-- * 'dkprsKeyPairs' - Information about one or more key pairs.
 --
--- * 'dkprsResponseStatus'
+-- * 'dkprsResponseStatus' - -- | The response status code.
 describeKeyPairsResponse
     :: Int -- ^ 'dkprsResponseStatus'
     -> DescribeKeyPairsResponse
@@ -150,7 +149,7 @@ describeKeyPairsResponse pResponseStatus_ =
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dkprsResponseStatus :: Lens' DescribeKeyPairsResponse Int
 dkprsResponseStatus = lens _dkprsResponseStatus (\ s a -> s{_dkprsResponseStatus = a});
 

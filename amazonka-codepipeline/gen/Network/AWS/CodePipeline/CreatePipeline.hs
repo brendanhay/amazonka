@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a pipeline.
+--
+--
 module Network.AWS.CodePipeline.CreatePipeline
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create pipeline action.
 --
+--
+--
 -- /See:/ 'createPipeline' smart constructor.
 newtype CreatePipeline = CreatePipeline'
     { _cpPipeline :: PipelineDeclaration
@@ -53,7 +57,7 @@ newtype CreatePipeline = CreatePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPipeline'
+-- * 'cpPipeline' - Undocumented member.
 createPipeline
     :: PipelineDeclaration -- ^ 'cpPipeline'
     -> CreatePipeline
@@ -102,6 +106,8 @@ instance ToQuery CreatePipeline where
 
 -- | Represents the output of a create pipeline action.
 --
+--
+--
 -- /See:/ 'createPipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprsPipeline       :: !(Maybe PipelineDeclaration)
@@ -112,9 +118,9 @@ data CreatePipelineResponse = CreatePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsPipeline'
+-- * 'cprsPipeline' - Undocumented member.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createPipelineResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePipelineResponse
@@ -128,7 +134,7 @@ createPipelineResponse pResponseStatus_ =
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePipelineResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

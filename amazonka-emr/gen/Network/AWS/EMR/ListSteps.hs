@@ -20,6 +20,8 @@
 --
 -- Provides a list of steps for the cluster.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListSteps
     (
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | This input determines which steps to list.
 --
+--
+--
 -- /See:/ 'listSteps' smart constructor.
 data ListSteps = ListSteps'
     { _lsStepIds    :: !(Maybe [Text])
@@ -63,13 +67,13 @@ data ListSteps = ListSteps'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsStepIds'
+-- * 'lsStepIds' - The filter to limit the step list based on the identifier of the steps.
 --
--- * 'lsStepStates'
+-- * 'lsStepStates' - The filter to limit the step list based on certain states.
 --
--- * 'lsMarker'
+-- * 'lsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lsClusterId'
+-- * 'lsClusterId' - The identifier of the cluster for which to list the steps.
 listSteps
     :: Text -- ^ 'lsClusterId'
     -> ListSteps
@@ -144,6 +148,8 @@ instance ToQuery ListSteps where
 
 -- | This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.
 --
+--
+--
 -- /See:/ 'listStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
     { _lsrsSteps          :: !(Maybe [StepSummary])
@@ -155,11 +161,11 @@ data ListStepsResponse = ListStepsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsSteps'
+-- * 'lsrsSteps' - The filtered list of steps for the cluster.
 --
--- * 'lsrsMarker'
+-- * 'lsrsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lsrsResponseStatus'
+-- * 'lsrsResponseStatus' - -- | The response status code.
 listStepsResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListStepsResponse
@@ -178,7 +184,7 @@ lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListStepsResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of the tags for your Amazon ML object.
+--
+--
 module Network.AWS.MachineLearning.DescribeTags
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceId'
+-- * 'dtResourceId' - The ID of the ML object. For example, @exampleModelId@ .
 --
--- * 'dtResourceType'
+-- * 'dtResourceType' - The type of the ML object.
 describeTags
     :: Text -- ^ 'dtResourceId'
     -> TaggableResourceType -- ^ 'dtResourceType'
@@ -68,7 +70,7 @@ describeTags pResourceId_ pResourceType_ =
     , _dtResourceType = pResourceType_
     }
 
--- | The ID of the ML object. For example, 'exampleModelId'.
+-- | The ID of the ML object. For example, @exampleModelId@ .
 dtResourceId :: Lens' DescribeTags Text
 dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a});
 
@@ -115,6 +117,8 @@ instance ToQuery DescribeTags where
 
 -- | Amazon ML returns the following elements.
 --
+--
+--
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsResourceId     :: !(Maybe Text)
@@ -127,13 +131,13 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsResourceId'
+-- * 'dtrsResourceId' - The ID of the tagged ML object.
 --
--- * 'dtrsResourceType'
+-- * 'dtrsResourceType' - The type of the tagged ML object.
 --
--- * 'dtrsTags'
+-- * 'dtrsTags' - A list of tags associated with the ML object.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -157,7 +161,7 @@ dtrsResourceType = lens _dtrsResourceType (\ s a -> s{_dtrsResourceType = a});
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

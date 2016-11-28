@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes a source identifier from an existing RDS event notification subscription.
+--
+--
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'removeSourceIdentifierFromSubscription' smart constructor.
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
     { _rsifsSubscriptionName :: !Text
@@ -55,9 +59,9 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsifsSubscriptionName'
+-- * 'rsifsSubscriptionName' - The name of the RDS event notification subscription you want to remove a source identifier from.
 --
--- * 'rsifsSourceIdentifier'
+-- * 'rsifsSourceIdentifier' - The source identifier to be removed from the subscription, such as the __DB instance identifier__ for a DB instance or the name of a security group.
 removeSourceIdentifierFromSubscription
     :: Text -- ^ 'rsifsSubscriptionName'
     -> Text -- ^ 'rsifsSourceIdentifier'
@@ -123,9 +127,9 @@ data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFrom
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsifsrsEventSubscription'
+-- * 'rsifsrsEventSubscription' - Undocumented member.
 --
--- * 'rsifsrsResponseStatus'
+-- * 'rsifsrsResponseStatus' - -- | The response status code.
 removeSourceIdentifierFromSubscriptionResponse
     :: Int -- ^ 'rsifsrsResponseStatus'
     -> RemoveSourceIdentifierFromSubscriptionResponse
@@ -139,7 +143,7 @@ removeSourceIdentifierFromSubscriptionResponse pResponseStatus_ =
 rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rsifsrsResponseStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
 rsifsrsResponseStatus = lens _rsifsrsResponseStatus (\ s a -> s{_rsifsrsResponseStatus = a});
 

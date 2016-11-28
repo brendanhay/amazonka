@@ -110,41 +110,41 @@ data GetObject = GetObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goIfMatch'
+-- * 'goIfMatch' - Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 --
--- * 'goVersionId'
+-- * 'goVersionId' - VersionId used to reference a specific version of the object.
 --
--- * 'goResponseContentType'
+-- * 'goResponseContentType' - Sets the Content-Type header of the response.
 --
--- * 'goResponseContentDisposition'
+-- * 'goResponseContentDisposition' - Sets the Content-Disposition header of the response
 --
--- * 'goResponseContentLanguage'
+-- * 'goResponseContentLanguage' - Sets the Content-Language header of the response.
 --
--- * 'goSSECustomerAlgorithm'
+-- * 'goSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'goSSECustomerKey'
+-- * 'goSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 --
--- * 'goRequestPayer'
+-- * 'goRequestPayer' - Undocumented member.
 --
--- * 'goResponseContentEncoding'
+-- * 'goResponseContentEncoding' - Sets the Content-Encoding header of the response.
 --
--- * 'goIfModifiedSince'
+-- * 'goIfModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
--- * 'goRange'
+-- * 'goRange' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 --
--- * 'goIfUnmodifiedSince'
+-- * 'goIfUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 --
--- * 'goSSECustomerKeyMD5'
+-- * 'goSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'goResponseCacheControl'
+-- * 'goResponseCacheControl' - Sets the Cache-Control header of the response.
 --
--- * 'goResponseExpires'
+-- * 'goResponseExpires' - Sets the Expires header of the response.
 --
--- * 'goIfNoneMatch'
+-- * 'goIfNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
 --
--- * 'goBucket'
+-- * 'goBucket' - Undocumented member.
 --
--- * 'goKey'
+-- * 'goKey' - Undocumented member.
 getObject
     :: BucketName -- ^ 'goBucket'
     -> ObjectKey -- ^ 'goKey'
@@ -211,7 +211,7 @@ goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goRespo
 goIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
 goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time;
 
--- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
+-- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
 goRange = lens _goRange (\ s a -> s{_goRange = a});
 
@@ -355,59 +355,59 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gorsRequestCharged'
+-- * 'gorsRequestCharged' - Undocumented member.
 --
--- * 'gorsETag'
+-- * 'gorsETag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 --
--- * 'gorsVersionId'
+-- * 'gorsVersionId' - Version of the object.
 --
--- * 'gorsContentLength'
+-- * 'gorsContentLength' - Size of the body in bytes.
 --
--- * 'gorsExpires'
+-- * 'gorsExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'gorsRestore'
+-- * 'gorsRestore' - Provides information about object restoration operation and expiration time of the restored object copy.
 --
--- * 'gorsExpiration'
+-- * 'gorsExpiration' - If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
 --
--- * 'gorsDeleteMarker'
+-- * 'gorsDeleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 --
--- * 'gorsSSECustomerAlgorithm'
+-- * 'gorsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'gorsMissingMeta'
+-- * 'gorsMissingMeta' - This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 --
--- * 'gorsWebsiteRedirectLocation'
+-- * 'gorsWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'gorsAcceptRanges'
+-- * 'gorsAcceptRanges' - Undocumented member.
 --
--- * 'gorsStorageClass'
+-- * 'gorsStorageClass' - Undocumented member.
 --
--- * 'gorsSSECustomerKeyMD5'
+-- * 'gorsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'gorsSSEKMSKeyId'
+-- * 'gorsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'gorsContentEncoding'
+-- * 'gorsContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'gorsMetadata'
+-- * 'gorsMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'gorsReplicationStatus'
+-- * 'gorsReplicationStatus' - Undocumented member.
 --
--- * 'gorsCacheControl'
+-- * 'gorsCacheControl' - Specifies caching behavior along the request/reply chain.
 --
--- * 'gorsContentLanguage'
+-- * 'gorsContentLanguage' - The language the content is in.
 --
--- * 'gorsLastModified'
+-- * 'gorsLastModified' - Last modified date of the object
 --
--- * 'gorsContentDisposition'
+-- * 'gorsContentDisposition' - Specifies presentational information for the object.
 --
--- * 'gorsContentRange'
+-- * 'gorsContentRange' - The portion of the object returned in the response.
 --
--- * 'gorsServerSideEncryption'
+-- * 'gorsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'gorsContentType'
+-- * 'gorsContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'gorsResponseStatus'
+-- * 'gorsResponseStatus' - -- | The response status code.
 --
--- * 'gorsBody'
+-- * 'gorsBody' - Object data.
 getObjectResponse
     :: Int -- ^ 'gorsResponseStatus'
     -> RsBody -- ^ 'gorsBody'
@@ -515,7 +515,7 @@ gorsMetadata = lens _gorsMetadata (\ s a -> s{_gorsMetadata = a}) . _Map;
 gorsReplicationStatus :: Lens' GetObjectResponse (Maybe ReplicationStatus)
 gorsReplicationStatus = lens _gorsReplicationStatus (\ s a -> s{_gorsReplicationStatus = a});
 
--- | Specifies caching behavior along the request\/reply chain.
+-- | Specifies caching behavior along the request/reply chain.
 gorsCacheControl :: Lens' GetObjectResponse (Maybe Text)
 gorsCacheControl = lens _gorsCacheControl (\ s a -> s{_gorsCacheControl = a});
 
@@ -543,7 +543,7 @@ gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServe
 gorsContentType :: Lens' GetObjectResponse (Maybe Text)
 gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gorsResponseStatus :: Lens' GetObjectResponse Int
 gorsResponseStatus = lens _gorsResponseStatus (\ s a -> s{_gorsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes IP address blocks from a directory.
+--
+--
 module Network.AWS.DirectoryService.RemoveIPRoutes
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data RemoveIPRoutes = RemoveIPRoutes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirDirectoryId'
+-- * 'rirDirectoryId' - Identifier (ID) of the directory from which you want to remove the IP addresses.
 --
--- * 'rirCIdRIPs'
+-- * 'rirCIdRIPs' - IP address blocks that you want to remove.
 removeIPRoutes
     :: Text -- ^ 'rirDirectoryId'
     -> RemoveIPRoutes
@@ -116,7 +118,7 @@ newtype RemoveIPRoutesResponse = RemoveIPRoutesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirrsResponseStatus'
+-- * 'rirrsResponseStatus' - -- | The response status code.
 removeIPRoutesResponse
     :: Int -- ^ 'rirrsResponseStatus'
     -> RemoveIPRoutesResponse
@@ -125,7 +127,7 @@ removeIPRoutesResponse pResponseStatus_ =
     { _rirrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rirrsResponseStatus :: Lens' RemoveIPRoutesResponse Int
 rirrsResponseStatus = lens _rirrsResponseStatus (\ s a -> s{_rirrsResponseStatus = a});
 

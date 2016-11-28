@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing image repository. If a repository contains images, you must use the 'force' option to delete it.
+-- Deletes an existing image repository. If a repository contains images, you must use the @force@ option to delete it.
+--
+--
 module Network.AWS.ECR.DeleteRepository
     (
     -- * Creating a Request
@@ -55,11 +57,11 @@ data DeleteRepository = DeleteRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dForce'
+-- * 'dForce' - Force the deletion of the repository if it contains images.
 --
--- * 'dRegistryId'
+-- * 'dRegistryId' - The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
 --
--- * 'dRepositoryName'
+-- * 'dRepositoryName' - The name of the repository to delete.
 deleteRepository
     :: Text -- ^ 'dRepositoryName'
     -> DeleteRepository
@@ -129,9 +131,9 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsRepository'
+-- * 'drsRepository' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteRepositoryResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteRepositoryResponse
@@ -145,7 +147,7 @@ deleteRepositoryResponse pResponseStatus_ =
 drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
 drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteRepositoryResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

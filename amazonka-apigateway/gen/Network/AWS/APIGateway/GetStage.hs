@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a < Stage> resource.
+-- Gets information about a 'Stage' resource.
+--
+--
 module Network.AWS.APIGateway.GetStage
     (
     -- * Creating a Request
@@ -52,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a < Stage> resource.
+-- | Requests Amazon API Gateway to get information about a 'Stage' resource.
+--
+--
 --
 -- /See:/ 'getStage' smart constructor.
 data GetStage = GetStage'
@@ -64,9 +68,9 @@ data GetStage = GetStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gssRestAPIId'
+-- * 'gssRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to get information about.
 --
--- * 'gssStageName'
+-- * 'gssStageName' - The name of the 'Stage' resource to get information about.
 getStage
     :: Text -- ^ 'gssRestAPIId'
     -> Text -- ^ 'gssStageName'
@@ -77,11 +81,11 @@ getStage pRestAPIId_ pStageName_ =
     , _gssStageName = pStageName_
     }
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to get information about.
+-- | The identifier of the 'RestApi' resource for the 'Stage' resource to get information about.
 gssRestAPIId :: Lens' GetStage Text
 gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a});
 
--- | The name of the < Stage> resource to get information about.
+-- | The name of the 'Stage' resource to get information about.
 gssStageName :: Lens' GetStage Text
 gssStageName = lens _gssStageName (\ s a -> s{_gssStageName = a});
 

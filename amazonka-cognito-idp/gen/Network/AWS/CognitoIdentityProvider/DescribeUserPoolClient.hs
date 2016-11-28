@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Client method for returning the configuration information and metadata of the specified user pool client.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to describe a user pool client.
 --
+--
+--
 -- /See:/ 'describeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
     { _desUserPoolId :: !Text
@@ -55,9 +59,9 @@ data DescribeUserPoolClient = DescribeUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desUserPoolId'
+-- * 'desUserPoolId' - The user pool ID for the user pool you want to describe.
 --
--- * 'desClientId'
+-- * 'desClientId' - The ID of the client associated with the user pool.
 describeUserPoolClient
     :: Text -- ^ 'desUserPoolId'
     -> Text -- ^ 'desClientId'
@@ -115,6 +119,8 @@ instance ToQuery DescribeUserPoolClient where
 
 -- | Represents the response from the server from a request to describe the user pool client.
 --
+--
+--
 -- /See:/ 'describeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
     { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
@@ -125,9 +131,9 @@ data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupcrsUserPoolClient'
+-- * 'dupcrsUserPoolClient' - The user pool client from a server response to describe the user pool client.
 --
--- * 'dupcrsResponseStatus'
+-- * 'dupcrsResponseStatus' - -- | The response status code.
 describeUserPoolClientResponse
     :: Int -- ^ 'dupcrsResponseStatus'
     -> DescribeUserPoolClientResponse
@@ -141,7 +147,7 @@ describeUserPoolClientResponse pResponseStatus_ =
 dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
 dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
 dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a});
 

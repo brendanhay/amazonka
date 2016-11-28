@@ -20,7 +20,9 @@
 --
 -- Gets the events and the corresponding Lambda functions associated with an identity pool.
 --
+--
 -- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.GetCognitoEvents
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | A request for a list of the configured Cognito Events
 --
+--
+--
 -- /See:/ 'getCognitoEvents' smart constructor.
 newtype GetCognitoEvents = GetCognitoEvents'
     { _gceIdentityPoolId :: Text
@@ -55,7 +59,7 @@ newtype GetCognitoEvents = GetCognitoEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gceIdentityPoolId'
+-- * 'gceIdentityPoolId' - The Cognito Identity Pool ID for the request
 getCognitoEvents
     :: Text -- ^ 'gceIdentityPoolId'
     -> GetCognitoEvents
@@ -99,6 +103,8 @@ instance ToQuery GetCognitoEvents where
 
 -- | The response from the GetCognitoEvents request
 --
+--
+--
 -- /See:/ 'getCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
     { _gcersEvents         :: !(Maybe (Map Text Text))
@@ -109,9 +115,9 @@ data GetCognitoEventsResponse = GetCognitoEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcersEvents'
+-- * 'gcersEvents' - The Cognito Events returned from the GetCognitoEvents request
 --
--- * 'gcersResponseStatus'
+-- * 'gcersResponseStatus' - -- | The response status code.
 getCognitoEventsResponse
     :: Int -- ^ 'gcersResponseStatus'
     -> GetCognitoEventsResponse
@@ -125,7 +131,7 @@ getCognitoEventsResponse pResponseStatus_ =
 gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
 gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a});
 

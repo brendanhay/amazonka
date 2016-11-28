@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the < ClientCertificate> resource.
+-- Deletes the 'ClientCertificate' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteClientCertificate
     (
     -- * Creating a Request
@@ -39,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete the < ClientCertificate> resource.
+-- | A request to delete the 'ClientCertificate' resource.
+--
+--
 --
 -- /See:/ 'deleteClientCertificate' smart constructor.
 newtype DeleteClientCertificate = DeleteClientCertificate'
@@ -50,7 +54,7 @@ newtype DeleteClientCertificate = DeleteClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccClientCertificateId'
+-- * 'dccClientCertificateId' - The identifier of the 'ClientCertificate' resource to be deleted.
 deleteClientCertificate
     :: Text -- ^ 'dccClientCertificateId'
     -> DeleteClientCertificate
@@ -59,7 +63,7 @@ deleteClientCertificate pClientCertificateId_ =
     { _dccClientCertificateId = pClientCertificateId_
     }
 
--- | The identifier of the < ClientCertificate> resource to be deleted.
+-- | The identifier of the 'ClientCertificate' resource to be deleted.
 dccClientCertificateId :: Lens' DeleteClientCertificate Text
 dccClientCertificateId = lens _dccClientCertificateId (\ s a -> s{_dccClientCertificateId = a});
 

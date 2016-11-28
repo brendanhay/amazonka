@@ -20,6 +20,8 @@
 --
 -- Returns a list of existing clusters.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.ECS.ListClusters
     (
@@ -57,9 +59,9 @@ data ListClusters = ListClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcNextToken'
+-- * 'lcNextToken' - The @nextToken@ value returned from a previous paginated @ListClusters@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'lcMaxResults'
+-- * 'lcMaxResults' - The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
 listClusters
     :: ListClusters
 listClusters =
@@ -68,13 +70,11 @@ listClusters =
     , _lcMaxResults = Nothing
     }
 
--- | The 'nextToken' value returned from a previous paginated 'ListClusters' request where 'maxResults' was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the 'nextToken' value. This value is 'null' when there are no more results to return.
---
--- This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.
+-- | The @nextToken@ value returned from a previous paginated @ListClusters@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 lcNextToken :: Lens' ListClusters (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
--- | The maximum number of cluster results returned by 'ListClusters' in paginated output. When this parameter is used, 'ListClusters' only returns 'maxResults' results in a single page along with a 'nextToken' response element. The remaining results of the initial request can be seen by sending another 'ListClusters' request with the returned 'nextToken' value. This value can be between 1 and 100. If this parameter is not used, then 'ListClusters' returns up to 100 results and a 'nextToken' value if applicable.
+-- | The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
 lcMaxResults :: Lens' ListClusters (Maybe Int)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 
@@ -134,11 +134,11 @@ data ListClustersResponse = ListClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsClusterARNs'
+-- * 'lcrsClusterARNs' - The list of full Amazon Resource Name (ARN) entries for each cluster associated with your account.
 --
--- * 'lcrsNextToken'
+-- * 'lcrsNextToken' - The @nextToken@ value to include in a future @ListClusters@ request. When the results of a @ListClusters@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listClustersResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListClustersResponse
@@ -153,11 +153,11 @@ listClustersResponse pResponseStatus_ =
 lcrsClusterARNs :: Lens' ListClustersResponse [Text]
 lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _Default . _Coerce;
 
--- | The 'nextToken' value to include in a future 'ListClusters' request. When the results of a 'ListClusters' request exceed 'maxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The @nextToken@ value to include in a future @ListClusters@ request. When the results of a @ListClusters@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListClustersResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

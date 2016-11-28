@@ -20,7 +20,9 @@
 --
 -- Describes the specified target groups or all of your target groups. By default, all target groups are described. Alternatively, you can specify one of the following to filter the results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of one or more target groups.
 --
--- To describe the targets for a target group, use < DescribeTargetHealth>. To describe the attributes of a target group, use < DescribeTargetGroupAttributes>.
+--
+-- To describe the targets for a target group, use 'DescribeTargetHealth' . To describe the attributes of a target group, use 'DescribeTargetGroupAttributes' .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeTargetGroups
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeTargetGroups.
 --
+--
+--
 -- /See:/ 'describeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
     { _dtgTargetGroupARNs :: !(Maybe [Text])
@@ -67,15 +71,15 @@ data DescribeTargetGroups = DescribeTargetGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgTargetGroupARNs'
+-- * 'dtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
 --
--- * 'dtgNames'
+-- * 'dtgNames' - The names of the target groups.
 --
--- * 'dtgLoadBalancerARN'
+-- * 'dtgLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'dtgMarker'
+-- * 'dtgMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dtgPageSize'
+-- * 'dtgPageSize' - The maximum number of results to return with this call.
 describeTargetGroups
     :: DescribeTargetGroups
 describeTargetGroups =
@@ -152,6 +156,8 @@ instance ToQuery DescribeTargetGroups where
 
 -- | Contains the output of DescribeTargetGroups.
 --
+--
+--
 -- /See:/ 'describeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
     { _dtgsrsNextMarker     :: !(Maybe Text)
@@ -163,11 +169,11 @@ data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgsrsNextMarker'
+-- * 'dtgsrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dtgsrsTargetGroups'
+-- * 'dtgsrsTargetGroups' - Information about the target groups.
 --
--- * 'dtgsrsResponseStatus'
+-- * 'dtgsrsResponseStatus' - -- | The response status code.
 describeTargetGroupsResponse
     :: Int -- ^ 'dtgsrsResponseStatus'
     -> DescribeTargetGroupsResponse
@@ -186,7 +192,7 @@ dtgsrsNextMarker = lens _dtgsrsNextMarker (\ s a -> s{_dtgsrsNextMarker = a});
 dtgsrsTargetGroups :: Lens' DescribeTargetGroupsResponse [TargetGroup]
 dtgsrsTargetGroups = lens _dtgsrsTargetGroups (\ s a -> s{_dtgsrsTargetGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtgsrsResponseStatus :: Lens' DescribeTargetGroupsResponse Int
 dtgsrsResponseStatus = lens _dtgsrsResponseStatus (\ s a -> s{_dtgsrsResponseStatus = a});
 

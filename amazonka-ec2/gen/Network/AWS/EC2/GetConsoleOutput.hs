@@ -20,13 +20,15 @@
 --
 -- Gets the console output for the specified instance.
 --
+--
 -- Instances do not have a physical monitor through which you can view their console output. They also lack physical controls that allow you to power up, reboot, or shut them down. To allow these actions, we provide them through the Amazon EC2 API and command line interface.
 --
 -- Instance console output is buffered and posted shortly after instance boot, reboot, and termination. Amazon EC2 preserves the most recent 64 KB output which is available for at least one hour after the most recent post.
 --
--- For Linux instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a computer. This output is buffered because the instance produces it and then posts it to a store where the instance\'s owner can retrieve it.
+-- For Linux instances, the instance console output displays the exact console output that would normally be displayed on a physical monitor attached to a computer. This output is buffered because the instance produces it and then posts it to a store where the instance's owner can retrieve it.
 --
 -- For Windows instances, the instance console output includes output from the EC2Config service.
+--
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for GetConsoleOutput.
 --
+--
+--
 -- /See:/ 'getConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
     { _gcoDryRun     :: !(Maybe Bool)
@@ -65,9 +69,9 @@ data GetConsoleOutput = GetConsoleOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcoDryRun'
+-- * 'gcoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'gcoInstanceId'
+-- * 'gcoInstanceId' - The ID of the instance.
 getConsoleOutput
     :: Text -- ^ 'gcoInstanceId'
     -> GetConsoleOutput
@@ -77,7 +81,7 @@ getConsoleOutput pInstanceId_ =
     , _gcoInstanceId = pInstanceId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
 gcoDryRun = lens _gcoDryRun (\ s a -> s{_gcoDryRun = a});
 
@@ -116,6 +120,8 @@ instance ToQuery GetConsoleOutput where
 
 -- | Contains the output of GetConsoleOutput.
 --
+--
+--
 -- /See:/ 'getConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
     { _gcorsInstanceId     :: !(Maybe Text)
@@ -128,13 +134,13 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcorsInstanceId'
+-- * 'gcorsInstanceId' - The ID of the instance.
 --
--- * 'gcorsOutput'
+-- * 'gcorsOutput' - The console output, Base64-encoded. If using a command line tool, the tool decodes the output for you.
 --
--- * 'gcorsTimestamp'
+-- * 'gcorsTimestamp' - The time the output was last updated.
 --
--- * 'gcorsResponseStatus'
+-- * 'gcorsResponseStatus' - -- | The response status code.
 getConsoleOutputResponse
     :: Int -- ^ 'gcorsResponseStatus'
     -> GetConsoleOutputResponse
@@ -158,7 +164,7 @@ gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mapping _Time;
 
--- | The response status code.
+-- | -- | The response status code.
 gcorsResponseStatus :: Lens' GetConsoleOutputResponse Int
 gcorsResponseStatus = lens _gcorsResponseStatus (\ s a -> s{_gcorsResponseStatus = a});
 

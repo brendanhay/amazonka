@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified HSM client certificate.
+--
+--
 module Network.AWS.Redshift.DeleteHSMClientCertificate
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteHSMClientCertificate' smart constructor.
 newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
     { _dhsmccHSMClientCertificateIdentifier :: Text
@@ -50,7 +54,7 @@ newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhsmccHSMClientCertificateIdentifier'
+-- * 'dhsmccHSMClientCertificateIdentifier' - The identifier of the HSM client certificate to be deleted.
 deleteHSMClientCertificate
     :: Text -- ^ 'dhsmccHSMClientCertificateIdentifier'
     -> DeleteHSMClientCertificate

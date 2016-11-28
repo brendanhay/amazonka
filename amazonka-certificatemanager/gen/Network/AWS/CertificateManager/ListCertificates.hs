@@ -20,6 +20,8 @@
 --
 -- Retrieves a list of ACM Certificates and the domain name for each. You can optionally filter the list to return only the certificates that match the specified status.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CertificateManager.ListCertificates
     (
@@ -59,11 +61,11 @@ data ListCertificates = ListCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcCertificateStatuses'
+-- * 'lcCertificateStatuses' - The status or statuses on which to filter the list of ACM Certificates.
 --
--- * 'lcNextToken'
+-- * 'lcNextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
 --
--- * 'lcMaxItems'
+-- * 'lcMaxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 listCertificates
     :: ListCertificates
 listCertificates =
@@ -77,11 +79,11 @@ listCertificates =
 lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
 lcCertificateStatuses = lens _lcCertificateStatuses (\ s a -> s{_lcCertificateStatuses = a}) . _Default . _Coerce;
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of 'NextToken' from the response you just received.
+-- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
 lcNextToken :: Lens' ListCertificates (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
--- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the 'NextToken' element is sent in the response. Use this 'NextToken' value in a subsequent request to retrieve additional items.
+-- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 lcMaxItems :: Lens' ListCertificates (Maybe Natural)
 lcMaxItems = lens _lcMaxItems (\ s a -> s{_lcMaxItems = a}) . mapping _Nat;
 
@@ -143,11 +145,11 @@ data ListCertificatesResponse = ListCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsCertificateSummaryList'
+-- * 'lcrsCertificateSummaryList' - A list of ACM Certificates.
 --
--- * 'lcrsNextToken'
+-- * 'lcrsNextToken' - When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
@@ -162,11 +164,11 @@ listCertificatesResponse pResponseStatus_ =
 lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
 lcrsCertificateSummaryList = lens _lcrsCertificateSummaryList (\ s a -> s{_lcrsCertificateSummaryList = a}) . _Default . _Coerce;
 
--- | When the list is truncated, this value is present and contains the value to use for the 'NextToken' parameter in a subsequent pagination request.
+-- | When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
 lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

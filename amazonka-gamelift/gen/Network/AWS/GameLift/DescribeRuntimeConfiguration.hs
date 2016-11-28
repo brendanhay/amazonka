@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the current runtime configuration for the specified fleet. The runtime configuration tells GameLift how to launch server processes on instances in the fleet.
+--
+--
 module Network.AWS.GameLift.DescribeRuntimeConfiguration
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeRuntimeConfiguration' smart constructor.
 newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
     { _drcFleetId :: Text
@@ -53,7 +57,7 @@ newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcFleetId'
+-- * 'drcFleetId' - Unique identifier of the fleet to get the runtime configuration for.
 describeRuntimeConfiguration
     :: Text -- ^ 'drcFleetId'
     -> DescribeRuntimeConfiguration
@@ -105,6 +109,8 @@ instance ToQuery DescribeRuntimeConfiguration where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
     { _drcrsRuntimeConfiguration :: !(Maybe RuntimeConfiguration)
@@ -115,9 +121,9 @@ data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcrsRuntimeConfiguration'
+-- * 'drcrsRuntimeConfiguration' - Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 --
--- * 'drcrsResponseStatus'
+-- * 'drcrsResponseStatus' - -- | The response status code.
 describeRuntimeConfigurationResponse
     :: Int -- ^ 'drcrsResponseStatus'
     -> DescribeRuntimeConfigurationResponse
@@ -131,7 +137,7 @@ describeRuntimeConfigurationResponse pResponseStatus_ =
 drcrsRuntimeConfiguration :: Lens' DescribeRuntimeConfigurationResponse (Maybe RuntimeConfiguration)
 drcrsRuntimeConfiguration = lens _drcrsRuntimeConfiguration (\ s a -> s{_drcrsRuntimeConfiguration = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drcrsResponseStatus :: Lens' DescribeRuntimeConfigurationResponse Int
 drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a});
 

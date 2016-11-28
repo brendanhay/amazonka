@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing < Authorizer> resource.
+-- Updates an existing 'Authorizer' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
@@ -54,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing < Authorizer> resource.
+-- | Request to update an existing 'Authorizer' resource.
+--
+--
 --
 -- /See:/ 'updateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
@@ -67,11 +70,11 @@ data UpdateAuthorizer = UpdateAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaaPatchOperations'
+-- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uaaRestAPIId'
+-- * 'uaaRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
 --
--- * 'uaaAuthorizerId'
+-- * 'uaaAuthorizerId' - The identifier of the 'Authorizer' resource.
 updateAuthorizer
     :: Text -- ^ 'uaaRestAPIId'
     -> Text -- ^ 'uaaAuthorizerId'
@@ -87,11 +90,11 @@ updateAuthorizer pRestAPIId_ pAuthorizerId_ =
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
 uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < Authorizer> resource.
+-- | The 'RestApi' identifier for the 'Authorizer' resource.
 uaaRestAPIId :: Lens' UpdateAuthorizer Text
 uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a});
 
--- | The identifier of the < Authorizer> resource.
+-- | The identifier of the 'Authorizer' resource.
 uaaAuthorizerId :: Lens' UpdateAuthorizer Text
 uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a});
 

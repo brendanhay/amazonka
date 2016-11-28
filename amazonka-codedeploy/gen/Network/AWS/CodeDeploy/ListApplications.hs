@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the applications registered with the applicable IAM user or AWS account.
+--
+--
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list applications operation.
 --
+--
+--
 -- /See:/ 'listApplications' smart constructor.
 newtype ListApplications = ListApplications'
     { _laNextToken :: Maybe Text
@@ -54,7 +58,7 @@ newtype ListApplications = ListApplications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laNextToken'
+-- * 'laNextToken' - An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
 listApplications
     :: ListApplications
 listApplications =
@@ -104,6 +108,8 @@ instance ToQuery ListApplications where
 
 -- | Represents the output of a list applications operation.
 --
+--
+--
 -- /See:/ 'listApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
     { _larsNextToken      :: !(Maybe Text)
@@ -115,11 +121,11 @@ data ListApplicationsResponse = ListApplicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsNextToken'
+-- * 'larsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list.
 --
--- * 'larsApplications'
+-- * 'larsApplications' - A list of application names.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listApplicationsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListApplicationsResponse
@@ -138,7 +144,7 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsApplications :: Lens' ListApplicationsResponse [Text]
 larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListApplicationsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 

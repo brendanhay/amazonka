@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes tags for a WorkSpace.
+--
+--
 module Network.AWS.WorkSpaces.DescribeTags
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | The request of the < DescribeTags> operation.
+-- | The request of the 'DescribeTags' operation.
+--
+--
 --
 -- /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
@@ -53,7 +57,7 @@ newtype DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtResourceId'
+-- * 'dtResourceId' - The resource ID of the request.
 describeTags
     :: Text -- ^ 'dtResourceId'
     -> DescribeTags
@@ -99,7 +103,9 @@ instance ToPath DescribeTags where
 instance ToQuery DescribeTags where
         toQuery = const mempty
 
--- | The result of the < DescribeTags> operation.
+-- | The result of the 'DescribeTags' operation.
+--
+--
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
@@ -111,9 +117,9 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTagList'
+-- * 'dtrsTagList' - The list of tags.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -127,7 +133,7 @@ describeTagsResponse pResponseStatus_ =
 dtrsTagList :: Lens' DescribeTagsResponse [Tag]
 dtrsTagList = lens _dtrsTagList (\ s a -> s{_dtrsTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

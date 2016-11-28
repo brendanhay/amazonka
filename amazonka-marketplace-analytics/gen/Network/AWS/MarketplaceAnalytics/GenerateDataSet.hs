@@ -65,19 +65,19 @@ data GenerateDataSet = GenerateDataSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsCustomerDefinedValues'
+-- * 'gdsCustomerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the Amazon SNS notification message and the data set metadata file. These key-value pairs can be used to correlated responses with tracking information from other systems.
 --
--- * 'gdsDestinationS3Prefix'
+-- * 'gdsDestinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
 --
--- * 'gdsDataSetType'
+-- * 'gdsDataSetType' - The desired data set type.     * /customer_subscriber_hourly_monthly_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.    * /customer_subscriber_annual_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.    * /daily_business_usage_by_instance_type/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_fees/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_free_trial_conversions/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_new_instances/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_new_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_canceled_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /monthly_revenue_billing_and_revenue_data/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.    * /monthly_revenue_annual_subscriptions/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.    * /disbursed_amount_by_product/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /disbursed_amount_by_product_with_uncollected_funds/ -This data set is only available from 2012-04-19 until 2015-01-25. After 2015-01-25, this data set was split into three data sets: disbursed_amount_by_product, disbursed_amount_by_age_of_uncollected_funds, and disbursed_amount_by_age_of_disbursed_funds.     * /disbursed_amount_by_customer_geo/ - Available every 30 days by 5:00 PM Pacific Time since 2012-04-19.    * /disbursed_amount_by_age_of_uncollected_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /disbursed_amount_by_age_of_disbursed_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /customer_profile_by_industry/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.    * /customer_profile_by_revenue/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.    * /customer_profile_by_geography/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.
 --
--- * 'gdsDataSetPublicationDate'
+-- * 'gdsDataSetPublicationDate' - The date a data set was published. For daily data sets, provide a date with day-level granularity for the desired day. For weekly data sets, provide a date with day-level granularity within the desired week (the day value will be ignored). For monthly data sets, provide a date with month-level granularity for the desired month (the day value will be ignored).
 --
--- * 'gdsRoleNameARN'
+-- * 'gdsRoleNameARN' - The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided AWS services.
 --
--- * 'gdsDestinationS3BucketName'
+-- * 'gdsDestinationS3BucketName' - The name (friendly name, not ARN) of the destination S3 bucket.
 --
--- * 'gdsSnsTopicARN'
+-- * 'gdsSnsTopicARN' - Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an error has occurred.
 generateDataSet
     :: DataSetType -- ^ 'gdsDataSetType'
     -> UTCTime -- ^ 'gdsDataSetPublicationDate'
@@ -100,30 +100,11 @@ generateDataSet pDataSetType_ pDataSetPublicationDate_ pRoleNameARN_ pDestinatio
 gdsCustomerDefinedValues :: Lens' GenerateDataSet (HashMap Text Text)
 gdsCustomerDefinedValues = lens _gdsCustomerDefinedValues (\ s a -> s{_gdsCustomerDefinedValues = a}) . _Default . _Map;
 
--- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the output file \"outputfile\" would be published to \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
+-- | (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems. For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile". If the prefix directory structure does not exist, it will be created. If no prefix is provided, the data set will be published to the S3 bucket root.
 gdsDestinationS3Prefix :: Lens' GenerateDataSet (Maybe Text)
 gdsDestinationS3Prefix = lens _gdsDestinationS3Prefix (\ s a -> s{_gdsDestinationS3Prefix = a});
 
--- | The desired data set type.
---
--- -   /customer_subscriber_hourly_monthly_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.
--- -   /customer_subscriber_annual_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.
--- -   /daily_business_usage_by_instance_type/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /daily_business_fees/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /daily_business_free_trial_conversions/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /daily_business_new_instances/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /daily_business_new_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /daily_business_canceled_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.
--- -   /monthly_revenue_billing_and_revenue_data/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.
--- -   /monthly_revenue_annual_subscriptions/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.
--- -   /disbursed_amount_by_product/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.
--- -   /disbursed_amount_by_product_with_uncollected_funds/ -This data set is only available from 2012-04-19 until 2015-01-25. After 2015-01-25, this data set was split into three data sets: disbursed_amount_by_product, disbursed_amount_by_age_of_uncollected_funds, and disbursed_amount_by_age_of_disbursed_funds.
--- -   /disbursed_amount_by_customer_geo/ - Available every 30 days by 5:00 PM Pacific Time since 2012-04-19.
--- -   /disbursed_amount_by_age_of_uncollected_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.
--- -   /disbursed_amount_by_age_of_disbursed_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.
--- -   /customer_profile_by_industry/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.
--- -   /customer_profile_by_revenue/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.
--- -   /customer_profile_by_geography/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.
+-- | The desired data set type.     * /customer_subscriber_hourly_monthly_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.    * /customer_subscriber_annual_subscriptions/ - Available daily by 5:00 PM Pacific Time since 2014-07-21.    * /daily_business_usage_by_instance_type/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_fees/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_free_trial_conversions/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_new_instances/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_new_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /daily_business_canceled_product_subscribers/ - Available daily by 5:00 PM Pacific Time since 2015-01-26.    * /monthly_revenue_billing_and_revenue_data/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.    * /monthly_revenue_annual_subscriptions/ - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.    * /disbursed_amount_by_product/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /disbursed_amount_by_product_with_uncollected_funds/ -This data set is only available from 2012-04-19 until 2015-01-25. After 2015-01-25, this data set was split into three data sets: disbursed_amount_by_product, disbursed_amount_by_age_of_uncollected_funds, and disbursed_amount_by_age_of_disbursed_funds.     * /disbursed_amount_by_customer_geo/ - Available every 30 days by 5:00 PM Pacific Time since 2012-04-19.    * /disbursed_amount_by_age_of_uncollected_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /disbursed_amount_by_age_of_disbursed_funds/ - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.    * /customer_profile_by_industry/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.    * /customer_profile_by_revenue/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.    * /customer_profile_by_geography/ - Available daily by 5:00 PM Pacific Time since 2015-10-01.
 gdsDataSetType :: Lens' GenerateDataSet DataSetType
 gdsDataSetType = lens _gdsDataSetType (\ s a -> s{_gdsDataSetType = a});
 
@@ -202,9 +183,9 @@ data GenerateDataSetResponse = GenerateDataSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsrsDataSetRequestId'
+-- * 'gdsrsDataSetRequestId' - A unique identifier representing a specific request to the GenerateDataSet operation. This identifier can be used to correlate a request with notifications from the SNS topic.
 --
--- * 'gdsrsResponseStatus'
+-- * 'gdsrsResponseStatus' - -- | The response status code.
 generateDataSetResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GenerateDataSetResponse
@@ -218,7 +199,7 @@ generateDataSetResponse pResponseStatus_ =
 gdsrsDataSetRequestId :: Lens' GenerateDataSetResponse (Maybe Text)
 gdsrsDataSetRequestId = lens _gdsrsDataSetRequestId (\ s a -> s{_gdsrsDataSetRequestId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdsrsResponseStatus :: Lens' GenerateDataSetResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 

@@ -24,8 +24,7 @@ import           Network.AWS.S3.HeadObject
 import           Network.AWS.S3.Types
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 objectNotExists :: Wait HeadObject
 objectNotExists =
     Wait
@@ -35,8 +34,7 @@ objectNotExists =
     , _waitAcceptors = [matchStatus 404 AcceptSuccess]
     }
 
--- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 bucketExists :: Wait HeadBucket
 bucketExists =
     Wait
@@ -47,8 +45,7 @@ bucketExists =
                        , matchStatus 404 AcceptRetry]
     }
 
--- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.S3.HeadObject' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 objectExists :: Wait HeadObject
 objectExists =
     Wait
@@ -59,8 +56,7 @@ objectExists =
                        , matchStatus 404 AcceptRetry]
     }
 
--- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.S3.HeadBucket' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
 bucketNotExists :: Wait HeadBucket
 bucketNotExists =
     Wait

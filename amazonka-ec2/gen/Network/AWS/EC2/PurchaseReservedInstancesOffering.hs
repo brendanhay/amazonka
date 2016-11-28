@@ -20,9 +20,11 @@
 --
 -- Purchases a Reserved Instance for use with your account. With Reserved Instances, you obtain a capacity reservation for a certain instance configuration over a specified period of time and pay a lower hourly rate compared to On-Demand instance pricing.
 --
--- Use < DescribeReservedInstancesOfferings> to get a list of Reserved Instance offerings that match your specifications. After you\'ve purchased a Reserved Instance, you can check for your new Reserved Instance with < DescribeReservedInstances>.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Use 'DescribeReservedInstancesOfferings' to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with 'DescribeReservedInstances' .
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for PurchaseReservedInstancesOffering.
 --
+--
+--
 -- /See:/ 'purchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
@@ -63,13 +67,13 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prioLimitPrice'
+-- * 'prioLimitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
 --
--- * 'prioDryRun'
+-- * 'prioDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'prioReservedInstancesOfferingId'
+-- * 'prioReservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
 --
--- * 'prioInstanceCount'
+-- * 'prioInstanceCount' - The number of Reserved Instances to purchase.
 purchaseReservedInstancesOffering
     :: Text -- ^ 'prioReservedInstancesOfferingId'
     -> Int -- ^ 'prioInstanceCount'
@@ -86,7 +90,7 @@ purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ 
 prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
 prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 
@@ -137,6 +141,8 @@ instance ToQuery PurchaseReservedInstancesOffering
 
 -- | Contains the output of PurchaseReservedInstancesOffering.
 --
+--
+--
 -- /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId :: !(Maybe Text)
@@ -147,9 +153,9 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'priorsReservedInstancesId'
+-- * 'priorsReservedInstancesId' - The IDs of the purchased Reserved Instances.
 --
--- * 'priorsResponseStatus'
+-- * 'priorsResponseStatus' - -- | The response status code.
 purchaseReservedInstancesOfferingResponse
     :: Int -- ^ 'priorsResponseStatus'
     -> PurchaseReservedInstancesOfferingResponse
@@ -163,7 +169,7 @@ purchaseReservedInstancesOfferingResponse pResponseStatus_ =
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 priorsResponseStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsResponseStatus = lens _priorsResponseStatus (\ s a -> s{_priorsResponseStatus = a});
 

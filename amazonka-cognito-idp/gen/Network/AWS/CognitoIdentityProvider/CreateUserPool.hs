@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new Amazon Cognito user pool and sets the password policy for the pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.CreateUserPool
     (
     -- * Creating a Request
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to create a user pool.
 --
+--
+--
 -- /See:/ 'createUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
     { _cupEmailVerificationMessage :: !(Maybe Text)
@@ -77,31 +81,31 @@ data CreateUserPool = CreateUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupEmailVerificationMessage'
+-- * 'cupEmailVerificationMessage' - A string representing the email verification message.
 --
--- * 'cupSmsAuthenticationMessage'
+-- * 'cupSmsAuthenticationMessage' - A string representing the SMS authentication message.
 --
--- * 'cupEmailVerificationSubject'
+-- * 'cupEmailVerificationSubject' - A string representing the email verification subject.
 --
--- * 'cupAliasAttributes'
+-- * 'cupAliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
 --
--- * 'cupEmailConfiguration'
+-- * 'cupEmailConfiguration' - The email configuration.
 --
--- * 'cupSmsVerificationMessage'
+-- * 'cupSmsVerificationMessage' - A string representing the SMS verification message.
 --
--- * 'cupMFAConfiguration'
+-- * 'cupMFAConfiguration' - Specifies MFA configuration details.
 --
--- * 'cupLambdaConfig'
+-- * 'cupLambdaConfig' - The Lambda trigger configuration information for the new user pool.
 --
--- * 'cupSmsConfiguration'
+-- * 'cupSmsConfiguration' - The SMS configuration.
 --
--- * 'cupDeviceConfiguration'
+-- * 'cupDeviceConfiguration' - The device configuration.
 --
--- * 'cupAutoVerifiedAttributes'
+-- * 'cupAutoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
 --
--- * 'cupPolicies'
+-- * 'cupPolicies' - The policies associated with the new user pool.
 --
--- * 'cupPoolName'
+-- * 'cupPoolName' - A string used to name the user pool.
 createUserPool
     :: Text -- ^ 'cupPoolName'
     -> CreateUserPool
@@ -134,7 +138,7 @@ cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\ s a -> s{_cup
 cupEmailVerificationSubject :: Lens' CreateUserPool (Maybe Text)
 cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cupEmailVerificationSubject = a});
 
--- | Attributes supported as an alias for this user pool. Possible values: __phone_number__, __email__, or __preferred_username__.
+-- | Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
 cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
 cupAliasAttributes = lens _cupAliasAttributes (\ s a -> s{_cupAliasAttributes = a}) . _Default . _Coerce;
 
@@ -162,7 +166,7 @@ cupSmsConfiguration = lens _cupSmsConfiguration (\ s a -> s{_cupSmsConfiguration
 cupDeviceConfiguration :: Lens' CreateUserPool (Maybe DeviceConfigurationType)
 cupDeviceConfiguration = lens _cupDeviceConfiguration (\ s a -> s{_cupDeviceConfiguration = a});
 
--- | The attributes to be auto-verified. Possible values: __email__, __phone_number__.
+-- | The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
 cupAutoVerifiedAttributes :: Lens' CreateUserPool [VerifiedAttributeType]
 cupAutoVerifiedAttributes = lens _cupAutoVerifiedAttributes (\ s a -> s{_cupAutoVerifiedAttributes = a}) . _Default . _Coerce;
 
@@ -229,6 +233,8 @@ instance ToQuery CreateUserPool where
 
 -- | Represents the response from the server for the request to create a user pool.
 --
+--
+--
 -- /See:/ 'createUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'
     { _cuprsUserPool       :: !(Maybe UserPoolType)
@@ -239,9 +245,9 @@ data CreateUserPoolResponse = CreateUserPoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuprsUserPool'
+-- * 'cuprsUserPool' - A container for the user pool details.
 --
--- * 'cuprsResponseStatus'
+-- * 'cuprsResponseStatus' - -- | The response status code.
 createUserPoolResponse
     :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserPoolResponse
@@ -255,7 +261,7 @@ createUserPoolResponse pResponseStatus_ =
 cuprsUserPool :: Lens' CreateUserPoolResponse (Maybe UserPoolType)
 cuprsUserPool = lens _cuprsUserPool (\ s a -> s{_cuprsUserPool = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserPoolResponse Int
 cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
 

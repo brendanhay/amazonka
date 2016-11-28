@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the connection status of a specified WorkSpace.
+--
+--
 module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwcsWorkspaceIds'
+-- * 'dwcsWorkspaceIds' - An array of strings that contain the identifiers of the WorkSpaces.
 --
--- * 'dwcsNextToken'
+-- * 'dwcsNextToken' - The next token of the request.
 describeWorkspacesConnectionStatus
     :: DescribeWorkspacesConnectionStatus
 describeWorkspacesConnectionStatus =
@@ -128,11 +130,11 @@ data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionSt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwcsrsNextToken'
+-- * 'dwcsrsNextToken' - The next token of the result.
 --
--- * 'dwcsrsWorkspacesConnectionStatus'
+-- * 'dwcsrsWorkspacesConnectionStatus' - The connection status of the WorkSpace.
 --
--- * 'dwcsrsResponseStatus'
+-- * 'dwcsrsResponseStatus' - -- | The response status code.
 describeWorkspacesConnectionStatusResponse
     :: Int -- ^ 'dwcsrsResponseStatus'
     -> DescribeWorkspacesConnectionStatusResponse
@@ -151,7 +153,7 @@ dwcsrsNextToken = lens _dwcsrsNextToken (\ s a -> s{_dwcsrsNextToken = a});
 dwcsrsWorkspacesConnectionStatus :: Lens' DescribeWorkspacesConnectionStatusResponse [WorkspaceConnectionStatus]
 dwcsrsWorkspacesConnectionStatus = lens _dwcsrsWorkspacesConnectionStatus (\ s a -> s{_dwcsrsWorkspacesConnectionStatus = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dwcsrsResponseStatus :: Lens' DescribeWorkspacesConnectionStatusResponse Int
 dwcsrsResponseStatus = lens _dwcsrsResponseStatus (\ s a -> s{_dwcsrsResponseStatus = a});
 

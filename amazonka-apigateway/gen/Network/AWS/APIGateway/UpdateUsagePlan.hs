@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a usage plan of a given plan Id.
+--
+--
 module Network.AWS.APIGateway.UpdateUsagePlan
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The PATCH request to update a usage plan of a given plan Id.
 --
+--
+--
 -- /See:/ 'updateUsagePlan' smart constructor.
 data UpdateUsagePlan = UpdateUsagePlan'
     { _uupPatchOperations :: !(Maybe [PatchOperation])
@@ -59,9 +63,9 @@ data UpdateUsagePlan = UpdateUsagePlan'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupPatchOperations'
+-- * 'uupPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uupUsagePlanId'
+-- * 'uupUsagePlanId' - The Id of the to-be-updated usage plan.
 updateUsagePlan
     :: Text -- ^ 'uupUsagePlanId'
     -> UpdateUsagePlan

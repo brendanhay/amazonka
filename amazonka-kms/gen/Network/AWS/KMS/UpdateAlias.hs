@@ -20,11 +20,13 @@
 --
 -- Updates an alias to map it to a different key.
 --
+--
 -- An alias is not a property of a key. Therefore, an alias can be mapped to and unmapped from an existing key without changing the properties of the key.
 --
--- An alias name can contain only alphanumeric characters, forward slashes (\/), underscores (_), and dashes (-). An alias must start with the word \"alias\" followed by a forward slash (alias\/). An alias that begins with \"aws\" after the forward slash (alias\/aws...) is reserved by Amazon Web Services (AWS).
+-- An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word "alias" followed by a forward slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...) is reserved by Amazon Web Services (AWS).
 --
 -- The alias and the key it is mapped to must be in the same AWS account and the same region.
+--
 module Network.AWS.KMS.UpdateAlias
     (
     -- * Creating a Request
@@ -56,9 +58,9 @@ data UpdateAlias = UpdateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaAliasName'
+-- * 'uaAliasName' - String that contains the name of the alias to be modified. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 --
--- * 'uaTargetKeyId'
+-- * 'uaTargetKeyId' - Unique identifier of the customer master key to be mapped to the alias. This value can be a globally unique identifier or the fully specified ARN of a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 You can call 'ListAliases' to verify that the alias is mapped to the correct @TargetKeyId@ .
 updateAlias
     :: Text -- ^ 'uaAliasName'
     -> Text -- ^ 'uaTargetKeyId'
@@ -69,17 +71,11 @@ updateAlias pAliasName_ pTargetKeyId_ =
     , _uaTargetKeyId = pTargetKeyId_
     }
 
--- | String that contains the name of the alias to be modified. The name must start with the word \"alias\" followed by a forward slash (alias\/). Aliases that begin with \"alias\/aws\" are reserved.
+-- | String that contains the name of the alias to be modified. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws" are reserved.
 uaAliasName :: Lens' UpdateAlias Text
 uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 
--- | Unique identifier of the customer master key to be mapped to the alias. This value can be a globally unique identifier or the fully specified ARN of a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
--- You can call < ListAliases> to verify that the alias is mapped to the correct 'TargetKeyId'.
+-- | Unique identifier of the customer master key to be mapped to the alias. This value can be a globally unique identifier or the fully specified ARN of a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 You can call 'ListAliases' to verify that the alias is mapped to the correct @TargetKeyId@ .
 uaTargetKeyId :: Lens' UpdateAlias Text
 uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
 

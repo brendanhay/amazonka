@@ -20,9 +20,9 @@
 --
 -- Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
 --
--- When you make this request, you get a '200 OK' success response immediately. However, it might take some time for the update to complete. You can call < DescribeGatewayInformation> to verify the gateway is in the 'STATE_RUNNING' state.
 --
--- A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators\' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings> and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings>, respectively.
+-- /Important:/ A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings> and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings> , respectively.
+--
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Creating a Request
@@ -48,6 +48,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway to update.
 --
+--
+--
 -- /See:/ 'updateGatewaySoftwareNow' smart constructor.
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
     { _ugsnGatewayARN :: Text
@@ -57,7 +59,7 @@ newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugsnGatewayARN'
+-- * 'ugsnGatewayARN' - Undocumented member.
 updateGatewaySoftwareNow
     :: Text -- ^ 'ugsnGatewayARN'
     -> UpdateGatewaySoftwareNow
@@ -107,6 +109,8 @@ instance ToQuery UpdateGatewaySoftwareNow where
 
 -- | A JSON object containing the of the gateway that was updated.
 --
+--
+--
 -- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
     { _ugsnrsGatewayARN     :: !(Maybe Text)
@@ -117,9 +121,9 @@ data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ugsnrsGatewayARN'
+-- * 'ugsnrsGatewayARN' - Undocumented member.
 --
--- * 'ugsnrsResponseStatus'
+-- * 'ugsnrsResponseStatus' - -- | The response status code.
 updateGatewaySoftwareNowResponse
     :: Int -- ^ 'ugsnrsResponseStatus'
     -> UpdateGatewaySoftwareNowResponse
@@ -133,7 +137,7 @@ updateGatewaySoftwareNowResponse pResponseStatus_ =
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
 ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a});
 

@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new < Authorizer> resource to an existing < RestApi> resource.
+-- Adds a new 'Authorizer' resource to an existing 'RestApi' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.CreateAuthorizer
@@ -61,7 +62,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to add a new < Authorizer> to an existing < RestApi> resource.
+-- | Request to add a new 'Authorizer' to an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
@@ -81,25 +84,25 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caAuthorizerURI'
+-- * 'caAuthorizerURI' - [Required] Specifies the authorizer's Uniform Resource Identifier (URI).
 --
--- * 'caIdentityValidationExpression'
+-- * 'caIdentityValidationExpression' - A validation expression for the incoming identity.
 --
--- * 'caProviderARNs'
+-- * 'caProviderARNs' - A list of the Cognito Your User Pool authorizer's provider ARNs.
 --
--- * 'caAuthorizerResultTtlInSeconds'
+-- * 'caAuthorizerResultTtlInSeconds' - The TTL of cached authorizer results.
 --
--- * 'caAuthType'
+-- * 'caAuthType' - Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
 --
--- * 'caAuthorizerCredentials'
+-- * 'caAuthorizerCredentials' - Specifies the credentials required for the authorizer, if any.
 --
--- * 'caRestAPIId'
+-- * 'caRestAPIId' - The 'RestApi' identifier under which the 'Authorizer' will be created.
 --
--- * 'caName'
+-- * 'caName' - [Required] The name of the authorizer.
 --
--- * 'caType'
+-- * 'caType' - [Required] The type of the authorizer.
 --
--- * 'caIdentitySource'
+-- * 'caIdentitySource' - [Required] The source of the identity in an incoming request.
 createAuthorizer
     :: Text -- ^ 'caRestAPIId'
     -> Text -- ^ 'caName'
@@ -120,7 +123,7 @@ createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ =
     , _caIdentitySource = pIdentitySource_
     }
 
--- | [Required] Specifies the authorizer\'s Uniform Resource Identifier (URI).
+-- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI).
 caAuthorizerURI :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 
@@ -128,7 +131,7 @@ caAuthorizerURI = lens _caAuthorizerURI (\ s a -> s{_caAuthorizerURI = a});
 caIdentityValidationExpression :: Lens' CreateAuthorizer (Maybe Text)
 caIdentityValidationExpression = lens _caIdentityValidationExpression (\ s a -> s{_caIdentityValidationExpression = a});
 
--- | A list of the Cognito Your User Pool authorizer\'s provider ARNs.
+-- | A list of the Cognito Your User Pool authorizer's provider ARNs.
 caProviderARNs :: Lens' CreateAuthorizer [Text]
 caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Default . _Coerce;
 
@@ -136,7 +139,7 @@ caProviderARNs = lens _caProviderARNs (\ s a -> s{_caProviderARNs = a}) . _Defau
 caAuthorizerResultTtlInSeconds :: Lens' CreateAuthorizer (Maybe Int)
 caAuthorizerResultTtlInSeconds = lens _caAuthorizerResultTtlInSeconds (\ s a -> s{_caAuthorizerResultTtlInSeconds = a});
 
--- | Optional customer-defined field, used in Swagger imports\/exports. Has no functional impact.
+-- | Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
 caAuthType :: Lens' CreateAuthorizer (Maybe Text)
 caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
 
@@ -144,7 +147,7 @@ caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
 caAuthorizerCredentials :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerCredentials = lens _caAuthorizerCredentials (\ s a -> s{_caAuthorizerCredentials = a});
 
--- | The < RestApi> identifier under which the < Authorizer> will be created.
+-- | The 'RestApi' identifier under which the 'Authorizer' will be created.
 caRestAPIId :: Lens' CreateAuthorizer Text
 caRestAPIId = lens _caRestAPIId (\ s a -> s{_caRestAPIId = a});
 

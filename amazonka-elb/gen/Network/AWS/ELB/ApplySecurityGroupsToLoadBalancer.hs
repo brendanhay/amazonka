@@ -20,7 +20,9 @@
 --
 -- Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancers Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ApplySecurityGroupsToLoadBalancer.
 --
+--
+--
 -- /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName :: !Text
@@ -57,9 +61,9 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbLoadBalancerName'
+-- * 'asgtlbLoadBalancerName' - The name of the load balancer.
 --
--- * 'asgtlbSecurityGroups'
+-- * 'asgtlbSecurityGroups' - The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
 applySecurityGroupsToLoadBalancer
     :: Text -- ^ 'asgtlbLoadBalancerName'
     -> ApplySecurityGroupsToLoadBalancer
@@ -116,6 +120,8 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.
 --
+--
+--
 -- /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups :: !(Maybe [Text])
@@ -126,9 +132,9 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbrsSecurityGroups'
+-- * 'asgtlbrsSecurityGroups' - The IDs of the security groups associated with the load balancer.
 --
--- * 'asgtlbrsResponseStatus'
+-- * 'asgtlbrsResponseStatus' - -- | The response status code.
 applySecurityGroupsToLoadBalancerResponse
     :: Int -- ^ 'asgtlbrsResponseStatus'
     -> ApplySecurityGroupsToLoadBalancerResponse
@@ -142,7 +148,7 @@ applySecurityGroupsToLoadBalancerResponse pResponseStatus_ =
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 asgtlbrsResponseStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsResponseStatus = lens _asgtlbrsResponseStatus (\ s a -> s{_asgtlbrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
 --
--- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
+--
+-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /Amazon Redshift Cluster Management Guide/ .
+--
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createClusterSecurityGroup' smart constructor.
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
     { _creTags                     :: !(Maybe [Tag])
@@ -59,11 +63,11 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'creTags'
+-- * 'creTags' - A list of tag instances.
 --
--- * 'creClusterSecurityGroupName'
+-- * 'creClusterSecurityGroupName' - The name for the security group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
 --
--- * 'creDescription'
+-- * 'creDescription' - A description for the security group.
 createClusterSecurityGroup
     :: Text -- ^ 'creClusterSecurityGroupName'
     -> Text -- ^ 'creDescription'
@@ -79,15 +83,7 @@ createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
 creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
--- | The name for the security group. Amazon Redshift stores the value as a lowercase string.
---
--- Constraints:
---
--- -   Must contain no more than 255 alphanumeric characters or hyphens.
--- -   Must not be \"Default\".
--- -   Must be unique for all security groups that are created by your AWS account.
---
--- Example: 'examplesecuritygroup'
+-- | The name for the security group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
 creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
 
@@ -138,9 +134,9 @@ data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsClusterSecurityGroup'
+-- * 'crsClusterSecurityGroup' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createClusterSecurityGroupResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateClusterSecurityGroupResponse
@@ -154,7 +150,7 @@ createClusterSecurityGroupResponse pResponseStatus_ =
 crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
 crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreateClusterSecurityGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

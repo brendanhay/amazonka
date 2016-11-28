@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Schedules a run.
+--
+--
 module Network.AWS.DeviceFarm.ScheduleRun
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the schedule run operation.
 --
+--
+--
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
     { _srAppARN        :: !(Maybe Text)
@@ -63,17 +67,17 @@ data ScheduleRun = ScheduleRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srAppARN'
+-- * 'srAppARN' - The ARN of the app to schedule a run.
 --
--- * 'srName'
+-- * 'srName' - The name for the run to be scheduled.
 --
--- * 'srConfiguration'
+-- * 'srConfiguration' - Information about the settings for the run to be scheduled.
 --
--- * 'srProjectARN'
+-- * 'srProjectARN' - The ARN of the project for the run to be scheduled.
 --
--- * 'srDevicePoolARN'
+-- * 'srDevicePoolARN' - The ARN of the device pool for the run to be scheduled.
 --
--- * 'srTest'
+-- * 'srTest' - Information about the test for the run to be scheduled.
 scheduleRun
     :: Text -- ^ 'srProjectARN'
     -> Text -- ^ 'srDevicePoolARN'
@@ -154,6 +158,8 @@ instance ToQuery ScheduleRun where
 
 -- | Represents the result of a schedule run request.
 --
+--
+--
 -- /See:/ 'scheduleRunResponse' smart constructor.
 data ScheduleRunResponse = ScheduleRunResponse'
     { _srrsRun            :: !(Maybe Run)
@@ -164,9 +170,9 @@ data ScheduleRunResponse = ScheduleRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srrsRun'
+-- * 'srrsRun' - Information about the scheduled run.
 --
--- * 'srrsResponseStatus'
+-- * 'srrsResponseStatus' - -- | The response status code.
 scheduleRunResponse
     :: Int -- ^ 'srrsResponseStatus'
     -> ScheduleRunResponse
@@ -180,7 +186,7 @@ scheduleRunResponse pResponseStatus_ =
 srrsRun :: Lens' ScheduleRunResponse (Maybe Run)
 srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srrsResponseStatus :: Lens' ScheduleRunResponse Int
 srrsResponseStatus = lens _srrsResponseStatus (\ s a -> s{_srrsResponseStatus = a});
 

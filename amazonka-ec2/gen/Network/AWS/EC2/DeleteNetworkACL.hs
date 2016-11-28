@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified network ACL. You can\'t delete the ACL if it\'s associated with any subnets. You can\'t delete the default network ACL.
+-- Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.
+--
+--
 module Network.AWS.EC2.DeleteNetworkACL
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteNetworkAcl.
 --
+--
+--
 -- /See:/ 'deleteNetworkACL' smart constructor.
 data DeleteNetworkACL = DeleteNetworkACL'
     { _dnaDryRun       :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteNetworkACL = DeleteNetworkACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnaDryRun'
+-- * 'dnaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dnaNetworkACLId'
+-- * 'dnaNetworkACLId' - The ID of the network ACL.
 deleteNetworkACL
     :: Text -- ^ 'dnaNetworkACLId'
     -> DeleteNetworkACL
@@ -64,7 +68,7 @@ deleteNetworkACL pNetworkACLId_ =
     , _dnaNetworkACLId = pNetworkACLId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
 dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
 

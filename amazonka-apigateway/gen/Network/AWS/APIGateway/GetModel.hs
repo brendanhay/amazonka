@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an existing model defined for a < RestApi> resource.
+-- Describes an existing model defined for a 'RestApi' resource.
+--
+--
 module Network.AWS.APIGateway.GetModel
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to list information about a model in an existing < RestApi> resource.
+-- | Request to list information about a model in an existing 'RestApi' resource.
+--
+--
 --
 -- /See:/ 'getModel' smart constructor.
 data GetModel = GetModel'
@@ -60,11 +64,11 @@ data GetModel = GetModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggFlatten'
+-- * 'ggFlatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 --
--- * 'ggRestAPIId'
+-- * 'ggRestAPIId' - The 'RestApi' identifier under which the 'Model' exists.
 --
--- * 'ggModelName'
+-- * 'ggModelName' - The name of the model as an identifier.
 getModel
     :: Text -- ^ 'ggRestAPIId'
     -> Text -- ^ 'ggModelName'
@@ -76,11 +80,11 @@ getModel pRestAPIId_ pModelName_ =
     , _ggModelName = pModelName_
     }
 
--- | A query parameter of a Boolean value to resolve ('true') all external model references and returns a flattened model schema or not ('false') The default is 'false'.
+-- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 ggFlatten :: Lens' GetModel (Maybe Bool)
 ggFlatten = lens _ggFlatten (\ s a -> s{_ggFlatten = a});
 
--- | The < RestApi> identifier under which the < Model> exists.
+-- | The 'RestApi' identifier under which the 'Model' exists.
 ggRestAPIId :: Lens' GetModel Text
 ggRestAPIId = lens _ggRestAPIId (\ s a -> s{_ggRestAPIId = a});
 

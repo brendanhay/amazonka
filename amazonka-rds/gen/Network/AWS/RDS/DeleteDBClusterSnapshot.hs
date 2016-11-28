@@ -20,9 +20,9 @@
 --
 -- Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
 --
--- The DB cluster snapshot must be in the 'available' state to be deleted.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.DeleteDBClusterSnapshot
     (
     -- * Creating a Request
@@ -48,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteDBClusterSnapshot' smart constructor.
 newtype DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
     { _ddcsDBClusterSnapshotIdentifier :: Text
@@ -57,7 +59,7 @@ newtype DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsDBClusterSnapshotIdentifier'
+-- * 'ddcsDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot to delete. Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
 deleteDBClusterSnapshot
     :: Text -- ^ 'ddcsDBClusterSnapshotIdentifier'
     -> DeleteDBClusterSnapshot
@@ -66,9 +68,7 @@ deleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
     { _ddcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
     }
 
--- | The identifier of the DB cluster snapshot to delete.
---
--- Constraints: Must be the name of an existing DB cluster snapshot in the 'available' state.
+-- | The identifier of the DB cluster snapshot to delete. Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
 ddcsDBClusterSnapshotIdentifier :: Lens' DeleteDBClusterSnapshot Text
 ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -> s{_ddcsDBClusterSnapshotIdentifier = a});
 
@@ -111,9 +111,9 @@ data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsrsDBClusterSnapshot'
+-- * 'ddcsrsDBClusterSnapshot' - Undocumented member.
 --
--- * 'ddcsrsResponseStatus'
+-- * 'ddcsrsResponseStatus' - -- | The response status code.
 deleteDBClusterSnapshotResponse
     :: Int -- ^ 'ddcsrsResponseStatus'
     -> DeleteDBClusterSnapshotResponse
@@ -127,7 +127,7 @@ deleteDBClusterSnapshotResponse pResponseStatus_ =
 ddcsrsDBClusterSnapshot :: Lens' DeleteDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 ddcsrsDBClusterSnapshot = lens _ddcsrsDBClusterSnapshot (\ s a -> s{_ddcsrsDBClusterSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddcsrsResponseStatus :: Lens' DeleteDBClusterSnapshotResponse Int
 ddcsrsResponseStatus = lens _ddcsrsResponseStatus (\ s a -> s{_ddcsrsResponseStatus = a});
 

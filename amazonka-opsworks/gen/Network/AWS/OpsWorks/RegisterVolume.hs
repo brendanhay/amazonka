@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling < DeregisterVolume>. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling 'DeregisterVolume' . For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterVolume
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data RegisterVolume = RegisterVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rvEC2VolumeId'
+-- * 'rvEC2VolumeId' - The Amazon EBS volume ID.
 --
--- * 'rvStackId'
+-- * 'rvStackId' - The stack ID.
 registerVolume
     :: Text -- ^ 'rvStackId'
     -> RegisterVolume
@@ -110,7 +112,9 @@ instance ToPath RegisterVolume where
 instance ToQuery RegisterVolume where
         toQuery = const mempty
 
--- | Contains the response to a 'RegisterVolume' request.
+-- | Contains the response to a @RegisterVolume@ request.
+--
+--
 --
 -- /See:/ 'registerVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
@@ -122,9 +126,9 @@ data RegisterVolumeResponse = RegisterVolumeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rvrsVolumeId'
+-- * 'rvrsVolumeId' - The volume ID.
 --
--- * 'rvrsResponseStatus'
+-- * 'rvrsResponseStatus' - -- | The response status code.
 registerVolumeResponse
     :: Int -- ^ 'rvrsResponseStatus'
     -> RegisterVolumeResponse
@@ -138,7 +142,7 @@ registerVolumeResponse pResponseStatus_ =
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
 rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
 

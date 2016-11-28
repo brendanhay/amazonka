@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version. In addition, 'CreateTrafficPolicyInstance' associates the resource record sets with a specified domain name (such as example.com) or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets that 'CreateTrafficPolicyInstance' created.
+-- Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version. In addition, @CreateTrafficPolicyInstance@ associates the resource record sets with a specified domain name (such as example.com) or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets that @CreateTrafficPolicyInstance@ created.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response returns the 'CreateTrafficPolicyInstanceResponse' element, which contains information about the traffic policy instance.
+--
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance@ resource. The request body must include a document with a @CreateTrafficPolicyRequest@ element. The response returns the @CreateTrafficPolicyInstanceResponse@ element, which contains information about the traffic policy instance.
+--
 module Network.AWS.Route53.CreateTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the resource record sets that you want to create based on a specified traffic policy.
 --
+--
+--
 -- /See:/ 'createTrafficPolicyInstance' smart constructor.
 data CreateTrafficPolicyInstance = CreateTrafficPolicyInstance'
     { _ctpiHostedZoneId         :: !Text
@@ -64,15 +68,15 @@ data CreateTrafficPolicyInstance = CreateTrafficPolicyInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpiHostedZoneId'
+-- * 'ctpiHostedZoneId' - The ID of the hosted zone in which you want Amazon Route 53 to create resource record sets by using the configuration in a traffic policy.
 --
--- * 'ctpiName'
+-- * 'ctpiName' - The domain name (such as example.com) or subdomain name (such as www.example.com) for which Amazon Route 53 responds to DNS queries by using the resource record sets that Amazon Route 53 creates for this traffic policy instance.
 --
--- * 'ctpiTTL'
+-- * 'ctpiTTL' - (Optional) The TTL that you want Amazon Route 53 to assign to all of the resource record sets that it creates in the specified hosted zone.
 --
--- * 'ctpiTrafficPolicyId'
+-- * 'ctpiTrafficPolicyId' - The ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 --
--- * 'ctpiTrafficPolicyVersion'
+-- * 'ctpiTrafficPolicyVersion' - The version of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
 createTrafficPolicyInstance
     :: Text -- ^ 'ctpiHostedZoneId'
     -> Text -- ^ 'ctpiName'
@@ -147,7 +151,9 @@ instance ToXML CreateTrafficPolicyInstance where
                "TrafficPolicyId" @= _ctpiTrafficPolicyId,
                "TrafficPolicyVersion" @= _ctpiTrafficPolicyVersion]
 
--- | A complex type that contains the response information for the 'CreateTrafficPolicyInstance' request.
+-- | A complex type that contains the response information for the @CreateTrafficPolicyInstance@ request.
+--
+--
 --
 -- /See:/ 'createTrafficPolicyInstanceResponse' smart constructor.
 data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
@@ -160,11 +166,11 @@ data CreateTrafficPolicyInstanceResponse = CreateTrafficPolicyInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpirsResponseStatus'
+-- * 'ctpirsResponseStatus' - -- | The response status code.
 --
--- * 'ctpirsTrafficPolicyInstance'
+-- * 'ctpirsTrafficPolicyInstance' - A complex type that contains settings for the new traffic policy instance.
 --
--- * 'ctpirsLocation'
+-- * 'ctpirsLocation' - A unique URL that represents a new traffic policy instance.
 createTrafficPolicyInstanceResponse
     :: Int -- ^ 'ctpirsResponseStatus'
     -> TrafficPolicyInstance -- ^ 'ctpirsTrafficPolicyInstance'
@@ -177,7 +183,7 @@ createTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ pLo
     , _ctpirsLocation = pLocation_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctpirsResponseStatus :: Lens' CreateTrafficPolicyInstanceResponse Int
 ctpirsResponseStatus = lens _ctpirsResponseStatus (\ s a -> s{_ctpirsResponseStatus = a});
 

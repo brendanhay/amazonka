@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more deployments.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get deployments operation.
 --
+--
+--
 -- /See:/ 'batchGetDeployments' smart constructor.
 newtype BatchGetDeployments = BatchGetDeployments'
     { _bgdDeploymentIds :: Maybe [Text]
@@ -53,7 +57,7 @@ newtype BatchGetDeployments = BatchGetDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdDeploymentIds'
+-- * 'bgdDeploymentIds' - A list of deployment IDs, separated by spaces.
 batchGetDeployments
     :: BatchGetDeployments
 batchGetDeployments =
@@ -104,6 +108,8 @@ instance ToQuery BatchGetDeployments where
 
 -- | Represents the output of a batch get deployments operation.
 --
+--
+--
 -- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
@@ -114,9 +120,9 @@ data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgdrsDeploymentsInfo'
+-- * 'bgdrsDeploymentsInfo' - Information about the deployments.
 --
--- * 'bgdrsResponseStatus'
+-- * 'bgdrsResponseStatus' - -- | The response status code.
 batchGetDeploymentsResponse
     :: Int -- ^ 'bgdrsResponseStatus'
     -> BatchGetDeploymentsResponse
@@ -130,7 +136,7 @@ batchGetDeploymentsResponse pResponseStatus_ =
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgdrsResponseStatus :: Lens' BatchGetDeploymentsResponse Int
 bgdrsResponseStatus = lens _bgdrsResponseStatus (\ s a -> s{_bgdrsResponseStatus = a});
 

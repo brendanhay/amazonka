@@ -20,7 +20,9 @@
 --
 -- Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.
 --
--- The results for 'ListPhoneNumbersOptedOut' are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a 'NextToken' string will be returned. To receive the next page, you call 'ListPhoneNumbersOptedOut' again using the 'NextToken' string received from the previous call. When there are no more records to return, 'NextToken' will be null.
+--
+-- The results for @ListPhoneNumbersOptedOut@ are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a @NextToken@ string will be returned. To receive the next page, you call @ListPhoneNumbersOptedOut@ again using the @NextToken@ string received from the previous call. When there are no more records to return, @NextToken@ will be null.
+--
 module Network.AWS.SNS.ListPhoneNumbersOptedOut
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SNS.Types
 import           Network.AWS.SNS.Types.Product
 
--- | The input for the 'ListPhoneNumbersOptedOut' action.
+-- | The input for the @ListPhoneNumbersOptedOut@ action.
+--
+--
 --
 -- /See:/ 'listPhoneNumbersOptedOut' smart constructor.
 newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
@@ -56,7 +60,7 @@ newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpnooNextToken'
+-- * 'lpnooNextToken' - A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 listPhoneNumbersOptedOut
     :: ListPhoneNumbersOptedOut
 listPhoneNumbersOptedOut =
@@ -64,7 +68,7 @@ listPhoneNumbersOptedOut =
     { _lpnooNextToken = Nothing
     }
 
--- | A 'NextToken' string is used when you call the 'ListPhoneNumbersOptedOut' action to retrieve additional records that are available after the first page of results.
+-- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
 lpnooNextToken :: Lens' ListPhoneNumbersOptedOut (Maybe Text)
 lpnooNextToken = lens _lpnooNextToken (\ s a -> s{_lpnooNextToken = a});
 
@@ -99,7 +103,9 @@ instance ToQuery ListPhoneNumbersOptedOut where
                "Version" =: ("2010-03-31" :: ByteString),
                "nextToken" =: _lpnooNextToken]
 
--- | The response from the 'ListPhoneNumbersOptedOut' action.
+-- | The response from the @ListPhoneNumbersOptedOut@ action.
+--
+--
 --
 -- /See:/ 'listPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
@@ -112,11 +118,11 @@ data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpnoorsPhoneNumbers'
+-- * 'lpnoorsPhoneNumbers' - A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
 --
--- * 'lpnoorsNextToken'
+-- * 'lpnoorsNextToken' - A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 --
--- * 'lpnoorsResponseStatus'
+-- * 'lpnoorsResponseStatus' - -- | The response status code.
 listPhoneNumbersOptedOutResponse
     :: Int -- ^ 'lpnoorsResponseStatus'
     -> ListPhoneNumbersOptedOutResponse
@@ -131,11 +137,11 @@ listPhoneNumbersOptedOutResponse pResponseStatus_ =
 lpnoorsPhoneNumbers :: Lens' ListPhoneNumbersOptedOutResponse [Text]
 lpnoorsPhoneNumbers = lens _lpnoorsPhoneNumbers (\ s a -> s{_lpnoorsPhoneNumbers = a}) . _Default . _Coerce;
 
--- | A 'NextToken' string is returned when you call the 'ListPhoneNumbersOptedOut' action if additional records are available after the first page of results.
+-- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 lpnoorsNextToken :: Lens' ListPhoneNumbersOptedOutResponse (Maybe Text)
 lpnoorsNextToken = lens _lpnoorsNextToken (\ s a -> s{_lpnoorsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lpnoorsResponseStatus :: Lens' ListPhoneNumbersOptedOutResponse Int
 lpnoorsResponseStatus = lens _lpnoorsResponseStatus (\ s a -> s{_lpnoorsResponseStatus = a});
 

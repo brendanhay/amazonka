@@ -11,9 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon WorkSpaces Service
+-- __Amazon WorkSpaces Service__
 --
 -- This reference provides detailed information about the Amazon WorkSpaces operations.
+--
 module Network.AWS.WorkSpaces
     (
     -- * Service Configuration

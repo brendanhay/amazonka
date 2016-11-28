@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.
+--
+--
 module Network.AWS.Inspector.AddAttributesToFindings
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data AddAttributesToFindings = AddAttributesToFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aatfFindingARNs'
+-- * 'aatfFindingARNs' - The ARNs that specify the findings that you want to assign attributes to.
 --
--- * 'aatfAttributes'
+-- * 'aatfAttributes' - The array of attributes that you want to assign to specified findings.
 addAttributesToFindings
     :: NonEmpty Text -- ^ 'aatfFindingARNs'
     -> AddAttributesToFindings
@@ -121,9 +123,9 @@ data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aatfrsResponseStatus'
+-- * 'aatfrsResponseStatus' - -- | The response status code.
 --
--- * 'aatfrsFailedItems'
+-- * 'aatfrsFailedItems' - Attribute details that cannot be described. An error code is provided for each failed item.
 addAttributesToFindingsResponse
     :: Int -- ^ 'aatfrsResponseStatus'
     -> AddAttributesToFindingsResponse
@@ -133,7 +135,7 @@ addAttributesToFindingsResponse pResponseStatus_ =
     , _aatfrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
 aatfrsResponseStatus = lens _aatfrsResponseStatus (\ s a -> s{_aatfrsResponseStatus = a});
 

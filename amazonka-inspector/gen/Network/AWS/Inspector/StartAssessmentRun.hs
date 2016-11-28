@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.
+--
+--
 module Network.AWS.Inspector.StartAssessmentRun
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data StartAssessmentRun = StartAssessmentRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarAssessmentRunName'
+-- * 'sarAssessmentRunName' - You can specify the name for the assessment run, or you can use the auto-generated name that is based on the assessment template name. The name must be unique for the assessment template.
 --
--- * 'sarAssessmentTemplateARN'
+-- * 'sarAssessmentTemplateARN' - The ARN of the assessment template of the assessment run that you want to start.
 startAssessmentRun
     :: Text -- ^ 'sarAssessmentTemplateARN'
     -> StartAssessmentRun
@@ -122,9 +124,9 @@ data StartAssessmentRunResponse = StartAssessmentRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarrsResponseStatus'
+-- * 'sarrsResponseStatus' - -- | The response status code.
 --
--- * 'sarrsAssessmentRunARN'
+-- * 'sarrsAssessmentRunARN' - The ARN of the assessment run that has been started.
 startAssessmentRunResponse
     :: Int -- ^ 'sarrsResponseStatus'
     -> Text -- ^ 'sarrsAssessmentRunARN'
@@ -135,7 +137,7 @@ startAssessmentRunResponse pResponseStatus_ pAssessmentRunARN_ =
     , _sarrsAssessmentRunARN = pAssessmentRunARN_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 sarrsResponseStatus :: Lens' StartAssessmentRunResponse Int
 sarrsResponseStatus = lens _sarrsResponseStatus (\ s a -> s{_sarrsResponseStatus = a});
 

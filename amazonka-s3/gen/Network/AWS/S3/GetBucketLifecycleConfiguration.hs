@@ -51,7 +51,7 @@ newtype GetBucketLifecycleConfiguration = GetBucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblcBucket'
+-- * 'gblcBucket' - Undocumented member.
 getBucketLifecycleConfiguration
     :: BucketName -- ^ 'gblcBucket'
     -> GetBucketLifecycleConfiguration
@@ -102,9 +102,9 @@ data GetBucketLifecycleConfigurationResponse = GetBucketLifecycleConfigurationRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblcrsRules'
+-- * 'gblcrsRules' - Undocumented member.
 --
--- * 'gblcrsResponseStatus'
+-- * 'gblcrsResponseStatus' - -- | The response status code.
 getBucketLifecycleConfigurationResponse
     :: Int -- ^ 'gblcrsResponseStatus'
     -> GetBucketLifecycleConfigurationResponse
@@ -118,7 +118,7 @@ getBucketLifecycleConfigurationResponse pResponseStatus_ =
 gblcrsRules :: Lens' GetBucketLifecycleConfigurationResponse [LifecycleRule]
 gblcrsRules = lens _gblcrsRules (\ s a -> s{_gblcrsRules = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gblcrsResponseStatus :: Lens' GetBucketLifecycleConfigurationResponse Int
 gblcrsResponseStatus = lens _gblcrsResponseStatus (\ s a -> s{_gblcrsResponseStatus = a});
 

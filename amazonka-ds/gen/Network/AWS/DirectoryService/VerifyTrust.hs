@@ -20,7 +20,9 @@
 --
 -- AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.
 --
+--
 -- This action verifies a trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+--
 module Network.AWS.DirectoryService.VerifyTrust
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Initiates the verification of an existing trust relationship between a Microsoft AD in the AWS cloud and an external domain.
 --
+--
+--
 -- /See:/ 'verifyTrust' smart constructor.
 newtype VerifyTrust = VerifyTrust'
     { _vtTrustId :: Text
@@ -55,7 +59,7 @@ newtype VerifyTrust = VerifyTrust'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtTrustId'
+-- * 'vtTrustId' - The unique Trust ID of the trust relationship to verify.
 verifyTrust
     :: Text -- ^ 'vtTrustId'
     -> VerifyTrust
@@ -103,6 +107,8 @@ instance ToQuery VerifyTrust where
 
 -- | Result of a VerifyTrust request.
 --
+--
+--
 -- /See:/ 'verifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
     { _vtrsTrustId        :: !(Maybe Text)
@@ -113,9 +119,9 @@ data VerifyTrustResponse = VerifyTrustResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vtrsTrustId'
+-- * 'vtrsTrustId' - The unique Trust ID of the trust relationship that was verified.
 --
--- * 'vtrsResponseStatus'
+-- * 'vtrsResponseStatus' - -- | The response status code.
 verifyTrustResponse
     :: Int -- ^ 'vtrsResponseStatus'
     -> VerifyTrustResponse
@@ -129,7 +135,7 @@ verifyTrustResponse pResponseStatus_ =
 vtrsTrustId :: Lens' VerifyTrustResponse (Maybe Text)
 vtrsTrustId = lens _vtrsTrustId (\ s a -> s{_vtrsTrustId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 vtrsResponseStatus :: Lens' VerifyTrustResponse Int
 vtrsResponseStatus = lens _vtrsResponseStatus (\ s a -> s{_vtrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you\'ve specified in this request.
+-- [EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.
+--
+--
 module Network.AWS.EC2.DescribeSecurityGroupReferences
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DescribeSecurityGroupReferences = DescribeSecurityGroupReferences'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgrDryRun'
+-- * 'dsgrDryRun' - Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 --
--- * 'dsgrGroupId'
+-- * 'dsgrGroupId' - One or more security group IDs in your account.
 describeSecurityGroupReferences
     :: DescribeSecurityGroupReferences
 describeSecurityGroupReferences =
@@ -116,9 +118,9 @@ data DescribeSecurityGroupReferencesResponse = DescribeSecurityGroupReferencesRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgrrsSecurityGroupReferenceSet'
+-- * 'dsgrrsSecurityGroupReferenceSet' - Information about the VPCs with the referencing security groups.
 --
--- * 'dsgrrsResponseStatus'
+-- * 'dsgrrsResponseStatus' - -- | The response status code.
 describeSecurityGroupReferencesResponse
     :: Int -- ^ 'dsgrrsResponseStatus'
     -> DescribeSecurityGroupReferencesResponse
@@ -132,7 +134,7 @@ describeSecurityGroupReferencesResponse pResponseStatus_ =
 dsgrrsSecurityGroupReferenceSet :: Lens' DescribeSecurityGroupReferencesResponse [SecurityGroupReference]
 dsgrrsSecurityGroupReferenceSet = lens _dsgrrsSecurityGroupReferenceSet (\ s a -> s{_dsgrrsSecurityGroupReferenceSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsgrrsResponseStatus :: Lens' DescribeSecurityGroupReferencesResponse Int
 dsgrrsResponseStatus = lens _dsgrrsResponseStatus (\ s a -> s{_dsgrrsResponseStatus = a});
 

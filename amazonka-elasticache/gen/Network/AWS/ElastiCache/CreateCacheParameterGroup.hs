@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /CreateCacheParameterGroup/ action creates a new cache parameter group. A cache parameter group is a collection of parameters that you apply to all of the nodes in a cache cluster.
+--
+--
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheParameterGroup/ action.
 --
+--
+--
 -- /See:/ 'createCacheParameterGroup' smart constructor.
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
     { _ccpgCacheParameterGroupName   :: !Text
@@ -57,11 +61,11 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccpgCacheParameterGroupName'
+-- * 'ccpgCacheParameterGroupName' - A user-specified name for the cache parameter group.
 --
--- * 'ccpgCacheParameterGroupFamily'
+-- * 'ccpgCacheParameterGroupFamily' - The name of the cache parameter group family the cache parameter group can be used with. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@
 --
--- * 'ccpgDescription'
+-- * 'ccpgDescription' - A user-specified description for the cache parameter group.
 createCacheParameterGroup
     :: Text -- ^ 'ccpgCacheParameterGroupName'
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
@@ -78,9 +82,7 @@ createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ 
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a});
 
--- | The name of the cache parameter group family the cache parameter group can be used with.
---
--- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
+-- | The name of the cache parameter group family the cache parameter group can be used with. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@
 ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
 ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{_ccpgCacheParameterGroupFamily = a});
 
@@ -131,9 +133,9 @@ data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccpgrsCacheParameterGroup'
+-- * 'ccpgrsCacheParameterGroup' - Undocumented member.
 --
--- * 'ccpgrsResponseStatus'
+-- * 'ccpgrsResponseStatus' - -- | The response status code.
 createCacheParameterGroupResponse
     :: Int -- ^ 'ccpgrsResponseStatus'
     -> CreateCacheParameterGroupResponse
@@ -147,7 +149,7 @@ createCacheParameterGroupResponse pResponseStatus_ =
 ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ccpgrsResponseStatus :: Lens' CreateCacheParameterGroupResponse Int
 ccpgrsResponseStatus = lens _ccpgrsResponseStatus (\ s a -> s{_ccpgrsResponseStatus = a});
 

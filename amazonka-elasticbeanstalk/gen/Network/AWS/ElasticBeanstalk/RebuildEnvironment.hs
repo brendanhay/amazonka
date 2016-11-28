@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes and recreates all of the AWS resources (for example: the Auto Scaling group, load balancer, etc.) for a specified environment and forces a restart.
+--
+--
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'rebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
     { _reEnvironmentName :: !(Maybe Text)
@@ -52,9 +56,9 @@ data RebuildEnvironment = RebuildEnvironment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reEnvironmentName'
+-- * 'reEnvironmentName' - The name of the environment to rebuild.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'reEnvironmentId'
+-- * 'reEnvironmentId' - The ID of the environment to rebuild.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 rebuildEnvironment
     :: RebuildEnvironment
 rebuildEnvironment =
@@ -63,15 +67,11 @@ rebuildEnvironment =
     , _reEnvironmentId = Nothing
     }
 
--- | The name of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The name of the environment to rebuild.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a});
 
--- | The ID of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the environment to rebuild.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
 

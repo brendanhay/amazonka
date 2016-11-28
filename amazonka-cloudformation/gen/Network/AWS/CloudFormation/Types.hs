@@ -246,7 +246,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2010-05-15' of the Amazon CloudFormation SDK configuration.
+-- | API version @2010-05-15@ of the Amazon CloudFormation SDK configuration.
 cloudFormation :: Service
 cloudFormation =
     Service
@@ -280,27 +280,37 @@ cloudFormation =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified change set name or ID doesn\'t exit. To view valid change sets for a stack, use the 'ListChangeSets' action.
+-- | The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the @ListChangeSets@ action.
+--
+--
 _ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ChangeSetNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ChangeSetNotFound"
 
--- | The specified change set cannot be used to update the stack. For example, the change set status might be 'CREATE_IN_PROGRESS' or the stack status might be 'UPDATE_IN_PROGRESS'.
+-- | The specified change set cannot be used to update the stack. For example, the change set status might be @CREATE_IN_PROGRESS@ or the stack status might be @UPDATE_IN_PROGRESS@ .
+--
+--
 _InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeSetStatusException =
     _ServiceError . hasStatus 400 . hasCode "InvalidChangeSetStatus"
 
 -- | The template contains resources with capabilities that were not specified in the Capabilities parameter.
+--
+--
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
 
 -- | Resource with the name requested already exists.
+--
+--
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"
 
 -- | Quota for the resource has already been reached.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 400 . hasCode "LimitExceededException"

@@ -20,6 +20,8 @@
 --
 -- Lists the associations for the specified SSM document or instance.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListAssociations
     (
@@ -59,11 +61,11 @@ data ListAssociations = ListAssociations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laNextToken'
+-- * 'laNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'laMaxResults'
+-- * 'laMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- * 'laAssociationFilterList'
+-- * 'laAssociationFilterList' - One or more filters. Use a filter to return a more specific list of results.
 listAssociations
     :: NonEmpty AssociationFilter -- ^ 'laAssociationFilterList'
     -> ListAssociations
@@ -144,11 +146,11 @@ data ListAssociationsResponse = ListAssociationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsNextToken'
+-- * 'larsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'larsAssociations'
+-- * 'larsAssociations' - The associations.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listAssociationsResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAssociationsResponse
@@ -167,7 +169,7 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsAssociations :: Lens' ListAssociationsResponse [Association]
 larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListAssociationsResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Creates an alias for a fleet. You can use an alias to anonymize your fleet by referencing an alias instead of a specific fleet when you create game sessions. Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. Use a simple alias to point to an active fleet. Use a terminal alias to display a message to incoming traffic instead of routing players to an active fleet. This option is useful when a game server is no longer supported but you want to provide better messaging than a standard 404 error.
 --
--- To create a fleet alias, specify an alias name, routing strategy, and optional description. If successful, a new alias record is returned, including an alias ID, which you can reference when creating a game session. To reassign the alias to another fleet ID, call < UpdateAlias>.
+--
+-- To create a fleet alias, specify an alias name, routing strategy, and optional description. If successful, a new alias record is returned, including an alias ID, which you can reference when creating a game session. To reassign the alias to another fleet ID, call 'UpdateAlias' .
+--
 module Network.AWS.GameLift.CreateAlias
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
     { _caDescription     :: !(Maybe Text)
@@ -59,11 +63,11 @@ data CreateAlias = CreateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caDescription'
+-- * 'caDescription' - Human-readable description of an alias.
 --
--- * 'caName'
+-- * 'caName' - Descriptive label associated with an alias. Alias names do not need to be unique.
 --
--- * 'caRoutingStrategy'
+-- * 'caRoutingStrategy' - Object specifying the fleet and routing type to use for the alias.
 createAlias
     :: Text -- ^ 'caName'
     -> RoutingStrategy -- ^ 'caRoutingStrategy'
@@ -125,6 +129,8 @@ instance ToQuery CreateAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
     { _carsAlias          :: !(Maybe Alias)
@@ -135,9 +141,9 @@ data CreateAliasResponse = CreateAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsAlias'
+-- * 'carsAlias' - Object containing the newly created alias record.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 createAliasResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAliasResponse
@@ -151,7 +157,7 @@ createAliasResponse pResponseStatus_ =
 carsAlias :: Lens' CreateAliasResponse (Maybe Alias)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAliasResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 

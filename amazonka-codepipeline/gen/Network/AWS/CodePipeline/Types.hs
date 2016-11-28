@@ -402,7 +402,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-07-09' of the Amazon CodePipeline SDK configuration.
+-- | API version @2015-07-09@ of the Amazon CodePipeline SDK configuration.
 codePipeline :: Service
 codePipeline =
     Service
@@ -437,108 +437,154 @@ codePipeline =
       | otherwise = Nothing
 
 -- | The client token was specified in an invalid format
+--
+--
 _InvalidClientTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClientTokenException =
     _ServiceError . hasCode "InvalidClientTokenException"
 
 -- | The validation was specified in an invalid format.
+--
+--
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException = _ServiceError . hasCode "ValidationException"
 
 -- | The specified nonce was specified in an invalid format.
+--
+--
 _InvalidNonceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNonceException = _ServiceError . hasCode "InvalidNonceException"
 
 -- | The specified action cannot be found.
+--
+--
 _ActionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionNotFoundException = _ServiceError . hasCode "ActionNotFoundException"
 
 -- | The approval request already received a response or has expired.
+--
+--
 _InvalidApprovalTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidApprovalTokenException =
     _ServiceError . hasCode "InvalidApprovalTokenException"
 
 -- | Reserved for future use.
+--
+--
 _InvalidBlockerDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBlockerDeclarationException =
     _ServiceError . hasCode "InvalidBlockerDeclarationException"
 
 -- | The specified job state was specified in an invalid format.
+--
+--
 _InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobStateException = _ServiceError . hasCode "InvalidJobStateException"
 
 -- | The specified job was specified in an invalid format or cannot be found.
+--
+--
 _InvalidJobException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobException = _ServiceError . hasCode "InvalidJobException"
 
 -- | The specified pipeline version was specified in an invalid format or cannot be found.
+--
+--
 _PipelineVersionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineVersionNotFoundException =
     _ServiceError . hasCode "PipelineVersionNotFoundException"
 
--- | The specified stage can\'t be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress.
+-- | The specified stage can't be retried because the pipeline structure or stage state changed after the stage was not completed; the stage contains no failed actions; one or more actions are still in progress; or another retry attempt is already in progress.
+--
+--
 _StageNotRetryableException :: AsError a => Getting (First ServiceError) a ServiceError
 _StageNotRetryableException =
     _ServiceError . hasCode "StageNotRetryableException"
 
 -- | The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
+--
+--
 _PipelineExecutionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineExecutionNotFoundException =
     _ServiceError . hasCode "PipelineExecutionNotFoundException"
 
 -- | The specified action type cannot be found.
+--
+--
 _ActionTypeNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ActionTypeNotFoundException =
     _ServiceError . hasCode "ActionTypeNotFoundException"
 
 -- | The next token was specified in an invalid format. Make sure that the next token you provided is the token returned by a previous call.
+--
+--
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | The specified stage declaration was specified in an invalid format.
+--
+--
 _InvalidStageDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStageDeclarationException =
     _ServiceError . hasCode "InvalidStageDeclarationException"
 
 -- | The specified action declaration was specified in an invalid format.
+--
+--
 _InvalidActionDeclarationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidActionDeclarationException =
     _ServiceError . hasCode "InvalidActionDeclarationException"
 
 -- | The specified stage was specified in an invalid format or cannot be found.
+--
+--
 _StageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _StageNotFoundException = _ServiceError . hasCode "StageNotFoundException"
 
 -- | The specified structure was specified in an invalid format.
+--
+--
 _InvalidStructureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidStructureException =
     _ServiceError . hasCode "InvalidStructureException"
 
 -- | The specified job was specified in an invalid format or cannot be found.
+--
+--
 _JobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _JobNotFoundException = _ServiceError . hasCode "JobNotFoundException"
 
 -- | The approval action has already been approved or rejected.
+--
+--
 _ApprovalAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApprovalAlreadyCompletedException =
     _ServiceError . hasCode "ApprovalAlreadyCompletedException"
 
 -- | The specified pipeline name is already in use.
+--
+--
 _PipelineNameInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNameInUseException =
     _ServiceError . hasCode "PipelineNameInUseException"
 
 -- | The specified pipeline was specified in an invalid format or cannot be found.
+--
+--
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
     _ServiceError . hasCode "PipelineNotFoundException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
 -- | The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.
+--
+--
 _NotLatestPipelineExecutionException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotLatestPipelineExecutionException =
     _ServiceError . hasCode "NotLatestPipelineExecutionException"

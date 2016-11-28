@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a scheduled managed action immediately. A managed action can be applied only if its status is 'Scheduled'. Get the status and action ID of a managed action with < DescribeEnvironmentManagedActions>.
+-- Applies a scheduled managed action immediately. A managed action can be applied only if its status is @Scheduled@ . Get the status and action ID of a managed action with 'DescribeEnvironmentManagedActions' .
+--
+--
 module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Request to execute a scheduled managed action immediately.
 --
+--
+--
 -- /See:/ 'applyEnvironmentManagedAction' smart constructor.
 data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
     { _aemaEnvironmentName :: !(Maybe Text)
@@ -60,11 +64,11 @@ data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aemaEnvironmentName'
+-- * 'aemaEnvironmentName' - The name of the target environment.
 --
--- * 'aemaEnvironmentId'
+-- * 'aemaEnvironmentId' - The environment ID of the target environment.
 --
--- * 'aemaActionId'
+-- * 'aemaActionId' - The action ID of the scheduled managed action to execute.
 applyEnvironmentManagedAction
     :: Text -- ^ 'aemaActionId'
     -> ApplyEnvironmentManagedAction
@@ -125,6 +129,8 @@ instance ToQuery ApplyEnvironmentManagedAction where
 
 -- | The result message containing information about the managed action.
 --
+--
+--
 -- /See:/ 'applyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
     { _aemarsStatus            :: !(Maybe Text)
@@ -138,15 +144,15 @@ data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aemarsStatus'
+-- * 'aemarsStatus' - The status of the managed action.
 --
--- * 'aemarsActionId'
+-- * 'aemarsActionId' - The action ID of the managed action.
 --
--- * 'aemarsActionDescription'
+-- * 'aemarsActionDescription' - A description of the managed action.
 --
--- * 'aemarsActionType'
+-- * 'aemarsActionType' - The type of managed action.
 --
--- * 'aemarsResponseStatus'
+-- * 'aemarsResponseStatus' - -- | The response status code.
 applyEnvironmentManagedActionResponse
     :: Int -- ^ 'aemarsResponseStatus'
     -> ApplyEnvironmentManagedActionResponse
@@ -175,7 +181,7 @@ aemarsActionDescription = lens _aemarsActionDescription (\ s a -> s{_aemarsActio
 aemarsActionType :: Lens' ApplyEnvironmentManagedActionResponse (Maybe ActionType)
 aemarsActionType = lens _aemarsActionType (\ s a -> s{_aemarsActionType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 aemarsResponseStatus :: Lens' ApplyEnvironmentManagedActionResponse Int
 aemarsResponseStatus = lens _aemarsResponseStatus (\ s a -> s{_aemarsResponseStatus = a});
 

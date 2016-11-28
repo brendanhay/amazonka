@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
+--
+--
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
     { _dLoadBalancerName :: !Text
@@ -54,9 +58,9 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLoadBalancerName'
+-- * 'dLoadBalancerName' - The name of the load balancer.
 --
--- * 'dPolicyName'
+-- * 'dPolicyName' - The name of the policy.
 deleteLoadBalancerPolicy
     :: Text -- ^ 'dLoadBalancerName'
     -> Text -- ^ 'dPolicyName'
@@ -106,6 +110,8 @@ instance ToQuery DeleteLoadBalancerPolicy where
 
 -- | Contains the output of DeleteLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
     { _delrsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteLoadBalancerPolicyResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteLoadBalancerPolicyResponse
@@ -124,7 +130,7 @@ deleteLoadBalancerPolicyResponse pResponseStatus_ =
     { _delrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

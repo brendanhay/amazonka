@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function\'s code.
+-- Updates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function's code.
 --
--- If you are using the versioning feature, note this API will always update the >LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>.
 --
--- This operation requires permission for the 'lambda:UpdateFunctionConfiguration' action.
+-- If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+--
+-- This operation requires permission for the @lambda:UpdateFunctionConfiguration@ action.
+--
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
     -- * Creating a Request
@@ -66,6 +68,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     { _ufcMemorySize   :: !(Maybe Nat)
@@ -82,21 +86,21 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufcMemorySize'
+-- * 'ufcMemorySize' - The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
--- * 'ufcRuntime'
+-- * 'ufcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 --
--- * 'ufcRole'
+-- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 --
--- * 'ufcVPCConfig'
+-- * 'ufcVPCConfig' - Undocumented member.
 --
--- * 'ufcHandler'
+-- * 'ufcHandler' - The function that Lambda calls to begin executing your function. For Node.js, it is the @module-name.export@ value in your function.
 --
--- * 'ufcTimeout'
+-- * 'ufcTimeout' - The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 --
--- * 'ufcDescription'
+-- * 'ufcDescription' - A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit.
 --
--- * 'ufcFunctionName'
+-- * 'ufcFunctionName' - The name of the Lambda function. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 updateFunctionConfiguration
     :: Text -- ^ 'ufcFunctionName'
     -> UpdateFunctionConfiguration
@@ -116,9 +120,7 @@ updateFunctionConfiguration pFunctionName_ =
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat;
 
--- | The runtime environment for the Lambda function.
---
--- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
+-- | The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
 ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a});
 
@@ -130,7 +132,7 @@ ufcRole = lens _ufcRole (\ s a -> s{_ufcRole = a});
 ufcVPCConfig :: Lens' UpdateFunctionConfiguration (Maybe VPCConfig)
 ufcVPCConfig = lens _ufcVPCConfig (\ s a -> s{_ufcVPCConfig = a});
 
--- | The function that Lambda calls to begin executing your function. For Node.js, it is the 'module-name.export' value in your function.
+-- | The function that Lambda calls to begin executing your function. For Node.js, it is the @module-name.export@ value in your function.
 ufcHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcHandler = lens _ufcHandler (\ s a -> s{_ufcHandler = a});
 
@@ -142,9 +144,7 @@ ufcTimeout = lens _ufcTimeout (\ s a -> s{_ufcTimeout = a}) . mapping _Nat;
 ufcDescription :: Lens' UpdateFunctionConfiguration (Maybe Text)
 ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a});
 
--- | The name of the Lambda function.
---
--- You can specify a function name (for example, 'Thumbnail') or you can specify Amazon Resource Name (ARN) of the function (for example, 'arn:aws:lambda:us-west-2:account-id:function:ThumbNail'). AWS Lambda also allows you to specify a partial ARN (for example, 'account-id:Thumbnail'). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The name of the Lambda function. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
 ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a});
 

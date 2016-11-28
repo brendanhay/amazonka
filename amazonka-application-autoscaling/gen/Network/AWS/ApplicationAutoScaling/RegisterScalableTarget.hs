@@ -20,7 +20,9 @@
 --
 -- Registers or updates a scalable target. A scalable target is a resource that can be scaled out or in with Application Auto Scaling. After you have registered a scalable target, you can use this operation to update the minimum and maximum values for your scalable dimension.
 --
--- After you register a scalable target with Application Auto Scaling, you can create and apply scaling policies to it with < PutScalingPolicy>. You can view the existing scaling policies for a service namespace with < DescribeScalableTargets>. If you are no longer using a scalable target, you can deregister it with < DeregisterScalableTarget>.
+--
+-- After you register a scalable target with Application Auto Scaling, you can create and apply scaling policies to it with 'PutScalingPolicy' . You can view the existing scaling policies for a service namespace with 'DescribeScalableTargets' . If you are no longer using a scalable target, you can deregister it with 'DeregisterScalableTarget' .
+--
 module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     (
     -- * Creating a Request
@@ -62,17 +64,17 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rstMaxCapacity'
+-- * 'rstMaxCapacity' - The maximum value for this scalable target to scale out to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 --
--- * 'rstMinCapacity'
+-- * 'rstMinCapacity' - The minimum value for this scalable target to scale in to in response to scaling activities. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 --
--- * 'rstRoleARN'
+-- * 'rstRoleARN' - The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf. This parameter is required if you are registering a new scalable target, and it is optional if you are updating an existing one.
 --
--- * 'rstServiceNamespace'
+-- * 'rstServiceNamespace' - The namespace for the AWS service that the scalable target is associated with. For Amazon ECS services, the namespace value is @ecs@ . For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 --
--- * 'rstResourceId'
+-- * 'rstResourceId' - The resource type and unique identifier string for the resource to associate with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
 --
--- * 'rstScalableDimension'
+-- * 'rstScalableDimension' - The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
 registerScalableTarget
     :: ServiceNamespace -- ^ 'rstServiceNamespace'
     -> Text -- ^ 'rstResourceId'
@@ -100,15 +102,15 @@ rstMinCapacity = lens _rstMinCapacity (\ s a -> s{_rstMinCapacity = a});
 rstRoleARN :: Lens' RegisterScalableTarget (Maybe Text)
 rstRoleARN = lens _rstRoleARN (\ s a -> s{_rstRoleARN = a});
 
--- | The namespace for the AWS service that the scalable target is associated with. For Amazon ECS services, the namespace value is 'ecs'. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace for the AWS service that the scalable target is associated with. For Amazon ECS services, the namespace value is @ecs@ . For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 rstServiceNamespace :: Lens' RegisterScalableTarget ServiceNamespace
 rstServiceNamespace = lens _rstServiceNamespace (\ s a -> s{_rstServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource to associate with the scalable target. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'.
+-- | The resource type and unique identifier string for the resource to associate with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
 rstResourceId :: Lens' RegisterScalableTarget Text
 rstResourceId = lens _rstResourceId (\ s a -> s{_rstResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
 rstScalableDimension :: Lens' RegisterScalableTarget ScalableDimension
 rstScalableDimension = lens _rstScalableDimension (\ s a -> s{_rstScalableDimension = a});
 
@@ -162,7 +164,7 @@ newtype RegisterScalableTargetResponse = RegisterScalableTargetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rstrsResponseStatus'
+-- * 'rstrsResponseStatus' - -- | The response status code.
 registerScalableTargetResponse
     :: Int -- ^ 'rstrsResponseStatus'
     -> RegisterScalableTargetResponse
@@ -171,7 +173,7 @@ registerScalableTargetResponse pResponseStatus_ =
     { _rstrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rstrsResponseStatus :: Lens' RegisterScalableTargetResponse Int
 rstrsResponseStatus = lens _rstrsResponseStatus (\ s a -> s{_rstrsResponseStatus = a});
 

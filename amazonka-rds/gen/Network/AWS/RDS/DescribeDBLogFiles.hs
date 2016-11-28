@@ -20,6 +20,8 @@
 --
 -- Returns a list of DB log files for the DB instance.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBLogFiles
     (
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
     { _ddlfFilenameContains     :: !(Maybe Text)
@@ -69,19 +73,19 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddlfFilenameContains'
+-- * 'ddlfFilenameContains' - Filters the available log files for log file names that contain the specified string.
 --
--- * 'ddlfFilters'
+-- * 'ddlfFilters' - This parameter is not currently supported.
 --
--- * 'ddlfFileSize'
+-- * 'ddlfFileSize' - Filters the available log files for files larger than the specified size.
 --
--- * 'ddlfFileLastWritten'
+-- * 'ddlfFileLastWritten' - Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
 --
--- * 'ddlfMarker'
+-- * 'ddlfMarker' - The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 --
--- * 'ddlfMaxRecords'
+-- * 'ddlfMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'ddlfDBInstanceIdentifier'
+-- * 'ddlfDBInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 describeDBLogFiles
     :: Text -- ^ 'ddlfDBInstanceIdentifier'
     -> DescribeDBLogFiles
@@ -120,16 +124,7 @@ ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
 ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
 
--- | The customer-assigned name of the DB instance that contains the log files you want to list.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
 ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
 
@@ -177,7 +172,9 @@ instance ToQuery DescribeDBLogFiles where
                "MaxRecords" =: _ddlfMaxRecords,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
--- | The response from a call to < DescribeDBLogFiles>.
+-- | The response from a call to 'DescribeDBLogFiles' .
+--
+--
 --
 -- /See:/ 'describeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
@@ -190,11 +187,11 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddlfrsDescribeDBLogFiles'
+-- * 'ddlfrsDescribeDBLogFiles' - The DB log files returned.
 --
--- * 'ddlfrsMarker'
+-- * 'ddlfrsMarker' - A pagination token that can be used in a subsequent DescribeDBLogFiles request.
 --
--- * 'ddlfrsResponseStatus'
+-- * 'ddlfrsResponseStatus' - -- | The response status code.
 describeDBLogFilesResponse
     :: Int -- ^ 'ddlfrsResponseStatus'
     -> DescribeDBLogFilesResponse
@@ -213,7 +210,7 @@ ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDes
 ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
 ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});
 

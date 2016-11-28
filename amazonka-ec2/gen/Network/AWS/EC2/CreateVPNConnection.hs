@@ -18,17 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is 'ipsec.1'.
+-- Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is @ipsec.1@ .
+--
 --
 -- The response includes information that you need to give to your network administrator to configure your customer gateway.
 --
--- We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.
+-- /Important:/ We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.
 --
 -- If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.
 --
--- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
+-- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
 --
--- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about VPN connections, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateVPNConnection
     (
     -- * Creating a Request
@@ -58,6 +60,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateVpnConnection.
 --
+--
+--
 -- /See:/ 'createVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
     { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
@@ -71,15 +75,15 @@ data CreateVPNConnection = CreateVPNConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvcOptions'
+-- * 'cvcOptions' - Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
 --
--- * 'cvcDryRun'
+-- * 'cvcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cvcType'
+-- * 'cvcType' - The type of VPN connection (@ipsec.1@ ).
 --
--- * 'cvcCustomerGatewayId'
+-- * 'cvcCustomerGatewayId' - The ID of the customer gateway.
 --
--- * 'cvcVPNGatewayId'
+-- * 'cvcVPNGatewayId' - The ID of the virtual private gateway.
 createVPNConnection
     :: Text -- ^ 'cvcType'
     -> Text -- ^ 'cvcCustomerGatewayId'
@@ -94,17 +98,15 @@ createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
     , _cvcVPNGatewayId = pVPNGatewayId_
     }
 
--- | Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify 'true'.
---
--- Default: 'false'
+-- | Indicates whether the VPN connection requires static routes. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Default: @false@
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
 
--- | The type of VPN connection ('ipsec.1').
+-- | The type of VPN connection (@ipsec.1@ ).
 cvcType :: Lens' CreateVPNConnection Text
 cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
 
@@ -148,6 +150,8 @@ instance ToQuery CreateVPNConnection where
 
 -- | Contains the output of CreateVpnConnection.
 --
+--
+--
 -- /See:/ 'createVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrsVPNConnection  :: !(Maybe VPNConnection)
@@ -158,9 +162,9 @@ data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvcrsVPNConnection'
+-- * 'cvcrsVPNConnection' - Information about the VPN connection.
 --
--- * 'cvcrsResponseStatus'
+-- * 'cvcrsResponseStatus' - -- | The response status code.
 createVPNConnectionResponse
     :: Int -- ^ 'cvcrsResponseStatus'
     -> CreateVPNConnectionResponse
@@ -174,7 +178,7 @@ createVPNConnectionResponse pResponseStatus_ =
 cvcrsVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cvcrsResponseStatus :: Lens' CreateVPNConnectionResponse Int
 cvcrsResponseStatus = lens _cvcrsResponseStatus (\ s a -> s{_cvcrsResponseStatus = a});
 

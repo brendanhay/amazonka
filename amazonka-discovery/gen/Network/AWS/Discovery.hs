@@ -13,15 +13,16 @@
 --
 -- The AWS Application Discovery Service helps Systems Integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profile.
 --
+--
 -- Planning data center migrations can involve thousands of workloads that are often deeply interdependent. Application discovery and dependency mapping are important early first steps in the migration process, but difficult to perform at scale due to the lack of automated tools.
 --
 -- The AWS Application Discovery Service automatically collects configuration and usage data from servers to develop a list of applications, how they perform, and how they are interdependent. This information is securely retained in an AWS Application Discovery Service database which you can export as a CSV file into your preferred visualization tool or cloud migration solution to help reduce the complexity and time in planning your cloud migration.
 --
--- The Application Discovery Service is currently available for preview. Only customers who are engaged with <https://aws.amazon.com/professional-services/ AWS Professional Services> or a certified AWS partner can use the service. To see the list of certified partners and request access to the Application Discovery Service, complete the following <http://aws.amazon.com/application-discovery/preview/ preview form>.
+-- The Application Discovery Service is currently available for preview. Only customers who are engaged with <https://aws.amazon.com/professional-services/ AWS Professional Services> or a certified AWS partner can use the service. To see the list of certified partners and request access to the Application Discovery Service, complete the following <http://aws.amazon.com/application-discovery/preview/ preview form> .
 --
--- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you\'re using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs>.
+-- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
 --
--- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html AWS Discovery Service User Guide>.
+-- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html /AWS Discovery Service User Guide/ > .
 --
 -- The following are short descriptions of each API action, organized by function.
 --
@@ -29,37 +30,41 @@
 --
 -- An AWS agent is software that you install on on-premises servers and virtual machines that are targeted for discovery and migration. Agents run on Linux and Windows Server and collect server configuration and activity information about your applications and infrastructure. Specifically, agents collect the following information and send it to the Application Discovery Service using Secure Sockets Layer (SSL) encryption:
 --
--- -   User information (user name, home directory)
+--     * User information (user name, home directory)
 --
--- -   Group information (name)
+--     * Group information (name)
 --
--- -   List of installed packages
+--     * List of installed packages
 --
--- -   List of kernel modules
+--     * List of kernel modules
 --
--- -   All create and stop process events
+--     * All create and stop process events
 --
--- -   DNS queries
+--     * DNS queries
 --
--- -   NIC information
+--     * NIC information
 --
--- -   TCP\/UDP process listening ports
+--     * TCP/UDP process listening ports
 --
--- -   TCPV4\/V6 connections
+--     * TCPV4/V6 connections
 --
--- -   Operating system information
+--     * Operating system information
 --
--- -   System performance
+--     * System performance
 --
--- -   Process performance
+--     * Process performance
+--
+--
 --
 -- The Application Discovery Service API includes the following actions to manage AWS agents:
 --
--- -   /StartDataCollectionByAgentIds/: Instructs the specified agents to start collecting data. The Application Discovery Service takes several minutes to receive and process data after you initiate data collection.
+--     * /StartDataCollectionByAgentIds/ : Instructs the specified agents to start collecting data. The Application Discovery Service takes several minutes to receive and process data after you initiate data collection.
 --
--- -   /StopDataCollectionByAgentIds/: Instructs the specified agents to stop collecting data.
+--     * /StopDataCollectionByAgentIds/ : Instructs the specified agents to stop collecting data.
 --
--- -   /DescribeAgents/: Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
+--     * /DescribeAgents/ : Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
+--
+--
 --
 -- __Querying Configuration Items__
 --
@@ -67,95 +72,107 @@
 --
 -- __Server__
 --
--- -   server.HostName
+--     * server.HostName
 --
--- -   server.osName
+--     * server.osName
 --
--- -   server.osVersion
+--     * server.osVersion
 --
--- -   server.configurationId
+--     * server.configurationId
 --
--- -   server.agentId
+--     * server.agentId
+--
+--
 --
 -- __Process__
 --
--- -   process.name
+--     * process.name
 --
--- -   process.CommandLine
+--     * process.CommandLine
 --
--- -   process.configurationId
+--     * process.configurationId
 --
--- -   server.hostName
+--     * server.hostName
 --
--- -   server.osName
+--     * server.osName
 --
--- -   server.osVersion
+--     * server.osVersion
 --
--- -   server.configurationId
+--     * server.configurationId
 --
--- -   server.agentId
+--     * server.agentId
+--
+--
 --
 -- __Connection__
 --
--- -   connection.sourceIp
+--     * connection.sourceIp
 --
--- -   connection.sourcePort
+--     * connection.sourcePort
 --
--- -   connection.destinationIp
+--     * connection.destinationIp
 --
--- -   connection.destinationPort
+--     * connection.destinationPort
 --
--- -   sourceProcess.configurationId
+--     * sourceProcess.configurationId
 --
--- -   sourceProcess.commandLine
+--     * sourceProcess.commandLine
 --
--- -   sourceProcess.name
+--     * sourceProcess.name
 --
--- -   destinationProcessId.configurationId
+--     * destinationProcessId.configurationId
 --
--- -   destinationProcess.commandLine
+--     * destinationProcess.commandLine
 --
--- -   destinationProcess.name
+--     * destinationProcess.name
 --
--- -   sourceServer.configurationId
+--     * sourceServer.configurationId
 --
--- -   sourceServer.hostName
+--     * sourceServer.hostName
 --
--- -   sourceServer.osName
+--     * sourceServer.osName
 --
--- -   sourceServer.osVersion
+--     * sourceServer.osVersion
 --
--- -   destinationServer.configurationId
+--     * destinationServer.configurationId
 --
--- -   destinationServer.hostName
+--     * destinationServer.hostName
 --
--- -   destinationServer.osName
+--     * destinationServer.osName
 --
--- -   destinationServer.osVersion
+--     * destinationServer.osVersion
+--
+--
 --
 -- The Application Discovery Service includes the following actions for querying configuration items.
 --
--- -   /DescribeConfigurations/: Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
+--     * /DescribeConfigurations/ : Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
 --
--- -   /ListConfigurations/: Retrieves a list of configuration items according to the criteria you specify in a filter. The filter criteria identify relationship requirements. For example, you can specify filter criteria of process.name with values of /nginx/ and /apache/.
+--     * /ListConfigurations/ : Retrieves a list of configuration items according to the criteria you specify in a filter. The filter criteria identify relationship requirements. For example, you can specify filter criteria of process.name with values of /nginx/ and /apache/ .
+--
+--
 --
 -- __Tagging Discovered Configuration Items__
 --
--- You can tag discovered configuration items. Tags are metadata that help you categorize IT assets in your data center. Tags use a /key/-/value/ format. For example, '{\"key\": \"serverType\", \"value\": \"webServer\"}'.
+-- You can tag discovered configuration items. Tags are metadata that help you categorize IT assets in your data center. Tags use a /key/ -/value/ format. For example, @{"key": "serverType", "value": "webServer"}@ .
 --
--- -   /CreateTags/: Creates one or more tags for a configuration items.
+--     * /CreateTags/ : Creates one or more tags for a configuration items.
 --
--- -   /DescribeTags/: Retrieves a list of configuration items that are tagged with a specific tag. /Or/, retrieves a list of all tags assigned to a specific configuration item.
+--     * /DescribeTags/ : Retrieves a list of configuration items that are tagged with a specific tag. /Or/ , retrieves a list of all tags assigned to a specific configuration item.
 --
--- -   /DeleteTags/: Deletes the association between a configuration item and one or more tags.
+--     * /DeleteTags/ : Deletes the association between a configuration item and one or more tags.
+--
+--
 --
 -- __Exporting Data__
 --
 -- You can export data as a CSV file to an Amazon S3 bucket or into your preferred visualization tool or cloud migration solution to help reduce the complexity and time in planning your cloud migration.
 --
--- -   /ExportConfigurations/: Exports all discovered configuration data to an Amazon S3 bucket. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the GetExportStatus API.
+--     * /ExportConfigurations/ : Exports all discovered configuration data to an Amazon S3 bucket. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the GetExportStatus API.
 --
--- -   /DescribeExportConfigurations/: Gets the status of the data export. When the export is complete, the service returns an Amazon S3 URL where you can download CSV files that include the data.
+--     * /DescribeExportConfigurations/ : Gets the status of the data export. When the export is complete, the service returns an Amazon S3 URL where you can download CSV files that include the data.
+--
+--
 --
 module Network.AWS.Discovery
     (

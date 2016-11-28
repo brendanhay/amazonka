@@ -20,11 +20,13 @@
 --
 -- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name already exists, Amazon EC2 returns an error.
 --
+--
 -- You can have up to five thousand key pairs per region.
 --
--- The key pair returned to you is available only in the region in which you create it. To create a key pair that is available in all regions, use < ImportKeyPair>.
+-- The key pair returned to you is available only in the region in which you create it. To create a key pair that is available in all regions, use 'ImportKeyPair' .
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateKeyPair.
 --
+--
+--
 -- /See:/ 'createKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
     { _ckpDryRun  :: !(Maybe Bool)
@@ -63,9 +67,9 @@ data CreateKeyPair = CreateKeyPair'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckpDryRun'
+-- * 'ckpDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ckpKeyName'
+-- * 'ckpKeyName' - A unique name for the key pair. Constraints: Up to 255 ASCII characters
 createKeyPair
     :: Text -- ^ 'ckpKeyName'
     -> CreateKeyPair
@@ -75,13 +79,11 @@ createKeyPair pKeyName_ =
     , _ckpKeyName = pKeyName_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
 ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
 
--- | A unique name for the key pair.
---
--- Constraints: Up to 255 ASCII characters
+-- | A unique name for the key pair. Constraints: Up to 255 ASCII characters
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
 
@@ -115,6 +117,8 @@ instance ToQuery CreateKeyPair where
 
 -- | Describes a key pair.
 --
+--
+--
 -- /See:/ 'createKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
     { _ckprsResponseStatus :: !Int
@@ -127,13 +131,13 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckprsResponseStatus'
+-- * 'ckprsResponseStatus' - -- | The response status code.
 --
--- * 'ckprsKeyName'
+-- * 'ckprsKeyName' - The name of the key pair.
 --
--- * 'ckprsKeyFingerprint'
+-- * 'ckprsKeyFingerprint' - The SHA-1 digest of the DER encoded private key.
 --
--- * 'ckprsKeyMaterial'
+-- * 'ckprsKeyMaterial' - An unencrypted PEM encoded RSA private key.
 createKeyPairResponse
     :: Int -- ^ 'ckprsResponseStatus'
     -> Text -- ^ 'ckprsKeyName'
@@ -148,7 +152,7 @@ createKeyPairResponse pResponseStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ 
     , _ckprsKeyMaterial = pKeyMaterial_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
 ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
 

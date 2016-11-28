@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a summary of all of the pipelines associated with your account.
+--
+--
 module Network.AWS.CodePipeline.ListPipelines
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list pipelines action.
 --
+--
+--
 -- /See:/ 'listPipelines' smart constructor.
 newtype ListPipelines = ListPipelines'
     { _lpNextToken :: Maybe Text
@@ -54,7 +58,7 @@ newtype ListPipelines = ListPipelines'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpNextToken'
+-- * 'lpNextToken' - An identifier that was returned from the previous list pipelines call, which can be used to return the next set of pipelines in the list.
 listPipelines
     :: ListPipelines
 listPipelines =
@@ -104,6 +108,8 @@ instance ToQuery ListPipelines where
 
 -- | Represents the output of a list pipelines action.
 --
+--
+--
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsPipelines      :: !(Maybe [PipelineSummary])
@@ -115,11 +121,11 @@ data ListPipelinesResponse = ListPipelinesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsPipelines'
+-- * 'lprsPipelines' - The list of pipelines.
 --
--- * 'lprsNextToken'
+-- * 'lprsNextToken' - If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list pipelines call to return the next set of pipelines in the list.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPipelinesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
@@ -138,7 +144,7 @@ lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default 
 lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

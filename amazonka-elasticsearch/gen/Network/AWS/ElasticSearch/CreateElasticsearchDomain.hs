@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Elasticsearch domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/.
+-- Creates a new Elasticsearch domain. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
+--
+--
 module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     (
     -- * Creating a Request
@@ -63,19 +65,19 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cedEBSOptions'
+-- * 'cedEBSOptions' - Options to enable, disable and specify the type and size of EBS storage volumes.
 --
--- * 'cedAccessPolicies'
+-- * 'cedAccessPolicies' - IAM access policy as a JSON-formatted string.
 --
--- * 'cedElasticsearchClusterConfig'
+-- * 'cedElasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
 --
--- * 'cedSnapshotOptions'
+-- * 'cedSnapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
 --
--- * 'cedAdvancedOptions'
+-- * 'cedAdvancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 --
--- * 'cedElasticsearchVersion'
+-- * 'cedElasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
 --
--- * 'cedDomainName'
+-- * 'cedDomainName' - The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
 createElasticsearchDomain
     :: Text -- ^ 'cedDomainName'
     -> CreateElasticsearchDomain
@@ -106,11 +108,11 @@ cedElasticsearchClusterConfig = lens _cedElasticsearchClusterConfig (\ s a -> s{
 cedSnapshotOptions :: Lens' CreateElasticsearchDomain (Maybe SnapshotOptions)
 cedSnapshotOptions = lens _cedSnapshotOptions (\ s a -> s{_cedSnapshotOptions = a});
 
--- | Option to allow references to indices in an HTTP request body. Must be 'false' when configuring access to individual sub-resources. By default, the value is 'true'. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- | Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
 cedAdvancedOptions :: Lens' CreateElasticsearchDomain (HashMap Text Text)
 cedAdvancedOptions = lens _cedAdvancedOptions (\ s a -> s{_cedAdvancedOptions = a}) . _Default . _Map;
 
--- | String of format X.Y to specify version for the Elasticsearch domain eg. \"1.5\" or \"2.3\". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/.
+-- | String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
 cedElasticsearchVersion :: Lens' CreateElasticsearchDomain (Maybe Text)
 cedElasticsearchVersion = lens _cedElasticsearchVersion (\ s a -> s{_cedElasticsearchVersion = a});
 
@@ -155,7 +157,9 @@ instance ToPath CreateElasticsearchDomain where
 instance ToQuery CreateElasticsearchDomain where
         toQuery = const mempty
 
--- | The result of a 'CreateElasticsearchDomain' operation. Contains the status of the newly created Elasticsearch domain.
+-- | The result of a @CreateElasticsearchDomain@ operation. Contains the status of the newly created Elasticsearch domain.
+--
+--
 --
 -- /See:/ 'createElasticsearchDomainResponse' smart constructor.
 data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
@@ -167,9 +171,9 @@ data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cedrsDomainStatus'
+-- * 'cedrsDomainStatus' - The status of the newly created Elasticsearch domain.
 --
--- * 'cedrsResponseStatus'
+-- * 'cedrsResponseStatus' - -- | The response status code.
 createElasticsearchDomainResponse
     :: Int -- ^ 'cedrsResponseStatus'
     -> CreateElasticsearchDomainResponse
@@ -183,7 +187,7 @@ createElasticsearchDomainResponse pResponseStatus_ =
 cedrsDomainStatus :: Lens' CreateElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
 cedrsDomainStatus = lens _cedrsDomainStatus (\ s a -> s{_cedrsDomainStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cedrsResponseStatus :: Lens' CreateElasticsearchDomainResponse Int
 cedrsResponseStatus = lens _cedrsResponseStatus (\ s a -> s{_cedrsResponseStatus = a});
 

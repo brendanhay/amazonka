@@ -20,9 +20,12 @@
 --
 -- Returns the current status of a change batch request. The status is one of the following values:
 --
--- -   'PENDING' indicates that the changes in this request have not replicated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
 --
--- -   'INSYNC' indicates that the changes have replicated to all Amazon Route 53 DNS servers.
+--     * @PENDING@ indicates that the changes in this request have not replicated to all Amazon Route 53 DNS servers. This is the initial status of all change batch requests.
+--
+--     * @INSYNC@ indicates that the changes have replicated to all Amazon Route 53 DNS servers.
+--
+--
 --
 module Network.AWS.Route53.GetChange
     (
@@ -49,6 +52,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | The input for a GetChange request.
 --
+--
+--
 -- /See:/ 'getChange' smart constructor.
 newtype GetChange = GetChange'
     { _gcId :: Text
@@ -58,7 +63,7 @@ newtype GetChange = GetChange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcId'
+-- * 'gcId' - The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the Id element when you submitted the request.
 getChange
     :: Text -- ^ 'gcId'
     -> GetChange
@@ -67,7 +72,7 @@ getChange pId_ =
     { _gcId = pId_
     }
 
--- | The ID of the change batch request. The value that you specify here is the value that 'ChangeResourceRecordSets' returned in the Id element when you submitted the request.
+-- | The ID of the change batch request. The value that you specify here is the value that @ChangeResourceRecordSets@ returned in the Id element when you submitted the request.
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
@@ -94,7 +99,9 @@ instance ToPath GetChange where
 instance ToQuery GetChange where
         toQuery = const mempty
 
--- | A complex type that contains the 'ChangeInfo' element.
+-- | A complex type that contains the @ChangeInfo@ element.
+--
+--
 --
 -- /See:/ 'getChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
@@ -106,9 +113,9 @@ data GetChangeResponse = GetChangeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsResponseStatus'
+-- * 'gcrsResponseStatus' - -- | The response status code.
 --
--- * 'gcrsChangeInfo'
+-- * 'gcrsChangeInfo' - A complex type that contains information about the specified change batch.
 getChangeResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> ChangeInfo -- ^ 'gcrsChangeInfo'
@@ -119,7 +126,7 @@ getChangeResponse pResponseStatus_ pChangeInfo_ =
     , _gcrsChangeInfo = pChangeInfo_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetChangeResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 

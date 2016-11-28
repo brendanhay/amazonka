@@ -20,9 +20,9 @@
 --
 -- Requests a description of one or more layers in a specified stack.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeLayers
     (
     -- * Creating a Request
@@ -57,9 +57,9 @@ data DescribeLayers = DescribeLayers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlLayerIds'
+-- * 'dlLayerIds' - An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
 --
--- * 'dlStackId'
+-- * 'dlStackId' - The stack ID.
 describeLayers
     :: DescribeLayers
 describeLayers =
@@ -68,7 +68,7 @@ describeLayers =
     , _dlStackId = Nothing
     }
 
--- | An array of layer IDs that specify the layers to be described. If you omit this parameter, 'DescribeLayers' returns a description of every layer in the specified stack.
+-- | An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
 dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce;
 
@@ -111,7 +111,9 @@ instance ToPath DescribeLayers where
 instance ToQuery DescribeLayers where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeLayers' request.
+-- | Contains the response to a @DescribeLayers@ request.
+--
+--
 --
 -- /See:/ 'describeLayersResponse' smart constructor.
 data DescribeLayersResponse = DescribeLayersResponse'
@@ -123,9 +125,9 @@ data DescribeLayersResponse = DescribeLayersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsLayers'
+-- * 'dlrsLayers' - An array of @Layer@ objects that describe the layers.
 --
--- * 'dlrsResponseStatus'
+-- * 'dlrsResponseStatus' - -- | The response status code.
 describeLayersResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLayersResponse
@@ -135,11 +137,11 @@ describeLayersResponse pResponseStatus_ =
     , _dlrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'Layer' objects that describe the layers.
+-- | An array of @Layer@ objects that describe the layers.
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
 dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLayersResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 

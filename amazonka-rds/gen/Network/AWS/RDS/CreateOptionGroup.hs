@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new option group. You can create up to 20 option groups.
+--
+--
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createOptionGroup' smart constructor.
 data CreateOptionGroup = CreateOptionGroup'
     { _cogTags                   :: !(Maybe [Tag])
@@ -61,15 +65,15 @@ data CreateOptionGroup = CreateOptionGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cogTags'
+-- * 'cogTags' - Undocumented member.
 --
--- * 'cogOptionGroupName'
+-- * 'cogOptionGroupName' - Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
 --
--- * 'cogEngineName'
+-- * 'cogEngineName' - Specifies the name of the engine that this option group should be associated with.
 --
--- * 'cogMajorEngineVersion'
+-- * 'cogMajorEngineVersion' - Specifies the major version of the engine that this option group should be associated with.
 --
--- * 'cogOptionGroupDescription'
+-- * 'cogOptionGroupDescription' - The description of the option group.
 createOptionGroup
     :: Text -- ^ 'cogOptionGroupName'
     -> Text -- ^ 'cogEngineName'
@@ -89,17 +93,7 @@ createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGro
 cogTags :: Lens' CreateOptionGroup [Tag]
 cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce;
 
--- | Specifies the name of the option group to be created.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'myoptiongroup'
+-- | Specifies the name of the option group to be created. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @myoptiongroup@
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a});
 
@@ -156,9 +150,9 @@ data CreateOptionGroupResponse = CreateOptionGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsOptionGroup'
+-- * 'crsOptionGroup' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createOptionGroupResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateOptionGroupResponse
@@ -172,7 +166,7 @@ createOptionGroupResponse pResponseStatus_ =
 crsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreateOptionGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

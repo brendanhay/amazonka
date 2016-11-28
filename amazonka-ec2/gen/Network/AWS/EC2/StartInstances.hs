@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an Amazon EBS-backed AMI that you\'ve previously stopped.
+-- Starts an Amazon EBS-backed AMI that you've previously stopped.
+--
 --
 -- Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for hourly instance usage. However, your root partition Amazon EBS volume remains, continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Each time you transition an instance from stopped to started, Amazon EC2 charges a full instance hour, even if transitions happen multiple times within a single hour.
 --
@@ -26,7 +27,8 @@
 --
 -- Performing this operation on an instance that uses an instance store as its root device returns an error.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.StartInstances
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for StartInstances.
 --
+--
+--
 -- /See:/ 'startInstances' smart constructor.
 data StartInstances = StartInstances'
     { _sAdditionalInfo :: !(Maybe Text)
@@ -65,11 +69,11 @@ data StartInstances = StartInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAdditionalInfo'
+-- * 'sAdditionalInfo' - Reserved.
 --
--- * 'sDryRun'
+-- * 'sDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'sInstanceIds'
+-- * 'sInstanceIds' - One or more instance IDs.
 startInstances
     :: StartInstances
 startInstances =
@@ -83,7 +87,7 @@ startInstances =
 sAdditionalInfo :: Lens' StartInstances (Maybe Text)
 sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 sDryRun :: Lens' StartInstances (Maybe Bool)
 sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
 
@@ -123,6 +127,8 @@ instance ToQuery StartInstances where
 
 -- | Contains the output of StartInstances.
 --
+--
+--
 -- /See:/ 'startInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
@@ -133,9 +139,9 @@ data StartInstancesResponse = StartInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsStartingInstances'
+-- * 'srsStartingInstances' - Information about one or more started instances.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 startInstancesResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartInstancesResponse
@@ -149,7 +155,7 @@ startInstancesResponse pResponseStatus_ =
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StartInstancesResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

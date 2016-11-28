@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the assessment runs that are specified by the ARNs of the assessment runs.
+--
+--
 module Network.AWS.Inspector.DescribeAssessmentRuns
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeAssessmentRuns = DescribeAssessmentRuns'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darAssessmentRunARNs'
+-- * 'darAssessmentRunARNs' - The ARN that specifies the assessment run that you want to describe.
 describeAssessmentRuns
     :: NonEmpty Text -- ^ 'darAssessmentRunARNs'
     -> DescribeAssessmentRuns
@@ -115,11 +117,11 @@ data DescribeAssessmentRunsResponse = DescribeAssessmentRunsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darrsResponseStatus'
+-- * 'darrsResponseStatus' - -- | The response status code.
 --
--- * 'darrsAssessmentRuns'
+-- * 'darrsAssessmentRuns' - Information about the assessment run.
 --
--- * 'darrsFailedItems'
+-- * 'darrsFailedItems' - Assessment run details that cannot be described. An error code is provided for each failed item.
 describeAssessmentRunsResponse
     :: Int -- ^ 'darrsResponseStatus'
     -> DescribeAssessmentRunsResponse
@@ -130,7 +132,7 @@ describeAssessmentRunsResponse pResponseStatus_ =
     , _darrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 darrsResponseStatus :: Lens' DescribeAssessmentRunsResponse Int
 darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus = a});
 

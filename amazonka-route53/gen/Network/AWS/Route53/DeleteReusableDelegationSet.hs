@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a reusable delegation set. Send a 'DELETE' request to the '\/2013-04-01\/delegationset\/delegation set ID ' resource.
+-- Deletes a reusable delegation set. Send a @DELETE@ request to the @/2013-04-01/delegationset//delegation set ID/ @ resource.
 --
--- You can delete a reusable delegation set only if there are no associated hosted zones.
 --
--- To verify that the reusable delegation set is not associated with any hosted zones, run the < GetReusableDelegationSet> action and specify the ID of the reusable delegation set that you want to delete.
+-- /Important:/ You can delete a reusable delegation set only if there are no associated hosted zones.
+--
+-- To verify that the reusable delegation set is not associated with any hosted zones, run the 'GetReusableDelegationSet' action and specify the ID of the reusable delegation set that you want to delete.
+--
 module Network.AWS.Route53.DeleteReusableDelegationSet
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type containing the information for the delete request.
 --
+--
+--
 -- /See:/ 'deleteReusableDelegationSet' smart constructor.
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
     { _drdsId :: Text
@@ -56,7 +60,7 @@ newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsId'
+-- * 'drdsId' - The ID of the reusable delegation set you want to delete.
 deleteReusableDelegationSet
     :: Text -- ^ 'drdsId'
     -> DeleteReusableDelegationSet
@@ -96,6 +100,8 @@ instance ToQuery DeleteReusableDelegationSet where
 
 -- | An empty element.
 --
+--
+--
 -- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
     { _drdsrsResponseStatus :: Int
@@ -105,7 +111,7 @@ newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetRespons
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drdsrsResponseStatus'
+-- * 'drdsrsResponseStatus' - -- | The response status code.
 deleteReusableDelegationSetResponse
     :: Int -- ^ 'drdsrsResponseStatus'
     -> DeleteReusableDelegationSetResponse
@@ -114,7 +120,7 @@ deleteReusableDelegationSetResponse pResponseStatus_ =
     { _drdsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drdsrsResponseStatus :: Lens' DeleteReusableDelegationSetResponse Int
 drdsrsResponseStatus = lens _drdsrsResponseStatus (\ s a -> s{_drdsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes all tags from the specified resource.
+--
+--
 module Network.AWS.SSM.RemoveTagsFromResource
     (
     -- * Creating a Request
@@ -54,11 +56,11 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceType'
+-- * 'rtfrResourceType' - The type of resource of which you want to remove a tag.
 --
--- * 'rtfrResourceId'
+-- * 'rtfrResourceId' - The resource ID for which you want to remove tags.
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrTagKeys' - Tag keys that you want to remove from the specified resource.
 removeTagsFromResource
     :: ResourceTypeForTagging -- ^ 'rtfrResourceType'
     -> Text -- ^ 'rtfrResourceId'
@@ -128,7 +130,7 @@ newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrrsResponseStatus'
+-- * 'rtfrrsResponseStatus' - -- | The response status code.
 removeTagsFromResourceResponse
     :: Int -- ^ 'rtfrrsResponseStatus'
     -> RemoveTagsFromResourceResponse
@@ -137,7 +139,7 @@ removeTagsFromResourceResponse pResponseStatus_ =
     { _rtfrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
 rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
 

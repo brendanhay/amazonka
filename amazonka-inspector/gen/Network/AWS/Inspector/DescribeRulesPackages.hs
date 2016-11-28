@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the rules packages that are specified by the ARNs of the rules packages.
+--
+--
 module Network.AWS.Inspector.DescribeRulesPackages
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DescribeRulesPackages = DescribeRulesPackages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpLocale'
+-- * 'drpLocale' - The locale that you want to translate a rules package description into.
 --
--- * 'drpRulesPackageARNs'
+-- * 'drpRulesPackageARNs' - The ARN that specifies the rules package that you want to describe.
 describeRulesPackages
     :: NonEmpty Text -- ^ 'drpRulesPackageARNs'
     -> DescribeRulesPackages
@@ -124,11 +126,11 @@ data DescribeRulesPackagesResponse = DescribeRulesPackagesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drprsResponseStatus'
+-- * 'drprsResponseStatus' - -- | The response status code.
 --
--- * 'drprsRulesPackages'
+-- * 'drprsRulesPackages' - Information about the rules package.
 --
--- * 'drprsFailedItems'
+-- * 'drprsFailedItems' - Rules package details that cannot be described. An error code is provided for each failed item.
 describeRulesPackagesResponse
     :: Int -- ^ 'drprsResponseStatus'
     -> DescribeRulesPackagesResponse
@@ -139,7 +141,7 @@ describeRulesPackagesResponse pResponseStatus_ =
     , _drprsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drprsResponseStatus :: Lens' DescribeRulesPackagesResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the target groups for the specified Auto Scaling group.
+--
+--
 module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerTargetGroups.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
     { _dlbtgsNextToken            :: !(Maybe Text)
@@ -58,11 +62,11 @@ data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgsNextToken'
+-- * 'dlbtgsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbtgsMaxRecords'
+-- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call.
 --
--- * 'dlbtgsAutoScalingGroupName'
+-- * 'dlbtgsAutoScalingGroupName' - The name of the Auto Scaling group.
 describeLoadBalancerTargetGroups
     :: Text -- ^ 'dlbtgsAutoScalingGroupName'
     -> DescribeLoadBalancerTargetGroups
@@ -126,6 +130,8 @@ instance ToQuery DescribeLoadBalancerTargetGroups
 
 -- | Contains the output of DescribeLoadBalancerTargetGroups.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
     { _dlbtgsrsLoadBalancerTargetGroups :: !(Maybe [LoadBalancerTargetGroupState])
@@ -137,11 +143,11 @@ data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroups
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgsrsLoadBalancerTargetGroups'
+-- * 'dlbtgsrsLoadBalancerTargetGroups' - Information about the target groups.
 --
--- * 'dlbtgsrsNextToken'
+-- * 'dlbtgsrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dlbtgsrsResponseStatus'
+-- * 'dlbtgsrsResponseStatus' - -- | The response status code.
 describeLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'dlbtgsrsResponseStatus'
     -> DescribeLoadBalancerTargetGroupsResponse
@@ -160,7 +166,7 @@ dlbtgsrsLoadBalancerTargetGroups = lens _dlbtgsrsLoadBalancerTargetGroups (\ s a
 dlbtgsrsNextToken :: Lens' DescribeLoadBalancerTargetGroupsResponse (Maybe Text)
 dlbtgsrsNextToken = lens _dlbtgsrsNextToken (\ s a -> s{_dlbtgsrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlbtgsrsResponseStatus :: Lens' DescribeLoadBalancerTargetGroupsResponse Int
 dlbtgsrsResponseStatus = lens _dlbtgsrsResponseStatus (\ s a -> s{_dlbtgsrsResponseStatus = a});
 

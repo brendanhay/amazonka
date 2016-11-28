@@ -20,9 +20,9 @@
 --
 -- Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.
 --
--- You can call /DescribeStream/ at a maximum rate of 10 times per second.
 --
--- Each shard in the stream has a 'SequenceNumberRange' associated with it. If the 'SequenceNumberRange' has a 'StartingSequenceNumber' but no 'EndingSequenceNumber', then the shard is still open (able to receive more stream records). If both 'StartingSequenceNumber' and 'EndingSequenceNumber' are present, then that shard is closed and can no longer receive more data.
+-- Each shard in the stream has a @SequenceNumberRange@ associated with it. If the @SequenceNumberRange@ has a @StartingSequenceNumber@ but no @EndingSequenceNumber@ , then the shard is still open (able to receive more stream records). If both @StartingSequenceNumber@ and @EndingSequenceNumber@ are present, then that shard is closed and can no longer receive more data.
+--
 module Network.AWS.DynamoDBStreams.DescribeStream
     (
     -- * Creating a Request
@@ -50,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeStream/ operation.
 --
+--
+--
 -- /See:/ 'describeStream' smart constructor.
 data DescribeStream = DescribeStream'
     { _dsExclusiveStartShardId :: !(Maybe Text)
@@ -61,11 +63,11 @@ data DescribeStream = DescribeStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsExclusiveStartShardId'
+-- * 'dsExclusiveStartShardId' - The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 --
--- * 'dsLimit'
+-- * 'dsLimit' - The maximum number of shard objects to return. The upper limit is 100.
 --
--- * 'dsStreamARN'
+-- * 'dsStreamARN' - The Amazon Resource Name (ARN) for the stream.
 describeStream
     :: Text -- ^ 'dsStreamARN'
     -> DescribeStream
@@ -76,7 +78,7 @@ describeStream pStreamARN_ =
     , _dsStreamARN = pStreamARN_
     }
 
--- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for 'LastEvaluatedShardId' in the previous operation.
+-- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a});
 
@@ -128,6 +130,8 @@ instance ToQuery DescribeStream where
 
 -- | Represents the output of a /DescribeStream/ operation.
 --
+--
+--
 -- /See:/ 'describeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrsStreamDescription :: !(Maybe StreamDescription)
@@ -138,9 +142,9 @@ data DescribeStreamResponse = DescribeStreamResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsStreamDescription'
+-- * 'dsrsStreamDescription' - A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeStreamResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStreamResponse
@@ -154,7 +158,7 @@ describeStreamResponse pResponseStatus_ =
 dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

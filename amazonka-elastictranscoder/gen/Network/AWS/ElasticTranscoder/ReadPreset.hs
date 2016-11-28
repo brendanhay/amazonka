@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The ReadPreset operation gets detailed information about a preset.
+--
+--
 module Network.AWS.ElasticTranscoder.ReadPreset
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'ReadPresetRequest' structure.
+-- | The @ReadPresetRequest@ structure.
+--
+--
 --
 -- /See:/ 'readPreset' smart constructor.
 newtype ReadPreset = ReadPreset'
@@ -53,7 +57,7 @@ newtype ReadPreset = ReadPreset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpId'
+-- * 'rpId' - The identifier of the preset for which you want to get detailed information.
 readPreset
     :: Text -- ^ 'rpId'
     -> ReadPreset
@@ -89,7 +93,9 @@ instance ToPath ReadPreset where
 instance ToQuery ReadPreset where
         toQuery = const mempty
 
--- | The 'ReadPresetResponse' structure.
+-- | The @ReadPresetResponse@ structure.
+--
+--
 --
 -- /See:/ 'readPresetResponse' smart constructor.
 data ReadPresetResponse = ReadPresetResponse'
@@ -101,9 +107,9 @@ data ReadPresetResponse = ReadPresetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rprsPreset'
+-- * 'rprsPreset' - A section of the response body that provides information about the preset.
 --
--- * 'rprsResponseStatus'
+-- * 'rprsResponseStatus' - -- | The response status code.
 readPresetResponse
     :: Int -- ^ 'rprsResponseStatus'
     -> ReadPresetResponse
@@ -117,7 +123,7 @@ readPresetResponse pResponseStatus_ =
 rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rprsResponseStatus :: Lens' ReadPresetResponse Int
 rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a});
 

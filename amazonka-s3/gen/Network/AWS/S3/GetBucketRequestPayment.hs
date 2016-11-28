@@ -51,7 +51,7 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrpBucket'
+-- * 'gbrpBucket' - Undocumented member.
 getBucketRequestPayment
     :: BucketName -- ^ 'gbrpBucket'
     -> GetBucketRequestPayment
@@ -98,9 +98,9 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrprsPayer'
+-- * 'gbrprsPayer' - Specifies who pays for the download and request fees.
 --
--- * 'gbrprsResponseStatus'
+-- * 'gbrprsResponseStatus' - -- | The response status code.
 getBucketRequestPaymentResponse
     :: Int -- ^ 'gbrprsResponseStatus'
     -> GetBucketRequestPaymentResponse
@@ -114,7 +114,7 @@ getBucketRequestPaymentResponse pResponseStatus_ =
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
 gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});
 

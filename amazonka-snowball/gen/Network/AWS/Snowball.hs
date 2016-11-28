@@ -12,6 +12,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This is a test of the welcome page front matter.
+--
+--
 module Network.AWS.Snowball
     (
     -- * Service Configuration

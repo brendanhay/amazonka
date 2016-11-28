@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves your account\'s AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account.
+-- Retrieves your account's AWS CloudFormation limits, such as the maximum number of stacks that you can create in your account.
+--
+--
 module Network.AWS.CloudFormation.DescribeAccountLimits
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DescribeAccountLimits> action.
+-- | The input for the 'DescribeAccountLimits' action.
+--
+--
 --
 -- /See:/ 'describeAccountLimits' smart constructor.
 newtype DescribeAccountLimits = DescribeAccountLimits'
@@ -54,7 +58,7 @@ newtype DescribeAccountLimits = DescribeAccountLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dalNextToken'
+-- * 'dalNextToken' - A string that identifies the next page of limits that you want to retrieve.
 describeAccountLimits
     :: DescribeAccountLimits
 describeAccountLimits =
@@ -96,7 +100,9 @@ instance ToQuery DescribeAccountLimits where
                "Version" =: ("2010-05-15" :: ByteString),
                "NextToken" =: _dalNextToken]
 
--- | The output for the < DescribeAccountLimits> action.
+-- | The output for the 'DescribeAccountLimits' action.
+--
+--
 --
 -- /See:/ 'describeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
@@ -109,11 +115,11 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dalrsNextToken'
+-- * 'dalrsNextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of limits. If no additional page exists, this value is null.
 --
--- * 'dalrsAccountLimits'
+-- * 'dalrsAccountLimits' - An account limit structure that contain a list of AWS CloudFormation account limits and their values.
 --
--- * 'dalrsResponseStatus'
+-- * 'dalrsResponseStatus' - -- | The response status code.
 describeAccountLimitsResponse
     :: Int -- ^ 'dalrsResponseStatus'
     -> DescribeAccountLimitsResponse
@@ -132,7 +138,7 @@ dalrsNextToken = lens _dalrsNextToken (\ s a -> s{_dalrsNextToken = a});
 dalrsAccountLimits :: Lens' DescribeAccountLimitsResponse [AccountLimit]
 dalrsAccountLimits = lens _dalrsAccountLimits (\ s a -> s{_dalrsAccountLimits = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsResponseStatus = lens _dalrsResponseStatus (\ s a -> s{_dalrsResponseStatus = a});
 

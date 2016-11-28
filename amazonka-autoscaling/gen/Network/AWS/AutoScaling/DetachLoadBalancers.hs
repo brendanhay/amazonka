@@ -20,9 +20,11 @@
 --
 -- Detaches one or more Classic load balancers from the specified Auto Scaling group.
 --
--- Note that this operation detaches only Classic load balancers. If you have Application load balancers, use < DetachLoadBalancerTargetGroups> instead.
 --
--- When you detach a load balancer, it enters the 'Removing' state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using < DescribeLoadBalancers>. Note that the instances remain running.
+-- Note that this operation detaches only Classic load balancers. If you have Application load balancers, use 'DetachLoadBalancerTargetGroups' instead.
+--
+-- When you detach a load balancer, it enters the @Removing@ state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using 'DescribeLoadBalancers' . Note that the instances remain running.
+--
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachLoadBalancers.
 --
+--
+--
 -- /See:/ 'detachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
     { _dAutoScalingGroupName :: !Text
@@ -58,9 +62,9 @@ data DetachLoadBalancers = DetachLoadBalancers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAutoScalingGroupName'
+-- * 'dAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dLoadBalancerNames'
+-- * 'dLoadBalancerNames' - One or more load balancer names.
 detachLoadBalancers
     :: Text -- ^ 'dAutoScalingGroupName'
     -> DetachLoadBalancers
@@ -108,6 +112,8 @@ instance ToQuery DetachLoadBalancers where
 
 -- | Contains the output for DetachLoadBalancers.
 --
+--
+--
 -- /See:/ 'detachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
     { _dlbsrsResponseStatus :: Int
@@ -117,7 +123,7 @@ newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbsrsResponseStatus'
+-- * 'dlbsrsResponseStatus' - -- | The response status code.
 detachLoadBalancersResponse
     :: Int -- ^ 'dlbsrsResponseStatus'
     -> DetachLoadBalancersResponse
@@ -126,7 +132,7 @@ detachLoadBalancersResponse pResponseStatus_ =
     { _dlbsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dlbsrsResponseStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsResponseStatus = lens _dlbsrsResponseStatus (\ s a -> s{_dlbsrsResponseStatus = a});
 

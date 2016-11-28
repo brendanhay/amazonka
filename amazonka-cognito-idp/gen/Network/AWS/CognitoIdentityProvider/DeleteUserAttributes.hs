@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the attributes for a user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete user attributes.
 --
+--
+--
 -- /See:/ 'deleteUserAttributes' smart constructor.
 data DeleteUserAttributes = DeleteUserAttributes'
     { _duaAccessToken        :: !(Maybe (Sensitive Text))
@@ -54,9 +58,9 @@ data DeleteUserAttributes = DeleteUserAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duaAccessToken'
+-- * 'duaAccessToken' - The access token used in the request to delete user attributes.
 --
--- * 'duaUserAttributeNames'
+-- * 'duaUserAttributeNames' - An array of strings representing the user attribute names you wish to delete.
 deleteUserAttributes
     :: DeleteUserAttributes
 deleteUserAttributes =
@@ -113,6 +117,8 @@ instance ToQuery DeleteUserAttributes where
 
 -- | Represents the response from the server to delete user attributes.
 --
+--
+--
 -- /See:/ 'deleteUserAttributesResponse' smart constructor.
 newtype DeleteUserAttributesResponse = DeleteUserAttributesResponse'
     { _duarsResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype DeleteUserAttributesResponse = DeleteUserAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duarsResponseStatus'
+-- * 'duarsResponseStatus' - -- | The response status code.
 deleteUserAttributesResponse
     :: Int -- ^ 'duarsResponseStatus'
     -> DeleteUserAttributesResponse
@@ -131,7 +137,7 @@ deleteUserAttributesResponse pResponseStatus_ =
     { _duarsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 duarsResponseStatus :: Lens' DeleteUserAttributesResponse Int
 duarsResponseStatus = lens _duarsResponseStatus (\ s a -> s{_duarsResponseStatus = a});
 

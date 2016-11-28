@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Lambda function alias. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Deletes the specified Lambda function alias. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- This requires permission for the lambda:DeleteAlias action.
+--
 module Network.AWS.Lambda.DeleteAlias
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daFunctionName'
+-- * 'daFunctionName' - The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing.
 --
--- * 'daName'
+-- * 'daName' - Name of the alias to delete.
 deleteAlias
     :: Text -- ^ 'daFunctionName'
     -> Text -- ^ 'daName'

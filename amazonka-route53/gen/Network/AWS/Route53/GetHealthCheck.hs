@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a specified health check. Send a 'GET' request to the '\/2013-04-01\/healthcheck\/health check ID ' resource. For more information about using the console to perform this operation, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the Amazon Route 53 Developer Guide.
+-- Gets information about a specified health check. Send a @GET@ request to the @/2013-04-01/healthcheck//health check ID/ @ resource. For more information about using the console to perform this operation, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the Amazon Route 53 Developer Guide.
+--
+--
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request
@@ -44,9 +46,11 @@ import           Network.AWS.Route53.Types.Product
 
 -- | This action gets information about a specified health check.
 --
--- Send a 'GET' request to the '\/Amazon Route 53 API version\/gethealthcheckrequest' resource.
 --
--- For information about getting information about a health check using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the /Amazon Route 53 Developer Guide/.
+-- Send a @GET@ request to the @//Amazon Route 53 API version/ /gethealthcheckrequest@ resource.
+--
+-- For information about getting information about a health check using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the /Amazon Route 53 Developer Guide/ .
+--
 --
 -- /See:/ 'getHealthCheck' smart constructor.
 newtype GetHealthCheck = GetHealthCheck'
@@ -57,7 +61,7 @@ newtype GetHealthCheck = GetHealthCheck'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghcHealthCheckId'
+-- * 'ghcHealthCheckId' - The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 getHealthCheck
     :: Text -- ^ 'ghcHealthCheckId'
     -> GetHealthCheck
@@ -94,7 +98,9 @@ instance ToPath GetHealthCheck where
 instance ToQuery GetHealthCheck where
         toQuery = const mempty
 
--- | A complex type that contains the response to a 'GetHealthCheck' request.
+-- | A complex type that contains the response to a @GetHealthCheck@ request.
+--
+--
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
@@ -106,9 +112,9 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghcrsResponseStatus'
+-- * 'ghcrsResponseStatus' - -- | The response status code.
 --
--- * 'ghcrsHealthCheck'
+-- * 'ghcrsHealthCheck' - A complex type that contains information about one health check that is associated with the current AWS account.
 getHealthCheckResponse
     :: Int -- ^ 'ghcrsResponseStatus'
     -> HealthCheck -- ^ 'ghcrsHealthCheck'
@@ -119,7 +125,7 @@ getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
     , _ghcrsHealthCheck = pHealthCheck_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
 ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a});
 

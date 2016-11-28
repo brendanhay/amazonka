@@ -20,11 +20,9 @@
 --
 -- Gets information about a specified traffic policy instance.
 --
--- Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance' resource.
 --
--- After you submit a 'CreateTrafficPolicyInstance' or an 'UpdateTrafficPolicyInstance' request, there\'s a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the 'State' response element.
+-- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance@ resource.
 --
--- In the Amazon Route 53 console, traffic policy instances are known as policy records.
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -50,7 +48,9 @@ import           Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specified traffic policy instance.
 --
--- To get information about a traffic policy instance, send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicyinstance\/Id ' resource.
+--
+-- To get information about a traffic policy instance, send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance//Id/ @ resource.
+--
 --
 -- /See:/ 'getTrafficPolicyInstance' smart constructor.
 newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
@@ -61,7 +61,7 @@ newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpiId'
+-- * 'gtpiId' - The ID of the traffic policy instance that you want to get information about.
 getTrafficPolicyInstance
     :: Text -- ^ 'gtpiId'
     -> GetTrafficPolicyInstance
@@ -102,6 +102,8 @@ instance ToQuery GetTrafficPolicyInstance where
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
+--
+--
 -- /See:/ 'getTrafficPolicyInstanceResponse' smart constructor.
 data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
     { _gtpirsResponseStatus        :: !Int
@@ -112,9 +114,9 @@ data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpirsResponseStatus'
+-- * 'gtpirsResponseStatus' - -- | The response status code.
 --
--- * 'gtpirsTrafficPolicyInstance'
+-- * 'gtpirsTrafficPolicyInstance' - A complex type that contains settings for the traffic policy instance.
 getTrafficPolicyInstanceResponse
     :: Int -- ^ 'gtpirsResponseStatus'
     -> TrafficPolicyInstance -- ^ 'gtpirsTrafficPolicyInstance'
@@ -125,7 +127,7 @@ getTrafficPolicyInstanceResponse pResponseStatus_ pTrafficPolicyInstance_ =
     , _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gtpirsResponseStatus :: Lens' GetTrafficPolicyInstanceResponse Int
 gtpirsResponseStatus = lens _gtpirsResponseStatus (\ s a -> s{_gtpirsResponseStatus = a});
 

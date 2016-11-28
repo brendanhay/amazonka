@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches one or more target groups from the specified Auto Scaling group.
+--
+--
 module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgAutoScalingGroupName'
+-- * 'dlbtgAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'dlbtgTargetGroupARNs'
+-- * 'dlbtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
 detachLoadBalancerTargetGroups
     :: Text -- ^ 'dlbtgAutoScalingGroupName'
     -> DetachLoadBalancerTargetGroups
@@ -114,7 +116,7 @@ newtype DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsR
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbtgrsResponseStatus'
+-- * 'dlbtgrsResponseStatus' - -- | The response status code.
 detachLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'dlbtgrsResponseStatus'
     -> DetachLoadBalancerTargetGroupsResponse
@@ -123,7 +125,7 @@ detachLoadBalancerTargetGroupsResponse pResponseStatus_ =
     { _dlbtgrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dlbtgrsResponseStatus :: Lens' DetachLoadBalancerTargetGroupsResponse Int
 dlbtgrsResponseStatus = lens _dlbtgrsResponseStatus (\ s a -> s{_dlbtgrsResponseStatus = a});
 

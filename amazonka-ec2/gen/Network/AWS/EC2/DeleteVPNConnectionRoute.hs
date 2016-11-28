@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
+--
+--
 module Network.AWS.EC2.DeleteVPNConnectionRoute
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpnConnectionRoute.
 --
+--
+--
 -- /See:/ 'deleteVPNConnectionRoute' smart constructor.
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
     { _dvcrVPNConnectionId      :: !Text
@@ -52,9 +56,9 @@ data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvcrVPNConnectionId'
+-- * 'dvcrVPNConnectionId' - The ID of the VPN connection.
 --
--- * 'dvcrDestinationCIdRBlock'
+-- * 'dvcrDestinationCIdRBlock' - The CIDR block associated with the local subnet of the customer network.
 deleteVPNConnectionRoute
     :: Text -- ^ 'dvcrVPNConnectionId'
     -> Text -- ^ 'dvcrDestinationCIdRBlock'

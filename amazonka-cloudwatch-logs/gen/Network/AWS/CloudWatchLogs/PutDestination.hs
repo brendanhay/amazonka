@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a 'Destination'. A destination encapsulates a physical resource (such as a Kinesis stream) and allows you to subscribe to a real-time stream of log events of a different account, ingested through 'PutLogEvents' requests. Currently, the only supported physical resource is a Amazon Kinesis stream belonging to the same account as the destination.
+-- Creates or updates a @Destination@ . A destination encapsulates a physical resource (such as a Kinesis stream) and allows you to subscribe to a real-time stream of log events of a different account, ingested through @PutLogEvents@ requests. Currently, the only supported physical resource is a Amazon Kinesis stream belonging to the same account as the destination.
 --
--- A destination controls what is written to its Amazon Kinesis stream through an access policy. By default, PutDestination does not set any access policy with the destination, which means a cross-account user will not be able to call 'PutSubscriptionFilter' against this destination. To enable that, the destination owner must call 'PutDestinationPolicy' after PutDestination.
+--
+-- A destination controls what is written to its Amazon Kinesis stream through an access policy. By default, PutDestination does not set any access policy with the destination, which means a cross-account user will not be able to call @PutSubscriptionFilter@ against this destination. To enable that, the destination owner must call @PutDestinationPolicy@ after PutDestination.
+--
 module Network.AWS.CloudWatchLogs.PutDestination
     (
     -- * Creating a Request
@@ -57,11 +59,11 @@ data PutDestination = PutDestination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdDestinationName'
+-- * 'pdDestinationName' - A name for the destination.
 --
--- * 'pdTargetARN'
+-- * 'pdTargetARN' - The ARN of an Amazon Kinesis stream to deliver matching log events to.
 --
--- * 'pdRoleARN'
+-- * 'pdRoleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to do Amazon Kinesis PutRecord requests on the destination stream.
 putDestination
     :: Text -- ^ 'pdDestinationName'
     -> Text -- ^ 'pdTargetARN'
@@ -132,9 +134,9 @@ data PutDestinationResponse = PutDestinationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdrsDestination'
+-- * 'pdrsDestination' - Undocumented member.
 --
--- * 'pdrsResponseStatus'
+-- * 'pdrsResponseStatus' - -- | The response status code.
 putDestinationResponse
     :: Int -- ^ 'pdrsResponseStatus'
     -> PutDestinationResponse
@@ -148,7 +150,7 @@ putDestinationResponse pResponseStatus_ =
 pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
 pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 
--- | The response status code.
+-- | -- | The response status code.
 pdrsResponseStatus :: Lens' PutDestinationResponse Int
 pdrsResponseStatus = lens _pdrsResponseStatus (\ s a -> s{_pdrsResponseStatus = a});
 

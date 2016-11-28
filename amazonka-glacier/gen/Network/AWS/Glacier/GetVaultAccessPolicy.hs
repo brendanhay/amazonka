@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the 'access-policy' subresource set on the vault; for more information on setting this subresource, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)>. If there is no access policy set on the vault, the operation returns a '404 Not found' error. For more information about vault access policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
+-- This operation retrieves the @access-policy@ subresource set on the vault; for more information on setting this subresource, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)> . If there is no access policy set on the vault, the operation returns a @404 Not found@ error. For more information about vault access policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies> .
+--
+--
 module Network.AWS.Glacier.GetVaultAccessPolicy
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Input for GetVaultAccessPolicy.
 --
+--
+--
 -- /See:/ 'getVaultAccessPolicy' smart constructor.
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
     { _gvapAccountId :: !Text
@@ -55,9 +59,9 @@ data GetVaultAccessPolicy = GetVaultAccessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gvapAccountId'
+-- * 'gvapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 --
--- * 'gvapVaultName'
+-- * 'gvapVaultName' - The name of the vault.
 getVaultAccessPolicy
     :: Text -- ^ 'gvapAccountId'
     -> Text -- ^ 'gvapVaultName'
@@ -68,7 +72,7 @@ getVaultAccessPolicy pAccountId_ pVaultName_ =
     , _gvapVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 gvapAccountId :: Lens' GetVaultAccessPolicy Text
 gvapAccountId = lens _gvapAccountId (\ s a -> s{_gvapAccountId = a});
 
@@ -104,6 +108,8 @@ instance ToQuery GetVaultAccessPolicy where
 
 -- | Output for GetVaultAccessPolicy.
 --
+--
+--
 -- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
     { _gvaprsPolicy         :: !(Maybe VaultAccessPolicy)
@@ -114,9 +120,9 @@ data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gvaprsPolicy'
+-- * 'gvaprsPolicy' - Contains the returned vault access policy as a JSON string.
 --
--- * 'gvaprsResponseStatus'
+-- * 'gvaprsResponseStatus' - -- | The response status code.
 getVaultAccessPolicyResponse
     :: Int -- ^ 'gvaprsResponseStatus'
     -> GetVaultAccessPolicyResponse
@@ -130,7 +136,7 @@ getVaultAccessPolicyResponse pResponseStatus_ =
 gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
 gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gvaprsResponseStatus :: Lens' GetVaultAccessPolicyResponse Int
 gvaprsResponseStatus = lens _gvaprsResponseStatus (\ s a -> s{_gvaprsResponseStatus = a});
 

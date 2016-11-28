@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP\/HTTPS listeners.
+-- Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.
 --
--- This policy is similar to the policy created by < CreateLBCookieStickinessPolicy>, except that the lifetime of the special Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie.
+--
+-- This policy is similar to the policy created by 'CreateLBCookieStickinessPolicy' , except that the lifetime of the special Elastic Load Balancing cookie, @AWSELB@ , follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie.
 --
 -- If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application Application-Controlled Session Stickiness> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateAppCookieStickinessPolicy.
 --
+--
+--
 -- /See:/ 'createAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName :: !Text
@@ -62,11 +66,11 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacspLoadBalancerName'
+-- * 'cacspLoadBalancerName' - The name of the load balancer.
 --
--- * 'cacspPolicyName'
+-- * 'cacspPolicyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 --
--- * 'cacspCookieName'
+-- * 'cacspCookieName' - The name of the application cookie used for stickiness.
 createAppCookieStickinessPolicy
     :: Text -- ^ 'cacspLoadBalancerName'
     -> Text -- ^ 'cacspPolicyName'
@@ -127,6 +131,8 @@ instance ToQuery CreateAppCookieStickinessPolicy
 
 -- | Contains the output for CreateAppCookieStickinessPolicy.
 --
+--
+--
 -- /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
     { _cacsprsResponseStatus :: Int
@@ -136,7 +142,7 @@ newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolic
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacsprsResponseStatus'
+-- * 'cacsprsResponseStatus' - -- | The response status code.
 createAppCookieStickinessPolicyResponse
     :: Int -- ^ 'cacsprsResponseStatus'
     -> CreateAppCookieStickinessPolicyResponse
@@ -145,7 +151,7 @@ createAppCookieStickinessPolicyResponse pResponseStatus_ =
     { _cacsprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 cacsprsResponseStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
 cacsprsResponseStatus = lens _cacsprsResponseStatus (\ s a -> s{_cacsprsResponseStatus = a});
 

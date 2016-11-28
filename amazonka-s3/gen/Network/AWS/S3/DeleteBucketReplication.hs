@@ -48,7 +48,7 @@ newtype DeleteBucketReplication = DeleteBucketReplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrBucket'
+-- * 'dbrBucket' - Undocumented member.
 deleteBucketReplication
     :: BucketName -- ^ 'dbrBucket'
     -> DeleteBucketReplication

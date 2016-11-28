@@ -20,6 +20,8 @@
 --
 -- Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStacks
     (
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for < DescribeStacks> action.
+-- | The input for 'DescribeStacks' action.
+--
+--
 --
 -- /See:/ 'describeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
@@ -59,9 +63,9 @@ data DescribeStacks = DescribeStacks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dNextToken'
+-- * 'dNextToken' - A string that identifies the next page of stacks that you want to retrieve.
 --
--- * 'dStackName'
+-- * 'dStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 describeStacks
     :: DescribeStacks
 describeStacks =
@@ -74,13 +78,7 @@ describeStacks =
 dNextToken :: Lens' DescribeStacks (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
---
--- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
---
--- -   Deleted stacks: You must specify the unique stack ID.
---
--- Default: There is no default value.
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 dStackName :: Lens' DescribeStacks (Maybe Text)
 dStackName = lens _dStackName (\ s a -> s{_dStackName = a});
 
@@ -121,7 +119,9 @@ instance ToQuery DescribeStacks where
                "NextToken" =: _dNextToken,
                "StackName" =: _dStackName]
 
--- | The output for a < DescribeStacks> action.
+-- | The output for a 'DescribeStacks' action.
+--
+--
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
@@ -134,11 +134,11 @@ data DescribeStacksResponse = DescribeStacksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsNextToken'
+-- * 'dsrsNextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
 --
--- * 'dsrsStacks'
+-- * 'dsrsStacks' - A list of stack structures.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 describeStacksResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DescribeStacksResponse
@@ -157,7 +157,7 @@ dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DescribeStacksResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

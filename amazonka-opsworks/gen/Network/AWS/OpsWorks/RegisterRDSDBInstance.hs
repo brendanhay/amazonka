@@ -20,7 +20,9 @@
 --
 -- Registers an Amazon RDS instance with a stack.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterRDSDBInstance
     (
     -- * Creating a Request
@@ -56,13 +58,13 @@ data RegisterRDSDBInstance = RegisterRDSDBInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrdiStackId'
+-- * 'rrdiStackId' - The stack ID.
 --
--- * 'rrdiRDSDBInstanceARN'
+-- * 'rrdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
 --
--- * 'rrdiDBUser'
+-- * 'rrdiDBUser' - The database's master user name.
 --
--- * 'rrdiDBPassword'
+-- * 'rrdiDBPassword' - The database password.
 registerRDSDBInstance
     :: Text -- ^ 'rrdiStackId'
     -> Text -- ^ 'rrdiRDSDBInstanceARN'
@@ -81,11 +83,11 @@ registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
 rrdiStackId :: Lens' RegisterRDSDBInstance Text
 rrdiStackId = lens _rrdiStackId (\ s a -> s{_rrdiStackId = a});
 
--- | The Amazon RDS instance\'s ARN.
+-- | The Amazon RDS instance's ARN.
 rrdiRDSDBInstanceARN :: Lens' RegisterRDSDBInstance Text
 rrdiRDSDBInstanceARN = lens _rrdiRDSDBInstanceARN (\ s a -> s{_rrdiRDSDBInstanceARN = a});
 
--- | The database\'s master user name.
+-- | The database's master user name.
 rrdiDBUser :: Lens' RegisterRDSDBInstance Text
 rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a});
 

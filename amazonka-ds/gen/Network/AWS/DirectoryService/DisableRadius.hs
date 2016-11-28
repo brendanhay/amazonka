@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
+--
+--
 module Network.AWS.DirectoryService.DisableRadius
     (
     -- * Creating a Request
@@ -41,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DisableRadius> operation.
+-- | Contains the inputs for the 'DisableRadius' operation.
+--
+--
 --
 -- /See:/ 'disableRadius' smart constructor.
 newtype DisableRadius = DisableRadius'
@@ -52,7 +56,7 @@ newtype DisableRadius = DisableRadius'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drDirectoryId'
+-- * 'drDirectoryId' - The identifier of the directory for which to disable MFA.
 disableRadius
     :: Text -- ^ 'drDirectoryId'
     -> DisableRadius
@@ -98,7 +102,9 @@ instance ToPath DisableRadius where
 instance ToQuery DisableRadius where
         toQuery = const mempty
 
--- | Contains the results of the < DisableRadius> operation.
+-- | Contains the results of the 'DisableRadius' operation.
+--
+--
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'
@@ -109,7 +115,7 @@ newtype DisableRadiusResponse = DisableRadiusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 disableRadiusResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DisableRadiusResponse
@@ -118,7 +124,7 @@ disableRadiusResponse pResponseStatus_ =
     { _drrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DisableRadiusResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

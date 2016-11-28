@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists devices, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminListDevices
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list devices, as an administrator.
 --
+--
+--
 -- /See:/ 'adminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
     { _aldPaginationToken :: !(Maybe Text)
@@ -60,13 +64,13 @@ data AdminListDevices = AdminListDevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aldPaginationToken'
+-- * 'aldPaginationToken' - The pagination token.
 --
--- * 'aldLimit'
+-- * 'aldLimit' - The limit of the devices request.
 --
--- * 'aldUserPoolId'
+-- * 'aldUserPoolId' - The user pool ID.
 --
--- * 'aldUsername'
+-- * 'aldUsername' - The user name.
 adminListDevices
     :: Text -- ^ 'aldUserPoolId'
     -> Text -- ^ 'aldUsername'
@@ -135,7 +139,9 @@ instance ToPath AdminListDevices where
 instance ToQuery AdminListDevices where
         toQuery = const mempty
 
--- | Lists the device\'s response, as an administrator.
+-- | Lists the device's response, as an administrator.
+--
+--
 --
 -- /See:/ 'adminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
@@ -148,11 +154,11 @@ data AdminListDevicesResponse = AdminListDevicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aldrsPaginationToken'
+-- * 'aldrsPaginationToken' - The pagination token.
 --
--- * 'aldrsDevices'
+-- * 'aldrsDevices' - The devices in the list of devices response.
 --
--- * 'aldrsResponseStatus'
+-- * 'aldrsResponseStatus' - -- | The response status code.
 adminListDevicesResponse
     :: Int -- ^ 'aldrsResponseStatus'
     -> AdminListDevicesResponse
@@ -171,7 +177,7 @@ aldrsPaginationToken = lens _aldrsPaginationToken (\ s a -> s{_aldrsPaginationTo
 aldrsDevices :: Lens' AdminListDevicesResponse [DeviceType]
 aldrsDevices = lens _aldrsDevices (\ s a -> s{_aldrsDevices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 aldrsResponseStatus :: Lens' AdminListDevicesResponse Int
 aldrsResponseStatus = lens _aldrsResponseStatus (\ s a -> s{_aldrsResponseStatus = a});
 

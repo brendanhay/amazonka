@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deploys an application revision through the specified deployment group.
+--
+--
 module Network.AWS.CodeDeploy.CreateDeployment
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create deployment operation.
 --
+--
+--
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
     { _cdDeploymentConfigName          :: !(Maybe Text)
@@ -63,17 +67,17 @@ data CreateDeployment = CreateDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDeploymentConfigName'
+-- * 'cdDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
 --
--- * 'cdRevision'
+-- * 'cdRevision' - The type and location of the revision to deploy.
 --
--- * 'cdDescription'
+-- * 'cdDescription' - A comment about the deployment.
 --
--- * 'cdDeploymentGroupName'
+-- * 'cdDeploymentGroupName' - The name of the deployment group.
 --
--- * 'cdIgnoreApplicationStopFailures'
+-- * 'cdIgnoreApplicationStopFailures' - If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
 --
--- * 'cdApplicationName'
+-- * 'cdApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 createDeployment
     :: Text -- ^ 'cdApplicationName'
     -> CreateDeployment
@@ -87,9 +91,7 @@ createDeployment pApplicationName_ =
     , _cdApplicationName = pApplicationName_
     }
 
--- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
---
--- If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
+-- | The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
 
@@ -105,9 +107,7 @@ cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
 
--- | If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event.
---
--- If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
+-- | If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
 cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
 cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
 
@@ -160,6 +160,8 @@ instance ToQuery CreateDeployment where
 
 -- | Represents the output of a create deployment operation.
 --
+--
+--
 -- /See:/ 'createDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrsDeploymentId   :: !(Maybe Text)
@@ -170,9 +172,9 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsDeploymentId'
+-- * 'cdrsDeploymentId' - A unique deployment ID.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 createDeploymentResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> CreateDeploymentResponse
@@ -186,7 +188,7 @@ createDeploymentResponse pResponseStatus_ =
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 

@@ -60,11 +60,11 @@ data ListInvalidations = ListInvalidations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liMarker'
+-- * 'liMarker' - Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 --
--- * 'liMaxItems'
+-- * 'liMaxItems' - The maximum number of invalidation batches you want in the response body.
 --
--- * 'liDistributionId'
+-- * 'liDistributionId' - The distribution's id.
 listInvalidations
     :: Text -- ^ 'liDistributionId'
     -> ListInvalidations
@@ -75,7 +75,7 @@ listInvalidations pDistributionId_ =
     , _liDistributionId = pDistributionId_
     }
 
--- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set the Marker to the value of the NextMarker from the current page\'s response. This value is the same as the ID of the last invalidation batch on that page.
+-- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
@@ -83,7 +83,7 @@ liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
--- | The distribution\'s id.
+-- | The distribution's id.
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
@@ -138,9 +138,9 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 --
--- * 'lirsInvalidationList'
+-- * 'lirsInvalidationList' - Information about invalidation batches.
 listInvalidationsResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> InvalidationList -- ^ 'lirsInvalidationList'
@@ -151,7 +151,7 @@ listInvalidationsResponse pResponseStatus_ pInvalidationList_ =
     , _lirsInvalidationList = pInvalidationList_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListInvalidationsResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 

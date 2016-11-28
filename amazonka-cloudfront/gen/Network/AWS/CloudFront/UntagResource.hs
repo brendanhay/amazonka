@@ -52,9 +52,9 @@ data UntagResource = UntagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urResource'
+-- * 'urResource' - An ARN of a CloudFront resource.
 --
--- * 'urTagKeys'
+-- * 'urTagKeys' - A complex type that contains zero or more Tag key elements.
 untagResource
     :: Text -- ^ 'urResource'
     -> TagKeys -- ^ 'urTagKeys'

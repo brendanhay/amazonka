@@ -66,15 +66,15 @@ data CreateJob = CreateJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjAPIVersion'
+-- * 'cjAPIVersion' - Undocumented member.
 --
--- * 'cjManifestAddendum'
+-- * 'cjManifestAddendum' - Undocumented member.
 --
--- * 'cjJobType'
+-- * 'cjJobType' - Undocumented member.
 --
--- * 'cjManifest'
+-- * 'cjManifest' - Undocumented member.
 --
--- * 'cjValidateOnly'
+-- * 'cjValidateOnly' - Undocumented member.
 createJob
     :: JobType -- ^ 'cjJobType'
     -> Text -- ^ 'cjManifest'
@@ -163,19 +163,19 @@ data CreateJobResponse = CreateJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjrsSignature'
+-- * 'cjrsSignature' - Undocumented member.
 --
--- * 'cjrsJobType'
+-- * 'cjrsJobType' - Undocumented member.
 --
--- * 'cjrsJobId'
+-- * 'cjrsJobId' - Undocumented member.
 --
--- * 'cjrsSignatureFileContents'
+-- * 'cjrsSignatureFileContents' - Undocumented member.
 --
--- * 'cjrsWarningMessage'
+-- * 'cjrsWarningMessage' - Undocumented member.
 --
--- * 'cjrsArtifactList'
+-- * 'cjrsArtifactList' - Undocumented member.
 --
--- * 'cjrsResponseStatus'
+-- * 'cjrsResponseStatus' - -- | The response status code.
 createJobResponse
     :: Int -- ^ 'cjrsResponseStatus'
     -> CreateJobResponse
@@ -214,7 +214,7 @@ cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = 
 cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 cjrsResponseStatus :: Lens' CreateJobResponse Int
 cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
 

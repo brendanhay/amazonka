@@ -20,6 +20,8 @@
 --
 -- Gets information about projects.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListProjects
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list projects operation.
 --
+--
+--
 -- /See:/ 'listProjects' smart constructor.
 data ListProjects = ListProjects'
     { _lpArn       :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListProjects = ListProjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpArn'
+-- * 'lpArn' - The projects' ARNs.
 --
--- * 'lpNextToken'
+-- * 'lpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listProjects
     :: ListProjects
 listProjects =
@@ -70,7 +74,7 @@ listProjects =
     , _lpNextToken = Nothing
     }
 
--- | The projects\' ARNs.
+-- | The projects' ARNs.
 lpArn :: Lens' ListProjects (Maybe Text)
 lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
 
@@ -123,6 +127,8 @@ instance ToQuery ListProjects where
 
 -- | Represents the result of a list projects request.
 --
+--
+--
 -- /See:/ 'listProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
     { _lprsNextToken      :: !(Maybe Text)
@@ -134,11 +140,11 @@ data ListProjectsResponse = ListProjectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsNextToken'
+-- * 'lprsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'lprsProjects'
+-- * 'lprsProjects' - Information about the projects.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listProjectsResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListProjectsResponse
@@ -157,7 +163,7 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 lprsProjects :: Lens' ListProjectsResponse [Project]
 lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListProjectsResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

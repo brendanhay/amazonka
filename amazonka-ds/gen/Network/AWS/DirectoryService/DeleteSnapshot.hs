@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a directory snapshot.
+--
+--
 module Network.AWS.DirectoryService.DeleteSnapshot
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DeleteSnapshot> operation.
+-- | Contains the inputs for the 'DeleteSnapshot' operation.
+--
+--
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
 newtype DeleteSnapshot = DeleteSnapshot'
@@ -53,7 +57,7 @@ newtype DeleteSnapshot = DeleteSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsSnapshotId'
+-- * 'dsSnapshotId' - The identifier of the directory snapshot to be deleted.
 deleteSnapshot
     :: Text -- ^ 'dsSnapshotId'
     -> DeleteSnapshot
@@ -100,7 +104,9 @@ instance ToPath DeleteSnapshot where
 instance ToQuery DeleteSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the < DeleteSnapshot> operation.
+-- | Contains the results of the 'DeleteSnapshot' operation.
+--
+--
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
@@ -112,9 +118,9 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrsSnapshotId'
+-- * 'dsrsSnapshotId' - The identifier of the directory snapshot that was deleted.
 --
--- * 'dsrsResponseStatus'
+-- * 'dsrsResponseStatus' - -- | The response status code.
 deleteSnapshotResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteSnapshotResponse
@@ -128,7 +134,7 @@ deleteSnapshotResponse pResponseStatus_ =
 dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 

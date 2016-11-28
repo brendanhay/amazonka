@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an instance\'s RAID arrays.
+-- Describe an instance's RAID arrays.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeRAIdArrays
     (
     -- * Creating a Request
@@ -59,11 +59,11 @@ data DescribeRAIdArrays = DescribeRAIdArrays'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'draiaInstanceId'
+-- * 'draiaInstanceId' - The instance ID. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the RAID arrays associated with the specified instance.
 --
--- * 'draiaRAIdArrayIds'
+-- * 'draiaRAIdArrayIds' - An array of RAID array IDs. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the specified arrays. Otherwise, it returns a description of every array.
 --
--- * 'draiaStackId'
+-- * 'draiaStackId' - The stack ID.
 describeRAIdArrays
     :: DescribeRAIdArrays
 describeRAIdArrays =
@@ -73,11 +73,11 @@ describeRAIdArrays =
     , _draiaStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns descriptions of the RAID arrays associated with the specified instance.
+-- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the RAID arrays associated with the specified instance.
 draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
 draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
 
--- | An array of RAID array IDs. If you use this parameter, 'DescribeRaidArrays' returns descriptions of the specified arrays. Otherwise, it returns a description of every array.
+-- | An array of RAID array IDs. If you use this parameter, @DescribeRaidArrays@ returns descriptions of the specified arrays. Otherwise, it returns a description of every array.
 draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
 draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
 
@@ -124,7 +124,9 @@ instance ToPath DescribeRAIdArrays where
 instance ToQuery DescribeRAIdArrays where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeRaidArrays' request.
+-- | Contains the response to a @DescribeRaidArrays@ request.
+--
+--
 --
 -- /See:/ 'describeRAIdArraysResponse' smart constructor.
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
@@ -136,9 +138,9 @@ data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'draiarsRAIdArrays'
+-- * 'draiarsRAIdArrays' - A @RaidArrays@ object that describes the specified RAID arrays.
 --
--- * 'draiarsResponseStatus'
+-- * 'draiarsResponseStatus' - -- | The response status code.
 describeRAIdArraysResponse
     :: Int -- ^ 'draiarsResponseStatus'
     -> DescribeRAIdArraysResponse
@@ -148,11 +150,11 @@ describeRAIdArraysResponse pResponseStatus_ =
     , _draiarsResponseStatus = pResponseStatus_
     }
 
--- | A 'RaidArrays' object that describes the specified RAID arrays.
+-- | A @RaidArrays@ object that describes the specified RAID arrays.
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
 draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 draiarsResponseStatus :: Lens' DescribeRAIdArraysResponse Int
 draiarsResponseStatus = lens _draiarsResponseStatus (\ s a -> s{_draiarsResponseStatus = a});
 

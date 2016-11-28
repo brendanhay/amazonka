@@ -20,7 +20,9 @@
 --
 -- The /DeleteCacheCluster/ action deletes a previously provisioned cache cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node endpoints and the cache cluster itself. When you receive a successful response from this action, Amazon ElastiCache immediately begins deleting the cache cluster; you cannot cancel or revert this action.
 --
+--
 -- This API cannot be used to delete a cache cluster that is the last read replica of a replication group that has Multi-AZ mode enabled.
+--
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DeleteCacheCluster/ action.
 --
+--
+--
 -- /See:/ 'deleteCacheCluster' smart constructor.
 data DeleteCacheCluster = DeleteCacheCluster'
     { _dccFinalSnapshotIdentifier :: !(Maybe Text)
@@ -57,9 +61,9 @@ data DeleteCacheCluster = DeleteCacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccFinalSnapshotIdentifier'
+-- * 'dccFinalSnapshotIdentifier' - The user-supplied name of a final cache cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cache cluster immediately afterward.
 --
--- * 'dccCacheClusterId'
+-- * 'dccCacheClusterId' - The cache cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
 deleteCacheCluster
     :: Text -- ^ 'dccCacheClusterId'
     -> DeleteCacheCluster
@@ -116,9 +120,9 @@ data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccrsCacheCluster'
+-- * 'dccrsCacheCluster' - Undocumented member.
 --
--- * 'dccrsResponseStatus'
+-- * 'dccrsResponseStatus' - -- | The response status code.
 deleteCacheClusterResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCacheClusterResponse
@@ -132,7 +136,7 @@ deleteCacheClusterResponse pResponseStatus_ =
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 

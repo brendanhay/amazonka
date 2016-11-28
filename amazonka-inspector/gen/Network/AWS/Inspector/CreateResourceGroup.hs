@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see < CreateAssessmentTarget>.
+-- Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see 'CreateAssessmentTarget' .
+--
+--
 module Network.AWS.Inspector.CreateResourceGroup
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype CreateResourceGroup = CreateResourceGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crgResourceGroupTags'
+-- * 'crgResourceGroupTags' - A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
 createResourceGroup
     :: NonEmpty ResourceGroupTag -- ^ 'crgResourceGroupTags'
     -> CreateResourceGroup
@@ -60,9 +62,7 @@ createResourceGroup pResourceGroupTags_ =
     { _crgResourceGroupTags = _List1 # pResourceGroupTags_
     }
 
--- | A collection of keys and an array of possible values, \'[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]\'.
---
--- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
+-- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'. For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
 crgResourceGroupTags :: Lens' CreateResourceGroup (NonEmpty ResourceGroupTag)
 crgResourceGroupTags = lens _crgResourceGroupTags (\ s a -> s{_crgResourceGroupTags = a}) . _List1;
 
@@ -113,9 +113,9 @@ data CreateResourceGroupResponse = CreateResourceGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crgrsResponseStatus'
+-- * 'crgrsResponseStatus' - -- | The response status code.
 --
--- * 'crgrsResourceGroupARN'
+-- * 'crgrsResourceGroupARN' - The ARN that specifies the resource group that is created.
 createResourceGroupResponse
     :: Int -- ^ 'crgrsResponseStatus'
     -> Text -- ^ 'crgrsResourceGroupARN'
@@ -126,7 +126,7 @@ createResourceGroupResponse pResponseStatus_ pResourceGroupARN_ =
     , _crgrsResourceGroupARN = pResourceGroupARN_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crgrsResponseStatus :: Lens' CreateResourceGroupResponse Int
 crgrsResponseStatus = lens _crgrsResponseStatus (\ s a -> s{_crgrsResponseStatus = a});
 

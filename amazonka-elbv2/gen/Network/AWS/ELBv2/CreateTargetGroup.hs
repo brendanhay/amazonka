@@ -20,13 +20,15 @@
 --
 -- Creates a target group.
 --
--- To register targets with the target group, use < RegisterTargets>. To update the health check settings for the target group, use < ModifyTargetGroup>. To monitor the health of targets in the target group, use < DescribeTargetHealth>.
 --
--- To route traffic to the targets in a target group, specify the target group in an action using < CreateListener> or < CreateRule>.
+-- To register targets with the target group, use 'RegisterTargets' . To update the health check settings for the target group, use 'ModifyTargetGroup' . To monitor the health of targets in the target group, use 'DescribeTargetHealth' .
 --
--- To delete a target group, use < DeleteTargetGroup>.
+-- To route traffic to the targets in a target group, specify the target group in an action using 'CreateListener' or 'CreateRule' .
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html Target Groups for Your Application Load Balancers> in the /Application Load Balancers Guide/.
+-- To delete a target group, use 'DeleteTargetGroup' .
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html Target Groups for Your Application Load Balancers> in the /Application Load Balancers Guide/ .
+--
 module Network.AWS.ELBv2.CreateTargetGroup
     (
     -- * Creating a Request
@@ -63,6 +65,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateTargetGroup.
 --
+--
+--
 -- /See:/ 'createTargetGroup' smart constructor.
 data CreateTargetGroup = CreateTargetGroup'
     { _ctgMatcher                    :: !(Maybe Matcher)
@@ -83,29 +87,29 @@ data CreateTargetGroup = CreateTargetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctgMatcher'
+-- * 'ctgMatcher' - The HTTP codes to use when checking for a successful response from a target. The default is 200.
 --
--- * 'ctgHealthCheckPath'
+-- * 'ctgHealthCheckPath' - The ping path that is the destination on the targets for health checks. The default is /.
 --
--- * 'ctgUnhealthyThresholdCount'
+-- * 'ctgUnhealthyThresholdCount' - The number of consecutive health check failures required before considering a target unhealthy. The default is 2.
 --
--- * 'ctgHealthCheckIntervalSeconds'
+-- * 'ctgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target. The default is 30 seconds.
 --
--- * 'ctgHealthyThresholdCount'
+-- * 'ctgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy. The default is 5.
 --
--- * 'ctgHealthCheckProtocol'
+-- * 'ctgHealthCheckProtocol' - The protocol the load balancer uses when performing health checks on targets. The default is the HTTP protocol.
 --
--- * 'ctgHealthCheckTimeoutSeconds'
+-- * 'ctgHealthCheckTimeoutSeconds' - The amount of time, in seconds, during which no response from a target means a failed health check. The default is 5 seconds.
 --
--- * 'ctgHealthCheckPort'
+-- * 'ctgHealthCheckPort' - The port the load balancer uses when performing health checks on targets. The default is @traffic-port@ , which indicates the port on which each target receives traffic from the load balancer.
 --
--- * 'ctgName'
+-- * 'ctgName' - The name of the target group.
 --
--- * 'ctgProtocol'
+-- * 'ctgProtocol' - The protocol to use for routing traffic to the targets.
 --
--- * 'ctgPort'
+-- * 'ctgPort' - The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target.
 --
--- * 'ctgVPCId'
+-- * 'ctgVPCId' - The identifier of the virtual private cloud (VPC).
 createTargetGroup
     :: Text -- ^ 'ctgName'
     -> ProtocolEnum -- ^ 'ctgProtocol'
@@ -132,7 +136,7 @@ createTargetGroup pName_ pProtocol_ pPort_ pVPCId_ =
 ctgMatcher :: Lens' CreateTargetGroup (Maybe Matcher)
 ctgMatcher = lens _ctgMatcher (\ s a -> s{_ctgMatcher = a});
 
--- | The ping path that is the destination on the targets for health checks. The default is \/.
+-- | The ping path that is the destination on the targets for health checks. The default is /.
 ctgHealthCheckPath :: Lens' CreateTargetGroup (Maybe Text)
 ctgHealthCheckPath = lens _ctgHealthCheckPath (\ s a -> s{_ctgHealthCheckPath = a});
 
@@ -156,7 +160,7 @@ ctgHealthCheckProtocol = lens _ctgHealthCheckProtocol (\ s a -> s{_ctgHealthChec
 ctgHealthCheckTimeoutSeconds :: Lens' CreateTargetGroup (Maybe Natural)
 ctgHealthCheckTimeoutSeconds = lens _ctgHealthCheckTimeoutSeconds (\ s a -> s{_ctgHealthCheckTimeoutSeconds = a}) . mapping _Nat;
 
--- | The port the load balancer uses when performing health checks on targets. The default is 'traffic-port', which indicates the port on which each target receives traffic from the load balancer.
+-- | The port the load balancer uses when performing health checks on targets. The default is @traffic-port@ , which indicates the port on which each target receives traffic from the load balancer.
 ctgHealthCheckPort :: Lens' CreateTargetGroup (Maybe Text)
 ctgHealthCheckPort = lens _ctgHealthCheckPort (\ s a -> s{_ctgHealthCheckPort = a});
 
@@ -218,6 +222,8 @@ instance ToQuery CreateTargetGroup where
 
 -- | Contains the output of CreateTargetGroup.
 --
+--
+--
 -- /See:/ 'createTargetGroupResponse' smart constructor.
 data CreateTargetGroupResponse = CreateTargetGroupResponse'
     { _ctgrsTargetGroups   :: !(Maybe [TargetGroup])
@@ -228,9 +234,9 @@ data CreateTargetGroupResponse = CreateTargetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctgrsTargetGroups'
+-- * 'ctgrsTargetGroups' - Information about the target group.
 --
--- * 'ctgrsResponseStatus'
+-- * 'ctgrsResponseStatus' - -- | The response status code.
 createTargetGroupResponse
     :: Int -- ^ 'ctgrsResponseStatus'
     -> CreateTargetGroupResponse
@@ -244,7 +250,7 @@ createTargetGroupResponse pResponseStatus_ =
 ctgrsTargetGroups :: Lens' CreateTargetGroupResponse [TargetGroup]
 ctgrsTargetGroups = lens _ctgrsTargetGroups (\ s a -> s{_ctgrsTargetGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ctgrsResponseStatus :: Lens' CreateTargetGroupResponse Int
 ctgrsResponseStatus = lens _ctgrsResponseStatus (\ s a -> s{_ctgrsResponseStatus = a});
 

@@ -20,6 +20,8 @@
 --
 -- An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommandInvocations
     (
@@ -65,17 +67,17 @@ data ListCommandInvocations = ListCommandInvocations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lciInstanceId'
+-- * 'lciInstanceId' - (Optional) The command execution details for a specific instance ID.
 --
--- * 'lciFilters'
+-- * 'lciFilters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
 --
--- * 'lciNextToken'
+-- * 'lciNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lciCommandId'
+-- * 'lciCommandId' - (Optional) The invocations for a specific command ID.
 --
--- * 'lciDetails'
+-- * 'lciDetails' - (Optional) If set this returns the response of the command executions and any command output. By default this is set to False.
 --
--- * 'lciMaxResults'
+-- * 'lciMaxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 listCommandInvocations
     :: ListCommandInvocations
 listCommandInvocations =
@@ -172,11 +174,11 @@ data ListCommandInvocationsResponse = ListCommandInvocationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcirsNextToken'
+-- * 'lcirsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'lcirsCommandInvocations'
+-- * 'lcirsCommandInvocations' - (Optional) A list of all invocations.
 --
--- * 'lcirsResponseStatus'
+-- * 'lcirsResponseStatus' - -- | The response status code.
 listCommandInvocationsResponse
     :: Int -- ^ 'lcirsResponseStatus'
     -> ListCommandInvocationsResponse
@@ -195,7 +197,7 @@ lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 lcirsCommandInvocations :: Lens' ListCommandInvocationsResponse [CommandInvocation]
 lcirsCommandInvocations = lens _lcirsCommandInvocations (\ s a -> s{_lcirsCommandInvocations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lcirsResponseStatus :: Lens' ListCommandInvocationsResponse Int
 lcirsResponseStatus = lens _lcirsResponseStatus (\ s a -> s{_lcirsResponseStatus = a});
 

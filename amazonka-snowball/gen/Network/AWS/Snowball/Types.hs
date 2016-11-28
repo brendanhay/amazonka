@@ -135,7 +135,7 @@ import           Network.AWS.Sign.V4
 import           Network.AWS.Snowball.Types.Product
 import           Network.AWS.Snowball.Types.Sum
 
--- | API version '2016-06-30' of the Amazon Import/Export Snowball SDK configuration.
+-- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
 snowball :: Service
 snowball =
     Service
@@ -169,24 +169,34 @@ snowball =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The specified resource can\'t be found. Check the information you provided in your last request, and try again.
+-- | The specified resource can't be found. Check the information you provided in your last request, and try again.
+--
+--
 _InvalidResourceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceException = _ServiceError . hasCode "InvalidResourceException"
 
--- | The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region\'s carrier and try again. If the issue persists, contact AWS Support.
+-- | The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact AWS Support.
+--
+--
 _UnsupportedAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedAddressException =
     _ServiceError . hasCode "UnsupportedAddressException"
 
--- | The provided AWS Key Management Service key lacks the permissions to perform the specified < CreateJob> or < UpdateJob> action.
+-- | The provided AWS Key Management Service key lacks the permissions to perform the specified 'CreateJob' or 'UpdateJob' action.
+--
+--
 _KMSRequestFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSRequestFailedException =
     _ServiceError . hasCode "KMSRequestFailedException"
 
--- | The action can\'t be performed because the job\'s current state doesn\'t allow that action to be performed.
+-- | The action can't be performed because the job's current state doesn't allow that action to be performed.
+--
+--
 _InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobStateException = _ServiceError . hasCode "InvalidJobStateException"
 
--- | The address provided was invalid. Check the address with your region\'s carrier, and try again.
+-- | The address provided was invalid. Check the address with your region's carrier, and try again.
+--
+--
 _InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"

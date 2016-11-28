@@ -54,13 +54,13 @@ data PutBucketVersioning = PutBucketVersioning'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbvMFA'
+-- * 'pbvMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'pbvContentMD5'
+-- * 'pbvContentMD5' - Undocumented member.
 --
--- * 'pbvBucket'
+-- * 'pbvBucket' - Undocumented member.
 --
--- * 'pbvVersioningConfiguration'
+-- * 'pbvVersioningConfiguration' - Undocumented member.
 putBucketVersioning
     :: BucketName -- ^ 'pbvBucket'
     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
@@ -73,7 +73,7 @@ putBucketVersioning pBucket_ pVersioningConfiguration_ =
     , _pbvVersioningConfiguration = pVersioningConfiguration_
     }
 
--- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
 pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
 

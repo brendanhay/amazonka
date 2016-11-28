@@ -20,7 +20,9 @@
 --
 -- Lists your delivery streams.
 --
--- The number of delivery streams might be too large to return using a single call to < ListDeliveryStreams>. You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of __HasMoreDeliveryStreams__ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
+--
+-- The number of delivery streams might be too large to return using a single call to 'ListDeliveryStreams' . You can limit the number of delivery streams returned, using the __Limit__ parameter. To determine whether there are more delivery streams to list, check the value of __HasMoreDeliveryStreams__ in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the __ExclusiveStartDeliveryStreamName__ parameter of a subsequent call.
+--
 module Network.AWS.Firehose.ListDeliveryStreams
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for < ListDeliveryStreams>.
+-- | Contains the parameters for 'ListDeliveryStreams' .
+--
+--
 --
 -- /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
@@ -58,9 +62,9 @@ data ListDeliveryStreams = ListDeliveryStreams'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldsLimit'
+-- * 'ldsLimit' - The maximum number of delivery streams to list.
 --
--- * 'ldsExclusiveStartDeliveryStreamName'
+-- * 'ldsExclusiveStartDeliveryStreamName' - The name of the delivery stream to start the list with.
 listDeliveryStreams
     :: ListDeliveryStreams
 listDeliveryStreams =
@@ -117,7 +121,9 @@ instance ToPath ListDeliveryStreams where
 instance ToQuery ListDeliveryStreams where
         toQuery = const mempty
 
--- | Contains the output of < ListDeliveryStreams>.
+-- | Contains the output of 'ListDeliveryStreams' .
+--
+--
 --
 -- /See:/ 'listDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
@@ -130,11 +136,11 @@ data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldsrsResponseStatus'
+-- * 'ldsrsResponseStatus' - -- | The response status code.
 --
--- * 'ldsrsDeliveryStreamNames'
+-- * 'ldsrsDeliveryStreamNames' - The names of the delivery streams.
 --
--- * 'ldsrsHasMoreDeliveryStreams'
+-- * 'ldsrsHasMoreDeliveryStreams' - Indicates whether there are more delivery streams available to list.
 listDeliveryStreamsResponse
     :: Int -- ^ 'ldsrsResponseStatus'
     -> Bool -- ^ 'ldsrsHasMoreDeliveryStreams'
@@ -146,7 +152,7 @@ listDeliveryStreamsResponse pResponseStatus_ pHasMoreDeliveryStreams_ =
     , _ldsrsHasMoreDeliveryStreams = pHasMoreDeliveryStreams_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ldsrsResponseStatus :: Lens' ListDeliveryStreamsResponse Int
 ldsrsResponseStatus = lens _ldsrsResponseStatus (\ s a -> s{_ldsrsResponseStatus = a});
 

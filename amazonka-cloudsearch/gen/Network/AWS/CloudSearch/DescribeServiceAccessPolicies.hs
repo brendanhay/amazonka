@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the access policies that control access to the domain\'s document and search endpoints. By default, shows the configuration with any pending changes. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain> in the /Amazon CloudSearch Developer Guide/.
+-- Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeServiceAccessPolicies' operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the 'Deployed' option to 'true'.
+-- | Container for the parameters to the @'DescribeServiceAccessPolicies' @ operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
+--
+--
 --
 -- /See:/ 'describeServiceAccessPolicies' smart constructor.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
@@ -55,9 +59,9 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsapDeployed'
+-- * 'dsapDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 --
--- * 'dsapDomainName'
+-- * 'dsapDomainName' - The name of the domain you want to describe.
 describeServiceAccessPolicies
     :: Text -- ^ 'dsapDomainName'
     -> DescribeServiceAccessPolicies
@@ -67,7 +71,7 @@ describeServiceAccessPolicies pDomainName_ =
     , _dsapDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any pending changes ('false'). Defaults to 'false'.
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
 dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
 
@@ -107,7 +111,9 @@ instance ToQuery DescribeServiceAccessPolicies where
                "Deployed" =: _dsapDeployed,
                "DomainName" =: _dsapDomainName]
 
--- | The result of a 'DescribeServiceAccessPolicies' request.
+-- | The result of a @DescribeServiceAccessPolicies@ request.
+--
+--
 --
 -- /See:/ 'describeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
@@ -119,9 +125,9 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaprsResponseStatus'
+-- * 'dsaprsResponseStatus' - -- | The response status code.
 --
--- * 'dsaprsAccessPolicies'
+-- * 'dsaprsAccessPolicies' - The access rules configured for the domain specified in the request.
 describeServiceAccessPoliciesResponse
     :: Int -- ^ 'dsaprsResponseStatus'
     -> AccessPoliciesStatus -- ^ 'dsaprsAccessPolicies'
@@ -132,7 +138,7 @@ describeServiceAccessPoliciesResponse pResponseStatus_ pAccessPolicies_ =
     , _dsaprsAccessPolicies = pAccessPolicies_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dsaprsResponseStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
 dsaprsResponseStatus = lens _dsaprsResponseStatus (\ s a -> s{_dsaprsResponseStatus = a});
 

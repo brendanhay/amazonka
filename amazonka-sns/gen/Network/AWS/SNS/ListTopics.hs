@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester\'s topics. Each call returns a limited list of topics, up to 100. If there are more topics, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.
+-- Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListTopics@ call to get further results.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
@@ -55,7 +57,7 @@ newtype ListTopics = ListTopics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - Token returned by the previous @ListTopics@ request.
 listTopics
     :: ListTopics
 listTopics =
@@ -63,7 +65,7 @@ listTopics =
     { _ltNextToken = Nothing
     }
 
--- | Token returned by the previous 'ListTopics' request.
+-- | Token returned by the previous @ListTopics@ request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
@@ -105,6 +107,8 @@ instance ToQuery ListTopics where
 
 -- | Response for ListTopics action.
 --
+--
+--
 -- /See:/ 'listTopicsResponse' smart constructor.
 data ListTopicsResponse = ListTopicsResponse'
     { _ltrsTopics         :: !(Maybe [Topic])
@@ -116,11 +120,11 @@ data ListTopicsResponse = ListTopicsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTopics'
+-- * 'ltrsTopics' - A list of topic ARNs.
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTopicsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTopicsResponse
@@ -135,11 +139,11 @@ listTopicsResponse pResponseStatus_ =
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
 ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
 
--- | Token to pass along to the next 'ListTopics' request. This element is returned if there are additional topics to retrieve.
+-- | Token to pass along to the next @ListTopics@ request. This element is returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTopicsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

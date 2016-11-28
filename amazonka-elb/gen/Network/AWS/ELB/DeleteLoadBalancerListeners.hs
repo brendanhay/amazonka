@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified listeners from the specified load balancer.
+--
+--
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerListeners' smart constructor.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName  :: !Text
@@ -54,9 +58,9 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlblLoadBalancerName'
+-- * 'dlblLoadBalancerName' - The name of the load balancer.
 --
--- * 'dlblLoadBalancerPorts'
+-- * 'dlblLoadBalancerPorts' - The client port numbers of the listeners.
 deleteLoadBalancerListeners
     :: Text -- ^ 'dlblLoadBalancerName'
     -> DeleteLoadBalancerListeners
@@ -107,6 +111,8 @@ instance ToQuery DeleteLoadBalancerListeners where
 
 -- | Contains the output of DeleteLoadBalancerListeners.
 --
+--
+--
 -- /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
     { _dlblrsResponseStatus :: Int
@@ -116,7 +122,7 @@ newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersRespons
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlblrsResponseStatus'
+-- * 'dlblrsResponseStatus' - -- | The response status code.
 deleteLoadBalancerListenersResponse
     :: Int -- ^ 'dlblrsResponseStatus'
     -> DeleteLoadBalancerListenersResponse
@@ -125,7 +131,7 @@ deleteLoadBalancerListenersResponse pResponseStatus_ =
     { _dlblrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dlblrsResponseStatus :: Lens' DeleteLoadBalancerListenersResponse Int
 dlblrsResponseStatus = lens _dlblrsResponseStatus (\ s a -> s{_dlblrsResponseStatus = a});
 

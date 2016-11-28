@@ -20,15 +20,19 @@
 --
 -- Enables or disables Easy DKIM signing of email sent from an identity:
 --
--- -   If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., 'user\'example.com').
 --
--- -   If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.
+--     * If Easy DKIM signing is enabled for a domain name identity (e.g., @example.com@ ), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., @user@example.com@ ).
 --
--- For email addresses (e.g., 'user\'example.com'), you can only enable Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.
+--     * If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.
+--
+--
+--
+-- For email addresses (e.g., @user@example.com@ ), you can only enable Easy DKIM signing if the corresponding domain (e.g., @example.com@ ) has been set up for Easy DKIM using the AWS Console or the @VerifyDomainDkim@ action.
 --
 -- This action is throttled at one request per second.
 --
--- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
+-- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
+--
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Creating a Request
@@ -52,7 +56,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
+-- | Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'setIdentityDkimEnabled' smart constructor.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
@@ -64,9 +70,9 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sideIdentity'
+-- * 'sideIdentity' - The identity for which DKIM signing should be enabled or disabled.
 --
--- * 'sideDkimEnabled'
+-- * 'sideDkimEnabled' - Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
 setIdentityDkimEnabled
     :: Text -- ^ 'sideIdentity'
     -> Bool -- ^ 'sideDkimEnabled'
@@ -81,7 +87,7 @@ setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
 
--- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable DKIM signing for this identity; 'false' to disable it.
+-- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to enable DKIM signing for this identity; @false@ to disable it.
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
@@ -116,6 +122,8 @@ instance ToQuery SetIdentityDkimEnabled where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _sidersResponseStatus :: Int
@@ -125,7 +133,7 @@ newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sidersResponseStatus'
+-- * 'sidersResponseStatus' - -- | The response status code.
 setIdentityDkimEnabledResponse
     :: Int -- ^ 'sidersResponseStatus'
     -> SetIdentityDkimEnabledResponse
@@ -134,7 +142,7 @@ setIdentityDkimEnabledResponse pResponseStatus_ =
     { _sidersResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 sidersResponseStatus :: Lens' SetIdentityDkimEnabledResponse Int
 sidersResponseStatus = lens _sidersResponseStatus (\ s a -> s{_sidersResponseStatus = a});
 

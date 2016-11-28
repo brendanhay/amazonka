@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+-- Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+--
+--
 module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for GetEndpointAttributes action.
 --
+--
+--
 -- /See:/ 'getEndpointAttributes' smart constructor.
 newtype GetEndpointAttributes = GetEndpointAttributes'
     { _geaEndpointARN :: Text
@@ -53,7 +57,7 @@ newtype GetEndpointAttributes = GetEndpointAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'geaEndpointARN'
+-- * 'geaEndpointARN' - EndpointArn for GetEndpointAttributes input.
 getEndpointAttributes
     :: Text -- ^ 'geaEndpointARN'
     -> GetEndpointAttributes
@@ -97,6 +101,8 @@ instance ToQuery GetEndpointAttributes where
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
 --
+--
+--
 -- /See:/ 'getEndpointAttributesResponse' smart constructor.
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     { _gearsAttributes     :: !(Maybe (Map Text Text))
@@ -107,9 +113,9 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gearsAttributes'
+-- * 'gearsAttributes' - Attributes include the following:     * @CustomUserData@ -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.     * @Enabled@ -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.     * @Token@ -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
 --
--- * 'gearsResponseStatus'
+-- * 'gearsResponseStatus' - -- | The response status code.
 getEndpointAttributesResponse
     :: Int -- ^ 'gearsResponseStatus'
     -> GetEndpointAttributesResponse
@@ -119,18 +125,11 @@ getEndpointAttributesResponse pResponseStatus_ =
     , _gearsResponseStatus = pResponseStatus_
     }
 
--- | Attributes include the following:
---
--- -   'CustomUserData' -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
---
--- -   'Enabled' -- flag that enables\/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.
---
--- -   'Token' -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
---
+-- | Attributes include the following:     * @CustomUserData@ -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.     * @Enabled@ -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.     * @Token@ -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.
 gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 gearsResponseStatus :: Lens' GetEndpointAttributesResponse Int
 gearsResponseStatus = lens _gearsResponseStatus (\ s a -> s{_gearsResponseStatus = a});
 

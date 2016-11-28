@@ -20,7 +20,9 @@
 --
 -- Describes one or more of your virtual private gateways.
 --
--- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding an IPsec Hardware VPN to Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about virtual private gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding an IPsec Hardware VPN to Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeVPNGateways
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeVpnGateways.
 --
+--
+--
 -- /See:/ 'describeVPNGateways' smart constructor.
 data DescribeVPNGateways = DescribeVPNGateways'
     { _dvgsFilters       :: !(Maybe [Filter])
@@ -59,11 +63,11 @@ data DescribeVPNGateways = DescribeVPNGateways'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvgsFilters'
+-- * 'dvgsFilters' - One or more filters.     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).     * @attachment.vpc-id@ - The ID of an attached VPC.     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .     * @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
--- * 'dvgsVPNGatewayIds'
+-- * 'dvgsVPNGatewayIds' - One or more virtual private gateway IDs. Default: Describes all your virtual private gateways.
 --
--- * 'dvgsDryRun'
+-- * 'dvgsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeVPNGateways
     :: DescribeVPNGateways
 describeVPNGateways =
@@ -73,36 +77,15 @@ describeVPNGateways =
     , _dvgsDryRun = Nothing
     }
 
--- | One or more filters.
---
--- -   'attachment.state' - The current state of the attachment between the gateway and the VPC ('attaching' | 'attached' | 'detaching' | 'detached').
---
--- -   'attachment.vpc-id' - The ID of an attached VPC.
---
--- -   'availability-zone' - The Availability Zone for the virtual private gateway (if applicable).
---
--- -   'state' - The state of the virtual private gateway ('pending' | 'available' | 'deleting' | 'deleted').
---
--- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned to the resource.
---
--- -   'tag-key' - The key of a tag assigned to the resource. This filter is independent of the 'tag-value' filter. For example, if you use both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you get any resources assigned both the tag key Purpose (regardless of what the tag\'s value is), and the tag value X (regardless of what the tag\'s key is). If you want to list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
---
--- -   'tag-value' - The value of a tag assigned to the resource. This filter is independent of the 'tag-key' filter.
---
--- -   'type' - The type of virtual private gateway. Currently the only supported type is 'ipsec.1'.
---
--- -   'vpn-gateway-id' - The ID of the virtual private gateway.
---
+-- | One or more filters.     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).     * @attachment.vpc-id@ - The ID of an attached VPC.     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .     * @vpn-gateway-id@ - The ID of the virtual private gateway.
 dvgsFilters :: Lens' DescribeVPNGateways [Filter]
 dvgsFilters = lens _dvgsFilters (\ s a -> s{_dvgsFilters = a}) . _Default . _Coerce;
 
--- | One or more virtual private gateway IDs.
---
--- Default: Describes all your virtual private gateways.
+-- | One or more virtual private gateway IDs. Default: Describes all your virtual private gateways.
 dvgsVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
 dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\ s a -> s{_dvgsVPNGatewayIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvgsDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
 dvgsDryRun = lens _dvgsDryRun (\ s a -> s{_dvgsDryRun = a});
 
@@ -140,6 +123,8 @@ instance ToQuery DescribeVPNGateways where
 
 -- | Contains the output of DescribeVpnGateways.
 --
+--
+--
 -- /See:/ 'describeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrsVPNGateways    :: !(Maybe [VPNGateway])
@@ -150,9 +135,9 @@ data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvgrsVPNGateways'
+-- * 'dvgrsVPNGateways' - Information about one or more virtual private gateways.
 --
--- * 'dvgrsResponseStatus'
+-- * 'dvgrsResponseStatus' - -- | The response status code.
 describeVPNGatewaysResponse
     :: Int -- ^ 'dvgrsResponseStatus'
     -> DescribeVPNGatewaysResponse
@@ -166,7 +151,7 @@ describeVPNGatewaysResponse pResponseStatus_ =
 dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
 dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dvgrsResponseStatus :: Lens' DescribeVPNGatewaysResponse Int
 dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the number of resources that are compliant and the number that are noncompliant. You can specify one or more resource types to get these numbers for each resource type. The maximum number returned is 100.
+--
+--
 module Network.AWS.Config.GetComplianceSummaryByResourceType
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsbrtResourceTypes'
+-- * 'gcsbrtResourceTypes' - Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ , and you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 getComplianceSummaryByResourceType
     :: GetComplianceSummaryByResourceType
 getComplianceSummaryByResourceType =
@@ -59,9 +61,7 @@ getComplianceSummaryByResourceType =
     { _gcsbrtResourceTypes = Nothing
     }
 
--- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type.
---
--- For this request, you can specify an AWS resource type such as 'AWS::EC2::Instance', and you can specify that the resource type is an AWS account by specifying 'AWS::::Account'.
+-- | Specify one or more resource types to get the number of resources that are compliant and the number that are noncompliant for each resource type. For this request, you can specify an AWS resource type such as @AWS::EC2::Instance@ , and you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 gcsbrtResourceTypes :: Lens' GetComplianceSummaryByResourceType [Text]
 gcsbrtResourceTypes = lens _gcsbrtResourceTypes (\ s a -> s{_gcsbrtResourceTypes = a}) . _Default . _Coerce;
 
@@ -118,9 +118,9 @@ data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResource
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsbrtrsComplianceSummariesByResourceType'
+-- * 'gcsbrtrsComplianceSummariesByResourceType' - The number of resources that are compliant and the number that are noncompliant. If one or more resource types were provided with the request, the numbers are returned for each resource type. The maximum number returned is 100.
 --
--- * 'gcsbrtrsResponseStatus'
+-- * 'gcsbrtrsResponseStatus' - -- | The response status code.
 getComplianceSummaryByResourceTypeResponse
     :: Int -- ^ 'gcsbrtrsResponseStatus'
     -> GetComplianceSummaryByResourceTypeResponse
@@ -134,7 +134,7 @@ getComplianceSummaryByResourceTypeResponse pResponseStatus_ =
 gcsbrtrsComplianceSummariesByResourceType :: Lens' GetComplianceSummaryByResourceTypeResponse [ComplianceSummaryByResourceType]
 gcsbrtrsComplianceSummariesByResourceType = lens _gcsbrtrsComplianceSummariesByResourceType (\ s a -> s{_gcsbrtrsComplianceSummariesByResourceType = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gcsbrtrsResponseStatus :: Lens' GetComplianceSummaryByResourceTypeResponse Int
 gcsbrtrsResponseStatus = lens _gcsbrtrsResponseStatus (\ s a -> s{_gcsbrtrsResponseStatus = a});
 

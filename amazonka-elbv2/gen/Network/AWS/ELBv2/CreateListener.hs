@@ -20,9 +20,11 @@
 --
 -- Creates a listener for the specified Application load balancer.
 --
--- To update a listener, use < ModifyListener>. When you are finished with a listener, you can delete it using < DeleteListener>. If you are finished with both the listener and the load balancer, you can delete them both using < DeleteLoadBalancer>.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for Your Application Load Balancers> in the /Application Load Balancers Guide/.
+-- To update a listener, use 'ModifyListener' . When you are finished with a listener, you can delete it using 'DeleteListener' . If you are finished with both the listener and the load balancer, you can delete them both using 'DeleteLoadBalancer' .
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for Your Application Load Balancers> in the /Application Load Balancers Guide/ .
+--
 module Network.AWS.ELBv2.CreateListener
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateListener.
 --
+--
+--
 -- /See:/ 'createListener' smart constructor.
 data CreateListener = CreateListener'
     { _clSSLPolicy       :: !(Maybe Text)
@@ -67,17 +71,17 @@ data CreateListener = CreateListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clSSLPolicy'
+-- * 'clSSLPolicy' - The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
 --
--- * 'clCertificates'
+-- * 'clCertificates' - The SSL server certificate. You must provide exactly one certificate if the protocol is HTTPS.
 --
--- * 'clLoadBalancerARN'
+-- * 'clLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'clProtocol'
+-- * 'clProtocol' - The protocol for connections from clients to the load balancer.
 --
--- * 'clPort'
+-- * 'clPort' - The port on which the load balancer is listening.
 --
--- * 'clDefaultActions'
+-- * 'clDefaultActions' - The default actions for the listener.
 createListener
     :: Text -- ^ 'clLoadBalancerARN'
     -> ProtocolEnum -- ^ 'clProtocol'
@@ -153,6 +157,8 @@ instance ToQuery CreateListener where
 
 -- | Contains the output of CreateListener.
 --
+--
+--
 -- /See:/ 'createListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
     { _clrsListeners      :: !(Maybe [Listener])
@@ -163,9 +169,9 @@ data CreateListenerResponse = CreateListenerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clrsListeners'
+-- * 'clrsListeners' - Information about the listener.
 --
--- * 'clrsResponseStatus'
+-- * 'clrsResponseStatus' - -- | The response status code.
 createListenerResponse
     :: Int -- ^ 'clrsResponseStatus'
     -> CreateListenerResponse
@@ -179,7 +185,7 @@ createListenerResponse pResponseStatus_ =
 clrsListeners :: Lens' CreateListenerResponse [Listener]
 clrsListeners = lens _clrsListeners (\ s a -> s{_clrsListeners = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 clrsResponseStatus :: Lens' CreateListenerResponse Int
 clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Using this API you can update the function version to which the alias points and the alias description. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Using this API you can update the function version to which the alias points and the alias description. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- This requires permission for the lambda:UpdateAlias action.
+--
 module Network.AWS.Lambda.UpdateAlias
     (
     -- * Creating a Request
@@ -61,13 +63,13 @@ data UpdateAlias = UpdateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaFunctionVersion'
+-- * 'uaFunctionVersion' - Using this parameter you can change the Lambda function version to which the alias points.
 --
--- * 'uaDescription'
+-- * 'uaDescription' - You can change the description of the alias using this parameter.
 --
--- * 'uaFunctionName'
+-- * 'uaFunctionName' - The function name for which the alias is created.
 --
--- * 'uaName'
+-- * 'uaName' - The alias name.
 updateAlias
     :: Text -- ^ 'uaFunctionName'
     -> Text -- ^ 'uaName'

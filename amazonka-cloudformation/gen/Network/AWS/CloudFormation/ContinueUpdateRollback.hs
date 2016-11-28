@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For a specified stack that is in the 'UPDATE_ROLLBACK_FAILED' state, continues rolling it back to the 'UPDATE_ROLLBACK_COMPLETE' state. Depending on the cause of the failure, you can manually <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed fix the error> and continue the rollback. By continuing the rollback, you can return your stack to a working state (the 'UPDATE_ROLLBACK_COMPLETE' state), and then try to update the stack again.
+-- For a specified stack that is in the @UPDATE_ROLLBACK_FAILED@ state, continues rolling it back to the @UPDATE_ROLLBACK_COMPLETE@ state. Depending on the cause of the failure, you can manually <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed fix the error> and continue the rollback. By continuing the rollback, you can return your stack to a working state (the @UPDATE_ROLLBACK_COMPLETE@ state), and then try to update the stack again.
 --
--- A stack goes into the 'UPDATE_ROLLBACK_FAILED' state when AWS CloudFormation cannot roll back all changes after a failed stack update. For example, you might have a stack that is rolling back to an old database instance that was deleted outside of AWS CloudFormation. Because AWS CloudFormation doesn\'t know the database was deleted, it assumes that the database instance still exists and attempts to roll back to it, causing the update rollback to fail.
+--
+-- A stack goes into the @UPDATE_ROLLBACK_FAILED@ state when AWS CloudFormation cannot roll back all changes after a failed stack update. For example, you might have a stack that is rolling back to an old database instance that was deleted outside of AWS CloudFormation. Because AWS CloudFormation doesn't know the database was deleted, it assumes that the database instance still exists and attempts to roll back to it, causing the update rollback to fail.
+--
 module Network.AWS.CloudFormation.ContinueUpdateRollback
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < ContinueUpdateRollback> action.
+-- | The input for the 'ContinueUpdateRollback' action.
+--
+--
 --
 -- /See:/ 'continueUpdateRollback' smart constructor.
 newtype ContinueUpdateRollback = ContinueUpdateRollback'
@@ -54,7 +58,7 @@ newtype ContinueUpdateRollback = ContinueUpdateRollback'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'curStackName'
+-- * 'curStackName' - The name or the unique ID of the stack that you want to continue rolling back.
 continueUpdateRollback
     :: Text -- ^ 'curStackName'
     -> ContinueUpdateRollback
@@ -95,7 +99,9 @@ instance ToQuery ContinueUpdateRollback where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _curStackName]
 
--- | The output for a < ContinueUpdateRollback> action.
+-- | The output for a 'ContinueUpdateRollback' action.
+--
+--
 --
 -- /See:/ 'continueUpdateRollbackResponse' smart constructor.
 newtype ContinueUpdateRollbackResponse = ContinueUpdateRollbackResponse'
@@ -106,7 +112,7 @@ newtype ContinueUpdateRollbackResponse = ContinueUpdateRollbackResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'currsResponseStatus'
+-- * 'currsResponseStatus' - -- | The response status code.
 continueUpdateRollbackResponse
     :: Int -- ^ 'currsResponseStatus'
     -> ContinueUpdateRollbackResponse
@@ -115,7 +121,7 @@ continueUpdateRollbackResponse pResponseStatus_ =
     { _currsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 currsResponseStatus :: Lens' ContinueUpdateRollbackResponse Int
 currsResponseStatus = lens _currsResponseStatus (\ s a -> s{_currsResponseStatus = a});
 

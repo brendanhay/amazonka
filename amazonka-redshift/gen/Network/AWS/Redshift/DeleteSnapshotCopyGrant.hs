@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified snapshot copy grant.
+--
+--
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     (
     -- * Creating a Request
@@ -39,7 +41,9 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The result of the 'DeleteSnapshotCopyGrant' action.
+-- | The result of the @DeleteSnapshotCopyGrant@ action.
+--
+--
 --
 -- /See:/ 'deleteSnapshotCopyGrant' smart constructor.
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
@@ -50,7 +54,7 @@ newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscgSnapshotCopyGrantName'
+-- * 'dscgSnapshotCopyGrantName' - The name of the snapshot copy grant to delete.
 deleteSnapshotCopyGrant
     :: Text -- ^ 'dscgSnapshotCopyGrantName'
     -> DeleteSnapshotCopyGrant

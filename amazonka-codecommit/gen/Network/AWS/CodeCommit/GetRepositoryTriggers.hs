@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about triggers configured for a repository.
+--
+--
 module Network.AWS.CodeCommit.GetRepositoryTriggers
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get repository triggers operation.
 --
+--
+--
 -- /See:/ 'getRepositoryTriggers' smart constructor.
 newtype GetRepositoryTriggers = GetRepositoryTriggers'
     { _grtRepositoryName :: Maybe Text
@@ -54,7 +58,7 @@ newtype GetRepositoryTriggers = GetRepositoryTriggers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grtRepositoryName'
+-- * 'grtRepositoryName' - The name of the repository for which the trigger is configured.
 getRepositoryTriggers
     :: GetRepositoryTriggers
 getRepositoryTriggers =
@@ -106,6 +110,8 @@ instance ToQuery GetRepositoryTriggers where
 
 -- | Represents the output of a get repository triggers operation.
 --
+--
+--
 -- /See:/ 'getRepositoryTriggersResponse' smart constructor.
 data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
     { _grtrsConfigurationId :: !(Maybe Text)
@@ -117,11 +123,11 @@ data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grtrsConfigurationId'
+-- * 'grtrsConfigurationId' - The system-generated unique ID for the trigger.
 --
--- * 'grtrsTriggers'
+-- * 'grtrsTriggers' - The JSON block of configuration information for each trigger.
 --
--- * 'grtrsResponseStatus'
+-- * 'grtrsResponseStatus' - -- | The response status code.
 getRepositoryTriggersResponse
     :: Int -- ^ 'grtrsResponseStatus'
     -> GetRepositoryTriggersResponse
@@ -140,7 +146,7 @@ grtrsConfigurationId = lens _grtrsConfigurationId (\ s a -> s{_grtrsConfiguratio
 grtrsTriggers :: Lens' GetRepositoryTriggersResponse [RepositoryTrigger]
 grtrsTriggers = lens _grtrsTriggers (\ s a -> s{_grtrsTriggers = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 grtrsResponseStatus :: Lens' GetRepositoryTriggersResponse Int
 grtrsResponseStatus = lens _grtrsResponseStatus (\ s a -> s{_grtrsResponseStatus = a});
 

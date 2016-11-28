@@ -20,6 +20,8 @@
 --
 -- Provides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
     (
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | This input determines how the ListClusters action filters the list of clusters that it returns.
 --
+--
+--
 -- /See:/ 'listClusters' smart constructor.
 data ListClusters = ListClusters'
     { _lcCreatedAfter  :: !(Maybe POSIX)
@@ -63,13 +67,13 @@ data ListClusters = ListClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcCreatedAfter'
+-- * 'lcCreatedAfter' - The creation date and time beginning value filter for listing clusters .
 --
--- * 'lcMarker'
+-- * 'lcMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lcClusterStates'
+-- * 'lcClusterStates' - The cluster state filters to apply when listing clusters.
 --
--- * 'lcCreatedBefore'
+-- * 'lcCreatedBefore' - The creation date and time end value filter for listing clusters .
 listClusters
     :: ListClusters
 listClusters =
@@ -143,6 +147,8 @@ instance ToQuery ListClusters where
 
 -- | This contains a ClusterSummaryList with the cluster details; for example, the cluster IDs, names, and status.
 --
+--
+--
 -- /See:/ 'listClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
     { _lcrsMarker         :: !(Maybe Text)
@@ -154,11 +160,11 @@ data ListClustersResponse = ListClustersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsMarker'
+-- * 'lcrsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lcrsClusters'
+-- * 'lcrsClusters' - The list of clusters for the account based on the given filters.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listClustersResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListClustersResponse
@@ -177,7 +183,7 @@ lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
 lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListClustersResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

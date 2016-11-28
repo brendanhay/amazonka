@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID.
+--
+--
 module Network.AWS.Discovery.DescribeAgents
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeAgents = DescribeAgents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAgentIds'
+-- * 'daAgentIds' - The agent IDs for which you want information. If you specify no IDs, the system returns information about all agents associated with your AWS user account.
 --
--- * 'daNextToken'
+-- * 'daNextToken' - A token to start the list. Use this token to get the next set of results.
 --
--- * 'daMaxResults'
+-- * 'daMaxResults' - The total number of agents to return. The maximum value is 100.
 describeAgents
     :: DescribeAgents
 describeAgents =
@@ -132,11 +134,11 @@ data DescribeAgentsResponse = DescribeAgentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAgentsInfo'
+-- * 'darsAgentsInfo' - Lists AWS agents by ID or lists all agents associated with your user account if you did not specify an agent ID. The output includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, host name where the agent resides, and the version number of each agent.
 --
--- * 'darsNextToken'
+-- * 'darsNextToken' - The call returns a token. Use this token to get the next set of results.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAgentsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAgentsResponse
@@ -155,7 +157,7 @@ darsAgentsInfo = lens _darsAgentsInfo (\ s a -> s{_darsAgentsInfo = a}) . _Defau
 darsNextToken :: Lens' DescribeAgentsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAgentsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

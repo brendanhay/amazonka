@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | A key-value pair that identifies or specifies metadata about an AWS CloudHSM resource.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagKey   :: !Text
@@ -33,9 +35,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'

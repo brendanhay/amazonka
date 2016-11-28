@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the status of an IAM user\'s SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This action can be used to disable a user\'s SSH public key as part of a key rotation work flow.
+-- Sets the status of an IAM user's SSH public key to active or inactive. SSH public keys that are inactive cannot be used for authentication. This action can be used to disable a user's SSH public key as part of a key rotation work flow.
 --
--- The SSH public key affected by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
+--
+-- The SSH public key affected by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
+--
 module Network.AWS.IAM.UpdateSSHPublicKey
     (
     -- * Creating a Request
@@ -54,11 +56,11 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uspkUserName'
+-- * 'uspkUserName' - The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uspkSSHPublicKeyId'
+-- * 'uspkSSHPublicKeyId' - The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 --
--- * 'uspkStatus'
+-- * 'uspkStatus' - The status to assign to the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 updateSSHPublicKey
     :: Text -- ^ 'uspkUserName'
     -> Text -- ^ 'uspkSSHPublicKeyId'
@@ -71,19 +73,15 @@ updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     , _uspkStatus = pStatus_
     }
 
--- | The name of the IAM user associated with the SSH public key.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uspkUserName :: Lens' UpdateSSHPublicKey Text
 uspkUserName = lens _uspkUserName (\ s a -> s{_uspkUserName = a});
 
--- | The unique identifier for the SSH public key.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 uspkSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
 uspkSSHPublicKeyId = lens _uspkSSHPublicKeyId (\ s a -> s{_uspkSSHPublicKeyId = a});
 
--- | The status to assign to the SSH public key. 'Active' means the key can be used for authentication with an AWS CodeCommit repository. 'Inactive' means the key cannot be used.
+-- | The status to assign to the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 uspkStatus :: Lens' UpdateSSHPublicKey StatusType
 uspkStatus = lens _uspkStatus (\ s a -> s{_uspkStatus = a});
 

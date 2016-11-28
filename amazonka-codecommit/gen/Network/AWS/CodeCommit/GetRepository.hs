@@ -20,7 +20,7 @@
 --
 -- Returns information about a repository.
 --
--- The description field for a repository accepts all HTML characters and all valid Unicode characters. Applications that do not HTML-encode the description and display it in a web page could expose users to potentially malicious code. Make sure that you HTML-encode the description field in any application that uses this API to display the repository description on a web page.
+--
 module Network.AWS.CodeCommit.GetRepository
     (
     -- * Creating a Request
@@ -46,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get repository operation.
 --
+--
+--
 -- /See:/ 'getRepository' smart constructor.
 newtype GetRepository = GetRepository'
     { _grRepositoryName :: Text
@@ -55,7 +57,7 @@ newtype GetRepository = GetRepository'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRepositoryName'
+-- * 'grRepositoryName' - The name of the repository to get information about.
 getRepository
     :: Text -- ^ 'grRepositoryName'
     -> GetRepository
@@ -104,6 +106,8 @@ instance ToQuery GetRepository where
 
 -- | Represents the output of a get repository operation.
 --
+--
+--
 -- /See:/ 'getRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
     { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
@@ -114,9 +118,9 @@ data GetRepositoryResponse = GetRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRepositoryMetadata'
+-- * 'grrsRepositoryMetadata' - Information about the repository.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 getRepositoryResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRepositoryResponse
@@ -130,7 +134,7 @@ getRepositoryResponse pResponseStatus_ =
 grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
 grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRepositoryResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 

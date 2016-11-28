@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the name of an application.
+--
+--
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an update application operation.
 --
+--
+--
 -- /See:/ 'updateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
     { _uaNewApplicationName :: !(Maybe Text)
@@ -52,9 +56,9 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaNewApplicationName'
+-- * 'uaNewApplicationName' - The new name to give the application.
 --
--- * 'uaApplicationName'
+-- * 'uaApplicationName' - The current name of the application you want to change.
 updateApplication
     :: UpdateApplication
 updateApplication =

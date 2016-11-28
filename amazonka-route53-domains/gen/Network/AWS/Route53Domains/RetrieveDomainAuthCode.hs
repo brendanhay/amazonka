@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.
+--
+--
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The RetrieveDomainAuthCode request includes the following element.
 --
+--
+--
 -- /See:/ 'retrieveDomainAuthCode' smart constructor.
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
     { _rdacDomainName :: Text
@@ -53,7 +57,7 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdacDomainName'
+-- * 'rdacDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 retrieveDomainAuthCode
     :: Text -- ^ 'rdacDomainName'
     -> RetrieveDomainAuthCode
@@ -62,15 +66,7 @@ retrieveDomainAuthCode pDomainName_ =
     { _rdacDomainName = pDomainName_
     }
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 rdacDomainName :: Lens' RetrieveDomainAuthCode Text
 rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
 
@@ -111,6 +107,8 @@ instance ToQuery RetrieveDomainAuthCode where
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 --
+--
+--
 -- /See:/ 'retrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
     { _rdacrsResponseStatus :: !Int
@@ -121,9 +119,9 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdacrsResponseStatus'
+-- * 'rdacrsResponseStatus' - -- | The response status code.
 --
--- * 'rdacrsAuthCode'
+-- * 'rdacrsAuthCode' - The authorization code for the domain. Type: String
 retrieveDomainAuthCodeResponse
     :: Int -- ^ 'rdacrsResponseStatus'
     -> Text -- ^ 'rdacrsAuthCode'
@@ -134,13 +132,11 @@ retrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
     , _rdacrsAuthCode = _Sensitive # pAuthCode_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rdacrsResponseStatus :: Lens' RetrieveDomainAuthCodeResponse Int
 rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a});
 
--- | The authorization code for the domain.
---
--- Type: String
+-- | The authorization code for the domain. Type: String
 rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
 rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive;
 

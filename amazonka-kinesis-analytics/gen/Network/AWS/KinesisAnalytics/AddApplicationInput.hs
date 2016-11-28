@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a streaming source to your Amazon Kinesis application. For conceptual information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+-- Adds a streaming source to your Amazon Kinesis application. For conceptual information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
--- You can add a streaming source either when you create an application or you can use this operation to add a streaming source after you create an application. For more information, see < CreateApplication>.
 --
--- Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the < DescribeApplication> operation to find the current application version.
+-- You can add a streaming source either when you create an application or you can use this operation to add a streaming source after you create an application. For more information, see 'CreateApplication' .
 --
--- This operation requires permissions to perform the 'kinesisanalytics:AddApplicationInput' action.
+-- Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the 'DescribeApplication' operation to find the current application version.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:AddApplicationInput@ action.
+--
 module Network.AWS.KinesisAnalytics.AddApplicationInput
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'addApplicationInput' smart constructor.
 data AddApplicationInput = AddApplicationInput'
     { _aaiApplicationName             :: !Text
@@ -62,11 +66,11 @@ data AddApplicationInput = AddApplicationInput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaiApplicationName'
+-- * 'aaiApplicationName' - Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
 --
--- * 'aaiCurrentApplicationVersionId'
+-- * 'aaiCurrentApplicationVersionId' - Current version of your Amazon Kinesis Analytics application. You can use the 'DescribeApplication' operation to find the current application version.
 --
--- * 'aaiInput'
+-- * 'aaiInput' - Undocumented member.
 addApplicationInput
     :: Text -- ^ 'aaiApplicationName'
     -> Natural -- ^ 'aaiCurrentApplicationVersionId'
@@ -83,7 +87,7 @@ addApplicationInput pApplicationName_ pCurrentApplicationVersionId_ pInput_ =
 aaiApplicationName :: Lens' AddApplicationInput Text
 aaiApplicationName = lens _aaiApplicationName (\ s a -> s{_aaiApplicationName = a});
 
--- | Current version of your Amazon Kinesis Analytics application. You can use the < DescribeApplication> operation to find the current application version.
+-- | Current version of your Amazon Kinesis Analytics application. You can use the 'DescribeApplication' operation to find the current application version.
 aaiCurrentApplicationVersionId :: Lens' AddApplicationInput Natural
 aaiCurrentApplicationVersionId = lens _aaiCurrentApplicationVersionId (\ s a -> s{_aaiCurrentApplicationVersionId = a}) . _Nat;
 
@@ -132,6 +136,8 @@ instance ToQuery AddApplicationInput where
 
 -- |
 --
+--
+--
 -- /See:/ 'addApplicationInputResponse' smart constructor.
 newtype AddApplicationInputResponse = AddApplicationInputResponse'
     { _aairsResponseStatus :: Int
@@ -141,7 +147,7 @@ newtype AddApplicationInputResponse = AddApplicationInputResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aairsResponseStatus'
+-- * 'aairsResponseStatus' - -- | The response status code.
 addApplicationInputResponse
     :: Int -- ^ 'aairsResponseStatus'
     -> AddApplicationInputResponse
@@ -150,7 +156,7 @@ addApplicationInputResponse pResponseStatus_ =
     { _aairsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aairsResponseStatus :: Lens' AddApplicationInputResponse Int
 aairsResponseStatus = lens _aairsResponseStatus (\ s a -> s{_aairsResponseStatus = a});
 

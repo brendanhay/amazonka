@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables single-sign on for a directory.
+--
+--
 module Network.AWS.DirectoryService.EnableSSO
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < EnableSso> operation.
+-- | Contains the inputs for the 'EnableSso' operation.
+--
+--
 --
 -- /See:/ 'enableSSO' smart constructor.
 data EnableSSO = EnableSSO'
@@ -56,11 +60,11 @@ data EnableSSO = EnableSSO'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esUserName'
+-- * 'esUserName' - The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 --
--- * 'esPassword'
+-- * 'esPassword' - The password of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 --
--- * 'esDirectoryId'
+-- * 'esDirectoryId' - The identifier of the directory for which to enable single-sign on.
 enableSSO
     :: Text -- ^ 'esDirectoryId'
     -> EnableSSO
@@ -71,9 +75,7 @@ enableSSO pDirectoryId_ =
     , _esDirectoryId = pDirectoryId_
     }
 
--- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name.
---
--- If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+-- | The username of an alternate account to use to enable single-sign on. This is only used for AD Connector directories. This account must have privileges to add a service principal name. If the AD Connector service account does not have privileges to add a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to enable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 esUserName :: Lens' EnableSSO (Maybe Text)
 esUserName = lens _esUserName (\ s a -> s{_esUserName = a});
 
@@ -121,7 +123,9 @@ instance ToPath EnableSSO where
 instance ToQuery EnableSSO where
         toQuery = const mempty
 
--- | Contains the results of the < EnableSso> operation.
+-- | Contains the results of the 'EnableSso' operation.
+--
+--
 --
 -- /See:/ 'enableSSOResponse' smart constructor.
 newtype EnableSSOResponse = EnableSSOResponse'
@@ -132,7 +136,7 @@ newtype EnableSSOResponse = EnableSSOResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esrsResponseStatus'
+-- * 'esrsResponseStatus' - -- | The response status code.
 enableSSOResponse
     :: Int -- ^ 'esrsResponseStatus'
     -> EnableSSOResponse
@@ -141,7 +145,7 @@ enableSSOResponse pResponseStatus_ =
     { _esrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 esrsResponseStatus :: Lens' EnableSSOResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
 

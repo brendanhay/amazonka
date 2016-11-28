@@ -48,7 +48,7 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbpBucket'
+-- * 'dbpBucket' - Undocumented member.
 deleteBucketPolicy
     :: BucketName -- ^ 'dbpBucket'
     -> DeleteBucketPolicy

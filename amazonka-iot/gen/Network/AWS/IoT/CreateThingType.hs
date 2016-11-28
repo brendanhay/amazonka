@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new thing type.
+--
+--
 module Network.AWS.IoT.CreateThingType
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreateThingType operation.
 --
+--
+--
 -- /See:/ 'createThingType' smart constructor.
 data CreateThingType = CreateThingType'
     { _cttThingTypeProperties :: !(Maybe ThingTypeProperties)
@@ -56,9 +60,9 @@ data CreateThingType = CreateThingType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cttThingTypeProperties'
+-- * 'cttThingTypeProperties' - The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
 --
--- * 'cttThingTypeName'
+-- * 'cttThingTypeName' - The name of the thing type.
 createThingType
     :: Text -- ^ 'cttThingTypeName'
     -> CreateThingType
@@ -109,6 +113,8 @@ instance ToQuery CreateThingType where
 
 -- | The output of the CreateThingType operation.
 --
+--
+--
 -- /See:/ 'createThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
     { _cttrsThingTypeName  :: !(Maybe Text)
@@ -120,11 +126,11 @@ data CreateThingTypeResponse = CreateThingTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cttrsThingTypeName'
+-- * 'cttrsThingTypeName' - The name of the thing type.
 --
--- * 'cttrsThingTypeARN'
+-- * 'cttrsThingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
 --
--- * 'cttrsResponseStatus'
+-- * 'cttrsResponseStatus' - -- | The response status code.
 createThingTypeResponse
     :: Int -- ^ 'cttrsResponseStatus'
     -> CreateThingTypeResponse
@@ -143,7 +149,7 @@ cttrsThingTypeName = lens _cttrsThingTypeName (\ s a -> s{_cttrsThingTypeName = 
 cttrsThingTypeARN :: Lens' CreateThingTypeResponse (Maybe Text)
 cttrsThingTypeARN = lens _cttrsThingTypeARN (\ s a -> s{_cttrsThingTypeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cttrsResponseStatus :: Lens' CreateThingTypeResponse Int
 cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a});
 

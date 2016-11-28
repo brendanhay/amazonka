@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to get an invalidation\'s information.
+-- | The request to get an invalidation's information.
 --
 -- /See:/ 'getInvalidation' smart constructor.
 data GetInvalidation = GetInvalidation'
@@ -55,9 +55,9 @@ data GetInvalidation = GetInvalidation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giDistributionId'
+-- * 'giDistributionId' - The distribution's id.
 --
--- * 'giId'
+-- * 'giId' - The invalidation's id.
 getInvalidation
     :: Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
@@ -68,11 +68,11 @@ getInvalidation pDistributionId_ pId_ =
     , _giId = pId_
     }
 
--- | The distribution\'s id.
+-- | The distribution's id.
 giDistributionId :: Lens' GetInvalidation Text
 giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
 
--- | The invalidation\'s id.
+-- | The invalidation's id.
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\ s a -> s{_giId = a});
 
@@ -113,9 +113,9 @@ data GetInvalidationResponse = GetInvalidationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'girsInvalidation'
+-- * 'girsInvalidation' - The invalidation's information.
 --
--- * 'girsResponseStatus'
+-- * 'girsResponseStatus' - -- | The response status code.
 getInvalidationResponse
     :: Int -- ^ 'girsResponseStatus'
     -> GetInvalidationResponse
@@ -125,11 +125,11 @@ getInvalidationResponse pResponseStatus_ =
     , _girsResponseStatus = pResponseStatus_
     }
 
--- | The invalidation\'s information.
+-- | The invalidation's information.
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 
--- | The response status code.
+-- | -- | The response status code.
 girsResponseStatus :: Lens' GetInvalidationResponse Int
 girsResponseStatus = lens _girsResponseStatus (\ s a -> s{_girsResponseStatus = a});
 

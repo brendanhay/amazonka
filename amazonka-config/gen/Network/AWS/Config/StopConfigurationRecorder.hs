@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops recording configurations of the AWS resources you have selected to record in your AWS account.
+--
+--
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Creating a Request
@@ -39,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < StopConfigurationRecorder> action.
+-- | The input for the 'StopConfigurationRecorder' action.
+--
+--
 --
 -- /See:/ 'stopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
@@ -50,7 +54,7 @@ newtype StopConfigurationRecorder = StopConfigurationRecorder'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrConfigurationRecorderName'
+-- * 'scrConfigurationRecorderName' - The name of the recorder object that records each configuration change made to the resources.
 stopConfigurationRecorder
     :: Text -- ^ 'scrConfigurationRecorderName'
     -> StopConfigurationRecorder

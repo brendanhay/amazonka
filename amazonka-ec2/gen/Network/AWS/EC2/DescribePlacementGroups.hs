@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your placement groups. For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes one or more of your placement groups. For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribePlacementGroups.
 --
+--
+--
 -- /See:/ 'describePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
     { _dpgsFilters    :: !(Maybe [Filter])
@@ -57,11 +61,11 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpgsFilters'
+-- * 'dpgsFilters' - One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ ).
 --
--- * 'dpgsGroupNames'
+-- * 'dpgsGroupNames' - One or more placement group names. Default: Describes all your placement groups, or only those otherwise specified.
 --
--- * 'dpgsDryRun'
+-- * 'dpgsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describePlacementGroups
     :: DescribePlacementGroups
 describePlacementGroups =
@@ -71,24 +75,15 @@ describePlacementGroups =
     , _dpgsDryRun = Nothing
     }
 
--- | One or more filters.
---
--- -   'group-name' - The name of the placement group.
---
--- -   'state' - The state of the placement group ('pending' | 'available' | 'deleting' | 'deleted').
---
--- -   'strategy' - The strategy of the placement group ('cluster').
---
+-- | One or more filters.     * @group-name@ - The name of the placement group.     * @state@ - The state of the placement group (@pending@ | @available@ | @deleting@ | @deleted@ ).     * @strategy@ - The strategy of the placement group (@cluster@ ).
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
 dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coerce;
 
--- | One or more placement group names.
---
--- Default: Describes all your placement groups, or only those otherwise specified.
+-- | One or more placement group names. Default: Describes all your placement groups, or only those otherwise specified.
 dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
 dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dpgsDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
 
@@ -127,6 +122,8 @@ instance ToQuery DescribePlacementGroups where
 
 -- | Contains the output of DescribePlacementGroups.
 --
+--
+--
 -- /See:/ 'describePlacementGroupsResponse' smart constructor.
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
@@ -137,9 +134,9 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpgrsPlacementGroups'
+-- * 'dpgrsPlacementGroups' - One or more placement groups.
 --
--- * 'dpgrsResponseStatus'
+-- * 'dpgrsResponseStatus' - -- | The response status code.
 describePlacementGroupsResponse
     :: Int -- ^ 'dpgrsResponseStatus'
     -> DescribePlacementGroupsResponse
@@ -153,7 +150,7 @@ describePlacementGroupsResponse pResponseStatus_ =
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dpgrsResponseStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a});
 

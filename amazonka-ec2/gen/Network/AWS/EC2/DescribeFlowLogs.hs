@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more flow logs. To view the information in your flow logs (the log streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs API.
+--
+--
 module Network.AWS.EC2.DescribeFlowLogs
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeFlowLogs.
 --
+--
+--
 -- /See:/ 'describeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
     { _dNextToken  :: !(Maybe Text)
@@ -60,13 +64,13 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dNextToken'
+-- * 'dNextToken' - The token to retrieve the next page of results.
 --
--- * 'dFlowLogIds'
+-- * 'dFlowLogIds' - One or more flow log IDs.
 --
--- * 'dFilter'
+-- * 'dFilter' - One or more filters.     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).     * @flow-log-id@ - The ID of the flow log.     * @log-group-name@ - The name of the log group.     * @resource-id@ - The ID of the VPC, subnet, or network interface.     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ )
 --
--- * 'dMaxResults'
+-- * 'dMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
 describeFlowLogs
     :: DescribeFlowLogs
 describeFlowLogs =
@@ -85,22 +89,11 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 dFlowLogIds :: Lens' DescribeFlowLogs [Text]
 dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
--- | One or more filters.
---
--- -   'deliver-log-status' - The status of the logs delivery ('SUCCESS' | 'FAILED').
---
--- -   'flow-log-id' - The ID of the flow log.
---
--- -   'log-group-name' - The name of the log group.
---
--- -   'resource-id' - The ID of the VPC, subnet, or network interface.
---
--- -   'traffic-type' - The type of traffic ('ACCEPT' | 'REJECT' | 'ALL')
---
+-- | One or more filters.     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).     * @flow-log-id@ - The ID of the flow log.     * @log-group-name@ - The name of the log group.     * @resource-id@ - The ID of the VPC, subnet, or network interface.     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ )
 dFilter :: Lens' DescribeFlowLogs [Filter]
 dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
 
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned 'NextToken' value. This value can be between 5 and 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.
 dMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 
@@ -138,6 +131,8 @@ instance ToQuery DescribeFlowLogs where
 
 -- | Contains the output of DescribeFlowLogs.
 --
+--
+--
 -- /See:/ 'describeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflsrsNextToken      :: !(Maybe Text)
@@ -149,11 +144,11 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dflsrsNextToken'
+-- * 'dflsrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'dflsrsFlowLogs'
+-- * 'dflsrsFlowLogs' - Information about the flow logs.
 --
--- * 'dflsrsResponseStatus'
+-- * 'dflsrsResponseStatus' - -- | The response status code.
 describeFlowLogsResponse
     :: Int -- ^ 'dflsrsResponseStatus'
     -> DescribeFlowLogsResponse
@@ -164,7 +159,7 @@ describeFlowLogsResponse pResponseStatus_ =
     , _dflsrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
 dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 
@@ -172,7 +167,7 @@ dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dflsrsResponseStatus :: Lens' DescribeFlowLogsResponse Int
 dflsrsResponseStatus = lens _dflsrsResponseStatus (\ s a -> s{_dflsrsResponseStatus = a});
 

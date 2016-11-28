@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the 'EvaluationName' of an 'Evaluation'.
+-- Updates the @EvaluationName@ of an @Evaluation@ .
 --
--- You can use the 'GetEvaluation' operation to view the contents of the updated data element.
+--
+-- You can use the @GetEvaluation@ operation to view the contents of the updated data element.
+--
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data UpdateEvaluation = UpdateEvaluation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ueEvaluationId'
+-- * 'ueEvaluationId' - The ID assigned to the @Evaluation@ during creation.
 --
--- * 'ueEvaluationName'
+-- * 'ueEvaluationName' - A new user-supplied name or description of the @Evaluation@ that will replace the current content.
 updateEvaluation
     :: Text -- ^ 'ueEvaluationId'
     -> Text -- ^ 'ueEvaluationName'
@@ -68,11 +70,11 @@ updateEvaluation pEvaluationId_ pEvaluationName_ =
     , _ueEvaluationName = pEvaluationName_
     }
 
--- | The ID assigned to the 'Evaluation' during creation.
+-- | The ID assigned to the @Evaluation@ during creation.
 ueEvaluationId :: Lens' UpdateEvaluation Text
 ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
 
--- | A new user-supplied name or description of the 'Evaluation' that will replace the current content.
+-- | A new user-supplied name or description of the @Evaluation@ that will replace the current content.
 ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
@@ -111,9 +113,11 @@ instance ToPath UpdateEvaluation where
 instance ToQuery UpdateEvaluation where
         toQuery = const mempty
 
--- | Represents the output of an 'UpdateEvaluation' operation.
+-- | Represents the output of an @UpdateEvaluation@ operation.
 --
--- You can see the updated content by using the 'GetEvaluation' operation.
+--
+-- You can see the updated content by using the @GetEvaluation@ operation.
+--
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
@@ -125,9 +129,9 @@ data UpdateEvaluationResponse = UpdateEvaluationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uersEvaluationId'
+-- * 'uersEvaluationId' - The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
 --
--- * 'uersResponseStatus'
+-- * 'uersResponseStatus' - -- | The response status code.
 updateEvaluationResponse
     :: Int -- ^ 'uersResponseStatus'
     -> UpdateEvaluationResponse
@@ -137,11 +141,11 @@ updateEvaluationResponse pResponseStatus_ =
     , _uersResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'Evaluation' during creation. This value should be identical to the value of the 'Evaluation' in the request.
+-- | The ID assigned to the @Evaluation@ during creation. This value should be identical to the value of the @Evaluation@ in the request.
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uersResponseStatus :: Lens' UpdateEvaluationResponse Int
 uersResponseStatus = lens _uersResponseStatus (\ s a -> s{_uersResponseStatus = a});
 

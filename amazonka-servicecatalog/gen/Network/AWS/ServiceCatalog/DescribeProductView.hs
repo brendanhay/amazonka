@@ -20,7 +20,9 @@
 --
 -- Retrieves information about a specified product.
 --
--- This operation is functionally identical to < DescribeProduct> except that it takes as input 'ProductViewId' instead of 'ProductId'.
+--
+-- This operation is functionally identical to 'DescribeProduct' except that it takes as input @ProductViewId@ instead of @ProductId@ .
+--
 module Network.AWS.ServiceCatalog.DescribeProductView
     (
     -- * Creating a Request
@@ -56,9 +58,9 @@ data DescribeProductView = DescribeProductView'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvAcceptLanguage'
+-- * 'dpvAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'dpvId'
+-- * 'dpvId' - The @ProductViewId@ of the product to describe.
 describeProductView
     :: Text -- ^ 'dpvId'
     -> DescribeProductView
@@ -68,19 +70,11 @@ describeProductView pId_ =
     , _dpvId = pId_
     }
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpvAcceptLanguage :: Lens' DescribeProductView (Maybe Text)
 dpvAcceptLanguage = lens _dpvAcceptLanguage (\ s a -> s{_dpvAcceptLanguage = a});
 
--- | The 'ProductViewId' of the product to describe.
+-- | The @ProductViewId@ of the product to describe.
 dpvId :: Lens' DescribeProductView Text
 dpvId = lens _dpvId (\ s a -> s{_dpvId = a});
 
@@ -134,11 +128,11 @@ data DescribeProductViewResponse = DescribeProductViewResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvrsProductViewSummary'
+-- * 'dpvrsProductViewSummary' - The summary metadata about the specified product.
 --
--- * 'dpvrsProvisioningArtifacts'
+-- * 'dpvrsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
 --
--- * 'dpvrsResponseStatus'
+-- * 'dpvrsResponseStatus' - -- | The response status code.
 describeProductViewResponse
     :: Int -- ^ 'dpvrsResponseStatus'
     -> DescribeProductViewResponse
@@ -153,11 +147,11 @@ describeProductViewResponse pResponseStatus_ =
 dpvrsProductViewSummary :: Lens' DescribeProductViewResponse (Maybe ProductViewSummary)
 dpvrsProductViewSummary = lens _dpvrsProductViewSummary (\ s a -> s{_dpvrsProductViewSummary = a});
 
--- | A list of provisioning artifact objects for the specified product. The 'ProvisioningArtifacts' represent the ways in which the specified product can be provisioned.
+-- | A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ represent the ways in which the specified product can be provisioned.
 dpvrsProvisioningArtifacts :: Lens' DescribeProductViewResponse [ProvisioningArtifact]
 dpvrsProvisioningArtifacts = lens _dpvrsProvisioningArtifacts (\ s a -> s{_dpvrsProvisioningArtifacts = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dpvrsResponseStatus :: Lens' DescribeProductViewResponse Int
 dpvrsResponseStatus = lens _dpvrsResponseStatus (\ s a -> s{_dpvrsResponseStatus = a});
 

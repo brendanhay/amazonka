@@ -20,7 +20,9 @@
 --
 -- Describes one or more of your security groups.
 --
--- A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSecurityGroups.
 --
+--
+--
 -- /See:/ 'describeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
     { _dsgsFilters    :: !(Maybe [Filter])
@@ -61,13 +65,13 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgsFilters'
+-- * 'dsgsFilters' - One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.     * @description@ - The description of the security group.     * @egress.ip-permission.prefix-list-id@ - The ID (prefix) of the AWS service to which the security group allows access.     * @group-id@ - The ID of the security group.      * @group-name@ - The name of the security group.     * @ip-permission.cidr@ - A CIDR range that has been granted permission.     * @ip-permission.from-port@ - The start of port range for the TCP and UDP protocols, or an ICMP type number.     * @ip-permission.group-id@ - The ID of a security group that has been granted permission.     * @ip-permission.group-name@ - The name of a security group that has been granted permission.     * @ip-permission.protocol@ - The IP protocol for the permission (@tcp@ | @udp@ | @icmp@ or a protocol number).     * @ip-permission.to-port@ - The end of port range for the TCP and UDP protocols, or an ICMP code.     * @ip-permission.user-id@ - The ID of an AWS account that has been granted permission.     * @owner-id@ - The AWS account ID of the owner of the security group.     * @tag-key@ - The key of a tag assigned to the security group.     * @tag-value@ - The value of a tag assigned to the security group.     * @vpc-id@ - The ID of the VPC specified when the security group was created.
 --
--- * 'dsgsGroupNames'
+-- * 'dsgsGroupNames' - [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the @group-name@ filter to describe security groups by name. Default: Describes all your security groups.
 --
--- * 'dsgsGroupIds'
+-- * 'dsgsGroupIds' - One or more security group IDs. Required for security groups in a nondefault VPC. Default: Describes all your security groups.
 --
--- * 'dsgsDryRun'
+-- * 'dsgsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeSecurityGroups
     :: DescribeSecurityGroups
 describeSecurityGroups =
@@ -78,54 +82,19 @@ describeSecurityGroups =
     , _dsgsDryRun = Nothing
     }
 
--- | One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.
---
--- -   'description' - The description of the security group.
---
--- -   'egress.ip-permission.prefix-list-id' - The ID (prefix) of the AWS service to which the security group allows access.
---
--- -   'group-id' - The ID of the security group.
---
--- -   'group-name' - The name of the security group.
---
--- -   'ip-permission.cidr' - A CIDR range that has been granted permission.
---
--- -   'ip-permission.from-port' - The start of port range for the TCP and UDP protocols, or an ICMP type number.
---
--- -   'ip-permission.group-id' - The ID of a security group that has been granted permission.
---
--- -   'ip-permission.group-name' - The name of a security group that has been granted permission.
---
--- -   'ip-permission.protocol' - The IP protocol for the permission ('tcp' | 'udp' | 'icmp' or a protocol number).
---
--- -   'ip-permission.to-port' - The end of port range for the TCP and UDP protocols, or an ICMP code.
---
--- -   'ip-permission.user-id' - The ID of an AWS account that has been granted permission.
---
--- -   'owner-id' - The AWS account ID of the owner of the security group.
---
--- -   'tag-key' - The key of a tag assigned to the security group.
---
--- -   'tag-value' - The value of a tag assigned to the security group.
---
--- -   'vpc-id' - The ID of the VPC specified when the security group was created.
---
+-- | One or more filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.     * @description@ - The description of the security group.     * @egress.ip-permission.prefix-list-id@ - The ID (prefix) of the AWS service to which the security group allows access.     * @group-id@ - The ID of the security group.      * @group-name@ - The name of the security group.     * @ip-permission.cidr@ - A CIDR range that has been granted permission.     * @ip-permission.from-port@ - The start of port range for the TCP and UDP protocols, or an ICMP type number.     * @ip-permission.group-id@ - The ID of a security group that has been granted permission.     * @ip-permission.group-name@ - The name of a security group that has been granted permission.     * @ip-permission.protocol@ - The IP protocol for the permission (@tcp@ | @udp@ | @icmp@ or a protocol number).     * @ip-permission.to-port@ - The end of port range for the TCP and UDP protocols, or an ICMP code.     * @ip-permission.user-id@ - The ID of an AWS account that has been granted permission.     * @owner-id@ - The AWS account ID of the owner of the security group.     * @tag-key@ - The key of a tag assigned to the security group.     * @tag-value@ - The value of a tag assigned to the security group.     * @vpc-id@ - The ID of the VPC specified when the security group was created.
 dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
 dsgsFilters = lens _dsgsFilters (\ s a -> s{_dsgsFilters = a}) . _Default . _Coerce;
 
--- | [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the 'group-name' filter to describe security groups by name.
---
--- Default: Describes all your security groups.
+-- | [EC2-Classic and default VPC only] One or more security group names. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the @group-name@ filter to describe security groups by name. Default: Describes all your security groups.
 dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
 dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default . _Coerce;
 
--- | One or more security group IDs. Required for security groups in a nondefault VPC.
---
--- Default: Describes all your security groups.
+-- | One or more security group IDs. Required for security groups in a nondefault VPC. Default: Describes all your security groups.
 dsgsGroupIds :: Lens' DescribeSecurityGroups [Text]
 dsgsGroupIds = lens _dsgsGroupIds (\ s a -> s{_dsgsGroupIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsgsDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsgsDryRun = lens _dsgsDryRun (\ s a -> s{_dsgsDryRun = a});
 
@@ -165,6 +134,8 @@ instance ToQuery DescribeSecurityGroups where
 
 -- | Contains the output of DescribeSecurityGroups.
 --
+--
+--
 -- /See:/ 'describeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
@@ -175,9 +146,9 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsgrsSecurityGroups'
+-- * 'dsgrsSecurityGroups' - Information about one or more security groups.
 --
--- * 'dsgrsResponseStatus'
+-- * 'dsgrsResponseStatus' - -- | The response status code.
 describeSecurityGroupsResponse
     :: Int -- ^ 'dsgrsResponseStatus'
     -> DescribeSecurityGroupsResponse
@@ -191,7 +162,7 @@ describeSecurityGroupsResponse pResponseStatus_ =
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsgrsResponseStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsResponseStatus = lens _dsgrsResponseStatus (\ s a -> s{_dsgrsResponseStatus = a});
 

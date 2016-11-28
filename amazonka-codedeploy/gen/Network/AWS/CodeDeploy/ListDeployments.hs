@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the deployments in a deployment group for an application registered with the applicable IAM user or AWS account.
+--
+--
 module Network.AWS.CodeDeploy.ListDeployments
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a list deployments operation.
 --
+--
+--
 -- /See:/ 'listDeployments' smart constructor.
 data ListDeployments = ListDeployments'
     { _ldCreateTimeRange     :: !(Maybe TimeRange)
@@ -62,15 +66,15 @@ data ListDeployments = ListDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldCreateTimeRange'
+-- * 'ldCreateTimeRange' - A time range (start and end) for returning a subset of the list of deployments.
 --
--- * 'ldNextToken'
+-- * 'ldNextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
 --
--- * 'ldIncludeOnlyStatuses'
+-- * 'ldIncludeOnlyStatuses' - A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.    * Queued: Include queued deployments in the resulting list.    * In Progress: Include in-progress deployments in the resulting list.    * Succeeded: Include successful deployments in the resulting list.    * Failed: Include failed deployments in the resulting list.    * Stopped: Include stopped deployments in the resulting list.
 --
--- * 'ldApplicationName'
+-- * 'ldApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'ldDeploymentGroupName'
+-- * 'ldDeploymentGroupName' - The name of an existing deployment group for the specified application.
 listDeployments
     :: ListDeployments
 listDeployments =
@@ -90,14 +94,7 @@ ldCreateTimeRange = lens _ldCreateTimeRange (\ s a -> s{_ldCreateTimeRange = a})
 ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
--- | A subset of deployments to list by status:
---
--- -   Created: Include created deployments in the resulting list.
--- -   Queued: Include queued deployments in the resulting list.
--- -   In Progress: Include in-progress deployments in the resulting list.
--- -   Succeeded: Include successful deployments in the resulting list.
--- -   Failed: Include failed deployments in the resulting list.
--- -   Stopped: Include stopped deployments in the resulting list.
+-- | A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.    * Queued: Include queued deployments in the resulting list.    * In Progress: Include in-progress deployments in the resulting list.    * Succeeded: Include successful deployments in the resulting list.    * Failed: Include failed deployments in the resulting list.    * Stopped: Include stopped deployments in the resulting list.
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default . _Coerce;
 
@@ -154,6 +151,8 @@ instance ToQuery ListDeployments where
 
 -- | Represents the output of a list deployments operation.
 --
+--
+--
 -- /See:/ 'listDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
     { _ldrsNextToken      :: !(Maybe Text)
@@ -165,11 +164,11 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsNextToken'
+-- * 'ldrsNextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
 --
--- * 'ldrsDeployments'
+-- * 'ldrsDeployments' - A list of deployment IDs.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDeploymentsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDeploymentsResponse
@@ -188,7 +187,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

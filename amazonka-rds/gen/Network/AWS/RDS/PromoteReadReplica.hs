@@ -20,7 +20,7 @@
 --
 -- Promotes a Read Replica DB instance to a standalone DB instance.
 --
--- We recommend that you enable automated backups on your Read Replica before promoting the Read Replica. This ensures that no backup is taken during the promotion process. Once the instance is promoted to a primary instance, backups are taken based on your backup settings.
+--
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Creating a Request
@@ -48,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'promoteReadReplica' smart constructor.
 data PromoteReadReplica = PromoteReadReplica'
     { _prrPreferredBackupWindow :: !(Maybe Text)
@@ -59,11 +61,11 @@ data PromoteReadReplica = PromoteReadReplica'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrPreferredBackupWindow'
+-- * 'prrPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
--- * 'prrBackupRetentionPeriod'
+-- * 'prrBackupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 8
 --
--- * 'prrDBInstanceIdentifier'
+-- * 'prrDBInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must be the identifier for an existing Read Replica DB instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @mydbinstance@
 promoteReadReplica
     :: Text -- ^ 'prrDBInstanceIdentifier'
     -> PromoteReadReplica
@@ -74,47 +76,15 @@ promoteReadReplica pDBInstanceIdentifier_ =
     , _prrDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The daily time range during which automated backups are created if automated backups are enabled, using the 'BackupRetentionPeriod' parameter.
---
--- Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
---
--- Constraints:
---
--- -   Must be in the format 'hh24:mi-hh24:mi'.
---
--- -   Times should be in Universal Coordinated Time (UTC).
---
--- -   Must not conflict with the preferred maintenance window.
---
--- -   Must be at least 30 minutes.
---
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
 prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPreferredBackupWindow = a});
 
--- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 0 to 8
---
+-- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 8
 prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
 prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackupRetentionPeriod = a});
 
--- | The DB instance identifier. This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must be the identifier for an existing Read Replica DB instance
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'mydbinstance'
+-- | The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must be the identifier for an existing Read Replica DB instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @mydbinstance@
 prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
 prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
 
@@ -157,9 +127,9 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrrsDBInstance'
+-- * 'prrrsDBInstance' - Undocumented member.
 --
--- * 'prrrsResponseStatus'
+-- * 'prrrsResponseStatus' - -- | The response status code.
 promoteReadReplicaResponse
     :: Int -- ^ 'prrrsResponseStatus'
     -> PromoteReadReplicaResponse
@@ -173,7 +143,7 @@ promoteReadReplicaResponse pResponseStatus_ =
 prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prrrsResponseStatus :: Lens' PromoteReadReplicaResponse Int
 prrrsResponseStatus = lens _prrrsResponseStatus (\ s a -> s{_prrrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Responds to an authentication challenge, as an administrator.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | The request to respond to the authentication challenge, as an administrator.
 --
+--
+--
 -- /See:/ 'adminRespondToAuthChallenge' smart constructor.
 data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     { _artacChallengeResponses :: !(Maybe (Map Text Text))
@@ -64,15 +68,15 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artacChallengeResponses'
+-- * 'artacChallengeResponses' - The challenge response.
 --
--- * 'artacSession'
+-- * 'artacSession' - The session.
 --
--- * 'artacUserPoolId'
+-- * 'artacUserPoolId' - The ID of the Amazon Cognito user pool.
 --
--- * 'artacClientId'
+-- * 'artacClientId' - The client ID.
 --
--- * 'artacChallengeName'
+-- * 'artacChallengeName' - The name of the challenge.
 adminRespondToAuthChallenge
     :: Text -- ^ 'artacUserPoolId'
     -> Text -- ^ 'artacClientId'
@@ -154,6 +158,8 @@ instance ToQuery AdminRespondToAuthChallenge where
 
 -- | Responds to the authentication challenge, as an administrator.
 --
+--
+--
 -- /See:/ 'adminRespondToAuthChallengeResponse' smart constructor.
 data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
     { _artacrsChallengeName        :: !(Maybe ChallengeNameType)
@@ -167,15 +173,15 @@ data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artacrsChallengeName'
+-- * 'artacrsChallengeName' - The name of the challenge.
 --
--- * 'artacrsChallengeParameters'
+-- * 'artacrsChallengeParameters' - The challenge parameters.
 --
--- * 'artacrsAuthenticationResult'
+-- * 'artacrsAuthenticationResult' - Undocumented member.
 --
--- * 'artacrsSession'
+-- * 'artacrsSession' - The session.
 --
--- * 'artacrsResponseStatus'
+-- * 'artacrsResponseStatus' - -- | The response status code.
 adminRespondToAuthChallengeResponse
     :: Int -- ^ 'artacrsResponseStatus'
     -> AdminRespondToAuthChallengeResponse
@@ -204,7 +210,7 @@ artacrsAuthenticationResult = lens _artacrsAuthenticationResult (\ s a -> s{_art
 artacrsSession :: Lens' AdminRespondToAuthChallengeResponse (Maybe Text)
 artacrsSession = lens _artacrsSession (\ s a -> s{_artacrsSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 artacrsResponseStatus :: Lens' AdminRespondToAuthChallengeResponse Int
 artacrsResponseStatus = lens _artacrsResponseStatus (\ s a -> s{_artacrsResponseStatus = a});
 

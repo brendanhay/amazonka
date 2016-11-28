@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
 --
--- This requires permission for the 'lambda:GetAlias' action.
+--
+-- This requires permission for the @lambda:GetAlias@ action.
+--
 module Network.AWS.Lambda.GetAlias
     (
     -- * Creating a Request
@@ -57,9 +59,9 @@ data GetAlias = GetAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaFunctionName'
+-- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name.
 --
--- * 'gaName'
+-- * 'gaName' - Name of the alias for which you want to retrieve information.
 getAlias
     :: Text -- ^ 'gaFunctionName'
     -> Text -- ^ 'gaName'

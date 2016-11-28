@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the usage data of a usage plan in a specified time interval.
+--
+--
 module Network.AWS.APIGateway.GetUsage
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | The GET request to get the usage data of a usage plan in a specified time interval.
 --
+--
+--
 -- /See:/ 'getUsage' smart constructor.
 data GetUsage = GetUsage'
     { _guKeyId       :: !(Maybe Text)
@@ -66,17 +70,17 @@ data GetUsage = GetUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guKeyId'
+-- * 'guKeyId' - The Id of the API key associated with the resultant usage data.
 --
--- * 'guLimit'
+-- * 'guLimit' - The maximum number of results to be returned.
 --
--- * 'guPosition'
+-- * 'guPosition' - Position
 --
--- * 'guUsagePlanId'
+-- * 'guUsagePlanId' - The Id of the usage plan associated with the usage data.
 --
--- * 'guStartDate'
+-- * 'guStartDate' - The starting date (e.g., 2016-01-01) of the usage data.
 --
--- * 'guEndDate'
+-- * 'guEndDate' - The ending date (e.g., 2016-12-31) of the usage data.
 getUsage
     :: Text -- ^ 'guUsagePlanId'
     -> Text -- ^ 'guStartDate'

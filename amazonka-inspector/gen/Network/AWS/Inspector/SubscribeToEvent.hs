@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+--
+--
 module Network.AWS.Inspector.SubscribeToEvent
     (
     -- * Creating a Request
@@ -52,11 +54,11 @@ data SubscribeToEvent = SubscribeToEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'steResourceARN'
+-- * 'steResourceARN' - The ARN of the assessment template that is used during the event for which you want to receive SNS notifications.
 --
--- * 'steEvent'
+-- * 'steEvent' - The event for which you want to receive SNS notifications.
 --
--- * 'steTopicARN'
+-- * 'steTopicARN' - The ARN of the SNS topic to which the SNS notifications are sent.
 subscribeToEvent
     :: Text -- ^ 'steResourceARN'
     -> InspectorEvent -- ^ 'steEvent'

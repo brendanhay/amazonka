@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deactivates the specified running pipeline. The pipeline is set to the 'DEACTIVATING' state until the deactivation process completes.
+-- Deactivates the specified running pipeline. The pipeline is set to the @DEACTIVATING@ state until the deactivation process completes.
 --
--- To resume a deactivated pipeline, use < ActivatePipeline>. By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.
+--
+-- To resume a deactivated pipeline, use 'ActivatePipeline' . By default, the pipeline resumes from the last completed execution. Optionally, you can specify the date and time to resume the pipeline.
+--
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeactivatePipeline.
 --
+--
+--
 -- /See:/ 'deactivatePipeline' smart constructor.
 data DeactivatePipeline = DeactivatePipeline'
     { _dCancelActive :: !(Maybe Bool)
@@ -56,9 +60,9 @@ data DeactivatePipeline = DeactivatePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCancelActive'
+-- * 'dCancelActive' - Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 --
--- * 'dPipelineId'
+-- * 'dPipelineId' - The ID of the pipeline.
 deactivatePipeline
     :: Text -- ^ 'dPipelineId'
     -> DeactivatePipeline
@@ -68,7 +72,7 @@ deactivatePipeline pPipelineId_ =
     , _dPipelineId = pPipelineId_
     }
 
--- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to 'CANCELED'. If this value is false, the pipeline is deactivated after all running objects finish.
+-- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
 dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
 
@@ -113,6 +117,8 @@ instance ToQuery DeactivatePipeline where
 
 -- | Contains the output of DeactivatePipeline.
 --
+--
+--
 -- /See:/ 'deactivatePipelineResponse' smart constructor.
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
     { _drsResponseStatus :: Int
@@ -122,7 +128,7 @@ newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deactivatePipelineResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeactivatePipelineResponse
@@ -131,7 +137,7 @@ deactivatePipelineResponse pResponseStatus_ =
     { _drsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeactivatePipelineResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

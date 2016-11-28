@@ -20,7 +20,9 @@
 --
 -- Deletes the run, given the run ARN.
 --
+--
 -- __Note__ Deleting this resource does not stop an in-progress run.
+--
 module Network.AWS.DeviceFarm.DeleteRun
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the delete run operation.
 --
+--
+--
 -- /See:/ 'deleteRun' smart constructor.
 newtype DeleteRun = DeleteRun'
     { _drArn :: Text
@@ -54,7 +58,7 @@ newtype DeleteRun = DeleteRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drArn'
+-- * 'drArn' - The Amazon Resource Name (ARN) for the run you wish to delete.
 deleteRun
     :: Text -- ^ 'drArn'
     -> DeleteRun
@@ -100,6 +104,8 @@ instance ToQuery DeleteRun where
 
 -- | Represents the result of a delete run request.
 --
+--
+--
 -- /See:/ 'deleteRunResponse' smart constructor.
 newtype DeleteRunResponse = DeleteRunResponse'
     { _drrsResponseStatus :: Int
@@ -109,7 +115,7 @@ newtype DeleteRunResponse = DeleteRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 deleteRunResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRunResponse
@@ -118,7 +124,7 @@ deleteRunResponse pResponseStatus_ =
     { _drrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRunResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

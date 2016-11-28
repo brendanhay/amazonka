@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to get a distribution\'s information.
+-- | The request to get a distribution's information.
 --
 -- /See:/ 'getDistribution' smart constructor.
 newtype GetDistribution = GetDistribution'
@@ -54,7 +54,7 @@ newtype GetDistribution = GetDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdId'
+-- * 'gdId' - The distribution's id.
 getDistribution
     :: Text -- ^ 'gdId'
     -> GetDistribution
@@ -63,7 +63,7 @@ getDistribution pId_ =
     { _gdId = pId_
     }
 
--- | The distribution\'s id.
+-- | The distribution's id.
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\ s a -> s{_gdId = a});
 
@@ -104,11 +104,11 @@ data GetDistributionResponse = GetDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsETag'
+-- * 'gdrsETag' - The current version of the distribution's information. For example: E2QWRUHAPOMQZL.
 --
--- * 'gdrsDistribution'
+-- * 'gdrsDistribution' - The distribution's information.
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 getDistributionResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> GetDistributionResponse
@@ -119,15 +119,15 @@ getDistributionResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the distribution\'s information. For example: E2QWRUHAPOMQZL.
+-- | The current version of the distribution's information. For example: E2QWRUHAPOMQZL.
 gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 
--- | The distribution\'s information.
+-- | The distribution's information.
 gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDistributionResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

@@ -129,7 +129,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2010-08-01' of the Amazon CloudWatch SDK configuration.
+-- | API version @2010-08-01@ of the Amazon CloudWatch SDK configuration.
 cloudWatch :: Service
 cloudWatch =
     Service
@@ -164,37 +164,53 @@ cloudWatch =
       | otherwise = Nothing
 
 -- | The quota for alarms for this customer has already been reached.
+--
+--
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
 -- | The next token specified is invalid.
+--
+--
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
 -- | Indicates that the request processing has failed due to some unknown error, exception, or failure.
+--
+--
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
     _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
 
 -- | Bad or out-of-range value was supplied for the input parameter.
+--
+--
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
 -- | Data was not syntactically valid JSON.
+--
+--
 _InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 
 -- | An input parameter that is mandatory for processing the request is not supplied.
+--
+--
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
     _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
 -- | Parameters that must not be used together were used together.
+--
+--
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterCombinationException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
 
 -- | The named resource does not exist.
+--
+--
 _ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"

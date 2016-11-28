@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you\'ll need to start a new traffic policy.
+-- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you'll need to start a new traffic policy.
 --
--- Send a 'POST' request to the '\/Amazon Route 53 version\/trafficpolicy\/' resource. The request body includes a document with a 'CreateTrafficPolicyVersionRequest' element. The response returns the 'CreateTrafficPolicyVersionResponse' element, which contains information about the new version of the traffic policy.
+--
+-- Send a @POST@ request to the @//Amazon Route 53 version/ /trafficpolicy/@ resource. The request body includes a document with a @CreateTrafficPolicyVersionRequest@ element. The response returns the @CreateTrafficPolicyVersionResponse@ element, which contains information about the new version of the traffic policy.
+--
 module Network.AWS.Route53.CreateTrafficPolicyVersion
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy for which you want to create a new version.
 --
+--
+--
 -- /See:/ 'createTrafficPolicyVersion' smart constructor.
 data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
     { _ctpvComment  :: !(Maybe Text)
@@ -60,11 +64,11 @@ data CreateTrafficPolicyVersion = CreateTrafficPolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpvComment'
+-- * 'ctpvComment' - The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
 --
--- * 'ctpvId'
+-- * 'ctpvId' - The ID of the traffic policy for which you want to create a new version.
 --
--- * 'ctpvDocument'
+-- * 'ctpvDocument' - The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see 'CreateTrafficPolicy' .
 createTrafficPolicyVersion
     :: Text -- ^ 'ctpvId'
     -> Text -- ^ 'ctpvDocument'
@@ -76,7 +80,7 @@ createTrafficPolicyVersion pId_ pDocument_ =
     , _ctpvDocument = pDocument_
     }
 
--- | The comment that you specified in the 'CreateTrafficPolicyVersion' request, if any.
+-- | The comment that you specified in the @CreateTrafficPolicyVersion@ request, if any.
 ctpvComment :: Lens' CreateTrafficPolicyVersion (Maybe Text)
 ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
 
@@ -84,7 +88,7 @@ ctpvComment = lens _ctpvComment (\ s a -> s{_ctpvComment = a});
 ctpvId :: Lens' CreateTrafficPolicyVersion Text
 ctpvId = lens _ctpvId (\ s a -> s{_ctpvId = a});
 
--- | The definition of this version of the traffic policy, in JSON format. You specified the JSON in the 'CreateTrafficPolicyVersion' request. For more information about the JSON format, see < CreateTrafficPolicy>.
+-- | The definition of this version of the traffic policy, in JSON format. You specified the JSON in the @CreateTrafficPolicyVersion@ request. For more information about the JSON format, see 'CreateTrafficPolicy' .
 ctpvDocument :: Lens' CreateTrafficPolicyVersion Text
 ctpvDocument = lens _ctpvDocument (\ s a -> s{_ctpvDocument = a});
 
@@ -125,7 +129,9 @@ instance ToXML CreateTrafficPolicyVersion where
               ["Comment" @= _ctpvComment,
                "Document" @= _ctpvDocument]
 
--- | A complex type that contains the response information for the 'CreateTrafficPolicyVersion' request.
+-- | A complex type that contains the response information for the @CreateTrafficPolicyVersion@ request.
+--
+--
 --
 -- /See:/ 'createTrafficPolicyVersionResponse' smart constructor.
 data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
@@ -138,11 +144,11 @@ data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpvrsResponseStatus'
+-- * 'ctpvrsResponseStatus' - -- | The response status code.
 --
--- * 'ctpvrsTrafficPolicy'
+-- * 'ctpvrsTrafficPolicy' - A complex type that contains settings for the new version of the traffic policy.
 --
--- * 'ctpvrsLocation'
+-- * 'ctpvrsLocation' - Undocumented member.
 createTrafficPolicyVersionResponse
     :: Int -- ^ 'ctpvrsResponseStatus'
     -> TrafficPolicy -- ^ 'ctpvrsTrafficPolicy'
@@ -155,7 +161,7 @@ createTrafficPolicyVersionResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
     , _ctpvrsLocation = pLocation_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctpvrsResponseStatus :: Lens' CreateTrafficPolicyVersionResponse Int
 ctpvrsResponseStatus = lens _ctpvrsResponseStatus (\ s a -> s{_ctpvrsResponseStatus = a});
 

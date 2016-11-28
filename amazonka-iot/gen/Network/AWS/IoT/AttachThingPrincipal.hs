@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches the specified principal to the specified thing.
+--
+--
 module Network.AWS.IoT.AttachThingPrincipal
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the AttachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'attachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
     { _atpThingName :: !Text
@@ -54,9 +58,9 @@ data AttachThingPrincipal = AttachThingPrincipal'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atpThingName'
+-- * 'atpThingName' - The name of the thing.
 --
--- * 'atpPrincipal'
+-- * 'atpPrincipal' - The principal, such as a certificate or other credential.
 attachThingPrincipal
     :: Text -- ^ 'atpThingName'
     -> Text -- ^ 'atpPrincipal'
@@ -106,6 +110,8 @@ instance ToQuery AttachThingPrincipal where
 
 -- | The output from the AttachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'attachThingPrincipalResponse' smart constructor.
 newtype AttachThingPrincipalResponse = AttachThingPrincipalResponse'
     { _atprsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype AttachThingPrincipalResponse = AttachThingPrincipalResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atprsResponseStatus'
+-- * 'atprsResponseStatus' - -- | The response status code.
 attachThingPrincipalResponse
     :: Int -- ^ 'atprsResponseStatus'
     -> AttachThingPrincipalResponse
@@ -124,7 +130,7 @@ attachThingPrincipalResponse pResponseStatus_ =
     { _atprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 atprsResponseStatus :: Lens' AttachThingPrincipalResponse Int
 atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a});
 

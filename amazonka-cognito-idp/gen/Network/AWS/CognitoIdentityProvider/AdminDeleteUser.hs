@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a user as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete a user as an administrator.
 --
+--
+--
 -- /See:/ 'adminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
     { _aUserPoolId :: !Text
@@ -52,9 +56,9 @@ data AdminDeleteUser = AdminDeleteUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aUserPoolId'
+-- * 'aUserPoolId' - The user pool ID for the user pool where you want to delete the user.
 --
--- * 'aUsername'
+-- * 'aUsername' - The user name of the user you wish to delete.
 adminDeleteUser
     :: Text -- ^ 'aUserPoolId'
     -> Text -- ^ 'aUsername'

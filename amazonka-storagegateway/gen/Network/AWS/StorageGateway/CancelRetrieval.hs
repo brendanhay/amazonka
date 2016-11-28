@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated. The virtual tape is returned to the VTS.
+--
+--
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | CancelRetrievalInput
 --
+--
+--
 -- /See:/ 'cancelRetrieval' smart constructor.
 data CancelRetrieval = CancelRetrieval'
     { _crGatewayARN :: !Text
@@ -55,9 +59,9 @@ data CancelRetrieval = CancelRetrieval'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crGatewayARN'
+-- * 'crGatewayARN' - Undocumented member.
 --
--- * 'crTapeARN'
+-- * 'crTapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
 cancelRetrieval
     :: Text -- ^ 'crGatewayARN'
     -> Text -- ^ 'crTapeARN'
@@ -114,6 +118,8 @@ instance ToQuery CancelRetrieval where
 
 -- | CancelRetrievalOutput
 --
+--
+--
 -- /See:/ 'cancelRetrievalResponse' smart constructor.
 data CancelRetrievalResponse = CancelRetrievalResponse'
     { _crrsTapeARN        :: !(Maybe Text)
@@ -124,9 +130,9 @@ data CancelRetrievalResponse = CancelRetrievalResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsTapeARN'
+-- * 'crrsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
 --
--- * 'crrsResponseStatus'
+-- * 'crrsResponseStatus' - -- | The response status code.
 cancelRetrievalResponse
     :: Int -- ^ 'crrsResponseStatus'
     -> CancelRetrievalResponse
@@ -140,7 +146,7 @@ cancelRetrievalResponse pResponseStatus_ =
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crrsResponseStatus :: Lens' CancelRetrievalResponse Int
 crrsResponseStatus = lens _crrsResponseStatus (\ s a -> s{_crrsResponseStatus = a});
 

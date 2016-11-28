@@ -20,15 +20,17 @@
 --
 -- Adds the specified instances to the specified load balancer.
 --
+--
 -- The instance must be a running instance in the same network as the load balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register the linked EC2-Classic instances with the load balancer in the VPC.
 --
--- Note that 'RegisterInstanceWithLoadBalancer' completes when the request has been registered. Instance registration takes a little time to complete. To check the state of the registered instances, use < DescribeLoadBalancers> or < DescribeInstanceHealth>.
+-- Note that @RegisterInstanceWithLoadBalancer@ completes when the request has been registered. Instance registration takes a little time to complete. To check the state of the registered instances, use 'DescribeLoadBalancers' or 'DescribeInstanceHealth' .
 --
--- After the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in one of the Availability Zones registered for the load balancer is moved to the 'OutOfService' state. If an Availability Zone is added to the load balancer later, any instances registered with the load balancer move to the 'InService' state.
+-- After the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in one of the Availability Zones registered for the load balancer is moved to the @OutOfService@ state. If an Availability Zone is added to the load balancer later, any instances registered with the load balancer move to the @InService@ state.
 --
--- To deregister instances from a load balancer, use < DeregisterInstancesFromLoadBalancer>.
+-- To deregister instances from a load balancer, use 'DeregisterInstancesFromLoadBalancer' .
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RegisterInstancesWithLoadBalancer.
 --
+--
+--
 -- /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName :: !Text
@@ -65,9 +69,9 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riwlbLoadBalancerName'
+-- * 'riwlbLoadBalancerName' - The name of the load balancer.
 --
--- * 'riwlbInstances'
+-- * 'riwlbInstances' - The IDs of the instances.
 registerInstancesWithLoadBalancer
     :: Text -- ^ 'riwlbLoadBalancerName'
     -> RegisterInstancesWithLoadBalancer
@@ -123,6 +127,8 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 
 -- | Contains the output of RegisterInstancesWithLoadBalancer.
 --
+--
+--
 -- /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances      :: !(Maybe [Instance])
@@ -133,9 +139,9 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riwlbrsInstances'
+-- * 'riwlbrsInstances' - The updated list of instances for the load balancer.
 --
--- * 'riwlbrsResponseStatus'
+-- * 'riwlbrsResponseStatus' - -- | The response status code.
 registerInstancesWithLoadBalancerResponse
     :: Int -- ^ 'riwlbrsResponseStatus'
     -> RegisterInstancesWithLoadBalancerResponse
@@ -149,7 +155,7 @@ registerInstancesWithLoadBalancerResponse pResponseStatus_ =
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 riwlbrsResponseStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsResponseStatus = lens _riwlbrsResponseStatus (\ s a -> s{_riwlbrsResponseStatus = a});
 

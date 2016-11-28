@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the logging options.
+--
+--
 module Network.AWS.IoT.GetLoggingOptions
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The input for the GetLoggingOptions operation.
+--
+--
 --
 -- /See:/ 'getLoggingOptions' smart constructor.
 data GetLoggingOptions =
@@ -79,6 +83,8 @@ instance ToQuery GetLoggingOptions where
 
 -- | The output from the GetLoggingOptions operation.
 --
+--
+--
 -- /See:/ 'getLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
     { _glorsLogLevel       :: !(Maybe LogLevel)
@@ -90,11 +96,11 @@ data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glorsLogLevel'
+-- * 'glorsLogLevel' - The logging level.
 --
--- * 'glorsRoleARN'
+-- * 'glorsRoleARN' - The ARN of the IAM role that grants access.
 --
--- * 'glorsResponseStatus'
+-- * 'glorsResponseStatus' - -- | The response status code.
 getLoggingOptionsResponse
     :: Int -- ^ 'glorsResponseStatus'
     -> GetLoggingOptionsResponse
@@ -113,7 +119,7 @@ glorsLogLevel = lens _glorsLogLevel (\ s a -> s{_glorsLogLevel = a});
 glorsRoleARN :: Lens' GetLoggingOptionsResponse (Maybe Text)
 glorsRoleARN = lens _glorsRoleARN (\ s a -> s{_glorsRoleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 glorsResponseStatus :: Lens' GetLoggingOptionsResponse Int
 glorsResponseStatus = lens _glorsResponseStatus (\ s a -> s{_glorsResponseStatus = a});
 

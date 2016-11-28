@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the tags assigned to the specified resource.
+--
+--
 module Network.AWS.SSM.ListTagsForResource
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResourceType'
+-- * 'ltfrResourceType' - Returns a list of tags for a specific resource type.
 --
--- * 'ltfrResourceId'
+-- * 'ltfrResourceId' - The resource ID for which you want to see a list of tags.
 listTagsForResource
     :: ResourceTypeForTagging -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
@@ -120,9 +122,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsTagList'
+-- * 'ltfrrsTagList' - A list of tags.
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> ListTagsForResourceResponse
@@ -136,7 +138,7 @@ listTagsForResourceResponse pResponseStatus_ =
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

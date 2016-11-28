@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows a topic owner to set an attribute of the topic to a new value.
+--
+--
 module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for SetTopicAttributes action.
 --
+--
+--
 -- /See:/ 'setTopicAttributes' smart constructor.
 data SetTopicAttributes = SetTopicAttributes'
     { _staAttributeValue :: !(Maybe Text)
@@ -54,11 +58,11 @@ data SetTopicAttributes = SetTopicAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'staAttributeValue'
+-- * 'staAttributeValue' - The new value for the attribute.
 --
--- * 'staTopicARN'
+-- * 'staTopicARN' - The ARN of the topic to modify.
 --
--- * 'staAttributeName'
+-- * 'staAttributeName' - The name of the attribute you want to set. Only a subset of the topic's attributes are mutable. Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
 setTopicAttributes
     :: Text -- ^ 'staTopicARN'
     -> Text -- ^ 'staAttributeName'
@@ -78,9 +82,7 @@ staAttributeValue = lens _staAttributeValue (\ s a -> s{_staAttributeValue = a})
 staTopicARN :: Lens' SetTopicAttributes Text
 staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
 
--- | The name of the attribute you want to set. Only a subset of the topic\'s attributes are mutable.
---
--- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'
+-- | The name of the attribute you want to set. Only a subset of the topic's attributes are mutable. Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
 staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 

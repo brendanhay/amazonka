@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < Rule> that is specified by the 'RuleId' that you included in the 'GetRule' request.
+-- Returns the 'Rule' that is specified by the @RuleId@ that you included in the @GetRule@ request.
+--
+--
 module Network.AWS.WAF.GetRule
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetRule = GetRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRuleId'
+-- * 'grRuleId' - The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 getRule
     :: Text -- ^ 'grRuleId'
     -> GetRule
@@ -60,7 +62,7 @@ getRule pRuleId_ =
     { _grRuleId = pRuleId_
     }
 
--- | The 'RuleId' of the < Rule> that you want to get. 'RuleId' is returned by < CreateRule> and by < ListRules>.
+-- | The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 grRuleId :: Lens' GetRule Text
 grRuleId = lens _grRuleId (\ s a -> s{_grRuleId = a});
 
@@ -106,9 +108,9 @@ data GetRuleResponse = GetRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRule'
+-- * 'grrsRule' - Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 getRuleResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRuleResponse
@@ -118,14 +120,11 @@ getRuleResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < Rule> that you specified in the 'GetRule' request. For more information, see the following topics:
---
--- -   < Rule>: Contains 'MetricName', 'Name', an array of 'Predicate' objects, and 'RuleId'
--- -   < Predicate>: Each 'Predicate' object contains 'DataId', 'Negated', and 'Type'
+-- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 grrsRule :: Lens' GetRuleResponse (Maybe Rule)
 grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRuleResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 

@@ -20,17 +20,21 @@
 --
 -- Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.
 --
+--
 -- You can only perform one of the following operations at once:
 --
--- -   Modify the provisioned throughput settings of the table.
+--     * Modify the provisioned throughput settings of the table.
 --
--- -   Enable or disable Streams on the table.
+--     * Enable or disable Streams on the table.
 --
--- -   Remove a global secondary index from the table.
+--     * Remove a global secondary index from the table.
 --
--- -   Create a new global secondary index on the table. Once the index begins backfilling, you can use /UpdateTable/ to perform other operations.
+--     * Create a new global secondary index on the table. Once the index begins backfilling, you can use /UpdateTable/ to perform other operations.
 --
--- /UpdateTable/ is an asynchronous operation; while it is executing, the table status changes from 'ACTIVE' to 'UPDATING'. While it is 'UPDATING', you cannot issue another /UpdateTable/ request. When the table returns to the 'ACTIVE' state, the /UpdateTable/ operation is complete.
+--
+--
+-- /UpdateTable/ is an asynchronous operation; while it is executing, the table status changes from @ACTIVE@ to @UPDATING@ . While it is @UPDATING@ , you cannot issue another /UpdateTable/ request. When the table returns to the @ACTIVE@ state, the /UpdateTable/ operation is complete.
+--
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request
@@ -60,6 +64,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an /UpdateTable/ operation.
 --
+--
+--
 -- /See:/ 'updateTable' smart constructor.
 data UpdateTable = UpdateTable'
     { _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
@@ -73,15 +79,15 @@ data UpdateTable = UpdateTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utAttributeDefinitions'
+-- * 'utAttributeDefinitions' - An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, /AttributeDefinitions/ must include the key element(s) of the new index.
 --
--- * 'utProvisionedThroughput'
+-- * 'utProvisionedThroughput' - Undocumented member.
 --
--- * 'utGlobalSecondaryIndexUpdates'
+-- * 'utGlobalSecondaryIndexUpdates' - An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:     * /Create/ - add a new global secondary index to the table.     * /Update/ - modify the provisioned throughput settings of an existing global secondary index.     * /Delete/ - remove a global secondary index from the table. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'utStreamSpecification'
+-- * 'utStreamSpecification' - Represents the DynamoDB Streams configuration for the table.
 --
--- * 'utTableName'
+-- * 'utTableName' - The name of the table to be updated.
 updateTable
     :: Text -- ^ 'utTableName'
     -> UpdateTable
@@ -102,21 +108,11 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
 utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
 
--- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:
---
--- -   /Create/ - add a new global secondary index to the table.
---
--- -   /Update/ - modify the provisioned throughput settings of an existing global secondary index.
---
--- -   /Delete/ - remove a global secondary index from the table.
---
--- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/.
+-- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:     * /Create/ - add a new global secondary index to the table.     * /Update/ - modify the provisioned throughput settings of an existing global secondary index.     * /Delete/ - remove a global secondary index from the table. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce;
 
 -- | Represents the DynamoDB Streams configuration for the table.
---
--- You will receive a /ResourceInUseException/ if you attempt to enable a stream on a table that already has a stream, or if you attempt to disable a stream on a table which does not have a stream.
 utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
 utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a});
 
@@ -168,6 +164,8 @@ instance ToQuery UpdateTable where
 
 -- | Represents the output of an /UpdateTable/ operation.
 --
+--
+--
 -- /See:/ 'updateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
     { _utrsTableDescription :: !(Maybe TableDescription)
@@ -178,9 +176,9 @@ data UpdateTableResponse = UpdateTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utrsTableDescription'
+-- * 'utrsTableDescription' - Undocumented member.
 --
--- * 'utrsResponseStatus'
+-- * 'utrsResponseStatus' - -- | The response status code.
 updateTableResponse
     :: Int -- ^ 'utrsResponseStatus'
     -> UpdateTableResponse
@@ -194,7 +192,7 @@ updateTableResponse pResponseStatus_ =
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 utrsResponseStatus :: Lens' UpdateTableResponse Int
 utrsResponseStatus = lens _utrsResponseStatus (\ s a -> s{_utrsResponseStatus = a});
 

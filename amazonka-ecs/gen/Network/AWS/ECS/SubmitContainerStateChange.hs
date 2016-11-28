@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This action is only used by the Amazon EC2 Container Service agent, and it is not intended for use outside of the agent.
---
 -- Sent to acknowledge that a container changed states.
+--
+--
 module Network.AWS.ECS.SubmitContainerStateChange
     (
     -- * Creating a Request
@@ -65,19 +65,19 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scscNetworkBindings'
+-- * 'scscNetworkBindings' - The network bindings of the container.
 --
--- * 'scscStatus'
+-- * 'scscStatus' - The status of the state change request.
 --
--- * 'scscCluster'
+-- * 'scscCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container.
 --
--- * 'scscContainerName'
+-- * 'scscContainerName' - The name of the container.
 --
--- * 'scscReason'
+-- * 'scscReason' - The reason for the state change request.
 --
--- * 'scscExitCode'
+-- * 'scscExitCode' - The exit code returned for the state change request.
 --
--- * 'scscTask'
+-- * 'scscTask' - The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
 submitContainerStateChange
     :: SubmitContainerStateChange
 submitContainerStateChange =
@@ -171,9 +171,9 @@ data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scscrsAcknowledgment'
+-- * 'scscrsAcknowledgment' - Acknowledgement of the state change.
 --
--- * 'scscrsResponseStatus'
+-- * 'scscrsResponseStatus' - -- | The response status code.
 submitContainerStateChangeResponse
     :: Int -- ^ 'scscrsResponseStatus'
     -> SubmitContainerStateChangeResponse
@@ -187,7 +187,7 @@ submitContainerStateChangeResponse pResponseStatus_ =
 scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
 
--- | The response status code.
+-- | -- | The response status code.
 scscrsResponseStatus :: Lens' SubmitContainerStateChangeResponse Int
 scscrsResponseStatus = lens _scscrsResponseStatus (\ s a -> s{_scscrsResponseStatus = a});
 

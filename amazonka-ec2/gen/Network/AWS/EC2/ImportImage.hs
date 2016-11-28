@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import\/Export> in the /VM Import\/Export User Guide/.
+-- Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html Importing a VM as an Image Using VM Import/Export> in the /VM Import\/Export User Guide/ .
+--
+--
 module Network.AWS.EC2.ImportImage
     (
     -- * Creating a Request
@@ -63,6 +65,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ImportImage.
 --
+--
+--
 -- /See:/ 'importImage' smart constructor.
 data ImportImage = ImportImage'
     { _impHypervisor     :: !(Maybe Text)
@@ -81,25 +85,25 @@ data ImportImage = ImportImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'impHypervisor'
+-- * 'impHypervisor' - The target hypervisor platform. Valid values: @xen@
 --
--- * 'impPlatform'
+-- * 'impPlatform' - The operating system of the virtual machine. Valid values: @Windows@ | @Linux@
 --
--- * 'impClientToken'
+-- * 'impClientToken' - The token to enable idempotency for VM import requests.
 --
--- * 'impLicenseType'
+-- * 'impLicenseType' - The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
 --
--- * 'impRoleName'
+-- * 'impRoleName' - The name of the role to use when not using the default role, 'vmimport'.
 --
--- * 'impArchitecture'
+-- * 'impArchitecture' - The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
 --
--- * 'impDescription'
+-- * 'impDescription' - A description string for the import image task.
 --
--- * 'impDryRun'
+-- * 'impDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'impClientData'
+-- * 'impClientData' - The client-specific data.
 --
--- * 'impDiskContainers'
+-- * 'impDiskContainers' - Information about the disk containers.
 importImage
     :: ImportImage
 importImage =
@@ -116,15 +120,11 @@ importImage =
     , _impDiskContainers = Nothing
     }
 
--- | The target hypervisor platform.
---
--- Valid values: 'xen'
+-- | The target hypervisor platform. Valid values: @xen@
 impHypervisor :: Lens' ImportImage (Maybe Text)
 impHypervisor = lens _impHypervisor (\ s a -> s{_impHypervisor = a});
 
--- | The operating system of the virtual machine.
---
--- Valid values: 'Windows' | 'Linux'
+-- | The operating system of the virtual machine. Valid values: @Windows@ | @Linux@
 impPlatform :: Lens' ImportImage (Maybe Text)
 impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a});
 
@@ -132,21 +132,15 @@ impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a});
 impClientToken :: Lens' ImportImage (Maybe Text)
 impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a});
 
--- | The license type to be used for the Amazon Machine Image (AMI) after importing.
---
--- __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import\/Export User Guide.
---
--- Valid values: 'AWS' | 'BYOL'
+-- | The license type to be used for the Amazon Machine Image (AMI) after importing. __Note:__ You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image Prerequisites> in the VM Import/Export User Guide. Valid values: @AWS@ | @BYOL@
 impLicenseType :: Lens' ImportImage (Maybe Text)
 impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a});
 
--- | The name of the role to use when not using the default role, \'vmimport\'.
+-- | The name of the role to use when not using the default role, 'vmimport'.
 impRoleName :: Lens' ImportImage (Maybe Text)
 impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 
--- | The architecture of the virtual machine.
---
--- Valid values: 'i386' | 'x86_64'
+-- | The architecture of the virtual machine. Valid values: @i386@ | @x86_64@
 impArchitecture :: Lens' ImportImage (Maybe Text)
 impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
@@ -154,7 +148,7 @@ impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 impDescription :: Lens' ImportImage (Maybe Text)
 impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 impDryRun :: Lens' ImportImage (Maybe Bool)
 impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
 
@@ -216,6 +210,8 @@ instance ToQuery ImportImage where
 
 -- | Contains the output for ImportImage.
 --
+--
+--
 -- /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'
     { _irsStatus          :: !(Maybe Text)
@@ -236,29 +232,29 @@ data ImportImageResponse = ImportImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irsStatus'
+-- * 'irsStatus' - A brief status of the task.
 --
--- * 'irsHypervisor'
+-- * 'irsHypervisor' - The target hypervisor of the import task.
 --
--- * 'irsPlatform'
+-- * 'irsPlatform' - The operating system of the virtual machine.
 --
--- * 'irsProgress'
+-- * 'irsProgress' - The progress of the task.
 --
--- * 'irsLicenseType'
+-- * 'irsLicenseType' - The license type of the virtual machine.
 --
--- * 'irsSnapshotDetails'
+-- * 'irsSnapshotDetails' - Information about the snapshots.
 --
--- * 'irsStatusMessage'
+-- * 'irsStatusMessage' - A detailed status message of the import task.
 --
--- * 'irsImageId'
+-- * 'irsImageId' - The ID of the Amazon Machine Image (AMI) created by the import task.
 --
--- * 'irsImportTaskId'
+-- * 'irsImportTaskId' - The task ID of the import image task.
 --
--- * 'irsArchitecture'
+-- * 'irsArchitecture' - The architecture of the virtual machine.
 --
--- * 'irsDescription'
+-- * 'irsDescription' - A description of the import task.
 --
--- * 'irsResponseStatus'
+-- * 'irsResponseStatus' - -- | The response status code.
 importImageResponse
     :: Int -- ^ 'irsResponseStatus'
     -> ImportImageResponse
@@ -322,7 +318,7 @@ irsArchitecture = lens _irsArchitecture (\ s a -> s{_irsArchitecture = a});
 irsDescription :: Lens' ImportImageResponse (Maybe Text)
 irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 irsResponseStatus :: Lens' ImportImageResponse Int
 irsResponseStatus = lens _irsResponseStatus (\ s a -> s{_irsResponseStatus = a});
 

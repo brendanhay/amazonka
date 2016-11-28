@@ -11,9 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Kinesis Streams Service API Reference
+-- __Amazon Kinesis Streams Service API Reference__
 --
 -- Amazon Kinesis Streams is a managed service that scales elastically for real time processing of streaming big data.
+--
 module Network.AWS.Kinesis
     (
     -- * Service Configuration

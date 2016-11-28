@@ -56,11 +56,11 @@ data GetObjectTorrent = GetObjectTorrent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotRequestPayer'
+-- * 'gotRequestPayer' - Undocumented member.
 --
--- * 'gotBucket'
+-- * 'gotBucket' - Undocumented member.
 --
--- * 'gotKey'
+-- * 'gotKey' - Undocumented member.
 getObjectTorrent
     :: BucketName -- ^ 'gotBucket'
     -> ObjectKey -- ^ 'gotKey'
@@ -121,11 +121,11 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotrsRequestCharged'
+-- * 'gotrsRequestCharged' - Undocumented member.
 --
--- * 'gotrsResponseStatus'
+-- * 'gotrsResponseStatus' - -- | The response status code.
 --
--- * 'gotrsBody'
+-- * 'gotrsBody' - Undocumented member.
 getObjectTorrentResponse
     :: Int -- ^ 'gotrsResponseStatus'
     -> RsBody -- ^ 'gotrsBody'
@@ -141,7 +141,7 @@ getObjectTorrentResponse pResponseStatus_ pBody_ =
 gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gotrsResponseStatus :: Lens' GetObjectTorrentResponse Int
 gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
 

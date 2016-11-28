@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a < Resource> resource.
+-- Creates a 'Resource' resource.
+--
+--
 module Network.AWS.APIGateway.CreateResource
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to create a < Resource> resource.
+-- | Requests Amazon API Gateway to create a 'Resource' resource.
+--
+--
 --
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
@@ -60,11 +64,11 @@ data CreateResource = CreateResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRestAPIId'
+-- * 'crRestAPIId' - The identifier of the 'RestApi' for the resource.
 --
--- * 'crParentId'
+-- * 'crParentId' - The parent resource's identifier.
 --
--- * 'crPathPart'
+-- * 'crPathPart' - The last path segment for this resource.
 createResource
     :: Text -- ^ 'crRestAPIId'
     -> Text -- ^ 'crParentId'
@@ -77,11 +81,11 @@ createResource pRestAPIId_ pParentId_ pPathPart_ =
     , _crPathPart = pPathPart_
     }
 
--- | The identifier of the < RestApi> for the resource.
+-- | The identifier of the 'RestApi' for the resource.
 crRestAPIId :: Lens' CreateResource Text
 crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
 
--- | The parent resource\'s identifier.
+-- | The parent resource's identifier.
 crParentId :: Lens' CreateResource Text
 crParentId = lens _crParentId (\ s a -> s{_crParentId = a});
 

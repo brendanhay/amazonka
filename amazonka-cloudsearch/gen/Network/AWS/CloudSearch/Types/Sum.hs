@@ -51,7 +51,9 @@ instance ToHeader     AlgorithmicStemming
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
--- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or 'mul' for multiple languages.
+-- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or @mul@ for multiple languages.
+--
+--
 data AnalysisSchemeLanguage
     = AR
     | BG
@@ -177,7 +179,9 @@ instance ToHeader     AnalysisSchemeLanguage
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
 
--- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/.
+-- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 data IndexFieldType
     = Date
     | DateArray
@@ -233,10 +237,9 @@ instance FromXML IndexFieldType where
 
 -- | The state of processing a change to an option. One of:
 --
--- -   RequiresIndexDocuments: The option\'s latest value will not be deployed until < IndexDocuments> has been called and indexing is complete.
--- -   Processing: The option\'s latest value is in the process of being activated.
--- -   Active: The option\'s latest value is fully deployed.
--- -   FailedToValidate: The option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
+--     * RequiresIndexDocuments: The option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * Processing: The option's latest value is in the process of being activated.    * Active: The option's latest value is fully deployed.     * FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+--
 data OptionState
     = Active
     | FailedToValidate
@@ -269,7 +272,9 @@ instance ToHeader     OptionState
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
--- | The instance type (such as 'search.m1.small') on which an index partition is hosted.
+-- | The instance type (such as @search.m1.small@ ) on which an index partition is hosted.
+--
+--
 data PartitionInstanceType
     = Search_M1_Large
     | Search_M1_Small

@@ -20,11 +20,11 @@
 --
 -- Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.
 --
--- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.DeleteIdentityPolicy
     (
     -- * Creating a Request
@@ -48,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- | Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'deleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
@@ -60,9 +62,9 @@ data DeleteIdentityPolicy = DeleteIdentityPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipIdentity'
+-- * 'dipIdentity' - The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 --
--- * 'dipPolicyName'
+-- * 'dipPolicyName' - The name of the policy to be deleted.
 deleteIdentityPolicy
     :: Text -- ^ 'dipIdentity'
     -> Text -- ^ 'dipPolicyName'
@@ -73,9 +75,7 @@ deleteIdentityPolicy pIdentity_ pPolicyName_ =
     , _dipPolicyName = pPolicyName_
     }
 
--- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: 'user\'example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
---
--- To successfully call this API, you must own the identity.
+-- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 dipIdentity :: Lens' DeleteIdentityPolicy Text
 dipIdentity = lens _dipIdentity (\ s a -> s{_dipIdentity = a});
 
@@ -113,6 +113,8 @@ instance ToQuery DeleteIdentityPolicy where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
     { _diprsResponseStatus :: Int
@@ -122,7 +124,7 @@ newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diprsResponseStatus'
+-- * 'diprsResponseStatus' - -- | The response status code.
 deleteIdentityPolicyResponse
     :: Int -- ^ 'diprsResponseStatus'
     -> DeleteIdentityPolicyResponse
@@ -131,7 +133,7 @@ deleteIdentityPolicyResponse pResponseStatus_ =
     { _diprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 diprsResponseStatus :: Lens' DeleteIdentityPolicyResponse Int
 diprsResponseStatus = lens _diprsResponseStatus (\ s a -> s{_diprsResponseStatus = a});
 

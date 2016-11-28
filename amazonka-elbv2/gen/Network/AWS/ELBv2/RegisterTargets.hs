@@ -20,9 +20,11 @@
 --
 -- Registers the specified targets with the specified target group.
 --
+--
 -- The target must be in the virtual private cloud (VPC) that you specified for the target group.
 --
--- To remove a target from a target group, use < DeregisterTargets>.
+-- To remove a target from a target group, use 'DeregisterTargets' .
+--
 module Network.AWS.ELBv2.RegisterTargets
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RegisterTargets.
 --
+--
+--
 -- /See:/ 'registerTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
     { _rtTargetGroupARN :: !Text
@@ -58,9 +62,9 @@ data RegisterTargets = RegisterTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtTargetGroupARN'
+-- * 'rtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'rtTargets'
+-- * 'rtTargets' - The targets.
 registerTargets
     :: Text -- ^ 'rtTargetGroupARN'
     -> RegisterTargets
@@ -106,6 +110,8 @@ instance ToQuery RegisterTargets where
 
 -- | Contains the output of RegisterTargets.
 --
+--
+--
 -- /See:/ 'registerTargetsResponse' smart constructor.
 newtype RegisterTargetsResponse = RegisterTargetsResponse'
     { _rrsResponseStatus :: Int
@@ -115,7 +121,7 @@ newtype RegisterTargetsResponse = RegisterTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsResponseStatus'
+-- * 'rrsResponseStatus' - -- | The response status code.
 registerTargetsResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> RegisterTargetsResponse
@@ -124,7 +130,7 @@ registerTargetsResponse pResponseStatus_ =
     { _rrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rrsResponseStatus :: Lens' RegisterTargetsResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 

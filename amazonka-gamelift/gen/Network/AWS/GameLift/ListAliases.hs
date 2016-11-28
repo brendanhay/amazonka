@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a collection of alias records for this AWS account. You can filter the result set by alias name and\/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
+-- Retrieves a collection of alias records for this AWS account. You can filter the result set by alias name and/or routing strategy type. Use the pagination parameters to retrieve results in sequential pages.
 --
--- Aliases are not listed in any particular order.
+--
 module Network.AWS.GameLift.ListAliases
     (
     -- * Creating a Request
@@ -50,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'listAliases' smart constructor.
 data ListAliases = ListAliases'
     { _laRoutingStrategyType :: !(Maybe RoutingStrategyType)
@@ -62,13 +64,13 @@ data ListAliases = ListAliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laRoutingStrategyType'
+-- * 'laRoutingStrategyType' - Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.    * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 --
--- * 'laNextToken'
+-- * 'laNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
--- * 'laName'
+-- * 'laName' - Descriptive label associated with an alias. Alias names do not need to be unique.
 --
--- * 'laLimit'
+-- * 'laLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listAliases
     :: ListAliases
 listAliases =
@@ -79,12 +81,7 @@ listAliases =
     , _laLimit = Nothing
     }
 
--- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty.
---
--- Possible routing types include the following:
---
--- -   __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.
--- -   __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the < RoutingStrategy> message embedded.
+-- | Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.    * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
 laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrategyType = a});
 
@@ -96,7 +93,7 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 laName :: Lens' ListAliases (Maybe Text)
 laName = lens _laName (\ s a -> s{_laName = a});
 
--- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
@@ -140,6 +137,8 @@ instance ToQuery ListAliases where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'listAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
     { _larsAliases        :: !(Maybe [Alias])
@@ -151,11 +150,11 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsAliases'
+-- * 'larsAliases' - Collection of alias records that match the list request.
 --
--- * 'larsNextToken'
+-- * 'larsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listAliasesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
@@ -171,12 +170,10 @@ larsAliases :: Lens' ListAliasesResponse [Alias]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
 -- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 larsNextToken :: Lens' ListAliasesResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 

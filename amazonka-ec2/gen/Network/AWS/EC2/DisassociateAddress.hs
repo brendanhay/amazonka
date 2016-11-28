@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates an Elastic IP address from the instance or network interface it\'s associated with.
+-- Disassociates an Elastic IP address from the instance or network interface it's associated with.
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn\'t return an error.
+-- An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+--
 module Network.AWS.EC2.DisassociateAddress
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisassociateAddress.
 --
+--
+--
 -- /See:/ 'disassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
     { _dasAssociationId :: !(Maybe Text)
@@ -58,11 +62,11 @@ data DisassociateAddress = DisassociateAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasAssociationId'
+-- * 'dasAssociationId' - [EC2-VPC] The association ID. Required for EC2-VPC.
 --
--- * 'dasPublicIP'
+-- * 'dasPublicIP' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 --
--- * 'dasDryRun'
+-- * 'dasDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 disassociateAddress
     :: DisassociateAddress
 disassociateAddress =
@@ -80,7 +84,7 @@ dasAssociationId = lens _dasAssociationId (\ s a -> s{_dasAssociationId = a});
 dasPublicIP :: Lens' DisassociateAddress (Maybe Text)
 dasPublicIP = lens _dasPublicIP (\ s a -> s{_dasPublicIP = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dasDryRun :: Lens' DisassociateAddress (Maybe Bool)
 dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a});
 

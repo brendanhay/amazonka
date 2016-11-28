@@ -22,8 +22,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a
--- successful state is reached. An error is returned after 25 failed checks.
+-- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 tableNotExists :: Wait DescribeTable
 tableNotExists =
     Wait
@@ -33,8 +32,7 @@ tableNotExists =
     , _waitAcceptors = [matchError "ResourceNotFoundException" AcceptSuccess]
     }
 
--- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a
--- successful state is reached. An error is returned after 25 failed checks.
+-- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
 tableExists :: Wait DescribeTable
 tableExists =
     Wait

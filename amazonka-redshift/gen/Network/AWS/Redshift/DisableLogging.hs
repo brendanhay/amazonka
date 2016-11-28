@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+--
+--
 module Network.AWS.Redshift.DisableLogging
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'disableLogging' smart constructor.
 newtype DisableLogging = DisableLogging'
     { _dlClusterIdentifier :: Text
@@ -57,7 +61,7 @@ newtype DisableLogging = DisableLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlClusterIdentifier'
+-- * 'dlClusterIdentifier' - The identifier of the cluster on which logging is to be stopped.  Example: @examplecluster@
 disableLogging
     :: Text -- ^ 'dlClusterIdentifier'
     -> DisableLogging
@@ -66,9 +70,7 @@ disableLogging pClusterIdentifier_ =
     { _dlClusterIdentifier = pClusterIdentifier_
     }
 
--- | The identifier of the cluster on which logging is to be stopped.
---
--- Example: 'examplecluster'
+-- | The identifier of the cluster on which logging is to be stopped.  Example: @examplecluster@
 dlClusterIdentifier :: Lens' DisableLogging Text
 dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
 

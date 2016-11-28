@@ -20,9 +20,11 @@
 --
 -- Lists all managed policies that are attached to the specified IAM role.
 --
--- An IAM role can also have inline policies embedded with it. To list the inline policies for a role, use the < ListRolePolicies> API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters. You can use the 'PathPrefix' parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified role (or none that match the specified path prefix), the action returns an empty list.
+-- An IAM role can also have inline policies embedded with it. To list the inline policies for a role, use the 'ListRolePolicies' API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
+-- You can paginate the results using the @MaxItems@ and @Marker@ parameters. You can use the @PathPrefix@ parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified role (or none that match the specified path prefix), the action returns an empty list.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedRolePolicies
@@ -66,13 +68,13 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larpPathPrefix'
+-- * 'larpPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'larpMarker'
+-- * 'larpMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'larpMaxItems'
+-- * 'larpMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'larpRoleName'
+-- * 'larpRoleName' - The name (friendly name, not ARN) of the role to list attached policies for. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 listAttachedRolePolicies
     :: Text -- ^ 'larpRoleName'
     -> ListAttachedRolePolicies
@@ -84,25 +86,19 @@ listAttachedRolePolicies pRoleName_ =
     , _larpRoleName = pRoleName_
     }
 
--- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (\/), listing all policies.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
 larpPathPrefix = lens _larpPathPrefix (\ s a -> s{_larpPathPrefix = a});
 
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the 'Marker' element in the response that you received to indicate where the next call should start.
+-- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
 larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
---
--- This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the 'IsTruncated' response element returns 'true' and 'Marker' contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
 larpMaxItems = lens _larpMaxItems (\ s a -> s{_larpMaxItems = a}) . mapping _Nat;
 
--- | The name (friendly name, not ARN) of the role to list attached policies for.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name (friendly name, not ARN) of the role to list attached policies for. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 larpRoleName :: Lens' ListAttachedRolePolicies Text
 larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 
@@ -147,7 +143,9 @@ instance ToQuery ListAttachedRolePolicies where
                "Marker" =: _larpMarker, "MaxItems" =: _larpMaxItems,
                "RoleName" =: _larpRoleName]
 
--- | Contains the response to a successful < ListAttachedRolePolicies> request.
+-- | Contains the response to a successful 'ListAttachedRolePolicies' request.
+--
+--
 --
 -- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
@@ -161,13 +159,13 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larprsAttachedPolicies'
+-- * 'larprsAttachedPolicies' - A list of the attached policies.
 --
--- * 'larprsMarker'
+-- * 'larprsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
--- * 'larprsIsTruncated'
+-- * 'larprsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 --
--- * 'larprsResponseStatus'
+-- * 'larprsResponseStatus' - -- | The response status code.
 listAttachedRolePoliciesResponse
     :: Int -- ^ 'larprsResponseStatus'
     -> ListAttachedRolePoliciesResponse
@@ -183,15 +181,15 @@ listAttachedRolePoliciesResponse pResponseStatus_ =
 larprsAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
 larprsAttachedPolicies = lens _larprsAttachedPolicies (\ s a -> s{_larprsAttachedPolicies = a}) . _Default . _Coerce;
 
--- | When 'IsTruncated' is 'true', this element is present and contains the value to use for the 'Marker' parameter in a subsequent pagination request.
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 larprsMarker :: Lens' ListAttachedRolePoliciesResponse (Maybe Text)
 larprsMarker = lens _larprsMarker (\ s a -> s{_larprsMarker = a});
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the 'Marker' request parameter to retrieve more items. Note that IAM might return fewer than the 'MaxItems' number of results even when there are more results available. We recommend that you check 'IsTruncated' after every call to ensure that you receive all of your results.
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
 larprsIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
 larprsIsTruncated = lens _larprsIsTruncated (\ s a -> s{_larprsIsTruncated = a});
 
--- | The response status code.
+-- | -- | The response status code.
 larprsResponseStatus :: Lens' ListAttachedRolePoliciesResponse Int
 larprsResponseStatus = lens _larprsResponseStatus (\ s a -> s{_larprsResponseStatus = a});
 

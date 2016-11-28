@@ -20,6 +20,8 @@
 --
 -- Provides information about the bootstrap actions associated with a cluster.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
+--
+--
 -- /See:/ 'listBootstrapActions' smart constructor.
 data ListBootstrapActions = ListBootstrapActions'
     { _lbaMarker    :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListBootstrapActions = ListBootstrapActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaMarker'
+-- * 'lbaMarker' - The pagination token that indicates the next set of results to retrieve .
 --
--- * 'lbaClusterId'
+-- * 'lbaClusterId' - The cluster identifier for the bootstrap actions to list .
 listBootstrapActions
     :: Text -- ^ 'lbaClusterId'
     -> ListBootstrapActions
@@ -127,6 +131,8 @@ instance ToQuery ListBootstrapActions where
 
 -- | This output contains the boostrap actions detail .
 --
+--
+--
 -- /See:/ 'listBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarsBootstrapActions :: !(Maybe [Command])
@@ -138,11 +144,11 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbarsBootstrapActions'
+-- * 'lbarsBootstrapActions' - The bootstrap actions associated with the cluster .
 --
--- * 'lbarsMarker'
+-- * 'lbarsMarker' - The pagination token that indicates the next set of results to retrieve .
 --
--- * 'lbarsResponseStatus'
+-- * 'lbarsResponseStatus' - -- | The response status code.
 listBootstrapActionsResponse
     :: Int -- ^ 'lbarsResponseStatus'
     -> ListBootstrapActionsResponse
@@ -161,7 +167,7 @@ lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapA
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lbarsResponseStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsResponseStatus = lens _lbarsResponseStatus (\ s a -> s{_lbarsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Copies the specified DB parameter group.
+--
+--
 module Network.AWS.RDS.CopyDBParameterGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'copyDBParameterGroup' smart constructor.
 data CopyDBParameterGroup = CopyDBParameterGroup'
     { _cdpgTags                              :: !(Maybe [Tag])
@@ -59,13 +63,13 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdpgTags'
+-- * 'cdpgTags' - Undocumented member.
 --
--- * 'cdpgSourceDBParameterGroupIdentifier'
+-- * 'cdpgSourceDBParameterGroupIdentifier' - The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB parameter group.     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
 --
--- * 'cdpgTargetDBParameterGroupIdentifier'
+-- * 'cdpgTargetDBParameterGroupIdentifier' - The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
 --
--- * 'cdpgTargetDBParameterGroupDescription'
+-- * 'cdpgTargetDBParameterGroupDescription' - A description for the copied DB parameter group.
 copyDBParameterGroup
     :: Text -- ^ 'cdpgSourceDBParameterGroupIdentifier'
     -> Text -- ^ 'cdpgTargetDBParameterGroupIdentifier'
@@ -83,30 +87,11 @@ copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupI
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
 cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 
--- | The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
---
--- Constraints:
---
--- -   Must specify a valid DB parameter group.
---
--- -   Must specify a valid DB parameter group identifier, for example 'my-db-param-group', or a valid ARN.
---
+-- | The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .  Constraints:     * Must specify a valid DB parameter group.     * Must specify a valid DB parameter group identifier, for example @my-db-param-group@ , or a valid ARN.
 cdpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifier (\ s a -> s{_cdpgSourceDBParameterGroupIdentifier = a});
 
--- | The identifier for the copied DB parameter group.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
---
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-db-parameter-group'
+-- | The identifier for the copied DB parameter group. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-db-parameter-group@
 cdpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
 cdpgTargetDBParameterGroupIdentifier = lens _cdpgTargetDBParameterGroupIdentifier (\ s a -> s{_cdpgTargetDBParameterGroupIdentifier = a});
 
@@ -157,9 +142,9 @@ data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbpgrsDBParameterGroup'
+-- * 'cdbpgrsDBParameterGroup' - Undocumented member.
 --
--- * 'cdbpgrsResponseStatus'
+-- * 'cdbpgrsResponseStatus' - -- | The response status code.
 copyDBParameterGroupResponse
     :: Int -- ^ 'cdbpgrsResponseStatus'
     -> CopyDBParameterGroupResponse
@@ -173,7 +158,7 @@ copyDBParameterGroupResponse pResponseStatus_ =
 cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
 cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdbpgrsResponseStatus :: Lens' CopyDBParameterGroupResponse Int
 cdbpgrsResponseStatus = lens _cdbpgrsResponseStatus (\ s a -> s{_cdbpgrsResponseStatus = a});
 

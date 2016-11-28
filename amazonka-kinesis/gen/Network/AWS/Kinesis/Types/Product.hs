@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Represents enhanced metrics types.
 --
+--
+--
 -- /See:/ 'enhancedMetrics' smart constructor.
 newtype EnhancedMetrics = EnhancedMetrics'
     { _emShardLevelMetrics :: Maybe [MetricsName]
@@ -32,7 +34,7 @@ newtype EnhancedMetrics = EnhancedMetrics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emShardLevelMetrics'
+-- * 'emShardLevelMetrics' - List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 enhancedMetrics
     :: EnhancedMetrics
 enhancedMetrics =
@@ -40,20 +42,7 @@ enhancedMetrics =
     { _emShardLevelMetrics = Nothing
     }
 
--- | List of shard-level metrics.
---
--- The following are the valid shard-level metrics. The value \"'ALL'\" enhances every metric.
---
--- -   'IncomingBytes'
--- -   'IncomingRecords'
--- -   'OutgoingBytes'
--- -   'OutgoingRecords'
--- -   'WriteProvisionedThroughputExceeded'
--- -   'ReadProvisionedThroughputExceeded'
--- -   'IteratorAgeMilliseconds'
--- -   'ALL'
---
--- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
+-- | List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 emShardLevelMetrics :: Lens' EnhancedMetrics [MetricsName]
 emShardLevelMetrics = lens _emShardLevelMetrics (\ s a -> s{_emShardLevelMetrics = a}) . _Default . _Coerce;
 
@@ -68,7 +57,9 @@ instance Hashable EnhancedMetrics
 
 instance NFData EnhancedMetrics
 
--- | Represents the output for < EnableEnhancedMonitoring> and < DisableEnhancedMonitoring>.
+-- | Represents the output for 'EnableEnhancedMonitoring' and 'DisableEnhancedMonitoring' .
+--
+--
 --
 -- /See:/ 'enhancedMonitoringOutput' smart constructor.
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
@@ -81,11 +72,11 @@ data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emoDesiredShardLevelMetrics'
+-- * 'emoDesiredShardLevelMetrics' - Represents the list of all the metrics that would be in the enhanced state after the operation.
 --
--- * 'emoCurrentShardLevelMetrics'
+-- * 'emoCurrentShardLevelMetrics' - Represents the current state of the metrics that are in the enhanced state before the operation.
 --
--- * 'emoStreamName'
+-- * 'emoStreamName' - The name of the Amazon Kinesis stream.
 enhancedMonitoringOutput
     :: EnhancedMonitoringOutput
 enhancedMonitoringOutput =
@@ -122,6 +113,8 @@ instance NFData EnhancedMonitoringOutput
 
 -- | The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
 --
+--
+--
 -- /See:/ 'hashKeyRange' smart constructor.
 data HashKeyRange = HashKeyRange'
     { _hkrStartingHashKey :: !Text
@@ -132,9 +125,9 @@ data HashKeyRange = HashKeyRange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hkrStartingHashKey'
+-- * 'hkrStartingHashKey' - The starting hash key of the hash key range.
 --
--- * 'hkrEndingHashKey'
+-- * 'hkrEndingHashKey' - The ending hash key of the hash key range.
 hashKeyRange
     :: Text -- ^ 'hkrStartingHashKey'
     -> Text -- ^ 'hkrEndingHashKey'
@@ -164,7 +157,9 @@ instance Hashable HashKeyRange
 
 instance NFData HashKeyRange
 
--- | Represents the output for 'PutRecords'.
+-- | Represents the output for @PutRecords@ .
+--
+--
 --
 -- /See:/ 'putRecordsRequestEntry' smart constructor.
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
@@ -177,11 +172,11 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prreExplicitHashKey'
+-- * 'prreExplicitHashKey' - The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
 --
--- * 'prreData'
+-- * 'prreData' - The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'prrePartitionKey'
+-- * 'prrePartitionKey' - Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
 putRecordsRequestEntry
     :: ByteString -- ^ 'prreData'
     -> Text -- ^ 'prrePartitionKey'
@@ -197,13 +192,7 @@ putRecordsRequestEntry pData_ pPartitionKey_ =
 prreExplicitHashKey :: Lens' PutRecordsRequestEntry (Maybe Text)
 prreExplicitHashKey = lens _prreExplicitHashKey (\ s a -> s{_prreExplicitHashKey = a});
 
--- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 prreData :: Lens' PutRecordsRequestEntry ByteString
 prreData = lens _prreData (\ s a -> s{_prreData = a}) . _Base64;
 
@@ -223,7 +212,9 @@ instance ToJSON PutRecordsRequestEntry where
                   Just ("Data" .= _prreData),
                   Just ("PartitionKey" .= _prrePartitionKey)])
 
--- | Represents the result of an individual record from a 'PutRecords' request. A record that is successfully added to a stream includes 'SequenceNumber' and 'ShardId' in the result. A record that fails to be added to the stream includes 'ErrorCode' and 'ErrorMessage' in the result.
+-- | Represents the result of an individual record from a @PutRecords@ request. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to the stream includes @ErrorCode@ and @ErrorMessage@ in the result.
+--
+--
 --
 -- /See:/ 'putRecordsResultEntry' smart constructor.
 data PutRecordsResultEntry = PutRecordsResultEntry'
@@ -237,13 +228,13 @@ data PutRecordsResultEntry = PutRecordsResultEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prreSequenceNumber'
+-- * 'prreSequenceNumber' - The sequence number for an individual record result.
 --
--- * 'prreErrorCode'
+-- * 'prreErrorCode' - The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
 --
--- * 'prreErrorMessage'
+-- * 'prreErrorMessage' - The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
 --
--- * 'prreShardId'
+-- * 'prreShardId' - The shard ID for an individual record result.
 putRecordsResultEntry
     :: PutRecordsResultEntry
 putRecordsResultEntry =
@@ -258,11 +249,11 @@ putRecordsResultEntry =
 prreSequenceNumber :: Lens' PutRecordsResultEntry (Maybe Text)
 prreSequenceNumber = lens _prreSequenceNumber (\ s a -> s{_prreSequenceNumber = a});
 
--- | The error code for an individual record result. 'ErrorCodes' can be either 'ProvisionedThroughputExceededException' or 'InternalFailure'.
+-- | The error code for an individual record result. @ErrorCodes@ can be either @ProvisionedThroughputExceededException@ or @InternalFailure@ .
 prreErrorCode :: Lens' PutRecordsResultEntry (Maybe Text)
 prreErrorCode = lens _prreErrorCode (\ s a -> s{_prreErrorCode = a});
 
--- | The error message for an individual record result. An 'ErrorCode' value of 'ProvisionedThroughputExceededException' has an error message that includes the account ID, stream name, and shard ID. An 'ErrorCode' value of 'InternalFailure' has the error message '\"Internal Service Failure\"'.
+-- | The error message for an individual record result. An @ErrorCode@ value of @ProvisionedThroughputExceededException@ has an error message that includes the account ID, stream name, and shard ID. An @ErrorCode@ value of @InternalFailure@ has the error message @"Internal Service Failure"@ .
 prreErrorMessage :: Lens' PutRecordsResultEntry (Maybe Text)
 prreErrorMessage = lens _prreErrorMessage (\ s a -> s{_prreErrorMessage = a});
 
@@ -285,6 +276,8 @@ instance NFData PutRecordsResultEntry
 
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a sequence number, a partition key, and a data blob.
 --
+--
+--
 -- /See:/ 'record' smart constructor.
 data Record = Record'
     { _rApproximateArrivalTimestamp :: !(Maybe POSIX)
@@ -297,13 +290,13 @@ data Record = Record'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rApproximateArrivalTimestamp'
+-- * 'rApproximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
 --
--- * 'rSequenceNumber'
+-- * 'rSequenceNumber' - The unique identifier of the record in the stream.
 --
--- * 'rData'
+-- * 'rData' - The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'rPartitionKey'
+-- * 'rPartitionKey' - Identifies which shard in the stream the data record is assigned to.
 record
     :: Text -- ^ 'rSequenceNumber'
     -> ByteString -- ^ 'rData'
@@ -325,13 +318,7 @@ rApproximateArrivalTimestamp = lens _rApproximateArrivalTimestamp (\ s a -> s{_r
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 
--- | The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 
@@ -355,6 +342,8 @@ instance NFData Record
 
 -- | The range of possible sequence numbers for the shard.
 --
+--
+--
 -- /See:/ 'sequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
     { _snrEndingSequenceNumber   :: !(Maybe Text)
@@ -365,9 +354,9 @@ data SequenceNumberRange = SequenceNumberRange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'snrEndingSequenceNumber'
+-- * 'snrEndingSequenceNumber' - The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
 --
--- * 'snrStartingSequenceNumber'
+-- * 'snrStartingSequenceNumber' - The starting sequence number for the range.
 sequenceNumberRange
     :: Text -- ^ 'snrStartingSequenceNumber'
     -> SequenceNumberRange
@@ -377,7 +366,7 @@ sequenceNumberRange pStartingSequenceNumber_ =
     , _snrStartingSequenceNumber = pStartingSequenceNumber_
     }
 
--- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of 'null'.
+-- | The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of @null@ .
 snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber = lens _snrEndingSequenceNumber (\ s a -> s{_snrEndingSequenceNumber = a});
 
@@ -399,6 +388,8 @@ instance NFData SequenceNumberRange
 
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 --
+--
+--
 -- /See:/ 'shard' smart constructor.
 data Shard = Shard'
     { _sAdjacentParentShardId :: !(Maybe Text)
@@ -412,15 +403,15 @@ data Shard = Shard'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAdjacentParentShardId'
+-- * 'sAdjacentParentShardId' - The shard ID of the shard adjacent to the shard's parent.
 --
--- * 'sParentShardId'
+-- * 'sParentShardId' - The shard ID of the shard's parent.
 --
--- * 'sShardId'
+-- * 'sShardId' - The unique identifier of the shard within the stream.
 --
--- * 'sHashKeyRange'
+-- * 'sHashKeyRange' - The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
 --
--- * 'sSequenceNumberRange'
+-- * 'sSequenceNumberRange' - The range of possible sequence numbers for the shard.
 shard
     :: Text -- ^ 'sShardId'
     -> HashKeyRange -- ^ 'sHashKeyRange'
@@ -435,11 +426,11 @@ shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
     , _sSequenceNumberRange = pSequenceNumberRange_
     }
 
--- | The shard ID of the shard adjacent to the shard\'s parent.
+-- | The shard ID of the shard adjacent to the shard's parent.
 sAdjacentParentShardId :: Lens' Shard (Maybe Text)
 sAdjacentParentShardId = lens _sAdjacentParentShardId (\ s a -> s{_sAdjacentParentShardId = a});
 
--- | The shard ID of the shard\'s parent.
+-- | The shard ID of the shard's parent.
 sParentShardId :: Lens' Shard (Maybe Text)
 sParentShardId = lens _sParentShardId (\ s a -> s{_sParentShardId = a});
 
@@ -470,7 +461,9 @@ instance Hashable Shard
 
 instance NFData Shard
 
--- | Represents the output for < DescribeStream>.
+-- | Represents the output for 'DescribeStream' .
+--
+--
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
@@ -487,19 +480,19 @@ data StreamDescription = StreamDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdStreamName'
+-- * 'sdStreamName' - The name of the stream being described.
 --
--- * 'sdStreamARN'
+-- * 'sdStreamARN' - The Amazon Resource Name (ARN) for the stream being described.
 --
--- * 'sdStreamStatus'
+-- * 'sdStreamStatus' - The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .    * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.    * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.    * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
 --
--- * 'sdShards'
+-- * 'sdShards' - The shards that comprise the stream.
 --
--- * 'sdHasMoreShards'
+-- * 'sdHasMoreShards' - If set to @true@ , more shards in the stream are available to describe.
 --
--- * 'sdRetentionPeriodHours'
+-- * 'sdRetentionPeriodHours' - The current retention period, in hours.
 --
--- * 'sdEnhancedMonitoring'
+-- * 'sdEnhancedMonitoring' - Represents the current enhanced monitoring settings of the stream.
 streamDescription
     :: Text -- ^ 'sdStreamName'
     -> Text -- ^ 'sdStreamARN'
@@ -526,12 +519,7 @@ sdStreamName = lens _sdStreamName (\ s a -> s{_sdStreamName = a});
 sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 
--- | The current status of the stream being described. The stream status is one of the following states:
---
--- -   'CREATING' - The stream is being created. Amazon Kinesis immediately returns and sets 'StreamStatus' to 'CREATING'.
--- -   'DELETING' - The stream is being deleted. The specified stream is in the 'DELETING' state until Amazon Kinesis completes the deletion.
--- -   'ACTIVE' - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an 'ACTIVE' stream.
--- -   'UPDATING' - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the 'UPDATING' state.
+-- | The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .    * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.    * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.    * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
 sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 
@@ -539,7 +527,7 @@ sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Coerce;
 
--- | If set to 'true', more shards in the stream are available to describe.
+-- | If set to @true@ , more shards in the stream are available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\ s a -> s{_sdHasMoreShards = a});
 
@@ -569,6 +557,8 @@ instance NFData StreamDescription
 
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -579,9 +569,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 --
--- * 'tagKey'
+-- * 'tagKey' - A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
@@ -591,11 +581,11 @@ tag pKey_ =
     , _tagKey = pKey_
     }
 
--- | An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . \/ = + - % \'
+-- | An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . \/ = + - % \'
+-- | A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 

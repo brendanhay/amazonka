@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts logging information, such as queries and connection attempts, for the specified Amazon Redshift cluster.
+--
+--
 module Network.AWS.Redshift.EnableLogging
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'enableLogging' smart constructor.
 data EnableLogging = EnableLogging'
     { _elS3KeyPrefix       :: !(Maybe Text)
@@ -61,11 +65,11 @@ data EnableLogging = EnableLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'elS3KeyPrefix'
+-- * 'elS3KeyPrefix' - The prefix applied to the log file names.  Constraints:     * Cannot exceed 512 characters    * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:     * x00 to x20    * x22    * x27    * x5c    * x7f or larger
 --
--- * 'elClusterIdentifier'
+-- * 'elClusterIdentifier' - The identifier of the cluster on which logging is to be started.  Example: @examplecluster@
 --
--- * 'elBucketName'
+-- * 'elBucketName' - The name of an existing S3 bucket where the log files are to be stored.  Constraints:     * Must be in the same region as the cluster    * The cluster must have read bucket and put object permissions
 enableLogging
     :: Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
@@ -77,32 +81,15 @@ enableLogging pClusterIdentifier_ pBucketName_ =
     , _elBucketName = pBucketName_
     }
 
--- | The prefix applied to the log file names.
---
--- Constraints:
---
--- -   Cannot exceed 512 characters
--- -   Cannot contain spaces( ), double quotes (\"), single quotes (\'), a backslash (\\), or control characters. The hexadecimal codes for invalid characters are:
---     -   x00 to x20
---     -   x22
---     -   x27
---     -   x5c
---     -   x7f or larger
+-- | The prefix applied to the log file names.  Constraints:     * Cannot exceed 512 characters    * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:     * x00 to x20    * x22    * x27    * x5c    * x7f or larger
 elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
 elS3KeyPrefix = lens _elS3KeyPrefix (\ s a -> s{_elS3KeyPrefix = a});
 
--- | The identifier of the cluster on which logging is to be started.
---
--- Example: 'examplecluster'
+-- | The identifier of the cluster on which logging is to be started.  Example: @examplecluster@
 elClusterIdentifier :: Lens' EnableLogging Text
 elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier = a});
 
--- | The name of an existing S3 bucket where the log files are to be stored.
---
--- Constraints:
---
--- -   Must be in the same region as the cluster
--- -   The cluster must have read bucket and put object permissions
+-- | The name of an existing S3 bucket where the log files are to be stored.  Constraints:     * Must be in the same region as the cluster    * The cluster must have read bucket and put object permissions
 elBucketName :: Lens' EnableLogging Text
 elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
 

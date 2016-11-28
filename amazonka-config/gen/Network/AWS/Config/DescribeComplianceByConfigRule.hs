@@ -20,13 +20,13 @@
 --
 -- Indicates whether the specified AWS Config rules are compliant. If a rule is noncompliant, this action returns the number of AWS resources that do not comply with the rule.
 --
+--
 -- A rule is compliant if all of the evaluated resources comply with it, and it is noncompliant if any of these resources do not comply.
 --
--- If AWS Config has no current evaluation results for the rule, it returns 'INSUFFICIENT_DATA'. This result might indicate one of the following conditions:
+-- If AWS Config has no current evaluation results for the rule, it returns @INSUFFICIENT_DATA@ . This result might indicate one of the following conditions:
 --
--- -   AWS Config has never invoked an evaluation for the rule. To check whether it has, use the 'DescribeConfigRuleEvaluationStatus' action to get the 'LastSuccessfulInvocationTime' and 'LastFailedInvocationTime'.
--- -   The rule\'s AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the 'config:PutEvaluations' permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the 'config:PutEvaluations' permission.
--- -   The rule\'s AWS Lambda function has returned 'NOT_APPLICABLE' for all evaluation results. This can occur if the resources were deleted or removed from the rule\'s scope.
+--     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .    * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.    * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
+--
 module Network.AWS.Config.DescribeComplianceByConfigRule
     (
     -- * Creating a Request
@@ -64,11 +64,11 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbcrConfigRuleNames'
+-- * 'dcbcrConfigRuleNames' - Specify one or more AWS Config rule names to filter the results by rule.
 --
--- * 'dcbcrComplianceTypes'
+-- * 'dcbcrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 --
--- * 'dcbcrNextToken'
+-- * 'dcbcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 describeComplianceByConfigRule
     :: DescribeComplianceByConfigRule
 describeComplianceByConfigRule =
@@ -82,13 +82,11 @@ describeComplianceByConfigRule =
 dcbcrConfigRuleNames :: Lens' DescribeComplianceByConfigRule [Text]
 dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | Filters the results by compliance.
---
--- The allowed values are 'COMPLIANT', 'NON_COMPLIANT', and 'INSUFFICIENT_DATA'.
+-- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The 'nextToken' string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbcrNextToken :: Lens' DescribeComplianceByConfigRule (Maybe Text)
 dcbcrNextToken = lens _dcbcrNextToken (\ s a -> s{_dcbcrNextToken = a});
 
@@ -145,11 +143,11 @@ data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcbcrrsComplianceByConfigRules'
+-- * 'dcbcrrsComplianceByConfigRules' - Indicates whether each of the specified AWS Config rules is compliant.
 --
--- * 'dcbcrrsNextToken'
+-- * 'dcbcrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
 --
--- * 'dcbcrrsResponseStatus'
+-- * 'dcbcrrsResponseStatus' - -- | The response status code.
 describeComplianceByConfigRuleResponse
     :: Int -- ^ 'dcbcrrsResponseStatus'
     -> DescribeComplianceByConfigRuleResponse
@@ -168,7 +166,7 @@ dcbcrrsComplianceByConfigRules = lens _dcbcrrsComplianceByConfigRules (\ s a -> 
 dcbcrrsNextToken :: Lens' DescribeComplianceByConfigRuleResponse (Maybe Text)
 dcbcrrsNextToken = lens _dcbcrrsNextToken (\ s a -> s{_dcbcrrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dcbcrrsResponseStatus :: Lens' DescribeComplianceByConfigRuleResponse Int
 dcbcrrsResponseStatus = lens _dcbcrrsResponseStatus (\ s a -> s{_dcbcrrsResponseStatus = a});
 

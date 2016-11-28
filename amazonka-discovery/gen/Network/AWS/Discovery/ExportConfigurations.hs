@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the /GetExportStatus/ API. The system imposes a limit of two configuration exports in six hours.
+--
+--
 module Network.AWS.Discovery.ExportConfigurations
     (
     -- * Creating a Request
@@ -94,9 +96,9 @@ data ExportConfigurationsResponse = ExportConfigurationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecrsExportId'
+-- * 'ecrsExportId' - A unique identifier that you can use to query the export status.
 --
--- * 'ecrsResponseStatus'
+-- * 'ecrsResponseStatus' - -- | The response status code.
 exportConfigurationsResponse
     :: Int -- ^ 'ecrsResponseStatus'
     -> ExportConfigurationsResponse
@@ -110,7 +112,7 @@ exportConfigurationsResponse pResponseStatus_ =
 ecrsExportId :: Lens' ExportConfigurationsResponse (Maybe Text)
 ecrsExportId = lens _ecrsExportId (\ s a -> s{_ecrsExportId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ecrsResponseStatus :: Lens' ExportConfigurationsResponse Int
 ecrsResponseStatus = lens _ecrsResponseStatus (\ s a -> s{_ecrsResponseStatus = a});
 

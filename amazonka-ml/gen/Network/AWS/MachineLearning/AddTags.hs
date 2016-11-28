@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key and an optional value. If you add a tag using a key that is already associated with the ML object, 'AddTags' updates the tag\'s value.
+-- Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key and an optional value. If you add a tag using a key that is already associated with the ML object, @AddTags@ updates the tag's value.
+--
+--
 module Network.AWS.MachineLearning.AddTags
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atTags'
+-- * 'atTags' - The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
 --
--- * 'atResourceId'
+-- * 'atResourceId' - The ID of the ML object to tag. For example, @exampleModelId@ .
 --
--- * 'atResourceType'
+-- * 'atResourceType' - The type of the ML object to tag.
 addTags
     :: Text -- ^ 'atResourceId'
     -> TaggableResourceType -- ^ 'atResourceType'
@@ -76,7 +78,7 @@ addTags pResourceId_ pResourceType_ =
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
--- | The ID of the ML object to tag. For example, 'exampleModelId'.
+-- | The ID of the ML object to tag. For example, @exampleModelId@ .
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 
@@ -123,6 +125,8 @@ instance ToQuery AddTags where
 
 -- | Amazon ML returns the following elements.
 --
+--
+--
 -- /See:/ 'addTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
     { _atrsResourceId     :: !(Maybe Text)
@@ -134,11 +138,11 @@ data AddTagsResponse = AddTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atrsResourceId'
+-- * 'atrsResourceId' - The ID of the ML object that was tagged.
 --
--- * 'atrsResourceType'
+-- * 'atrsResourceType' - The type of the ML object that was tagged.
 --
--- * 'atrsResponseStatus'
+-- * 'atrsResponseStatus' - -- | The response status code.
 addTagsResponse
     :: Int -- ^ 'atrsResponseStatus'
     -> AddTagsResponse
@@ -157,7 +161,7 @@ atrsResourceId = lens _atrsResourceId (\ s a -> s{_atrsResourceId = a});
 atrsResourceType :: Lens' AddTagsResponse (Maybe TaggableResourceType)
 atrsResourceType = lens _atrsResourceType (\ s a -> s{_atrsResourceType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 atrsResponseStatus :: Lens' AddTagsResponse Int
 atrsResponseStatus = lens _atrsResponseStatus (\ s a -> s{_atrsResponseStatus = a});
 

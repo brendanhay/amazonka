@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.
+-- Unlinks a @DeveloperUserIdentifier@ from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.
+--
 --
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the 'UnlinkDeveloperIdentity' action.
+-- | Input to the @UnlinkDeveloperIdentity@ action.
+--
+--
 --
 -- /See:/ 'unlinkDeveloperIdentity' smart constructor.
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
@@ -58,13 +62,13 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udiIdentityId'
+-- * 'udiIdentityId' - A unique identifier in the format REGION:GUID.
 --
--- * 'udiIdentityPoolId'
+-- * 'udiIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'udiDeveloperProviderName'
+-- * 'udiDeveloperProviderName' - The "domain" by which Cognito will refer to your users.
 --
--- * 'udiDeveloperUserIdentifier'
+-- * 'udiDeveloperUserIdentifier' - A unique ID used by your backend authentication process to identify a user.
 unlinkDeveloperIdentity
     :: Text -- ^ 'udiIdentityId'
     -> Text -- ^ 'udiIdentityPoolId'
@@ -87,7 +91,7 @@ udiIdentityId = lens _udiIdentityId (\ s a -> s{_udiIdentityId = a});
 udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
 udiIdentityPoolId = lens _udiIdentityPoolId (\ s a -> s{_udiIdentityPoolId = a});
 
--- | The \"domain\" by which Cognito will refer to your users.
+-- | The "domain" by which Cognito will refer to your users.
 udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
 udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDeveloperProviderName = a});
 

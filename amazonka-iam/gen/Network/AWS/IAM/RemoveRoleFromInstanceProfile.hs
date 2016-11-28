@@ -20,9 +20,11 @@
 --
 -- Removes the specified IAM role from the specified EC2 instance profile.
 --
--- Make sure you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance break any applications running on the instance.
 --
--- For more information about IAM roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- /Important:/ Make sure you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance break any applications running on the instance.
+--
+-- For more information about IAM roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> . For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
+--
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrfipInstanceProfileName'
+-- * 'rrfipInstanceProfileName' - The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rrfipRoleName'
+-- * 'rrfipRoleName' - The name of the role to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 removeRoleFromInstanceProfile
     :: Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
@@ -67,15 +69,11 @@ removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
     , _rrfipRoleName = pRoleName_
     }
 
--- | The name of the instance profile to update.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName = lens _rrfipInstanceProfileName (\ s a -> s{_rrfipInstanceProfileName = a});
 
--- | The name of the role to remove.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the role to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
 

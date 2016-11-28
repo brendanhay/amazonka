@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the assessment target that is specified by the ARN of the assessment target.
+--
+--
 module Network.AWS.Inspector.UpdateAssessmentTarget
     (
     -- * Creating a Request
@@ -52,11 +54,11 @@ data UpdateAssessmentTarget = UpdateAssessmentTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uatAssessmentTargetARN'
+-- * 'uatAssessmentTargetARN' - The ARN of the assessment target that you want to update.
 --
--- * 'uatAssessmentTargetName'
+-- * 'uatAssessmentTargetName' - The name of the assessment target that you want to update.
 --
--- * 'uatResourceGroupARN'
+-- * 'uatResourceGroupARN' - The ARN of the resource group that is used to specify the new resource group to associate with the assessment target.
 updateAssessmentTarget
     :: Text -- ^ 'uatAssessmentTargetARN'
     -> Text -- ^ 'uatAssessmentTargetName'

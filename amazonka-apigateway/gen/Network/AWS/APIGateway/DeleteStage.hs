@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a < Stage> resource.
+-- Deletes a 'Stage' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteStage
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to delete a < Stage> resource.
+-- | Requests Amazon API Gateway to delete a 'Stage' resource.
+--
+--
 --
 -- /See:/ 'deleteStage' smart constructor.
 data DeleteStage = DeleteStage'
@@ -52,9 +56,9 @@ data DeleteStage = DeleteStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRestAPIId'
+-- * 'dsRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to delete.
 --
--- * 'dsStageName'
+-- * 'dsStageName' - The name of the 'Stage' resource to delete.
 deleteStage
     :: Text -- ^ 'dsRestAPIId'
     -> Text -- ^ 'dsStageName'
@@ -65,11 +69,11 @@ deleteStage pRestAPIId_ pStageName_ =
     , _dsStageName = pStageName_
     }
 
--- | The identifier of the < RestApi> resource for the < Stage> resource to delete.
+-- | The identifier of the 'RestApi' resource for the 'Stage' resource to delete.
 dsRestAPIId :: Lens' DeleteStage Text
 dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
 
--- | The name of the < Stage> resource to delete.
+-- | The name of the 'Stage' resource to delete.
 dsStageName :: Lens' DeleteStage Text
 dsStageName = lens _dsStageName (\ s a -> s{_dsStageName = a});
 

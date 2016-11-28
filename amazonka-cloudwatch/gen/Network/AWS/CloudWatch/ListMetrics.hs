@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with < GetMetricStatistics> to obtain statistical data for a given metric.
+-- Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with 'GetMetricStatistics' to obtain statistical data for a given metric.
 --
--- Up to 500 results are returned for any one call. To retrieve further results, use returned 'NextToken' values with subsequent 'ListMetrics' operations.
 --
--- If you create a metric with < PutMetricData>, allow up to fifteen minutes for the metric to appear in calls to 'ListMetrics'. Statistics about the metric, however, are available sooner using < GetMetricStatistics>.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
@@ -55,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for ListMetrics.
 --
+--
+--
 -- /See:/ 'listMetrics' smart constructor.
 data ListMetrics = ListMetrics'
     { _lmMetricName :: !(Maybe Text)
@@ -67,13 +67,13 @@ data ListMetrics = ListMetrics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmMetricName'
+-- * 'lmMetricName' - The name of the metric to filter against.
 --
--- * 'lmNamespace'
+-- * 'lmNamespace' - The namespace to filter against.
 --
--- * 'lmNextToken'
+-- * 'lmNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'lmDimensions'
+-- * 'lmDimensions' - A list of dimensions to filter against.
 listMetrics
     :: ListMetrics
 listMetrics =
@@ -140,7 +140,9 @@ instance ToQuery ListMetrics where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _lmDimensions)]
 
--- | The output for < ListMetrics>.
+-- | The output for 'ListMetrics' .
+--
+--
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
 data ListMetricsResponse = ListMetricsResponse'
@@ -153,11 +155,11 @@ data ListMetricsResponse = ListMetricsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmrsMetrics'
+-- * 'lmrsMetrics' - A list of metrics used to generate statistics for an AWS account.
 --
--- * 'lmrsNextToken'
+-- * 'lmrsNextToken' - A string that marks the start of the next batch of returned results.
 --
--- * 'lmrsResponseStatus'
+-- * 'lmrsResponseStatus' - -- | The response status code.
 listMetricsResponse
     :: Int -- ^ 'lmrsResponseStatus'
     -> ListMetricsResponse
@@ -176,7 +178,7 @@ lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coe
 lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lmrsResponseStatus :: Lens' ListMetricsResponse Int
 lmrsResponseStatus = lens _lmrsResponseStatus (\ s a -> s{_lmrsResponseStatus = a});
 

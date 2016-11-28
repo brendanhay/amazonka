@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don’t plan to use Run Command on the server, we suggest uninstalling the SSM agent first.
+--
+--
 module Network.AWS.SSM.DeregisterManagedInstance
     (
     -- * Creating a Request
@@ -50,7 +52,7 @@ newtype DeregisterManagedInstance = DeregisterManagedInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmiInstanceId'
+-- * 'dmiInstanceId' - The ID assigned to the managed instance when you registered it using the activation process.
 deregisterManagedInstance
     :: Text -- ^ 'dmiInstanceId'
     -> DeregisterManagedInstance
@@ -107,7 +109,7 @@ newtype DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmirsResponseStatus'
+-- * 'dmirsResponseStatus' - -- | The response status code.
 deregisterManagedInstanceResponse
     :: Int -- ^ 'dmirsResponseStatus'
     -> DeregisterManagedInstanceResponse
@@ -116,7 +118,7 @@ deregisterManagedInstanceResponse pResponseStatus_ =
     { _dmirsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dmirsResponseStatus :: Lens' DeregisterManagedInstanceResponse Int
 dmirsResponseStatus = lens _dmirsResponseStatus (\ s a -> s{_dmirsResponseStatus = a});
 

@@ -74,29 +74,29 @@ data GetShippingLabel = GetShippingLabel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslStreet3'
+-- * 'gslStreet3' - Undocumented member.
 --
--- * 'gslAPIVersion'
+-- * 'gslAPIVersion' - Undocumented member.
 --
--- * 'gslCountry'
+-- * 'gslCountry' - Undocumented member.
 --
--- * 'gslStateOrProvince'
+-- * 'gslStateOrProvince' - Undocumented member.
 --
--- * 'gslPostalCode'
+-- * 'gslPostalCode' - Undocumented member.
 --
--- * 'gslStreet2'
+-- * 'gslStreet2' - Undocumented member.
 --
--- * 'gslName'
+-- * 'gslName' - Undocumented member.
 --
--- * 'gslCompany'
+-- * 'gslCompany' - Undocumented member.
 --
--- * 'gslPhoneNumber'
+-- * 'gslPhoneNumber' - Undocumented member.
 --
--- * 'gslCity'
+-- * 'gslCity' - Undocumented member.
 --
--- * 'gslStreet1'
+-- * 'gslStreet1' - Undocumented member.
 --
--- * 'gslJobIds'
+-- * 'gslJobIds' - Undocumented member.
 getShippingLabel
     :: GetShippingLabel
 getShippingLabel =
@@ -211,11 +211,11 @@ data GetShippingLabelResponse = GetShippingLabelResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gslrsShippingLabelURL'
+-- * 'gslrsShippingLabelURL' - Undocumented member.
 --
--- * 'gslrsWarning'
+-- * 'gslrsWarning' - Undocumented member.
 --
--- * 'gslrsResponseStatus'
+-- * 'gslrsResponseStatus' - -- | The response status code.
 getShippingLabelResponse
     :: Int -- ^ 'gslrsResponseStatus'
     -> GetShippingLabelResponse
@@ -234,7 +234,7 @@ gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLa
 gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
 gslrsResponseStatus = lens _gslrsResponseStatus (\ s a -> s{_gslrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the user\'s current sending limits.
+-- Returns the user's current sending limits.
+--
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.GetSendQuota
     (
     -- * Creating a Request
@@ -85,6 +87,8 @@ instance ToQuery GetSendQuota where
 
 -- | Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.
 --
+--
+--
 -- /See:/ 'getSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
     { _gsqrsMaxSendRate     :: !(Maybe Double)
@@ -97,13 +101,13 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsqrsMaxSendRate'
+-- * 'gsqrsMaxSendRate' - The maximum number of emails that Amazon SES can accept from the user's account per second.
 --
--- * 'gsqrsSentLast24Hours'
+-- * 'gsqrsSentLast24Hours' - The number of emails sent during the previous 24 hours.
 --
--- * 'gsqrsMax24HourSend'
+-- * 'gsqrsMax24HourSend' - The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
 --
--- * 'gsqrsResponseStatus'
+-- * 'gsqrsResponseStatus' - -- | The response status code.
 getSendQuotaResponse
     :: Int -- ^ 'gsqrsResponseStatus'
     -> GetSendQuotaResponse
@@ -115,9 +119,7 @@ getSendQuotaResponse pResponseStatus_ =
     , _gsqrsResponseStatus = pResponseStatus_
     }
 
--- | The maximum number of emails that Amazon SES can accept from the user\'s account per second.
---
--- The rate at which Amazon SES accepts the user\'s messages might be less than the maximum send rate.
+-- | The maximum number of emails that Amazon SES can accept from the user's account per second.
 gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMaxSendRate = lens _gsqrsMaxSendRate (\ s a -> s{_gsqrsMaxSendRate = a});
 
@@ -129,7 +131,7 @@ gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Ho
 gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsqrsResponseStatus :: Lens' GetSendQuotaResponse Int
 gsqrsResponseStatus = lens _gsqrsResponseStatus (\ s a -> s{_gsqrsResponseStatus = a});
 

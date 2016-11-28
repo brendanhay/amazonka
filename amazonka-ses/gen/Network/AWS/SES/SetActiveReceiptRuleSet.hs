@@ -20,11 +20,11 @@
 --
 -- Sets the specified receipt rule set as the active receipt rule set.
 --
--- To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.
 --
--- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide>.
+-- For information about managing receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.SetActiveReceiptRuleSet
     (
     -- * Creating a Request
@@ -47,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'setActiveReceiptRuleSet' smart constructor.
 newtype SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
@@ -58,7 +60,7 @@ newtype SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarrsRuleSetName'
+-- * 'sarrsRuleSetName' - The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
 setActiveReceiptRuleSet
     :: SetActiveReceiptRuleSet
 setActiveReceiptRuleSet =
@@ -100,6 +102,8 @@ instance ToQuery SetActiveReceiptRuleSet where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'setActiveReceiptRuleSetResponse' smart constructor.
 newtype SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
     { _sarrsrsResponseStatus :: Int
@@ -109,7 +113,7 @@ newtype SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarrsrsResponseStatus'
+-- * 'sarrsrsResponseStatus' - -- | The response status code.
 setActiveReceiptRuleSetResponse
     :: Int -- ^ 'sarrsrsResponseStatus'
     -> SetActiveReceiptRuleSetResponse
@@ -118,7 +122,7 @@ setActiveReceiptRuleSetResponse pResponseStatus_ =
     { _sarrsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 sarrsrsResponseStatus :: Lens' SetActiveReceiptRuleSetResponse Int
 sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\ s a -> s{_sarrsrsResponseStatus = a});
 

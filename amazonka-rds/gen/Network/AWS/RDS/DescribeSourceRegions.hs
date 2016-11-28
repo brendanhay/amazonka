@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list that includes the status of each source AWS Region that the current region can get a Read Replica or a DB snapshot from. This API action supports pagination.
+--
+--
 module Network.AWS.RDS.DescribeSourceRegions
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
     { _dsrRegionName :: !(Maybe Text)
@@ -60,13 +64,13 @@ data DescribeSourceRegions = DescribeSourceRegions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrRegionName'
+-- * 'dsrRegionName' - The source region name, for example US West (Oregon). Constraints:     * Must specify a valid AWS Region name, for example US West (Oregon).
 --
--- * 'dsrFilters'
+-- * 'dsrFilters' - This parameter is not currently supported.
 --
--- * 'dsrMarker'
+-- * 'dsrMarker' - An optional pagination token provided by a previous 'DescribeSourceRegions' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dsrMaxRecords'
+-- * 'dsrMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeSourceRegions
     :: DescribeSourceRegions
 describeSourceRegions =
@@ -77,12 +81,7 @@ describeSourceRegions =
     , _dsrMaxRecords = Nothing
     }
 
--- | The source region name, for example US West (Oregon).
---
--- Constraints:
---
--- -   Must specify a valid AWS Region name, for example US West (Oregon).
---
+-- | The source region name, for example US West (Oregon). Constraints:     * Must specify a valid AWS Region name, for example US West (Oregon).
 dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
 dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a});
 
@@ -90,15 +89,11 @@ dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a});
 dsrFilters :: Lens' DescribeSourceRegions [Filter]
 dsrFilters = lens _dsrFilters (\ s a -> s{_dsrFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous < DescribeSourceRegions> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous 'DescribeSourceRegions' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrMarker :: Lens' DescribeSourceRegions (Maybe Text)
 dsrMarker = lens _dsrMarker (\ s a -> s{_dsrMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dsrMaxRecords :: Lens' DescribeSourceRegions (Maybe Int)
 dsrMaxRecords = lens _dsrMaxRecords (\ s a -> s{_dsrMaxRecords = a});
 
@@ -136,7 +131,9 @@ instance ToQuery DescribeSourceRegions where
                "Marker" =: _dsrMarker,
                "MaxRecords" =: _dsrMaxRecords]
 
--- | Contains the result of a successful invocation of the < DescribeSourceRegions> action.
+-- | Contains the result of a successful invocation of the 'DescribeSourceRegions' action.
+--
+--
 --
 -- /See:/ 'describeSourceRegionsResponse' smart constructor.
 data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
@@ -149,11 +146,11 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrrsMarker'
+-- * 'dsrrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dsrrsSourceRegions'
+-- * 'dsrrsSourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current region can get a Read Replica or a DB snapshot from.
 --
--- * 'dsrrsResponseStatus'
+-- * 'dsrrsResponseStatus' - -- | The response status code.
 describeSourceRegionsResponse
     :: Int -- ^ 'dsrrsResponseStatus'
     -> DescribeSourceRegionsResponse
@@ -164,7 +161,7 @@ describeSourceRegionsResponse pResponseStatus_ =
     , _dsrrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dsrrsMarker :: Lens' DescribeSourceRegionsResponse (Maybe Text)
 dsrrsMarker = lens _dsrrsMarker (\ s a -> s{_dsrrsMarker = a});
 
@@ -172,7 +169,7 @@ dsrrsMarker = lens _dsrrsMarker (\ s a -> s{_dsrrsMarker = a});
 dsrrsSourceRegions :: Lens' DescribeSourceRegionsResponse [SourceRegion]
 dsrrsSourceRegions = lens _dsrrsSourceRegions (\ s a -> s{_dsrrsSourceRegions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsrrsResponseStatus :: Lens' DescribeSourceRegionsResponse Int
 dsrrsResponseStatus = lens _dsrrsResponseStatus (\ s a -> s{_dsrrsResponseStatus = a});
 

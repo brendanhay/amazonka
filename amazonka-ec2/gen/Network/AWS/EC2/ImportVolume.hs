@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import volume task using metadata from the specified disk image.For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html Importing Disks to Amazon EBS>.
+-- Creates an import volume task using metadata from the specified disk image.For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html Importing Disks to Amazon EBS> .
 --
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+--
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
 module Network.AWS.EC2.ImportVolume
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ImportVolume.
 --
+--
+--
 -- /See:/ 'importVolume' smart constructor.
 data ImportVolume = ImportVolume'
     { _ivDescription      :: !(Maybe Text)
@@ -63,15 +67,15 @@ data ImportVolume = ImportVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ivDescription'
+-- * 'ivDescription' - A description of the volume.
 --
--- * 'ivDryRun'
+-- * 'ivDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ivAvailabilityZone'
+-- * 'ivAvailabilityZone' - The Availability Zone for the resulting EBS volume.
 --
--- * 'ivImage'
+-- * 'ivImage' - The disk image.
 --
--- * 'ivVolume'
+-- * 'ivVolume' - The volume size.
 importVolume
     :: Text -- ^ 'ivAvailabilityZone'
     -> DiskImageDetail -- ^ 'ivImage'
@@ -90,7 +94,7 @@ importVolume pAvailabilityZone_ pImage_ pVolume_ =
 ivDescription :: Lens' ImportVolume (Maybe Text)
 ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ivDryRun :: Lens' ImportVolume (Maybe Bool)
 ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
 
@@ -137,6 +141,8 @@ instance ToQuery ImportVolume where
 
 -- | Contains the output for ImportVolume.
 --
+--
+--
 -- /See:/ 'importVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
@@ -147,9 +153,9 @@ data ImportVolumeResponse = ImportVolumeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ivrsConversionTask'
+-- * 'ivrsConversionTask' - Information about the conversion task.
 --
--- * 'ivrsResponseStatus'
+-- * 'ivrsResponseStatus' - -- | The response status code.
 importVolumeResponse
     :: Int -- ^ 'ivrsResponseStatus'
     -> ImportVolumeResponse
@@ -163,7 +169,7 @@ importVolumeResponse pResponseStatus_ =
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ivrsResponseStatus :: Lens' ImportVolumeResponse Int
 ivrsResponseStatus = lens _ivrsResponseStatus (\ s a -> s{_ivrsResponseStatus = a});
 

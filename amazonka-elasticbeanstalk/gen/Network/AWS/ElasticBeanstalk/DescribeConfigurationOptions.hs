@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the configuration options that are used in a particular configuration template or environment, or that a specified solution stack defines. The description includes the values the options, their default values, and an indication of the required action on a running environment if an option value is changed.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Result message containig a list of application version descriptions.
 --
+--
+--
 -- /See:/ 'describeConfigurationOptions' smart constructor.
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
     { _dcoTemplateName      :: !(Maybe Text)
@@ -62,15 +66,15 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcoTemplateName'
+-- * 'dcoTemplateName' - The name of the configuration template whose configuration options you want to describe.
 --
--- * 'dcoEnvironmentName'
+-- * 'dcoEnvironmentName' - The name of the environment whose configuration options you want to describe.
 --
--- * 'dcoApplicationName'
+-- * 'dcoApplicationName' - The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
 --
--- * 'dcoSolutionStackName'
+-- * 'dcoSolutionStackName' - The name of the solution stack whose configuration options you want to describe.
 --
--- * 'dcoOptions'
+-- * 'dcoOptions' - If specified, restricts the descriptions to only the specified options.
 describeConfigurationOptions
     :: DescribeConfigurationOptions
 describeConfigurationOptions =
@@ -142,6 +146,8 @@ instance ToQuery DescribeConfigurationOptions where
 
 -- | Describes the settings for a specified configuration set.
 --
+--
+--
 -- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
     { _dcorsSolutionStackName :: !(Maybe Text)
@@ -153,11 +159,11 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcorsSolutionStackName'
+-- * 'dcorsSolutionStackName' - The name of the solution stack these configuration options belong to.
 --
--- * 'dcorsOptions'
+-- * 'dcorsOptions' - A list of 'ConfigurationOptionDescription' .
 --
--- * 'dcorsResponseStatus'
+-- * 'dcorsResponseStatus' - -- | The response status code.
 describeConfigurationOptionsResponse
     :: Int -- ^ 'dcorsResponseStatus'
     -> DescribeConfigurationOptionsResponse
@@ -172,11 +178,11 @@ describeConfigurationOptionsResponse pResponseStatus_ =
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
--- | A list of < ConfigurationOptionDescription>.
+-- | A list of 'ConfigurationOptionDescription' .
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
 dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcorsResponseStatus :: Lens' DescribeConfigurationOptionsResponse Int
 dcorsResponseStatus = lens _dcorsResponseStatus (\ s a -> s{_dcorsResponseStatus = a});
 

@@ -106,55 +106,55 @@ data PutObject = PutObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poContentLength'
+-- * 'poContentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
 --
--- * 'poExpires'
+-- * 'poExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'poGrantReadACP'
+-- * 'poGrantReadACP' - Allows grantee to read the object ACL.
 --
--- * 'poSSECustomerAlgorithm'
+-- * 'poSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'poSSECustomerKey'
+-- * 'poSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 --
--- * 'poRequestPayer'
+-- * 'poRequestPayer' - Undocumented member.
 --
--- * 'poGrantWriteACP'
+-- * 'poGrantWriteACP' - Allows grantee to write the ACL for the applicable object.
 --
--- * 'poWebsiteRedirectLocation'
+-- * 'poWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'poGrantRead'
+-- * 'poGrantRead' - Allows grantee to read the object data and its metadata.
 --
--- * 'poStorageClass'
+-- * 'poStorageClass' - The type of storage to use for the object. Defaults to 'STANDARD'.
 --
--- * 'poSSECustomerKeyMD5'
+-- * 'poSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'poSSEKMSKeyId'
+-- * 'poSSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 --
--- * 'poGrantFullControl'
+-- * 'poGrantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 --
--- * 'poContentEncoding'
+-- * 'poContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'poContentMD5'
+-- * 'poContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
 --
--- * 'poMetadata'
+-- * 'poMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'poCacheControl'
+-- * 'poCacheControl' - Specifies caching behavior along the request/reply chain.
 --
--- * 'poContentLanguage'
+-- * 'poContentLanguage' - The language the content is in.
 --
--- * 'poACL'
+-- * 'poACL' - The canned ACL to apply to the object.
 --
--- * 'poContentDisposition'
+-- * 'poContentDisposition' - Specifies presentational information for the object.
 --
--- * 'poServerSideEncryption'
+-- * 'poServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'poContentType'
+-- * 'poContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'poBucket'
+-- * 'poBucket' - Name of the bucket to which the PUT operation was initiated.
 --
--- * 'poKey'
+-- * 'poKey' - Object key for which the PUT operation was initiated.
 --
--- * 'poBody'
+-- * 'poBody' - Object data.
 putObject
     :: BucketName -- ^ 'poBucket'
     -> ObjectKey -- ^ 'poKey'
@@ -225,7 +225,7 @@ poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsi
 poGrantRead :: Lens' PutObject (Maybe Text)
 poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a});
 
--- | The type of storage to use for the object. Defaults to \'STANDARD\'.
+-- | The type of storage to use for the object. Defaults to 'STANDARD'.
 poStorageClass :: Lens' PutObject (Maybe StorageClass)
 poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 
@@ -233,7 +233,7 @@ poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
--- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
+-- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version
 poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
 poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive;
 
@@ -253,7 +253,7 @@ poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 poMetadata :: Lens' PutObject (HashMap Text Text)
 poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
 
--- | Specifies caching behavior along the request\/reply chain.
+-- | Specifies caching behavior along the request/reply chain.
 poCacheControl :: Lens' PutObject (Maybe Text)
 poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a});
 
@@ -369,23 +369,23 @@ data PutObjectResponse = PutObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'porsRequestCharged'
+-- * 'porsRequestCharged' - Undocumented member.
 --
--- * 'porsETag'
+-- * 'porsETag' - Entity tag for the uploaded object.
 --
--- * 'porsVersionId'
+-- * 'porsVersionId' - Version of the object.
 --
--- * 'porsExpiration'
+-- * 'porsExpiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
--- * 'porsSSECustomerAlgorithm'
+-- * 'porsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'porsSSECustomerKeyMD5'
+-- * 'porsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'porsSSEKMSKeyId'
+-- * 'porsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'porsServerSideEncryption'
+-- * 'porsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'porsResponseStatus'
+-- * 'porsResponseStatus' - -- | The response status code.
 putObjectResponse
     :: Int -- ^ 'porsResponseStatus'
     -> PutObjectResponse
@@ -434,7 +434,7 @@ porsSSEKMSKeyId = lens _porsSSEKMSKeyId (\ s a -> s{_porsSSEKMSKeyId = a}) . map
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 
--- | The response status code.
+-- | -- | The response status code.
 porsResponseStatus :: Lens' PutObjectResponse Int
 porsResponseStatus = lens _porsResponseStatus (\ s a -> s{_porsResponseStatus = a});
 

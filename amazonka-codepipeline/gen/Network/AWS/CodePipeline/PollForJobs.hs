@@ -20,7 +20,9 @@
 --
 -- Returns information about any jobs for AWS CodePipeline to act upon.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
 module Network.AWS.CodePipeline.PollForJobs
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a poll for jobs action.
 --
+--
+--
 -- /See:/ 'pollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
     { _pfjMaxBatchSize :: !(Maybe Nat)
@@ -59,11 +63,11 @@ data PollForJobs = PollForJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pfjMaxBatchSize'
+-- * 'pfjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 --
--- * 'pfjQueryParam'
+-- * 'pfjQueryParam' - A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value will be returned.
 --
--- * 'pfjActionTypeId'
+-- * 'pfjActionTypeId' - Undocumented member.
 pollForJobs
     :: ActionTypeId -- ^ 'pfjActionTypeId'
     -> PollForJobs
@@ -124,6 +128,8 @@ instance ToQuery PollForJobs where
 
 -- | Represents the output of a poll for jobs action.
 --
+--
+--
 -- /See:/ 'pollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
     { _pfjrsJobs           :: !(Maybe [Job])
@@ -134,9 +140,9 @@ data PollForJobsResponse = PollForJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pfjrsJobs'
+-- * 'pfjrsJobs' - Information about the jobs to take action on.
 --
--- * 'pfjrsResponseStatus'
+-- * 'pfjrsResponseStatus' - -- | The response status code.
 pollForJobsResponse
     :: Int -- ^ 'pfjrsResponseStatus'
     -> PollForJobsResponse
@@ -150,7 +156,7 @@ pollForJobsResponse pResponseStatus_ =
 pfjrsJobs :: Lens' PollForJobsResponse [Job]
 pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 pfjrsResponseStatus :: Lens' PollForJobsResponse Int
 pfjrsResponseStatus = lens _pfjrsResponseStatus (\ s a -> s{_pfjrsResponseStatus = a});
 

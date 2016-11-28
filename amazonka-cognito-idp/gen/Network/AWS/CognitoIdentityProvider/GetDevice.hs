@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the device.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GetDevice
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get the device.
 --
+--
+--
 -- /See:/ 'getDevice' smart constructor.
 data GetDevice = GetDevice'
     { _gdAccessToken :: !(Maybe (Sensitive Text))
@@ -55,9 +59,9 @@ data GetDevice = GetDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdAccessToken'
+-- * 'gdAccessToken' - The access token.
 --
--- * 'gdDeviceKey'
+-- * 'gdDeviceKey' - The device key.
 getDevice
     :: Text -- ^ 'gdDeviceKey'
     -> GetDevice
@@ -113,6 +117,8 @@ instance ToQuery GetDevice where
 
 -- | Gets the device response.
 --
+--
+--
 -- /See:/ 'getDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
     { _gdrsResponseStatus :: !Int
@@ -123,9 +129,9 @@ data GetDeviceResponse = GetDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsResponseStatus'
+-- * 'gdrsResponseStatus' - -- | The response status code.
 --
--- * 'gdrsDevice'
+-- * 'gdrsDevice' - The device.
 getDeviceResponse
     :: Int -- ^ 'gdrsResponseStatus'
     -> DeviceType -- ^ 'gdrsDevice'
@@ -136,7 +142,7 @@ getDeviceResponse pResponseStatus_ pDevice_ =
     , _gdrsDevice = pDevice_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gdrsResponseStatus :: Lens' GetDeviceResponse Int
 gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a});
 

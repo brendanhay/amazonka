@@ -20,6 +20,8 @@
 --
 -- The ListPipelines operation gets a list of the pipelines associated with the current AWS account.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPipelines
     (
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'ListPipelineRequest' structure.
+-- | The @ListPipelineRequest@ structure.
+--
+--
 --
 -- /See:/ 'listPipelines' smart constructor.
 data ListPipelines = ListPipelines'
@@ -59,9 +63,9 @@ data ListPipelines = ListPipelines'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpAscending'
+-- * 'lpAscending' - To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
 --
--- * 'lpPageToken'
+-- * 'lpPageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 listPipelines
     :: ListPipelines
 listPipelines =
@@ -70,11 +74,11 @@ listPipelines =
     , _lpPageToken = Nothing
     }
 
--- | To list pipelines in chronological order by the date and time that they were created, enter 'true'. To list pipelines in reverse chronological order, enter 'false'.
+-- | To list pipelines in chronological order by the date and time that they were created, enter @true@ . To list pipelines in reverse chronological order, enter @false@ .
 lpAscending :: Lens' ListPipelines (Maybe Text)
 lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use 'pageToken' in subsequent 'GET' requests to get each successive page of results.
+-- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 
@@ -114,6 +118,8 @@ instance ToQuery ListPipelines where
 
 -- | A list of the pipelines associated with the current AWS account.
 --
+--
+--
 -- /See:/ 'listPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsNextPageToken  :: !(Maybe Text)
@@ -125,11 +131,11 @@ data ListPipelinesResponse = ListPipelinesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsNextPageToken'
+-- * 'lprsNextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 --
--- * 'lprsPipelines'
+-- * 'lprsPipelines' - An array of @Pipeline@ objects.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPipelinesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPipelinesResponse
@@ -140,15 +146,15 @@ listPipelinesResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you\'ve reached the last page of results, the value of 'NextPageToken' is 'null'.
+-- | A value that you use to access the second and subsequent pages of results, if any. When the pipelines fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
 
--- | An array of 'Pipeline' objects.
+-- | An array of @Pipeline@ objects.
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPipelinesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

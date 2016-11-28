@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Exports a deployed version of a < RestApi> in a specified format.
+-- Exports a deployed version of a 'RestApi' in a specified format.
+--
+--
 module Network.AWS.APIGateway.GetExport
     (
     -- * Creating a Request
@@ -48,7 +50,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request a new export of a < RestApi> for a particular < Stage>.
+-- | Request a new export of a 'RestApi' for a particular 'Stage' .
+--
+--
 --
 -- /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
@@ -63,15 +67,15 @@ data GetExport = GetExport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'geParameters'
+-- * 'geParameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @swagger@ , any combination of the following parameters are supported: @integrations@ will export the API with x-amazon-apigateway-integration extensions. @authorizers@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 --
--- * 'geAccepts'
+-- * 'geAccepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 --
--- * 'geRestAPIId'
+-- * 'geRestAPIId' - The identifier of the 'RestApi' to be exported.
 --
--- * 'geStageName'
+-- * 'geStageName' - The name of the 'Stage' that will be exported.
 --
--- * 'geExportType'
+-- * 'geExportType' - The type of export. Currently only 'swagger' is supported.
 getExport
     :: Text -- ^ 'geRestAPIId'
     -> Text -- ^ 'geStageName'
@@ -86,23 +90,23 @@ getExport pRestAPIId_ pStageName_ pExportType_ =
     , _geExportType = pExportType_
     }
 
--- | A key-value map of query string parameters that specify properties of the export, depending on the requested 'exportType'. For 'exportType' 'swagger', any combination of the following parameters are supported: 'integrations' will export the API with x-amazon-apigateway-integration extensions. 'authorizers' will export the API with x-amazon-apigateway-authorizer extensions. 'postman' will export the API with Postman extensions, allowing for import to the Postman tool
+-- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @swagger@ , any combination of the following parameters are supported: @integrations@ will export the API with x-amazon-apigateway-integration extensions. @authorizers@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 geParameters :: Lens' GetExport (HashMap Text Text)
 geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _Map;
 
--- | The content-type of the export, for example 'application\/json'. Currently 'application\/json' and 'application\/yaml' are supported for 'exportType' of 'swagger'. This should be specified in the 'Accept' header for direct API requests.
+-- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a});
 
--- | The identifier of the < RestApi> to be exported.
+-- | The identifier of the 'RestApi' to be exported.
 geRestAPIId :: Lens' GetExport Text
 geRestAPIId = lens _geRestAPIId (\ s a -> s{_geRestAPIId = a});
 
--- | The name of the < Stage> that will be exported.
+-- | The name of the 'Stage' that will be exported.
 geStageName :: Lens' GetExport Text
 geStageName = lens _geStageName (\ s a -> s{_geStageName = a});
 
--- | The type of export. Currently only \'swagger\' is supported.
+-- | The type of export. Currently only 'swagger' is supported.
 geExportType :: Lens' GetExport Text
 geExportType = lens _geExportType (\ s a -> s{_geExportType = a});
 
@@ -140,7 +144,9 @@ instance ToQuery GetExport where
                  toQuery
                    (toQueryMap "entry" "key" "value" <$> _geParameters)]
 
--- | The binary blob response to < GetExport>, which contains the generated SDK.
+-- | The binary blob response to 'GetExport' , which contains the generated SDK.
+--
+--
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
@@ -154,13 +160,13 @@ data GetExportResponse = GetExportResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gersBody'
+-- * 'gersBody' - The binary blob response to 'GetExport' , which contains the export.
 --
--- * 'gersContentDisposition'
+-- * 'gersContentDisposition' - The content-disposition header value in the HTTP response.
 --
--- * 'gersContentType'
+-- * 'gersContentType' - The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
 --
--- * 'gersResponseStatus'
+-- * 'gersResponseStatus' - -- | The response status code.
 getExportResponse
     :: Int -- ^ 'gersResponseStatus'
     -> GetExportResponse
@@ -172,7 +178,7 @@ getExportResponse pResponseStatus_ =
     , _gersResponseStatus = pResponseStatus_
     }
 
--- | The binary blob response to < GetExport>, which contains the export.
+-- | The binary blob response to 'GetExport' , which contains the export.
 gersBody :: Lens' GetExportResponse (Maybe (HashMap Text Value))
 gersBody = lens _gersBody (\ s a -> s{_gersBody = a});
 
@@ -180,11 +186,11 @@ gersBody = lens _gersBody (\ s a -> s{_gersBody = a});
 gersContentDisposition :: Lens' GetExportResponse (Maybe Text)
 gersContentDisposition = lens _gersContentDisposition (\ s a -> s{_gersContentDisposition = a});
 
--- | The content-type header value in the HTTP response. This will correspond to a valid \'accept\' type in the request.
+-- | The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
 gersContentType :: Lens' GetExportResponse (Maybe Text)
 gersContentType = lens _gersContentType (\ s a -> s{_gersContentType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gersResponseStatus :: Lens' GetExportResponse Int
 gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a});
 

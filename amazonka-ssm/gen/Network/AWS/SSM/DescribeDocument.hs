@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the specified SSM document.
+--
+--
 module Network.AWS.SSM.DescribeDocument
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DescribeDocument = DescribeDocument'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddName'
+-- * 'ddName' - The name of the SSM document.
 describeDocument
     :: Text -- ^ 'ddName'
     -> DescribeDocument
@@ -106,9 +108,9 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsDocument'
+-- * 'drsDocument' - Information about the SSM document.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeDocumentResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeDocumentResponse
@@ -122,7 +124,7 @@ describeDocumentResponse pResponseStatus_ =
 drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeDocumentResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

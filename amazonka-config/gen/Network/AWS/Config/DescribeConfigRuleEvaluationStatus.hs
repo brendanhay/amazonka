@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns status information for each of your AWS managed Config rules. The status includes information such as the last time AWS Config invoked the rule, the last time AWS Config failed to invoke the rule, and the related error for the last failure.
+--
+--
 module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcresConfigRuleNames'
+-- * 'dcresConfigRuleNames' - The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
 describeConfigRuleEvaluationStatus
     :: DescribeConfigRuleEvaluationStatus
 describeConfigRuleEvaluationStatus =
@@ -115,9 +117,9 @@ data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationSt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcresrsConfigRulesEvaluationStatus'
+-- * 'dcresrsConfigRulesEvaluationStatus' - Status information about your AWS managed Config rules.
 --
--- * 'dcresrsResponseStatus'
+-- * 'dcresrsResponseStatus' - -- | The response status code.
 describeConfigRuleEvaluationStatusResponse
     :: Int -- ^ 'dcresrsResponseStatus'
     -> DescribeConfigRuleEvaluationStatusResponse
@@ -131,7 +133,7 @@ describeConfigRuleEvaluationStatusResponse pResponseStatus_ =
 dcresrsConfigRulesEvaluationStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse [ConfigRuleEvaluationStatus]
 dcresrsConfigRulesEvaluationStatus = lens _dcresrsConfigRulesEvaluationStatus (\ s a -> s{_dcresrsConfigRulesEvaluationStatus = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dcresrsResponseStatus :: Lens' DescribeConfigRuleEvaluationStatusResponse Int
 dcresrsResponseStatus = lens _dcresrsResponseStatus (\ s a -> s{_dcresrsResponseStatus = a});
 

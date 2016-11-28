@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an active export task. The request removes all artifacts of the export, including any partially-created Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the command fails and returns an error.
+--
+--
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CancelExportTask.
 --
+--
+--
 -- /See:/ 'cancelExportTask' smart constructor.
 newtype CancelExportTask = CancelExportTask'
     { _cetExportTaskId :: Text
@@ -50,7 +54,7 @@ newtype CancelExportTask = CancelExportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cetExportTaskId'
+-- * 'cetExportTaskId' - The ID of the export task. This is the ID returned by @CreateInstanceExportTask@ .
 cancelExportTask
     :: Text -- ^ 'cetExportTaskId'
     -> CancelExportTask
@@ -59,7 +63,7 @@ cancelExportTask pExportTaskId_ =
     { _cetExportTaskId = pExportTaskId_
     }
 
--- | The ID of the export task. This is the ID returned by 'CreateInstanceExportTask'.
+-- | The ID of the export task. This is the ID returned by @CreateInstanceExportTask@ .
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 

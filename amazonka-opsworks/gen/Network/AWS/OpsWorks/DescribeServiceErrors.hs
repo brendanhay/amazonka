@@ -20,7 +20,9 @@
 --
 -- Describes AWS OpsWorks service errors.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeServiceErrors
     (
     -- * Creating a Request
@@ -57,11 +59,11 @@ data DescribeServiceErrors = DescribeServiceErrors'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dseInstanceId'
+-- * 'dseInstanceId' - The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
 --
--- * 'dseStackId'
+-- * 'dseStackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
 --
--- * 'dseServiceErrorIds'
+-- * 'dseServiceErrorIds' - An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
 describeServiceErrors
     :: DescribeServiceErrors
 describeServiceErrors =
@@ -71,15 +73,15 @@ describeServiceErrors =
     , _dseServiceErrorIds = Nothing
     }
 
--- | The instance ID. If you use this parameter, 'DescribeServiceErrors' returns descriptions of the errors associated with the specified instance.
+-- | The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
 dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
 dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 
--- | The stack ID. If you use this parameter, 'DescribeServiceErrors' returns descriptions of the errors associated with the specified stack.
+-- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
 dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
 dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
--- | An array of service error IDs. If you use this parameter, 'DescribeServiceErrors' returns descriptions of the specified errors. Otherwise, it returns a description of every error.
+-- | An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
 dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce;
 
@@ -122,7 +124,9 @@ instance ToPath DescribeServiceErrors where
 instance ToQuery DescribeServiceErrors where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeServiceErrors' request.
+-- | Contains the response to a @DescribeServiceErrors@ request.
+--
+--
 --
 -- /See:/ 'describeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
@@ -134,9 +138,9 @@ data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsersServiceErrors'
+-- * 'dsersServiceErrors' - An array of @ServiceError@ objects that describe the specified service errors.
 --
--- * 'dsersResponseStatus'
+-- * 'dsersResponseStatus' - -- | The response status code.
 describeServiceErrorsResponse
     :: Int -- ^ 'dsersResponseStatus'
     -> DescribeServiceErrorsResponse
@@ -146,11 +150,11 @@ describeServiceErrorsResponse pResponseStatus_ =
     , _dsersResponseStatus = pResponseStatus_
     }
 
--- | An array of 'ServiceError' objects that describe the specified service errors.
+-- | An array of @ServiceError@ objects that describe the specified service errors.
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
 dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
 dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
 

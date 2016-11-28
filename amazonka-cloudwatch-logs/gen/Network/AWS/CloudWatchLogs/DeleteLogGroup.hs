@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the log group with the specified name and permanently deletes all the archived log events associated with it.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteLogGroup = DeleteLogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgLogGroupName'
+-- * 'dlgLogGroupName' - The name of the log group to delete.
 deleteLogGroup
     :: Text -- ^ 'dlgLogGroupName'
     -> DeleteLogGroup

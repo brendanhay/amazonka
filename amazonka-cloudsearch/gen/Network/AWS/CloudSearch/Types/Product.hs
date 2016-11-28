@@ -21,7 +21,9 @@ import           Network.AWS.CloudSearch.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The configured access rules for the domain\'s document and search endpoints, and the current status of those rules.
+-- | The configured access rules for the domain's document and search endpoints, and the current status of those rules.
+--
+--
 --
 -- /See:/ 'accessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
@@ -33,9 +35,9 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apsOptions'
+-- * 'apsOptions' - Undocumented member.
 --
--- * 'apsStatus'
+-- * 'apsStatus' - Undocumented member.
 accessPoliciesStatus
     :: Text -- ^ 'apsOptions'
     -> OptionStatus -- ^ 'apsStatus'
@@ -65,6 +67,8 @@ instance NFData AccessPoliciesStatus
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.
 --
+--
+--
 -- /See:/ 'analysisOptions' smart constructor.
 data AnalysisOptions = AnalysisOptions'
     { _aoAlgorithmicStemming            :: !(Maybe AlgorithmicStemming)
@@ -78,15 +82,15 @@ data AnalysisOptions = AnalysisOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aoAlgorithmicStemming'
+-- * 'aoAlgorithmicStemming' - The level of algorithmic stemming to perform: @none@ , @minimal@ , @light@ , or @full@ . The available levels vary depending on the language. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings> in the /Amazon CloudSearch Developer Guide/
 --
--- * 'aoStopwords'
+-- * 'aoStopwords' - A JSON array of terms to ignore during indexing and searching. For example, @["a", "an", "the", "of"]@ . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported.
 --
--- * 'aoJapaneseTokenizationDictionary'
+-- * 'aoJapaneseTokenizationDictionary' - A JSON array that contains a collection of terms, tokens, readings and part of speech for Japanese Tokenizaiton. The Japanese tokenization dictionary enables you to override the default tokenization for selected terms. This is only valid for Japanese language fields.
 --
--- * 'aoSynonyms'
+-- * 'aoSynonyms' - A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearch Developer Guide/ .
 --
--- * 'aoStemmingDictionary'
+-- * 'aoStemmingDictionary' - A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, @{"term1": "stem1", "term2": "stem2", "term3": "stem3"}@ . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
 analysisOptions
     :: AnalysisOptions
 analysisOptions =
@@ -98,11 +102,11 @@ analysisOptions =
     , _aoStemmingDictionary = Nothing
     }
 
--- | The level of algorithmic stemming to perform: 'none', 'minimal', 'light', or 'full'. The available levels vary depending on the language. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings> in the /Amazon CloudSearch Developer Guide/
+-- | The level of algorithmic stemming to perform: @none@ , @minimal@ , @light@ , or @full@ . The available levels vary depending on the language. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings> in the /Amazon CloudSearch Developer Guide/
 aoAlgorithmicStemming :: Lens' AnalysisOptions (Maybe AlgorithmicStemming)
 aoAlgorithmicStemming = lens _aoAlgorithmicStemming (\ s a -> s{_aoAlgorithmicStemming = a});
 
--- | A JSON array of terms to ignore during indexing and searching. For example, '[\"a\", \"an\", \"the\", \"of\"]'. The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported.
+-- | A JSON array of terms to ignore during indexing and searching. For example, @["a", "an", "the", "of"]@ . The stopwords dictionary must explicitly list each word you want to ignore. Wildcards and regular expressions are not supported.
 aoStopwords :: Lens' AnalysisOptions (Maybe Text)
 aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
 
@@ -110,11 +114,11 @@ aoStopwords = lens _aoStopwords (\ s a -> s{_aoStopwords = a});
 aoJapaneseTokenizationDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoJapaneseTokenizationDictionary = lens _aoJapaneseTokenizationDictionary (\ s a -> s{_aoJapaneseTokenizationDictionary = a});
 
--- | A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearch Developer Guide/.
+-- | A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearch Developer Guide/ .
 aoSynonyms :: Lens' AnalysisOptions (Maybe Text)
 aoSynonyms = lens _aoSynonyms (\ s a -> s{_aoSynonyms = a});
 
--- | A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, '{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}'. The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
+-- | A JSON object that contains a collection of string:value pairs that each map a term to its stem. For example, @{"term1": "stem1", "term2": "stem2", "term3": "stem3"}@ . The stemming dictionary is applied in addition to any algorithmic stemming. This enables you to override the results of the algorithmic stemming to correct specific cases of overstemming or understemming. The maximum size of a stemming dictionary is 500 KB.
 aoStemmingDictionary :: Lens' AnalysisOptions (Maybe Text)
 aoStemmingDictionary = lens _aoStemmingDictionary (\ s a -> s{_aoStemmingDictionary = a});
 
@@ -140,7 +144,9 @@ instance ToQuery AnalysisOptions where
                "Synonyms" =: _aoSynonyms,
                "StemmingDictionary" =: _aoStemmingDictionary]
 
--- | Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: 'Synonyms', 'Stopwords', 'StemmingDictionary', 'JapaneseTokenizationDictionary' and 'AlgorithmicStemming'.
+-- | Configuration information for an analysis scheme. Each analysis scheme has a unique name and specifies the language of the text to be processed. The following options can be configured for an analysis scheme: @Synonyms@ , @Stopwords@ , @StemmingDictionary@ , @JapaneseTokenizationDictionary@ and @AlgorithmicStemming@ .
+--
+--
 --
 -- /See:/ 'analysisScheme' smart constructor.
 data AnalysisScheme = AnalysisScheme'
@@ -153,11 +159,11 @@ data AnalysisScheme = AnalysisScheme'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asAnalysisOptions'
+-- * 'asAnalysisOptions' - Undocumented member.
 --
--- * 'asAnalysisSchemeName'
+-- * 'asAnalysisSchemeName' - Undocumented member.
 --
--- * 'asAnalysisSchemeLanguage'
+-- * 'asAnalysisSchemeLanguage' - Undocumented member.
 analysisScheme
     :: Text -- ^ 'asAnalysisSchemeName'
     -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
@@ -200,7 +206,9 @@ instance ToQuery AnalysisScheme where
                "AnalysisSchemeLanguage" =:
                  _asAnalysisSchemeLanguage]
 
--- | The status and configuration of an 'AnalysisScheme'.
+-- | The status and configuration of an @AnalysisScheme@ .
+--
+--
 --
 -- /See:/ 'analysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
@@ -212,9 +220,9 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'assOptions'
+-- * 'assOptions' - Undocumented member.
 --
--- * 'assStatus'
+-- * 'assStatus' - Undocumented member.
 analysisSchemeStatus
     :: AnalysisScheme -- ^ 'assOptions'
     -> OptionStatus -- ^ 'assStatus'
@@ -242,7 +250,9 @@ instance Hashable AnalysisSchemeStatus
 
 instance NFData AnalysisSchemeStatus
 
--- | The status and configuration of the domain\'s availability options.
+-- | The status and configuration of the domain's availability options.
+--
+--
 --
 -- /See:/ 'availabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
@@ -254,9 +264,9 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aosOptions'
+-- * 'aosOptions' - The availability options configured for the domain.
 --
--- * 'aosStatus'
+-- * 'aosStatus' - Undocumented member.
 availabilityOptionsStatus
     :: Bool -- ^ 'aosOptions'
     -> OptionStatus -- ^ 'aosStatus'
@@ -284,7 +294,9 @@ instance Hashable AvailabilityOptionsStatus
 
 instance NFData AvailabilityOptionsStatus
 
--- | Options for a field that contains an array of dates. Present if 'IndexFieldType' specifies the field is of type 'date-array'. All options are enabled by default.
+-- | Options for a field that contains an array of dates. Present if @IndexFieldType@ specifies the field is of type @date-array@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'dateArrayOptions' smart constructor.
 data DateArrayOptions = DateArrayOptions'
@@ -299,15 +311,15 @@ data DateArrayOptions = DateArrayOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daosSourceFields'
+-- * 'daosSourceFields' - A list of source fields to map to the field.
 --
--- * 'daosReturnEnabled'
+-- * 'daosReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'daosFacetEnabled'
+-- * 'daosFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'daosSearchEnabled'
+-- * 'daosSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'daosDefaultValue'
+-- * 'daosDefaultValue' - A value to use for the field if the field isn't specified for a document.
 dateArrayOptions
     :: DateArrayOptions
 dateArrayOptions =
@@ -335,7 +347,7 @@ daosFacetEnabled = lens _daosFacetEnabled (\ s a -> s{_daosFacetEnabled = a});
 daosSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
 daosSearchEnabled = lens _daosSearchEnabled (\ s a -> s{_daosSearchEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 daosDefaultValue :: Lens' DateArrayOptions (Maybe Text)
 daosDefaultValue = lens _daosDefaultValue (\ s a -> s{_daosDefaultValue = a});
 
@@ -360,7 +372,9 @@ instance ToQuery DateArrayOptions where
                "SearchEnabled" =: _daosSearchEnabled,
                "DefaultValue" =: _daosDefaultValue]
 
--- | Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if 'IndexFieldType' specifies the field is of type 'date'. All options are enabled by default.
+-- | Options for a date field. Dates and times are specified in UTC (Coordinated Universal Time) according to IETF RFC3339: yyyy-mm-ddT00:00:00Z. Present if @IndexFieldType@ specifies the field is of type @date@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'dateOptions' smart constructor.
 data DateOptions = DateOptions'
@@ -376,17 +390,17 @@ data DateOptions = DateOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doSourceField'
+-- * 'doSourceField' - Undocumented member.
 --
--- * 'doReturnEnabled'
+-- * 'doReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'doFacetEnabled'
+-- * 'doFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'doSearchEnabled'
+-- * 'doSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'doSortEnabled'
+-- * 'doSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'doDefaultValue'
+-- * 'doDefaultValue' - A value to use for the field if the field isn't specified for a document.
 dateOptions
     :: DateOptions
 dateOptions =
@@ -419,7 +433,7 @@ doSearchEnabled = lens _doSearchEnabled (\ s a -> s{_doSearchEnabled = a});
 doSortEnabled :: Lens' DateOptions (Maybe Bool)
 doSortEnabled = lens _doSortEnabled (\ s a -> s{_doSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 doDefaultValue :: Lens' DateOptions (Maybe Text)
 doDefaultValue = lens _doDefaultValue (\ s a -> s{_doDefaultValue = a});
 
@@ -448,6 +462,8 @@ instance ToQuery DateOptions where
 
 -- | Options for a search suggester.
 --
+--
+--
 -- /See:/ 'documentSuggesterOptions' smart constructor.
 data DocumentSuggesterOptions = DocumentSuggesterOptions'
     { _dsoSortExpression :: !(Maybe Text)
@@ -459,11 +475,11 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsoSortExpression'
+-- * 'dsoSortExpression' - An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the @_score@ value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
 --
--- * 'dsoFuzzyMatching'
+-- * 'dsoFuzzyMatching' - The level of fuzziness allowed when suggesting matches for a string: @none@ , @low@ , or @high@ . With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none.
 --
--- * 'dsoSourceField'
+-- * 'dsoSourceField' - The name of the index field you want to use for suggestions.
 documentSuggesterOptions
     :: Text -- ^ 'dsoSourceField'
     -> DocumentSuggesterOptions
@@ -474,11 +490,11 @@ documentSuggesterOptions pSourceField_ =
     , _dsoSourceField = pSourceField_
     }
 
--- | An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not computed for suggestions, so sort expressions cannot reference the '_score' value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
+-- | An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest integer, with a floor of 0 and a ceiling of 2^31-1. A document's relevance score is not computed for suggestions, so sort expressions cannot reference the @_score@ value. To sort suggestions using a numeric field or existing expression, simply specify the name of the field or expression. If no expression is configured for the suggester, the suggestions are sorted with the closest matches listed first.
 dsoSortExpression :: Lens' DocumentSuggesterOptions (Maybe Text)
 dsoSortExpression = lens _dsoSortExpression (\ s a -> s{_dsoSortExpression = a});
 
--- | The level of fuzziness allowed when suggesting matches for a string: 'none', 'low', or 'high'. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none.
+-- | The level of fuzziness allowed when suggesting matches for a string: @none@ , @low@ , or @high@ . With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none.
 dsoFuzzyMatching :: Lens' DocumentSuggesterOptions (Maybe SuggesterFuzzyMatching)
 dsoFuzzyMatching = lens _dsoFuzzyMatching (\ s a -> s{_dsoFuzzyMatching = a});
 
@@ -505,6 +521,8 @@ instance ToQuery DocumentSuggesterOptions where
 
 -- | The current status of the search domain.
 --
+--
+--
 -- /See:/ 'domainStatus' smart constructor.
 data DomainStatus = DomainStatus'
     { _dsSearchInstanceCount    :: !(Maybe Nat)
@@ -526,31 +544,31 @@ data DomainStatus = DomainStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsSearchInstanceCount'
+-- * 'dsSearchInstanceCount' - The number of search instances that are available to process search requests.
 --
--- * 'dsSearchInstanceType'
+-- * 'dsSearchInstanceType' - The instance type that is being used to process search requests.
 --
--- * 'dsDocService'
+-- * 'dsDocService' - The service endpoint for updating documents in a search domain.
 --
--- * 'dsARN'
+-- * 'dsARN' - Undocumented member.
 --
--- * 'dsCreated'
+-- * 'dsCreated' - True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
 --
--- * 'dsSearchService'
+-- * 'dsSearchService' - The service endpoint for requesting search results from a search domain.
 --
--- * 'dsLimits'
+-- * 'dsLimits' - Undocumented member.
 --
--- * 'dsSearchPartitionCount'
+-- * 'dsSearchPartitionCount' - The number of partitions across which the search index is spread.
 --
--- * 'dsDeleted'
+-- * 'dsDeleted' - True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
 --
--- * 'dsProcessing'
+-- * 'dsProcessing' - True if processing is being done to activate the current domain configuration.
 --
--- * 'dsDomainId'
+-- * 'dsDomainId' - Undocumented member.
 --
--- * 'dsDomainName'
+-- * 'dsDomainName' - Undocumented member.
 --
--- * 'dsRequiresIndexDocuments'
+-- * 'dsRequiresIndexDocuments' - True if 'IndexDocuments' needs to be called to activate the current domain configuration.
 domainStatus
     :: Text -- ^ 'dsDomainId'
     -> Text -- ^ 'dsDomainName'
@@ -589,7 +607,7 @@ dsDocService = lens _dsDocService (\ s a -> s{_dsDocService = a});
 dsARN :: Lens' DomainStatus (Maybe Text)
 dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 
--- | True if the search domain is created. It can take several minutes to initialize a domain when < CreateDomain> is called. Newly created search domains are returned from < DescribeDomains> with a false value for Created until domain creation is complete.
+-- | True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
 dsCreated :: Lens' DomainStatus (Maybe Bool)
 dsCreated = lens _dsCreated (\ s a -> s{_dsCreated = a});
 
@@ -605,7 +623,7 @@ dsLimits = lens _dsLimits (\ s a -> s{_dsLimits = a});
 dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . mapping _Nat;
 
--- | True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when < DeleteDomain> is called. Newly deleted search domains are returned from < DescribeDomains> with a true value for IsDeleted for several minutes until resource cleanup is complete.
+-- | True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
 dsDeleted :: Lens' DomainStatus (Maybe Bool)
 dsDeleted = lens _dsDeleted (\ s a -> s{_dsDeleted = a});
 
@@ -621,7 +639,7 @@ dsDomainId = lens _dsDomainId (\ s a -> s{_dsDomainId = a});
 dsDomainName :: Lens' DomainStatus Text
 dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 
--- | True if < IndexDocuments> needs to be called to activate the current domain configuration.
+-- | True if 'IndexDocuments' needs to be called to activate the current domain configuration.
 dsRequiresIndexDocuments :: Lens' DomainStatus Bool
 dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\ s a -> s{_dsRequiresIndexDocuments = a});
 
@@ -646,7 +664,9 @@ instance Hashable DomainStatus
 
 instance NFData DomainStatus
 
--- | Options for a field that contains an array of double-precision 64-bit floating point values. Present if 'IndexFieldType' specifies the field is of type 'double-array'. All options are enabled by default.
+-- | Options for a field that contains an array of double-precision 64-bit floating point values. Present if @IndexFieldType@ specifies the field is of type @double-array@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'doubleArrayOptions' smart constructor.
 data DoubleArrayOptions = DoubleArrayOptions'
@@ -661,15 +681,15 @@ data DoubleArrayOptions = DoubleArrayOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daoSourceFields'
+-- * 'daoSourceFields' - A list of source fields to map to the field.
 --
--- * 'daoReturnEnabled'
+-- * 'daoReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'daoFacetEnabled'
+-- * 'daoFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'daoSearchEnabled'
+-- * 'daoSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'daoDefaultValue'
+-- * 'daoDefaultValue' - A value to use for the field if the field isn't specified for a document.
 doubleArrayOptions
     :: DoubleArrayOptions
 doubleArrayOptions =
@@ -697,7 +717,7 @@ daoFacetEnabled = lens _daoFacetEnabled (\ s a -> s{_daoFacetEnabled = a});
 daoSearchEnabled :: Lens' DoubleArrayOptions (Maybe Bool)
 daoSearchEnabled = lens _daoSearchEnabled (\ s a -> s{_daoSearchEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 daoDefaultValue :: Lens' DoubleArrayOptions (Maybe Double)
 daoDefaultValue = lens _daoDefaultValue (\ s a -> s{_daoDefaultValue = a});
 
@@ -722,7 +742,9 @@ instance ToQuery DoubleArrayOptions where
                "SearchEnabled" =: _daoSearchEnabled,
                "DefaultValue" =: _daoDefaultValue]
 
--- | Options for a double-precision 64-bit floating point field. Present if 'IndexFieldType' specifies the field is of type 'double'. All options are enabled by default.
+-- | Options for a double-precision 64-bit floating point field. Present if @IndexFieldType@ specifies the field is of type @double@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'doubleOptions' smart constructor.
 data DoubleOptions = DoubleOptions'
@@ -738,17 +760,17 @@ data DoubleOptions = DoubleOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSourceField'
+-- * 'dSourceField' - The name of the source field to map to the field.
 --
--- * 'dReturnEnabled'
+-- * 'dReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'dFacetEnabled'
+-- * 'dFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'dSearchEnabled'
+-- * 'dSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'dSortEnabled'
+-- * 'dSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'dDefaultValue'
+-- * 'dDefaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 doubleOptions
     :: DoubleOptions
 doubleOptions =
@@ -781,7 +803,7 @@ dSearchEnabled = lens _dSearchEnabled (\ s a -> s{_dSearchEnabled = a});
 dSortEnabled :: Lens' DoubleOptions (Maybe Bool)
 dSortEnabled = lens _dSortEnabled (\ s a -> s{_dSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+-- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 dDefaultValue :: Lens' DoubleOptions (Maybe Double)
 dDefaultValue = lens _dDefaultValue (\ s a -> s{_dDefaultValue = a});
 
@@ -810,6 +832,8 @@ instance ToQuery DoubleOptions where
 
 -- | A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results.
 --
+--
+--
 -- /See:/ 'expression' smart constructor.
 data Expression = Expression'
     { _eExpressionName  :: !Text
@@ -820,9 +844,9 @@ data Expression = Expression'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eExpressionName'
+-- * 'eExpressionName' - Undocumented member.
 --
--- * 'eExpressionValue'
+-- * 'eExpressionValue' - Undocumented member.
 expression
     :: Text -- ^ 'eExpressionName'
     -> Text -- ^ 'eExpressionValue'
@@ -856,7 +880,9 @@ instance ToQuery Expression where
               ["ExpressionName" =: _eExpressionName,
                "ExpressionValue" =: _eExpressionValue]
 
--- | The value of an 'Expression' and its current status.
+-- | The value of an @Expression@ and its current status.
+--
+--
 --
 -- /See:/ 'expressionStatus' smart constructor.
 data ExpressionStatus = ExpressionStatus'
@@ -868,9 +894,9 @@ data ExpressionStatus = ExpressionStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esOptions'
+-- * 'esOptions' - The expression that is evaluated for sorting while processing a search request.
 --
--- * 'esStatus'
+-- * 'esStatus' - Undocumented member.
 expressionStatus
     :: Expression -- ^ 'esOptions'
     -> OptionStatus -- ^ 'esStatus'
@@ -898,7 +924,9 @@ instance Hashable ExpressionStatus
 
 instance NFData ExpressionStatus
 
--- | Configuration information for a field in the index, including its name, type, and options. The supported options depend on the 'IndexFieldType'.
+-- | Configuration information for a field in the index, including its name, type, and options. The supported options depend on the @'IndexFieldType' @ .
+--
+--
 --
 -- /See:/ 'indexField' smart constructor.
 data IndexField = IndexField'
@@ -921,31 +949,31 @@ data IndexField = IndexField'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ifDoubleArrayOptions'
+-- * 'ifDoubleArrayOptions' - Undocumented member.
 --
--- * 'ifDateOptions'
+-- * 'ifDateOptions' - Undocumented member.
 --
--- * 'ifTextArrayOptions'
+-- * 'ifTextArrayOptions' - Undocumented member.
 --
--- * 'ifDoubleOptions'
+-- * 'ifDoubleOptions' - Undocumented member.
 --
--- * 'ifTextOptions'
+-- * 'ifTextOptions' - Undocumented member.
 --
--- * 'ifLatLonOptions'
+-- * 'ifLatLonOptions' - Undocumented member.
 --
--- * 'ifLiteralArrayOptions'
+-- * 'ifLiteralArrayOptions' - Undocumented member.
 --
--- * 'ifIntArrayOptions'
+-- * 'ifIntArrayOptions' - Undocumented member.
 --
--- * 'ifDateArrayOptions'
+-- * 'ifDateArrayOptions' - Undocumented member.
 --
--- * 'ifIntOptions'
+-- * 'ifIntOptions' - Undocumented member.
 --
--- * 'ifLiteralOptions'
+-- * 'ifLiteralOptions' - Undocumented member.
 --
--- * 'ifIndexFieldName'
+-- * 'ifIndexFieldName' - A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.  Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.  The name @score@ is reserved and cannot be used as a field name. To reference a document's ID, you can use the name @_id@ .
 --
--- * 'ifIndexFieldType'
+-- * 'ifIndexFieldType' - Undocumented member.
 indexField
     :: Text -- ^ 'ifIndexFieldName'
     -> IndexFieldType -- ^ 'ifIndexFieldType'
@@ -1011,11 +1039,7 @@ ifIntOptions = lens _ifIntOptions (\ s a -> s{_ifIntOptions = a});
 ifLiteralOptions :: Lens' IndexField (Maybe LiteralOptions)
 ifLiteralOptions = lens _ifLiteralOptions (\ s a -> s{_ifLiteralOptions = a});
 
--- | A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field\'s name defines a pattern that begins or ends with a wildcard. Any document fields that don\'t map to a regular index field but do match a dynamic field\'s pattern are configured with the dynamic field\'s indexing options.
---
--- Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.
---
--- The name 'score' is reserved and cannot be used as a field name. To reference a document\'s ID, you can use the name '_id'.
+-- | A string that represents the name of an index field. CloudSearch supports regular index fields as well as dynamic fields. A dynamic field's name defines a pattern that begins or ends with a wildcard. Any document fields that don't map to a regular index field but do match a dynamic field's pattern are configured with the dynamic field's indexing options.  Regular field names begin with a letter and can contain the following characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names must begin or end with a wildcard (*). The wildcard can also be the only character in a dynamic field name. Multiple wildcards, and wildcards embedded within a string are not supported.  The name @score@ is reserved and cannot be used as a field name. To reference a document's ID, you can use the name @_id@ .
 ifIndexFieldName :: Lens' IndexField Text
 ifIndexFieldName = lens _ifIndexFieldName (\ s a -> s{_ifIndexFieldName = a});
 
@@ -1061,7 +1085,9 @@ instance ToQuery IndexField where
                "IndexFieldName" =: _ifIndexFieldName,
                "IndexFieldType" =: _ifIndexFieldType]
 
--- | The value of an 'IndexField' and its current status.
+-- | The value of an @IndexField@ and its current status.
+--
+--
 --
 -- /See:/ 'indexFieldStatus' smart constructor.
 data IndexFieldStatus = IndexFieldStatus'
@@ -1073,9 +1099,9 @@ data IndexFieldStatus = IndexFieldStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ifsOptions'
+-- * 'ifsOptions' - Undocumented member.
 --
--- * 'ifsStatus'
+-- * 'ifsStatus' - Undocumented member.
 indexFieldStatus
     :: IndexField -- ^ 'ifsOptions'
     -> OptionStatus -- ^ 'ifsStatus'
@@ -1103,7 +1129,9 @@ instance Hashable IndexFieldStatus
 
 instance NFData IndexFieldStatus
 
--- | Options for a field that contains an array of 64-bit signed integers. Present if 'IndexFieldType' specifies the field is of type 'int-array'. All options are enabled by default.
+-- | Options for a field that contains an array of 64-bit signed integers. Present if @IndexFieldType@ specifies the field is of type @int-array@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'intArrayOptions' smart constructor.
 data IntArrayOptions = IntArrayOptions'
@@ -1118,15 +1146,15 @@ data IntArrayOptions = IntArrayOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iaoSourceFields'
+-- * 'iaoSourceFields' - A list of source fields to map to the field.
 --
--- * 'iaoReturnEnabled'
+-- * 'iaoReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'iaoFacetEnabled'
+-- * 'iaoFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'iaoSearchEnabled'
+-- * 'iaoSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'iaoDefaultValue'
+-- * 'iaoDefaultValue' - A value to use for the field if the field isn't specified for a document.
 intArrayOptions
     :: IntArrayOptions
 intArrayOptions =
@@ -1154,7 +1182,7 @@ iaoFacetEnabled = lens _iaoFacetEnabled (\ s a -> s{_iaoFacetEnabled = a});
 iaoSearchEnabled :: Lens' IntArrayOptions (Maybe Bool)
 iaoSearchEnabled = lens _iaoSearchEnabled (\ s a -> s{_iaoSearchEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 iaoDefaultValue :: Lens' IntArrayOptions (Maybe Integer)
 iaoDefaultValue = lens _iaoDefaultValue (\ s a -> s{_iaoDefaultValue = a});
 
@@ -1179,7 +1207,9 @@ instance ToQuery IntArrayOptions where
                "SearchEnabled" =: _iaoSearchEnabled,
                "DefaultValue" =: _iaoDefaultValue]
 
--- | Options for a 64-bit signed integer field. Present if 'IndexFieldType' specifies the field is of type 'int'. All options are enabled by default.
+-- | Options for a 64-bit signed integer field. Present if @IndexFieldType@ specifies the field is of type @int@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'intOptions' smart constructor.
 data IntOptions = IntOptions'
@@ -1195,17 +1225,17 @@ data IntOptions = IntOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ioSourceField'
+-- * 'ioSourceField' - The name of the source field to map to the field.
 --
--- * 'ioReturnEnabled'
+-- * 'ioReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'ioFacetEnabled'
+-- * 'ioFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'ioSearchEnabled'
+-- * 'ioSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'ioSortEnabled'
+-- * 'ioSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'ioDefaultValue'
+-- * 'ioDefaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 intOptions
     :: IntOptions
 intOptions =
@@ -1238,7 +1268,7 @@ ioSearchEnabled = lens _ioSearchEnabled (\ s a -> s{_ioSearchEnabled = a});
 ioSortEnabled :: Lens' IntOptions (Maybe Bool)
 ioSortEnabled = lens _ioSortEnabled (\ s a -> s{_ioSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+-- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 ioDefaultValue :: Lens' IntOptions (Maybe Integer)
 ioDefaultValue = lens _ioDefaultValue (\ s a -> s{_ioDefaultValue = a});
 
@@ -1265,7 +1295,9 @@ instance ToQuery IntOptions where
                "SortEnabled" =: _ioSortEnabled,
                "DefaultValue" =: _ioDefaultValue]
 
--- | Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if 'IndexFieldType' specifies the field is of type 'latlon'. All options are enabled by default.
+-- | Options for a latlon field. A latlon field contains a location stored as a latitude and longitude value pair. Present if @IndexFieldType@ specifies the field is of type @latlon@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'latLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
@@ -1281,17 +1313,17 @@ data LatLonOptions = LatLonOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lloSourceField'
+-- * 'lloSourceField' - Undocumented member.
 --
--- * 'lloReturnEnabled'
+-- * 'lloReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'lloFacetEnabled'
+-- * 'lloFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'lloSearchEnabled'
+-- * 'lloSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'lloSortEnabled'
+-- * 'lloSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'lloDefaultValue'
+-- * 'lloDefaultValue' - A value to use for the field if the field isn't specified for a document.
 latLonOptions
     :: LatLonOptions
 latLonOptions =
@@ -1324,7 +1356,7 @@ lloSearchEnabled = lens _lloSearchEnabled (\ s a -> s{_lloSearchEnabled = a});
 lloSortEnabled :: Lens' LatLonOptions (Maybe Bool)
 lloSortEnabled = lens _lloSortEnabled (\ s a -> s{_lloSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
 lloDefaultValue = lens _lloDefaultValue (\ s a -> s{_lloDefaultValue = a});
 
@@ -1361,9 +1393,9 @@ data Limits = Limits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lMaximumReplicationCount'
+-- * 'lMaximumReplicationCount' - Undocumented member.
 --
--- * 'lMaximumPartitionCount'
+-- * 'lMaximumPartitionCount' - Undocumented member.
 limits
     :: Natural -- ^ 'lMaximumReplicationCount'
     -> Natural -- ^ 'lMaximumPartitionCount'
@@ -1392,7 +1424,9 @@ instance Hashable Limits
 
 instance NFData Limits
 
--- | Options for a field that contains an array of literal strings. Present if 'IndexFieldType' specifies the field is of type 'literal-array'. All options are enabled by default.
+-- | Options for a field that contains an array of literal strings. Present if @IndexFieldType@ specifies the field is of type @literal-array@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'literalArrayOptions' smart constructor.
 data LiteralArrayOptions = LiteralArrayOptions'
@@ -1407,15 +1441,15 @@ data LiteralArrayOptions = LiteralArrayOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laoSourceFields'
+-- * 'laoSourceFields' - A list of source fields to map to the field.
 --
--- * 'laoReturnEnabled'
+-- * 'laoReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'laoFacetEnabled'
+-- * 'laoFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'laoSearchEnabled'
+-- * 'laoSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'laoDefaultValue'
+-- * 'laoDefaultValue' - A value to use for the field if the field isn't specified for a document.
 literalArrayOptions
     :: LiteralArrayOptions
 literalArrayOptions =
@@ -1443,7 +1477,7 @@ laoFacetEnabled = lens _laoFacetEnabled (\ s a -> s{_laoFacetEnabled = a});
 laoSearchEnabled :: Lens' LiteralArrayOptions (Maybe Bool)
 laoSearchEnabled = lens _laoSearchEnabled (\ s a -> s{_laoSearchEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 laoDefaultValue :: Lens' LiteralArrayOptions (Maybe Text)
 laoDefaultValue = lens _laoDefaultValue (\ s a -> s{_laoDefaultValue = a});
 
@@ -1468,7 +1502,9 @@ instance ToQuery LiteralArrayOptions where
                "SearchEnabled" =: _laoSearchEnabled,
                "DefaultValue" =: _laoDefaultValue]
 
--- | Options for literal field. Present if 'IndexFieldType' specifies the field is of type 'literal'. All options are enabled by default.
+-- | Options for literal field. Present if @IndexFieldType@ specifies the field is of type @literal@ . All options are enabled by default.
+--
+--
 --
 -- /See:/ 'literalOptions' smart constructor.
 data LiteralOptions = LiteralOptions'
@@ -1484,17 +1520,17 @@ data LiteralOptions = LiteralOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loSourceField'
+-- * 'loSourceField' - Undocumented member.
 --
--- * 'loReturnEnabled'
+-- * 'loReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'loFacetEnabled'
+-- * 'loFacetEnabled' - Whether facet information can be returned for the field.
 --
--- * 'loSearchEnabled'
+-- * 'loSearchEnabled' - Whether the contents of the field are searchable.
 --
--- * 'loSortEnabled'
+-- * 'loSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'loDefaultValue'
+-- * 'loDefaultValue' - A value to use for the field if the field isn't specified for a document.
 literalOptions
     :: LiteralOptions
 literalOptions =
@@ -1527,7 +1563,7 @@ loSearchEnabled = lens _loSearchEnabled (\ s a -> s{_loSearchEnabled = a});
 loSortEnabled :: Lens' LiteralOptions (Maybe Bool)
 loSortEnabled = lens _loSortEnabled (\ s a -> s{_loSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 loDefaultValue :: Lens' LiteralOptions (Maybe Text)
 loDefaultValue = lens _loDefaultValue (\ s a -> s{_loDefaultValue = a});
 
@@ -1556,6 +1592,8 @@ instance ToQuery LiteralOptions where
 
 -- | The status of domain configuration option.
 --
+--
+--
 -- /See:/ 'optionStatus' smart constructor.
 data OptionStatus = OptionStatus'
     { _osPendingDeletion :: !(Maybe Bool)
@@ -1569,15 +1607,15 @@ data OptionStatus = OptionStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'osPendingDeletion'
+-- * 'osPendingDeletion' - Indicates that the option will be deleted once processing is complete.
 --
--- * 'osUpdateVersion'
+-- * 'osUpdateVersion' - A unique integer that indicates when this option was last updated.
 --
--- * 'osCreationDate'
+-- * 'osCreationDate' - A timestamp for when this option was created.
 --
--- * 'osUpdateDate'
+-- * 'osUpdateDate' - A timestamp for when this option was last updated.
 --
--- * 'osState'
+-- * 'osState' - The state of processing a change to an option. Possible values:     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * @Processing@ : the option's latest value is in the process of being activated.     * @Active@ : the option's latest value is completely deployed.    * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
 optionStatus
     :: UTCTime -- ^ 'osCreationDate'
     -> UTCTime -- ^ 'osUpdateDate'
@@ -1608,12 +1646,7 @@ osCreationDate = lens _osCreationDate (\ s a -> s{_osCreationDate = a}) . _Time;
 osUpdateDate :: Lens' OptionStatus UTCTime
 osUpdateDate = lens _osUpdateDate (\ s a -> s{_osUpdateDate = a}) . _Time;
 
--- | The state of processing a change to an option. Possible values:
---
--- -   'RequiresIndexDocuments': the option\'s latest value will not be deployed until < IndexDocuments> has been called and indexing is complete.
--- -   'Processing': the option\'s latest value is in the process of being activated.
--- -   'Active': the option\'s latest value is completely deployed.
--- -   'FailedToValidate': the option value is not compatible with the domain\'s data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
+-- | The state of processing a change to an option. Possible values:     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.    * @Processing@ : the option's latest value is in the process of being activated.     * @Active@ : the option's latest value is completely deployed.    * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
 osState :: Lens' OptionStatus OptionState
 osState = lens _osState (\ s a -> s{_osState = a});
 
@@ -1631,6 +1664,8 @@ instance NFData OptionStatus
 
 -- | The desired instance type and desired number of replicas of each index partition.
 --
+--
+--
 -- /See:/ 'scalingParameters' smart constructor.
 data ScalingParameters = ScalingParameters'
     { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
@@ -1642,11 +1677,11 @@ data ScalingParameters = ScalingParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spDesiredInstanceType'
+-- * 'spDesiredInstanceType' - The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
 --
--- * 'spDesiredReplicationCount'
+-- * 'spDesiredReplicationCount' - The number of replicas you want to preconfigure for each index partition.
 --
--- * 'spDesiredPartitionCount'
+-- * 'spDesiredPartitionCount' - The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
 scalingParameters
     :: ScalingParameters
 scalingParameters =
@@ -1656,7 +1691,7 @@ scalingParameters =
     , _spDesiredPartitionCount = Nothing
     }
 
--- | The instance type that you want to preconfigure for your domain. For example, 'search.m1.small'.
+-- | The instance type that you want to preconfigure for your domain. For example, @search.m1.small@ .
 spDesiredInstanceType :: Lens' ScalingParameters (Maybe PartitionInstanceType)
 spDesiredInstanceType = lens _spDesiredInstanceType (\ s a -> s{_spDesiredInstanceType = a});
 
@@ -1664,7 +1699,7 @@ spDesiredInstanceType = lens _spDesiredInstanceType (\ s a -> s{_spDesiredInstan
 spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredReplicationCount = lens _spDesiredReplicationCount (\ s a -> s{_spDesiredReplicationCount = a}) . mapping _Nat;
 
--- | The number of partitions you want to preconfigure for your domain. Only valid when you select 'm2.2xlarge' as the desired instance type.
+-- | The number of partitions you want to preconfigure for your domain. Only valid when you select @m2.2xlarge@ as the desired instance type.
 spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredPartitionCount = lens _spDesiredPartitionCount (\ s a -> s{_spDesiredPartitionCount = a}) . mapping _Nat;
 
@@ -1687,7 +1722,9 @@ instance ToQuery ScalingParameters where
                  _spDesiredReplicationCount,
                "DesiredPartitionCount" =: _spDesiredPartitionCount]
 
--- | The status and configuration of a search domain\'s scaling parameters.
+-- | The status and configuration of a search domain's scaling parameters.
+--
+--
 --
 -- /See:/ 'scalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
@@ -1699,9 +1736,9 @@ data ScalingParametersStatus = ScalingParametersStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spsOptions'
+-- * 'spsOptions' - Undocumented member.
 --
--- * 'spsStatus'
+-- * 'spsStatus' - Undocumented member.
 scalingParametersStatus
     :: ScalingParameters -- ^ 'spsOptions'
     -> OptionStatus -- ^ 'spsStatus'
@@ -1731,6 +1768,8 @@ instance NFData ScalingParametersStatus
 
 -- | The endpoint to which service requests can be submitted.
 --
+--
+--
 -- /See:/ 'serviceEndpoint' smart constructor.
 newtype ServiceEndpoint = ServiceEndpoint'
     { _seEndpoint :: Maybe Text
@@ -1740,7 +1779,7 @@ newtype ServiceEndpoint = ServiceEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'seEndpoint'
+-- * 'seEndpoint' - Undocumented member.
 serviceEndpoint
     :: ServiceEndpoint
 serviceEndpoint =
@@ -1759,7 +1798,9 @@ instance Hashable ServiceEndpoint
 
 instance NFData ServiceEndpoint
 
--- | Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: 'FuzzyMatching', 'SortExpression'.
+-- | Configuration information for a search suggester. Each suggester has a unique name and specifies the text field you want to use for suggestions. The following options can be configured for a suggester: @FuzzyMatching@ , @SortExpression@ .
+--
+--
 --
 -- /See:/ 'suggester' smart constructor.
 data Suggester = Suggester'
@@ -1771,9 +1812,9 @@ data Suggester = Suggester'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSuggesterName'
+-- * 'sSuggesterName' - Undocumented member.
 --
--- * 'sDocumentSuggesterOptions'
+-- * 'sDocumentSuggesterOptions' - Undocumented member.
 suggester
     :: Text -- ^ 'sSuggesterName'
     -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
@@ -1809,7 +1850,9 @@ instance ToQuery Suggester where
                "DocumentSuggesterOptions" =:
                  _sDocumentSuggesterOptions]
 
--- | The value of a 'Suggester' and its current status.
+-- | The value of a @Suggester@ and its current status.
+--
+--
 --
 -- /See:/ 'suggesterStatus' smart constructor.
 data SuggesterStatus = SuggesterStatus'
@@ -1821,9 +1864,9 @@ data SuggesterStatus = SuggesterStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssOptions'
+-- * 'ssOptions' - Undocumented member.
 --
--- * 'ssStatus'
+-- * 'ssStatus' - Undocumented member.
 suggesterStatus
     :: Suggester -- ^ 'ssOptions'
     -> OptionStatus -- ^ 'ssStatus'
@@ -1851,7 +1894,9 @@ instance Hashable SuggesterStatus
 
 instance NFData SuggesterStatus
 
--- | Options for a field that contains an array of text strings. Present if 'IndexFieldType' specifies the field is of type 'text-array'. A 'text-array' field is always searchable. All options are enabled by default.
+-- | Options for a field that contains an array of text strings. Present if @IndexFieldType@ specifies the field is of type @text-array@ . A @text-array@ field is always searchable. All options are enabled by default.
+--
+--
 --
 -- /See:/ 'textArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
@@ -1866,15 +1911,15 @@ data TextArrayOptions = TextArrayOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'taoSourceFields'
+-- * 'taoSourceFields' - A list of source fields to map to the field.
 --
--- * 'taoReturnEnabled'
+-- * 'taoReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'taoAnalysisScheme'
+-- * 'taoAnalysisScheme' - The name of an analysis scheme for a @text-array@ field.
 --
--- * 'taoHighlightEnabled'
+-- * 'taoHighlightEnabled' - Whether highlights can be returned for the field.
 --
--- * 'taoDefaultValue'
+-- * 'taoDefaultValue' - A value to use for the field if the field isn't specified for a document.
 textArrayOptions
     :: TextArrayOptions
 textArrayOptions =
@@ -1894,7 +1939,7 @@ taoSourceFields = lens _taoSourceFields (\ s a -> s{_taoSourceFields = a});
 taoReturnEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoReturnEnabled = lens _taoReturnEnabled (\ s a -> s{_taoReturnEnabled = a});
 
--- | The name of an analysis scheme for a 'text-array' field.
+-- | The name of an analysis scheme for a @text-array@ field.
 taoAnalysisScheme :: Lens' TextArrayOptions (Maybe Text)
 taoAnalysisScheme = lens _taoAnalysisScheme (\ s a -> s{_taoAnalysisScheme = a});
 
@@ -1902,7 +1947,7 @@ taoAnalysisScheme = lens _taoAnalysisScheme (\ s a -> s{_taoAnalysisScheme = a})
 taoHighlightEnabled :: Lens' TextArrayOptions (Maybe Bool)
 taoHighlightEnabled = lens _taoHighlightEnabled (\ s a -> s{_taoHighlightEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 taoDefaultValue :: Lens' TextArrayOptions (Maybe Text)
 taoDefaultValue = lens _taoDefaultValue (\ s a -> s{_taoDefaultValue = a});
 
@@ -1927,7 +1972,9 @@ instance ToQuery TextArrayOptions where
                "HighlightEnabled" =: _taoHighlightEnabled,
                "DefaultValue" =: _taoDefaultValue]
 
--- | Options for text field. Present if 'IndexFieldType' specifies the field is of type 'text'. A 'text' field is always searchable. All options are enabled by default.
+-- | Options for text field. Present if @IndexFieldType@ specifies the field is of type @text@ . A @text@ field is always searchable. All options are enabled by default.
+--
+--
 --
 -- /See:/ 'textOptions' smart constructor.
 data TextOptions = TextOptions'
@@ -1943,17 +1990,17 @@ data TextOptions = TextOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'toSourceField'
+-- * 'toSourceField' - Undocumented member.
 --
--- * 'toReturnEnabled'
+-- * 'toReturnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- * 'toAnalysisScheme'
+-- * 'toAnalysisScheme' - The name of an analysis scheme for a @text@ field.
 --
--- * 'toHighlightEnabled'
+-- * 'toHighlightEnabled' - Whether highlights can be returned for the field.
 --
--- * 'toSortEnabled'
+-- * 'toSortEnabled' - Whether the field can be used to sort the search results.
 --
--- * 'toDefaultValue'
+-- * 'toDefaultValue' - A value to use for the field if the field isn't specified for a document.
 textOptions
     :: TextOptions
 textOptions =
@@ -1974,7 +2021,7 @@ toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a});
 toReturnEnabled :: Lens' TextOptions (Maybe Bool)
 toReturnEnabled = lens _toReturnEnabled (\ s a -> s{_toReturnEnabled = a});
 
--- | The name of an analysis scheme for a 'text' field.
+-- | The name of an analysis scheme for a @text@ field.
 toAnalysisScheme :: Lens' TextOptions (Maybe Text)
 toAnalysisScheme = lens _toAnalysisScheme (\ s a -> s{_toAnalysisScheme = a});
 
@@ -1986,7 +2033,7 @@ toHighlightEnabled = lens _toHighlightEnabled (\ s a -> s{_toHighlightEnabled = 
 toSortEnabled :: Lens' TextOptions (Maybe Bool)
 toSortEnabled = lens _toSortEnabled (\ s a -> s{_toSortEnabled = a});
 
--- | A value to use for the field if the field isn\'t specified for a document.
+-- | A value to use for the field if the field isn't specified for a document.
 toDefaultValue :: Lens' TextOptions (Maybe Text)
 toDefaultValue = lens _toDefaultValue (\ s a -> s{_toDefaultValue = a});
 

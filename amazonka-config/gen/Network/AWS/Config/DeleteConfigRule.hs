@@ -20,9 +20,11 @@
 --
 -- Deletes the specified AWS Config rule and all of its evaluation results.
 --
--- AWS Config sets the state of a rule to 'DELETING' until the deletion is complete. You cannot update a rule while it is in this state. If you make a 'PutConfigRule' or 'DeleteConfigRule' request for the rule, you will receive a 'ResourceInUseException'.
 --
--- You can check the state of a rule by using the 'DescribeConfigRules' request.
+-- AWS Config sets the state of a rule to @DELETING@ until the deletion is complete. You cannot update a rule while it is in this state. If you make a @PutConfigRule@ or @DeleteConfigRule@ request for the rule, you will receive a @ResourceInUseException@ .
+--
+-- You can check the state of a rule by using the @DescribeConfigRules@ request.
+--
 module Network.AWS.Config.DeleteConfigRule
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DeleteConfigRule = DeleteConfigRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrConfigRuleName'
+-- * 'dcrConfigRuleName' - The name of the AWS Config rule that you want to delete.
 deleteConfigRule
     :: Text -- ^ 'dcrConfigRuleName'
     -> DeleteConfigRule

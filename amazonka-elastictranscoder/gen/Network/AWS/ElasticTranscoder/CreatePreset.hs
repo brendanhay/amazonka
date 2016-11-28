@@ -20,9 +20,9 @@
 --
 -- The CreatePreset operation creates a preset with settings that you specify.
 --
--- Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements and to determine whether they comply with H.264 standards. If your settings are not valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response ('ValidationException') and does not create the preset. If the settings are valid for Elastic Transcoder but aren\'t strictly compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message in the response. This helps you determine whether your settings comply with the H.264 standard while giving you greater flexibility with respect to the video that Elastic Transcoder produces.
 --
--- Elastic Transcoder uses the H.264 video-compression format. For more information, see the International Telecommunication Union publication /Recommendation ITU-T H.264: Advanced video coding for generic audiovisual services/.
+-- /Important:/ Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements and to determine whether they comply with H.264 standards. If your settings are not valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (@ValidationException@ ) and does not create the preset. If the settings are valid for Elastic Transcoder but aren't strictly compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message in the response. This helps you determine whether your settings comply with the H.264 standard while giving you greater flexibility with respect to the video that Elastic Transcoder produces.Elastic Transcoder uses the H.264 video-compression format. For more information, see the International Telecommunication Union publication /Recommendation ITU-T H.264: Advanced video coding for generic audiovisual services/ .
+--
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Creating a Request
@@ -52,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'CreatePresetRequest' structure.
+-- | The @CreatePresetRequest@ structure.
+--
+--
 --
 -- /See:/ 'createPreset' smart constructor.
 data CreatePreset = CreatePreset'
@@ -68,17 +70,17 @@ data CreatePreset = CreatePreset'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpVideo'
+-- * 'cpVideo' - A section of the request body that specifies the video parameters.
 --
--- * 'cpThumbnails'
+-- * 'cpThumbnails' - A section of the request body that specifies the thumbnail parameters, if any.
 --
--- * 'cpDescription'
+-- * 'cpDescription' - A description of the preset.
 --
--- * 'cpAudio'
+-- * 'cpAudio' - A section of the request body that specifies the audio parameters.
 --
--- * 'cpName'
+-- * 'cpName' - The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.
 --
--- * 'cpContainer'
+-- * 'cpContainer' - The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
 createPreset
     :: Text -- ^ 'cpName'
     -> Text -- ^ 'cpContainer'
@@ -113,7 +115,7 @@ cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
 cpName :: Lens' CreatePreset Text
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
--- | The container type for the output file. Valid values include 'flac', 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'mxf', 'oga', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include @flac@ , @flv@ , @fmp4@ , @gif@ , @mp3@ , @mp4@ , @mpg@ , @mxf@ , @oga@ , @ogg@ , @ts@ , and @webm@ .
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
 
@@ -150,7 +152,9 @@ instance ToPath CreatePreset where
 instance ToQuery CreatePreset where
         toQuery = const mempty
 
--- | The 'CreatePresetResponse' structure.
+-- | The @CreatePresetResponse@ structure.
+--
+--
 --
 -- /See:/ 'createPresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
@@ -163,11 +167,11 @@ data CreatePresetResponse = CreatePresetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsWarning'
+-- * 'cprsWarning' - If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 --
--- * 'cprsPreset'
+-- * 'cprsPreset' - A section of the response body that provides information about the preset that is created.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createPresetResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePresetResponse
@@ -178,7 +182,7 @@ createPresetResponse pResponseStatus_ =
     , _cprsResponseStatus = pResponseStatus_
     }
 
--- | If the preset settings don\'t comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don\'t meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
+-- | If the preset settings don't comply with the standards for the video codec but Elastic Transcoder created the preset, this message explains the reason the preset settings don't meet the standard. Elastic Transcoder created the preset because the settings might produce acceptable output.
 cprsWarning :: Lens' CreatePresetResponse (Maybe Text)
 cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
 
@@ -186,7 +190,7 @@ cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
 cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePresetResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

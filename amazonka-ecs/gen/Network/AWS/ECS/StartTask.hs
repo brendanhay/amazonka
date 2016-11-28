@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a new task from the specified task definition on the specified container instance or instances. To use the default Amazon ECS scheduler to place your task, use 'RunTask' instead.
+-- Starts a new task from the specified task definition on the specified container instance or instances. To use the default Amazon ECS scheduler to place your task, use @RunTask@ instead.
 --
--- The list of container instances to start tasks on is limited to 10.
+--
+-- /Important:/ The list of container instances to start tasks on is limited to 10.
+--
 module Network.AWS.ECS.StartTask
     (
     -- * Creating a Request
@@ -62,15 +64,15 @@ data StartTask = StartTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sOverrides'
+-- * 'sOverrides' - A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
 --
--- * 'sCluster'
+-- * 'sCluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task. If you do not specify a cluster, the default cluster is assumed..
 --
--- * 'sStartedBy'
+-- * 'sStartedBy' - An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
 --
--- * 'sTaskDefinition'
+-- * 'sTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 --
--- * 'sContainerInstances'
+-- * 'sContainerInstances' - The container instance IDs or full Amazon Resource Name (ARN) entries for the container instances on which you would like to place your task. /Important:/ The list of container instances to start tasks on is limited to 10.
 startTask
     :: Text -- ^ 'sTaskDefinition'
     -> StartTask
@@ -83,9 +85,7 @@ startTask pTaskDefinition_ =
     , _sContainerInstances = mempty
     }
 
--- | A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a 'command' override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an 'environment' override.
---
--- A total of 8192 characters are allowed for overrides. This limit includes the JSON formatting characters of the override structure.
+-- | A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
 sOverrides :: Lens' StartTask (Maybe TaskOverride)
 sOverrides = lens _sOverrides (\ s a -> s{_sOverrides = a});
 
@@ -93,19 +93,15 @@ sOverrides = lens _sOverrides (\ s a -> s{_sOverrides = a});
 sCluster :: Lens' StartTask (Maybe Text)
 sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 
--- | An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the 'startedBy' parameter. You can then identify which tasks belong to that job by filtering the results of a < ListTasks> call with the 'startedBy' value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
---
--- If a task is started by an Amazon ECS service, then the 'startedBy' parameter contains the deployment ID of the service that starts it.
+-- | An optional tag specified when a task is started. For example if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
 sStartedBy :: Lens' StartTask (Maybe Text)
 sStartedBy = lens _sStartedBy (\ s a -> s{_sStartedBy = a});
 
--- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN) of the task definition to start. If a 'revision' is not specified, the latest 'ACTIVE' revision is used.
+-- | The @family@ and @revision@ (@family:revision@ ) or full Amazon Resource Name (ARN) of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 sTaskDefinition :: Lens' StartTask Text
 sTaskDefinition = lens _sTaskDefinition (\ s a -> s{_sTaskDefinition = a});
 
--- | The container instance IDs or full Amazon Resource Name (ARN) entries for the container instances on which you would like to place your task.
---
--- The list of container instances to start tasks on is limited to 10.
+-- | The container instance IDs or full Amazon Resource Name (ARN) entries for the container instances on which you would like to place your task. /Important:/ The list of container instances to start tasks on is limited to 10.
 sContainerInstances :: Lens' StartTask [Text]
 sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a}) . _Coerce;
 
@@ -161,11 +157,11 @@ data StartTaskResponse = StartTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'strsFailures'
+-- * 'strsFailures' - Any failures associated with the call.
 --
--- * 'strsTasks'
+-- * 'strsTasks' - A full description of the tasks that were started. Each task that was successfully placed on your container instances are described here.
 --
--- * 'strsResponseStatus'
+-- * 'strsResponseStatus' - -- | The response status code.
 startTaskResponse
     :: Int -- ^ 'strsResponseStatus'
     -> StartTaskResponse
@@ -184,7 +180,7 @@ strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _
 strsTasks :: Lens' StartTaskResponse [Task]
 strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 strsResponseStatus :: Lens' StartTaskResponse Int
 strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a});
 

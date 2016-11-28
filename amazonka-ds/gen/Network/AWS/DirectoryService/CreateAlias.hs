@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as 'http:\/\/\<alias>.awsapps.com'.
+-- Creates an alias for a directory and assigns the alias to the directory. The alias is used to construct the access URL for the directory, such as @http://<alias>.awsapps.com@ .
 --
--- After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
+--
+-- /Important:/ After an alias has been created, it cannot be deleted or reused, so this operation should only be used when absolutely necessary.
+--
 module Network.AWS.DirectoryService.CreateAlias
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateAlias> operation.
+-- | Contains the inputs for the 'CreateAlias' operation.
+--
+--
 --
 -- /See:/ 'createAlias' smart constructor.
 data CreateAlias = CreateAlias'
@@ -58,9 +62,9 @@ data CreateAlias = CreateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caDirectoryId'
+-- * 'caDirectoryId' - The identifier of the directory for which to create the alias.
 --
--- * 'caAlias'
+-- * 'caAlias' - The requested alias. The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
 createAlias
     :: Text -- ^ 'caDirectoryId'
     -> Text -- ^ 'caAlias'
@@ -75,9 +79,7 @@ createAlias pDirectoryId_ pAlias_ =
 caDirectoryId :: Lens' CreateAlias Text
 caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 
--- | The requested alias.
---
--- The alias must be unique amongst all aliases in AWS. This operation throws an 'EntityAlreadyExistsException' error if the alias already exists.
+-- | The requested alias. The alias must be unique amongst all aliases in AWS. This operation throws an @EntityAlreadyExistsException@ error if the alias already exists.
 caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
@@ -118,7 +120,9 @@ instance ToPath CreateAlias where
 instance ToQuery CreateAlias where
         toQuery = const mempty
 
--- | Contains the results of the < CreateAlias> operation.
+-- | Contains the results of the 'CreateAlias' operation.
+--
+--
 --
 -- /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
@@ -131,11 +135,11 @@ data CreateAliasResponse = CreateAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsDirectoryId'
+-- * 'carsDirectoryId' - The identifier of the directory.
 --
--- * 'carsAlias'
+-- * 'carsAlias' - The alias for the directory.
 --
--- * 'carsResponseStatus'
+-- * 'carsResponseStatus' - -- | The response status code.
 createAliasResponse
     :: Int -- ^ 'carsResponseStatus'
     -> CreateAliasResponse
@@ -154,7 +158,7 @@ carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a});
 carsAlias :: Lens' CreateAliasResponse (Maybe Text)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
--- | The response status code.
+-- | -- | The response status code.
 carsResponseStatus :: Lens' CreateAliasResponse Int
 carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a});
 

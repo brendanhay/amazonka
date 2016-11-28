@@ -20,11 +20,11 @@
 --
 -- Adds or updates a sending authorization policy for the specified identity (an email address or a domain).
 --
--- This API is for the identity owner only. If you have not verified the identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.PutIdentityPolicy
     (
     -- * Creating a Request
@@ -49,7 +49,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- | Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'putIdentityPolicy' smart constructor.
 data PutIdentityPolicy = PutIdentityPolicy'
@@ -62,11 +64,11 @@ data PutIdentityPolicy = PutIdentityPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pipIdentity'
+-- * 'pipIdentity' - The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 --
--- * 'pipPolicyName'
+-- * 'pipPolicyName' - The name of the policy. The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
 --
--- * 'pipPolicy'
+-- * 'pipPolicy' - The text of the policy in JSON format. The policy cannot exceed 4 KB. For information about the syntax of sending authorization policies, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
 putIdentityPolicy
     :: Text -- ^ 'pipIdentity'
     -> Text -- ^ 'pipPolicyName'
@@ -79,21 +81,15 @@ putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
     , _pipPolicy = pPolicy_
     }
 
--- | The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: 'user\'example.com', 'example.com', 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
---
--- To successfully call this API, you must own the identity.
+-- | The identity to which the policy will apply. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
 pipIdentity :: Lens' PutIdentityPolicy Text
 pipIdentity = lens _pipIdentity (\ s a -> s{_pipIdentity = a});
 
--- | The name of the policy.
---
--- The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
+-- | The name of the policy. The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
 pipPolicyName :: Lens' PutIdentityPolicy Text
 pipPolicyName = lens _pipPolicyName (\ s a -> s{_pipPolicyName = a});
 
--- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
---
--- For information about the syntax of sending authorization policies, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
+-- | The text of the policy in JSON format. The policy cannot exceed 4 KB. For information about the syntax of sending authorization policies, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide> .
 pipPolicy :: Lens' PutIdentityPolicy Text
 pipPolicy = lens _pipPolicy (\ s a -> s{_pipPolicy = a});
 
@@ -126,6 +122,8 @@ instance ToQuery PutIdentityPolicy where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'putIdentityPolicyResponse' smart constructor.
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
     { _piprsResponseStatus :: Int
@@ -135,7 +133,7 @@ newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piprsResponseStatus'
+-- * 'piprsResponseStatus' - -- | The response status code.
 putIdentityPolicyResponse
     :: Int -- ^ 'piprsResponseStatus'
     -> PutIdentityPolicyResponse
@@ -144,7 +142,7 @@ putIdentityPolicyResponse pResponseStatus_ =
     { _piprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 piprsResponseStatus :: Lens' PutIdentityPolicyResponse Int
 piprsResponseStatus = lens _piprsResponseStatus (\ s a -> s{_piprsResponseStatus = a});
 

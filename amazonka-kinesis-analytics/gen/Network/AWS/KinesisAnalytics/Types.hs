@@ -315,7 +315,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-08-14' of the Amazon Kinesis Analytics SDK configuration.
+-- | API version @2015-08-14@ of the Amazon Kinesis Analytics SDK configuration.
 kinesisAnalytics :: Service
 kinesisAnalytics =
     Service
@@ -350,42 +350,60 @@ kinesisAnalytics =
       | otherwise = Nothing
 
 -- | User-provided application configuration is not valid.
+--
+--
 _InvalidApplicationConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidApplicationConfigurationException =
     _ServiceError . hasCode "InvalidApplicationConfigurationException"
 
 -- | Discovery failed to get a record from the streaming source because of the Kinesis Streams ProvisionedThroughputExceededException.
+--
+--
 _ResourceProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceProvisionedThroughputExceededException =
     _ServiceError . hasCode "ResourceProvisionedThroughputExceededException"
 
 -- | Specified input parameter value is invalid.
+--
+--
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
 
 -- | User-provided application code (query) is invalid. This can be a simple syntax error.
+--
+--
 _CodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _CodeValidationException = _ServiceError . hasCode "CodeValidationException"
 
 -- | Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
 -- | Data format is not valid, Kinesis Analytics is not able to detect schema for the given streaming source.
+--
+--
 _UnableToDetectSchemaException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToDetectSchemaException =
     _ServiceError . hasCode "UnableToDetectSchemaException"
 
--- | Specified application can\'t be found.
+-- | Specified application can't be found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | Exceeded the number of applications allowed.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
 -- | Application is not available for this operation.
+--
+--
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

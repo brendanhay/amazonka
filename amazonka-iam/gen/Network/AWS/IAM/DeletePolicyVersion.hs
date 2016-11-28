@@ -20,9 +20,11 @@
 --
 -- Deletes the specified version from the specified managed policy.
 --
--- You cannot delete the default version from a policy using this API. To delete the default version from a policy, use < DeletePolicy>. To find out which version of a policy is marked as the default version, use < ListPolicyVersions>.
 --
--- For information about versions for managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
+-- You cannot delete the default version from a policy using this API. To delete the default version from a policy, use 'DeletePolicy' . To find out which version of a policy is marked as the default version, use 'ListPolicyVersions' .
+--
+-- For information about versions for managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.DeletePolicyVersion
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data DeletePolicyVersion = DeletePolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpvPolicyARN'
+-- * 'dpvPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'dpvVersionId'
+-- * 'dpvVersionId' - The policy version to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 deletePolicyVersion
     :: Text -- ^ 'dpvPolicyARN'
     -> Text -- ^ 'dpvVersionId'
@@ -67,17 +69,11 @@ deletePolicyVersion pPolicyARN_ pVersionId_ =
     , _dpvVersionId = pVersionId_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM policy from which you want to delete a version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpvPolicyARN :: Lens' DeletePolicyVersion Text
 dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 
--- | The policy version to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that consists of the lowercase letter \'v\' followed by one or two digits, and optionally followed by a period \'.\' and a string of letters and digits.
---
--- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
+-- | The policy version to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 dpvVersionId :: Lens' DeletePolicyVersion Text
 dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 

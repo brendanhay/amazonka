@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a put integration.
+--
+--
 module Network.AWS.APIGateway.PutIntegrationResponse
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Represents a put integration response request.
 --
+--
+--
 -- /See:/ 'putIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
     { _piResponseTemplates  :: !(Maybe (Map Text Text))
@@ -67,19 +71,19 @@ data PutIntegrationResponse = PutIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piResponseTemplates'
+-- * 'piResponseTemplates' - Specifies a put integration response's templates.
 --
--- * 'piSelectionPattern'
+-- * 'piSelectionPattern' - Specifies the selection pattern of a put integration response.
 --
--- * 'piResponseParameters'
+-- * 'piResponseParameters' - A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The mapped non-static value must match the pattern of @integration.response.header.{name}@ or @integration.response.body.{JSON-expression}@ , where @name@ must be a valid and unique response header name and @JSON-expression@ a valid JSON expression without the @> @ prefix.
 --
--- * 'piRestAPIId'
+-- * 'piRestAPIId' - Specifies a put integration response request's API identifier.
 --
--- * 'piResourceId'
+-- * 'piResourceId' - Specifies a put integration response request's resource identifier.
 --
--- * 'piHttpMethod'
+-- * 'piHttpMethod' - Specifies a put integration response request's HTTP method.
 --
--- * 'piStatusCode'
+-- * 'piStatusCode' - Specifies the status code that is used to map the integration response to an existing 'MethodResponse' .
 putIntegrationResponse
     :: Text -- ^ 'piRestAPIId'
     -> Text -- ^ 'piResourceId'
@@ -97,7 +101,7 @@ putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _piStatusCode = pStatusCode_
     }
 
--- | Specifies a put integration response\'s templates.
+-- | Specifies a put integration response's templates.
 piResponseTemplates :: Lens' PutIntegrationResponse (HashMap Text Text)
 piResponseTemplates = lens _piResponseTemplates (\ s a -> s{_piResponseTemplates = a}) . _Default . _Map;
 
@@ -105,23 +109,23 @@ piResponseTemplates = lens _piResponseTemplates (\ s a -> s{_piResponseTemplates
 piSelectionPattern :: Lens' PutIntegrationResponse (Maybe Text)
 piSelectionPattern = lens _piSelectionPattern (\ s a -> s{_piSelectionPattern = a});
 
--- | A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of 'method.response.header.{name}', where 'name' is a valid and unique header name. The mapped non-static value must match the pattern of 'integration.response.header.{name}' or 'integration.response.body.{JSON-expression}', where 'name' must be a valid and unique response header name and 'JSON-expression' a valid JSON expression without the '>' prefix.
+-- | A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The mapped non-static value must match the pattern of @integration.response.header.{name}@ or @integration.response.body.{JSON-expression}@ , where @name@ must be a valid and unique response header name and @JSON-expression@ a valid JSON expression without the @> @ prefix.
 piResponseParameters :: Lens' PutIntegrationResponse (HashMap Text Text)
 piResponseParameters = lens _piResponseParameters (\ s a -> s{_piResponseParameters = a}) . _Default . _Map;
 
--- | Specifies a put integration response request\'s API identifier.
+-- | Specifies a put integration response request's API identifier.
 piRestAPIId :: Lens' PutIntegrationResponse Text
 piRestAPIId = lens _piRestAPIId (\ s a -> s{_piRestAPIId = a});
 
--- | Specifies a put integration response request\'s resource identifier.
+-- | Specifies a put integration response request's resource identifier.
 piResourceId :: Lens' PutIntegrationResponse Text
 piResourceId = lens _piResourceId (\ s a -> s{_piResourceId = a});
 
--- | Specifies a put integration response request\'s HTTP method.
+-- | Specifies a put integration response request's HTTP method.
 piHttpMethod :: Lens' PutIntegrationResponse Text
 piHttpMethod = lens _piHttpMethod (\ s a -> s{_piHttpMethod = a});
 
--- | Specifies the status code that is used to map the integration response to an existing < MethodResponse>.
+-- | Specifies the status code that is used to map the integration response to an existing 'MethodResponse' .
 piStatusCode :: Lens' PutIntegrationResponse Text
 piStatusCode = lens _piStatusCode (\ s a -> s{_piStatusCode = a});
 

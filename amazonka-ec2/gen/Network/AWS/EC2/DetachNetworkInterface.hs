@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a network interface from an instance.
+--
+--
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachNetworkInterface.
 --
+--
+--
 -- /See:/ 'detachNetworkInterface' smart constructor.
 data DetachNetworkInterface = DetachNetworkInterface'
     { _dniForce        :: !(Maybe Bool)
@@ -54,11 +58,11 @@ data DetachNetworkInterface = DetachNetworkInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dniForce'
+-- * 'dniForce' - Specifies whether to force a detachment.
 --
--- * 'dniDryRun'
+-- * 'dniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dniAttachmentId'
+-- * 'dniAttachmentId' - The ID of the attachment.
 detachNetworkInterface
     :: Text -- ^ 'dniAttachmentId'
     -> DetachNetworkInterface
@@ -73,7 +77,7 @@ detachNetworkInterface pAttachmentId_ =
 dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
 dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
 

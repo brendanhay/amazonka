@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases>.
+-- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
+--
 --
 -- This requires permission for the lambda:ListAliases action.
+--
 module Network.AWS.Lambda.ListAliases
     (
     -- * Creating a Request
@@ -60,13 +62,13 @@ data ListAliases = ListAliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laMarker'
+-- * 'laMarker' - Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 --
--- * 'laMaxItems'
+-- * 'laMaxItems' - Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
 --
--- * 'laFunctionVersion'
+-- * 'laFunctionVersion' - If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
 --
--- * 'laFunctionName'
+-- * 'laFunctionName' - Lambda function name for which the alias is created.
 listAliases
     :: Text -- ^ 'laFunctionName'
     -> ListAliases
@@ -78,7 +80,7 @@ listAliases pFunctionName_ =
     , _laFunctionName = pFunctionName_
     }
 
--- | Optional string. An opaque pagination token returned from a previous 'ListAliases' operation. If present, indicates where to continue the listing.
+-- | Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
@@ -134,11 +136,11 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsAliases'
+-- * 'larsAliases' - A list of aliases.
 --
--- * 'larsNextMarker'
+-- * 'larsNextMarker' - A string, present if there are more aliases.
 --
--- * 'larsResponseStatus'
+-- * 'larsResponseStatus' - -- | The response status code.
 listAliasesResponse
     :: Int -- ^ 'larsResponseStatus'
     -> ListAliasesResponse
@@ -157,7 +159,7 @@ larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coe
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 larsResponseStatus :: Lens' ListAliasesResponse Int
 larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
 

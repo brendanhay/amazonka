@@ -20,6 +20,8 @@
 --
 -- Gets information about tests.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListTests
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list tests operation.
 --
+--
+--
 -- /See:/ 'listTests' smart constructor.
 data ListTests = ListTests'
     { _ltNextToken :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListTests = ListTests'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'ltArn'
+-- * 'ltArn' - The tests' ARNs.
 listTests
     :: Text -- ^ 'ltArn'
     -> ListTests
@@ -75,7 +79,7 @@ listTests pArn_ =
 ltNextToken :: Lens' ListTests (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | The tests\' ARNs.
+-- | The tests' ARNs.
 ltArn :: Lens' ListTests Text
 ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
 
@@ -124,6 +128,8 @@ instance ToQuery ListTests where
 
 -- | Represents the result of a list tests request.
 --
+--
+--
 -- /See:/ 'listTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
     { _ltrsTests          :: !(Maybe [Test])
@@ -135,11 +141,11 @@ data ListTestsResponse = ListTestsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsTests'
+-- * 'ltrsTests' - Information about the tests.
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTestsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTestsResponse
@@ -158,7 +164,7 @@ ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce;
 ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTestsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

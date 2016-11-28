@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+--
+--
 module Network.AWS.IoT.ReplaceTopicRule
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The input for the ReplaceTopicRule operation.
 --
+--
+--
 -- /See:/ 'replaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
     { _rtrRuleName         :: !Text
@@ -52,9 +56,9 @@ data ReplaceTopicRule = ReplaceTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrRuleName'
+-- * 'rtrRuleName' - The name of the rule.
 --
--- * 'rtrTopicRulePayload'
+-- * 'rtrTopicRulePayload' - The rule payload.
 replaceTopicRule
     :: Text -- ^ 'rtrRuleName'
     -> TopicRulePayload -- ^ 'rtrTopicRulePayload'

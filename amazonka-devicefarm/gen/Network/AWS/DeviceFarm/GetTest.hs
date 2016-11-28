@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a test.
+--
+--
 module Network.AWS.DeviceFarm.GetTest
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get test operation.
 --
+--
+--
 -- /See:/ 'getTest' smart constructor.
 newtype GetTest = GetTest'
     { _gtArn :: Text
@@ -53,7 +57,7 @@ newtype GetTest = GetTest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtArn'
+-- * 'gtArn' - The test's ARN.
 getTest
     :: Text -- ^ 'gtArn'
     -> GetTest
@@ -62,7 +66,7 @@ getTest pArn_ =
     { _gtArn = pArn_
     }
 
--- | The test\'s ARN.
+-- | The test's ARN.
 gtArn :: Lens' GetTest Text
 gtArn = lens _gtArn (\ s a -> s{_gtArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetTest where
 
 -- | Represents the result of a get test request.
 --
+--
+--
 -- /See:/ 'getTestResponse' smart constructor.
 data GetTestResponse = GetTestResponse'
     { _gtrsTest           :: !(Maybe Test)
@@ -110,9 +116,9 @@ data GetTestResponse = GetTestResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtrsTest'
+-- * 'gtrsTest' - Undocumented member.
 --
--- * 'gtrsResponseStatus'
+-- * 'gtrsResponseStatus' - -- | The response status code.
 getTestResponse
     :: Int -- ^ 'gtrsResponseStatus'
     -> GetTestResponse
@@ -126,7 +132,7 @@ getTestResponse pResponseStatus_ =
 gtrsTest :: Lens' GetTestResponse (Maybe Test)
 gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gtrsResponseStatus :: Lens' GetTestResponse Int
 gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
 

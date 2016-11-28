@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing option group.
+--
+--
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteOptionGroup' smart constructor.
 newtype DeleteOptionGroup = DeleteOptionGroup'
     { _dOptionGroupName :: Text
@@ -50,7 +54,7 @@ newtype DeleteOptionGroup = DeleteOptionGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dOptionGroupName'
+-- * 'dOptionGroupName' - The name of the option group to be deleted.
 deleteOptionGroup
     :: Text -- ^ 'dOptionGroupName'
     -> DeleteOptionGroup
@@ -60,8 +64,6 @@ deleteOptionGroup pOptionGroupName_ =
     }
 
 -- | The name of the option group to be deleted.
---
--- You cannot delete default option groups.
 dOptionGroupName :: Lens' DeleteOptionGroup Text
 dOptionGroupName = lens _dOptionGroupName (\ s a -> s{_dOptionGroupName = a});
 

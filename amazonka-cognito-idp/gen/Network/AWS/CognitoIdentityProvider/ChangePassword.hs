@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes the password for a specified user in a user pool.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ChangePassword
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to change a user password.
 --
+--
+--
 -- /See:/ 'changePassword' smart constructor.
 data ChangePassword = ChangePassword'
     { _cpAccessToken      :: !(Maybe (Sensitive Text))
@@ -56,11 +60,11 @@ data ChangePassword = ChangePassword'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpAccessToken'
+-- * 'cpAccessToken' - The access token in the change password request.
 --
--- * 'cpPreviousPassword'
+-- * 'cpPreviousPassword' - The old password in the change password request.
 --
--- * 'cpProposedPassword'
+-- * 'cpProposedPassword' - The new password in the change password request.
 changePassword
     :: Text -- ^ 'cpPreviousPassword'
     -> Text -- ^ 'cpProposedPassword'
@@ -122,6 +126,8 @@ instance ToQuery ChangePassword where
 
 -- | The response from the server to the change password request.
 --
+--
+--
 -- /See:/ 'changePasswordResponse' smart constructor.
 newtype ChangePasswordResponse = ChangePasswordResponse'
     { _cprsResponseStatus :: Int
@@ -131,7 +137,7 @@ newtype ChangePasswordResponse = ChangePasswordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 changePasswordResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> ChangePasswordResponse
@@ -140,7 +146,7 @@ changePasswordResponse pResponseStatus_ =
     { _cprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' ChangePasswordResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

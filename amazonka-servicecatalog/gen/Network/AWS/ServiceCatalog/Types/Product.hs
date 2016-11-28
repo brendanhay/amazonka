@@ -23,6 +23,8 @@ import           Network.AWS.ServiceCatalog.Types.Sum
 
 -- | An administrator-specified constraint to apply when provisioning a product.
 --
+--
+--
 -- /See:/ 'constraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
     { _csType        :: !(Maybe Text)
@@ -33,9 +35,9 @@ data ConstraintSummary = ConstraintSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csType'
+-- * 'csType' - The type of the constraint.
 --
--- * 'csDescription'
+-- * 'csDescription' - The text description of the constraint.
 constraintSummary
     :: ConstraintSummary
 constraintSummary =
@@ -65,6 +67,8 @@ instance NFData ConstraintSummary
 
 -- | Summary information about a path for a user to have access to a specified product.
 --
+--
+--
 -- /See:/ 'launchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
     { _lpsConstraintSummaries :: !(Maybe [ConstraintSummary])
@@ -77,13 +81,13 @@ data LaunchPathSummary = LaunchPathSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpsConstraintSummaries'
+-- * 'lpsConstraintSummaries' - List of constraints on the portfolio-product relationship.
 --
--- * 'lpsName'
+-- * 'lpsName' - Corresponds to the name of the portfolio to which the user was assigned.
 --
--- * 'lpsId'
+-- * 'lpsId' - The unique identifier of the product path.
 --
--- * 'lpsTags'
+-- * 'lpsTags' - List of tags used by this launch path.
 launchPathSummary
     :: LaunchPathSummary
 launchPathSummary =
@@ -126,6 +130,8 @@ instance NFData LaunchPathSummary
 
 -- | The search filter to limit results when listing request history records.
 --
+--
+--
 -- /See:/ 'listRecordHistorySearchFilter' smart constructor.
 data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
     { _lrhsfValue :: !(Maybe Text)
@@ -136,9 +142,9 @@ data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrhsfValue'
+-- * 'lrhsfValue' - The filter value for @Key@ .
 --
--- * 'lrhsfKey'
+-- * 'lrhsfKey' - The filter key.
 listRecordHistorySearchFilter
     :: ListRecordHistorySearchFilter
 listRecordHistorySearchFilter =
@@ -147,7 +153,7 @@ listRecordHistorySearchFilter =
     , _lrhsfKey = Nothing
     }
 
--- | The filter value for 'Key'.
+-- | The filter value for @Key@ .
 lrhsfValue :: Lens' ListRecordHistorySearchFilter (Maybe Text)
 lrhsfValue = lens _lrhsfValue (\ s a -> s{_lrhsfValue = a});
 
@@ -168,6 +174,8 @@ instance ToJSON ListRecordHistorySearchFilter where
 
 -- | The constraints that the administrator has put on the parameter.
 --
+--
+--
 -- /See:/ 'parameterConstraints' smart constructor.
 newtype ParameterConstraints = ParameterConstraints'
     { _pcAllowedValues :: Maybe [Text]
@@ -177,7 +185,7 @@ newtype ParameterConstraints = ParameterConstraints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcAllowedValues'
+-- * 'pcAllowedValues' - The values that the administrator has allowed for the parameter.
 parameterConstraints
     :: ParameterConstraints
 parameterConstraints =
@@ -200,7 +208,9 @@ instance Hashable ParameterConstraints
 
 instance NFData ParameterConstraints
 
--- | A single product view aggregation value\/count pair, containing metadata about each product to which the calling user has access.
+-- | A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
+--
+--
 --
 -- /See:/ 'productViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
@@ -212,9 +222,9 @@ data ProductViewAggregationValue = ProductViewAggregationValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvavValue'
+-- * 'pvavValue' - The value of the product view aggregation.
 --
--- * 'pvavApproximateCount'
+-- * 'pvavApproximateCount' - An approximate count of the products that match the value.
 productViewAggregationValue
     :: ProductViewAggregationValue
 productViewAggregationValue =
@@ -244,6 +254,8 @@ instance NFData ProductViewAggregationValue
 
 -- | The summary metadata about the specified product.
 --
+--
+--
 -- /See:/ 'productViewSummary' smart constructor.
 data ProductViewSummary = ProductViewSummary'
     { _pvsOwner              :: !(Maybe Text)
@@ -263,27 +275,27 @@ data ProductViewSummary = ProductViewSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvsOwner'
+-- * 'pvsOwner' - The owner of the product. Contact the product administrator for the significance of this value.
 --
--- * 'pvsSupportURL'
+-- * 'pvsSupportURL' - The URL information to obtain support for this Product.
 --
--- * 'pvsShortDescription'
+-- * 'pvsShortDescription' - Short description of the product.
 --
--- * 'pvsHasDefaultPath'
+-- * 'pvsHasDefaultPath' - A value of @false@ indicates that the product does not have a default path, while a value of @true@ indicates that it does. If it's false, call 'ListLaunchPaths' to disambiguate between paths. If true, 'ListLaunchPaths' is not required, and the output of the 'ProductViewSummary' operation can be used directly with 'DescribeProvisioningParameters' .
 --
--- * 'pvsDistributor'
+-- * 'pvsDistributor' - The distributor of the product. Contact the product administrator for the significance of this value.
 --
--- * 'pvsName'
+-- * 'pvsName' - The name of the product.
 --
--- * 'pvsId'
+-- * 'pvsId' - The product view identifier.
 --
--- * 'pvsType'
+-- * 'pvsType' - The product type. Contact the product administrator for the significance of this value.
 --
--- * 'pvsSupportEmail'
+-- * 'pvsSupportEmail' - The email contact information to obtain support for this Product.
 --
--- * 'pvsProductId'
+-- * 'pvsProductId' - The product identifier.
 --
--- * 'pvsSupportDescription'
+-- * 'pvsSupportDescription' - The description of the support for this Product.
 productViewSummary
     :: ProductViewSummary
 productViewSummary =
@@ -313,7 +325,7 @@ pvsSupportURL = lens _pvsSupportURL (\ s a -> s{_pvsSupportURL = a});
 pvsShortDescription :: Lens' ProductViewSummary (Maybe Text)
 pvsShortDescription = lens _pvsShortDescription (\ s a -> s{_pvsShortDescription = a});
 
--- | A value of 'false' indicates that the product does not have a default path, while a value of 'true' indicates that it does. If it\'s false, call < ListLaunchPaths> to disambiguate between paths. If true, < ListLaunchPaths> is not required, and the output of the < ProductViewSummary> operation can be used directly with < DescribeProvisioningParameters>.
+-- | A value of @false@ indicates that the product does not have a default path, while a value of @true@ indicates that it does. If it's false, call 'ListLaunchPaths' to disambiguate between paths. If true, 'ListLaunchPaths' is not required, and the output of the 'ProductViewSummary' operation can be used directly with 'DescribeProvisioningParameters' .
 pvsHasDefaultPath :: Lens' ProductViewSummary (Maybe Bool)
 pvsHasDefaultPath = lens _pvsHasDefaultPath (\ s a -> s{_pvsHasDefaultPath = a});
 
@@ -367,6 +379,8 @@ instance NFData ProductViewSummary
 
 -- | Detailed information about a ProvisionedProduct object.
 --
+--
+--
 -- /See:/ 'provisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
     { _ppdIdempotencyToken :: !(Maybe Text)
@@ -384,23 +398,23 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppdIdempotencyToken'
+-- * 'ppdIdempotencyToken' - An idempotency token that uniquely identifies this ProvisionedProduct.
 --
--- * 'ppdStatus'
+-- * 'ppdStatus' - The current status of the ProvisionedProduct.
 --
--- * 'ppdARN'
+-- * 'ppdARN' - The ARN associated with the ProvisionedProduct object.
 --
--- * 'ppdCreatedTime'
+-- * 'ppdCreatedTime' - The time the ProvisionedProduct was created.
 --
--- * 'ppdStatusMessage'
+-- * 'ppdStatusMessage' - The current status message of the ProvisionedProduct.
 --
--- * 'ppdName'
+-- * 'ppdName' - The user-friendly name of the ProvisionedProduct object.
 --
--- * 'ppdLastRecordId'
+-- * 'ppdLastRecordId' - The record identifier of the last request performed on this ProvisionedProduct object.
 --
--- * 'ppdId'
+-- * 'ppdId' - The identifier of the ProvisionedProduct object.
 --
--- * 'ppdType'
+-- * 'ppdType' - The type of the ProvisionedProduct object.
 provisionedProductDetail
     :: ProvisionedProductDetail
 provisionedProductDetail =
@@ -472,6 +486,8 @@ instance NFData ProvisionedProductDetail
 
 -- | Contains information indicating the ways in which a product can be provisioned.
 --
+--
+--
 -- /See:/ 'provisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
     { _paCreatedTime :: !(Maybe POSIX)
@@ -484,13 +500,13 @@ data ProvisioningArtifact = ProvisioningArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paCreatedTime'
+-- * 'paCreatedTime' - The time that the artifact was created by the Administrator.
 --
--- * 'paName'
+-- * 'paName' - The name of the artifact.
 --
--- * 'paId'
+-- * 'paId' - The identifier for the artifact.
 --
--- * 'paDescription'
+-- * 'paDescription' - The text description of the artifact.
 provisioningArtifact
     :: ProvisioningArtifact
 provisioningArtifact =
@@ -532,6 +548,8 @@ instance NFData ProvisioningArtifact
 
 -- | A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata.
 --
+--
+--
 -- /See:/ 'provisioningArtifactParameter' smart constructor.
 data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
     { _papIsNoEcho             :: !(Maybe Bool)
@@ -546,17 +564,17 @@ data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'papIsNoEcho'
+-- * 'papIsNoEcho' - If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
 --
--- * 'papParameterKey'
+-- * 'papParameterKey' - The parameter key.
 --
--- * 'papParameterType'
+-- * 'papParameterType' - The parameter type.
 --
--- * 'papParameterConstraints'
+-- * 'papParameterConstraints' - The list of constraints that the administrator has put on the parameter.
 --
--- * 'papDefaultValue'
+-- * 'papDefaultValue' - The default value for this parameter.
 --
--- * 'papDescription'
+-- * 'papDescription' - The text description of the parameter.
 provisioningArtifactParameter
     :: ProvisioningArtifactParameter
 provisioningArtifactParameter =
@@ -608,7 +626,9 @@ instance Hashable ProvisioningArtifactParameter
 
 instance NFData ProvisioningArtifactParameter
 
--- | The arameter key\/value pairs used to provision a product.
+-- | The arameter key/value pairs used to provision a product.
+--
+--
 --
 -- /See:/ 'provisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
@@ -620,9 +640,9 @@ data ProvisioningParameter = ProvisioningParameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppValue'
+-- * 'ppValue' - The value to use for provisioning. Any constraints on this value can be found in @ProvisioningArtifactParameter@ for @Key@ .
 --
--- * 'ppKey'
+-- * 'ppKey' - The @ProvisioningArtifactParameter.ParameterKey@ parameter from 'DescribeProvisioningParameters' .
 provisioningParameter
     :: ProvisioningParameter
 provisioningParameter =
@@ -631,11 +651,11 @@ provisioningParameter =
     , _ppKey = Nothing
     }
 
--- | The value to use for provisioning. Any constraints on this value can be found in 'ProvisioningArtifactParameter' for 'Key'.
+-- | The value to use for provisioning. Any constraints on this value can be found in @ProvisioningArtifactParameter@ for @Key@ .
 ppValue :: Lens' ProvisioningParameter (Maybe Text)
 ppValue = lens _ppValue (\ s a -> s{_ppValue = a});
 
--- | The 'ProvisioningArtifactParameter.ParameterKey' parameter from < DescribeProvisioningParameters>.
+-- | The @ProvisioningArtifactParameter.ParameterKey@ parameter from 'DescribeProvisioningParameters' .
 ppKey :: Lens' ProvisioningParameter (Maybe Text)
 ppKey = lens _ppKey (\ s a -> s{_ppKey = a});
 
@@ -650,6 +670,8 @@ instance ToJSON ProvisioningParameter where
                  [("Value" .=) <$> _ppValue, ("Key" .=) <$> _ppKey])
 
 -- | The full details of a specific ProvisionedProduct object.
+--
+--
 --
 -- /See:/ 'recordDetail' smart constructor.
 data RecordDetail = RecordDetail'
@@ -672,31 +694,31 @@ data RecordDetail = RecordDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdStatus'
+-- * 'rdStatus' - The status of the ProvisionedProduct object.
 --
--- * 'rdRecordTags'
+-- * 'rdRecordTags' - List of tags associated with this record.
 --
--- * 'rdProvisionedProductName'
+-- * 'rdProvisionedProductName' - The user-friendly name of the ProvisionedProduct object.
 --
--- * 'rdProvisioningArtifactId'
+-- * 'rdProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
--- * 'rdCreatedTime'
+-- * 'rdCreatedTime' - The time when the record for the ProvisionedProduct object was created.
 --
--- * 'rdRecordType'
+-- * 'rdRecordType' - The record type for this record.
 --
--- * 'rdRecordId'
+-- * 'rdRecordId' - The identifier of the ProvisionedProduct object record.
 --
--- * 'rdProvisionedProductType'
+-- * 'rdProvisionedProductType' - The type of the ProvisionedProduct object.
 --
--- * 'rdUpdatedTime'
+-- * 'rdUpdatedTime' - The time when the record for the ProvisionedProduct object was last updated.
 --
--- * 'rdPathId'
+-- * 'rdPathId' - The identifier of the path for this product's provisioning.
 --
--- * 'rdProvisionedProductId'
+-- * 'rdProvisionedProductId' - The identifier of the ProvisionedProduct object.
 --
--- * 'rdRecordErrors'
+-- * 'rdRecordErrors' - A list of errors that occurred while processing the request.
 --
--- * 'rdProductId'
+-- * 'rdProductId' - The identifier of the product.
 recordDetail
     :: RecordDetail
 recordDetail =
@@ -752,7 +774,7 @@ rdProvisionedProductType = lens _rdProvisionedProductType (\ s a -> s{_rdProvisi
 rdUpdatedTime :: Lens' RecordDetail (Maybe UTCTime)
 rdUpdatedTime = lens _rdUpdatedTime (\ s a -> s{_rdUpdatedTime = a}) . mapping _Time;
 
--- | The identifier of the path for this product\'s provisioning.
+-- | The identifier of the path for this product's provisioning.
 rdPathId :: Lens' RecordDetail (Maybe Text)
 rdPathId = lens _rdPathId (\ s a -> s{_rdPathId = a});
 
@@ -792,6 +814,8 @@ instance NFData RecordDetail
 
 -- | The error code and description resulting from an operation.
 --
+--
+--
 -- /See:/ 'recordError' smart constructor.
 data RecordError = RecordError'
     { _reCode        :: !(Maybe Text)
@@ -802,9 +826,9 @@ data RecordError = RecordError'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reCode'
+-- * 'reCode' - The numeric value of the error.
 --
--- * 'reDescription'
+-- * 'reDescription' - The text description of the error.
 recordError
     :: RecordError
 recordError =
@@ -834,6 +858,8 @@ instance NFData RecordError
 
 -- | An output for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
 --
+--
+--
 -- /See:/ 'recordOutput' smart constructor.
 data RecordOutput = RecordOutput'
     { _roOutputValue :: !(Maybe Text)
@@ -845,11 +871,11 @@ data RecordOutput = RecordOutput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roOutputValue'
+-- * 'roOutputValue' - The output value.
 --
--- * 'roOutputKey'
+-- * 'roOutputKey' - The output key.
 --
--- * 'roDescription'
+-- * 'roDescription' - The text description of the output.
 recordOutput
     :: RecordOutput
 recordOutput =
@@ -885,6 +911,8 @@ instance NFData RecordOutput
 
 -- | A tag associated with the record, stored as a key-value pair.
 --
+--
+--
 -- /See:/ 'recordTag' smart constructor.
 data RecordTag = RecordTag'
     { _rtValue :: !(Maybe Text)
@@ -895,9 +923,9 @@ data RecordTag = RecordTag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtValue'
+-- * 'rtValue' - The value for this tag.
 --
--- * 'rtKey'
+-- * 'rtKey' - The key for this tag.
 recordTag
     :: RecordTag
 recordTag =
@@ -924,7 +952,9 @@ instance Hashable RecordTag
 
 instance NFData RecordTag
 
--- | Optional key\/value pairs to associate with this provisioning. These tags are propagated to the resources created in the provisioning.
+-- | Optional key/value pairs to associate with this provisioning. These tags are propagated to the resources created in the provisioning.
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -936,9 +966,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The esired value for this key.
 --
--- * 'tagKey'
+-- * 'tagKey' - The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
 tag
     :: Tag
 tag =
@@ -951,7 +981,7 @@ tag =
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The 'ProvisioningArtifactParameter.TagKey' parameter from < DescribeProvisioningParameters>.
+-- | The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -970,7 +1000,9 @@ instance ToJSON Tag where
               (catMaybes
                  [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
 
--- | The parameter key\/value pair used to update a ProvisionedProduct object. If 'UsePreviousValue' is set to true, 'Value' is ignored and the value for 'Key' is kept as previously set (current value).
+-- | The parameter key/value pair used to update a ProvisionedProduct object. If @UsePreviousValue@ is set to true, @Value@ is ignored and the value for @Key@ is kept as previously set (current value).
+--
+--
 --
 -- /See:/ 'updateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
@@ -983,11 +1015,11 @@ data UpdateProvisioningParameter = UpdateProvisioningParameter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uppValue'
+-- * 'uppValue' - The value to use for updating the product provisioning. Any constraints on this value can be found in the @ProvisioningArtifactParameter@ parameter for @Key@ .
 --
--- * 'uppKey'
+-- * 'uppKey' - The @ProvisioningArtifactParameter.ParameterKey@ parameter from 'DescribeProvisioningParameters' .
 --
--- * 'uppUsePreviousValue'
+-- * 'uppUsePreviousValue' - If true, uses the currently set value for @Key@ , ignoring @UpdateProvisioningParameter.Value@ .
 updateProvisioningParameter
     :: UpdateProvisioningParameter
 updateProvisioningParameter =
@@ -997,15 +1029,15 @@ updateProvisioningParameter =
     , _uppUsePreviousValue = Nothing
     }
 
--- | The value to use for updating the product provisioning. Any constraints on this value can be found in the 'ProvisioningArtifactParameter' parameter for 'Key'.
+-- | The value to use for updating the product provisioning. Any constraints on this value can be found in the @ProvisioningArtifactParameter@ parameter for @Key@ .
 uppValue :: Lens' UpdateProvisioningParameter (Maybe Text)
 uppValue = lens _uppValue (\ s a -> s{_uppValue = a});
 
--- | The 'ProvisioningArtifactParameter.ParameterKey' parameter from < DescribeProvisioningParameters>.
+-- | The @ProvisioningArtifactParameter.ParameterKey@ parameter from 'DescribeProvisioningParameters' .
 uppKey :: Lens' UpdateProvisioningParameter (Maybe Text)
 uppKey = lens _uppKey (\ s a -> s{_uppKey = a});
 
--- | If true, uses the currently set value for 'Key', ignoring 'UpdateProvisioningParameter.Value'.
+-- | If true, uses the currently set value for @Key@ , ignoring @UpdateProvisioningParameter.Value@ .
 uppUsePreviousValue :: Lens' UpdateProvisioningParameter (Maybe Bool)
 uppUsePreviousValue = lens _uppUsePreviousValue (\ s a -> s{_uppUsePreviousValue = a});
 
@@ -1022,6 +1054,8 @@ instance ToJSON UpdateProvisioningParameter where
 
 -- | Additional information provided by the administrator.
 --
+--
+--
 -- /See:/ 'usageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
     { _uiValue :: !(Maybe Text)
@@ -1032,9 +1066,9 @@ data UsageInstruction = UsageInstruction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uiValue'
+-- * 'uiValue' - The usage instruction value for this type.
 --
--- * 'uiType'
+-- * 'uiType' - The usage instruction type for the value.
 usageInstruction
     :: UsageInstruction
 usageInstruction =

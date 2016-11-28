@@ -20,7 +20,9 @@
 --
 -- Lists all of the clients.
 --
--- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to < ListLunaClients> to retrieve the next set of items.
+--
+-- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to 'ListLunaClients' to retrieve the next set of items.
+--
 module Network.AWS.CloudHSM.ListLunaClients
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype ListLunaClients = ListLunaClients'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llcNextToken'
+-- * 'llcNextToken' - The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
 listLunaClients
     :: ListLunaClients
 listLunaClients =
@@ -62,7 +64,7 @@ listLunaClients =
     { _llcNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to < ListLunaClients>. Pass null if this is the first call.
+-- | The /NextToken/ value from a previous call to 'ListLunaClients' . Pass null if this is the first call.
 llcNextToken :: Lens' ListLunaClients (Maybe Text)
 llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
 
@@ -112,11 +114,11 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'llcrsNextToken'
+-- * 'llcrsNextToken' - If not null, more results are available. Pass this to 'ListLunaClients' to retrieve the next set of items.
 --
--- * 'llcrsResponseStatus'
+-- * 'llcrsResponseStatus' - -- | The response status code.
 --
--- * 'llcrsClientList'
+-- * 'llcrsClientList' - The list of clients.
 listLunaClientsResponse
     :: Int -- ^ 'llcrsResponseStatus'
     -> ListLunaClientsResponse
@@ -127,11 +129,11 @@ listLunaClientsResponse pResponseStatus_ =
     , _llcrsClientList = mempty
     }
 
--- | If not null, more results are available. Pass this to < ListLunaClients> to retrieve the next set of items.
+-- | If not null, more results are available. Pass this to 'ListLunaClients' to retrieve the next set of items.
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 llcrsResponseStatus :: Lens' ListLunaClientsResponse Int
 llcrsResponseStatus = lens _llcrsResponseStatus (\ s a -> s{_llcrsResponseStatus = a});
 

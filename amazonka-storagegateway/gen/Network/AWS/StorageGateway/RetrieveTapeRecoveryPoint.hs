@@ -20,9 +20,9 @@
 --
 -- Retrieves the recovery point for the specified virtual tape.
 --
+--
 -- A recovery point is a point in time view of a virtual tape at which all the data on the tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
 --
--- The virtual tape can be retrieved to only one gateway. The retrieved tape is read-only. The virtual tape can be retrieved to only a gateway-VTL. There is no charge for retrieving recovery points.
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request
@@ -49,6 +49,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | RetrieveTapeRecoveryPointInput
 --
+--
+--
 -- /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
     { _rtrpTapeARN    :: !Text
@@ -59,9 +61,9 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrpTapeARN'
+-- * 'rtrpTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve the recovery point.
 --
--- * 'rtrpGatewayARN'
+-- * 'rtrpGatewayARN' - Undocumented member.
 retrieveTapeRecoveryPoint
     :: Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
@@ -119,6 +121,8 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 
 -- | RetrieveTapeRecoveryPointOutput
 --
+--
+--
 -- /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
     { _rtrprsTapeARN        :: !(Maybe Text)
@@ -129,9 +133,9 @@ data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrprsTapeARN'
+-- * 'rtrprsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.
 --
--- * 'rtrprsResponseStatus'
+-- * 'rtrprsResponseStatus' - -- | The response status code.
 retrieveTapeRecoveryPointResponse
     :: Int -- ^ 'rtrprsResponseStatus'
     -> RetrieveTapeRecoveryPointResponse
@@ -145,7 +149,7 @@ retrieveTapeRecoveryPointResponse pResponseStatus_ =
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rtrprsResponseStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsResponseStatus = lens _rtrprsResponseStatus (\ s a -> s{_rtrprsResponseStatus = a});
 

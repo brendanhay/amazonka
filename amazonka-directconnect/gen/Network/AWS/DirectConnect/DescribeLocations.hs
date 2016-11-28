@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling CreateConnection or CreateInterconnect.
+--
+--
 module Network.AWS.DirectConnect.DescribeLocations
     (
     -- * Creating a Request
@@ -85,6 +87,8 @@ instance ToQuery DescribeLocations where
 
 -- | A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.
 --
+--
+--
 -- /See:/ 'describeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrsLocations      :: !(Maybe [Location])
@@ -95,9 +99,9 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlrsLocations'
+-- * 'dlrsLocations' - A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
 --
--- * 'dlrsResponseStatus'
+-- * 'dlrsResponseStatus' - -- | The response status code.
 describeLocationsResponse
     :: Int -- ^ 'dlrsResponseStatus'
     -> DescribeLocationsResponse
@@ -111,7 +115,7 @@ describeLocationsResponse pResponseStatus_ =
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlrsResponseStatus :: Lens' DescribeLocationsResponse Int
 dlrsResponseStatus = lens _dlrsResponseStatus (\ s a -> s{_dlrsResponseStatus = a});
 

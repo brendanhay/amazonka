@@ -20,13 +20,13 @@
 --
 -- Adds or updates an inline policy document that is embedded in the specified IAM role.
 --
--- When you embed an inline policy in a role, the inline policy is used as part of the role\'s access (permissions) policy. The role\'s trust policy is created at the same time as the role, using < CreateRole>. You can update a role\'s trust policy using < UpdateAssumeRolePolicy>. For more information about IAM roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 --
--- A role can also have a managed policy attached to it. To attach a managed policy to a role, use < AttachRolePolicy>. To create a new managed policy, use < CreatePolicy>. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using 'CreateRole' . You can update a role's trust policy using 'UpdateAssumeRolePolicy' . For more information about IAM roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities> .
 --
--- For information about limits on the number of inline policies that you can embed with a role, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- A role can also have a managed policy attached to it. To attach a managed policy to a role, use 'AttachRolePolicy' . To create a new managed policy, use 'CreatePolicy' . For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- Because policy documents can be large, you should use POST rather than GET when calling 'PutRolePolicy'. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /IAM User Guide/.
+-- For information about limits on the number of inline policies that you can embed with a role, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.PutRolePolicy
     (
     -- * Creating a Request
@@ -60,11 +60,11 @@ data PutRolePolicy = PutRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prpRoleName'
+-- * 'prpRoleName' - The name of the role to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'prpPolicyName'
+-- * 'prpPolicyName' - The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'prpPolicyDocument'
+-- * 'prpPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 putRolePolicy
     :: Text -- ^ 'prpRoleName'
     -> Text -- ^ 'prpPolicyName'
@@ -77,21 +77,15 @@ putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
     , _prpPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the role to associate the policy with.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the role to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\ s a -> s{_prpRoleName = a});
 
--- | The name of the policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 prpPolicyName :: Lens' PutRolePolicy Text
 prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a});
 
--- | The policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 prpPolicyDocument :: Lens' PutRolePolicy Text
 prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
 

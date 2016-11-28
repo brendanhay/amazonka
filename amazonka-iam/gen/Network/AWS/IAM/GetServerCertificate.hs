@@ -20,7 +20,9 @@
 --
 -- Retrieves information about the specified server certificate stored in IAM.
 --
--- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
+--
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Creating a Request
@@ -53,7 +55,7 @@ newtype GetServerCertificate = GetServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscServerCertificateName'
+-- * 'gscServerCertificateName' - The name of the server certificate you want to retrieve information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getServerCertificate
     :: Text -- ^ 'gscServerCertificateName'
     -> GetServerCertificate
@@ -62,9 +64,7 @@ getServerCertificate pServerCertificateName_ =
     { _gscServerCertificateName = pServerCertificateName_
     }
 
--- | The name of the server certificate you want to retrieve information about.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the server certificate you want to retrieve information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
 
@@ -95,7 +95,9 @@ instance ToQuery GetServerCertificate where
                "Version" =: ("2010-05-08" :: ByteString),
                "ServerCertificateName" =: _gscServerCertificateName]
 
--- | Contains the response to a successful < GetServerCertificate> request.
+-- | Contains the response to a successful 'GetServerCertificate' request.
+--
+--
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
@@ -107,9 +109,9 @@ data GetServerCertificateResponse = GetServerCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscrsResponseStatus'
+-- * 'gscrsResponseStatus' - -- | The response status code.
 --
--- * 'gscrsServerCertificate'
+-- * 'gscrsServerCertificate' - A structure containing details about the server certificate.
 getServerCertificateResponse
     :: Int -- ^ 'gscrsResponseStatus'
     -> ServerCertificate -- ^ 'gscrsServerCertificate'
@@ -120,7 +122,7 @@ getServerCertificateResponse pResponseStatus_ pServerCertificate_ =
     , _gscrsServerCertificate = pServerCertificate_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gscrsResponseStatus :: Lens' GetServerCertificateResponse Int
 gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a});
 

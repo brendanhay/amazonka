@@ -20,6 +20,8 @@
 --
 -- Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
     (
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Describes the inputs for DescribeAlarms.
 --
+--
+--
 -- /See:/ 'describeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
     { _daAlarmNamePrefix :: !(Maybe Text)
@@ -67,17 +71,17 @@ data DescribeAlarms = DescribeAlarms'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAlarmNamePrefix'
+-- * 'daAlarmNamePrefix' - The alarm name prefix. @AlarmNames@ cannot be specified if this parameter is specified.
 --
--- * 'daActionPrefix'
+-- * 'daActionPrefix' - The action name prefix.
 --
--- * 'daNextToken'
+-- * 'daNextToken' - The token returned by a previous call to indicate that there is more data available.
 --
--- * 'daStateValue'
+-- * 'daStateValue' - The state value to be used in matching alarms.
 --
--- * 'daAlarmNames'
+-- * 'daAlarmNames' - A list of alarm names to retrieve information for.
 --
--- * 'daMaxRecords'
+-- * 'daMaxRecords' - The maximum number of alarm descriptions to retrieve.
 describeAlarms
     :: DescribeAlarms
 describeAlarms =
@@ -90,7 +94,7 @@ describeAlarms =
     , _daMaxRecords = Nothing
     }
 
--- | The alarm name prefix. 'AlarmNames' cannot be specified if this parameter is specified.
+-- | The alarm name prefix. @AlarmNames@ cannot be specified if this parameter is specified.
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 
@@ -156,7 +160,9 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for < DescribeAlarms>.
+-- | The output for 'DescribeAlarms' .
+--
+--
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
@@ -169,11 +175,11 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsMetricAlarms'
+-- * 'darsMetricAlarms' - A list of information for the specified alarms.
 --
--- * 'darsNextToken'
+-- * 'darsNextToken' - A string that marks the start of the next batch of returned results.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeAlarmsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeAlarmsResponse
@@ -192,7 +198,7 @@ darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . 
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeAlarmsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

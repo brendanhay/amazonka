@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Instructs the specified agents to stop collecting data.
+--
+--
 module Network.AWS.Discovery.StopDataCollectionByAgentIds
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype StopDataCollectionByAgentIds = StopDataCollectionByAgentIds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcbaiAgentIds'
+-- * 'sdcbaiAgentIds' - The IDs of the agents that you want to stop collecting data.
 stopDataCollectionByAgentIds
     :: StopDataCollectionByAgentIds
 stopDataCollectionByAgentIds =
@@ -110,9 +112,9 @@ data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcbairsAgentsConfigurationStatus'
+-- * 'sdcbairsAgentsConfigurationStatus' - Information about agents that were instructed to stop collecting data. Information includes the agent ID, a description of the operation performed, and whether or not the agent configuration was updated.
 --
--- * 'sdcbairsResponseStatus'
+-- * 'sdcbairsResponseStatus' - -- | The response status code.
 stopDataCollectionByAgentIdsResponse
     :: Int -- ^ 'sdcbairsResponseStatus'
     -> StopDataCollectionByAgentIdsResponse
@@ -126,7 +128,7 @@ stopDataCollectionByAgentIdsResponse pResponseStatus_ =
 sdcbairsAgentsConfigurationStatus :: Lens' StopDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
 sdcbairsAgentsConfigurationStatus = lens _sdcbairsAgentsConfigurationStatus (\ s a -> s{_sdcbairsAgentsConfigurationStatus = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 sdcbairsResponseStatus :: Lens' StopDataCollectionByAgentIdsResponse Int
 sdcbairsResponseStatus = lens _sdcbairsResponseStatus (\ s a -> s{_sdcbairsResponseStatus = a});
 

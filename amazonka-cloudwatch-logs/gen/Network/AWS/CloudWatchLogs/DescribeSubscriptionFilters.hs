@@ -20,7 +20,9 @@
 --
 -- Returns all the subscription filters associated with the specified log group. The list returned in the response is ASCII-sorted by filter name.
 --
--- By default, this operation returns up to 50 subscription filters. If there are more subscription filters to list, the response would contain a 'nextToken' value in the response body. You can also limit the number of subscription filters returned in the response by specifying the 'limit' parameter in the request.
+--
+-- By default, this operation returns up to 50 subscription filters. If there are more subscription filters to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of subscription filters returned in the response by specifying the @limit@ parameter in the request.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
@@ -63,13 +65,13 @@ data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfFilterNamePrefix'
+-- * 'dsfFilterNamePrefix' - Will only return subscription filters that match the provided filterNamePrefix. If you don't specify a value, no prefix filter is applied.
 --
--- * 'dsfNextToken'
+-- * 'dsfNextToken' - Undocumented member.
 --
--- * 'dsfLimit'
+-- * 'dsfLimit' - Undocumented member.
 --
--- * 'dsfLogGroupName'
+-- * 'dsfLogGroupName' - The log group name for which subscription filters are to be listed.
 describeSubscriptionFilters
     :: Text -- ^ 'dsfLogGroupName'
     -> DescribeSubscriptionFilters
@@ -81,7 +83,7 @@ describeSubscriptionFilters pLogGroupName_ =
     , _dsfLogGroupName = pLogGroupName_
     }
 
--- | Will only return subscription filters that match the provided filterNamePrefix. If you don\'t specify a value, no prefix filter is applied.
+-- | Will only return subscription filters that match the provided filterNamePrefix. If you don't specify a value, no prefix filter is applied.
 dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfFilterNamePrefix = lens _dsfFilterNamePrefix (\ s a -> s{_dsfFilterNamePrefix = a});
 
@@ -156,11 +158,11 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsfrsSubscriptionFilters'
+-- * 'dsfrsSubscriptionFilters' - Undocumented member.
 --
--- * 'dsfrsNextToken'
+-- * 'dsfrsNextToken' - Undocumented member.
 --
--- * 'dsfrsResponseStatus'
+-- * 'dsfrsResponseStatus' - -- | The response status code.
 describeSubscriptionFiltersResponse
     :: Int -- ^ 'dsfrsResponseStatus'
     -> DescribeSubscriptionFiltersResponse
@@ -179,7 +181,7 @@ dsfrsSubscriptionFilters = lens _dsfrsSubscriptionFilters (\ s a -> s{_dsfrsSubs
 dsfrsNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrsNextToken = lens _dsfrsNextToken (\ s a -> s{_dsfrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsfrsResponseStatus :: Lens' DescribeSubscriptionFiltersResponse Int
 dsfrsResponseStatus = lens _dsfrsResponseStatus (\ s a -> s{_dsfrsResponseStatus = a});
 

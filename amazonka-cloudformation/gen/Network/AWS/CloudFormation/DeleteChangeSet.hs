@@ -20,7 +20,9 @@
 --
 -- Deletes the specified change set. Deleting change sets ensures that no one executes the wrong change set.
 --
+--
 -- If the call successfully completes, AWS CloudFormation successfully deleted the change set.
+--
 module Network.AWS.CloudFormation.DeleteChangeSet
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < DeleteChangeSet> action.
+-- | The input for the 'DeleteChangeSet' action.
+--
+--
 --
 -- /See:/ 'deleteChangeSet' smart constructor.
 data DeleteChangeSet = DeleteChangeSet'
@@ -56,9 +60,9 @@ data DeleteChangeSet = DeleteChangeSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsStackName'
+-- * 'dcsStackName' - If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
 --
--- * 'dcsChangeSetName'
+-- * 'dcsChangeSetName' - The name or Amazon Resource Name (ARN) of the change set that you want to delete.
 deleteChangeSet
     :: Text -- ^ 'dcsChangeSetName'
     -> DeleteChangeSet
@@ -102,7 +106,9 @@ instance ToQuery DeleteChangeSet where
                "StackName" =: _dcsStackName,
                "ChangeSetName" =: _dcsChangeSetName]
 
--- | The output for the < DeleteChangeSet> action.
+-- | The output for the 'DeleteChangeSet' action.
+--
+--
 --
 -- /See:/ 'deleteChangeSetResponse' smart constructor.
 newtype DeleteChangeSetResponse = DeleteChangeSetResponse'
@@ -113,7 +119,7 @@ newtype DeleteChangeSetResponse = DeleteChangeSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsrsResponseStatus'
+-- * 'dcsrsResponseStatus' - -- | The response status code.
 deleteChangeSetResponse
     :: Int -- ^ 'dcsrsResponseStatus'
     -> DeleteChangeSetResponse
@@ -122,7 +128,7 @@ deleteChangeSetResponse pResponseStatus_ =
     { _dcsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dcsrsResponseStatus :: Lens' DeleteChangeSetResponse Int
 dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a});
 

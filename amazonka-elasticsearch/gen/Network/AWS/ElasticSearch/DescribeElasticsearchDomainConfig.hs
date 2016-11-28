@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.
+--
+--
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeElasticsearchDomainConfig' operation. Specifies the domain name for which you want configuration information.
+-- | Container for the parameters to the @DescribeElasticsearchDomainConfig@ operation. Specifies the domain name for which you want configuration information.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomainConfig' smart constructor.
 newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
@@ -53,7 +57,7 @@ newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedcDomainName'
+-- * 'dedcDomainName' - The Elasticsearch domain that you want to get information about.
 describeElasticsearchDomainConfig
     :: Text -- ^ 'dedcDomainName'
     -> DescribeElasticsearchDomainConfig
@@ -96,7 +100,9 @@ instance ToQuery DescribeElasticsearchDomainConfig
          where
         toQuery = const mempty
 
--- | The result of a 'DescribeElasticsearchDomainConfig' request. Contains the configuration information of the requested domain.
+-- | The result of a @DescribeElasticsearchDomainConfig@ request. Contains the configuration information of the requested domain.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomainConfigResponse' smart constructor.
 data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
@@ -108,9 +114,9 @@ data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConf
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedcrsResponseStatus'
+-- * 'dedcrsResponseStatus' - -- | The response status code.
 --
--- * 'dedcrsDomainConfig'
+-- * 'dedcrsDomainConfig' - The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
 describeElasticsearchDomainConfigResponse
     :: Int -- ^ 'dedcrsResponseStatus'
     -> ElasticsearchDomainConfig -- ^ 'dedcrsDomainConfig'
@@ -121,11 +127,11 @@ describeElasticsearchDomainConfigResponse pResponseStatus_ pDomainConfig_ =
     , _dedcrsDomainConfig = pDomainConfig_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dedcrsResponseStatus :: Lens' DescribeElasticsearchDomainConfigResponse Int
 dedcrsResponseStatus = lens _dedcrsResponseStatus (\ s a -> s{_dedcrsResponseStatus = a});
 
--- | The configuration information of the domain requested in the 'DescribeElasticsearchDomainConfig' request.
+-- | The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
 dedcrsDomainConfig :: Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
 dedcrsDomainConfig = lens _dedcrsDomainConfig (\ s a -> s{_dedcrsDomainConfig = a});
 

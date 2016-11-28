@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists your policies.
+--
+--
 module Network.AWS.IoT.ListPolicies
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListPolicies operation.
 --
+--
+--
 -- /See:/ 'listPolicies' smart constructor.
 data ListPolicies = ListPolicies'
     { _lpMarker         :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListPolicies = ListPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpMarker'
+-- * 'lpMarker' - The marker for the next set of results.
 --
--- * 'lpAscendingOrder'
+-- * 'lpAscendingOrder' - Specifies the order for results. If true, the results are returned in ascending creation order.
 --
--- * 'lpPageSize'
+-- * 'lpPageSize' - The result page size.
 listPolicies
     :: ListPolicies
 listPolicies =
@@ -114,6 +118,8 @@ instance ToQuery ListPolicies where
 
 -- | The output from the ListPolicies operation.
 --
+--
+--
 -- /See:/ 'listPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
     { _lprsNextMarker     :: !(Maybe Text)
@@ -125,11 +131,11 @@ data ListPoliciesResponse = ListPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsNextMarker'
+-- * 'lprsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lprsPolicies'
+-- * 'lprsPolicies' - The descriptions of the policies.
 --
--- * 'lprsResponseStatus'
+-- * 'lprsResponseStatus' - -- | The response status code.
 listPoliciesResponse
     :: Int -- ^ 'lprsResponseStatus'
     -> ListPoliciesResponse
@@ -148,7 +154,7 @@ lprsNextMarker = lens _lprsNextMarker (\ s a -> s{_lprsNextMarker = a});
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
 lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lprsResponseStatus :: Lens' ListPoliciesResponse Int
 lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
 

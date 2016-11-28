@@ -20,7 +20,9 @@
 --
 -- Creates a new group.
 --
--- For information about the number of groups you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+--
+-- For information about the number of groups you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreateGroup
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data CreateGroup = CreateGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgPath'
+-- * 'cgPath' - The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cgGroupName'
+-- * 'cgGroupName' - The name of the group to create. Do not include the path in this value. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
 createGroup
     :: Text -- ^ 'cgGroupName'
     -> CreateGroup
@@ -67,17 +69,11 @@ createGroup pGroupName_ =
     , _cgGroupName = pGroupName_
     }
 
--- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 
--- | The name of the group to create. Do not include the path in this value.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both \"ADMINS\" and \"admins\".
+-- | The name of the group to create. Do not include the path in this value. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
 cgGroupName :: Lens' CreateGroup Text
 cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
@@ -107,7 +103,9 @@ instance ToQuery CreateGroup where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
--- | Contains the response to a successful < CreateGroup> request.
+-- | Contains the response to a successful 'CreateGroup' request.
+--
+--
 --
 -- /See:/ 'createGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
@@ -119,9 +117,9 @@ data CreateGroupResponse = CreateGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgrsResponseStatus'
+-- * 'cgrsResponseStatus' - -- | The response status code.
 --
--- * 'cgrsGroup'
+-- * 'cgrsGroup' - A structure containing details about the new group.
 createGroupResponse
     :: Int -- ^ 'cgrsResponseStatus'
     -> Group -- ^ 'cgrsGroup'
@@ -132,7 +130,7 @@ createGroupResponse pResponseStatus_ pGroup_ =
     , _cgrsGroup = pGroup_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 cgrsResponseStatus :: Lens' CreateGroupResponse Int
 cgrsResponseStatus = lens _cgrsResponseStatus (\ s a -> s{_cgrsResponseStatus = a});
 

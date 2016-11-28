@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create an < ApiKey> resource.
+-- Create an 'ApiKey' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Network.AWS.APIGateway.CreateAPIKey
@@ -55,7 +56,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to create an < ApiKey> resource.
+-- | Request to create an 'ApiKey' resource.
+--
+--
 --
 -- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
@@ -71,17 +74,17 @@ data CreateAPIKey = CreateAPIKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cakEnabled'
+-- * 'cakEnabled' - Specifies whether the 'ApiKey' can be used by callers.
 --
--- * 'cakValue'
+-- * 'cakValue' - Specifies a value of the API key.
 --
--- * 'cakGenerateDistinctId'
+-- * 'cakGenerateDistinctId' - Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value.
 --
--- * 'cakName'
+-- * 'cakName' - The name of the 'ApiKey' .
 --
--- * 'cakStageKeys'
+-- * 'cakStageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
 --
--- * 'cakDescription'
+-- * 'cakDescription' - The description of the 'ApiKey' .
 createAPIKey
     :: CreateAPIKey
 createAPIKey =
@@ -94,7 +97,7 @@ createAPIKey =
     , _cakDescription = Nothing
     }
 
--- | Specifies whether the < ApiKey> can be used by callers.
+-- | Specifies whether the 'ApiKey' can be used by callers.
 cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
 cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
 
@@ -102,11 +105,11 @@ cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
 cakValue :: Lens' CreateAPIKey (Maybe Text)
 cakValue = lens _cakValue (\ s a -> s{_cakValue = a});
 
--- | Specifies whether ('true') or not ('false') the key identifier is distinct from the created API key value.
+-- | Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value.
 cakGenerateDistinctId :: Lens' CreateAPIKey (Maybe Bool)
 cakGenerateDistinctId = lens _cakGenerateDistinctId (\ s a -> s{_cakGenerateDistinctId = a});
 
--- | The name of the < ApiKey>.
+-- | The name of the 'ApiKey' .
 cakName :: Lens' CreateAPIKey (Maybe Text)
 cakName = lens _cakName (\ s a -> s{_cakName = a});
 
@@ -114,7 +117,7 @@ cakName = lens _cakName (\ s a -> s{_cakName = a});
 cakStageKeys :: Lens' CreateAPIKey [StageKey]
 cakStageKeys = lens _cakStageKeys (\ s a -> s{_cakStageKeys = a}) . _Default . _Coerce;
 
--- | The description of the < ApiKey>.
+-- | The description of the 'ApiKey' .
 cakDescription :: Lens' CreateAPIKey (Maybe Text)
 cakDescription = lens _cakDescription (\ s a -> s{_cakDescription = a});
 

@@ -20,7 +20,9 @@
 --
 -- Describes the specified Application load balancers or all of your Application load balancers.
 --
--- To describe the listeners for a load balancer, use < DescribeListeners>. To describe the attributes for a load balancer, use < DescribeLoadBalancerAttributes>.
+--
+-- To describe the listeners for a load balancer, use 'DescribeListeners' . To describe the attributes for a load balancer, use 'DescribeLoadBalancerAttributes' .
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeLoadBalancers
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbNames            :: !(Maybe [Text])
@@ -65,13 +69,13 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbNames'
+-- * 'dlbNames' - The names of the load balancers.
 --
--- * 'dlbLoadBalancerARNs'
+-- * 'dlbLoadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers.
 --
--- * 'dlbMarker'
+-- * 'dlbMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dlbPageSize'
+-- * 'dlbPageSize' - The maximum number of results to return with this call.
 describeLoadBalancers
     :: DescribeLoadBalancers
 describeLoadBalancers =
@@ -142,6 +146,8 @@ instance ToQuery DescribeLoadBalancers where
 
 -- | Contains the output of DescribeLoadBalancers.
 --
+--
+--
 -- /See:/ 'describeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers  :: !(Maybe [LoadBalancer])
@@ -153,11 +159,11 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbrsLoadBalancers'
+-- * 'dlbrsLoadBalancers' - Information about the load balancers.
 --
--- * 'dlbrsNextMarker'
+-- * 'dlbrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dlbrsResponseStatus'
+-- * 'dlbrsResponseStatus' - -- | The response status code.
 describeLoadBalancersResponse
     :: Int -- ^ 'dlbrsResponseStatus'
     -> DescribeLoadBalancersResponse
@@ -176,7 +182,7 @@ dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = 
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dlbrsResponseStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsResponseStatus = lens _dlbrsResponseStatus (\ s a -> s{_dlbrsResponseStatus = a});
 

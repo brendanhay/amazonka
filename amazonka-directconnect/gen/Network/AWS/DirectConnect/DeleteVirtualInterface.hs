@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a virtual interface.
+--
+--
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DeleteVirtualInterface operation.
 --
+--
+--
 -- /See:/ 'deleteVirtualInterface' smart constructor.
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
     { _dVirtualInterfaceId :: Text
@@ -53,7 +57,7 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVirtualInterfaceId'
+-- * 'dVirtualInterfaceId' - Undocumented member.
 deleteVirtualInterface
     :: Text -- ^ 'dVirtualInterfaceId'
     -> DeleteVirtualInterface
@@ -106,6 +110,8 @@ instance ToQuery DeleteVirtualInterface where
 
 -- | The response received when DeleteVirtualInterface is called.
 --
+--
+--
 -- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
@@ -116,9 +122,9 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvirsVirtualInterfaceState'
+-- * 'dvirsVirtualInterfaceState' - Undocumented member.
 --
--- * 'dvirsResponseStatus'
+-- * 'dvirsResponseStatus' - -- | The response status code.
 deleteVirtualInterfaceResponse
     :: Int -- ^ 'dvirsResponseStatus'
     -> DeleteVirtualInterfaceResponse
@@ -132,7 +138,7 @@ deleteVirtualInterfaceResponse pResponseStatus_ =
 dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvirsResponseStatus :: Lens' DeleteVirtualInterfaceResponse Int
 dvirsResponseStatus = lens _dvirsResponseStatus (\ s a -> s{_dvirsResponseStatus = a});
 

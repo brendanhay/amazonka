@@ -20,11 +20,13 @@
 --
 -- Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
 --
--- To share a manual DB cluster snapshot with other AWS accounts, specify 'restore' as the 'AttributeName' and use the 'ValuesToAdd' parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value 'all' to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts. Do not add the 'all' value for any manual DB cluster snapshots that contain private information that you don\'t want available to all AWS accounts.
 --
--- To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster snapshot public or private, use the < DescribeDBClusterSnapshotAttributes> API action.
+-- To share a manual DB cluster snapshot with other AWS accounts, specify @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB cluster snapshot. Use the value @all@ to make the manual DB cluster snapshot public, which means that it can be copied or restored by all AWS accounts. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+--
+-- To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or whether a manual DB cluster snapshot public or private, use the 'DescribeDBClusterSnapshotAttributes' API action.
 --
 -- If a manual DB cluster snapshot is encrypted, it cannot be shared.
+--
 module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     { _mdcsaValuesToAdd                 :: !(Maybe [Text])
@@ -65,13 +69,13 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdcsaValuesToAdd'
+-- * 'mdcsaValuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
 --
--- * 'mdcsaValuesToRemove'
+-- * 'mdcsaValuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
 --
--- * 'mdcsaDBClusterSnapshotIdentifier'
+-- * 'mdcsaDBClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
 --
--- * 'mdcsaAttributeName'
+-- * 'mdcsaAttributeName' - The name of the DB cluster snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
 modifyDBClusterSnapshotAttribute
     :: Text -- ^ 'mdcsaDBClusterSnapshotIdentifier'
     -> Text -- ^ 'mdcsaAttributeName'
@@ -84,15 +88,11 @@ modifyDBClusterSnapshotAttribute pDBClusterSnapshotIdentifier_ pAttributeName_ =
     , _mdcsaAttributeName = pAttributeName_
     }
 
--- | A list of DB cluster snapshot attributes to add to the attribute specified by 'AttributeName'.
---
--- To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or 'all' to make the manual DB cluster snapshot restorable by any AWS account. Do not add the 'all' value for any manual DB cluster snapshots that contain private information that you don\'t want available to all AWS accounts.
+-- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
 mdcsaValuesToAdd :: Lens' ModifyDBClusterSnapshotAttribute [Text]
 mdcsaValuesToAdd = lens _mdcsaValuesToAdd (\ s a -> s{_mdcsaValuesToAdd = a}) . _Default . _Coerce;
 
--- | A list of DB cluster snapshot attributes to remove from the attribute specified by 'AttributeName'.
---
--- To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or 'all' to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify 'all', an AWS account whose account ID is explicitly added to the 'restore' attribute can still copy or restore a manual DB cluster snapshot.
+-- | A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
 mdcsaValuesToRemove :: Lens' ModifyDBClusterSnapshotAttribute [Text]
 mdcsaValuesToRemove = lens _mdcsaValuesToRemove (\ s a -> s{_mdcsaValuesToRemove = a}) . _Default . _Coerce;
 
@@ -100,9 +100,7 @@ mdcsaValuesToRemove = lens _mdcsaValuesToRemove (\ s a -> s{_mdcsaValuesToRemove
 mdcsaDBClusterSnapshotIdentifier :: Lens' ModifyDBClusterSnapshotAttribute Text
 mdcsaDBClusterSnapshotIdentifier = lens _mdcsaDBClusterSnapshotIdentifier (\ s a -> s{_mdcsaDBClusterSnapshotIdentifier = a});
 
--- | The name of the DB cluster snapshot attribute to modify.
---
--- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to 'restore'.
+-- | The name of the DB cluster snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
 mdcsaAttributeName :: Lens' ModifyDBClusterSnapshotAttribute Text
 mdcsaAttributeName = lens _mdcsaAttributeName (\ s a -> s{_mdcsaAttributeName = a});
 
@@ -159,9 +157,9 @@ data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttribute
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdcsarsDBClusterSnapshotAttributesResult'
+-- * 'mdcsarsDBClusterSnapshotAttributesResult' - Undocumented member.
 --
--- * 'mdcsarsResponseStatus'
+-- * 'mdcsarsResponseStatus' - -- | The response status code.
 modifyDBClusterSnapshotAttributeResponse
     :: Int -- ^ 'mdcsarsResponseStatus'
     -> ModifyDBClusterSnapshotAttributeResponse
@@ -175,7 +173,7 @@ modifyDBClusterSnapshotAttributeResponse pResponseStatus_ =
 mdcsarsDBClusterSnapshotAttributesResult :: Lens' ModifyDBClusterSnapshotAttributeResponse (Maybe DBClusterSnapshotAttributesResult)
 mdcsarsDBClusterSnapshotAttributesResult = lens _mdcsarsDBClusterSnapshotAttributesResult (\ s a -> s{_mdcsarsDBClusterSnapshotAttributesResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mdcsarsResponseStatus :: Lens' ModifyDBClusterSnapshotAttributeResponse Int
 mdcsarsResponseStatus = lens _mdcsarsResponseStatus (\ s a -> s{_mdcsarsResponseStatus = a});
 

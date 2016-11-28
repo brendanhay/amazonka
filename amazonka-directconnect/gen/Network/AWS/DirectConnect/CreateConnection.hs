@@ -20,7 +20,9 @@
 --
 -- Creates a new connection between the customer network and a specific AWS Direct Connect location.
 --
+--
 -- A connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.
+--
 module Network.AWS.DirectConnect.CreateConnection
     (
     -- * Creating a Request
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the CreateConnection operation.
 --
+--
+--
 -- /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
     { _ccLocation       :: !Text
@@ -67,11 +71,11 @@ data CreateConnection = CreateConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccLocation'
+-- * 'ccLocation' - Undocumented member.
 --
--- * 'ccBandwidth'
+-- * 'ccBandwidth' - Undocumented member.
 --
--- * 'ccConnectionName'
+-- * 'ccConnectionName' - Undocumented member.
 createConnection
     :: Text -- ^ 'ccLocation'
     -> Text -- ^ 'ccBandwidth'

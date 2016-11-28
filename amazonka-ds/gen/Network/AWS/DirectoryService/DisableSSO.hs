@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables single-sign on for a directory.
+--
+--
 module Network.AWS.DirectoryService.DisableSSO
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DisableSso> operation.
+-- | Contains the inputs for the 'DisableSso' operation.
+--
+--
 --
 -- /See:/ 'disableSSO' smart constructor.
 data DisableSSO = DisableSSO'
@@ -56,11 +60,11 @@ data DisableSSO = DisableSSO'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssoUserName'
+-- * 'dssoUserName' - The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name. If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 --
--- * 'dssoPassword'
+-- * 'dssoPassword' - The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 --
--- * 'dssoDirectoryId'
+-- * 'dssoDirectoryId' - The identifier of the directory for which to disable single-sign on.
 disableSSO
     :: Text -- ^ 'dssoDirectoryId'
     -> DisableSSO
@@ -71,9 +75,7 @@ disableSSO pDirectoryId_ =
     , _dssoDirectoryId = pDirectoryId_
     }
 
--- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.
---
--- If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+-- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name. If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
 dssoUserName :: Lens' DisableSSO (Maybe Text)
 dssoUserName = lens _dssoUserName (\ s a -> s{_dssoUserName = a});
 
@@ -121,7 +123,9 @@ instance ToPath DisableSSO where
 instance ToQuery DisableSSO where
         toQuery = const mempty
 
--- | Contains the results of the < DisableSso> operation.
+-- | Contains the results of the 'DisableSso' operation.
+--
+--
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'
@@ -132,7 +136,7 @@ newtype DisableSSOResponse = DisableSSOResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssorsResponseStatus'
+-- * 'dssorsResponseStatus' - -- | The response status code.
 disableSSOResponse
     :: Int -- ^ 'dssorsResponseStatus'
     -> DisableSSOResponse
@@ -141,7 +145,7 @@ disableSSOResponse pResponseStatus_ =
     { _dssorsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dssorsResponseStatus :: Lens' DisableSSOResponse Int
 dssorsResponseStatus = lens _dssorsResponseStatus (\ s a -> s{_dssorsResponseStatus = a});
 

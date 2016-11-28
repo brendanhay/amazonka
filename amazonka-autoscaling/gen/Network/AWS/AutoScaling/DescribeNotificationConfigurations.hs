@@ -20,6 +20,8 @@
 --
 -- Describes the notification actions associated with the specified Auto Scaling group.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeNotificationConfigurations.
 --
+--
+--
 -- /See:/ 'describeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames :: !(Maybe [Text])
@@ -61,11 +65,11 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncAutoScalingGroupNames'
+-- * 'dncAutoScalingGroupNames' - The name of the group.
 --
--- * 'dncNextToken'
+-- * 'dncNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dncMaxRecords'
+-- * 'dncMaxRecords' - The maximum number of items to return with this call.
 describeNotificationConfigurations
     :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
@@ -137,6 +141,8 @@ instance ToQuery DescribeNotificationConfigurations
 
 -- | Contains the output from DescribeNotificationConfigurations.
 --
+--
+--
 -- /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken                  :: !(Maybe Text)
@@ -148,11 +154,11 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dncrsNextToken'
+-- * 'dncrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dncrsResponseStatus'
+-- * 'dncrsResponseStatus' - -- | The response status code.
 --
--- * 'dncrsNotificationConfigurations'
+-- * 'dncrsNotificationConfigurations' - The notification configurations.
 describeNotificationConfigurationsResponse
     :: Int -- ^ 'dncrsResponseStatus'
     -> DescribeNotificationConfigurationsResponse
@@ -167,7 +173,7 @@ describeNotificationConfigurationsResponse pResponseStatus_ =
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dncrsResponseStatus :: Lens' DescribeNotificationConfigurationsResponse Int
 dncrsResponseStatus = lens _dncrsResponseStatus (\ s a -> s{_dncrsResponseStatus = a});
 

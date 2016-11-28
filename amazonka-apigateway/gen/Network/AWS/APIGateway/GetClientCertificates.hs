@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a collection of < ClientCertificate> resources.
+-- Gets a collection of 'ClientCertificate' resources.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetClientCertificates
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about a collection of < ClientCertificate> resources.
+-- | A request to get information about a collection of 'ClientCertificate' resources.
+--
+--
 --
 -- /See:/ 'getClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
@@ -59,9 +63,9 @@ data GetClientCertificates = GetClientCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccLimit'
+-- * 'gccLimit' - The maximum number of 'ClientCertificate' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 --
--- * 'gccPosition'
+-- * 'gccPosition' - The position of the current 'ClientCertificate' resource in the collection to get information about.
 getClientCertificates
     :: GetClientCertificates
 getClientCertificates =
@@ -70,11 +74,11 @@ getClientCertificates =
     , _gccPosition = Nothing
     }
 
--- | The maximum number of < ClientCertificate> resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of 'ClientCertificate' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
 gccLimit :: Lens' GetClientCertificates (Maybe Int)
 gccLimit = lens _gccLimit (\ s a -> s{_gccLimit = a});
 
--- | The position of the current < ClientCertificate> resource in the collection to get information about.
+-- | The position of the current 'ClientCertificate' resource in the collection to get information about.
 gccPosition :: Lens' GetClientCertificates (Maybe Text)
 gccPosition = lens _gccPosition (\ s a -> s{_gccPosition = a});
 
@@ -114,7 +118,8 @@ instance ToQuery GetClientCertificates where
           = mconcat
               ["limit" =: _gccLimit, "position" =: _gccPosition]
 
--- | Represents a collection of < ClientCertificate> resources.
+-- | Represents a collection of 'ClientCertificate' resources.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
@@ -129,11 +134,11 @@ data GetClientCertificatesResponse = GetClientCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gccrsItems'
+-- * 'gccrsItems' - The current page of any 'ClientCertificate' resources in the collection of 'ClientCertificate' resources.
 --
--- * 'gccrsPosition'
+-- * 'gccrsPosition' - Undocumented member.
 --
--- * 'gccrsResponseStatus'
+-- * 'gccrsResponseStatus' - -- | The response status code.
 getClientCertificatesResponse
     :: Int -- ^ 'gccrsResponseStatus'
     -> GetClientCertificatesResponse
@@ -144,7 +149,7 @@ getClientCertificatesResponse pResponseStatus_ =
     , _gccrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < ClientCertificate> resources in the collection of < ClientCertificate> resources.
+-- | The current page of any 'ClientCertificate' resources in the collection of 'ClientCertificate' resources.
 gccrsItems :: Lens' GetClientCertificatesResponse [ClientCertificate]
 gccrsItems = lens _gccrsItems (\ s a -> s{_gccrsItems = a}) . _Default . _Coerce;
 
@@ -152,7 +157,7 @@ gccrsItems = lens _gccrsItems (\ s a -> s{_gccrsItems = a}) . _Default . _Coerce
 gccrsPosition :: Lens' GetClientCertificatesResponse (Maybe Text)
 gccrsPosition = lens _gccrsPosition (\ s a -> s{_gccrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gccrsResponseStatus :: Lens' GetClientCertificatesResponse Int
 gccrsResponseStatus = lens _gccrsResponseStatus (\ s a -> s{_gccrsResponseStatus = a});
 

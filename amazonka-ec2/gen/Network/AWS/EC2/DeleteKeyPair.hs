@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified key pair, by removing the public key from Amazon EC2.
+--
+--
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteKeyPair.
 --
+--
+--
 -- /See:/ 'deleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
     { _dkpDryRun  :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteKeyPair = DeleteKeyPair'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkpDryRun'
+-- * 'dkpDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dkpKeyName'
+-- * 'dkpKeyName' - The name of the key pair.
 deleteKeyPair
     :: Text -- ^ 'dkpKeyName'
     -> DeleteKeyPair
@@ -64,7 +68,7 @@ deleteKeyPair pKeyName_ =
     , _dkpKeyName = pKeyName_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
 dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
 

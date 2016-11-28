@@ -20,9 +20,7 @@
 --
 -- Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.
 --
--- AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
 --
--- The SriovNetSupport enhanced networking attribute cannot be changed using this command. Instead, enable SriovNetSupport on an instance and create an AMI from the instance. This will result in an image with SriovNetSupport enabled.
 module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Creating a Request
@@ -54,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyImageAttribute.
 --
+--
+--
 -- /See:/ 'modifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
     { _miaAttribute        :: !(Maybe Text)
@@ -72,25 +72,25 @@ data ModifyImageAttribute = ModifyImageAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'miaAttribute'
+-- * 'miaAttribute' - The name of the attribute to modify.
 --
--- * 'miaUserIds'
+-- * 'miaUserIds' - One or more AWS account IDs. This is only valid when modifying the @launchPermission@ attribute.
 --
--- * 'miaUserGroups'
+-- * 'miaUserGroups' - One or more user groups. This is only valid when modifying the @launchPermission@ attribute.
 --
--- * 'miaValue'
+-- * 'miaValue' - The value of the attribute being modified. This is only valid when modifying the @description@ attribute.
 --
--- * 'miaLaunchPermission'
+-- * 'miaLaunchPermission' - A launch permission modification.
 --
--- * 'miaOperationType'
+-- * 'miaOperationType' - The operation type.
 --
--- * 'miaProductCodes'
+-- * 'miaProductCodes' - One or more product codes. After you add a product code to an AMI, it can't be removed. This is only valid when modifying the @productCodes@ attribute.
 --
--- * 'miaDescription'
+-- * 'miaDescription' - A description for the AMI.
 --
--- * 'miaDryRun'
+-- * 'miaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'miaImageId'
+-- * 'miaImageId' - The ID of the AMI.
 modifyImageAttribute
     :: Text -- ^ 'miaImageId'
     -> ModifyImageAttribute
@@ -112,15 +112,15 @@ modifyImageAttribute pImageId_ =
 miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
 
--- | One or more AWS account IDs. This is only valid when modifying the 'launchPermission' attribute.
+-- | One or more AWS account IDs. This is only valid when modifying the @launchPermission@ attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default . _Coerce;
 
--- | One or more user groups. This is only valid when modifying the 'launchPermission' attribute.
+-- | One or more user groups. This is only valid when modifying the @launchPermission@ attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default . _Coerce;
 
--- | The value of the attribute being modified. This is only valid when modifying the 'description' attribute.
+-- | The value of the attribute being modified. This is only valid when modifying the @description@ attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\ s a -> s{_miaValue = a});
 
@@ -132,7 +132,7 @@ miaLaunchPermission = lens _miaLaunchPermission (\ s a -> s{_miaLaunchPermission
 miaOperationType :: Lens' ModifyImageAttribute (Maybe OperationType)
 miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 
--- | One or more product codes. After you add a product code to an AMI, it can\'t be removed. This is only valid when modifying the 'productCodes' attribute.
+-- | One or more product codes. After you add a product code to an AMI, it can't be removed. This is only valid when modifying the @productCodes@ attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
 
@@ -140,7 +140,7 @@ miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _De
 miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
 miaDryRun = lens _miaDryRun (\ s a -> s{_miaDryRun = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Displays a list of categories for all event source types, or, if specified, for a specified source type. You can see a list of the event categories and source types in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the /Amazon RDS User Guide./
+--
+--
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
     { _decSourceType :: !(Maybe Text)
@@ -55,9 +59,9 @@ data DescribeEventCategories = DescribeEventCategories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decSourceType'
+-- * 'decSourceType' - The type of source that will be generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 --
--- * 'decFilters'
+-- * 'decFilters' - This parameter is not currently supported.
 describeEventCategories
     :: DescribeEventCategories
 describeEventCategories =
@@ -66,9 +70,7 @@ describeEventCategories =
     , _decFilters = Nothing
     }
 
--- | The type of source that will be generating the events.
---
--- Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
+-- | The type of source that will be generating the events. Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
@@ -110,6 +112,8 @@ instance ToQuery DescribeEventCategories where
 
 -- | Data returned from the __DescribeEventCategories__ action.
 --
+--
+--
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
@@ -120,9 +124,9 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsEventCategoriesMapList'
+-- * 'decrsEventCategoriesMapList' - A list of EventCategoriesMap data types.
 --
--- * 'decrsResponseStatus'
+-- * 'decrsResponseStatus' - -- | The response status code.
 describeEventCategoriesResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeEventCategoriesResponse
@@ -136,7 +140,7 @@ describeEventCategoriesResponse pResponseStatus_ =
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 

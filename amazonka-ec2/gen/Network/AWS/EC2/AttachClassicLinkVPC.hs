@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC\'s security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that\'s in the 'running' state. An instance is automatically unlinked from a VPC when it\'s stopped - you can link it to the VPC again when you restart it.
+-- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that's in the @running@ state. An instance is automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when you restart it.
 --
--- After you\'ve linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
+--
+-- After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
 --
 -- Linking your instance to a VPC is sometimes referred to as /attaching/ your instance.
+--
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
     { _aclvDryRun     :: !(Maybe Bool)
@@ -63,13 +67,13 @@ data AttachClassicLinkVPC = AttachClassicLinkVPC'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aclvDryRun'
+-- * 'aclvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'aclvInstanceId'
+-- * 'aclvInstanceId' - The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 --
--- * 'aclvVPCId'
+-- * 'aclvVPCId' - The ID of a ClassicLink-enabled VPC.
 --
--- * 'aclvGroups'
+-- * 'aclvGroups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 attachClassicLinkVPC
     :: Text -- ^ 'aclvInstanceId'
     -> Text -- ^ 'aclvVPCId'
@@ -82,7 +86,7 @@ attachClassicLinkVPC pInstanceId_ pVPCId_ =
     , _aclvGroups = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
 aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
 
@@ -94,7 +98,7 @@ aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
 aclvVPCId :: Lens' AttachClassicLinkVPC Text
 aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
 
--- | The ID of one or more of the VPC\'s security groups. You cannot specify security groups from a different VPC.
+-- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 aclvGroups :: Lens' AttachClassicLinkVPC [Text]
 aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 
@@ -130,6 +134,8 @@ instance ToQuery AttachClassicLinkVPC where
 
 -- | Contains the output of AttachClassicLinkVpc.
 --
+--
+--
 -- /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrsReturn         :: !(Maybe Bool)
@@ -140,9 +146,9 @@ data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aclvrsReturn'
+-- * 'aclvrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'aclvrsResponseStatus'
+-- * 'aclvrsResponseStatus' - -- | The response status code.
 attachClassicLinkVPCResponse
     :: Int -- ^ 'aclvrsResponseStatus'
     -> AttachClassicLinkVPCResponse
@@ -152,11 +158,11 @@ attachClassicLinkVPCResponse pResponseStatus_ =
     , _aclvrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsResponseStatus = lens _aclvrsResponseStatus (\ s a -> s{_aclvrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your export tasks.
+--
+--
 module Network.AWS.EC2.DescribeExportTasks
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeExportTasks.
 --
+--
+--
 -- /See:/ 'describeExportTasks' smart constructor.
 newtype DescribeExportTasks = DescribeExportTasks'
     { _detExportTaskIds :: Maybe [Text]
@@ -53,7 +57,7 @@ newtype DescribeExportTasks = DescribeExportTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detExportTaskIds'
+-- * 'detExportTaskIds' - One or more export task IDs.
 describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
@@ -97,6 +101,8 @@ instance ToQuery DescribeExportTasks where
 
 -- | Contains the output for DescribeExportTasks.
 --
+--
+--
 -- /See:/ 'describeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrsExportTasks    :: !(Maybe [ExportTask])
@@ -107,9 +113,9 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detrsExportTasks'
+-- * 'detrsExportTasks' - Information about the export tasks.
 --
--- * 'detrsResponseStatus'
+-- * 'detrsResponseStatus' - -- | The response status code.
 describeExportTasksResponse
     :: Int -- ^ 'detrsResponseStatus'
     -> DescribeExportTasksResponse
@@ -123,7 +129,7 @@ describeExportTasksResponse pResponseStatus_ =
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
 detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
 

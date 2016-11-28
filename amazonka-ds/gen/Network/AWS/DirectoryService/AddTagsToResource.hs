@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds or overwrites one or more tags for the specified Amazon Directory Services directory. Each directory can have a maximum of 10 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
+--
+--
 module Network.AWS.DirectoryService.AddTagsToResource
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceId'
+-- * 'attrResourceId' - Identifier (ID) for the directory to which to add the tag.
 --
--- * 'attrTags'
+-- * 'attrTags' - The tags to be assigned to the Amazon Directory Services directory.
 addTagsToResource
     :: Text -- ^ 'attrResourceId'
     -> AddTagsToResource
@@ -116,7 +118,7 @@ newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
@@ -125,7 +127,7 @@ addTagsToResourceResponse pResponseStatus_ =
     { _attrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 

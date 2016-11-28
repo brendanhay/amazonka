@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC\'s route tables have existing routes for address ranges within the '10.0.0.0\/8' IP address range, excluding local routes for VPCs in the '10.0.0.0\/16' and '10.1.0.0\/16' IP address ranges. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
+-- Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot enable your VPC for ClassicLink if any of your VPC's route tables have existing routes for address ranges within the @10.0.0.0/8@ IP address range, excluding local routes for VPCs in the @10.0.0.0/16@ and @10.1.0.0/16@ IP address ranges. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon Elastic Compute Cloud User Guide.
+--
+--
 module Network.AWS.EC2.EnableVPCClassicLink
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EnableVpcClassicLink.
 --
+--
+--
 -- /See:/ 'enableVPCClassicLink' smart constructor.
 data EnableVPCClassicLink = EnableVPCClassicLink'
     { _evclDryRun :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data EnableVPCClassicLink = EnableVPCClassicLink'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evclDryRun'
+-- * 'evclDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'evclVPCId'
+-- * 'evclVPCId' - The ID of the VPC.
 enableVPCClassicLink
     :: Text -- ^ 'evclVPCId'
     -> EnableVPCClassicLink
@@ -67,7 +71,7 @@ enableVPCClassicLink pVPCId_ =
     , _evclVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
 evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a});
 
@@ -104,6 +108,8 @@ instance ToQuery EnableVPCClassicLink where
 
 -- | Contains the output of EnableVpcClassicLink.
 --
+--
+--
 -- /See:/ 'enableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
     { _evclrsReturn         :: !(Maybe Bool)
@@ -114,9 +120,9 @@ data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evclrsReturn'
+-- * 'evclrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'evclrsResponseStatus'
+-- * 'evclrsResponseStatus' - -- | The response status code.
 enableVPCClassicLinkResponse
     :: Int -- ^ 'evclrsResponseStatus'
     -> EnableVPCClassicLinkResponse
@@ -126,11 +132,11 @@ enableVPCClassicLinkResponse pResponseStatus_ =
     , _evclrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 evclrsResponseStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsResponseStatus = lens _evclrsResponseStatus (\ s a -> s{_evclrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an Elastic IP address with a specified stack. An address can be registered with only one stack at a time. If the address is already registered, you must first deregister it by calling < DeregisterElasticIp>. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Registers an Elastic IP address with a specified stack. An address can be registered with only one stack at a time. If the address is already registered, you must first deregister it by calling 'DeregisterElasticIp' . For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterElasticIP
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data RegisterElasticIP = RegisterElasticIP'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reiElasticIP'
+-- * 'reiElasticIP' - The Elastic IP address.
 --
--- * 'reiStackId'
+-- * 'reiStackId' - The stack ID.
 registerElasticIP
     :: Text -- ^ 'reiElasticIP'
     -> Text -- ^ 'reiStackId'
@@ -112,7 +114,9 @@ instance ToPath RegisterElasticIP where
 instance ToQuery RegisterElasticIP where
         toQuery = const mempty
 
--- | Contains the response to a 'RegisterElasticIp' request.
+-- | Contains the response to a @RegisterElasticIp@ request.
+--
+--
 --
 -- /See:/ 'registerElasticIPResponse' smart constructor.
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
@@ -124,9 +128,9 @@ data RegisterElasticIPResponse = RegisterElasticIPResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reirsElasticIP'
+-- * 'reirsElasticIP' - The Elastic IP address.
 --
--- * 'reirsResponseStatus'
+-- * 'reirsResponseStatus' - -- | The response status code.
 registerElasticIPResponse
     :: Int -- ^ 'reirsResponseStatus'
     -> RegisterElasticIPResponse
@@ -140,7 +144,7 @@ registerElasticIPResponse pResponseStatus_ =
 reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 
--- | The response status code.
+-- | -- | The response status code.
 reirsResponseStatus :: Lens' RegisterElasticIPResponse Int
 reirsResponseStatus = lens _reirsResponseStatus (\ s a -> s{_reirsResponseStatus = a});
 

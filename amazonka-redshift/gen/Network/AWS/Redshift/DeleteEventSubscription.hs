@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an Amazon Redshift event notification subscription.
+--
+--
 module Network.AWS.Redshift.DeleteEventSubscription
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
     { _desSubscriptionName :: Text
@@ -50,7 +54,7 @@ newtype DeleteEventSubscription = DeleteEventSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desSubscriptionName'
+-- * 'desSubscriptionName' - The name of the Amazon Redshift event notification subscription to be deleted.
 deleteEventSubscription
     :: Text -- ^ 'desSubscriptionName'
     -> DeleteEventSubscription

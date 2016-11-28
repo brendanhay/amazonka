@@ -21,7 +21,9 @@ import           Network.AWS.ELB.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Information about the 'AccessLog' attribute.
+-- | Information about the @AccessLog@ attribute.
+--
+--
 --
 -- /See:/ 'accessLog' smart constructor.
 data AccessLog = AccessLog'
@@ -35,13 +37,13 @@ data AccessLog = AccessLog'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'alEmitInterval'
+-- * 'alEmitInterval' - The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes. Default: 60 minutes
 --
--- * 'alS3BucketPrefix'
+-- * 'alS3BucketPrefix' - The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
 --
--- * 'alS3BucketName'
+-- * 'alS3BucketName' - The name of the Amazon S3 bucket where the access logs are stored.
 --
--- * 'alEnabled'
+-- * 'alEnabled' - Specifies whether access logs are enabled for the load balancer.
 accessLog
     :: Bool -- ^ 'alEnabled'
     -> AccessLog
@@ -53,13 +55,11 @@ accessLog pEnabled_ =
     , _alEnabled = pEnabled_
     }
 
--- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.
---
--- Default: 60 minutes
+-- | The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes. Default: 60 minutes
 alEmitInterval :: Lens' AccessLog (Maybe Int)
 alEmitInterval = lens _alEmitInterval (\ s a -> s{_alEmitInterval = a});
 
--- | The logical hierarchy you created for your Amazon S3 bucket, for example 'my-bucket-prefix\/prod'. If the prefix is not provided, the log is placed at the root level of the bucket.
+-- | The logical hierarchy you created for your Amazon S3 bucket, for example @my-bucket-prefix/prod@ . If the prefix is not provided, the log is placed at the root level of the bucket.
 alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix = lens _alS3BucketPrefix (\ s a -> s{_alS3BucketPrefix = a});
 
@@ -92,6 +92,8 @@ instance ToQuery AccessLog where
 
 -- | This data type is reserved.
 --
+--
+--
 -- /See:/ 'additionalAttribute' smart constructor.
 data AdditionalAttribute = AdditionalAttribute'
     { _aaValue :: !(Maybe Text)
@@ -102,9 +104,9 @@ data AdditionalAttribute = AdditionalAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaValue'
+-- * 'aaValue' - This parameter is reserved.
 --
--- * 'aaKey'
+-- * 'aaKey' - This parameter is reserved.
 additionalAttribute
     :: AdditionalAttribute
 additionalAttribute =
@@ -136,6 +138,8 @@ instance ToQuery AdditionalAttribute where
 
 -- | Information about a policy for application-controlled session stickiness.
 --
+--
+--
 -- /See:/ 'appCookieStickinessPolicy' smart constructor.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
     { _acspPolicyName :: !(Maybe Text)
@@ -146,9 +150,9 @@ data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acspPolicyName'
+-- * 'acspPolicyName' - The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.
 --
--- * 'acspCookieName'
+-- * 'acspCookieName' - The name of the application cookie used for stickiness.
 appCookieStickinessPolicy
     :: AppCookieStickinessPolicy
 appCookieStickinessPolicy =
@@ -176,6 +180,8 @@ instance NFData AppCookieStickinessPolicy
 
 -- | Information about the configuration of an EC2 instance.
 --
+--
+--
 -- /See:/ 'backendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
     { _bsdPolicyNames  :: !(Maybe [Text])
@@ -186,9 +192,9 @@ data BackendServerDescription = BackendServerDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bsdPolicyNames'
+-- * 'bsdPolicyNames' - The names of the policies enabled for the EC2 instance.
 --
--- * 'bsdInstancePort'
+-- * 'bsdInstancePort' - The port on which the EC2 instance is listening.
 backendServerDescription
     :: BackendServerDescription
 backendServerDescription =
@@ -216,7 +222,9 @@ instance Hashable BackendServerDescription
 
 instance NFData BackendServerDescription
 
--- | Information about the 'ConnectionDraining' attribute.
+-- | Information about the @ConnectionDraining@ attribute.
+--
+--
 --
 -- /See:/ 'connectionDraining' smart constructor.
 data ConnectionDraining = ConnectionDraining'
@@ -228,9 +236,9 @@ data ConnectionDraining = ConnectionDraining'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdTimeout'
+-- * 'cdTimeout' - The maximum time, in seconds, to keep the existing connections open before deregistering the instances.
 --
--- * 'cdEnabled'
+-- * 'cdEnabled' - Specifies whether connection draining is enabled for the load balancer.
 connectionDraining
     :: Bool -- ^ 'cdEnabled'
     -> ConnectionDraining
@@ -262,7 +270,9 @@ instance ToQuery ConnectionDraining where
           = mconcat
               ["Timeout" =: _cdTimeout, "Enabled" =: _cdEnabled]
 
--- | Information about the 'ConnectionSettings' attribute.
+-- | Information about the @ConnectionSettings@ attribute.
+--
+--
 --
 -- /See:/ 'connectionSettings' smart constructor.
 newtype ConnectionSettings = ConnectionSettings'
@@ -273,7 +283,7 @@ newtype ConnectionSettings = ConnectionSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csIdleTimeout'
+-- * 'csIdleTimeout' - The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.
 connectionSettings
     :: Natural -- ^ 'csIdleTimeout'
     -> ConnectionSettings
@@ -298,7 +308,9 @@ instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
           = mconcat ["IdleTimeout" =: _csIdleTimeout]
 
--- | Information about the 'CrossZoneLoadBalancing' attribute.
+-- | Information about the @CrossZoneLoadBalancing@ attribute.
+--
+--
 --
 -- /See:/ 'crossZoneLoadBalancing' smart constructor.
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
@@ -309,7 +321,7 @@ newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'czlbEnabled'
+-- * 'czlbEnabled' - Specifies whether cross-zone load balancing is enabled for the load balancer.
 crossZoneLoadBalancing
     :: Bool -- ^ 'czlbEnabled'
     -> CrossZoneLoadBalancing
@@ -336,6 +348,8 @@ instance ToQuery CrossZoneLoadBalancing where
 
 -- | Information about a health check.
 --
+--
+--
 -- /See:/ 'healthCheck' smart constructor.
 data HealthCheck = HealthCheck'
     { _hcTarget             :: !Text
@@ -349,15 +363,15 @@ data HealthCheck = HealthCheck'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hcTarget'
+-- * 'hcTarget' - The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy. SSL is also specified as SSL: port pair, for example, SSL:5000. For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy. The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 --
--- * 'hcInterval'
+-- * 'hcInterval' - The approximate interval, in seconds, between health checks of an individual instance.
 --
--- * 'hcTimeout'
+-- * 'hcTimeout' - The amount of time, in seconds, during which no response means a failed health check. This value must be less than the @Interval@ value.
 --
--- * 'hcUnhealthyThreshold'
+-- * 'hcUnhealthyThreshold' - The number of consecutive health check failures required before moving the instance to the @Unhealthy@ state.
 --
--- * 'hcHealthyThreshold'
+-- * 'hcHealthyThreshold' - The number of consecutive health checks successes required before moving the instance to the @Healthy@ state.
 healthCheck
     :: Text -- ^ 'hcTarget'
     -> Natural -- ^ 'hcInterval'
@@ -374,15 +388,7 @@ healthCheck pTarget_ pInterval_ pTimeout_ pUnhealthyThreshold_ pHealthyThreshold
     , _hcHealthyThreshold = _Nat # pHealthyThreshold_
     }
 
--- | The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535.
---
--- TCP is the default, specified as a TCP: port pair, for example \"TCP:5000\". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy.
---
--- SSL is also specified as SSL: port pair, for example, SSL:5000.
---
--- For HTTP\/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;\/;PathToPing; grouping, for example \"HTTP:80\/weather\/us\/wa\/seattle\". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than \"200 OK\" within the timeout period is considered unhealthy.
---
--- The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
+-- | The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range of valid ports is one (1) through 65535. TCP is the default, specified as a TCP: port pair, for example "TCP:5000". In this case, a health check simply attempts to open a TCP connection to the instance on the specified port. Failure to connect within the configured timeout is considered unhealthy. SSL is also specified as SSL: port pair, for example, SSL:5000. For HTTP/HTTPS, you must include a ping path in the string. HTTP is specified as a HTTP:port;/;PathToPing; grouping, for example "HTTP:80/weather/us/wa/seattle". In this case, a HTTP GET request is issued to the instance on the given port and path. Any answer other than "200 OK" within the timeout period is considered unhealthy. The total length of the HTTP ping target must be 1024 16-bit Unicode characters or less.
 hcTarget :: Lens' HealthCheck Text
 hcTarget = lens _hcTarget (\ s a -> s{_hcTarget = a});
 
@@ -390,17 +396,15 @@ hcTarget = lens _hcTarget (\ s a -> s{_hcTarget = a});
 hcInterval :: Lens' HealthCheck Natural
 hcInterval = lens _hcInterval (\ s a -> s{_hcInterval = a}) . _Nat;
 
--- | The amount of time, in seconds, during which no response means a failed health check.
---
--- This value must be less than the 'Interval' value.
+-- | The amount of time, in seconds, during which no response means a failed health check. This value must be less than the @Interval@ value.
 hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\ s a -> s{_hcTimeout = a}) . _Nat;
 
--- | The number of consecutive health check failures required before moving the instance to the 'Unhealthy' state.
+-- | The number of consecutive health check failures required before moving the instance to the @Unhealthy@ state.
 hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold = lens _hcUnhealthyThreshold (\ s a -> s{_hcUnhealthyThreshold = a}) . _Nat;
 
--- | The number of consecutive health checks successes required before moving the instance to the 'Healthy' state.
+-- | The number of consecutive health checks successes required before moving the instance to the @Healthy@ state.
 hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold = lens _hcHealthyThreshold (\ s a -> s{_hcHealthyThreshold = a}) . _Nat;
 
@@ -426,6 +430,8 @@ instance ToQuery HealthCheck where
 
 -- | The ID of an EC2 instance.
 --
+--
+--
 -- /See:/ 'instance'' smart constructor.
 newtype Instance = Instance'
     { _iInstanceId :: Maybe Text
@@ -435,7 +441,7 @@ newtype Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iInstanceId'
+-- * 'iInstanceId' - The instance ID.
 instance'
     :: Instance
 instance' =
@@ -460,6 +466,8 @@ instance ToQuery Instance where
 
 -- | Information about the state of an EC2 instance.
 --
+--
+--
 -- /See:/ 'instanceState' smart constructor.
 data InstanceState = InstanceState'
     { _isInstanceId  :: !(Maybe Text)
@@ -472,13 +480,13 @@ data InstanceState = InstanceState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isInstanceId'
+-- * 'isInstanceId' - The ID of the instance.
 --
--- * 'isState'
+-- * 'isState' - The current state of the instance. Valid values: @InService@ | @OutOfService@ | @Unknown@
 --
--- * 'isReasonCode'
+-- * 'isReasonCode' - Information about the cause of @OutOfService@ instances. Specifically, whether the cause is Elastic Load Balancing or the instance. Valid values: @ELB@ | @Instance@ | @N/A@
 --
--- * 'isDescription'
+-- * 'isDescription' - A description of the instance state. This string can contain one or more of the following messages.     * @N/A@      * @A transient error occurred. Please try again later.@      * @Instance has failed at least the UnhealthyThreshold number of health checks consecutively.@      * @Instance has not passed the configured HealthyThreshold number of health checks consecutively.@      * @Instance registration is still in progress.@      * @Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.@      * @Instance is not currently registered with the LoadBalancer.@      * @Instance deregistration currently in progress.@      * @Disable Availability Zone is currently in progress.@      * @Instance is in pending state.@      * @Instance is in stopped state.@      * @Instance is in terminated state.@
 instanceState
     :: InstanceState
 instanceState =
@@ -493,44 +501,15 @@ instanceState =
 isInstanceId :: Lens' InstanceState (Maybe Text)
 isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 
--- | The current state of the instance.
---
--- Valid values: 'InService' | 'OutOfService' | 'Unknown'
+-- | The current state of the instance. Valid values: @InService@ | @OutOfService@ | @Unknown@
 isState :: Lens' InstanceState (Maybe Text)
 isState = lens _isState (\ s a -> s{_isState = a});
 
--- | Information about the cause of 'OutOfService' instances. Specifically, whether the cause is Elastic Load Balancing or the instance.
---
--- Valid values: 'ELB' | 'Instance' | 'N\/A'
+-- | Information about the cause of @OutOfService@ instances. Specifically, whether the cause is Elastic Load Balancing or the instance. Valid values: @ELB@ | @Instance@ | @N/A@
 isReasonCode :: Lens' InstanceState (Maybe Text)
 isReasonCode = lens _isReasonCode (\ s a -> s{_isReasonCode = a});
 
--- | A description of the instance state. This string can contain one or more of the following messages.
---
--- -   'N\/A'
---
--- -   'A transient error occurred. Please try again later.'
---
--- -   'Instance has failed at least the UnhealthyThreshold number of health checks consecutively.'
---
--- -   'Instance has not passed the configured HealthyThreshold number of health checks consecutively.'
---
--- -   'Instance registration is still in progress.'
---
--- -   'Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.'
---
--- -   'Instance is not currently registered with the LoadBalancer.'
---
--- -   'Instance deregistration currently in progress.'
---
--- -   'Disable Availability Zone is currently in progress.'
---
--- -   'Instance is in pending state.'
---
--- -   'Instance is in stopped state.'
---
--- -   'Instance is in terminated state.'
---
+-- | A description of the instance state. This string can contain one or more of the following messages.     * @N/A@      * @A transient error occurred. Please try again later.@      * @Instance has failed at least the UnhealthyThreshold number of health checks consecutively.@      * @Instance has not passed the configured HealthyThreshold number of health checks consecutively.@      * @Instance registration is still in progress.@      * @Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.@      * @Instance is not currently registered with the LoadBalancer.@      * @Instance deregistration currently in progress.@      * @Disable Availability Zone is currently in progress.@      * @Instance is in pending state.@      * @Instance is in stopped state.@      * @Instance is in terminated state.@
 isDescription :: Lens' InstanceState (Maybe Text)
 isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
@@ -547,6 +526,8 @@ instance NFData InstanceState
 
 -- | Information about a policy for duration-based session stickiness.
 --
+--
+--
 -- /See:/ 'lBCookieStickinessPolicy' smart constructor.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
     { _lbcspPolicyName             :: !(Maybe Text)
@@ -557,9 +538,9 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbcspPolicyName'
+-- * 'lbcspPolicyName' - The name of the policy. This name must be unique within the set of policies for this load balancer.
 --
--- * 'lbcspCookieExpirationPeriod'
+-- * 'lbcspCookieExpirationPeriod' - The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.
 lBCookieStickinessPolicy
     :: LBCookieStickinessPolicy
 lBCookieStickinessPolicy =
@@ -588,7 +569,9 @@ instance NFData LBCookieStickinessPolicy
 
 -- | Information about a listener.
 --
--- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/.
+--
+-- For information about the protocols and the ports supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+--
 --
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
@@ -603,15 +586,15 @@ data Listener = Listener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lInstanceProtocol'
+-- * 'lInstanceProtocol' - The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL. If the front-end protocol is HTTP, HTTPS, TCP, or SSL, @InstanceProtocol@ must be at the same protocol. If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is secure, (HTTPS or SSL), the listener's @InstanceProtocol@ must also be secure. If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is HTTP or TCP, the listener's @InstanceProtocol@ must be HTTP or TCP.
 --
--- * 'lSSLCertificateId'
+-- * 'lSSLCertificateId' - The Amazon Resource Name (ARN) of the server certificate.
 --
--- * 'lProtocol'
+-- * 'lProtocol' - The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
 --
--- * 'lLoadBalancerPort'
+-- * 'lLoadBalancerPort' - The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
 --
--- * 'lInstancePort'
+-- * 'lInstancePort' - The port on which the instance is listening.
 listener
     :: Text -- ^ 'lProtocol'
     -> Int -- ^ 'lLoadBalancerPort'
@@ -626,13 +609,7 @@ listener pProtocol_ pLoadBalancerPort_ pInstancePort_ =
     , _lInstancePort = _Nat # pInstancePort_
     }
 
--- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
---
--- If the front-end protocol is HTTP, HTTPS, TCP, or SSL, 'InstanceProtocol' must be at the same protocol.
---
--- If there is another listener with the same 'InstancePort' whose 'InstanceProtocol' is secure, (HTTPS or SSL), the listener\'s 'InstanceProtocol' must also be secure.
---
--- If there is another listener with the same 'InstancePort' whose 'InstanceProtocol' is HTTP or TCP, the listener\'s 'InstanceProtocol' must be HTTP or TCP.
+-- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL. If the front-end protocol is HTTP, HTTPS, TCP, or SSL, @InstanceProtocol@ must be at the same protocol. If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is secure, (HTTPS or SSL), the listener's @InstanceProtocol@ must also be secure. If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is HTTP or TCP, the listener's @InstanceProtocol@ must be HTTP or TCP.
 lInstanceProtocol :: Lens' Listener (Maybe Text)
 lInstanceProtocol = lens _lInstanceProtocol (\ s a -> s{_lInstanceProtocol = a});
 
@@ -676,6 +653,8 @@ instance ToQuery Listener where
 
 -- | The policies enabled for a listener.
 --
+--
+--
 -- /See:/ 'listenerDescription' smart constructor.
 data ListenerDescription = ListenerDescription'
     { _ldPolicyNames :: !(Maybe [Text])
@@ -686,9 +665,9 @@ data ListenerDescription = ListenerDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldPolicyNames'
+-- * 'ldPolicyNames' - The policies. If there are no policies enabled, the list is empty.
 --
--- * 'ldListener'
+-- * 'ldListener' - Undocumented member.
 listenerDescription
     :: ListenerDescription
 listenerDescription =
@@ -718,6 +697,8 @@ instance NFData ListenerDescription
 
 -- | The attributes for a load balancer.
 --
+--
+--
 -- /See:/ 'loadBalancerAttributes' smart constructor.
 data LoadBalancerAttributes = LoadBalancerAttributes'
     { _lbaCrossZoneLoadBalancing :: !(Maybe CrossZoneLoadBalancing)
@@ -731,15 +712,15 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaCrossZoneLoadBalancing'
+-- * 'lbaCrossZoneLoadBalancing' - If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbaAccessLog'
+-- * 'lbaAccessLog' - If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbaAdditionalAttributes'
+-- * 'lbaAdditionalAttributes' - This parameter is reserved.
 --
--- * 'lbaConnectionSettings'
+-- * 'lbaConnectionSettings' - If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbaConnectionDraining'
+-- * 'lbaConnectionDraining' - If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 loadBalancerAttributes
     :: LoadBalancerAttributes
 loadBalancerAttributes =
@@ -751,15 +732,11 @@ loadBalancerAttributes =
     , _lbaConnectionDraining = Nothing
     }
 
--- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
---
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/.
+-- | If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Configure Cross-Zone Load Balancing> in the /Classic Load Balancers Guide/ .
 lbaCrossZoneLoadBalancing :: Lens' LoadBalancerAttributes (Maybe CrossZoneLoadBalancing)
 lbaCrossZoneLoadBalancing = lens _lbaCrossZoneLoadBalancing (\ s a -> s{_lbaCrossZoneLoadBalancing = a});
 
--- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.
---
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/.
+-- | If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html Enable Access Logs> in the /Classic Load Balancers Guide/ .
 lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 
@@ -767,15 +744,11 @@ lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
 lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a}) . _Default . _Coerce;
 
--- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
---
--- By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/.
+-- | If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration. By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Configure Idle Connection Timeout> in the /Classic Load Balancers Guide/ .
 lbaConnectionSettings :: Lens' LoadBalancerAttributes (Maybe ConnectionSettings)
 lbaConnectionSettings = lens _lbaConnectionSettings (\ s a -> s{_lbaConnectionSettings = a});
 
--- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
---
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/.
+-- | If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Configure Connection Draining> in the /Classic Load Balancers Guide/ .
 lbaConnectionDraining :: Lens' LoadBalancerAttributes (Maybe ConnectionDraining)
 lbaConnectionDraining = lens _lbaConnectionDraining (\ s a -> s{_lbaConnectionDraining = a});
 
@@ -808,6 +781,8 @@ instance ToQuery LoadBalancerAttributes where
 
 -- | Information about a load balancer.
 --
+--
+--
 -- /See:/ 'loadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdSourceSecurityGroup       :: !(Maybe SourceSecurityGroup)
@@ -832,37 +807,37 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbdSourceSecurityGroup'
+-- * 'lbdSourceSecurityGroup' - The security group for the load balancer, which you can use as part of your inbound rules for your registered instances. To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.
 --
--- * 'lbdCanonicalHostedZoneName'
+-- * 'lbdCanonicalHostedZoneName' - The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
 --
--- * 'lbdSecurityGroups'
+-- * 'lbdSecurityGroups' - The security groups for the load balancer. Valid only for load balancers in a VPC.
 --
--- * 'lbdHealthCheck'
+-- * 'lbdHealthCheck' - Information about the health checks conducted on the load balancer.
 --
--- * 'lbdLoadBalancerName'
+-- * 'lbdLoadBalancerName' - The name of the load balancer.
 --
--- * 'lbdCreatedTime'
+-- * 'lbdCreatedTime' - The date and time the load balancer was created.
 --
--- * 'lbdVPCId'
+-- * 'lbdVPCId' - The ID of the VPC for the load balancer.
 --
--- * 'lbdSubnets'
+-- * 'lbdSubnets' - The IDs of the subnets for the load balancer.
 --
--- * 'lbdAvailabilityZones'
+-- * 'lbdAvailabilityZones' - The Availability Zones for the load balancer.
 --
--- * 'lbdBackendServerDescriptions'
+-- * 'lbdBackendServerDescriptions' - Information about your EC2 instances.
 --
--- * 'lbdCanonicalHostedZoneNameId'
+-- * 'lbdCanonicalHostedZoneNameId' - The ID of the Amazon Route 53 hosted zone for the load balancer.
 --
--- * 'lbdInstances'
+-- * 'lbdInstances' - The IDs of the instances for the load balancer.
 --
--- * 'lbdScheme'
+-- * 'lbdScheme' - The type of load balancer. Valid only for load balancers in a VPC. If @Scheme@ is @internet-facing@ , the load balancer has a public DNS name that resolves to a public IP address. If @Scheme@ is @internal@ , the load balancer has a public DNS name that resolves to a private IP address.
 --
--- * 'lbdListenerDescriptions'
+-- * 'lbdListenerDescriptions' - The listeners for the load balancer.
 --
--- * 'lbdDNSName'
+-- * 'lbdDNSName' - The DNS name of the load balancer.
 --
--- * 'lbdPolicies'
+-- * 'lbdPolicies' - The policies defined for the load balancer.
 loadBalancerDescription
     :: LoadBalancerDescription
 loadBalancerDescription =
@@ -889,9 +864,7 @@ loadBalancerDescription =
 lbdSourceSecurityGroup :: Lens' LoadBalancerDescription (Maybe SourceSecurityGroup)
 lbdSourceSecurityGroup = lens _lbdSourceSecurityGroup (\ s a -> s{_lbdSourceSecurityGroup = a});
 
--- | The DNS name of the load balancer.
---
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/.
+-- | The DNS name of the load balancer. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html Configure a Custom Domain Name> in the /Classic Load Balancers Guide/ .
 lbdCanonicalHostedZoneName :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCanonicalHostedZoneName = a});
 
@@ -935,11 +908,7 @@ lbdCanonicalHostedZoneNameId = lens _lbdCanonicalHostedZoneNameId (\ s a -> s{_l
 lbdInstances :: Lens' LoadBalancerDescription [Instance]
 lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a}) . _Default . _Coerce;
 
--- | The type of load balancer. Valid only for load balancers in a VPC.
---
--- If 'Scheme' is 'internet-facing', the load balancer has a public DNS name that resolves to a public IP address.
---
--- If 'Scheme' is 'internal', the load balancer has a public DNS name that resolves to a private IP address.
+-- | The type of load balancer. Valid only for load balancers in a VPC. If @Scheme@ is @internet-facing@ , the load balancer has a public DNS name that resolves to a public IP address. If @Scheme@ is @internal@ , the load balancer has a public DNS name that resolves to a private IP address.
 lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
 
@@ -993,6 +962,8 @@ instance NFData LoadBalancerDescription
 
 -- | The policies for a load balancer.
 --
+--
+--
 -- /See:/ 'policies' smart constructor.
 data Policies = Policies'
     { _pOtherPolicies               :: !(Maybe [Text])
@@ -1004,11 +975,11 @@ data Policies = Policies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pOtherPolicies'
+-- * 'pOtherPolicies' - The policies other than the stickiness policies.
 --
--- * 'pLBCookieStickinessPolicies'
+-- * 'pLBCookieStickinessPolicies' - The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
 --
--- * 'pAppCookieStickinessPolicies'
+-- * 'pAppCookieStickinessPolicies' - The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
 policies
     :: Policies
 policies =
@@ -1022,11 +993,11 @@ policies =
 pOtherPolicies :: Lens' Policies [Text]
 pOtherPolicies = lens _pOtherPolicies (\ s a -> s{_pOtherPolicies = a}) . _Default . _Coerce;
 
--- | The stickiness policies created using < CreateLBCookieStickinessPolicy>.
+-- | The stickiness policies created using 'CreateLBCookieStickinessPolicy' .
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
 pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\ s a -> s{_pLBCookieStickinessPolicies = a}) . _Default . _Coerce;
 
--- | The stickiness policies created using < CreateAppCookieStickinessPolicy>.
+-- | The stickiness policies created using 'CreateAppCookieStickinessPolicy' .
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
 pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\ s a -> s{_pAppCookieStickinessPolicies = a}) . _Default . _Coerce;
 
@@ -1048,6 +1019,8 @@ instance NFData Policies
 
 -- | Information about a policy attribute.
 --
+--
+--
 -- /See:/ 'policyAttribute' smart constructor.
 data PolicyAttribute = PolicyAttribute'
     { _paAttributeValue :: !(Maybe Text)
@@ -1058,9 +1031,9 @@ data PolicyAttribute = PolicyAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paAttributeValue'
+-- * 'paAttributeValue' - The value of the attribute.
 --
--- * 'paAttributeName'
+-- * 'paAttributeName' - The name of the attribute.
 policyAttribute
     :: PolicyAttribute
 policyAttribute =
@@ -1089,6 +1062,8 @@ instance ToQuery PolicyAttribute where
 
 -- | Information about a policy attribute.
 --
+--
+--
 -- /See:/ 'policyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
     { _padAttributeValue :: !(Maybe Text)
@@ -1099,9 +1074,9 @@ data PolicyAttributeDescription = PolicyAttributeDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'padAttributeValue'
+-- * 'padAttributeValue' - The value of the attribute.
 --
--- * 'padAttributeName'
+-- * 'padAttributeName' - The name of the attribute.
 policyAttributeDescription
     :: PolicyAttributeDescription
 policyAttributeDescription =
@@ -1129,6 +1104,8 @@ instance NFData PolicyAttributeDescription
 
 -- | Information about a policy attribute type.
 --
+--
+--
 -- /See:/ 'policyAttributeTypeDescription' smart constructor.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
     { _patdAttributeType :: !(Maybe Text)
@@ -1142,15 +1119,15 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'patdAttributeType'
+-- * 'patdAttributeType' - The type of the attribute. For example, @Boolean@ or @Integer@ .
 --
--- * 'patdCardinality'
+-- * 'patdCardinality' - The cardinality of the attribute. Valid values:     * ONE(1) : Single value required     * ZERO_OR_ONE(0..1) : Up to one value is allowed     * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed     * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
 --
--- * 'patdDefaultValue'
+-- * 'patdDefaultValue' - The default value of the attribute, if applicable.
 --
--- * 'patdAttributeName'
+-- * 'patdAttributeName' - The name of the attribute.
 --
--- * 'patdDescription'
+-- * 'patdDescription' - A description of the attribute.
 policyAttributeTypeDescription
     :: PolicyAttributeTypeDescription
 policyAttributeTypeDescription =
@@ -1162,22 +1139,11 @@ policyAttributeTypeDescription =
     , _patdDescription = Nothing
     }
 
--- | The type of the attribute. For example, 'Boolean' or 'Integer'.
+-- | The type of the attribute. For example, @Boolean@ or @Integer@ .
 patdAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdAttributeType = lens _patdAttributeType (\ s a -> s{_patdAttributeType = a});
 
--- | The cardinality of the attribute.
---
--- Valid values:
---
--- -   ONE(1) : Single value required
---
--- -   ZERO_OR_ONE(0..1) : Up to one value is allowed
---
--- -   ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
---
--- -   ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
---
+-- | The cardinality of the attribute. Valid values:     * ONE(1) : Single value required     * ZERO_OR_ONE(0..1) : Up to one value is allowed     * ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed     * ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
 patdCardinality :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdCardinality = lens _patdCardinality (\ s a -> s{_patdCardinality = a});
 
@@ -1207,6 +1173,8 @@ instance NFData PolicyAttributeTypeDescription
 
 -- | Information about a policy.
 --
+--
+--
 -- /See:/ 'policyDescription' smart constructor.
 data PolicyDescription = PolicyDescription'
     { _pdPolicyName                  :: !(Maybe Text)
@@ -1218,11 +1186,11 @@ data PolicyDescription = PolicyDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdPolicyName'
+-- * 'pdPolicyName' - The name of the policy.
 --
--- * 'pdPolicyAttributeDescriptions'
+-- * 'pdPolicyAttributeDescriptions' - The policy attributes.
 --
--- * 'pdPolicyTypeName'
+-- * 'pdPolicyTypeName' - The name of the policy type.
 policyDescription
     :: PolicyDescription
 policyDescription =
@@ -1258,6 +1226,8 @@ instance NFData PolicyDescription
 
 -- | Information about a policy type.
 --
+--
+--
 -- /See:/ 'policyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
     { _ptdPolicyTypeName                  :: !(Maybe Text)
@@ -1269,11 +1239,11 @@ data PolicyTypeDescription = PolicyTypeDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptdPolicyTypeName'
+-- * 'ptdPolicyTypeName' - The name of the policy type.
 --
--- * 'ptdDescription'
+-- * 'ptdDescription' - A description of the policy type.
 --
--- * 'ptdPolicyAttributeTypeDescriptions'
+-- * 'ptdPolicyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
 policyTypeDescription
     :: PolicyTypeDescription
 policyTypeDescription =
@@ -1309,6 +1279,8 @@ instance NFData PolicyTypeDescription
 
 -- | Information about a source security group.
 --
+--
+--
 -- /See:/ 'sourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
     { _ssgOwnerAlias :: !(Maybe Text)
@@ -1319,9 +1291,9 @@ data SourceSecurityGroup = SourceSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssgOwnerAlias'
+-- * 'ssgOwnerAlias' - The owner of the security group.
 --
--- * 'ssgGroupName'
+-- * 'ssgGroupName' - The name of the security group.
 sourceSecurityGroup
     :: SourceSecurityGroup
 sourceSecurityGroup =
@@ -1349,6 +1321,8 @@ instance NFData SourceSecurityGroup
 
 -- | Information about a tag.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -1359,9 +1333,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
@@ -1393,6 +1367,8 @@ instance ToQuery Tag where
 
 -- | The tags associated with a load balancer.
 --
+--
+--
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
     { _tdLoadBalancerName :: !(Maybe Text)
@@ -1403,9 +1379,9 @@ data TagDescription = TagDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdLoadBalancerName'
+-- * 'tdLoadBalancerName' - The name of the load balancer.
 --
--- * 'tdTags'
+-- * 'tdTags' - The tags.
 tagDescription
     :: TagDescription
 tagDescription =
@@ -1435,6 +1411,8 @@ instance NFData TagDescription
 
 -- | The key of a tag.
 --
+--
+--
 -- /See:/ 'tagKeyOnly' smart constructor.
 newtype TagKeyOnly = TagKeyOnly'
     { _tkoKey :: Maybe Text
@@ -1444,7 +1422,7 @@ newtype TagKeyOnly = TagKeyOnly'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tkoKey'
+-- * 'tkoKey' - The name of the key.
 tagKeyOnly
     :: TagKeyOnly
 tagKeyOnly =

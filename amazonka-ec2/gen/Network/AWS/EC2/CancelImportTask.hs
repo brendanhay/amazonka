@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels an in-process import virtual machine or import snapshot task.
+--
+--
 module Network.AWS.EC2.CancelImportTask
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CancelImportTask.
 --
+--
+--
 -- /See:/ 'cancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
     { _citCancelReason :: !(Maybe Text)
@@ -59,11 +63,11 @@ data CancelImportTask = CancelImportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'citCancelReason'
+-- * 'citCancelReason' - The reason for canceling the task.
 --
--- * 'citImportTaskId'
+-- * 'citImportTaskId' - The ID of the import image or import snapshot task to be canceled.
 --
--- * 'citDryRun'
+-- * 'citDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cancelImportTask
     :: CancelImportTask
 cancelImportTask =
@@ -81,7 +85,7 @@ citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a});
 citImportTaskId :: Lens' CancelImportTask (Maybe Text)
 citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 citDryRun :: Lens' CancelImportTask (Maybe Bool)
 citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 
@@ -117,6 +121,8 @@ instance ToQuery CancelImportTask where
 
 -- | Contains the output for CancelImportTask.
 --
+--
+--
 -- /See:/ 'cancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
     { _citrsState          :: !(Maybe Text)
@@ -129,13 +135,13 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'citrsState'
+-- * 'citrsState' - The current state of the task being canceled.
 --
--- * 'citrsImportTaskId'
+-- * 'citrsImportTaskId' - The ID of the task being canceled.
 --
--- * 'citrsPreviousState'
+-- * 'citrsPreviousState' - The current state of the task being canceled.
 --
--- * 'citrsResponseStatus'
+-- * 'citrsResponseStatus' - -- | The response status code.
 cancelImportTaskResponse
     :: Int -- ^ 'citrsResponseStatus'
     -> CancelImportTaskResponse
@@ -159,7 +165,7 @@ citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a})
 citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
 
--- | The response status code.
+-- | -- | The response status code.
 citrsResponseStatus :: Lens' CancelImportTaskResponse Int
 citrsResponseStatus = lens _citrsResponseStatus (\ s a -> s{_citrsResponseStatus = a});
 

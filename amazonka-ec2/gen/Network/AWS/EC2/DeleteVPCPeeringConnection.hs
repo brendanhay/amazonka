@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it\'s in the 'active' state. The owner of the requester VPC can delete a VPC peering connection in the 'pending-acceptance' state.
+-- Deletes a VPC peering connection. Either the owner of the requester VPC or the owner of the peer VPC can delete the VPC peering connection if it's in the @active@ state. The owner of the requester VPC can delete a VPC peering connection in the @pending-acceptance@ state.
+--
+--
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'deleteVPCPeeringConnection' smart constructor.
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
     { _dvpcDryRun                 :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcDryRun'
+-- * 'dvpcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpcVPCPeeringConnectionId'
+-- * 'dvpcVPCPeeringConnectionId' - The ID of the VPC peering connection.
 deleteVPCPeeringConnection
     :: Text -- ^ 'dvpcVPCPeeringConnectionId'
     -> DeleteVPCPeeringConnection
@@ -67,7 +71,7 @@ deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
     , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
 dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 
@@ -107,6 +111,8 @@ instance ToQuery DeleteVPCPeeringConnection where
 
 -- | Contains the output of DeleteVpcPeeringConnection.
 --
+--
+--
 -- /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn         :: !(Maybe Bool)
@@ -117,9 +123,9 @@ data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvpcrsReturn'
+-- * 'dvpcrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
--- * 'dvpcrsResponseStatus'
+-- * 'dvpcrsResponseStatus' - -- | The response status code.
 deleteVPCPeeringConnectionResponse
     :: Int -- ^ 'dvpcrsResponseStatus'
     -> DeleteVPCPeeringConnectionResponse
@@ -129,11 +135,11 @@ deleteVPCPeeringConnectionResponse pResponseStatus_ =
     , _dvpcrsResponseStatus = pResponseStatus_
     }
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvpcrsResponseStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
 dvpcrsResponseStatus = lens _dvpcrsResponseStatus (\ s a -> s{_dvpcrsResponseStatus = a});
 

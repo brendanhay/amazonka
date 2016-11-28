@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a domain name that is contained in a simpler, more intuitive URL that can be called.
+--
+--
 module Network.AWS.APIGateway.GetDomainName
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to get the name of a < DomainName> resource.
+-- | Request to get the name of a 'DomainName' resource.
+--
+--
 --
 -- /See:/ 'getDomainName' smart constructor.
 newtype GetDomainName = GetDomainName'
@@ -55,7 +59,7 @@ newtype GetDomainName = GetDomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnDomainName'
+-- * 'gdnDomainName' - The name of the 'DomainName' resource.
 getDomainName
     :: Text -- ^ 'gdnDomainName'
     -> GetDomainName
@@ -64,7 +68,7 @@ getDomainName pDomainName_ =
     { _gdnDomainName = pDomainName_
     }
 
--- | The name of the < DomainName> resource.
+-- | The name of the 'DomainName' resource.
 gdnDomainName :: Lens' GetDomainName Text
 gdnDomainName = lens _gdnDomainName (\ s a -> s{_gdnDomainName = a});
 

@@ -20,6 +20,8 @@
 --
 -- Returns information about DB snapshots. This API action supports pagination.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSnapshots
     (
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
     { _ddsIncludeShared        :: !(Maybe Bool)
@@ -71,21 +75,21 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsIncludeShared'
+-- * 'ddsIncludeShared' - Set this value to @true@ to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to @false@ . The default is @false@ . You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the 'ModifyDBSnapshotAttribute' API action.
 --
--- * 'ddsFilters'
+-- * 'ddsFilters' - This parameter is not currently supported.
 --
--- * 'ddsDBSnapshotIdentifier'
+-- * 'ddsDBSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
--- * 'ddsSnapshotType'
+-- * 'ddsSnapshotType' - The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 --
--- * 'ddsDBInstanceIdentifier'
+-- * 'ddsDBInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddsMarker'
+-- * 'ddsMarker' - An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddsMaxRecords'
+-- * 'ddsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'ddsIncludePublic'
+-- * 'ddsIncludePublic' - Set this value to @true@ to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to @false@ . The default is @false@ . You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
 describeDBSnapshots
     :: DescribeDBSnapshots
 describeDBSnapshots =
@@ -100,9 +104,7 @@ describeDBSnapshots =
     , _ddsIncludePublic = Nothing
     }
 
--- | Set this value to 'true' to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to 'false'. The default is 'false'.
---
--- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the < ModifyDBSnapshotAttribute> API action.
+-- | Set this value to @true@ to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to @false@ . The default is @false@ . You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the 'ModifyDBSnapshotAttribute' API action.
 ddsIncludeShared :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 
@@ -110,65 +112,27 @@ ddsIncludeShared = lens _ddsIncludeShared (\ s a -> s{_ddsIncludeShared = a});
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
 ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce;
 
--- | A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with 'DBInstanceIdentifier'. This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- -   If this identifier is for an automated snapshot, the 'SnapshotType' parameter must also be specified.
---
+-- | A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
--- | The type of snapshots to be returned. You can specify one of the following values:
---
--- -   'automated' - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.
---
--- -   'manual' - Return all DB snapshots that have been taken by my AWS account.
---
--- -   'shared' - Return all manual DB snapshots that have been shared to my AWS account.
---
--- -   'public' - Return all DB snapshots that have been marked as public.
---
--- If you don\'t specify a 'SnapshotType' value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the 'IncludeShared' parameter to 'true'. You can include public snapshots with these results by setting the 'IncludePublic' parameter to 'true'.
---
--- The 'IncludeShared' and 'IncludePublic' parameters don\'t apply for 'SnapshotType' values of 'manual' or 'automated'. The 'IncludePublic' parameter doesn\'t apply when 'SnapshotType' is set to 'shared'. The 'IncludeShared' parameter doesn\'t apply when 'SnapshotType' is set to 'public'.
+-- | The type of snapshots to be returned. You can specify one of the following values:     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.     * @manual@ - Return all DB snapshots that have been taken by my AWS account.     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.     * @public@ - Return all DB snapshots that have been marked as public. If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by setting the @IncludeShared@ parameter to @true@ . You can include public snapshots with these results by setting the @IncludePublic@ parameter to @true@ . The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
--- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with 'DBSnapshotIdentifier'. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter cannot be used in conjunction with @DBSnapshotIdentifier@ . This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 
--- | An optional pagination token provided by a previous 'DescribeDBSnapshots' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
 ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
 ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 
--- | Set this value to 'true' to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to 'false'. The default is 'false'.
---
--- You can share a manual DB snapshot as public by using the < ModifyDBSnapshotAttribute> API.
+-- | Set this value to @true@ to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to @false@ . The default is @false@ . You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
 ddsIncludePublic :: Lens' DescribeDBSnapshots (Maybe Bool)
 ddsIncludePublic = lens _ddsIncludePublic (\ s a -> s{_ddsIncludePublic = a});
 
@@ -217,7 +181,9 @@ instance ToQuery DescribeDBSnapshots where
                "MaxRecords" =: _ddsMaxRecords,
                "IncludePublic" =: _ddsIncludePublic]
 
--- | Contains the result of a successful invocation of the < DescribeDBSnapshots> action.
+-- | Contains the result of a successful invocation of the 'DescribeDBSnapshots' action.
+--
+--
 --
 -- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
@@ -230,11 +196,11 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsrsMarker'
+-- * 'ddsrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddsrsDBSnapshots'
+-- * 'ddsrsDBSnapshots' - A list of 'DBSnapshot' instances.
 --
--- * 'ddsrsResponseStatus'
+-- * 'ddsrsResponseStatus' - -- | The response status code.
 describeDBSnapshotsResponse
     :: Int -- ^ 'ddsrsResponseStatus'
     -> DescribeDBSnapshotsResponse
@@ -245,15 +211,15 @@ describeDBSnapshotsResponse pResponseStatus_ =
     , _ddsrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 
--- | A list of < DBSnapshot> instances.
+-- | A list of 'DBSnapshot' instances.
 ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
 ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddsrsResponseStatus :: Lens' DescribeDBSnapshotsResponse Int
 ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
 

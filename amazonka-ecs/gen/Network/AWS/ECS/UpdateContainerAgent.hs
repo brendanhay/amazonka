@@ -20,7 +20,9 @@
 --
 -- Updates the Amazon ECS container agent on a specified container instance. Updating the Amazon ECS container agent does not interrupt running tasks or services on the container instance. The process for updating the agent differs depending on whether your container instance was launched with the Amazon ECS-optimized AMI or another operating system.
 --
--- 'UpdateContainerAgent' requires the Amazon ECS-optimized AMI or Amazon Linux with the 'ecs-init' service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/.
+--
+-- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon Linux with the @ecs-init@ service installed and running. For help updating the Amazon ECS container agent on other operating systems, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent> in the /Amazon EC2 Container Service Developer Guide/ .
+--
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data UpdateContainerAgent = UpdateContainerAgent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucaCluster'
+-- * 'ucaCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'ucaContainerInstance'
+-- * 'ucaContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) entries for the container instance on which you would like to update the Amazon ECS container agent.
 updateContainerAgent
     :: Text -- ^ 'ucaContainerInstance'
     -> UpdateContainerAgent
@@ -122,9 +124,9 @@ data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucarsContainerInstance'
+-- * 'ucarsContainerInstance' - Undocumented member.
 --
--- * 'ucarsResponseStatus'
+-- * 'ucarsResponseStatus' - -- | The response status code.
 updateContainerAgentResponse
     :: Int -- ^ 'ucarsResponseStatus'
     -> UpdateContainerAgentResponse
@@ -138,7 +140,7 @@ updateContainerAgentResponse pResponseStatus_ =
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ucarsResponseStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsResponseStatus = lens _ucarsResponseStatus (\ s a -> s{_ucarsResponseStatus = a});
 

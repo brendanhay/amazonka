@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the specified user pool with the specified attributes.
+--
+--
 module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to update the user pool.
 --
+--
+--
 -- /See:/ 'updateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
     { _uupEmailVerificationMessage :: !(Maybe Text)
@@ -74,29 +78,29 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupEmailVerificationMessage'
+-- * 'uupEmailVerificationMessage' - The contents of the email verification message.
 --
--- * 'uupSmsAuthenticationMessage'
+-- * 'uupSmsAuthenticationMessage' - The contents of the SMS authentication message.
 --
--- * 'uupEmailVerificationSubject'
+-- * 'uupEmailVerificationSubject' - The subject of the email verfication message
 --
--- * 'uupEmailConfiguration'
+-- * 'uupEmailConfiguration' - Email configuration.
 --
--- * 'uupSmsVerificationMessage'
+-- * 'uupSmsVerificationMessage' - A container with information about the SMS verification message.
 --
--- * 'uupMFAConfiguration'
+-- * 'uupMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
--- * 'uupLambdaConfig'
+-- * 'uupLambdaConfig' - The AWS Lambda configuration information from the request to update the user pool.
 --
--- * 'uupSmsConfiguration'
+-- * 'uupSmsConfiguration' - SMS configuration.
 --
--- * 'uupDeviceConfiguration'
+-- * 'uupDeviceConfiguration' - Device configuration.
 --
--- * 'uupAutoVerifiedAttributes'
+-- * 'uupAutoVerifiedAttributes' - The attributes that are automatically verified when the Amazon Cognito service makes a request to update user pools.
 --
--- * 'uupPolicies'
+-- * 'uupPolicies' - A container with the policies you wish to update in a user pool.
 --
--- * 'uupUserPoolId'
+-- * 'uupUserPoolId' - The user pool ID for the user pool you want to update.
 updateUserPool
     :: Text -- ^ 'uupUserPoolId'
     -> UpdateUserPool
@@ -136,11 +140,7 @@ uupEmailConfiguration = lens _uupEmailConfiguration (\ s a -> s{_uupEmailConfigu
 uupSmsVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsVerificationMessage = a});
 
--- | Can be one of the following values:
---
--- -   'OFF' - MFA tokens are not required and cannot be specified during user registration.
--- -   'ON' - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
--- -   'OPTIONAL' - Users have the option when registering to create an MFA token.
+-- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 uupMFAConfiguration :: Lens' UpdateUserPool (Maybe UserPoolMFAType)
 uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration = a});
 
@@ -221,6 +221,8 @@ instance ToQuery UpdateUserPool where
 
 -- | Represents the response from the server when you make a request to update the user pool.
 --
+--
+--
 -- /See:/ 'updateUserPoolResponse' smart constructor.
 newtype UpdateUserPoolResponse = UpdateUserPoolResponse'
     { _uuprsResponseStatus :: Int
@@ -230,7 +232,7 @@ newtype UpdateUserPoolResponse = UpdateUserPoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuprsResponseStatus'
+-- * 'uuprsResponseStatus' - -- | The response status code.
 updateUserPoolResponse
     :: Int -- ^ 'uuprsResponseStatus'
     -> UpdateUserPoolResponse
@@ -239,7 +241,7 @@ updateUserPoolResponse pResponseStatus_ =
     { _uuprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 uuprsResponseStatus :: Lens' UpdateUserPoolResponse Int
 uuprsResponseStatus = lens _uuprsResponseStatus (\ s a -> s{_uuprsResponseStatus = a});
 

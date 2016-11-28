@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a paginated list of the full details of a specific request. Use this operation after calling a request operation (< ProvisionProduct>, < TerminateProvisionedProduct>, or < UpdateProvisionedProduct>).
+-- Retrieves a paginated list of the full details of a specific request. Use this operation after calling a request operation ('ProvisionProduct' , 'TerminateProvisionedProduct' , or 'UpdateProvisionedProduct' ).
+--
+--
 module Network.AWS.ServiceCatalog.DescribeRecord
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data DescribeRecord = DescribeRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drAcceptLanguage'
+-- * 'drAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'drPageToken'
+-- * 'drPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 --
--- * 'drPageSize'
+-- * 'drPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 --
--- * 'drId'
+-- * 'drId' - The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the @RecordDetail.RecordId@ obtained from the request operation's response.
 describeRecord
     :: Text -- ^ 'drId'
     -> DescribeRecord
@@ -77,27 +79,19 @@ describeRecord pId_ =
     , _drId = pId_
     }
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
 drAcceptLanguage = lens _drAcceptLanguage (\ s a -> s{_drAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size 'PageSize'.
+-- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 drPageToken :: Lens' DescribeRecord (Maybe Text)
 drPageToken = lens _drPageToken (\ s a -> s{_drPageToken = a});
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified 'PageSize', the value of 'NextPageToken' in the response is non-null.
+-- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 drPageSize :: Lens' DescribeRecord (Maybe Natural)
 drPageSize = lens _drPageSize (\ s a -> s{_drPageSize = a}) . mapping _Nat;
 
--- | The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the 'RecordDetail.RecordId' obtained from the request operation\'s response.
+-- | The record identifier of the ProvisionedProduct object for which to retrieve output information. This is the @RecordDetail.RecordId@ obtained from the request operation's response.
 drId :: Lens' DescribeRecord Text
 drId = lens _drId (\ s a -> s{_drId = a});
 
@@ -153,13 +147,13 @@ data DescribeRecordResponse = DescribeRecordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsRecordDetail'
+-- * 'drrsRecordDetail' - Detailed record information for the specified product.
 --
--- * 'drrsNextPageToken'
+-- * 'drrsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'drrsRecordOutputs'
+-- * 'drrsRecordOutputs' - A list of outputs for the specified Product object created as the result of a request. For example, a CloudFormation-backed product that creates an S3 bucket would have an output for the S3 bucket URL.
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 describeRecordResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DescribeRecordResponse
@@ -183,7 +177,7 @@ drrsNextPageToken = lens _drrsNextPageToken (\ s a -> s{_drrsNextPageToken = a})
 drrsRecordOutputs :: Lens' DescribeRecordResponse [RecordOutput]
 drrsRecordOutputs = lens _drrsRecordOutputs (\ s a -> s{_drrsRecordOutputs = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DescribeRecordResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

@@ -287,7 +287,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-07-09' of the Amazon API Gateway SDK configuration.
+-- | API version @2015-07-09@ of the Amazon API Gateway SDK configuration.
 apiGateway :: Service
 apiGateway =
     Service

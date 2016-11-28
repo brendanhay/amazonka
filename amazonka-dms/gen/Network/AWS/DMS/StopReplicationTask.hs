@@ -20,6 +20,9 @@
 --
 -- Stops the replication task.
 --
+--
+--
+--
 module Network.AWS.DMS.StopReplicationTask
     (
     -- * Creating a Request
@@ -45,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'stopReplicationTask' smart constructor.
 newtype StopReplicationTask = StopReplicationTask'
     { _sReplicationTaskARN :: Text
@@ -54,7 +59,7 @@ newtype StopReplicationTask = StopReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sReplicationTaskARN'
+-- * 'sReplicationTaskARN' - The Amazon Resource Number(ARN) of the replication task to be stopped.
 stopReplicationTask
     :: Text -- ^ 'sReplicationTaskARN'
     -> StopReplicationTask
@@ -106,6 +111,8 @@ instance ToQuery StopReplicationTask where
 
 -- |
 --
+--
+--
 -- /See:/ 'stopReplicationTaskResponse' smart constructor.
 data StopReplicationTaskResponse = StopReplicationTaskResponse'
     { _srsReplicationTask :: !(Maybe ReplicationTask)
@@ -116,9 +123,9 @@ data StopReplicationTaskResponse = StopReplicationTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsReplicationTask'
+-- * 'srsReplicationTask' - The replication task stopped.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopReplicationTaskResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopReplicationTaskResponse
@@ -132,7 +139,7 @@ stopReplicationTaskResponse pResponseStatus_ =
 srsReplicationTask :: Lens' StopReplicationTaskResponse (Maybe ReplicationTask)
 srsReplicationTask = lens _srsReplicationTask (\ s a -> s{_srsReplicationTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopReplicationTaskResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

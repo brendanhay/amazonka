@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a run.
+--
+--
 module Network.AWS.DeviceFarm.GetRun
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get run operation.
 --
+--
+--
 -- /See:/ 'getRun' smart constructor.
 newtype GetRun = GetRun'
     { _grArn :: Text
@@ -53,7 +57,7 @@ newtype GetRun = GetRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grArn'
+-- * 'grArn' - The run's ARN.
 getRun
     :: Text -- ^ 'grArn'
     -> GetRun
@@ -62,7 +66,7 @@ getRun pArn_ =
     { _grArn = pArn_
     }
 
--- | The run\'s ARN.
+-- | The run's ARN.
 grArn :: Lens' GetRun Text
 grArn = lens _grArn (\ s a -> s{_grArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetRun where
 
 -- | Represents the result of a get run request.
 --
+--
+--
 -- /See:/ 'getRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
     { _grrsRun            :: !(Maybe Run)
@@ -110,9 +116,9 @@ data GetRunResponse = GetRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRun'
+-- * 'grrsRun' - Undocumented member.
 --
--- * 'grrsResponseStatus'
+-- * 'grrsResponseStatus' - -- | The response status code.
 getRunResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetRunResponse
@@ -126,7 +132,7 @@ getRunResponse pResponseStatus_ =
 grrsRun :: Lens' GetRunResponse (Maybe Run)
 grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grrsResponseStatus :: Lens' GetRunResponse Int
 grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
 

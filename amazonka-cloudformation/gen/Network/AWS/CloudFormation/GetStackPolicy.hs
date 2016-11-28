@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the stack policy for a specified stack. If a stack doesn\'t have a policy, a null value is returned.
+-- Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is returned.
+--
+--
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < GetStackPolicy> action.
+-- | The input for the 'GetStackPolicy' action.
+--
+--
 --
 -- /See:/ 'getStackPolicy' smart constructor.
 newtype GetStackPolicy = GetStackPolicy'
@@ -53,7 +57,7 @@ newtype GetStackPolicy = GetStackPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gspStackName'
+-- * 'gspStackName' - The name or unique stack ID that is associated with the stack whose policy you want to get.
 getStackPolicy
     :: Text -- ^ 'gspStackName'
     -> GetStackPolicy
@@ -92,7 +96,9 @@ instance ToQuery GetStackPolicy where
                "Version" =: ("2010-05-15" :: ByteString),
                "StackName" =: _gspStackName]
 
--- | The output for the < GetStackPolicy> action.
+-- | The output for the 'GetStackPolicy' action.
+--
+--
 --
 -- /See:/ 'getStackPolicyResponse' smart constructor.
 data GetStackPolicyResponse = GetStackPolicyResponse'
@@ -104,9 +110,9 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsprsStackPolicyBody'
+-- * 'gsprsStackPolicyBody' - Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
 --
--- * 'gsprsResponseStatus'
+-- * 'gsprsResponseStatus' - -- | The response status code.
 getStackPolicyResponse
     :: Int -- ^ 'gsprsResponseStatus'
     -> GetStackPolicyResponse
@@ -120,7 +126,7 @@ getStackPolicyResponse pResponseStatus_ =
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gsprsResponseStatus :: Lens' GetStackPolicyResponse Int
 gsprsResponseStatus = lens _gsprsResponseStatus (\ s a -> s{_gsprsResponseStatus = a});
 

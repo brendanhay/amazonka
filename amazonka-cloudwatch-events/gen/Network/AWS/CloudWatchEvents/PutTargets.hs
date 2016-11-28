@@ -20,15 +20,15 @@
 --
 -- Adds target(s) to a rule. Targets are the resources that can be invoked when a rule is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in targets. Updates the target(s) if they are already associated with the role. In other words, if there is already a target with the given target ID, then the target associated with that ID is updated.
 --
--- In order to be able to make API calls against the resources you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch Events relies on IAM roles. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html Permissions for Sending Events to Targets> in the __/Amazon CloudWatch Developer Guide/__.
+--
+-- In order to be able to make API calls against the resources you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch Events relies on IAM roles. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html Permissions for Sending Events to Targets> in the __/Amazon CloudWatch Developer Guide/ __ .
 --
 -- __Input__ and __InputPath__ are mutually-exclusive and optional parameters of a target. When a rule is triggered due to a matched event, if for a target:
 --
--- -   Neither __Input__ nor __InputPath__ is specified, then the entire event is passed to the target in JSON form.
--- -   __InputPath__ is specified in the form of JSONPath (e.g. __>.detail__), then only the part of the event specified in the path is passed to the target (e.g. only the detail part of the event is passed).
--- -   __Input__ is specified in the form of a valid JSON, then the matched event is overridden with this constant.
+--     * Neither __Input__ nor __InputPath__ is specified, then the entire event is passed to the target in JSON form.    * __InputPath__ is specified in the form of JSONPath (e.g. __> .detail__ ), then only the part of the event specified in the path is passed to the target (e.g. only the detail part of the event is passed).     * __Input__ is specified in the form of a valid JSON, then the matched event is overridden with this constant.
 --
 -- __Note:__ When you add targets to a rule, when the associated rule triggers, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.
+--
 module Network.AWS.CloudWatchEvents.PutTargets
     (
     -- * Creating a Request
@@ -54,7 +54,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < PutTargets> operation.
+-- | Container for the parameters to the 'PutTargets' operation.
+--
+--
 --
 -- /See:/ 'putTargets' smart constructor.
 data PutTargets = PutTargets'
@@ -66,9 +68,9 @@ data PutTargets = PutTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptRule'
+-- * 'ptRule' - The name of the rule you want to add targets to.
 --
--- * 'ptTargets'
+-- * 'ptTargets' - List of targets you want to update or add to the rule.
 putTargets
     :: Text -- ^ 'ptRule'
     -> PutTargets
@@ -123,7 +125,9 @@ instance ToPath PutTargets where
 instance ToQuery PutTargets where
         toQuery = const mempty
 
--- | The result of the < PutTargets> operation.
+-- | The result of the 'PutTargets' operation.
+--
+--
 --
 -- /See:/ 'putTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
@@ -136,11 +140,11 @@ data PutTargetsResponse = PutTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptrsFailedEntryCount'
+-- * 'ptrsFailedEntryCount' - The number of failed entries.
 --
--- * 'ptrsFailedEntries'
+-- * 'ptrsFailedEntries' - An array of failed target entries.
 --
--- * 'ptrsResponseStatus'
+-- * 'ptrsResponseStatus' - -- | The response status code.
 putTargetsResponse
     :: Int -- ^ 'ptrsResponseStatus'
     -> PutTargetsResponse
@@ -159,7 +163,7 @@ ptrsFailedEntryCount = lens _ptrsFailedEntryCount (\ s a -> s{_ptrsFailedEntryCo
 ptrsFailedEntries :: Lens' PutTargetsResponse [PutTargetsResultEntry]
 ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ptrsResponseStatus :: Lens' PutTargetsResponse Int
 ptrsResponseStatus = lens _ptrsResponseStatus (\ s a -> s{_ptrsResponseStatus = a});
 

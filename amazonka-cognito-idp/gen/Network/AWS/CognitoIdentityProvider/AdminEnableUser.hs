@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the specified user as an administrator. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminEnableUser
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request that enables the user as an administrator.
 --
+--
+--
 -- /See:/ 'adminEnableUser' smart constructor.
 data AdminEnableUser = AdminEnableUser'
     { _aeuUserPoolId :: !Text
@@ -54,9 +58,9 @@ data AdminEnableUser = AdminEnableUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aeuUserPoolId'
+-- * 'aeuUserPoolId' - The user pool ID for the user pool where you want to enable the user.
 --
--- * 'aeuUsername'
+-- * 'aeuUsername' - The user name of the user you wish to ebable.
 adminEnableUser
     :: Text -- ^ 'aeuUserPoolId'
     -> Text -- ^ 'aeuUsername'
@@ -112,6 +116,8 @@ instance ToQuery AdminEnableUser where
 
 -- | Represents the response from the server for the request to enable a user as an administrator.
 --
+--
+--
 -- /See:/ 'adminEnableUserResponse' smart constructor.
 newtype AdminEnableUserResponse = AdminEnableUserResponse'
     { _aeursResponseStatus :: Int
@@ -121,7 +127,7 @@ newtype AdminEnableUserResponse = AdminEnableUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aeursResponseStatus'
+-- * 'aeursResponseStatus' - -- | The response status code.
 adminEnableUserResponse
     :: Int -- ^ 'aeursResponseStatus'
     -> AdminEnableUserResponse
@@ -130,7 +136,7 @@ adminEnableUserResponse pResponseStatus_ =
     { _aeursResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 aeursResponseStatus :: Lens' AdminEnableUserResponse Int
 aeursResponseStatus = lens _aeursResponseStatus (\ s a -> s{_aeursResponseStatus = a});
 

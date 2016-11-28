@@ -20,6 +20,8 @@
 --
 -- The /DescribeEngineDefaultParameters/ action returns the default engine and system parameter information for the specified cache engine.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /DescribeEngineDefaultParameters/ action.
 --
+--
+--
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     { _dedpMarker                    :: !(Maybe Text)
@@ -60,11 +64,11 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedpMarker'
+-- * 'dedpMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
 --
--- * 'dedpMaxRecords'
+-- * 'dedpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
--- * 'dedpCacheParameterGroupFamily'
+-- * 'dedpCacheParameterGroupFamily' - The name of the cache parameter group family. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@
 describeEngineDefaultParameters
     :: Text -- ^ 'dedpCacheParameterGroupFamily'
     -> DescribeEngineDefaultParameters
@@ -75,19 +79,15 @@ describeEngineDefaultParameters pCacheParameterGroupFamily_ =
     , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
     }
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/.
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: minimum 20; maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
--- | The name of the cache parameter group family. Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
+-- | The name of the cache parameter group family. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@
 dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
 dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
 
@@ -149,9 +149,9 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedprsResponseStatus'
+-- * 'dedprsResponseStatus' - -- | The response status code.
 --
--- * 'dedprsEngineDefaults'
+-- * 'dedprsEngineDefaults' - Undocumented member.
 describeEngineDefaultParametersResponse
     :: Int -- ^ 'dedprsResponseStatus'
     -> EngineDefaults -- ^ 'dedprsEngineDefaults'
@@ -162,7 +162,7 @@ describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
     , _dedprsEngineDefaults = pEngineDefaults_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
 dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a});
 

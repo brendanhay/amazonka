@@ -20,7 +20,9 @@
 --
 -- Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
+--
 -- ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.
+--
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Creating a Request
@@ -63,13 +65,13 @@ data ListDatasets = ListDatasets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldNextToken'
+-- * 'ldNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'ldMaxResults'
+-- * 'ldMaxResults' - The maximum number of results to be returned.
 --
--- * 'ldIdentityId'
+-- * 'ldIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
--- * 'ldIdentityPoolId'
+-- * 'ldIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 listDatasets
     :: Text -- ^ 'ldIdentityId'
     -> Text -- ^ 'ldIdentityPoolId'
@@ -146,13 +148,13 @@ data ListDatasetsResponse = ListDatasetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsCount'
+-- * 'ldrsCount' - Number of datasets returned.
 --
--- * 'ldrsNextToken'
+-- * 'ldrsNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'ldrsDatasets'
+-- * 'ldrsDatasets' - A set of datasets.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDatasetsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDatasetsResponse
@@ -176,7 +178,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDatasetsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

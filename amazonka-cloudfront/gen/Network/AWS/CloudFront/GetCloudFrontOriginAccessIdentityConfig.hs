@@ -43,7 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to get an origin access identity\'s configuration.
+-- | The request to get an origin access identity's configuration.
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfig' smart constructor.
 newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig'
@@ -54,7 +54,7 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfoaicId'
+-- * 'gcfoaicId' - The identity's id.
 getCloudFrontOriginAccessIdentityConfig
     :: Text -- ^ 'gcfoaicId'
     -> GetCloudFrontOriginAccessIdentityConfig
@@ -63,7 +63,7 @@ getCloudFrontOriginAccessIdentityConfig pId_ =
     { _gcfoaicId = pId_
     }
 
--- | The identity\'s id.
+-- | The identity's id.
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\ s a -> s{_gcfoaicId = a});
 
@@ -113,11 +113,11 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfoaicrsCloudFrontOriginAccessIdentityConfig'
+-- * 'gcfoaicrsCloudFrontOriginAccessIdentityConfig' - The origin access identity's configuration information.
 --
--- * 'gcfoaicrsETag'
+-- * 'gcfoaicrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
 --
--- * 'gcfoaicrsResponseStatus'
+-- * 'gcfoaicrsResponseStatus' - -- | The response status code.
 getCloudFrontOriginAccessIdentityConfigResponse
     :: Int -- ^ 'gcfoaicrsResponseStatus'
     -> GetCloudFrontOriginAccessIdentityConfigResponse
@@ -128,7 +128,7 @@ getCloudFrontOriginAccessIdentityConfigResponse pResponseStatus_ =
     , _gcfoaicrsResponseStatus = pResponseStatus_
     }
 
--- | The origin access identity\'s configuration information.
+-- | The origin access identity's configuration information.
 gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
 gcfoaicrsCloudFrontOriginAccessIdentityConfig = lens _gcfoaicrsCloudFrontOriginAccessIdentityConfig (\ s a -> s{_gcfoaicrsCloudFrontOriginAccessIdentityConfig = a});
 
@@ -136,7 +136,7 @@ gcfoaicrsCloudFrontOriginAccessIdentityConfig = lens _gcfoaicrsCloudFrontOriginA
 gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrsETag = lens _gcfoaicrsETag (\ s a -> s{_gcfoaicrsETag = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcfoaicrsResponseStatus :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse Int
 gcfoaicrsResponseStatus = lens _gcfoaicrsResponseStatus (\ s a -> s{_gcfoaicrsResponseStatus = a});
 

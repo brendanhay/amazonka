@@ -20,11 +20,13 @@
 --
 -- Deletes the specified policy.
 --
+--
 -- A policy cannot be deleted if it has non-default versions or it is attached to any certificate.
 --
 -- To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.
 --
 -- When a policy is deleted using DeletePolicy, its default version is deleted with it.
+--
 module Network.AWS.IoT.DeletePolicy
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the DeletePolicy operation.
 --
+--
+--
 -- /See:/ 'deletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
     { _dpPolicyName :: Text
@@ -56,7 +60,7 @@ newtype DeletePolicy = DeletePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpPolicyName'
+-- * 'dpPolicyName' - The name of the policy to delete.
 deletePolicy
     :: Text -- ^ 'dpPolicyName'
     -> DeletePolicy

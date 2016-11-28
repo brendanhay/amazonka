@@ -20,11 +20,13 @@
 --
 -- Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.
 --
+--
 -- We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.
 --
--- After you add an entry, you can\'t modify it; you must either replace it, or create an entry and delete the old one.
+-- After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.
 --
--- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/.
+-- For more information about network ACLs, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateNetworkACLEntry
     (
     -- * Creating a Request
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateNetworkAclEntry.
 --
+--
+--
 -- /See:/ 'createNetworkACLEntry' smart constructor.
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
     { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
@@ -72,23 +76,23 @@ data CreateNetworkACLEntry = CreateNetworkACLEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cnaeICMPTypeCode'
+-- * 'cnaeICMPTypeCode' - ICMP protocol: The ICMP type and code. Required if specifying ICMP for the protocol.
 --
--- * 'cnaePortRange'
+-- * 'cnaePortRange' - TCP or UDP protocols: The range of ports the rule applies to.
 --
--- * 'cnaeDryRun'
+-- * 'cnaeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cnaeNetworkACLId'
+-- * 'cnaeNetworkACLId' - The ID of the network ACL.
 --
--- * 'cnaeRuleNumber'
+-- * 'cnaeRuleNumber' - The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number. Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
 --
--- * 'cnaeProtocol'
+-- * 'cnaeProtocol' - The protocol. A value of -1 means all protocols.
 --
--- * 'cnaeRuleAction'
+-- * 'cnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
--- * 'cnaeEgress'
+-- * 'cnaeEgress' - Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
 --
--- * 'cnaeCIdRBlock'
+-- * 'cnaeCIdRBlock' - The network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
 createNetworkACLEntry
     :: Text -- ^ 'cnaeNetworkACLId'
     -> Int -- ^ 'cnaeRuleNumber'
@@ -118,7 +122,7 @@ cnaeICMPTypeCode = lens _cnaeICMPTypeCode (\ s a -> s{_cnaeICMPTypeCode = a});
 cnaePortRange :: Lens' CreateNetworkACLEntry (Maybe PortRange)
 cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cnaeDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
 cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
 
@@ -126,9 +130,7 @@ cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
 cnaeNetworkACLId :: Lens' CreateNetworkACLEntry Text
 cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a});
 
--- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
---
--- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
+-- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number. Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
 cnaeRuleNumber :: Lens' CreateNetworkACLEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a});
 
@@ -144,7 +146,7 @@ cnaeRuleAction = lens _cnaeRuleAction (\ s a -> s{_cnaeRuleAction = a});
 cnaeEgress :: Lens' CreateNetworkACLEntry Bool
 cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
 
--- | The network range to allow or deny, in CIDR notation (for example '172.16.0.0\/24').
+-- | The network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ).
 cnaeCIdRBlock :: Lens' CreateNetworkACLEntry Text
 cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
 

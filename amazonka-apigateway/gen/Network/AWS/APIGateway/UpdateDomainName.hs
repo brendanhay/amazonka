@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the < DomainName> resource.
+-- Changes information about the 'DomainName' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateDomainName
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to change information about the < DomainName> resource.
+-- | A request to change information about the 'DomainName' resource.
+--
+--
 --
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
@@ -57,9 +61,9 @@ data UpdateDomainName = UpdateDomainName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udnPatchOperations'
+-- * 'udnPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udnDomainName'
+-- * 'udnDomainName' - The name of the 'DomainName' resource to be changed.
 updateDomainName
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainName
@@ -73,7 +77,7 @@ updateDomainName pDomainName_ =
 udnPatchOperations :: Lens' UpdateDomainName [PatchOperation]
 udnPatchOperations = lens _udnPatchOperations (\ s a -> s{_udnPatchOperations = a}) . _Default . _Coerce;
 
--- | The name of the < DomainName> resource to be changed.
+-- | The name of the 'DomainName' resource to be changed.
 udnDomainName :: Lens' UpdateDomainName Text
 udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 

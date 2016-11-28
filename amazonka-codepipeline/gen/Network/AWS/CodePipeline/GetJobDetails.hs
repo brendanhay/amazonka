@@ -20,7 +20,9 @@
 --
 -- Returns information about a job. Only used for custom actions.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
+-- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns any secret values defined for the action.
+--
 module Network.AWS.CodePipeline.GetJobDetails
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get job details action.
 --
+--
+--
 -- /See:/ 'getJobDetails' smart constructor.
 newtype GetJobDetails = GetJobDetails'
     { _gjdJobId :: Text
@@ -55,7 +59,7 @@ newtype GetJobDetails = GetJobDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdJobId'
+-- * 'gjdJobId' - The unique system-generated ID for the job.
 getJobDetails
     :: Text -- ^ 'gjdJobId'
     -> GetJobDetails
@@ -103,6 +107,8 @@ instance ToQuery GetJobDetails where
 
 -- | Represents the output of a get job details action.
 --
+--
+--
 -- /See:/ 'getJobDetailsResponse' smart constructor.
 data GetJobDetailsResponse = GetJobDetailsResponse'
     { _gjdrsJobDetails     :: !(Maybe JobDetails)
@@ -113,9 +119,9 @@ data GetJobDetailsResponse = GetJobDetailsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdrsJobDetails'
+-- * 'gjdrsJobDetails' - The details of the job.
 --
--- * 'gjdrsResponseStatus'
+-- * 'gjdrsResponseStatus' - -- | The response status code.
 getJobDetailsResponse
     :: Int -- ^ 'gjdrsResponseStatus'
     -> GetJobDetailsResponse
@@ -126,12 +132,10 @@ getJobDetailsResponse pResponseStatus_ =
     }
 
 -- | The details of the job.
---
--- If AWSSessionCredentials is used, a long-running job can call GetJobDetails again to obtain new credentials.
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gjdrsResponseStatus :: Lens' GetJobDetailsResponse Int
 gjdrsResponseStatus = lens _gjdrsResponseStatus (\ s a -> s{_gjdrsResponseStatus = a});
 

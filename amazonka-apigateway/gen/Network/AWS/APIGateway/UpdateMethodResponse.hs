@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing < MethodResponse> resource.
+-- Updates an existing 'MethodResponse' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateMethodResponse
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to update an existing < MethodResponse> resource.
+-- | A request to update an existing 'MethodResponse' resource.
+--
+--
 --
 -- /See:/ 'updateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
@@ -62,15 +66,15 @@ data UpdateMethodResponse = UpdateMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umPatchOperations'
+-- * 'umPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'umRestAPIId'
+-- * 'umRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
 --
--- * 'umResourceId'
+-- * 'umResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'umHttpMethod'
+-- * 'umHttpMethod' - The HTTP verb of the 'Method' resource.
 --
--- * 'umStatusCode'
+-- * 'umStatusCode' - The status code for the 'MethodResponse' resource.
 updateMethodResponse
     :: Text -- ^ 'umRestAPIId'
     -> Text -- ^ 'umResourceId'
@@ -90,19 +94,19 @@ updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
 umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce;
 
--- | The < RestApi> identifier for the < MethodResponse> resource.
+-- | The 'RestApi' identifier for the 'MethodResponse' resource.
 umRestAPIId :: Lens' UpdateMethodResponse Text
 umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a});
 
--- | The < Resource> identifier for the < MethodResponse> resource.
+-- | The 'Resource' identifier for the 'MethodResponse' resource.
 umResourceId :: Lens' UpdateMethodResponse Text
 umResourceId = lens _umResourceId (\ s a -> s{_umResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 umHttpMethod :: Lens' UpdateMethodResponse Text
 umHttpMethod = lens _umHttpMethod (\ s a -> s{_umHttpMethod = a});
 
--- | The status code for the < MethodResponse> resource.
+-- | The status code for the 'MethodResponse' resource.
 umStatusCode :: Lens' UpdateMethodResponse Text
 umStatusCode = lens _umStatusCode (\ s a -> s{_umStatusCode = a});
 

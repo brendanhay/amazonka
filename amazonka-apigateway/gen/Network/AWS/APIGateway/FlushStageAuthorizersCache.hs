@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes all authorizer cache entries on a stage.
+--
+--
 module Network.AWS.APIGateway.FlushStageAuthorizersCache
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Request to flush authorizer cache entries on a specified stage.
 --
+--
+--
 -- /See:/ 'flushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
     { _fsacRestAPIId :: !Text
@@ -52,9 +56,9 @@ data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsacRestAPIId'
+-- * 'fsacRestAPIId' - The API identifier of the stage to flush.
 --
--- * 'fsacStageName'
+-- * 'fsacStageName' - The name of the stage to flush.
 flushStageAuthorizersCache
     :: Text -- ^ 'fsacRestAPIId'
     -> Text -- ^ 'fsacStageName'

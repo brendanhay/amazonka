@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about one or more on-premises instances.
+--
+--
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a batch get on-premises instances operation.
 --
+--
+--
 -- /See:/ 'batchGetOnPremisesInstances' smart constructor.
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
     { _bgopiInstanceNames :: Maybe [Text]
@@ -53,7 +57,7 @@ newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgopiInstanceNames'
+-- * 'bgopiInstanceNames' - The names of the on-premises instances about which to get information.
 batchGetOnPremisesInstances
     :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances =
@@ -104,6 +108,8 @@ instance ToQuery BatchGetOnPremisesInstances where
 
 -- | Represents the output of a batch get on-premises instances operation.
 --
+--
+--
 -- /See:/ 'batchGetOnPremisesInstancesResponse' smart constructor.
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos  :: !(Maybe [InstanceInfo])
@@ -114,9 +120,9 @@ data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgopirsInstanceInfos'
+-- * 'bgopirsInstanceInfos' - Information about the on-premises instances.
 --
--- * 'bgopirsResponseStatus'
+-- * 'bgopirsResponseStatus' - -- | The response status code.
 batchGetOnPremisesInstancesResponse
     :: Int -- ^ 'bgopirsResponseStatus'
     -> BatchGetOnPremisesInstancesResponse
@@ -130,7 +136,7 @@ batchGetOnPremisesInstancesResponse pResponseStatus_ =
 bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgopirsResponseStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
 bgopirsResponseStatus = lens _bgopirsResponseStatus (\ s a -> s{_bgopirsResponseStatus = a});
 

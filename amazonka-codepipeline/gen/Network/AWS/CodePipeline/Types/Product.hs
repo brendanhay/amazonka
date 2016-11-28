@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
+--
+--
 -- /See:/ 'awsSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
     { _ascAccessKeyId     :: !Text
@@ -34,11 +36,11 @@ data AWSSessionCredentials = AWSSessionCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ascAccessKeyId'
+-- * 'ascAccessKeyId' - The access key for the session.
 --
--- * 'ascSecretAccessKey'
+-- * 'ascSecretAccessKey' - The secret access key for the session.
 --
--- * 'ascSessionToken'
+-- * 'ascSessionToken' - The token for the session.
 awsSessionCredentials
     :: Text -- ^ 'ascAccessKeyId'
     -> Text -- ^ 'ascSecretAccessKey'
@@ -77,6 +79,8 @@ instance NFData AWSSessionCredentials
 
 -- | Represents information about an action configuration.
 --
+--
+--
 -- /See:/ 'actionConfiguration' smart constructor.
 newtype ActionConfiguration = ActionConfiguration'
     { _acConfiguration :: Maybe (Map Text Text)
@@ -86,7 +90,7 @@ newtype ActionConfiguration = ActionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acConfiguration'
+-- * 'acConfiguration' - The configuration data for the action.
 actionConfiguration
     :: ActionConfiguration
 actionConfiguration =
@@ -111,6 +115,8 @@ instance NFData ActionConfiguration
 
 -- | Represents information about an action configuration property.
 --
+--
+--
 -- /See:/ 'actionConfigurationProperty' smart constructor.
 data ActionConfigurationProperty = ActionConfigurationProperty'
     { _acpQueryable   :: !(Maybe Bool)
@@ -126,19 +132,19 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acpQueryable'
+-- * 'acpQueryable' - Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 --
--- * 'acpType'
+-- * 'acpType' - The type of the configuration property.
 --
--- * 'acpDescription'
+-- * 'acpDescription' - The description of the action configuration property that will be displayed to users.
 --
--- * 'acpName'
+-- * 'acpName' - The name of the action configuration property.
 --
--- * 'acpRequired'
+-- * 'acpRequired' - Whether the configuration property is a required value.
 --
--- * 'acpKey'
+-- * 'acpKey' - Whether the configuration property is a key.
 --
--- * 'acpSecret'
+-- * 'acpSecret' - Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs. When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
 actionConfigurationProperty
     :: Text -- ^ 'acpName'
     -> Bool -- ^ 'acpRequired'
@@ -156,9 +162,7 @@ actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
     , _acpSecret = pSecret_
     }
 
--- | Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
---
--- If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+-- | Indicates that the proprety will be used in conjunction with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to additional restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 acpQueryable :: Lens' ActionConfigurationProperty (Maybe Bool)
 acpQueryable = lens _acpQueryable (\ s a -> s{_acpQueryable = a});
 
@@ -182,9 +186,7 @@ acpRequired = lens _acpRequired (\ s a -> s{_acpRequired = a});
 acpKey :: Lens' ActionConfigurationProperty Bool
 acpKey = lens _acpKey (\ s a -> s{_acpKey = a});
 
--- | Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
---
--- When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
+-- | Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs. When updating a pipeline, passing * * * * * without changing any other values of the action will preserve the prior value of the secret.
 acpSecret :: Lens' ActionConfigurationProperty Bool
 acpSecret = lens _acpSecret (\ s a -> s{_acpSecret = a});
 
@@ -218,6 +220,8 @@ instance ToJSON ActionConfigurationProperty where
 
 -- | Represents the context of an action within the stage of a pipeline to a job worker.
 --
+--
+--
 -- /See:/ 'actionContext' smart constructor.
 newtype ActionContext = ActionContext'
     { _acName :: Maybe Text
@@ -227,7 +231,7 @@ newtype ActionContext = ActionContext'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acName'
+-- * 'acName' - The name of the action within the context of a job.
 actionContext
     :: ActionContext
 actionContext =
@@ -250,6 +254,8 @@ instance NFData ActionContext
 
 -- | Represents information about an action declaration.
 --
+--
+--
 -- /See:/ 'actionDeclaration' smart constructor.
 data ActionDeclaration = ActionDeclaration'
     { _adOutputArtifacts :: !(Maybe [OutputArtifact])
@@ -265,19 +271,19 @@ data ActionDeclaration = ActionDeclaration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adOutputArtifacts'
+-- * 'adOutputArtifacts' - The name or ID of the result of the action declaration, such as a test or build artifact.
 --
--- * 'adRunOrder'
+-- * 'adRunOrder' - The order in which actions are run.
 --
--- * 'adConfiguration'
+-- * 'adConfiguration' - The action declaration's configuration.
 --
--- * 'adInputArtifacts'
+-- * 'adInputArtifacts' - The name or ID of the artifact consumed by the action, such as a test or build artifact.
 --
--- * 'adRoleARN'
+-- * 'adRoleARN' - The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
 --
--- * 'adName'
+-- * 'adName' - The action declaration's name.
 --
--- * 'adActionTypeId'
+-- * 'adActionTypeId' - The configuration information for the action type.
 actionDeclaration
     :: Text -- ^ 'adName'
     -> ActionTypeId -- ^ 'adActionTypeId'
@@ -301,7 +307,7 @@ adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a})
 adRunOrder :: Lens' ActionDeclaration (Maybe Natural)
 adRunOrder = lens _adRunOrder (\ s a -> s{_adRunOrder = a}) . mapping _Nat;
 
--- | The action declaration\'s configuration.
+-- | The action declaration's configuration.
 adConfiguration :: Lens' ActionDeclaration (HashMap Text Text)
 adConfiguration = lens _adConfiguration (\ s a -> s{_adConfiguration = a}) . _Default . _Map;
 
@@ -313,7 +319,7 @@ adInputArtifacts = lens _adInputArtifacts (\ s a -> s{_adInputArtifacts = a}) . 
 adRoleARN :: Lens' ActionDeclaration (Maybe Text)
 adRoleARN = lens _adRoleARN (\ s a -> s{_adRoleARN = a});
 
--- | The action declaration\'s name.
+-- | The action declaration's name.
 adName :: Lens' ActionDeclaration Text
 adName = lens _adName (\ s a -> s{_adName = a});
 
@@ -352,6 +358,8 @@ instance ToJSON ActionDeclaration where
 
 -- | Represents information about the run of an action.
 --
+--
+--
 -- /See:/ 'actionExecution' smart constructor.
 data ActionExecution = ActionExecution'
     { _aeLastUpdatedBy        :: !(Maybe Text)
@@ -369,23 +377,23 @@ data ActionExecution = ActionExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aeLastUpdatedBy'
+-- * 'aeLastUpdatedBy' - The ARN of the user who last changed the pipeline.
 --
--- * 'aeSummary'
+-- * 'aeSummary' - A summary of the run of the action.
 --
--- * 'aeStatus'
+-- * 'aeStatus' - The status of the action, or for a completed action, the last status of the action.
 --
--- * 'aeLastStatusChange'
+-- * 'aeLastStatusChange' - The last status change of the action.
 --
--- * 'aeToken'
+-- * 'aeToken' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command and is used to validate that the approval request corresponding to this token is still valid.
 --
--- * 'aeExternalExecutionURL'
+-- * 'aeExternalExecutionURL' - The URL of a resource external to AWS that will be used when running the action, for example an external repository URL.
 --
--- * 'aeExternalExecutionId'
+-- * 'aeExternalExecutionId' - The external ID of the run of the action.
 --
--- * 'aeErrorDetails'
+-- * 'aeErrorDetails' - The details of an error returned by a URL external to AWS.
 --
--- * 'aePercentComplete'
+-- * 'aePercentComplete' - A percentage of completeness of the action as it runs.
 actionExecution
     :: ActionExecution
 actionExecution =
@@ -457,6 +465,8 @@ instance NFData ActionExecution
 
 -- | Represents information about the version (or revision) of an action.
 --
+--
+--
 -- /See:/ 'actionRevision' smart constructor.
 data ActionRevision = ActionRevision'
     { _aRevisionId       :: !Text
@@ -468,11 +478,11 @@ data ActionRevision = ActionRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aRevisionId'
+-- * 'aRevisionId' - The system-generated unique ID that identifies the revision number of the action.
 --
--- * 'aRevisionChangeId'
+-- * 'aRevisionChangeId' - The unique identifier of the change that set the state to this revision, for example a deployment ID or timestamp.
 --
--- * 'aCreated'
+-- * 'aCreated' - The date and time when the most recent version of the action was created, in timestamp format.
 actionRevision
     :: Text -- ^ 'aRevisionId'
     -> Text -- ^ 'aRevisionChangeId'
@@ -519,6 +529,8 @@ instance ToJSON ActionRevision where
 
 -- | Represents information about the state of an action.
 --
+--
+--
 -- /See:/ 'actionState' smart constructor.
 data ActionState = ActionState'
     { _asRevisionURL     :: !(Maybe Text)
@@ -532,15 +544,15 @@ data ActionState = ActionState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asRevisionURL'
+-- * 'asRevisionURL' - A URL link for more information about the revision, such as a commit details page.
 --
--- * 'asEntityURL'
+-- * 'asEntityURL' - A URL link for more information about the state of the action, such as a deployment group details page.
 --
--- * 'asActionName'
+-- * 'asActionName' - The name of the action.
 --
--- * 'asCurrentRevision'
+-- * 'asCurrentRevision' - Undocumented member.
 --
--- * 'asLatestExecution'
+-- * 'asLatestExecution' - Undocumented member.
 actionState
     :: ActionState
 actionState =
@@ -588,6 +600,8 @@ instance NFData ActionState
 
 -- | Returns information about the details of an action type.
 --
+--
+--
 -- /See:/ 'actionType' smart constructor.
 data ActionType = ActionType'
     { _atSettings                      :: !(Maybe ActionTypeSettings)
@@ -601,15 +615,15 @@ data ActionType = ActionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atSettings'
+-- * 'atSettings' - The settings for the action type.
 --
--- * 'atActionConfigurationProperties'
+-- * 'atActionConfigurationProperties' - The configuration properties for the action type.
 --
--- * 'atId'
+-- * 'atId' - Undocumented member.
 --
--- * 'atInputArtifactDetails'
+-- * 'atInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
 --
--- * 'atOutputArtifactDetails'
+-- * 'atOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
 actionType
     :: ActionTypeId -- ^ 'atId'
     -> ArtifactDetails -- ^ 'atInputArtifactDetails'
@@ -661,6 +675,8 @@ instance NFData ActionType
 
 -- | Represents information about an action type.
 --
+--
+--
 -- /See:/ 'actionTypeId' smart constructor.
 data ActionTypeId = ActionTypeId'
     { _atiCategory :: !ActionCategory
@@ -673,13 +689,13 @@ data ActionTypeId = ActionTypeId'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atiCategory'
+-- * 'atiCategory' - A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
 --
--- * 'atiOwner'
+-- * 'atiOwner' - The creator of the action being called.
 --
--- * 'atiProvider'
+-- * 'atiProvider' - The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy.
 --
--- * 'atiVersion'
+-- * 'atiVersion' - A string that identifies the action type.
 actionTypeId
     :: ActionCategory -- ^ 'atiCategory'
     -> ActionOwner -- ^ 'atiOwner'
@@ -734,6 +750,8 @@ instance ToJSON ActionTypeId where
 
 -- | Returns information about the settings for an action type.
 --
+--
+--
 -- /See:/ 'actionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
     { _atsThirdPartyConfigurationURL :: !(Maybe Text)
@@ -746,13 +764,13 @@ data ActionTypeSettings = ActionTypeSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atsThirdPartyConfigurationURL'
+-- * 'atsThirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 --
--- * 'atsExecutionURLTemplate'
+-- * 'atsExecutionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 --
--- * 'atsRevisionURLTemplate'
+-- * 'atsRevisionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 --
--- * 'atsEntityURLTemplate'
+-- * 'atsEntityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display within the pipeline.
 actionTypeSettings
     :: ActionTypeSettings
 actionTypeSettings =
@@ -807,6 +825,8 @@ instance ToJSON ActionTypeSettings where
 
 -- | Represents information about the result of an approval request.
 --
+--
+--
 -- /See:/ 'approvalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
     { _arSummary :: !Text
@@ -817,9 +837,9 @@ data ApprovalResult = ApprovalResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arSummary'
+-- * 'arSummary' - The summary of the current status of the approval request.
 --
--- * 'arStatus'
+-- * 'arStatus' - The response submitted by a reviewer assigned to an approval action request.
 approvalResult
     :: Text -- ^ 'arSummary'
     -> ApprovalStatus -- ^ 'arStatus'
@@ -851,6 +871,8 @@ instance ToJSON ApprovalResult where
 
 -- | Represents information about an artifact that will be worked upon by actions in the pipeline.
 --
+--
+--
 -- /See:/ 'artifact' smart constructor.
 data Artifact = Artifact'
     { _aLocation :: !(Maybe ArtifactLocation)
@@ -862,11 +884,11 @@ data Artifact = Artifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aLocation'
+-- * 'aLocation' - The location of an artifact.
 --
--- * 'aName'
+-- * 'aName' - The artifact's name.
 --
--- * 'aRevision'
+-- * 'aRevision' - The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 artifact
     :: Artifact
 artifact =
@@ -880,11 +902,11 @@ artifact =
 aLocation :: Lens' Artifact (Maybe ArtifactLocation)
 aLocation = lens _aLocation (\ s a -> s{_aLocation = a});
 
--- | The artifact\'s name.
+-- | The artifact's name.
 aName :: Lens' Artifact (Maybe Text)
 aName = lens _aName (\ s a -> s{_aName = a});
 
--- | The artifact\'s revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
+-- | The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 aRevision :: Lens' Artifact (Maybe Text)
 aRevision = lens _aRevision (\ s a -> s{_aRevision = a});
 
@@ -902,6 +924,8 @@ instance NFData Artifact
 
 -- | Returns information about the details of an artifact.
 --
+--
+--
 -- /See:/ 'artifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
     { _adMinimumCount :: !Nat
@@ -912,9 +936,9 @@ data ArtifactDetails = ArtifactDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adMinimumCount'
+-- * 'adMinimumCount' - The minimum number of artifacts allowed for the action type.
 --
--- * 'adMaximumCount'
+-- * 'adMaximumCount' - The maximum number of artifacts allowed for the action type.
 artifactDetails
     :: Natural -- ^ 'adMinimumCount'
     -> Natural -- ^ 'adMaximumCount'
@@ -953,6 +977,8 @@ instance ToJSON ArtifactDetails where
 
 -- | Represents information about the location of an artifact.
 --
+--
+--
 -- /See:/ 'artifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
     { _alS3Location :: !(Maybe S3ArtifactLocation)
@@ -963,9 +989,9 @@ data ArtifactLocation = ArtifactLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'alS3Location'
+-- * 'alS3Location' - The Amazon S3 bucket that contains the artifact.
 --
--- * 'alType'
+-- * 'alType' - The type of artifact in the location.
 artifactLocation
     :: ArtifactLocation
 artifactLocation =
@@ -995,6 +1021,8 @@ instance NFData ArtifactLocation
 
 -- | Represents revision details of an artifact.
 --
+--
+--
 -- /See:/ 'artifactRevision' smart constructor.
 data ArtifactRevision = ArtifactRevision'
     { _arRevisionSummary          :: !(Maybe Text)
@@ -1009,17 +1037,17 @@ data ArtifactRevision = ArtifactRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arRevisionSummary'
+-- * 'arRevisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 --
--- * 'arRevisionURL'
+-- * 'arRevisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
 --
--- * 'arCreated'
+-- * 'arCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
 --
--- * 'arName'
+-- * 'arName' - The name of an artifact. This name might be system-generated, such as "MyApp", or might be defined by the user when an action is created.
 --
--- * 'arRevisionId'
+-- * 'arRevisionId' - The revision ID of the artifact.
 --
--- * 'arRevisionChangeIdentifier'
+-- * 'arRevisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
 artifactRevision
     :: ArtifactRevision
 artifactRevision =
@@ -1032,7 +1060,7 @@ artifactRevision =
     , _arRevisionChangeIdentifier = Nothing
     }
 
--- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a 'codepipeline-artifact-revision-summary' key specified in the object metadata.
+-- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 arRevisionSummary :: Lens' ArtifactRevision (Maybe Text)
 arRevisionSummary = lens _arRevisionSummary (\ s a -> s{_arRevisionSummary = a});
 
@@ -1044,7 +1072,7 @@ arRevisionURL = lens _arRevisionURL (\ s a -> s{_arRevisionURL = a});
 arCreated :: Lens' ArtifactRevision (Maybe UTCTime)
 arCreated = lens _arCreated (\ s a -> s{_arCreated = a}) . mapping _Time;
 
--- | The name of an artifact. This name might be system-generated, such as \"MyApp\", or might be defined by the user when an action is created.
+-- | The name of an artifact. This name might be system-generated, such as "MyApp", or might be defined by the user when an action is created.
 arName :: Lens' ArtifactRevision (Maybe Text)
 arName = lens _arName (\ s a -> s{_arName = a});
 
@@ -1071,7 +1099,9 @@ instance Hashable ArtifactRevision
 
 instance NFData ArtifactRevision
 
--- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts>.
+-- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts> .
+--
+--
 --
 -- /See:/ 'artifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
@@ -1084,11 +1114,11 @@ data ArtifactStore = ArtifactStore'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asEncryptionKey'
+-- * 'asEncryptionKey' - The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
 --
--- * 'asType'
+-- * 'asType' - The type of the artifact store, such as S3.
 --
--- * 'asLocation'
+-- * 'asLocation' - The location for storing the artifacts for a pipeline, such as an S3 bucket or folder.
 artifactStore
     :: ArtifactStoreType -- ^ 'asType'
     -> Text -- ^ 'asLocation'
@@ -1134,6 +1164,8 @@ instance ToJSON ArtifactStore where
 
 -- | Reserved for future use.
 --
+--
+--
 -- /See:/ 'blockerDeclaration' smart constructor.
 data BlockerDeclaration = BlockerDeclaration'
     { _bdName :: !Text
@@ -1144,9 +1176,9 @@ data BlockerDeclaration = BlockerDeclaration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdName'
+-- * 'bdName' - Reserved for future use.
 --
--- * 'bdType'
+-- * 'bdType' - Reserved for future use.
 blockerDeclaration
     :: Text -- ^ 'bdName'
     -> BlockerType -- ^ 'bdType'
@@ -1184,6 +1216,8 @@ instance ToJSON BlockerDeclaration where
 
 -- | Represents information about a current revision.
 --
+--
+--
 -- /See:/ 'currentRevision' smart constructor.
 data CurrentRevision = CurrentRevision'
     { _crRevisionSummary  :: !(Maybe Text)
@@ -1196,13 +1230,13 @@ data CurrentRevision = CurrentRevision'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRevisionSummary'
+-- * 'crRevisionSummary' - The summary of the most recent revision of the artifact.
 --
--- * 'crCreated'
+-- * 'crCreated' - The date and time when the most recent revision of the artifact was created, in timestamp format.
 --
--- * 'crRevision'
+-- * 'crRevision' - The revision ID of the current version of an artifact.
 --
--- * 'crChangeIdentifier'
+-- * 'crChangeIdentifier' - The change identifier for the current revision.
 currentRevision
     :: Text -- ^ 'crRevision'
     -> Text -- ^ 'crChangeIdentifier'
@@ -1246,6 +1280,8 @@ instance ToJSON CurrentRevision where
 
 -- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
+--
+--
 -- /See:/ 'encryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
     { _ekId   :: !Text
@@ -1256,9 +1292,9 @@ data EncryptionKey = EncryptionKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekId'
+-- * 'ekId' - The ID used to identify the key. For an AWS KMS key, this is the key ID or key ARN.
 --
--- * 'ekType'
+-- * 'ekType' - The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
 encryptionKey
     :: Text -- ^ 'ekId'
     -> EncryptionKeyType -- ^ 'ekType'
@@ -1273,7 +1309,7 @@ encryptionKey pId_ pType_ =
 ekId :: Lens' EncryptionKey Text
 ekId = lens _ekId (\ s a -> s{_ekId = a});
 
--- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to \'KMS\'.
+-- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
 ekType :: Lens' EncryptionKey EncryptionKeyType
 ekType = lens _ekType (\ s a -> s{_ekType = a});
 
@@ -1295,6 +1331,8 @@ instance ToJSON EncryptionKey where
 
 -- | Represents information about an error in AWS CodePipeline.
 --
+--
+--
 -- /See:/ 'errorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
     { _edCode    :: !(Maybe Text)
@@ -1305,9 +1343,9 @@ data ErrorDetails = ErrorDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edCode'
+-- * 'edCode' - The system ID or error number code of the error.
 --
--- * 'edMessage'
+-- * 'edMessage' - The text of the error message.
 errorDetails
     :: ErrorDetails
 errorDetails =
@@ -1337,6 +1375,8 @@ instance NFData ErrorDetails
 
 -- | The details of the actions taken and results produced on an artifact as it passes through stages in the pipeline.
 --
+--
+--
 -- /See:/ 'executionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
     { _edSummary             :: !(Maybe Text)
@@ -1348,11 +1388,11 @@ data ExecutionDetails = ExecutionDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'edSummary'
+-- * 'edSummary' - The summary of the current status of the actions.
 --
--- * 'edExternalExecutionId'
+-- * 'edExternalExecutionId' - The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy.
 --
--- * 'edPercentComplete'
+-- * 'edPercentComplete' - The percentage of work completed on the action, represented on a scale of zero to one hundred percent.
 executionDetails
     :: ExecutionDetails
 executionDetails =
@@ -1389,6 +1429,8 @@ instance ToJSON ExecutionDetails where
 
 -- | Represents information about failure details.
 --
+--
+--
 -- /See:/ 'failureDetails' smart constructor.
 data FailureDetails = FailureDetails'
     { _fdExternalExecutionId :: !(Maybe Text)
@@ -1400,11 +1442,11 @@ data FailureDetails = FailureDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fdExternalExecutionId'
+-- * 'fdExternalExecutionId' - The external ID of the run of the action that failed.
 --
--- * 'fdType'
+-- * 'fdType' - The type of the failure.
 --
--- * 'fdMessage'
+-- * 'fdMessage' - The message about the failure.
 failureDetails
     :: FailureType -- ^ 'fdType'
     -> Text -- ^ 'fdMessage'
@@ -1443,6 +1485,8 @@ instance ToJSON FailureDetails where
 
 -- | Represents information about an artifact to be worked on, such as a test or build artifact.
 --
+--
+--
 -- /See:/ 'inputArtifact' smart constructor.
 newtype InputArtifact = InputArtifact'
     { _iaName :: Text
@@ -1452,7 +1496,7 @@ newtype InputArtifact = InputArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iaName'
+-- * 'iaName' - The name of the artifact to be worked on, for example, "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 inputArtifact
     :: Text -- ^ 'iaName'
     -> InputArtifact
@@ -1461,9 +1505,7 @@ inputArtifact pName_ =
     { _iaName = pName_
     }
 
--- | The name of the artifact to be worked on, for example, \"My App\".
---
--- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+-- | The name of the artifact to be worked on, for example, "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 iaName :: Lens' InputArtifact Text
 iaName = lens _iaName (\ s a -> s{_iaName = a});
 
@@ -1482,6 +1524,8 @@ instance ToJSON InputArtifact where
 
 -- | Represents information about a job.
 --
+--
+--
 -- /See:/ 'job' smart constructor.
 data Job = Job'
     { _jData      :: !(Maybe JobData)
@@ -1494,13 +1538,13 @@ data Job = Job'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jData'
+-- * 'jData' - Additional data about a job.
 --
--- * 'jAccountId'
+-- * 'jAccountId' - The ID of the AWS account to use when performing the job.
 --
--- * 'jId'
+-- * 'jId' - The unique system-generated ID of the job.
 --
--- * 'jNonce'
+-- * 'jNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 job
     :: Job
 job =
@@ -1542,6 +1586,8 @@ instance NFData Job
 
 -- | Represents additional information about a job required for a job worker to complete the job.
 --
+--
+--
 -- /See:/ 'jobData' smart constructor.
 data JobData = JobData'
     { _jdContinuationToken   :: !(Maybe Text)
@@ -1558,21 +1604,21 @@ data JobData = JobData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jdContinuationToken'
+-- * 'jdContinuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 --
--- * 'jdOutputArtifacts'
+-- * 'jdOutputArtifacts' - The output of the job.
 --
--- * 'jdArtifactCredentials'
+-- * 'jdArtifactCredentials' - Undocumented member.
 --
--- * 'jdPipelineContext'
+-- * 'jdPipelineContext' - Undocumented member.
 --
--- * 'jdEncryptionKey'
+-- * 'jdEncryptionKey' - Undocumented member.
 --
--- * 'jdActionTypeId'
+-- * 'jdActionTypeId' - Undocumented member.
 --
--- * 'jdInputArtifacts'
+-- * 'jdInputArtifacts' - The artifact supplied to the job.
 --
--- * 'jdActionConfiguration'
+-- * 'jdActionConfiguration' - Undocumented member.
 jobData
     :: JobData
 jobData =
@@ -1639,6 +1685,8 @@ instance NFData JobData
 
 -- | Represents information about the details of a job.
 --
+--
+--
 -- /See:/ 'jobDetails' smart constructor.
 data JobDetails = JobDetails'
     { _jdData      :: !(Maybe JobData)
@@ -1650,11 +1698,11 @@ data JobDetails = JobDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jdData'
+-- * 'jdData' - Undocumented member.
 --
--- * 'jdAccountId'
+-- * 'jdAccountId' - The AWS account ID associated with the job.
 --
--- * 'jdId'
+-- * 'jdId' - The unique system-generated ID of the job.
 jobDetails
     :: JobDetails
 jobDetails =
@@ -1690,6 +1738,8 @@ instance NFData JobDetails
 
 -- | Represents information about the output of an action.
 --
+--
+--
 -- /See:/ 'outputArtifact' smart constructor.
 newtype OutputArtifact = OutputArtifact'
     { _oaName :: Text
@@ -1699,7 +1749,7 @@ newtype OutputArtifact = OutputArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oaName'
+-- * 'oaName' - The name of the output of an artifact, such as "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions. Output artifact names must be unique within a pipeline.
 outputArtifact
     :: Text -- ^ 'oaName'
     -> OutputArtifact
@@ -1708,11 +1758,7 @@ outputArtifact pName_ =
     { _oaName = pName_
     }
 
--- | The name of the output of an artifact, such as \"My App\".
---
--- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
---
--- Output artifact names must be unique within a pipeline.
+-- | The name of the output of an artifact, such as "My App". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions. Output artifact names must be unique within a pipeline.
 oaName :: Lens' OutputArtifact Text
 oaName = lens _oaName (\ s a -> s{_oaName = a});
 
@@ -1731,6 +1777,8 @@ instance ToJSON OutputArtifact where
 
 -- | Represents information about a pipeline to a job worker.
 --
+--
+--
 -- /See:/ 'pipelineContext' smart constructor.
 data PipelineContext = PipelineContext'
     { _pcStage        :: !(Maybe StageContext)
@@ -1742,11 +1790,11 @@ data PipelineContext = PipelineContext'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcStage'
+-- * 'pcStage' - The stage of the pipeline.
 --
--- * 'pcPipelineName'
+-- * 'pcPipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 --
--- * 'pcAction'
+-- * 'pcAction' - Undocumented member.
 pipelineContext
     :: PipelineContext
 pipelineContext =
@@ -1782,6 +1830,8 @@ instance NFData PipelineContext
 
 -- | Represents the structure of actions and stages to be performed in the pipeline.
 --
+--
+--
 -- /See:/ 'pipelineDeclaration' smart constructor.
 data PipelineDeclaration = PipelineDeclaration'
     { _pdVersion       :: !(Maybe Nat)
@@ -1795,15 +1845,15 @@ data PipelineDeclaration = PipelineDeclaration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdVersion'
+-- * 'pdVersion' - The version number of the pipeline. A new pipeline always has a version number of 1. This number is automatically incremented when a pipeline is updated.
 --
--- * 'pdName'
+-- * 'pdName' - The name of the action to be performed.
 --
--- * 'pdRoleARN'
+-- * 'pdRoleARN' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 --
--- * 'pdArtifactStore'
+-- * 'pdArtifactStore' - Undocumented member.
 --
--- * 'pdStages'
+-- * 'pdStages' - The stage in which to perform the action.
 pipelineDeclaration
     :: Text -- ^ 'pdName'
     -> Text -- ^ 'pdRoleARN'
@@ -1864,6 +1914,8 @@ instance ToJSON PipelineDeclaration where
 
 -- | Represents information about an execution of a pipeline.
 --
+--
+--
 -- /See:/ 'pipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
     { _peStatus              :: !(Maybe PipelineExecutionStatus)
@@ -1877,15 +1929,15 @@ data PipelineExecution = PipelineExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peStatus'
+-- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline did not complete successfully.
 --
--- * 'pePipelineName'
+-- * 'pePipelineName' - The name of the pipeline that was executed.
 --
--- * 'pePipelineVersion'
+-- * 'pePipelineVersion' - The version number of the pipeline that was executed.
 --
--- * 'pePipelineExecutionId'
+-- * 'pePipelineExecutionId' - The ID of the pipeline execution.
 --
--- * 'peArtifactRevisions'
+-- * 'peArtifactRevisions' - A list of ArtifactRevision objects included in a pipeline execution.
 pipelineExecution
     :: PipelineExecution
 pipelineExecution =
@@ -1897,16 +1949,7 @@ pipelineExecution =
     , _peArtifactRevisions = Nothing
     }
 
--- | The status of the pipeline execution.
---
--- -   InProgress: The pipeline execution is currently running.
---
--- -   Succeeded: The pipeline execution completed successfully.
---
--- -   Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.
---
--- -   Failed: The pipeline did not complete successfully.
---
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline did not complete successfully.
 peStatus :: Lens' PipelineExecution (Maybe PipelineExecutionStatus)
 peStatus = lens _peStatus (\ s a -> s{_peStatus = a});
 
@@ -1942,6 +1985,8 @@ instance NFData PipelineExecution
 
 -- | Returns a summary of a pipeline.
 --
+--
+--
 -- /See:/ 'pipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
     { _psCreated :: !(Maybe POSIX)
@@ -1954,13 +1999,13 @@ data PipelineSummary = PipelineSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psCreated'
+-- * 'psCreated' - The date and time the pipeline was created, in timestamp format.
 --
--- * 'psName'
+-- * 'psName' - The name of the pipeline.
 --
--- * 'psVersion'
+-- * 'psVersion' - The version number of the pipeline.
 --
--- * 'psUpdated'
+-- * 'psUpdated' - The date and time of the last update to the pipeline, in timestamp format.
 pipelineSummary
     :: PipelineSummary
 pipelineSummary =
@@ -2002,6 +2047,8 @@ instance NFData PipelineSummary
 
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
+--
+--
 -- /See:/ 's3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
     { _salBucketName :: !Text
@@ -2012,9 +2059,9 @@ data S3ArtifactLocation = S3ArtifactLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'salBucketName'
+-- * 'salBucketName' - The name of the Amazon S3 bucket.
 --
--- * 'salObjectKey'
+-- * 'salObjectKey' - The key of the object in the Amazon S3 bucket, which uniquely identifies the object in the bucket.
 s3ArtifactLocation
     :: Text -- ^ 'salBucketName'
     -> Text -- ^ 'salObjectKey'
@@ -2046,6 +2093,8 @@ instance NFData S3ArtifactLocation
 
 -- | Represents information about a stage to a job worker.
 --
+--
+--
 -- /See:/ 'stageContext' smart constructor.
 newtype StageContext = StageContext'
     { _scName :: Maybe Text
@@ -2055,7 +2104,7 @@ newtype StageContext = StageContext'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scName'
+-- * 'scName' - The name of the stage.
 stageContext
     :: StageContext
 stageContext =
@@ -2078,6 +2127,8 @@ instance NFData StageContext
 
 -- | Represents information about a stage and its definition.
 --
+--
+--
 -- /See:/ 'stageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
     { _sdBlockers :: !(Maybe [BlockerDeclaration])
@@ -2089,11 +2140,11 @@ data StageDeclaration = StageDeclaration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdBlockers'
+-- * 'sdBlockers' - Reserved for future use.
 --
--- * 'sdName'
+-- * 'sdName' - The name of the stage.
 --
--- * 'sdActions'
+-- * 'sdActions' - The actions included in a stage.
 stageDeclaration
     :: Text -- ^ 'sdName'
     -> StageDeclaration
@@ -2138,6 +2189,8 @@ instance ToJSON StageDeclaration where
 
 -- | Represents information about the run of a stage.
 --
+--
+--
 -- /See:/ 'stageExecution' smart constructor.
 data StageExecution = StageExecution'
     { _sePipelineExecutionId :: !Text
@@ -2148,9 +2201,9 @@ data StageExecution = StageExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sePipelineExecutionId'
+-- * 'sePipelineExecutionId' - The ID of the pipeline execution associated with the stage.
 --
--- * 'seStatus'
+-- * 'seStatus' - The status of the stage, or for a completed stage, the last status of the stage.
 stageExecution
     :: Text -- ^ 'sePipelineExecutionId'
     -> StageExecutionStatus -- ^ 'seStatus'
@@ -2182,6 +2235,8 @@ instance NFData StageExecution
 
 -- | Represents information about the state of the stage.
 --
+--
+--
 -- /See:/ 'stageState' smart constructor.
 data StageState = StageState'
     { _ssInboundTransitionState :: !(Maybe TransitionState)
@@ -2194,13 +2249,13 @@ data StageState = StageState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssInboundTransitionState'
+-- * 'ssInboundTransitionState' - The state of the inbound transition, which is either enabled or disabled.
 --
--- * 'ssActionStates'
+-- * 'ssActionStates' - The state of the stage.
 --
--- * 'ssStageName'
+-- * 'ssStageName' - The name of the stage.
 --
--- * 'ssLatestExecution'
+-- * 'ssLatestExecution' - Information about the latest execution in the stage, including its ID and status.
 stageState
     :: StageState
 stageState =
@@ -2243,6 +2298,8 @@ instance NFData StageState
 
 -- | A response to a PollForThirdPartyJobs request returned by AWS CodePipeline when there is a job to be worked upon by a partner action.
 --
+--
+--
 -- /See:/ 'thirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
     { _tpjClientId :: !(Maybe Text)
@@ -2253,9 +2310,9 @@ data ThirdPartyJob = ThirdPartyJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjClientId'
+-- * 'tpjClientId' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
--- * 'tpjJobId'
+-- * 'tpjJobId' - The identifier used to identify the job in AWS CodePipeline.
 thirdPartyJob
     :: ThirdPartyJob
 thirdPartyJob =
@@ -2285,6 +2342,8 @@ instance NFData ThirdPartyJob
 
 -- | Represents information about the job data for a partner action.
 --
+--
+--
 -- /See:/ 'thirdPartyJobData' smart constructor.
 data ThirdPartyJobData = ThirdPartyJobData'
     { _tpjdContinuationToken   :: !(Maybe Text)
@@ -2301,21 +2360,21 @@ data ThirdPartyJobData = ThirdPartyJobData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjdContinuationToken'
+-- * 'tpjdContinuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires in order to continue the job asynchronously.
 --
--- * 'tpjdOutputArtifacts'
+-- * 'tpjdOutputArtifacts' - The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
 --
--- * 'tpjdArtifactCredentials'
+-- * 'tpjdArtifactCredentials' - Undocumented member.
 --
--- * 'tpjdPipelineContext'
+-- * 'tpjdPipelineContext' - Undocumented member.
 --
--- * 'tpjdEncryptionKey'
+-- * 'tpjdEncryptionKey' - The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present.
 --
--- * 'tpjdActionTypeId'
+-- * 'tpjdActionTypeId' - Undocumented member.
 --
--- * 'tpjdInputArtifacts'
+-- * 'tpjdInputArtifacts' - The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 --
--- * 'tpjdActionConfiguration'
+-- * 'tpjdActionConfiguration' - Undocumented member.
 thirdPartyJobData
     :: ThirdPartyJobData
 thirdPartyJobData =
@@ -2334,7 +2393,7 @@ thirdPartyJobData =
 tpjdContinuationToken :: Lens' ThirdPartyJobData (Maybe Text)
 tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuationToken = a});
 
--- | The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or might be defined by the user when the action is created.
+-- | The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
@@ -2354,7 +2413,7 @@ tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a})
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
 tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 
--- | The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as \"MyApp\", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
+-- | The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
@@ -2382,6 +2441,8 @@ instance NFData ThirdPartyJobData
 
 -- | The details of a job sent in response to a GetThirdPartyJobDetails request.
 --
+--
+--
 -- /See:/ 'thirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
     { _tpjdData  :: !(Maybe ThirdPartyJobData)
@@ -2393,11 +2454,11 @@ data ThirdPartyJobDetails = ThirdPartyJobDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tpjdData'
+-- * 'tpjdData' - The data to be returned by the third party job worker.
 --
--- * 'tpjdId'
+-- * 'tpjdId' - The identifier used to identify the job details in AWS CodePipeline.
 --
--- * 'tpjdNonce'
+-- * 'tpjdNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 thirdPartyJobDetails
     :: ThirdPartyJobDetails
 thirdPartyJobDetails =
@@ -2432,6 +2493,8 @@ instance NFData ThirdPartyJobDetails
 
 -- | Represents information about the state of transitions between one stage and another stage.
 --
+--
+--
 -- /See:/ 'transitionState' smart constructor.
 data TransitionState = TransitionState'
     { _tsEnabled        :: !(Maybe Bool)
@@ -2444,13 +2507,13 @@ data TransitionState = TransitionState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tsEnabled'
+-- * 'tsEnabled' - Whether the transition between stages is enabled (true) or disabled (false).
 --
--- * 'tsDisabledReason'
+-- * 'tsDisabledReason' - The user-specified reason why the transition between two stages of a pipeline was disabled.
 --
--- * 'tsLastChangedAt'
+-- * 'tsLastChangedAt' - The timestamp when the transition state was last changed.
 --
--- * 'tsLastChangedBy'
+-- * 'tsLastChangedBy' - The ID of the user who last changed the transition state.
 transitionState
     :: TransitionState
 transitionState =

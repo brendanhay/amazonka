@@ -18,11 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a prediction for the observation using the specified 'ML Model'.
+-- Generates a prediction for the observation using the specified @ML Model@ .
 --
--- Note
 --
--- Not all response parameters will be populated. Whether a response parameter is populated depends on the type of model requested.
 module Network.AWS.MachineLearning.Predict
     (
     -- * Creating a Request
@@ -59,11 +57,11 @@ data Predict = Predict'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pMLModelId'
+-- * 'pMLModelId' - A unique identifier of the @MLModel@ .
 --
--- * 'pRecord'
+-- * 'pRecord' - Undocumented member.
 --
--- * 'pPredictEndpoint'
+-- * 'pPredictEndpoint' - Undocumented member.
 predict
     :: Text -- ^ 'pMLModelId'
     -> Text -- ^ 'pPredictEndpoint'
@@ -75,7 +73,7 @@ predict pMLModelId_ pPredictEndpoint_ =
     , _pPredictEndpoint = pPredictEndpoint_
     }
 
--- | A unique identifier of the 'MLModel'.
+-- | A unique identifier of the @MLModel@ .
 pMLModelId :: Lens' Predict Text
 pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a});
 
@@ -133,9 +131,9 @@ data PredictResponse = PredictResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prsPrediction'
+-- * 'prsPrediction' - Undocumented member.
 --
--- * 'prsResponseStatus'
+-- * 'prsResponseStatus' - -- | The response status code.
 predictResponse
     :: Int -- ^ 'prsResponseStatus'
     -> PredictResponse
@@ -149,7 +147,7 @@ predictResponse pResponseStatus_ =
 prsPrediction :: Lens' PredictResponse (Maybe Prediction)
 prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prsResponseStatus :: Lens' PredictResponse Int
 prsResponseStatus = lens _prsResponseStatus (\ s a -> s{_prsResponseStatus = a});
 

@@ -11,9 +11,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Directory Service
+-- __AWS Directory Service__
 --
--- This is the /AWS Directory Service API Reference/. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
+-- This is the /AWS Directory Service API Reference/ . This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
+--
 module Network.AWS.DirectoryService
     (
     -- * Service Configuration

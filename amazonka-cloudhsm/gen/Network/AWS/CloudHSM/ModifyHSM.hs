@@ -20,7 +20,9 @@
 --
 -- Modifies an HSM.
 --
--- This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.
+--
+-- /Important:/ This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.
+--
 module Network.AWS.CloudHSM.ModifyHSM
     (
     -- * Creating a Request
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < ModifyHsm> operation.
+-- | Contains the inputs for the 'ModifyHsm' operation.
+--
+--
 --
 -- /See:/ 'modifyHSM' smart constructor.
 data ModifyHSM = ModifyHSM'
@@ -65,17 +69,17 @@ data ModifyHSM = ModifyHSM'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhIAMRoleARN'
+-- * 'mhIAMRoleARN' - The new IAM role ARN.
 --
--- * 'mhSubnetId'
+-- * 'mhSubnetId' - The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.
 --
--- * 'mhSyslogIP'
+-- * 'mhSyslogIP' - The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
 --
--- * 'mhExternalId'
+-- * 'mhExternalId' - The new external ID.
 --
--- * 'mhEniIP'
+-- * 'mhEniIP' - The new IP address for the elastic network interface (ENI) attached to the HSM. If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 --
--- * 'mhHSMARN'
+-- * 'mhHSMARN' - The ARN of the HSM to modify.
 modifyHSM
     :: Text -- ^ 'mhHSMARN'
     -> ModifyHSM
@@ -105,9 +109,7 @@ mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
 mhExternalId :: Lens' ModifyHSM (Maybe Text)
 mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
 
--- | The new IP address for the elastic network interface (ENI) attached to the HSM.
---
--- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
+-- | The new IP address for the elastic network interface (ENI) attached to the HSM. If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 mhEniIP :: Lens' ModifyHSM (Maybe Text)
 mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
 
@@ -154,7 +156,9 @@ instance ToPath ModifyHSM where
 instance ToQuery ModifyHSM where
         toQuery = const mempty
 
--- | Contains the output of the < ModifyHsm> operation.
+-- | Contains the output of the 'ModifyHsm' operation.
+--
+--
 --
 -- /See:/ 'modifyHSMResponse' smart constructor.
 data ModifyHSMResponse = ModifyHSMResponse'
@@ -166,9 +170,9 @@ data ModifyHSMResponse = ModifyHSMResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhsmrsHSMARN'
+-- * 'mhsmrsHSMARN' - The ARN of the HSM.
 --
--- * 'mhsmrsResponseStatus'
+-- * 'mhsmrsResponseStatus' - -- | The response status code.
 modifyHSMResponse
     :: Int -- ^ 'mhsmrsResponseStatus'
     -> ModifyHSMResponse
@@ -182,7 +186,7 @@ modifyHSMResponse pResponseStatus_ =
 mhsmrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mhsmrsResponseStatus :: Lens' ModifyHSMResponse Int
 mhsmrsResponseStatus = lens _mhsmrsResponseStatus (\ s a -> s{_mhsmrsResponseStatus = a});
 

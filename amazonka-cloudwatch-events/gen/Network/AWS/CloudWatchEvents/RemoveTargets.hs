@@ -20,7 +20,9 @@
 --
 -- Removes target(s) from a rule so that when the rule is triggered, those targets will no longer be invoked.
 --
+--
 -- __Note:__ When you remove a target, when the associated rule triggers, removed targets might still continue to be invoked. Please allow a short period of time for changes to take effect.
+--
 module Network.AWS.CloudWatchEvents.RemoveTargets
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < RemoveTargets> operation.
+-- | Container for the parameters to the 'RemoveTargets' operation.
+--
+--
 --
 -- /See:/ 'removeTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
@@ -58,9 +62,9 @@ data RemoveTargets = RemoveTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtRule'
+-- * 'rtRule' - The name of the rule you want to remove targets from.
 --
--- * 'rtIds'
+-- * 'rtIds' - The list of target IDs to remove from the rule.
 removeTargets
     :: Text -- ^ 'rtRule'
     -> NonEmpty Text -- ^ 'rtIds'
@@ -115,7 +119,9 @@ instance ToPath RemoveTargets where
 instance ToQuery RemoveTargets where
         toQuery = const mempty
 
--- | The result of the < RemoveTargets> operation.
+-- | The result of the 'RemoveTargets' operation.
+--
+--
 --
 -- /See:/ 'removeTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
@@ -128,11 +134,11 @@ data RemoveTargetsResponse = RemoveTargetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsFailedEntryCount'
+-- * 'rtrsFailedEntryCount' - The number of failed entries.
 --
--- * 'rtrsFailedEntries'
+-- * 'rtrsFailedEntries' - An array of failed target entries.
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTargetsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTargetsResponse
@@ -151,7 +157,7 @@ rtrsFailedEntryCount = lens _rtrsFailedEntryCount (\ s a -> s{_rtrsFailedEntryCo
 rtrsFailedEntries :: Lens' RemoveTargetsResponse [RemoveTargetsResultEntry]
 rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTargetsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Marks a custom action as deleted. PollForJobs for the custom action will fail after the action is marked for deletion. Only used for custom actions.
 --
--- You cannot recreate a custom action after it has been deleted unless you increase the version number of the action.
+--
+-- /Important:/ You cannot recreate a custom action after it has been deleted unless you increase the version number of the action.
+--
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a delete custom action operation. The custom action will be marked as deleted.
 --
+--
+--
 -- /See:/ 'deleteCustomActionType' smart constructor.
 data DeleteCustomActionType = DeleteCustomActionType'
     { _dcatCategory :: !ActionCategory
@@ -56,11 +60,11 @@ data DeleteCustomActionType = DeleteCustomActionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcatCategory'
+-- * 'dcatCategory' - The category of the custom action that you want to delete, such as source or deploy.
 --
--- * 'dcatProvider'
+-- * 'dcatProvider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 --
--- * 'dcatVersion'
+-- * 'dcatVersion' - The version of the custom action to delete.
 deleteCustomActionType
     :: ActionCategory -- ^ 'dcatCategory'
     -> Text -- ^ 'dcatProvider'

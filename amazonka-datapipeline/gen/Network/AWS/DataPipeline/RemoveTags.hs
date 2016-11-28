@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes existing tags from the specified pipeline.
+--
+--
 module Network.AWS.DataPipeline.RemoveTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtPipelineId :: !Text
@@ -54,9 +58,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtPipelineId'
+-- * 'rtPipelineId' - The ID of the pipeline.
 --
--- * 'rtTagKeys'
+-- * 'rtTagKeys' - The keys of the tags to remove.
 removeTags
     :: Text -- ^ 'rtPipelineId'
     -> RemoveTags
@@ -110,6 +114,8 @@ instance ToQuery RemoveTags where
 
 -- | Contains the output of RemoveTags.
 --
+--
+--
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
@@ -119,7 +125,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
@@ -128,7 +134,7 @@ removeTagsResponse pResponseStatus_ =
     { _rtrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

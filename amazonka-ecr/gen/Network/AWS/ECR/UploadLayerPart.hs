@@ -20,7 +20,7 @@
 --
 -- Uploads an image layer part to Amazon ECR.
 --
--- This operation is used by the Amazon ECR proxy, and it is not intended for general use by customers. Use the 'docker' CLI to pull, tag, and push images.
+--
 module Network.AWS.ECR.UploadLayerPart
     (
     -- * Creating a Request
@@ -66,17 +66,17 @@ data UploadLayerPart = UploadLayerPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulpRegistryId'
+-- * 'ulpRegistryId' - The AWS account ID associated with the registry that you are uploading layer parts to. If you do not specify a registry, the default registry is assumed.
 --
--- * 'ulpRepositoryName'
+-- * 'ulpRepositoryName' - The name of the repository that you are uploading layer parts to.
 --
--- * 'ulpUploadId'
+-- * 'ulpUploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the layer part upload.
 --
--- * 'ulpPartFirstByte'
+-- * 'ulpPartFirstByte' - The integer value of the first byte of the layer part.
 --
--- * 'ulpPartLastByte'
+-- * 'ulpPartLastByte' - The integer value of the last byte of the layer part.
 --
--- * 'ulpLayerPartBlob'
+-- * 'ulpLayerPartBlob' - The base64-encoded layer part payload.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 uploadLayerPart
     :: Text -- ^ 'ulpRepositoryName'
     -> Text -- ^ 'ulpUploadId'
@@ -102,7 +102,7 @@ ulpRegistryId = lens _ulpRegistryId (\ s a -> s{_ulpRegistryId = a});
 ulpRepositoryName :: Lens' UploadLayerPart Text
 ulpRepositoryName = lens _ulpRepositoryName (\ s a -> s{_ulpRepositoryName = a});
 
--- | The upload ID from a previous < InitiateLayerUpload> operation to associate with the layer part upload.
+-- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the layer part upload.
 ulpUploadId :: Lens' UploadLayerPart Text
 ulpUploadId = lens _ulpUploadId (\ s a -> s{_ulpUploadId = a});
 
@@ -114,13 +114,7 @@ ulpPartFirstByte = lens _ulpPartFirstByte (\ s a -> s{_ulpPartFirstByte = a}) . 
 ulpPartLastByte :: Lens' UploadLayerPart Natural
 ulpPartLastByte = lens _ulpPartLastByte (\ s a -> s{_ulpPartLastByte = a}) . _Nat;
 
--- | The base64-encoded layer part payload.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The base64-encoded layer part payload.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 ulpLayerPartBlob :: Lens' UploadLayerPart ByteString
 ulpLayerPartBlob = lens _ulpLayerPartBlob (\ s a -> s{_ulpLayerPartBlob = a}) . _Base64;
 
@@ -180,15 +174,15 @@ data UploadLayerPartResponse = UploadLayerPartResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulprsRegistryId'
+-- * 'ulprsRegistryId' - The registry ID associated with the request.
 --
--- * 'ulprsLastByteReceived'
+-- * 'ulprsLastByteReceived' - The integer value of the last byte received in the request.
 --
--- * 'ulprsRepositoryName'
+-- * 'ulprsRepositoryName' - The repository name associated with the request.
 --
--- * 'ulprsUploadId'
+-- * 'ulprsUploadId' - The upload ID associated with the request.
 --
--- * 'ulprsResponseStatus'
+-- * 'ulprsResponseStatus' - -- | The response status code.
 uploadLayerPartResponse
     :: Int -- ^ 'ulprsResponseStatus'
     -> UploadLayerPartResponse
@@ -217,7 +211,7 @@ ulprsRepositoryName = lens _ulprsRepositoryName (\ s a -> s{_ulprsRepositoryName
 ulprsUploadId :: Lens' UploadLayerPartResponse (Maybe Text)
 ulprsUploadId = lens _ulprsUploadId (\ s a -> s{_ulprsUploadId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ulprsResponseStatus :: Lens' UploadLayerPartResponse Int
 ulprsResponseStatus = lens _ulprsResponseStatus (\ s a -> s{_ulprsResponseStatus = a});
 

@@ -34,15 +34,15 @@ data BillingRecord = BillingRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'brOperation'
+-- * 'brOperation' - The operation that you were charged for. Type: String Valid values:     * @REGISTER_DOMAIN@     * @TRANSFER_IN_DOMAIN@     * @RENEW_DOMAIN@     * @CHANGE_DOMAIN_OWNER@
 --
--- * 'brInvoiceId'
+-- * 'brInvoiceId' - The ID of the invoice that is associated with the billing record. Type: String
 --
--- * 'brDomainName'
+-- * 'brDomainName' - The name of a domain. Type: String
 --
--- * 'brBillDate'
+-- * 'brBillDate' - The date that the operation was billed, in Unix format. Type: Double
 --
--- * 'brPrice'
+-- * 'brPrice' - The price that you were charged for the operation, in US dollars. Type: Double Example value: 12.0
 billingRecord
     :: BillingRecord
 billingRecord =
@@ -54,42 +54,23 @@ billingRecord =
     , _brPrice = Nothing
     }
 
--- | The operation that you were charged for.
---
--- Type: String
---
--- Valid values:
---
--- -   'REGISTER_DOMAIN'
--- -   'TRANSFER_IN_DOMAIN'
--- -   'RENEW_DOMAIN'
--- -   'CHANGE_DOMAIN_OWNER'
+-- | The operation that you were charged for. Type: String Valid values:     * @REGISTER_DOMAIN@     * @TRANSFER_IN_DOMAIN@     * @RENEW_DOMAIN@     * @CHANGE_DOMAIN_OWNER@
 brOperation :: Lens' BillingRecord (Maybe OperationType)
 brOperation = lens _brOperation (\ s a -> s{_brOperation = a});
 
--- | The ID of the invoice that is associated with the billing record.
---
--- Type: String
+-- | The ID of the invoice that is associated with the billing record. Type: String
 brInvoiceId :: Lens' BillingRecord (Maybe Text)
 brInvoiceId = lens _brInvoiceId (\ s a -> s{_brInvoiceId = a});
 
--- | The name of a domain.
---
--- Type: String
+-- | The name of a domain. Type: String
 brDomainName :: Lens' BillingRecord (Maybe Text)
 brDomainName = lens _brDomainName (\ s a -> s{_brDomainName = a});
 
--- | The date that the operation was billed, in Unix format.
---
--- Type: Double
+-- | The date that the operation was billed, in Unix format. Type: Double
 brBillDate :: Lens' BillingRecord (Maybe UTCTime)
 brBillDate = lens _brBillDate (\ s a -> s{_brBillDate = a}) . mapping _Time;
 
--- | The price that you were charged for the operation, in US dollars.
---
--- Type: Double
---
--- Example value: 12.0
+-- | The price that you were charged for the operation, in US dollars. Type: Double Example value: 12.0
 brPrice :: Lens' BillingRecord (Maybe Double)
 brPrice = lens _brPrice (\ s a -> s{_brPrice = a});
 
@@ -108,6 +89,8 @@ instance Hashable BillingRecord
 instance NFData BillingRecord
 
 -- | ContactDetail includes the following elements.
+--
+--
 --
 -- /See:/ 'contactDetail' smart constructor.
 data ContactDetail = ContactDetail'
@@ -131,33 +114,33 @@ data ContactDetail = ContactDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdOrganizationName'
+-- * 'cdOrganizationName' - Name of the organization for contact types other than @PERSON@ . Type: String Default: None Constraints: Maximum 255 characters. Contact type must not be @PERSON@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 --
--- * 'cdEmail'
+-- * 'cdEmail' - Email address of the contact. Type: String Default: None Constraints: Maximum 254 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdState'
+-- * 'cdState' - The state or province of the contact's city. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 --
--- * 'cdFax'
+-- * 'cdFax' - Fax number of the contact. Type: String Default: None Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 --
--- * 'cdLastName'
+-- * 'cdLastName' - Last name of contact. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdExtraParams'
+-- * 'cdExtraParams' - A list of name-value pairs for parameters required by certain top-level domains. Type: Complex Default: None Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Children: @Name@ , @Value@  Required: No
 --
--- * 'cdZipCode'
+-- * 'cdZipCode' - The zip or postal code of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 --
--- * 'cdAddressLine1'
+-- * 'cdAddressLine1' - First line of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdCity'
+-- * 'cdCity' - The city of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdPhoneNumber'
+-- * 'cdPhoneNumber' - The phone number of the contact. Type: String Default: None Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdAddressLine2'
+-- * 'cdAddressLine2' - Second line of contact's address, if any. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 --
--- * 'cdFirstName'
+-- * 'cdFirstName' - First name of contact. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdCountryCode'
+-- * 'cdCountryCode' - Code for the country of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 --
--- * 'cdContactType'
+-- * 'cdContactType' - Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than @PERSON@ , you must enter an organization name, and you can't enable privacy protection for the contact. Type: String Default: None Constraints: Maximum 255 characters. Valid values: @PERSON@ | @COMPANY@ | @ASSOCIATION@ | @PUBLIC_BODY@  Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 contactDetail
     :: ContactDetail
 contactDetail =
@@ -178,201 +161,59 @@ contactDetail =
     , _cdContactType = Nothing
     }
 
--- | Name of the organization for contact types other than 'PERSON'.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters. Contact type must not be 'PERSON'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | Name of the organization for contact types other than @PERSON@ . Type: String Default: None Constraints: Maximum 255 characters. Contact type must not be @PERSON@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
 cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = a});
 
--- | Email address of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 254 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Email address of the contact. Type: String Default: None Constraints: Maximum 254 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdEmail :: Lens' ContactDetail (Maybe Text)
 cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
 
--- | The state or province of the contact\'s city.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | The state or province of the contact's city. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 cdState :: Lens' ContactDetail (Maybe Text)
 cdState = lens _cdState (\ s a -> s{_cdState = a});
 
--- | Fax number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | Fax number of the contact. Type: String Default: None Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]". For example, a US phone number might appear as @"+1.1234567890"@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 cdFax :: Lens' ContactDetail (Maybe Text)
 cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
 
--- | Last name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Last name of contact. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdLastName :: Lens' ContactDetail (Maybe Text)
 cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 
--- | A list of name-value pairs for parameters required by certain top-level domains.
---
--- Type: Complex
---
--- Default: None
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Children: 'Name', 'Value'
---
--- Required: No
+-- | A list of name-value pairs for parameters required by certain top-level domains. Type: Complex Default: None Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Children: @Name@ , @Value@  Required: No
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
 cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default . _Coerce;
 
--- | The zip or postal code of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | The zip or postal code of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 cdZipCode :: Lens' ContactDetail (Maybe Text)
 cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
 
--- | First line of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | First line of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
 
--- | The city of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | The city of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdCity :: Lens' ContactDetail (Maybe Text)
 cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
 
--- | The phone number of the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Phone number must be specified in the format \"+[country dialing code].[number including any area code>]\". For example, a US phone number might appear as '\"+1.1234567890\"'.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | The phone number of the contact. Type: String Default: None Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code>]". For example, a US phone number might appear as @"+1.1234567890"@ . Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
 cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
 
--- | Second line of contact\'s address, if any.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: No
+-- | Second line of contact's address, if any. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: No
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
 cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
 
--- | First name of contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | First name of contact. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdFirstName :: Lens' ContactDetail (Maybe Text)
 cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
 
--- | Code for the country of the contact\'s address.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Code for the country of the contact's address. Type: String Default: None Constraints: Maximum 255 characters. Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
 
--- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than 'PERSON', you must enter an organization name, and you can\'t enable privacy protection for the contact.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
---
--- Valid values: 'PERSON' | 'COMPANY' | 'ASSOCIATION' | 'PUBLIC_BODY'
---
--- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
---
--- Required: Yes
+-- | Indicates whether the contact is a person, company, association, or public organization. If you choose an option other than @PERSON@ , you must enter an organization name, and you can't enable privacy protection for the contact. Type: String Default: None Constraints: Maximum 255 characters. Valid values: @PERSON@ | @COMPANY@ | @ASSOCIATION@ | @PUBLIC_BODY@  Parents: @RegistrantContact@ , @AdminContact@ , @TechContact@  Required: Yes
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
 cdContactType = lens _cdContactType (\ s a -> s{_cdContactType = a});
 
@@ -427,9 +268,9 @@ data DomainSuggestion = DomainSuggestion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAvailability'
+-- * 'dAvailability' - Undocumented member.
 --
--- * 'dDomainName'
+-- * 'dDomainName' - Undocumented member.
 domainSuggestion
     :: DomainSuggestion
 domainSuggestion =
@@ -469,13 +310,13 @@ data DomainSummary = DomainSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsExpiry'
+-- * 'dsExpiry' - Expiration date of the domain in Coordinated Universal Time (UTC). Type: Long
 --
--- * 'dsTransferLock'
+-- * 'dsTransferLock' - Indicates whether a domain is locked from unauthorized transfer to another party. Type: Boolean Valid values: @True@ | @False@
 --
--- * 'dsAutoRenew'
+-- * 'dsAutoRenew' - Indicates whether the domain is automatically renewed upon expiration. Type: Boolean Valid values: @True@ | @False@
 --
--- * 'dsDomainName'
+-- * 'dsDomainName' - The name of a domain. Type: String
 domainSummary
     :: Text -- ^ 'dsDomainName'
     -> DomainSummary
@@ -487,31 +328,19 @@ domainSummary pDomainName_ =
     , _dsDomainName = pDomainName_
     }
 
--- | Expiration date of the domain in Coordinated Universal Time (UTC).
---
--- Type: Long
+-- | Expiration date of the domain in Coordinated Universal Time (UTC). Type: Long
 dsExpiry :: Lens' DomainSummary (Maybe UTCTime)
 dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
 
--- | Indicates whether a domain is locked from unauthorized transfer to another party.
---
--- Type: Boolean
---
--- Valid values: 'True' | 'False'
+-- | Indicates whether a domain is locked from unauthorized transfer to another party. Type: Boolean Valid values: @True@ | @False@
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
 
--- | Indicates whether the domain is automatically renewed upon expiration.
---
--- Type: Boolean
---
--- Valid values: 'True' | 'False'
+-- | Indicates whether the domain is automatically renewed upon expiration. Type: Boolean Valid values: @True@ | @False@
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
 dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
 
--- | The name of a domain.
---
--- Type: String
+-- | The name of a domain. Type: String
 dsDomainName :: Lens' DomainSummary Text
 dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 
@@ -530,6 +359,8 @@ instance NFData DomainSummary
 
 -- | ExtraParam includes the following elements.
 --
+--
+--
 -- /See:/ 'extraParam' smart constructor.
 data ExtraParam = ExtraParam'
     { _epName  :: !ExtraParamName
@@ -540,9 +371,9 @@ data ExtraParam = ExtraParam'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'epName'
+-- * 'epName' - Name of the additional parameter required by the top-level domain. Type: String Default: None Valid values: @DUNS_NUMBER@ | @BRAND_NUMBER@ | @BIRTH_DEPARTMENT@ | @BIRTH_DATE_IN_YYYY_MM_DD@ | @BIRTH_COUNTRY@ | @BIRTH_CITY@ | @DOCUMENT_NUMBER@ | @AU_ID_NUMBER@ | @AU_ID_TYPE@ | @CA_LEGAL_TYPE@ | @CA_BUSINESS_ENTITY_TYPE@ |@ES_IDENTIFICATION@ | @ES_IDENTIFICATION_TYPE@ | @ES_LEGAL_FORM@ | @FI_BUSINESS_NUMBER@ | @FI_ID_NUMBER@ | @IT_PIN@ | @RU_PASSPORT_DATA@ | @SE_ID_NUMBER@ | @SG_ID_NUMBER@ | @VAT_NUMBER@  Parent: @ExtraParams@  Required: Yes
 --
--- * 'epValue'
+-- * 'epValue' - Values corresponding to the additional parameter names required by some top-level domains. Type: String Default: None Constraints: Maximum 2048 characters. Parent: @ExtraParams@  Required: Yes
 extraParam
     :: ExtraParamName -- ^ 'epName'
     -> Text -- ^ 'epValue'
@@ -553,31 +384,11 @@ extraParam pName_ pValue_ =
     , _epValue = pValue_
     }
 
--- | Name of the additional parameter required by the top-level domain.
---
--- Type: String
---
--- Default: None
---
--- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'CA_BUSINESS_ENTITY_TYPE' |'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
---
--- Parent: 'ExtraParams'
---
--- Required: Yes
+-- | Name of the additional parameter required by the top-level domain. Type: String Default: None Valid values: @DUNS_NUMBER@ | @BRAND_NUMBER@ | @BIRTH_DEPARTMENT@ | @BIRTH_DATE_IN_YYYY_MM_DD@ | @BIRTH_COUNTRY@ | @BIRTH_CITY@ | @DOCUMENT_NUMBER@ | @AU_ID_NUMBER@ | @AU_ID_TYPE@ | @CA_LEGAL_TYPE@ | @CA_BUSINESS_ENTITY_TYPE@ |@ES_IDENTIFICATION@ | @ES_IDENTIFICATION_TYPE@ | @ES_LEGAL_FORM@ | @FI_BUSINESS_NUMBER@ | @FI_ID_NUMBER@ | @IT_PIN@ | @RU_PASSPORT_DATA@ | @SE_ID_NUMBER@ | @SG_ID_NUMBER@ | @VAT_NUMBER@  Parent: @ExtraParams@  Required: Yes
 epName :: Lens' ExtraParam ExtraParamName
 epName = lens _epName (\ s a -> s{_epName = a});
 
--- | Values corresponding to the additional parameter names required by some top-level domains.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 2048 characters.
---
--- Parent: 'ExtraParams'
---
--- Required: Yes
+-- | Values corresponding to the additional parameter names required by some top-level domains. Type: String Default: None Constraints: Maximum 2048 characters. Parent: @ExtraParams@  Required: Yes
 epValue :: Lens' ExtraParam Text
 epValue = lens _epValue (\ s a -> s{_epValue = a});
 
@@ -600,6 +411,8 @@ instance ToJSON ExtraParam where
 
 -- | Nameserver includes the following elements.
 --
+--
+--
 -- /See:/ 'nameserver' smart constructor.
 data Nameserver = Nameserver'
     { _nGlueIPs :: !(Maybe [Text])
@@ -610,9 +423,9 @@ data Nameserver = Nameserver'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nGlueIPs'
+-- * 'nGlueIPs' - Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Type: List of IP addresses. Constraints: The list can contain only one IPv4 and one IPv6 address. Parent: @Nameservers@
 --
--- * 'nName'
+-- * 'nName' - The fully qualified host name of the name server. Type: String Constraint: Maximum 255 characterss Parent: @Nameservers@
 nameserver
     :: Text -- ^ 'nName'
     -> Nameserver
@@ -622,23 +435,11 @@ nameserver pName_ =
     , _nName = pName_
     }
 
--- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.
---
--- Type: List of IP addresses.
---
--- Constraints: The list can contain only one IPv4 and one IPv6 address.
---
--- Parent: 'Nameservers'
+-- | Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com. Type: List of IP addresses. Constraints: The list can contain only one IPv4 and one IPv6 address. Parent: @Nameservers@
 nGlueIPs :: Lens' Nameserver [Text]
 nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
 
--- | The fully qualified host name of the name server.
---
--- Type: String
---
--- Constraint: Maximum 255 characterss
---
--- Parent: 'Nameservers'
+-- | The fully qualified host name of the name server. Type: String Constraint: Maximum 255 characterss Parent: @Nameservers@
 nName :: Lens' Nameserver Text
 nName = lens _nName (\ s a -> s{_nName = a});
 
@@ -662,6 +463,8 @@ instance ToJSON Nameserver where
 
 -- | OperationSummary includes the following elements.
 --
+--
+--
 -- /See:/ 'operationSummary' smart constructor.
 data OperationSummary = OperationSummary'
     { _osOperationId   :: !Text
@@ -674,13 +477,13 @@ data OperationSummary = OperationSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'osOperationId'
+-- * 'osOperationId' - Identifier returned to track the requested action. Type: String
 --
--- * 'osStatus'
+-- * 'osStatus' - The current status of the requested operation in the system. Type: String
 --
--- * 'osType'
+-- * 'osType' - Type of the action requested. Type: String Valid values: @REGISTER_DOMAIN@ | @DELETE_DOMAIN@ | @TRANSFER_IN_DOMAIN@ | @UPDATE_DOMAIN_CONTACT@ | @UPDATE_NAMESERVER@ | @CHANGE_PRIVACY_PROTECTION@ | @DOMAIN_LOCK@
 --
--- * 'osSubmittedDate'
+-- * 'osSubmittedDate' - The date when the request was submitted.
 operationSummary
     :: Text -- ^ 'osOperationId'
     -> OperationStatus -- ^ 'osStatus'
@@ -695,23 +498,15 @@ operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
     , _osSubmittedDate = _Time # pSubmittedDate_
     }
 
--- | Identifier returned to track the requested action.
---
--- Type: String
+-- | Identifier returned to track the requested action. Type: String
 osOperationId :: Lens' OperationSummary Text
 osOperationId = lens _osOperationId (\ s a -> s{_osOperationId = a});
 
--- | The current status of the requested operation in the system.
---
--- Type: String
+-- | The current status of the requested operation in the system. Type: String
 osStatus :: Lens' OperationSummary OperationStatus
 osStatus = lens _osStatus (\ s a -> s{_osStatus = a});
 
--- | Type of the action requested.
---
--- Type: String
---
--- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN' | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' | 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
+-- | Type of the action requested. Type: String Valid values: @REGISTER_DOMAIN@ | @DELETE_DOMAIN@ | @TRANSFER_IN_DOMAIN@ | @UPDATE_DOMAIN_CONTACT@ | @UPDATE_NAMESERVER@ | @CHANGE_PRIVACY_PROTECTION@ | @DOMAIN_LOCK@
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\ s a -> s{_osType = a});
 
@@ -734,6 +529,8 @@ instance NFData OperationSummary
 
 -- | Each tag includes the following elements.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -744,9 +541,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of a tag. Type: String Default: None Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long. Required: Yes
 --
--- * 'tagKey'
+-- * 'tagKey' - The key (name) of a tag. Type: String Default: None Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long. Required: Yes
 tag
     :: Tag
 tag =
@@ -755,31 +552,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | The value of a tag.
---
--- Type: String
---
--- Default: None
---
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
---
--- Constraints: Each value can be 0-256 characters long.
---
--- Required: Yes
+-- | The value of a tag. Type: String Default: None Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each value can be 0-256 characters long. Required: Yes
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The key (name) of a tag.
---
--- Type: String
---
--- Default: None
---
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
---
--- Constraints: Each key can be 1-128 characters long.
---
--- Required: Yes
+-- | The key (name) of a tag. Type: String Default: None Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@" Constraints: Each key can be 1-128 characters long. Required: Yes
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 

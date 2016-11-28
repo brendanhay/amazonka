@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs, use < ImportImage>. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
+-- Creates an import instance task using metadata from the specified disk image. @ImportInstance@ only supports single-volume VMs. To import multi-volume VMs, use 'ImportImage' . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
 --
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+--
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
 module Network.AWS.EC2.ImportInstance
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ImportInstance.
 --
+--
+--
 -- /See:/ 'importInstance' smart constructor.
 data ImportInstance = ImportInstance'
     { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
@@ -63,15 +67,15 @@ data ImportInstance = ImportInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiLaunchSpecification'
+-- * 'iiLaunchSpecification' - The launch specification.
 --
--- * 'iiDiskImages'
+-- * 'iiDiskImages' - The disk image.
 --
--- * 'iiDescription'
+-- * 'iiDescription' - A description for the instance being imported.
 --
--- * 'iiDryRun'
+-- * 'iiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'iiPlatform'
+-- * 'iiPlatform' - The instance operating system.
 importInstance
     :: PlatformValues -- ^ 'iiPlatform'
     -> ImportInstance
@@ -96,7 +100,7 @@ iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
 
@@ -135,6 +139,8 @@ instance ToQuery ImportInstance where
 
 -- | Contains the output for ImportInstance.
 --
+--
+--
 -- /See:/ 'importInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirsConversionTask :: !(Maybe ConversionTask)
@@ -145,9 +151,9 @@ data ImportInstanceResponse = ImportInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iirsConversionTask'
+-- * 'iirsConversionTask' - Information about the conversion task.
 --
--- * 'iirsResponseStatus'
+-- * 'iirsResponseStatus' - -- | The response status code.
 importInstanceResponse
     :: Int -- ^ 'iirsResponseStatus'
     -> ImportInstanceResponse
@@ -161,7 +167,7 @@ importInstanceResponse pResponseStatus_ =
 iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 iirsResponseStatus :: Lens' ImportInstanceResponse Int
 iirsResponseStatus = lens _iirsResponseStatus (\ s a -> s{_iirsResponseStatus = a});
 

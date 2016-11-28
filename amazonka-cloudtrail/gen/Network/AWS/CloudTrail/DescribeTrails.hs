@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves settings for the trail associated with the current region for your account.
+--
+--
 module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Returns information about the trail.
 --
+--
+--
 -- /See:/ 'describeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
     { _dtIncludeShadowTrails :: !(Maybe Bool)
@@ -55,9 +59,9 @@ data DescribeTrails = DescribeTrails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtIncludeShadowTrails'
+-- * 'dtIncludeShadowTrails' - Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region. The default is true.
 --
--- * 'dtTrailNameList'
+-- * 'dtTrailNameList' - Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@  If an empty list is specified, information for the trail in the current region is returned.     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
 describeTrails
     :: DescribeTrails
 describeTrails =
@@ -70,17 +74,7 @@ describeTrails =
 dtIncludeShadowTrails :: Lens' DescribeTrails (Maybe Bool)
 dtIncludeShadowTrails = lens _dtIncludeShadowTrails (\ s a -> s{_dtIncludeShadowTrails = a});
 
--- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
---
--- If an empty list is specified, information for the trail in the current region is returned.
---
--- -   If an empty list is specified and 'IncludeShadowTrails' is false, then information for all trails in the current region is returned.
---
--- -   If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
---
--- If one or more trail names are specified, information is returned only if the names match the names of trails belonging only to the current region. To return information about a trail in another region, you must specify its trail ARN.
+-- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@  If an empty list is specified, information for the trail in the current region is returned.     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
@@ -124,6 +118,8 @@ instance ToQuery DescribeTrails where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'describeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
     { _dtrsTrailList      :: !(Maybe [Trail])
@@ -134,9 +130,9 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTrailList'
+-- * 'dtrsTrailList' - The list of trail objects.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTrailsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTrailsResponse
@@ -150,7 +146,7 @@ describeTrailsResponse pResponseStatus_ =
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTrailsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

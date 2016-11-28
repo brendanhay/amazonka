@@ -20,7 +20,7 @@
 --
 -- Deletes the specified application along with all associated versions and configurations. The application versions will not be deleted from your Amazon S3 bucket.
 --
--- You cannot delete an application that has a running environment.
+--
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Creating a Request
@@ -44,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Request to delete an application.
 --
+--
+--
 -- /See:/ 'deleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
     { _daTerminateEnvByForce :: !(Maybe Bool)
@@ -54,9 +56,9 @@ data DeleteApplication = DeleteApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daTerminateEnvByForce'
+-- * 'daTerminateEnvByForce' - When set to true, running environments will be terminated before deleting the application.
 --
--- * 'daApplicationName'
+-- * 'daApplicationName' - The name of the application to delete.
 deleteApplication
     :: Text -- ^ 'daApplicationName'
     -> DeleteApplication

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given a list of identities (email addresses and\/or domains), returns the verification status and (for domain identities) the verification token for each identity.
+-- Given a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.
+--
 --
 -- This action is throttled at one request per second and can only get verification attributes for up to 100 identities at a time.
+--
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+-- | Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'getIdentityVerificationAttributes' smart constructor.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
@@ -55,7 +59,7 @@ newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'givaIdentities'
+-- * 'givaIdentities' - A list of identities.
 getIdentityVerificationAttributes
     :: GetIdentityVerificationAttributes
 getIdentityVerificationAttributes =
@@ -104,6 +108,8 @@ instance ToQuery GetIdentityVerificationAttributes
 
 -- | The Amazon SES verification status of a list of identities. For domain identities, this response also contains the verification token.
 --
+--
+--
 -- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarsResponseStatus         :: !Int
@@ -114,9 +120,9 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'givarsResponseStatus'
+-- * 'givarsResponseStatus' - -- | The response status code.
 --
--- * 'givarsVerificationAttributes'
+-- * 'givarsVerificationAttributes' - A map of Identities to IdentityVerificationAttributes objects.
 getIdentityVerificationAttributesResponse
     :: Int -- ^ 'givarsResponseStatus'
     -> GetIdentityVerificationAttributesResponse
@@ -126,7 +132,7 @@ getIdentityVerificationAttributesResponse pResponseStatus_ =
     , _givarsVerificationAttributes = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 givarsResponseStatus :: Lens' GetIdentityVerificationAttributesResponse Int
 givarsResponseStatus = lens _givarsResponseStatus (\ s a -> s{_givarsResponseStatus = a});
 

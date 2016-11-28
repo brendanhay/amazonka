@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the 'BatchPredictionName' of a 'BatchPrediction'.
+-- Updates the @BatchPredictionName@ of a @BatchPrediction@ .
 --
--- You can use the 'GetBatchPrediction' operation to view the contents of the updated data element.
+--
+-- You can use the @GetBatchPrediction@ operation to view the contents of the updated data element.
+--
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data UpdateBatchPrediction = UpdateBatchPrediction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubpBatchPredictionId'
+-- * 'ubpBatchPredictionId' - The ID assigned to the @BatchPrediction@ during creation.
 --
--- * 'ubpBatchPredictionName'
+-- * 'ubpBatchPredictionName' - A new user-supplied name or description of the @BatchPrediction@ .
 updateBatchPrediction
     :: Text -- ^ 'ubpBatchPredictionId'
     -> Text -- ^ 'ubpBatchPredictionName'
@@ -68,11 +70,11 @@ updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
     , _ubpBatchPredictionName = pBatchPredictionName_
     }
 
--- | The ID assigned to the 'BatchPrediction' during creation.
+-- | The ID assigned to the @BatchPrediction@ during creation.
 ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
 ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a});
 
--- | A new user-supplied name or description of the 'BatchPrediction'.
+-- | A new user-supplied name or description of the @BatchPrediction@ .
 ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
 ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
@@ -114,9 +116,11 @@ instance ToPath UpdateBatchPrediction where
 instance ToQuery UpdateBatchPrediction where
         toQuery = const mempty
 
--- | Represents the output of an 'UpdateBatchPrediction' operation.
+-- | Represents the output of an @UpdateBatchPrediction@ operation.
 --
--- You can see the updated content by using the 'GetBatchPrediction' operation.
+--
+-- You can see the updated content by using the @GetBatchPrediction@ operation.
+--
 --
 -- /See:/ 'updateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
@@ -128,9 +132,9 @@ data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubprsBatchPredictionId'
+-- * 'ubprsBatchPredictionId' - The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
 --
--- * 'ubprsResponseStatus'
+-- * 'ubprsResponseStatus' - -- | The response status code.
 updateBatchPredictionResponse
     :: Int -- ^ 'ubprsResponseStatus'
     -> UpdateBatchPredictionResponse
@@ -140,11 +144,11 @@ updateBatchPredictionResponse pResponseStatus_ =
     , _ubprsResponseStatus = pResponseStatus_
     }
 
--- | The ID assigned to the 'BatchPrediction' during creation. This value should be identical to the value of the 'BatchPredictionId' in the request.
+-- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
 ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ubprsResponseStatus :: Lens' UpdateBatchPredictionResponse Int
 ubprsResponseStatus = lens _ubprsResponseStatus (\ s a -> s{_ubprsResponseStatus = a});
 

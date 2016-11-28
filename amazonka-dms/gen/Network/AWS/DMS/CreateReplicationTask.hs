@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a replication task using the specified parameters.
+--
+--
 module Network.AWS.DMS.CreateReplicationTask
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createReplicationTask' smart constructor.
 data CreateReplicationTask = CreateReplicationTask'
     { _crtReplicationTaskSettings   :: !(Maybe Text)
@@ -69,23 +73,23 @@ data CreateReplicationTask = CreateReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtReplicationTaskSettings'
+-- * 'crtReplicationTaskSettings' - Settings for the task, such as target metadata settings.
 --
--- * 'crtTags'
+-- * 'crtTags' - Tags to be added to the replication instance.
 --
--- * 'crtCdcStartTime'
+-- * 'crtCdcStartTime' - The start time for the Change Data Capture (CDC) operation.
 --
--- * 'crtReplicationTaskIdentifier'
+-- * 'crtReplicationTaskIdentifier' - The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'crtSourceEndpointARN'
+-- * 'crtSourceEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'crtTargetEndpointARN'
+-- * 'crtTargetEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- * 'crtReplicationInstanceARN'
+-- * 'crtReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'crtMigrationType'
+-- * 'crtMigrationType' - The migration type.
 --
--- * 'crtTableMappings'
+-- * 'crtTableMappings' - The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
 createReplicationTask
     :: Text -- ^ 'crtReplicationTaskIdentifier'
     -> Text -- ^ 'crtSourceEndpointARN'
@@ -119,16 +123,7 @@ crtTags = lens _crtTags (\ s a -> s{_crtTags = a}) . _Default . _Coerce;
 crtCdcStartTime :: Lens' CreateReplicationTask (Maybe UTCTime)
 crtCdcStartTime = lens _crtCdcStartTime (\ s a -> s{_crtCdcStartTime = a}) . mapping _Time;
 
--- | The replication task identifier.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
+-- | The replication task identifier. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 crtReplicationTaskIdentifier :: Lens' CreateReplicationTask Text
 crtReplicationTaskIdentifier = lens _crtReplicationTaskIdentifier (\ s a -> s{_crtReplicationTaskIdentifier = a});
 
@@ -148,9 +143,7 @@ crtReplicationInstanceARN = lens _crtReplicationInstanceARN (\ s a -> s{_crtRepl
 crtMigrationType :: Lens' CreateReplicationTask MigrationTypeValue
 crtMigrationType = lens _crtMigrationType (\ s a -> s{_crtMigrationType = a});
 
--- | The path of the JSON file that contains the table mappings. Preceed the path with \"file:\/\/\".
---
--- For example, --table-mappings file:\/\/mappingfile.json
+-- | The path of the JSON file that contains the table mappings. Preceed the path with "file://". For example, --table-mappings file://mappingfile.json
 crtTableMappings :: Lens' CreateReplicationTask Text
 crtTableMappings = lens _crtTableMappings (\ s a -> s{_crtTableMappings = a});
 
@@ -205,6 +198,8 @@ instance ToQuery CreateReplicationTask where
 
 -- |
 --
+--
+--
 -- /See:/ 'createReplicationTaskResponse' smart constructor.
 data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
     { _crtrsReplicationTask :: !(Maybe ReplicationTask)
@@ -215,9 +210,9 @@ data CreateReplicationTaskResponse = CreateReplicationTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtrsReplicationTask'
+-- * 'crtrsReplicationTask' - The replication task that was created.
 --
--- * 'crtrsResponseStatus'
+-- * 'crtrsResponseStatus' - -- | The response status code.
 createReplicationTaskResponse
     :: Int -- ^ 'crtrsResponseStatus'
     -> CreateReplicationTaskResponse
@@ -231,7 +226,7 @@ createReplicationTaskResponse pResponseStatus_ =
 crtrsReplicationTask :: Lens' CreateReplicationTaskResponse (Maybe ReplicationTask)
 crtrsReplicationTask = lens _crtrsReplicationTask (\ s a -> s{_crtrsReplicationTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crtrsResponseStatus :: Lens' CreateReplicationTaskResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
 

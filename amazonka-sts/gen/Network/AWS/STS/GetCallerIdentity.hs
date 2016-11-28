@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns details about the IAM identity whose credentials are used to call the API.
+--
+--
 module Network.AWS.STS.GetCallerIdentity
     (
     -- * Creating a Request
@@ -81,7 +83,9 @@ instance ToQuery GetCallerIdentity where
                  ["Action" =: ("GetCallerIdentity" :: ByteString),
                   "Version" =: ("2011-06-15" :: ByteString)])
 
--- | Contains the response to a successful < GetCallerIdentity> request, including information about the entity making the request.
+-- | Contains the response to a successful 'GetCallerIdentity' request, including information about the entity making the request.
+--
+--
 --
 -- /See:/ 'getCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
@@ -95,13 +99,13 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcirsARN'
+-- * 'gcirsARN' - The AWS ARN associated with the calling entity.
 --
--- * 'gcirsAccount'
+-- * 'gcirsAccount' - The AWS account ID number of the account that owns or contains the calling entity.
 --
--- * 'gcirsUserId'
+-- * 'gcirsUserId' - The unique identifier of the calling entity. The exact value depends on the type of entity making the call. The values returned are those listed in the __aws:userid__ column in the <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
 --
--- * 'gcirsResponseStatus'
+-- * 'gcirsResponseStatus' - -- | The response status code.
 getCallerIdentityResponse
     :: Int -- ^ 'gcirsResponseStatus'
     -> GetCallerIdentityResponse
@@ -121,11 +125,11 @@ gcirsARN = lens _gcirsARN (\ s a -> s{_gcirsARN = a});
 gcirsAccount :: Lens' GetCallerIdentityResponse (Maybe Text)
 gcirsAccount = lens _gcirsAccount (\ s a -> s{_gcirsAccount = a});
 
--- | The unique identifier of the calling entity. The exact value depends on the type of entity making the call. The values returned are those listed in the __aws:userid__ column in the <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/.
+-- | The unique identifier of the calling entity. The exact value depends on the type of entity making the call. The values returned are those listed in the __aws:userid__ column in the <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
 gcirsUserId :: Lens' GetCallerIdentityResponse (Maybe Text)
 gcirsUserId = lens _gcirsUserId (\ s a -> s{_gcirsUserId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcirsResponseStatus :: Lens' GetCallerIdentityResponse Int
 gcirsResponseStatus = lens _gcirsResponseStatus (\ s a -> s{_gcirsResponseStatus = a});
 

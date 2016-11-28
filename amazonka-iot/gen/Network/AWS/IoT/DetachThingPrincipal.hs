@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches the specified principal from the specified thing.
+--
+--
 module Network.AWS.IoT.DetachThingPrincipal
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the DetachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'detachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
     { _dtpThingName :: !Text
@@ -54,9 +58,9 @@ data DetachThingPrincipal = DetachThingPrincipal'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtpThingName'
+-- * 'dtpThingName' - The name of the thing.
 --
--- * 'dtpPrincipal'
+-- * 'dtpPrincipal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
 detachThingPrincipal
     :: Text -- ^ 'dtpThingName'
     -> Text -- ^ 'dtpPrincipal'
@@ -103,6 +107,8 @@ instance ToQuery DetachThingPrincipal where
 
 -- | The output from the DetachThingPrincipal operation.
 --
+--
+--
 -- /See:/ 'detachThingPrincipalResponse' smart constructor.
 newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
     { _dtprsResponseStatus :: Int
@@ -112,7 +118,7 @@ newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtprsResponseStatus'
+-- * 'dtprsResponseStatus' - -- | The response status code.
 detachThingPrincipalResponse
     :: Int -- ^ 'dtprsResponseStatus'
     -> DetachThingPrincipalResponse
@@ -121,7 +127,7 @@ detachThingPrincipalResponse pResponseStatus_ =
     { _dtprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
 dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
 

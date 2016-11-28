@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops the assessment run that is specified by the ARN of the assessment run.
+--
+--
 module Network.AWS.Inspector.StopAssessmentRun
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype StopAssessmentRun = StopAssessmentRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarAssessmentRunARN'
+-- * 'sarAssessmentRunARN' - The ARN of the assessment run that you want to stop.
 stopAssessmentRun
     :: Text -- ^ 'sarAssessmentRunARN'
     -> StopAssessmentRun

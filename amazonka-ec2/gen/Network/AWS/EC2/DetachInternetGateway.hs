@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses.
+--
+--
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DetachInternetGateway.
 --
+--
+--
 -- /See:/ 'detachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
     { _digDryRun            :: !(Maybe Bool)
@@ -54,11 +58,11 @@ data DetachInternetGateway = DetachInternetGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'digDryRun'
+-- * 'digDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'digInternetGatewayId'
+-- * 'digInternetGatewayId' - The ID of the Internet gateway.
 --
--- * 'digVPCId'
+-- * 'digVPCId' - The ID of the VPC.
 detachInternetGateway
     :: Text -- ^ 'digInternetGatewayId'
     -> Text -- ^ 'digVPCId'
@@ -70,7 +74,7 @@ detachInternetGateway pInternetGatewayId_ pVPCId_ =
     , _digVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
 digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a});
 

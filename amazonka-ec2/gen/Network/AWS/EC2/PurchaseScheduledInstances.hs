@@ -20,9 +20,11 @@
 --
 -- Purchases one or more Scheduled Instances with the specified schedule.
 --
--- Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call < DescribeScheduledInstanceAvailability> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call < RunScheduledInstances> during each scheduled time period.
 --
--- After you purchase a Scheduled Instance, you can\'t cancel, modify, or resell your purchase.
+-- Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call 'DescribeScheduledInstanceAvailability' to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call 'RunScheduledInstances' during each scheduled time period.
+--
+-- After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
+--
 module Network.AWS.EC2.PurchaseScheduledInstances
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for PurchaseScheduledInstances.
 --
+--
+--
 -- /See:/ 'purchaseScheduledInstances' smart constructor.
 data PurchaseScheduledInstances = PurchaseScheduledInstances'
     { _psiClientToken      :: !(Maybe Text)
@@ -61,11 +65,11 @@ data PurchaseScheduledInstances = PurchaseScheduledInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psiClientToken'
+-- * 'psiClientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
--- * 'psiDryRun'
+-- * 'psiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'psiPurchaseRequests'
+-- * 'psiPurchaseRequests' - One or more purchase requests.
 purchaseScheduledInstances
     :: NonEmpty PurchaseRequest -- ^ 'psiPurchaseRequests'
     -> PurchaseScheduledInstances
@@ -76,11 +80,11 @@ purchaseScheduledInstances pPurchaseRequests_ =
     , _psiPurchaseRequests = _List1 # pPurchaseRequests_
     }
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
 psiClientToken = lens _psiClientToken (\ s a -> s{_psiClientToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 psiDryRun :: Lens' PurchaseScheduledInstances (Maybe Bool)
 psiDryRun = lens _psiDryRun (\ s a -> s{_psiDryRun = a});
 
@@ -122,6 +126,8 @@ instance ToQuery PurchaseScheduledInstances where
 
 -- | Contains the output of PurchaseScheduledInstances.
 --
+--
+--
 -- /See:/ 'purchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
     { _psirsScheduledInstanceSet :: !(Maybe [ScheduledInstance])
@@ -132,9 +138,9 @@ data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psirsScheduledInstanceSet'
+-- * 'psirsScheduledInstanceSet' - Information about the Scheduled Instances.
 --
--- * 'psirsResponseStatus'
+-- * 'psirsResponseStatus' - -- | The response status code.
 purchaseScheduledInstancesResponse
     :: Int -- ^ 'psirsResponseStatus'
     -> PurchaseScheduledInstancesResponse
@@ -148,7 +154,7 @@ purchaseScheduledInstancesResponse pResponseStatus_ =
 psirsScheduledInstanceSet :: Lens' PurchaseScheduledInstancesResponse [ScheduledInstance]
 psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsScheduledInstanceSet = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
 psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a});
 

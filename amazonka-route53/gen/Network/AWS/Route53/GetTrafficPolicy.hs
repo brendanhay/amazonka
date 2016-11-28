@@ -20,7 +20,9 @@
 --
 -- Gets information about a specific traffic policy version.
 --
--- Send a 'GET' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource.
+--
+-- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource.
+--
 module Network.AWS.Route53.GetTrafficPolicy
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | Gets information about a specific traffic policy version. To get the information, send a GET request to the \/2013-04-01\/trafficpolicy resource, and specify the ID and the version of the traffic policy.
+-- | Gets information about a specific traffic policy version. To get the information, send a GET request to the /2013-04-01/trafficpolicy resource, and specify the ID and the version of the traffic policy.
+--
+--
 --
 -- /See:/ 'getTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
@@ -57,9 +61,9 @@ data GetTrafficPolicy = GetTrafficPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtpId'
+-- * 'gtpId' - The ID of the traffic policy that you want to get information about.
 --
--- * 'gtpVersion'
+-- * 'gtpVersion' - The version number of the traffic policy that you want to get information about.
 getTrafficPolicy
     :: Text -- ^ 'gtpId'
     -> Natural -- ^ 'gtpVersion'
@@ -105,6 +109,8 @@ instance ToQuery GetTrafficPolicy where
 
 -- | A complex type that contains the response information for the request.
 --
+--
+--
 -- /See:/ 'getTrafficPolicyResponse' smart constructor.
 data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
     { _gtprsResponseStatus :: !Int
@@ -115,9 +121,9 @@ data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtprsResponseStatus'
+-- * 'gtprsResponseStatus' - -- | The response status code.
 --
--- * 'gtprsTrafficPolicy'
+-- * 'gtprsTrafficPolicy' - A complex type that contains settings for the specified traffic policy.
 getTrafficPolicyResponse
     :: Int -- ^ 'gtprsResponseStatus'
     -> TrafficPolicy -- ^ 'gtprsTrafficPolicy'
@@ -128,7 +134,7 @@ getTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ =
     , _gtprsTrafficPolicy = pTrafficPolicy_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gtprsResponseStatus :: Lens' GetTrafficPolicyResponse Int
 gtprsResponseStatus = lens _gtprsResponseStatus (\ s a -> s{_gtprsResponseStatus = a});
 

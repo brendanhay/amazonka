@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Information about an application.
 --
+--
+--
 -- /See:/ 'applicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
     { _aiLinkedToGitHub  :: !(Maybe Bool)
@@ -35,13 +37,13 @@ data ApplicationInfo = ApplicationInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiLinkedToGitHub'
+-- * 'aiLinkedToGitHub' - True if the user has authenticated with GitHub for the specified application; otherwise, false.
 --
--- * 'aiApplicationId'
+-- * 'aiApplicationId' - The application ID.
 --
--- * 'aiApplicationName'
+-- * 'aiApplicationName' - The application name.
 --
--- * 'aiCreateTime'
+-- * 'aiCreateTime' - The time at which the application was created.
 applicationInfo
     :: ApplicationInfo
 applicationInfo =
@@ -83,6 +85,8 @@ instance NFData ApplicationInfo
 
 -- | Information about an Auto Scaling group.
 --
+--
+--
 -- /See:/ 'autoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
     { _asgHook :: !(Maybe Text)
@@ -93,9 +97,9 @@ data AutoScalingGroup = AutoScalingGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgHook'
+-- * 'asgHook' - An Auto Scaling lifecycle event hook name.
 --
--- * 'asgName'
+-- * 'asgName' - The Auto Scaling group name.
 autoScalingGroup
     :: AutoScalingGroup
 autoScalingGroup =
@@ -125,6 +129,8 @@ instance NFData AutoScalingGroup
 
 -- | Information about a deployment configuration.
 --
+--
+--
 -- /See:/ 'deploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
     { _dciDeploymentConfigName :: !(Maybe Text)
@@ -137,13 +143,13 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dciDeploymentConfigName'
+-- * 'dciDeploymentConfigName' - The deployment configuration name.
 --
--- * 'dciMinimumHealthyHosts'
+-- * 'dciMinimumHealthyHosts' - Information about the number or percentage of minimum healthy instance.
 --
--- * 'dciDeploymentConfigId'
+-- * 'dciDeploymentConfigId' - The deployment configuration ID.
 --
--- * 'dciCreateTime'
+-- * 'dciCreateTime' - The time at which the deployment configuration was created.
 deploymentConfigInfo
     :: DeploymentConfigInfo
 deploymentConfigInfo =
@@ -186,6 +192,8 @@ instance NFData DeploymentConfigInfo
 
 -- | Information about a deployment group.
 --
+--
+--
 -- /See:/ 'deploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
     { _dgiServiceRoleARN               :: !(Maybe Text)
@@ -204,25 +212,25 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgiServiceRoleARN'
+-- * 'dgiServiceRoleARN' - A service role ARN.
 --
--- * 'dgiDeploymentConfigName'
+-- * 'dgiDeploymentConfigName' - The deployment configuration name.
 --
--- * 'dgiTargetRevision'
+-- * 'dgiTargetRevision' - Information about the deployment group's target revision, including type and location.
 --
--- * 'dgiEc2TagFilters'
+-- * 'dgiEc2TagFilters' - The Amazon EC2 tags on which to filter.
 --
--- * 'dgiOnPremisesInstanceTagFilters'
+-- * 'dgiOnPremisesInstanceTagFilters' - The on-premises instance tags on which to filter.
 --
--- * 'dgiApplicationName'
+-- * 'dgiApplicationName' - The application name.
 --
--- * 'dgiTriggerConfigurations'
+-- * 'dgiTriggerConfigurations' - A list of associated triggers.
 --
--- * 'dgiDeploymentGroupId'
+-- * 'dgiDeploymentGroupId' - The deployment group ID.
 --
--- * 'dgiAutoScalingGroups'
+-- * 'dgiAutoScalingGroups' - A list of associated Auto Scaling groups.
 --
--- * 'dgiDeploymentGroupName'
+-- * 'dgiDeploymentGroupName' - The deployment group name.
 deploymentGroupInfo
     :: DeploymentGroupInfo
 deploymentGroupInfo =
@@ -247,7 +255,7 @@ dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a})
 dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
 
--- | Information about the deployment group\'s target revision, including type and location.
+-- | Information about the deployment group's target revision, including type and location.
 dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
 
@@ -301,6 +309,8 @@ instance NFData DeploymentGroupInfo
 
 -- | Information about a deployment.
 --
+--
+--
 -- /See:/ 'deploymentInfo' smart constructor.
 data DeploymentInfo = DeploymentInfo'
     { _diCreator                       :: !(Maybe DeploymentCreator)
@@ -323,33 +333,33 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diCreator'
+-- * 'diCreator' - The means by which the deployment was created:     * user: A user created the deployment.    * autoscaling: Auto Scaling created the deployment.
 --
--- * 'diStatus'
+-- * 'diStatus' - The current state of the deployment as a whole.
 --
--- * 'diDeploymentId'
+-- * 'diDeploymentId' - The deployment ID.
 --
--- * 'diDeploymentConfigName'
+-- * 'diDeploymentConfigName' - The deployment configuration name.
 --
--- * 'diStartTime'
+-- * 'diStartTime' - A timestamp indicating when the deployment was deployed to the deployment group. In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
 --
--- * 'diCompleteTime'
+-- * 'diCompleteTime' - A timestamp indicating when the deployment was complete.
 --
--- * 'diErrorInformation'
+-- * 'diErrorInformation' - Information about any error associated with this deployment.
 --
--- * 'diDeploymentOverview'
+-- * 'diDeploymentOverview' - A summary of the deployment status of the instances in the deployment.
 --
--- * 'diApplicationName'
+-- * 'diApplicationName' - The application name.
 --
--- * 'diRevision'
+-- * 'diRevision' - Information about the location of stored application artifacts and the service from which to retrieve them.
 --
--- * 'diDescription'
+-- * 'diDescription' - A comment about the deployment.
 --
--- * 'diCreateTime'
+-- * 'diCreateTime' - A timestamp indicating when the deployment was created.
 --
--- * 'diDeploymentGroupName'
+-- * 'diDeploymentGroupName' - The deployment group name.
 --
--- * 'diIgnoreApplicationStopFailures'
+-- * 'diIgnoreApplicationStopFailures' - If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
 deploymentInfo
     :: DeploymentInfo
 deploymentInfo =
@@ -370,10 +380,7 @@ deploymentInfo =
     , _diIgnoreApplicationStopFailures = Nothing
     }
 
--- | The means by which the deployment was created:
---
--- -   user: A user created the deployment.
--- -   autoscaling: Auto Scaling created the deployment.
+-- | The means by which the deployment was created:     * user: A user created the deployment.    * autoscaling: Auto Scaling created the deployment.
 diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
 diCreator = lens _diCreator (\ s a -> s{_diCreator = a});
 
@@ -389,9 +396,7 @@ diDeploymentId = lens _diDeploymentId (\ s a -> s{_diDeploymentId = a});
 diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
 
--- | A timestamp indicating when the deployment was deployed to the deployment group.
---
--- In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
+-- | A timestamp indicating when the deployment was deployed to the deployment group. In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.
 diStartTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diStartTime = lens _diStartTime (\ s a -> s{_diStartTime = a}) . mapping _Time;
 
@@ -427,9 +432,7 @@ diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Tim
 diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
 diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
 
--- | If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event.
---
--- If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
+-- | If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
 diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a});
 
@@ -458,6 +461,8 @@ instance NFData DeploymentInfo
 
 -- | Information about the deployment status of the instances in the deployment.
 --
+--
+--
 -- /See:/ 'deploymentOverview' smart constructor.
 data DeploymentOverview = DeploymentOverview'
     { _doPending    :: !(Maybe Integer)
@@ -471,15 +476,15 @@ data DeploymentOverview = DeploymentOverview'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doPending'
+-- * 'doPending' - The number of instances in the deployment in a pending state.
 --
--- * 'doSkipped'
+-- * 'doSkipped' - The number of instances in the deployment in a skipped state.
 --
--- * 'doInProgress'
+-- * 'doInProgress' - The number of instances in which the deployment is in progress.
 --
--- * 'doSucceeded'
+-- * 'doSucceeded' - The number of instances in the deployment to which revisions have been successfully deployed.
 --
--- * 'doFailed'
+-- * 'doFailed' - The number of instances in the deployment in a failed state.
 deploymentOverview
     :: DeploymentOverview
 deploymentOverview =
@@ -527,6 +532,8 @@ instance NFData DeploymentOverview
 
 -- | Diagnostic information about executable scripts that are part of a deployment.
 --
+--
+--
 -- /See:/ 'diagnostics' smart constructor.
 data Diagnostics = Diagnostics'
     { _dLogTail    :: !(Maybe Text)
@@ -539,13 +546,13 @@ data Diagnostics = Diagnostics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLogTail'
+-- * 'dLogTail' - The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 --
--- * 'dErrorCode'
+-- * 'dErrorCode' - The associated error code:     * Success: The specified script ran.    * ScriptMissing: The specified script was not found in the specified location.    * ScriptNotExecutable: The specified script is not a recognized executable file type.    * ScriptTimedOut: The specified script did not finish running in the specified time period.    * ScriptFailed: The specified script failed to run as expected.    * UnknownError: The specified script did not run for an unknown reason.
 --
--- * 'dScriptName'
+-- * 'dScriptName' - The name of the script.
 --
--- * 'dMessage'
+-- * 'dMessage' - The message associated with the error.
 diagnostics
     :: Diagnostics
 diagnostics =
@@ -556,20 +563,11 @@ diagnostics =
     , _dMessage = Nothing
     }
 
--- | The last portion of the diagnostic log.
---
--- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+-- | The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 dLogTail :: Lens' Diagnostics (Maybe Text)
 dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a});
 
--- | The associated error code:
---
--- -   Success: The specified script ran.
--- -   ScriptMissing: The specified script was not found in the specified location.
--- -   ScriptNotExecutable: The specified script is not a recognized executable file type.
--- -   ScriptTimedOut: The specified script did not finish running in the specified time period.
--- -   ScriptFailed: The specified script failed to run as expected.
--- -   UnknownError: The specified script did not run for an unknown reason.
+-- | The associated error code:     * Success: The specified script ran.    * ScriptMissing: The specified script was not found in the specified location.    * ScriptNotExecutable: The specified script is not a recognized executable file type.    * ScriptTimedOut: The specified script did not finish running in the specified time period.    * ScriptFailed: The specified script failed to run as expected.    * UnknownError: The specified script did not run for an unknown reason.
 dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
 dErrorCode = lens _dErrorCode (\ s a -> s{_dErrorCode = a});
 
@@ -596,6 +594,8 @@ instance NFData Diagnostics
 
 -- | Information about a tag filter.
 --
+--
+--
 -- /See:/ 'ec2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
     { _etfValue :: !(Maybe Text)
@@ -607,11 +607,11 @@ data EC2TagFilter = EC2TagFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etfValue'
+-- * 'etfValue' - The tag filter value.
 --
--- * 'etfKey'
+-- * 'etfKey' - The tag filter key.
 --
--- * 'etfType'
+-- * 'etfType' - The tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
 ec2TagFilter
     :: EC2TagFilter
 ec2TagFilter =
@@ -629,11 +629,7 @@ etfValue = lens _etfValue (\ s a -> s{_etfValue = a});
 etfKey :: Lens' EC2TagFilter (Maybe Text)
 etfKey = lens _etfKey (\ s a -> s{_etfKey = a});
 
--- | The tag filter type:
---
--- -   KEY_ONLY: Key only.
--- -   VALUE_ONLY: Value only.
--- -   KEY_AND_VALUE: Key and value.
+-- | The tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
 etfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
 etfType = lens _etfType (\ s a -> s{_etfType = a});
 
@@ -657,6 +653,8 @@ instance ToJSON EC2TagFilter where
 
 -- | Information about a deployment error.
 --
+--
+--
 -- /See:/ 'errorInformation' smart constructor.
 data ErrorInformation = ErrorInformation'
     { _eiCode    :: !(Maybe DeployErrorCode)
@@ -667,9 +665,9 @@ data ErrorInformation = ErrorInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiCode'
+-- * 'eiCode' - The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.    * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.    * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.    * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.    * IAM_ROLE_MISSING: The service role cannot be accessed.    * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.    * INTERNAL_ERROR: There was an internal error.    * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.    * NO_INSTANCES: No instance were specified, or no instance can be found.    * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.    * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.    * TIMEOUT: The deployment has timed out.    * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 --
--- * 'eiMessage'
+-- * 'eiMessage' - An accompanying error message.
 errorInformation
     :: ErrorInformation
 errorInformation =
@@ -678,21 +676,7 @@ errorInformation =
     , _eiMessage = Nothing
     }
 
--- | The error code:
---
--- -   APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.
--- -   DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.
--- -   HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.
--- -   HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.
--- -   IAM_ROLE_MISSING: The service role cannot be accessed.
--- -   IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.
--- -   INTERNAL_ERROR: There was an internal error.
--- -   NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.
--- -   NO_INSTANCES: No instance were specified, or no instance can be found.
--- -   OVER_MAX_INSTANCES: The maximum number of instance was exceeded.
--- -   THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.
--- -   TIMEOUT: The deployment has timed out.
--- -   REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
+-- | The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.    * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.    * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.    * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.    * IAM_ROLE_MISSING: The service role cannot be accessed.    * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.    * INTERNAL_ERROR: There was an internal error.    * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.    * NO_INSTANCES: No instance were specified, or no instance can be found.    * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.    * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.    * TIMEOUT: The deployment has timed out.    * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
 eiCode = lens _eiCode (\ s a -> s{_eiCode = a});
 
@@ -713,6 +697,8 @@ instance NFData ErrorInformation
 
 -- | Information about an application revision.
 --
+--
+--
 -- /See:/ 'genericRevisionInfo' smart constructor.
 data GenericRevisionInfo = GenericRevisionInfo'
     { _griRegisterTime     :: !(Maybe POSIX)
@@ -726,15 +712,15 @@ data GenericRevisionInfo = GenericRevisionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'griRegisterTime'
+-- * 'griRegisterTime' - When the revision was registered with AWS CodeDeploy.
 --
--- * 'griFirstUsedTime'
+-- * 'griFirstUsedTime' - When the revision was first used by AWS CodeDeploy.
 --
--- * 'griDeploymentGroups'
+-- * 'griDeploymentGroups' - The deployment groups for which this is the current target revision.
 --
--- * 'griLastUsedTime'
+-- * 'griLastUsedTime' - When the revision was last used by AWS CodeDeploy.
 --
--- * 'griDescription'
+-- * 'griDescription' - A comment about the revision.
 genericRevisionInfo
     :: GenericRevisionInfo
 genericRevisionInfo =
@@ -782,6 +768,8 @@ instance NFData GenericRevisionInfo
 
 -- | Information about the location of application artifacts stored in GitHub.
 --
+--
+--
 -- /See:/ 'gitHubLocation' smart constructor.
 data GitHubLocation = GitHubLocation'
     { _ghlCommitId   :: !(Maybe Text)
@@ -792,9 +780,9 @@ data GitHubLocation = GitHubLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghlCommitId'
+-- * 'ghlCommitId' - The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision.
 --
--- * 'ghlRepository'
+-- * 'ghlRepository' - The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.  Specified as account/repository.
 gitHubLocation
     :: GitHubLocation
 gitHubLocation =
@@ -807,9 +795,7 @@ gitHubLocation =
 ghlCommitId :: Lens' GitHubLocation (Maybe Text)
 ghlCommitId = lens _ghlCommitId (\ s a -> s{_ghlCommitId = a});
 
--- | The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.
---
--- Specified as account\/repository.
+-- | The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision.  Specified as account/repository.
 ghlRepository :: Lens' GitHubLocation (Maybe Text)
 ghlRepository = lens _ghlRepository (\ s a -> s{_ghlRepository = a});
 
@@ -833,6 +819,8 @@ instance ToJSON GitHubLocation where
 
 -- | Information about an on-premises instance.
 --
+--
+--
 -- /See:/ 'instanceInfo' smart constructor.
 data InstanceInfo = InstanceInfo'
     { _iiRegisterTime   :: !(Maybe POSIX)
@@ -847,17 +835,17 @@ data InstanceInfo = InstanceInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiRegisterTime'
+-- * 'iiRegisterTime' - The time at which the on-premises instance was registered.
 --
--- * 'iiInstanceARN'
+-- * 'iiInstanceARN' - The ARN of the on-premises instance.
 --
--- * 'iiDeregisterTime'
+-- * 'iiDeregisterTime' - If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered.
 --
--- * 'iiIamUserARN'
+-- * 'iiIamUserARN' - The IAM user ARN associated with the on-premises instance.
 --
--- * 'iiInstanceName'
+-- * 'iiInstanceName' - The name of the on-premises instance.
 --
--- * 'iiTags'
+-- * 'iiTags' - The tags currently associated with the on-premises instance.
 instanceInfo
     :: InstanceInfo
 instanceInfo =
@@ -911,6 +899,8 @@ instance NFData InstanceInfo
 
 -- | Information about an instance in a deployment.
 --
+--
+--
 -- /See:/ 'instanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
     { _isInstanceId      :: !(Maybe Text)
@@ -924,15 +914,15 @@ data InstanceSummary = InstanceSummary'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isInstanceId'
+-- * 'isInstanceId' - The instance ID.
 --
--- * 'isStatus'
+-- * 'isStatus' - The deployment status for this instance:     * Pending: The deployment is pending for this instance.    * In Progress: The deployment is in progress for this instance.    * Succeeded: The deployment has succeeded for this instance.    * Failed: The deployment has failed for this instance.    * Skipped: The deployment has been skipped for this instance.    * Unknown: The deployment status is unknown for this instance.
 --
--- * 'isDeploymentId'
+-- * 'isDeploymentId' - The deployment ID.
 --
--- * 'isLastUpdatedAt'
+-- * 'isLastUpdatedAt' - A timestamp indicating when the instance information was last updated.
 --
--- * 'isLifecycleEvents'
+-- * 'isLifecycleEvents' - A list of lifecycle events for this instance.
 instanceSummary
     :: InstanceSummary
 instanceSummary =
@@ -948,14 +938,7 @@ instanceSummary =
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
 isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 
--- | The deployment status for this instance:
---
--- -   Pending: The deployment is pending for this instance.
--- -   In Progress: The deployment is in progress for this instance.
--- -   Succeeded: The deployment has succeeded for this instance.
--- -   Failed: The deployment has failed for this instance.
--- -   Skipped: The deployment has been skipped for this instance.
--- -   Unknown: The deployment status is unknown for this instance.
+-- | The deployment status for this instance:     * Pending: The deployment is pending for this instance.    * In Progress: The deployment is in progress for this instance.    * Succeeded: The deployment has succeeded for this instance.    * Failed: The deployment has failed for this instance.    * Skipped: The deployment has been skipped for this instance.    * Unknown: The deployment status is unknown for this instance.
 isStatus :: Lens' InstanceSummary (Maybe InstanceStatus)
 isStatus = lens _isStatus (\ s a -> s{_isStatus = a});
 
@@ -987,6 +970,8 @@ instance NFData InstanceSummary
 
 -- | Information about a deployment lifecycle event.
 --
+--
+--
 -- /See:/ 'lifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
     { _leStatus             :: !(Maybe LifecycleEventStatus)
@@ -1000,15 +985,15 @@ data LifecycleEvent = LifecycleEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'leStatus'
+-- * 'leStatus' - The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.    * InProgress: The deployment lifecycle event is in progress.    * Succeeded: The deployment lifecycle event ran successfully.    * Failed: The deployment lifecycle event has failed.    * Skipped: The deployment lifecycle event has been skipped.    * Unknown: The deployment lifecycle event is unknown.
 --
--- * 'leLifecycleEventName'
+-- * 'leLifecycleEventName' - The deployment lifecycle event name, such as ApplicationStop, BeforeInstall, AfterInstall, ApplicationStart, or ValidateService.
 --
--- * 'leStartTime'
+-- * 'leStartTime' - A timestamp indicating when the deployment lifecycle event started.
 --
--- * 'leDiagnostics'
+-- * 'leDiagnostics' - Diagnostic information about the deployment lifecycle event.
 --
--- * 'leEndTime'
+-- * 'leEndTime' - A timestamp indicating when the deployment lifecycle event ended.
 lifecycleEvent
     :: LifecycleEvent
 lifecycleEvent =
@@ -1020,14 +1005,7 @@ lifecycleEvent =
     , _leEndTime = Nothing
     }
 
--- | The deployment lifecycle event status:
---
--- -   Pending: The deployment lifecycle event is pending.
--- -   InProgress: The deployment lifecycle event is in progress.
--- -   Succeeded: The deployment lifecycle event ran successfully.
--- -   Failed: The deployment lifecycle event has failed.
--- -   Skipped: The deployment lifecycle event has been skipped.
--- -   Unknown: The deployment lifecycle event is unknown.
+-- | The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.    * InProgress: The deployment lifecycle event is in progress.    * Succeeded: The deployment lifecycle event ran successfully.    * Failed: The deployment lifecycle event has failed.    * Skipped: The deployment lifecycle event has been skipped.    * Unknown: The deployment lifecycle event is unknown.
 leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
 leStatus = lens _leStatus (\ s a -> s{_leStatus = a});
 
@@ -1063,6 +1041,8 @@ instance NFData LifecycleEvent
 
 -- | Information about minimum healthy instance.
 --
+--
+--
 -- /See:/ 'minimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
     { _mhhValue :: !(Maybe Int)
@@ -1073,9 +1053,9 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mhhValue'
+-- * 'mhhValue' - The minimum healthy instance value.
 --
--- * 'mhhType'
+-- * 'mhhType' - The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.    * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
 minimumHealthyHosts
     :: MinimumHealthyHosts
 minimumHealthyHosts =
@@ -1088,14 +1068,7 @@ minimumHealthyHosts =
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a});
 
--- | The minimum healthy instance type:
---
--- -   HOST_COUNT: The minimum number of healthy instance as an absolute value.
--- -   FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
---
--- In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
---
--- In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy will try to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment still succeeds.
+-- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.    * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\ s a -> s{_mhhType = a});
 
@@ -1119,6 +1092,8 @@ instance ToJSON MinimumHealthyHosts where
 
 -- | Information about an application revision.
 --
+--
+--
 -- /See:/ 'revisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
     { _riGenericRevisionInfo :: !(Maybe GenericRevisionInfo)
@@ -1129,9 +1104,9 @@ data RevisionInfo = RevisionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riGenericRevisionInfo'
+-- * 'riGenericRevisionInfo' - Undocumented member.
 --
--- * 'riRevisionLocation'
+-- * 'riRevisionLocation' - Undocumented member.
 revisionInfo
     :: RevisionInfo
 revisionInfo =
@@ -1162,6 +1137,8 @@ instance NFData RevisionInfo
 
 -- | Information about the location of an application revision.
 --
+--
+--
 -- /See:/ 'revisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
     { _rlRevisionType   :: !(Maybe RevisionLocationType)
@@ -1173,11 +1150,11 @@ data RevisionLocation = RevisionLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rlRevisionType'
+-- * 'rlRevisionType' - The type of application revision:     * S3: An application revision stored in Amazon S3.    * GitHub: An application revision stored in GitHub.
 --
--- * 'rlS3Location'
+-- * 'rlS3Location' - Undocumented member.
 --
--- * 'rlGitHubLocation'
+-- * 'rlGitHubLocation' - Undocumented member.
 revisionLocation
     :: RevisionLocation
 revisionLocation =
@@ -1187,10 +1164,7 @@ revisionLocation =
     , _rlGitHubLocation = Nothing
     }
 
--- | The type of application revision:
---
--- -   S3: An application revision stored in Amazon S3.
--- -   GitHub: An application revision stored in GitHub.
+-- | The type of application revision:     * S3: An application revision stored in Amazon S3.    * GitHub: An application revision stored in GitHub.
 rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
 rlRevisionType = lens _rlRevisionType (\ s a -> s{_rlRevisionType = a});
 
@@ -1224,6 +1198,8 @@ instance ToJSON RevisionLocation where
 
 -- | Information about the location of application artifacts stored in Amazon S3.
 --
+--
+--
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
     { _slBundleType :: !(Maybe BundleType)
@@ -1237,15 +1213,15 @@ data S3Location = S3Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slBundleType'
+-- * 'slBundleType' - The file type of the application revision. Must be one of the following:     * tar: A tar archive file.    * tgz: A compressed tar archive file.    * zip: A zip archive file.
 --
--- * 'slETag'
+-- * 'slETag' - The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.
 --
--- * 'slBucket'
+-- * 'slBucket' - The name of the Amazon S3 bucket where the application revision is stored.
 --
--- * 'slKey'
+-- * 'slKey' - The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
 --
--- * 'slVersion'
+-- * 'slVersion' - A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system will use the most recent version by default.
 s3Location
     :: S3Location
 s3Location =
@@ -1257,17 +1233,11 @@ s3Location =
     , _slVersion = Nothing
     }
 
--- | The file type of the application revision. Must be one of the following:
---
--- -   tar: A tar archive file.
--- -   tgz: A compressed tar archive file.
--- -   zip: A zip archive file.
+-- | The file type of the application revision. Must be one of the following:     * tar: A tar archive file.    * tgz: A compressed tar archive file.    * zip: A zip archive file.
 slBundleType :: Lens' S3Location (Maybe BundleType)
 slBundleType = lens _slBundleType (\ s a -> s{_slBundleType = a});
 
--- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
---
--- If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.
+-- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.
 slETag :: Lens' S3Location (Maybe Text)
 slETag = lens _slETag (\ s a -> s{_slETag = a});
 
@@ -1279,9 +1249,7 @@ slBucket = lens _slBucket (\ s a -> s{_slBucket = a});
 slKey :: Lens' S3Location (Maybe Text)
 slKey = lens _slKey (\ s a -> s{_slKey = a});
 
--- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
---
--- If the version is not specified, the system will use the most recent version by default.
+-- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system will use the most recent version by default.
 slVersion :: Lens' S3Location (Maybe Text)
 slVersion = lens _slVersion (\ s a -> s{_slVersion = a});
 
@@ -1310,6 +1278,8 @@ instance ToJSON S3Location where
 
 -- | Information about a tag.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -1320,9 +1290,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The tag's value.
 --
--- * 'tagKey'
+-- * 'tagKey' - The tag's key.
 tag
     :: Tag
 tag =
@@ -1331,11 +1301,11 @@ tag =
     , _tagKey = Nothing
     }
 
--- | The tag\'s value.
+-- | The tag's value.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The tag\'s key.
+-- | The tag's key.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -1356,6 +1326,8 @@ instance ToJSON Tag where
 
 -- | Information about an on-premises instance tag filter.
 --
+--
+--
 -- /See:/ 'tagFilter' smart constructor.
 data TagFilter = TagFilter'
     { _tfValue :: !(Maybe Text)
@@ -1367,11 +1339,11 @@ data TagFilter = TagFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tfValue'
+-- * 'tfValue' - The on-premises instance tag filter value.
 --
--- * 'tfKey'
+-- * 'tfKey' - The on-premises instance tag filter key.
 --
--- * 'tfType'
+-- * 'tfType' - The on-premises instance tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
 tagFilter
     :: TagFilter
 tagFilter =
@@ -1389,11 +1361,7 @@ tfValue = lens _tfValue (\ s a -> s{_tfValue = a});
 tfKey :: Lens' TagFilter (Maybe Text)
 tfKey = lens _tfKey (\ s a -> s{_tfKey = a});
 
--- | The on-premises instance tag filter type:
---
--- -   KEY_ONLY: Key only.
--- -   VALUE_ONLY: Value only.
--- -   KEY_AND_VALUE: Key and value.
+-- | The on-premises instance tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
 tfType :: Lens' TagFilter (Maybe TagFilterType)
 tfType = lens _tfType (\ s a -> s{_tfType = a});
 
@@ -1417,6 +1385,8 @@ instance ToJSON TagFilter where
 
 -- | Information about a time range.
 --
+--
+--
 -- /See:/ 'timeRange' smart constructor.
 data TimeRange = TimeRange'
     { _trStart :: !(Maybe POSIX)
@@ -1427,9 +1397,9 @@ data TimeRange = TimeRange'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trStart'
+-- * 'trStart' - The start time of the time range.
 --
--- * 'trEnd'
+-- * 'trEnd' - The end time of the time range.
 timeRange
     :: TimeRange
 timeRange =
@@ -1439,14 +1409,10 @@ timeRange =
     }
 
 -- | The start time of the time range.
---
--- Specify null to leave the start time open-ended.
 trStart :: Lens' TimeRange (Maybe UTCTime)
 trStart = lens _trStart (\ s a -> s{_trStart = a}) . mapping _Time;
 
 -- | The end time of the time range.
---
--- Specify null to leave the end time open-ended.
 trEnd :: Lens' TimeRange (Maybe UTCTime)
 trEnd = lens _trEnd (\ s a -> s{_trEnd = a}) . mapping _Time;
 
@@ -1462,6 +1428,8 @@ instance ToJSON TimeRange where
 
 -- | Information about notification triggers for the deployment group.
 --
+--
+--
 -- /See:/ 'triggerConfig' smart constructor.
 data TriggerConfig = TriggerConfig'
     { _tcTriggerName      :: !(Maybe Text)
@@ -1473,11 +1441,11 @@ data TriggerConfig = TriggerConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcTriggerName'
+-- * 'tcTriggerName' - The name of the notification trigger.
 --
--- * 'tcTriggerEvents'
+-- * 'tcTriggerEvents' - The event type or types for which notifications are triggered. The following event type values are supported:     * DEPLOYMENT_START    * DEPLOYMENT_SUCCESS    * DEPLOYMENT_FAILURE    * DEPLOYMENT_STOP    * INSTANCE_START    * INSTANCE_SUCCESS    * INSTANCE_FAILURE
 --
--- * 'tcTriggerTargetARN'
+-- * 'tcTriggerTargetARN' - The ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
 triggerConfig
     :: TriggerConfig
 triggerConfig =
@@ -1491,17 +1459,7 @@ triggerConfig =
 tcTriggerName :: Lens' TriggerConfig (Maybe Text)
 tcTriggerName = lens _tcTriggerName (\ s a -> s{_tcTriggerName = a});
 
--- | The event type or types for which notifications are triggered.
---
--- The following event type values are supported:
---
--- -   DEPLOYMENT_START
--- -   DEPLOYMENT_SUCCESS
--- -   DEPLOYMENT_FAILURE
--- -   DEPLOYMENT_STOP
--- -   INSTANCE_START
--- -   INSTANCE_SUCCESS
--- -   INSTANCE_FAILURE
+-- | The event type or types for which notifications are triggered. The following event type values are supported:     * DEPLOYMENT_START    * DEPLOYMENT_SUCCESS    * DEPLOYMENT_FAILURE    * DEPLOYMENT_STOP    * INSTANCE_START    * INSTANCE_SUCCESS    * INSTANCE_FAILURE
 tcTriggerEvents :: Lens' TriggerConfig [TriggerEventType]
 tcTriggerEvents = lens _tcTriggerEvents (\ s a -> s{_tcTriggerEvents = a}) . _Default . _Coerce;
 

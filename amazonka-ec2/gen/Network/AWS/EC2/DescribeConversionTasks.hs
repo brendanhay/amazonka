@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your conversion tasks. For more information, see the <http://docs.aws.amazon.com/vm-import/latest/userguide/ VM Import\/Export User Guide>.
+-- Describes one or more of your conversion tasks. For more information, see the <http://docs.aws.amazon.com/vm-import/latest/userguide/ VM Import/Export User Guide> .
 --
--- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
+--
+-- For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
 module Network.AWS.EC2.DescribeConversionTasks
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeConversionTasks.
 --
+--
+--
 -- /See:/ 'describeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
     { _dctFilters           :: !(Maybe [Filter])
@@ -59,11 +63,11 @@ data DescribeConversionTasks = DescribeConversionTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctFilters'
+-- * 'dctFilters' - One or more filters.
 --
--- * 'dctConversionTaskIds'
+-- * 'dctConversionTaskIds' - One or more conversion task IDs.
 --
--- * 'dctDryRun'
+-- * 'dctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeConversionTasks
     :: DescribeConversionTasks
 describeConversionTasks =
@@ -81,7 +85,7 @@ dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
 dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
 
@@ -121,6 +125,8 @@ instance ToQuery DescribeConversionTasks where
 
 -- | Contains the output for DescribeConversionTasks.
 --
+--
+--
 -- /See:/ 'describeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
@@ -131,9 +137,9 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctrsConversionTasks'
+-- * 'dctrsConversionTasks' - Information about the conversion tasks.
 --
--- * 'dctrsResponseStatus'
+-- * 'dctrsResponseStatus' - -- | The response status code.
 describeConversionTasksResponse
     :: Int -- ^ 'dctrsResponseStatus'
     -> DescribeConversionTasksResponse
@@ -147,7 +153,7 @@ describeConversionTasksResponse pResponseStatus_ =
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
 dctrsResponseStatus = lens _dctrsResponseStatus (\ s a -> s{_dctrsResponseStatus = a});
 

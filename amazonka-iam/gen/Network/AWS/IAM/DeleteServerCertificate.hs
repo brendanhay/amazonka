@@ -20,9 +20,11 @@
 --
 -- Deletes the specified server certificate.
 --
--- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/.
 --
--- If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn\'t detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners> in the /Elastic Load Balancing API Reference/.
+-- For more information about working with server certificates, including a list of AWS services that can use the server certificates that you manage with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with Server Certificates> in the /IAM User Guide/ .
+--
+-- /Important:/ If you are using a server certificate with Elastic Load Balancing, deleting the certificate could have implications for your application. If Elastic Load Balancing doesn't detect the deletion of bound certificates, it may continue to use the certificates. This could cause Elastic Load Balancing to stop accepting traffic. We recommend that you remove the reference to the certificate from Elastic Load Balancing before using this command to delete the certificate. For more information, go to <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners> in the /Elastic Load Balancing API Reference/ .
+--
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DeleteServerCertificate = DeleteServerCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscServerCertificateName'
+-- * 'dscServerCertificateName' - The name of the server certificate you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteServerCertificate
     :: Text -- ^ 'dscServerCertificateName'
     -> DeleteServerCertificate
@@ -61,9 +63,7 @@ deleteServerCertificate pServerCertificateName_ =
     { _dscServerCertificateName = pServerCertificateName_
     }
 
--- | The name of the server certificate you want to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the server certificate you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a});
 

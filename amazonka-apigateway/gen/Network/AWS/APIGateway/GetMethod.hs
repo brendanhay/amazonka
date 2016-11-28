@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing < Method> resource.
+-- Describe an existing 'Method' resource.
+--
+--
 module Network.AWS.APIGateway.GetMethod
     (
     -- * Creating a Request
@@ -50,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe an existing < Method> resource.
+-- | Request to describe an existing 'Method' resource.
+--
+--
 --
 -- /See:/ 'getMethod' smart constructor.
 data GetMethod = GetMethod'
@@ -63,11 +67,11 @@ data GetMethod = GetMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmmRestAPIId'
+-- * 'gmmRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
 --
--- * 'gmmResourceId'
+-- * 'gmmResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
--- * 'gmmHttpMethod'
+-- * 'gmmHttpMethod' - Specifies the method request's HTTP method type.
 getMethod
     :: Text -- ^ 'gmmRestAPIId'
     -> Text -- ^ 'gmmResourceId'
@@ -80,15 +84,15 @@ getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _gmmHttpMethod = pHttpMethod_
     }
 
--- | The < RestApi> identifier for the < Method> resource.
+-- | The 'RestApi' identifier for the 'Method' resource.
 gmmRestAPIId :: Lens' GetMethod Text
 gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a});
 
--- | The < Resource> identifier for the < Method> resource.
+-- | The 'Resource' identifier for the 'Method' resource.
 gmmResourceId :: Lens' GetMethod Text
 gmmResourceId = lens _gmmResourceId (\ s a -> s{_gmmResourceId = a});
 
--- | Specifies the method request\'s HTTP method type.
+-- | Specifies the method request's HTTP method type.
 gmmHttpMethod :: Lens' GetMethod Text
 gmmHttpMethod = lens _gmmHttpMethod (\ s a -> s{_gmmHttpMethod = a});
 

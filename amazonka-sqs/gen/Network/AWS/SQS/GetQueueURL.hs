@@ -20,7 +20,9 @@
 --
 -- Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue.
 --
--- To access a queue that belongs to another AWS account, use the 'QueueOwnerAWSAccountId' parameter to specify the account ID of the queue\'s owner. The queue\'s owner must grant you permission to access the queue. For more information about shared queue access, see < AddPermission> or go to <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/.
+--
+-- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see 'AddPermission' or go to <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
+--
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'getQueueURL' smart constructor.
 data GetQueueURL = GetQueueURL'
     { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
@@ -57,9 +61,9 @@ data GetQueueURL = GetQueueURL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gquQueueOwnerAWSAccountId'
+-- * 'gquQueueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
 --
--- * 'gquQueueName'
+-- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed. Queue names are case-sensitive.
 getQueueURL
     :: Text -- ^ 'gquQueueName'
     -> GetQueueURL
@@ -73,9 +77,7 @@ getQueueURL pQueueName_ =
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
---
--- Queue names are case-sensitive.
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed. Queue names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
@@ -107,7 +109,9 @@ instance ToQuery GetQueueURL where
                  _gquQueueOwnerAWSAccountId,
                "QueueName" =: _gquQueueName]
 
--- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon SQS Developer Guide/.
+-- | For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses> in the /Amazon SQS Developer Guide/ .
+--
+--
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
 data GetQueueURLResponse = GetQueueURLResponse'
@@ -119,9 +123,9 @@ data GetQueueURLResponse = GetQueueURLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gqursResponseStatus'
+-- * 'gqursResponseStatus' - -- | The response status code.
 --
--- * 'gqursQueueURL'
+-- * 'gqursQueueURL' - The URL for the queue.
 getQueueURLResponse
     :: Int -- ^ 'gqursResponseStatus'
     -> Text -- ^ 'gqursQueueURL'
@@ -132,7 +136,7 @@ getQueueURLResponse pResponseStatus_ pQueueURL_ =
     , _gqursQueueURL = pQueueURL_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gqursResponseStatus :: Lens' GetQueueURLResponse Int
 gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a});
 

@@ -21,7 +21,9 @@ import           Network.AWS.GameLift.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | AWS access credentials required to upload game build files to Amazon GameLift. These credentials are generated with < CreateBuild>, and are valid for a limited time. If they expire before you upload your game build, get a new set by calling < RequestUploadCredentials>.
+-- | AWS access credentials required to upload game build files to Amazon GameLift. These credentials are generated with 'CreateBuild' , and are valid for a limited time. If they expire before you upload your game build, get a new set by calling 'RequestUploadCredentials' .
+--
+--
 --
 -- /See:/ 'awsCredentials' smart constructor.
 data AWSCredentials = AWSCredentials'
@@ -34,11 +36,11 @@ data AWSCredentials = AWSCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acSecretAccessKey'
+-- * 'acSecretAccessKey' - Secret key for an AWS account.
 --
--- * 'acSessionToken'
+-- * 'acSessionToken' - Token specific to a build ID.
 --
--- * 'acAccessKeyId'
+-- * 'acAccessKeyId' - Access key for an AWS account.
 awsCredentials
     :: AWSCredentials
 awsCredentials =
@@ -74,6 +76,8 @@ instance NFData AWSCredentials
 
 -- | Properties describing a fleet alias.
 --
+--
+--
 -- /See:/ 'alias' smart constructor.
 data Alias = Alias'
     { _aCreationTime    :: !(Maybe POSIX)
@@ -88,17 +92,17 @@ data Alias = Alias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aCreationTime'
+-- * 'aCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'aLastUpdatedTime'
+-- * 'aLastUpdatedTime' - Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'aAliasId'
+-- * 'aAliasId' - Unique identifier for a fleet alias.
 --
--- * 'aRoutingStrategy'
+-- * 'aRoutingStrategy' - Undocumented member.
 --
--- * 'aName'
+-- * 'aName' - Descriptive label associated with an alias. Alias names do not need to be unique.
 --
--- * 'aDescription'
+-- * 'aDescription' - Human-readable description of an alias.
 alias
     :: Alias
 alias =
@@ -111,11 +115,11 @@ alias =
     , _aDescription = Nothing
     }
 
--- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 aCreationTime :: Lens' Alias (Maybe UTCTime)
 aCreationTime = lens _aCreationTime (\ s a -> s{_aCreationTime = a}) . mapping _Time;
 
--- | Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was last modified. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 aLastUpdatedTime :: Lens' Alias (Maybe UTCTime)
 aLastUpdatedTime = lens _aLastUpdatedTime (\ s a -> s{_aLastUpdatedTime = a}) . mapping _Time;
 
@@ -152,6 +156,8 @@ instance NFData Alias
 
 -- | Properties describing a game build.
 --
+--
+--
 -- /See:/ 'build' smart constructor.
 data Build = Build'
     { _bCreationTime    :: !(Maybe POSIX)
@@ -167,19 +173,19 @@ data Build = Build'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bCreationTime'
+-- * 'bCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'bStatus'
+-- * 'bStatus' - Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.     * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.    * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 --
--- * 'bOperatingSystem'
+-- * 'bOperatingSystem' - Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
 --
--- * 'bBuildId'
+-- * 'bBuildId' - Unique identifier for a build.
 --
--- * 'bName'
+-- * 'bName' - Descriptive label associated with a build. Build names do not need to be unique. It can be set using 'CreateBuild' or 'UpdateBuild' .
 --
--- * 'bVersion'
+-- * 'bVersion' - Version associated with this build. Version strings do not need to be unique to a build. This value can be set using 'CreateBuild' or 'UpdateBuild' .
 --
--- * 'bSizeOnDisk'
+-- * 'bSizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build status is @INITIALIZED@ , this value is 0.
 build
     :: Build
 build =
@@ -193,17 +199,11 @@ build =
     , _bSizeOnDisk = Nothing
     }
 
--- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 bCreationTime :: Lens' Build (Maybe UTCTime)
 bCreationTime = lens _bCreationTime (\ s a -> s{_bCreationTime = a}) . mapping _Time;
 
--- | Current status of the build.
---
--- Possible build statuses include the following:
---
--- -   __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.
--- -   __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.
--- -   __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
+-- | Current status of the build. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.     * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.    * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 bStatus :: Lens' Build (Maybe BuildStatus)
 bStatus = lens _bStatus (\ s a -> s{_bStatus = a});
 
@@ -215,15 +215,15 @@ bOperatingSystem = lens _bOperatingSystem (\ s a -> s{_bOperatingSystem = a});
 bBuildId :: Lens' Build (Maybe Text)
 bBuildId = lens _bBuildId (\ s a -> s{_bBuildId = a});
 
--- | Descriptive label associated with a build. Build names do not need to be unique. It can be set using < CreateBuild> or < UpdateBuild>.
+-- | Descriptive label associated with a build. Build names do not need to be unique. It can be set using 'CreateBuild' or 'UpdateBuild' .
 bName :: Lens' Build (Maybe Text)
 bName = lens _bName (\ s a -> s{_bName = a});
 
--- | Version associated with this build. Version strings do not need to be unique to a build. This value can be set using < CreateBuild> or < UpdateBuild>.
+-- | Version associated with this build. Version strings do not need to be unique to a build. This value can be set using 'CreateBuild' or 'UpdateBuild' .
 bVersion :: Lens' Build (Maybe Text)
 bVersion = lens _bVersion (\ s a -> s{_bVersion = a});
 
--- | File size of the uploaded game build, expressed in bytes. When the build status is 'INITIALIZED', this value is 0.
+-- | File size of the uploaded game build, expressed in bytes. When the build status is @INITIALIZED@ , this value is 0.
 bSizeOnDisk :: Lens' Build (Maybe Natural)
 bSizeOnDisk = lens _bSizeOnDisk (\ s a -> s{_bSizeOnDisk = a}) . mapping _Nat;
 
@@ -243,7 +243,9 @@ instance Hashable Build
 
 instance NFData Build
 
--- | Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an < UpdateFleetCapacity> request, or if access to resources is temporarily affected.
+-- | Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an 'UpdateFleetCapacity' request, or if access to resources is temporarily affected.
+--
+--
 --
 -- /See:/ 'ec2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
@@ -260,19 +262,19 @@ data EC2InstanceCounts = EC2InstanceCounts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eicIdLE'
+-- * 'eicIdLE' - Number of active instances in the fleet that are not currently hosting a game session.
 --
--- * 'eicTERMINATING'
+-- * 'eicTERMINATING' - Number of instances in the fleet that are no longer active but haven't yet been terminated.
 --
--- * 'eicPENDING'
+-- * 'eicPENDING' - Number of instances in the fleet that are starting but not yet active.
 --
--- * 'eicMAXIMUM'
+-- * 'eicMAXIMUM' - Maximum value allowed for the fleet's instance count.
 --
--- * 'eicDESIRED'
+-- * 'eicDESIRED' - Ideal number of active instances in the fleet.
 --
--- * 'eicMINIMUM'
+-- * 'eicMINIMUM' - Minimum value allowed for the fleet's instance count.
 --
--- * 'eicACTIVE'
+-- * 'eicACTIVE' - Actual number of active instances in the fleet.
 ec2InstanceCounts
     :: EC2InstanceCounts
 ec2InstanceCounts =
@@ -290,7 +292,7 @@ ec2InstanceCounts =
 eicIdLE :: Lens' EC2InstanceCounts (Maybe Natural)
 eicIdLE = lens _eicIdLE (\ s a -> s{_eicIdLE = a}) . mapping _Nat;
 
--- | Number of instances in the fleet that are no longer active but haven\'t yet been terminated.
+-- | Number of instances in the fleet that are no longer active but haven't yet been terminated.
 eicTERMINATING :: Lens' EC2InstanceCounts (Maybe Natural)
 eicTERMINATING = lens _eicTERMINATING (\ s a -> s{_eicTERMINATING = a}) . mapping _Nat;
 
@@ -298,7 +300,7 @@ eicTERMINATING = lens _eicTERMINATING (\ s a -> s{_eicTERMINATING = a}) . mappin
 eicPENDING :: Lens' EC2InstanceCounts (Maybe Natural)
 eicPENDING = lens _eicPENDING (\ s a -> s{_eicPENDING = a}) . mapping _Nat;
 
--- | Maximum value allowed for the fleet\'s instance count.
+-- | Maximum value allowed for the fleet's instance count.
 eicMAXIMUM :: Lens' EC2InstanceCounts (Maybe Natural)
 eicMAXIMUM = lens _eicMAXIMUM (\ s a -> s{_eicMAXIMUM = a}) . mapping _Nat;
 
@@ -306,7 +308,7 @@ eicMAXIMUM = lens _eicMAXIMUM (\ s a -> s{_eicMAXIMUM = a}) . mapping _Nat;
 eicDESIRED :: Lens' EC2InstanceCounts (Maybe Natural)
 eicDESIRED = lens _eicDESIRED (\ s a -> s{_eicDESIRED = a}) . mapping _Nat;
 
--- | Minimum value allowed for the fleet\'s instance count.
+-- | Minimum value allowed for the fleet's instance count.
 eicMINIMUM :: Lens' EC2InstanceCounts (Maybe Natural)
 eicMINIMUM = lens _eicMINIMUM (\ s a -> s{_eicMINIMUM = a}) . mapping _Nat;
 
@@ -330,7 +332,9 @@ instance Hashable EC2InstanceCounts
 
 instance NFData EC2InstanceCounts
 
--- | Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling < DescribeEC2InstanceLimits>.
+-- | Maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling 'DescribeEC2InstanceLimits' .
+--
+--
 --
 -- /See:/ 'ec2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
@@ -343,11 +347,11 @@ data EC2InstanceLimit = EC2InstanceLimit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eilEC2InstanceType'
+-- * 'eilEC2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 --
--- * 'eilCurrentInstances'
+-- * 'eilCurrentInstances' - Number of instances of the specified type that are currently in use by this AWS account.
 --
--- * 'eilInstanceLimit'
+-- * 'eilInstanceLimit' - Number of instances allowed.
 ec2InstanceLimit
     :: EC2InstanceLimit
 ec2InstanceLimit =
@@ -384,6 +388,8 @@ instance NFData EC2InstanceLimit
 
 -- | Log entry describing an event involving an Amazon GameLift resource (such as a fleet).
 --
+--
+--
 -- /See:/ 'event' smart constructor.
 data Event = Event'
     { _eResourceId :: !(Maybe Text)
@@ -397,15 +403,15 @@ data Event = Event'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eResourceId'
+-- * 'eResourceId' - Unique identifier for the resource, such as a fleet ID.
 --
--- * 'eEventTime'
+-- * 'eEventTime' - Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'eMessage'
+-- * 'eMessage' - Additional information related to the event.
 --
--- * 'eEventCode'
+-- * 'eEventCode' - Type of event being logged.
 --
--- * 'eEventId'
+-- * 'eEventId' - Unique identifier for a fleet event.
 event
     :: Event
 event =
@@ -421,7 +427,7 @@ event =
 eResourceId :: Lens' Event (Maybe Text)
 eResourceId = lens _eResourceId (\ s a -> s{_eResourceId = a});
 
--- | Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 eEventTime :: Lens' Event (Maybe UTCTime)
 eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 
@@ -453,6 +459,8 @@ instance NFData Event
 
 -- | General properties describing a fleet.
 --
+--
+--
 -- /See:/ 'fleetAttributes' smart constructor.
 data FleetAttributes = FleetAttributes'
     { _faCreationTime                   :: !(Maybe POSIX)
@@ -473,29 +481,29 @@ data FleetAttributes = FleetAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'faCreationTime'
+-- * 'faCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'faStatus'
+-- * 'faStatus' - Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ – A new fleet has been defined and desired instances is set to 1.     * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ – GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.    * __ACTIVE__ – Hosts can now accept game sessions.    * __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.    * __DELETING__ – Hosts are responding to a delete fleet request.    * __TERMINATED__ – The fleet no longer exists.
 --
--- * 'faServerLaunchParameters'
+-- * 'faServerLaunchParameters' - Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's @'RuntimeConfiguration' @ .
 --
--- * 'faLogPaths'
+-- * 'faLogPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, GameLift will automatically upload logs stored on each instance at @C:\game\logs@ . Use the GameLift console to access stored logs.
 --
--- * 'faOperatingSystem'
+-- * 'faOperatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
 --
--- * 'faBuildId'
+-- * 'faBuildId' - Unique identifier for a build.
 --
--- * 'faTerminationTime'
+-- * 'faTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'faNewGameSessionProtectionPolicy'
+-- * 'faNewGameSessionProtectionPolicy' - Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
--- * 'faName'
+-- * 'faName' - Descriptive label associated with a fleet. Fleet names do not need to be unique.
 --
--- * 'faServerLaunchPath'
+-- * 'faServerLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's @'RuntimeConfiguration' @ .
 --
--- * 'faFleetId'
+-- * 'faFleetId' - Unique identifier for a fleet.
 --
--- * 'faDescription'
+-- * 'faDescription' - Human-readable description of the fleet.
 fleetAttributes
     :: FleetAttributes
 fleetAttributes =
@@ -514,32 +522,23 @@ fleetAttributes =
     , _faDescription = Nothing
     }
 
--- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 faCreationTime :: Lens' FleetAttributes (Maybe UTCTime)
 faCreationTime = lens _faCreationTime (\ s a -> s{_faCreationTime = a}) . mapping _Time;
 
--- | Current status of the fleet.
---
--- Possible fleet statuses include the following:
---
--- -   __NEW__ – A new fleet has been defined and desired instances is set to 1.
--- -   __DOWNLOADING\/VALIDATING\/BUILDING\/ACTIVATING__ – GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.
--- -   __ACTIVE__ – Hosts can now accept game sessions.
--- -   __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.
--- -   __DELETING__ – Hosts are responding to a delete fleet request.
--- -   __TERMINATED__ – The fleet no longer exists.
+-- | Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ – A new fleet has been defined and desired instances is set to 1.     * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ – GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.    * __ACTIVE__ – Hosts can now accept game sessions.    * __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.    * __DELETING__ – Hosts are responding to a delete fleet request.    * __TERMINATED__ – The fleet no longer exists.
 faStatus :: Lens' FleetAttributes (Maybe FleetStatus)
 faStatus = lens _faStatus (\ s a -> s{_faStatus = a});
 
--- | Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet\'s 'RuntimeConfiguration'.
+-- | Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's @'RuntimeConfiguration' @ .
 faServerLaunchParameters :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchParameters = lens _faServerLaunchParameters (\ s a -> s{_faServerLaunchParameters = a});
 
--- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide>. If no default log path for a fleet is specified, GameLift will automatically upload logs stored on each instance at 'C:\\game\\logs'. Use the GameLift console to access stored logs.
+-- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, GameLift will automatically upload logs stored on each instance at @C:\game\logs@ . Use the GameLift console to access stored logs.
 faLogPaths :: Lens' FleetAttributes [Text]
 faLogPaths = lens _faLogPaths (\ s a -> s{_faLogPaths = a}) . _Default . _Coerce;
 
--- | Operating system of the fleet\'s computing resources. A fleet\'s operating system depends on the OS specified for the build that is deployed on this fleet.
+-- | Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
 faOperatingSystem :: Lens' FleetAttributes (Maybe OperatingSystem)
 faOperatingSystem = lens _faOperatingSystem (\ s a -> s{_faOperatingSystem = a});
 
@@ -547,14 +546,11 @@ faOperatingSystem = lens _faOperatingSystem (\ s a -> s{_faOperatingSystem = a})
 faBuildId :: Lens' FleetAttributes (Maybe Text)
 faBuildId = lens _faBuildId (\ s a -> s{_faBuildId = a});
 
--- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 faTerminationTime :: Lens' FleetAttributes (Maybe UTCTime)
 faTerminationTime = lens _faTerminationTime (\ s a -> s{_faTerminationTime = a}) . mapping _Time;
 
--- | Type of game session protection to set for all new instances started in the fleet.
---
--- -   __NoProtection__ – The game session can be terminated during a scale-down event.
--- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
+-- | Type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 faNewGameSessionProtectionPolicy :: Lens' FleetAttributes (Maybe ProtectionPolicy)
 faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\ s a -> s{_faNewGameSessionProtectionPolicy = a});
 
@@ -562,7 +558,7 @@ faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\ s a
 faName :: Lens' FleetAttributes (Maybe Text)
 faName = lens _faName (\ s a -> s{_faName = a});
 
--- | Path to a game server executable in the fleet\'s build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet\'s 'RuntimeConfiguration'.
+-- | Path to a game server executable in the fleet's build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's @'RuntimeConfiguration' @ .
 faServerLaunchPath :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchPath = lens _faServerLaunchPath (\ s a -> s{_faServerLaunchPath = a});
 
@@ -595,7 +591,9 @@ instance Hashable FleetAttributes
 
 instance NFData FleetAttributes
 
--- | Information about the fleet\'s capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet\'s instance type.
+-- | Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.
+--
+--
 --
 -- /See:/ 'fleetCapacity' smart constructor.
 data FleetCapacity = FleetCapacity'
@@ -608,11 +606,11 @@ data FleetCapacity = FleetCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcInstanceType'
+-- * 'fcInstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 --
--- * 'fcFleetId'
+-- * 'fcFleetId' - Unique identifier for a fleet.
 --
--- * 'fcInstanceCounts'
+-- * 'fcInstanceCounts' - Current status of fleet capacity.
 fleetCapacity
     :: FleetCapacity
 fleetCapacity =
@@ -648,6 +646,8 @@ instance NFData FleetCapacity
 
 -- | Current status of fleet utilization, including the number of game and player sessions being hosted.
 --
+--
+--
 -- /See:/ 'fleetUtilization' smart constructor.
 data FleetUtilization = FleetUtilization'
     { _fuActiveGameSessionCount    :: !(Maybe Nat)
@@ -661,15 +661,15 @@ data FleetUtilization = FleetUtilization'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fuActiveGameSessionCount'
+-- * 'fuActiveGameSessionCount' - Number of active game sessions currently being hosted on all instances in the fleet.
 --
--- * 'fuMaximumPlayerSessionCount'
+-- * 'fuMaximumPlayerSessionCount' - Maximum players allowed across all game sessions currently being hosted on all instances in the fleet.
 --
--- * 'fuCurrentPlayerSessionCount'
+-- * 'fuCurrentPlayerSessionCount' - Number of active player sessions currently being hosted on all instances in the fleet.
 --
--- * 'fuFleetId'
+-- * 'fuFleetId' - Unique identifier for a fleet.
 --
--- * 'fuActiveServerProcessCount'
+-- * 'fuActiveServerProcessCount' - Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
 fleetUtilization
     :: FleetUtilization
 fleetUtilization =
@@ -697,7 +697,7 @@ fuCurrentPlayerSessionCount = lens _fuCurrentPlayerSessionCount (\ s a -> s{_fuC
 fuFleetId :: Lens' FleetUtilization (Maybe Text)
 fuFleetId = lens _fuFleetId (\ s a -> s{_fuFleetId = a});
 
--- | Number of server processes in an 'ACTIVE' status currently running across all instances in the fleet
+-- | Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
 fuActiveServerProcessCount :: Lens' FleetUtilization (Maybe Natural)
 fuActiveServerProcessCount = lens _fuActiveServerProcessCount (\ s a -> s{_fuActiveServerProcessCount = a}) . mapping _Nat;
 
@@ -716,7 +716,9 @@ instance Hashable FleetUtilization
 
 instance NFData FleetUtilization
 
--- | Set of key-value pairs containing information a server process requires to set up a game session. This object allows you to pass in any set of data needed for your game. For more information, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide>.
+-- | Set of key-value pairs containing information a server process requires to set up a game session. This object allows you to pass in any set of data needed for your game. For more information, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> .
+--
+--
 --
 -- /See:/ 'gameProperty' smart constructor.
 data GameProperty = GameProperty'
@@ -728,9 +730,9 @@ data GameProperty = GameProperty'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpKey'
+-- * 'gpKey' - Undocumented member.
 --
--- * 'gpValue'
+-- * 'gpValue' - Undocumented member.
 gameProperty
     :: Text -- ^ 'gpKey'
     -> Text -- ^ 'gpValue'
@@ -767,6 +769,8 @@ instance ToJSON GameProperty where
 
 -- | Properties describing a game session.
 --
+--
+--
 -- /See:/ 'gameSession' smart constructor.
 data GameSession = GameSession'
     { _gsCreationTime                :: !(Maybe POSIX)
@@ -787,29 +791,29 @@ data GameSession = GameSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsCreationTime'
+-- * 'gsCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'gsStatus'
+-- * 'gsStatus' - Current status of the game session. A game session must be in an @ACTIVE@ status to have player sessions.
 --
--- * 'gsGameProperties'
+-- * 'gsGameProperties' - Set of custom properties for the game session.
 --
--- * 'gsIPAddress'
+-- * 'gsIPAddress' - IP address of the game session. To connect to a GameLift server process, an app needs both the IP address and port number.
 --
--- * 'gsGameSessionId'
+-- * 'gsGameSessionId' - Unique identifier for a game session.
 --
--- * 'gsMaximumPlayerSessionCount'
+-- * 'gsMaximumPlayerSessionCount' - Maximum number of players allowed in the game session.
 --
--- * 'gsTerminationTime'
+-- * 'gsTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'gsPlayerSessionCreationPolicy'
+-- * 'gsPlayerSessionCreationPolicy' - Indicates whether or not the game session is accepting new players.
 --
--- * 'gsName'
+-- * 'gsName' - Descriptive label associated with a game session. Session names do not need to be unique.
 --
--- * 'gsCurrentPlayerSessionCount'
+-- * 'gsCurrentPlayerSessionCount' - Number of players currently in the game session.
 --
--- * 'gsFleetId'
+-- * 'gsFleetId' - Unique identifier for a fleet.
 --
--- * 'gsPort'
+-- * 'gsPort' - Port number for the game session. To connect to a GameLift server process, an app needs both the IP address and port number.
 gameSession
     :: GameSession
 gameSession =
@@ -828,11 +832,11 @@ gameSession =
     , _gsPort = Nothing
     }
 
--- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 gsCreationTime :: Lens' GameSession (Maybe UTCTime)
 gsCreationTime = lens _gsCreationTime (\ s a -> s{_gsCreationTime = a}) . mapping _Time;
 
--- | Current status of the game session. A game session must be in an 'ACTIVE' status to have player sessions.
+-- | Current status of the game session. A game session must be in an @ACTIVE@ status to have player sessions.
 gsStatus :: Lens' GameSession (Maybe GameSessionStatus)
 gsStatus = lens _gsStatus (\ s a -> s{_gsStatus = a});
 
@@ -852,7 +856,7 @@ gsGameSessionId = lens _gsGameSessionId (\ s a -> s{_gsGameSessionId = a});
 gsMaximumPlayerSessionCount :: Lens' GameSession (Maybe Natural)
 gsMaximumPlayerSessionCount = lens _gsMaximumPlayerSessionCount (\ s a -> s{_gsMaximumPlayerSessionCount = a}) . mapping _Nat;
 
--- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 gsTerminationTime :: Lens' GameSession (Maybe UTCTime)
 gsTerminationTime = lens _gsTerminationTime (\ s a -> s{_gsTerminationTime = a}) . mapping _Time;
 
@@ -897,7 +901,9 @@ instance Hashable GameSession
 
 instance NFData GameSession
 
--- | A game session\'s properties and the protection policy currently in force.
+-- | A game session's properties and the protection policy currently in force.
+--
+--
 --
 -- /See:/ 'gameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
@@ -909,9 +915,9 @@ data GameSessionDetail = GameSessionDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdGameSession'
+-- * 'gsdGameSession' - Undocumented member.
 --
--- * 'gsdProtectionPolicy'
+-- * 'gsdProtectionPolicy' - Current status of protection for the game session.     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 gameSessionDetail
     :: GameSessionDetail
 gameSessionDetail =
@@ -924,10 +930,7 @@ gameSessionDetail =
 gsdGameSession :: Lens' GameSessionDetail (Maybe GameSession)
 gsdGameSession = lens _gsdGameSession (\ s a -> s{_gsdGameSession = a});
 
--- | Current status of protection for the game session.
---
--- -   __NoProtection__ – The game session can be terminated during a scale-down event.
--- -   __FullProtection__ – If the game session is in an 'ACTIVE' status, it cannot be terminated during a scale-down event.
+-- | Current status of protection for the game session.     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 gsdProtectionPolicy :: Lens' GameSessionDetail (Maybe ProtectionPolicy)
 gsdProtectionPolicy = lens _gsdProtectionPolicy (\ s a -> s{_gsdProtectionPolicy = a});
 
@@ -942,7 +945,9 @@ instance Hashable GameSessionDetail
 
 instance NFData GameSessionDetail
 
--- | A range of IP addresses and port settings that allow inbound traffic to connect to server processes on GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet\'s allowed ranges. This combination is included in the < GameSession> object.
+-- | A range of IP addresses and port settings that allow inbound traffic to connect to server processes on GameLift. Each game session hosted on a fleet is assigned a unique combination of IP address and port number, which must fall into the fleet's allowed ranges. This combination is included in the 'GameSession' object.
+--
+--
 --
 -- /See:/ 'ipPermission' smart constructor.
 data IPPermission = IPPermission'
@@ -956,13 +961,13 @@ data IPPermission = IPPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipFromPort'
+-- * 'ipFromPort' - Starting value for a range of allowed port numbers.
 --
--- * 'ipToPort'
+-- * 'ipToPort' - Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than @FromPort@ .
 --
--- * 'ipIPRange'
+-- * 'ipIPRange' - Range of allowed IP addresses. This value must be expressed in <https://tools.ietf.org/id/cidr CIDR notation> . Example: "@000.000.000.000/[subnet mask]@ " or optionally the shortened version "@0.0.0.0/[subnet mask]@ ".
 --
--- * 'ipProtocol'
+-- * 'ipProtocol' - Network communication protocol used by the fleet.
 ipPermission
     :: Natural -- ^ 'ipFromPort'
     -> Natural -- ^ 'ipToPort'
@@ -981,11 +986,11 @@ ipPermission pFromPort_ pToPort_ pIPRange_ pProtocol_ =
 ipFromPort :: Lens' IPPermission Natural
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a}) . _Nat;
 
--- | Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than 'FromPort'.
+-- | Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than @FromPort@ .
 ipToPort :: Lens' IPPermission Natural
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a}) . _Nat;
 
--- | Range of allowed IP addresses. This value must be expressed in <https://tools.ietf.org/id/cidr CIDR notation>. Example: \"'000.000.000.000\/[subnet mask]'\" or optionally the shortened version \"'0.0.0.0\/[subnet mask]'\".
+-- | Range of allowed IP addresses. This value must be expressed in <https://tools.ietf.org/id/cidr CIDR notation> . Example: "@000.000.000.000/[subnet mask]@ " or optionally the shortened version "@0.0.0.0/[subnet mask]@ ".
 ipIPRange :: Lens' IPPermission Text
 ipIPRange = lens _ipIPRange (\ s a -> s{_ipIPRange = a});
 
@@ -1017,6 +1022,8 @@ instance ToJSON IPPermission where
 
 -- | Properties describing a player session.
 --
+--
+--
 -- /See:/ 'playerSession' smart constructor.
 data PlayerSession = PlayerSession'
     { _psCreationTime    :: !(Maybe POSIX)
@@ -1034,23 +1041,23 @@ data PlayerSession = PlayerSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psCreationTime'
+-- * 'psCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'psStatus'
+-- * 'psStatus' - Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.     * __ACTIVE__ – The player has been validated by the server process and is currently connected.    * __COMPLETED__ – The player connection has been dropped.    * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
 --
--- * 'psIPAddress'
+-- * 'psIPAddress' - Game session IP address. All player sessions reference the game session location.
 --
--- * 'psGameSessionId'
+-- * 'psGameSessionId' - Unique identifier for a game session.
 --
--- * 'psTerminationTime'
+-- * 'psTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 --
--- * 'psPlayerSessionId'
+-- * 'psPlayerSessionId' - Unique identifier for a player session.
 --
--- * 'psFleetId'
+-- * 'psFleetId' - Unique identifier for a fleet.
 --
--- * 'psPlayerId'
+-- * 'psPlayerId' - Unique identifier for a player.
 --
--- * 'psPort'
+-- * 'psPort' - Port number for the game session. To connect to a GameLift server process, an app needs both the IP address and port number.
 playerSession
     :: PlayerSession
 playerSession =
@@ -1066,18 +1073,11 @@ playerSession =
     , _psPort = Nothing
     }
 
--- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 psCreationTime :: Lens' PlayerSession (Maybe UTCTime)
 psCreationTime = lens _psCreationTime (\ s a -> s{_psCreationTime = a}) . mapping _Time;
 
--- | Current status of the player session.
---
--- Possible player session statuses include the following:
---
--- -   __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and\/or been validated.
--- -   __ACTIVE__ – The player has been validated by the server process and is currently connected.
--- -   __COMPLETED__ – The player connection has been dropped.
--- -   __TIMEDOUT__ – A player session request was received, but the player did not connect and\/or was not validated within the time-out limit (60 seconds).
+-- | Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.     * __ACTIVE__ – The player has been validated by the server process and is currently connected.    * __COMPLETED__ – The player connection has been dropped.    * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
 psStatus :: Lens' PlayerSession (Maybe PlayerSessionStatus)
 psStatus = lens _psStatus (\ s a -> s{_psStatus = a});
 
@@ -1089,7 +1089,7 @@ psIPAddress = lens _psIPAddress (\ s a -> s{_psIPAddress = a});
 psGameSessionId :: Lens' PlayerSession (Maybe Text)
 psGameSessionId = lens _psGameSessionId (\ s a -> s{_psGameSessionId = a});
 
--- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: \"1469498468.057\".
+-- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
 psTerminationTime :: Lens' PlayerSession (Maybe UTCTime)
 psTerminationTime = lens _psTerminationTime (\ s a -> s{_psTerminationTime = a}) . mapping _Time;
 
@@ -1129,6 +1129,8 @@ instance NFData PlayerSession
 
 -- | Routing configuration for a fleet alias.
 --
+--
+--
 -- /See:/ 'routingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
     { _rsType    :: !(Maybe RoutingStrategyType)
@@ -1140,11 +1142,11 @@ data RoutingStrategy = RoutingStrategy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsType'
+-- * 'rsType' - Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.    * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 --
--- * 'rsMessage'
+-- * 'rsMessage' - Message text to be used with a terminal routing strategy.
 --
--- * 'rsFleetId'
+-- * 'rsFleetId' - Unique identifier for a fleet.
 routingStrategy
     :: RoutingStrategy
 routingStrategy =
@@ -1154,12 +1156,7 @@ routingStrategy =
     , _rsFleetId = Nothing
     }
 
--- | Type of routing strategy.
---
--- Possible routing types include the following:
---
--- -   __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.
--- -   __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the < RoutingStrategy> message embedded.
+-- | Type of routing strategy. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.    * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 rsType :: Lens' RoutingStrategy (Maybe RoutingStrategyType)
 rsType = lens _rsType (\ s a -> s{_rsType = a});
 
@@ -1193,9 +1190,11 @@ instance ToJSON RoutingStrategy where
 
 -- | Collection of server process configurations that describe what processes should be run on each instance in a fleet. An instance can launch and maintain multiple server processes based on the runtime configuration; it regularly checks for an updated runtime configuration and starts new server processes to match the latest version.
 --
+--
 -- The key purpose of a runtime configuration with multiple server process configurations is to be able to run more than one kind of game server in a single fleet. You can include configurations for more than one server executable in order to run two or more different programs to run on the same instance. This option might be useful, for example, to run more than one version of your game server on the same fleet. Another option is to specify configurations for the same server executable but with different launch parameters.
 --
--- A GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the 'ConcurrentExecutions' parameter for each 'ServerProcess' object in the runtime configuration.
+-- A GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the @ConcurrentExecutions@ parameter for each @'ServerProcess' @ object in the runtime configuration.
+--
 --
 -- /See:/ 'runtimeConfiguration' smart constructor.
 newtype RuntimeConfiguration = RuntimeConfiguration'
@@ -1206,7 +1205,7 @@ newtype RuntimeConfiguration = RuntimeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcServerProcesses'
+-- * 'rcServerProcesses' - Collection of server process configurations describing what server processes to run on each instance in a fleet
 runtimeConfiguration
     :: RuntimeConfiguration
 runtimeConfiguration =
@@ -1234,7 +1233,9 @@ instance ToJSON RuntimeConfiguration where
               (catMaybes
                  [("ServerProcesses" .=) <$> _rcServerProcesses])
 
--- | Location in Amazon Simple Storage Service (Amazon S3) where a build\'s files are stored. This location is assigned in response to a < CreateBuild> call, and is always in the same region as the service used to create the build. For more details see the <http://aws.amazon.com/documentation/s3/ Amazon S3 documentation>.
+-- | Location in Amazon Simple Storage Service (Amazon S3) where a build's files are stored. This location is assigned in response to a 'CreateBuild' call, and is always in the same region as the service used to create the build. For more details see the <http://aws.amazon.com/documentation/s3/ Amazon S3 documentation> .
+--
+--
 --
 -- /See:/ 's3Location' smart constructor.
 data S3Location = S3Location'
@@ -1247,11 +1248,11 @@ data S3Location = S3Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slBucket'
+-- * 'slBucket' - Amazon S3 bucket identifier.
 --
--- * 'slKey'
+-- * 'slKey' - Amazon S3 bucket key.
 --
--- * 'slRoleARN'
+-- * 'slRoleARN' - Amazon resource number for the cross-account access role that allows GameLift access to the S3 bucket.
 s3Location
     :: S3Location
 s3Location =
@@ -1294,6 +1295,8 @@ instance ToJSON S3Location where
 
 -- | Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
 --
+--
+--
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
     { _spStatus                :: !(Maybe ScalingStatusType)
@@ -1311,23 +1314,23 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spStatus'
+-- * 'spStatus' - Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.    * __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.    * __UPDATING__ – A change is being made to the scaling policy.    * __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.    * __DELETING__ – The scaling policy is being deleted.    * __DELETED__ – The scaling policy has been deleted.    * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 --
--- * 'spScalingAdjustmentType'
+-- * 'spScalingAdjustmentType' - Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.    * __ExactCapacity__ – set the instance count to the scaling adjustment value.    * __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
 --
--- * 'spEvaluationPeriods'
+-- * 'spEvaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 --
--- * 'spMetricName'
+-- * 'spMetricName' - Name of the GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = @ACTIVATING@ ).    * __ActiveGameSessions__ – number of game sessions currently running (game session status = @ACTIVE@ ).    * __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).     * __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).    * __ActiveInstances__ – number of instances currently running a game session.    * __IdleInstances__ – number of instances not currently running a game session.
 --
--- * 'spComparisonOperator'
+-- * 'spComparisonOperator' - Comparison operator to use when measuring a metric against the threshold value.
 --
--- * 'spName'
+-- * 'spName' - Descriptive label associated with a scaling policy. Policy names do not need to be unique.
 --
--- * 'spThreshold'
+-- * 'spThreshold' - Metric value used to trigger a scaling event.
 --
--- * 'spScalingAdjustment'
+-- * 'spScalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
 --
--- * 'spFleetId'
+-- * 'spFleetId' - Unique identity for the fleet associated with this scaling policy.
 scalingPolicy
     :: ScalingPolicy
 scalingPolicy =
@@ -1343,23 +1346,11 @@ scalingPolicy =
     , _spFleetId = Nothing
     }
 
--- | Current status of the scaling policy. The scaling policy is only in force when in an 'ACTIVE' status.
---
--- -   __ACTIVE__ – The scaling policy is currently in force.
--- -   __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.
--- -   __UPDATING__ – A change is being made to the scaling policy.
--- -   __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.
--- -   __DELETING__ – The scaling policy is being deleted.
--- -   __DELETED__ – The scaling policy has been deleted.
--- -   __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
+-- | Current status of the scaling policy. The scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.    * __UPDATE_REQUESTED__ – A request to update the scaling policy has been received.    * __UPDATING__ – A change is being made to the scaling policy.    * __DELETE_REQUESTED__ – A request to delete the scaling policy has been received.    * __DELETING__ – The scaling policy is being deleted.    * __DELETED__ – The scaling policy has been deleted.    * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 spStatus :: Lens' ScalingPolicy (Maybe ScalingStatusType)
 spStatus = lens _spStatus (\ s a -> s{_spStatus = a});
 
--- | Type of adjustment to make to a fleet\'s instance count (see < FleetCapacity>):
---
--- -   __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
--- -   __ExactCapacity__ – set the instance count to the scaling adjustment value.
--- -   __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+-- | Type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):     * __ChangeInCapacity__ – add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.    * __ExactCapacity__ – set the instance count to the scaling adjustment value.    * __PercentChangeInCapacity__ – increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
 spScalingAdjustmentType :: Lens' ScalingPolicy (Maybe ScalingAdjustmentType)
 spScalingAdjustmentType = lens _spScalingAdjustmentType (\ s a -> s{_spScalingAdjustmentType = a});
 
@@ -1367,14 +1358,7 @@ spScalingAdjustmentType = lens _spScalingAdjustmentType (\ s a -> s{_spScalingAd
 spEvaluationPeriods :: Lens' ScalingPolicy (Maybe Natural)
 spEvaluationPeriods = lens _spEvaluationPeriods (\ s a -> s{_spEvaluationPeriods = a}) . mapping _Nat;
 
--- | Name of the GameLift-defined metric that is used to trigger an adjustment.
---
--- -   __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = 'ACTIVATING').
--- -   __ActiveGameSessions__ – number of game sessions currently running (game session status = 'ACTIVE').
--- -   __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = 'ACTIVE' or 'RESERVED').
--- -   __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session\'s current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session 'PlayerSessionCreationPolicy' = 'DENY_ALL').
--- -   __ActiveInstances__ – number of instances currently running a game session.
--- -   __IdleInstances__ – number of instances not currently running a game session.
+-- | Name of the GameLift-defined metric that is used to trigger an adjustment.     * __ActivatingGameSessions__ – number of game sessions in the process of being created (game session status = @ACTIVATING@ ).    * __ActiveGameSessions__ – number of game sessions currently running (game session status = @ACTIVE@ ).    * __CurrentPlayerSessions__ – number of active or reserved player sessions (player session status = @ACTIVE@ or @RESERVED@ ).     * __AvailablePlayerSessions__ – number of player session slots currently available in active game sessions across the fleet, calculated by subtracting a game session's current player session count from its maximum player session count. This number does include game sessions that are not currently accepting players (game session @PlayerSessionCreationPolicy@ = @DENY_ALL@ ).    * __ActiveInstances__ – number of instances currently running a game session.    * __IdleInstances__ – number of instances not currently running a game session.
 spMetricName :: Lens' ScalingPolicy (Maybe MetricName)
 spMetricName = lens _spMetricName (\ s a -> s{_spMetricName = a});
 
@@ -1416,7 +1400,9 @@ instance Hashable ScalingPolicy
 
 instance NFData ScalingPolicy
 
--- | A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet\'s 'RuntimeConfiguration'.
+-- | A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's @'RuntimeConfiguration' @ .
+--
+--
 --
 -- /See:/ 'serverProcess' smart constructor.
 data ServerProcess = ServerProcess'
@@ -1429,11 +1415,11 @@ data ServerProcess = ServerProcess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spParameters'
+-- * 'spParameters' - Optional list of parameters to pass to the server executable on launch.
 --
--- * 'spLaunchPath'
+-- * 'spLaunchPath' - Location in the game build of the server executable. All game builds are installed on instances at the root @C:\game\...@ , so an executable file located at @MyGame\latest\server.exe@ has a launch path of "@C:\game\MyGame\latest\server.exe@ ".
 --
--- * 'spConcurrentExecutions'
+-- * 'spConcurrentExecutions' - Number of server processes using this configuration to run concurrently on an instance.
 serverProcess
     :: Text -- ^ 'spLaunchPath'
     -> Natural -- ^ 'spConcurrentExecutions'
@@ -1449,7 +1435,7 @@ serverProcess pLaunchPath_ pConcurrentExecutions_ =
 spParameters :: Lens' ServerProcess (Maybe Text)
 spParameters = lens _spParameters (\ s a -> s{_spParameters = a});
 
--- | Location in the game build of the server executable. All game builds are installed on instances at the root 'C:\\game\\...', so an executable file located at 'MyGame\\latest\\server.exe' has a launch path of \"'C:\\game\\MyGame\\latest\\server.exe'\".
+-- | Location in the game build of the server executable. All game builds are installed on instances at the root @C:\game\...@ , so an executable file located at @MyGame\latest\server.exe@ has a launch path of "@C:\game\MyGame\latest\server.exe@ ".
 spLaunchPath :: Lens' ServerProcess Text
 spLaunchPath = lens _spLaunchPath (\ s a -> s{_spLaunchPath = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates metadata in a build record, including the build name and version. To update the metadata, specify the build ID to update and provide the new values. If successful, a build object containing the updated metadata is returned.
+--
+--
 module Network.AWS.GameLift.UpdateBuild
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
     { _ubName    :: !(Maybe Text)
@@ -57,11 +61,11 @@ data UpdateBuild = UpdateBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubName'
+-- * 'ubName' - Descriptive label associated with a build. Build names do not need to be unique.
 --
--- * 'ubVersion'
+-- * 'ubVersion' - Version associated with this build. Version strings do not need to be unique to a build.
 --
--- * 'ubBuildId'
+-- * 'ubBuildId' - Unique identifier of the build you want to update.
 updateBuild
     :: Text -- ^ 'ubBuildId'
     -> UpdateBuild
@@ -122,6 +126,8 @@ instance ToQuery UpdateBuild where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
     { _ubrsBuild          :: !(Maybe Build)
@@ -132,9 +138,9 @@ data UpdateBuildResponse = UpdateBuildResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubrsBuild'
+-- * 'ubrsBuild' - Object containing the updated build record.
 --
--- * 'ubrsResponseStatus'
+-- * 'ubrsResponseStatus' - -- | The response status code.
 updateBuildResponse
     :: Int -- ^ 'ubrsResponseStatus'
     -> UpdateBuildResponse
@@ -148,7 +154,7 @@ updateBuildResponse pResponseStatus_ =
 ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
 ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ubrsResponseStatus :: Lens' UpdateBuildResponse Int
 ubrsResponseStatus = lens _ubrsResponseStatus (\ s a -> s{_ubrsResponseStatus = a});
 

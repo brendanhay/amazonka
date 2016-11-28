@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Specifies and starts a remote access session.
+--
+--
 module Network.AWS.DeviceFarm.CreateRemoteAccessSession
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Creates and submits a request to start a remote access session.
 --
+--
+--
 -- /See:/ 'createRemoteAccessSession' smart constructor.
 data CreateRemoteAccessSession = CreateRemoteAccessSession'
     { _crasName          :: !(Maybe Text)
@@ -59,13 +63,13 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crasName'
+-- * 'crasName' - The name of the remote access session that you wish to create.
 --
--- * 'crasConfiguration'
+-- * 'crasConfiguration' - The configuration information for the remote access session request.
 --
--- * 'crasProjectARN'
+-- * 'crasProjectARN' - The Amazon Resource Name (ARN) of the project for which you want to create a remote access session.
 --
--- * 'crasDeviceARN'
+-- * 'crasDeviceARN' - The Amazon Resource Name (ARN) of the device for which you want to create a remote access session.
 createRemoteAccessSession
     :: Text -- ^ 'crasProjectARN'
     -> Text -- ^ 'crasDeviceARN'
@@ -136,6 +140,8 @@ instance ToQuery CreateRemoteAccessSession where
 
 -- | Represents the server response from a request to create a remote access session.
 --
+--
+--
 -- /See:/ 'createRemoteAccessSessionResponse' smart constructor.
 data CreateRemoteAccessSessionResponse = CreateRemoteAccessSessionResponse'
     { _crasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
@@ -146,9 +152,9 @@ data CreateRemoteAccessSessionResponse = CreateRemoteAccessSessionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crasrsRemoteAccessSession'
+-- * 'crasrsRemoteAccessSession' - A container that describes the remote access session when the request to create a remote access session is sent.
 --
--- * 'crasrsResponseStatus'
+-- * 'crasrsResponseStatus' - -- | The response status code.
 createRemoteAccessSessionResponse
     :: Int -- ^ 'crasrsResponseStatus'
     -> CreateRemoteAccessSessionResponse
@@ -162,7 +168,7 @@ createRemoteAccessSessionResponse pResponseStatus_ =
 crasrsRemoteAccessSession :: Lens' CreateRemoteAccessSessionResponse (Maybe RemoteAccessSession)
 crasrsRemoteAccessSession = lens _crasrsRemoteAccessSession (\ s a -> s{_crasrsRemoteAccessSession = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crasrsResponseStatus :: Lens' CreateRemoteAccessSessionResponse Int
 crasrsResponseStatus = lens _crasrsResponseStatus (\ s a -> s{_crasrsResponseStatus = a});
 

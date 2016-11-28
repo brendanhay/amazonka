@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resumes the pipeline execution by retrying the last failed actions in a stage.
+--
+--
 module Network.AWS.CodePipeline.RetryStageExecution
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a retry stage execution action.
 --
+--
+--
 -- /See:/ 'retryStageExecution' smart constructor.
 data RetryStageExecution = RetryStageExecution'
     { _rsePipelineName        :: !Text
@@ -59,13 +63,13 @@ data RetryStageExecution = RetryStageExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsePipelineName'
+-- * 'rsePipelineName' - The name of the pipeline that contains the failed stage.
 --
--- * 'rseStageName'
+-- * 'rseStageName' - The name of the failed stage to be retried.
 --
--- * 'rsePipelineExecutionId'
+-- * 'rsePipelineExecutionId' - The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 --
--- * 'rseRetryMode'
+-- * 'rseRetryMode' - The scope of the retry attempt. Currently, the only supported value is FAILED_ACTIONS.
 retryStageExecution
     :: Text -- ^ 'rsePipelineName'
     -> Text -- ^ 'rseStageName'
@@ -88,7 +92,7 @@ rsePipelineName = lens _rsePipelineName (\ s a -> s{_rsePipelineName = a});
 rseStageName :: Lens' RetryStageExecution Text
 rseStageName = lens _rseStageName (\ s a -> s{_rseStageName = a});
 
--- | The ID of the pipeline execution in the failed stage to be retried. Use the < GetPipelineState> action to retrieve the current pipelineExecutionId of the failed stage
+-- | The ID of the pipeline execution in the failed stage to be retried. Use the 'GetPipelineState' action to retrieve the current pipelineExecutionId of the failed stage
 rsePipelineExecutionId :: Lens' RetryStageExecution Text
 rsePipelineExecutionId = lens _rsePipelineExecutionId (\ s a -> s{_rsePipelineExecutionId = a});
 
@@ -139,6 +143,8 @@ instance ToQuery RetryStageExecution where
 
 -- | Represents the output of a retry stage execution action.
 --
+--
+--
 -- /See:/ 'retryStageExecutionResponse' smart constructor.
 data RetryStageExecutionResponse = RetryStageExecutionResponse'
     { _rsersPipelineExecutionId :: !(Maybe Text)
@@ -149,9 +155,9 @@ data RetryStageExecutionResponse = RetryStageExecutionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsersPipelineExecutionId'
+-- * 'rsersPipelineExecutionId' - The ID of the current workflow execution in the failed stage.
 --
--- * 'rsersResponseStatus'
+-- * 'rsersResponseStatus' - -- | The response status code.
 retryStageExecutionResponse
     :: Int -- ^ 'rsersResponseStatus'
     -> RetryStageExecutionResponse
@@ -165,7 +171,7 @@ retryStageExecutionResponse pResponseStatus_ =
 rsersPipelineExecutionId :: Lens' RetryStageExecutionResponse (Maybe Text)
 rsersPipelineExecutionId = lens _rsersPipelineExecutionId (\ s a -> s{_rsersPipelineExecutionId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rsersResponseStatus :: Lens' RetryStageExecutionResponse Int
 rsersResponseStatus = lens _rsersResponseStatus (\ s a -> s{_rsersResponseStatus = a});
 

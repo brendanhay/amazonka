@@ -52,7 +52,7 @@ newtype GetBucketVersioning = GetBucketVersioning'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbvBucket'
+-- * 'gbvBucket' - Undocumented member.
 getBucketVersioning
     :: BucketName -- ^ 'gbvBucket'
     -> GetBucketVersioning
@@ -101,11 +101,11 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbvrsStatus'
+-- * 'gbvrsStatus' - The versioning state of the bucket.
 --
--- * 'gbvrsMFADelete'
+-- * 'gbvrsMFADelete' - Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.
 --
--- * 'gbvrsResponseStatus'
+-- * 'gbvrsResponseStatus' - -- | The response status code.
 getBucketVersioningResponse
     :: Int -- ^ 'gbvrsResponseStatus'
     -> GetBucketVersioningResponse
@@ -124,7 +124,7 @@ gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});
 gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbvrsResponseStatus :: Lens' GetBucketVersioningResponse Int
 gbvrsResponseStatus = lens _gbvrsResponseStatus (\ s a -> s{_gbvrsResponseStatus = a});
 

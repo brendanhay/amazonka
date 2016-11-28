@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.
+--
+--
 module Network.AWS.EC2.EnableVGWRoutePropagation
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for EnableVgwRoutePropagation.
 --
+--
+--
 -- /See:/ 'enableVGWRoutePropagation' smart constructor.
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
@@ -52,9 +56,9 @@ data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evrpRouteTableId'
+-- * 'evrpRouteTableId' - The ID of the route table.
 --
--- * 'evrpGatewayId'
+-- * 'evrpGatewayId' - The ID of the virtual private gateway.
 enableVGWRoutePropagation
     :: Text -- ^ 'evrpRouteTableId'
     -> Text -- ^ 'evrpGatewayId'

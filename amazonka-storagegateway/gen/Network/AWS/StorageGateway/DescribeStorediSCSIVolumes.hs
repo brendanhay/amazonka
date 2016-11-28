@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the description of the gateway volumes specified in the request. The list of gateway volumes in the request must be from one gateway. In the response Amazon Storage Gateway returns volume information sorted by volume ARNs.
+--
+--
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing a list of < DescribeStorediSCSIVolumesInput>VolumeARNs>.
+-- | A JSON object containing a list of 'DescribeStorediSCSIVolumesInput$VolumeARNs' .
+--
+--
 --
 -- /See:/ 'describeStorediSCSIVolumes' smart constructor.
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
@@ -53,7 +57,7 @@ newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsscsivVolumeARNs'
+-- * 'dsscsivVolumeARNs' - An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
 describeStorediSCSIVolumes
     :: DescribeStorediSCSIVolumes
 describeStorediSCSIVolumes =
@@ -61,7 +65,7 @@ describeStorediSCSIVolumes =
     { _dsscsivVolumeARNs = mempty
     }
 
--- | An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use < ListVolumes> to get volume ARNs for a gateway.
+-- | An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
 dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce;
 
@@ -112,9 +116,9 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsscsivrsStorediSCSIVolumes'
+-- * 'dsscsivrsStorediSCSIVolumes' - Undocumented member.
 --
--- * 'dsscsivrsResponseStatus'
+-- * 'dsscsivrsResponseStatus' - -- | The response status code.
 describeStorediSCSIVolumesResponse
     :: Int -- ^ 'dsscsivrsResponseStatus'
     -> DescribeStorediSCSIVolumesResponse
@@ -128,7 +132,7 @@ describeStorediSCSIVolumesResponse pResponseStatus_ =
 dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
 dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dsscsivrsResponseStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
 dsscsivrsResponseStatus = lens _dsscsivrsResponseStatus (\ s a -> s{_dsscsivrsResponseStatus = a});
 

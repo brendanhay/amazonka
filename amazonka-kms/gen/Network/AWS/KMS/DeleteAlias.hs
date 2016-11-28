@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified alias. To map an alias to a different key, call < UpdateAlias>.
+-- Deletes the specified alias. To map an alias to a different key, call 'UpdateAlias' .
+--
+--
 module Network.AWS.KMS.DeleteAlias
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAliasName'
+-- * 'daAliasName' - The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 deleteAlias
     :: Text -- ^ 'daAliasName'
     -> DeleteAlias
@@ -57,7 +59,7 @@ deleteAlias pAliasName_ =
     { _daAliasName = pAliasName_
     }
 
--- | The alias to be deleted. The name must start with the word \"alias\" followed by a forward slash (alias\/). Aliases that begin with \"alias\/AWS\" are reserved.
+-- | The alias to be deleted. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
 

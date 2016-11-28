@@ -20,7 +20,9 @@
 --
 -- Returns the LOA-CFA for a Connection.
 --
+--
 -- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see <http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations> in the AWS Direct Connect user guide.
+--
 module Network.AWS.DirectConnect.DescribeConnectionLoa
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnectionLoa operation.
 --
+--
+--
 -- /See:/ 'describeConnectionLoa' smart constructor.
 data DescribeConnectionLoa = DescribeConnectionLoa'
     { _dclLoaContentType :: !(Maybe LoaContentType)
@@ -59,11 +63,11 @@ data DescribeConnectionLoa = DescribeConnectionLoa'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclLoaContentType'
+-- * 'dclLoaContentType' - Undocumented member.
 --
--- * 'dclProviderName'
+-- * 'dclProviderName' - The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
 --
--- * 'dclConnectionId'
+-- * 'dclConnectionId' - Undocumented member.
 describeConnectionLoa
     :: Text -- ^ 'dclConnectionId'
     -> DescribeConnectionLoa
@@ -78,9 +82,7 @@ describeConnectionLoa pConnectionId_ =
 dclLoaContentType :: Lens' DescribeConnectionLoa (Maybe LoaContentType)
 dclLoaContentType = lens _dclLoaContentType (\ s a -> s{_dclLoaContentType = a});
 
--- | The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
---
--- Default: None
+-- | The name of the APN partner or service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
 dclProviderName :: Lens' DescribeConnectionLoa (Maybe Text)
 dclProviderName = lens _dclProviderName (\ s a -> s{_dclProviderName = a});
 
@@ -128,6 +130,8 @@ instance ToQuery DescribeConnectionLoa where
 
 -- | The response received when DescribeConnectionLoa is called.
 --
+--
+--
 -- /See:/ 'describeConnectionLoaResponse' smart constructor.
 data DescribeConnectionLoaResponse = DescribeConnectionLoaResponse'
     { _dclrsLoa            :: !(Maybe Loa)
@@ -138,9 +142,9 @@ data DescribeConnectionLoaResponse = DescribeConnectionLoaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dclrsLoa'
+-- * 'dclrsLoa' - Undocumented member.
 --
--- * 'dclrsResponseStatus'
+-- * 'dclrsResponseStatus' - -- | The response status code.
 describeConnectionLoaResponse
     :: Int -- ^ 'dclrsResponseStatus'
     -> DescribeConnectionLoaResponse
@@ -154,7 +158,7 @@ describeConnectionLoaResponse pResponseStatus_ =
 dclrsLoa :: Lens' DescribeConnectionLoaResponse (Maybe Loa)
 dclrsLoa = lens _dclrsLoa (\ s a -> s{_dclrsLoa = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dclrsResponseStatus :: Lens' DescribeConnectionLoaResponse Int
 dclrsResponseStatus = lens _dclrsResponseStatus (\ s a -> s{_dclrsResponseStatus = a});
 

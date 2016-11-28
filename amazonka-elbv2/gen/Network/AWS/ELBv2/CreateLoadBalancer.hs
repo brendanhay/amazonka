@@ -20,11 +20,13 @@
 --
 -- Creates an Application load balancer.
 --
--- To create listeners for your load balancer, use < CreateListener>. You can add security groups, subnets, and tags when you create your load balancer, or you can add them later using < SetSecurityGroups>, < SetSubnets>, and < AddTags>.
 --
--- To describe your current load balancers, see < DescribeLoadBalancers>. When you are finished with a load balancer, you can delete it using < DeleteLoadBalancer>.
+-- To create listeners for your load balancer, use 'CreateListener' . You can add security groups, subnets, and tags when you create your load balancer, or you can add them later using 'SetSecurityGroups' , 'SetSubnets' , and 'AddTags' .
 --
--- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/.
+-- To describe your current load balancers, see 'DescribeLoadBalancers' . When you are finished with a load balancer, you can delete it using 'DeleteLoadBalancer' .
+--
+-- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/ .
+--
 module Network.AWS.ELBv2.CreateLoadBalancer
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancer.
 --
+--
+--
 -- /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
     { _clbSecurityGroups :: !(Maybe [Text])
@@ -67,15 +71,15 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbSecurityGroups'
+-- * 'clbSecurityGroups' - The IDs of the security groups to assign to the load balancer.
 --
--- * 'clbScheme'
+-- * 'clbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 --
--- * 'clbTags'
+-- * 'clbTags' - One or more tags to assign to the load balancer.
 --
--- * 'clbName'
+-- * 'clbName' - The name of the load balancer. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 --
--- * 'clbSubnets'
+-- * 'clbSubnets' - The IDs of the subnets to attach to the load balancer. You can specify only one subnet per Availability Zone. You must specify subnets from at least two Availability Zones.
 createLoadBalancer
     :: Text -- ^ 'clbName'
     -> CreateLoadBalancer
@@ -92,11 +96,7 @@ createLoadBalancer pName_ =
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default . _Coerce;
 
--- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet.
---
--- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
---
--- The default is an Internet-facing load balancer.
+-- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 clbScheme :: Lens' CreateLoadBalancer (Maybe LoadBalancerSchemeEnum)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 
@@ -104,9 +104,7 @@ clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
 clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
 
--- | The name of the load balancer.
---
--- This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+-- | The name of the load balancer. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 clbName :: Lens' CreateLoadBalancer Text
 clbName = lens _clbName (\ s a -> s{_clbName = a});
 
@@ -152,6 +150,8 @@ instance ToQuery CreateLoadBalancer where
 
 -- | Contains the output of CreateLoadBalancer.
 --
+--
+--
 -- /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrsLoadBalancers  :: !(Maybe [LoadBalancer])
@@ -162,9 +162,9 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbrsLoadBalancers'
+-- * 'clbrsLoadBalancers' - Information about the load balancer.
 --
--- * 'clbrsResponseStatus'
+-- * 'clbrsResponseStatus' - -- | The response status code.
 createLoadBalancerResponse
     :: Int -- ^ 'clbrsResponseStatus'
     -> CreateLoadBalancerResponse
@@ -178,7 +178,7 @@ createLoadBalancerResponse pResponseStatus_ =
 clbrsLoadBalancers :: Lens' CreateLoadBalancerResponse [LoadBalancer]
 clbrsLoadBalancers = lens _clbrsLoadBalancers (\ s a -> s{_clbrsLoadBalancers = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 clbrsResponseStatus :: Lens' CreateLoadBalancerResponse Int
 clbrsResponseStatus = lens _clbrsResponseStatus (\ s a -> s{_clbrsResponseStatus = a});
 

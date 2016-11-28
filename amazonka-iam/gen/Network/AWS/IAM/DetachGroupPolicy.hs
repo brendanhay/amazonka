@@ -20,7 +20,9 @@
 --
 -- Removes the specified managed policy from the specified IAM group.
 --
--- A group can also have inline policies embedded with it. To delete an inline policy, use the < DeleteGroupPolicy> API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--
+-- A group can also have inline policies embedded with it. To delete an inline policy, use the 'DeleteGroupPolicy' API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.DetachGroupPolicy
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data DetachGroupPolicy = DetachGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgpGroupName'
+-- * 'dgpGroupName' - The name (friendly name, not ARN) of the IAM group to detach the policy from. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dgpPolicyARN'
+-- * 'dgpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 detachGroupPolicy
     :: Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyARN'
@@ -65,15 +67,11 @@ detachGroupPolicy pGroupName_ pPolicyARN_ =
     , _dgpPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the IAM group to detach the policy from.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name (friendly name, not ARN) of the IAM group to detach the policy from. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dgpGroupName :: Lens' DetachGroupPolicy Text
 dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dgpPolicyARN :: Lens' DetachGroupPolicy Text
 dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 

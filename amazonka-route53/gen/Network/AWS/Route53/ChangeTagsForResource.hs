@@ -46,6 +46,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the tags that you want to add, edit, or delete.
 --
+--
+--
 -- /See:/ 'changeTagsForResource' smart constructor.
 data ChangeTagsForResource = ChangeTagsForResource'
     { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
@@ -58,13 +60,13 @@ data ChangeTagsForResource = ChangeTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctfrRemoveTagKeys'
+-- * 'ctfrRemoveTagKeys' - A complex type that contains a list of the tags that you want to delete from the specified health check or hosted zone. You can specify up to 10 keys.
 --
--- * 'ctfrAddTags'
+-- * 'ctfrAddTags' - A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags for which you want to edit the @Value@ element. You can add a maximum of 10 tags to a health check or a hosted zone.
 --
--- * 'ctfrResourceType'
+-- * 'ctfrResourceType' - The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 --
--- * 'ctfrResourceId'
+-- * 'ctfrResourceId' - The ID of the resource for which you want to add, change, or delete tags.
 changeTagsForResource
     :: TagResourceType -- ^ 'ctfrResourceType'
     -> Text -- ^ 'ctfrResourceId'
@@ -81,18 +83,11 @@ changeTagsForResource pResourceType_ pResourceId_ =
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
 ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
 
--- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and\/or the tags for which you want to edit the 'Value' element.
---
--- You can add a maximum of 10 tags to a health check or a hosted zone.
+-- | A complex type that contains a list of the tags that you want to add to the specified health check or hosted zone and/or the tags for which you want to edit the @Value@ element. You can add a maximum of 10 tags to a health check or a hosted zone.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
 ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 
--- | The type of the resource.
---
--- -   The resource type for health checks is 'healthcheck'.
---
--- -   The resource type for hosted zones is 'hostedzone'.
---
+-- | The type of the resource.     * The resource type for health checks is @healthcheck@ .     * The resource type for hosted zones is @hostedzone@ .
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 
@@ -141,6 +136,8 @@ instance ToXML ChangeTagsForResource where
 
 -- | Empty response for the request.
 --
+--
+--
 -- /See:/ 'changeTagsForResourceResponse' smart constructor.
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
     { _ctfrrsResponseStatus :: Int
@@ -150,7 +147,7 @@ newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctfrrsResponseStatus'
+-- * 'ctfrrsResponseStatus' - -- | The response status code.
 changeTagsForResourceResponse
     :: Int -- ^ 'ctfrrsResponseStatus'
     -> ChangeTagsForResourceResponse
@@ -159,7 +156,7 @@ changeTagsForResourceResponse pResponseStatus_ =
     { _ctfrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctfrrsResponseStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsResponseStatus = lens _ctfrrsResponseStatus (\ s a -> s{_ctfrrsResponseStatus = a});
 

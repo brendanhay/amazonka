@@ -20,7 +20,9 @@
 --
 -- Describes the permissions for a specified stack.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribePermissions
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data DescribePermissions = DescribePermissions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpIAMUserARN'
+-- * 'dpIAMUserARN' - The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'dpStackId'
+-- * 'dpStackId' - The stack ID.
 describePermissions
     :: DescribePermissions
 describePermissions =
@@ -66,7 +68,7 @@ describePermissions =
     , _dpStackId = Nothing
     }
 
--- | The user\'s IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- | The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
 dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
 
@@ -112,7 +114,9 @@ instance ToPath DescribePermissions where
 instance ToQuery DescribePermissions where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribePermissions' request.
+-- | Contains the response to a @DescribePermissions@ request.
+--
+--
 --
 -- /See:/ 'describePermissionsResponse' smart constructor.
 data DescribePermissionsResponse = DescribePermissionsResponse'
@@ -124,9 +128,9 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsPermissions'
+-- * 'dprsPermissions' - An array of @Permission@ objects that describe the stack permissions.     * If the request object contains only a stack ID, the array contains a @Permission@ object with permissions for each of the stack IAM ARNs.     * If the request object contains only an IAM ARN, the array contains a @Permission@ object with permissions for each of the user's stack IDs.     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 describePermissionsResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePermissionsResponse
@@ -136,18 +140,11 @@ describePermissionsResponse pResponseStatus_ =
     , _dprsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'Permission' objects that describe the stack permissions.
---
--- -   If the request object contains only a stack ID, the array contains a 'Permission' object with permissions for each of the stack IAM ARNs.
---
--- -   If the request object contains only an IAM ARN, the array contains a 'Permission' object with permissions for each of the user\'s stack IDs.
---
--- -   If the request contains a stack ID and an IAM ARN, the array contains a single 'Permission' object with permissions for the specified stack and IAM ARN.
---
+-- | An array of @Permission@ objects that describe the stack permissions.     * If the request object contains only a stack ID, the array contains a @Permission@ object with permissions for each of the stack IAM ARNs.     * If the request object contains only an IAM ARN, the array contains a @Permission@ object with permissions for each of the user's stack IDs.     * If the request contains a stack ID and an IAM ARN, the array contains a single @Permission@ object with permissions for the specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePermissionsResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 

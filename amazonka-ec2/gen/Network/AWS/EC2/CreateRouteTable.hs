@@ -20,7 +20,9 @@
 --
 -- Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.CreateRouteTable
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateRouteTable.
 --
+--
+--
 -- /See:/ 'createRouteTable' smart constructor.
 data CreateRouteTable = CreateRouteTable'
     { _crtDryRun :: !(Maybe Bool)
@@ -57,9 +61,9 @@ data CreateRouteTable = CreateRouteTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtDryRun'
+-- * 'crtDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'crtVPCId'
+-- * 'crtVPCId' - The ID of the VPC.
 createRouteTable
     :: Text -- ^ 'crtVPCId'
     -> CreateRouteTable
@@ -69,7 +73,7 @@ createRouteTable pVPCId_ =
     , _crtVPCId = pVPCId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
 crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
 
@@ -105,6 +109,8 @@ instance ToQuery CreateRouteTable where
 
 -- | Contains the output of CreateRouteTable.
 --
+--
+--
 -- /See:/ 'createRouteTableResponse' smart constructor.
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrsRouteTable     :: !(Maybe RouteTable)
@@ -115,9 +121,9 @@ data CreateRouteTableResponse = CreateRouteTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtrsRouteTable'
+-- * 'crtrsRouteTable' - Information about the route table.
 --
--- * 'crtrsResponseStatus'
+-- * 'crtrsResponseStatus' - -- | The response status code.
 createRouteTableResponse
     :: Int -- ^ 'crtrsResponseStatus'
     -> CreateRouteTableResponse
@@ -131,7 +137,7 @@ createRouteTableResponse pResponseStatus_ =
 crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crtrsResponseStatus :: Lens' CreateRouteTableResponse Int
 crtrsResponseStatus = lens _crtrsResponseStatus (\ s a -> s{_crtrsResponseStatus = a});
 

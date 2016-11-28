@@ -50,9 +50,9 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblcLifecycleConfiguration'
+-- * 'pblcLifecycleConfiguration' - Undocumented member.
 --
--- * 'pblcBucket'
+-- * 'pblcBucket' - Undocumented member.
 putBucketLifecycleConfiguration
     :: BucketName -- ^ 'pblcBucket'
     -> PutBucketLifecycleConfiguration

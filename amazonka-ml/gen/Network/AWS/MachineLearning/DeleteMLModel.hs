@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the 'DELETED' status to an 'MLModel', rendering it unusable.
+-- Assigns the @DELETED@ status to an @MLModel@ , rendering it unusable.
 --
--- After using the 'DeleteMLModel' operation, you can use the 'GetMLModel' operation to verify that the status of the 'MLModel' changed to DELETED.
 --
--- __Caution:__ The result of the 'DeleteMLModel' operation is irreversible.
+-- After using the @DeleteMLModel@ operation, you can use the @GetMLModel@ operation to verify that the status of the @MLModel@ changed to DELETED.
+--
+-- __Caution:__ The result of the @DeleteMLModel@ operation is irreversible.
+--
 module Network.AWS.MachineLearning.DeleteMLModel
     (
     -- * Creating a Request
@@ -55,7 +57,7 @@ newtype DeleteMLModel = DeleteMLModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmlmMLModelId'
+-- * 'dmlmMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ .
 deleteMLModel
     :: Text -- ^ 'dmlmMLModelId'
     -> DeleteMLModel
@@ -64,7 +66,7 @@ deleteMLModel pMLModelId_ =
     { _dmlmMLModelId = pMLModelId_
     }
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'.
+-- | A user-supplied ID that uniquely identifies the @MLModel@ .
 dmlmMLModelId :: Lens' DeleteMLModel Text
 dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
 
@@ -101,9 +103,11 @@ instance ToPath DeleteMLModel where
 instance ToQuery DeleteMLModel where
         toQuery = const mempty
 
--- | Represents the output of a 'DeleteMLModel' operation.
+-- | Represents the output of a @DeleteMLModel@ operation.
 --
--- You can use the 'GetMLModel' operation and check the value of the 'Status' parameter to see whether an 'MLModel' is marked as 'DELETED'.
+--
+-- You can use the @GetMLModel@ operation and check the value of the @Status@ parameter to see whether an @MLModel@ is marked as @DELETED@ .
+--
 --
 -- /See:/ 'deleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
@@ -115,9 +119,9 @@ data DeleteMLModelResponse = DeleteMLModelResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmlmrsMLModelId'
+-- * 'dmlmrsMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
 --
--- * 'dmlmrsResponseStatus'
+-- * 'dmlmrsResponseStatus' - -- | The response status code.
 deleteMLModelResponse
     :: Int -- ^ 'dmlmrsResponseStatus'
     -> DeleteMLModelResponse
@@ -127,11 +131,11 @@ deleteMLModelResponse pResponseStatus_ =
     , _dmlmrsResponseStatus = pResponseStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'. This value should be identical to the value of the 'MLModelID' in the request.
+-- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
 dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dmlmrsResponseStatus :: Lens' DeleteMLModelResponse Int
 dmlmrsResponseStatus = lens _dmlmrsResponseStatus (\ s a -> s{_dmlmrsResponseStatus = a});
 

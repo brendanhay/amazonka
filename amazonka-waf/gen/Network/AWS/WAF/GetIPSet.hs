@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < IPSet> that is specified by 'IPSetId'.
+-- Returns the 'IPSet' that is specified by @IPSetId@ .
+--
+--
 module Network.AWS.WAF.GetIPSet
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetIPSet = GetIPSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gisIPSetId'
+-- * 'gisIPSetId' - The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 getIPSet
     :: Text -- ^ 'gisIPSetId'
     -> GetIPSet
@@ -60,7 +62,7 @@ getIPSet pIPSetId_ =
     { _gisIPSetId = pIPSetId_
     }
 
--- | The 'IPSetId' of the < IPSet> that you want to get. 'IPSetId' is returned by < CreateIPSet> and by < ListIPSets>.
+-- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 gisIPSetId :: Lens' GetIPSet Text
 gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a});
 
@@ -107,9 +109,9 @@ data GetIPSetResponse = GetIPSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gisrsIPSet'
+-- * 'gisrsIPSet' - Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 --
--- * 'gisrsResponseStatus'
+-- * 'gisrsResponseStatus' - -- | The response status code.
 getIPSetResponse
     :: Int -- ^ 'gisrsResponseStatus'
     -> GetIPSetResponse
@@ -119,14 +121,11 @@ getIPSetResponse pResponseStatus_ =
     , _gisrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < IPSet> that you specified in the 'GetIPSet' request. For more information, see the following topics:
---
--- -   < IPSet>: Contains 'IPSetDescriptors', 'IPSetId', and 'Name'
--- -   'IPSetDescriptors': Contains an array of < IPSetDescriptor> objects. Each 'IPSetDescriptor' object contains 'Type' and 'Value'
+-- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
 gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gisrsResponseStatus :: Lens' GetIPSetResponse Int
 gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a});
 

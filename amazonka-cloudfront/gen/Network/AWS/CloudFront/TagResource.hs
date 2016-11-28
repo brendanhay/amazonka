@@ -52,9 +52,9 @@ data TagResource = TagResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trResource'
+-- * 'trResource' - An ARN of a CloudFront resource.
 --
--- * 'trTags'
+-- * 'trTags' - A complex type that contains zero or more Tag elements.
 tagResource
     :: Text -- ^ 'trResource'
     -> Tags -- ^ 'trTags'

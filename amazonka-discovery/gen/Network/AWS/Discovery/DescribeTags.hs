@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of configuration items that are tagged with a specific tag. Or retrieves a list of all tags assigned to a specific configuration item.
+--
+--
 module Network.AWS.Discovery.DescribeTags
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters'
+-- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 --
--- * 'dtNextToken'
+-- * 'dtNextToken' - A token to start the list. Use this token to get the next set of results.
 --
--- * 'dtMaxResults'
+-- * 'dtMaxResults' - The total number of items to return. The maximum value is 100.
 describeTags
     :: DescribeTags
 describeTags =
@@ -70,7 +72,7 @@ describeTags =
     , _dtMaxResults = Nothing
     }
 
--- | You can filter the list using a /key/-/value/ format. You can separate these items by using logical operators. Allowed filters include 'tagKey', 'tagValue', and 'configurationId'.
+-- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 dtFilters :: Lens' DescribeTags [TagFilter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
@@ -131,11 +133,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsNextToken'
+-- * 'dtrsNextToken' - The call returns a token. Use this token to get the next set of results.
 --
--- * 'dtrsTags'
+-- * 'dtrsTags' - Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -154,7 +156,7 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 dtrsTags :: Lens' DescribeTagsResponse [ConfigurationTag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 

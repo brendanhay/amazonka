@@ -53,7 +53,7 @@ newtype ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrResource'
+-- * 'ltfrResource' - An ARN of a CloudFront resource.
 listTagsForResource
     :: Text -- ^ 'ltfrResource'
     -> ListTagsForResource
@@ -102,9 +102,9 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrrsResponseStatus'
+-- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTags'
+-- * 'ltfrrsTags' - A complex type that contains zero or more Tag elements.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> Tags -- ^ 'ltfrrsTags'
@@ -115,7 +115,7 @@ listTagsForResourceResponse pResponseStatus_ pTags_ =
     , _ltfrrsTags = pTags_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 

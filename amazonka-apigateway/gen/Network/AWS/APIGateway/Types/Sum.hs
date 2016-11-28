@@ -43,6 +43,8 @@ instance ToJSON APIKeysFormat where
     toJSON = toJSONText
 
 -- | The authorizer type. the only current value is TOKEN.
+--
+--
 data AuthorizerType
     = CognitoUserPools
     | Token
@@ -72,7 +74,9 @@ instance ToJSON AuthorizerType where
 instance FromJSON AuthorizerType where
     parseJSON = parseJSONText "AuthorizerType"
 
--- | Returns the size of the __CacheCluster__.
+-- | Returns the size of the __CacheCluster__ .
+--
+--
 data CacheClusterSize
     = D0_5
     | D118
@@ -120,7 +124,9 @@ instance ToJSON CacheClusterSize where
 instance FromJSON CacheClusterSize where
     parseJSON = parseJSONText "CacheClusterSize"
 
--- | Returns the status of the __CacheCluster__.
+-- | Returns the status of the __CacheCluster__ .
+--
+--
 data CacheClusterStatus
     = Available
     | CreateInProgress
@@ -156,7 +162,9 @@ instance ToHeader     CacheClusterStatus
 instance FromJSON CacheClusterStatus where
     parseJSON = parseJSONText "CacheClusterStatus"
 
--- | The integration type. The valid value is 'HTTP', 'AWS', or 'MOCK'.
+-- | The integration type. The valid value is @HTTP@ , @AWS@ , or @MOCK@ .
+--
+--
 data IntegrationType
     = AWS
     | HTTP

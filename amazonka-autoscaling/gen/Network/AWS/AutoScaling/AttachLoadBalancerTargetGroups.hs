@@ -20,9 +20,11 @@
 --
 -- Attaches one or more target groups to the specified Auto Scaling group.
 --
--- To describe the target groups for an Auto Scaling group, use < DescribeLoadBalancerTargetGroups>. To detach the target group from the Auto Scaling group, use < DetachLoadBalancerTargetGroups>.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/.
+-- To describe the target groups for an Auto Scaling group, use 'DescribeLoadBalancerTargetGroups' . To detach the target group from the Auto Scaling group, use 'DetachLoadBalancerTargetGroups' .
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachLoadBalancerTargetGroups.
 --
+--
+--
 -- /See:/ 'attachLoadBalancerTargetGroups' smart constructor.
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
     { _albtgAutoScalingGroupName :: !Text
@@ -58,9 +62,9 @@ data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtgAutoScalingGroupName'
+-- * 'albtgAutoScalingGroupName' - The name of the Auto Scaling group.
 --
--- * 'albtgTargetGroupARNs'
+-- * 'albtgTargetGroupARNs' - The Amazon Resource Names (ARN) of the target groups.
 attachLoadBalancerTargetGroups
     :: Text -- ^ 'albtgAutoScalingGroupName'
     -> AttachLoadBalancerTargetGroups
@@ -120,7 +124,7 @@ newtype AttachLoadBalancerTargetGroupsResponse = AttachLoadBalancerTargetGroupsR
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albtgrsResponseStatus'
+-- * 'albtgrsResponseStatus' - -- | The response status code.
 attachLoadBalancerTargetGroupsResponse
     :: Int -- ^ 'albtgrsResponseStatus'
     -> AttachLoadBalancerTargetGroupsResponse
@@ -129,7 +133,7 @@ attachLoadBalancerTargetGroupsResponse pResponseStatus_ =
     { _albtgrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 albtgrsResponseStatus :: Lens' AttachLoadBalancerTargetGroupsResponse Int
 albtgrsResponseStatus = lens _albtgrsResponseStatus (\ s a -> s{_albtgrsResponseStatus = a});
 

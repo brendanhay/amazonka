@@ -20,6 +20,8 @@
 --
 -- Gets information about suites.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSuites
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list suites operation.
 --
+--
+--
 -- /See:/ 'listSuites' smart constructor.
 data ListSuites = ListSuites'
     { _lNextToken :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListSuites = ListSuites'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lNextToken'
+-- * 'lNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lArn'
+-- * 'lArn' - The suites' ARNs.
 listSuites
     :: Text -- ^ 'lArn'
     -> ListSuites
@@ -75,7 +79,7 @@ listSuites pArn_ =
 lNextToken :: Lens' ListSuites (Maybe Text)
 lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 
--- | The suites\' ARNs.
+-- | The suites' ARNs.
 lArn :: Lens' ListSuites Text
 lArn = lens _lArn (\ s a -> s{_lArn = a});
 
@@ -124,6 +128,8 @@ instance ToQuery ListSuites where
 
 -- | Represents the result of a list suites request.
 --
+--
+--
 -- /See:/ 'listSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
     { _lsrsNextToken      :: !(Maybe Text)
@@ -135,11 +141,11 @@ data ListSuitesResponse = ListSuitesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrsNextToken'
+-- * 'lsrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'lsrsSuites'
+-- * 'lsrsSuites' - Information about the suites.
 --
--- * 'lsrsResponseStatus'
+-- * 'lsrsResponseStatus' - -- | The response status code.
 listSuitesResponse
     :: Int -- ^ 'lsrsResponseStatus'
     -> ListSuitesResponse
@@ -158,7 +164,7 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSuites :: Lens' ListSuitesResponse [Suite]
 lsrsSuites = lens _lsrsSuites (\ s a -> s{_lsrsSuites = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsrsResponseStatus :: Lens' ListSuitesResponse Int
 lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a});
 

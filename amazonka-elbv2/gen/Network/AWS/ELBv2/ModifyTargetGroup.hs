@@ -20,7 +20,9 @@
 --
 -- Modifies the health checks used when evaluating the health state of the targets in the specified target group.
 --
--- To monitor the health of the targets, use < DescribeTargetHealth>.
+--
+-- To monitor the health of the targets, use 'DescribeTargetHealth' .
+--
 module Network.AWS.ELBv2.ModifyTargetGroup
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyTargetGroup.
 --
+--
+--
 -- /See:/ 'modifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
     { _mtgMatcher                    :: !(Maybe Matcher)
@@ -71,23 +75,23 @@ data ModifyTargetGroup = ModifyTargetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgMatcher'
+-- * 'mtgMatcher' - The HTTP codes to use when checking for a successful response from a target.
 --
--- * 'mtgHealthCheckPath'
+-- * 'mtgHealthCheckPath' - The ping path that is the destination for the health check request.
 --
--- * 'mtgUnhealthyThresholdCount'
+-- * 'mtgUnhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy.
 --
--- * 'mtgHealthCheckIntervalSeconds'
+-- * 'mtgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target.
 --
--- * 'mtgHealthyThresholdCount'
+-- * 'mtgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
 --
--- * 'mtgHealthCheckProtocol'
+-- * 'mtgHealthCheckProtocol' - The protocol to use to connect with the target.
 --
--- * 'mtgHealthCheckTimeoutSeconds'
+-- * 'mtgHealthCheckTimeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check.
 --
--- * 'mtgHealthCheckPort'
+-- * 'mtgHealthCheckPort' - The port to use to connect with the target.
 --
--- * 'mtgTargetGroupARN'
+-- * 'mtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 modifyTargetGroup
     :: Text -- ^ 'mtgTargetGroupARN'
     -> ModifyTargetGroup
@@ -181,6 +185,8 @@ instance ToQuery ModifyTargetGroup where
 
 -- | Contains the output of ModifyTargetGroup.
 --
+--
+--
 -- /See:/ 'modifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
     { _mtgrsTargetGroups   :: !(Maybe [TargetGroup])
@@ -191,9 +197,9 @@ data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtgrsTargetGroups'
+-- * 'mtgrsTargetGroups' - Information about the target group.
 --
--- * 'mtgrsResponseStatus'
+-- * 'mtgrsResponseStatus' - -- | The response status code.
 modifyTargetGroupResponse
     :: Int -- ^ 'mtgrsResponseStatus'
     -> ModifyTargetGroupResponse
@@ -207,7 +213,7 @@ modifyTargetGroupResponse pResponseStatus_ =
 mtgrsTargetGroups :: Lens' ModifyTargetGroupResponse [TargetGroup]
 mtgrsTargetGroups = lens _mtgrsTargetGroups (\ s a -> s{_mtgrsTargetGroups = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mtgrsResponseStatus :: Lens' ModifyTargetGroupResponse Int
 mtgrsResponseStatus = lens _mtgrsResponseStatus (\ s a -> s{_mtgrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage bucket.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Result message containing a list of configuration descriptions.
 --
+--
+--
 -- /See:/ 'describeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
     { _dVersionLabels   :: !(Maybe [Text])
@@ -55,9 +59,9 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVersionLabels'
+-- * 'dVersionLabels' - If specified, restricts the returned descriptions to only include ones that have the specified version labels.
 --
--- * 'dApplicationName'
+-- * 'dApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
 describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
@@ -109,6 +113,8 @@ instance ToQuery DescribeApplicationVersions where
 
 -- | Result message wrapping a list of application version descriptions.
 --
+--
+--
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
@@ -119,9 +125,9 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davrsApplicationVersions'
+-- * 'davrsApplicationVersions' - List of @ApplicationVersionDescription@ objects sorted by order of creation.
 --
--- * 'davrsResponseStatus'
+-- * 'davrsResponseStatus' - -- | The response status code.
 describeApplicationVersionsResponse
     :: Int -- ^ 'davrsResponseStatus'
     -> DescribeApplicationVersionsResponse
@@ -131,11 +137,11 @@ describeApplicationVersionsResponse pResponseStatus_ =
     , _davrsResponseStatus = pResponseStatus_
     }
 
--- | List of 'ApplicationVersionDescription' objects sorted by order of creation.
+-- | List of @ApplicationVersionDescription@ objects sorted by order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
 

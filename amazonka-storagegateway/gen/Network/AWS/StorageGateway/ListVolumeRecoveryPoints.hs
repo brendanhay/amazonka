@@ -20,7 +20,9 @@
 --
 -- Lists the recovery points for a specified gateway. This operation is supported only for the gateway-cached volume architecture.
 --
--- Each gateway-cached volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To create a snapshot from a volume recovery point use the < CreateSnapshotFromVolumeRecoveryPoint> operation.
+--
+-- Each gateway-cached volume has one recovery point. A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To create a snapshot from a volume recovery point use the 'CreateSnapshotFromVolumeRecoveryPoint' operation.
+--
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrpGatewayARN'
+-- * 'lvrpGatewayARN' - Undocumented member.
 listVolumeRecoveryPoints
     :: Text -- ^ 'lvrpGatewayARN'
     -> ListVolumeRecoveryPoints
@@ -115,11 +117,11 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrprsVolumeRecoveryPointInfos'
+-- * 'lvrprsVolumeRecoveryPointInfos' - Undocumented member.
 --
--- * 'lvrprsGatewayARN'
+-- * 'lvrprsGatewayARN' - Undocumented member.
 --
--- * 'lvrprsResponseStatus'
+-- * 'lvrprsResponseStatus' - -- | The response status code.
 listVolumeRecoveryPointsResponse
     :: Int -- ^ 'lvrprsResponseStatus'
     -> ListVolumeRecoveryPointsResponse
@@ -138,7 +140,7 @@ lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> 
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lvrprsResponseStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsResponseStatus = lens _lvrprsResponseStatus (\ s a -> s{_lvrprsResponseStatus = a});
 

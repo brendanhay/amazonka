@@ -20,7 +20,9 @@
 --
 -- This operation updates the contact information for a particular domain. Information for at least one contact (registrant, administrator, or technical) must be supplied for update.
 --
+--
 -- If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
+--
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateDomainContact request includes the following elements.
 --
+--
+--
 -- /See:/ 'updateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
     { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
@@ -61,13 +65,13 @@ data UpdateDomainContact = UpdateDomainContact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcRegistrantContact'
+-- * 'udcRegistrantContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 --
--- * 'udcAdminContact'
+-- * 'udcAdminContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 --
--- * 'udcTechContact'
+-- * 'udcTechContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 --
--- * 'udcDomainName'
+-- * 'udcDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 updateDomainContact
     :: Text -- ^ 'udcDomainName'
     -> UpdateDomainContact
@@ -79,45 +83,19 @@ updateDomainContact pDomainName_ =
     , _udcDomainName = pDomainName_
     }
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive;
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive;
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
 udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive;
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 udcDomainName :: Lens' UpdateDomainContact Text
 udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
 
@@ -162,6 +140,8 @@ instance ToQuery UpdateDomainContact where
 
 -- | The UpdateDomainContact response includes the following element.
 --
+--
+--
 -- /See:/ 'updateDomainContactResponse' smart constructor.
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
     { _udcrsResponseStatus :: !Int
@@ -172,9 +152,9 @@ data UpdateDomainContactResponse = UpdateDomainContactResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udcrsResponseStatus'
+-- * 'udcrsResponseStatus' - -- | The response status code.
 --
--- * 'udcrsOperationId'
+-- * 'udcrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 updateDomainContactResponse
     :: Int -- ^ 'udcrsResponseStatus'
     -> Text -- ^ 'udcrsOperationId'
@@ -185,17 +165,11 @@ updateDomainContactResponse pResponseStatus_ pOperationId_ =
     , _udcrsOperationId = pOperationId_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 udcrsResponseStatus :: Lens' UpdateDomainContactResponse Int
 udcrsResponseStatus = lens _udcrsResponseStatus (\ s a -> s{_udcrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 udcrsOperationId :: Lens' UpdateDomainContactResponse Text
 udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a});
 

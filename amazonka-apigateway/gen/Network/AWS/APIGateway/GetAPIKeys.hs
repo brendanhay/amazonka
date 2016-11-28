@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current < ApiKeys> resource.
+-- Gets information about the current 'ApiKeys' resource.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
@@ -50,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to get information about the current < ApiKeys> resource.
+-- | A request to get information about the current 'ApiKeys' resource.
+--
+--
 --
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
@@ -64,13 +68,13 @@ data GetAPIKeys = GetAPIKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakIncludeValues'
+-- * 'gakIncludeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 --
--- * 'gakNameQuery'
+-- * 'gakNameQuery' - The name of queried API keys.
 --
--- * 'gakLimit'
+-- * 'gakLimit' - The maximum number of 'ApiKeys' to get information about.
 --
--- * 'gakPosition'
+-- * 'gakPosition' - The position of the current 'ApiKeys' resource to get information about.
 getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
@@ -81,7 +85,7 @@ getAPIKeys =
     , _gakPosition = Nothing
     }
 
--- | A boolean flag to specify whether ('true') or not ('false') the result contains key values.
+-- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
 gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
 
@@ -89,11 +93,11 @@ gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
 gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
 gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a});
 
--- | The maximum number of < ApiKeys> to get information about.
+-- | The maximum number of 'ApiKeys' to get information about.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current < ApiKeys> resource to get information about.
+-- | The position of the current 'ApiKeys' resource to get information about.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -136,7 +140,8 @@ instance ToQuery GetAPIKeys where
                "name" =: _gakNameQuery, "limit" =: _gakLimit,
                "position" =: _gakPosition]
 
--- | Represents a collection of API keys as represented by an < ApiKeys> resource.
+-- | Represents a collection of API keys as represented by an 'ApiKeys' resource.
+--
 --
 -- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
@@ -152,13 +157,13 @@ data GetAPIKeysResponse = GetAPIKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakrsItems'
+-- * 'gakrsItems' - The current page of any 'ApiKey' resources in the collection of 'ApiKey' resources.
 --
--- * 'gakrsWarnings'
+-- * 'gakrsWarnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 --
--- * 'gakrsPosition'
+-- * 'gakrsPosition' - Undocumented member.
 --
--- * 'gakrsResponseStatus'
+-- * 'gakrsResponseStatus' - -- | The response status code.
 getAPIKeysResponse
     :: Int -- ^ 'gakrsResponseStatus'
     -> GetAPIKeysResponse
@@ -170,11 +175,11 @@ getAPIKeysResponse pResponseStatus_ =
     , _gakrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any < ApiKey> resources in the collection of < ApiKey> resources.
+-- | The current page of any 'ApiKey' resources in the collection of 'ApiKey' resources.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 
--- | A list of warning messages logged during the import of API keys when the 'failOnWarnings' option is set to true.
+-- | A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 gakrsWarnings :: Lens' GetAPIKeysResponse [Text]
 gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default . _Coerce;
 
@@ -182,7 +187,7 @@ gakrsWarnings = lens _gakrsWarnings (\ s a -> s{_gakrsWarnings = a}) . _Default 
 gakrsPosition :: Lens' GetAPIKeysResponse (Maybe Text)
 gakrsPosition = lens _gakrsPosition (\ s a -> s{_gakrsPosition = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
 gakrsResponseStatus = lens _gakrsResponseStatus (\ s a -> s{_gakrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Lists the certificates registered in your AWS account.
 --
+--
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
+--
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The input for the ListCertificates operation.
 --
+--
+--
 -- /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
     { _lcMarker         :: !(Maybe Text)
@@ -60,11 +64,11 @@ data ListCertificates = ListCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcMarker'
+-- * 'lcMarker' - The marker for the next set of results.
 --
--- * 'lcAscendingOrder'
+-- * 'lcAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 --
--- * 'lcPageSize'
+-- * 'lcPageSize' - The result page size.
 listCertificates
     :: ListCertificates
 listCertificates =
@@ -116,6 +120,8 @@ instance ToQuery ListCertificates where
 
 -- | The output of the ListCertificates operation.
 --
+--
+--
 -- /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
     { _lcrsCertificates   :: !(Maybe [Certificate])
@@ -127,11 +133,11 @@ data ListCertificatesResponse = ListCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrsCertificates'
+-- * 'lcrsCertificates' - The descriptions of the certificates.
 --
--- * 'lcrsNextMarker'
+-- * 'lcrsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lcrsResponseStatus'
+-- * 'lcrsResponseStatus' - -- | The response status code.
 listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
@@ -150,7 +156,7 @@ lcrsCertificates = lens _lcrsCertificates (\ s a -> s{_lcrsCertificates = a}) . 
 lcrsNextMarker :: Lens' ListCertificatesResponse (Maybe Text)
 lcrsNextMarker = lens _lcrsNextMarker (\ s a -> s{_lcrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcrsResponseStatus :: Lens' ListCertificatesResponse Int
 lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
 

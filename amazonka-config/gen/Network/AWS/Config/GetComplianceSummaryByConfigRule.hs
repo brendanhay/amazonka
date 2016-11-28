@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the number of AWS Config rules that are compliant and noncompliant, up to a maximum of 25 for each.
+--
+--
 module Network.AWS.Config.GetComplianceSummaryByConfigRule
     (
     -- * Creating a Request
@@ -99,9 +101,9 @@ data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRule
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsbcrrsComplianceSummary'
+-- * 'gcsbcrrsComplianceSummary' - The number of AWS Config rules that are compliant and the number that are noncompliant, up to a maximum of 25 for each.
 --
--- * 'gcsbcrrsResponseStatus'
+-- * 'gcsbcrrsResponseStatus' - -- | The response status code.
 getComplianceSummaryByConfigRuleResponse
     :: Int -- ^ 'gcsbcrrsResponseStatus'
     -> GetComplianceSummaryByConfigRuleResponse
@@ -115,7 +117,7 @@ getComplianceSummaryByConfigRuleResponse pResponseStatus_ =
 gcsbcrrsComplianceSummary :: Lens' GetComplianceSummaryByConfigRuleResponse (Maybe ComplianceSummary)
 gcsbcrrsComplianceSummary = lens _gcsbcrrsComplianceSummary (\ s a -> s{_gcsbcrrsComplianceSummary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcsbcrrsResponseStatus :: Lens' GetComplianceSummaryByConfigRuleResponse Int
 gcsbcrrsResponseStatus = lens _gcsbcrrsResponseStatus (\ s a -> s{_gcsbcrrsResponseStatus = a});
 

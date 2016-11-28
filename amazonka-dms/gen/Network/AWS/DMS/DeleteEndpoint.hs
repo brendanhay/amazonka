@@ -20,7 +20,8 @@
 --
 -- Deletes the specified endpoint.
 --
--- All tasks associated with the endpoint must be deleted before you can delete the endpoint.
+--
+--
 --
 module Network.AWS.DMS.DeleteEndpoint
     (
@@ -47,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEndpoint' smart constructor.
 newtype DeleteEndpoint = DeleteEndpoint'
     { _deEndpointARN :: Text
@@ -56,7 +59,7 @@ newtype DeleteEndpoint = DeleteEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deEndpointARN'
+-- * 'deEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 deleteEndpoint
     :: Text -- ^ 'deEndpointARN'
     -> DeleteEndpoint
@@ -104,6 +107,8 @@ instance ToQuery DeleteEndpoint where
 
 -- |
 --
+--
+--
 -- /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
     { _delrsEndpoint       :: !(Maybe Endpoint)
@@ -114,9 +119,9 @@ data DeleteEndpointResponse = DeleteEndpointResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsEndpoint'
+-- * 'delrsEndpoint' - The endpoint that was deleted.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteEndpointResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteEndpointResponse
@@ -130,7 +135,7 @@ deleteEndpointResponse pResponseStatus_ =
 delrsEndpoint :: Lens' DeleteEndpointResponse (Maybe Endpoint)
 delrsEndpoint = lens _delrsEndpoint (\ s a -> s{_delrsEndpoint = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteEndpointResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

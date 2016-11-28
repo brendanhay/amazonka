@@ -20,9 +20,11 @@
 --
 -- Provides descriptive information for scaling policies with a specified service namespace.
 --
--- You can filter the results in a service namespace with the 'ResourceId', 'ScalableDimension', and 'PolicyNames' parameters.
 --
--- To create a new scaling policy or update an existing one, see < PutScalingPolicy>. If you are no longer using a scaling policy, you can delete it with < DeleteScalingPolicy>.
+-- You can filter the results in a service namespace with the @ResourceId@ , @ScalableDimension@ , and @PolicyNames@ parameters.
+--
+-- To create a new scaling policy or update an existing one, see 'PutScalingPolicy' . If you are no longer using a scaling policy, you can delete it with 'DeleteScalingPolicy' .
+--
 module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -66,17 +68,17 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dPolicyNames'
+-- * 'dPolicyNames' - The names of the scaling policies to describe.
 --
--- * 'dScalableDimension'
+-- * 'dScalableDimension' - The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 --
--- * 'dResourceId'
+-- * 'dResourceId' - The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
 --
--- * 'dNextToken'
+-- * 'dNextToken' - The @NextToken@ value returned from a previous paginated @DescribeScalingPolicies@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
 --
--- * 'dMaxResults'
+-- * 'dMaxResults' - The maximum number of scaling policy results returned by @DescribeScalingPolicies@ in paginated output. When this parameter is used, @DescribeScalingPolicies@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalingPolicies@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalingPolicies@ returns up to 50 results and a @NextToken@ value, if applicable.
 --
--- * 'dServiceNamespace'
+-- * 'dServiceNamespace' - The AWS service namespace of the scalable target that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
 describeScalingPolicies
     :: ServiceNamespace -- ^ 'dServiceNamespace'
     -> DescribeScalingPolicies
@@ -94,19 +96,19 @@ describeScalingPolicies pServiceNamespace_ =
 dPolicyNames :: Lens' DescribeScalingPolicies [Text]
 dPolicyNames = lens _dPolicyNames (\ s a -> s{_dPolicyNames = a}) . _Default . _Coerce;
 
--- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as 'ecs:service:DesiredCount' for the desired task count of an Amazon ECS service, or 'ec2:spot-fleet-request:TargetCapacity' for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension of the scalable target that the scaling policy is associated with. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
 dScalableDimension :: Lens' DescribeScalingPolicies (Maybe ScalableDimension)
 dScalableDimension = lens _dScalableDimension (\ s a -> s{_dScalableDimension = a});
 
--- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, the resource type is 'services', and the identifier is the cluster name and service name; for example, 'service\/default\/sample-webapp'. For Amazon EC2 Spot fleet requests, the resource type is 'spot-fleet-request', and the identifier is the Spot fleet request ID; for example, 'spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE'. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The unique resource identifier string of the scalable target that the scaling policy is associated with. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
 dResourceId :: Lens' DescribeScalingPolicies (Maybe Text)
 dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
 
--- | The 'NextToken' value returned from a previous paginated 'DescribeScalingPolicies' request. Pagination continues from the end of the previous results that returned the 'NextToken' value. This value is 'null' when there are no more results to return.
+-- | The @NextToken@ value returned from a previous paginated @DescribeScalingPolicies@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | The maximum number of scaling policy results returned by 'DescribeScalingPolicies' in paginated output. When this parameter is used, 'DescribeScalingPolicies' returns up to 'MaxResults' results in a single page along with a 'NextToken' response element. The remaining results of the initial request can be seen by sending another 'DescribeScalingPolicies' request with the returned 'NextToken' value. This value can be between 1 and 50. If this parameter is not used, then 'DescribeScalingPolicies' returns up to 50 results and a 'NextToken' value, if applicable.
+-- | The maximum number of scaling policy results returned by @DescribeScalingPolicies@ in paginated output. When this parameter is used, @DescribeScalingPolicies@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalingPolicies@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalingPolicies@ returns up to 50 results and a @NextToken@ value, if applicable.
 dMaxResults :: Lens' DescribeScalingPolicies (Maybe Int)
 dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 
@@ -168,11 +170,11 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsNextToken'
+-- * 'drsNextToken' - The @NextToken@ value to include in a future @DescribeScalingPolicies@ request. When the results of a @DescribeScalingPolicies@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'drsScalingPolicies'
+-- * 'drsScalingPolicies' - A list of scaling policy objects.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeScalingPoliciesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeScalingPoliciesResponse
@@ -183,7 +185,7 @@ describeScalingPoliciesResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | The 'NextToken' value to include in a future 'DescribeScalingPolicies' request. When the results of a 'DescribeScalingPolicies' request exceed 'MaxResults', this value can be used to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The @NextToken@ value to include in a future @DescribeScalingPolicies@ request. When the results of a @DescribeScalingPolicies@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
@@ -191,7 +193,7 @@ drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 drsScalingPolicies :: Lens' DescribeScalingPoliciesResponse [ScalingPolicy]
 drsScalingPolicies = lens _drsScalingPolicies (\ s a -> s{_drsScalingPolicies = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeScalingPoliciesResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

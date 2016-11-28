@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Information about an action.
 --
+--
+--
 -- /See:/ 'action' smart constructor.
 data Action = Action'
     { _aType           :: !ActionTypeEnum
@@ -33,9 +35,9 @@ data Action = Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aType'
+-- * 'aType' - The type of action.
 --
--- * 'aTargetGroupARN'
+-- * 'aTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 action
     :: ActionTypeEnum -- ^ 'aType'
     -> Text -- ^ 'aTargetGroupARN'
@@ -71,6 +73,8 @@ instance ToQuery Action where
 
 -- | Information about an Availability Zone.
 --
+--
+--
 -- /See:/ 'availabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
     { _azSubnetId :: !(Maybe Text)
@@ -81,9 +85,9 @@ data AvailabilityZone = AvailabilityZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'azSubnetId'
+-- * 'azSubnetId' - The ID of the subnet.
 --
--- * 'azZoneName'
+-- * 'azZoneName' - The name of the Availability Zone.
 availabilityZone
     :: AvailabilityZone
 availabilityZone =
@@ -111,6 +115,8 @@ instance NFData AvailabilityZone
 
 -- | Information about an SSL server certificate deployed on a load balancer.
 --
+--
+--
 -- /See:/ 'certificate' smart constructor.
 newtype Certificate = Certificate'
     { _cCertificateARN :: Maybe Text
@@ -120,7 +126,7 @@ newtype Certificate = Certificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCertificateARN'
+-- * 'cCertificateARN' - The Amazon Resource Name (ARN) of the certificate.
 certificate
     :: Certificate
 certificate =
@@ -146,6 +152,8 @@ instance ToQuery Certificate where
 
 -- | Information about a cipher used in a policy.
 --
+--
+--
 -- /See:/ 'cipher' smart constructor.
 data Cipher = Cipher'
     { _cPriority :: !(Maybe Int)
@@ -156,9 +164,9 @@ data Cipher = Cipher'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cPriority'
+-- * 'cPriority' - The priority of the cipher.
 --
--- * 'cName'
+-- * 'cName' - The name of the cipher.
 cipher
     :: Cipher
 cipher =
@@ -185,6 +193,8 @@ instance NFData Cipher
 
 -- | Information about a listener.
 --
+--
+--
 -- /See:/ 'listener' smart constructor.
 data Listener = Listener'
     { _lSSLPolicy       :: !(Maybe Text)
@@ -200,19 +210,19 @@ data Listener = Listener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lSSLPolicy'
+-- * 'lSSLPolicy' - The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
 --
--- * 'lListenerARN'
+-- * 'lListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'lProtocol'
+-- * 'lProtocol' - The protocol for connections from clients to the load balancer.
 --
--- * 'lDefaultActions'
+-- * 'lDefaultActions' - The default actions for the listener.
 --
--- * 'lCertificates'
+-- * 'lCertificates' - The SSL server certificate. You must provide a certificate if the protocol is HTTPS.
 --
--- * 'lLoadBalancerARN'
+-- * 'lLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'lPort'
+-- * 'lPort' - The port on which the load balancer is listening.
 listener
     :: Listener
 listener =
@@ -274,6 +284,8 @@ instance NFData Listener
 
 -- | Information about a load balancer.
 --
+--
+--
 -- /See:/ 'loadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
     { _lbState                 :: !(Maybe LoadBalancerState)
@@ -293,27 +305,27 @@ data LoadBalancer = LoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbState'
+-- * 'lbState' - The state of the load balancer.
 --
--- * 'lbSecurityGroups'
+-- * 'lbSecurityGroups' - The IDs of the security groups for the load balancer.
 --
--- * 'lbLoadBalancerName'
+-- * 'lbLoadBalancerName' - The name of the load balancer.
 --
--- * 'lbCreatedTime'
+-- * 'lbCreatedTime' - The date and time the load balancer was created.
 --
--- * 'lbVPCId'
+-- * 'lbVPCId' - The ID of the VPC for the load balancer.
 --
--- * 'lbCanonicalHostedZoneId'
+-- * 'lbCanonicalHostedZoneId' - The ID of the Amazon Route 53 hosted zone associated with the load balancer.
 --
--- * 'lbAvailabilityZones'
+-- * 'lbAvailabilityZones' - The Availability Zones for the load balancer.
 --
--- * 'lbLoadBalancerARN'
+-- * 'lbLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'lbScheme'
+-- * 'lbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
 --
--- * 'lbType'
+-- * 'lbType' - The type of load balancer.
 --
--- * 'lbDNSName'
+-- * 'lbDNSName' - The public DNS name of the load balancer.
 loadBalancer
     :: LoadBalancer
 loadBalancer =
@@ -363,9 +375,7 @@ lbAvailabilityZones = lens _lbAvailabilityZones (\ s a -> s{_lbAvailabilityZones
 lbLoadBalancerARN :: Lens' LoadBalancer (Maybe Text)
 lbLoadBalancerARN = lens _lbLoadBalancerARN (\ s a -> s{_lbLoadBalancerARN = a});
 
--- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet.
---
--- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
+-- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
 lbScheme :: Lens' LoadBalancer (Maybe LoadBalancerSchemeEnum)
 lbScheme = lens _lbScheme (\ s a -> s{_lbScheme = a});
 
@@ -401,6 +411,8 @@ instance NFData LoadBalancer
 
 -- | Information about a load balancer attribute.
 --
+--
+--
 -- /See:/ 'loadBalancerAttribute' smart constructor.
 data LoadBalancerAttribute = LoadBalancerAttribute'
     { _lbaValue :: !(Maybe Text)
@@ -411,9 +423,9 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaValue'
+-- * 'lbaValue' - The value of the attribute.
 --
--- * 'lbaKey'
+-- * 'lbaKey' - The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled.     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled.     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
 loadBalancerAttribute
     :: LoadBalancerAttribute
 loadBalancerAttribute =
@@ -426,18 +438,7 @@ loadBalancerAttribute =
 lbaValue :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaValue = lens _lbaValue (\ s a -> s{_lbaValue = a});
 
--- | The name of the attribute.
---
--- -   'access_logs.s3.enabled' - Indicates whether access logs stored in Amazon S3 are enabled.
---
--- -   'access_logs.s3.bucket' - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.
---
--- -   'access_logs.s3.prefix' - The prefix for the location in the S3 bucket. If you don\'t specify a prefix, the access logs are stored in the root of the bucket.
---
--- -   'deletion_protection.enabled' - Indicates whether deletion protection is enabled.
---
--- -   'idle_timeout.timeout_seconds' - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
---
+-- | The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled.     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled.     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
 lbaKey :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaKey = lens _lbaKey (\ s a -> s{_lbaKey = a});
 
@@ -456,6 +457,8 @@ instance ToQuery LoadBalancerAttribute where
 
 -- | Information about the state of the load balancer.
 --
+--
+--
 -- /See:/ 'loadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
     { _lbsReason :: !(Maybe Text)
@@ -466,9 +469,9 @@ data LoadBalancerState = LoadBalancerState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbsReason'
+-- * 'lbsReason' - A description of the state.
 --
--- * 'lbsCode'
+-- * 'lbsCode' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
 loadBalancerState
     :: LoadBalancerState
 loadBalancerState =
@@ -481,7 +484,7 @@ loadBalancerState =
 lbsReason :: Lens' LoadBalancerState (Maybe Text)
 lbsReason = lens _lbsReason (\ s a -> s{_lbsReason = a});
 
--- | The state code. The initial state of the load balancer is 'provisioning'. After the load balancer is fully set up and ready to route traffic, its state is 'active'. If the load balancer could not be set up, its state is 'failed'.
+-- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
 lbsCode :: Lens' LoadBalancerState (Maybe LoadBalancerStateEnum)
 lbsCode = lens _lbsCode (\ s a -> s{_lbsCode = a});
 
@@ -496,6 +499,8 @@ instance NFData LoadBalancerState
 
 -- | Information to use when checking for a successful response from a target.
 --
+--
+--
 -- /See:/ 'matcher' smart constructor.
 newtype Matcher = Matcher'
     { _mHTTPCode :: Text
@@ -505,7 +510,7 @@ newtype Matcher = Matcher'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mHTTPCode'
+-- * 'mHTTPCode' - The HTTP codes. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 matcher
     :: Text -- ^ 'mHTTPCode'
     -> Matcher
@@ -514,7 +519,7 @@ matcher pHTTPCode_ =
     { _mHTTPCode = pHTTPCode_
     }
 
--- | The HTTP codes. The default value is 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").
+-- | The HTTP codes. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 mHTTPCode :: Lens' Matcher Text
 mHTTPCode = lens _mHTTPCode (\ s a -> s{_mHTTPCode = a});
 
@@ -531,6 +536,8 @@ instance ToQuery Matcher where
 
 -- | Information about a rule.
 --
+--
+--
 -- /See:/ 'rule' smart constructor.
 data Rule = Rule'
     { _rPriority   :: !(Maybe Text)
@@ -544,15 +551,15 @@ data Rule = Rule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rPriority'
+-- * 'rPriority' - The priority.
 --
--- * 'rActions'
+-- * 'rActions' - The actions.
 --
--- * 'rConditions'
+-- * 'rConditions' - The conditions.
 --
--- * 'rRuleARN'
+-- * 'rRuleARN' - The Amazon Resource Name (ARN) of the rule.
 --
--- * 'rIsDefault'
+-- * 'rIsDefault' - Indicates whether this is the default rule.
 rule
     :: Rule
 rule =
@@ -602,6 +609,8 @@ instance NFData Rule
 
 -- | Information about a condition for a rule.
 --
+--
+--
 -- /See:/ 'ruleCondition' smart constructor.
 data RuleCondition = RuleCondition'
     { _rcField  :: !(Maybe Text)
@@ -612,9 +621,9 @@ data RuleCondition = RuleCondition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcField'
+-- * 'rcField' - The name of the field. The possible value is @path-pattern@ .
 --
--- * 'rcValues'
+-- * 'rcValues' - The values for the field. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * &amp; (using &amp;amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 ruleCondition
     :: RuleCondition
 ruleCondition =
@@ -623,24 +632,11 @@ ruleCondition =
     , _rcValues = Nothing
     }
 
--- | The name of the field. The possible value is 'path-pattern'.
+-- | The name of the field. The possible value is @path-pattern@ .
 rcField :: Lens' RuleCondition (Maybe Text)
 rcField = lens _rcField (\ s a -> s{_rcField = a});
 
--- | The values for the field.
---
--- A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:
---
--- -   A-Z, a-z, 0-9
---
--- -   _ - . > \/ ~ \" \' \' : +
---
--- -   &amp; (using &amp;amp;)
---
--- -   * (matches 0 or more characters)
---
--- -   ? (matches exactly 1 character)
---
+-- | The values for the field. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * &amp; (using &amp;amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 rcValues :: Lens' RuleCondition [Text]
 rcValues = lens _rcValues (\ s a -> s{_rcValues = a}) . _Default . _Coerce;
 
@@ -664,6 +660,8 @@ instance ToQuery RuleCondition where
 
 -- | Information about the priorities for the rules for a listener.
 --
+--
+--
 -- /See:/ 'rulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
     { _rppPriority :: !(Maybe Nat)
@@ -674,9 +672,9 @@ data RulePriorityPair = RulePriorityPair'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rppPriority'
+-- * 'rppPriority' - The rule priority.
 --
--- * 'rppRuleARN'
+-- * 'rppRuleARN' - The Amazon Resource Name (ARN) of the rule.
 rulePriorityPair
     :: RulePriorityPair
 rulePriorityPair =
@@ -705,6 +703,8 @@ instance ToQuery RulePriorityPair where
 
 -- | Information about a policy used for SSL negotiation.
 --
+--
+--
 -- /See:/ 'sslPolicy' smart constructor.
 data SSLPolicy = SSLPolicy'
     { _spCiphers      :: !(Maybe [Cipher])
@@ -716,11 +716,11 @@ data SSLPolicy = SSLPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spCiphers'
+-- * 'spCiphers' - The ciphers.
 --
--- * 'spName'
+-- * 'spName' - The name of the policy.
 --
--- * 'spSSLProtocols'
+-- * 'spSSLProtocols' - The protocols.
 sslPolicy
     :: SSLPolicy
 sslPolicy =
@@ -758,6 +758,8 @@ instance NFData SSLPolicy
 
 -- | Information about a tag.
 --
+--
+--
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
@@ -768,9 +770,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue'
+-- * 'tagValue' - The value of the tag.
 --
--- * 'tagKey'
+-- * 'tagKey' - The key of the tag.
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
@@ -802,6 +804,8 @@ instance ToQuery Tag where
 
 -- | The tags associated with a resource.
 --
+--
+--
 -- /See:/ 'tagDescription' smart constructor.
 data TagDescription = TagDescription'
     { _tdResourceARN :: !(Maybe Text)
@@ -812,9 +816,9 @@ data TagDescription = TagDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdResourceARN'
+-- * 'tdResourceARN' - The Amazon Resource Name (ARN) of the resource.
 --
--- * 'tdTags'
+-- * 'tdTags' - Information about the tags.
 tagDescription
     :: TagDescription
 tagDescription =
@@ -844,6 +848,8 @@ instance NFData TagDescription
 
 -- | Information about a target.
 --
+--
+--
 -- /See:/ 'targetDescription' smart constructor.
 data TargetDescription = TargetDescription'
     { _tdPort :: !(Maybe Nat)
@@ -854,9 +860,9 @@ data TargetDescription = TargetDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdPort'
+-- * 'tdPort' - The port on which the target is listening.
 --
--- * 'tdId'
+-- * 'tdId' - The ID of the target.
 targetDescription
     :: Text -- ^ 'tdId'
     -> TargetDescription
@@ -889,6 +895,8 @@ instance ToQuery TargetDescription where
 
 -- | Information about a target group.
 --
+--
+--
 -- /See:/ 'targetGroup' smart constructor.
 data TargetGroup = TargetGroup'
     { _tgMatcher                    :: !(Maybe Matcher)
@@ -911,33 +919,33 @@ data TargetGroup = TargetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tgMatcher'
+-- * 'tgMatcher' - The HTTP codes to use when checking for a successful response from a target.
 --
--- * 'tgHealthCheckPath'
+-- * 'tgHealthCheckPath' - The destination for the health check request.
 --
--- * 'tgUnhealthyThresholdCount'
+-- * 'tgUnhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy.
 --
--- * 'tgVPCId'
+-- * 'tgVPCId' - The ID of the VPC for the targets.
 --
--- * 'tgTargetGroupARN'
+-- * 'tgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'tgProtocol'
+-- * 'tgProtocol' - The protocol to use for routing traffic to the targets.
 --
--- * 'tgHealthCheckIntervalSeconds'
+-- * 'tgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target.
 --
--- * 'tgHealthyThresholdCount'
+-- * 'tgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
 --
--- * 'tgHealthCheckProtocol'
+-- * 'tgHealthCheckProtocol' - The protocol to use to connect with the target.
 --
--- * 'tgLoadBalancerARNs'
+-- * 'tgLoadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.
 --
--- * 'tgHealthCheckTimeoutSeconds'
+-- * 'tgHealthCheckTimeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check.
 --
--- * 'tgHealthCheckPort'
+-- * 'tgHealthCheckPort' - The port to use to connect with the target.
 --
--- * 'tgTargetGroupName'
+-- * 'tgTargetGroupName' - The name of the target group.
 --
--- * 'tgPort'
+-- * 'tgPort' - The port on which the targets are listening.
 targetGroup
     :: TargetGroup
 targetGroup =
@@ -1039,6 +1047,8 @@ instance NFData TargetGroup
 
 -- | Information about a target group attribute.
 --
+--
+--
 -- /See:/ 'targetGroupAttribute' smart constructor.
 data TargetGroupAttribute = TargetGroupAttribute'
     { _tgaValue :: !(Maybe Text)
@@ -1049,9 +1059,9 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tgaValue'
+-- * 'tgaValue' - The value of the attribute.
 --
--- * 'tgaKey'
+-- * 'tgaKey' - The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled.     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 targetGroupAttribute
     :: TargetGroupAttribute
 targetGroupAttribute =
@@ -1064,16 +1074,7 @@ targetGroupAttribute =
 tgaValue :: Lens' TargetGroupAttribute (Maybe Text)
 tgaValue = lens _tgaValue (\ s a -> s{_tgaValue = a});
 
--- | The name of the attribute.
---
--- -   'deregistration_delay.timeout_seconds' - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from 'draining' to 'unused'. The range is 0-3600 seconds. The default value is 300 seconds.
---
--- -   'stickiness.enabled' - Indicates whether sticky sessions are enabled.
---
--- -   'stickiness.type' - The type of sticky sessions. The possible value is 'lb_cookie'.
---
--- -   'stickiness.lb_cookie.duration_seconds' - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
---
+-- | The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled.     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 tgaKey :: Lens' TargetGroupAttribute (Maybe Text)
 tgaKey = lens _tgaKey (\ s a -> s{_tgaKey = a});
 
@@ -1092,6 +1093,8 @@ instance ToQuery TargetGroupAttribute where
 
 -- | Information about the current health of a target.
 --
+--
+--
 -- /See:/ 'targetHealth' smart constructor.
 data TargetHealth = TargetHealth'
     { _thState       :: !(Maybe TargetHealthStateEnum)
@@ -1103,11 +1106,11 @@ data TargetHealth = TargetHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'thState'
+-- * 'thState' - The state of the target.
 --
--- * 'thReason'
+-- * 'thReason' - The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
 --
--- * 'thDescription'
+-- * 'thDescription' - A description of the target health that provides additional details. If the state is @healthy@ , a description is not provided.
 targetHealth
     :: TargetHealth
 targetHealth =
@@ -1121,40 +1124,11 @@ targetHealth =
 thState :: Lens' TargetHealth (Maybe TargetHealthStateEnum)
 thState = lens _thState (\ s a -> s{_thState = a});
 
--- | The reason code. If the target state is 'healthy', a reason code is not provided.
---
--- If the target state is 'initial', the reason code can be one of the following values:
---
--- -   'Elb.RegistrationInProgress' - The target is in the process of being registered with the load balancer.
---
--- -   'Elb.InitialHealthChecking' - The load balancer is still sending the target the minimum number of health checks required to determine its health status.
---
--- If the target state is 'unhealthy', the reason code can be one of the following values:
---
--- -   'Target.ResponseCodeMismatch' - The health checks did not return an expected HTTP code.
---
--- -   'Target.Timeout' - The health check requests timed out.
---
--- -   'Target.FailedHealthChecks' - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.
---
--- -   'Elb.InternalError' - The health checks failed due to an internal error.
---
--- If the target state is 'unused', the reason code can be one of the following values:
---
--- -   'Target.NotRegistered' - The target is not registered with the target group.
---
--- -   'Target.NotInUse' - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.
---
--- -   'Target.InvalidState' - The target is in the stopped or terminated state.
---
--- If the target state is 'draining', the reason code can be the following value:
---
--- -   'Target.DeregistrationInProgress' - The target is in the process of being deregistered and the deregistration delay period has not expired.
---
+-- | The reason code. If the target state is @healthy@ , a reason code is not provided. If the target state is @initial@ , the reason code can be one of the following values:     * @Elb.RegistrationInProgress@ - The target is in the process of being registered with the load balancer.     * @Elb.InitialHealthChecking@ - The load balancer is still sending the target the minimum number of health checks required to determine its health status. If the target state is @unhealthy@ , the reason code can be one of the following values:     * @Target.ResponseCodeMismatch@ - The health checks did not return an expected HTTP code.     * @Target.Timeout@ - The health check requests timed out.     * @Target.FailedHealthChecks@ - The health checks failed because the connection to the target timed out, the target response was malformed, or the target failed the health check for an unknown reason.     * @Elb.InternalError@ - The health checks failed due to an internal error. If the target state is @unused@ , the reason code can be one of the following values:     * @Target.NotRegistered@ - The target is not registered with the target group.     * @Target.NotInUse@ - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.     * @Target.InvalidState@ - The target is in the stopped or terminated state. If the target state is @draining@ , the reason code can be the following value:     * @Target.DeregistrationInProgress@ - The target is in the process of being deregistered and the deregistration delay period has not expired.
 thReason :: Lens' TargetHealth (Maybe TargetHealthReasonEnum)
 thReason = lens _thReason (\ s a -> s{_thReason = a});
 
--- | A description of the target health that provides additional details. If the state is 'healthy', a description is not provided.
+-- | A description of the target health that provides additional details. If the state is @healthy@ , a description is not provided.
 thDescription :: Lens' TargetHealth (Maybe Text)
 thDescription = lens _thDescription (\ s a -> s{_thDescription = a});
 
@@ -1170,6 +1144,8 @@ instance NFData TargetHealth
 
 -- | Information about the health of a target.
 --
+--
+--
 -- /See:/ 'targetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
     { _thdTargetHealth    :: !(Maybe TargetHealth)
@@ -1181,11 +1157,11 @@ data TargetHealthDescription = TargetHealthDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'thdTargetHealth'
+-- * 'thdTargetHealth' - The health information for the target.
 --
--- * 'thdHealthCheckPort'
+-- * 'thdHealthCheckPort' - The port to use to connect with the target.
 --
--- * 'thdTarget'
+-- * 'thdTarget' - The description of the target.
 targetHealthDescription
     :: TargetHealthDescription
 targetHealthDescription =

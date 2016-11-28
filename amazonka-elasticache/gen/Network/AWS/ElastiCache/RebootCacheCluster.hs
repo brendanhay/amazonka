@@ -20,9 +20,11 @@
 --
 -- The /RebootCacheCluster/ action reboots some, or all, of the cache nodes within a provisioned cache cluster. This API will apply any modified cache parameter groups to the cache cluster. The reboot action takes place as soon as possible, and results in a momentary outage to the cache cluster. During the reboot, the cache cluster status is set to REBOOTING.
 --
+--
 -- The reboot causes the contents of the cache (for each cache node being rebooted) to be lost.
 --
 -- When the reboot is complete, a cache cluster event is created.
+--
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /RebootCacheCluster/ action.
 --
+--
+--
 -- /See:/ 'rebootCacheCluster' smart constructor.
 data RebootCacheCluster = RebootCacheCluster'
     { _rccCacheClusterId       :: !Text
@@ -59,9 +63,9 @@ data RebootCacheCluster = RebootCacheCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccCacheClusterId'
+-- * 'rccCacheClusterId' - The cache cluster identifier. This parameter is stored as a lowercase string.
 --
--- * 'rccCacheNodeIdsToReboot'
+-- * 'rccCacheNodeIdsToReboot' - A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the cache node IDs.
 rebootCacheCluster
     :: Text -- ^ 'rccCacheClusterId'
     -> RebootCacheCluster
@@ -118,9 +122,9 @@ data RebootCacheClusterResponse = RebootCacheClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccrsCacheCluster'
+-- * 'rccrsCacheCluster' - Undocumented member.
 --
--- * 'rccrsResponseStatus'
+-- * 'rccrsResponseStatus' - -- | The response status code.
 rebootCacheClusterResponse
     :: Int -- ^ 'rccrsResponseStatus'
     -> RebootCacheClusterResponse
@@ -134,7 +138,7 @@ rebootCacheClusterResponse pResponseStatus_ =
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rccrsResponseStatus :: Lens' RebootCacheClusterResponse Int
 rccrsResponseStatus = lens _rccrsResponseStatus (\ s a -> s{_rccrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
 --
+--
 -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (VPC).
+--
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /CreateCacheSubnetGroup/ action.
 --
+--
+--
 -- /See:/ 'createCacheSubnetGroup' smart constructor.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
     { _ccsgCacheSubnetGroupName        :: !Text
@@ -59,11 +63,11 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsgCacheSubnetGroupName'
+-- * 'ccsgCacheSubnetGroupName' - A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 --
--- * 'ccsgCacheSubnetGroupDescription'
+-- * 'ccsgCacheSubnetGroupDescription' - A description for the cache subnet group.
 --
--- * 'ccsgSubnetIds'
+-- * 'ccsgSubnetIds' - A list of VPC subnet IDs for the cache subnet group.
 createCacheSubnetGroup
     :: Text -- ^ 'ccsgCacheSubnetGroupName'
     -> Text -- ^ 'ccsgCacheSubnetGroupDescription'
@@ -75,11 +79,7 @@ createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     , _ccsgSubnetIds = mempty
     }
 
--- | A name for the cache subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
---
--- Example: 'mysubnetgroup'
+-- | A name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\ s a -> s{_ccsgCacheSubnetGroupName = a});
 
@@ -133,9 +133,9 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsCacheSubnetGroup'
+-- * 'crsCacheSubnetGroup' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createCacheSubnetGroupResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateCacheSubnetGroupResponse
@@ -149,7 +149,7 @@ createCacheSubnetGroupResponse pResponseStatus_ =
 crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreateCacheSubnetGroupResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

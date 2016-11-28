@@ -20,9 +20,9 @@
 --
 -- Requests a description of a specified set of deployments.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeDeployments
     (
     -- * Creating a Request
@@ -59,11 +59,11 @@ data DescribeDeployments = DescribeDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddAppId'
+-- * 'ddAppId' - The app ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified app.
 --
--- * 'ddDeploymentIds'
+-- * 'ddDeploymentIds' - An array of deployment IDs to be described. If you include this parameter, @DescribeDeployments@ returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
 --
--- * 'ddStackId'
+-- * 'ddStackId' - The stack ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified stack.
 describeDeployments
     :: DescribeDeployments
 describeDeployments =
@@ -73,15 +73,15 @@ describeDeployments =
     , _ddStackId = Nothing
     }
 
--- | The app ID. If you include this parameter, 'DescribeDeployments' returns a description of the commands associated with the specified app.
+-- | The app ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified app.
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
 ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
 
--- | An array of deployment IDs to be described. If you include this parameter, 'DescribeDeployments' returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
+-- | An array of deployment IDs to be described. If you include this parameter, @DescribeDeployments@ returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
 ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce;
 
--- | The stack ID. If you include this parameter, 'DescribeDeployments' returns a description of the commands associated with the specified stack.
+-- | The stack ID. If you include this parameter, @DescribeDeployments@ returns a description of the commands associated with the specified stack.
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
 ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
 
@@ -124,7 +124,9 @@ instance ToPath DescribeDeployments where
 instance ToQuery DescribeDeployments where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeDeployments' request.
+-- | Contains the response to a @DescribeDeployments@ request.
+--
+--
 --
 -- /See:/ 'describeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
@@ -136,9 +138,9 @@ data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrsDeployments'
+-- * 'ddrsDeployments' - An array of @Deployment@ objects that describe the deployments.
 --
--- * 'ddrsResponseStatus'
+-- * 'ddrsResponseStatus' - -- | The response status code.
 describeDeploymentsResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeDeploymentsResponse
@@ -148,11 +150,11 @@ describeDeploymentsResponse pResponseStatus_ =
     , _ddrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'Deployment' objects that describe the deployments.
+-- | An array of @Deployment@ objects that describe the deployments.
 ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ddrsResponseStatus :: Lens' DescribeDeploymentsResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 

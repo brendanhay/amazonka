@@ -20,7 +20,9 @@
 --
 -- Returns descriptions of all resources of the specified stack.
 --
+--
 -- For deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been deleted.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackResources
@@ -49,7 +51,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < ListStackResource> action.
+-- | The input for the 'ListStackResource' action.
+--
+--
 --
 -- /See:/ 'listStackResources' smart constructor.
 data ListStackResources = ListStackResources'
@@ -61,9 +65,9 @@ data ListStackResources = ListStackResources'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrNextToken'
+-- * 'lsrNextToken' - A string that identifies the next page of stack resources that you want to retrieve.
 --
--- * 'lsrStackName'
+-- * 'lsrStackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 listStackResources
     :: Text -- ^ 'lsrStackName'
     -> ListStackResources
@@ -77,13 +81,7 @@ listStackResources pStackName_ =
 lsrNextToken :: Lens' ListStackResources (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
--- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
---
--- -   Running stacks: You can specify either the stack\'s name or its unique stack ID.
---
--- -   Deleted stacks: You must specify the unique stack ID.
---
--- Default: There is no default value.
+-- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:     * Running stacks: You can specify either the stack's name or its unique stack ID.     * Deleted stacks: You must specify the unique stack ID. Default: There is no default value.
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
 
@@ -125,7 +123,9 @@ instance ToQuery ListStackResources where
                "NextToken" =: _lsrNextToken,
                "StackName" =: _lsrStackName]
 
--- | The output for a < ListStackResources> action.
+-- | The output for a 'ListStackResources' action.
+--
+--
 --
 -- /See:/ 'listStackResourcesResponse' smart constructor.
 data ListStackResourcesResponse = ListStackResourcesResponse'
@@ -138,11 +138,11 @@ data ListStackResourcesResponse = ListStackResourcesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsrrsNextToken'
+-- * 'lsrrsNextToken' - If the output exceeds 1 MB, a string that identifies the next page of stack resources. If no additional page exists, this value is null.
 --
--- * 'lsrrsStackResourceSummaries'
+-- * 'lsrrsStackResourceSummaries' - A list of @StackResourceSummary@ structures.
 --
--- * 'lsrrsResponseStatus'
+-- * 'lsrrsResponseStatus' - -- | The response status code.
 listStackResourcesResponse
     :: Int -- ^ 'lsrrsResponseStatus'
     -> ListStackResourcesResponse
@@ -157,11 +157,11 @@ listStackResourcesResponse pResponseStatus_ =
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 
--- | A list of 'StackResourceSummary' structures.
+-- | A list of @StackResourceSummary@ structures.
 lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lsrrsResponseStatus :: Lens' ListStackResourcesResponse Int
 lsrrsResponseStatus = lens _lsrrsResponseStatus (\ s a -> s{_lsrrsResponseStatus = a});
 

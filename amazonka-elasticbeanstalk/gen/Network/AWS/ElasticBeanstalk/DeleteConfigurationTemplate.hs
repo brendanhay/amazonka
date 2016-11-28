@@ -20,7 +20,7 @@
 --
 -- Deletes the specified configuration template.
 --
--- When you launch an environment using a configuration template, the environment gets a copy of the template. You can delete or modify the environment\'s copy of the template without affecting the running environment.
+--
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Creating a Request
@@ -44,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Request to delete a configuration template.
 --
+--
+--
 -- /See:/ 'deleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
     { _dctApplicationName :: !Text
@@ -54,9 +56,9 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctApplicationName'
+-- * 'dctApplicationName' - The name of the application to delete the configuration template from.
 --
--- * 'dctTemplateName'
+-- * 'dctTemplateName' - The name of the configuration template to delete.
 deleteConfigurationTemplate
     :: Text -- ^ 'dctApplicationName'
     -> Text -- ^ 'dctTemplateName'

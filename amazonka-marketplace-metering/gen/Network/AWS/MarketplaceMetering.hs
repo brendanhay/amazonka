@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Marketplace Metering Service
+-- __AWS Marketplace Metering Service__
 --
 -- This reference provides descriptions of the low-level AWS Marketplace Metering Service API.
 --
@@ -19,7 +19,9 @@
 --
 -- __Submitting Metering Records__
 --
--- -   /MeterUsage/- Submits the metering record for a Marketplace product.
+--     * /MeterUsage/ - Submits the metering record for a Marketplace product.
+--
+--
 --
 module Network.AWS.MarketplaceMetering
     (

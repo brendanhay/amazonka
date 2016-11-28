@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing < MethodResponse> resource.
+-- Deletes an existing 'MethodResponse' resource.
+--
+--
 module Network.AWS.APIGateway.DeleteMethodResponse
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | A request to delete an existing < MethodResponse> resource.
+-- | A request to delete an existing 'MethodResponse' resource.
+--
+--
 --
 -- /See:/ 'deleteMethodResponse' smart constructor.
 data DeleteMethodResponse = DeleteMethodResponse'
@@ -56,13 +60,13 @@ data DeleteMethodResponse = DeleteMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmRestAPIId'
+-- * 'dmRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
 --
--- * 'dmResourceId'
+-- * 'dmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'dmHttpMethod'
+-- * 'dmHttpMethod' - The HTTP verb of the 'Method' resource.
 --
--- * 'dmStatusCode'
+-- * 'dmStatusCode' - The status code identifier for the 'MethodResponse' resource.
 deleteMethodResponse
     :: Text -- ^ 'dmRestAPIId'
     -> Text -- ^ 'dmResourceId'
@@ -77,19 +81,19 @@ deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _dmStatusCode = pStatusCode_
     }
 
--- | The < RestApi> identifier for the < MethodResponse> resource.
+-- | The 'RestApi' identifier for the 'MethodResponse' resource.
 dmRestAPIId :: Lens' DeleteMethodResponse Text
 dmRestAPIId = lens _dmRestAPIId (\ s a -> s{_dmRestAPIId = a});
 
--- | The < Resource> identifier for the < MethodResponse> resource.
+-- | The 'Resource' identifier for the 'MethodResponse' resource.
 dmResourceId :: Lens' DeleteMethodResponse Text
 dmResourceId = lens _dmResourceId (\ s a -> s{_dmResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 dmHttpMethod :: Lens' DeleteMethodResponse Text
 dmHttpMethod = lens _dmHttpMethod (\ s a -> s{_dmHttpMethod = a});
 
--- | The status code identifier for the < MethodResponse> resource.
+-- | The status code identifier for the 'MethodResponse' resource.
 dmStatusCode :: Lens' DeleteMethodResponse Text
 dmStatusCode = lens _dmStatusCode (\ s a -> s{_dmStatusCode = a});
 

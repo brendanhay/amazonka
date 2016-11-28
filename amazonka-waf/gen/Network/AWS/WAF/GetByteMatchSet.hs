@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < ByteMatchSet> specified by 'ByteMatchSetId'.
+-- Returns the 'ByteMatchSet' specified by @ByteMatchSetId@ .
+--
+--
 module Network.AWS.WAF.GetByteMatchSet
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetByteMatchSet = GetByteMatchSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbmsByteMatchSetId'
+-- * 'gbmsByteMatchSetId' - The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 getByteMatchSet
     :: Text -- ^ 'gbmsByteMatchSetId'
     -> GetByteMatchSet
@@ -60,7 +62,7 @@ getByteMatchSet pByteMatchSetId_ =
     { _gbmsByteMatchSetId = pByteMatchSetId_
     }
 
--- | The 'ByteMatchSetId' of the < ByteMatchSet> that you want to get. 'ByteMatchSetId' is returned by < CreateByteMatchSet> and by < ListByteMatchSets>.
+-- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 gbmsByteMatchSetId :: Lens' GetByteMatchSet Text
 gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\ s a -> s{_gbmsByteMatchSetId = a});
 
@@ -108,9 +110,9 @@ data GetByteMatchSetResponse = GetByteMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbmsrsByteMatchSet'
+-- * 'gbmsrsByteMatchSet' - Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gbmsrsResponseStatus'
+-- * 'gbmsrsResponseStatus' - -- | The response status code.
 getByteMatchSetResponse
     :: Int -- ^ 'gbmsrsResponseStatus'
     -> GetByteMatchSetResponse
@@ -120,15 +122,11 @@ getByteMatchSetResponse pResponseStatus_ =
     , _gbmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < ByteMatchSet> that you specified in the 'GetByteMatchSet' request. For more information, see the following topics:
---
--- -   < ByteMatchSet>: Contains 'ByteMatchSetId', 'ByteMatchTuples', and 'Name'
--- -   'ByteMatchTuples': Contains an array of < ByteMatchTuple> objects. Each 'ByteMatchTuple' object contains < FieldToMatch>, 'PositionalConstraint', 'TargetString', and 'TextTransformation'
--- -   < FieldToMatch>: Contains 'Data' and 'Type'
+-- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
 gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
 gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbmsrsResponseStatus :: Lens' GetByteMatchSetResponse Int
 gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\ s a -> s{_gbmsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Tests the functionality of repository triggers by sending information to the trigger target. If real data is available in the repository, the test will send data from the last commit. If no data is available, sample data will be generated.
+--
+--
 module Network.AWS.CodeCommit.TestRepositoryTriggers
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a test repository triggers operation.
 --
+--
+--
 -- /See:/ 'testRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
     { _trtTriggers       :: !(Maybe [RepositoryTrigger])
@@ -56,9 +60,9 @@ data TestRepositoryTriggers = TestRepositoryTriggers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trtTriggers'
+-- * 'trtTriggers' - The list of triggers to test.
 --
--- * 'trtRepositoryName'
+-- * 'trtRepositoryName' - The name of the repository in which to test the triggers.
 testRepositoryTriggers
     :: TestRepositoryTriggers
 testRepositoryTriggers =
@@ -116,6 +120,8 @@ instance ToQuery TestRepositoryTriggers where
 
 -- | Represents the output of a test repository triggers operation.
 --
+--
+--
 -- /See:/ 'testRepositoryTriggersResponse' smart constructor.
 data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
     { _trtrsFailedExecutions     :: !(Maybe [RepositoryTriggerExecutionFailure])
@@ -127,11 +133,11 @@ data TestRepositoryTriggersResponse = TestRepositoryTriggersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trtrsFailedExecutions'
+-- * 'trtrsFailedExecutions' - The list of triggers that were not able to be tested. This list provides the names of the triggers that could not be tested, separated by commas.
 --
--- * 'trtrsSuccessfulExecutions'
+-- * 'trtrsSuccessfulExecutions' - The list of triggers that were successfully tested. This list provides the names of the triggers that were successfully tested, separated by commas.
 --
--- * 'trtrsResponseStatus'
+-- * 'trtrsResponseStatus' - -- | The response status code.
 testRepositoryTriggersResponse
     :: Int -- ^ 'trtrsResponseStatus'
     -> TestRepositoryTriggersResponse
@@ -150,7 +156,7 @@ trtrsFailedExecutions = lens _trtrsFailedExecutions (\ s a -> s{_trtrsFailedExec
 trtrsSuccessfulExecutions :: Lens' TestRepositoryTriggersResponse [Text]
 trtrsSuccessfulExecutions = lens _trtrsSuccessfulExecutions (\ s a -> s{_trtrsSuccessfulExecutions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 trtrsResponseStatus :: Lens' TestRepositoryTriggersResponse Int
 trtrsResponseStatus = lens _trtrsResponseStatus (\ s a -> s{_trtrsResponseStatus = a});
 

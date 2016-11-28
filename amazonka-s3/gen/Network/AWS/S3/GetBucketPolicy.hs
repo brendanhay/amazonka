@@ -51,7 +51,7 @@ newtype GetBucketPolicy = GetBucketPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpBucket'
+-- * 'gbpBucket' - Undocumented member.
 getBucketPolicy
     :: BucketName -- ^ 'gbpBucket'
     -> GetBucketPolicy
@@ -97,9 +97,9 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbprsResponseStatus'
+-- * 'gbprsResponseStatus' - -- | The response status code.
 --
--- * 'gbprsPolicy'
+-- * 'gbprsPolicy' - The bucket policy as a JSON document.
 getBucketPolicyResponse
     :: Int -- ^ 'gbprsResponseStatus'
     -> HashMap Text Value -- ^ 'gbprsPolicy'
@@ -110,7 +110,7 @@ getBucketPolicyResponse pResponseStatus_ pPolicy_ =
     , _gbprsPolicy = pPolicy_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gbprsResponseStatus :: Lens' GetBucketPolicyResponse Int
 gbprsResponseStatus = lens _gbprsResponseStatus (\ s a -> s{_gbprsResponseStatus = a});
 

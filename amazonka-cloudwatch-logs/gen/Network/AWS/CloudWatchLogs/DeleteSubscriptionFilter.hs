@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a subscription filter associated with the specified log group.
+--
+--
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     (
     -- * Creating a Request
@@ -50,9 +52,9 @@ data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dLogGroupName'
+-- * 'dLogGroupName' - The name of the log group that is associated with the subscription filter to delete.
 --
--- * 'dFilterName'
+-- * 'dFilterName' - The name of the subscription filter to delete.
 deleteSubscriptionFilter
     :: Text -- ^ 'dLogGroupName'
     -> Text -- ^ 'dFilterName'

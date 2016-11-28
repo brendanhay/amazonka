@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds tags to on-premises instances.
+--
+--
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of, and adds tags to, an on-premises instance operation.
 --
+--
+--
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
     { _attopiTags          :: ![Tag]
@@ -52,9 +56,9 @@ data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attopiTags'
+-- * 'attopiTags' - The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
 --
--- * 'attopiInstanceNames'
+-- * 'attopiInstanceNames' - The names of the on-premises instances to which to add tags.
 addTagsToOnPremisesInstances
     :: AddTagsToOnPremisesInstances
 addTagsToOnPremisesInstances =
@@ -63,9 +67,7 @@ addTagsToOnPremisesInstances =
     , _attopiInstanceNames = mempty
     }
 
--- | The tag key-value pairs to add to the on-premises instances.
---
--- Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
+-- | The tag key-value pairs to add to the on-premises instances. Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
 attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
 

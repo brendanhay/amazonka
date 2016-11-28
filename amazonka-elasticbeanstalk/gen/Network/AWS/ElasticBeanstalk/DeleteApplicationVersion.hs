@@ -20,7 +20,7 @@
 --
 -- Deletes the specified version from the specified application.
 --
--- You cannot delete an application version that is associated with a running environment.
+--
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Creating a Request
@@ -45,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Request to delete an application version.
 --
+--
+--
 -- /See:/ 'deleteApplicationVersion' smart constructor.
 data DeleteApplicationVersion = DeleteApplicationVersion'
     { _davDeleteSourceBundle :: !(Maybe Bool)
@@ -56,11 +58,11 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davDeleteSourceBundle'
+-- * 'davDeleteSourceBundle' - Indicates whether to delete the associated source bundle from Amazon S3:      * @true@ : An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.     * @false@ : No action is taken on the Amazon S3 source bundle specified at time of creation.  Valid Values: @true@ | @false@
 --
--- * 'davApplicationName'
+-- * 'davApplicationName' - The name of the application to delete releases from.
 --
--- * 'davVersionLabel'
+-- * 'davVersionLabel' - The label of the version to delete.
 deleteApplicationVersion
     :: Text -- ^ 'davApplicationName'
     -> Text -- ^ 'davVersionLabel'
@@ -72,12 +74,7 @@ deleteApplicationVersion pApplicationName_ pVersionLabel_ =
     , _davVersionLabel = pVersionLabel_
     }
 
--- | Indicates whether to delete the associated source bundle from Amazon S3:
---
--- -   'true': An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.
--- -   'false': No action is taken on the Amazon S3 source bundle specified at time of creation.
---
--- Valid Values: 'true' | 'false'
+-- | Indicates whether to delete the associated source bundle from Amazon S3:      * @true@ : An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.     * @false@ : No action is taken on the Amazon S3 source bundle specified at time of creation.  Valid Values: @true@ | @false@
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a});
 

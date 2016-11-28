@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets detailed information for specified images within a specified repository. Images are specified with either 'imageTag' or 'imageDigest'.
+-- Gets detailed information for specified images within a specified repository. Images are specified with either @imageTag@ or @imageDigest@ .
+--
+--
 module Network.AWS.ECR.BatchGetImage
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data BatchGetImage = BatchGetImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgiRegistryId'
+-- * 'bgiRegistryId' - The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
 --
--- * 'bgiRepositoryName'
+-- * 'bgiRepositoryName' - The repository that contains the images to describe.
 --
--- * 'bgiImageIds'
+-- * 'bgiImageIds' - A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 batchGetImage
     :: Text -- ^ 'bgiRepositoryName'
     -> BatchGetImage
@@ -79,7 +81,7 @@ bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a});
 bgiRepositoryName :: Lens' BatchGetImage Text
 bgiRepositoryName = lens _bgiRepositoryName (\ s a -> s{_bgiRepositoryName = a});
 
--- | A list of image ID references that correspond to images to describe. The format of the 'imageIds' reference is 'imageTag=tag' or 'imageDigest=digest'.
+-- | A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
 bgiImageIds :: Lens' BatchGetImage [ImageIdentifier]
 bgiImageIds = lens _bgiImageIds (\ s a -> s{_bgiImageIds = a}) . _Coerce;
 
@@ -133,11 +135,11 @@ data BatchGetImageResponse = BatchGetImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgirsImages'
+-- * 'bgirsImages' - A list of image objects corresponding to the image references in the request.
 --
--- * 'bgirsFailures'
+-- * 'bgirsFailures' - Any failures associated with the call.
 --
--- * 'bgirsResponseStatus'
+-- * 'bgirsResponseStatus' - -- | The response status code.
 batchGetImageResponse
     :: Int -- ^ 'bgirsResponseStatus'
     -> BatchGetImageResponse
@@ -156,7 +158,7 @@ bgirsImages = lens _bgirsImages (\ s a -> s{_bgirsImages = a}) . _Default . _Coe
 bgirsFailures :: Lens' BatchGetImageResponse [ImageFailure]
 bgirsFailures = lens _bgirsFailures (\ s a -> s{_bgirsFailures = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 bgirsResponseStatus :: Lens' BatchGetImageResponse Int
 bgirsResponseStatus = lens _bgirsResponseStatus (\ s a -> s{_bgirsResponseStatus = a});
 

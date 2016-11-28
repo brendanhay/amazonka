@@ -22,8 +22,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
--- | Polls 'Network.AWS.IAM.GetInstanceProfile' every 1 seconds until a
--- successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
 instanceProfileExists :: Wait GetInstanceProfile
 instanceProfileExists =
     Wait
@@ -34,8 +33,7 @@ instanceProfileExists =
                        , matchStatus 404 AcceptRetry]
     }
 
--- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a
--- successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
 userExists :: Wait GetUser
 userExists =
     Wait

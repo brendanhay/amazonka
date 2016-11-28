@@ -20,9 +20,11 @@
 --
 -- Creates a new IP address filter.
 --
--- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide>.
+--
+-- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.CreateReceiptFilter
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'createReceiptFilter' smart constructor.
 newtype CreateReceiptFilter = CreateReceiptFilter'
@@ -56,7 +60,7 @@ newtype CreateReceiptFilter = CreateReceiptFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crfFilter'
+-- * 'crfFilter' - A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
 createReceiptFilter
     :: ReceiptFilter -- ^ 'crfFilter'
     -> CreateReceiptFilter
@@ -97,6 +101,8 @@ instance ToQuery CreateReceiptFilter where
 
 -- | An empty element returned on a successful request.
 --
+--
+--
 -- /See:/ 'createReceiptFilterResponse' smart constructor.
 newtype CreateReceiptFilterResponse = CreateReceiptFilterResponse'
     { _crfrsResponseStatus :: Int
@@ -106,7 +112,7 @@ newtype CreateReceiptFilterResponse = CreateReceiptFilterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crfrsResponseStatus'
+-- * 'crfrsResponseStatus' - -- | The response status code.
 createReceiptFilterResponse
     :: Int -- ^ 'crfrsResponseStatus'
     -> CreateReceiptFilterResponse
@@ -115,7 +121,7 @@ createReceiptFilterResponse pResponseStatus_ =
     { _crfrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crfrsResponseStatus :: Lens' CreateReceiptFilterResponse Int
 crfrsResponseStatus = lens _crfrsResponseStatus (\ s a -> s{_crfrsResponseStatus = a});
 

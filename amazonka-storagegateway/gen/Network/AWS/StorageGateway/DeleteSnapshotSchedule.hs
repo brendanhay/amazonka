@@ -20,9 +20,9 @@
 --
 -- Deletes a snapshot of a volume.
 --
--- You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>. In the 'DeleteSnapshotSchedule' request, you identify the volume by providing its Amazon Resource Name (ARN).
 --
--- To list or delete a snapshot, you must use the Amazon EC2 API. in /Amazon Elastic Compute Cloud API Reference/.
+-- You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots> . In the @DeleteSnapshotSchedule@ request, you identify the volume by providing its Amazon Resource Name (ARN).
+--
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Creating a Request
@@ -55,7 +55,7 @@ newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVolumeARN'
+-- * 'dVolumeARN' - Undocumented member.
 deleteSnapshotSchedule
     :: Text -- ^ 'dVolumeARN'
     -> DeleteSnapshotSchedule
@@ -113,9 +113,9 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsssrsVolumeARN'
+-- * 'dsssrsVolumeARN' - Undocumented member.
 --
--- * 'dsssrsResponseStatus'
+-- * 'dsssrsResponseStatus' - -- | The response status code.
 deleteSnapshotScheduleResponse
     :: Int -- ^ 'dsssrsResponseStatus'
     -> DeleteSnapshotScheduleResponse
@@ -129,7 +129,7 @@ deleteSnapshotScheduleResponse pResponseStatus_ =
 dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsssrsResponseStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsResponseStatus = lens _dsssrsResponseStatus (\ s a -> s{_dsssrsResponseStatus = a});
 

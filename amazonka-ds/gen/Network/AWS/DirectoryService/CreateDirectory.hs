@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Simple AD directory.
+--
+--
 module Network.AWS.DirectoryService.CreateDirectory
     (
     -- * Creating a Request
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < CreateDirectory> operation.
+-- | Contains the inputs for the 'CreateDirectory' operation.
+--
+--
 --
 -- /See:/ 'createDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
@@ -63,17 +67,17 @@ data CreateDirectory = CreateDirectory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cShortName'
+-- * 'cShortName' - The short name of the directory, such as @CORP@ .
 --
--- * 'cVPCSettings'
+-- * 'cVPCSettings' - A 'DirectoryVpcSettings' object that contains additional information for the operation.
 --
--- * 'cDescription'
+-- * 'cDescription' - A textual description for the directory.
 --
--- * 'cName'
+-- * 'cName' - The fully qualified name for the directory, such as @corp.example.com@ .
 --
--- * 'cPassword'
+-- * 'cPassword' - The password for the directory administrator. The directory creation process creates a directory administrator account with the username @Administrator@ and this password.
 --
--- * 'cSize'
+-- * 'cSize' - The size of the directory.
 createDirectory
     :: Text -- ^ 'cName'
     -> Text -- ^ 'cPassword'
@@ -89,11 +93,11 @@ createDirectory pName_ pPassword_ pSize_ =
     , _cSize = pSize_
     }
 
--- | The short name of the directory, such as 'CORP'.
+-- | The short name of the directory, such as @CORP@ .
 cShortName :: Lens' CreateDirectory (Maybe Text)
 cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
--- | A < DirectoryVpcSettings> object that contains additional information for the operation.
+-- | A 'DirectoryVpcSettings' object that contains additional information for the operation.
 cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
 cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 
@@ -101,11 +105,11 @@ cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 cDescription :: Lens' CreateDirectory (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
--- | The fully qualified name for the directory, such as 'corp.example.com'.
+-- | The fully qualified name for the directory, such as @corp.example.com@ .
 cName :: Lens' CreateDirectory Text
 cName = lens _cName (\ s a -> s{_cName = a});
 
--- | The password for the directory administrator. The directory creation process creates a directory administrator account with the username 'Administrator' and this password.
+-- | The password for the directory administrator. The directory creation process creates a directory administrator account with the username @Administrator@ and this password.
 cPassword :: Lens' CreateDirectory Text
 cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive;
 
@@ -153,7 +157,9 @@ instance ToPath CreateDirectory where
 instance ToQuery CreateDirectory where
         toQuery = const mempty
 
--- | Contains the results of the < CreateDirectory> operation.
+-- | Contains the results of the 'CreateDirectory' operation.
+--
+--
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
@@ -165,9 +171,9 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsDirectoryId'
+-- * 'crsDirectoryId' - The identifier of the directory that was created.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createDirectoryResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateDirectoryResponse
@@ -181,7 +187,7 @@ createDirectoryResponse pResponseStatus_ =
 crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreateDirectoryResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

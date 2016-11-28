@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Tests the connection between the replication instance and the endpoint.
+--
+--
 module Network.AWS.DMS.TestConnection
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'testConnection' smart constructor.
 data TestConnection = TestConnection'
     { _tcReplicationInstanceARN :: !Text
@@ -55,9 +59,9 @@ data TestConnection = TestConnection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcReplicationInstanceARN'
+-- * 'tcReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
--- * 'tcEndpointARN'
+-- * 'tcEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 testConnection
     :: Text -- ^ 'tcReplicationInstanceARN'
     -> Text -- ^ 'tcEndpointARN'
@@ -115,6 +119,8 @@ instance ToQuery TestConnection where
 
 -- |
 --
+--
+--
 -- /See:/ 'testConnectionResponse' smart constructor.
 data TestConnectionResponse = TestConnectionResponse'
     { _tcrsConnection     :: !(Maybe Connection)
@@ -125,9 +131,9 @@ data TestConnectionResponse = TestConnectionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcrsConnection'
+-- * 'tcrsConnection' - The connection tested.
 --
--- * 'tcrsResponseStatus'
+-- * 'tcrsResponseStatus' - -- | The response status code.
 testConnectionResponse
     :: Int -- ^ 'tcrsResponseStatus'
     -> TestConnectionResponse
@@ -141,7 +147,7 @@ testConnectionResponse pResponseStatus_ =
 tcrsConnection :: Lens' TestConnectionResponse (Maybe Connection)
 tcrsConnection = lens _tcrsConnection (\ s a -> s{_tcrsConnection = a});
 
--- | The response status code.
+-- | -- | The response status code.
 tcrsResponseStatus :: Lens' TestConnectionResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
 

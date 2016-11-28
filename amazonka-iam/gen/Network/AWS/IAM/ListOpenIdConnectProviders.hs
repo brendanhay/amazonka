@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about the IAM OpenID Connect (OIDC) provider resource objects defined in the AWS account.
+--
+--
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
     -- * Creating a Request
@@ -82,7 +84,9 @@ instance ToQuery ListOpenIdConnectProviders where
                     ("ListOpenIDConnectProviders" :: ByteString),
                   "Version" =: ("2010-05-08" :: ByteString)])
 
--- | Contains the response to a successful < ListOpenIDConnectProviders> request.
+-- | Contains the response to a successful 'ListOpenIDConnectProviders' request.
+--
+--
 --
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
@@ -94,9 +98,9 @@ data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loicprsOpenIdConnectProviderList'
+-- * 'loicprsOpenIdConnectProviderList' - The list of IAM OIDC provider resource objects defined in the AWS account.
 --
--- * 'loicprsResponseStatus'
+-- * 'loicprsResponseStatus' - -- | The response status code.
 listOpenIdConnectProvidersResponse
     :: Int -- ^ 'loicprsResponseStatus'
     -> ListOpenIdConnectProvidersResponse
@@ -110,7 +114,7 @@ listOpenIdConnectProvidersResponse pResponseStatus_ =
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
 loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 loicprsResponseStatus :: Lens' ListOpenIdConnectProvidersResponse Int
 loicprsResponseStatus = lens _loicprsResponseStatus (\ s a -> s{_loicprsResponseStatus = a});
 

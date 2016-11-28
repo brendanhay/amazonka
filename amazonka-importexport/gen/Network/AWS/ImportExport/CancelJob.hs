@@ -55,9 +55,9 @@ data CancelJob = CancelJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cAPIVersion'
+-- * 'cAPIVersion' - Undocumented member.
 --
--- * 'cJobId'
+-- * 'cJobId' - Undocumented member.
 cancelJob
     :: Text -- ^ 'cJobId'
     -> CancelJob
@@ -114,9 +114,9 @@ data CancelJobResponse = CancelJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsSuccess'
+-- * 'crsSuccess' - Undocumented member.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 cancelJobResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CancelJobResponse
@@ -130,7 +130,7 @@ cancelJobResponse pResponseStatus_ =
 crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CancelJobResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

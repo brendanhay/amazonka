@@ -20,9 +20,11 @@
 --
 -- Describes the specified load balancer policy types or all load balancer policy types.
 --
+--
 -- The description of each type indicates how it can be used. For example, some policies can be used only with layer 7 listeners, some policies can be used only with layer 4 listeners, and some policies can be used only with your EC2 instances.
 --
--- You can use < CreateLoadBalancerPolicy> to create a policy configuration for any of these policy types. Then, depending on the policy type, use either < SetLoadBalancerPoliciesOfListener> or < SetLoadBalancerPoliciesForBackendServer> to set the policy.
+-- You can use 'CreateLoadBalancerPolicy' to create a policy configuration for any of these policy types. Then, depending on the policy type, use either 'SetLoadBalancerPoliciesOfListener' or 'SetLoadBalancerPoliciesForBackendServer' to set the policy.
+--
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicyTypes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames :: Maybe [Text]
@@ -57,7 +61,7 @@ newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbptPolicyTypeNames'
+-- * 'dlbptPolicyTypeNames' - The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.
 describeLoadBalancerPolicyTypes
     :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
@@ -107,6 +111,8 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 
 -- | Contains the output of DescribeLoadBalancerPolicyTypes.
 --
+--
+--
 -- /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
@@ -117,9 +123,9 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbptrsPolicyTypeDescriptions'
+-- * 'dlbptrsPolicyTypeDescriptions' - Information about the policy types.
 --
--- * 'dlbptrsResponseStatus'
+-- * 'dlbptrsResponseStatus' - -- | The response status code.
 describeLoadBalancerPolicyTypesResponse
     :: Int -- ^ 'dlbptrsResponseStatus'
     -> DescribeLoadBalancerPolicyTypesResponse
@@ -133,7 +139,7 @@ describeLoadBalancerPolicyTypesResponse pResponseStatus_ =
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbptrsResponseStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsResponseStatus = lens _dlbptrsResponseStatus (\ s a -> s{_dlbptrsResponseStatus = a});
 

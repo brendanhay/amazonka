@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an AWS Directory Service directory.
+--
+--
 module Network.AWS.DirectoryService.DeleteDirectory
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DeleteDirectory> operation.
+-- | Contains the inputs for the 'DeleteDirectory' operation.
+--
+--
 --
 -- /See:/ 'deleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
@@ -53,7 +57,7 @@ newtype DeleteDirectory = DeleteDirectory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dddDirectoryId'
+-- * 'dddDirectoryId' - The identifier of the directory to delete.
 deleteDirectory
     :: Text -- ^ 'dddDirectoryId'
     -> DeleteDirectory
@@ -100,7 +104,9 @@ instance ToPath DeleteDirectory where
 instance ToQuery DeleteDirectory where
         toQuery = const mempty
 
--- | Contains the results of the < DeleteDirectory> operation.
+-- | Contains the results of the 'DeleteDirectory' operation.
+--
+--
 --
 -- /See:/ 'deleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
@@ -112,9 +118,9 @@ data DeleteDirectoryResponse = DeleteDirectoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsDirectoryId'
+-- * 'delrsDirectoryId' - The directory identifier.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteDirectoryResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteDirectoryResponse
@@ -128,7 +134,7 @@ deleteDirectoryResponse pResponseStatus_ =
 delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
 delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteDirectoryResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Removes the specified client ID (also known as audience) from the list of client IDs registered for the specified IAM OpenID Connect (OIDC) provider resource object.
 --
+--
 -- This action is idempotent; it does not fail or return an error if you try to remove a client ID that does not exist.
+--
 module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     (
     -- * Creating a Request
@@ -52,9 +54,9 @@ data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectPr
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcifoicpOpenIdConnectProviderARN'
+-- * 'rcifoicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'rcifoicpClientId'
+-- * 'rcifoicpClientId' - The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see 'CreateOpenIDConnectProvider' .
 removeClientIdFromOpenIdConnectProvider
     :: Text -- ^ 'rcifoicpOpenIdConnectProviderARN'
     -> Text -- ^ 'rcifoicpClientId'
@@ -65,13 +67,11 @@ removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     , _rcifoicpClientId = pClientId_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the < ListOpenIDConnectProviders> action.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' action. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 rcifoicpOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
 rcifoicpOpenIdConnectProviderARN = lens _rcifoicpOpenIdConnectProviderARN (\ s a -> s{_rcifoicpOpenIdConnectProviderARN = a});
 
--- | The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see < CreateOpenIDConnectProvider>.
+-- | The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see 'CreateOpenIDConnectProvider' .
 rcifoicpClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
 rcifoicpClientId = lens _rcifoicpClientId (\ s a -> s{_rcifoicpClientId = a});
 

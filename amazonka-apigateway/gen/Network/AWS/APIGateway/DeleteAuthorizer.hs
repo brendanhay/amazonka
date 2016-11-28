@@ -18,7 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing < Authorizer> resource.
+-- Deletes an existing 'Authorizer' resource.
+--
 --
 -- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.DeleteAuthorizer
@@ -42,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to delete an existing < Authorizer> resource.
+-- | Request to delete an existing 'Authorizer' resource.
+--
+--
 --
 -- /See:/ 'deleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
@@ -54,9 +57,9 @@ data DeleteAuthorizer = DeleteAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daRestAPIId'
+-- * 'daRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
 --
--- * 'daAuthorizerId'
+-- * 'daAuthorizerId' - The identifier of the 'Authorizer' resource.
 deleteAuthorizer
     :: Text -- ^ 'daRestAPIId'
     -> Text -- ^ 'daAuthorizerId'
@@ -67,11 +70,11 @@ deleteAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _daAuthorizerId = pAuthorizerId_
     }
 
--- | The < RestApi> identifier for the < Authorizer> resource.
+-- | The 'RestApi' identifier for the 'Authorizer' resource.
 daRestAPIId :: Lens' DeleteAuthorizer Text
 daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a});
 
--- | The identifier of the < Authorizer> resource.
+-- | The identifier of the 'Authorizer' resource.
 daAuthorizerId :: Lens' DeleteAuthorizer Text
 daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a});
 

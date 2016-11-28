@@ -20,7 +20,9 @@
 --
 -- Registers a device to receive push sync notifications.
 --
+--
 -- This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.
+--
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | A request to RegisterDevice.
 --
+--
+--
 -- /See:/ 'registerDevice' smart constructor.
 data RegisterDevice = RegisterDevice'
     { _rdIdentityPoolId :: !Text
@@ -61,13 +65,13 @@ data RegisterDevice = RegisterDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdIdentityPoolId'
+-- * 'rdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. Here, the ID of the pool that the identity belongs to.
 --
--- * 'rdIdentityId'
+-- * 'rdIdentityId' - The unique ID for this identity.
 --
--- * 'rdPlatform'
+-- * 'rdPlatform' - The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
 --
--- * 'rdToken'
+-- * 'rdToken' - The push token.
 registerDevice
     :: Text -- ^ 'rdIdentityPoolId'
     -> Text -- ^ 'rdIdentityId'
@@ -136,6 +140,8 @@ instance ToQuery RegisterDevice where
 
 -- | Response to a RegisterDevice request.
 --
+--
+--
 -- /See:/ 'registerDeviceResponse' smart constructor.
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrsDeviceId       :: !(Maybe Text)
@@ -146,9 +152,9 @@ data RegisterDeviceResponse = RegisterDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdrsDeviceId'
+-- * 'rdrsDeviceId' - The unique ID generated for this device by Cognito.
 --
--- * 'rdrsResponseStatus'
+-- * 'rdrsResponseStatus' - -- | The response status code.
 registerDeviceResponse
     :: Int -- ^ 'rdrsResponseStatus'
     -> RegisterDeviceResponse
@@ -162,7 +168,7 @@ registerDeviceResponse pResponseStatus_ =
 rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDeviceResponse Int
 rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
 

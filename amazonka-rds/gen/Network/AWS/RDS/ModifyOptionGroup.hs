@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing option group.
+--
+--
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'modifyOptionGroup' smart constructor.
 data ModifyOptionGroup = ModifyOptionGroup'
     { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
@@ -59,13 +63,13 @@ data ModifyOptionGroup = ModifyOptionGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mogOptionsToInclude'
+-- * 'mogOptionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
 --
--- * 'mogOptionsToRemove'
+-- * 'mogOptionsToRemove' - Options in this list are removed from the option group.
 --
--- * 'mogApplyImmediately'
+-- * 'mogApplyImmediately' - Indicates whether the changes should be applied immediately, or during the next maintenance window for each instance associated with the option group.
 --
--- * 'mogOptionGroupName'
+-- * 'mogOptionGroupName' - The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 modifyOptionGroup
     :: Text -- ^ 'mogOptionGroupName'
     -> ModifyOptionGroup
@@ -89,9 +93,7 @@ mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = 
 mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
 mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a});
 
--- | The name of the option group to be modified.
---
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
+-- | The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 mogOptionGroupName :: Lens' ModifyOptionGroup Text
 mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a});
 
@@ -139,9 +141,9 @@ data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mogrsOptionGroup'
+-- * 'mogrsOptionGroup' - Undocumented member.
 --
--- * 'mogrsResponseStatus'
+-- * 'mogrsResponseStatus' - -- | The response status code.
 modifyOptionGroupResponse
     :: Int -- ^ 'mogrsResponseStatus'
     -> ModifyOptionGroupResponse
@@ -155,7 +157,7 @@ modifyOptionGroupResponse pResponseStatus_ =
 mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
 mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a});
 

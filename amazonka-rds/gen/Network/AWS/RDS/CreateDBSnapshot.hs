@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DBSnapshot. The source DBInstance must be in \"available\" state.
+-- Creates a DBSnapshot. The source DBInstance must be in "available" state.
+--
+--
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBSnapshot' smart constructor.
 data CreateDBSnapshot = CreateDBSnapshot'
     { _cdbsTags                 :: !(Maybe [Tag])
@@ -57,11 +61,11 @@ data CreateDBSnapshot = CreateDBSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbsTags'
+-- * 'cdbsTags' - Undocumented member.
 --
--- * 'cdbsDBSnapshotIdentifier'
+-- * 'cdbsDBSnapshotIdentifier' - The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
--- * 'cdbsDBInstanceIdentifier'
+-- * 'cdbsDBInstanceIdentifier' - The DB instance identifier. This is the unique key that identifies a DB instance. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 createDBSnapshot
     :: Text -- ^ 'cdbsDBSnapshotIdentifier'
     -> Text -- ^ 'cdbsDBInstanceIdentifier'
@@ -77,32 +81,11 @@ createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
 cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 
--- | The identifier for the DB snapshot.
---
--- Constraints:
---
--- -   Cannot be null, empty, or blank
---
--- -   Must contain from 1 to 255 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- Example: 'my-snapshot-id'
+-- | The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a});
 
--- | The DB instance identifier. This is the unique key that identifies a DB instance.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The DB instance identifier. This is the unique key that identifies a DB instance. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 cdbsDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a});
 
@@ -144,9 +127,9 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbsrsDBSnapshot'
+-- * 'cdbsrsDBSnapshot' - Undocumented member.
 --
--- * 'cdbsrsResponseStatus'
+-- * 'cdbsrsResponseStatus' - -- | The response status code.
 createDBSnapshotResponse
     :: Int -- ^ 'cdbsrsResponseStatus'
     -> CreateDBSnapshotResponse
@@ -160,7 +143,7 @@ createDBSnapshotResponse pResponseStatus_ =
 cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a});
 

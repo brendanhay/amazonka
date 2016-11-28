@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures one or more gateway local disks as cache for a cached-volume gateway. This operation is supported only for the gateway-cached volume architecture (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts>).
+-- Configures one or more gateway local disks as cache for a cached-volume gateway. This operation is supported only for the gateway-cached volume architecture (see <http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html Storage Gateway Concepts> ).
+--
 --
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add cache, and one or more disk IDs that you want to configure as cache.
+--
 module Network.AWS.StorageGateway.AddCache
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data AddCache = AddCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acGatewayARN'
+-- * 'acGatewayARN' - Undocumented member.
 --
--- * 'acDiskIds'
+-- * 'acDiskIds' - Undocumented member.
 addCache
     :: Text -- ^ 'acGatewayARN'
     -> AddCache
@@ -120,9 +122,9 @@ data AddCacheResponse = AddCacheResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acrsGatewayARN'
+-- * 'acrsGatewayARN' - Undocumented member.
 --
--- * 'acrsResponseStatus'
+-- * 'acrsResponseStatus' - -- | The response status code.
 addCacheResponse
     :: Int -- ^ 'acrsResponseStatus'
     -> AddCacheResponse
@@ -136,7 +138,7 @@ addCacheResponse pResponseStatus_ =
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 acrsResponseStatus :: Lens' AddCacheResponse Int
 acrsResponseStatus = lens _acrsResponseStatus (\ s a -> s{_acrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
+-- Retrieves the user name and password-creation date for the specified IAM user. If the user has not been assigned a password, the action returns a 404 (@NoSuchEntity@ ) error.
+--
+--
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetLoginProfile = GetLoginProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glpUserName'
+-- * 'glpUserName' - The name of the user whose login profile you want to retrieve. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getLoginProfile
     :: Text -- ^ 'glpUserName'
     -> GetLoginProfile
@@ -60,9 +62,7 @@ getLoginProfile pUserName_ =
     { _glpUserName = pUserName_
     }
 
--- | The name of the user whose login profile you want to retrieve.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user whose login profile you want to retrieve. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 
@@ -92,7 +92,9 @@ instance ToQuery GetLoginProfile where
                "Version" =: ("2010-05-08" :: ByteString),
                "UserName" =: _glpUserName]
 
--- | Contains the response to a successful < GetLoginProfile> request.
+-- | Contains the response to a successful 'GetLoginProfile' request.
+--
+--
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
@@ -104,9 +106,9 @@ data GetLoginProfileResponse = GetLoginProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glprsResponseStatus'
+-- * 'glprsResponseStatus' - -- | The response status code.
 --
--- * 'glprsLoginProfile'
+-- * 'glprsLoginProfile' - A structure containing the user name and password create date for the user.
 getLoginProfileResponse
     :: Int -- ^ 'glprsResponseStatus'
     -> LoginProfile -- ^ 'glprsLoginProfile'
@@ -117,7 +119,7 @@ getLoginProfileResponse pResponseStatus_ pLoginProfile_ =
     , _glprsLoginProfile = pLoginProfile_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 glprsResponseStatus :: Lens' GetLoginProfileResponse Int
 glprsResponseStatus = lens _glprsResponseStatus (\ s a -> s{_glprsResponseStatus = a});
 

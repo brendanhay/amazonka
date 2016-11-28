@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Microsoft AD in the AWS cloud.
+--
+--
 module Network.AWS.DirectoryService.CreateMicrosoftAD
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Creates a Microsoft AD in the AWS cloud.
 --
+--
+--
 -- /See:/ 'createMicrosoftAD' smart constructor.
 data CreateMicrosoftAD = CreateMicrosoftAD'
     { _cmadShortName   :: !(Maybe Text)
@@ -61,15 +65,15 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmadShortName'
+-- * 'cmadShortName' - The NetBIOS name for your domain. A short identifier for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
 --
--- * 'cmadDescription'
+-- * 'cmadDescription' - A textual description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
 --
--- * 'cmadName'
+-- * 'cmadName' - The fully qualified domain name for the directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 --
--- * 'cmadPassword'
+-- * 'cmadPassword' - The password for the default administrative user named @Admin@ .
 --
--- * 'cmadVPCSettings'
+-- * 'cmadVPCSettings' - Undocumented member.
 createMicrosoftAD
     :: Text -- ^ 'cmadName'
     -> Text -- ^ 'cmadPassword'
@@ -84,19 +88,19 @@ createMicrosoftAD pName_ pPassword_ pVPCSettings_ =
     , _cmadVPCSettings = pVPCSettings_
     }
 
--- | The NetBIOS name for your domain. A short identifier for your domain, such as 'CORP'. If you don\'t specify a NetBIOS name, it will default to the first part of your directory DNS. For example, 'CORP' for the directory DNS 'corp.example.com'.
+-- | The NetBIOS name for your domain. A short identifier for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
 cmadShortName :: Lens' CreateMicrosoftAD (Maybe Text)
 cmadShortName = lens _cmadShortName (\ s a -> s{_cmadShortName = a});
 
--- | A textual description for the directory. This label will appear on the AWS console 'Directory Details' page after the directory is created.
+-- | A textual description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
 cmadDescription :: Lens' CreateMicrosoftAD (Maybe Text)
 cmadDescription = lens _cmadDescription (\ s a -> s{_cmadDescription = a});
 
--- | The fully qualified domain name for the directory, such as 'corp.example.com'. This name will resolve inside your VPC only. It does not need to be publicly resolvable.
+-- | The fully qualified domain name for the directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
 cmadName :: Lens' CreateMicrosoftAD Text
 cmadName = lens _cmadName (\ s a -> s{_cmadName = a});
 
--- | The password for the default administrative user named 'Admin'.
+-- | The password for the default administrative user named @Admin@ .
 cmadPassword :: Lens' CreateMicrosoftAD Text
 cmadPassword = lens _cmadPassword (\ s a -> s{_cmadPassword = a}) . _Sensitive;
 
@@ -145,6 +149,8 @@ instance ToQuery CreateMicrosoftAD where
 
 -- | Result of a CreateMicrosoftAD request.
 --
+--
+--
 -- /See:/ 'createMicrosoftADResponse' smart constructor.
 data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
     { _cmadrsDirectoryId    :: !(Maybe Text)
@@ -155,9 +161,9 @@ data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmadrsDirectoryId'
+-- * 'cmadrsDirectoryId' - The identifier of the directory that was created.
 --
--- * 'cmadrsResponseStatus'
+-- * 'cmadrsResponseStatus' - -- | The response status code.
 createMicrosoftADResponse
     :: Int -- ^ 'cmadrsResponseStatus'
     -> CreateMicrosoftADResponse
@@ -171,7 +177,7 @@ createMicrosoftADResponse pResponseStatus_ =
 cmadrsDirectoryId :: Lens' CreateMicrosoftADResponse (Maybe Text)
 cmadrsDirectoryId = lens _cmadrsDirectoryId (\ s a -> s{_cmadrsDirectoryId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cmadrsResponseStatus :: Lens' CreateMicrosoftADResponse Int
 cmadrsResponseStatus = lens _cmadrsResponseStatus (\ s a -> s{_cmadrsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Deletes a reference data source configuration from the specified application configuration.
 --
--- If the application is running, Amazon Kinesis Analytics immediately removes the in-application table that you created using the < AddApplicationReferenceDataSource> operation.
 --
--- This operation requires permissions to perform the 'kinesisanalytics.DeleteApplicationReferenceDataSource' action.
+-- If the application is running, Amazon Kinesis Analytics immediately removes the in-application table that you created using the 'AddApplicationReferenceDataSource' operation.
+--
+-- This operation requires permissions to perform the @kinesisanalytics.DeleteApplicationReferenceDataSource@ action.
+--
 module Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
     (
     -- * Creating a Request
@@ -58,11 +60,11 @@ data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dardsApplicationName'
+-- * 'dardsApplicationName' - Name of an existing application.
 --
--- * 'dardsCurrentApplicationVersionId'
+-- * 'dardsCurrentApplicationVersionId' - Version of the application. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 --
--- * 'dardsReferenceId'
+-- * 'dardsReferenceId' - ID of the reference data source. When you add a reference data source to your application using the 'AddApplicationReferenceDataSource' , Amazon Kinesis Analytics assigns an ID. You can use the 'DescribeApplication' operation to get the reference ID.
 deleteApplicationReferenceDataSource
     :: Text -- ^ 'dardsApplicationName'
     -> Natural -- ^ 'dardsCurrentApplicationVersionId'
@@ -79,11 +81,11 @@ deleteApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersio
 dardsApplicationName :: Lens' DeleteApplicationReferenceDataSource Text
 dardsApplicationName = lens _dardsApplicationName (\ s a -> s{_dardsApplicationName = a});
 
--- | Version of the application. You can use the < DescribeApplication> operation to get the current application version. If the version specified is not the current version, the 'ConcurrentModificationException' is returned.
+-- | Version of the application. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
 dardsCurrentApplicationVersionId :: Lens' DeleteApplicationReferenceDataSource Natural
 dardsCurrentApplicationVersionId = lens _dardsCurrentApplicationVersionId (\ s a -> s{_dardsCurrentApplicationVersionId = a}) . _Nat;
 
--- | ID of the reference data source. When you add a reference data source to your application using the < AddApplicationReferenceDataSource>, Amazon Kinesis Analytics assigns an ID. You can use the < DescribeApplication> operation to get the reference ID.
+-- | ID of the reference data source. When you add a reference data source to your application using the 'AddApplicationReferenceDataSource' , Amazon Kinesis Analytics assigns an ID. You can use the 'DescribeApplication' operation to get the reference ID.
 dardsReferenceId :: Lens' DeleteApplicationReferenceDataSource Text
 dardsReferenceId = lens _dardsReferenceId (\ s a -> s{_dardsReferenceId = a});
 
@@ -142,7 +144,7 @@ newtype DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenc
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dardsrsResponseStatus'
+-- * 'dardsrsResponseStatus' - -- | The response status code.
 deleteApplicationReferenceDataSourceResponse
     :: Int -- ^ 'dardsrsResponseStatus'
     -> DeleteApplicationReferenceDataSourceResponse
@@ -151,7 +153,7 @@ deleteApplicationReferenceDataSourceResponse pResponseStatus_ =
     { _dardsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dardsrsResponseStatus :: Lens' DeleteApplicationReferenceDataSourceResponse Int
 dardsrsResponseStatus = lens _dardsrsResponseStatus (\ s a -> s{_dardsrsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Modifies a volume attribute.
 --
--- By default, all I\/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I\/O access to the volume can be resumed by first enabling I\/O access and then checking the data consistency on your volume.
 --
--- You can change the default behavior to resume I\/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
+-- By default, all I/O operations for the volume are suspended when the data on the volume is determined to be potentially inconsistent, to prevent undetectable, latent data corruption. The I/O access to the volume can be resumed by first enabling I/O access and then checking the data consistency on your volume.
+--
+-- You can change the default behavior to resume I/O operations. We recommend that you change this only for boot volumes or for volumes that are stateless or disposable.
+--
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyVolumeAttribute.
 --
+--
+--
 -- /See:/ 'modifyVolumeAttribute' smart constructor.
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
     { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
@@ -58,11 +62,11 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mvaAutoEnableIO'
+-- * 'mvaAutoEnableIO' - Indicates whether the volume should be auto-enabled for I/O operations.
 --
--- * 'mvaDryRun'
+-- * 'mvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'mvaVolumeId'
+-- * 'mvaVolumeId' - The ID of the volume.
 modifyVolumeAttribute
     :: Text -- ^ 'mvaVolumeId'
     -> ModifyVolumeAttribute
@@ -73,11 +77,11 @@ modifyVolumeAttribute pVolumeId_ =
     , _mvaVolumeId = pVolumeId_
     }
 
--- | Indicates whether the volume should be auto-enabled for I\/O operations.
+-- | Indicates whether the volume should be auto-enabled for I/O operations.
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
 mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
 

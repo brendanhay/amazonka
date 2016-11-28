@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables enhanced monitoring.
+--
+--
 module Network.AWS.Kinesis.DisableEnhancedMonitoring
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for < DisableEnhancedMonitoring>.
+-- | Represents the input for 'DisableEnhancedMonitoring' .
+--
+--
 --
 -- /See:/ 'disableEnhancedMonitoring' smart constructor.
 data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
@@ -56,9 +60,9 @@ data DisableEnhancedMonitoring = DisableEnhancedMonitoring'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'demStreamName'
+-- * 'demStreamName' - The name of the Amazon Kinesis stream for which to disable enhanced monitoring.
 --
--- * 'demShardLevelMetrics'
+-- * 'demShardLevelMetrics' - List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 disableEnhancedMonitoring
     :: Text -- ^ 'demStreamName'
     -> DisableEnhancedMonitoring
@@ -72,20 +76,7 @@ disableEnhancedMonitoring pStreamName_ =
 demStreamName :: Lens' DisableEnhancedMonitoring Text
 demStreamName = lens _demStreamName (\ s a -> s{_demStreamName = a});
 
--- | List of shard-level metrics to disable.
---
--- The following are the valid shard-level metrics. The value \"'ALL'\" disables every metric.
---
--- -   'IncomingBytes'
--- -   'IncomingRecords'
--- -   'OutgoingBytes'
--- -   'OutgoingRecords'
--- -   'WriteProvisionedThroughputExceeded'
--- -   'ReadProvisionedThroughputExceeded'
--- -   'IteratorAgeMilliseconds'
--- -   'ALL'
---
--- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/.
+-- | List of shard-level metrics to disable. The following are the valid shard-level metrics. The value "@ALL@ " disables every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 demShardLevelMetrics :: Lens' DisableEnhancedMonitoring [MetricsName]
 demShardLevelMetrics = lens _demShardLevelMetrics (\ s a -> s{_demShardLevelMetrics = a}) . _Coerce;
 

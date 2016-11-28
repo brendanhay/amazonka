@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a delegation set (a group of four anem servers) that can be reused by multiple hosted zones. If a hosted zoned ID is specified, 'CreateReusableDelegationSet' marks the delegation set associated with that zone as reusable
+-- Creates a delegation set (a group of four anem servers) that can be reused by multiple hosted zones. If a hosted zoned ID is specified, @CreateReusableDelegationSet@ marks the delegation set associated with that zone as reusable
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/delegationset' resource. The request body must include an XML document with a 'CreateReusableDelegationSetRequest' element.
 --
--- A reusable delegation set cannot be associated with a private hosted zone\/
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /delegationset@ resource. The request body must include an XML document with a @CreateReusableDelegationSetRequest@ element.
 --
--- For more information, including a procedure on how to create and configure a reusable delegation set (also known as white label name servers), see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html Configuring White Label Name Servers>.
+-- For more information, including a procedure on how to create and configure a reusable delegation set (also known as white label name servers), see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html Configuring White Label Name Servers> .
+--
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Creating a Request
@@ -60,9 +60,9 @@ data CreateReusableDelegationSet = CreateReusableDelegationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crdsHostedZoneId'
+-- * 'crdsHostedZoneId' - If you want to mark the delegation set for an existing hosted zone as reusable, the ID for that hosted zone.
 --
--- * 'crdsCallerReference'
+-- * 'crdsCallerReference' - A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
 createReusableDelegationSet
     :: Text -- ^ 'crdsCallerReference'
     -> CreateReusableDelegationSet
@@ -76,7 +76,7 @@ createReusableDelegationSet pCallerReference_ =
 crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
 crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 
--- | A unique string that identifies the request, and that allows you to retry failed 'CreateReusableDelegationSet' requests without the risk of executing the operation twice. You must use a unique 'CallerReference' string every time you submit a 'CreateReusableDelegationSet' request. 'CallerReference' can be any unique string, for example a date\/time stamp.
+-- | A unique string that identifies the request, and that allows you to retry failed @CreateReusableDelegationSet@ requests without the risk of executing the operation twice. You must use a unique @CallerReference@ string every time you submit a @CreateReusableDelegationSet@ request. @CallerReference@ can be any unique string, for example a date/time stamp.
 crdsCallerReference :: Lens' CreateReusableDelegationSet Text
 crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
 
@@ -126,11 +126,11 @@ data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crdsrsResponseStatus'
+-- * 'crdsrsResponseStatus' - -- | The response status code.
 --
--- * 'crdsrsDelegationSet'
+-- * 'crdsrsDelegationSet' - A complex type that contains name server information.
 --
--- * 'crdsrsLocation'
+-- * 'crdsrsLocation' - The unique URL representing the new reusbale delegation set.
 createReusableDelegationSetResponse
     :: Int -- ^ 'crdsrsResponseStatus'
     -> DelegationSet -- ^ 'crdsrsDelegationSet'
@@ -143,7 +143,7 @@ createReusableDelegationSetResponse pResponseStatus_ pDelegationSet_ pLocation_ 
     , _crdsrsLocation = pLocation_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 crdsrsResponseStatus :: Lens' CreateReusableDelegationSetResponse Int
 crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseStatus = a});
 

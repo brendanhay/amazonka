@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a < Rule>. You can\'t delete a 'Rule' if it\'s still used in any 'WebACL' objects or if it still includes any predicates, such as 'ByteMatchSet' objects.
+-- Permanently deletes a 'Rule' . You can't delete a @Rule@ if it's still used in any @WebACL@ objects or if it still includes any predicates, such as @ByteMatchSet@ objects.
 --
--- If you just want to remove a 'Rule' from a 'WebACL', use < UpdateWebACL>.
 --
--- To permanently delete a 'Rule' from AWS WAF, perform the following steps:
+-- If you just want to remove a @Rule@ from a @WebACL@ , use 'UpdateWebACL' .
 --
--- 1.  Update the 'Rule' to remove predicates, if any. For more information, see < UpdateRule>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteRule' request.
--- 3.  Submit a 'DeleteRule' request.
+-- To permanently delete a @Rule@ from AWS WAF, perform the following steps:
+--
+--     * Update the @Rule@ to remove predicates, if any. For more information, see 'UpdateRule' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRule@ request.    * Submit a @DeleteRule@ request.
+--
 module Network.AWS.WAF.DeleteRule
     (
     -- * Creating a Request
@@ -61,9 +61,9 @@ data DeleteRule = DeleteRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRuleId'
+-- * 'drRuleId' - The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 --
--- * 'drChangeToken'
+-- * 'drChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 deleteRule
     :: Text -- ^ 'drRuleId'
     -> Text -- ^ 'drChangeToken'
@@ -74,11 +74,11 @@ deleteRule pRuleId_ pChangeToken_ =
     , _drChangeToken = pChangeToken_
     }
 
--- | The 'RuleId' of the < Rule> that you want to delete. 'RuleId' is returned by < CreateRule> and by < ListRules>.
+-- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 drRuleId :: Lens' DeleteRule Text
 drRuleId = lens _drRuleId (\ s a -> s{_drRuleId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 drChangeToken :: Lens' DeleteRule Text
 drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a});
 
@@ -127,9 +127,9 @@ data DeleteRuleResponse = DeleteRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drrsChangeToken'
+-- * 'drrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'drrsResponseStatus'
+-- * 'drrsResponseStatus' - -- | The response status code.
 deleteRuleResponse
     :: Int -- ^ 'drrsResponseStatus'
     -> DeleteRuleResponse
@@ -139,11 +139,11 @@ deleteRuleResponse pResponseStatus_ =
     , _drrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteRule' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 drrsChangeToken :: Lens' DeleteRuleResponse (Maybe Text)
 drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drrsResponseStatus :: Lens' DeleteRuleResponse Int
 drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
 

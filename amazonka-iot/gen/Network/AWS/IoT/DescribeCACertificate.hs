@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a registered CA certificate.
+--
+--
 module Network.AWS.IoT.DescribeCACertificate
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the DescribeCACertificate operation.
 --
+--
+--
 -- /See:/ 'describeCACertificate' smart constructor.
 newtype DescribeCACertificate = DescribeCACertificate'
     { _dCertificateId :: Text
@@ -53,7 +57,7 @@ newtype DescribeCACertificate = DescribeCACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCertificateId'
+-- * 'dCertificateId' - The CA certificate identifier.
 describeCACertificate
     :: Text -- ^ 'dCertificateId'
     -> DescribeCACertificate
@@ -93,6 +97,8 @@ instance ToQuery DescribeCACertificate where
 
 -- | The output from the DescribeCACertificate operation.
 --
+--
+--
 -- /See:/ 'describeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
     { _desrsCertificateDescription :: !(Maybe CACertificateDescription)
@@ -103,9 +109,9 @@ data DescribeCACertificateResponse = DescribeCACertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsCertificateDescription'
+-- * 'desrsCertificateDescription' - The CA certificate description.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeCACertificateResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeCACertificateResponse
@@ -119,7 +125,7 @@ describeCACertificateResponse pResponseStatus_ =
 desrsCertificateDescription :: Lens' DescribeCACertificateResponse (Maybe CACertificateDescription)
 desrsCertificateDescription = lens _desrsCertificateDescription (\ s a -> s{_desrsCertificateDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeCACertificateResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 

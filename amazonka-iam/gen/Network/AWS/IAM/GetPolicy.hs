@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified managed policy, including the policy\'s default version and the total number of IAM users, groups, and roles to which the policy is attached. To retrieve the list of the specific users, groups, and roles that the policy is attached to, use the < ListEntitiesForPolicy> API. This API returns metadata about the policy. To retrieve the actual policy document for a specific version of the policy, use < GetPolicyVersion>.
+-- Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM users, groups, and roles to which the policy is attached. To retrieve the list of the specific users, groups, and roles that the policy is attached to, use the 'ListEntitiesForPolicy' API. This API returns metadata about the policy. To retrieve the actual policy document for a specific version of the policy, use 'GetPolicyVersion' .
 --
--- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with an IAM user, group, or role, use the < GetUserPolicy>, < GetGroupPolicy>, or < GetRolePolicy> API.
 --
--- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with an IAM user, group, or role, use the 'GetUserPolicy' , 'GetGroupPolicy' , or 'GetRolePolicy' API.
+--
+-- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.GetPolicy
     (
     -- * Creating a Request
@@ -55,7 +57,7 @@ newtype GetPolicy = GetPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpPolicyARN'
+-- * 'gpPolicyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 getPolicy
     :: Text -- ^ 'gpPolicyARN'
     -> GetPolicy
@@ -64,9 +66,7 @@ getPolicy pPolicyARN_ =
     { _gpPolicyARN = pPolicyARN_
     }
 
--- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 gpPolicyARN :: Lens' GetPolicy Text
 gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
@@ -96,7 +96,9 @@ instance ToQuery GetPolicy where
                "Version" =: ("2010-05-08" :: ByteString),
                "PolicyArn" =: _gpPolicyARN]
 
--- | Contains the response to a successful < GetPolicy> request.
+-- | Contains the response to a successful 'GetPolicy' request.
+--
+--
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
@@ -108,9 +110,9 @@ data GetPolicyResponse = GetPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsPolicy'
+-- * 'gprsPolicy' - A structure containing details about the policy.
 --
--- * 'gprsResponseStatus'
+-- * 'gprsResponseStatus' - -- | The response status code.
 getPolicyResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
@@ -124,7 +126,7 @@ getPolicyResponse pResponseStatus_ =
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 

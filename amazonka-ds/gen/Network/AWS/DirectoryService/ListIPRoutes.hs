@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the address blocks that you have added to a directory.
+--
+--
 module Network.AWS.DirectoryService.ListIPRoutes
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data ListIPRoutes = ListIPRoutes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirNextToken'
+-- * 'lirNextToken' - The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
 --
--- * 'lirLimit'
+-- * 'lirLimit' - Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 --
--- * 'lirDirectoryId'
+-- * 'lirDirectoryId' - Identifier (ID) of the directory for which you want to retrieve the IP addresses.
 listIPRoutes
     :: Text -- ^ 'lirDirectoryId'
     -> ListIPRoutes
@@ -71,7 +73,7 @@ listIPRoutes pDirectoryId_ =
     , _lirDirectoryId = pDirectoryId_
     }
 
--- | The /ListIpRoutes.NextToken/ value from a previous call to < ListIpRoutes>. Pass null if this is the first call.
+-- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
 lirNextToken :: Lens' ListIPRoutes (Maybe Text)
 lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 
@@ -133,11 +135,11 @@ data ListIPRoutesResponse = ListIPRoutesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirrsIPRoutesInfo'
+-- * 'lirrsIPRoutesInfo' - A list of 'IpRoute' s.
 --
--- * 'lirrsNextToken'
+-- * 'lirrsNextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
 --
--- * 'lirrsResponseStatus'
+-- * 'lirrsResponseStatus' - -- | The response status code.
 listIPRoutesResponse
     :: Int -- ^ 'lirrsResponseStatus'
     -> ListIPRoutesResponse
@@ -148,15 +150,15 @@ listIPRoutesResponse pResponseStatus_ =
     , _lirrsResponseStatus = pResponseStatus_
     }
 
--- | A list of < IpRoute>s.
+-- | A list of 'IpRoute' s.
 lirrsIPRoutesInfo :: Lens' ListIPRoutesResponse [IPRouteInfo]
 lirrsIPRoutesInfo = lens _lirrsIPRoutesInfo (\ s a -> s{_lirrsIPRoutesInfo = a}) . _Default . _Coerce;
 
--- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to < ListIpRoutes> to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
 lirrsNextToken :: Lens' ListIPRoutesResponse (Maybe Text)
 lirrsNextToken = lens _lirrsNextToken (\ s a -> s{_lirrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lirrsResponseStatus :: Lens' ListIPRoutesResponse Int
 lirrsResponseStatus = lens _lirrsResponseStatus (\ s a -> s{_lirrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Describes the specified attribute of the specified volume. You can specify only one attribute at a time.
 --
--- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeVolumeAttribute.
 --
+--
+--
 -- /See:/ 'describeVolumeAttribute' smart constructor.
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
     { _dvaAttribute :: !(Maybe VolumeAttributeName)
@@ -61,11 +65,11 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvaAttribute'
+-- * 'dvaAttribute' - The instance attribute.
 --
--- * 'dvaDryRun'
+-- * 'dvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvaVolumeId'
+-- * 'dvaVolumeId' - The ID of the volume.
 describeVolumeAttribute
     :: Text -- ^ 'dvaVolumeId'
     -> DescribeVolumeAttribute
@@ -80,7 +84,7 @@ describeVolumeAttribute pVolumeId_ =
 dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
 dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
 dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
 
@@ -123,6 +127,8 @@ instance ToQuery DescribeVolumeAttribute where
 
 -- | Contains the output of DescribeVolumeAttribute.
 --
+--
+--
 -- /See:/ 'describeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     { _dvarsVolumeId       :: !(Maybe Text)
@@ -135,13 +141,13 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvarsVolumeId'
+-- * 'dvarsVolumeId' - The ID of the volume.
 --
--- * 'dvarsProductCodes'
+-- * 'dvarsProductCodes' - A list of product codes.
 --
--- * 'dvarsAutoEnableIO'
+-- * 'dvarsAutoEnableIO' - The state of @autoEnableIO@ attribute.
 --
--- * 'dvarsResponseStatus'
+-- * 'dvarsResponseStatus' - -- | The response status code.
 describeVolumeAttributeResponse
     :: Int -- ^ 'dvarsResponseStatus'
     -> DescribeVolumeAttributeResponse
@@ -161,11 +167,11 @@ dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
 dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default . _Coerce;
 
--- | The state of 'autoEnableIO' attribute.
+-- | The state of @autoEnableIO@ attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dvarsResponseStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsResponseStatus = lens _dvarsResponseStatus (\ s a -> s{_dvarsResponseStatus = a});
 

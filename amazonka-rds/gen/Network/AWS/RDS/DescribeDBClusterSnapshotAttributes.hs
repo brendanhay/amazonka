@@ -20,9 +20,11 @@
 --
 -- Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
 --
--- When sharing snapshots with other AWS accounts, 'DescribeDBClusterSnapshotAttributes' returns the 'restore' attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If 'all' is included in the list of values for the 'restore' attribute, then the manual DB cluster snapshot is public and can be copied or restored by all AWS accounts.
 --
--- To add or remove access for an AWS account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the < ModifyDBClusterSnapshotAttribute> API action.
+-- When sharing snapshots with other AWS accounts, @DescribeDBClusterSnapshotAttributes@ returns the @restore@ attribute and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB cluster snapshot. If @all@ is included in the list of values for the @restore@ attribute, then the manual DB cluster snapshot is public and can be copied or restored by all AWS accounts.
+--
+-- To add or remove access for an AWS account to copy or restore a manual DB cluster snapshot, or to make the manual DB cluster snapshot public or private, use the 'ModifyDBClusterSnapshotAttribute' API action.
+--
 module Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBClusterSnapshotAttributes' smart constructor.
 newtype DescribeDBClusterSnapshotAttributes = DescribeDBClusterSnapshotAttributes'
     { _ddcsaDBClusterSnapshotIdentifier :: Text
@@ -57,7 +61,7 @@ newtype DescribeDBClusterSnapshotAttributes = DescribeDBClusterSnapshotAttribute
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsaDBClusterSnapshotIdentifier'
+-- * 'ddcsaDBClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to describe the attributes for.
 describeDBClusterSnapshotAttributes
     :: Text -- ^ 'ddcsaDBClusterSnapshotIdentifier'
     -> DescribeDBClusterSnapshotAttributes
@@ -116,9 +120,9 @@ data DescribeDBClusterSnapshotAttributesResponse = DescribeDBClusterSnapshotAttr
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddcsarsDBClusterSnapshotAttributesResult'
+-- * 'ddcsarsDBClusterSnapshotAttributesResult' - Undocumented member.
 --
--- * 'ddcsarsResponseStatus'
+-- * 'ddcsarsResponseStatus' - -- | The response status code.
 describeDBClusterSnapshotAttributesResponse
     :: Int -- ^ 'ddcsarsResponseStatus'
     -> DescribeDBClusterSnapshotAttributesResponse
@@ -132,7 +136,7 @@ describeDBClusterSnapshotAttributesResponse pResponseStatus_ =
 ddcsarsDBClusterSnapshotAttributesResult :: Lens' DescribeDBClusterSnapshotAttributesResponse (Maybe DBClusterSnapshotAttributesResult)
 ddcsarsDBClusterSnapshotAttributesResult = lens _ddcsarsDBClusterSnapshotAttributesResult (\ s a -> s{_ddcsarsDBClusterSnapshotAttributesResult = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddcsarsResponseStatus :: Lens' DescribeDBClusterSnapshotAttributesResponse Int
 ddcsarsResponseStatus = lens _ddcsarsResponseStatus (\ s a -> s{_ddcsarsResponseStatus = a});
 

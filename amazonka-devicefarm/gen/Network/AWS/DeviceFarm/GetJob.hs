@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a job.
+--
+--
 module Network.AWS.DeviceFarm.GetJob
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the get job operation.
 --
+--
+--
 -- /See:/ 'getJob' smart constructor.
 newtype GetJob = GetJob'
     { _gjArn :: Text
@@ -53,7 +57,7 @@ newtype GetJob = GetJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjArn'
+-- * 'gjArn' - The job's ARN.
 getJob
     :: Text -- ^ 'gjArn'
     -> GetJob
@@ -62,7 +66,7 @@ getJob pArn_ =
     { _gjArn = pArn_
     }
 
--- | The job\'s ARN.
+-- | The job's ARN.
 gjArn :: Lens' GetJob Text
 gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
 
@@ -100,6 +104,8 @@ instance ToQuery GetJob where
 
 -- | Represents the result of a get job request.
 --
+--
+--
 -- /See:/ 'getJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
     { _gjrsJob            :: !(Maybe Job)
@@ -110,9 +116,9 @@ data GetJobResponse = GetJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjrsJob'
+-- * 'gjrsJob' - Undocumented member.
 --
--- * 'gjrsResponseStatus'
+-- * 'gjrsResponseStatus' - -- | The response status code.
 getJobResponse
     :: Int -- ^ 'gjrsResponseStatus'
     -> GetJobResponse
@@ -126,7 +132,7 @@ getJobResponse pResponseStatus_ =
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
 gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gjrsResponseStatus :: Lens' GetJobResponse Int
 gjrsResponseStatus = lens _gjrsResponseStatus (\ s a -> s{_gjrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available AWS OpsWorks agent versions. You must specify a stack ID or a configuration manager. 'DescribeAgentVersions' returns a list of available agent versions for the specified stack or configuration manager.
+-- Describes the available AWS OpsWorks agent versions. You must specify a stack ID or a configuration manager. @DescribeAgentVersions@ returns a list of available agent versions for the specified stack or configuration manager.
+--
+--
 module Network.AWS.OpsWorks.DescribeAgentVersions
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DescribeAgentVersions = DescribeAgentVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davConfigurationManager'
+-- * 'davConfigurationManager' - The configuration manager.
 --
--- * 'davStackId'
+-- * 'davStackId' - The stack ID.
 describeAgentVersions
     :: DescribeAgentVersions
 describeAgentVersions =
@@ -111,7 +113,9 @@ instance ToPath DescribeAgentVersions where
 instance ToQuery DescribeAgentVersions where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeAgentVersions' request.
+-- | Contains the response to a @DescribeAgentVersions@ request.
+--
+--
 --
 -- /See:/ 'describeAgentVersionsResponse' smart constructor.
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
@@ -123,9 +127,9 @@ data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davrsAgentVersions'
+-- * 'davrsAgentVersions' - The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
 --
--- * 'davrsResponseStatus'
+-- * 'davrsResponseStatus' - -- | The response status code.
 describeAgentVersionsResponse
     :: Int -- ^ 'davrsResponseStatus'
     -> DescribeAgentVersionsResponse
@@ -139,7 +143,7 @@ describeAgentVersionsResponse pResponseStatus_ =
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 davrsResponseStatus :: Lens' DescribeAgentVersionsResponse Int
 davrsResponseStatus = lens _davrsResponseStatus (\ s a -> s{_davrsResponseStatus = a});
 

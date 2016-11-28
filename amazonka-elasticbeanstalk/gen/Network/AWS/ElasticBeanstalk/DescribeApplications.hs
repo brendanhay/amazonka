@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the descriptions of existing applications.
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Request to describe one or more applications.
 --
+--
+--
 -- /See:/ 'describeApplications' smart constructor.
 newtype DescribeApplications = DescribeApplications'
     { _daApplicationNames :: Maybe [Text]
@@ -53,7 +57,7 @@ newtype DescribeApplications = DescribeApplications'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationNames'
+-- * 'daApplicationNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 describeApplications
     :: DescribeApplications
 describeApplications =
@@ -98,6 +102,8 @@ instance ToQuery DescribeApplications where
 
 -- | Result message containing a list of application descriptions.
 --
+--
+--
 -- /See:/ 'describeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darsApplications   :: !(Maybe [ApplicationDescription])
@@ -108,9 +114,9 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsApplications'
+-- * 'darsApplications' - This parameter contains a list of 'ApplicationDescription' .
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeApplicationsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeApplicationsResponse
@@ -120,11 +126,11 @@ describeApplicationsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | This parameter contains a list of < ApplicationDescription>.
+-- | This parameter contains a list of 'ApplicationDescription' .
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

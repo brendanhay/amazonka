@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <http://aws.amazon.com/sns/ http:\/\/aws.amazon.com\/sns>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic\'s ARN is returned without creating a new topic.
+-- Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <http://aws.amazon.com/sns/ http://aws.amazon.com/sns> . This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.
+--
+--
 module Network.AWS.SNS.CreateTopic
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for CreateTopic action.
 --
+--
+--
 -- /See:/ 'createTopic' smart constructor.
 newtype CreateTopic = CreateTopic'
     { _ctName :: Text
@@ -53,7 +57,7 @@ newtype CreateTopic = CreateTopic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctName'
+-- * 'ctName' - The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 createTopic
     :: Text -- ^ 'ctName'
     -> CreateTopic
@@ -62,9 +66,7 @@ createTopic pName_ =
     { _ctName = pName_
     }
 
--- | The name of the topic you want to create.
---
--- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
+-- | The name of the topic you want to create. Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 ctName :: Lens' CreateTopic Text
 ctName = lens _ctName (\ s a -> s{_ctName = a});
 
@@ -96,6 +98,8 @@ instance ToQuery CreateTopic where
 
 -- | Response from CreateTopic action.
 --
+--
+--
 -- /See:/ 'createTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
     { _ctrsTopicARN       :: !(Maybe Text)
@@ -106,9 +110,9 @@ data CreateTopicResponse = CreateTopicResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsTopicARN'
+-- * 'ctrsTopicARN' - The Amazon Resource Name (ARN) assigned to the created topic.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTopicResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTopicResponse
@@ -122,7 +126,7 @@ createTopicResponse pResponseStatus_ =
 ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTopicResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 

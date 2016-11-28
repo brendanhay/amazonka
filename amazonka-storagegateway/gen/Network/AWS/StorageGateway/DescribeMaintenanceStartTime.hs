@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns your gateway\'s weekly maintenance start time including the day and time of the week. Note that values are in terms of the gateway\'s time zone.
+-- Returns your gateway's weekly maintenance start time including the day and time of the week. Note that values are in terms of the gateway's time zone.
+--
+--
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway.
 --
+--
+--
 -- /See:/ 'describeMaintenanceStartTime' smart constructor.
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
     { _dmstGatewayARN :: Text
@@ -57,7 +61,7 @@ newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmstGatewayARN'
+-- * 'dmstGatewayARN' - Undocumented member.
 describeMaintenanceStartTime
     :: Text -- ^ 'dmstGatewayARN'
     -> DescribeMaintenanceStartTime
@@ -124,17 +128,17 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmstrsGatewayARN'
+-- * 'dmstrsGatewayARN' - Undocumented member.
 --
--- * 'dmstrsMinuteOfHour'
+-- * 'dmstrsMinuteOfHour' - Undocumented member.
 --
--- * 'dmstrsHourOfDay'
+-- * 'dmstrsHourOfDay' - Undocumented member.
 --
--- * 'dmstrsTimezone'
+-- * 'dmstrsTimezone' - Undocumented member.
 --
--- * 'dmstrsDayOfWeek'
+-- * 'dmstrsDayOfWeek' - Undocumented member.
 --
--- * 'dmstrsResponseStatus'
+-- * 'dmstrsResponseStatus' - -- | The response status code.
 describeMaintenanceStartTimeResponse
     :: Int -- ^ 'dmstrsResponseStatus'
     -> DescribeMaintenanceStartTimeResponse
@@ -168,7 +172,7 @@ dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 
--- | The response status code.
+-- | -- | The response status code.
 dmstrsResponseStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsResponseStatus = lens _dmstrsResponseStatus (\ s a -> s{_dmstrsResponseStatus = a});
 

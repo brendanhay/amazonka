@@ -20,6 +20,8 @@
 --
 -- Returns information about provisioned RDS instances. This API supports pagination.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBInstances
     (
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeDBInstances' smart constructor.
 data DescribeDBInstances = DescribeDBInstances'
     { _ddbiFilters              :: !(Maybe [Filter])
@@ -63,13 +67,13 @@ data DescribeDBInstances = DescribeDBInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbiFilters'
+-- * 'ddbiFilters' - This parameter is not currently supported.
 --
--- * 'ddbiDBInstanceIdentifier'
+-- * 'ddbiDBInstanceIdentifier' - The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddbiMarker'
+-- * 'ddbiMarker' - An optional pagination token provided by a previous @DescribeDBInstances@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddbiMaxRecords'
+-- * 'ddbiMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeDBInstances
     :: DescribeDBInstances
 describeDBInstances =
@@ -84,28 +88,15 @@ describeDBInstances =
 ddbiFilters :: Lens' DescribeDBInstances [Filter]
 ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default . _Coerce;
 
--- | The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn\'t case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 ddbiDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
 ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBInstanceIdentifier = a});
 
--- | An optional pagination token provided by a previous 'DescribeDBInstances' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeDBInstances@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
 ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 ddbiMaxRecords :: Lens' DescribeDBInstances (Maybe Int)
 ddbiMaxRecords = lens _ddbiMaxRecords (\ s a -> s{_ddbiMaxRecords = a});
 
@@ -150,7 +141,9 @@ instance ToQuery DescribeDBInstances where
                "Marker" =: _ddbiMarker,
                "MaxRecords" =: _ddbiMaxRecords]
 
--- | Contains the result of a successful invocation of the < DescribeDBInstances> action.
+-- | Contains the result of a successful invocation of the 'DescribeDBInstances' action.
+--
+--
 --
 -- /See:/ 'describeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
@@ -163,11 +156,11 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbirsDBInstances'
+-- * 'ddbirsDBInstances' - A list of 'DBInstance' instances.
 --
--- * 'ddbirsMarker'
+-- * 'ddbirsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'ddbirsResponseStatus'
+-- * 'ddbirsResponseStatus' - -- | The response status code.
 describeDBInstancesResponse
     :: Int -- ^ 'ddbirsResponseStatus'
     -> DescribeDBInstancesResponse
@@ -178,15 +171,15 @@ describeDBInstancesResponse pResponseStatus_ =
     , _ddbirsResponseStatus = pResponseStatus_
     }
 
--- | A list of < DBInstance> instances.
+-- | A list of 'DBInstance' instances.
 ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
 ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 ddbirsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ddbirsResponseStatus :: Lens' DescribeDBInstancesResponse Int
 ddbirsResponseStatus = lens _ddbirsResponseStatus (\ s a -> s{_ddbirsResponseStatus = a});
 

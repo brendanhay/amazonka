@@ -20,7 +20,9 @@
 --
 -- Requests updates to the configuration of an existing ProvisionedProduct object. If there are tags associated with the object, they cannot be updated or added with this operation. Depending on the specific updates requested, this operation may update with no interruption, with some interruption, or replace the ProvisionedProduct object entirely.
 --
--- You can check the status of this request using the < DescribeRecord> operation.
+--
+-- You can check the status of this request using the 'DescribeRecord' operation.
+--
 module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     (
     -- * Creating a Request
@@ -67,21 +69,21 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uppProvisionedProductName'
+-- * 'uppProvisionedProductName' - The updated name of the ProvisionedProduct object . You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
--- * 'uppProvisioningArtifactId'
+-- * 'uppProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
--- * 'uppAcceptLanguage'
+-- * 'uppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'uppPathId'
+-- * 'uppPathId' - The identifier of the path to use in the updated ProvisionedProduct object. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
--- * 'uppProvisioningParameters'
+-- * 'uppProvisioningParameters' - A list of @ProvisioningParameter@ objects used to update the ProvisionedProduct object.
 --
--- * 'uppProvisionedProductId'
+-- * 'uppProvisionedProductId' - The identifier of the ProvisionedProduct object to update. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
--- * 'uppProductId'
+-- * 'uppProductId' - The identifier of the ProvisionedProduct object.
 --
--- * 'uppUpdateToken'
+-- * 'uppUpdateToken' - The idempotency token that uniquely identifies the provisioning update request.
 updateProvisionedProduct
     :: Text -- ^ 'uppUpdateToken'
     -> UpdateProvisionedProduct
@@ -97,7 +99,7 @@ updateProvisionedProduct pUpdateToken_ =
     , _uppUpdateToken = pUpdateToken_
     }
 
--- | The updated name of the ProvisionedProduct object . You must specify either 'ProvisionedProductName' or 'ProvisionedProductId', but not both.
+-- | The updated name of the ProvisionedProduct object . You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 uppProvisionedProductName :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisionedProductName = lens _uppProvisionedProductName (\ s a -> s{_uppProvisionedProductName = a});
 
@@ -105,15 +107,7 @@ uppProvisionedProductName = lens _uppProvisionedProductName (\ s a -> s{_uppProv
 uppProvisioningArtifactId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisioningArtifactId = lens _uppProvisioningArtifactId (\ s a -> s{_uppProvisioningArtifactId = a});
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 uppAcceptLanguage :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppAcceptLanguage = lens _uppAcceptLanguage (\ s a -> s{_uppAcceptLanguage = a});
 
@@ -121,11 +115,11 @@ uppAcceptLanguage = lens _uppAcceptLanguage (\ s a -> s{_uppAcceptLanguage = a})
 uppPathId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppPathId = lens _uppPathId (\ s a -> s{_uppPathId = a});
 
--- | A list of 'ProvisioningParameter' objects used to update the ProvisionedProduct object.
+-- | A list of @ProvisioningParameter@ objects used to update the ProvisionedProduct object.
 uppProvisioningParameters :: Lens' UpdateProvisionedProduct [UpdateProvisioningParameter]
 uppProvisioningParameters = lens _uppProvisioningParameters (\ s a -> s{_uppProvisioningParameters = a}) . _Default . _Coerce;
 
--- | The identifier of the ProvisionedProduct object to update. You must specify either 'ProvisionedProductName' or 'ProvisionedProductId', but not both.
+-- | The identifier of the ProvisionedProduct object to update. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 uppProvisionedProductId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisionedProductId = lens _uppProvisionedProductId (\ s a -> s{_uppProvisionedProductId = a});
 
@@ -194,9 +188,9 @@ data UpdateProvisionedProductResponse = UpdateProvisionedProductResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upprsRecordDetail'
+-- * 'upprsRecordDetail' - The detailed result of the 'UpdateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
 --
--- * 'upprsResponseStatus'
+-- * 'upprsResponseStatus' - -- | The response status code.
 updateProvisionedProductResponse
     :: Int -- ^ 'upprsResponseStatus'
     -> UpdateProvisionedProductResponse
@@ -206,11 +200,11 @@ updateProvisionedProductResponse pResponseStatus_ =
     , _upprsResponseStatus = pResponseStatus_
     }
 
--- | The detailed result of the < UpdateProvisionedProduct> request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
+-- | The detailed result of the 'UpdateProvisionedProduct' request, containing the inputs made to that request, the current state of the request, a pointer to the ProvisionedProduct object that the request is modifying, and a list of any errors that the request encountered.
 upprsRecordDetail :: Lens' UpdateProvisionedProductResponse (Maybe RecordDetail)
 upprsRecordDetail = lens _upprsRecordDetail (\ s a -> s{_upprsRecordDetail = a});
 
--- | The response status code.
+-- | -- | The response status code.
 upprsResponseStatus :: Lens' UpdateProvisionedProductResponse Int
 upprsResponseStatus = lens _upprsResponseStatus (\ s a -> s{_upprsResponseStatus = a});
 

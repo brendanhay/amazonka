@@ -21,7 +21,9 @@ import           Network.AWS.DataPipeline.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A key-value pair that describes a property of a pipeline object. The value is specified as either a string value ('StringValue') or a reference to another object ('RefValue') but not as both.
+-- | A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (@StringValue@ ) or a reference to another object (@RefValue@ ) but not as both.
+--
+--
 --
 -- /See:/ 'field' smart constructor.
 data Field = Field'
@@ -34,11 +36,11 @@ data Field = Field'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fRefValue'
+-- * 'fRefValue' - The field value, expressed as the identifier of another object.
 --
--- * 'fStringValue'
+-- * 'fStringValue' - The field value, expressed as a String.
 --
--- * 'fKey'
+-- * 'fKey' - The field identifier.
 field
     :: Text -- ^ 'fKey'
     -> Field
@@ -83,6 +85,10 @@ instance ToJSON Field where
 
 -- | Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.
 --
+--
+--
+--
+--
 -- /See:/ 'instanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
@@ -93,9 +99,9 @@ data InstanceIdentity = InstanceIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iiSignature'
+-- * 'iiSignature' - A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
 --
--- * 'iiDocument'
+-- * 'iiDocument' - A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.
 instanceIdentity
     :: InstanceIdentity
 instanceIdentity =
@@ -125,6 +131,8 @@ instance ToJSON InstanceIdentity where
 
 -- | Contains a logical operation for comparing the value of a field with a specified value.
 --
+--
+--
 -- /See:/ 'operator' smart constructor.
 data Operator = Operator'
     { _oValues :: !(Maybe [Text])
@@ -135,9 +143,9 @@ data Operator = Operator'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oValues'
+-- * 'oValues' - The value that the actual field value will be compared with.
 --
--- * 'oType'
+-- * 'oType' - The logical operation to be performed: equal (@EQ@ ), equal reference (@REF_EQ@ ), less than or equal (@LE@ ), greater than or equal (@GE@ ), or between (@BETWEEN@ ). Equal reference (@REF_EQ@ ) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  The comparison operators EQ and REF_EQ act on the following fields:      * name    * @sphere    * parent    * @componentParent    * @instanceParent    * @status    * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime The comparison operators @GE@ , @LE@ , and @BETWEEN@ act on the following fields:      * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
 operator
     :: Operator
 operator =
@@ -150,29 +158,7 @@ operator =
 oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 
--- | The logical operation to be performed: equal ('EQ'), equal reference ('REF_EQ'), less than or equal ('LE'), greater than or equal ('GE'), or between ('BETWEEN'). Equal reference ('REF_EQ') can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.
---
--- The comparison operators EQ and REF_EQ act on the following fields:
---
--- -   name
--- -   \'sphere
--- -   parent
--- -   \'componentParent
--- -   \'instanceParent
--- -   \'status
--- -   \'scheduledStartTime
--- -   \'scheduledEndTime
--- -   \'actualStartTime
--- -   \'actualEndTime
---
--- The comparison operators 'GE', 'LE', and 'BETWEEN' act on the following fields:
---
--- -   \'scheduledStartTime
--- -   \'scheduledEndTime
--- -   \'actualStartTime
--- -   \'actualEndTime
---
--- Note that fields beginning with the at sign (\') are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string \"my\".
+-- | The logical operation to be performed: equal (@EQ@ ), equal reference (@REF_EQ@ ), less than or equal (@LE@ ), greater than or equal (@GE@ ), or between (@BETWEEN@ ). Equal reference (@REF_EQ@ ) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.  The comparison operators EQ and REF_EQ act on the following fields:      * name    * @sphere    * parent    * @componentParent    * @instanceParent    * @status    * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime The comparison operators @GE@ , @LE@ , and @BETWEEN@ act on the following fields:      * @scheduledStartTime    * @scheduledEndTime    * @actualStartTime    * @actualEndTime Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".
 oType :: Lens' Operator (Maybe OperatorType)
 oType = lens _oType (\ s a -> s{_oType = a});
 
@@ -188,6 +174,8 @@ instance ToJSON Operator where
 
 -- | The attributes allowed or specified with a parameter object.
 --
+--
+--
 -- /See:/ 'parameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
     { _paKey         :: !Text
@@ -198,9 +186,9 @@ data ParameterAttribute = ParameterAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paKey'
+-- * 'paKey' - The field identifier.
 --
--- * 'paStringValue'
+-- * 'paStringValue' - The field value, expressed as a String.
 parameterAttribute
     :: Text -- ^ 'paKey'
     -> Text -- ^ 'paStringValue'
@@ -239,6 +227,8 @@ instance ToJSON ParameterAttribute where
 
 -- | Contains information about a parameter object.
 --
+--
+--
 -- /See:/ 'parameterObject' smart constructor.
 data ParameterObject = ParameterObject'
     { _poId         :: !Text
@@ -249,9 +239,9 @@ data ParameterObject = ParameterObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poId'
+-- * 'poId' - The ID of the parameter object.
 --
--- * 'poAttributes'
+-- * 'poAttributes' - The attributes of the parameter object.
 parameterObject
     :: Text -- ^ 'poId'
     -> ParameterObject
@@ -289,6 +279,8 @@ instance ToJSON ParameterObject where
 
 -- | A value or list of parameter values.
 --
+--
+--
 -- /See:/ 'parameterValue' smart constructor.
 data ParameterValue = ParameterValue'
     { _pvId          :: !Text
@@ -299,9 +291,9 @@ data ParameterValue = ParameterValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvId'
+-- * 'pvId' - The ID of the parameter value.
 --
--- * 'pvStringValue'
+-- * 'pvStringValue' - The field value, expressed as a String.
 parameterValue
     :: Text -- ^ 'pvId'
     -> Text -- ^ 'pvStringValue'
@@ -340,6 +332,8 @@ instance ToJSON ParameterValue where
 
 -- | Contains pipeline metadata.
 --
+--
+--
 -- /See:/ 'pipelineDescription' smart constructor.
 data PipelineDescription = PipelineDescription'
     { _pdDescription :: !(Maybe Text)
@@ -353,15 +347,15 @@ data PipelineDescription = PipelineDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pdDescription'
+-- * 'pdDescription' - Description of the pipeline.
 --
--- * 'pdTags'
+-- * 'pdTags' - A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 --
--- * 'pdPipelineId'
+-- * 'pdPipelineId' - The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 --
--- * 'pdName'
+-- * 'pdName' - The name of the pipeline.
 --
--- * 'pdFields'
+-- * 'pdFields' - A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
 pipelineDescription
     :: Text -- ^ 'pdPipelineId'
     -> Text -- ^ 'pdName'
@@ -379,11 +373,11 @@ pipelineDescription pPipelineId_ pName_ =
 pdDescription :: Lens' PipelineDescription (Maybe Text)
 pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
 
--- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+-- | A list of tags to associated with a pipeline. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 pdTags :: Lens' PipelineDescription [Tag]
 pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default . _Coerce;
 
--- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form 'df-297EG78HU43EEXAMPLE'.
+-- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\ s a -> s{_pdPipelineId = a});
 
@@ -391,7 +385,7 @@ pdPipelineId = lens _pdPipelineId (\ s a -> s{_pdPipelineId = a});
 pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\ s a -> s{_pdName = a});
 
--- | A list of read-only fields that contain metadata about the pipeline: \'userId, \'accountId, and \'pipelineState.
+-- | A list of read-only fields that contain metadata about the pipeline: @userId, @accountId, and @pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\ s a -> s{_pdFields = a}) . _Coerce;
 
@@ -411,6 +405,8 @@ instance NFData PipelineDescription
 
 -- | Contains the name and identifier of a pipeline.
 --
+--
+--
 -- /See:/ 'pipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
     { _pinName :: !(Maybe Text)
@@ -421,9 +417,9 @@ data PipelineIdName = PipelineIdName'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pinName'
+-- * 'pinName' - The name of the pipeline.
 --
--- * 'pinId'
+-- * 'pinId' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pipelineIdName
     :: PipelineIdName
 pipelineIdName =
@@ -436,7 +432,7 @@ pipelineIdName =
 pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\ s a -> s{_pinName = a});
 
--- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form 'df-297EG78HU43EEXAMPLE'.
+-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\ s a -> s{_pinId = a});
 
@@ -452,6 +448,8 @@ instance NFData PipelineIdName
 
 -- | Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.
 --
+--
+--
 -- /See:/ 'pipelineObject' smart constructor.
 data PipelineObject = PipelineObject'
     { _pId     :: !Text
@@ -463,11 +461,11 @@ data PipelineObject = PipelineObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pId'
+-- * 'pId' - The ID of the object.
 --
--- * 'pName'
+-- * 'pName' - The name of the object.
 --
--- * 'pFields'
+-- * 'pFields' - Key-value pairs that define the properties of the object.
 pipelineObject
     :: Text -- ^ 'pId'
     -> Text -- ^ 'pName'
@@ -512,6 +510,8 @@ instance ToJSON PipelineObject where
 
 -- | Defines the query to run against an object.
 --
+--
+--
 -- /See:/ 'query' smart constructor.
 newtype Query = Query'
     { _qSelectors :: Maybe [Selector]
@@ -521,7 +521,7 @@ newtype Query = Query'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'qSelectors'
+-- * 'qSelectors' - List of selectors that define the query. An object must satisfy all of the selectors to match the query.
 query
     :: Query
 query =
@@ -544,6 +544,8 @@ instance ToJSON Query where
 
 -- | A comparision that is used to determine whether a query should return this object.
 --
+--
+--
 -- /See:/ 'selector' smart constructor.
 data Selector = Selector'
     { _sOperator  :: !(Maybe Operator)
@@ -554,9 +556,9 @@ data Selector = Selector'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sOperator'
+-- * 'sOperator' - Undocumented member.
 --
--- * 'sFieldName'
+-- * 'sFieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
 selector
     :: Selector
 selector =
@@ -569,7 +571,7 @@ selector =
 sOperator :: Lens' Selector (Maybe Operator)
 sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
 
--- | The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
+-- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
 sFieldName :: Lens' Selector (Maybe Text)
 sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
 
@@ -584,7 +586,9 @@ instance ToJSON Selector where
                  [("operator" .=) <$> _sOperator,
                   ("fieldName" .=) <$> _sFieldName])
 
--- | Tags are key\/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+-- | Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
+--
+--
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
@@ -596,9 +600,9 @@ data Tag = Tag'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagKey'
+-- * 'tagKey' - The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 --
--- * 'tagValue'
+-- * 'tagValue' - The optional value portion of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -609,11 +613,11 @@ tag pKey_ pValue_ =
     , _tagValue = pValue_
     }
 
--- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+-- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
--- | The optional value portion of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+-- | The optional value portion of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
@@ -635,6 +639,8 @@ instance ToJSON Tag where
 
 -- | Contains information about a pipeline task that is assigned to a task runner.
 --
+--
+--
 -- /See:/ 'taskObject' smart constructor.
 data TaskObject = TaskObject'
     { _toPipelineId :: !(Maybe Text)
@@ -647,13 +653,13 @@ data TaskObject = TaskObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'toPipelineId'
+-- * 'toPipelineId' - The ID of the pipeline that provided the task.
 --
--- * 'toAttemptId'
+-- * 'toAttemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
 --
--- * 'toTaskId'
+-- * 'toTaskId' - An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
 --
--- * 'toObjects'
+-- * 'toObjects' - Connection information for the location where the task runner will publish the output of the task.
 taskObject
     :: TaskObject
 taskObject =
@@ -672,7 +678,7 @@ toPipelineId = lens _toPipelineId (\ s a -> s{_toPipelineId = a});
 toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
 
--- | An internal identifier for the task. This ID is passed to the < SetTaskStatus> and < ReportTaskProgress> actions.
+-- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
 toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
 
@@ -695,6 +701,8 @@ instance NFData TaskObject
 
 -- | Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.
 --
+--
+--
 -- /See:/ 'validationError' smart constructor.
 data ValidationError = ValidationError'
     { _veId     :: !(Maybe Text)
@@ -705,9 +713,9 @@ data ValidationError = ValidationError'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veId'
+-- * 'veId' - The identifier of the object that contains the validation error.
 --
--- * 'veErrors'
+-- * 'veErrors' - A description of the validation error.
 validationError
     :: ValidationError
 validationError =
@@ -737,6 +745,8 @@ instance NFData ValidationError
 
 -- | Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.
 --
+--
+--
 -- /See:/ 'validationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
     { _vwWarnings :: !(Maybe [Text])
@@ -747,9 +757,9 @@ data ValidationWarning = ValidationWarning'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vwWarnings'
+-- * 'vwWarnings' - A description of the validation warning.
 --
--- * 'vwId'
+-- * 'vwId' - The identifier of the object that contains the validation warning.
 validationWarning
     :: ValidationWarning
 validationWarning =

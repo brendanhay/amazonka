@@ -20,11 +20,11 @@
 --
 -- Adds or updates an inline policy document that is embedded in the specified IAM user.
 --
--- An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use < AttachUserPolicy>. To create a new managed policy, use < CreatePolicy>. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
 --
--- For information about limits on the number of inline policies that you can embed in a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+-- An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use 'AttachUserPolicy' . To create a new managed policy, use 'CreatePolicy' . For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 --
--- Because policy documents can be large, you should use POST rather than GET when calling 'PutUserPolicy'. For general information about using the Query API with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /IAM User Guide/.
+-- For information about limits on the number of inline policies that you can embed in a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Creating a Request
@@ -58,11 +58,11 @@ data PutUserPolicy = PutUserPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pupUserName'
+-- * 'pupUserName' - The name of the user to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pupPolicyName'
+-- * 'pupPolicyName' - The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pupPolicyDocument'
+-- * 'pupPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 putUserPolicy
     :: Text -- ^ 'pupUserName'
     -> Text -- ^ 'pupPolicyName'
@@ -75,21 +75,15 @@ putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
     , _pupPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the user to associate the policy with.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the user to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\ s a -> s{_pupUserName = a});
 
--- | The name of the policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pupPolicyName :: Lens' PutUserPolicy Text
 pupPolicyName = lens _pupPolicyName (\ s a -> s{_pupPolicyName = a});
 
--- | The policy document.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a});
 

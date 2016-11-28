@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the user import jobs.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list the user import jobs.
 --
+--
+--
 -- /See:/ 'listUserImportJobs' smart constructor.
 data ListUserImportJobs = ListUserImportJobs'
     { _luijPaginationToken :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListUserImportJobs = ListUserImportJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luijPaginationToken'
+-- * 'luijPaginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of import jobs in the list.
 --
--- * 'luijUserPoolId'
+-- * 'luijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
 --
--- * 'luijMaxResults'
+-- * 'luijMaxResults' - The maximum number of import jobs you want the request to return.
 listUserImportJobs
     :: Text -- ^ 'luijUserPoolId'
     -> Natural -- ^ 'luijMaxResults'
@@ -128,6 +132,8 @@ instance ToQuery ListUserImportJobs where
 
 -- | Represents the response from the server to the request to list the user import jobs.
 --
+--
+--
 -- /See:/ 'listUserImportJobsResponse' smart constructor.
 data ListUserImportJobsResponse = ListUserImportJobsResponse'
     { _luijrsPaginationToken :: !(Maybe Text)
@@ -139,11 +145,11 @@ data ListUserImportJobsResponse = ListUserImportJobsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luijrsPaginationToken'
+-- * 'luijrsPaginationToken' - An identifier that can be used to return the next set of user import jobs in the list.
 --
--- * 'luijrsUserImportJobs'
+-- * 'luijrsUserImportJobs' - The user import jobs.
 --
--- * 'luijrsResponseStatus'
+-- * 'luijrsResponseStatus' - -- | The response status code.
 listUserImportJobsResponse
     :: Int -- ^ 'luijrsResponseStatus'
     -> ListUserImportJobsResponse
@@ -162,7 +168,7 @@ luijrsPaginationToken = lens _luijrsPaginationToken (\ s a -> s{_luijrsPaginatio
 luijrsUserImportJobs :: Lens' ListUserImportJobsResponse (Maybe (NonEmpty UserImportJobType))
 luijrsUserImportJobs = lens _luijrsUserImportJobs (\ s a -> s{_luijrsUserImportJobs = a}) . mapping _List1;
 
--- | The response status code.
+-- | -- | The response status code.
 luijrsResponseStatus :: Lens' ListUserImportJobsResponse Int
 luijrsResponseStatus = lens _luijrsResponseStatus (\ s a -> s{_luijrsResponseStatus = a});
 

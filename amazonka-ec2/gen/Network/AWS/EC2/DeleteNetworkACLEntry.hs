@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified ingress or egress entry (rule) from the specified network ACL.
+--
+--
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteNetworkAclEntry.
 --
+--
+--
 -- /See:/ 'deleteNetworkACLEntry' smart constructor.
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
     { _dnaeDryRun       :: !(Maybe Bool)
@@ -56,13 +60,13 @@ data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnaeDryRun'
+-- * 'dnaeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dnaeNetworkACLId'
+-- * 'dnaeNetworkACLId' - The ID of the network ACL.
 --
--- * 'dnaeRuleNumber'
+-- * 'dnaeRuleNumber' - The rule number of the entry to delete.
 --
--- * 'dnaeEgress'
+-- * 'dnaeEgress' - Indicates whether the rule is an egress rule.
 deleteNetworkACLEntry
     :: Text -- ^ 'dnaeNetworkACLId'
     -> Int -- ^ 'dnaeRuleNumber'
@@ -76,7 +80,7 @@ deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
     , _dnaeEgress = pEgress_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
 dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template. For more information, see < SubscribeToEvent> and < UnsubscribeFromEvent>.
+-- Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template. For more information, see 'SubscribeToEvent' and 'UnsubscribeFromEvent' .
+--
+--
 module Network.AWS.Inspector.ListEventSubscriptions
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data ListEventSubscriptions = ListEventSubscriptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lesNextToken'
+-- * 'lesNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 --
--- * 'lesResourceARN'
+-- * 'lesResourceARN' - The ARN of the assessment template for which you want to list the existing event subscriptions.
 --
--- * 'lesMaxResults'
+-- * 'lesMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 listEventSubscriptions
     :: ListEventSubscriptions
 listEventSubscriptions =
@@ -132,11 +134,11 @@ data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lesrsNextToken'
+-- * 'lesrsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
--- * 'lesrsResponseStatus'
+-- * 'lesrsResponseStatus' - -- | The response status code.
 --
--- * 'lesrsSubscriptions'
+-- * 'lesrsSubscriptions' - Details of the returned event subscriptions.
 listEventSubscriptionsResponse
     :: Int -- ^ 'lesrsResponseStatus'
     -> ListEventSubscriptionsResponse
@@ -151,7 +153,7 @@ listEventSubscriptionsResponse pResponseStatus_ =
 lesrsNextToken :: Lens' ListEventSubscriptionsResponse (Maybe Text)
 lesrsNextToken = lens _lesrsNextToken (\ s a -> s{_lesrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lesrsResponseStatus :: Lens' ListEventSubscriptionsResponse Int
 lesrsResponseStatus = lens _lesrsResponseStatus (\ s a -> s{_lesrsResponseStatus = a});
 

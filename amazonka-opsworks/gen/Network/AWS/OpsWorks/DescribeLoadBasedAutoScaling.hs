@@ -20,9 +20,9 @@
 --
 -- Describes load-based auto scaling configurations for specified layers.
 --
--- You must specify at least one of the parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     (
     -- * Creating a Request
@@ -55,7 +55,7 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbasLayerIds'
+-- * 'dlbasLayerIds' - An array of layer IDs.
 describeLoadBasedAutoScaling
     :: DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling =
@@ -105,7 +105,9 @@ instance ToPath DescribeLoadBasedAutoScaling where
 instance ToQuery DescribeLoadBasedAutoScaling where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeLoadBasedAutoScaling' request.
+-- | Contains the response to a @DescribeLoadBasedAutoScaling@ request.
+--
+--
 --
 -- /See:/ 'describeLoadBasedAutoScalingResponse' smart constructor.
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
@@ -117,9 +119,9 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbasrsLoadBasedAutoScalingConfigurations'
+-- * 'dlbasrsLoadBasedAutoScalingConfigurations' - An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
 --
--- * 'dlbasrsResponseStatus'
+-- * 'dlbasrsResponseStatus' - -- | The response status code.
 describeLoadBasedAutoScalingResponse
     :: Int -- ^ 'dlbasrsResponseStatus'
     -> DescribeLoadBasedAutoScalingResponse
@@ -129,11 +131,11 @@ describeLoadBasedAutoScalingResponse pResponseStatus_ =
     , _dlbasrsResponseStatus = pResponseStatus_
     }
 
--- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe each layer\'s configuration.
+-- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlbasrsResponseStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsResponseStatus = lens _dlbasrsResponseStatus (\ s a -> s{_dlbasrsResponseStatus = a});
 

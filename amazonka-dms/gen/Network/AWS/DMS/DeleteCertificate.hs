@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified certificate.
+--
+--
 module Network.AWS.DMS.DeleteCertificate
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype DeleteCertificate = DeleteCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCertificateARN'
+-- * 'dcCertificateARN' - the Amazon Resource Name (ARN) of the deleted certificate.
 deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
@@ -109,9 +111,9 @@ data DeleteCertificateResponse = DeleteCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccrsCertificate'
+-- * 'dccrsCertificate' - The SSL certificate.
 --
--- * 'dccrsResponseStatus'
+-- * 'dccrsResponseStatus' - -- | The response status code.
 deleteCertificateResponse
     :: Int -- ^ 'dccrsResponseStatus'
     -> DeleteCertificateResponse
@@ -125,7 +127,7 @@ deleteCertificateResponse pResponseStatus_ =
 dccrsCertificate :: Lens' DeleteCertificateResponse (Maybe Certificate)
 dccrsCertificate = lens _dccrsCertificate (\ s a -> s{_dccrsCertificate = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dccrsResponseStatus :: Lens' DeleteCertificateResponse Int
 dccrsResponseStatus = lens _dccrsResponseStatus (\ s a -> s{_dccrsResponseStatus = a});
 

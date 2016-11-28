@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Confirms tracking of the device. This API call is the call that beings device tracking.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ConfirmDevice
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Confirms the device request.
 --
+--
+--
 -- /See:/ 'confirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
     { _cdDeviceSecretVerifierConfig :: !(Maybe DeviceSecretVerifierConfigType)
@@ -59,13 +63,13 @@ data ConfirmDevice = ConfirmDevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDeviceSecretVerifierConfig'
+-- * 'cdDeviceSecretVerifierConfig' - The configuration of the device secret verifier.
 --
--- * 'cdDeviceName'
+-- * 'cdDeviceName' - The device name.
 --
--- * 'cdAccessToken'
+-- * 'cdAccessToken' - The access token.
 --
--- * 'cdDeviceKey'
+-- * 'cdDeviceKey' - The device key.
 confirmDevice
     :: Text -- ^ 'cdAccessToken'
     -> Text -- ^ 'cdDeviceKey'
@@ -136,6 +140,8 @@ instance ToQuery ConfirmDevice where
 
 -- | Confirms the device response.
 --
+--
+--
 -- /See:/ 'confirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
     { _cdrsUserConfirmationNecessary :: !(Maybe Bool)
@@ -146,9 +152,9 @@ data ConfirmDeviceResponse = ConfirmDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrsUserConfirmationNecessary'
+-- * 'cdrsUserConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the device response.
 --
--- * 'cdrsResponseStatus'
+-- * 'cdrsResponseStatus' - -- | The response status code.
 confirmDeviceResponse
     :: Int -- ^ 'cdrsResponseStatus'
     -> ConfirmDeviceResponse
@@ -162,7 +168,7 @@ confirmDeviceResponse pResponseStatus_ =
 cdrsUserConfirmationNecessary :: Lens' ConfirmDeviceResponse (Maybe Bool)
 cdrsUserConfirmationNecessary = lens _cdrsUserConfirmationNecessary (\ s a -> s{_cdrsUserConfirmationNecessary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdrsResponseStatus :: Lens' ConfirmDeviceResponse Int
 cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
 

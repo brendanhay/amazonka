@@ -20,7 +20,9 @@
 --
 -- Modifies the specified properties of the specified listener.
 --
+--
 -- Any properties that you do not specify retain their current values. However, changing the protocol from HTTPS to HTTP removes the security policy and SSL certificate properties. If you change the protocol from HTTP to HTTPS, you must add the security policy.
+--
 module Network.AWS.ELBv2.ModifyListener
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyListener.
 --
+--
+--
 -- /See:/ 'modifyListener' smart constructor.
 data ModifyListener = ModifyListener'
     { _mlSSLPolicy      :: !(Maybe Text)
@@ -65,17 +69,17 @@ data ModifyListener = ModifyListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlSSLPolicy'
+-- * 'mlSSLPolicy' - The security policy that defines which ciphers and protocols are supported.
 --
--- * 'mlProtocol'
+-- * 'mlProtocol' - The protocol for connections from clients to the load balancer.
 --
--- * 'mlDefaultActions'
+-- * 'mlDefaultActions' - The default actions.
 --
--- * 'mlCertificates'
+-- * 'mlCertificates' - The SSL server certificate.
 --
--- * 'mlPort'
+-- * 'mlPort' - The port for connections from clients to the load balancer.
 --
--- * 'mlListenerARN'
+-- * 'mlListenerARN' - The Amazon Resource Name (ARN) of the listener.
 modifyListener
     :: Text -- ^ 'mlListenerARN'
     -> ModifyListener
@@ -149,6 +153,8 @@ instance ToQuery ModifyListener where
 
 -- | Contains the output of ModifyListener.
 --
+--
+--
 -- /See:/ 'modifyListenerResponse' smart constructor.
 data ModifyListenerResponse = ModifyListenerResponse'
     { _mlrsListeners      :: !(Maybe [Listener])
@@ -159,9 +165,9 @@ data ModifyListenerResponse = ModifyListenerResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlrsListeners'
+-- * 'mlrsListeners' - Information about the modified listeners.
 --
--- * 'mlrsResponseStatus'
+-- * 'mlrsResponseStatus' - -- | The response status code.
 modifyListenerResponse
     :: Int -- ^ 'mlrsResponseStatus'
     -> ModifyListenerResponse
@@ -175,7 +181,7 @@ modifyListenerResponse pResponseStatus_ =
 mlrsListeners :: Lens' ModifyListenerResponse [Listener]
 mlrsListeners = lens _mlrsListeners (\ s a -> s{_mlrsListeners = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mlrsResponseStatus :: Lens' ModifyListenerResponse Int
 mlrsResponseStatus = lens _mlrsResponseStatus (\ s a -> s{_mlrsResponseStatus = a});
 

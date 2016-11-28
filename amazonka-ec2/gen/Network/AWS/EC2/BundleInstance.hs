@@ -20,11 +20,11 @@
 --
 -- Bundles an Amazon instance store-backed Windows instance.
 --
--- During bundling, only the root device volume (C:\\) is bundled. Data on other instance store volumes is not preserved.
 --
--- This action is not applicable for Linux\/Unix instances or Windows instances that are backed by Amazon EBS.
+-- During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI> .
+--
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request
@@ -52,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for BundleInstance.
 --
+--
+--
 -- /See:/ 'bundleInstance' smart constructor.
 data BundleInstance = BundleInstance'
     { _biDryRun     :: !(Maybe Bool)
@@ -63,11 +65,11 @@ data BundleInstance = BundleInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'biDryRun'
+-- * 'biDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'biInstanceId'
+-- * 'biInstanceId' - The ID of the instance to bundle. Type: String Default: None Required: Yes
 --
--- * 'biStorage'
+-- * 'biStorage' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 bundleInstance
     :: Text -- ^ 'biInstanceId'
     -> Storage -- ^ 'biStorage'
@@ -79,17 +81,11 @@ bundleInstance pInstanceId_ pStorage_ =
     , _biStorage = pStorage_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 biDryRun :: Lens' BundleInstance (Maybe Bool)
 biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 
--- | The ID of the instance to bundle.
---
--- Type: String
---
--- Default: None
---
--- Required: Yes
+-- | The ID of the instance to bundle. Type: String Default: None Required: Yes
 biInstanceId :: Lens' BundleInstance Text
 biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
 
@@ -126,6 +122,8 @@ instance ToQuery BundleInstance where
 
 -- | Contains the output of BundleInstance.
 --
+--
+--
 -- /See:/ 'bundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birsBundleTask     :: !(Maybe BundleTask)
@@ -136,9 +134,9 @@ data BundleInstanceResponse = BundleInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'birsBundleTask'
+-- * 'birsBundleTask' - Information about the bundle task.
 --
--- * 'birsResponseStatus'
+-- * 'birsResponseStatus' - -- | The response status code.
 bundleInstanceResponse
     :: Int -- ^ 'birsResponseStatus'
     -> BundleInstanceResponse
@@ -152,7 +150,7 @@ bundleInstanceResponse pResponseStatus_ =
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
--- | The response status code.
+-- | -- | The response status code.
 birsResponseStatus :: Lens' BundleInstanceResponse Int
 birsResponseStatus = lens _birsResponseStatus (\ s a -> s{_birsResponseStatus = a});
 

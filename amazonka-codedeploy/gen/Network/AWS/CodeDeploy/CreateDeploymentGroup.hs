@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a deployment group to which application revisions will be deployed.
+--
+--
 module Network.AWS.CodeDeploy.CreateDeploymentGroup
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create deployment group operation.
 --
+--
+--
 -- /See:/ 'createDeploymentGroup' smart constructor.
 data CreateDeploymentGroup = CreateDeploymentGroup'
     { _cdgDeploymentConfigName         :: !(Maybe Text)
@@ -67,21 +71,21 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdgDeploymentConfigName'
+-- * 'cdgDeploymentConfigName' - If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation. The predefined deployment configurations include the following:     * __CodeDeployDefault.AllAtOnce__ attempts to deploy an application revision to as many instance as possible at once. The status of the overall deployment will be displayed as __Succeeded__ if the application revision is deployed to one or more of the instances. The status of the overall deployment will be displayed as __Failed__ if the application revision is not deployed to any of the instances. Using an example of nine instance, CodeDeployDefault.AllAtOnce will attempt to deploy to all nine instance at once. The overall deployment will succeed if deployment to even a single instance is successful; it will fail only if deployments to all nine instance fail.      * __CodeDeployDefault.HalfAtATime__ deploys to up to half of the instances at a time (with fractions rounded down). The overall deployment succeeds if the application revision is deployed to at least half of the instances (with fractions rounded up); otherwise, the deployment fails. In the example of nine instances, it will deploy to up to four instance at a time. The overall deployment succeeds if deployment to five or more instances succeed; otherwise, the deployment fails. The deployment may be successfully deployed to some instances even if the overall deployment fails.     * __CodeDeployDefault.OneAtATime__ deploys the application revision to only one instance at a time. For deployment groups that contain more than one instance:     * The overall deployment succeeds if the application revision is deployed to all of the instances. The exception to this rule is if deployment to the last instance fails, the overall deployment still succeeds. This is because AWS CodeDeploy allows only one instance at a time to be taken offline with the CodeDeployDefault.OneAtATime configuration.     * The overall deployment fails as soon as the application revision fails to be deployed to any but the last instance. The deployment may be successfully deployed to some instances even if the overall deployment fails.     * In an example using nine instance, it will deploy to one instance at a time. The overall deployment succeeds if deployment to the first eight instance is successful; the overall deployment fails if deployment to any of the first eight instance fails. For deployment groups that contain only one instance, the overall deployment is successful only if deployment to the single instance is successful
 --
--- * 'cdgEc2TagFilters'
+-- * 'cdgEc2TagFilters' - The Amazon EC2 tags on which to filter.
 --
--- * 'cdgOnPremisesInstanceTagFilters'
+-- * 'cdgOnPremisesInstanceTagFilters' - The on-premises instance tags on which to filter.
 --
--- * 'cdgTriggerConfigurations'
+-- * 'cdgTriggerConfigurations' - Information about triggers to create when the deployment group is created.
 --
--- * 'cdgAutoScalingGroups'
+-- * 'cdgAutoScalingGroups' - A list of associated Auto Scaling groups.
 --
--- * 'cdgApplicationName'
+-- * 'cdgApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
--- * 'cdgDeploymentGroupName'
+-- * 'cdgDeploymentGroupName' - The name of a new deployment group for the specified application.
 --
--- * 'cdgServiceRoleARN'
+-- * 'cdgServiceRoleARN' - A service role ARN that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
 createDeploymentGroup
     :: Text -- ^ 'cdgApplicationName'
     -> Text -- ^ 'cdgDeploymentGroupName'
@@ -99,28 +103,7 @@ createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
     , _cdgServiceRoleARN = pServiceRoleARN_
     }
 
--- | If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.
---
--- CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn\'t specified for the deployment or the deployment group.
---
--- The predefined deployment configurations include the following:
---
--- -   __CodeDeployDefault.AllAtOnce__ attempts to deploy an application revision to as many instance as possible at once. The status of the overall deployment will be displayed as __Succeeded__ if the application revision is deployed to one or more of the instances. The status of the overall deployment will be displayed as __Failed__ if the application revision is not deployed to any of the instances. Using an example of nine instance, CodeDeployDefault.AllAtOnce will attempt to deploy to all nine instance at once. The overall deployment will succeed if deployment to even a single instance is successful; it will fail only if deployments to all nine instance fail.
---
--- -   __CodeDeployDefault.HalfAtATime__ deploys to up to half of the instances at a time (with fractions rounded down). The overall deployment succeeds if the application revision is deployed to at least half of the instances (with fractions rounded up); otherwise, the deployment fails. In the example of nine instances, it will deploy to up to four instance at a time. The overall deployment succeeds if deployment to five or more instances succeed; otherwise, the deployment fails. The deployment may be successfully deployed to some instances even if the overall deployment fails.
---
--- -   __CodeDeployDefault.OneAtATime__ deploys the application revision to only one instance at a time.
---
---     For deployment groups that contain more than one instance:
---
---     -   The overall deployment succeeds if the application revision is deployed to all of the instances. The exception to this rule is if deployment to the last instance fails, the overall deployment still succeeds. This is because AWS CodeDeploy allows only one instance at a time to be taken offline with the CodeDeployDefault.OneAtATime configuration.
---
---     -   The overall deployment fails as soon as the application revision fails to be deployed to any but the last instance. The deployment may be successfully deployed to some instances even if the overall deployment fails.
---
---     -   In an example using nine instance, it will deploy to one instance at a time. The overall deployment succeeds if deployment to the first eight instance is successful; the overall deployment fails if deployment to any of the first eight instance fails.
---
---     For deployment groups that contain only one instance, the overall deployment is successful only if deployment to the single instance is successful
---
+-- | If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation. The predefined deployment configurations include the following:     * __CodeDeployDefault.AllAtOnce__ attempts to deploy an application revision to as many instance as possible at once. The status of the overall deployment will be displayed as __Succeeded__ if the application revision is deployed to one or more of the instances. The status of the overall deployment will be displayed as __Failed__ if the application revision is not deployed to any of the instances. Using an example of nine instance, CodeDeployDefault.AllAtOnce will attempt to deploy to all nine instance at once. The overall deployment will succeed if deployment to even a single instance is successful; it will fail only if deployments to all nine instance fail.      * __CodeDeployDefault.HalfAtATime__ deploys to up to half of the instances at a time (with fractions rounded down). The overall deployment succeeds if the application revision is deployed to at least half of the instances (with fractions rounded up); otherwise, the deployment fails. In the example of nine instances, it will deploy to up to four instance at a time. The overall deployment succeeds if deployment to five or more instances succeed; otherwise, the deployment fails. The deployment may be successfully deployed to some instances even if the overall deployment fails.     * __CodeDeployDefault.OneAtATime__ deploys the application revision to only one instance at a time. For deployment groups that contain more than one instance:     * The overall deployment succeeds if the application revision is deployed to all of the instances. The exception to this rule is if deployment to the last instance fails, the overall deployment still succeeds. This is because AWS CodeDeploy allows only one instance at a time to be taken offline with the CodeDeployDefault.OneAtATime configuration.     * The overall deployment fails as soon as the application revision fails to be deployed to any but the last instance. The deployment may be successfully deployed to some instances even if the overall deployment fails.     * In an example using nine instance, it will deploy to one instance at a time. The overall deployment succeeds if deployment to the first eight instance is successful; the overall deployment fails if deployment to any of the first eight instance fails. For deployment groups that contain only one instance, the overall deployment is successful only if deployment to the single instance is successful
 cdgDeploymentConfigName :: Lens' CreateDeploymentGroup (Maybe Text)
 cdgDeploymentConfigName = lens _cdgDeploymentConfigName (\ s a -> s{_cdgDeploymentConfigName = a});
 
@@ -148,7 +131,7 @@ cdgApplicationName = lens _cdgApplicationName (\ s a -> s{_cdgApplicationName = 
 cdgDeploymentGroupName :: Lens' CreateDeploymentGroup Text
 cdgDeploymentGroupName = lens _cdgDeploymentGroupName (\ s a -> s{_cdgDeploymentGroupName = a});
 
--- | A service role ARN that allows AWS CodeDeploy to act on the user\'s behalf when interacting with AWS services.
+-- | A service role ARN that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services.
 cdgServiceRoleARN :: Lens' CreateDeploymentGroup Text
 cdgServiceRoleARN = lens _cdgServiceRoleARN (\ s a -> s{_cdgServiceRoleARN = a});
 
@@ -201,6 +184,8 @@ instance ToQuery CreateDeploymentGroup where
 
 -- | Represents the output of a create deployment group operation.
 --
+--
+--
 -- /See:/ 'createDeploymentGroupResponse' smart constructor.
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId :: !(Maybe Text)
@@ -211,9 +196,9 @@ data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdgrsDeploymentGroupId'
+-- * 'cdgrsDeploymentGroupId' - A unique deployment group ID.
 --
--- * 'cdgrsResponseStatus'
+-- * 'cdgrsResponseStatus' - -- | The response status code.
 createDeploymentGroupResponse
     :: Int -- ^ 'cdgrsResponseStatus'
     -> CreateDeploymentGroupResponse
@@ -227,7 +212,7 @@ createDeploymentGroupResponse pResponseStatus_ =
 cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeploymentGroupId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdgrsResponseStatus :: Lens' CreateDeploymentGroupResponse Int
 cdgrsResponseStatus = lens _cdgrsResponseStatus (\ s a -> s{_cdgrsResponseStatus = a});
 

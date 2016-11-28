@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a display name for a customer master key. An alias can be used to identify a key and should be unique. The console enforces a one-to-one mapping between the alias and a key. An alias name can contain only alphanumeric characters, forward slashes (\/), underscores (_), and dashes (-). An alias must start with the word \"alias\" followed by a forward slash (alias\/). An alias that begins with \"aws\" after the forward slash (alias\/aws...) is reserved by Amazon Web Services (AWS).
+-- Creates a display name for a customer master key. An alias can be used to identify a key and should be unique. The console enforces a one-to-one mapping between the alias and a key. An alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). An alias must start with the word "alias" followed by a forward slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...) is reserved by Amazon Web Services (AWS).
+--
 --
 -- The alias and the key it is mapped to must be in the same AWS account and the same region.
 --
--- To map an alias to a different key, call < UpdateAlias>.
+-- To map an alias to a different key, call 'UpdateAlias' .
+--
 module Network.AWS.KMS.CreateAlias
     (
     -- * Creating a Request
@@ -54,9 +56,9 @@ data CreateAlias = CreateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caAliasName'
+-- * 'caAliasName' - String that contains the display name. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 --
--- * 'caTargetKeyId'
+-- * 'caTargetKeyId' - An identifier of the key for which you are creating the alias. This value cannot be another alias but can be a globally unique identifier or a fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 createAlias
     :: Text -- ^ 'caAliasName'
     -> Text -- ^ 'caTargetKeyId'
@@ -67,16 +69,11 @@ createAlias pAliasName_ pTargetKeyId_ =
     , _caTargetKeyId = pTargetKeyId_
     }
 
--- | String that contains the display name. The name must start with the word \"alias\" followed by a forward slash (alias\/). Aliases that begin with \"alias\/AWS\" are reserved.
+-- | String that contains the display name. The name must start with the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 caAliasName :: Lens' CreateAlias Text
 caAliasName = lens _caAliasName (\ s a -> s{_caAliasName = a});
 
--- | An identifier of the key for which you are creating the alias. This value cannot be another alias but can be a globally unique identifier or a fully specified ARN to a key.
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
+-- | An identifier of the key for which you are creating the alias. This value cannot be another alias but can be a globally unique identifier or a fully specified ARN to a key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 caTargetKeyId :: Lens' CreateAlias Text
 caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
 

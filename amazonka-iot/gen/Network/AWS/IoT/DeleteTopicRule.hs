@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified rule.
+--
+--
 module Network.AWS.IoT.DeleteTopicRule
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | The input for the DeleteTopicRule operation.
 --
+--
+--
 -- /See:/ 'deleteTopicRule' smart constructor.
 newtype DeleteTopicRule = DeleteTopicRule'
     { _dRuleName :: Text
@@ -50,7 +54,7 @@ newtype DeleteTopicRule = DeleteTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRuleName'
+-- * 'dRuleName' - The name of the rule.
 deleteTopicRule
     :: Text -- ^ 'dRuleName'
     -> DeleteTopicRule

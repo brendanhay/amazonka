@@ -20,7 +20,9 @@
 --
 -- Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.
 --
+--
 -- The target database is created with most of the original configuration, but in a system-selected availability zone, with the default security group, the default subnet group, and the default DB parameter group. By default, the new DB instance is created as a single-AZ deployment except when the instance is a SQL Server instance that has an option group that is associated with mirroring; in this case, the instance becomes a mirrored deployment and not a single-AZ deployment.
+--
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
     -- * Creating a Request
@@ -68,6 +70,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     { _rditpitUseLatestRestorableTime    :: !(Maybe Bool)
@@ -99,51 +103,51 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rditpitUseLatestRestorableTime'
+-- * 'rditpitUseLatestRestorableTime' - Specifies whether (@true@ ) or not (@false@ ) the DB instance is restored from the latest backup time.  Default: @false@  Constraints: Cannot be specified if RestoreTime parameter is provided.
 --
--- * 'rditpitPubliclyAccessible'
+-- * 'rditpitPubliclyAccessible' - Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 --
--- * 'rditpitAutoMinorVersionUpgrade'
+-- * 'rditpitAutoMinorVersionUpgrade' - Indicates that minor version upgrades will be applied automatically to the DB instance during the maintenance window.
 --
--- * 'rditpitDBSubnetGroupName'
+-- * 'rditpitDBSubnetGroupName' - The DB subnet group name to use for the new instance. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 --
--- * 'rditpitRestoreTime'
+-- * 'rditpitRestoreTime' - The date and time to restore from. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Cannot be specified if UseLatestRestorableTime parameter is true Example: @2009-09-07T23:45:00Z@
 --
--- * 'rditpitIOPS'
+-- * 'rditpitIOPS' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be an integer greater than 1000. __SQL Server__  Setting the IOPS value for the SQL Server database engine is not supported.
 --
--- * 'rditpitDomain'
+-- * 'rditpitDomain' - Specify the Active Directory Domain to restore the instance in.
 --
--- * 'rditpitEngine'
+-- * 'rditpitEngine' - The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
 --
--- * 'rditpitTDECredentialPassword'
+-- * 'rditpitTDECredentialPassword' - The password for the given ARN from the Key Store in order to access the device.
 --
--- * 'rditpitDBInstanceClass'
+-- * 'rditpitDBInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance. Valid Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: The same DBInstanceClass as the original DB instance.
 --
--- * 'rditpitLicenseModel'
+-- * 'rditpitLicenseModel' - License model information for the restored DB instance. Default: Same as source. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
 --
--- * 'rditpitAvailabilityZone'
+-- * 'rditpitAvailabilityZone' - The EC2 Availability Zone that the database instance will be created in. Default: A random, system-chosen Availability Zone. Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to true. Example: @us-east-1a@
 --
--- * 'rditpitMultiAZ'
+-- * 'rditpitMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment. Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to @true@ .
 --
--- * 'rditpitOptionGroupName'
+-- * 'rditpitOptionGroupName' - The name of the option group to be used for the restored DB instance. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 --
--- * 'rditpitCopyTagsToSnapshot'
+-- * 'rditpitCopyTagsToSnapshot' - True to copy all tags from the restored DB instance to snapshots of the DB instance; otherwise false. The default is false.
 --
--- * 'rditpitTDECredentialARN'
+-- * 'rditpitTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
 --
--- * 'rditpitDomainIAMRoleName'
+-- * 'rditpitDomainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
 --
--- * 'rditpitTags'
+-- * 'rditpitTags' - Undocumented member.
 --
--- * 'rditpitPort'
+-- * 'rditpitPort' - The port number on which the database accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB instance.
 --
--- * 'rditpitStorageType'
+-- * 'rditpitStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
--- * 'rditpitDBName'
+-- * 'rditpitDBName' - The database name for the restored DB instance.
 --
--- * 'rditpitSourceDBInstanceIdentifier'
+-- * 'rditpitSourceDBInstanceIdentifier' - The identifier of the source DB instance from which to restore. Constraints:     * Must be the identifier of an existing database instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'rditpitTargetDBInstanceIdentifier'
+-- * 'rditpitTargetDBInstanceIdentifier' - The name of the new database instance to be created. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 restoreDBInstanceToPointInTime
     :: Text -- ^ 'rditpitSourceDBInstanceIdentifier'
     -> Text -- ^ 'rditpitTargetDBInstanceIdentifier'
@@ -175,23 +179,11 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIde
     , _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
 
--- | Specifies whether ('true') or not ('false') the DB instance is restored from the latest backup time.
---
--- Default: 'false'
---
--- Constraints: Cannot be specified if RestoreTime parameter is provided.
+-- | Specifies whether (@true@ ) or not (@false@ ) the DB instance is restored from the latest backup time.  Default: @false@  Constraints: Cannot be specified if RestoreTime parameter is provided.
 rditpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitUseLatestRestorableTime = lens _rditpitUseLatestRestorableTime (\ s a -> s{_rditpitUseLatestRestorableTime = a});
 
--- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address.
---
--- Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.
---
--- -   __Default VPC:__true
---
--- -   __VPC:__false
---
--- If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
+-- | Specifies the accessibility options for the DB instance. A value of true specifies an Internet-facing instance with a publicly resolvable DNS name, which resolves to a public IP address. A value of false specifies an internal instance with a DNS name that resolves to a private IP address. Default: The default behavior varies depending on whether a VPC has been requested or not. The following list shows the default behavior in each case.     * __Default VPC:__ true     * __VPC:__ false If no DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be publicly accessible. If a specific DB subnet group has been specified as part of the request and the PubliclyAccessible value has not been set, the DB instance will be private.
 rditpitPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitPubliclyAccessible = lens _rditpitPubliclyAccessible (\ s a -> s{_rditpitPubliclyAccessible = a});
 
@@ -199,35 +191,15 @@ rditpitPubliclyAccessible = lens _rditpitPubliclyAccessible (\ s a -> s{_rditpit
 rditpitAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitAutoMinorVersionUpgrade = lens _rditpitAutoMinorVersionUpgrade (\ s a -> s{_rditpitAutoMinorVersionUpgrade = a});
 
--- | The DB subnet group name to use for the new instance.
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
---
--- Example: 'mySubnetgroup'
+-- | The DB subnet group name to use for the new instance. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 rditpitDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBSubnetGroupName = lens _rditpitDBSubnetGroupName (\ s a -> s{_rditpitDBSubnetGroupName = a});
 
--- | The date and time to restore from.
---
--- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
---
--- Constraints:
---
--- -   Must be before the latest restorable time for the DB instance
---
--- -   Cannot be specified if UseLatestRestorableTime parameter is true
---
--- Example: '2009-09-07T23:45:00Z'
+-- | The date and time to restore from. Valid Values: Value must be a time in Universal Coordinated Time (UTC) format Constraints:     * Must be before the latest restorable time for the DB instance     * Cannot be specified if UseLatestRestorableTime parameter is true Example: @2009-09-07T23:45:00Z@
 rditpitRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe UTCTime)
 rditpitRestoreTime = lens _rditpitRestoreTime (\ s a -> s{_rditpitRestoreTime = a}) . mapping _Time;
 
--- | The amount of Provisioned IOPS (input\/output operations per second) to be initially allocated for the DB instance.
---
--- Constraints: Must be an integer greater than 1000.
---
--- __SQL Server__
---
--- Setting the IOPS value for the SQL Server database engine is not supported.
+-- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance. Constraints: Must be an integer greater than 1000. __SQL Server__  Setting the IOPS value for the SQL Server database engine is not supported.
 rditpitIOPS :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 
@@ -235,13 +207,7 @@ rditpitIOPS = lens _rditpitIOPS (\ s a -> s{_rditpitIOPS = a});
 rditpitDomain :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDomain = lens _rditpitDomain (\ s a -> s{_rditpitDomain = a});
 
--- | The database engine to use for the new instance.
---
--- Default: The same as source
---
--- Constraint: Must be compatible with the engine of the source
---
--- Valid Values: 'MySQL' | 'mariadb' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres' | 'aurora'
+-- | The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
 rditpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitEngine = lens _rditpitEngine (\ s a -> s{_rditpitEngine = a});
 
@@ -249,41 +215,23 @@ rditpitEngine = lens _rditpitEngine (\ s a -> s{_rditpitEngine = a});
 rditpitTDECredentialPassword :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitTDECredentialPassword = lens _rditpitTDECredentialPassword (\ s a -> s{_rditpitTDECredentialPassword = a});
 
--- | The compute and memory capacity of the Amazon RDS DB instance.
---
--- Valid Values: 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large'
---
--- Default: The same DBInstanceClass as the original DB instance.
+-- | The compute and memory capacity of the Amazon RDS DB instance. Valid Values: @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: The same DBInstanceClass as the original DB instance.
 rditpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBInstanceClass = lens _rditpitDBInstanceClass (\ s a -> s{_rditpitDBInstanceClass = a});
 
--- | License model information for the restored DB instance.
---
--- Default: Same as source.
---
--- Valid values: 'license-included' | 'bring-your-own-license' | 'general-public-license'
+-- | License model information for the restored DB instance. Default: Same as source. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
 rditpitLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitLicenseModel = lens _rditpitLicenseModel (\ s a -> s{_rditpitLicenseModel = a});
 
--- | The EC2 Availability Zone that the database instance will be created in.
---
--- Default: A random, system-chosen Availability Zone.
---
--- Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to true.
---
--- Example: 'us-east-1a'
+-- | The EC2 Availability Zone that the database instance will be created in. Default: A random, system-chosen Availability Zone. Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to true. Example: @us-east-1a@
 rditpitAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitAvailabilityZone = lens _rditpitAvailabilityZone (\ s a -> s{_rditpitAvailabilityZone = a});
 
--- | Specifies if the DB instance is a Multi-AZ deployment.
---
--- Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to 'true'.
+-- | Specifies if the DB instance is a Multi-AZ deployment. Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter is set to @true@ .
 rditpitMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
 rditpitMultiAZ = lens _rditpitMultiAZ (\ s a -> s{_rditpitMultiAZ = a});
 
--- | The name of the option group to be used for the restored DB instance.
---
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
+-- | The name of the option group to be used for the restored DB instance. Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
 rditpitOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitOptionGroupName = lens _rditpitOptionGroupName (\ s a -> s{_rditpitOptionGroupName = a});
 
@@ -303,55 +251,23 @@ rditpitDomainIAMRoleName = lens _rditpitDomainIAMRoleName (\ s a -> s{_rditpitDo
 rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
 rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default . _Coerce;
 
--- | The port number on which the database accepts connections.
---
--- Constraints: Value must be '1150-65535'
---
--- Default: The same port as the original DB instance.
+-- | The port number on which the database accepts connections. Constraints: Value must be @1150-65535@  Default: The same port as the original DB instance.
 rditpitPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
 rditpitPort = lens _rditpitPort (\ s a -> s{_rditpitPort = a});
 
--- | Specifies the storage type to be associated with the DB instance.
---
--- Valid values: 'standard | gp2 | io1'
---
--- If you specify 'io1', you must also include a value for the 'Iops' parameter.
---
--- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
+-- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 rditpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitStorageType = lens _rditpitStorageType (\ s a -> s{_rditpitStorageType = a});
 
 -- | The database name for the restored DB instance.
---
--- This parameter is not used for the MySQL or MariaDB engines.
 rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
--- | The identifier of the source DB instance from which to restore.
---
--- Constraints:
---
--- -   Must be the identifier of an existing database instance
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The identifier of the source DB instance from which to restore. Constraints:     * Must be the identifier of an existing database instance     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 rditpitSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
 rditpitSourceDBInstanceIdentifier = lens _rditpitSourceDBInstanceIdentifier (\ s a -> s{_rditpitSourceDBInstanceIdentifier = a});
 
--- | The name of the new database instance to be created.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of the new database instance to be created. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 rditpitTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
 rditpitTargetDBInstanceIdentifier = lens _rditpitTargetDBInstanceIdentifier (\ s a -> s{_rditpitTargetDBInstanceIdentifier = a});
 
@@ -423,9 +339,9 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rditpitrsDBInstance'
+-- * 'rditpitrsDBInstance' - Undocumented member.
 --
--- * 'rditpitrsResponseStatus'
+-- * 'rditpitrsResponseStatus' - -- | The response status code.
 restoreDBInstanceToPointInTimeResponse
     :: Int -- ^ 'rditpitrsResponseStatus'
     -> RestoreDBInstanceToPointInTimeResponse
@@ -439,7 +355,7 @@ restoreDBInstanceToPointInTimeResponse pResponseStatus_ =
 rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rditpitrsResponseStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
 rditpitrsResponseStatus = lens _rditpitrsResponseStatus (\ s a -> s{_rditpitrsResponseStatus = a});
 

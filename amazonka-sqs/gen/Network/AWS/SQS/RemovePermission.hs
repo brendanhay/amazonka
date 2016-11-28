@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes any permissions in the queue policy that matches the specified 'Label' parameter. Only the owner of the queue can remove permissions.
+-- Revokes any permissions in the queue policy that matches the specified @Label@ parameter. Only the owner of the queue can remove permissions.
+--
+--
 module Network.AWS.SQS.RemovePermission
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.SQS.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'removePermission' smart constructor.
 data RemovePermission = RemovePermission'
     { _rpQueueURL :: !Text
@@ -52,9 +56,9 @@ data RemovePermission = RemovePermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpQueueURL'
+-- * 'rpQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
 --
--- * 'rpLabel'
+-- * 'rpLabel' - The identification of the permission to remove. This is the label added with the 'AddPermission' action.
 removePermission
     :: Text -- ^ 'rpQueueURL'
     -> Text -- ^ 'rpLabel'
@@ -65,13 +69,11 @@ removePermission pQueueURL_ pLabel_ =
     , _rpLabel = pLabel_
     }
 
--- | The URL of the Amazon SQS queue to take action on.
---
--- Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
 rpQueueURL :: Lens' RemovePermission Text
 rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 
--- | The identification of the permission to remove. This is the label added with the < AddPermission> action.
+-- | The identification of the permission to remove. This is the label added with the 'AddPermission' action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 

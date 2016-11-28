@@ -20,7 +20,9 @@
 --
 -- Initiates the copy of an AMI from the specified source region to the current region. You specify the destination region by using its endpoint when making the request.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.CopyImage
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CopyImage.
 --
+--
+--
 -- /See:/ 'copyImage' smart constructor.
 data CopyImage = CopyImage'
     { _ciClientToken   :: !(Maybe Text)
@@ -69,21 +73,21 @@ data CopyImage = CopyImage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciClientToken'
+-- * 'ciClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'ciEncrypted'
+-- * 'ciEncrypted' - Specifies whether the destination snapshots of the copied image should be encrypted. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with @KmsKeyId@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'ciKMSKeyId'
+-- * 'ciKMSKeyId' - The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of an image during a copy operation. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . The specified CMK must exist in the region that the snapshot is being copied to. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 --
--- * 'ciDescription'
+-- * 'ciDescription' - A description for the new AMI in the destination region.
 --
--- * 'ciDryRun'
+-- * 'ciDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ciSourceRegion'
+-- * 'ciSourceRegion' - The name of the region that contains the AMI to copy.
 --
--- * 'ciSourceImageId'
+-- * 'ciSourceImageId' - The ID of the AMI to copy.
 --
--- * 'ciName'
+-- * 'ciName' - The name of the new AMI in the destination region.
 copyImage
     :: Text -- ^ 'ciSourceRegion'
     -> Text -- ^ 'ciSourceImageId'
@@ -101,15 +105,15 @@ copyImage pSourceRegion_ pSourceImageId_ pName_ =
     , _ciName = pName_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
 
--- | Specifies whether the destination snapshots of the copied image should be encrypted. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with 'KmsKeyId'. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
+-- | Specifies whether the destination snapshots of the copied image should be encrypted. The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with @KmsKeyId@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 ciEncrypted :: Lens' CopyImage (Maybe Bool)
 ciEncrypted = lens _ciEncrypted (\ s a -> s{_ciEncrypted = a});
 
--- | The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of an image during a copy operation. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the 'arn:aws:kms' namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the 'key' namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/. The specified CMK must exist in the region that the snapshot is being copied to. If a 'KmsKeyId' is specified, the 'Encrypted' flag must also be set.
+-- | The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of an image during a copy operation. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . The specified CMK must exist in the region that the snapshot is being copied to. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 ciKMSKeyId :: Lens' CopyImage (Maybe Text)
 ciKMSKeyId = lens _ciKMSKeyId (\ s a -> s{_ciKMSKeyId = a});
 
@@ -117,7 +121,7 @@ ciKMSKeyId = lens _ciKMSKeyId (\ s a -> s{_ciKMSKeyId = a});
 ciDescription :: Lens' CopyImage (Maybe Text)
 ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
 
@@ -168,6 +172,8 @@ instance ToQuery CopyImage where
 
 -- | Contains the output of CopyImage.
 --
+--
+--
 -- /See:/ 'copyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
     { _coprsImageId        :: !(Maybe Text)
@@ -178,9 +184,9 @@ data CopyImageResponse = CopyImageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coprsImageId'
+-- * 'coprsImageId' - The ID of the new AMI.
 --
--- * 'coprsResponseStatus'
+-- * 'coprsResponseStatus' - -- | The response status code.
 copyImageResponse
     :: Int -- ^ 'coprsResponseStatus'
     -> CopyImageResponse
@@ -194,7 +200,7 @@ copyImageResponse pResponseStatus_ =
 coprsImageId :: Lens' CopyImageResponse (Maybe Text)
 coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 coprsResponseStatus :: Lens' CopyImageResponse Int
 coprsResponseStatus = lens _coprsResponseStatus (\ s a -> s{_coprsResponseStatus = a});
 

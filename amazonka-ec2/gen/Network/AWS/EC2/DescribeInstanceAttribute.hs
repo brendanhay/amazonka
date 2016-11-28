@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified instance. You can specify only one attribute at a time. Valid attribute values are: 'instanceType' | 'kernel' | 'ramdisk' | 'userData' | 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' | 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' | 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
+-- Describes the specified attribute of the specified instance. You can specify only one attribute at a time. Valid attribute values are: @instanceType@ | @kernel@ | @ramdisk@ | @userData@ | @disableApiTermination@ | @instanceInitiatedShutdownBehavior@ | @rootDeviceName@ | @blockDeviceMapping@ | @productCodes@ | @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@
+--
+--
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Creating a Request
@@ -60,6 +62,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeInstanceAttribute.
 --
+--
+--
 -- /See:/ 'describeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
     { _diaDryRun     :: !(Maybe Bool)
@@ -71,11 +75,11 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diaDryRun'
+-- * 'diaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'diaInstanceId'
+-- * 'diaInstanceId' - The ID of the instance.
 --
--- * 'diaAttribute'
+-- * 'diaAttribute' - The instance attribute. Note: The @enaSupport@ attribute is not supported at this time.
 describeInstanceAttribute
     :: Text -- ^ 'diaInstanceId'
     -> InstanceAttributeName -- ^ 'diaAttribute'
@@ -87,7 +91,7 @@ describeInstanceAttribute pInstanceId_ pAttribute_ =
     , _diaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
 diaDryRun = lens _diaDryRun (\ s a -> s{_diaDryRun = a});
 
@@ -95,9 +99,7 @@ diaDryRun = lens _diaDryRun (\ s a -> s{_diaDryRun = a});
 diaInstanceId :: Lens' DescribeInstanceAttribute Text
 diaInstanceId = lens _diaInstanceId (\ s a -> s{_diaInstanceId = a});
 
--- | The instance attribute.
---
--- Note: The 'enaSupport' attribute is not supported at this time.
+-- | The instance attribute. Note: The @enaSupport@ attribute is not supported at this time.
 diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
 diaAttribute = lens _diaAttribute (\ s a -> s{_diaAttribute = a});
 
@@ -153,6 +155,8 @@ instance ToQuery DescribeInstanceAttribute where
 
 -- | Describes an instance attribute.
 --
+--
+--
 -- /See:/ 'describeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     { _drsInstanceId                        :: !(Maybe Text)
@@ -177,37 +181,37 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsInstanceId'
+-- * 'drsInstanceId' - The ID of the instance.
 --
--- * 'drsGroups'
+-- * 'drsGroups' - The security groups associated with the instance.
 --
--- * 'drsEnaSupport'
+-- * 'drsEnaSupport' - Indicates whether enhanced networking with ENA is enabled.
 --
--- * 'drsSourceDestCheck'
+-- * 'drsSourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 --
--- * 'drsDisableAPITermination'
+-- * 'drsDisableAPITermination' - If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
 --
--- * 'drsRAMDiskId'
+-- * 'drsRAMDiskId' - The RAM disk ID.
 --
--- * 'drsKernelId'
+-- * 'drsKernelId' - The kernel ID.
 --
--- * 'drsRootDeviceName'
+-- * 'drsRootDeviceName' - The name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
 --
--- * 'drsInstanceType'
+-- * 'drsInstanceType' - The instance type.
 --
--- * 'drsSRIOVNetSupport'
+-- * 'drsSRIOVNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
 --
--- * 'drsEBSOptimized'
+-- * 'drsEBSOptimized' - Indicates whether the instance is optimized for EBS I/O.
 --
--- * 'drsUserData'
+-- * 'drsUserData' - The user data.
 --
--- * 'drsInstanceInitiatedShutdownBehavior'
+-- * 'drsInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
 --
--- * 'drsProductCodes'
+-- * 'drsProductCodes' - A list of product codes.
 --
--- * 'drsBlockDeviceMappings'
+-- * 'drsBlockDeviceMappings' - The block device mapping of the instance.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeInstanceAttributeResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeInstanceAttributeResponse
@@ -243,11 +247,11 @@ drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default . _Coerce;
 drsEnaSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsEnaSupport = lens _drsEnaSupport (\ s a -> s{_drsEnaSupport = a});
 
--- | Indicates whether source\/destination checking is enabled. A value of 'true' means checking is enabled, and 'false' means checking is disabled. This value must be 'false' for a NAT instance to perform NAT.
+-- | Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 drsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsSourceDestCheck = lens _drsSourceDestCheck (\ s a -> s{_drsSourceDestCheck = a});
 
--- | If the value is 'true', you can\'t terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
+-- | If the value is @true@ , you can't terminate the instance through the Amazon EC2 console, CLI, or API; otherwise, you can.
 drsDisableAPITermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsDisableAPITermination = lens _drsDisableAPITermination (\ s a -> s{_drsDisableAPITermination = a});
 
@@ -259,7 +263,7 @@ drsRAMDiskId = lens _drsRAMDiskId (\ s a -> s{_drsRAMDiskId = a});
 drsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsKernelId = lens _drsKernelId (\ s a -> s{_drsKernelId = a});
 
--- | The name of the root device (for example, '\/dev\/sda1' or '\/dev\/xvda').
+-- | The name of the root device (for example, @/dev/sda1@ or @/dev/xvda@ ).
 drsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a});
 
@@ -271,7 +275,7 @@ drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
 drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
--- | Indicates whether the instance is optimized for EBS I\/O.
+-- | Indicates whether the instance is optimized for EBS I/O.
 drsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 
@@ -291,7 +295,7 @@ drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _De
 drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

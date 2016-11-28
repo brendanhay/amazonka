@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates properties for an alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
+--
+--
 module Network.AWS.GameLift.UpdateAlias
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'updateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
     { _uaRoutingStrategy :: !(Maybe RoutingStrategy)
@@ -59,13 +63,13 @@ data UpdateAlias = UpdateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaRoutingStrategy'
+-- * 'uaRoutingStrategy' - Object specifying the fleet and routing type to use for the alias.
 --
--- * 'uaName'
+-- * 'uaName' - Descriptive label associated with an alias. Alias names do not need to be unique.
 --
--- * 'uaDescription'
+-- * 'uaDescription' - Human-readable description of an alias.
 --
--- * 'uaAliasId'
+-- * 'uaAliasId' - Unique identifier for a fleet alias. Specify the alias you want to update.
 updateAlias
     :: Text -- ^ 'uaAliasId'
     -> UpdateAlias
@@ -132,6 +136,8 @@ instance ToQuery UpdateAlias where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'updateAliasResponse' smart constructor.
 data UpdateAliasResponse = UpdateAliasResponse'
     { _uarsAlias          :: !(Maybe Alias)
@@ -142,9 +148,9 @@ data UpdateAliasResponse = UpdateAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarsAlias'
+-- * 'uarsAlias' - Object containing the updated alias configuration.
 --
--- * 'uarsResponseStatus'
+-- * 'uarsResponseStatus' - -- | The response status code.
 updateAliasResponse
     :: Int -- ^ 'uarsResponseStatus'
     -> UpdateAliasResponse
@@ -158,7 +164,7 @@ updateAliasResponse pResponseStatus_ =
 uarsAlias :: Lens' UpdateAliasResponse (Maybe Alias)
 uarsAlias = lens _uarsAlias (\ s a -> s{_uarsAlias = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uarsResponseStatus :: Lens' UpdateAliasResponse Int
 uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a});
 

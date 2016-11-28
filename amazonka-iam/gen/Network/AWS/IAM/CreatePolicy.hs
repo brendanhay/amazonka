@@ -20,9 +20,11 @@
 --
 -- Creates a new managed policy for your AWS account.
 --
--- This operation creates a policy version with a version identifier of 'v1' and sets v1 as the policy\'s default version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
 --
--- For more information about managed policies in general, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+-- This operation creates a policy version with a version identifier of @v1@ and sets v1 as the policy's default version. For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+--
+-- For more information about managed policies in general, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreatePolicy
     (
     -- * Creating a Request
@@ -61,13 +63,13 @@ data CreatePolicy = CreatePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPath'
+-- * 'cpPath' - The path for the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cpDescription'
+-- * 'cpDescription' - A friendly description of the policy. Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables." The policy description is immutable. After a value is assigned, it cannot be changed.
 --
--- * 'cpPolicyName'
+-- * 'cpPolicyName' - The friendly name of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'cpPolicyDocument'
+-- * 'cpPolicyDocument' - The JSON policy document that you want to use as the content for the new policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 createPolicy
     :: Text -- ^ 'cpPolicyName'
     -> Text -- ^ 'cpPolicyDocument'
@@ -80,33 +82,19 @@ createPolicy pPolicyName_ pPolicyDocument_ =
     , _cpPolicyDocument = pPolicyDocument_
     }
 
--- | The path for the policy.
---
--- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path for the policy. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cpPath :: Lens' CreatePolicy (Maybe Text)
 cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 
--- | A friendly description of the policy.
---
--- Typically used to store information about the permissions defined in the policy. For example, \"Grants access to production DynamoDB tables.\"
---
--- The policy description is immutable. After a value is assigned, it cannot be changed.
+-- | A friendly description of the policy. Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables." The policy description is immutable. After a value is assigned, it cannot be changed.
 cpDescription :: Lens' CreatePolicy (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 
--- | The friendly name of the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The friendly name of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cpPolicyName :: Lens' CreatePolicy Text
 cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
--- | The JSON policy document that you want to use as the content for the new policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The JSON policy document that you want to use as the content for the new policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
@@ -138,7 +126,9 @@ instance ToQuery CreatePolicy where
                "PolicyName" =: _cpPolicyName,
                "PolicyDocument" =: _cpPolicyDocument]
 
--- | Contains the response to a successful < CreatePolicy> request.
+-- | Contains the response to a successful 'CreatePolicy' request.
+--
+--
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
@@ -150,9 +140,9 @@ data CreatePolicyResponse = CreatePolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsPolicy'
+-- * 'cprsPolicy' - A structure containing details about the new policy.
 --
--- * 'cprsResponseStatus'
+-- * 'cprsResponseStatus' - -- | The response status code.
 createPolicyResponse
     :: Int -- ^ 'cprsResponseStatus'
     -> CreatePolicyResponse
@@ -166,7 +156,7 @@ createPolicyResponse pResponseStatus_ =
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cprsResponseStatus :: Lens' CreatePolicyResponse Int
 cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a});
 

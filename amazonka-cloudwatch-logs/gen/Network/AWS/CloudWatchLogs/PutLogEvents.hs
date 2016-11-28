@@ -20,21 +20,24 @@
 --
 -- Uploads a batch of log events to the specified log stream.
 --
--- Every PutLogEvents request must include the 'sequenceToken' obtained from the response of the previous request. An upload in a newly created log stream does not require a 'sequenceToken'. You can also get the 'sequenceToken' using < DescribeLogStreams>.
+--
+-- Every PutLogEvents request must include the @sequenceToken@ obtained from the response of the previous request. An upload in a newly created log stream does not require a @sequenceToken@ . You can also get the @sequenceToken@ using 'DescribeLogStreams' .
 --
 -- The batch of events must satisfy the following constraints:
 --
--- -   The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
+--     * The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.
 --
--- -   None of the log events in the batch can be more than 2 hours in the future.
+--     * None of the log events in the batch can be more than 2 hours in the future.
 --
--- -   None of the log events in the batch can be older than 14 days or the retention period of the log group.
+--     * None of the log events in the batch can be older than 14 days or the retention period of the log group.
 --
--- -   The log events in the batch must be in chronological ordered by their 'timestamp'.
+--     * The log events in the batch must be in chronological ordered by their @timestamp@ .
 --
--- -   The maximum number of log events in a batch is 10,000.
+--     * The maximum number of log events in a batch is 10,000.
 --
--- -   A batch of log events in a single PutLogEvents request cannot span more than 24 hours. Otherwise, the PutLogEvents operation will fail.
+--     * A batch of log events in a single PutLogEvents request cannot span more than 24 hours. Otherwise, the PutLogEvents operation will fail.
+--
+--
 --
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
@@ -75,13 +78,13 @@ data PutLogEvents = PutLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pleSequenceToken'
+-- * 'pleSequenceToken' - A string token that must be obtained from the response of the previous @PutLogEvents@ request.
 --
--- * 'pleLogGroupName'
+-- * 'pleLogGroupName' - The name of the log group to put log events to.
 --
--- * 'pleLogStreamName'
+-- * 'pleLogStreamName' - The name of the log stream to put log events to.
 --
--- * 'pleLogEvents'
+-- * 'pleLogEvents' - Undocumented member.
 putLogEvents
     :: Text -- ^ 'pleLogGroupName'
     -> Text -- ^ 'pleLogStreamName'
@@ -95,7 +98,7 @@ putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     , _pleLogEvents = _List1 # pLogEvents_
     }
 
--- | A string token that must be obtained from the response of the previous 'PutLogEvents' request.
+-- | A string token that must be obtained from the response of the previous @PutLogEvents@ request.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 
@@ -161,11 +164,11 @@ data PutLogEventsResponse = PutLogEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'plersRejectedLogEventsInfo'
+-- * 'plersRejectedLogEventsInfo' - Undocumented member.
 --
--- * 'plersNextSequenceToken'
+-- * 'plersNextSequenceToken' - Undocumented member.
 --
--- * 'plersResponseStatus'
+-- * 'plersResponseStatus' - -- | The response status code.
 putLogEventsResponse
     :: Int -- ^ 'plersResponseStatus'
     -> PutLogEventsResponse
@@ -184,7 +187,7 @@ plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plers
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 plersResponseStatus :: Lens' PutLogEventsResponse Int
 plersResponseStatus = lens _plersResponseStatus (\ s a -> s{_plersResponseStatus = a});
 

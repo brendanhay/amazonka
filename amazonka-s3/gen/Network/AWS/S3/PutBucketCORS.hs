@@ -52,11 +52,11 @@ data PutBucketCORS = PutBucketCORS'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbcContentMD5'
+-- * 'pbcContentMD5' - Undocumented member.
 --
--- * 'pbcBucket'
+-- * 'pbcBucket' - Undocumented member.
 --
--- * 'pbcCORSConfiguration'
+-- * 'pbcCORSConfiguration' - Undocumented member.
 putBucketCORS
     :: BucketName -- ^ 'pbcBucket'
     -> CORSConfiguration -- ^ 'pbcCORSConfiguration'

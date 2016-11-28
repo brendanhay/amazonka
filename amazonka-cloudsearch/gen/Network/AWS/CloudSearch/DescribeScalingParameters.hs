@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the scaling parameters configured for a domain. A domain\'s scaling parameters specify the desired search instance type and replication count. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/.
+-- Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DescribeScalingParameters
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeScalingParameters' operation. Specifies the name of the domain you want to describe.
+-- | Container for the parameters to the @'DescribeScalingParameters' @ operation. Specifies the name of the domain you want to describe.
+--
+--
 --
 -- /See:/ 'describeScalingParameters' smart constructor.
 newtype DescribeScalingParameters = DescribeScalingParameters'
@@ -53,7 +57,7 @@ newtype DescribeScalingParameters = DescribeScalingParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspDomainName'
+-- * 'dspDomainName' - Undocumented member.
 describeScalingParameters
     :: Text -- ^ 'dspDomainName'
     -> DescribeScalingParameters
@@ -94,7 +98,9 @@ instance ToQuery DescribeScalingParameters where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _dspDomainName]
 
--- | The result of a 'DescribeScalingParameters' request. Contains the scaling parameters configured for the domain specified in the request.
+-- | The result of a @DescribeScalingParameters@ request. Contains the scaling parameters configured for the domain specified in the request.
+--
+--
 --
 -- /See:/ 'describeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
@@ -106,9 +112,9 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsprsResponseStatus'
+-- * 'dsprsResponseStatus' - -- | The response status code.
 --
--- * 'dsprsScalingParameters'
+-- * 'dsprsScalingParameters' - Undocumented member.
 describeScalingParametersResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> ScalingParametersStatus -- ^ 'dsprsScalingParameters'
@@ -119,7 +125,7 @@ describeScalingParametersResponse pResponseStatus_ pScalingParameters_ =
     , _dsprsScalingParameters = pScalingParameters_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dsprsResponseStatus :: Lens' DescribeScalingParametersResponse Int
 dsprsResponseStatus = lens _dsprsResponseStatus (\ s a -> s{_dsprsResponseStatus = a});
 

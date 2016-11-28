@@ -20,7 +20,9 @@
 --
 -- Creates the Amazon S3 storage location for the account.
 --
+--
 -- This location is used to store user log files.
+--
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Creating a Request
@@ -80,7 +82,9 @@ instance ToQuery CreateStorageLocation where
                  ["Action" =: ("CreateStorageLocation" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Results of a < CreateStorageLocationResult> call.
+-- | Results of a 'CreateStorageLocationResult' call.
+--
+--
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
@@ -92,9 +96,9 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cslrsS3Bucket'
+-- * 'cslrsS3Bucket' - The name of the Amazon S3 bucket created.
 --
--- * 'cslrsResponseStatus'
+-- * 'cslrsResponseStatus' - -- | The response status code.
 createStorageLocationResponse
     :: Int -- ^ 'cslrsResponseStatus'
     -> CreateStorageLocationResponse
@@ -108,7 +112,7 @@ createStorageLocationResponse pResponseStatus_ =
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cslrsResponseStatus :: Lens' CreateStorageLocationResponse Int
 cslrsResponseStatus = lens _cslrsResponseStatus (\ s a -> s{_cslrsResponseStatus = a});
 

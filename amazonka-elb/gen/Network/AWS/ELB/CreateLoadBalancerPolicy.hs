@@ -20,7 +20,9 @@
 --
 -- Creates a policy with the specified attributes for the specified load balancer.
 --
+--
 -- Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.
+--
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'createLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
     { _clbpPolicyAttributes :: !(Maybe [PolicyAttribute])
@@ -60,13 +64,13 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbpPolicyAttributes'
+-- * 'clbpPolicyAttributes' - The policy attributes.
 --
--- * 'clbpLoadBalancerName'
+-- * 'clbpLoadBalancerName' - The name of the load balancer.
 --
--- * 'clbpPolicyName'
+-- * 'clbpPolicyName' - The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.
 --
--- * 'clbpPolicyTypeName'
+-- * 'clbpPolicyTypeName' - The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
 createLoadBalancerPolicy
     :: Text -- ^ 'clbpLoadBalancerName'
     -> Text -- ^ 'clbpPolicyName'
@@ -92,7 +96,7 @@ clbpLoadBalancerName = lens _clbpLoadBalancerName (\ s a -> s{_clbpLoadBalancerN
 clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyName = lens _clbpPolicyName (\ s a -> s{_clbpPolicyName = a});
 
--- | The name of the base policy type. To get the list of policy types, use < DescribeLoadBalancerPolicyTypes>.
+-- | The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes' .
 clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
 clbpPolicyTypeName = lens _clbpPolicyTypeName (\ s a -> s{_clbpPolicyTypeName = a});
 
@@ -131,6 +135,8 @@ instance ToQuery CreateLoadBalancerPolicy where
 
 -- | Contains the output of CreateLoadBalancerPolicy.
 --
+--
+--
 -- /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
     { _clbprsResponseStatus :: Int
@@ -140,7 +146,7 @@ newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clbprsResponseStatus'
+-- * 'clbprsResponseStatus' - -- | The response status code.
 createLoadBalancerPolicyResponse
     :: Int -- ^ 'clbprsResponseStatus'
     -> CreateLoadBalancerPolicyResponse
@@ -149,7 +155,7 @@ createLoadBalancerPolicyResponse pResponseStatus_ =
     { _clbprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 clbprsResponseStatus :: Lens' CreateLoadBalancerPolicyResponse Int
 clbprsResponseStatus = lens _clbprsResponseStatus (\ s a -> s{_clbprsResponseStatus = a});
 

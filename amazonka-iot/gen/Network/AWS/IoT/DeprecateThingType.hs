@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deprecates a thing type. You can not associate new things with deprecated thing type.
+--
+--
 module Network.AWS.IoT.DeprecateThingType
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | The input for the DeprecateThingType operation.
 --
+--
+--
 -- /See:/ 'deprecateThingType' smart constructor.
 data DeprecateThingType = DeprecateThingType'
     { _depUndoDeprecate :: !(Maybe Bool)
@@ -54,9 +58,9 @@ data DeprecateThingType = DeprecateThingType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'depUndoDeprecate'
+-- * 'depUndoDeprecate' - Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
 --
--- * 'depThingTypeName'
+-- * 'depThingTypeName' - The name of the thing type to deprecate.
 deprecateThingType
     :: Text -- ^ 'depThingTypeName'
     -> DeprecateThingType
@@ -66,7 +70,7 @@ deprecateThingType pThingTypeName_ =
     , _depThingTypeName = pThingTypeName_
     }
 
--- | Whether to undeprecate a deprecated thing type. If __true__, the thing type will not be deprecated anymore and you can associate it with things.
+-- | Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
 depUndoDeprecate :: Lens' DeprecateThingType (Maybe Bool)
 depUndoDeprecate = lens _depUndoDeprecate (\ s a -> s{_depUndoDeprecate = a});
 
@@ -107,6 +111,8 @@ instance ToQuery DeprecateThingType where
 
 -- | The output for the DeprecateThingType operation.
 --
+--
+--
 -- /See:/ 'deprecateThingTypeResponse' smart constructor.
 newtype DeprecateThingTypeResponse = DeprecateThingTypeResponse'
     { _deprsResponseStatus :: Int
@@ -116,7 +122,7 @@ newtype DeprecateThingTypeResponse = DeprecateThingTypeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deprsResponseStatus'
+-- * 'deprsResponseStatus' - -- | The response status code.
 deprecateThingTypeResponse
     :: Int -- ^ 'deprsResponseStatus'
     -> DeprecateThingTypeResponse
@@ -125,7 +131,7 @@ deprecateThingTypeResponse pResponseStatus_ =
     { _deprsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 deprsResponseStatus :: Lens' DeprecateThingTypeResponse Int
 deprsResponseStatus = lens _deprsResponseStatus (\ s a -> s{_deprsResponseStatus = a});
 

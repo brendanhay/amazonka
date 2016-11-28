@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified virtual private gateway. We recommend that before you delete a virtual private gateway, you detach it from the VPC and delete the VPN connection. Note that you don\'t need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.
+-- Deletes the specified virtual private gateway. We recommend that before you delete a virtual private gateway, you detach it from the VPC and delete the VPN connection. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.
+--
+--
 module Network.AWS.EC2.DeleteVPNGateway
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteVpnGateway.
 --
+--
+--
 -- /See:/ 'deleteVPNGateway' smart constructor.
 data DeleteVPNGateway = DeleteVPNGateway'
     { _dvgDryRun       :: !(Maybe Bool)
@@ -52,9 +56,9 @@ data DeleteVPNGateway = DeleteVPNGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvgDryRun'
+-- * 'dvgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvgVPNGatewayId'
+-- * 'dvgVPNGatewayId' - The ID of the virtual private gateway.
 deleteVPNGateway
     :: Text -- ^ 'dvgVPNGatewayId'
     -> DeleteVPNGateway
@@ -64,7 +68,7 @@ deleteVPNGateway pVPNGatewayId_ =
     , _dvgVPNGatewayId = pVPNGatewayId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvgDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
 dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a});
 

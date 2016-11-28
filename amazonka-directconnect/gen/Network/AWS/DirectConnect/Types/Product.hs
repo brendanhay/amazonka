@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | A connection represents the physical network connection between the AWS Direct Connect location and the customer.
 --
+--
+--
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
     { _cVlan            :: !(Maybe Int)
@@ -41,25 +43,25 @@ data Connection = Connection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cVlan'
+-- * 'cVlan' - Undocumented member.
 --
--- * 'cLocation'
+-- * 'cLocation' - Undocumented member.
 --
--- * 'cConnectionId'
+-- * 'cConnectionId' - Undocumented member.
 --
--- * 'cLoaIssueTime'
+-- * 'cLoaIssueTime' - The time of the most recent call to DescribeConnectionLoa for this Connection.
 --
--- * 'cPartnerName'
+-- * 'cPartnerName' - The name of the AWS Direct Connect service provider associated with the connection.
 --
--- * 'cConnectionName'
+-- * 'cConnectionName' - Undocumented member.
 --
--- * 'cBandwidth'
+-- * 'cBandwidth' - Bandwidth of the connection. Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections) Default: None
 --
--- * 'cOwnerAccount'
+-- * 'cOwnerAccount' - The AWS account that will own the new connection.
 --
--- * 'cRegion'
+-- * 'cRegion' - Undocumented member.
 --
--- * 'cConnectionState'
+-- * 'cConnectionState' - Undocumented member.
 connection
     :: Connection
 connection =
@@ -100,11 +102,7 @@ cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
 cConnectionName :: Lens' Connection (Maybe Text)
 cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 
--- | Bandwidth of the connection.
---
--- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
---
--- Default: None
+-- | Bandwidth of the connection. Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections) Default: None
 cBandwidth :: Lens' Connection (Maybe Text)
 cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
 
@@ -141,6 +139,8 @@ instance NFData Connection
 
 -- | A structure containing a list of connections.
 --
+--
+--
 -- /See:/ 'connections' smart constructor.
 newtype Connections = Connections'
     { _cConnections :: Maybe [Connection]
@@ -150,7 +150,7 @@ newtype Connections = Connections'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cConnections'
+-- * 'cConnections' - A list of connections.
 connections
     :: Connections
 connections =
@@ -174,9 +174,11 @@ instance NFData Connections
 
 -- | An interconnect is a connection that can host other connections.
 --
--- Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner\'s network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.
+--
+-- Like a standard AWS Direct Connect connection, an interconnect represents the physical connection between an AWS Direct Connect partner's network and a specific Direct Connect location. An AWS Direct Connect partner who owns an interconnect can provision hosted connections on the interconnect for their end customers, thereby providing the end customers with connectivity to AWS services.
 --
 -- The resources of the interconnect, including bandwidth and VLAN numbers, are shared by all of the hosted connections on the interconnect, and the owner of the interconnect determines how these resources are assigned.
+--
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
@@ -193,19 +195,19 @@ data Interconnect = Interconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iInterconnectId'
+-- * 'iInterconnectId' - Undocumented member.
 --
--- * 'iLocation'
+-- * 'iLocation' - Undocumented member.
 --
--- * 'iInterconnectName'
+-- * 'iInterconnectName' - Undocumented member.
 --
--- * 'iLoaIssueTime'
+-- * 'iLoaIssueTime' - The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
 --
--- * 'iBandwidth'
+-- * 'iBandwidth' - Undocumented member.
 --
--- * 'iInterconnectState'
+-- * 'iInterconnectState' - Undocumented member.
 --
--- * 'iRegion'
+-- * 'iRegion' - Undocumented member.
 interconnect
     :: Interconnect
 interconnect =
@@ -265,6 +267,8 @@ instance NFData Interconnect
 
 -- | A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
 --
+--
+--
 -- /See:/ 'loa' smart constructor.
 data Loa = Loa'
     { _loaLoaContent     :: !(Maybe Base64)
@@ -275,9 +279,9 @@ data Loa = Loa'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loaLoaContent'
+-- * 'loaLoaContent' - Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'loaLoaContentType'
+-- * 'loaLoaContentType' - Undocumented member.
 loa
     :: Loa
 loa =
@@ -286,13 +290,7 @@ loa =
     , _loaLoaContentType = Nothing
     }
 
--- | Undocumented member.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | Undocumented member.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 loaLoaContent :: Lens' Loa (Maybe ByteString)
 loaLoaContent = lens _loaLoaContent (\ s a -> s{_loaLoaContent = a}) . mapping _Base64;
 
@@ -313,6 +311,8 @@ instance NFData Loa
 
 -- | An AWS Direct Connect location where connections and interconnects can be requested.
 --
+--
+--
 -- /See:/ 'location' smart constructor.
 data Location = Location'
     { _lLocationName :: !(Maybe Text)
@@ -323,9 +323,9 @@ data Location = Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lLocationName'
+-- * 'lLocationName' - The name of the AWS Direct Connect location. The name includes the colocation partner name and the physical site of the lit building.
 --
--- * 'lLocationCode'
+-- * 'lLocationCode' - The code used to indicate the AWS Direct Connect location.
 location
     :: Location
 location =
@@ -355,6 +355,8 @@ instance NFData Location
 
 -- | A structure containing information about a new private virtual interface.
 --
+--
+--
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
     { _nCustomerAddress      :: !(Maybe Text)
@@ -370,19 +372,19 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nCustomerAddress'
+-- * 'nCustomerAddress' - Undocumented member.
 --
--- * 'nAmazonAddress'
+-- * 'nAmazonAddress' - Undocumented member.
 --
--- * 'nAuthKey'
+-- * 'nAuthKey' - Undocumented member.
 --
--- * 'nVirtualInterfaceName'
+-- * 'nVirtualInterfaceName' - Undocumented member.
 --
--- * 'nVlan'
+-- * 'nVlan' - Undocumented member.
 --
--- * 'nAsn'
+-- * 'nAsn' - Undocumented member.
 --
--- * 'nVirtualGatewayId'
+-- * 'nVirtualGatewayId' - Undocumented member.
 newPrivateVirtualInterface
     :: Text -- ^ 'nVirtualInterfaceName'
     -> Int -- ^ 'nVlan'
@@ -446,6 +448,8 @@ instance ToJSON NewPrivateVirtualInterface where
 
 -- | A structure containing information about a private virtual interface that will be provisioned on a connection.
 --
+--
+--
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress      :: !(Maybe Text)
@@ -460,17 +464,17 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'npviaCustomerAddress'
+-- * 'npviaCustomerAddress' - Undocumented member.
 --
--- * 'npviaAmazonAddress'
+-- * 'npviaAmazonAddress' - Undocumented member.
 --
--- * 'npviaAuthKey'
+-- * 'npviaAuthKey' - Undocumented member.
 --
--- * 'npviaVirtualInterfaceName'
+-- * 'npviaVirtualInterfaceName' - Undocumented member.
 --
--- * 'npviaVlan'
+-- * 'npviaVlan' - Undocumented member.
 --
--- * 'npviaAsn'
+-- * 'npviaAsn' - Undocumented member.
 newPrivateVirtualInterfaceAllocation
     :: Text -- ^ 'npviaVirtualInterfaceName'
     -> Int -- ^ 'npviaVlan'
@@ -531,6 +535,8 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 
 -- | A structure containing information about a new public virtual interface.
 --
+--
+--
 -- /See:/ 'newPublicVirtualInterface' smart constructor.
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
     { _npviAuthKey              :: !(Maybe Text)
@@ -546,19 +552,19 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'npviAuthKey'
+-- * 'npviAuthKey' - Undocumented member.
 --
--- * 'npviVirtualInterfaceName'
+-- * 'npviVirtualInterfaceName' - Undocumented member.
 --
--- * 'npviVlan'
+-- * 'npviVlan' - Undocumented member.
 --
--- * 'npviAsn'
+-- * 'npviAsn' - Undocumented member.
 --
--- * 'npviAmazonAddress'
+-- * 'npviAmazonAddress' - Undocumented member.
 --
--- * 'npviCustomerAddress'
+-- * 'npviCustomerAddress' - Undocumented member.
 --
--- * 'npviRouteFilterPrefixes'
+-- * 'npviRouteFilterPrefixes' - Undocumented member.
 newPublicVirtualInterface
     :: Text -- ^ 'npviVirtualInterfaceName'
     -> Int -- ^ 'npviVlan'
@@ -625,6 +631,8 @@ instance ToJSON NewPublicVirtualInterface where
 
 -- | A structure containing information about a public virtual interface that will be provisioned on a connection.
 --
+--
+--
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
     { _newAuthKey              :: !(Maybe Text)
@@ -640,19 +648,19 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'newAuthKey'
+-- * 'newAuthKey' - Undocumented member.
 --
--- * 'newVirtualInterfaceName'
+-- * 'newVirtualInterfaceName' - Undocumented member.
 --
--- * 'newVlan'
+-- * 'newVlan' - Undocumented member.
 --
--- * 'newAsn'
+-- * 'newAsn' - Undocumented member.
 --
--- * 'newAmazonAddress'
+-- * 'newAmazonAddress' - Undocumented member.
 --
--- * 'newCustomerAddress'
+-- * 'newCustomerAddress' - Undocumented member.
 --
--- * 'newRouteFilterPrefixes'
+-- * 'newRouteFilterPrefixes' - Undocumented member.
 newPublicVirtualInterfaceAllocation
     :: Text -- ^ 'newVirtualInterfaceName'
     -> Int -- ^ 'newVlan'
@@ -719,6 +727,8 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 
 -- | A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
+--
+--
 -- /See:/ 'routeFilterPrefix' smart constructor.
 newtype RouteFilterPrefix = RouteFilterPrefix'
     { _rfpCidr :: Maybe Text
@@ -728,7 +738,7 @@ newtype RouteFilterPrefix = RouteFilterPrefix'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfpCidr'
+-- * 'rfpCidr' - CIDR notation for the advertised route. Multiple routes are separated by commas. Example: 10.10.10.0/24,10.10.11.0/24
 routeFilterPrefix
     :: RouteFilterPrefix
 routeFilterPrefix =
@@ -736,9 +746,7 @@ routeFilterPrefix =
     { _rfpCidr = Nothing
     }
 
--- | CIDR notation for the advertised route. Multiple routes are separated by commas.
---
--- Example: 10.10.10.0\/24,10.10.11.0\/24
+-- | CIDR notation for the advertised route. Multiple routes are separated by commas. Example: 10.10.10.0/24,10.10.11.0/24
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a});
 
@@ -757,7 +765,9 @@ instance ToJSON RouteFilterPrefix where
 
 -- | You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.
 --
--- Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action>.
+--
+-- Virtual private gateways can be managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action> .
+--
 --
 -- /See:/ 'virtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
@@ -769,9 +779,9 @@ data VirtualGateway = VirtualGateway'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vgVirtualGatewayId'
+-- * 'vgVirtualGatewayId' - Undocumented member.
 --
--- * 'vgVirtualGatewayState'
+-- * 'vgVirtualGatewayState' - Undocumented member.
 virtualGateway
     :: VirtualGateway
 virtualGateway =
@@ -802,6 +812,8 @@ instance NFData VirtualGateway
 
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.
 --
+--
+--
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
     { _viVirtualGatewayId      :: !(Maybe Text)
@@ -825,35 +837,35 @@ data VirtualInterface = VirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'viVirtualGatewayId'
+-- * 'viVirtualGatewayId' - Undocumented member.
 --
--- * 'viRouteFilterPrefixes'
+-- * 'viRouteFilterPrefixes' - Undocumented member.
 --
--- * 'viCustomerAddress'
+-- * 'viCustomerAddress' - Undocumented member.
 --
--- * 'viVlan'
+-- * 'viVlan' - Undocumented member.
 --
--- * 'viLocation'
+-- * 'viLocation' - Undocumented member.
 --
--- * 'viAmazonAddress'
+-- * 'viAmazonAddress' - Undocumented member.
 --
--- * 'viVirtualInterfaceState'
+-- * 'viVirtualInterfaceState' - Undocumented member.
 --
--- * 'viConnectionId'
+-- * 'viConnectionId' - Undocumented member.
 --
--- * 'viVirtualInterfaceType'
+-- * 'viVirtualInterfaceType' - Undocumented member.
 --
--- * 'viAsn'
+-- * 'viAsn' - Undocumented member.
 --
--- * 'viAuthKey'
+-- * 'viAuthKey' - Undocumented member.
 --
--- * 'viCustomerRouterConfig'
+-- * 'viCustomerRouterConfig' - Information for generating the customer router configuration.
 --
--- * 'viOwnerAccount'
+-- * 'viOwnerAccount' - The AWS account that will own the new virtual interface.
 --
--- * 'viVirtualInterfaceName'
+-- * 'viVirtualInterfaceName' - Undocumented member.
 --
--- * 'viVirtualInterfaceId'
+-- * 'viVirtualInterfaceId' - Undocumented member.
 virtualInterface
     :: VirtualInterface
 virtualInterface =

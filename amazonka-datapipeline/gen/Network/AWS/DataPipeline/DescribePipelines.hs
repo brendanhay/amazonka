@@ -20,7 +20,9 @@
 --
 -- Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines for which you have read permissions.
 --
--- To retrieve the full pipeline definition instead of metadata about the pipeline, call < GetPipelineDefinition>.
+--
+-- To retrieve the full pipeline definition instead of metadata about the pipeline, call 'GetPipelineDefinition' .
+--
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribePipelines.
 --
+--
+--
 -- /See:/ 'describePipelines' smart constructor.
 newtype DescribePipelines = DescribePipelines'
     { _dpPipelineIds :: [Text]
@@ -55,7 +59,7 @@ newtype DescribePipelines = DescribePipelines'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpPipelineIds'
+-- * 'dpPipelineIds' - The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call 'ListPipelines' .
 describePipelines
     :: DescribePipelines
 describePipelines =
@@ -63,7 +67,7 @@ describePipelines =
     { _dpPipelineIds = mempty
     }
 
--- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call < ListPipelines>.
+-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a single call. To obtain pipeline IDs, call 'ListPipelines' .
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
@@ -103,6 +107,8 @@ instance ToQuery DescribePipelines where
 
 -- | Contains the output of DescribePipelines.
 --
+--
+--
 -- /See:/ 'describePipelinesResponse' smart constructor.
 data DescribePipelinesResponse = DescribePipelinesResponse'
     { _dprsResponseStatus          :: !Int
@@ -113,9 +119,9 @@ data DescribePipelinesResponse = DescribePipelinesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsResponseStatus'
+-- * 'dprsResponseStatus' - -- | The response status code.
 --
--- * 'dprsPipelineDescriptionList'
+-- * 'dprsPipelineDescriptionList' - An array of descriptions for the specified pipelines.
 describePipelinesResponse
     :: Int -- ^ 'dprsResponseStatus'
     -> DescribePipelinesResponse
@@ -125,7 +131,7 @@ describePipelinesResponse pResponseStatus_ =
     , _dprsPipelineDescriptionList = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dprsResponseStatus :: Lens' DescribePipelinesResponse Int
 dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
 

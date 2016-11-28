@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a repository branch, including its name and the last commit ID.
+--
+--
 module Network.AWS.CodeCommit.GetBranch
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get branch operation.
 --
+--
+--
 -- /See:/ 'getBranch' smart constructor.
 data GetBranch = GetBranch'
     { _gbBranchName     :: !(Maybe Text)
@@ -55,9 +59,9 @@ data GetBranch = GetBranch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbBranchName'
+-- * 'gbBranchName' - The name of the branch for which you want to retrieve information.
 --
--- * 'gbRepositoryName'
+-- * 'gbRepositoryName' - The name of the repository that contains the branch for which you want to retrieve information.
 getBranch
     :: GetBranch
 getBranch =
@@ -111,6 +115,8 @@ instance ToQuery GetBranch where
 
 -- | Represents the output of a get branch operation.
 --
+--
+--
 -- /See:/ 'getBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
     { _gbrsBranch         :: !(Maybe BranchInfo)
@@ -121,9 +127,9 @@ data GetBranchResponse = GetBranchResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbrsBranch'
+-- * 'gbrsBranch' - The name of the branch.
 --
--- * 'gbrsResponseStatus'
+-- * 'gbrsResponseStatus' - -- | The response status code.
 getBranchResponse
     :: Int -- ^ 'gbrsResponseStatus'
     -> GetBranchResponse
@@ -137,7 +143,7 @@ getBranchResponse pResponseStatus_ =
 gbrsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
 gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbrsResponseStatus :: Lens' GetBranchResponse Int
 gbrsResponseStatus = lens _gbrsResponseStatus (\ s a -> s{_gbrsResponseStatus = a});
 

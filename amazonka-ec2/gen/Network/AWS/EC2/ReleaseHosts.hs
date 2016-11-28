@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into 'released' state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
+-- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into @released@ state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, e.g., ModifyHosts. You must stop or terminate all instances on a host before it can be released.
+--
 --
 -- When Dedicated Hosts are released, it make take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated hosts. Try waiting a few minutes, and then try again.
 --
--- Released hosts will still appear in a < DescribeHosts> response.
+-- Released hosts will still appear in a 'DescribeHosts' response.
+--
 module Network.AWS.EC2.ReleaseHosts
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ReleaseHosts.
 --
+--
+--
 -- /See:/ 'releaseHosts' smart constructor.
 newtype ReleaseHosts = ReleaseHosts'
     { _rhHostIds :: [Text]
@@ -58,7 +62,7 @@ newtype ReleaseHosts = ReleaseHosts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rhHostIds'
+-- * 'rhHostIds' - The IDs of the Dedicated Hosts you want to release.
 releaseHosts
     :: ReleaseHosts
 releaseHosts =
@@ -103,6 +107,8 @@ instance ToQuery ReleaseHosts where
 
 -- | Contains the output of ReleaseHosts.
 --
+--
+--
 -- /See:/ 'releaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
     { _rhrsUnsuccessful   :: !(Maybe [UnsuccessfulItem])
@@ -114,11 +120,11 @@ data ReleaseHostsResponse = ReleaseHostsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rhrsUnsuccessful'
+-- * 'rhrsUnsuccessful' - The IDs of the Dedicated Hosts that could not be released, including an error message.
 --
--- * 'rhrsSuccessful'
+-- * 'rhrsSuccessful' - The IDs of the Dedicated Hosts that were successfully released.
 --
--- * 'rhrsResponseStatus'
+-- * 'rhrsResponseStatus' - -- | The response status code.
 releaseHostsResponse
     :: Int -- ^ 'rhrsResponseStatus'
     -> ReleaseHostsResponse
@@ -137,7 +143,7 @@ rhrsUnsuccessful = lens _rhrsUnsuccessful (\ s a -> s{_rhrsUnsuccessful = a}) . 
 rhrsSuccessful :: Lens' ReleaseHostsResponse [Text]
 rhrsSuccessful = lens _rhrsSuccessful (\ s a -> s{_rhrsSuccessful = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
 rhrsResponseStatus = lens _rhrsResponseStatus (\ s a -> s{_rhrsResponseStatus = a});
 

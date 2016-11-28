@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the associations for the specified SSM document or instance.
+--
+--
 module Network.AWS.SSM.DescribeAssociation
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DescribeAssociation = DescribeAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daName'
+-- * 'daName' - The name of the SSM document.
 --
--- * 'daInstanceId'
+-- * 'daInstanceId' - The instance ID.
 describeAssociation
     :: Text -- ^ 'daName'
     -> Text -- ^ 'daInstanceId'
@@ -121,9 +123,9 @@ data DescribeAssociationResponse = DescribeAssociationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsAssociationDescription'
+-- * 'desrsAssociationDescription' - Information about the association.
 --
--- * 'desrsResponseStatus'
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeAssociationResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeAssociationResponse
@@ -137,7 +139,7 @@ describeAssociationResponse pResponseStatus_ =
 desrsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
 desrsAssociationDescription = lens _desrsAssociationDescription (\ s a -> s{_desrsAssociationDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 desrsResponseStatus :: Lens' DescribeAssociationResponse Int
 desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 

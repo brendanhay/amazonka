@@ -20,9 +20,9 @@
 --
 -- Registers instances with a specified stack that were created outside of AWS OpsWorks.
 --
--- We do not recommend using this action to register instances. The complete registration operation has two primary steps, installing the AWS OpsWorks agent on the instance and registering the instance with the stack. 'RegisterInstance' handles only the second step. You should instead use the AWS CLI 'register' command, which performs the entire registration operation. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.RegisterInstance
     (
     -- * Creating a Request
@@ -67,19 +67,19 @@ data RegisterInstance = RegisterInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'riPrivateIP'
+-- * 'riPrivateIP' - The instance's private IP address.
 --
--- * 'riHostname'
+-- * 'riHostname' - The instance's hostname.
 --
--- * 'riInstanceIdentity'
+-- * 'riInstanceIdentity' - An InstanceIdentity object that contains the instance's identity.
 --
--- * 'riPublicIP'
+-- * 'riPublicIP' - The instance's public IP address.
 --
--- * 'riRsaPublicKeyFingerprint'
+-- * 'riRsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
 --
--- * 'riRsaPublicKey'
+-- * 'riRsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
 --
--- * 'riStackId'
+-- * 'riStackId' - The ID of the stack that the instance is to be registered with.
 registerInstance
     :: Text -- ^ 'riStackId'
     -> RegisterInstance
@@ -94,19 +94,19 @@ registerInstance pStackId_ =
     , _riStackId = pStackId_
     }
 
--- | The instance\'s private IP address.
+-- | The instance's private IP address.
 riPrivateIP :: Lens' RegisterInstance (Maybe Text)
 riPrivateIP = lens _riPrivateIP (\ s a -> s{_riPrivateIP = a});
 
--- | The instance\'s hostname.
+-- | The instance's hostname.
 riHostname :: Lens' RegisterInstance (Maybe Text)
 riHostname = lens _riHostname (\ s a -> s{_riHostname = a});
 
--- | An InstanceIdentity object that contains the instance\'s identity.
+-- | An InstanceIdentity object that contains the instance's identity.
 riInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
 riInstanceIdentity = lens _riInstanceIdentity (\ s a -> s{_riInstanceIdentity = a});
 
--- | The instance\'s public IP address.
+-- | The instance's public IP address.
 riPublicIP :: Lens' RegisterInstance (Maybe Text)
 riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a});
 
@@ -163,7 +163,9 @@ instance ToPath RegisterInstance where
 instance ToQuery RegisterInstance where
         toQuery = const mempty
 
--- | Contains the response to a 'RegisterInstanceResult' request.
+-- | Contains the response to a @RegisterInstanceResult@ request.
+--
+--
 --
 -- /See:/ 'registerInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
@@ -175,9 +177,9 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirsInstanceId'
+-- * 'rirsInstanceId' - The registered instance's AWS OpsWorks ID.
 --
--- * 'rirsResponseStatus'
+-- * 'rirsResponseStatus' - -- | The response status code.
 registerInstanceResponse
     :: Int -- ^ 'rirsResponseStatus'
     -> RegisterInstanceResponse
@@ -187,11 +189,11 @@ registerInstanceResponse pResponseStatus_ =
     , _rirsResponseStatus = pResponseStatus_
     }
 
--- | The registered instance\'s AWS OpsWorks ID.
+-- | The registered instance's AWS OpsWorks ID.
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rirsResponseStatus :: Lens' RegisterInstanceResponse Int
 rirsResponseStatus = lens _rirsResponseStatus (\ s a -> s{_rirsResponseStatus = a});
 

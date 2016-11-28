@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB security group. DB security groups control access to a DB instance.
+--
+--
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBSecurityGroup' smart constructor.
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
     { _cdsgTags                       :: !(Maybe [Tag])
@@ -57,11 +61,11 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsgTags'
+-- * 'cdsgTags' - Undocumented member.
 --
--- * 'cdsgDBSecurityGroupName'
+-- * 'cdsgDBSecurityGroupName' - The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
 --
--- * 'cdsgDBSecurityGroupDescription'
+-- * 'cdsgDBSecurityGroupDescription' - The description for the DB security group.
 createDBSecurityGroup
     :: Text -- ^ 'cdsgDBSecurityGroupName'
     -> Text -- ^ 'cdsgDBSecurityGroupDescription'
@@ -77,19 +81,7 @@ createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
 cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 
--- | The name for the DB security group. This value is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
--- -   Must not be \"Default\"
---
--- Example: 'mysecuritygroup'
+-- | The name for the DB security group. This value is stored as a lowercase string. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens     * Must not be "Default" Example: @mysecuritygroup@
 cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
 cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a});
 
@@ -137,9 +129,9 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbsgrsDBSecurityGroup'
+-- * 'cdbsgrsDBSecurityGroup' - Undocumented member.
 --
--- * 'cdbsgrsResponseStatus'
+-- * 'cdbsgrsResponseStatus' - -- | The response status code.
 createDBSecurityGroupResponse
     :: Int -- ^ 'cdbsgrsResponseStatus'
     -> CreateDBSecurityGroupResponse
@@ -153,7 +145,7 @@ createDBSecurityGroupResponse pResponseStatus_ =
 cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdbsgrsResponseStatus :: Lens' CreateDBSecurityGroupResponse Int
 cdbsgrsResponseStatus = lens _cdbsgrsResponseStatus (\ s a -> s{_cdbsgrsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Obtains information about the specified WorkSpaces.
 --
--- Only one of the filter parameters, such as 'BundleId', 'DirectoryId', or 'WorkspaceIds', can be specified at a time.
 --
--- This operation supports pagination with the use of the 'NextToken' request and response parameters. If more results are available, the 'NextToken' response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
+-- Only one of the filter parameters, such as @BundleId@ , @DirectoryId@ , or @WorkspaceIds@ , can be specified at a time.
+--
+-- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @NextToken@ response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
+--
 module Network.AWS.WorkSpaces.DescribeWorkspaces
     (
     -- * Creating a Request
@@ -52,7 +54,9 @@ import           Network.AWS.Response
 import           Network.AWS.WorkSpaces.Types
 import           Network.AWS.WorkSpaces.Types.Product
 
--- | Contains the inputs for the < DescribeWorkspaces> operation.
+-- | Contains the inputs for the 'DescribeWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'describeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
@@ -68,17 +72,17 @@ data DescribeWorkspaces = DescribeWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwDirectoryId'
+-- * 'dwDirectoryId' - Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you can specify a specific directory user with the @UserName@ parameter. This parameter cannot be combined with any other filter parameter.
 --
--- * 'dwWorkspaceIds'
+-- * 'dwWorkspaceIds' - An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
 --
--- * 'dwUserName'
+-- * 'dwUserName' - Used with the @DirectoryId@ parameter to specify the directory user for whom to obtain the WorkSpace.
 --
--- * 'dwBundleId'
+-- * 'dwBundleId' - The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces that are created from this bundle will be retrieved. This parameter cannot be combined with any other filter parameter.
 --
--- * 'dwNextToken'
+-- * 'dwNextToken' - The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 --
--- * 'dwLimit'
+-- * 'dwLimit' - The maximum number of items to return.
 describeWorkspaces
     :: DescribeWorkspaces
 describeWorkspaces =
@@ -91,17 +95,15 @@ describeWorkspaces =
     , _dwLimit = Nothing
     }
 
--- | Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you can specify a specific directory user with the 'UserName' parameter. This parameter cannot be combined with any other filter parameter.
+-- | Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you can specify a specific directory user with the @UserName@ parameter. This parameter cannot be combined with any other filter parameter.
 dwDirectoryId :: Lens' DescribeWorkspaces (Maybe Text)
 dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
 
--- | An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter.
---
--- Because the < CreateWorkspaces> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call < DescribeWorkspaces> with this identifier, no information is returned.
+-- | An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter. Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
 dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
 dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1;
 
--- | Used with the 'DirectoryId' parameter to specify the directory user for whom to obtain the WorkSpace.
+-- | Used with the @DirectoryId@ parameter to specify the directory user for whom to obtain the WorkSpace.
 dwUserName :: Lens' DescribeWorkspaces (Maybe Text)
 dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
 
@@ -109,7 +111,7 @@ dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
 dwBundleId :: Lens' DescribeWorkspaces (Maybe Text)
 dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a});
 
--- | The 'NextToken' value from a previous call to this operation. Pass null if this is the first call.
+-- | The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 dwNextToken :: Lens' DescribeWorkspaces (Maybe Text)
 dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a});
 
@@ -160,7 +162,9 @@ instance ToPath DescribeWorkspaces where
 instance ToQuery DescribeWorkspaces where
         toQuery = const mempty
 
--- | Contains the results for the < DescribeWorkspaces> operation.
+-- | Contains the results for the 'DescribeWorkspaces' operation.
+--
+--
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
@@ -173,11 +177,11 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwrsNextToken'
+-- * 'dwrsNextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 --
--- * 'dwrsWorkspaces'
+-- * 'dwrsWorkspaces' - An array of structures that contain the information about the WorkSpaces. Because the 'CreateWorkspaces' operation is asynchronous, some of this information may be incomplete for a newly-created WorkSpace.
 --
--- * 'dwrsResponseStatus'
+-- * 'dwrsResponseStatus' - -- | The response status code.
 describeWorkspacesResponse
     :: Int -- ^ 'dwrsResponseStatus'
     -> DescribeWorkspacesResponse
@@ -188,17 +192,15 @@ describeWorkspacesResponse pResponseStatus_ =
     , _dwrsResponseStatus = pResponseStatus_
     }
 
--- | If not null, more results are available. Pass this value for the 'NextToken' parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
+-- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame.
 dwrsNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
 dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a});
 
--- | An array of structures that contain the information about the WorkSpaces.
---
--- Because the < CreateWorkspaces> operation is asynchronous, some of this information may be incomplete for a newly-created WorkSpace.
+-- | An array of structures that contain the information about the WorkSpaces. Because the 'CreateWorkspaces' operation is asynchronous, some of this information may be incomplete for a newly-created WorkSpace.
 dwrsWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dwrsResponseStatus :: Lens' DescribeWorkspacesResponse Int
 dwrsResponseStatus = lens _dwrsResponseStatus (\ s a -> s{_dwrsResponseStatus = a});
 

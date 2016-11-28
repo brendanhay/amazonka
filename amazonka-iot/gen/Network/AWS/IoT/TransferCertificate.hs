@@ -20,13 +20,15 @@
 --
 -- Transfers the specified certificate to the specified AWS account.
 --
+--
 -- You can cancel the transfer until it is acknowledged by the recipient.
 --
--- No notification is sent to the transfer destination\'s account. It is up to the caller to notify the transfer target.
+-- No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.
 --
 -- The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.
 --
 -- The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.
+--
 module Network.AWS.IoT.TransferCertificate
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | The input for the TransferCertificate operation.
 --
+--
+--
 -- /See:/ 'transferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
     { _tcTransferMessage  :: !(Maybe Text)
@@ -65,11 +69,11 @@ data TransferCertificate = TransferCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcTransferMessage'
+-- * 'tcTransferMessage' - The transfer message.
 --
--- * 'tcCertificateId'
+-- * 'tcCertificateId' - The ID of the certificate.
 --
--- * 'tcTargetAWSAccount'
+-- * 'tcTargetAWSAccount' - The AWS account.
 transferCertificate
     :: Text -- ^ 'tcCertificateId'
     -> Text -- ^ 'tcTargetAWSAccount'
@@ -128,6 +132,8 @@ instance ToQuery TransferCertificate where
 
 -- | The output from the TransferCertificate operation.
 --
+--
+--
 -- /See:/ 'transferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
     { _tcrsTransferredCertificateARN :: !(Maybe Text)
@@ -138,9 +144,9 @@ data TransferCertificateResponse = TransferCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tcrsTransferredCertificateARN'
+-- * 'tcrsTransferredCertificateARN' - The ARN of the certificate.
 --
--- * 'tcrsResponseStatus'
+-- * 'tcrsResponseStatus' - -- | The response status code.
 transferCertificateResponse
     :: Int -- ^ 'tcrsResponseStatus'
     -> TransferCertificateResponse
@@ -154,7 +160,7 @@ transferCertificateResponse pResponseStatus_ =
 tcrsTransferredCertificateARN :: Lens' TransferCertificateResponse (Maybe Text)
 tcrsTransferredCertificateARN = lens _tcrsTransferredCertificateARN (\ s a -> s{_tcrsTransferredCertificateARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 tcrsResponseStatus :: Lens' TransferCertificateResponse Int
 tcrsResponseStatus = lens _tcrsResponseStatus (\ s a -> s{_tcrsResponseStatus = a});
 

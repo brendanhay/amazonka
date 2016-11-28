@@ -20,9 +20,11 @@
 --
 -- Returns information about a specific Amazon Kinesis Analytics application.
 --
--- If you want to retrieve a list of all applications in your account, use the < ListApplications> operation.
 --
--- This operation requires permissions to perform the 'kinesisanalytics:DescribeApplication' action. You can use 'DescribeApplication' to get the current application versionId, which you need to call other operations such as 'Update'.
+-- If you want to retrieve a list of all applications in your account, use the 'ListApplications' operation.
+--
+-- This operation requires permissions to perform the @kinesisanalytics:DescribeApplication@ action. You can use @DescribeApplication@ to get the current application versionId, which you need to call other operations such as @Update@ .
+--
 module Network.AWS.KinesisAnalytics.DescribeApplication
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeApplication' smart constructor.
 newtype DescribeApplication = DescribeApplication'
     { _daApplicationName :: Text
@@ -57,7 +61,7 @@ newtype DescribeApplication = DescribeApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationName'
+-- * 'daApplicationName' - Name of the application.
 describeApplication
     :: Text -- ^ 'daApplicationName'
     -> DescribeApplication
@@ -108,6 +112,8 @@ instance ToQuery DescribeApplication where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
     { _darsResponseStatus    :: !Int
@@ -118,9 +124,9 @@ data DescribeApplicationResponse = DescribeApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 --
--- * 'darsApplicationDetail'
+-- * 'darsApplicationDetail' - Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
 describeApplicationResponse
     :: Int -- ^ 'darsResponseStatus'
     -> ApplicationDetail -- ^ 'darsApplicationDetail'
@@ -131,7 +137,7 @@ describeApplicationResponse pResponseStatus_ pApplicationDetail_ =
     , _darsApplicationDetail = pApplicationDetail_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeApplicationResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

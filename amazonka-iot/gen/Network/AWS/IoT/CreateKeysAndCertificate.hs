@@ -20,7 +20,9 @@
 --
 -- Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.
 --
+--
 -- __Note__ This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.
+--
 module Network.AWS.IoT.CreateKeysAndCertificate
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The input for the CreateKeysAndCertificate operation.
 --
+--
+--
 -- /See:/ 'createKeysAndCertificate' smart constructor.
 newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
     { _ckacSetAsActive :: Maybe Bool
@@ -58,7 +62,7 @@ newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckacSetAsActive'
+-- * 'ckacSetAsActive' - Specifies whether the certificate is active.
 createKeysAndCertificate
     :: CreateKeysAndCertificate
 createKeysAndCertificate =
@@ -102,6 +106,8 @@ instance ToQuery CreateKeysAndCertificate where
 
 -- | The output of the CreateKeysAndCertificate operation.
 --
+--
+--
 -- /See:/ 'createKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
     { _ckacrsKeyPair        :: !(Maybe KeyPair)
@@ -115,15 +121,15 @@ data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckacrsKeyPair'
+-- * 'ckacrsKeyPair' - The generated key pair.
 --
--- * 'ckacrsCertificatePem'
+-- * 'ckacrsCertificatePem' - The certificate data, in PEM format.
 --
--- * 'ckacrsCertificateARN'
+-- * 'ckacrsCertificateARN' - The ARN of the certificate.
 --
--- * 'ckacrsCertificateId'
+-- * 'ckacrsCertificateId' - The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
 --
--- * 'ckacrsResponseStatus'
+-- * 'ckacrsResponseStatus' - -- | The response status code.
 createKeysAndCertificateResponse
     :: Int -- ^ 'ckacrsResponseStatus'
     -> CreateKeysAndCertificateResponse
@@ -152,7 +158,7 @@ ckacrsCertificateARN = lens _ckacrsCertificateARN (\ s a -> s{_ckacrsCertificate
 ckacrsCertificateId :: Lens' CreateKeysAndCertificateResponse (Maybe Text)
 ckacrsCertificateId = lens _ckacrsCertificateId (\ s a -> s{_ckacrsCertificateId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ckacrsResponseStatus :: Lens' CreateKeysAndCertificateResponse Int
 ckacrsResponseStatus = lens _ckacrsResponseStatus (\ s a -> s{_ckacrsResponseStatus = a});
 

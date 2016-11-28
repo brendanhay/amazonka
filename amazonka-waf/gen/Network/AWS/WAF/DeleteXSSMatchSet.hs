@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes an < XssMatchSet>. You can\'t delete an 'XssMatchSet' if it\'s still used in any 'Rules' or if it still contains any < XssMatchTuple> objects.
+-- Permanently deletes an 'XssMatchSet' . You can't delete an @XssMatchSet@ if it's still used in any @Rules@ or if it still contains any 'XssMatchTuple' objects.
 --
--- If you just want to remove an 'XssMatchSet' from a 'Rule', use < UpdateRule>.
 --
--- To permanently delete an 'XssMatchSet' from AWS WAF, perform the following steps:
+-- If you just want to remove an @XssMatchSet@ from a @Rule@ , use 'UpdateRule' .
 --
--- 1.  Update the 'XssMatchSet' to remove filters, if any. For more information, see < UpdateXssMatchSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteXssMatchSet' request.
--- 3.  Submit a 'DeleteXssMatchSet' request.
+-- To permanently delete an @XssMatchSet@ from AWS WAF, perform the following steps:
+--
+--     * Update the @XssMatchSet@ to remove filters, if any. For more information, see 'UpdateXssMatchSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteXssMatchSet@ request.    * Submit a @DeleteXssMatchSet@ request.
+--
 module Network.AWS.WAF.DeleteXSSMatchSet
     (
     -- * Creating a Request
@@ -51,7 +51,9 @@ import           Network.AWS.Response
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.Types.Product
 
--- | A request to delete an < XssMatchSet> from AWS WAF.
+-- | A request to delete an 'XssMatchSet' from AWS WAF.
+--
+--
 --
 -- /See:/ 'deleteXSSMatchSet' smart constructor.
 data DeleteXSSMatchSet = DeleteXSSMatchSet'
@@ -63,9 +65,9 @@ data DeleteXSSMatchSet = DeleteXSSMatchSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dxmsXSSMatchSetId'
+-- * 'dxmsXSSMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 --
--- * 'dxmsChangeToken'
+-- * 'dxmsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 deleteXSSMatchSet
     :: Text -- ^ 'dxmsXSSMatchSetId'
     -> Text -- ^ 'dxmsChangeToken'
@@ -76,11 +78,11 @@ deleteXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
     , _dxmsChangeToken = pChangeToken_
     }
 
--- | The 'XssMatchSetId' of the < XssMatchSet> that you want to delete. 'XssMatchSetId' is returned by < CreateXssMatchSet> and by < ListXssMatchSets>.
+-- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 dxmsXSSMatchSetId :: Lens' DeleteXSSMatchSet Text
 dxmsXSSMatchSetId = lens _dxmsXSSMatchSetId (\ s a -> s{_dxmsXSSMatchSetId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 dxmsChangeToken :: Lens' DeleteXSSMatchSet Text
 dxmsChangeToken = lens _dxmsChangeToken (\ s a -> s{_dxmsChangeToken = a});
 
@@ -119,7 +121,9 @@ instance ToPath DeleteXSSMatchSet where
 instance ToQuery DeleteXSSMatchSet where
         toQuery = const mempty
 
--- | The response to a request to delete an < XssMatchSet> from AWS WAF.
+-- | The response to a request to delete an 'XssMatchSet' from AWS WAF.
+--
+--
 --
 -- /See:/ 'deleteXSSMatchSetResponse' smart constructor.
 data DeleteXSSMatchSetResponse = DeleteXSSMatchSetResponse'
@@ -131,9 +135,9 @@ data DeleteXSSMatchSetResponse = DeleteXSSMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dxmsrsChangeToken'
+-- * 'dxmsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'dxmsrsResponseStatus'
+-- * 'dxmsrsResponseStatus' - -- | The response status code.
 deleteXSSMatchSetResponse
     :: Int -- ^ 'dxmsrsResponseStatus'
     -> DeleteXSSMatchSetResponse
@@ -143,11 +147,11 @@ deleteXSSMatchSetResponse pResponseStatus_ =
     , _dxmsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteXssMatchSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dxmsrsChangeToken :: Lens' DeleteXSSMatchSetResponse (Maybe Text)
 dxmsrsChangeToken = lens _dxmsrsChangeToken (\ s a -> s{_dxmsrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dxmsrsResponseStatus :: Lens' DeleteXSSMatchSetResponse Int
 dxmsrsResponseStatus = lens _dxmsrsResponseStatus (\ s a -> s{_dxmsrsResponseStatus = a});
 

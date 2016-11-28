@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows the developer to delete the user pool client.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete a user pool client.
 --
+--
+--
 -- /See:/ 'deleteUserPoolClient' smart constructor.
 data DeleteUserPoolClient = DeleteUserPoolClient'
     { _dupcUserPoolId :: !Text
@@ -52,9 +56,9 @@ data DeleteUserPoolClient = DeleteUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupcUserPoolId'
+-- * 'dupcUserPoolId' - The user pool ID for the user pool where you want to delete the client.
 --
--- * 'dupcClientId'
+-- * 'dupcClientId' - The ID of the client associated with the user pool.
 deleteUserPoolClient
     :: Text -- ^ 'dupcUserPoolId'
     -> Text -- ^ 'dupcClientId'

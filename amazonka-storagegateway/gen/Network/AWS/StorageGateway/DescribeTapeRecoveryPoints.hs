@@ -20,7 +20,9 @@
 --
 -- Returns a list of virtual tape recovery points that are available for the specified gateway-VTL.
 --
+--
 -- A recovery point is a point-in-time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
@@ -53,6 +55,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapeRecoveryPointsInput
 --
+--
+--
 -- /See:/ 'describeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
     { _dtrpMarker     :: !(Maybe Text)
@@ -64,11 +68,11 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrpMarker'
+-- * 'dtrpMarker' - An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
 --
--- * 'dtrpLimit'
+-- * 'dtrpLimit' - Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
 --
--- * 'dtrpGatewayARN'
+-- * 'dtrpGatewayARN' - Undocumented member.
 describeTapeRecoveryPoints
     :: Text -- ^ 'dtrpGatewayARN'
     -> DescribeTapeRecoveryPoints
@@ -141,6 +145,8 @@ instance ToQuery DescribeTapeRecoveryPoints where
 
 -- | DescribeTapeRecoveryPointsOutput
 --
+--
+--
 -- /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
@@ -153,13 +159,13 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrprsTapeRecoveryPointInfos'
+-- * 'dtrprsTapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified gateway.
 --
--- * 'dtrprsGatewayARN'
+-- * 'dtrprsGatewayARN' - Undocumented member.
 --
--- * 'dtrprsMarker'
+-- * 'dtrprsMarker' - An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended. Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
 --
--- * 'dtrprsResponseStatus'
+-- * 'dtrprsResponseStatus' - -- | The response status code.
 describeTapeRecoveryPointsResponse
     :: Int -- ^ 'dtrprsResponseStatus'
     -> DescribeTapeRecoveryPointsResponse
@@ -179,13 +185,11 @@ dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_d
 dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 
--- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
---
--- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
+-- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended. Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
 dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsResponseStatus = lens _dtrprsResponseStatus (\ s a -> s{_dtrprsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Imports a disk into an EBS snapshot.
+--
+--
 module Network.AWS.EC2.ImportSnapshot
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ImportSnapshot.
 --
+--
+--
 -- /See:/ 'importSnapshot' smart constructor.
 data ImportSnapshot = ImportSnapshot'
     { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
@@ -65,17 +69,17 @@ data ImportSnapshot = ImportSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isDiskContainer'
+-- * 'isDiskContainer' - Information about the disk container.
 --
--- * 'isClientToken'
+-- * 'isClientToken' - Token to enable idempotency for VM import requests.
 --
--- * 'isRoleName'
+-- * 'isRoleName' - The name of the role to use when not using the default role, 'vmimport'.
 --
--- * 'isDescription'
+-- * 'isDescription' - The description string for the import snapshot task.
 --
--- * 'isDryRun'
+-- * 'isDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'isClientData'
+-- * 'isClientData' - The client-specific data.
 importSnapshot
     :: ImportSnapshot
 importSnapshot =
@@ -96,7 +100,7 @@ isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
 isClientToken :: Lens' ImportSnapshot (Maybe Text)
 isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
 
--- | The name of the role to use when not using the default role, \'vmimport\'.
+-- | The name of the role to use when not using the default role, 'vmimport'.
 isRoleName :: Lens' ImportSnapshot (Maybe Text)
 isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
@@ -104,7 +108,7 @@ isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 isDescription :: Lens' ImportSnapshot (Maybe Text)
 isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
 isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
 
@@ -147,6 +151,8 @@ instance ToQuery ImportSnapshot where
 
 -- | Contains the output for ImportSnapshot.
 --
+--
+--
 -- /See:/ 'importSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
@@ -159,13 +165,13 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isrsSnapshotTaskDetail'
+-- * 'isrsSnapshotTaskDetail' - Information about the import snapshot task.
 --
--- * 'isrsImportTaskId'
+-- * 'isrsImportTaskId' - The ID of the import snapshot task.
 --
--- * 'isrsDescription'
+-- * 'isrsDescription' - A description of the import snapshot task.
 --
--- * 'isrsResponseStatus'
+-- * 'isrsResponseStatus' - -- | The response status code.
 importSnapshotResponse
     :: Int -- ^ 'isrsResponseStatus'
     -> ImportSnapshotResponse
@@ -189,7 +195,7 @@ isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
 isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 isrsResponseStatus :: Lens' ImportSnapshotResponse Int
 isrsResponseStatus = lens _isrsResponseStatus (\ s a -> s{_isrsResponseStatus = a});
 

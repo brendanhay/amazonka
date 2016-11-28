@@ -20,13 +20,15 @@
 --
 -- Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
 --
+--
 -- Terminated instances remain visible after termination (for approximately one hour).
 --
 -- By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
 --
--- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the 'DeleteOnTermination' block device mapping parameter set to 'true' are automatically deleted. For more information about the differences between stopping and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/.
+-- You can stop, start, and terminate EBS-backed instances. You can only terminate instance store-backed instances. What happens to an instance differs if you stop it or terminate it. For example, when you stop an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, any attached EBS volumes with the @DeleteOnTermination@ block device mapping parameter set to @true@ are automatically deleted. For more information about the differences between stopping and terminating instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html Instance Lifecycle> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html Troubleshooting Terminating Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for TerminateInstances.
 --
+--
+--
 -- /See:/ 'terminateInstances' smart constructor.
 data TerminateInstances = TerminateInstances'
     { _tiDryRun      :: !(Maybe Bool)
@@ -63,9 +67,9 @@ data TerminateInstances = TerminateInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tiDryRun'
+-- * 'tiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'tiInstanceIds'
+-- * 'tiInstanceIds' - One or more instance IDs.
 terminateInstances
     :: TerminateInstances
 terminateInstances =
@@ -74,7 +78,7 @@ terminateInstances =
     , _tiInstanceIds = mempty
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
 tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 
@@ -114,6 +118,8 @@ instance ToQuery TerminateInstances where
 
 -- | Contains the output of TerminateInstances.
 --
+--
+--
 -- /See:/ 'terminateInstancesResponse' smart constructor.
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
@@ -124,9 +130,9 @@ data TerminateInstancesResponse = TerminateInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tirsTerminatingInstances'
+-- * 'tirsTerminatingInstances' - Information about one or more terminated instances.
 --
--- * 'tirsResponseStatus'
+-- * 'tirsResponseStatus' - -- | The response status code.
 terminateInstancesResponse
     :: Int -- ^ 'tirsResponseStatus'
     -> TerminateInstancesResponse
@@ -140,7 +146,7 @@ terminateInstancesResponse pResponseStatus_ =
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 tirsResponseStatus :: Lens' TerminateInstancesResponse Int
 tirsResponseStatus = lens _tirsResponseStatus (\ s a -> s{_tirsResponseStatus = a});
 

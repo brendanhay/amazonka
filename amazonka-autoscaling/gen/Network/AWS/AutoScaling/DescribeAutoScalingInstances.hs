@@ -20,6 +20,8 @@
 --
 -- Describes one or more Auto Scaling instances.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeAutoScalingInstances.
 --
+--
+--
 -- /See:/ 'describeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
     { _dasiNextToken   :: !(Maybe Text)
@@ -61,11 +65,11 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasiNextToken'
+-- * 'dasiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dasiInstanceIds'
+-- * 'dasiInstanceIds' - The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 --
--- * 'dasiMaxRecords'
+-- * 'dasiMaxRecords' - The maximum number of items to return with this call.
 describeAutoScalingInstances
     :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
@@ -132,6 +136,8 @@ instance ToQuery DescribeAutoScalingInstances where
 
 -- | Contains the output of DescribeAutoScalingInstances.
 --
+--
+--
 -- /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken            :: !(Maybe Text)
@@ -143,11 +149,11 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasirsNextToken'
+-- * 'dasirsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dasirsAutoScalingInstances'
+-- * 'dasirsAutoScalingInstances' - The instances.
 --
--- * 'dasirsResponseStatus'
+-- * 'dasirsResponseStatus' - -- | The response status code.
 describeAutoScalingInstancesResponse
     :: Int -- ^ 'dasirsResponseStatus'
     -> DescribeAutoScalingInstancesResponse
@@ -166,7 +172,7 @@ dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
 dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a});
 

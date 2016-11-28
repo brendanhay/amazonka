@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Initiates a stop request for the current test run. AWS Device Farm will immediately stop the run on devices where tests have not started executing, and you will not be billed for these devices. On devices where tests have started executing, Setup Suite and Teardown Suite tests will run to completion before stopping execution on those devices. You will be billed for Setup, Teardown, and any tests that were in progress or already completed.
+--
+--
 module Network.AWS.DeviceFarm.StopRun
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to stop a specific run.
 --
+--
+--
 -- /See:/ 'stopRun' smart constructor.
 newtype StopRun = StopRun'
     { _srArn :: Text
@@ -53,7 +57,7 @@ newtype StopRun = StopRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srArn'
+-- * 'srArn' - Represents the Amazon Resource Name (ARN) of the Device Farm run you wish to stop.
 stopRun
     :: Text -- ^ 'srArn'
     -> StopRun
@@ -100,6 +104,8 @@ instance ToQuery StopRun where
 
 -- | Represents the results of your stop run attempt.
 --
+--
+--
 -- /See:/ 'stopRunResponse' smart constructor.
 data StopRunResponse = StopRunResponse'
     { _srsRun            :: !(Maybe Run)
@@ -110,9 +116,9 @@ data StopRunResponse = StopRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsRun'
+-- * 'srsRun' - Undocumented member.
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 stopRunResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopRunResponse
@@ -126,7 +132,7 @@ stopRunResponse pResponseStatus_ =
 srsRun :: Lens' StopRunResponse (Maybe Run)
 srsRun = lens _srsRun (\ s a -> s{_srsRun = a});
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StopRunResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

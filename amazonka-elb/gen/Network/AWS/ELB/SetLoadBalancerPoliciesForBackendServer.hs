@@ -20,11 +20,13 @@
 --
 -- Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.
 --
--- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable the policies, use the 'PolicyNames' parameter to list the policies that you want to enable.
 --
--- You can use < DescribeLoadBalancers> or < DescribeLoadBalancerPolicies> to verify that the policy is associated with the EC2 instance.
+-- Each time you use @SetLoadBalancerPoliciesForBackendServer@ to enable the policies, use the @PolicyNames@ parameter to list the policies that you want to enable.
 --
--- For more information about enabling back-end instance authentication, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt Configure Back-end Instance Authentication> in the /Classic Load Balancers Guide/. For more information about Proxy Protocol, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html Configure Proxy Protocol Support> in the /Classic Load Balancers Guide/.
+-- You can use 'DescribeLoadBalancers' or 'DescribeLoadBalancerPolicies' to verify that the policy is associated with the EC2 instance.
+--
+-- For more information about enabling back-end instance authentication, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt Configure Back-end Instance Authentication> in the /Classic Load Balancers Guide/ . For more information about Proxy Protocol, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html Configure Proxy Protocol Support> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Creating a Request
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetLoadBalancerPoliciesForBackendServer.
 --
+--
+--
 -- /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName :: !Text
@@ -62,11 +66,11 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpfbsLoadBalancerName'
+-- * 'slbpfbsLoadBalancerName' - The name of the load balancer.
 --
--- * 'slbpfbsInstancePort'
+-- * 'slbpfbsInstancePort' - The port number associated with the EC2 instance.
 --
--- * 'slbpfbsPolicyNames'
+-- * 'slbpfbsPolicyNames' - The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
 setLoadBalancerPoliciesForBackendServer
     :: Text -- ^ 'slbpfbsLoadBalancerName'
     -> Int -- ^ 'slbpfbsInstancePort'
@@ -131,6 +135,8 @@ instance ToQuery
 
 -- | Contains the output of SetLoadBalancerPoliciesForBackendServer.
 --
+--
+--
 -- /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrsResponseStatus :: Int
@@ -140,7 +146,7 @@ newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPolicie
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpfbsrsResponseStatus'
+-- * 'slbpfbsrsResponseStatus' - -- | The response status code.
 setLoadBalancerPoliciesForBackendServerResponse
     :: Int -- ^ 'slbpfbsrsResponseStatus'
     -> SetLoadBalancerPoliciesForBackendServerResponse
@@ -149,7 +155,7 @@ setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
     { _slbpfbsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
 slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\ s a -> s{_slbpfbsrsResponseStatus = a});
 

@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an 'Expression' from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/.
+-- Removes an @'Expression' @ from the search domain. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
+--
+--
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteExpression' operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
+-- | Container for the parameters to the @'DeleteExpression' @ operation. Specifies the name of the domain you want to update and the name of the expression you want to delete.
+--
+--
 --
 -- /See:/ 'deleteExpression' smart constructor.
 data DeleteExpression = DeleteExpression'
@@ -55,9 +59,9 @@ data DeleteExpression = DeleteExpression'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delDomainName'
+-- * 'delDomainName' - Undocumented member.
 --
--- * 'delExpressionName'
+-- * 'delExpressionName' - The name of the @'Expression' @ to delete.
 deleteExpression
     :: Text -- ^ 'delDomainName'
     -> Text -- ^ 'delExpressionName'
@@ -72,7 +76,7 @@ deleteExpression pDomainName_ pExpressionName_ =
 delDomainName :: Lens' DeleteExpression Text
 delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
 
--- | The name of the 'Expression' to delete.
+-- | The name of the @'Expression' @ to delete.
 delExpressionName :: Lens' DeleteExpression Text
 delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
 
@@ -103,7 +107,9 @@ instance ToQuery DeleteExpression where
                "DomainName" =: _delDomainName,
                "ExpressionName" =: _delExpressionName]
 
--- | The result of a 'DeleteExpression' request. Specifies the expression being deleted.
+-- | The result of a @'DeleteExpression' @ request. Specifies the expression being deleted.
+--
+--
 --
 -- /See:/ 'deleteExpressionResponse' smart constructor.
 data DeleteExpressionResponse = DeleteExpressionResponse'
@@ -115,9 +121,9 @@ data DeleteExpressionResponse = DeleteExpressionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 --
--- * 'delrsExpression'
+-- * 'delrsExpression' - The status of the expression being deleted.
 deleteExpressionResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> ExpressionStatus -- ^ 'delrsExpression'
@@ -128,7 +134,7 @@ deleteExpressionResponse pResponseStatus_ pExpression_ =
     , _delrsExpression = pExpression_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteExpressionResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

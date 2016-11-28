@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the repository policy from a specified repository.
+--
+--
 module Network.AWS.ECR.DeleteRepositoryPolicy
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data DeleteRepositoryPolicy = DeleteRepositoryPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpRegistryId'
+-- * 'drpRegistryId' - The AWS account ID associated with the registry that contains the repository policy to delete. If you do not specify a registry, the default registry is assumed.
 --
--- * 'drpRepositoryName'
+-- * 'drpRepositoryName' - The name of the repository that is associated with the repository policy to delete.
 deleteRepositoryPolicy
     :: Text -- ^ 'drpRepositoryName'
     -> DeleteRepositoryPolicy
@@ -126,13 +128,13 @@ data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drprsRegistryId'
+-- * 'drprsRegistryId' - The registry ID associated with the request.
 --
--- * 'drprsRepositoryName'
+-- * 'drprsRepositoryName' - The repository name associated with the request.
 --
--- * 'drprsPolicyText'
+-- * 'drprsPolicyText' - The JSON repository policy that was deleted from the repository.
 --
--- * 'drprsResponseStatus'
+-- * 'drprsResponseStatus' - -- | The response status code.
 deleteRepositoryPolicyResponse
     :: Int -- ^ 'drprsResponseStatus'
     -> DeleteRepositoryPolicyResponse
@@ -156,7 +158,7 @@ drprsRepositoryName = lens _drprsRepositoryName (\ s a -> s{_drprsRepositoryName
 drprsPolicyText :: Lens' DeleteRepositoryPolicyResponse (Maybe Text)
 drprsPolicyText = lens _drprsPolicyText (\ s a -> s{_drprsPolicyText = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drprsResponseStatus :: Lens' DeleteRepositoryPolicyResponse Int
 drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
 

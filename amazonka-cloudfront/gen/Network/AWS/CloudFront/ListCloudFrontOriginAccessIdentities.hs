@@ -58,9 +58,9 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcfoaiMarker'
+-- * 'lcfoaiMarker' - Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response (which is also the ID of the last identity on that page).
 --
--- * 'lcfoaiMaxItems'
+-- * 'lcfoaiMaxItems' - The maximum number of origin access identities you want in the response body.
 listCloudFrontOriginAccessIdentities
     :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities =
@@ -69,7 +69,7 @@ listCloudFrontOriginAccessIdentities =
     , _lcfoaiMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page\'s response (which is also the ID of the last identity on that page).
+-- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response (which is also the ID of the last identity on that page).
 lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
@@ -142,9 +142,9 @@ data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessId
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcfoairsResponseStatus'
+-- * 'lcfoairsResponseStatus' - -- | The response status code.
 --
--- * 'lcfoairsCloudFrontOriginAccessIdentityList'
+-- * 'lcfoairsCloudFrontOriginAccessIdentityList' - The CloudFrontOriginAccessIdentityList type.
 listCloudFrontOriginAccessIdentitiesResponse
     :: Int -- ^ 'lcfoairsResponseStatus'
     -> CloudFrontOriginAccessIdentityList -- ^ 'lcfoairsCloudFrontOriginAccessIdentityList'
@@ -155,7 +155,7 @@ listCloudFrontOriginAccessIdentitiesResponse pResponseStatus_ pCloudFrontOriginA
     , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 lcfoairsResponseStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
 lcfoairsResponseStatus = lens _lcfoairsResponseStatus (\ s a -> s{_lcfoairsResponseStatus = a});
 

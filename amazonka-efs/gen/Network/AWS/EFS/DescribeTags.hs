@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the tags associated with a file system. The order of tags returned in the response of one 'DescribeTags' call and the order of tags returned across the responses of a multi-call iteration (when using pagination) is unspecified.
+-- Returns the tags associated with a file system. The order of tags returned in the response of one @DescribeTags@ call and the order of tags returned across the responses of a multi-call iteration (when using pagination) is unspecified.
 --
--- This operation requires permissions for the 'elasticfilesystem:DescribeTags' action.
+--
+-- This operation requires permissions for the @elasticfilesystem:DescribeTags@ action.
+--
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeTags' smart constructor.
 data DescribeTags = DescribeTags'
     { _dtMarker       :: !(Maybe Text)
@@ -61,11 +65,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtMarker'
+-- * 'dtMarker' - (Optional) Opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
 --
--- * 'dtMaxItems'
+-- * 'dtMaxItems' - (Optional) Maximum number of file system tags to return in the response. It must be an integer with a value greater than zero.
 --
--- * 'dtFileSystemId'
+-- * 'dtFileSystemId' - ID of the file system whose tag set you want to retrieve.
 describeTags
     :: Text -- ^ 'dtFileSystemId'
     -> DescribeTags
@@ -76,7 +80,7 @@ describeTags pFileSystemId_ =
     , _dtFileSystemId = pFileSystemId_
     }
 
--- | (Optional) Opaque pagination token returned from a previous 'DescribeTags' operation (String). If present, it specifies to continue the list from where the previous call left off.
+-- | (Optional) Opaque pagination token returned from a previous @DescribeTags@ operation (String). If present, it specifies to continue the list from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
@@ -118,6 +122,8 @@ instance ToQuery DescribeTags where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsMarker         :: !(Maybe Text)
@@ -130,13 +136,13 @@ data DescribeTagsResponse = DescribeTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsMarker'
+-- * 'dtrsMarker' - If the request included a @Marker@ , the response returns that value in this field.
 --
--- * 'dtrsNextMarker'
+-- * 'dtrsNextMarker' - If a value is present, there are more tags to return. In a subsequent request, you can provide the value of @NextMarker@ as the value of the @Marker@ parameter in your next request to retrieve the next set of tags.
 --
--- * 'dtrsResponseStatus'
+-- * 'dtrsResponseStatus' - -- | The response status code.
 --
--- * 'dtrsTags'
+-- * 'dtrsTags' - Returns tags associated with the file system as an array of @Tag@ objects.
 describeTagsResponse
     :: Int -- ^ 'dtrsResponseStatus'
     -> DescribeTagsResponse
@@ -148,19 +154,19 @@ describeTagsResponse pResponseStatus_ =
     , _dtrsTags = mempty
     }
 
--- | If the request included a 'Marker', the response returns that value in this field.
+-- | If the request included a @Marker@ , the response returns that value in this field.
 dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 
--- | If a value is present, there are more tags to return. In a subsequent request, you can provide the value of 'NextMarker' as the value of the 'Marker' parameter in your next request to retrieve the next set of tags.
+-- | If a value is present, there are more tags to return. In a subsequent request, you can provide the value of @NextMarker@ as the value of the @Marker@ parameter in your next request to retrieve the next set of tags.
 dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dtrsResponseStatus :: Lens' DescribeTagsResponse Int
 dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
 
--- | Returns tags associated with the file system as an array of 'Tag' objects.
+-- | Returns tags associated with the file system as an array of @Tag@ objects.
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Coerce;
 

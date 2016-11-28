@@ -18,11 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the status of a 'ChangeToken' that you got by calling < GetChangeToken>. 'ChangeTokenStatus' is one of the following values:
+-- Returns the status of a @ChangeToken@ that you got by calling 'GetChangeToken' . @ChangeTokenStatus@ is one of the following values:
 --
--- -   'PROVISIONED': You requested the change token by calling 'GetChangeToken', but you haven\'t used it yet in a call to create, update, or delete an AWS WAF object.
--- -   'PENDING': AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
--- -   'IN_SYNC': Propagation is complete.
+--
+--     * @PROVISIONED@ : You requested the change token by calling @GetChangeToken@ , but you haven't used it yet in a call to create, update, or delete an AWS WAF object.    * @PENDING@ : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.    * @IN_SYNC@ : Propagation is complete.
+--
 module Network.AWS.WAF.GetChangeTokenStatus
     (
     -- * Creating a Request
@@ -55,7 +55,7 @@ newtype GetChangeTokenStatus = GetChangeTokenStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gctsChangeToken'
+-- * 'gctsChangeToken' - The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
 getChangeTokenStatus
     :: Text -- ^ 'gctsChangeToken'
     -> GetChangeTokenStatus
@@ -64,7 +64,7 @@ getChangeTokenStatus pChangeToken_ =
     { _gctsChangeToken = pChangeToken_
     }
 
--- | The change token for which you want to get the status. This change token was previously returned in the 'GetChangeToken' response.
+-- | The change token for which you want to get the status. This change token was previously returned in the @GetChangeToken@ response.
 gctsChangeToken :: Lens' GetChangeTokenStatus Text
 gctsChangeToken = lens _gctsChangeToken (\ s a -> s{_gctsChangeToken = a});
 
@@ -114,9 +114,9 @@ data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gctsrsChangeTokenStatus'
+-- * 'gctsrsChangeTokenStatus' - The status of the change token.
 --
--- * 'gctsrsResponseStatus'
+-- * 'gctsrsResponseStatus' - -- | The response status code.
 getChangeTokenStatusResponse
     :: Int -- ^ 'gctsrsResponseStatus'
     -> GetChangeTokenStatusResponse
@@ -130,7 +130,7 @@ getChangeTokenStatusResponse pResponseStatus_ =
 gctsrsChangeTokenStatus :: Lens' GetChangeTokenStatusResponse (Maybe ChangeTokenStatus)
 gctsrsChangeTokenStatus = lens _gctsrsChangeTokenStatus (\ s a -> s{_gctsrsChangeTokenStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gctsrsResponseStatus :: Lens' GetChangeTokenStatusResponse Int
 gctsrsResponseStatus = lens _gctsrsResponseStatus (\ s a -> s{_gctsrsResponseStatus = a});
 

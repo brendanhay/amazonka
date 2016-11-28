@@ -20,9 +20,11 @@
 --
 -- Restores a directory using an existing directory snapshot.
 --
+--
 -- When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
 --
--- This action returns as soon as the restore operation is initiated. You can monitor the progress of the restore operation by calling the < DescribeDirectories> operation with the directory identifier. When the __DirectoryDescription.Stage__ value changes to 'Active', the restore operation is complete.
+-- This action returns as soon as the restore operation is initiated. You can monitor the progress of the restore operation by calling the 'DescribeDirectories' operation with the directory identifier. When the __DirectoryDescription.Stage__ value changes to @Active@ , the restore operation is complete.
+--
 module Network.AWS.DirectoryService.RestoreFromSnapshot
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | An object representing the inputs for the < RestoreFromSnapshot> operation.
+-- | An object representing the inputs for the 'RestoreFromSnapshot' operation.
+--
+--
 --
 -- /See:/ 'restoreFromSnapshot' smart constructor.
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
@@ -56,7 +60,7 @@ newtype RestoreFromSnapshot = RestoreFromSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfsSnapshotId'
+-- * 'rfsSnapshotId' - The identifier of the snapshot to restore from.
 restoreFromSnapshot
     :: Text -- ^ 'rfsSnapshotId'
     -> RestoreFromSnapshot
@@ -103,7 +107,9 @@ instance ToPath RestoreFromSnapshot where
 instance ToQuery RestoreFromSnapshot where
         toQuery = const mempty
 
--- | Contains the results of the < RestoreFromSnapshot> operation.
+-- | Contains the results of the 'RestoreFromSnapshot' operation.
+--
+--
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
@@ -114,7 +120,7 @@ newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfsrsResponseStatus'
+-- * 'rfsrsResponseStatus' - -- | The response status code.
 restoreFromSnapshotResponse
     :: Int -- ^ 'rfsrsResponseStatus'
     -> RestoreFromSnapshotResponse
@@ -123,7 +129,7 @@ restoreFromSnapshotResponse pResponseStatus_ =
     { _rfsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rfsrsResponseStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrsResponseStatus = lens _rfsrsResponseStatus (\ s a -> s{_rfsrsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the summaries of the results of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling < DescribeTrustedAdvisorChecks>.
+-- Returns the summaries of the results of the Trusted Advisor checks that have the specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks' .
 --
--- The response contains an array of < TrustedAdvisorCheckSummary> objects.
+--
+-- The response contains an array of 'TrustedAdvisorCheckSummary' objects.
+--
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Support.Types.Product
 
 -- |
 --
+--
+--
 -- /See:/ 'describeTrustedAdvisorCheckSummaries' smart constructor.
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
     { _dtacsCheckIds :: [Text]
@@ -55,7 +59,7 @@ newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummar
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacsCheckIds'
+-- * 'dtacsCheckIds' - The IDs of the Trusted Advisor checks.
 describeTrustedAdvisorCheckSummaries
     :: DescribeTrustedAdvisorCheckSummaries
 describeTrustedAdvisorCheckSummaries =
@@ -109,7 +113,9 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
          where
         toQuery = const mempty
 
--- | The summaries of the Trusted Advisor checks returned by the < DescribeTrustedAdvisorCheckSummaries> operation.
+-- | The summaries of the Trusted Advisor checks returned by the 'DescribeTrustedAdvisorCheckSummaries' operation.
+--
+--
 --
 -- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
@@ -121,9 +127,9 @@ data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckS
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacsrsResponseStatus'
+-- * 'dtacsrsResponseStatus' - -- | The response status code.
 --
--- * 'dtacsrsSummaries'
+-- * 'dtacsrsSummaries' - The summary information for the requested Trusted Advisor checks.
 describeTrustedAdvisorCheckSummariesResponse
     :: Int -- ^ 'dtacsrsResponseStatus'
     -> DescribeTrustedAdvisorCheckSummariesResponse
@@ -133,7 +139,7 @@ describeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
     , _dtacsrsSummaries = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dtacsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
 dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\ s a -> s{_dtacsrsResponseStatus = a});
 

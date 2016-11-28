@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Displays details about an import virtual machine or import snapshot tasks that are already created.
+--
+--
 module Network.AWS.EC2.DescribeImportImageTasks
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeImportImageTasks.
 --
+--
+--
 -- /See:/ 'describeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
     { _diitFilters       :: !(Maybe [Filter])
@@ -62,15 +66,15 @@ data DescribeImportImageTasks = DescribeImportImageTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diitFilters'
+-- * 'diitFilters' - Filter tasks using the @task-state@ filter and one of the following values: active, completed, deleting, deleted.
 --
--- * 'diitImportTaskIds'
+-- * 'diitImportTaskIds' - A list of import image task IDs.
 --
--- * 'diitNextToken'
+-- * 'diitNextToken' - A token that indicates the next page of results.
 --
--- * 'diitDryRun'
+-- * 'diitDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'diitMaxResults'
+-- * 'diitMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 describeImportImageTasks
     :: DescribeImportImageTasks
 describeImportImageTasks =
@@ -82,7 +86,7 @@ describeImportImageTasks =
     , _diitMaxResults = Nothing
     }
 
--- | Filter tasks using the 'task-state' filter and one of the following values: active, completed, deleting, deleted.
+-- | Filter tasks using the @task-state@ filter and one of the following values: active, completed, deleting, deleted.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
 diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default . _Coerce;
 
@@ -94,11 +98,11 @@ diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a})
 diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
 diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
 diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
 diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
 
@@ -140,6 +144,8 @@ instance ToQuery DescribeImportImageTasks where
 
 -- | Contains the output for DescribeImportImageTasks.
 --
+--
+--
 -- /See:/ 'describeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrsNextToken        :: !(Maybe Text)
@@ -151,11 +157,11 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diitrsNextToken'
+-- * 'diitrsNextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'diitrsImportImageTasks'
+-- * 'diitrsImportImageTasks' - A list of zero or more import image tasks that are currently active or were completed or canceled in the previous 7 days.
 --
--- * 'diitrsResponseStatus'
+-- * 'diitrsResponseStatus' - -- | The response status code.
 describeImportImageTasksResponse
     :: Int -- ^ 'diitrsResponseStatus'
     -> DescribeImportImageTasksResponse
@@ -166,7 +172,7 @@ describeImportImageTasksResponse pResponseStatus_ =
     , _diitrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to get the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
 
@@ -174,7 +180,7 @@ diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
 diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
 diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 diitrsResponseStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrsResponseStatus = lens _diitrsResponseStatus (\ s a -> s{_diitrsResponseStatus = a});
 

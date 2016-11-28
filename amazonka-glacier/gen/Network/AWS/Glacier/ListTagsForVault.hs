@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
+-- This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources> .
+--
+--
 module Network.AWS.Glacier.ListTagsForVault
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input value for 'ListTagsForVaultInput'.
+-- | The input value for @ListTagsForVaultInput@ .
+--
+--
 --
 -- /See:/ 'listTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
@@ -55,9 +59,9 @@ data ListTagsForVault = ListTagsForVault'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfvAccountId'
+-- * 'ltfvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 --
--- * 'ltfvVaultName'
+-- * 'ltfvVaultName' - The name of the vault.
 listTagsForVault
     :: Text -- ^ 'ltfvAccountId'
     -> Text -- ^ 'ltfvVaultName'
@@ -68,7 +72,7 @@ listTagsForVault pAccountId_ pVaultName_ =
     , _ltfvVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
 ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
 
@@ -103,6 +107,8 @@ instance ToQuery ListTagsForVault where
 
 -- | Contains the Amazon Glacier response to your request.
 --
+--
+--
 -- /See:/ 'listTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
     { _ltfvrsTags           :: !(Maybe (Map Text Text))
@@ -113,9 +119,9 @@ data ListTagsForVaultResponse = ListTagsForVaultResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfvrsTags'
+-- * 'ltfvrsTags' - The tags attached to the vault. Each tag is composed of a key and a value.
 --
--- * 'ltfvrsResponseStatus'
+-- * 'ltfvrsResponseStatus' - -- | The response status code.
 listTagsForVaultResponse
     :: Int -- ^ 'ltfvrsResponseStatus'
     -> ListTagsForVaultResponse
@@ -129,7 +135,7 @@ listTagsForVaultResponse pResponseStatus_ =
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a});
 

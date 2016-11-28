@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the actions scheduled for your Auto Scaling group that haven\'t run. To describe the actions that have already run, use < DescribeScalingActivities>.
+-- Describes the actions scheduled for your Auto Scaling group that haven't run. To describe the actions that have already run, use 'DescribeScalingActivities' .
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeScheduledActions.
 --
+--
+--
 -- /See:/ 'describeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
     { _dsasStartTime            :: !(Maybe ISO8601)
@@ -67,17 +71,17 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsasStartTime'
+-- * 'dsasStartTime' - The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
--- * 'dsasNextToken'
+-- * 'dsasNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dsasAutoScalingGroupName'
+-- * 'dsasAutoScalingGroupName' - The name of the group.
 --
--- * 'dsasMaxRecords'
+-- * 'dsasMaxRecords' - The maximum number of items to return with this call.
 --
--- * 'dsasEndTime'
+-- * 'dsasEndTime' - The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
--- * 'dsasScheduledActionNames'
+-- * 'dsasScheduledActionNames' - Describes one or more scheduled actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error. You can describe up to a maximum of 50 instances with a single call. If there are more items to return, the call returns a token. To get the next set of items, repeat the call with the returned token.
 describeScheduledActions
     :: DescribeScheduledActions
 describeScheduledActions =
@@ -110,9 +114,7 @@ dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 
--- | Describes one or more scheduled actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.
---
--- You can describe up to a maximum of 50 instances with a single call. If there are more items to return, the call returns a token. To get the next set of items, repeat the call with the returned token.
+-- | Describes one or more scheduled actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error. You can describe up to a maximum of 50 instances with a single call. If there are more items to return, the call returns a token. To get the next set of items, repeat the call with the returned token.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 
@@ -164,6 +166,8 @@ instance ToQuery DescribeScheduledActions where
 
 -- | Contains the output of DescribeScheduledActions.
 --
+--
+--
 -- /See:/ 'describeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
@@ -175,11 +179,11 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsarsScheduledUpdateGroupActions'
+-- * 'dsarsScheduledUpdateGroupActions' - The scheduled actions.
 --
--- * 'dsarsNextToken'
+-- * 'dsarsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dsarsResponseStatus'
+-- * 'dsarsResponseStatus' - -- | The response status code.
 describeScheduledActionsResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScheduledActionsResponse
@@ -198,7 +202,7 @@ dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a
 dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 

@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a health check. Send a 'DELETE' request to the '\/2013-04-01\/healthcheck\/health check ID ' resource.
+-- Deletes a health check. Send a @DELETE@ request to the @/2013-04-01/healthcheck//health check ID/ @ resource.
 --
--- Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don\'t update the associated resource record sets, the future status of the health check cannot be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html Replacing and Deleting Health Checks> in the Amazon Route 53 Developer Guide.
+--
+-- /Important:/ Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more resource record sets. If you delete a health check and you don't update the associated resource record sets, the future status of the health check cannot be predicted and may change. This will affect the routing of DNS queries for your DNS failover configuration. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html#health-checks-deleting.html Replacing and Deleting Health Checks> in the Amazon Route 53 Developer Guide.
+--
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | This action deletes a health check. Send a 'DELETE' request to the '\/2013-04-01\/DeleteHealthCheckRequest' resource.
+-- | This action deletes a health check. Send a @DELETE@ request to the @/2013-04-01/DeleteHealthCheckRequest@ resource.
+--
+--
 --
 -- /See:/ 'deleteHealthCheck' smart constructor.
 newtype DeleteHealthCheck = DeleteHealthCheck'
@@ -54,7 +58,7 @@ newtype DeleteHealthCheck = DeleteHealthCheck'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhcHealthCheckId'
+-- * 'dhcHealthCheckId' - Undocumented member.
 deleteHealthCheck
     :: Text -- ^ 'dhcHealthCheckId'
     -> DeleteHealthCheck
@@ -92,6 +96,8 @@ instance ToQuery DeleteHealthCheck where
 
 -- | An empty element.
 --
+--
+--
 -- /See:/ 'deleteHealthCheckResponse' smart constructor.
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
     { _dhcrsResponseStatus :: Int
@@ -101,7 +107,7 @@ newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhcrsResponseStatus'
+-- * 'dhcrsResponseStatus' - -- | The response status code.
 deleteHealthCheckResponse
     :: Int -- ^ 'dhcrsResponseStatus'
     -> DeleteHealthCheckResponse
@@ -110,7 +116,7 @@ deleteHealthCheckResponse pResponseStatus_ =
     { _dhcrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dhcrsResponseStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrsResponseStatus = lens _dhcrsResponseStatus (\ s a -> s{_dhcrsResponseStatus = a});
 

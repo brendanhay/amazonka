@@ -20,7 +20,9 @@
 --
 -- Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.
 --
+--
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic Compute Cloud User Guide.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeReservedInstancesModifications.
 --
+--
+--
 -- /See:/ 'describeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
     { _drimFilters                          :: !(Maybe [Filter])
@@ -63,11 +67,11 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drimFilters'
+-- * 'drimFilters' - One or more filters.     * @client-token@ - The idempotency token for the modification request.     * @create-date@ - The time when the modification request was created.     * @effective-date@ - The time when the modification becomes effective.     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).     * @reserved-instances-id@ - The ID of the Reserved Instances modified.     * @reserved-instances-modification-id@ - The ID of the modification request.     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).     * @status-message@ - The reason for the status.     * @update-date@ - The time when the modification request was last updated.
 --
--- * 'drimReservedInstancesModificationIds'
+-- * 'drimReservedInstancesModificationIds' - IDs for the submitted modification request.
 --
--- * 'drimNextToken'
+-- * 'drimNextToken' - The token to retrieve the next page of results.
 describeReservedInstancesModifications
     :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
@@ -77,34 +81,7 @@ describeReservedInstancesModifications =
     , _drimNextToken = Nothing
     }
 
--- | One or more filters.
---
--- -   'client-token' - The idempotency token for the modification request.
---
--- -   'create-date' - The time when the modification request was created.
---
--- -   'effective-date' - The time when the modification becomes effective.
---
--- -   'modification-result.reserved-instances-id' - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is 'fulfilled'.
---
--- -   'modification-result.target-configuration.availability-zone' - The Availability Zone for the new Reserved Instances.
---
--- -   'modification-result.target-configuration.instance-count ' - The number of new Reserved Instances.
---
--- -   'modification-result.target-configuration.instance-type' - The instance type of the new Reserved Instances.
---
--- -   'modification-result.target-configuration.platform' - The network platform of the new Reserved Instances ('EC2-Classic' | 'EC2-VPC').
---
--- -   'reserved-instances-id' - The ID of the Reserved Instances modified.
---
--- -   'reserved-instances-modification-id' - The ID of the modification request.
---
--- -   'status' - The status of the Reserved Instances modification request ('processing' | 'fulfilled' | 'failed').
---
--- -   'status-message' - The reason for the status.
---
--- -   'update-date' - The time when the modification request was last updated.
---
+-- | One or more filters.     * @client-token@ - The idempotency token for the modification request.     * @create-date@ - The time when the modification request was created.     * @effective-date@ - The time when the modification becomes effective.     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).     * @reserved-instances-id@ - The ID of the Reserved Instances modified.     * @reserved-instances-modification-id@ - The ID of the modification request.     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).     * @status-message@ - The reason for the status.     * @update-date@ - The time when the modification request was last updated.
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default . _Coerce;
 
@@ -169,6 +146,8 @@ instance ToQuery
 
 -- | Contains the output of DescribeReservedInstancesModifications.
 --
+--
+--
 -- /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken                      :: !(Maybe Text)
@@ -180,11 +159,11 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drimrsNextToken'
+-- * 'drimrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'drimrsReservedInstancesModifications'
+-- * 'drimrsReservedInstancesModifications' - The Reserved Instance modification information.
 --
--- * 'drimrsResponseStatus'
+-- * 'drimrsResponseStatus' - -- | The response status code.
 describeReservedInstancesModificationsResponse
     :: Int -- ^ 'drimrsResponseStatus'
     -> DescribeReservedInstancesModificationsResponse
@@ -195,7 +174,7 @@ describeReservedInstancesModificationsResponse pResponseStatus_ =
     , _drimrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 
@@ -203,7 +182,7 @@ drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drimrsResponseStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsResponseStatus = lens _drimrsResponseStatus (\ s a -> s{_drimrsResponseStatus = a});
 

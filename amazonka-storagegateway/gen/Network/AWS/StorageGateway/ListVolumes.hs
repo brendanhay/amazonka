@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the < DescribeStorediSCSIVolumes> API.
+-- Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The response includes only the volume ARNs. If you want additional volume information, use the 'DescribeStorediSCSIVolumes' API.
 --
--- The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the 'Limit' field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes.
+--
+-- The operation supports pagination. By default, the operation returns a maximum of up to 100 volumes. You can optionally specify the @Limit@ field in the body to limit the number of volumes in the response. If the number of volumes returned in the response is truncated, the response includes a Marker field. You can use this Marker value in your subsequent request to retrieve the next set of volumes.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListVolumes
@@ -53,9 +55,12 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object that contains one or more of the following fields:
 --
--- -   < ListVolumesInput>Limit>
 --
--- -   < ListVolumesInput>Marker>
+--     * 'ListVolumesInput$Limit'
+--
+--     * 'ListVolumesInput$Marker'
+--
+--
 --
 --
 -- /See:/ 'listVolumes' smart constructor.
@@ -69,11 +74,11 @@ data ListVolumes = ListVolumes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvGatewayARN'
+-- * 'lvGatewayARN' - Undocumented member.
 --
--- * 'lvMarker'
+-- * 'lvMarker' - A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
 --
--- * 'lvLimit'
+-- * 'lvLimit' - Specifies that the list of volumes returned be limited to the specified number of items.
 listVolumes
     :: ListVolumes
 listVolumes =
@@ -153,13 +158,13 @@ data ListVolumesResponse = ListVolumesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lvrsGatewayARN'
+-- * 'lvrsGatewayARN' - Undocumented member.
 --
--- * 'lvrsMarker'
+-- * 'lvrsMarker' - Undocumented member.
 --
--- * 'lvrsVolumeInfos'
+-- * 'lvrsVolumeInfos' - Undocumented member.
 --
--- * 'lvrsResponseStatus'
+-- * 'lvrsResponseStatus' - -- | The response status code.
 listVolumesResponse
     :: Int -- ^ 'lvrsResponseStatus'
     -> ListVolumesResponse
@@ -183,7 +188,7 @@ lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lvrsResponseStatus :: Lens' ListVolumesResponse Int
 lvrsResponseStatus = lens _lvrsResponseStatus (\ s a -> s{_lvrsResponseStatus = a});
 

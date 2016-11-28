@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a commit, including commit message and committer information.
+--
+--
 module Network.AWS.CodeCommit.GetCommit
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get commit operation.
 --
+--
+--
 -- /See:/ 'getCommit' smart constructor.
 data GetCommit = GetCommit'
     { _gcRepositoryName :: !Text
@@ -55,9 +59,9 @@ data GetCommit = GetCommit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcRepositoryName'
+-- * 'gcRepositoryName' - The name of the repository to which the commit was made.
 --
--- * 'gcCommitId'
+-- * 'gcCommitId' - The commit ID.
 getCommit
     :: Text -- ^ 'gcRepositoryName'
     -> Text -- ^ 'gcCommitId'
@@ -113,6 +117,8 @@ instance ToQuery GetCommit where
 
 -- | Represents the output of a get commit operation.
 --
+--
+--
 -- /See:/ 'getCommitResponse' smart constructor.
 data GetCommitResponse = GetCommitResponse'
     { _gcrsResponseStatus :: !Int
@@ -123,9 +129,9 @@ data GetCommitResponse = GetCommitResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsResponseStatus'
+-- * 'gcrsResponseStatus' - -- | The response status code.
 --
--- * 'gcrsCommit'
+-- * 'gcrsCommit' - Information about the specified commit.
 getCommitResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> Commit -- ^ 'gcrsCommit'
@@ -136,7 +142,7 @@ getCommitResponse pResponseStatus_ pCommit_ =
     , _gcrsCommit = pCommit_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetCommitResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 

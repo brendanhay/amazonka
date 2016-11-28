@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables artifacts in a pipeline to transition to a stage in a pipeline.
+--
+--
 module Network.AWS.CodePipeline.EnableStageTransition
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an enable stage transition action.
 --
+--
+--
 -- /See:/ 'enableStageTransition' smart constructor.
 data EnableStageTransition = EnableStageTransition'
     { _estPipelineName   :: !Text
@@ -54,11 +58,11 @@ data EnableStageTransition = EnableStageTransition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'estPipelineName'
+-- * 'estPipelineName' - The name of the pipeline in which you want to enable the flow of artifacts from one stage to another.
 --
--- * 'estStageName'
+-- * 'estStageName' - The name of the stage where you want to enable the transition of artifacts, either into the stage (inbound) or from that stage to the next stage (outbound).
 --
--- * 'estTransitionType'
+-- * 'estTransitionType' - Specifies whether artifacts will be allowed to enter the stage and be processed by the actions in that stage (inbound) or whether already-processed artifacts will be allowed to transition to the next stage (outbound).
 enableStageTransition
     :: Text -- ^ 'estPipelineName'
     -> Text -- ^ 'estStageName'

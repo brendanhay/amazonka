@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Moves the specified instances out of 'Standby' mode.
+-- Moves the specified instances out of @Standby@ mode.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/.
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ExitStandby.
 --
+--
+--
 -- /See:/ 'exitStandby' smart constructor.
 data ExitStandby = ExitStandby'
     { _eInstanceIds          :: !(Maybe [Text])
@@ -57,9 +61,9 @@ data ExitStandby = ExitStandby'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eInstanceIds'
+-- * 'eInstanceIds' - One or more instance IDs. You must specify at least one instance ID.
 --
--- * 'eAutoScalingGroupName'
+-- * 'eAutoScalingGroupName' - The name of the Auto Scaling group.
 exitStandby
     :: Text -- ^ 'eAutoScalingGroupName'
     -> ExitStandby
@@ -109,6 +113,8 @@ instance ToQuery ExitStandby where
 
 -- | Contains the parameters for ExitStandby.
 --
+--
+--
 -- /See:/ 'exitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
     { _esrsActivities     :: !(Maybe [Activity])
@@ -119,9 +125,9 @@ data ExitStandbyResponse = ExitStandbyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esrsActivities'
+-- * 'esrsActivities' - The activities related to moving instances out of @Standby@ mode.
 --
--- * 'esrsResponseStatus'
+-- * 'esrsResponseStatus' - -- | The response status code.
 exitStandbyResponse
     :: Int -- ^ 'esrsResponseStatus'
     -> ExitStandbyResponse
@@ -131,11 +137,11 @@ exitStandbyResponse pResponseStatus_ =
     , _esrsResponseStatus = pResponseStatus_
     }
 
--- | The activities related to moving instances out of 'Standby' mode.
+-- | The activities related to moving instances out of @Standby@ mode.
 esrsActivities :: Lens' ExitStandbyResponse [Activity]
 esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 esrsResponseStatus :: Lens' ExitStandbyResponse Int
 esrsResponseStatus = lens _esrsResponseStatus (\ s a -> s{_esrsResponseStatus = a});
 

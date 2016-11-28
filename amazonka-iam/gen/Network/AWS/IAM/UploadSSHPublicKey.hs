@@ -20,7 +20,9 @@
 --
 -- Uploads an SSH public key and associates it with the specified IAM user.
 --
--- The SSH public key uploaded by this action can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/.
+--
+-- The SSH public key uploaded by this action can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
+--
 module Network.AWS.IAM.UploadSSHPublicKey
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usshpkUserName'
+-- * 'usshpkUserName' - The name of the IAM user to associate the SSH public key with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'usshpkSSHPublicKeyBody'
+-- * 'usshpkSSHPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 uploadSSHPublicKey
     :: Text -- ^ 'usshpkUserName'
     -> Text -- ^ 'usshpkSSHPublicKeyBody'
@@ -68,15 +70,11 @@ uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
     , _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
     }
 
--- | The name of the IAM user to associate the SSH public key with.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-
+-- | The name of the IAM user to associate the SSH public key with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 usshpkUserName :: Lens' UploadSSHPublicKey Text
 usshpkUserName = lens _usshpkUserName (\ s a -> s{_usshpkUserName = a});
 
--- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
 usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPublicKeyBody = a});
 
@@ -108,7 +106,9 @@ instance ToQuery UploadSSHPublicKey where
                "UserName" =: _usshpkUserName,
                "SSHPublicKeyBody" =: _usshpkSSHPublicKeyBody]
 
--- | Contains the response to a successful < UploadSSHPublicKey> request.
+-- | Contains the response to a successful 'UploadSSHPublicKey' request.
+--
+--
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
@@ -120,9 +120,9 @@ data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uspkrsSSHPublicKey'
+-- * 'uspkrsSSHPublicKey' - Contains information about the SSH public key.
 --
--- * 'uspkrsResponseStatus'
+-- * 'uspkrsResponseStatus' - -- | The response status code.
 uploadSSHPublicKeyResponse
     :: Int -- ^ 'uspkrsResponseStatus'
     -> UploadSSHPublicKeyResponse
@@ -136,7 +136,7 @@ uploadSSHPublicKeyResponse pResponseStatus_ =
 uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
 uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uspkrsResponseStatus :: Lens' UploadSSHPublicKeyResponse Int
 uspkrsResponseStatus = lens _uspkrsResponseStatus (\ s a -> s{_uspkrsResponseStatus = a});
 

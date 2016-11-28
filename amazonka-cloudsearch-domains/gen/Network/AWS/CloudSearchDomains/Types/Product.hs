@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | A container for facet information.
 --
+--
+--
 -- /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
     { _bValue :: !(Maybe Text)
@@ -33,9 +35,9 @@ data Bucket = Bucket'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bValue'
+-- * 'bValue' - The facet value being counted.
 --
--- * 'bCount'
+-- * 'bCount' - The number of hits that contain the facet value in the specified facet field.
 bucket
     :: Bucket
 bucket =
@@ -64,6 +66,8 @@ instance NFData Bucket
 
 -- | A container for the calculated facet values and counts.
 --
+--
+--
 -- /See:/ 'bucketInfo' smart constructor.
 newtype BucketInfo = BucketInfo'
     { _biBuckets :: Maybe [Bucket]
@@ -73,7 +77,7 @@ newtype BucketInfo = BucketInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'biBuckets'
+-- * 'biBuckets' - A list of the calculated facet values and counts.
 bucketInfo
     :: BucketInfo
 bucketInfo =
@@ -96,6 +100,8 @@ instance NFData BucketInfo
 
 -- | A warning returned by the document service when an issue is discovered while processing an upload request.
 --
+--
+--
 -- /See:/ 'documentServiceWarning' smart constructor.
 newtype DocumentServiceWarning = DocumentServiceWarning'
     { _dswMessage :: Maybe Text
@@ -105,7 +111,7 @@ newtype DocumentServiceWarning = DocumentServiceWarning'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dswMessage'
+-- * 'dswMessage' - The description for a warning returned by the document service.
 documentServiceWarning
     :: DocumentServiceWarning
 documentServiceWarning =
@@ -129,6 +135,8 @@ instance NFData DocumentServiceWarning
 
 -- | The statistics for a field calculated in the request.
 --
+--
+--
 -- /See:/ 'fieldStats' smart constructor.
 data FieldStats = FieldStats'
     { _fsMax          :: !(Maybe Text)
@@ -145,21 +153,21 @@ data FieldStats = FieldStats'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsMax'
+-- * 'fsMax' - The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsMean'
+-- * 'fsMean' - The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsCount'
+-- * 'fsCount' - The number of documents that contain a value in the specified field in the result set.
 --
--- * 'fsMissing'
+-- * 'fsMissing' - The number of documents that do not contain a value in the specified field in the result set.
 --
--- * 'fsStddev'
+-- * 'fsStddev' - The standard deviation of the values in the specified field in the result set.
 --
--- * 'fsMin'
+-- * 'fsMin' - The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 --
--- * 'fsSumOfSquares'
+-- * 'fsSumOfSquares' - The sum of all field values in the result set squared.
 --
--- * 'fsSum'
+-- * 'fsSum' - The sum of the field values across the documents in the result set. @null@ for date fields.
 fieldStats
     :: FieldStats
 fieldStats =
@@ -174,15 +182,11 @@ fieldStats =
     , _fsSum = Nothing
     }
 
--- | The maximum value found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'max' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'max' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- | The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMax :: Lens' FieldStats (Maybe Text)
 fsMax = lens _fsMax (\ s a -> s{_fsMax = a});
 
--- | The average of the values found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'mean' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'mean' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- | The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMean :: Lens' FieldStats (Maybe Text)
 fsMean = lens _fsMean (\ s a -> s{_fsMean = a});
 
@@ -198,9 +202,7 @@ fsMissing = lens _fsMissing (\ s a -> s{_fsMissing = a});
 fsStddev :: Lens' FieldStats (Maybe Double)
 fsStddev = lens _fsStddev (\ s a -> s{_fsStddev = a});
 
--- | The minimum value found in the specified field in the result set.
---
--- If the field is numeric ('int', 'int-array', 'double', or 'double-array'), 'min' is the string representation of a double-precision 64-bit floating point value. If the field is 'date' or 'date-array', 'min' is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- | The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 fsMin :: Lens' FieldStats (Maybe Text)
 fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 
@@ -208,7 +210,7 @@ fsMin = lens _fsMin (\ s a -> s{_fsMin = a});
 fsSumOfSquares :: Lens' FieldStats (Maybe Double)
 fsSumOfSquares = lens _fsSumOfSquares (\ s a -> s{_fsSumOfSquares = a});
 
--- | The sum of the field values across the documents in the result set. 'null' for date fields.
+-- | The sum of the field values across the documents in the result set. @null@ for date fields.
 fsSum :: Lens' FieldStats (Maybe Double)
 fsSum = lens _fsSum (\ s a -> s{_fsSum = a});
 
@@ -230,6 +232,8 @@ instance NFData FieldStats
 
 -- | Information about a document that matches the search request.
 --
+--
+--
 -- /See:/ 'hit' smart constructor.
 data Hit = Hit'
     { _hitExprs      :: !(Maybe (Map Text Text))
@@ -242,13 +246,13 @@ data Hit = Hit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hitExprs'
+-- * 'hitExprs' - The expressions returned from a document that matches the search request.
 --
--- * 'hitId'
+-- * 'hitId' - The document ID of a document that matches the search request.
 --
--- * 'hitHighlights'
+-- * 'hitHighlights' - The highlights returned from a document that matches the search request.
 --
--- * 'hitFields'
+-- * 'hitFields' - The fields returned from a document that matches the search request.
 hit
     :: Hit
 hit =
@@ -290,6 +294,8 @@ instance NFData Hit
 
 -- | The collection of documents that match the search request.
 --
+--
+--
 -- /See:/ 'hits' smart constructor.
 data Hits = Hits'
     { _hCursor :: !(Maybe Text)
@@ -302,13 +308,13 @@ data Hits = Hits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hCursor'
+-- * 'hCursor' - A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
 --
--- * 'hHit'
+-- * 'hHit' - A document that matches the search request.
 --
--- * 'hStart'
+-- * 'hStart' - The index of the first matching document.
 --
--- * 'hFound'
+-- * 'hFound' - The total number of documents that match the search request.
 hits
     :: Hits
 hits =
@@ -348,7 +354,9 @@ instance Hashable Hits
 
 instance NFData Hits
 
--- | Contains the resource id ('rid') and the time it took to process the request ('timems').
+-- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
+--
+--
 --
 -- /See:/ 'searchStatus' smart constructor.
 data SearchStatus = SearchStatus'
@@ -360,9 +368,9 @@ data SearchStatus = SearchStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sRid'
+-- * 'sRid' - The encrypted resource ID for the request.
 --
--- * 'sTimems'
+-- * 'sTimems' - How long it took to process the request, in milliseconds.
 searchStatus
     :: SearchStatus
 searchStatus =
@@ -389,7 +397,9 @@ instance Hashable SearchStatus
 
 instance NFData SearchStatus
 
--- | Container for the suggestion information returned in a 'SuggestResponse'.
+-- | Container for the suggestion information returned in a @SuggestResponse@ .
+--
+--
 --
 -- /See:/ 'suggestModel' smart constructor.
 data SuggestModel = SuggestModel'
@@ -402,11 +412,11 @@ data SuggestModel = SuggestModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smFound'
+-- * 'smFound' - The number of documents that were found to match the query string.
 --
--- * 'smSuggestions'
+-- * 'smSuggestions' - The documents that match the query string.
 --
--- * 'smQuery'
+-- * 'smQuery' - The query string specified in the suggest request.
 suggestModel
     :: SuggestModel
 suggestModel =
@@ -440,7 +450,9 @@ instance Hashable SuggestModel
 
 instance NFData SuggestModel
 
--- | Contains the resource id ('rid') and the time it took to process the request ('timems').
+-- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
+--
+--
 --
 -- /See:/ 'suggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
@@ -452,9 +464,9 @@ data SuggestStatus = SuggestStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssRid'
+-- * 'ssRid' - The encrypted resource ID for the request.
 --
--- * 'ssTimems'
+-- * 'ssTimems' - How long it took to process the request, in milliseconds.
 suggestStatus
     :: SuggestStatus
 suggestStatus =
@@ -482,7 +494,9 @@ instance Hashable SuggestStatus
 
 instance NFData SuggestStatus
 
--- | An autocomplete suggestion that matches the query string specified in a 'SuggestRequest'.
+-- | An autocomplete suggestion that matches the query string specified in a @SuggestRequest@ .
+--
+--
 --
 -- /See:/ 'suggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
@@ -495,11 +509,11 @@ data SuggestionMatch = SuggestionMatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smSuggestion'
+-- * 'smSuggestion' - The string that matches the query string specified in the @SuggestRequest@ .
 --
--- * 'smScore'
+-- * 'smScore' - The relevance score of a suggested match.
 --
--- * 'smId'
+-- * 'smId' - The document ID of the suggested document.
 suggestionMatch
     :: SuggestionMatch
 suggestionMatch =
@@ -509,7 +523,7 @@ suggestionMatch =
     , _smId = Nothing
     }
 
--- | The string that matches the query string specified in the 'SuggestRequest'.
+-- | The string that matches the query string specified in the @SuggestRequest@ .
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\ s a -> s{_smSuggestion = a});
 

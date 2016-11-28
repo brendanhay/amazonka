@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a data feed for Spot instances, enabling you to view Spot instance usage logs. You can create one data feed per AWS account. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Creates a data feed for Spot instances, enabling you to view Spot instance usage logs. You can create one data feed per AWS account. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+--
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
+--
+--
 -- /See:/ 'createSpotDatafeedSubscription' smart constructor.
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
     { _csdsPrefix :: !(Maybe Text)
@@ -57,11 +61,11 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdsPrefix'
+-- * 'csdsPrefix' - A prefix for the data feed file names.
 --
--- * 'csdsDryRun'
+-- * 'csdsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'csdsBucket'
+-- * 'csdsBucket' - The Amazon S3 bucket in which to store the Spot instance data feed.
 createSpotDatafeedSubscription
     :: Text -- ^ 'csdsBucket'
     -> CreateSpotDatafeedSubscription
@@ -76,7 +80,7 @@ createSpotDatafeedSubscription pBucket_ =
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
 csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 
@@ -118,6 +122,8 @@ instance ToQuery CreateSpotDatafeedSubscription where
 
 -- | Contains the output of CreateSpotDatafeedSubscription.
 --
+--
+--
 -- /See:/ 'createSpotDatafeedSubscriptionResponse' smart constructor.
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
@@ -128,9 +134,9 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdsrsSpotDatafeedSubscription'
+-- * 'csdsrsSpotDatafeedSubscription' - The Spot instance data feed subscription.
 --
--- * 'csdsrsResponseStatus'
+-- * 'csdsrsResponseStatus' - -- | The response status code.
 createSpotDatafeedSubscriptionResponse
     :: Int -- ^ 'csdsrsResponseStatus'
     -> CreateSpotDatafeedSubscriptionResponse
@@ -144,7 +150,7 @@ createSpotDatafeedSubscriptionResponse pResponseStatus_ =
 csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 csdsrsResponseStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
 csdsrsResponseStatus = lens _csdsrsResponseStatus (\ s a -> s{_csdsrsResponseStatus = a});
 

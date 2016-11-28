@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a high-availability partition group.
+--
+--
 module Network.AWS.CloudHSM.DescribeHAPG
     (
     -- * Creating a Request
@@ -50,7 +52,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the inputs for the < DescribeHapg> action.
+-- | Contains the inputs for the 'DescribeHapg' action.
+--
+--
 --
 -- /See:/ 'describeHAPG' smart constructor.
 newtype DescribeHAPG = DescribeHAPG'
@@ -61,7 +65,7 @@ newtype DescribeHAPG = DescribeHAPG'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhapgHAPGARN'
+-- * 'dhapgHAPGARN' - The ARN of the high-availability partition group to describe.
 describeHAPG
     :: Text -- ^ 'dhapgHAPGARN'
     -> DescribeHAPG
@@ -116,7 +120,9 @@ instance ToPath DescribeHAPG where
 instance ToQuery DescribeHAPG where
         toQuery = const mempty
 
--- | Contains the output of the < DescribeHapg> action.
+-- | Contains the output of the 'DescribeHapg' action.
+--
+--
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'
@@ -136,25 +142,25 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dhapgrsState'
+-- * 'dhapgrsState' - The state of the high-availability partition group.
 --
--- * 'dhapgrsLastModifiedTimestamp'
+-- * 'dhapgrsLastModifiedTimestamp' - The date and time the high-availability partition group was last modified.
 --
--- * 'dhapgrsHSMsPendingRegistration'
+-- * 'dhapgrsHSMsPendingRegistration' - Undocumented member.
 --
--- * 'dhapgrsHSMsPendingDeletion'
+-- * 'dhapgrsHSMsPendingDeletion' - Undocumented member.
 --
--- * 'dhapgrsHAPGSerial'
+-- * 'dhapgrsHAPGSerial' - The serial number of the high-availability partition group.
 --
--- * 'dhapgrsHSMsLastActionFailed'
+-- * 'dhapgrsHSMsLastActionFailed' - Undocumented member.
 --
--- * 'dhapgrsPartitionSerialList'
+-- * 'dhapgrsPartitionSerialList' - The list of partition serial numbers that belong to the high-availability partition group.
 --
--- * 'dhapgrsHAPGARN'
+-- * 'dhapgrsHAPGARN' - The ARN of the high-availability partition group.
 --
--- * 'dhapgrsLabel'
+-- * 'dhapgrsLabel' - The label for the high-availability partition group.
 --
--- * 'dhapgrsResponseStatus'
+-- * 'dhapgrsResponseStatus' - -- | The response status code.
 describeHAPGResponse
     :: Int -- ^ 'dhapgrsResponseStatus'
     -> DescribeHAPGResponse
@@ -208,7 +214,7 @@ dhapgrsHAPGARN = lens _dhapgrsHAPGARN (\ s a -> s{_dhapgrsHAPGARN = a});
 dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dhapgrsResponseStatus :: Lens' DescribeHAPGResponse Int
 dhapgrsResponseStatus = lens _dhapgrsResponseStatus (\ s a -> s{_dhapgrsResponseStatus = a});
 

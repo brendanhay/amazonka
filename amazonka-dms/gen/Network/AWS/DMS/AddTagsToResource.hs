@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds metadata tags to a DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS.
+--
+--
 module Network.AWS.DMS.AddTagsToResource
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceARN :: !Text
@@ -54,9 +58,9 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceARN'
+-- * 'attrResourceARN' - The Amazon Resource Name (ARN) of the AWS DMS resource the tag is to be added to. AWS DMS resources include a replication instance, endpoint, and a replication task.
 --
--- * 'attrTags'
+-- * 'attrTags' - The tag to be assigned to the DMS resource.
 addTagsToResource
     :: Text -- ^ 'attrResourceARN'
     -> AddTagsToResource
@@ -111,6 +115,8 @@ instance ToQuery AddTagsToResource where
 
 -- |
 --
+--
+--
 -- /See:/ 'addTagsToResourceResponse' smart constructor.
 newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
     { _attrrsResponseStatus :: Int
@@ -120,7 +126,7 @@ newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
@@ -129,7 +135,7 @@ addTagsToResourceResponse pResponseStatus_ =
     { _attrrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 

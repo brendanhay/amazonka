@@ -20,7 +20,9 @@
 --
 -- Creates a new user profile.
 --
--- __Required Permissions__: To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.CreateUserProfile
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data CreateUserProfile = CreateUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupAllowSelfManagement'
+-- * 'cupAllowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
 --
--- * 'cupSSHPublicKey'
+-- * 'cupSSHPublicKey' - The user's public SSH key.
 --
--- * 'cupSSHUsername'
+-- * 'cupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
 --
--- * 'cupIAMUserARN'
+-- * 'cupIAMUserARN' - The user's IAM ARN.
 createUserProfile
     :: Text -- ^ 'cupIAMUserARN'
     -> CreateUserProfile
@@ -77,19 +79,19 @@ createUserProfile pIAMUserARN_ =
     , _cupIAMUserARN = pIAMUserARN_
     }
 
--- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
+-- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User's Public SSH Key> .
 cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
 cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
 
--- | The user\'s public SSH key.
+-- | The user's public SSH key.
 cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
 cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
 
--- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z], [0-9], \'-\', and \'_\'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, 'my.name' will be changed to 'myname'. If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
+-- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
 cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 cupIAMUserARN :: Lens' CreateUserProfile Text
 cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
 
@@ -132,7 +134,9 @@ instance ToPath CreateUserProfile where
 instance ToQuery CreateUserProfile where
         toQuery = const mempty
 
--- | Contains the response to a 'CreateUserProfile' request.
+-- | Contains the response to a @CreateUserProfile@ request.
+--
+--
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
@@ -144,9 +148,9 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuprsIAMUserARN'
+-- * 'cuprsIAMUserARN' - The user's IAM ARN.
 --
--- * 'cuprsResponseStatus'
+-- * 'cuprsResponseStatus' - -- | The response status code.
 createUserProfileResponse
     :: Int -- ^ 'cuprsResponseStatus'
     -> CreateUserProfileResponse
@@ -156,11 +160,11 @@ createUserProfileResponse pResponseStatus_ =
     , _cuprsResponseStatus = pResponseStatus_
     }
 
--- | The user\'s IAM ARN.
+-- | The user's IAM ARN.
 cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
 cuprsResponseStatus = lens _cuprsResponseStatus (\ s a -> s{_cuprsResponseStatus = a});
 

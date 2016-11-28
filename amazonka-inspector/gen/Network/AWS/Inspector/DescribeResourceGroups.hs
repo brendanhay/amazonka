@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the resource groups that are specified by the ARNs of the resource groups.
+--
+--
 module Network.AWS.Inspector.DescribeResourceGroups
     (
     -- * Creating a Request
@@ -52,7 +54,7 @@ newtype DescribeResourceGroups = DescribeResourceGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgResourceGroupARNs'
+-- * 'drgResourceGroupARNs' - The ARN that specifies the resource group that you want to describe.
 describeResourceGroups
     :: NonEmpty Text -- ^ 'drgResourceGroupARNs'
     -> DescribeResourceGroups
@@ -115,11 +117,11 @@ data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgrsResponseStatus'
+-- * 'drgrsResponseStatus' - -- | The response status code.
 --
--- * 'drgrsResourceGroups'
+-- * 'drgrsResourceGroups' - Information about a resource group.
 --
--- * 'drgrsFailedItems'
+-- * 'drgrsFailedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
 describeResourceGroupsResponse
     :: Int -- ^ 'drgrsResponseStatus'
     -> DescribeResourceGroupsResponse
@@ -130,7 +132,7 @@ describeResourceGroupsResponse pResponseStatus_ =
     , _drgrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 drgrsResponseStatus :: Lens' DescribeResourceGroupsResponse Int
 drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a});
 

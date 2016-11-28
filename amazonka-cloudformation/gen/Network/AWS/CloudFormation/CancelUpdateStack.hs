@@ -20,7 +20,7 @@
 --
 -- Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update and reverts to the previous stack configuration.
 --
--- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
+--
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Creating a Request
@@ -41,7 +41,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < CancelUpdateStack> action.
+-- | The input for the 'CancelUpdateStack' action.
+--
+--
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
 newtype CancelUpdateStack = CancelUpdateStack'
@@ -52,7 +54,7 @@ newtype CancelUpdateStack = CancelUpdateStack'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cusStackName'
+-- * 'cusStackName' - The name or the unique stack ID that is associated with the stack.
 cancelUpdateStack
     :: Text -- ^ 'cusStackName'
     -> CancelUpdateStack

@@ -18,15 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a < SizeConstraintSet>. You can\'t delete a 'SizeConstraintSet' if it\'s still used in any 'Rules' or if it still includes any < SizeConstraint> objects (any filters).
+-- Permanently deletes a 'SizeConstraintSet' . You can't delete a @SizeConstraintSet@ if it's still used in any @Rules@ or if it still includes any 'SizeConstraint' objects (any filters).
 --
--- If you just want to remove a 'SizeConstraintSet' from a 'Rule', use < UpdateRule>.
 --
--- To permanently delete a 'SizeConstraintSet', perform the following steps:
+-- If you just want to remove a @SizeConstraintSet@ from a @Rule@ , use 'UpdateRule' .
 --
--- 1.  Update the 'SizeConstraintSet' to remove filters, if any. For more information, see < UpdateSizeConstraintSet>.
--- 2.  Use < GetChangeToken> to get the change token that you provide in the 'ChangeToken' parameter of a 'DeleteSizeConstraintSet' request.
--- 3.  Submit a 'DeleteSizeConstraintSet' request.
+-- To permanently delete a @SizeConstraintSet@ , perform the following steps:
+--
+--     * Update the @SizeConstraintSet@ to remove filters, if any. For more information, see 'UpdateSizeConstraintSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSizeConstraintSet@ request.    * Submit a @DeleteSizeConstraintSet@ request.
+--
 module Network.AWS.WAF.DeleteSizeConstraintSet
     (
     -- * Creating a Request
@@ -61,9 +61,9 @@ data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscsSizeConstraintSetId'
+-- * 'dscsSizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
--- * 'dscsChangeToken'
+-- * 'dscsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
 deleteSizeConstraintSet
     :: Text -- ^ 'dscsSizeConstraintSetId'
     -> Text -- ^ 'dscsChangeToken'
@@ -74,11 +74,11 @@ deleteSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
     , _dscsChangeToken = pChangeToken_
     }
 
--- | The 'SizeConstraintSetId' of the < SizeConstraintSet> that you want to delete. 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and by < ListSizeConstraintSets>.
+-- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 dscsSizeConstraintSetId :: Lens' DeleteSizeConstraintSet Text
 dscsSizeConstraintSetId = lens _dscsSizeConstraintSetId (\ s a -> s{_dscsSizeConstraintSetId = a});
 
--- | The value returned by the most recent call to < GetChangeToken>.
+-- | The value returned by the most recent call to 'GetChangeToken' .
 dscsChangeToken :: Lens' DeleteSizeConstraintSet Text
 dscsChangeToken = lens _dscsChangeToken (\ s a -> s{_dscsChangeToken = a});
 
@@ -130,9 +130,9 @@ data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscsrsChangeToken'
+-- * 'dscsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
--- * 'dscsrsResponseStatus'
+-- * 'dscsrsResponseStatus' - -- | The response status code.
 deleteSizeConstraintSetResponse
     :: Int -- ^ 'dscsrsResponseStatus'
     -> DeleteSizeConstraintSetResponse
@@ -142,11 +142,11 @@ deleteSizeConstraintSetResponse pResponseStatus_ =
     , _dscsrsResponseStatus = pResponseStatus_
     }
 
--- | The 'ChangeToken' that you used to submit the 'DeleteSizeConstraintSet' request. You can also use this value to query the status of the request. For more information, see < GetChangeTokenStatus>.
+-- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 dscsrsChangeToken :: Lens' DeleteSizeConstraintSetResponse (Maybe Text)
 dscsrsChangeToken = lens _dscsrsChangeToken (\ s a -> s{_dscsrsChangeToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dscsrsResponseStatus :: Lens' DeleteSizeConstraintSetResponse Int
 dscsrsResponseStatus = lens _dscsrsResponseStatus (\ s a -> s{_dscsrsResponseStatus = a});
 

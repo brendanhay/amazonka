@@ -20,6 +20,8 @@
 --
 -- Describes the specified listeners or the listeners for the specified load balancer. You must specify either a load balancer or one or more listeners.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeListeners
     (
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeListeners.
 --
+--
+--
 -- /See:/ 'describeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
     { _dlListenerARNs    :: !(Maybe [Text])
@@ -63,13 +67,13 @@ data DescribeListeners = DescribeListeners'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlListenerARNs'
+-- * 'dlListenerARNs' - The Amazon Resource Names (ARN) of the listeners.
 --
--- * 'dlLoadBalancerARN'
+-- * 'dlLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'dlMarker'
+-- * 'dlMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
--- * 'dlPageSize'
+-- * 'dlPageSize' - The maximum number of results to return with this call.
 describeListeners
     :: DescribeListeners
 describeListeners =
@@ -137,6 +141,8 @@ instance ToQuery DescribeListeners where
 
 -- | Contains the output of DescribeListeners.
 --
+--
+--
 -- /See:/ 'describeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
     { _dlsrsNextMarker     :: !(Maybe Text)
@@ -148,11 +154,11 @@ data DescribeListenersResponse = DescribeListenersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsrsNextMarker'
+-- * 'dlsrsNextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
--- * 'dlsrsListeners'
+-- * 'dlsrsListeners' - Information about the listeners.
 --
--- * 'dlsrsResponseStatus'
+-- * 'dlsrsResponseStatus' - -- | The response status code.
 describeListenersResponse
     :: Int -- ^ 'dlsrsResponseStatus'
     -> DescribeListenersResponse
@@ -171,7 +177,7 @@ dlsrsNextMarker = lens _dlsrsNextMarker (\ s a -> s{_dlsrsNextMarker = a});
 dlsrsListeners :: Lens' DescribeListenersResponse [Listener]
 dlsrsListeners = lens _dlsrsListeners (\ s a -> s{_dlsrsListeners = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlsrsResponseStatus :: Lens' DescribeListenersResponse Int
 dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a});
 

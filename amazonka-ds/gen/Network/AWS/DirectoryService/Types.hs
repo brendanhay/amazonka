@@ -238,7 +238,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-04-16' of the Amazon Directory Service SDK configuration.
+-- | API version @2015-04-16@ of the Amazon Directory Service SDK configuration.
 directoryService :: Service
 directoryService =
     Service
@@ -273,69 +273,97 @@ directoryService =
       | otherwise = Nothing
 
 -- | The specified directory is unavailable or could not be found.
+--
+--
 _DirectoryUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryUnavailableException =
     _ServiceError . hasCode "DirectoryUnavailableException"
 
 -- | An authentication error occurred.
+--
+--
 _AuthenticationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthenticationFailedException =
     _ServiceError . hasCode "AuthenticationFailedException"
 
 -- | One or more parameters are not valid.
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
 -- | The operation is not supported.
+--
+--
 _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedOperationException =
     _ServiceError . hasCode "UnsupportedOperationException"
 
 -- | The specified entity already exists.
+--
+--
 _EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityAlreadyExistsException =
     _ServiceError . hasCode "EntityAlreadyExistsException"
 
--- | The maximum number of directories in the region has been reached. You can use the < GetDirectoryLimits> operation to determine your directory limits in the region.
+-- | The maximum number of directories in the region has been reached. You can use the 'GetDirectoryLimits' operation to determine your directory limits in the region.
+--
+--
 _DirectoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectoryLimitExceededException =
     _ServiceError . hasCode "DirectoryLimitExceededException"
 
 -- | The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
+--
+--
 _IPRouteLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _IPRouteLimitExceededException =
     _ServiceError . hasCode "IpRouteLimitExceededException"
 
 -- | The specified entity could not be found.
+--
+--
 _EntityDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityDoesNotExistException =
     _ServiceError . hasCode "EntityDoesNotExistException"
 
 -- | The account does not have sufficient permission to perform the operation.
+--
+--
 _InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =
     _ServiceError . hasCode "InsufficientPermissionsException"
 
 -- | The /NextToken/ value is not valid.
+--
+--
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _ServiceError . hasCode "InvalidNextTokenException"
 
 -- | An exception has occurred in AWS Directory Service.
+--
+--
 _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceException = _ServiceError . hasCode "ServiceException"
 
--- | The maximum number of manual snapshots for the directory has been reached. You can use the < GetSnapshotLimits> operation to determine the snapshot limits for a directory.
+-- | The maximum number of manual snapshots for the directory has been reached. You can use the 'GetSnapshotLimits' operation to determine the snapshot limits for a directory.
+--
+--
 _SnapshotLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SnapshotLimitExceededException =
     _ServiceError . hasCode "SnapshotLimitExceededException"
 
 -- | The maximum allowed number of tags was exceeded.
+--
+--
 _TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TagLimitExceededException =
     _ServiceError . hasCode "TagLimitExceededException"
 
 -- | A client exception has occurred.
+--
+--
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClientException = _ServiceError . hasCode "ClientException"

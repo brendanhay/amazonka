@@ -20,7 +20,9 @@
 --
 -- Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.DeleteIdentities
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the 'DeleteIdentities' action.
+-- | Input to the @DeleteIdentities@ action.
+--
+--
 --
 -- /See:/ 'deleteIdentities' smart constructor.
 newtype DeleteIdentities = DeleteIdentities'
@@ -55,7 +59,7 @@ newtype DeleteIdentities = DeleteIdentities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentityIdsToDelete'
+-- * 'diIdentityIdsToDelete' - A list of 1-60 identities that you want to delete.
 deleteIdentities
     :: NonEmpty Text -- ^ 'diIdentityIdsToDelete'
     -> DeleteIdentities
@@ -105,7 +109,9 @@ instance ToPath DeleteIdentities where
 instance ToQuery DeleteIdentities where
         toQuery = const mempty
 
--- | Returned in response to a successful 'DeleteIdentities' operation.
+-- | Returned in response to a successful @DeleteIdentities@ operation.
+--
+--
 --
 -- /See:/ 'deleteIdentitiesResponse' smart constructor.
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
@@ -117,9 +123,9 @@ data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsUnprocessedIdentityIds'
+-- * 'dirsUnprocessedIdentityIds' - An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 --
--- * 'dirsResponseStatus'
+-- * 'dirsResponseStatus' - -- | The response status code.
 deleteIdentitiesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DeleteIdentitiesResponse
@@ -133,7 +139,7 @@ deleteIdentitiesResponse pResponseStatus_ =
 dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
 dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dirsResponseStatus :: Lens' DeleteIdentitiesResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Changes information about the specified API.
+--
+--
 module Network.AWS.APIGateway.UpdateRestAPI
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to update an existing < RestApi> resource in your collection.
+-- | Request to update an existing 'RestApi' resource in your collection.
+--
+--
 --
 -- /See:/ 'updateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
@@ -58,9 +62,9 @@ data UpdateRestAPI = UpdateRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uraPatchOperations'
+-- * 'uraPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uraRestAPIId'
+-- * 'uraRestAPIId' - The ID of the 'RestApi' you want to update.
 updateRestAPI
     :: Text -- ^ 'uraRestAPIId'
     -> UpdateRestAPI
@@ -74,7 +78,7 @@ updateRestAPI pRestAPIId_ =
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
 uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
 
--- | The ID of the < RestApi> you want to update.
+-- | The ID of the 'RestApi' you want to update.
 uraRestAPIId :: Lens' UpdateRestAPI Text
 uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 

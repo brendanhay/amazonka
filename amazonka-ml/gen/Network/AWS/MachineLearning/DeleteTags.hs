@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags associated with an ML object. After this operation is complete, you can\'t recover deleted tags.
+-- Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.
 --
--- If you specify a tag that doesn\'t exist, Amazon ML ignores it.
+--
+-- If you specify a tag that doesn't exist, Amazon ML ignores it.
+--
 module Network.AWS.MachineLearning.DeleteTags
     (
     -- * Creating a Request
@@ -58,11 +60,11 @@ data DeleteTags = DeleteTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTagKeys'
+-- * 'dTagKeys' - One or more tags to delete.
 --
--- * 'dResourceId'
+-- * 'dResourceId' - The ID of the tagged ML object. For example, @exampleModelId@ .
 --
--- * 'dResourceType'
+-- * 'dResourceType' - The type of the tagged ML object.
 deleteTags
     :: Text -- ^ 'dResourceId'
     -> TaggableResourceType -- ^ 'dResourceType'
@@ -78,7 +80,7 @@ deleteTags pResourceId_ pResourceType_ =
 dTagKeys :: Lens' DeleteTags [Text]
 dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
--- | The ID of the tagged ML object. For example, 'exampleModelId'.
+-- | The ID of the tagged ML object. For example, @exampleModelId@ .
 dResourceId :: Lens' DeleteTags Text
 dResourceId = lens _dResourceId (\ s a -> s{_dResourceId = a});
 
@@ -125,6 +127,8 @@ instance ToQuery DeleteTags where
 
 -- | Amazon ML returns the following elements.
 --
+--
+--
 -- /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
     { _drsResourceId     :: !(Maybe Text)
@@ -136,11 +140,11 @@ data DeleteTagsResponse = DeleteTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResourceId'
+-- * 'drsResourceId' - The ID of the ML object from which tags were deleted.
 --
--- * 'drsResourceType'
+-- * 'drsResourceType' - The type of the ML object from which tags were deleted.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteTagsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteTagsResponse
@@ -159,7 +163,7 @@ drsResourceId = lens _drsResourceId (\ s a -> s{_drsResourceId = a});
 drsResourceType :: Lens' DeleteTagsResponse (Maybe TaggableResourceType)
 drsResourceType = lens _drsResourceType (\ s a -> s{_drsResourceType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteTagsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

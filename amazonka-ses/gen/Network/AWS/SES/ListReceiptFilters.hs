@@ -20,9 +20,11 @@
 --
 -- Lists the IP address filters associated with your AWS account.
 --
--- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
+--
+-- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide> .
 --
 -- This action is throttled at one request per second.
+--
 module Network.AWS.SES.ListReceiptFilters
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Response
 import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
--- | : Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
+-- | : Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+--
+--
 --
 -- /See:/ 'listReceiptFilters' smart constructor.
 data ListReceiptFilters =
@@ -88,6 +92,8 @@ instance ToQuery ListReceiptFilters where
 
 -- | A list of IP address filters that exist under your AWS account.
 --
+--
+--
 -- /See:/ 'listReceiptFiltersResponse' smart constructor.
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
     { _lrfrsFilters        :: !(Maybe [ReceiptFilter])
@@ -98,9 +104,9 @@ data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrfrsFilters'
+-- * 'lrfrsFilters' - A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.
 --
--- * 'lrfrsResponseStatus'
+-- * 'lrfrsResponseStatus' - -- | The response status code.
 listReceiptFiltersResponse
     :: Int -- ^ 'lrfrsResponseStatus'
     -> ListReceiptFiltersResponse
@@ -114,7 +120,7 @@ listReceiptFiltersResponse pResponseStatus_ =
 lrfrsFilters :: Lens' ListReceiptFiltersResponse [ReceiptFilter]
 lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lrfrsResponseStatus :: Lens' ListReceiptFiltersResponse Int
 lrfrsResponseStatus = lens _lrfrsResponseStatus (\ s a -> s{_lrfrsResponseStatus = a});
 

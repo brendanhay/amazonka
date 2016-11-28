@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all search domains owned by an account.
+--
+--
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Creating a Request
@@ -79,7 +81,9 @@ instance ToQuery ListDomainNames where
                  ["Action" =: ("ListDomainNames" :: ByteString),
                   "Version" =: ("2013-01-01" :: ByteString)])
 
--- | The result of a 'ListDomainNames' request. Contains a list of the domains owned by an account.
+-- | The result of a @ListDomainNames@ request. Contains a list of the domains owned by an account.
+--
+--
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
@@ -91,9 +95,9 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldnrsDomainNames'
+-- * 'ldnrsDomainNames' - The names of the search domains owned by an account.
 --
--- * 'ldnrsResponseStatus'
+-- * 'ldnrsResponseStatus' - -- | The response status code.
 listDomainNamesResponse
     :: Int -- ^ 'ldnrsResponseStatus'
     -> ListDomainNamesResponse
@@ -107,7 +111,7 @@ listDomainNamesResponse pResponseStatus_ =
 ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 ldnrsResponseStatus :: Lens' ListDomainNamesResponse Int
 ldnrsResponseStatus = lens _ldnrsResponseStatus (\ s a -> s{_ldnrsResponseStatus = a});
 

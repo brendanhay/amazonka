@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified 'JobId' value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you\'ll have to make another call to the 'GetJobManifest' action.
+-- Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the @GetJobManifest@ action.
 --
--- The manifest is an encrypted file that you can download after your job enters the 'WithCustomer' status. The manifest is decrypted by using the 'UnlockCode' code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
 --
--- As a best practice, we recommend that you don\'t save a copy of an 'UnlockCode' value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+-- The manifest is an encrypted file that you can download after your job enters the @WithCustomer@ status. The manifest is decrypted by using the @UnlockCode@ code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
+--
+-- As a best practice, we recommend that you don't save a copy of an @UnlockCode@ value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
 --
 -- Note that the credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
+--
 module Network.AWS.Snowball.GetJobManifest
     (
     -- * Creating a Request
@@ -57,7 +59,7 @@ newtype GetJobManifest = GetJobManifest'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjmJobId'
+-- * 'gjmJobId' - The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 getJobManifest
     :: Text -- ^ 'gjmJobId'
     -> GetJobManifest
@@ -66,7 +68,7 @@ getJobManifest pJobId_ =
     { _gjmJobId = pJobId_
     }
 
--- | The ID for a job that you want to get the manifest file for, for example 'JID123e4567-e89b-12d3-a456-426655440000'.
+-- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 gjmJobId :: Lens' GetJobManifest Text
 gjmJobId = lens _gjmJobId (\ s a -> s{_gjmJobId = a});
 
@@ -113,9 +115,9 @@ data GetJobManifestResponse = GetJobManifestResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjmrsManifestURI'
+-- * 'gjmrsManifestURI' - The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
 --
--- * 'gjmrsResponseStatus'
+-- * 'gjmrsResponseStatus' - -- | The response status code.
 getJobManifestResponse
     :: Int -- ^ 'gjmrsResponseStatus'
     -> GetJobManifestResponse
@@ -125,11 +127,11 @@ getJobManifestResponse pResponseStatus_ =
     , _gjmrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon S3 presigned URL for the manifest file associated with the specified 'JobId' value.
+-- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
 gjmrsManifestURI :: Lens' GetJobManifestResponse (Maybe Text)
 gjmrsManifestURI = lens _gjmrsManifestURI (\ s a -> s{_gjmrsManifestURI = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gjmrsResponseStatus :: Lens' GetJobManifestResponse Int
 gjmrsResponseStatus = lens _gjmrsResponseStatus (\ s a -> s{_gjmrsResponseStatus = a});
 

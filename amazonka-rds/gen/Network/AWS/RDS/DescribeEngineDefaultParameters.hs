@@ -20,6 +20,8 @@
 --
 -- Returns the default engine and system parameter information for the specified database engine.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     { _dedpFilters                :: !(Maybe [Filter])
@@ -62,13 +66,13 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedpFilters'
+-- * 'dedpFilters' - Not currently supported.
 --
--- * 'dedpMarker'
+-- * 'dedpMarker' - An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dedpMaxRecords'
+-- * 'dedpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dedpDBParameterGroupFamily'
+-- * 'dedpDBParameterGroupFamily' - The name of the DB parameter group family.
 describeEngineDefaultParameters
     :: Text -- ^ 'dedpDBParameterGroupFamily'
     -> DescribeEngineDefaultParameters
@@ -84,15 +88,11 @@ describeEngineDefaultParameters pDBParameterGroupFamily_ =
 dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous 'DescribeEngineDefaultParameters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
@@ -160,9 +160,9 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedprsResponseStatus'
+-- * 'dedprsResponseStatus' - -- | The response status code.
 --
--- * 'dedprsEngineDefaults'
+-- * 'dedprsEngineDefaults' - Undocumented member.
 describeEngineDefaultParametersResponse
     :: Int -- ^ 'dedprsResponseStatus'
     -> EngineDefaults -- ^ 'dedprsEngineDefaults'
@@ -173,7 +173,7 @@ describeEngineDefaultParametersResponse pResponseStatus_ pEngineDefaults_ =
     , _dedprsEngineDefaults = pEngineDefaults_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dedprsResponseStatus :: Lens' DescribeEngineDefaultParametersResponse Int
 dedprsResponseStatus = lens _dedprsResponseStatus (\ s a -> s{_dedprsResponseStatus = a});
 

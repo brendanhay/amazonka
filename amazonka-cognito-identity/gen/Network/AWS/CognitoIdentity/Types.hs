@@ -84,7 +84,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2014-06-30' of the Amazon Cognito Identity SDK configuration.
+-- | API version @2014-06-30@ of the Amazon Cognito Identity SDK configuration.
 cognitoIdentity :: Service
 cognitoIdentity =
     Service
@@ -118,7 +118,9 @@ cognitoIdentity =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Thrown if the identity pool has no role associated for the given auth type (auth\/unauth) or if the AssumeRole fails.
+-- | Thrown if the identity pool has no role associated for the given auth type (auth/unauth) or if the AssumeRole fails.
+--
+--
 _InvalidIdentityPoolConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdentityPoolConfigurationException =
     _ServiceError . hasCode "InvalidIdentityPoolConfigurationException"
@@ -137,6 +139,8 @@ _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceEr
 _InternalErrorException = _ServiceError . hasCode "InternalErrorException"
 
 -- | An exception thrown when a dependent service such as Facebook or Twitter is not responding
+--
+--
 _ExternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExternalServiceException = _ServiceError . hasCode "ExternalServiceException"
 
@@ -145,6 +149,8 @@ _TooManyRequestsException :: AsError a => Getting (First ServiceError) a Service
 _TooManyRequestsException = _ServiceError . hasCode "TooManyRequestsException"
 
 -- | Thrown if there are parallel requests to modify a resource.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
@@ -155,6 +161,8 @@ _ResourceConflictException =
     _ServiceError . hasCode "ResourceConflictException"
 
 -- | The provided developer user identifier is already registered with Cognito under a different identity ID.
+--
+--
 _DeveloperUserAlreadyRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeveloperUserAlreadyRegisteredException =
     _ServiceError . hasCode "DeveloperUserAlreadyRegisteredException"

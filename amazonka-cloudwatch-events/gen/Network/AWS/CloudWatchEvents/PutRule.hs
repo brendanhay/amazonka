@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a rule. Rules are enabled by default, or based on value of the State parameter. You can disable a rule using < DisableRule>.
+-- Creates or updates a rule. Rules are enabled by default, or based on value of the State parameter. You can disable a rule using 'DisableRule' .
+--
 --
 -- __Note:__ When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.
 --
 -- A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule will trigger on matching events as well as on a schedule.
 --
--- __Note:__ Most services in AWS treat : or \/ as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+-- __Note:__ Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+--
 module Network.AWS.CloudWatchEvents.PutRule
     (
     -- * Creating a Request
@@ -53,7 +55,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the < PutRule> operation.
+-- | Container for the parameters to the 'PutRule' operation.
+--
+--
 --
 -- /See:/ 'putRule' smart constructor.
 data PutRule = PutRule'
@@ -69,17 +73,17 @@ data PutRule = PutRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prEventPattern'
+-- * 'prEventPattern' - The event pattern.
 --
--- * 'prState'
+-- * 'prState' - Indicates whether the rule is enabled or disabled.
 --
--- * 'prScheduleExpression'
+-- * 'prScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 --
--- * 'prDescription'
+-- * 'prDescription' - A description of the rule.
 --
--- * 'prRoleARN'
+-- * 'prRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 --
--- * 'prName'
+-- * 'prName' - The name of the rule that you are creating or updating.
 putRule
     :: Text -- ^ 'prName'
     -> PutRule
@@ -101,7 +105,7 @@ prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a});
 prState :: Lens' PutRule (Maybe RuleState)
 prState = lens _prState (\ s a -> s{_prState = a});
 
--- | The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\".
+-- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 prScheduleExpression :: Lens' PutRule (Maybe Text)
 prScheduleExpression = lens _prScheduleExpression (\ s a -> s{_prScheduleExpression = a});
 
@@ -156,7 +160,9 @@ instance ToPath PutRule where
 instance ToQuery PutRule where
         toQuery = const mempty
 
--- | The result of the < PutRule> operation.
+-- | The result of the 'PutRule' operation.
+--
+--
 --
 -- /See:/ 'putRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
@@ -168,9 +174,9 @@ data PutRuleResponse = PutRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrsRuleARN'
+-- * 'prrsRuleARN' - The Amazon Resource Name (ARN) that identifies the rule.
 --
--- * 'prrsResponseStatus'
+-- * 'prrsResponseStatus' - -- | The response status code.
 putRuleResponse
     :: Int -- ^ 'prrsResponseStatus'
     -> PutRuleResponse
@@ -184,7 +190,7 @@ putRuleResponse pResponseStatus_ =
 prrsRuleARN :: Lens' PutRuleResponse (Maybe Text)
 prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prrsResponseStatus :: Lens' PutRuleResponse Int
 prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a});
 

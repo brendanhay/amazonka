@@ -20,7 +20,7 @@
 --
 -- The CancelJob operation cancels an unfinished job.
 --
--- You can only cancel a job that has a status of 'Submitted'. To prevent a pipeline from starting to process a job while you\'re getting the job identifier, use < UpdatePipelineStatus> to temporarily pause the pipeline.
+--
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Creating a Request
@@ -43,7 +43,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'CancelJobRequest' structure.
+-- | The @CancelJobRequest@ structure.
+--
+--
 --
 -- /See:/ 'cancelJob' smart constructor.
 newtype CancelJob = CancelJob'
@@ -54,7 +56,7 @@ newtype CancelJob = CancelJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjId'
+-- * 'cjId' - The identifier of the job that you want to cancel.  To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 cancelJob
     :: Text -- ^ 'cjId'
     -> CancelJob
@@ -63,9 +65,7 @@ cancelJob pId_ =
     { _cjId = pId_
     }
 
--- | The identifier of the job that you want to cancel.
---
--- To get a list of the jobs (including their 'jobId') that have a status of 'Submitted', use the < ListJobsByStatus> API action.
+-- | The identifier of the job that you want to cancel.  To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 
@@ -91,7 +91,9 @@ instance ToPath CancelJob where
 instance ToQuery CancelJob where
         toQuery = const mempty
 
--- | The response body contains a JSON object. If the job is successfully canceled, the value of 'Success' is 'true'.
+-- | The response body contains a JSON object. If the job is successfully canceled, the value of @Success@ is @true@ .
+--
+--
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
@@ -102,7 +104,7 @@ newtype CancelJobResponse = CancelJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'canrsResponseStatus'
+-- * 'canrsResponseStatus' - -- | The response status code.
 cancelJobResponse
     :: Int -- ^ 'canrsResponseStatus'
     -> CancelJobResponse
@@ -111,7 +113,7 @@ cancelJobResponse pResponseStatus_ =
     { _canrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 canrsResponseStatus :: Lens' CancelJobResponse Int
 canrsResponseStatus = lens _canrsResponseStatus (\ s a -> s{_canrsResponseStatus = a});
 

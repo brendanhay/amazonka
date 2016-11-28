@@ -20,9 +20,11 @@
 --
 -- Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.
 --
--- There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the 'OutOfService' state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/.
+-- There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the @OutOfService@ state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html Add or Remove Availability Zones> in the /Classic Load Balancers Guide/ .
+--
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisableAvailabilityZonesForLoadBalancer.
 --
+--
+--
 -- /See:/ 'disableAvailabilityZonesForLoadBalancer' smart constructor.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
     { _dazflbLoadBalancerName  :: !Text
@@ -59,9 +63,9 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dazflbLoadBalancerName'
+-- * 'dazflbLoadBalancerName' - The name of the load balancer.
 --
--- * 'dazflbAvailabilityZones'
+-- * 'dazflbAvailabilityZones' - The Availability Zones.
 disableAvailabilityZonesForLoadBalancer
     :: Text -- ^ 'dazflbLoadBalancerName'
     -> DisableAvailabilityZonesForLoadBalancer
@@ -121,6 +125,8 @@ instance ToQuery
 
 -- | Contains the output for DisableAvailabilityZonesForLoadBalancer.
 --
+--
+--
 -- /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones :: !(Maybe [Text])
@@ -131,9 +137,9 @@ data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesF
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dazflbrsAvailabilityZones'
+-- * 'dazflbrsAvailabilityZones' - The remaining Availability Zones for the load balancer.
 --
--- * 'dazflbrsResponseStatus'
+-- * 'dazflbrsResponseStatus' - -- | The response status code.
 disableAvailabilityZonesForLoadBalancerResponse
     :: Int -- ^ 'dazflbrsResponseStatus'
     -> DisableAvailabilityZonesForLoadBalancerResponse
@@ -147,7 +153,7 @@ disableAvailabilityZonesForLoadBalancerResponse pResponseStatus_ =
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dazflbrsResponseStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
 dazflbrsResponseStatus = lens _dazflbrsResponseStatus (\ s a -> s{_dazflbrsResponseStatus = a});
 

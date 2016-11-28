@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.
+--
+--
 module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
     (
     -- * Creating a Request
@@ -42,7 +44,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeElasticsearchDomain' operation.
+-- | Container for the parameters to the @'DescribeElasticsearchDomain' @ operation.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomain' smart constructor.
 newtype DescribeElasticsearchDomain = DescribeElasticsearchDomain'
@@ -53,7 +57,7 @@ newtype DescribeElasticsearchDomain = DescribeElasticsearchDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedDomainName'
+-- * 'dedDomainName' - The name of the Elasticsearch domain for which you want information.
 describeElasticsearchDomain
     :: Text -- ^ 'dedDomainName'
     -> DescribeElasticsearchDomain
@@ -91,7 +95,9 @@ instance ToPath DescribeElasticsearchDomain where
 instance ToQuery DescribeElasticsearchDomain where
         toQuery = const mempty
 
--- | The result of a 'DescribeElasticsearchDomain' request. Contains the status of the domain specified in the request.
+-- | The result of a @DescribeElasticsearchDomain@ request. Contains the status of the domain specified in the request.
+--
+--
 --
 -- /See:/ 'describeElasticsearchDomainResponse' smart constructor.
 data DescribeElasticsearchDomainResponse = DescribeElasticsearchDomainResponse'
@@ -103,9 +109,9 @@ data DescribeElasticsearchDomainResponse = DescribeElasticsearchDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedrsResponseStatus'
+-- * 'dedrsResponseStatus' - -- | The response status code.
 --
--- * 'dedrsDomainStatus'
+-- * 'dedrsDomainStatus' - The current status of the Elasticsearch domain.
 describeElasticsearchDomainResponse
     :: Int -- ^ 'dedrsResponseStatus'
     -> ElasticsearchDomainStatus -- ^ 'dedrsDomainStatus'
@@ -116,7 +122,7 @@ describeElasticsearchDomainResponse pResponseStatus_ pDomainStatus_ =
     , _dedrsDomainStatus = pDomainStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 dedrsResponseStatus :: Lens' DescribeElasticsearchDomainResponse Int
 dedrsResponseStatus = lens _dedrsResponseStatus (\ s a -> s{_dedrsResponseStatus = a});
 

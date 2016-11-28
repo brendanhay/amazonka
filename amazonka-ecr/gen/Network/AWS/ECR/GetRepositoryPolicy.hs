@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the repository policy for a specified repository.
+--
+--
 module Network.AWS.ECR.GetRepositoryPolicy
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data GetRepositoryPolicy = GetRepositoryPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grpRegistryId'
+-- * 'grpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 --
--- * 'grpRepositoryName'
+-- * 'grpRepositoryName' - The name of the repository whose policy you want to retrieve.
 getRepositoryPolicy
     :: Text -- ^ 'grpRepositoryName'
     -> GetRepositoryPolicy
@@ -126,13 +128,13 @@ data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grprsRegistryId'
+-- * 'grprsRegistryId' - The registry ID associated with the request.
 --
--- * 'grprsRepositoryName'
+-- * 'grprsRepositoryName' - The repository name associated with the request.
 --
--- * 'grprsPolicyText'
+-- * 'grprsPolicyText' - The JSON repository policy text associated with the repository.
 --
--- * 'grprsResponseStatus'
+-- * 'grprsResponseStatus' - -- | The response status code.
 getRepositoryPolicyResponse
     :: Int -- ^ 'grprsResponseStatus'
     -> GetRepositoryPolicyResponse
@@ -156,7 +158,7 @@ grprsRepositoryName = lens _grprsRepositoryName (\ s a -> s{_grprsRepositoryName
 grprsPolicyText :: Lens' GetRepositoryPolicyResponse (Maybe Text)
 grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a});
 
--- | The response status code.
+-- | -- | The response status code.
 grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
 grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
 

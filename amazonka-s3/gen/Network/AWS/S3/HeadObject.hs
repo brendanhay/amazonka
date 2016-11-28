@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you\'re only interested in an object\'s metadata. To use HEAD, you must have READ access to the object.
+-- The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
 module Network.AWS.S3.HeadObject
     (
     -- * Creating a Request
@@ -96,29 +96,29 @@ data HeadObject = HeadObject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hoIfMatch'
+-- * 'hoIfMatch' - Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
 --
--- * 'hoVersionId'
+-- * 'hoVersionId' - VersionId used to reference a specific version of the object.
 --
--- * 'hoSSECustomerAlgorithm'
+-- * 'hoSSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (e.g., AES256).
 --
--- * 'hoSSECustomerKey'
+-- * 'hoSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.
 --
--- * 'hoRequestPayer'
+-- * 'hoRequestPayer' - Undocumented member.
 --
--- * 'hoIfModifiedSince'
+-- * 'hoIfModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
--- * 'hoRange'
+-- * 'hoRange' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 --
--- * 'hoIfUnmodifiedSince'
+-- * 'hoIfUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 --
--- * 'hoSSECustomerKeyMD5'
+-- * 'hoSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 --
--- * 'hoIfNoneMatch'
+-- * 'hoIfNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
 --
--- * 'hoBucket'
+-- * 'hoBucket' - Undocumented member.
 --
--- * 'hoKey'
+-- * 'hoKey' - Undocumented member.
 headObject
     :: BucketName -- ^ 'hoBucket'
     -> ObjectKey -- ^ 'hoKey'
@@ -163,7 +163,7 @@ hoRequestPayer = lens _hoRequestPayer (\ s a -> s{_hoRequestPayer = a});
 hoIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
 hoIfModifiedSince = lens _hoIfModifiedSince (\ s a -> s{_hoIfModifiedSince = a}) . mapping _Time;
 
--- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
+-- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 hoRange :: Lens' HeadObject (Maybe Text)
 hoRange = lens _hoRange (\ s a -> s{_hoRange = a});
 
@@ -285,55 +285,55 @@ data HeadObjectResponse = HeadObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'horsRequestCharged'
+-- * 'horsRequestCharged' - Undocumented member.
 --
--- * 'horsETag'
+-- * 'horsETag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 --
--- * 'horsVersionId'
+-- * 'horsVersionId' - Version of the object.
 --
--- * 'horsContentLength'
+-- * 'horsContentLength' - Size of the body in bytes.
 --
--- * 'horsExpires'
+-- * 'horsExpires' - The date and time at which the object is no longer cacheable.
 --
--- * 'horsRestore'
+-- * 'horsRestore' - Provides information about object restoration operation and expiration time of the restored object copy.
 --
--- * 'horsExpiration'
+-- * 'horsExpiration' - If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
 --
--- * 'horsDeleteMarker'
+-- * 'horsDeleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 --
--- * 'horsSSECustomerAlgorithm'
+-- * 'horsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
--- * 'horsMissingMeta'
+-- * 'horsMissingMeta' - This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 --
--- * 'horsWebsiteRedirectLocation'
+-- * 'horsWebsiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 --
--- * 'horsAcceptRanges'
+-- * 'horsAcceptRanges' - Undocumented member.
 --
--- * 'horsStorageClass'
+-- * 'horsStorageClass' - Undocumented member.
 --
--- * 'horsSSECustomerKeyMD5'
+-- * 'horsSSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.
 --
--- * 'horsSSEKMSKeyId'
+-- * 'horsSSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.
 --
--- * 'horsContentEncoding'
+-- * 'horsContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
--- * 'horsMetadata'
+-- * 'horsMetadata' - A map of metadata to store with the object in S3.
 --
--- * 'horsReplicationStatus'
+-- * 'horsReplicationStatus' - Undocumented member.
 --
--- * 'horsCacheControl'
+-- * 'horsCacheControl' - Specifies caching behavior along the request/reply chain.
 --
--- * 'horsContentLanguage'
+-- * 'horsContentLanguage' - The language the content is in.
 --
--- * 'horsLastModified'
+-- * 'horsLastModified' - Last modified date of the object
 --
--- * 'horsContentDisposition'
+-- * 'horsContentDisposition' - Specifies presentational information for the object.
 --
--- * 'horsServerSideEncryption'
+-- * 'horsServerSideEncryption' - The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
 --
--- * 'horsContentType'
+-- * 'horsContentType' - A standard MIME type describing the format of the object data.
 --
--- * 'horsResponseStatus'
+-- * 'horsResponseStatus' - -- | The response status code.
 headObjectResponse
     :: Int -- ^ 'horsResponseStatus'
     -> HeadObjectResponse
@@ -438,7 +438,7 @@ horsMetadata = lens _horsMetadata (\ s a -> s{_horsMetadata = a}) . _Map;
 horsReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
 horsReplicationStatus = lens _horsReplicationStatus (\ s a -> s{_horsReplicationStatus = a});
 
--- | Specifies caching behavior along the request\/reply chain.
+-- | Specifies caching behavior along the request/reply chain.
 horsCacheControl :: Lens' HeadObjectResponse (Maybe Text)
 horsCacheControl = lens _horsCacheControl (\ s a -> s{_horsCacheControl = a});
 
@@ -462,7 +462,7 @@ horsServerSideEncryption = lens _horsServerSideEncryption (\ s a -> s{_horsServe
 horsContentType :: Lens' HeadObjectResponse (Maybe Text)
 horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 horsResponseStatus :: Lens' HeadObjectResponse Int
 horsResponseStatus = lens _horsResponseStatus (\ s a -> s{_horsResponseStatus = a});
 

@@ -20,9 +20,11 @@
 --
 -- Creates a new Amazon Aurora DB cluster.
 --
--- You can use the 'ReplicationSourceIdentifier' parameter to create the DB cluster as a Read Replica of another DB cluster.
+--
+-- You can use the @ReplicationSourceIdentifier@ parameter to create the DB cluster as a Read Replica of another DB cluster.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+--
 module Network.AWS.RDS.CreateDBCluster
     (
     -- * Creating a Request
@@ -67,6 +69,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
     { _cdcEngineVersion               :: !(Maybe Text)
@@ -95,45 +99,45 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcEngineVersion'
+-- * 'cdcEngineVersion' - The version number of the database engine to use. __Aurora__  Example: @5.6.10a@
 --
--- * 'cdcStorageEncrypted'
+-- * 'cdcStorageEncrypted' - Specifies whether the DB cluster is encrypted.
 --
--- * 'cdcMasterUserPassword'
+-- * 'cdcMasterUserPassword' - The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 --
--- * 'cdcReplicationSourceIdentifier'
+-- * 'cdcReplicationSourceIdentifier' - The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created as a Read Replica.
 --
--- * 'cdcMasterUsername'
+-- * 'cdcMasterUsername' - The name of the master user for the DB cluster. Constraints:     * Must be 1 to 16 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
 --
--- * 'cdcDBSubnetGroupName'
+-- * 'cdcDBSubnetGroupName' - A DB subnet group to associate with this DB cluster. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 --
--- * 'cdcPreferredMaintenanceWindow'
+-- * 'cdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 --
--- * 'cdcAvailabilityZones'
+-- * 'cdcAvailabilityZones' - A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
 --
--- * 'cdcCharacterSetName'
+-- * 'cdcCharacterSetName' - A value that indicates that the DB cluster should be associated with the specified CharacterSet.
 --
--- * 'cdcKMSKeyId'
+-- * 'cdcKMSKeyId' - The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
--- * 'cdcPreferredBackupWindow'
+-- * 'cdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
--- * 'cdcBackupRetentionPeriod'
+-- * 'cdcBackupRetentionPeriod' - The number of days for which automated backups are retained. You must specify a minimum value of 1. Default: 1 Constraints:     * Must be a value from 1 to 35
 --
--- * 'cdcVPCSecurityGroupIds'
+-- * 'cdcVPCSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB cluster.
 --
--- * 'cdcDatabaseName'
+-- * 'cdcDatabaseName' - The name for your database of up to 8 alpha-numeric characters. If you do not provide a name, Amazon RDS will not create a database in the DB cluster you are creating.
 --
--- * 'cdcDBClusterParameterGroupName'
+-- * 'cdcDBClusterParameterGroupName' - The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, @default.aurora5.6@ will be used.  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'cdcOptionGroupName'
+-- * 'cdcOptionGroupName' - A value that indicates that the DB cluster should be associated with the specified option group. Permanent options cannot be removed from an option group. The option group cannot be removed from a DB cluster once it is associated with a DB cluster.
 --
--- * 'cdcTags'
+-- * 'cdcTags' - Undocumented member.
 --
--- * 'cdcPort'
+-- * 'cdcPort' - The port number on which the instances in the DB cluster accept connections. Default: @3306@
 --
--- * 'cdcDBClusterIdentifier'
+-- * 'cdcDBClusterIdentifier' - The DB cluster identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 --
--- * 'cdcEngine'
+-- * 'cdcEngine' - The name of the database engine to be used for this DB cluster. Valid Values: @aurora@
 createDBCluster
     :: Text -- ^ 'cdcDBClusterIdentifier'
     -> Text -- ^ 'cdcEngine'
@@ -162,11 +166,7 @@ createDBCluster pDBClusterIdentifier_ pEngine_ =
     , _cdcEngine = pEngine_
     }
 
--- | The version number of the database engine to use.
---
--- __Aurora__
---
--- Example: '5.6.10a'
+-- | The version number of the database engine to use. __Aurora__  Example: @5.6.10a@
 cdcEngineVersion :: Lens' CreateDBCluster (Maybe Text)
 cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
 
@@ -174,9 +174,7 @@ cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
 cdcStorageEncrypted :: Lens' CreateDBCluster (Maybe Bool)
 cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted = a});
 
--- | The password for the master database user. This password can contain any printable ASCII character except \"\/\", \"\"\", or \"\'\".
---
--- Constraints: Must contain from 8 to 41 characters.
+-- | The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 cdcMasterUserPassword :: Lens' CreateDBCluster (Maybe Text)
 cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPassword = a});
 
@@ -184,40 +182,19 @@ cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPa
 cdcReplicationSourceIdentifier :: Lens' CreateDBCluster (Maybe Text)
 cdcReplicationSourceIdentifier = lens _cdcReplicationSourceIdentifier (\ s a -> s{_cdcReplicationSourceIdentifier = a});
 
--- | The name of the master user for the DB cluster.
---
--- Constraints:
---
--- -   Must be 1 to 16 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
---
+-- | The name of the master user for the DB cluster. Constraints:     * Must be 1 to 16 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
 cdcMasterUsername :: Lens' CreateDBCluster (Maybe Text)
 cdcMasterUsername = lens _cdcMasterUsername (\ s a -> s{_cdcMasterUsername = a});
 
--- | A DB subnet group to associate with this DB cluster.
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
---
--- Example: 'mySubnetgroup'
+-- | A DB subnet group to associate with this DB cluster. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
 
--- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
---
--- Format: 'ddd:hh24:mi-ddd:hh24:mi'
---
--- Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
---
--- Constraints: Minimum 30-minute window.
+-- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 cdcPreferredMaintenanceWindow :: Lens' CreateDBCluster (Maybe Text)
 cdcPreferredMaintenanceWindow = lens _cdcPreferredMaintenanceWindow (\ s a -> s{_cdcPreferredMaintenanceWindow = a});
 
--- | A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones>.
+-- | A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
 cdcAvailabilityZones :: Lens' CreateDBCluster [Text]
 cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -225,39 +202,15 @@ cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZo
 cdcCharacterSetName :: Lens' CreateDBCluster (Maybe Text)
 cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName = a});
 
--- | The KMS key identifier for an encrypted DB cluster.
---
--- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key.
---
--- If the 'StorageEncrypted' parameter is true, and you do not specify a value for the 'KmsKeyId' parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- | The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 cdcKMSKeyId :: Lens' CreateDBCluster (Maybe Text)
 cdcKMSKeyId = lens _cdcKMSKeyId (\ s a -> s{_cdcKMSKeyId = a});
 
--- | The daily time range during which automated backups are created if automated backups are enabled using the 'BackupRetentionPeriod' parameter.
---
--- Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
---
--- Constraints:
---
--- -   Must be in the format 'hh24:mi-hh24:mi'.
---
--- -   Times should be in Universal Coordinated Time (UTC).
---
--- -   Must not conflict with the preferred maintenance window.
---
--- -   Must be at least 30 minutes.
---
+-- | The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 cdcPreferredBackupWindow :: Lens' CreateDBCluster (Maybe Text)
 cdcPreferredBackupWindow = lens _cdcPreferredBackupWindow (\ s a -> s{_cdcPreferredBackupWindow = a});
 
--- | The number of days for which automated backups are retained. You must specify a minimum value of 1.
---
--- Default: 1
---
--- Constraints:
---
--- -   Must be a value from 1 to 35
---
+-- | The number of days for which automated backups are retained. You must specify a minimum value of 1. Default: 1 Constraints:     * Must be a value from 1 to 35
 cdcBackupRetentionPeriod :: Lens' CreateDBCluster (Maybe Int)
 cdcBackupRetentionPeriod = lens _cdcBackupRetentionPeriod (\ s a -> s{_cdcBackupRetentionPeriod = a});
 
@@ -269,22 +222,11 @@ cdcVPCSecurityGroupIds = lens _cdcVPCSecurityGroupIds (\ s a -> s{_cdcVPCSecurit
 cdcDatabaseName :: Lens' CreateDBCluster (Maybe Text)
 cdcDatabaseName = lens _cdcDatabaseName (\ s a -> s{_cdcDatabaseName = a});
 
--- | The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, 'default.aurora5.6' will be used.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters
---
--- -   First character must be a letter
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens
---
+-- | The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, @default.aurora5.6@ will be used.  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 cdcDBClusterParameterGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBClusterParameterGroupName = lens _cdcDBClusterParameterGroupName (\ s a -> s{_cdcDBClusterParameterGroupName = a});
 
--- | A value that indicates that the DB cluster should be associated with the specified option group.
---
--- Permanent options cannot be removed from an option group. The option group cannot be removed from a DB cluster once it is associated with a DB cluster.
+-- | A value that indicates that the DB cluster should be associated with the specified option group. Permanent options cannot be removed from an option group. The option group cannot be removed from a DB cluster once it is associated with a DB cluster.
 cdcOptionGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcOptionGroupName = lens _cdcOptionGroupName (\ s a -> s{_cdcOptionGroupName = a});
 
@@ -292,29 +234,15 @@ cdcOptionGroupName = lens _cdcOptionGroupName (\ s a -> s{_cdcOptionGroupName = 
 cdcTags :: Lens' CreateDBCluster [Tag]
 cdcTags = lens _cdcTags (\ s a -> s{_cdcTags = a}) . _Default . _Coerce;
 
--- | The port number on which the instances in the DB cluster accept connections.
---
--- Default: '3306'
+-- | The port number on which the instances in the DB cluster accept connections. Default: @3306@
 cdcPort :: Lens' CreateDBCluster (Maybe Int)
 cdcPort = lens _cdcPort (\ s a -> s{_cdcPort = a});
 
--- | The DB cluster identifier. This parameter is stored as a lowercase string.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster1'
+-- | The DB cluster identifier. This parameter is stored as a lowercase string. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster1@
 cdcDBClusterIdentifier :: Lens' CreateDBCluster Text
 cdcDBClusterIdentifier = lens _cdcDBClusterIdentifier (\ s a -> s{_cdcDBClusterIdentifier = a});
 
--- | The name of the database engine to be used for this DB cluster.
---
--- Valid Values: 'aurora'
+-- | The name of the database engine to be used for this DB cluster. Valid Values: @aurora@
 cdcEngine :: Lens' CreateDBCluster Text
 cdcEngine = lens _cdcEngine (\ s a -> s{_cdcEngine = a});
 
@@ -382,9 +310,9 @@ data CreateDBClusterResponse = CreateDBClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdcrsDBCluster'
+-- * 'cdcrsDBCluster' - Undocumented member.
 --
--- * 'cdcrsResponseStatus'
+-- * 'cdcrsResponseStatus' - -- | The response status code.
 createDBClusterResponse
     :: Int -- ^ 'cdcrsResponseStatus'
     -> CreateDBClusterResponse
@@ -398,7 +326,7 @@ createDBClusterResponse pResponseStatus_ =
 cdcrsDBCluster :: Lens' CreateDBClusterResponse (Maybe DBCluster)
 cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdcrsResponseStatus :: Lens' CreateDBClusterResponse Int
 cdcrsResponseStatus = lens _cdcrsResponseStatus (\ s a -> s{_cdcrsResponseStatus = a});
 

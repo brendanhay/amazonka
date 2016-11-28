@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you\'ve added in an AWS region.
+-- The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that you've added in an AWS region.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPresets
@@ -47,7 +49,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The 'ListPresetsRequest' structure.
+-- | The @ListPresetsRequest@ structure.
+--
+--
 --
 -- /See:/ 'listPresets' smart constructor.
 data ListPresets = ListPresets'
@@ -59,9 +63,9 @@ data ListPresets = ListPresets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lAscending'
+-- * 'lAscending' - To list presets in chronological order by the date and time that they were created, enter @true@ . To list presets in reverse chronological order, enter @false@ .
 --
--- * 'lPageToken'
+-- * 'lPageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 listPresets
     :: ListPresets
 listPresets =
@@ -70,11 +74,11 @@ listPresets =
     , _lPageToken = Nothing
     }
 
--- | To list presets in chronological order by the date and time that they were created, enter 'true'. To list presets in reverse chronological order, enter 'false'.
+-- | To list presets in chronological order by the date and time that they were created, enter @true@ . To list presets in reverse chronological order, enter @false@ .
 lAscending :: Lens' ListPresets (Maybe Text)
 lAscending = lens _lAscending (\ s a -> s{_lAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use 'pageToken' in subsequent 'GET' requests to get each successive page of results.
+-- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 lPageToken :: Lens' ListPresets (Maybe Text)
 lPageToken = lens _lPageToken (\ s a -> s{_lPageToken = a});
 
@@ -112,7 +116,9 @@ instance ToQuery ListPresets where
               ["Ascending" =: _lAscending,
                "PageToken" =: _lPageToken]
 
--- | The 'ListPresetsResponse' structure.
+-- | The @ListPresetsResponse@ structure.
+--
+--
 --
 -- /See:/ 'listPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
@@ -125,11 +131,11 @@ data ListPresetsResponse = ListPresetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsNextPageToken'
+-- * 'lrsNextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 --
--- * 'lrsPresets'
+-- * 'lrsPresets' - An array of @Preset@ objects.
 --
--- * 'lrsResponseStatus'
+-- * 'lrsResponseStatus' - -- | The response status code.
 listPresetsResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListPresetsResponse
@@ -140,15 +146,15 @@ listPresetsResponse pResponseStatus_ =
     , _lrsResponseStatus = pResponseStatus_
     }
 
--- | A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you\'ve reached the last page of results, the value of 'NextPageToken' is 'null'.
+-- | A value that you use to access the second and subsequent pages of results, if any. When the presets fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
 lrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
 
--- | An array of 'Preset' objects.
+-- | An array of @Preset@ objects.
 lrsPresets :: Lens' ListPresetsResponse [Preset]
 lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lrsResponseStatus :: Lens' ListPresetsResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 

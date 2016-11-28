@@ -20,6 +20,8 @@
 --
 -- Describes one or more scaling activities for the specified Auto Scaling group.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScalingActivities
     (
@@ -51,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeScalingActivities.
 --
+--
+--
 -- /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
     { _desNextToken            :: !(Maybe Text)
@@ -63,13 +67,13 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desNextToken'
+-- * 'desNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'desAutoScalingGroupName'
+-- * 'desAutoScalingGroupName' - The name of the group.
 --
--- * 'desMaxRecords'
+-- * 'desMaxRecords' - The maximum number of items to return with this call.
 --
--- * 'desActivityIds'
+-- * 'desActivityIds' - The activity IDs of the desired scaling activities. If you omit this parameter, all activities for the past six weeks are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.
 describeScalingActivities
     :: DescribeScalingActivities
 describeScalingActivities =
@@ -139,6 +143,8 @@ instance ToQuery DescribeScalingActivities where
 
 -- | Contains the output of DescribeScalingActivities.
 --
+--
+--
 -- /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dsasrsNextToken      :: !(Maybe Text)
@@ -150,11 +156,11 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsasrsNextToken'
+-- * 'dsasrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
--- * 'dsasrsResponseStatus'
+-- * 'dsasrsResponseStatus' - -- | The response status code.
 --
--- * 'dsasrsActivities'
+-- * 'dsasrsActivities' - The scaling activities. Activities are sorted by start time. Activities still in progress are described first.
 describeScalingActivitiesResponse
     :: Int -- ^ 'dsasrsResponseStatus'
     -> DescribeScalingActivitiesResponse
@@ -169,7 +175,7 @@ describeScalingActivitiesResponse pResponseStatus_ =
 dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsasrsResponseStatus :: Lens' DescribeScalingActivitiesResponse Int
 dsasrsResponseStatus = lens _dsasrsResponseStatus (\ s a -> s{_dsasrsResponseStatus = a});
 

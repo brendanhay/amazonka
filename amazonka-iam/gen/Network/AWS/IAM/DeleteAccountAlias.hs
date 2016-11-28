@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified AWS account alias. For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/.
+-- Deletes the specified AWS account alias. For information about using an AWS account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /IAM User Guide/ .
+--
+--
 module Network.AWS.IAM.DeleteAccountAlias
     (
     -- * Creating a Request
@@ -48,7 +50,7 @@ newtype DeleteAccountAlias = DeleteAccountAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daaAccountAlias'
+-- * 'daaAccountAlias' - The name of the account alias to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 deleteAccountAlias
     :: Text -- ^ 'daaAccountAlias'
     -> DeleteAccountAlias
@@ -57,9 +59,7 @@ deleteAccountAlias pAccountAlias_ =
     { _daaAccountAlias = pAccountAlias_
     }
 
--- | The name of the account alias to delete.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- | The name of the account alias to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
 

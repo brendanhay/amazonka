@@ -23,7 +23,9 @@ import           Network.AWS.SES.Types.Sum
 
 -- | When included in a receipt rule, this action adds a header to the received email.
 --
--- For information about adding a header using a receipt rule, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html Amazon SES Developer Guide>.
+--
+-- For information about adding a header using a receipt rule, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'addHeaderAction' smart constructor.
 data AddHeaderAction = AddHeaderAction'
@@ -35,9 +37,9 @@ data AddHeaderAction = AddHeaderAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ahaHeaderName'
+-- * 'ahaHeaderName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 --
--- * 'ahaHeaderValue'
+-- * 'ahaHeaderValue' - Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 addHeaderAction
     :: Text -- ^ 'ahaHeaderName'
     -> Text -- ^ 'ahaHeaderValue'
@@ -52,7 +54,7 @@ addHeaderAction pHeaderName_ pHeaderValue_ =
 ahaHeaderName :: Lens' AddHeaderAction Text
 ahaHeaderName = lens _ahaHeaderName (\ s a -> s{_ahaHeaderName = a});
 
--- | Must be less than 2048 characters, and must not contain newline characters (\"\\r\" or \"\\n\").
+-- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 ahaHeaderValue :: Lens' AddHeaderAction Text
 ahaHeaderValue = lens _ahaHeaderValue (\ s a -> s{_ahaHeaderValue = a});
 
@@ -73,6 +75,8 @@ instance ToQuery AddHeaderAction where
 
 -- | Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.
 --
+--
+--
 -- /See:/ 'body' smart constructor.
 data Body = Body'
     { _bText :: !(Maybe Content)
@@ -83,9 +87,9 @@ data Body = Body'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bText'
+-- * 'bText' - The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
 --
--- * 'bHTML'
+-- * 'bHTML' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
 body
     :: Body
 body =
@@ -112,7 +116,9 @@ instance ToQuery Body where
 
 -- | When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
--- For information about sending a bounce message in response to a received email, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html Amazon SES Developer Guide>.
+--
+-- For information about sending a bounce message in response to a received email, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'bounceAction' smart constructor.
 data BounceAction = BounceAction'
@@ -127,15 +133,15 @@ data BounceAction = BounceAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'baTopicARN'
+-- * 'baTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 'baStatusCode'
+-- * 'baStatusCode' - The SMTP enhanced status code, as defined by <https://tools.ietf.org/html/rfc3463 RFC 3463> .
 --
--- * 'baSmtpReplyCode'
+-- * 'baSmtpReplyCode' - The SMTP reply code, as defined by <https://tools.ietf.org/html/rfc5321 RFC 5321> .
 --
--- * 'baMessage'
+-- * 'baMessage' - Human-readable text to include in the bounce message.
 --
--- * 'baSender'
+-- * 'baSender' - The email address of the sender of the bounced email. This is the address from which the bounce message will be sent.
 bounceAction
     :: Text -- ^ 'baSmtpReplyCode'
     -> Text -- ^ 'baMessage'
@@ -150,15 +156,15 @@ bounceAction pSmtpReplyCode_ pMessage_ pSender_ =
     , _baSender = pSender_
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 baTopicARN :: Lens' BounceAction (Maybe Text)
 baTopicARN = lens _baTopicARN (\ s a -> s{_baTopicARN = a});
 
--- | The SMTP enhanced status code, as defined by <https://tools.ietf.org/html/rfc3463 RFC 3463>.
+-- | The SMTP enhanced status code, as defined by <https://tools.ietf.org/html/rfc3463 RFC 3463> .
 baStatusCode :: Lens' BounceAction (Maybe Text)
 baStatusCode = lens _baStatusCode (\ s a -> s{_baStatusCode = a});
 
--- | The SMTP reply code, as defined by <https://tools.ietf.org/html/rfc5321 RFC 5321>.
+-- | The SMTP reply code, as defined by <https://tools.ietf.org/html/rfc5321 RFC 5321> .
 baSmtpReplyCode :: Lens' BounceAction Text
 baSmtpReplyCode = lens _baSmtpReplyCode (\ s a -> s{_baSmtpReplyCode = a});
 
@@ -192,7 +198,9 @@ instance ToQuery BounceAction where
 
 -- | Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
--- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide>.
+--
+-- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'bouncedRecipientInfo' smart constructor.
 data BouncedRecipientInfo = BouncedRecipientInfo'
@@ -206,13 +214,13 @@ data BouncedRecipientInfo = BouncedRecipientInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'briBounceType'
+-- * 'briBounceType' - The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
 --
--- * 'briRecipientDsnFields'
+-- * 'briRecipientDsnFields' - Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a @BounceType@ . You must provide either this parameter or @BounceType@ .
 --
--- * 'briRecipientARN'
+-- * 'briRecipientARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
--- * 'briRecipient'
+-- * 'briRecipient' - The email address of the recipient of the bounced email.
 bouncedRecipientInfo
     :: Text -- ^ 'briRecipient'
     -> BouncedRecipientInfo
@@ -224,15 +232,15 @@ bouncedRecipientInfo pRecipient_ =
     , _briRecipient = pRecipient_
     }
 
--- | The reason for the bounce. You must provide either this parameter or 'RecipientDsnFields'.
+-- | The reason for the bounce. You must provide either this parameter or @RecipientDsnFields@ .
 briBounceType :: Lens' BouncedRecipientInfo (Maybe BounceType)
 briBounceType = lens _briBounceType (\ s a -> s{_briBounceType = a});
 
--- | Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a 'BounceType'. You must provide either this parameter or 'BounceType'.
+-- | Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a @BounceType@ . You must provide either this parameter or @BounceType@ .
 briRecipientDsnFields :: Lens' BouncedRecipientInfo (Maybe RecipientDsnFields)
 briRecipientDsnFields = lens _briRecipientDsnFields (\ s a -> s{_briRecipientDsnFields = a});
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 briRecipientARN :: Lens' BouncedRecipientInfo (Maybe Text)
 briRecipientARN = lens _briRecipientARN (\ s a -> s{_briRecipientARN = a});
 
@@ -254,7 +262,9 @@ instance ToQuery BouncedRecipientInfo where
 
 -- | Represents textual data, plus an optional character set specification.
 --
+--
 -- By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.
+--
 --
 -- /See:/ 'content' smart constructor.
 data Content = Content'
@@ -266,9 +276,9 @@ data Content = Content'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCharset'
+-- * 'cCharset' - The character set of the content.
 --
--- * 'cData'
+-- * 'cData' - The textual data of the content.
 content
     :: Text -- ^ 'cData'
     -> Content
@@ -296,7 +306,9 @@ instance ToQuery Content where
 
 -- | Represents the destination of the message, consisting of To:, CC:, and BCC: fields.
 --
--- By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
+--
+-- By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047> .
+--
 --
 -- /See:/ 'destination' smart constructor.
 data Destination = Destination'
@@ -309,11 +321,11 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dBCCAddresses'
+-- * 'dBCCAddresses' - The BCC: field(s) of the message.
 --
--- * 'dCCAddresses'
+-- * 'dCCAddresses' - The CC: field(s) of the message.
 --
--- * 'dToAddresses'
+-- * 'dToAddresses' - The To: field(s) of the message.
 destination
     :: Destination
 destination =
@@ -351,7 +363,9 @@ instance ToQuery Destination where
 
 -- | Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
--- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide>.
+--
+-- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'extensionField' smart constructor.
 data ExtensionField = ExtensionField'
@@ -363,9 +377,9 @@ data ExtensionField = ExtensionField'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'efName'
+-- * 'efName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 --
--- * 'efValue'
+-- * 'efValue' - The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 extensionField
     :: Text -- ^ 'efName'
     -> Text -- ^ 'efValue'
@@ -380,7 +394,7 @@ extensionField pName_ pValue_ =
 efName :: Lens' ExtensionField Text
 efName = lens _efName (\ s a -> s{_efName = a});
 
--- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters (\"\\r\" or \"\\n\").
+-- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 efValue :: Lens' ExtensionField Text
 efValue = lens _efValue (\ s a -> s{_efValue = a});
 
@@ -394,6 +408,8 @@ instance ToQuery ExtensionField where
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 --
+--
+--
 -- /See:/ 'identityDkimAttributes' smart constructor.
 data IdentityDkimAttributes = IdentityDkimAttributes'
     { _idaDkimTokens             :: !(Maybe [Text])
@@ -405,11 +421,11 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'idaDkimTokens'
+-- * 'idaDkimTokens' - A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 --
--- * 'idaDkimEnabled'
+-- * 'idaDkimEnabled' - True if DKIM signing is enabled for email sent from the identity; false otherwise.
 --
--- * 'idaDkimVerificationStatus'
+-- * 'idaDkimVerificationStatus' - Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
 identityDkimAttributes
     :: Bool -- ^ 'idaDkimEnabled'
     -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
@@ -421,9 +437,7 @@ identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
     , _idaDkimVerificationStatus = pDkimVerificationStatus_
     }
 
--- | A set of character strings that represent the domain\'s identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
---
--- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
+-- | A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default . _Coerce;
 
@@ -431,7 +445,7 @@ idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default 
 idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
 idaDkimEnabled = lens _idaDkimEnabled (\ s a -> s{_idaDkimEnabled = a});
 
--- | Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name\'s DNS. (This only applies to domain identities, not email address identities.)
+-- | Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
 idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
 idaDkimVerificationStatus = lens _idaDkimVerificationStatus (\ s a -> s{_idaDkimVerificationStatus = a});
 
@@ -449,6 +463,8 @@ instance NFData IdentityDkimAttributes
 
 -- | Represents the custom MAIL FROM domain attributes of a verified identity (email address or domain).
 --
+--
+--
 -- /See:/ 'identityMailFromDomainAttributes' smart constructor.
 data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
     { _imfdaMailFromDomain       :: !Text
@@ -460,11 +476,11 @@ data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'imfdaMailFromDomain'
+-- * 'imfdaMailFromDomain' - The custom MAIL FROM domain that the identity is configured to use.
 --
--- * 'imfdaMailFromDomainStatus'
+-- * 'imfdaMailFromDomainStatus' - The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is @Success@ , Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by @BehaviorOnMXFailure@ .
 --
--- * 'imfdaBehaviorOnMXFailure'
+-- * 'imfdaBehaviorOnMXFailure' - The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of @UseDefaultValue@ indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of @RejectMessage@ indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a @MailFromDomainNotVerified@ error and does not send the email. The custom MAIL FROM setup states that result in this behavior are @Pending@ , @Failed@ , and @TemporaryFailure@ .
 identityMailFromDomainAttributes
     :: Text -- ^ 'imfdaMailFromDomain'
     -> CustomMailFromStatus -- ^ 'imfdaMailFromDomainStatus'
@@ -481,13 +497,11 @@ identityMailFromDomainAttributes pMailFromDomain_ pMailFromDomainStatus_ pBehavi
 imfdaMailFromDomain :: Lens' IdentityMailFromDomainAttributes Text
 imfdaMailFromDomain = lens _imfdaMailFromDomain (\ s a -> s{_imfdaMailFromDomain = a});
 
--- | The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is 'Success', Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by 'BehaviorOnMXFailure'.
+-- | The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is @Success@ , Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by @BehaviorOnMXFailure@ .
 imfdaMailFromDomainStatus :: Lens' IdentityMailFromDomainAttributes CustomMailFromStatus
 imfdaMailFromDomainStatus = lens _imfdaMailFromDomainStatus (\ s a -> s{_imfdaMailFromDomainStatus = a});
 
--- | The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of 'UseDefaultValue' indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of 'RejectMessage' indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a 'MailFromDomainNotVerified' error and does not send the email.
---
--- The custom MAIL FROM setup states that result in this behavior are 'Pending', 'Failed', and 'TemporaryFailure'.
+-- | The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of @UseDefaultValue@ indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of @RejectMessage@ indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a @MailFromDomainNotVerified@ error and does not send the email. The custom MAIL FROM setup states that result in this behavior are @Pending@ , @Failed@ , and @TemporaryFailure@ .
 imfdaBehaviorOnMXFailure :: Lens' IdentityMailFromDomainAttributes BehaviorOnMXFailure
 imfdaBehaviorOnMXFailure = lens _imfdaBehaviorOnMXFailure (\ s a -> s{_imfdaBehaviorOnMXFailure = a});
 
@@ -503,7 +517,9 @@ instance Hashable IdentityMailFromDomainAttributes
 
 instance NFData IdentityMailFromDomainAttributes
 
--- | Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and\/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.
+-- | Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.
+--
+--
 --
 -- /See:/ 'identityNotificationAttributes' smart constructor.
 data IdentityNotificationAttributes = IdentityNotificationAttributes'
@@ -520,19 +536,19 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'inaHeadersInDeliveryNotificationsEnabled'
+-- * 'inaHeadersInDeliveryNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
 --
--- * 'inaHeadersInComplaintNotificationsEnabled'
+-- * 'inaHeadersInComplaintNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Complaint@ . A value of @true@ specifies that Amazon SES will include headers in complaint notifications, and a value of @false@ specifies that Amazon SES will not include headers in complaint notifications.
 --
--- * 'inaHeadersInBounceNotificationsEnabled'
+-- * 'inaHeadersInBounceNotificationsEnabled' - Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
 --
--- * 'inaBounceTopic'
+-- * 'inaBounceTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.
 --
--- * 'inaComplaintTopic'
+-- * 'inaComplaintTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.
 --
--- * 'inaDeliveryTopic'
+-- * 'inaDeliveryTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.
 --
--- * 'inaForwardingEnabled'
+-- * 'inaForwardingEnabled' - Describes whether Amazon SES will forward bounce and complaint notifications as email. @true@ indicates that Amazon SES will forward bounce and complaint notifications as email, while @false@ indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
 identityNotificationAttributes
     :: Text -- ^ 'inaBounceTopic'
     -> Text -- ^ 'inaComplaintTopic'
@@ -550,15 +566,15 @@ identityNotificationAttributes pBounceTopic_ pComplaintTopic_ pDeliveryTopic_ pF
     , _inaForwardingEnabled = pForwardingEnabled_
     }
 
--- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Delivery'. A value of 'true' specifies that Amazon SES will include headers in delivery notifications, and a value of 'false' specifies that Amazon SES will not include headers in delivery notifications.
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Delivery@ . A value of @true@ specifies that Amazon SES will include headers in delivery notifications, and a value of @false@ specifies that Amazon SES will not include headers in delivery notifications.
 inaHeadersInDeliveryNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
 inaHeadersInDeliveryNotificationsEnabled = lens _inaHeadersInDeliveryNotificationsEnabled (\ s a -> s{_inaHeadersInDeliveryNotificationsEnabled = a});
 
--- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Complaint'. A value of 'true' specifies that Amazon SES will include headers in complaint notifications, and a value of 'false' specifies that Amazon SES will not include headers in complaint notifications.
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Complaint@ . A value of @true@ specifies that Amazon SES will include headers in complaint notifications, and a value of @false@ specifies that Amazon SES will not include headers in complaint notifications.
 inaHeadersInComplaintNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
 inaHeadersInComplaintNotificationsEnabled = lens _inaHeadersInComplaintNotificationsEnabled (\ s a -> s{_inaHeadersInComplaintNotificationsEnabled = a});
 
--- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type 'Bounce'. A value of 'true' specifies that Amazon SES will include headers in bounce notifications, and a value of 'false' specifies that Amazon SES will not include headers in bounce notifications.
+-- | Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type @Bounce@ . A value of @true@ specifies that Amazon SES will include headers in bounce notifications, and a value of @false@ specifies that Amazon SES will not include headers in bounce notifications.
 inaHeadersInBounceNotificationsEnabled :: Lens' IdentityNotificationAttributes (Maybe Bool)
 inaHeadersInBounceNotificationsEnabled = lens _inaHeadersInBounceNotificationsEnabled (\ s a -> s{_inaHeadersInBounceNotificationsEnabled = a});
 
@@ -574,7 +590,7 @@ inaComplaintTopic = lens _inaComplaintTopic (\ s a -> s{_inaComplaintTopic = a})
 inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
 inaDeliveryTopic = lens _inaDeliveryTopic (\ s a -> s{_inaDeliveryTopic = a});
 
--- | Describes whether Amazon SES will forward bounce and complaint notifications as email. 'true' indicates that Amazon SES will forward bounce and complaint notifications as email, while 'false' indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
+-- | Describes whether Amazon SES will forward bounce and complaint notifications as email. @true@ indicates that Amazon SES will forward bounce and complaint notifications as email, while @false@ indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.
 inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool
 inaForwardingEnabled = lens _inaForwardingEnabled (\ s a -> s{_inaForwardingEnabled = a});
 
@@ -595,6 +611,8 @@ instance NFData IdentityNotificationAttributes
 
 -- | Represents the verification attributes of a single identity.
 --
+--
+--
 -- /See:/ 'identityVerificationAttributes' smart constructor.
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
     { _ivaVerificationToken  :: !(Maybe Text)
@@ -605,9 +623,9 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ivaVerificationToken'
+-- * 'ivaVerificationToken' - The verification token for a domain identity. Null for email address identities.
 --
--- * 'ivaVerificationStatus'
+-- * 'ivaVerificationStatus' - The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
 identityVerificationAttributes
     :: VerificationStatus -- ^ 'ivaVerificationStatus'
     -> IdentityVerificationAttributes
@@ -621,7 +639,7 @@ identityVerificationAttributes pVerificationStatus_ =
 ivaVerificationToken :: Lens' IdentityVerificationAttributes (Maybe Text)
 ivaVerificationToken = lens _ivaVerificationToken (\ s a -> s{_ivaVerificationToken = a});
 
--- | The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".
+-- | The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
 ivaVerificationStatus :: Lens' IdentityVerificationAttributes VerificationStatus
 ivaVerificationStatus = lens _ivaVerificationStatus (\ s a -> s{_ivaVerificationStatus = a});
 
@@ -637,9 +655,11 @@ instance NFData IdentityVerificationAttributes
 
 -- | When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
--- To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 --
--- For information about using AWS Lambda actions in receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html Amazon SES Developer Guide>.
+-- To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
+--
+-- For information about using AWS Lambda actions in receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'lambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
@@ -652,11 +672,11 @@ data LambdaAction = LambdaAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laInvocationType'
+-- * 'laInvocationType' - The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> . /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
 --
--- * 'laTopicARN'
+-- * 'laTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 'laFunctionARN'
+-- * 'laFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
 lambdaAction
     :: Text -- ^ 'laFunctionARN'
     -> LambdaAction
@@ -667,17 +687,15 @@ lambdaAction pFunctionARN_ =
     , _laFunctionARN = pFunctionARN_
     }
 
--- | The invocation type of the AWS Lambda function. An invocation type of 'RequestResponse' means that the execution of the function will immediately result in a response, and a value of 'Event' means that the function will be invoked asynchronously. The default value is 'Event'. For information about AWS Lambda invocation types, see the <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide>.
---
--- There is a 30-second timeout on 'RequestResponse' invocations. You should use 'Event' invocation in most cases. Use 'RequestResponse' only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+-- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> . /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
 laInvocationType :: Lens' LambdaAction (Maybe InvocationType)
 laInvocationType = lens _laInvocationType (\ s a -> s{_laInvocationType = a});
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 laTopicARN :: Lens' LambdaAction (Maybe Text)
 laTopicARN = lens _laTopicARN (\ s a -> s{_laTopicARN = a});
 
--- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is 'arn:aws:lambda:us-west-2:account-id:function:MyFunction'. For more information about AWS Lambda, see the <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
 laFunctionARN :: Lens' LambdaAction Text
 laFunctionARN = lens _laFunctionARN (\ s a -> s{_laFunctionARN = a});
 
@@ -700,6 +718,8 @@ instance ToQuery LambdaAction where
 
 -- | Represents the message to be sent, composed of a subject and a body.
 --
+--
+--
 -- /See:/ 'message' smart constructor.
 data Message = Message'
     { _mSubject :: !Content
@@ -710,9 +730,9 @@ data Message = Message'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mSubject'
+-- * 'mSubject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
 --
--- * 'mBody'
+-- * 'mBody' - The message body.
 message
     :: Content -- ^ 'mSubject'
     -> Body -- ^ 'mBody'
@@ -723,7 +743,7 @@ message pSubject_ pBody_ =
     , _mBody = pBody_
     }
 
--- | The subject of the message: A short summary of the content, which will appear in the recipient\'s inbox.
+-- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
 mSubject :: Lens' Message Content
 mSubject = lens _mSubject (\ s a -> s{_mSubject = a});
 
@@ -741,7 +761,9 @@ instance ToQuery Message where
 
 -- | Message-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
--- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide>.
+--
+-- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'messageDsn' smart constructor.
 data MessageDsn = MessageDsn'
@@ -754,11 +776,11 @@ data MessageDsn = MessageDsn'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdArrivalDate'
+-- * 'mdArrivalDate' - When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
--- * 'mdExtensionFields'
+-- * 'mdExtensionFields' - Additional X-headers to include in the DSN.
 --
--- * 'mdReportingMta'
+-- * 'mdReportingMta' - The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
 messageDsn
     :: Text -- ^ 'mdReportingMta'
     -> MessageDsn
@@ -777,7 +799,7 @@ mdArrivalDate = lens _mdArrivalDate (\ s a -> s{_mdArrivalDate = a}) . mapping _
 mdExtensionFields :: Lens' MessageDsn [ExtensionField]
 mdExtensionFields = lens _mdExtensionFields (\ s a -> s{_mdExtensionFields = a}) . _Default . _Coerce;
 
--- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> ('mta-name-type; mta-name'). The default value is 'dns; inbound-smtp.[region].amazonaws.com'.
+-- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
 mdReportingMta :: Lens' MessageDsn Text
 mdReportingMta = lens _mdReportingMta (\ s a -> s{_mdReportingMta = a});
 
@@ -796,6 +818,8 @@ instance ToQuery MessageDsn where
 
 -- | Represents the raw data of the message.
 --
+--
+--
 -- /See:/ 'rawMessage' smart constructor.
 newtype RawMessage = RawMessage'
     { _rmData :: Base64
@@ -805,7 +829,7 @@ newtype RawMessage = RawMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmData'
+-- * 'rmData' - The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rawMessage
     :: ByteString -- ^ 'rmData'
     -> RawMessage
@@ -814,21 +838,7 @@ rawMessage pData_ =
     { _rmData = _Base64 # pData_
     }
 
--- | The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding.
---
--- The To:, CC:, and BCC: headers in the raw message can contain a group list.
---
--- If you are using 'SendRawEmail' with sending authorization, you can include X-headers in the raw message to specify the \"Source,\" \"From,\" and \"Return-Path\" addresses. For more information, see the documentation for 'SendRawEmail'.
---
--- Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.
---
--- For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
@@ -841,7 +851,9 @@ instance ToQuery RawMessage where
 
 -- | An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
 --
--- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
+--
+-- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'receiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
@@ -858,19 +870,19 @@ data ReceiptAction = ReceiptAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raAddHeaderAction'
+-- * 'raAddHeaderAction' - Adds a header to the received email.
 --
--- * 'raSNSAction'
+-- * 'raSNSAction' - Publishes the email content within a notification to Amazon SNS.
 --
--- * 'raWorkmailAction'
+-- * 'raWorkmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
 --
--- * 'raBounceAction'
+-- * 'raBounceAction' - Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
--- * 'raLambdaAction'
+-- * 'raLambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
 --
--- * 'raStopAction'
+-- * 'raStopAction' - Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
 --
--- * 'raS3Action'
+-- * 'raS3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
 receiptAction
     :: ReceiptAction
 receiptAction =
@@ -939,7 +951,9 @@ instance ToQuery ReceiptAction where
 
 -- | A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
 --
--- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide>.
+--
+-- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'receiptFilter' smart constructor.
 data ReceiptFilter = ReceiptFilter'
@@ -951,9 +965,9 @@ data ReceiptFilter = ReceiptFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfName'
+-- * 'rfName' - The name of the IP address filter. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
--- * 'rfIPFilter'
+-- * 'rfIPFilter' - A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
 receiptFilter
     :: Text -- ^ 'rfName'
     -> ReceiptIPFilter -- ^ 'rfIPFilter'
@@ -964,14 +978,7 @@ receiptFilter pName_ pIPFilter_ =
     , _rfIPFilter = pIPFilter_
     }
 
--- | The name of the IP address filter. The name must:
---
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
---
--- -   Start and end with a letter or number.
---
--- -   Contain less than 64 characters.
---
+-- | The name of the IP address filter. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 rfName :: Lens' ReceiptFilter Text
 rfName = lens _rfName (\ s a -> s{_rfName = a});
 
@@ -995,7 +1002,9 @@ instance ToQuery ReceiptFilter where
 
 -- | A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
 --
--- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide>.
+--
+-- For information about setting up IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'receiptIPFilter' smart constructor.
 data ReceiptIPFilter = ReceiptIPFilter'
@@ -1007,9 +1016,9 @@ data ReceiptIPFilter = ReceiptIPFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rifPolicy'
+-- * 'rifPolicy' - Indicates whether to block or allow incoming mail from the specified IP addresses.
 --
--- * 'rifCIdR'
+-- * 'rifCIdR' - A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
 receiptIPFilter
     :: ReceiptFilterPolicy -- ^ 'rifPolicy'
     -> Text -- ^ 'rifCIdR'
@@ -1024,7 +1033,7 @@ receiptIPFilter pPolicy_ pCIdR_ =
 rifPolicy :: Lens' ReceiptIPFilter ReceiptFilterPolicy
 rifPolicy = lens _rifPolicy (\ s a -> s{_rifPolicy = a});
 
--- | A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1\/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317>.
+-- | A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
 rifCIdR :: Lens' ReceiptIPFilter Text
 rifCIdR = lens _rifCIdR (\ s a -> s{_rifCIdR = a});
 
@@ -1044,9 +1053,11 @@ instance ToQuery ReceiptIPFilter where
 
 -- | Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
 --
--- Each receipt rule defines a set of email addresses or domains to which it applies. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule\'s actions on the message.
 --
--- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide>.
+-- Each receipt rule defines a set of email addresses or domains to which it applies. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.
+--
+-- For information about setting up receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'receiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
@@ -1062,17 +1073,17 @@ data ReceiptRule = ReceiptRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrScanEnabled'
+-- * 'rrScanEnabled' - If @true@ , then messages to which this receipt rule applies are scanned for spam and viruses. The default value is @false@ .
 --
--- * 'rrEnabled'
+-- * 'rrEnabled' - If @true@ , the receipt rule is active. The default value is @false@ .
 --
--- * 'rrActions'
+-- * 'rrActions' - An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
 --
--- * 'rrRecipients'
+-- * 'rrRecipients' - The recipient domains and email addresses to which the receipt rule applies. If this field is not specified, this rule will match all recipients under all verified domains.
 --
--- * 'rrTLSPolicy'
+-- * 'rrTLSPolicy' - Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
 --
--- * 'rrName'
+-- * 'rrName' - The name of the receipt rule. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 receiptRule
     :: Text -- ^ 'rrName'
     -> ReceiptRule
@@ -1086,11 +1097,11 @@ receiptRule pName_ =
     , _rrName = pName_
     }
 
--- | If 'true', then messages to which this receipt rule applies are scanned for spam and viruses. The default value is 'false'.
+-- | If @true@ , then messages to which this receipt rule applies are scanned for spam and viruses. The default value is @false@ .
 rrScanEnabled :: Lens' ReceiptRule (Maybe Bool)
 rrScanEnabled = lens _rrScanEnabled (\ s a -> s{_rrScanEnabled = a});
 
--- | If 'true', the receipt rule is active. The default value is 'false'.
+-- | If @true@ , the receipt rule is active. The default value is @false@ .
 rrEnabled :: Lens' ReceiptRule (Maybe Bool)
 rrEnabled = lens _rrEnabled (\ s a -> s{_rrEnabled = a});
 
@@ -1102,18 +1113,11 @@ rrActions = lens _rrActions (\ s a -> s{_rrActions = a}) . _Default . _Coerce;
 rrRecipients :: Lens' ReceiptRule [Text]
 rrRecipients = lens _rrRecipients (\ s a -> s{_rrRecipients = a}) . _Default . _Coerce;
 
--- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to 'Require', Amazon SES will bounce emails that are not received over TLS. The default is 'Optional'.
+-- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
 rrTLSPolicy :: Lens' ReceiptRule (Maybe TLSPolicy)
 rrTLSPolicy = lens _rrTLSPolicy (\ s a -> s{_rrTLSPolicy = a});
 
--- | The name of the receipt rule. The name must:
---
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
---
--- -   Start and end with a letter or number.
---
--- -   Contain less than 64 characters.
---
+-- | The name of the receipt rule. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 rrName :: Lens' ReceiptRule Text
 rrName = lens _rrName (\ s a -> s{_rrName = a});
 
@@ -1146,9 +1150,11 @@ instance ToQuery ReceiptRule where
 
 -- | Information about a receipt rule set.
 --
--- A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account\'s verified domains.
 --
--- For information about setting up receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide>.
+-- A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account's verified domains.
+--
+-- For information about setting up receipt rule sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'receiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
@@ -1160,9 +1166,9 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrsmName'
+-- * 'rrsmName' - The name of the receipt rule set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
--- * 'rrsmCreatedTimestamp'
+-- * 'rrsmCreatedTimestamp' - The date and time the receipt rule set was created.
 receiptRuleSetMetadata
     :: ReceiptRuleSetMetadata
 receiptRuleSetMetadata =
@@ -1171,14 +1177,7 @@ receiptRuleSetMetadata =
     , _rrsmCreatedTimestamp = Nothing
     }
 
--- | The name of the receipt rule set. The name must:
---
--- -   Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).
---
--- -   Start and end with a letter or number.
---
--- -   Contain less than 64 characters.
---
+-- | The name of the receipt rule set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 rrsmName :: Lens' ReceiptRuleSetMetadata (Maybe Text)
 rrsmName = lens _rrsmName (\ s a -> s{_rrsmName = a});
 
@@ -1197,7 +1196,9 @@ instance NFData ReceiptRuleSetMetadata
 
 -- | Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
--- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide>.
+--
+-- For information about receiving email through Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'recipientDsnFields' smart constructor.
 data RecipientDsnFields = RecipientDsnFields'
@@ -1214,19 +1215,19 @@ data RecipientDsnFields = RecipientDsnFields'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdfDiagnosticCode'
+-- * 'rdfDiagnosticCode' - An extended explanation of what went wrong; this is usually an SMTP response. See <https://tools.ietf.org/html/rfc3463 RFC 3463> for the correct formatting of this parameter.
 --
--- * 'rdfRemoteMta'
+-- * 'rdfRemoteMta' - The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
 --
--- * 'rdfFinalRecipient'
+-- * 'rdfFinalRecipient' - The email address to which the message was ultimately delivered. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
 --
--- * 'rdfExtensionFields'
+-- * 'rdfExtensionFields' - Additional X-headers to include in the DSN.
 --
--- * 'rdfLastAttemptDate'
+-- * 'rdfLastAttemptDate' - The time the final delivery attempt was made, in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
--- * 'rdfAction'
+-- * 'rdfAction' - The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
 --
--- * 'rdfStatus'
+-- * 'rdfStatus' - The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
 recipientDsnFields
     :: DsnAction -- ^ 'rdfAction'
     -> Text -- ^ 'rdfStatus'
@@ -1246,13 +1247,11 @@ recipientDsnFields pAction_ pStatus_ =
 rdfDiagnosticCode :: Lens' RecipientDsnFields (Maybe Text)
 rdfDiagnosticCode = lens _rdfDiagnosticCode (\ s a -> s{_rdfDiagnosticCode = a});
 
--- | The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> ('mta-name-type; mta-name'). This parameter typically applies only to propagating synchronous bounces.
+-- | The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). This parameter typically applies only to propagating synchronous bounces.
 rdfRemoteMta :: Lens' RecipientDsnFields (Maybe Text)
 rdfRemoteMta = lens _rdfRemoteMta (\ s a -> s{_rdfRemoteMta = a});
 
--- | The email address to which the message was ultimately delivered. This corresponds to the 'Final-Recipient' in the DSN. If not specified, 'FinalRecipient' will be set to the 'Recipient' specified in the 'BouncedRecipientInfo' structure. Either 'FinalRecipient' or the recipient in 'BouncedRecipientInfo' must be a recipient of the original bounced message.
---
--- Do not prepend the 'FinalRecipient' email address with 'rfc 822;', as described in <https://tools.ietf.org/html/rfc3798 RFC 3798>.
+-- | The email address to which the message was ultimately delivered. This corresponds to the @Final-Recipient@ in the DSN. If not specified, @FinalRecipient@ will be set to the @Recipient@ specified in the @BouncedRecipientInfo@ structure. Either @FinalRecipient@ or the recipient in @BouncedRecipientInfo@ must be a recipient of the original bounced message.
 rdfFinalRecipient :: Lens' RecipientDsnFields (Maybe Text)
 rdfFinalRecipient = lens _rdfFinalRecipient (\ s a -> s{_rdfFinalRecipient = a});
 
@@ -1264,11 +1263,11 @@ rdfExtensionFields = lens _rdfExtensionFields (\ s a -> s{_rdfExtensionFields = 
 rdfLastAttemptDate :: Lens' RecipientDsnFields (Maybe UTCTime)
 rdfLastAttemptDate = lens _rdfLastAttemptDate (\ s a -> s{_rdfLastAttemptDate = a}) . mapping _Time;
 
--- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464>.
+-- | The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
 rdfAction :: Lens' RecipientDsnFields DsnAction
 rdfAction = lens _rdfAction (\ s a -> s{_rdfAction = a});
 
--- | The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464>.
+-- | The status code that indicates what went wrong. This is required by <https://tools.ietf.org/html/rfc3464 RFC 3464> .
 rdfStatus :: Lens' RecipientDsnFields Text
 rdfStatus = lens _rdfStatus (\ s a -> s{_rdfStatus = a});
 
@@ -1290,11 +1289,11 @@ instance ToQuery RecipientDsnFields where
 
 -- | When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
--- To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 --
--- When you save your emails to an Amazon S3 bucket, the maximum email size (including headers) is 30 MB. Emails larger than that will bounce.
+-- To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
--- For information about specifying Amazon S3 actions in receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html Amazon SES Developer Guide>.
+-- For information about specifying Amazon S3 actions in receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
@@ -1308,13 +1307,13 @@ data S3Action = S3Action'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 's3KMSKeyARN'
+-- * 's3KMSKeyARN' - The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
 --
--- * 's3TopicARN'
+-- * 's3TopicARN' - The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 's3ObjectKeyPrefix'
+-- * 's3ObjectKeyPrefix' - The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.
 --
--- * 's3BucketName'
+-- * 's3BucketName' - The name of the Amazon S3 bucket to which to save the received email.
 s3Action
     :: Text -- ^ 's3BucketName'
     -> S3Action
@@ -1326,19 +1325,11 @@ s3Action pBucketName_ =
     , _s3BucketName = pBucketName_
     }
 
--- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:
---
--- -   To use the default master key, provide an ARN in the form of 'arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias\/aws\/ses'. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be 'arn:aws:kms:us-west-2:123456789012:alias\/aws\/ses'. If you use the default master key, you don\'t need to perform any extra steps to give Amazon SES permission to use the key.
---
--- -   To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key\'s policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
---
--- For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide>. If you do not specify a master key, Amazon SES will not encrypt your emails.
---
--- Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide>.
+-- | The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:     * To use the default master key, provide an ARN in the form of @arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses@ . For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be @arn:aws:kms:us-west-2:123456789012:alias/aws/ses@ . If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.     * To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> . For more information about key policies, see the <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS KMS Developer Guide> . If you do not specify a master key, Amazon SES will not encrypt your emails. /Important:/ Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <http://aws.amazon.com/sdk-for-java/ AWS Java SDK> and <http://aws.amazon.com/sdk-for-ruby/ AWS Ruby SDK> only. For more information about client-side encryption using AWS KMS master keys, see the <http://alpha-docs-aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html Amazon S3 Developer Guide> .
 s3KMSKeyARN :: Lens' S3Action (Maybe Text)
 s3KMSKeyARN = lens _s3KMSKeyARN (\ s a -> s{_s3KMSKeyARN = a});
 
--- | The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 s3TopicARN :: Lens' S3Action (Maybe Text)
 s3TopicARN = lens _s3TopicARN (\ s a -> s{_s3TopicARN = a});
 
@@ -1371,11 +1362,13 @@ instance ToQuery S3Action where
 
 -- | When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.
 --
--- If you own the Amazon SNS topic, you don\'t need to do anything to give Amazon SES permission to publish emails to it. However, if you don\'t own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
 --
--- You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.
+-- If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
--- For information about using a receipt rule to publish an Amazon SNS notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html Amazon SES Developer Guide>.
+-- /Important:/ You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.
+--
+-- For information about using a receipt rule to publish an Amazon SNS notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'snsAction' smart constructor.
 data SNSAction = SNSAction'
@@ -1387,9 +1380,9 @@ data SNSAction = SNSAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'saEncoding'
+-- * 'saEncoding' - The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.
 --
--- * 'saTopicARN'
+-- * 'saTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 snsAction
     :: Text -- ^ 'saTopicARN'
     -> SNSAction
@@ -1403,7 +1396,7 @@ snsAction pTopicARN_ =
 saEncoding :: Lens' SNSAction (Maybe SNSActionEncoding)
 saEncoding = lens _saEncoding (\ s a -> s{_saEncoding = a});
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 saTopicARN :: Lens' SNSAction Text
 saTopicARN = lens _saTopicARN (\ s a -> s{_saTopicARN = a});
 
@@ -1422,7 +1415,9 @@ instance ToQuery SNSAction where
               ["Encoding" =: _saEncoding,
                "TopicArn" =: _saTopicARN]
 
--- | Represents sending statistics data. Each 'SendDataPoint' contains statistics for a 15-minute period of sending activity.
+-- | Represents sending statistics data. Each @SendDataPoint@ contains statistics for a 15-minute period of sending activity.
+--
+--
 --
 -- /See:/ 'sendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
@@ -1437,15 +1432,15 @@ data SendDataPoint = SendDataPoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdpRejects'
+-- * 'sdpRejects' - Number of emails rejected by Amazon SES.
 --
--- * 'sdpComplaints'
+-- * 'sdpComplaints' - Number of unwanted emails that were rejected by recipients.
 --
--- * 'sdpDeliveryAttempts'
+-- * 'sdpDeliveryAttempts' - Number of emails that have been enqueued for sending.
 --
--- * 'sdpBounces'
+-- * 'sdpBounces' - Number of emails that have bounced.
 --
--- * 'sdpTimestamp'
+-- * 'sdpTimestamp' - Time of the data point.
 sendDataPoint
     :: SendDataPoint
 sendDataPoint =
@@ -1491,7 +1486,9 @@ instance NFData SendDataPoint
 
 -- | When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
--- For information about setting a stop action in a receipt rule, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html Amazon SES Developer Guide>.
+--
+-- For information about setting a stop action in a receipt rule, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'stopAction' smart constructor.
 data StopAction = StopAction'
@@ -1503,9 +1500,9 @@ data StopAction = StopAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sTopicARN'
+-- * 'sTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 'sScope'
+-- * 'sScope' - The scope to which the Stop action applies. That is, what is being stopped.
 stopAction
     :: StopScope -- ^ 'sScope'
     -> StopAction
@@ -1515,7 +1512,7 @@ stopAction pScope_ =
     , _sScope = pScope_
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 sTopicARN :: Lens' StopAction (Maybe Text)
 sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
@@ -1539,7 +1536,9 @@ instance ToQuery StopAction where
 
 -- | When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.
 --
--- For information using a receipt rule to call Amazon WorkMail, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html Amazon SES Developer Guide>.
+--
+-- For information using a receipt rule to call Amazon WorkMail, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html Amazon SES Developer Guide> .
+--
 --
 -- /See:/ 'workmailAction' smart constructor.
 data WorkmailAction = WorkmailAction'
@@ -1551,9 +1550,9 @@ data WorkmailAction = WorkmailAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'waTopicARN'
+-- * 'waTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
--- * 'waOrganizationARN'
+-- * 'waOrganizationARN' - The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
 workmailAction
     :: Text -- ^ 'waOrganizationARN'
     -> WorkmailAction
@@ -1563,11 +1562,11 @@ workmailAction pOrganizationARN_ =
     , _waOrganizationARN = pOrganizationARN_
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is 'arn:aws:sns:us-west-2:123456789012:MyTopic'. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 waTopicARN :: Lens' WorkmailAction (Maybe Text)
 waTopicARN = lens _waTopicARN (\ s a -> s{_waTopicARN = a});
 
--- | The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is 'arn:aws:workmail:us-west-2:123456789012:organization\/m-68755160c4cb4e29a2b2f8fb58f359d7'. For information about Amazon WorkMail organizations, see the <http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide>.
+-- | The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is @arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7@ . For information about Amazon WorkMail organizations, see the <http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html Amazon WorkMail Administrator Guide> .
 waOrganizationARN :: Lens' WorkmailAction Text
 waOrganizationARN = lens _waOrganizationARN (\ s a -> s{_waOrganizationARN = a});
 

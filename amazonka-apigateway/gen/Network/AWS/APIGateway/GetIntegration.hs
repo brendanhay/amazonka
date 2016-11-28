@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Represents a get integration.
+--
+--
 module Network.AWS.APIGateway.GetIntegration
     (
     -- * Creating a Request
@@ -54,6 +56,8 @@ import           Network.AWS.Response
 
 -- | Represents a get integration request.
 --
+--
+--
 -- /See:/ 'getIntegration' smart constructor.
 data GetIntegration = GetIntegration'
     { _giRestAPIId  :: !Text
@@ -65,11 +69,11 @@ data GetIntegration = GetIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giRestAPIId'
+-- * 'giRestAPIId' - Specifies a get integration request's API identifier.
 --
--- * 'giResourceId'
+-- * 'giResourceId' - Specifies a get integration request's resource identifier
 --
--- * 'giHttpMethod'
+-- * 'giHttpMethod' - Specifies a get integration request's HTTP method.
 getIntegration
     :: Text -- ^ 'giRestAPIId'
     -> Text -- ^ 'giResourceId'
@@ -82,15 +86,15 @@ getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _giHttpMethod = pHttpMethod_
     }
 
--- | Specifies a get integration request\'s API identifier.
+-- | Specifies a get integration request's API identifier.
 giRestAPIId :: Lens' GetIntegration Text
 giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a});
 
--- | Specifies a get integration request\'s resource identifier
+-- | Specifies a get integration request's resource identifier
 giResourceId :: Lens' GetIntegration Text
 giResourceId = lens _giResourceId (\ s a -> s{_giResourceId = a});
 
--- | Specifies a get integration request\'s HTTP method.
+-- | Specifies a get integration request's HTTP method.
 giHttpMethod :: Lens' GetIntegration Text
 giHttpMethod = lens _giHttpMethod (\ s a -> s{_giHttpMethod = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about an instance as part of a deployment.
+--
+--
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get deployment instance operation.
 --
+--
+--
 -- /See:/ 'getDeploymentInstance' smart constructor.
 data GetDeploymentInstance = GetDeploymentInstance'
     { _gdiDeploymentId :: !Text
@@ -55,9 +59,9 @@ data GetDeploymentInstance = GetDeploymentInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdiDeploymentId'
+-- * 'gdiDeploymentId' - The unique ID of a deployment.
 --
--- * 'gdiInstanceId'
+-- * 'gdiInstanceId' - The unique ID of an instance in the deployment group.
 getDeploymentInstance
     :: Text -- ^ 'gdiDeploymentId'
     -> Text -- ^ 'gdiInstanceId'
@@ -115,6 +119,8 @@ instance ToQuery GetDeploymentInstance where
 
 -- | Represents the output of a get deployment instance operation.
 --
+--
+--
 -- /See:/ 'getDeploymentInstanceResponse' smart constructor.
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
@@ -125,9 +131,9 @@ data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdirsInstanceSummary'
+-- * 'gdirsInstanceSummary' - Information about the instance.
 --
--- * 'gdirsResponseStatus'
+-- * 'gdirsResponseStatus' - -- | The response status code.
 getDeploymentInstanceResponse
     :: Int -- ^ 'gdirsResponseStatus'
     -> GetDeploymentInstanceResponse
@@ -141,7 +147,7 @@ getDeploymentInstanceResponse pResponseStatus_ =
 gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gdirsResponseStatus :: Lens' GetDeploymentInstanceResponse Int
 gdirsResponseStatus = lens _gdirsResponseStatus (\ s a -> s{_gdirsResponseStatus = a});
 

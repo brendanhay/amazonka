@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a user to delete one\'s self.
+-- Allows a user to delete one's self.
+--
+--
 module Network.AWS.CognitoIdentityProvider.DeleteUser
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to delete a user.
 --
+--
+--
 -- /See:/ 'deleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
     { _duAccessToken :: Maybe (Sensitive Text)
@@ -50,7 +54,7 @@ newtype DeleteUser = DeleteUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duAccessToken'
+-- * 'duAccessToken' - The access token from a request to delete a user.
 deleteUser
     :: DeleteUser
 deleteUser =

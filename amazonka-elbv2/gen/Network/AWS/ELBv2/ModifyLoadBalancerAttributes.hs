@@ -20,7 +20,9 @@
 --
 -- Modifies the specified attributes of the specified load balancer.
 --
--- If any of the specified attributes can\'t be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
+--
+-- If any of the specified attributes can't be modified as requested, the call fails. Any existing attributes that you do not modify retain their current values.
+--
 module Network.AWS.ELBv2.ModifyLoadBalancerAttributes
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerARN :: !Text
@@ -57,9 +61,9 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbaLoadBalancerARN'
+-- * 'mlbaLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'mlbaAttributes'
+-- * 'mlbaAttributes' - The load balancer attributes.
 modifyLoadBalancerAttributes
     :: Text -- ^ 'mlbaLoadBalancerARN'
     -> ModifyLoadBalancerAttributes
@@ -112,6 +116,8 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
 --
+--
+--
 -- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
@@ -122,9 +128,9 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlbarsAttributes'
+-- * 'mlbarsAttributes' - Information about the load balancer attributes.
 --
--- * 'mlbarsResponseStatus'
+-- * 'mlbarsResponseStatus' - -- | The response status code.
 modifyLoadBalancerAttributesResponse
     :: Int -- ^ 'mlbarsResponseStatus'
     -> ModifyLoadBalancerAttributesResponse
@@ -138,7 +144,7 @@ modifyLoadBalancerAttributesResponse pResponseStatus_ =
 mlbarsAttributes :: Lens' ModifyLoadBalancerAttributesResponse [LoadBalancerAttribute]
 mlbarsAttributes = lens _mlbarsAttributes (\ s a -> s{_mlbarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a});
 

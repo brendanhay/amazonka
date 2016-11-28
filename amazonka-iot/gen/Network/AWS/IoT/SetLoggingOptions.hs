@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging options.
+--
+--
 module Network.AWS.IoT.SetLoggingOptions
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | The input for the SetLoggingOptions operation.
 --
+--
+--
 -- /See:/ 'setLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
     { _sloLoggingOptionsPayload :: LoggingOptionsPayload
@@ -50,7 +54,7 @@ newtype SetLoggingOptions = SetLoggingOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sloLoggingOptionsPayload'
+-- * 'sloLoggingOptionsPayload' - The logging options payload.
 setLoggingOptions
     :: LoggingOptionsPayload -- ^ 'sloLoggingOptionsPayload'
     -> SetLoggingOptions

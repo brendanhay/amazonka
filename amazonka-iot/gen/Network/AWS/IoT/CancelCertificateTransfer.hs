@@ -20,9 +20,11 @@
 --
 -- Cancels a pending transfer for the specified certificate.
 --
--- __Note__ Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use < RejectCertificateTransfer> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.
+--
+-- __Note__ Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use 'RejectCertificateTransfer' instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.
 --
 -- After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.
+--
 module Network.AWS.IoT.CancelCertificateTransfer
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The input for the CancelCertificateTransfer operation.
 --
+--
+--
 -- /See:/ 'cancelCertificateTransfer' smart constructor.
 newtype CancelCertificateTransfer = CancelCertificateTransfer'
     { _cctCertificateId :: Text
@@ -54,7 +58,7 @@ newtype CancelCertificateTransfer = CancelCertificateTransfer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cctCertificateId'
+-- * 'cctCertificateId' - The ID of the certificate.
 cancelCertificateTransfer
     :: Text -- ^ 'cctCertificateId'
     -> CancelCertificateTransfer

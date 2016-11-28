@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the devices.
+--
+--
 module Network.AWS.CognitoIdentityProvider.ListDevices
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to list the devices.
 --
+--
+--
 -- /See:/ 'listDevices' smart constructor.
 data ListDevices = ListDevices'
     { _ldPaginationToken :: !(Maybe Text)
@@ -58,11 +62,11 @@ data ListDevices = ListDevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldPaginationToken'
+-- * 'ldPaginationToken' - The pagination token for the list request.
 --
--- * 'ldLimit'
+-- * 'ldLimit' - The limit of the device request.
 --
--- * 'ldAccessToken'
+-- * 'ldAccessToken' - The access tokens for the request to list devices.
 listDevices
     :: Text -- ^ 'ldAccessToken'
     -> ListDevices
@@ -126,6 +130,8 @@ instance ToQuery ListDevices where
 
 -- | Represents the response to list devices.
 --
+--
+--
 -- /See:/ 'listDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
     { _ldrsPaginationToken :: !(Maybe Text)
@@ -137,11 +143,11 @@ data ListDevicesResponse = ListDevicesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrsPaginationToken'
+-- * 'ldrsPaginationToken' - The pagination token for the list device response.
 --
--- * 'ldrsDevices'
+-- * 'ldrsDevices' - The devices returned in the list devices response.
 --
--- * 'ldrsResponseStatus'
+-- * 'ldrsResponseStatus' - -- | The response status code.
 listDevicesResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> ListDevicesResponse
@@ -160,7 +166,7 @@ ldrsPaginationToken = lens _ldrsPaginationToken (\ s a -> s{_ldrsPaginationToken
 ldrsDevices :: Lens' ListDevicesResponse [DeviceType]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ldrsResponseStatus :: Lens' ListDevicesResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Gets a generated host name for the specified layer, based on the current host name theme.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.GetHostnameSuggestion
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghsLayerId'
+-- * 'ghsLayerId' - The layer ID.
 getHostnameSuggestion
     :: Text -- ^ 'ghsLayerId'
     -> GetHostnameSuggestion
@@ -103,7 +105,9 @@ instance ToPath GetHostnameSuggestion where
 instance ToQuery GetHostnameSuggestion where
         toQuery = const mempty
 
--- | Contains the response to a 'GetHostnameSuggestion' request.
+-- | Contains the response to a @GetHostnameSuggestion@ request.
+--
+--
 --
 -- /See:/ 'getHostnameSuggestionResponse' smart constructor.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
@@ -116,11 +120,11 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghsrsHostname'
+-- * 'ghsrsHostname' - The generated host name.
 --
--- * 'ghsrsLayerId'
+-- * 'ghsrsLayerId' - The layer ID.
 --
--- * 'ghsrsResponseStatus'
+-- * 'ghsrsResponseStatus' - -- | The response status code.
 getHostnameSuggestionResponse
     :: Int -- ^ 'ghsrsResponseStatus'
     -> GetHostnameSuggestionResponse
@@ -139,7 +143,7 @@ ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a});
 ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ghsrsResponseStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsResponseStatus = lens _ghsrsResponseStatus (\ s a -> s{_ghsrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Details about the activation, including: the date and time the activation was created, the expiration date, the IAM role assigned to the instances in the activation, and the number of instances activated by this registration.
+--
+--
 module Network.AWS.SSM.DescribeActivations
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeActivations = DescribeActivations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daFilters'
+-- * 'daFilters' - A filter to view information about your activations.
 --
--- * 'daNextToken'
+-- * 'daNextToken' - A token to start the list. Use this token to get the next set of results.
 --
--- * 'daMaxResults'
+-- * 'daMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 describeActivations
     :: DescribeActivations
 describeActivations =
@@ -132,11 +134,11 @@ data DescribeActivationsResponse = DescribeActivationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsActivationList'
+-- * 'darsActivationList' - A list of activations for your AWS account.
 --
--- * 'darsNextToken'
+-- * 'darsNextToken' - The token for the next set of items to return. Use this token to get the next set of results.
 --
--- * 'darsResponseStatus'
+-- * 'darsResponseStatus' - -- | The response status code.
 describeActivationsResponse
     :: Int -- ^ 'darsResponseStatus'
     -> DescribeActivationsResponse
@@ -155,7 +157,7 @@ darsActivationList = lens _darsActivationList (\ s a -> s{_darsActivationList = 
 darsNextToken :: Lens' DescribeActivationsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 darsResponseStatus :: Lens' DescribeActivationsResponse Int
 darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
 

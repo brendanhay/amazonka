@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties, including the protection policy in force, for one or more game sessions. This action can be used in several ways: (1) provide a 'GameSessionId' to request details for a specific game session; (2) provide either a 'FleetId' or an 'AliasId' to request properties for all game sessions running on a fleet.
+-- Retrieves properties, including the protection policy in force, for one or more game sessions. This action can be used in several ways: (1) provide a @GameSessionId@ to request details for a specific game session; (2) provide either a @FleetId@ or an @AliasId@ to request properties for all game sessions running on a fleet.
 --
--- To get game session record(s), specify just one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a < GameSessionDetail> object is returned for each session matching the request.
+--
+-- To get game session record(s), specify just one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionDetail' object is returned for each session matching the request.
+--
 module Network.AWS.GameLift.DescribeGameSessionDetails
     (
     -- * Creating a Request
@@ -52,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeGameSessionDetails' smart constructor.
 data DescribeGameSessionDetails = DescribeGameSessionDetails'
     { _dgsdGameSessionId :: !(Maybe Text)
@@ -66,17 +70,17 @@ data DescribeGameSessionDetails = DescribeGameSessionDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgsdGameSessionId'
+-- * 'dgsdGameSessionId' - Unique identifier for a game session. Specify the game session to retrieve information on.
 --
--- * 'dgsdAliasId'
+-- * 'dgsdAliasId' - Unique identifier for a fleet alias. Specify an alias to retrieve information on all game sessions active on the fleet.
 --
--- * 'dgsdNextToken'
+-- * 'dgsdNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
--- * 'dgsdStatusFilter'
+-- * 'dgsdStatusFilter' - Game session status to filter results on. Possible game session statuses include ACTIVE, @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
 --
--- * 'dgsdLimit'
+-- * 'dgsdLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'dgsdFleetId'
+-- * 'dgsdFleetId' - Unique identifier for a fleet. Specify a fleet to retrieve information on all game sessions active on the fleet.
 describeGameSessionDetails
     :: DescribeGameSessionDetails
 describeGameSessionDetails =
@@ -101,11 +105,11 @@ dgsdAliasId = lens _dgsdAliasId (\ s a -> s{_dgsdAliasId = a});
 dgsdNextToken :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdNextToken = lens _dgsdNextToken (\ s a -> s{_dgsdNextToken = a});
 
--- | Game session status to filter results on. Possible game session statuses include ACTIVE, 'TERMINATED', 'ACTIVATING' and 'TERMINATING' (the last two are transitory).
+-- | Game session status to filter results on. Possible game session statuses include ACTIVE, @TERMINATED@ , @ACTIVATING@ and @TERMINATING@ (the last two are transitory).
 dgsdStatusFilter :: Lens' DescribeGameSessionDetails (Maybe Text)
 dgsdStatusFilter = lens _dgsdStatusFilter (\ s a -> s{_dgsdStatusFilter = a});
 
--- | Maximum number of results to return. Use this parameter with 'NextToken' to get results as a set of sequential pages.
+-- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 dgsdLimit :: Lens' DescribeGameSessionDetails (Maybe Natural)
 dgsdLimit = lens _dgsdLimit (\ s a -> s{_dgsdLimit = a}) . mapping _Nat;
 
@@ -158,6 +162,8 @@ instance ToQuery DescribeGameSessionDetails where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeGameSessionDetailsResponse' smart constructor.
 data DescribeGameSessionDetailsResponse = DescribeGameSessionDetailsResponse'
     { _dgsdrsGameSessionDetails :: !(Maybe [GameSessionDetail])
@@ -169,11 +175,11 @@ data DescribeGameSessionDetailsResponse = DescribeGameSessionDetailsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgsdrsGameSessionDetails'
+-- * 'dgsdrsGameSessionDetails' - Collection of objects containing game session properties and the protection policy currently in force for each session matching the request.
 --
--- * 'dgsdrsNextToken'
+-- * 'dgsdrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'dgsdrsResponseStatus'
+-- * 'dgsdrsResponseStatus' - -- | The response status code.
 describeGameSessionDetailsResponse
     :: Int -- ^ 'dgsdrsResponseStatus'
     -> DescribeGameSessionDetailsResponse
@@ -189,12 +195,10 @@ dgsdrsGameSessionDetails :: Lens' DescribeGameSessionDetailsResponse [GameSessio
 dgsdrsGameSessionDetails = lens _dgsdrsGameSessionDetails (\ s a -> s{_dgsdrsGameSessionDetails = a}) . _Default . _Coerce;
 
 -- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- If a request has a limit that exactly matches the number of remaining results, a token is returned even though there are no more results to retrieve.
 dgsdrsNextToken :: Lens' DescribeGameSessionDetailsResponse (Maybe Text)
 dgsdrsNextToken = lens _dgsdrsNextToken (\ s a -> s{_dgsdrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dgsdrsResponseStatus :: Lens' DescribeGameSessionDetailsResponse Int
 dgsdrsResponseStatus = lens _dgsdrsResponseStatus (\ s a -> s{_dgsdrsResponseStatus = a});
 

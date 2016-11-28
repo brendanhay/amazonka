@@ -20,7 +20,9 @@
 --
 -- Returns the LOA-CFA for an Interconnect.
 --
+--
 -- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations> in the AWS Direct Connect user guide.
+--
 module Network.AWS.DirectConnect.DescribeInterconnectLoa
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeInterconnectLoa operation.
 --
+--
+--
 -- /See:/ 'describeInterconnectLoa' smart constructor.
 data DescribeInterconnectLoa = DescribeInterconnectLoa'
     { _dilLoaContentType :: !(Maybe LoaContentType)
@@ -59,11 +63,11 @@ data DescribeInterconnectLoa = DescribeInterconnectLoa'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dilLoaContentType'
+-- * 'dilLoaContentType' - Undocumented member.
 --
--- * 'dilProviderName'
+-- * 'dilProviderName' - The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
 --
--- * 'dilInterconnectId'
+-- * 'dilInterconnectId' - Undocumented member.
 describeInterconnectLoa
     :: Text -- ^ 'dilInterconnectId'
     -> DescribeInterconnectLoa
@@ -78,9 +82,7 @@ describeInterconnectLoa pInterconnectId_ =
 dilLoaContentType :: Lens' DescribeInterconnectLoa (Maybe LoaContentType)
 dilLoaContentType = lens _dilLoaContentType (\ s a -> s{_dilLoaContentType = a});
 
--- | The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
---
--- Default: None
+-- | The name of the service provider who establishes connectivity on your behalf. If you supply this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect. Default: None
 dilProviderName :: Lens' DescribeInterconnectLoa (Maybe Text)
 dilProviderName = lens _dilProviderName (\ s a -> s{_dilProviderName = a});
 
@@ -128,6 +130,8 @@ instance ToQuery DescribeInterconnectLoa where
 
 -- | The response received when DescribeInterconnectLoa is called.
 --
+--
+--
 -- /See:/ 'describeInterconnectLoaResponse' smart constructor.
 data DescribeInterconnectLoaResponse = DescribeInterconnectLoaResponse'
     { _dilrsLoa            :: !(Maybe Loa)
@@ -138,9 +142,9 @@ data DescribeInterconnectLoaResponse = DescribeInterconnectLoaResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dilrsLoa'
+-- * 'dilrsLoa' - Undocumented member.
 --
--- * 'dilrsResponseStatus'
+-- * 'dilrsResponseStatus' - -- | The response status code.
 describeInterconnectLoaResponse
     :: Int -- ^ 'dilrsResponseStatus'
     -> DescribeInterconnectLoaResponse
@@ -154,7 +158,7 @@ describeInterconnectLoaResponse pResponseStatus_ =
 dilrsLoa :: Lens' DescribeInterconnectLoaResponse (Maybe Loa)
 dilrsLoa = lens _dilrsLoa (\ s a -> s{_dilrsLoa = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dilrsResponseStatus :: Lens' DescribeInterconnectLoaResponse Int
 dilrsResponseStatus = lens _dilrsResponseStatus (\ s a -> s{_dilrsResponseStatus = a});
 

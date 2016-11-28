@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.
+--
+--
 module Network.AWS.DMS.DescribeConnections
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
     { _dcFilters    :: !(Maybe [Filter])
@@ -58,11 +62,11 @@ data DescribeConnections = DescribeConnections'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcFilters'
+-- * 'dcFilters' - The filters applied to the connection. Valid filter names: endpoint-arn | replication-instance-arn
 --
--- * 'dcMarker'
+-- * 'dcMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dcMaxRecords'
+-- * 'dcMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeConnections
     :: DescribeConnections
 describeConnections =
@@ -72,21 +76,15 @@ describeConnections =
     , _dcMaxRecords = Nothing
     }
 
--- | The filters applied to the connection.
---
--- Valid filter names: endpoint-arn | replication-instance-arn
+-- | The filters applied to the connection. Valid filter names: endpoint-arn | replication-instance-arn
 dcFilters :: Lens' DescribeConnections [Filter]
 dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcMarker :: Lens' DescribeConnections (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dcMaxRecords :: Lens' DescribeConnections (Maybe Int)
 dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 
@@ -131,6 +129,8 @@ instance ToQuery DescribeConnections where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
     { _drsConnections    :: !(Maybe [Connection])
@@ -142,11 +142,11 @@ data DescribeConnectionsResponse = DescribeConnectionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsConnections'
+-- * 'drsConnections' - A description of the connections.
 --
--- * 'drsMarker'
+-- * 'drsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 describeConnectionsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeConnectionsResponse
@@ -161,11 +161,11 @@ describeConnectionsResponse pResponseStatus_ =
 drsConnections :: Lens' DescribeConnectionsResponse [Connection]
 drsConnections = lens _drsConnections (\ s a -> s{_drsConnections = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drsMarker :: Lens' DescribeConnectionsResponse (Maybe Text)
 drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeConnectionsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

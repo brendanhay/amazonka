@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.
+--
+--
 module Network.AWS.Inspector.RemoveAttributesFromFindings
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data RemoveAttributesFromFindings = RemoveAttributesFromFindings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raffFindingARNs'
+-- * 'raffFindingARNs' - The ARNs that specify the findings that you want to remove attributes from.
 --
--- * 'raffAttributeKeys'
+-- * 'raffAttributeKeys' - The array of attribute keys that you want to remove from specified findings.
 removeAttributesFromFindings
     :: NonEmpty Text -- ^ 'raffFindingARNs'
     -> RemoveAttributesFromFindings
@@ -122,9 +124,9 @@ data RemoveAttributesFromFindingsResponse = RemoveAttributesFromFindingsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'raffrsResponseStatus'
+-- * 'raffrsResponseStatus' - -- | The response status code.
 --
--- * 'raffrsFailedItems'
+-- * 'raffrsFailedItems' - Attributes details that cannot be described. An error code is provided for each failed item.
 removeAttributesFromFindingsResponse
     :: Int -- ^ 'raffrsResponseStatus'
     -> RemoveAttributesFromFindingsResponse
@@ -134,7 +136,7 @@ removeAttributesFromFindingsResponse pResponseStatus_ =
     , _raffrsFailedItems = mempty
     }
 
--- | The response status code.
+-- | -- | The response status code.
 raffrsResponseStatus :: Lens' RemoveAttributesFromFindingsResponse Int
 raffrsResponseStatus = lens _raffrsResponseStatus (\ s a -> s{_raffrsResponseStatus = a});
 

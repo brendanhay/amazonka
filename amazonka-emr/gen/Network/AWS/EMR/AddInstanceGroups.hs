@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- AddInstanceGroups adds an instance group to a running cluster.
+--
+--
 module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Input to an AddInstanceGroups call.
 --
+--
+--
 -- /See:/ 'addInstanceGroups' smart constructor.
 data AddInstanceGroups = AddInstanceGroups'
     { _aigInstanceGroups :: ![InstanceGroupConfig]
@@ -56,9 +60,9 @@ data AddInstanceGroups = AddInstanceGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigInstanceGroups'
+-- * 'aigInstanceGroups' - Instance Groups to add.
 --
--- * 'aigJobFlowId'
+-- * 'aigJobFlowId' - Job flow in which to add the instance groups.
 addInstanceGroups
     :: Text -- ^ 'aigJobFlowId'
     -> AddInstanceGroups
@@ -115,6 +119,8 @@ instance ToQuery AddInstanceGroups where
 
 -- | Output from an AddInstanceGroups call.
 --
+--
+--
 -- /See:/ 'addInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrsJobFlowId        :: !(Maybe Text)
@@ -126,11 +132,11 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigrsJobFlowId'
+-- * 'aigrsJobFlowId' - The job flow ID in which the instance groups are added.
 --
--- * 'aigrsInstanceGroupIds'
+-- * 'aigrsInstanceGroupIds' - Instance group IDs of the newly created instance groups.
 --
--- * 'aigrsResponseStatus'
+-- * 'aigrsResponseStatus' - -- | The response status code.
 addInstanceGroupsResponse
     :: Int -- ^ 'aigrsResponseStatus'
     -> AddInstanceGroupsResponse
@@ -149,7 +155,7 @@ aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
 aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a});
 

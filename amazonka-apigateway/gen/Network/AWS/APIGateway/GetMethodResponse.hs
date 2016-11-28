@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a < MethodResponse> resource.
+-- Describes a 'MethodResponse' resource.
+--
+--
 module Network.AWS.APIGateway.GetMethodResponse
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a < MethodResponse> resource.
+-- | Request to describe a 'MethodResponse' resource.
+--
+--
 --
 -- /See:/ 'getMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
@@ -60,13 +64,13 @@ data GetMethodResponse = GetMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmRestAPIId'
+-- * 'gmRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
 --
--- * 'gmResourceId'
+-- * 'gmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
--- * 'gmHttpMethod'
+-- * 'gmHttpMethod' - The HTTP verb of the 'Method' resource.
 --
--- * 'gmStatusCode'
+-- * 'gmStatusCode' - The status code for the 'MethodResponse' resource.
 getMethodResponse
     :: Text -- ^ 'gmRestAPIId'
     -> Text -- ^ 'gmResourceId'
@@ -81,19 +85,19 @@ getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _gmStatusCode = pStatusCode_
     }
 
--- | The < RestApi> identifier for the < MethodResponse> resource.
+-- | The 'RestApi' identifier for the 'MethodResponse' resource.
 gmRestAPIId :: Lens' GetMethodResponse Text
 gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
 
--- | The < Resource> identifier for the < MethodResponse> resource.
+-- | The 'Resource' identifier for the 'MethodResponse' resource.
 gmResourceId :: Lens' GetMethodResponse Text
 gmResourceId = lens _gmResourceId (\ s a -> s{_gmResourceId = a});
 
--- | The HTTP verb of the < Method> resource.
+-- | The HTTP verb of the 'Method' resource.
 gmHttpMethod :: Lens' GetMethodResponse Text
 gmHttpMethod = lens _gmHttpMethod (\ s a -> s{_gmHttpMethod = a});
 
--- | The status code for the < MethodResponse> resource.
+-- | The status code for the 'MethodResponse' resource.
 gmStatusCode :: Lens' GetMethodResponse Text
 gmStatusCode = lens _gmStatusCode (\ s a -> s{_gmStatusCode = a});
 

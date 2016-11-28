@@ -57,11 +57,11 @@ data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldbwaiMarker'
+-- * 'ldbwaiMarker' - Use Marker and MaxItems to control pagination of results. If you have more than MaxItems distributions that satisfy the request, the response includes a NextMarker element. To get the next page of results, submit another request. For the value of Marker, specify the value of NextMarker from the last response. (For the first request, omit Marker.)
 --
--- * 'ldbwaiMaxItems'
+-- * 'ldbwaiMaxItems' - The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
 --
--- * 'ldbwaiWebACLId'
+-- * 'ldbwaiWebACLId' - The Id of the AWS WAF web ACL for which you want to list the associated distributions. If you specify "null" for the Id, the request returns a list of the distributions that aren't associated with a web ACL.
 listDistributionsByWebACLId
     :: Text -- ^ 'ldbwaiWebACLId'
     -> ListDistributionsByWebACLId
@@ -80,7 +80,7 @@ ldbwaiMarker = lens _ldbwaiMarker (\ s a -> s{_ldbwaiMarker = a});
 ldbwaiMaxItems :: Lens' ListDistributionsByWebACLId (Maybe Text)
 ldbwaiMaxItems = lens _ldbwaiMaxItems (\ s a -> s{_ldbwaiMaxItems = a});
 
--- | The Id of the AWS WAF web ACL for which you want to list the associated distributions. If you specify \"null\" for the Id, the request returns a list of the distributions that aren\'t associated with a web ACL.
+-- | The Id of the AWS WAF web ACL for which you want to list the associated distributions. If you specify "null" for the Id, the request returns a list of the distributions that aren't associated with a web ACL.
 ldbwaiWebACLId :: Lens' ListDistributionsByWebACLId Text
 ldbwaiWebACLId = lens _ldbwaiWebACLId (\ s a -> s{_ldbwaiWebACLId = a});
 
@@ -125,9 +125,9 @@ data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldbwairsDistributionList'
+-- * 'ldbwairsDistributionList' - The DistributionList type.
 --
--- * 'ldbwairsResponseStatus'
+-- * 'ldbwairsResponseStatus' - -- | The response status code.
 listDistributionsByWebACLIdResponse
     :: Int -- ^ 'ldbwairsResponseStatus'
     -> ListDistributionsByWebACLIdResponse
@@ -141,7 +141,7 @@ listDistributionsByWebACLIdResponse pResponseStatus_ =
 ldbwairsDistributionList :: Lens' ListDistributionsByWebACLIdResponse (Maybe DistributionList)
 ldbwairsDistributionList = lens _ldbwairsDistributionList (\ s a -> s{_ldbwairsDistributionList = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ldbwairsResponseStatus :: Lens' ListDistributionsByWebACLIdResponse Int
 ldbwairsResponseStatus = lens _ldbwairsResponseStatus (\ s a -> s{_ldbwairsResponseStatus = a});
 

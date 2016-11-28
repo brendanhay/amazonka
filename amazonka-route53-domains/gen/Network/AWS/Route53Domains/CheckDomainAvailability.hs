@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must submit another request to determine the availability of the domain name.
+--
+--
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The CheckDomainAvailability request contains the following elements.
 --
+--
+--
 -- /See:/ 'checkDomainAvailability' smart constructor.
 data CheckDomainAvailability = CheckDomainAvailability'
     { _cdaIdNLangCode :: !(Maybe Text)
@@ -55,9 +59,9 @@ data CheckDomainAvailability = CheckDomainAvailability'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdaIdNLangCode'
+-- * 'cdaIdNLangCode' - Reserved for future use.
 --
--- * 'cdaDomainName'
+-- * 'cdaDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 checkDomainAvailability
     :: Text -- ^ 'cdaDomainName'
     -> CheckDomainAvailability
@@ -71,15 +75,7 @@ checkDomainAvailability pDomainName_ =
 cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
 cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 cdaDomainName :: Lens' CheckDomainAvailability Text
 cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
 
@@ -122,6 +118,8 @@ instance ToQuery CheckDomainAvailability where
 
 -- | The CheckDomainAvailability response includes the following elements.
 --
+--
+--
 -- /See:/ 'checkDomainAvailabilityResponse' smart constructor.
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     { _cdarsResponseStatus :: !Int
@@ -132,9 +130,9 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdarsResponseStatus'
+-- * 'cdarsResponseStatus' - -- | The response status code.
 --
--- * 'cdarsAvailability'
+-- * 'cdarsAvailability' - Whether the domain name is available for registering. Type: String Valid values:     * @AVAILABLE@ – The domain name is available.    * @AVAILABLE_RESERVED@ – The domain name is reserved under specific conditions.    * @AVAILABLE_PREORDER@ – The domain name is available and can be preordered.    * @UNAVAILABLE@ – The domain name is not available.    * @UNAVAILABLE_PREMIUM@ – The domain name is not available.    * @UNAVAILABLE_RESTRICTED@ – The domain name is forbidden.    * @RESERVED@ – The domain name has been reserved for another person or organization.    * @DONT_KNOW@ – The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
 checkDomainAvailabilityResponse
     :: Int -- ^ 'cdarsResponseStatus'
     -> DomainAvailability -- ^ 'cdarsAvailability'
@@ -145,26 +143,11 @@ checkDomainAvailabilityResponse pResponseStatus_ pAvailability_ =
     , _cdarsAvailability = pAvailability_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 cdarsResponseStatus :: Lens' CheckDomainAvailabilityResponse Int
 cdarsResponseStatus = lens _cdarsResponseStatus (\ s a -> s{_cdarsResponseStatus = a});
 
--- | Whether the domain name is available for registering.
---
--- You can only register domains designated as 'AVAILABLE'.
---
--- Type: String
---
--- Valid values:
---
--- -   'AVAILABLE' – The domain name is available.
--- -   'AVAILABLE_RESERVED' – The domain name is reserved under specific conditions.
--- -   'AVAILABLE_PREORDER' – The domain name is available and can be preordered.
--- -   'UNAVAILABLE' – The domain name is not available.
--- -   'UNAVAILABLE_PREMIUM' – The domain name is not available.
--- -   'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.
--- -   'RESERVED' – The domain name has been reserved for another person or organization.
--- -   'DONT_KNOW' – The TLD registry didn\'t reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
+-- | Whether the domain name is available for registering. Type: String Valid values:     * @AVAILABLE@ – The domain name is available.    * @AVAILABLE_RESERVED@ – The domain name is reserved under specific conditions.    * @AVAILABLE_PREORDER@ – The domain name is available and can be preordered.    * @UNAVAILABLE@ – The domain name is not available.    * @UNAVAILABLE_PREMIUM@ – The domain name is not available.    * @UNAVAILABLE_RESTRICTED@ – The domain name is forbidden.    * @RESERVED@ – The domain name has been reserved for another person or organization.    * @DONT_KNOW@ – The TLD registry didn't reply with a definitive answer about whether the domain name is available. Amazon Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
 cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});
 

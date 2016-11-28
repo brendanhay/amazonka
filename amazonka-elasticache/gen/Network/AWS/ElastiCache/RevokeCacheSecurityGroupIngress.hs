@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a cache security group. Use this action to disallow access from an Amazon EC2 security group that had been previously authorized.
+--
+--
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /RevokeCacheSecurityGroupIngress/ action.
 --
+--
+--
 -- /See:/ 'revokeCacheSecurityGroupIngress' smart constructor.
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
     { _rcsgiCacheSecurityGroupName  :: !Text
@@ -57,11 +61,11 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcsgiCacheSecurityGroupName'
+-- * 'rcsgiCacheSecurityGroupName' - The name of the cache security group to revoke ingress from.
 --
--- * 'rcsgiEC2SecurityGroupName'
+-- * 'rcsgiEC2SecurityGroupName' - The name of the Amazon EC2 security group to revoke access from.
 --
--- * 'rcsgiEC2SecurityGroupOwnerId'
+-- * 'rcsgiEC2SecurityGroupOwnerId' - The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 revokeCacheSecurityGroupIngress
     :: Text -- ^ 'rcsgiCacheSecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
@@ -132,9 +136,9 @@ data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressRe
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcsgirsCacheSecurityGroup'
+-- * 'rcsgirsCacheSecurityGroup' - Undocumented member.
 --
--- * 'rcsgirsResponseStatus'
+-- * 'rcsgirsResponseStatus' - -- | The response status code.
 revokeCacheSecurityGroupIngressResponse
     :: Int -- ^ 'rcsgirsResponseStatus'
     -> RevokeCacheSecurityGroupIngressResponse
@@ -148,7 +152,7 @@ revokeCacheSecurityGroupIngressResponse pResponseStatus_ =
 rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 rcsgirsResponseStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
 rcsgirsResponseStatus = lens _rcsgirsResponseStatus (\ s a -> s{_rcsgirsResponseStatus = a});
 

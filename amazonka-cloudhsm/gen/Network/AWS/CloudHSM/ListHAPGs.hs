@@ -20,7 +20,9 @@
 --
 -- Lists the high-availability partition groups for the account.
 --
--- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to < ListHapgs> to retrieve the next set of items.
+--
+-- This operation supports pagination with the use of the /NextToken/ member. If more results are available, the /NextToken/ member of the response contains a token that you pass in the next call to 'ListHapgs' to retrieve the next set of items.
+--
 module Network.AWS.CloudHSM.ListHAPGs
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype ListHAPGs = ListHAPGs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhNextToken'
+-- * 'lhNextToken' - The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
 listHAPGs
     :: ListHAPGs
 listHAPGs =
@@ -62,7 +64,7 @@ listHAPGs =
     { _lhNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to < ListHapgs>. Pass null if this is the first call.
+-- | The /NextToken/ value from a previous call to 'ListHapgs' . Pass null if this is the first call.
 lhNextToken :: Lens' ListHAPGs (Maybe Text)
 lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
 
@@ -111,11 +113,11 @@ data ListHAPGsResponse = ListHAPGsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhrsNextToken'
+-- * 'lhrsNextToken' - If not null, more results are available. Pass this value to 'ListHapgs' to retrieve the next set of items.
 --
--- * 'lhrsResponseStatus'
+-- * 'lhrsResponseStatus' - -- | The response status code.
 --
--- * 'lhrsHAPGList'
+-- * 'lhrsHAPGList' - The list of high-availability partition groups.
 listHAPGsResponse
     :: Int -- ^ 'lhrsResponseStatus'
     -> ListHAPGsResponse
@@ -126,11 +128,11 @@ listHAPGsResponse pResponseStatus_ =
     , _lhrsHAPGList = mempty
     }
 
--- | If not null, more results are available. Pass this value to < ListHapgs> to retrieve the next set of items.
+-- | If not null, more results are available. Pass this value to 'ListHapgs' to retrieve the next set of items.
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lhrsResponseStatus :: Lens' ListHAPGsResponse Int
 lhrsResponseStatus = lens _lhrsResponseStatus (\ s a -> s{_lhrsResponseStatus = a});
 

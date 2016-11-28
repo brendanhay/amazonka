@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates the specified security groups with the specified load balancer. The specified security groups override the previously associated security groups.
+--
+--
 module Network.AWS.ELBv2.SetSecurityGroups
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for SetSecurityGroups.
 --
+--
+--
 -- /See:/ 'setSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
     { _ssgLoadBalancerARN :: !Text
@@ -55,9 +59,9 @@ data SetSecurityGroups = SetSecurityGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssgLoadBalancerARN'
+-- * 'ssgLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
--- * 'ssgSecurityGroups'
+-- * 'ssgSecurityGroups' - The IDs of the security groups.
 setSecurityGroups
     :: Text -- ^ 'ssgLoadBalancerARN'
     -> SetSecurityGroups
@@ -107,6 +111,8 @@ instance ToQuery SetSecurityGroups where
 
 -- | Contains the output of SetSecurityGroups.
 --
+--
+--
 -- /See:/ 'setSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
     { _ssgrsSecurityGroupIds :: !(Maybe [Text])
@@ -117,9 +123,9 @@ data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssgrsSecurityGroupIds'
+-- * 'ssgrsSecurityGroupIds' - The IDs of the security groups associated with the load balancer.
 --
--- * 'ssgrsResponseStatus'
+-- * 'ssgrsResponseStatus' - -- | The response status code.
 setSecurityGroupsResponse
     :: Int -- ^ 'ssgrsResponseStatus'
     -> SetSecurityGroupsResponse
@@ -133,7 +139,7 @@ setSecurityGroupsResponse pResponseStatus_ =
 ssgrsSecurityGroupIds :: Lens' SetSecurityGroupsResponse [Text]
 ssgrsSecurityGroupIds = lens _ssgrsSecurityGroupIds (\ s a -> s{_ssgrsSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ssgrsResponseStatus :: Lens' SetSecurityGroupsResponse Int
 ssgrsResponseStatus = lens _ssgrsResponseStatus (\ s a -> s{_ssgrsResponseStatus = a});
 

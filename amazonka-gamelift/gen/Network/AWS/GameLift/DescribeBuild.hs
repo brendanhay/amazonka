@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves properties for a build. To get a build record, specify a build ID. If successful, an object containing the build properties is returned.
+--
+--
 module Network.AWS.GameLift.DescribeBuild
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'describeBuild' smart constructor.
 newtype DescribeBuild = DescribeBuild'
     { _dBuildId :: Text
@@ -53,7 +57,7 @@ newtype DescribeBuild = DescribeBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dBuildId'
+-- * 'dBuildId' - Unique identifier of the build that you want to retrieve properties for.
 describeBuild
     :: Text -- ^ 'dBuildId'
     -> DescribeBuild
@@ -100,6 +104,8 @@ instance ToQuery DescribeBuild where
 
 -- | Represents the returned data in response to a request action.
 --
+--
+--
 -- /See:/ 'describeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
     { _dbrsBuild          :: !(Maybe Build)
@@ -110,9 +116,9 @@ data DescribeBuildResponse = DescribeBuildResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrsBuild'
+-- * 'dbrsBuild' - Set of properties describing the requested build.
 --
--- * 'dbrsResponseStatus'
+-- * 'dbrsResponseStatus' - -- | The response status code.
 describeBuildResponse
     :: Int -- ^ 'dbrsResponseStatus'
     -> DescribeBuildResponse
@@ -126,7 +132,7 @@ describeBuildResponse pResponseStatus_ =
 dbrsBuild :: Lens' DescribeBuildResponse (Maybe Build)
 dbrsBuild = lens _dbrsBuild (\ s a -> s{_dbrsBuild = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dbrsResponseStatus :: Lens' DescribeBuildResponse Int
 dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a});
 

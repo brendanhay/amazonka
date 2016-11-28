@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Validates the specified pipeline definition to ensure that it is well formed and can be run without error.
+--
+--
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ValidatePipelineDefinition.
 --
+--
+--
 -- /See:/ 'validatePipelineDefinition' smart constructor.
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
     { _vpdParameterObjects :: !(Maybe [ParameterObject])
@@ -61,13 +65,13 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vpdParameterObjects'
+-- * 'vpdParameterObjects' - The parameter objects used with the pipeline.
 --
--- * 'vpdParameterValues'
+-- * 'vpdParameterValues' - The parameter values used with the pipeline.
 --
--- * 'vpdPipelineId'
+-- * 'vpdPipelineId' - The ID of the pipeline.
 --
--- * 'vpdPipelineObjects'
+-- * 'vpdPipelineObjects' - The objects that define the pipeline changes to validate against the pipeline.
 validatePipelineDefinition
     :: Text -- ^ 'vpdPipelineId'
     -> ValidatePipelineDefinition
@@ -139,6 +143,8 @@ instance ToQuery ValidatePipelineDefinition where
 
 -- | Contains the output of ValidatePipelineDefinition.
 --
+--
+--
 -- /See:/ 'validatePipelineDefinitionResponse' smart constructor.
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
@@ -151,13 +157,13 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vpdrsValidationErrors'
+-- * 'vpdrsValidationErrors' - Any validation errors that were found.
 --
--- * 'vpdrsValidationWarnings'
+-- * 'vpdrsValidationWarnings' - Any validation warnings that were found.
 --
--- * 'vpdrsResponseStatus'
+-- * 'vpdrsResponseStatus' - -- | The response status code.
 --
--- * 'vpdrsErrored'
+-- * 'vpdrsErrored' - Indicates whether there were validation errors.
 validatePipelineDefinitionResponse
     :: Int -- ^ 'vpdrsResponseStatus'
     -> Bool -- ^ 'vpdrsErrored'
@@ -178,7 +184,7 @@ vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidation
 vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 vpdrsResponseStatus :: Lens' ValidatePipelineDefinitionResponse Int
 vpdrsResponseStatus = lens _vpdrsResponseStatus (\ s a -> s{_vpdrsResponseStatus = a});
 

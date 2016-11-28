@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the 'Name' tag to your file system, Amazon EFS returns it in the response to the < DescribeFileSystems> operation.
+-- Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the @Name@ tag to your file system, Amazon EFS returns it in the response to the 'DescribeFileSystems' operation.
 --
--- This operation requires permission for the 'elasticfilesystem:CreateTags' action.
+--
+-- This operation requires permission for the @elasticfilesystem:CreateTags@ action.
+--
 module Network.AWS.EFS.CreateTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createTags' smart constructor.
 data CreateTags = CreateTags'
     { _ctFileSystemId :: !Text
@@ -54,9 +58,9 @@ data CreateTags = CreateTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctFileSystemId'
+-- * 'ctFileSystemId' - ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.
 --
--- * 'ctTags'
+-- * 'ctTags' - Array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 createTags
     :: Text -- ^ 'ctFileSystemId'
     -> CreateTags
@@ -70,7 +74,7 @@ createTags pFileSystemId_ =
 ctFileSystemId :: Lens' CreateTags Text
 ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 
--- | Array of 'Tag' objects to add. Each 'Tag' object is a key-value pair.
+-- | Array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 

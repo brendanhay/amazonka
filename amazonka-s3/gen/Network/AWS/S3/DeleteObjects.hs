@@ -59,13 +59,13 @@ data DeleteObjects = DeleteObjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dosMFA'
+-- * 'dosMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 --
--- * 'dosRequestPayer'
+-- * 'dosRequestPayer' - Undocumented member.
 --
--- * 'dosBucket'
+-- * 'dosBucket' - Undocumented member.
 --
--- * 'dosDelete'
+-- * 'dosDelete' - Undocumented member.
 deleteObjects
     :: BucketName -- ^ 'dosBucket'
     -> Delete -- ^ 'dosDelete'
@@ -78,7 +78,7 @@ deleteObjects pBucket_ pDelete_ =
     , _dosDelete = pDelete_
     }
 
--- | The concatenation of the authentication device\'s serial number, a space, and the value that is displayed on your authentication device.
+-- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 dosMFA :: Lens' DeleteObjects (Maybe Text)
 dosMFA = lens _dosMFA (\ s a -> s{_dosMFA = a});
 
@@ -142,13 +142,13 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsRequestCharged'
+-- * 'drsRequestCharged' - Undocumented member.
 --
--- * 'drsDeleted'
+-- * 'drsDeleted' - Undocumented member.
 --
--- * 'drsErrors'
+-- * 'drsErrors' - Undocumented member.
 --
--- * 'drsResponseStatus'
+-- * 'drsResponseStatus' - -- | The response status code.
 deleteObjectsResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DeleteObjectsResponse
@@ -172,7 +172,7 @@ drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default . _Coerce
 drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drsResponseStatus :: Lens' DeleteObjectsResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
 

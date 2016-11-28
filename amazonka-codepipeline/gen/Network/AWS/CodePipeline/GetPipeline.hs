@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the metadata, structure, stages, and actions of a pipeline. Can be used to return the entire structure of a pipeline in JSON format, which can then be modified and used to update the pipeline structure with < UpdatePipeline>.
+-- Returns the metadata, structure, stages, and actions of a pipeline. Can be used to return the entire structure of a pipeline in JSON format, which can then be modified and used to update the pipeline structure with 'UpdatePipeline' .
+--
+--
 module Network.AWS.CodePipeline.GetPipeline
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a get pipeline action.
 --
+--
+--
 -- /See:/ 'getPipeline' smart constructor.
 data GetPipeline = GetPipeline'
     { _gpVersion :: !(Maybe Nat)
@@ -55,9 +59,9 @@ data GetPipeline = GetPipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpVersion'
+-- * 'gpVersion' - The version number of the pipeline. If you do not specify a version, defaults to the most current version.
 --
--- * 'gpName'
+-- * 'gpName' - The name of the pipeline for which you want to get information. Pipeline names must be unique under an Amazon Web Services (AWS) user account.
 getPipeline
     :: Text -- ^ 'gpName'
     -> GetPipeline
@@ -112,6 +116,8 @@ instance ToQuery GetPipeline where
 
 -- | Represents the output of a get pipeline action.
 --
+--
+--
 -- /See:/ 'getPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
     { _gprsPipeline       :: !(Maybe PipelineDeclaration)
@@ -122,9 +128,9 @@ data GetPipelineResponse = GetPipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsPipeline'
+-- * 'gprsPipeline' - Undocumented member.
 --
--- * 'gprsResponseStatus'
+-- * 'gprsResponseStatus' - -- | The response status code.
 getPipelineResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPipelineResponse
@@ -138,7 +144,7 @@ getPipelineResponse pResponseStatus_ =
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPipelineResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 

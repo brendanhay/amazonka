@@ -255,7 +255,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-10-01' of the Amazon GameLift SDK configuration.
+-- | API version @2015-10-01@ of the Amazon GameLift SDK configuration.
 gameLift :: Service
 gameLift =
     Service
@@ -289,50 +289,72 @@ gameLift =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the fleet. Resolve the conflict before retrying.
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.
+--
+--
 _InvalidFleetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFleetStatusException =
     _ServiceError . hasCode "InvalidFleetStatusException"
 
 -- | One or more parameters specified as part of the request are invalid. Correct the invalid parameters before retrying.
+--
+--
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
 -- | The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+--
+--
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException = _ServiceError . hasCode "ConflictException"
 
--- | The service is unable to resolve the routing for a particular alias because it has a terminal < RoutingStrategy> associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+-- | The service is unable to resolve the routing for a particular alias because it has a terminal 'RoutingStrategy' associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+--
+--
 _TerminalRoutingStrategyException :: AsError a => Getting (First ServiceError) a ServiceError
 _TerminalRoutingStrategyException =
     _ServiceError . hasCode "TerminalRoutingStrategyException"
 
 -- | A service resource associated with the request could not be found. Clients should not retry such requests
+--
+--
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasCode "NotFoundException"
 
--- | The game instance is currently full and cannot allow the requested player(s) to join. This exception occurs in response to a < CreatePlayerSession> request.
+-- | The game instance is currently full and cannot allow the requested player(s) to join. This exception occurs in response to a 'CreatePlayerSession' request.
+--
+--
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
 _GameSessionFullException = _ServiceError . hasCode "GameSessionFullException"
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and\/or the game instance. Clients should not retry such requests without resolving the conflict.
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Clients should not retry such requests without resolving the conflict.
+--
+--
 _InvalidGameSessionStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGameSessionStatusException =
     _ServiceError . hasCode "InvalidGameSessionStatusException"
 
 -- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests, either immediately or after a back-off period.
+--
+--
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
 -- | The client failed authentication. Clients should not retry such requests
+--
+--
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException = _ServiceError . hasCode "UnauthorizedException"
 
 -- | The specified fleet has no available instances to fulfill a request to create a new game session. Such requests should only be retried once the fleet capacity has been increased.
+--
+--
 _FleetCapacityExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _FleetCapacityExceededException =
     _ServiceError . hasCode "FleetCapacityExceededException"
 
 -- | The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

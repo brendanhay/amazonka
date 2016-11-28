@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified rule.
+--
+--
 module Network.AWS.IoT.GetTopicRule
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The input for the GetTopicRule operation.
 --
+--
+--
 -- /See:/ 'getTopicRule' smart constructor.
 newtype GetTopicRule = GetTopicRule'
     { _gtrRuleName :: Text
@@ -54,7 +58,7 @@ newtype GetTopicRule = GetTopicRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtrRuleName'
+-- * 'gtrRuleName' - The name of the rule.
 getTopicRule
     :: Text -- ^ 'gtrRuleName'
     -> GetTopicRule
@@ -93,6 +97,8 @@ instance ToQuery GetTopicRule where
 
 -- | The output from the GetTopicRule operation.
 --
+--
+--
 -- /See:/ 'getTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
     { _gtrrsRule           :: !(Maybe TopicRule)
@@ -104,11 +110,11 @@ data GetTopicRuleResponse = GetTopicRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtrrsRule'
+-- * 'gtrrsRule' - The rule.
 --
--- * 'gtrrsRuleARN'
+-- * 'gtrrsRuleARN' - The rule ARN.
 --
--- * 'gtrrsResponseStatus'
+-- * 'gtrrsResponseStatus' - -- | The response status code.
 getTopicRuleResponse
     :: Int -- ^ 'gtrrsResponseStatus'
     -> GetTopicRuleResponse
@@ -127,7 +133,7 @@ gtrrsRule = lens _gtrrsRule (\ s a -> s{_gtrrsRule = a});
 gtrrsRuleARN :: Lens' GetTopicRuleResponse (Maybe Text)
 gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
 gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Displays all connections in this region.
 --
+--
 -- If a connection ID is provided, the call returns only that particular connection.
+--
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeConnections operation.
 --
+--
+--
 -- /See:/ 'describeConnections' smart constructor.
 newtype DescribeConnections = DescribeConnections'
     { _dConnectionId :: Maybe Text
@@ -54,7 +58,7 @@ newtype DescribeConnections = DescribeConnections'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dConnectionId'
+-- * 'dConnectionId' - Undocumented member.
 describeConnections
     :: DescribeConnections
 describeConnections =

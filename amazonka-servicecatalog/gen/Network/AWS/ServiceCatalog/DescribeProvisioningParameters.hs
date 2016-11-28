@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of 'ProvisioningArtifactParameters' parameters available to call the < ProvisionProduct> operation for the specified product.
+-- Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of @ProvisioningArtifactParameters@ parameters available to call the 'ProvisionProduct' operation for the specified product.
+--
+--
 module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
     (
     -- * Creating a Request
@@ -59,13 +61,13 @@ data DescribeProvisioningParameters = DescribeProvisioningParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppAcceptLanguage'
+-- * 'dppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'dppPathId'
+-- * 'dppPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
--- * 'dppProductId'
+-- * 'dppProductId' - The identifier of the product.
 --
--- * 'dppProvisioningArtifactId'
+-- * 'dppProvisioningArtifactId' - The provisioning artifact identifier for this product.
 describeProvisioningParameters
     :: Text -- ^ 'dppProductId'
     -> Text -- ^ 'dppProvisioningArtifactId'
@@ -78,19 +80,11 @@ describeProvisioningParameters pProductId_ pProvisioningArtifactId_ =
     , _dppProvisioningArtifactId = pProvisioningArtifactId_
     }
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dppAcceptLanguage :: Lens' DescribeProvisioningParameters (Maybe Text)
 dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a});
 
--- | The identifier of the path for this product\'s provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
+-- | The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 dppPathId :: Lens' DescribeProvisioningParameters (Maybe Text)
 dppPathId = lens _dppPathId (\ s a -> s{_dppPathId = a});
 
@@ -160,13 +154,13 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpprsProvisioningArtifactParameters'
+-- * 'dpprsProvisioningArtifactParameters' - The list of parameters used to successfully provision the product. Each parameter includes a list of allowable values and additional metadata about each parameter.
 --
--- * 'dpprsUsageInstructions'
+-- * 'dpprsUsageInstructions' - Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
 --
--- * 'dpprsConstraintSummaries'
+-- * 'dpprsConstraintSummaries' - The list of constraint summaries that apply to provisioning this product.
 --
--- * 'dpprsResponseStatus'
+-- * 'dpprsResponseStatus' - -- | The response status code.
 describeProvisioningParametersResponse
     :: Int -- ^ 'dpprsResponseStatus'
     -> DescribeProvisioningParametersResponse
@@ -182,7 +176,7 @@ describeProvisioningParametersResponse pResponseStatus_ =
 dpprsProvisioningArtifactParameters :: Lens' DescribeProvisioningParametersResponse [ProvisioningArtifactParameter]
 dpprsProvisioningArtifactParameters = lens _dpprsProvisioningArtifactParameters (\ s a -> s{_dpprsProvisioningArtifactParameters = a}) . _Default . _Coerce;
 
--- | Any additional metadata specifically related to the provisioning of the product. For example, see the 'Version' field of the CloudFormation template.
+-- | Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
 dpprsUsageInstructions :: Lens' DescribeProvisioningParametersResponse [UsageInstruction]
 dpprsUsageInstructions = lens _dpprsUsageInstructions (\ s a -> s{_dpprsUsageInstructions = a}) . _Default . _Coerce;
 
@@ -190,7 +184,7 @@ dpprsUsageInstructions = lens _dpprsUsageInstructions (\ s a -> s{_dpprsUsageIns
 dpprsConstraintSummaries :: Lens' DescribeProvisioningParametersResponse [ConstraintSummary]
 dpprsConstraintSummaries = lens _dpprsConstraintSummaries (\ s a -> s{_dpprsConstraintSummaries = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dpprsResponseStatus :: Lens' DescribeProvisioningParametersResponse Int
 dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a});
 

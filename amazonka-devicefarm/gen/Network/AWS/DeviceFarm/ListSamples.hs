@@ -20,6 +20,8 @@
 --
 -- Gets information about samples.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListSamples
     (
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Represents a request to the list samples operation.
 --
+--
+--
 -- /See:/ 'listSamples' smart constructor.
 data ListSamples = ListSamples'
     { _lsNextToken :: !(Maybe Text)
@@ -59,9 +63,9 @@ data ListSamples = ListSamples'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsNextToken'
+-- * 'lsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lsArn'
+-- * 'lsArn' - The samples' ARNs.
 listSamples
     :: Text -- ^ 'lsArn'
     -> ListSamples
@@ -75,7 +79,7 @@ listSamples pArn_ =
 lsNextToken :: Lens' ListSamples (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
--- | The samples\' ARNs.
+-- | The samples' ARNs.
 lsArn :: Lens' ListSamples Text
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
@@ -124,6 +128,8 @@ instance ToQuery ListSamples where
 
 -- | Represents the result of a list samples request.
 --
+--
+--
 -- /See:/ 'listSamplesResponse' smart constructor.
 data ListSamplesResponse = ListSamplesResponse'
     { _lrsNextToken      :: !(Maybe Text)
@@ -135,11 +141,11 @@ data ListSamplesResponse = ListSamplesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsNextToken'
+-- * 'lrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
 --
--- * 'lrsSamples'
+-- * 'lrsSamples' - Information about the samples.
 --
--- * 'lrsResponseStatus'
+-- * 'lrsResponseStatus' - -- | The response status code.
 listSamplesResponse
     :: Int -- ^ 'lrsResponseStatus'
     -> ListSamplesResponse
@@ -158,7 +164,7 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 lrsSamples :: Lens' ListSamplesResponse [Sample]
 lrsSamples = lens _lrsSamples (\ s a -> s{_lrsSamples = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lrsResponseStatus :: Lens' ListSamplesResponse Int
 lrsResponseStatus = lens _lrsResponseStatus (\ s a -> s{_lrsResponseStatus = a});
 

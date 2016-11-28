@@ -20,11 +20,13 @@
 --
 -- The /CreateTable/ operation adds a new table to your account. In an AWS account, table names must be unique within each region. That is, you can have two tables with same name if you create the tables in different regions.
 --
--- /CreateTable/ is an asynchronous operation. Upon receiving a /CreateTable/ request, DynamoDB immediately returns a response with a /TableStatus/ of 'CREATING'. After the table is created, DynamoDB sets the /TableStatus/ to 'ACTIVE'. You can perform read and write operations only on an 'ACTIVE' table.
 --
--- You can optionally define secondary indexes on the new table, as part of the /CreateTable/ operation. If you want to create multiple tables with secondary indexes on them, you must create the tables sequentially. Only one table with secondary indexes can be in the 'CREATING' state at any given time.
+-- /CreateTable/ is an asynchronous operation. Upon receiving a /CreateTable/ request, DynamoDB immediately returns a response with a /TableStatus/ of @CREATING@ . After the table is created, DynamoDB sets the /TableStatus/ to @ACTIVE@ . You can perform read and write operations only on an @ACTIVE@ table.
+--
+-- You can optionally define secondary indexes on the new table, as part of the /CreateTable/ operation. If you want to create multiple tables with secondary indexes on them, you must create the tables sequentially. Only one table with secondary indexes can be in the @CREATING@ state at any given time.
 --
 -- You can use the /DescribeTable/ API to check the table status.
+--
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Creating a Request
@@ -56,6 +58,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a /CreateTable/ operation.
 --
+--
+--
 -- /See:/ 'createTable' smart constructor.
 data CreateTable = CreateTable'
     { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
@@ -71,19 +75,19 @@ data CreateTable = CreateTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctGlobalSecondaryIndexes'
+-- * 'ctGlobalSecondaryIndexes' - One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:     * /IndexName/ - The name of the global secondary index. Must be unique only for this table.     * /KeySchema/ - Specifies the key schema for the global secondary index.     * /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * /ProjectionType/ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/ .     * @ALL@ - All of the table attributes are projected into the index.     * /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * /ProvisionedThroughput/ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 --
--- * 'ctLocalSecondaryIndexes'
+-- * 'ctLocalSecondaryIndexes' - One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * /IndexName/ - The name of the local secondary index. Must be unique only for this table.     * /KeySchema/ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * /ProjectionType/ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/ .     * @ALL@ - All of the table attributes are projected into the index.     * /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 --
--- * 'ctStreamSpecification'
+-- * 'ctStreamSpecification' - The settings for DynamoDB Streams on the table. These settings consist of:     * /StreamEnabled/ - Indicates whether Streams is to be enabled (true) or disabled (false).     * /StreamViewType/ - When an item in the table is modified, /StreamViewType/ determines what information is written to the table's stream. Valid values for /StreamViewType/ are:     * /KEYS_ONLY/ - Only the key attributes of the modified item are written to the stream.     * /NEW_IMAGE/ - The entire item, as it appears after it was modified, is written to the stream.     * /OLD_IMAGE/ - The entire item, as it appeared before it was modified, is written to the stream.     * /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of the item are written to the stream.
 --
--- * 'ctAttributeDefinitions'
+-- * 'ctAttributeDefinitions' - An array of attributes that describe the key schema for the table and indexes.
 --
--- * 'ctTableName'
+-- * 'ctTableName' - The name of the table to create.
 --
--- * 'ctKeySchema'
+-- * 'ctKeySchema' - Specifies the attributes that make up the primary key for a table or an index. The attributes in /KeySchema/ must also be defined in the /AttributeDefinitions/ array. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ . Each /KeySchemaElement/ in the array is composed of:     * /AttributeName/ - The name of this key attribute.     * /KeyType/ - The role that the key attribute will assume:     * @HASH@ - partition key     * @RANGE@ - sort key For a simple primary key (partition key), you must provide exactly one element with a /KeyType/ of @HASH@ . For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a /KeyType/ of @HASH@ , and the second element must have a /KeyType/ of @RANGE@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'ctProvisionedThroughput'
+-- * 'ctProvisionedThroughput' - Undocumented member.
 createTable
     :: Text -- ^ 'ctTableName'
     -> NonEmpty KeySchemaElement -- ^ 'ctKeySchema'
@@ -100,66 +104,15 @@ createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
     , _ctProvisionedThroughput = pProvisionedThroughput_
     }
 
--- | One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:
---
--- -   /IndexName/ - The name of the global secondary index. Must be unique only for this table.
---
--- -   /KeySchema/ - Specifies the key schema for the global secondary index.
---
--- -   /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
---
---     -   /ProjectionType/ - One of the following:
---
---         -   'KEYS_ONLY' - Only the index and primary keys are projected into the index.
---
---         -   'INCLUDE' - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/.
---
---         -   'ALL' - All of the table attributes are projected into the index.
---
---     -   /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
---
--- -   /ProvisionedThroughput/ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
---
+-- | One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:     * /IndexName/ - The name of the global secondary index. Must be unique only for this table.     * /KeySchema/ - Specifies the key schema for the global secondary index.     * /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * /ProjectionType/ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/ .     * @ALL@ - All of the table attributes are projected into the index.     * /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.     * /ProvisionedThroughput/ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
 ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default . _Coerce;
 
--- | One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.
---
--- Each local secondary index in the array includes the following:
---
--- -   /IndexName/ - The name of the local secondary index. Must be unique only for this table.
---
--- -   /KeySchema/ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.
---
--- -   /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
---
---     -   /ProjectionType/ - One of the following:
---
---         -   'KEYS_ONLY' - Only the index and primary keys are projected into the index.
---
---         -   'INCLUDE' - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/.
---
---         -   'ALL' - All of the table attributes are projected into the index.
---
---     -   /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
---
+-- | One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained. Each local secondary index in the array includes the following:     * /IndexName/ - The name of the local secondary index. Must be unique only for this table.     * /KeySchema/ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.     * /Projection/ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:     * /ProjectionType/ - One of the following:     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes are in /NonKeyAttributes/ .     * @ALL@ - All of the table attributes are projected into the index.     * /NonKeyAttributes/ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in /NonKeyAttributes/ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default . _Coerce;
 
--- | The settings for DynamoDB Streams on the table. These settings consist of:
---
--- -   /StreamEnabled/ - Indicates whether Streams is to be enabled (true) or disabled (false).
---
--- -   /StreamViewType/ - When an item in the table is modified, /StreamViewType/ determines what information is written to the table\'s stream. Valid values for /StreamViewType/ are:
---
---     -   /KEYS_ONLY/ - Only the key attributes of the modified item are written to the stream.
---
---     -   /NEW_IMAGE/ - The entire item, as it appears after it was modified, is written to the stream.
---
---     -   /OLD_IMAGE/ - The entire item, as it appeared before it was modified, is written to the stream.
---
---     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of the item are written to the stream.
---
+-- | The settings for DynamoDB Streams on the table. These settings consist of:     * /StreamEnabled/ - Indicates whether Streams is to be enabled (true) or disabled (false).     * /StreamViewType/ - When an item in the table is modified, /StreamViewType/ determines what information is written to the table's stream. Valid values for /StreamViewType/ are:     * /KEYS_ONLY/ - Only the key attributes of the modified item are written to the stream.     * /NEW_IMAGE/ - The entire item, as it appears after it was modified, is written to the stream.     * /OLD_IMAGE/ - The entire item, as it appeared before it was modified, is written to the stream.     * /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of the item are written to the stream.
 ctStreamSpecification :: Lens' CreateTable (Maybe StreamSpecification)
 ctStreamSpecification = lens _ctStreamSpecification (\ s a -> s{_ctStreamSpecification = a});
 
@@ -171,27 +124,7 @@ ctAttributeDefinitions = lens _ctAttributeDefinitions (\ s a -> s{_ctAttributeDe
 ctTableName :: Lens' CreateTable Text
 ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
 
--- | Specifies the attributes that make up the primary key for a table or an index. The attributes in /KeySchema/ must also be defined in the /AttributeDefinitions/ array. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/.
---
--- Each /KeySchemaElement/ in the array is composed of:
---
--- -   /AttributeName/ - The name of this key attribute.
---
--- -   /KeyType/ - The role that the key attribute will assume:
---
---     -   'HASH' - partition key
---
---     -   'RANGE' - sort key
---
--- The partition key of an item is also known as its /hash attribute/. The term \"hash attribute\" derives from DynamoDB\' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
---
--- The sort key of an item is also known as its /range attribute/. The term \"range attribute\" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
---
--- For a simple primary key (partition key), you must provide exactly one element with a /KeyType/ of 'HASH'.
---
--- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of 'RANGE'.
---
--- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDB Developer Guide/.
+-- | Specifies the attributes that make up the primary key for a table or an index. The attributes in /KeySchema/ must also be defined in the /AttributeDefinitions/ array. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ . Each /KeySchemaElement/ in the array is composed of:     * /AttributeName/ - The name of this key attribute.     * /KeyType/ - The role that the key attribute will assume:     * @HASH@ - partition key     * @RANGE@ - sort key For a simple primary key (partition key), you must provide exactly one element with a /KeyType/ of @HASH@ . For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a /KeyType/ of @HASH@ , and the second element must have a /KeyType/ of @RANGE@ . For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDB Developer Guide/ .
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
 ctKeySchema = lens _ctKeySchema (\ s a -> s{_ctKeySchema = a}) . _List1;
 
@@ -247,6 +180,8 @@ instance ToQuery CreateTable where
 
 -- | Represents the output of a /CreateTable/ operation.
 --
+--
+--
 -- /See:/ 'createTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
     { _ctrsTableDescription :: !(Maybe TableDescription)
@@ -257,9 +192,9 @@ data CreateTableResponse = CreateTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctrsTableDescription'
+-- * 'ctrsTableDescription' - Undocumented member.
 --
--- * 'ctrsResponseStatus'
+-- * 'ctrsResponseStatus' - -- | The response status code.
 createTableResponse
     :: Int -- ^ 'ctrsResponseStatus'
     -> CreateTableResponse
@@ -273,7 +208,7 @@ createTableResponse pResponseStatus_ =
 ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ctrsResponseStatus :: Lens' CreateTableResponse Int
 ctrsResponseStatus = lens _ctrsResponseStatus (\ s a -> s{_ctrsResponseStatus = a});
 

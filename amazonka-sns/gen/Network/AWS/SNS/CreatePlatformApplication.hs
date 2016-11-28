@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the 'CreatePlatformApplication' action. The PlatformPrincipal is received from the notification service. For APNS\/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is \"Package Security Identifier\". For MPNS, PlatformPrincipal is \"TLS certificate\". For Baidu, PlatformPrincipal is \"API key\".
+-- Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the @CreatePlatformApplication@ action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".
 --
--- For APNS\/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". For WNS, PlatformCredential is \"secret key\". For MPNS, PlatformCredential is \"private key\". For Baidu, PlatformCredential is \"secret key\". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>. For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html Getting Started with Apple Push Notification Service>, <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html Getting Started with Amazon Device Messaging>, <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html Getting Started with Baidu Cloud Push>, <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html Getting Started with Google Cloud Messaging for Android>, <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html Getting Started with MPNS>, or <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html Getting Started with WNS>.
+--
+-- For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using @CreatePlatformApplication@ is then used as an attribute for the @CreatePlatformEndpoint@ action. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> . For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html Getting Started with Apple Push Notification Service> , <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html Getting Started with Amazon Device Messaging> , <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html Getting Started with Baidu Cloud Push> , <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html Getting Started with Google Cloud Messaging for Android> , <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html Getting Started with MPNS> , or <http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html Getting Started with WNS> .
+--
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for CreatePlatformApplication action.
 --
+--
+--
 -- /See:/ 'createPlatformApplication' smart constructor.
 data CreatePlatformApplication = CreatePlatformApplication'
     { _cpaName       :: !Text
@@ -59,11 +63,11 @@ data CreatePlatformApplication = CreatePlatformApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpaName'
+-- * 'cpaName' - Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.
 --
--- * 'cpaPlatform'
+-- * 'cpaPlatform' - The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud Messaging).
 --
--- * 'cpaAttributes'
+-- * 'cpaAttributes' - For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
 createPlatformApplication
     :: Text -- ^ 'cpaName'
     -> Text -- ^ 'cpaPlatform'
@@ -120,6 +124,8 @@ instance ToQuery CreatePlatformApplication where
 
 -- | Response from CreatePlatformApplication action.
 --
+--
+--
 -- /See:/ 'createPlatformApplicationResponse' smart constructor.
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN :: !(Maybe Text)
@@ -130,9 +136,9 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cparsPlatformApplicationARN'
+-- * 'cparsPlatformApplicationARN' - PlatformApplicationArn is returned.
 --
--- * 'cparsResponseStatus'
+-- * 'cparsResponseStatus' - -- | The response status code.
 createPlatformApplicationResponse
     :: Int -- ^ 'cparsResponseStatus'
     -> CreatePlatformApplicationResponse
@@ -146,7 +152,7 @@ createPlatformApplicationResponse pResponseStatus_ =
 cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cparsResponseStatus :: Lens' CreatePlatformApplicationResponse Int
 cparsResponseStatus = lens _cparsResponseStatus (\ s a -> s{_cparsResponseStatus = a});
 

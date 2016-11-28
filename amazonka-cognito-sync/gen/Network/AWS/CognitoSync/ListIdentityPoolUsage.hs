@@ -20,7 +20,9 @@
 --
 -- Gets a list of identity pools registered with Cognito.
 --
+--
 -- ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.
+--
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Creating a Request
@@ -60,9 +62,9 @@ data ListIdentityPoolUsage = ListIdentityPoolUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipuNextToken'
+-- * 'lipuNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lipuMaxResults'
+-- * 'lipuMaxResults' - The maximum number of results to be returned.
 listIdentityPoolUsage
     :: ListIdentityPoolUsage
 listIdentityPoolUsage =
@@ -128,15 +130,15 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipursIdentityPoolUsages'
+-- * 'lipursIdentityPoolUsages' - Usage information for the identity pools.
 --
--- * 'lipursCount'
+-- * 'lipursCount' - Total number of identities for the identity pool.
 --
--- * 'lipursNextToken'
+-- * 'lipursNextToken' - A pagination token for obtaining the next page of results.
 --
--- * 'lipursMaxResults'
+-- * 'lipursMaxResults' - The maximum number of results to be returned.
 --
--- * 'lipursResponseStatus'
+-- * 'lipursResponseStatus' - -- | The response status code.
 listIdentityPoolUsageResponse
     :: Int -- ^ 'lipursResponseStatus'
     -> ListIdentityPoolUsageResponse
@@ -165,7 +167,7 @@ lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
 lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lipursResponseStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursResponseStatus = lens _lipursResponseStatus (\ s a -> s{_lipursResponseStatus = a});
 

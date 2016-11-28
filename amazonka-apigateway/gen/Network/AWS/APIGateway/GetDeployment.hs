@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a < Deployment> resource.
+-- Gets information about a 'Deployment' resource.
+--
+--
 module Network.AWS.APIGateway.GetDeployment
     (
     -- * Creating a Request
@@ -45,7 +47,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to get information about a < Deployment> resource.
+-- | Requests Amazon API Gateway to get information about a 'Deployment' resource.
+--
+--
 --
 -- /See:/ 'getDeployment' smart constructor.
 data GetDeployment = GetDeployment'
@@ -57,9 +61,9 @@ data GetDeployment = GetDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gRestAPIId'
+-- * 'gRestAPIId' - The identifier of the 'RestApi' resource for the 'Deployment' resource to get information about.
 --
--- * 'gDeploymentId'
+-- * 'gDeploymentId' - The identifier of the 'Deployment' resource to get information about.
 getDeployment
     :: Text -- ^ 'gRestAPIId'
     -> Text -- ^ 'gDeploymentId'
@@ -70,11 +74,11 @@ getDeployment pRestAPIId_ pDeploymentId_ =
     , _gDeploymentId = pDeploymentId_
     }
 
--- | The identifier of the < RestApi> resource for the < Deployment> resource to get information about.
+-- | The identifier of the 'RestApi' resource for the 'Deployment' resource to get information about.
 gRestAPIId :: Lens' GetDeployment Text
 gRestAPIId = lens _gRestAPIId (\ s a -> s{_gRestAPIId = a});
 
--- | The identifier of the < Deployment> resource to get information about.
+-- | The identifier of the 'Deployment' resource to get information about.
 gDeploymentId :: Lens' GetDeployment Text
 gDeploymentId = lens _gDeploymentId (\ s a -> s{_gDeploymentId = a});
 

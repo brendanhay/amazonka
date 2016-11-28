@@ -20,7 +20,9 @@
 --
 -- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
--- Send a 'POST' request to the '\/Amazon Route 53 API version\/trafficpolicy' resource. The request body must include a document with a 'CreateTrafficPolicyRequest' element. The response includes the 'CreateTrafficPolicyResponse' element, which contains information about the new traffic policy.
+--
+-- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource. The request body must include a document with a @CreateTrafficPolicyRequest@ element. The response includes the @CreateTrafficPolicyResponse@ element, which contains information about the new traffic policy.
+--
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Route53.Types.Product
 
 -- | A complex type that contains information about the traffic policy that you want to create.
 --
+--
+--
 -- /See:/ 'createTrafficPolicy' smart constructor.
 data CreateTrafficPolicy = CreateTrafficPolicy'
     { _ctpComment  :: !(Maybe Text)
@@ -60,11 +64,11 @@ data CreateTrafficPolicy = CreateTrafficPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctpComment'
+-- * 'ctpComment' - (Optional) Any comments that you want to include about the traffic policy.
 --
--- * 'ctpName'
+-- * 'ctpName' - The name of the traffic policy.
 --
--- * 'ctpDocument'
+-- * 'ctpDocument' - The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/ .
 createTrafficPolicy
     :: Text -- ^ 'ctpName'
     -> Text -- ^ 'ctpDocument'
@@ -84,7 +88,7 @@ ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 ctpName :: Lens' CreateTrafficPolicy Text
 ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
 
--- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/.
+-- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/ .
 ctpDocument :: Lens' CreateTrafficPolicy Text
 ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
 
@@ -123,7 +127,9 @@ instance ToXML CreateTrafficPolicy where
               ["Comment" @= _ctpComment, "Name" @= _ctpName,
                "Document" @= _ctpDocument]
 
--- | A complex type that contains the response information for the 'CreateTrafficPolicy' request.
+-- | A complex type that contains the response information for the @CreateTrafficPolicy@ request.
+--
+--
 --
 -- /See:/ 'createTrafficPolicyResponse' smart constructor.
 data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
@@ -136,11 +142,11 @@ data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctprsResponseStatus'
+-- * 'ctprsResponseStatus' - -- | The response status code.
 --
--- * 'ctprsTrafficPolicy'
+-- * 'ctprsTrafficPolicy' - A complex type that contains settings for the new traffic policy.
 --
--- * 'ctprsLocation'
+-- * 'ctprsLocation' - Undocumented member.
 createTrafficPolicyResponse
     :: Int -- ^ 'ctprsResponseStatus'
     -> TrafficPolicy -- ^ 'ctprsTrafficPolicy'
@@ -153,7 +159,7 @@ createTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ pLocation_ =
     , _ctprsLocation = pLocation_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ctprsResponseStatus :: Lens' CreateTrafficPolicyResponse Int
 ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus = a});
 

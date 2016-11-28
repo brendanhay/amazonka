@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet\'s desired capacity to zero. See < UpdateFleetCapacity>.
+-- Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet's desired capacity to zero. See 'UpdateFleetCapacity' .
 --
--- This action removes the fleet\'s resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
+--
+-- This action removes the fleet's resources and the fleet record. Once a fleet is deleted, you can no longer use that fleet.
+--
 module Network.AWS.GameLift.DeleteFleet
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteFleet' smart constructor.
 newtype DeleteFleet = DeleteFleet'
     { _dfFleetId :: Text
@@ -52,7 +56,7 @@ newtype DeleteFleet = DeleteFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfFleetId'
+-- * 'dfFleetId' - Unique identifier for the fleet you want to delete.
 deleteFleet
     :: Text -- ^ 'dfFleetId'
     -> DeleteFleet

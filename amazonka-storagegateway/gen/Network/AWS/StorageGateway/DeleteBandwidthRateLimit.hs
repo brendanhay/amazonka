@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the bandwidth rate limits of a gateway. You can delete either the upload and download bandwidth rate limit, or you can delete both. If you delete only one of the limits, the other limit remains unchanged. To specify which gateway to work with, use the Amazon Resource Name (ARN) of the gateway in your request.
+--
+--
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrlbGatewayARN'
+-- * 'dbrlbGatewayARN' - Undocumented member.
 --
--- * 'dbrlbBandwidthType'
+-- * 'dbrlbBandwidthType' - Undocumented member.
 deleteBandwidthRateLimit
     :: Text -- ^ 'dbrlbGatewayARN'
     -> Text -- ^ 'dbrlbBandwidthType'
@@ -113,6 +115,8 @@ instance ToQuery DeleteBandwidthRateLimit where
 
 -- | A JSON object containing the of the gateway whose bandwidth rate information was deleted.
 --
+--
+--
 -- /See:/ 'deleteBandwidthRateLimitResponse' smart constructor.
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
     { _delrsGatewayARN     :: !(Maybe Text)
@@ -123,9 +127,9 @@ data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsGatewayARN'
+-- * 'delrsGatewayARN' - Undocumented member.
 --
--- * 'delrsResponseStatus'
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteBandwidthRateLimitResponse
     :: Int -- ^ 'delrsResponseStatus'
     -> DeleteBandwidthRateLimitResponse
@@ -139,7 +143,7 @@ deleteBandwidthRateLimitResponse pResponseStatus_ =
 delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 delrsResponseStatus :: Lens' DeleteBandwidthRateLimitResponse Int
 delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 

@@ -20,11 +20,11 @@
 --
 -- The GetDomainSuggestions operation returns a list of suggested domain names given a string, which can either be a domain name or simply a word or phrase (without spaces).
 --
--- Parameters:
 --
--- -   DomainName (string): The basis for your domain suggestion search, a string with (or without) top-level domain specified.
--- -   SuggestionCount (int): The number of domain suggestions to be returned, maximum 50, minimum 1.
--- -   OnlyAvailable (bool): If true, availability check will be performed on suggestion results, and only available domains will be returned. If false, suggestions will be returned without checking whether the domain is actually available, and caller will have to call checkDomainAvailability for each suggestion to determine availability for registration.
+-- Parameters:     * DomainName (string): The basis for your domain suggestion search, a string with (or without) top-level domain specified.    * SuggestionCount (int): The number of domain suggestions to be returned, maximum 50, minimum 1.    * OnlyAvailable (bool): If true, availability check will be performed on suggestion results, and only available domains will be returned. If false, suggestions will be returned without checking whether the domain is actually available, and caller will have to call checkDomainAvailability for each suggestion to determine availability for registration.
+--
+--
+--
 module Network.AWS.Route53Domains.GetDomainSuggestions
     (
     -- * Creating a Request
@@ -61,11 +61,11 @@ data GetDomainSuggestions = GetDomainSuggestions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsDomainName'
+-- * 'gdsDomainName' - Undocumented member.
 --
--- * 'gdsSuggestionCount'
+-- * 'gdsSuggestionCount' - Undocumented member.
 --
--- * 'gdsOnlyAvailable'
+-- * 'gdsOnlyAvailable' - Undocumented member.
 getDomainSuggestions
     :: Text -- ^ 'gdsDomainName'
     -> Int -- ^ 'gdsSuggestionCount'
@@ -139,9 +139,9 @@ data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdsrsSuggestionsList'
+-- * 'gdsrsSuggestionsList' - Undocumented member.
 --
--- * 'gdsrsResponseStatus'
+-- * 'gdsrsResponseStatus' - -- | The response status code.
 getDomainSuggestionsResponse
     :: Int -- ^ 'gdsrsResponseStatus'
     -> GetDomainSuggestionsResponse
@@ -155,7 +155,7 @@ getDomainSuggestionsResponse pResponseStatus_ =
 gdsrsSuggestionsList :: Lens' GetDomainSuggestionsResponse [DomainSuggestion]
 gdsrsSuggestionsList = lens _gdsrsSuggestionsList (\ s a -> s{_gdsrsSuggestionsList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gdsrsResponseStatus :: Lens' GetDomainSuggestionsResponse Int
 gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
 

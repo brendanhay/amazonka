@@ -20,7 +20,9 @@
 --
 -- Returns a list of interconnects owned by the AWS account.
 --
+--
 -- If an interconnect ID is provided, it will only return this particular interconnect.
+--
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the DescribeInterconnects operation.
 --
+--
+--
 -- /See:/ 'describeInterconnects' smart constructor.
 newtype DescribeInterconnects = DescribeInterconnects'
     { _diInterconnectId :: Maybe Text
@@ -55,7 +59,7 @@ newtype DescribeInterconnects = DescribeInterconnects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInterconnectId'
+-- * 'diInterconnectId' - Undocumented member.
 describeInterconnects
     :: DescribeInterconnects
 describeInterconnects =
@@ -106,6 +110,8 @@ instance ToQuery DescribeInterconnects where
 
 -- | A structure containing a list of interconnects.
 --
+--
+--
 -- /See:/ 'describeInterconnectsResponse' smart constructor.
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirsInterconnects  :: !(Maybe [Interconnect])
@@ -116,9 +122,9 @@ data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsInterconnects'
+-- * 'dirsInterconnects' - A list of interconnects.
 --
--- * 'dirsResponseStatus'
+-- * 'dirsResponseStatus' - -- | The response status code.
 describeInterconnectsResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DescribeInterconnectsResponse
@@ -132,7 +138,7 @@ describeInterconnectsResponse pResponseStatus_ =
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dirsResponseStatus :: Lens' DescribeInterconnectsResponse Int
 dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a});
 

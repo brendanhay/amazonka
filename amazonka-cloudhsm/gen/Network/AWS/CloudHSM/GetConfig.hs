@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the configuration files necessary to connect to all high availability partition groups the client is associated with.
+--
+--
 module Network.AWS.CloudHSM.GetConfig
     (
     -- * Creating a Request
@@ -57,11 +59,11 @@ data GetConfig = GetConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcClientARN'
+-- * 'gcClientARN' - The ARN of the client.
 --
--- * 'gcClientVersion'
+-- * 'gcClientVersion' - The client version.
 --
--- * 'gcHAPGList'
+-- * 'gcHAPGList' - A list of ARNs that identify the high-availability partition groups that are associated with the client.
 getConfig
     :: Text -- ^ 'gcClientARN'
     -> ClientVersion -- ^ 'gcClientVersion'
@@ -135,13 +137,13 @@ data GetConfigResponse = GetConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcrsConfigFile'
+-- * 'gcrsConfigFile' - The chrystoki.conf configuration file.
 --
--- * 'gcrsConfigCred'
+-- * 'gcrsConfigCred' - The certificate file containing the server.pem files of the HSMs.
 --
--- * 'gcrsConfigType'
+-- * 'gcrsConfigType' - The type of credentials.
 --
--- * 'gcrsResponseStatus'
+-- * 'gcrsResponseStatus' - -- | The response status code.
 getConfigResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> GetConfigResponse
@@ -165,7 +167,7 @@ gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
 gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gcrsResponseStatus :: Lens' GetConfigResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 

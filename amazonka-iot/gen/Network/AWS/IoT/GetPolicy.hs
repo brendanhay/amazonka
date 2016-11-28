@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified policy with the policy document of the default version.
+--
+--
 module Network.AWS.IoT.GetPolicy
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The input for the GetPolicy operation.
 --
+--
+--
 -- /See:/ 'getPolicy' smart constructor.
 newtype GetPolicy = GetPolicy'
     { _gpPolicyName :: Text
@@ -56,7 +60,7 @@ newtype GetPolicy = GetPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpPolicyName'
+-- * 'gpPolicyName' - The name of the policy.
 getPolicy
     :: Text -- ^ 'gpPolicyName'
     -> GetPolicy
@@ -97,6 +101,8 @@ instance ToQuery GetPolicy where
 
 -- | The output from the GetPolicy operation.
 --
+--
+--
 -- /See:/ 'getPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
     { _gprsPolicyName       :: !(Maybe Text)
@@ -110,15 +116,15 @@ data GetPolicyResponse = GetPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsPolicyName'
+-- * 'gprsPolicyName' - The policy name.
 --
--- * 'gprsPolicyDocument'
+-- * 'gprsPolicyDocument' - The JSON document that describes the policy.
 --
--- * 'gprsDefaultVersionId'
+-- * 'gprsDefaultVersionId' - The default policy version ID.
 --
--- * 'gprsPolicyARN'
+-- * 'gprsPolicyARN' - The policy ARN.
 --
--- * 'gprsResponseStatus'
+-- * 'gprsResponseStatus' - -- | The response status code.
 getPolicyResponse
     :: Int -- ^ 'gprsResponseStatus'
     -> GetPolicyResponse
@@ -147,7 +153,7 @@ gprsDefaultVersionId = lens _gprsDefaultVersionId (\ s a -> s{_gprsDefaultVersio
 gprsPolicyARN :: Lens' GetPolicyResponse (Maybe Text)
 gprsPolicyARN = lens _gprsPolicyARN (\ s a -> s{_gprsPolicyARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gprsResponseStatus :: Lens' GetPolicyResponse Int
 gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
 

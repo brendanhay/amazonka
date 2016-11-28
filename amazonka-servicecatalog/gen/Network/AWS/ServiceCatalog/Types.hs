@@ -177,7 +177,7 @@ import           Network.AWS.ServiceCatalog.Types.Product
 import           Network.AWS.ServiceCatalog.Types.Sum
 import           Network.AWS.Sign.V4
 
--- | API version '2015-12-10' of the Amazon Service Catalog SDK configuration.
+-- | API version @2015-12-10@ of the Amazon Service Catalog SDK configuration.
 serviceCatalog :: Service
 serviceCatalog =
     Service
@@ -212,16 +212,22 @@ serviceCatalog =
       | otherwise = Nothing
 
 -- | One or more parameters provided to the operation are invalid.
+--
+--
 _InvalidParametersException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParametersException =
     _ServiceError . hasCode "InvalidParametersException"
 
 -- | The specified resource is a duplicate.
+--
+--
 _DuplicateResourceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateResourceException =
     _ServiceError . hasCode "DuplicateResourceException"
 
 -- | The specified resource was not found.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"

@@ -20,10 +20,11 @@
 --
 -- Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput.
 --
--- The following limitations are enforced for this operation:
 --
--- -   1 MB request size
--- -   25 item limit per BatchDeleteAttributes operation
+-- The following limitations are enforced for this operation:     * 1 MB request size    * 25 item limit per BatchDeleteAttributes operation
+--
+--
+--
 module Network.AWS.SDB.BatchDeleteAttributes
     (
     -- * Creating a Request
@@ -55,9 +56,9 @@ data BatchDeleteAttributes = BatchDeleteAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdaDomainName'
+-- * 'bdaDomainName' - The name of the domain in which the attributes are being deleted.
 --
--- * 'bdaItems'
+-- * 'bdaItems' - A list of items on which to perform the operation.
 batchDeleteAttributes
     :: Text -- ^ 'bdaDomainName'
     -> BatchDeleteAttributes

@@ -23,6 +23,8 @@ import           Network.AWS.Prelude
 
 -- | Provides configuration information about a Lambda function version alias.
 --
+--
+--
 -- /See:/ 'aliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
     { _acName            :: !(Maybe Text)
@@ -35,13 +37,13 @@ data AliasConfiguration = AliasConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acName'
+-- * 'acName' - Alias name.
 --
--- * 'acFunctionVersion'
+-- * 'acFunctionVersion' - Function version to which the alias points.
 --
--- * 'acAliasARN'
+-- * 'acAliasARN' - Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called @BETA@ that points to a helloworld function version, the ARN is @arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA@ .
 --
--- * 'acDescription'
+-- * 'acDescription' - Alias description.
 aliasConfiguration
     :: AliasConfiguration
 aliasConfiguration =
@@ -60,7 +62,7 @@ acName = lens _acName (\ s a -> s{_acName = a});
 acFunctionVersion :: Lens' AliasConfiguration (Maybe Text)
 acFunctionVersion = lens _acFunctionVersion (\ s a -> s{_acFunctionVersion = a});
 
--- | Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called 'BETA' that points to a helloworld function version, the ARN is 'arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA'.
+-- | Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called @BETA@ that points to a helloworld function version, the ARN is @arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA@ .
 acAliasARN :: Lens' AliasConfiguration (Maybe Text)
 acAliasARN = lens _acAliasARN (\ s a -> s{_acAliasARN = a});
 
@@ -83,6 +85,8 @@ instance NFData AliasConfiguration
 
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda function.
 --
+--
+--
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     { _esmcEventSourceARN        :: !(Maybe Text)
@@ -99,21 +103,21 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esmcEventSourceARN'
+-- * 'esmcEventSourceARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the source of events.
 --
--- * 'esmcState'
+-- * 'esmcState' - The state of the event source mapping. It can be @Creating@ , @Enabled@ , @Disabled@ , @Enabling@ , @Disabling@ , @Updating@ , or @Deleting@ .
 --
--- * 'esmcFunctionARN'
+-- * 'esmcFunctionARN' - The Lambda function to invoke when AWS Lambda detects an event on the stream.
 --
--- * 'esmcUUId'
+-- * 'esmcUUId' - The AWS Lambda assigned opaque identifier for the mapping.
 --
--- * 'esmcLastProcessingResult'
+-- * 'esmcLastProcessingResult' - The result of the last AWS Lambda invocation of your Lambda function.
 --
--- * 'esmcBatchSize'
+-- * 'esmcBatchSize' - The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records.
 --
--- * 'esmcStateTransitionReason'
+-- * 'esmcStateTransitionReason' - The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition.
 --
--- * 'esmcLastModified'
+-- * 'esmcLastModified' - The UTC time string indicating the last time the event mapping was updated.
 eventSourceMappingConfiguration
     :: EventSourceMappingConfiguration
 eventSourceMappingConfiguration =
@@ -132,7 +136,7 @@ eventSourceMappingConfiguration =
 esmcEventSourceARN :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcEventSourceARN = lens _esmcEventSourceARN (\ s a -> s{_esmcEventSourceARN = a});
 
--- | The state of the event source mapping. It can be 'Creating', 'Enabled', 'Disabled', 'Enabling', 'Disabling', 'Updating', or 'Deleting'.
+-- | The state of the event source mapping. It can be @Creating@ , @Enabled@ , @Disabled@ , @Enabling@ , @Disabling@ , @Updating@ , or @Deleting@ .
 esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcState = lens _esmcState (\ s a -> s{_esmcState = a});
 
@@ -180,6 +184,8 @@ instance NFData EventSourceMappingConfiguration
 
 -- | The code for the Lambda function.
 --
+--
+--
 -- /See:/ 'functionCode' smart constructor.
 data FunctionCode = FunctionCode'
     { _fcS3ObjectVersion :: !(Maybe Text)
@@ -192,13 +198,13 @@ data FunctionCode = FunctionCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcS3ObjectVersion'
+-- * 'fcS3ObjectVersion' - The Amazon S3 object (the deployment package) version you want to upload.
 --
--- * 'fcS3Key'
+-- * 'fcS3Key' - The Amazon S3 object (the deployment package) key name you want to upload.
 --
--- * 'fcZipFile'
+-- * 'fcZipFile' - The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'fcS3Bucket'
+-- * 'fcS3Bucket' - Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 functionCode
     :: FunctionCode
 functionCode =
@@ -217,13 +223,7 @@ fcS3ObjectVersion = lens _fcS3ObjectVersion (\ s a -> s{_fcS3ObjectVersion = a})
 fcS3Key :: Lens' FunctionCode (Maybe Text)
 fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
--- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
---
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
--- despite what the AWS documentation might say.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 fcZipFile :: Lens' FunctionCode (Maybe ByteString)
 fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
 
@@ -246,6 +246,8 @@ instance ToJSON FunctionCode where
 
 -- | The object for the Lambda function location.
 --
+--
+--
 -- /See:/ 'functionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
     { _fclLocation       :: !(Maybe Text)
@@ -256,9 +258,9 @@ data FunctionCodeLocation = FunctionCodeLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fclLocation'
+-- * 'fclLocation' - The presigned URL you can use to download the function's .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
 --
--- * 'fclRepositoryType'
+-- * 'fclRepositoryType' - The repository from which you can download the function.
 functionCodeLocation
     :: FunctionCodeLocation
 functionCodeLocation =
@@ -267,7 +269,7 @@ functionCodeLocation =
     , _fclRepositoryType = Nothing
     }
 
--- | The presigned URL you can use to download the function\'s .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
+-- | The presigned URL you can use to download the function's .zip file that you previously uploaded. The URL is valid for up to 10 minutes.
 fclLocation :: Lens' FunctionCodeLocation (Maybe Text)
 fclLocation = lens _fclLocation (\ s a -> s{_fclLocation = a});
 
@@ -287,6 +289,8 @@ instance Hashable FunctionCodeLocation
 instance NFData FunctionCodeLocation
 
 -- | A complex type that describes function metadata.
+--
+--
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
@@ -309,31 +313,31 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fcMemorySize'
+-- * 'fcMemorySize' - The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.
 --
--- * 'fcRuntime'
+-- * 'fcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 --
--- * 'fcFunctionARN'
+-- * 'fcFunctionARN' - The Amazon Resource Name (ARN) assigned to the function.
 --
--- * 'fcRole'
+-- * 'fcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 --
--- * 'fcVPCConfig'
+-- * 'fcVPCConfig' - VPC configuration associated with your Lambda function.
 --
--- * 'fcVersion'
+-- * 'fcVersion' - The version of the Lambda function.
 --
--- * 'fcFunctionName'
+-- * 'fcFunctionName' - The name of the function.
 --
--- * 'fcCodeSize'
+-- * 'fcCodeSize' - The size, in bytes, of the function .zip file you uploaded.
 --
--- * 'fcHandler'
+-- * 'fcHandler' - The function Lambda calls to begin executing your function.
 --
--- * 'fcTimeout'
+-- * 'fcTimeout' - The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 --
--- * 'fcLastModified'
+-- * 'fcLastModified' - The time stamp of the last time you updated the function.
 --
--- * 'fcCodeSha256'
+-- * 'fcCodeSha256' - It is the SHA256 hash of your function deployment package.
 --
--- * 'fcDescription'
+-- * 'fcDescription' - The user-provided description.
 functionConfiguration
     :: FunctionConfiguration
 functionConfiguration =
@@ -357,9 +361,7 @@ functionConfiguration =
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\ s a -> s{_fcMemorySize = a}) . mapping _Nat;
 
--- | The runtime environment for the Lambda function.
---
--- To use the Node.js runtime v4.3, set the value to \"nodejs4.3\". To use earlier runtime (v0.10.42), set the value to \"nodejs\".
+-- | The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 fcRuntime :: Lens' FunctionConfiguration (Maybe Runtime)
 fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 
@@ -431,6 +433,8 @@ instance NFData FunctionConfiguration
 
 -- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
+--
+--
 -- /See:/ 'vpcConfig' smart constructor.
 data VPCConfig = VPCConfig'
     { _vpccSecurityGroupIds :: !(Maybe [Text])
@@ -441,9 +445,9 @@ data VPCConfig = VPCConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vpccSecurityGroupIds'
+-- * 'vpccSecurityGroupIds' - A list of one or more security groups IDs in your VPC.
 --
--- * 'vpccSubnetIds'
+-- * 'vpccSubnetIds' - A list of one or more subnet IDs in your VPC.
 vpcConfig
     :: VPCConfig
 vpcConfig =
@@ -473,6 +477,8 @@ instance ToJSON VPCConfig where
 
 -- | VPC configuration associated with your Lambda function.
 --
+--
+--
 -- /See:/ 'vpcConfigResponse' smart constructor.
 data VPCConfigResponse = VPCConfigResponse'
     { _vcSecurityGroupIds :: !(Maybe [Text])
@@ -484,11 +490,11 @@ data VPCConfigResponse = VPCConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcSecurityGroupIds'
+-- * 'vcSecurityGroupIds' - A list of security group IDs associated with the Lambda function.
 --
--- * 'vcSubnetIds'
+-- * 'vcSubnetIds' - A list of subnet IDs associated with the Lambda function.
 --
--- * 'vcVPCId'
+-- * 'vcVPCId' - The VPC ID associated with you Lambda function.
 vpcConfigResponse
     :: VPCConfigResponse
 vpcConfigResponse =

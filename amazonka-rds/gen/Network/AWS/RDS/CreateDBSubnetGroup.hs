@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the region.
+--
+--
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'createDBSubnetGroup' smart constructor.
 data CreateDBSubnetGroup = CreateDBSubnetGroup'
     { _cdbsgTags                     :: !(Maybe [Tag])
@@ -59,13 +63,13 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbsgTags'
+-- * 'cdbsgTags' - Undocumented member.
 --
--- * 'cdbsgDBSubnetGroupName'
+-- * 'cdbsgDBSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 --
--- * 'cdbsgDBSubnetGroupDescription'
+-- * 'cdbsgDBSubnetGroupDescription' - The description for the DB subnet group.
 --
--- * 'cdbsgSubnetIds'
+-- * 'cdbsgSubnetIds' - The EC2 Subnet IDs for the DB subnet group.
 createDBSubnetGroup
     :: Text -- ^ 'cdbsgDBSubnetGroupName'
     -> Text -- ^ 'cdbsgDBSubnetGroupDescription'
@@ -82,11 +86,7 @@ createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
 cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 
--- | The name for the DB subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default.
---
--- Example: 'mySubnetgroup'
+-- | The name for the DB subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
 cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
 
@@ -140,9 +140,9 @@ data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdsgrsDBSubnetGroup'
+-- * 'cdsgrsDBSubnetGroup' - Undocumented member.
 --
--- * 'cdsgrsResponseStatus'
+-- * 'cdsgrsResponseStatus' - -- | The response status code.
 createDBSubnetGroupResponse
     :: Int -- ^ 'cdsgrsResponseStatus'
     -> CreateDBSubnetGroupResponse
@@ -156,7 +156,7 @@ createDBSubnetGroupResponse pResponseStatus_ =
 cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cdsgrsResponseStatus :: Lens' CreateDBSubnetGroupResponse Int
 cdsgrsResponseStatus = lens _cdsgrsResponseStatus (\ s a -> s{_cdsgrsResponseStatus = a});
 

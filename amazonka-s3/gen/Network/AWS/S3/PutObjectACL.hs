@@ -73,29 +73,29 @@ data PutObjectACL = PutObjectACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poaVersionId'
+-- * 'poaVersionId' - VersionId used to reference a specific version of the object.
 --
--- * 'poaGrantReadACP'
+-- * 'poaGrantReadACP' - Allows grantee to read the bucket ACL.
 --
--- * 'poaRequestPayer'
+-- * 'poaRequestPayer' - Undocumented member.
 --
--- * 'poaGrantWriteACP'
+-- * 'poaGrantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
--- * 'poaGrantRead'
+-- * 'poaGrantRead' - Allows grantee to list the objects in the bucket.
 --
--- * 'poaGrantFullControl'
+-- * 'poaGrantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
--- * 'poaContentMD5'
+-- * 'poaContentMD5' - Undocumented member.
 --
--- * 'poaAccessControlPolicy'
+-- * 'poaAccessControlPolicy' - Undocumented member.
 --
--- * 'poaGrantWrite'
+-- * 'poaGrantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
 --
--- * 'poaACL'
+-- * 'poaACL' - The canned ACL to apply to the object.
 --
--- * 'poaBucket'
+-- * 'poaBucket' - Undocumented member.
 --
--- * 'poaKey'
+-- * 'poaKey' - Undocumented member.
 putObjectACL
     :: BucketName -- ^ 'poaBucket'
     -> ObjectKey -- ^ 'poaKey'
@@ -215,9 +215,9 @@ data PutObjectACLResponse = PutObjectACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'poarsRequestCharged'
+-- * 'poarsRequestCharged' - Undocumented member.
 --
--- * 'poarsResponseStatus'
+-- * 'poarsResponseStatus' - -- | The response status code.
 putObjectACLResponse
     :: Int -- ^ 'poarsResponseStatus'
     -> PutObjectACLResponse
@@ -231,7 +231,7 @@ putObjectACLResponse pResponseStatus_ =
 poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
 
--- | The response status code.
+-- | -- | The response status code.
 poarsResponseStatus :: Lens' PutObjectACLResponse Int
 poarsResponseStatus = lens _poarsResponseStatus (\ s a -> s{_poarsResponseStatus = a});
 

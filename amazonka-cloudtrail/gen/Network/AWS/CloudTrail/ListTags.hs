@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tags for the trail in the current region.
+--
+--
 module Network.AWS.CloudTrail.ListTags
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Specifies a list of trail tags to return.
 --
+--
+--
 -- /See:/ 'listTags' smart constructor.
 data ListTags = ListTags'
     { _ltNextToken      :: !(Maybe Text)
@@ -56,9 +60,9 @@ data ListTags = ListTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltNextToken'
+-- * 'ltNextToken' - Reserved for future use.
 --
--- * 'ltResourceIdList'
+-- * 'ltResourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 listTags
     :: ListTags
 listTags =
@@ -71,9 +75,7 @@ listTags =
 ltNextToken :: Lens' ListTags (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
--- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 ltResourceIdList :: Lens' ListTags [Text]
 ltResourceIdList = lens _ltResourceIdList (\ s a -> s{_ltResourceIdList = a}) . _Coerce;
 
@@ -117,6 +119,8 @@ instance ToQuery ListTags where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'listTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
     { _ltrsNextToken       :: !(Maybe Text)
@@ -128,11 +132,11 @@ data ListTagsResponse = ListTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltrsNextToken'
+-- * 'ltrsNextToken' - Reserved for future use.
 --
--- * 'ltrsResourceTagList'
+-- * 'ltrsResourceTagList' - Undocumented member.
 --
--- * 'ltrsResponseStatus'
+-- * 'ltrsResponseStatus' - -- | The response status code.
 listTagsResponse
     :: Int -- ^ 'ltrsResponseStatus'
     -> ListTagsResponse
@@ -151,7 +155,7 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 ltrsResourceTagList :: Lens' ListTagsResponse [ResourceTag]
 ltrsResourceTagList = lens _ltrsResourceTagList (\ s a -> s{_ltrsResourceTagList = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 ltrsResponseStatus :: Lens' ListTagsResponse Int
 ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a});
 

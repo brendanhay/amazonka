@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the gateway\'s local disks. To specify which gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in the body of the request.
+-- Returns a list of the gateway's local disks. To specify which gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in the body of the request.
 --
--- The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all. The response includes a 'DiskStatus' field. This field can have a value of present (the disk is available to use), missing (the disk is no longer connected to the gateway), or mismatch (the disk node is occupied by a disk that has incorrect metadata or the disk content is corrupted).
+--
+-- The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all. The response includes a @DiskStatus@ field. This field can have a value of present (the disk is available to use), missing (the disk is no longer connected to the gateway), or mismatch (the disk node is occupied by a disk that has incorrect metadata or the disk content is corrupted).
+--
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | A JSON object containing the of the gateway.
 --
+--
+--
 -- /See:/ 'listLocalDisks' smart constructor.
 newtype ListLocalDisks = ListLocalDisks'
     { _lldGatewayARN :: Text
@@ -56,7 +60,7 @@ newtype ListLocalDisks = ListLocalDisks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lldGatewayARN'
+-- * 'lldGatewayARN' - Undocumented member.
 listLocalDisks
     :: Text -- ^ 'lldGatewayARN'
     -> ListLocalDisks
@@ -115,11 +119,11 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lldrsGatewayARN'
+-- * 'lldrsGatewayARN' - Undocumented member.
 --
--- * 'lldrsDisks'
+-- * 'lldrsDisks' - Undocumented member.
 --
--- * 'lldrsResponseStatus'
+-- * 'lldrsResponseStatus' - -- | The response status code.
 listLocalDisksResponse
     :: Int -- ^ 'lldrsResponseStatus'
     -> ListLocalDisksResponse
@@ -138,7 +142,7 @@ lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lldrsResponseStatus :: Lens' ListLocalDisksResponse Int
 lldrsResponseStatus = lens _lldrsResponseStatus (\ s a -> s{_lldrsResponseStatus = a});
 

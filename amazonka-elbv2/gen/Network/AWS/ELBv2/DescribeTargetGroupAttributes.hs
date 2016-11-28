@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the attributes for the specified target group.
+--
+--
 module Network.AWS.ELBv2.DescribeTargetGroupAttributes
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeTargetGroupAttributes.
 --
+--
+--
 -- /See:/ 'describeTargetGroupAttributes' smart constructor.
 newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
     { _dtgaTargetGroupARN :: Text
@@ -53,7 +57,7 @@ newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgaTargetGroupARN'
+-- * 'dtgaTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 describeTargetGroupAttributes
     :: Text -- ^ 'dtgaTargetGroupARN'
     -> DescribeTargetGroupAttributes
@@ -101,6 +105,8 @@ instance ToQuery DescribeTargetGroupAttributes where
 
 -- | Contains the output of DescribeTargetGroupAttributes.
 --
+--
+--
 -- /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
     { _dtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
@@ -111,9 +117,9 @@ data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtgarsAttributes'
+-- * 'dtgarsAttributes' - Information about the target group attributes
 --
--- * 'dtgarsResponseStatus'
+-- * 'dtgarsResponseStatus' - -- | The response status code.
 describeTargetGroupAttributesResponse
     :: Int -- ^ 'dtgarsResponseStatus'
     -> DescribeTargetGroupAttributesResponse
@@ -127,7 +133,7 @@ describeTargetGroupAttributesResponse pResponseStatus_ =
 dtgarsAttributes :: Lens' DescribeTargetGroupAttributesResponse [TargetGroupAttribute]
 dtgarsAttributes = lens _dtgarsAttributes (\ s a -> s{_dtgarsAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dtgarsResponseStatus :: Lens' DescribeTargetGroupAttributesResponse Int
 dtgarsResponseStatus = lens _dtgarsResponseStatus (\ s a -> s{_dtgarsResponseStatus = a});
 

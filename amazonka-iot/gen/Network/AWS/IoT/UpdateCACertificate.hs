@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a registered CA certificate.
+--
+--
 module Network.AWS.IoT.UpdateCACertificate
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | The input to the UpdateCACertificate operation.
 --
+--
+--
 -- /See:/ 'updateCACertificate' smart constructor.
 data UpdateCACertificate = UpdateCACertificate'
     { _ucacNewStatus                 :: !(Maybe CACertificateStatus)
@@ -54,11 +58,11 @@ data UpdateCACertificate = UpdateCACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucacNewStatus'
+-- * 'ucacNewStatus' - The updated status of the CA certificate. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
--- * 'ucacNewAutoRegistrationStatus'
+-- * 'ucacNewAutoRegistrationStatus' - The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
 --
--- * 'ucacCertificateId'
+-- * 'ucacCertificateId' - The CA certificate identifier.
 updateCACertificate
     :: Text -- ^ 'ucacCertificateId'
     -> UpdateCACertificate
@@ -69,13 +73,11 @@ updateCACertificate pCertificateId_ =
     , _ucacCertificateId = pCertificateId_
     }
 
--- | The updated status of the CA certificate.
---
--- __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- | The updated status of the CA certificate. __Note:__ The status value REGISTER_INACTIVE is deprecated and should not be used.
 ucacNewStatus :: Lens' UpdateCACertificate (Maybe CACertificateStatus)
 ucacNewStatus = lens _ucacNewStatus (\ s a -> s{_ucacNewStatus = a});
 
--- | The new value for the auto registration status. Valid values are: \"ENABLE\" or \"DISABLE\".
+-- | The new value for the auto registration status. Valid values are: "ENABLE" or "DISABLE".
 ucacNewAutoRegistrationStatus :: Lens' UpdateCACertificate (Maybe AutoRegistrationStatus)
 ucacNewAutoRegistrationStatus = lens _ucacNewAutoRegistrationStatus (\ s a -> s{_ucacNewAutoRegistrationStatus = a});
 

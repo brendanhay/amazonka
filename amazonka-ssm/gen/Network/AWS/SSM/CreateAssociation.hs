@@ -20,9 +20,11 @@
 --
 -- Associates the specified SSM document with the specified instance.
 --
+--
 -- When you associate an SSM document with an instance, the configuration agent on the instance (SSM agent for Linux and EC2Config service for Windows) processes the document and configures the instance as specified.
 --
 -- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
+--
 module Network.AWS.SSM.CreateAssociation
     (
     -- * Creating a Request
@@ -59,11 +61,11 @@ data CreateAssociation = CreateAssociation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caParameters'
+-- * 'caParameters' - The parameters for the documents runtime configuration.
 --
--- * 'caName'
+-- * 'caName' - The name of the SSM document.
 --
--- * 'caInstanceId'
+-- * 'caInstanceId' - The instance ID.
 createAssociation
     :: Text -- ^ 'caName'
     -> Text -- ^ 'caInstanceId'
@@ -134,9 +136,9 @@ data CreateAssociationResponse = CreateAssociationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crsAssociationDescription'
+-- * 'crsAssociationDescription' - Information about the association.
 --
--- * 'crsResponseStatus'
+-- * 'crsResponseStatus' - -- | The response status code.
 createAssociationResponse
     :: Int -- ^ 'crsResponseStatus'
     -> CreateAssociationResponse
@@ -150,7 +152,7 @@ createAssociationResponse pResponseStatus_ =
 crsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
 crsAssociationDescription = lens _crsAssociationDescription (\ s a -> s{_crsAssociationDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 crsResponseStatus :: Lens' CreateAssociationResponse Int
 crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a});
 

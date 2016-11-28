@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface supports sending traffic to a single virtual private cloud (VPC).
+--
+--
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Creating a Request
@@ -58,6 +60,8 @@ import           Network.AWS.Response
 
 -- | Container for the parameters to the CreatePrivateVirtualInterface operation.
 --
+--
+--
 -- /See:/ 'createPrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
     { _creConnectionId               :: !Text
@@ -68,9 +72,9 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'creConnectionId'
+-- * 'creConnectionId' - Undocumented member.
 --
--- * 'creNewPrivateVirtualInterface'
+-- * 'creNewPrivateVirtualInterface' - Detailed information for the private virtual interface to be created. Default: None
 createPrivateVirtualInterface
     :: Text -- ^ 'creConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'creNewPrivateVirtualInterface'
@@ -85,9 +89,7 @@ createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
 creConnectionId :: Lens' CreatePrivateVirtualInterface Text
 creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a});
 
--- | Detailed information for the private virtual interface to be created.
---
--- Default: None
+-- | Detailed information for the private virtual interface to be created. Default: None
 creNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
 creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{_creNewPrivateVirtualInterface = a});
 

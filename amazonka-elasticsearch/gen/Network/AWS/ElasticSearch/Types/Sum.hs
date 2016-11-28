@@ -101,8 +101,9 @@ instance FromJSON ESPartitionInstanceType where
 
 -- | The state of a requested change. One of the following:
 --
--- -   Processing: The request change is still in-process.
--- -   Active: The request change is processed and deployed to the Elasticsearch domain.
+--
+--     * Processing: The request change is still in-process.    * Active: The request change is processed and deployed to the Elasticsearch domain.
+--
 data OptionState
     = Active
     | Processing
@@ -132,7 +133,9 @@ instance ToHeader     OptionState
 instance FromJSON OptionState where
     parseJSON = parseJSONText "OptionState"
 
--- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage>for more information.
+-- | The type of EBS volume, standard, gp2, or io1. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> for more information.
+--
+--
 data VolumeType
     = GP2
     | IO1

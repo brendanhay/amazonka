@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.
+--
+--
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.Response
 
 -- | Change the size of some instance groups.
 --
+--
+--
 -- /See:/ 'modifyInstanceGroups' smart constructor.
 newtype ModifyInstanceGroups = ModifyInstanceGroups'
     { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
@@ -50,7 +54,7 @@ newtype ModifyInstanceGroups = ModifyInstanceGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'migInstanceGroups'
+-- * 'migInstanceGroups' - Instance groups to change.
 modifyInstanceGroups
     :: ModifyInstanceGroups
 modifyInstanceGroups =

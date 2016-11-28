@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a paginated list of all performed requests, in the form of RecordDetails objects that are filtered as specified.
+--
+--
 module Network.AWS.ServiceCatalog.ListRecordHistory
     (
     -- * Creating a Request
@@ -58,13 +60,13 @@ data ListRecordHistory = ListRecordHistory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrhSearchFilter'
+-- * 'lrhSearchFilter' - (Optional) The filter to limit search results.
 --
--- * 'lrhAcceptLanguage'
+-- * 'lrhAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'lrhPageToken'
+-- * 'lrhPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 --
--- * 'lrhPageSize'
+-- * 'lrhPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 listRecordHistory
     :: ListRecordHistory
 listRecordHistory =
@@ -79,23 +81,15 @@ listRecordHistory =
 lrhSearchFilter :: Lens' ListRecordHistory (Maybe ListRecordHistorySearchFilter)
 lrhSearchFilter = lens _lrhSearchFilter (\ s a -> s{_lrhSearchFilter = a});
 
--- | Optional language code. Supported language codes are as follows:
---
--- \"en\" (English)
---
--- \"jp\" (Japanese)
---
--- \"zh\" (Chinese)
---
--- If no code is specified, \"en\" is used as the default.
+-- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lrhAcceptLanguage :: Lens' ListRecordHistory (Maybe Text)
 lrhAcceptLanguage = lens _lrhAcceptLanguage (\ s a -> s{_lrhAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size 'PageSize'.
+-- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
 lrhPageToken :: Lens' ListRecordHistory (Maybe Text)
 lrhPageToken = lens _lrhPageToken (\ s a -> s{_lrhPageToken = a});
 
--- | The maximum number of items to return in the results. If more results exist than fit in the specified 'PageSize', the value of 'NextPageToken' in the response is non-null.
+-- | The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 lrhPageSize :: Lens' ListRecordHistory (Maybe Natural)
 lrhPageSize = lens _lrhPageSize (\ s a -> s{_lrhPageSize = a}) . mapping _Nat;
 
@@ -150,11 +144,11 @@ data ListRecordHistoryResponse = ListRecordHistoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrhrsNextPageToken'
+-- * 'lrhrsNextPageToken' - The page token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
--- * 'lrhrsRecordDetails'
+-- * 'lrhrsRecordDetails' - A list of record detail objects, listed in reverse chronological order.
 --
--- * 'lrhrsResponseStatus'
+-- * 'lrhrsResponseStatus' - -- | The response status code.
 listRecordHistoryResponse
     :: Int -- ^ 'lrhrsResponseStatus'
     -> ListRecordHistoryResponse
@@ -173,7 +167,7 @@ lrhrsNextPageToken = lens _lrhrsNextPageToken (\ s a -> s{_lrhrsNextPageToken = 
 lrhrsRecordDetails :: Lens' ListRecordHistoryResponse [RecordDetail]
 lrhrsRecordDetails = lens _lrhrsRecordDetails (\ s a -> s{_lrhrsRecordDetails = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lrhrsResponseStatus :: Lens' ListRecordHistoryResponse Int
 lrhrsResponseStatus = lens _lrhrsResponseStatus (\ s a -> s{_lrhrsResponseStatus = a});
 

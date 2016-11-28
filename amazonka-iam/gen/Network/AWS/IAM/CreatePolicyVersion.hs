@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using < DeletePolicyVersion> before you create a new version.
+-- Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using 'DeletePolicyVersion' before you create a new version.
 --
--- Optionally, you can set the new version as the policy\'s default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
 --
--- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
+-- Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
+--
+-- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreatePolicyVersion
     (
     -- * Creating a Request
@@ -59,11 +61,11 @@ data CreatePolicyVersion = CreatePolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpvSetAsDefault'
+-- * 'cpvSetAsDefault' - Specifies whether to set this version as the policy's default version. When this parameter is @true@ , the new policy version becomes the operative version; that is, the version that is in effect for the IAM users, groups, and roles that the policy is attached to. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 --
--- * 'cpvPolicyARN'
+-- * 'cpvPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'cpvPolicyDocument'
+-- * 'cpvPolicyDocument' - The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 createPolicyVersion
     :: Text -- ^ 'cpvPolicyARN'
     -> Text -- ^ 'cpvPolicyDocument'
@@ -75,23 +77,15 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
     , _cpvPolicyDocument = pPolicyDocument_
     }
 
--- | Specifies whether to set this version as the policy\'s default version.
---
--- When this parameter is 'true', the new policy version becomes the operative version; that is, the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
---
--- For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/.
+-- | Specifies whether to set this version as the policy's default version. When this parameter is @true@ , the new policy version becomes the operative version; that is, the version that is in effect for the IAM users, groups, and roles that the policy is attached to. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
 cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
--- | The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 cpvPolicyARN :: Lens' CreatePolicyVersion Text
 cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 
--- | The JSON policy document that you want to use as the content for this new version of the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\\u0020) through end of the ASCII character range (\\u00FF). It also includes the special characters tab (\\u0009), line feed (\\u000A), and carriage return (\\u000D).
+-- | The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 
@@ -124,7 +118,9 @@ instance ToQuery CreatePolicyVersion where
                "PolicyArn" =: _cpvPolicyARN,
                "PolicyDocument" =: _cpvPolicyDocument]
 
--- | Contains the response to a successful < CreatePolicyVersion> request.
+-- | Contains the response to a successful 'CreatePolicyVersion' request.
+--
+--
 --
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
@@ -136,9 +132,9 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpvrsPolicyVersion'
+-- * 'cpvrsPolicyVersion' - A structure containing details about the new policy version.
 --
--- * 'cpvrsResponseStatus'
+-- * 'cpvrsResponseStatus' - -- | The response status code.
 createPolicyVersionResponse
     :: Int -- ^ 'cpvrsResponseStatus'
     -> CreatePolicyVersionResponse
@@ -152,7 +148,7 @@ createPolicyVersionResponse pResponseStatus_ =
 cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsResponseStatus = lens _cpvrsResponseStatus (\ s a -> s{_cpvrsResponseStatus = a});
 

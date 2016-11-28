@@ -228,13 +228,16 @@ instance FromJSON ProjectionType where
 
 -- | Determines the level of detail about provisioned throughput consumption that is returned in the response:
 --
--- -   /INDEXES/ - The response includes the aggregate /ConsumedCapacity/ for the operation, together with /ConsumedCapacity/ for each table and secondary index that was accessed.
 --
---     Note that some operations, such as /GetItem/ and /BatchGetItem/, do not access any indexes at all. In these cases, specifying /INDEXES/ will only return /ConsumedCapacity/ information for table(s).
+--     * /INDEXES/ - The response includes the aggregate /ConsumedCapacity/ for the operation, together with /ConsumedCapacity/ for each table and secondary index that was accessed.
 --
--- -   /TOTAL/ - The response includes only the aggregate /ConsumedCapacity/ for the operation.
+-- Note that some operations, such as /GetItem/ and /BatchGetItem/ , do not access any indexes at all. In these cases, specifying /INDEXES/ will only return /ConsumedCapacity/ information for table(s).
 --
--- -   /NONE/ - No /ConsumedCapacity/ details are included in the response.
+--     * /TOTAL/ - The response includes only the aggregate /ConsumedCapacity/ for the operation.
+--
+--     * /NONE/ - No /ConsumedCapacity/ details are included in the response.
+--
+--
 --
 data ReturnConsumedCapacity
     = RCCIndexes

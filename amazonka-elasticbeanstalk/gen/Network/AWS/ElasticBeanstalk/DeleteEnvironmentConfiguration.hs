@@ -20,7 +20,9 @@
 --
 -- Deletes the draft configuration associated with the running environment.
 --
--- Updating a running environment with any configuration changes creates a draft configuration set. You can get the draft configuration using < DescribeConfigurationSettings> while the update is in progress or if the update fails. The 'DeploymentStatus' for the draft configuration indicates whether the deployment is in process or has failed. The draft configuration remains in existence until it is deleted with this action.
+--
+-- Updating a running environment with any configuration changes creates a draft configuration set. You can get the draft configuration using 'DescribeConfigurationSettings' while the update is in progress or if the update fails. The @DeploymentStatus@ for the draft configuration indicates whether the deployment is in process or has failed. The draft configuration remains in existence until it is deleted with this action.
+--
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Request to delete a draft environment configuration.
 --
+--
+--
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
     { _decApplicationName :: !Text
@@ -54,9 +58,9 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decApplicationName'
+-- * 'decApplicationName' - The name of the application the environment is associated with.
 --
--- * 'decEnvironmentName'
+-- * 'decEnvironmentName' - The name of the environment to delete the draft configuration from.
 deleteEnvironmentConfiguration
     :: Text -- ^ 'decApplicationName'
     -> Text -- ^ 'decEnvironmentName'

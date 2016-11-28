@@ -18,9 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Requests a description of a stack\'s provisioning parameters.
+-- Requests a description of a stack's provisioning parameters.
 --
--- __Required Permissions__: To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
 module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     (
     -- * Creating a Request
@@ -54,7 +56,7 @@ newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameter
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsppStackId'
+-- * 'dsppStackId' - The stack ID
 describeStackProvisioningParameters
     :: Text -- ^ 'dsppStackId'
     -> DescribeStackProvisioningParameters
@@ -109,7 +111,9 @@ instance ToQuery DescribeStackProvisioningParameters
          where
         toQuery = const mempty
 
--- | Contains the response to a 'DescribeStackProvisioningParameters' request.
+-- | Contains the response to a @DescribeStackProvisioningParameters@ request.
+--
+--
 --
 -- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
@@ -122,11 +126,11 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspprsAgentInstallerURL'
+-- * 'dspprsAgentInstallerURL' - The AWS OpsWorks agent installer's URL.
 --
--- * 'dspprsParameters'
+-- * 'dspprsParameters' - An embedded object that contains the provisioning parameters.
 --
--- * 'dspprsResponseStatus'
+-- * 'dspprsResponseStatus' - -- | The response status code.
 describeStackProvisioningParametersResponse
     :: Int -- ^ 'dspprsResponseStatus'
     -> DescribeStackProvisioningParametersResponse
@@ -137,7 +141,7 @@ describeStackProvisioningParametersResponse pResponseStatus_ =
     , _dspprsResponseStatus = pResponseStatus_
     }
 
--- | The AWS OpsWorks agent installer\'s URL.
+-- | The AWS OpsWorks agent installer's URL.
 dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
 dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgentInstallerURL = a});
 
@@ -145,7 +149,7 @@ dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgent
 dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
 dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
 
--- | The response status code.
+-- | -- | The response status code.
 dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprsResponseStatus = lens _dspprsResponseStatus (\ s a -> s{_dspprsResponseStatus = a});
 

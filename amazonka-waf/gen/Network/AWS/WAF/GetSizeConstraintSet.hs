@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the < SizeConstraintSet> specified by 'SizeConstraintSetId'.
+-- Returns the 'SizeConstraintSet' specified by @SizeConstraintSetId@ .
+--
+--
 module Network.AWS.WAF.GetSizeConstraintSet
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype GetSizeConstraintSet = GetSizeConstraintSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscsSizeConstraintSetId'
+-- * 'gscsSizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 getSizeConstraintSet
     :: Text -- ^ 'gscsSizeConstraintSetId'
     -> GetSizeConstraintSet
@@ -60,7 +62,7 @@ getSizeConstraintSet pSizeConstraintSetId_ =
     { _gscsSizeConstraintSetId = pSizeConstraintSetId_
     }
 
--- | The 'SizeConstraintSetId' of the < SizeConstraintSet> that you want to get. 'SizeConstraintSetId' is returned by < CreateSizeConstraintSet> and by < ListSizeConstraintSets>.
+-- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 gscsSizeConstraintSetId :: Lens' GetSizeConstraintSet Text
 gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeConstraintSetId = a});
 
@@ -111,9 +113,9 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscsrsSizeConstraintSet'
+-- * 'gscsrsSizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@     * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gscsrsResponseStatus'
+-- * 'gscsrsResponseStatus' - -- | The response status code.
 getSizeConstraintSetResponse
     :: Int -- ^ 'gscsrsResponseStatus'
     -> GetSizeConstraintSetResponse
@@ -123,15 +125,11 @@ getSizeConstraintSetResponse pResponseStatus_ =
     , _gscsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the < SizeConstraintSet> that you specified in the 'GetSizeConstraintSet' request. For more information, see the following topics:
---
--- -   < SizeConstraintSet>: Contains 'SizeConstraintSetId', 'SizeConstraints', and 'Name'
--- -   'SizeConstraints': Contains an array of < SizeConstraint> objects. Each 'SizeConstraint' object contains < FieldToMatch>, 'TextTransformation', 'ComparisonOperator', and 'Size'
--- -   < FieldToMatch>: Contains 'Data' and 'Type'
+-- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@     * 'FieldToMatch' : Contains @Data@ and @Type@
 gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
 gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gscsrsResponseStatus :: Lens' GetSizeConstraintSetResponse Int
 gscsrsResponseStatus = lens _gscsrsResponseStatus (\ s a -> s{_gscsrsResponseStatus = a});
 

@@ -20,13 +20,21 @@
 --
 -- Adds one or more tags to the specified resource. You use tags to add metadata to resources, which you can use to categorize these resources. For example, you can categorize resources by purpose, owner, environment, or team. Each tag consists of a key and a value, which you define. You can add tags to the following AWS Storage Gateway resources:
 --
--- -   Storage gateways of all types
 --
--- -   Storage Volumes
+--     * Storage gateways of all types
 --
--- -   Virtual Tapes
+--
+--
+--     * Storage Volumes
+--
+--
+--
+--     * Virtual Tapes
+--
+--
 --
 -- You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
+--
 module Network.AWS.StorageGateway.AddTagsToResource
     (
     -- * Creating a Request
@@ -53,6 +61,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | AddTagsToResourceInput
 --
+--
+--
 -- /See:/ 'addTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceARN :: !Text
@@ -63,9 +73,9 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceARN'
+-- * 'attrResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
 --
--- * 'attrTags'
+-- * 'attrTags' - The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
 addTagsToResource
     :: Text -- ^ 'attrResourceARN'
     -> AddTagsToResource
@@ -80,8 +90,6 @@ attrResourceARN :: Lens' AddTagsToResource Text
 attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a});
 
 -- | The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
---
--- Valid characters for key and value are letters, spaces, and numbers representable in UTF-8 format, and the following special characters: + - = . _ : \/ \'.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
@@ -123,6 +131,8 @@ instance ToQuery AddTagsToResource where
 
 -- | AddTagsToResourceOutput
 --
+--
+--
 -- /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
     { _attrrsResourceARN    :: !(Maybe Text)
@@ -133,9 +143,9 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrrsResourceARN'
+-- * 'attrrsResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
 --
--- * 'attrrsResponseStatus'
+-- * 'attrrsResponseStatus' - -- | The response status code.
 addTagsToResourceResponse
     :: Int -- ^ 'attrrsResponseStatus'
     -> AddTagsToResourceResponse
@@ -149,7 +159,7 @@ addTagsToResourceResponse pResponseStatus_ =
 attrrsResourceARN :: Lens' AddTagsToResourceResponse (Maybe Text)
 attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a});
 
--- | The response status code.
+-- | -- | The response status code.
 attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
 attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a});
 

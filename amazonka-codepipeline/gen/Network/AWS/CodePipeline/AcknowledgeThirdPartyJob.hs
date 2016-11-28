@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Confirms a job worker has received the specified job. Only used for partner actions.
+--
+--
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an acknowledge third party job action.
 --
+--
+--
 -- /See:/ 'acknowledgeThirdPartyJob' smart constructor.
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
     { _atpjJobId       :: !Text
@@ -57,11 +61,11 @@ data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atpjJobId'
+-- * 'atpjJobId' - The unique system-generated ID of the job.
 --
--- * 'atpjNonce'
+-- * 'atpjNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
 --
--- * 'atpjClientToken'
+-- * 'atpjClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 acknowledgeThirdPartyJob
     :: Text -- ^ 'atpjJobId'
     -> Text -- ^ 'atpjNonce'
@@ -126,6 +130,8 @@ instance ToQuery AcknowledgeThirdPartyJob where
 
 -- | Represents the output of an acknowledge third party job action.
 --
+--
+--
 -- /See:/ 'acknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
     { _atpjrsStatus         :: !(Maybe JobStatus)
@@ -136,9 +142,9 @@ data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atpjrsStatus'
+-- * 'atpjrsStatus' - The status information for the third party job, if any.
 --
--- * 'atpjrsResponseStatus'
+-- * 'atpjrsResponseStatus' - -- | The response status code.
 acknowledgeThirdPartyJobResponse
     :: Int -- ^ 'atpjrsResponseStatus'
     -> AcknowledgeThirdPartyJobResponse
@@ -152,7 +158,7 @@ acknowledgeThirdPartyJobResponse pResponseStatus_ =
 atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse (Maybe JobStatus)
 atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});
 
--- | The response status code.
+-- | -- | The response status code.
 atpjrsResponseStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
 atpjrsResponseStatus = lens _atpjrsResponseStatus (\ s a -> s{_atpjrsResponseStatus = a});
 

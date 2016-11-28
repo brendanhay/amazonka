@@ -20,17 +20,20 @@
 --
 -- Describes attributes of your AWS account. The following are the supported account attributes:
 --
--- -   'supported-platforms': Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
 --
--- -   'default-vpc': The ID of the default VPC for your account, or 'none'.
+--     * @supported-platforms@ : Indicates whether your account can launch instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
 --
--- -   'max-instances': The maximum number of On-Demand instances that you can run.
+--     * @default-vpc@ : The ID of the default VPC for your account, or @none@ .
 --
--- -   'vpc-max-security-groups-per-interface': The maximum number of security groups that you can assign to a network interface.
+--     * @max-instances@ : The maximum number of On-Demand instances that you can run.
 --
--- -   'max-elastic-ips': The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic.
+--     * @vpc-max-security-groups-per-interface@ : The maximum number of security groups that you can assign to a network interface.
 --
--- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.
+--     * @max-elastic-ips@ : The maximum number of Elastic IP addresses that you can allocate for use with EC2-Classic.
+--
+--     * @vpc-max-elastic-ips@ : The maximum number of Elastic IP addresses that you can allocate for use with EC2-VPC.
+--
+--
 --
 module Network.AWS.EC2.DescribeAccountAttributes
     (
@@ -58,6 +61,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeAccountAttributes.
 --
+--
+--
 -- /See:/ 'describeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
     { _daaAttributeNames :: !(Maybe [AccountAttributeName])
@@ -68,9 +73,9 @@ data DescribeAccountAttributes = DescribeAccountAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daaAttributeNames'
+-- * 'daaAttributeNames' - One or more account attribute names.
 --
--- * 'daaDryRun'
+-- * 'daaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeAccountAttributes
     :: DescribeAccountAttributes
 describeAccountAttributes =
@@ -83,7 +88,7 @@ describeAccountAttributes =
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
 daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 
@@ -121,6 +126,8 @@ instance ToQuery DescribeAccountAttributes where
 
 -- | Contains the output of DescribeAccountAttributes.
 --
+--
+--
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
@@ -131,9 +138,9 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daarsAccountAttributes'
+-- * 'daarsAccountAttributes' - Information about one or more account attributes.
 --
--- * 'daarsResponseStatus'
+-- * 'daarsResponseStatus' - -- | The response status code.
 describeAccountAttributesResponse
     :: Int -- ^ 'daarsResponseStatus'
     -> DescribeAccountAttributesResponse
@@ -147,7 +154,7 @@ describeAccountAttributesResponse pResponseStatus_ =
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 daarsResponseStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a});
 

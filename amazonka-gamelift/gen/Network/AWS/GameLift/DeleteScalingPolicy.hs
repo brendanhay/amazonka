@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a fleet scaling policy. This action means that the policy is no longer in force and removes all record of it. To delete a scaling policy, specify both the scaling policy name and the fleet ID it is associated with.
+--
+--
 module Network.AWS.GameLift.DeleteScalingPolicy
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Represents the input for a request action.
 --
+--
+--
 -- /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
     { _dspName    :: !Text
@@ -52,9 +56,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspName'
+-- * 'dspName' - Descriptive label associated with a scaling policy. Policy names do not need to be unique.
 --
--- * 'dspFleetId'
+-- * 'dspFleetId' - Unique identifier for a fleet.
 deleteScalingPolicy
     :: Text -- ^ 'dspName'
     -> Text -- ^ 'dspFleetId'

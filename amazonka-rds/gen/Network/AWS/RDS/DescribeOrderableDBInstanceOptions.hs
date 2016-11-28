@@ -20,6 +20,8 @@
 --
 -- Returns a list of orderable DB instance options for the specified engine.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
@@ -55,6 +57,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     { _dodioEngineVersion   :: !(Maybe Text)
@@ -71,21 +75,21 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dodioEngineVersion'
+-- * 'dodioEngineVersion' - The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
 --
--- * 'dodioFilters'
+-- * 'dodioFilters' - This parameter is not currently supported.
 --
--- * 'dodioDBInstanceClass'
+-- * 'dodioDBInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
 --
--- * 'dodioLicenseModel'
+-- * 'dodioLicenseModel' - The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
 --
--- * 'dodioMarker'
+-- * 'dodioMarker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dodioMaxRecords'
+-- * 'dodioMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 --
--- * 'dodioVPC'
+-- * 'dodioVPC' - The VPC filter value. Specify this parameter to show only the available VPC or non-VPC offerings.
 --
--- * 'dodioEngine'
+-- * 'dodioEngine' - The name of the engine to retrieve DB instance options for.
 describeOrderableDBInstanceOptions
     :: Text -- ^ 'dodioEngine'
     -> DescribeOrderableDBInstanceOptions
@@ -117,15 +121,11 @@ dodioDBInstanceClass = lens _dodioDBInstanceClass (\ s a -> s{_dodioDBInstanceCl
 dodioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a});
 
--- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodioMarker = lens _dodioMarker (\ s a -> s{_dodioMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
 dodioMaxRecords = lens _dodioMaxRecords (\ s a -> s{_dodioMaxRecords = a});
 
@@ -189,7 +189,9 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                "MaxRecords" =: _dodioMaxRecords, "Vpc" =: _dodioVPC,
                "Engine" =: _dodioEngine]
 
--- | Contains the result of a successful invocation of the < DescribeOrderableDBInstanceOptions> action.
+-- | Contains the result of a successful invocation of the 'DescribeOrderableDBInstanceOptions' action.
+--
+--
 --
 -- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
@@ -202,11 +204,11 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dodiorsOrderableDBInstanceOptions'
+-- * 'dodiorsOrderableDBInstanceOptions' - An 'OrderableDBInstanceOption' structure containing information about orderable options for the DB instance.
 --
--- * 'dodiorsMarker'
+-- * 'dodiorsMarker' - An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dodiorsResponseStatus'
+-- * 'dodiorsResponseStatus' - -- | The response status code.
 describeOrderableDBInstanceOptionsResponse
     :: Int -- ^ 'dodiorsResponseStatus'
     -> DescribeOrderableDBInstanceOptionsResponse
@@ -217,15 +219,15 @@ describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
     , _dodiorsResponseStatus = pResponseStatus_
     }
 
--- | An < OrderableDBInstanceOption> structure containing information about orderable options for the DB instance.
+-- | An 'OrderableDBInstanceOption' structure containing information about orderable options for the DB instance.
 dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
 dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords' .
+-- | An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
 dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
 dodiorsResponseStatus = lens _dodiorsResponseStatus (\ s a -> s{_dodiorsResponseStatus = a});
 

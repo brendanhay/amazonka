@@ -20,15 +20,19 @@
 --
 -- Deletes the specified managed policy.
 --
--- Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy\'s versions. The following steps describe the process for deleting a managed policy:
 --
--- -   Detach the policy from all users, groups, and roles that the policy is attached to, using the < DetachUserPolicy>, < DetachGroupPolicy>, or < DetachRolePolicy> APIs. To list all the users, groups, and roles that a policy is attached to, use < ListEntitiesForPolicy>.
+-- Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy's versions. The following steps describe the process for deleting a managed policy:
 --
--- -   Delete all versions of the policy using < DeletePolicyVersion>. To list the policy\'s versions, use < ListPolicyVersions>. You cannot use < DeletePolicyVersion> to delete the version that is marked as the default version. You delete the policy\'s default version in the next step of the process.
+--     * Detach the policy from all users, groups, and roles that the policy is attached to, using the 'DetachUserPolicy' , 'DetachGroupPolicy' , or 'DetachRolePolicy' APIs. To list all the users, groups, and roles that a policy is attached to, use 'ListEntitiesForPolicy' .
 --
--- -   Delete the policy (this automatically deletes the policy\'s default version) using this API.
+--     * Delete all versions of the policy using 'DeletePolicyVersion' . To list the policy's versions, use 'ListPolicyVersions' . You cannot use 'DeletePolicyVersion' to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process.
 --
--- For information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/.
+--     * Delete the policy (this automatically deletes the policy's default version) using this API.
+--
+--
+--
+-- For information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.DeletePolicy
     (
     -- * Creating a Request
@@ -58,7 +62,7 @@ newtype DeletePolicy = DeletePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpPolicyARN'
+-- * 'dpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 deletePolicy
     :: Text -- ^ 'dpPolicyARN'
     -> DeletePolicy
@@ -67,9 +71,7 @@ deletePolicy pPolicyARN_ =
     { _dpPolicyARN = pPolicyARN_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to delete.
---
--- For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/.
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 dpPolicyARN :: Lens' DeletePolicy Text
 dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
 

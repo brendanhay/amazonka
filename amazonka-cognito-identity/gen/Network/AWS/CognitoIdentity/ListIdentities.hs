@@ -20,7 +20,9 @@
 --
 -- Lists the identities in a pool.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Creating a Request
@@ -63,13 +65,13 @@ data ListIdentities = ListIdentities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liHideDisabled'
+-- * 'liHideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 --
--- * 'liNextToken'
+-- * 'liNextToken' - A pagination token.
 --
--- * 'liIdentityPoolId'
+-- * 'liIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'liMaxResults'
+-- * 'liMaxResults' - The maximum number of identities to return.
 listIdentities
     :: Text -- ^ 'liIdentityPoolId'
     -> Natural -- ^ 'liMaxResults'
@@ -152,13 +154,13 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lirsIdentityPoolId'
+-- * 'lirsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'lirsNextToken'
+-- * 'lirsNextToken' - A pagination token.
 --
--- * 'lirsIdentities'
+-- * 'lirsIdentities' - An object containing a set of identities and associated mappings.
 --
--- * 'lirsResponseStatus'
+-- * 'lirsResponseStatus' - -- | The response status code.
 listIdentitiesResponse
     :: Int -- ^ 'lirsResponseStatus'
     -> ListIdentitiesResponse
@@ -182,7 +184,7 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 lirsResponseStatus :: Lens' ListIdentitiesResponse Int
 lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a});
 

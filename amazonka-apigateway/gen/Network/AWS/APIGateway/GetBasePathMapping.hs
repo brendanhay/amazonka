@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe a < BasePathMapping> resource.
+-- Describe a 'BasePathMapping' resource.
+--
+--
 module Network.AWS.APIGateway.GetBasePathMapping
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Request to describe a < BasePathMapping> resource.
+-- | Request to describe a 'BasePathMapping' resource.
+--
+--
 --
 -- /See:/ 'getBasePathMapping' smart constructor.
 data GetBasePathMapping = GetBasePathMapping'
@@ -56,9 +60,9 @@ data GetBasePathMapping = GetBasePathMapping'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpmDomainName'
+-- * 'gbpmDomainName' - The domain name of the 'BasePathMapping' resource to be described.
 --
--- * 'gbpmBasePath'
+-- * 'gbpmBasePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Leave this blank if you do not want callers to specify any base path name after the domain name.
 getBasePathMapping
     :: Text -- ^ 'gbpmDomainName'
     -> Text -- ^ 'gbpmBasePath'
@@ -69,7 +73,7 @@ getBasePathMapping pDomainName_ pBasePath_ =
     , _gbpmBasePath = pBasePath_
     }
 
--- | The domain name of the < BasePathMapping> resource to be described.
+-- | The domain name of the 'BasePathMapping' resource to be described.
 gbpmDomainName :: Lens' GetBasePathMapping Text
 gbpmDomainName = lens _gbpmDomainName (\ s a -> s{_gbpmDomainName = a});
 

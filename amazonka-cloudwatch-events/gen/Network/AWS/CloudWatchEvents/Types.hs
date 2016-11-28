@@ -81,7 +81,7 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version '2015-10-07' of the Amazon CloudWatch Events SDK configuration.
+-- | API version @2015-10-07@ of the Amazon CloudWatch Events SDK configuration.
 cloudWatchEvents :: Service
 cloudWatchEvents =
     Service
@@ -116,24 +116,34 @@ cloudWatchEvents =
       | otherwise = Nothing
 
 -- | This exception occurs if there is concurrent modification on rule or target.
+--
+--
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _ServiceError . hasCode "ConcurrentModificationException"
 
 -- | The event pattern is invalid.
+--
+--
 _InvalidEventPatternException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEventPatternException =
     _ServiceError . hasCode "InvalidEventPatternException"
 
 -- | This exception occurs due to unexpected causes.
+--
+--
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException = _ServiceError . hasCode "InternalException"
 
 -- | The rule does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | This exception occurs if you try to create more rules or add more targets to a rule than allowed by default.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException = _ServiceError . hasCode "LimitExceededException"

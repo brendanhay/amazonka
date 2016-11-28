@@ -20,15 +20,17 @@
 --
 -- Initiates a request to compile the specified type of information of the deployed environment.
 --
--- Setting the 'InfoType' to 'tail' compiles the last lines from the application server log files of every Amazon EC2 instance in your environment.
 --
--- Setting the 'InfoType' to 'bundle' compresses the application server log files for every Amazon EC2 instance into a '.zip' file. Legacy and .NET containers do not support bundle logs.
+-- Setting the @InfoType@ to @tail@ compiles the last lines from the application server log files of every Amazon EC2 instance in your environment.
 --
--- Use < RetrieveEnvironmentInfo> to obtain the set of logs.
+-- Setting the @InfoType@ to @bundle@ compresses the application server log files for every Amazon EC2 instance into a @.zip@ file. Legacy and .NET containers do not support bundle logs.
+--
+-- Use 'RetrieveEnvironmentInfo' to obtain the set of logs.
 --
 -- Related Topics
 --
--- -   < RetrieveEnvironmentInfo>
+--     * 'RetrieveEnvironmentInfo'
+--
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Creating a Request
@@ -53,6 +55,8 @@ import           Network.AWS.Response
 
 -- | Request to retrieve logs from an environment and store them in your Elastic Beanstalk storage bucket.
 --
+--
+--
 -- /See:/ 'requestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
     { _reiEnvironmentName :: !(Maybe Text)
@@ -64,11 +68,11 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reiEnvironmentName'
+-- * 'reiEnvironmentName' - The name of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'reiEnvironmentId'
+-- * 'reiEnvironmentId' - The ID of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'reiInfoType'
+-- * 'reiInfoType' - The type of information to request.
 requestEnvironmentInfo
     :: EnvironmentInfoType -- ^ 'reiInfoType'
     -> RequestEnvironmentInfo
@@ -79,19 +83,11 @@ requestEnvironmentInfo pInfoType_ =
     , _reiInfoType = pInfoType_
     }
 
--- | The name of the environment of the requested data.
---
--- If no such environment is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue' error.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The name of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentName = lens _reiEnvironmentName (\ s a -> s{_reiEnvironmentName = a});
 
--- | The ID of the environment of the requested data.
---
--- If no such environment is found, 'RequestEnvironmentInfo' returns an 'InvalidParameterValue' error.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- | The ID of the environment of the requested data. If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
 reiEnvironmentId = lens _reiEnvironmentId (\ s a -> s{_reiEnvironmentId = a});
 

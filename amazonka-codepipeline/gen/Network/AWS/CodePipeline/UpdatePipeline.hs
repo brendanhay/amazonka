@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a specified pipeline with edits or changes to its structure. Use a JSON file with the pipeline structure in conjunction with UpdatePipeline to provide the full structure of the pipeline. Updating the pipeline increases the version number of the pipeline by 1.
+--
+--
 module Network.AWS.CodePipeline.UpdatePipeline
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of an update pipeline action.
 --
+--
+--
 -- /See:/ 'updatePipeline' smart constructor.
 newtype UpdatePipeline = UpdatePipeline'
     { _upPipeline :: PipelineDeclaration
@@ -53,7 +57,7 @@ newtype UpdatePipeline = UpdatePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upPipeline'
+-- * 'upPipeline' - The name of the pipeline to be updated.
 updatePipeline
     :: PipelineDeclaration -- ^ 'upPipeline'
     -> UpdatePipeline
@@ -102,6 +106,8 @@ instance ToQuery UpdatePipeline where
 
 -- | Represents the output of an update pipeline action.
 --
+--
+--
 -- /See:/ 'updatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprsPipeline       :: !(Maybe PipelineDeclaration)
@@ -112,9 +118,9 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uprsPipeline'
+-- * 'uprsPipeline' - The structure of the updated pipeline.
 --
--- * 'uprsResponseStatus'
+-- * 'uprsResponseStatus' - -- | The response status code.
 updatePipelineResponse
     :: Int -- ^ 'uprsResponseStatus'
     -> UpdatePipelineResponse
@@ -128,7 +134,7 @@ updatePipelineResponse pResponseStatus_ =
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
--- | The response status code.
+-- | -- | The response status code.
 uprsResponseStatus :: Lens' UpdatePipelineResponse Int
 uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a});
 

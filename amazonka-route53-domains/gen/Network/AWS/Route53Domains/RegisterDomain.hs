@@ -20,13 +20,11 @@
 --
 -- This operation registers a domain. Domains are registered by the AWS registrar partner, Gandi. For some top-level domains (TLDs), this operation requires extra parameters.
 --
+--
 -- When you register a domain, Amazon Route 53 does the following:
 --
--- -   Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon Route 53 assigns four name servers to your hosted zone and automatically updates your domain registration with the names of these name servers.
--- -   Enables autorenew, so your domain registration will renew automatically each year. We\'ll notify you in advance of the renewal date so you can choose whether to renew the registration.
--- -   Optionally enables privacy protection, so WHOIS queries return contact information for our registrar partner, Gandi, instead of the information you entered for registrant, admin, and tech contacts.
--- -   If registration is successful, returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant is notified by email.
--- -   Charges your AWS account an amount based on the top-level domain. For more information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+--     * Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon Route 53 assigns four name servers to your hosted zone and automatically updates your domain registration with the names of these name servers.    * Enables autorenew, so your domain registration will renew automatically each year. We'll notify you in advance of the renewal date so you can choose whether to renew the registration.    * Optionally enables privacy protection, so WHOIS queries return contact information for our registrar partner, Gandi, instead of the information you entered for registrant, admin, and tech contacts.    * If registration is successful, returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant is notified by email.    * Charges your AWS account an amount based on the top-level domain. For more information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
+--
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Creating a Request
@@ -61,6 +59,8 @@ import           Network.AWS.Route53Domains.Types.Product
 
 -- | The RegisterDomain request includes the following elements.
 --
+--
+--
 -- /See:/ 'registerDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
     { _rPrivacyProtectTechContact       :: !(Maybe Bool)
@@ -79,25 +79,25 @@ data RegisterDomain = RegisterDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rPrivacyProtectTechContact'
+-- * 'rPrivacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 --
--- * 'rPrivacyProtectRegistrantContact'
+-- * 'rPrivacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 --
--- * 'rAutoRenew'
+-- * 'rAutoRenew' - Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged. Type: Boolean Valid values: @true@ | @false@  Default: @true@  Required: No
 --
--- * 'rPrivacyProtectAdminContact'
+-- * 'rPrivacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 --
--- * 'rIdNLangCode'
+-- * 'rIdNLangCode' - Reserved for future use.
 --
--- * 'rDomainName'
+-- * 'rDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 --
--- * 'rDurationInYears'
+-- * 'rDurationInYears' - The number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10 Required: Yes
 --
--- * 'rAdminContact'
+-- * 'rAdminContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 --
--- * 'rRegistrantContact'
+-- * 'rRegistrantContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 --
--- * 'rTechContact'
+-- * 'rTechContact' - Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 registerDomain
     :: Text -- ^ 'rDomainName'
     -> Natural -- ^ 'rDurationInYears'
@@ -119,51 +119,19 @@ registerDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_
     , _rTechContact = _Sensitive # pTechContact_
     }
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
---
--- Type: Boolean
---
--- Default: 'true'
---
--- Valid values: 'true' | 'false'
---
--- Required: No
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 rPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
 rPrivacyProtectTechContact = lens _rPrivacyProtectTechContact (\ s a -> s{_rPrivacyProtectTechContact = a});
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
---
--- Type: Boolean
---
--- Default: 'true'
---
--- Valid values: 'true' | 'false'
---
--- Required: No
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 rPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rPrivacyProtectRegistrantContact = lens _rPrivacyProtectRegistrantContact (\ s a -> s{_rPrivacyProtectRegistrantContact = a});
 
--- | Indicates whether the domain will be automatically renewed ('true') or not ('false'). Autorenewal only takes effect after the account is charged.
---
--- Type: Boolean
---
--- Valid values: 'true' | 'false'
---
--- Default: 'true'
---
--- Required: No
+-- | Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged. Type: Boolean Valid values: @true@ | @false@  Default: @true@  Required: No
 rAutoRenew :: Lens' RegisterDomain (Maybe Bool)
 rAutoRenew = lens _rAutoRenew (\ s a -> s{_rAutoRenew = a});
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS (\"who is\") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter.
---
--- Type: Boolean
---
--- Default: 'true'
---
--- Valid values: 'true' | 'false'
---
--- Required: No
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify true, WHOIS ("who is") queries will return contact information for our registrar partner, Gandi, instead of the contact information that you enter. Type: Boolean Default: @true@  Valid values: @true@ | @false@  Required: No
 rPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rPrivacyProtectAdminContact = lens _rPrivacyProtectAdminContact (\ s a -> s{_rPrivacyProtectAdminContact = a});
 
@@ -171,57 +139,23 @@ rPrivacyProtectAdminContact = lens _rPrivacyProtectAdminContact (\ s a -> s{_rPr
 rIdNLangCode :: Lens' RegisterDomain (Maybe Text)
 rIdNLangCode = lens _rIdNLangCode (\ s a -> s{_rIdNLangCode = a});
 
--- | The name of a domain.
---
--- Type: String
---
--- Default: None
---
--- Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.
---
--- Required: Yes
+-- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
 rDomainName :: Lens' RegisterDomain Text
 rDomainName = lens _rDomainName (\ s a -> s{_rDomainName = a});
 
--- | The number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.
---
--- Type: Integer
---
--- Default: 1
---
--- Valid values: Integer from 1 to 10
---
--- Required: Yes
+-- | The number of years the domain will be registered. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain. Type: Integer Default: 1 Valid values: Integer from 1 to 10 Required: Yes
 rDurationInYears :: Lens' RegisterDomain Natural
 rDurationInYears = lens _rDurationInYears (\ s a -> s{_rDurationInYears = a}) . _Nat;
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 rAdminContact :: Lens' RegisterDomain ContactDetail
 rAdminContact = lens _rAdminContact (\ s a -> s{_rAdminContact = a}) . _Sensitive;
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 rRegistrantContact :: Lens' RegisterDomain ContactDetail
 rRegistrantContact = lens _rRegistrantContact (\ s a -> s{_rRegistrantContact = a}) . _Sensitive;
 
--- | Provides detailed contact information.
---
--- Type: Complex
---
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
---
--- Required: Yes
+-- | Provides detailed contact information. Type: Complex Children: @FirstName@ , @MiddleName@ , @LastName@ , @ContactType@ , @OrganizationName@ , @AddressLine1@ , @AddressLine2@ , @City@ , @State@ , @CountryCode@ , @ZipCode@ , @PhoneNumber@ , @Email@ , @Fax@ , @ExtraParams@  Required: Yes
 rTechContact :: Lens' RegisterDomain ContactDetail
 rTechContact = lens _rTechContact (\ s a -> s{_rTechContact = a}) . _Sensitive;
 
@@ -274,6 +208,8 @@ instance ToQuery RegisterDomain where
 
 -- | The RegisterDomain response includes the following element.
 --
+--
+--
 -- /See:/ 'registerDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
     { _rdrsResponseStatus :: !Int
@@ -284,9 +220,9 @@ data RegisterDomainResponse = RegisterDomainResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdrsResponseStatus'
+-- * 'rdrsResponseStatus' - -- | The response status code.
 --
--- * 'rdrsOperationId'
+-- * 'rdrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 registerDomainResponse
     :: Int -- ^ 'rdrsResponseStatus'
     -> Text -- ^ 'rdrsOperationId'
@@ -297,17 +233,11 @@ registerDomainResponse pResponseStatus_ pOperationId_ =
     , _rdrsOperationId = pOperationId_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rdrsResponseStatus :: Lens' RegisterDomainResponse Int
 rdrsResponseStatus = lens _rdrsResponseStatus (\ s a -> s{_rdrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
---
--- Type: String
---
--- Default: None
---
--- Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
 rdrsOperationId :: Lens' RegisterDomainResponse Text
 rdrsOperationId = lens _rdrsOperationId (\ s a -> s{_rdrsOperationId = a});
 

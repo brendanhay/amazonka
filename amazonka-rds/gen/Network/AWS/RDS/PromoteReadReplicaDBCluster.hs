@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Promotes a Read Replica DB cluster to a standalone DB cluster.
+--
+--
 module Network.AWS.RDS.PromoteReadReplicaDBCluster
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'promoteReadReplicaDBCluster' smart constructor.
 newtype PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
     { _prrdcDBClusterIdentifier :: Text
@@ -53,7 +57,7 @@ newtype PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrdcDBClusterIdentifier'
+-- * 'prrdcDBClusterIdentifier' - The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-replica1@
 promoteReadReplicaDBCluster
     :: Text -- ^ 'prrdcDBClusterIdentifier'
     -> PromoteReadReplicaDBCluster
@@ -62,17 +66,7 @@ promoteReadReplicaDBCluster pDBClusterIdentifier_ =
     { _prrdcDBClusterIdentifier = pDBClusterIdentifier_
     }
 
--- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.
---
--- Constraints:
---
--- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
--- Example: 'my-cluster-replica1'
+-- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @my-cluster-replica1@
 prrdcDBClusterIdentifier :: Lens' PromoteReadReplicaDBCluster Text
 prrdcDBClusterIdentifier = lens _prrdcDBClusterIdentifier (\ s a -> s{_prrdcDBClusterIdentifier = a});
 
@@ -115,9 +109,9 @@ data PromoteReadReplicaDBClusterResponse = PromoteReadReplicaDBClusterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrdcrsDBCluster'
+-- * 'prrdcrsDBCluster' - Undocumented member.
 --
--- * 'prrdcrsResponseStatus'
+-- * 'prrdcrsResponseStatus' - -- | The response status code.
 promoteReadReplicaDBClusterResponse
     :: Int -- ^ 'prrdcrsResponseStatus'
     -> PromoteReadReplicaDBClusterResponse
@@ -131,7 +125,7 @@ promoteReadReplicaDBClusterResponse pResponseStatus_ =
 prrdcrsDBCluster :: Lens' PromoteReadReplicaDBClusterResponse (Maybe DBCluster)
 prrdcrsDBCluster = lens _prrdcrsDBCluster (\ s a -> s{_prrdcrsDBCluster = a});
 
--- | The response status code.
+-- | -- | The response status code.
 prrdcrsResponseStatus :: Lens' PromoteReadReplicaDBClusterResponse Int
 prrdcrsResponseStatus = lens _prrdcrsResponseStatus (\ s a -> s{_prrdcrsResponseStatus = a});
 

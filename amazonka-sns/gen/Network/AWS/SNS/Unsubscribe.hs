@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic\'s owner can unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the 'Unsubscribe' request was unintended.
+-- Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the @Unsubscribe@ call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the @Unsubscribe@ request was unintended.
+--
+--
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Creating a Request
@@ -41,6 +43,8 @@ import           Network.AWS.SNS.Types.Product
 
 -- | Input for Unsubscribe action.
 --
+--
+--
 -- /See:/ 'unsubscribe' smart constructor.
 newtype Unsubscribe = Unsubscribe'
     { _uSubscriptionARN :: Text
@@ -50,7 +54,7 @@ newtype Unsubscribe = Unsubscribe'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uSubscriptionARN'
+-- * 'uSubscriptionARN' - The ARN of the subscription to be deleted.
 unsubscribe
     :: Text -- ^ 'uSubscriptionARN'
     -> Unsubscribe

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets all the user settings for a specified user name. Works on any user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to set user settings as an administrator.
 --
+--
+--
 -- /See:/ 'adminSetUserSettings' smart constructor.
 data AdminSetUserSettings = AdminSetUserSettings'
     { _asusUserPoolId :: !Text
@@ -56,11 +60,11 @@ data AdminSetUserSettings = AdminSetUserSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asusUserPoolId'
+-- * 'asusUserPoolId' - The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
 --
--- * 'asusUsername'
+-- * 'asusUsername' - The user name of the user for whom you wish to set user settings.
 --
--- * 'asusMFAOptions'
+-- * 'asusMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
 adminSetUserSettings
     :: Text -- ^ 'asusUserPoolId'
     -> Text -- ^ 'asusUsername'
@@ -72,7 +76,7 @@ adminSetUserSettings pUserPoolId_ pUsername_ =
     , _asusMFAOptions = mempty
     }
 
--- | The user pool ID for the user pool where you want to set the user\'s settings, such as MFA options.
+-- | The user pool ID for the user pool where you want to set the user's settings, such as MFA options.
 asusUserPoolId :: Lens' AdminSetUserSettings Text
 asusUserPoolId = lens _asusUserPoolId (\ s a -> s{_asusUserPoolId = a});
 
@@ -124,6 +128,8 @@ instance ToQuery AdminSetUserSettings where
 
 -- | Represents the response from the server to set user settings as an administrator.
 --
+--
+--
 -- /See:/ 'adminSetUserSettingsResponse' smart constructor.
 newtype AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
     { _asusrsResponseStatus :: Int
@@ -133,7 +139,7 @@ newtype AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asusrsResponseStatus'
+-- * 'asusrsResponseStatus' - -- | The response status code.
 adminSetUserSettingsResponse
     :: Int -- ^ 'asusrsResponseStatus'
     -> AdminSetUserSettingsResponse
@@ -142,7 +148,7 @@ adminSetUserSettingsResponse pResponseStatus_ =
     { _asusrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 asusrsResponseStatus :: Lens' AdminSetUserSettingsResponse Int
 asusrsResponseStatus = lens _asusrsResponseStatus (\ s a -> s{_asusrsResponseStatus = a});
 

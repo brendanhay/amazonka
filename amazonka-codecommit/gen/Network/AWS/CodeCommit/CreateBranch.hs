@@ -20,7 +20,7 @@
 --
 -- Creates a new branch in a repository and points the branch to a commit.
 --
--- Calling the create branch operation does not set a repository\'s default branch. To do this, call the update default branch operation.
+--
 module Network.AWS.CodeCommit.CreateBranch
     (
     -- * Creating a Request
@@ -45,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Represents the input of a create branch operation.
 --
+--
+--
 -- /See:/ 'createBranch' smart constructor.
 data CreateBranch = CreateBranch'
     { _cbRepositoryName :: !Text
@@ -56,11 +58,11 @@ data CreateBranch = CreateBranch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbRepositoryName'
+-- * 'cbRepositoryName' - The name of the repository in which you want to create the new branch.
 --
--- * 'cbBranchName'
+-- * 'cbBranchName' - The name of the new branch to create.
 --
--- * 'cbCommitId'
+-- * 'cbCommitId' - The ID of the commit to point the new branch to.
 createBranch
     :: Text -- ^ 'cbRepositoryName'
     -> Text -- ^ 'cbBranchName'

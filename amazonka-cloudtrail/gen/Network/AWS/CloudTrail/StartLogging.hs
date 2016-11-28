@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.
+--
+--
 module Network.AWS.CloudTrail.StartLogging
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
+--
+--
 -- /See:/ 'startLogging' smart constructor.
 newtype StartLogging = StartLogging'
     { _sName :: Text
@@ -52,7 +56,7 @@ newtype StartLogging = StartLogging'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sName'
+-- * 'sName' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 startLogging
     :: Text -- ^ 'sName'
     -> StartLogging
@@ -61,9 +65,7 @@ startLogging pName_ =
     { _sName = pName_
     }
 
--- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 sName :: Lens' StartLogging Text
 sName = lens _sName (\ s a -> s{_sName = a});
 
@@ -101,6 +103,8 @@ instance ToQuery StartLogging where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'startLoggingResponse' smart constructor.
 newtype StartLoggingResponse = StartLoggingResponse'
     { _srsResponseStatus :: Int
@@ -110,7 +114,7 @@ newtype StartLoggingResponse = StartLoggingResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsResponseStatus'
+-- * 'srsResponseStatus' - -- | The response status code.
 startLoggingResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StartLoggingResponse
@@ -119,7 +123,7 @@ startLoggingResponse pResponseStatus_ =
     { _srsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 srsResponseStatus :: Lens' StartLoggingResponse Int
 srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
 

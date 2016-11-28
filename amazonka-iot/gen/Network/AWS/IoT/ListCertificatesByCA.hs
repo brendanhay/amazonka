@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- List the device certificates signed by the specified CA certificate.
+--
+--
 module Network.AWS.IoT.ListCertificatesByCA
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The input to the ListCertificatesByCA operation.
 --
+--
+--
 -- /See:/ 'listCertificatesByCA' smart constructor.
 data ListCertificatesByCA = ListCertificatesByCA'
     { _lcbcaMarker          :: !(Maybe Text)
@@ -60,13 +64,13 @@ data ListCertificatesByCA = ListCertificatesByCA'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcbcaMarker'
+-- * 'lcbcaMarker' - The marker for the next set of results.
 --
--- * 'lcbcaAscendingOrder'
+-- * 'lcbcaAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 --
--- * 'lcbcaPageSize'
+-- * 'lcbcaPageSize' - The result page size.
 --
--- * 'lcbcaCaCertificateId'
+-- * 'lcbcaCaCertificateId' - The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
 listCertificatesByCA
     :: Text -- ^ 'lcbcaCaCertificateId'
     -> ListCertificatesByCA
@@ -127,6 +131,8 @@ instance ToQuery ListCertificatesByCA where
 
 -- | The output of the ListCertificatesByCA operation.
 --
+--
+--
 -- /See:/ 'listCertificatesByCAResponse' smart constructor.
 data ListCertificatesByCAResponse = ListCertificatesByCAResponse'
     { _lcbcarsCertificates   :: !(Maybe [Certificate])
@@ -138,11 +144,11 @@ data ListCertificatesByCAResponse = ListCertificatesByCAResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcbcarsCertificates'
+-- * 'lcbcarsCertificates' - The device certificates signed by the specified CA certificate.
 --
--- * 'lcbcarsNextMarker'
+-- * 'lcbcarsNextMarker' - The marker for the next set of results, or null if there are no additional results.
 --
--- * 'lcbcarsResponseStatus'
+-- * 'lcbcarsResponseStatus' - -- | The response status code.
 listCertificatesByCAResponse
     :: Int -- ^ 'lcbcarsResponseStatus'
     -> ListCertificatesByCAResponse
@@ -161,7 +167,7 @@ lcbcarsCertificates = lens _lcbcarsCertificates (\ s a -> s{_lcbcarsCertificates
 lcbcarsNextMarker :: Lens' ListCertificatesByCAResponse (Maybe Text)
 lcbcarsNextMarker = lens _lcbcarsNextMarker (\ s a -> s{_lcbcarsNextMarker = a});
 
--- | The response status code.
+-- | -- | The response status code.
 lcbcarsResponseStatus :: Lens' ListCertificatesByCAResponse Int
 lcbcarsResponseStatus = lens _lcbcarsResponseStatus (\ s a -> s{_lcbcarsResponseStatus = a});
 

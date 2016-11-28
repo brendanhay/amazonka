@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified route from the specified route table.
+--
+--
 module Network.AWS.EC2.DeleteRoute
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DeleteRoute.
 --
+--
+--
 -- /See:/ 'deleteRoute' smart constructor.
 data DeleteRoute = DeleteRoute'
     { _drDryRun               :: !(Maybe Bool)
@@ -54,11 +58,11 @@ data DeleteRoute = DeleteRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drDryRun'
+-- * 'drDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'drRouteTableId'
+-- * 'drRouteTableId' - The ID of the route table.
 --
--- * 'drDestinationCIdRBlock'
+-- * 'drDestinationCIdRBlock' - The CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 deleteRoute
     :: Text -- ^ 'drRouteTableId'
     -> Text -- ^ 'drDestinationCIdRBlock'
@@ -70,7 +74,7 @@ deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
     , _drDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
 

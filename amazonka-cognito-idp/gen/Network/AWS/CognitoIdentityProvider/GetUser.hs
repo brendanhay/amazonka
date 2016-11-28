@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the user attributes and metadata for a user.
+--
+--
 module Network.AWS.CognitoIdentityProvider.GetUser
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Represents the request to get information about the user.
 --
+--
+--
 -- /See:/ 'getUser' smart constructor.
 newtype GetUser = GetUser'
     { _guAccessToken :: Maybe (Sensitive Text)
@@ -55,7 +59,7 @@ newtype GetUser = GetUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guAccessToken'
+-- * 'guAccessToken' - The access token returned by the server response to get information about the user.
 getUser
     :: GetUser
 getUser =
@@ -106,6 +110,8 @@ instance ToQuery GetUser where
 
 -- | Represents the response from the server from the request to get information about the user.
 --
+--
+--
 -- /See:/ 'getUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
     { _gursMFAOptions     :: !(Maybe [MFAOptionType])
@@ -118,13 +124,13 @@ data GetUserResponse = GetUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gursMFAOptions'
+-- * 'gursMFAOptions' - Specifies the options for MFA (e.g., email or phone number).
 --
--- * 'gursResponseStatus'
+-- * 'gursResponseStatus' - -- | The response status code.
 --
--- * 'gursUsername'
+-- * 'gursUsername' - The user name of the user you wish to retrieve from the get user request.
 --
--- * 'gursUserAttributes'
+-- * 'gursUserAttributes' - An array of name-value pairs representing user attributes.
 getUserResponse
     :: Int -- ^ 'gursResponseStatus'
     -> Text -- ^ 'gursUsername'
@@ -141,7 +147,7 @@ getUserResponse pResponseStatus_ pUsername_ =
 gursMFAOptions :: Lens' GetUserResponse [MFAOptionType]
 gursMFAOptions = lens _gursMFAOptions (\ s a -> s{_gursMFAOptions = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 gursResponseStatus :: Lens' GetUserResponse Int
 gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Lists all of the Cognito identity pools registered for your account.
 --
+--
 -- You must use AWS Developer credentials to call this API.
+--
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Creating a Request
@@ -58,9 +60,9 @@ data ListIdentityPools = ListIdentityPools'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipNextToken'
+-- * 'lipNextToken' - A pagination token.
 --
--- * 'lipMaxResults'
+-- * 'lipMaxResults' - The maximum number of identities to return.
 listIdentityPools
     :: Natural -- ^ 'lipMaxResults'
     -> ListIdentityPools
@@ -129,11 +131,11 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liprsIdentityPools'
+-- * 'liprsIdentityPools' - The identity pools returned by the ListIdentityPools action.
 --
--- * 'liprsNextToken'
+-- * 'liprsNextToken' - A pagination token.
 --
--- * 'liprsResponseStatus'
+-- * 'liprsResponseStatus' - -- | The response status code.
 listIdentityPoolsResponse
     :: Int -- ^ 'liprsResponseStatus'
     -> ListIdentityPoolsResponse
@@ -152,7 +154,7 @@ liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = 
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
--- | The response status code.
+-- | -- | The response status code.
 liprsResponseStatus :: Lens' ListIdentityPoolsResponse Int
 liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a});
 

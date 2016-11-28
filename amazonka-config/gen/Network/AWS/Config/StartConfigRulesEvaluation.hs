@@ -20,21 +20,22 @@
 --
 -- Evaluates your resources against the specified Config rules. You can specify up to 25 Config rules per request.
 --
--- An existing < StartConfigRulesEvaluation> call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a 'ConfigRuleEvaluationStarted' notification when the evaluation starts.
 --
--- You don\'t need to call the 'StartConfigRulesEvaluation' API to run an evaluation for a new rule. When you create a new rule, AWS Config automatically evaluates your resources against the rule.
+-- An existing 'StartConfigRulesEvaluation' call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a @ConfigRuleEvaluationStarted@ notification when the evaluation starts.
 --
--- The 'StartConfigRulesEvaluation' API is useful if you want to run on-demand evaluations, such as the following example:
+-- The @StartConfigRulesEvaluation@ API is useful if you want to run on-demand evaluations, such as the following example:
 --
--- 1.  You have a custom rule that evaluates your IAM resources every 24 hours.
+--     * You have a custom rule that evaluates your IAM resources every 24 hours.
 --
--- 2.  You update your Lambda function to add additional conditions to your rule.
+--     * You update your Lambda function to add additional conditions to your rule.
 --
--- 3.  Instead of waiting for the next periodic evaluation, you call the 'StartConfigRulesEvaluation' API.
+--     * Instead of waiting for the next periodic evaluation, you call the @StartConfigRulesEvaluation@ API.
 --
--- 4.  AWS Config invokes your Lambda function and evaluates your IAM resources.
+--     * AWS Config invokes your Lambda function and evaluates your IAM resources.
 --
--- 5.  Your custom rule will still run periodic evaluations every 24 hours.
+--     * Your custom rule will still run periodic evaluations every 24 hours.
+--
+--
 --
 module Network.AWS.Config.StartConfigRulesEvaluation
     (
@@ -67,7 +68,7 @@ newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'screConfigRuleNames'
+-- * 'screConfigRuleNames' - The list of names of Config rules that you want to run evaluations for.
 startConfigRulesEvaluation
     :: StartConfigRulesEvaluation
 startConfigRulesEvaluation =
@@ -117,6 +118,8 @@ instance ToQuery StartConfigRulesEvaluation where
 
 -- | The output when you start the evaluation for the specified Config rule.
 --
+--
+--
 -- /See:/ 'startConfigRulesEvaluationResponse' smart constructor.
 newtype StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
     { _scrersResponseStatus :: Int
@@ -126,7 +129,7 @@ newtype StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrersResponseStatus'
+-- * 'scrersResponseStatus' - -- | The response status code.
 startConfigRulesEvaluationResponse
     :: Int -- ^ 'scrersResponseStatus'
     -> StartConfigRulesEvaluationResponse
@@ -135,7 +138,7 @@ startConfigRulesEvaluationResponse pResponseStatus_ =
     { _scrersResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 scrersResponseStatus :: Lens' StartConfigRulesEvaluationResponse Int
 scrersResponseStatus = lens _scrersResponseStatus (\ s a -> s{_scrersResponseStatus = a});
 

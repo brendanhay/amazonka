@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the status of a given export process. You can retrieve status from a maximum of 100 processes.
+--
+--
 module Network.AWS.Discovery.DescribeExportConfigurations
     (
     -- * Creating a Request
@@ -56,11 +58,11 @@ data DescribeExportConfigurations = DescribeExportConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decNextToken'
+-- * 'decNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 --
--- * 'decExportIds'
+-- * 'decExportIds' - A unique identifier that you can use to query the export status.
 --
--- * 'decMaxResults'
+-- * 'decMaxResults' - The maximum number of results that you want to display as a part of the query.
 describeExportConfigurations
     :: DescribeExportConfigurations
 describeExportConfigurations =
@@ -70,7 +72,7 @@ describeExportConfigurations =
     , _decMaxResults = Nothing
     }
 
--- | A token to get the next set of results. For example, if you specified 100 IDs for 'DescribeConfigurationsRequest>configurationIds' but set 'DescribeExportConfigurationsRequest>maxResults' to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decNextToken :: Lens' DescribeExportConfigurations (Maybe Text)
 decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 
@@ -134,11 +136,11 @@ data DescribeExportConfigurationsResponse = DescribeExportConfigurationsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsNextToken'
+-- * 'decrsNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 --
--- * 'decrsExportsInfo'
+-- * 'decrsExportsInfo' - Returns export details. When the status is complete, the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 --
--- * 'decrsResponseStatus'
+-- * 'decrsResponseStatus' - -- | The response status code.
 describeExportConfigurationsResponse
     :: Int -- ^ 'decrsResponseStatus'
     -> DescribeExportConfigurationsResponse
@@ -149,7 +151,7 @@ describeExportConfigurationsResponse pResponseStatus_ =
     , _decrsResponseStatus = pResponseStatus_
     }
 
--- | A token to get the next set of results. For example, if you specified 100 IDs for 'DescribeConfigurationsRequest>configurationIds' but set 'DescribeExportConfigurationsRequest>maxResults' to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decrsNextToken :: Lens' DescribeExportConfigurationsResponse (Maybe Text)
 decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 
@@ -157,7 +159,7 @@ decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 decrsExportsInfo :: Lens' DescribeExportConfigurationsResponse [ExportInfo]
 decrsExportsInfo = lens _decrsExportsInfo (\ s a -> s{_decrsExportsInfo = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 decrsResponseStatus :: Lens' DescribeExportConfigurationsResponse Int
 decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a});
 

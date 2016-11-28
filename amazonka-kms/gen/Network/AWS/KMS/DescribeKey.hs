@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides detailed information about the specified customer master key.
+--
+--
 module Network.AWS.KMS.DescribeKey
     (
     -- * Creating a Request
@@ -53,9 +55,9 @@ data DescribeKey = DescribeKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dGrantTokens'
+-- * 'dGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'dKeyId'
+-- * 'dKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 describeKey
     :: Text -- ^ 'dKeyId'
     -> DescribeKey
@@ -65,22 +67,11 @@ describeKey pKeyId_ =
     , _dKeyId = pKeyId_
     }
 
--- | A list of grant tokens.
---
--- For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/.
+-- | A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 dGrantTokens :: Lens' DescribeKey [Text]
 dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by \"alias\/\".
---
--- -   Key ARN Example - arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
---
--- -   Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
---
--- -   Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
---
--- -   Alias Name Example - alias\/MyAliasName
---
+-- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 dKeyId :: Lens' DescribeKey Text
 dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 
@@ -129,9 +120,9 @@ data DescribeKeyResponse = DescribeKeyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkrsKeyMetadata'
+-- * 'dkrsKeyMetadata' - Metadata associated with the key.
 --
--- * 'dkrsResponseStatus'
+-- * 'dkrsResponseStatus' - -- | The response status code.
 describeKeyResponse
     :: Int -- ^ 'dkrsResponseStatus'
     -> DescribeKeyResponse
@@ -145,7 +136,7 @@ describeKeyResponse pResponseStatus_ =
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dkrsResponseStatus :: Lens' DescribeKeyResponse Int
 dkrsResponseStatus = lens _dkrsResponseStatus (\ s a -> s{_dkrsResponseStatus = a});
 

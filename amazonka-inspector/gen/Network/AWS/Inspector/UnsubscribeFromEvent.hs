@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
+--
+--
 module Network.AWS.Inspector.UnsubscribeFromEvent
     (
     -- * Creating a Request
@@ -52,11 +54,11 @@ data UnsubscribeFromEvent = UnsubscribeFromEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufeResourceARN'
+-- * 'ufeResourceARN' - The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications.
 --
--- * 'ufeEvent'
+-- * 'ufeEvent' - The event for which you want to stop receiving SNS notifications.
 --
--- * 'ufeTopicARN'
+-- * 'ufeTopicARN' - The ARN of the SNS topic to which SNS notifications are sent.
 unsubscribeFromEvent
     :: Text -- ^ 'ufeResourceARN'
     -> InspectorEvent -- ^ 'ufeEvent'

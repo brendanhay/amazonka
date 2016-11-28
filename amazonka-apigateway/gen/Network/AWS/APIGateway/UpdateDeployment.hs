@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a < Deployment> resource.
+-- Changes information about a 'Deployment' resource.
+--
+--
 module Network.AWS.APIGateway.UpdateDeployment
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Requests Amazon API Gateway to change information about a < Deployment> resource.
+-- | Requests Amazon API Gateway to change information about a 'Deployment' resource.
+--
+--
 --
 -- /See:/ 'updateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
@@ -59,11 +63,11 @@ data UpdateDeployment = UpdateDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udPatchOperations'
+-- * 'udPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udRestAPIId'
+-- * 'udRestAPIId' - The replacement identifier of the 'RestApi' resource for the 'Deployment' resource to change information about.
 --
--- * 'udDeploymentId'
+-- * 'udDeploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
 updateDeployment
     :: Text -- ^ 'udRestAPIId'
     -> Text -- ^ 'udDeploymentId'
@@ -79,11 +83,11 @@ updateDeployment pRestAPIId_ pDeploymentId_ =
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
--- | The replacement identifier of the < RestApi> resource for the < Deployment> resource to change information about.
+-- | The replacement identifier of the 'RestApi' resource for the 'Deployment' resource to change information about.
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 
--- | The replacement identifier for the < Deployment> resource to change information about.
+-- | The replacement identifier for the 'Deployment' resource to change information about.
 udDeploymentId :: Lens' UpdateDeployment Text
 udDeploymentId = lens _udDeploymentId (\ s a -> s{_udDeploymentId = a});
 

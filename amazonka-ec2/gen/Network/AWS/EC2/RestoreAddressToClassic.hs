@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.
+--
+--
 module Network.AWS.EC2.RestoreAddressToClassic
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for RestoreAddressToClassic.
 --
+--
+--
 -- /See:/ 'restoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'
     { _ratcDryRun   :: !(Maybe Bool)
@@ -56,9 +60,9 @@ data RestoreAddressToClassic = RestoreAddressToClassic'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ratcDryRun'
+-- * 'ratcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ratcPublicIP'
+-- * 'ratcPublicIP' - The Elastic IP address.
 restoreAddressToClassic
     :: Text -- ^ 'ratcPublicIP'
     -> RestoreAddressToClassic
@@ -68,7 +72,7 @@ restoreAddressToClassic pPublicIP_ =
     , _ratcPublicIP = pPublicIP_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
 ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
 
@@ -107,6 +111,8 @@ instance ToQuery RestoreAddressToClassic where
 
 -- | Contains the output of RestoreAddressToClassic.
 --
+--
+--
 -- /See:/ 'restoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrsStatus         :: !(Maybe AddressStatus)
@@ -118,11 +124,11 @@ data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ratcrsStatus'
+-- * 'ratcrsStatus' - The move status for the IP address.
 --
--- * 'ratcrsPublicIP'
+-- * 'ratcrsPublicIP' - The Elastic IP address.
 --
--- * 'ratcrsResponseStatus'
+-- * 'ratcrsResponseStatus' - -- | The response status code.
 restoreAddressToClassicResponse
     :: Int -- ^ 'ratcrsResponseStatus'
     -> RestoreAddressToClassicResponse
@@ -141,7 +147,7 @@ ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});
 ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 
--- | The response status code.
+-- | -- | The response status code.
 ratcrsResponseStatus :: Lens' RestoreAddressToClassicResponse Int
 ratcrsResponseStatus = lens _ratcrsResponseStatus (\ s a -> s{_ratcrsResponseStatus = a});
 

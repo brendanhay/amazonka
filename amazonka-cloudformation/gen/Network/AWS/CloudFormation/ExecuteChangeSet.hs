@@ -18,11 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a stack using the input information that was provided when the specified change set was created. After the call successfully completes, AWS CloudFormation starts updating the stack. Use the < DescribeStacks> action to view the status of the update.
+-- Updates a stack using the input information that was provided when the specified change set was created. After the call successfully completes, AWS CloudFormation starts updating the stack. Use the 'DescribeStacks' action to view the status of the update.
 --
--- When you execute a change set, AWS CloudFormation deletes all other change sets associated with the stack because they aren\'t valid for the updated stack.
 --
--- If a stack policy is associated with the stack, AWS CloudFormation enforces the policy during the update. You can\'t specify a temporary stack policy that overrides the current policy.
+-- When you execute a change set, AWS CloudFormation deletes all other change sets associated with the stack because they aren't valid for the updated stack.
+--
+-- If a stack policy is associated with the stack, AWS CloudFormation enforces the policy during the update. You can't specify a temporary stack policy that overrides the current policy.
+--
 module Network.AWS.CloudFormation.ExecuteChangeSet
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input for the < ExecuteChangeSet> action.
+-- | The input for the 'ExecuteChangeSet' action.
+--
+--
 --
 -- /See:/ 'executeChangeSet' smart constructor.
 data ExecuteChangeSet = ExecuteChangeSet'
@@ -58,9 +62,9 @@ data ExecuteChangeSet = ExecuteChangeSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecsStackName'
+-- * 'ecsStackName' - If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
 --
--- * 'ecsChangeSetName'
+-- * 'ecsChangeSetName' - The name or ARN of the change set that you want use to update the specified stack.
 executeChangeSet
     :: Text -- ^ 'ecsChangeSetName'
     -> ExecuteChangeSet
@@ -104,7 +108,9 @@ instance ToQuery ExecuteChangeSet where
                "StackName" =: _ecsStackName,
                "ChangeSetName" =: _ecsChangeSetName]
 
--- | The output for the < ExecuteChangeSet> action.
+-- | The output for the 'ExecuteChangeSet' action.
+--
+--
 --
 -- /See:/ 'executeChangeSetResponse' smart constructor.
 newtype ExecuteChangeSetResponse = ExecuteChangeSetResponse'
@@ -115,7 +121,7 @@ newtype ExecuteChangeSetResponse = ExecuteChangeSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecsrsResponseStatus'
+-- * 'ecsrsResponseStatus' - -- | The response status code.
 executeChangeSetResponse
     :: Int -- ^ 'ecsrsResponseStatus'
     -> ExecuteChangeSetResponse
@@ -124,7 +130,7 @@ executeChangeSetResponse pResponseStatus_ =
     { _ecsrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 ecsrsResponseStatus :: Lens' ExecuteChangeSetResponse Int
 ecsrsResponseStatus = lens _ecsrsResponseStatus (\ s a -> s{_ecsrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
 --
--- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeSnapshotAttribute.
 --
+--
+--
 -- /See:/ 'describeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
     { _dsaDryRun     :: !(Maybe Bool)
@@ -61,11 +65,11 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaDryRun'
+-- * 'dsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsaSnapshotId'
+-- * 'dsaSnapshotId' - The ID of the EBS snapshot.
 --
--- * 'dsaAttribute'
+-- * 'dsaAttribute' - The snapshot attribute you would like to view.
 describeSnapshotAttribute
     :: Text -- ^ 'dsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'dsaAttribute'
@@ -77,7 +81,7 @@ describeSnapshotAttribute pSnapshotId_ pAttribute_ =
     , _dsaAttribute = pAttribute_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
 
@@ -127,6 +131,8 @@ instance ToQuery DescribeSnapshotAttribute where
 
 -- | Contains the output of DescribeSnapshotAttribute.
 --
+--
+--
 -- /See:/ 'describeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
@@ -139,13 +145,13 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsarsCreateVolumePermissions'
+-- * 'dsarsCreateVolumePermissions' - A list of permissions for creating volumes from the snapshot.
 --
--- * 'dsarsProductCodes'
+-- * 'dsarsProductCodes' - A list of product codes.
 --
--- * 'dsarsSnapshotId'
+-- * 'dsarsSnapshotId' - The ID of the EBS snapshot.
 --
--- * 'dsarsResponseStatus'
+-- * 'dsarsResponseStatus' - -- | The response status code.
 describeSnapshotAttributeResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeSnapshotAttributeResponse
@@ -169,7 +175,7 @@ dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a})
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsResponseStatus = lens _dsarsResponseStatus (\ s a -> s{_dsarsResponseStatus = a});
 

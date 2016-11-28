@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the snapshot schedule for the specified gateway volume. The snapshot schedule information includes intervals at which snapshots are automatically initiated on the volume.
+--
+--
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Creating a Request
@@ -46,7 +48,9 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the < DescribeSnapshotScheduleInput>VolumeARN> of the volume.
+-- | A JSON object containing the 'DescribeSnapshotScheduleInput$VolumeARN' of the volume.
+--
+--
 --
 -- /See:/ 'describeSnapshotSchedule' smart constructor.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
@@ -57,7 +61,7 @@ newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssVolumeARN'
+-- * 'dssVolumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 describeSnapshotSchedule
     :: Text -- ^ 'dssVolumeARN'
     -> DescribeSnapshotSchedule
@@ -66,7 +70,7 @@ describeSnapshotSchedule pVolumeARN_ =
     { _dssVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the < ListVolumes> operation to return a list of gateway volumes.
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
 dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
 
@@ -123,17 +127,17 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dssrsStartAt'
+-- * 'dssrsStartAt' - Undocumented member.
 --
--- * 'dssrsVolumeARN'
+-- * 'dssrsVolumeARN' - Undocumented member.
 --
--- * 'dssrsRecurrenceInHours'
+-- * 'dssrsRecurrenceInHours' - Undocumented member.
 --
--- * 'dssrsTimezone'
+-- * 'dssrsTimezone' - Undocumented member.
 --
--- * 'dssrsDescription'
+-- * 'dssrsDescription' - Undocumented member.
 --
--- * 'dssrsResponseStatus'
+-- * 'dssrsResponseStatus' - -- | The response status code.
 describeSnapshotScheduleResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSnapshotScheduleResponse
@@ -167,7 +171,7 @@ dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a});
 dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dssrsResponseStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a});
 

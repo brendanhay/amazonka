@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the specified tags from a trail.
+--
+--
 module Network.AWS.CloudTrail.RemoveTags
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Specifies the tags to remove from a trail.
 --
+--
+--
 -- /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtTagsList   :: !(Maybe [Tag])
@@ -54,9 +58,9 @@ data RemoveTags = RemoveTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtTagsList'
+-- * 'rtTagsList' - Specifies a list of tags to be removed.
 --
--- * 'rtResourceId'
+-- * 'rtResourceId' - Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 removeTags
     :: Text -- ^ 'rtResourceId'
     -> RemoveTags
@@ -70,9 +74,7 @@ removeTags pResourceId_ =
 rtTagsList :: Lens' RemoveTags [Tag]
 rtTagsList = lens _rtTagsList (\ s a -> s{_rtTagsList = a}) . _Default . _Coerce;
 
--- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:
---
--- 'arn:aws:cloudtrail:us-east-1:123456789012:trail\/MyTrail'
+-- | Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 rtResourceId :: Lens' RemoveTags Text
 rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 
@@ -113,6 +115,8 @@ instance ToQuery RemoveTags where
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
+--
+--
 -- /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
@@ -122,7 +126,7 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrsResponseStatus'
+-- * 'rtrsResponseStatus' - -- | The response status code.
 removeTagsResponse
     :: Int -- ^ 'rtrsResponseStatus'
     -> RemoveTagsResponse
@@ -131,7 +135,7 @@ removeTagsResponse pResponseStatus_ =
     { _rtrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 rtrsResponseStatus :: Lens' RemoveTagsResponse Int
 rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a usage plan key for adding an existing API key to a usage plan.
+--
+--
 module Network.AWS.APIGateway.CreateUsagePlanKey
     (
     -- * Creating a Request
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The POST request to create a usage plan key for adding an existing API key to a usage plan.
 --
+--
+--
 -- /See:/ 'createUsagePlanKey' smart constructor.
 data CreateUsagePlanKey = CreateUsagePlanKey'
     { _cupkUsagePlanId :: !Text
@@ -59,11 +63,11 @@ data CreateUsagePlanKey = CreateUsagePlanKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupkUsagePlanId'
+-- * 'cupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 --
--- * 'cupkKeyId'
+-- * 'cupkKeyId' - The identifier of a 'UsagePlanKey' resource for a plan customer.
 --
--- * 'cupkKeyType'
+-- * 'cupkKeyType' - The type of a 'UsagePlanKey' resource for a plan customer.
 createUsagePlanKey
     :: Text -- ^ 'cupkUsagePlanId'
     -> Text -- ^ 'cupkKeyId'
@@ -76,15 +80,15 @@ createUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
     , _cupkKeyType = pKeyType_
     }
 
--- | The Id of the < UsagePlan> resource representing the usage plan containing the to-be-created < UsagePlanKey> resource representing a plan customer.
+-- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 cupkUsagePlanId :: Lens' CreateUsagePlanKey Text
 cupkUsagePlanId = lens _cupkUsagePlanId (\ s a -> s{_cupkUsagePlanId = a});
 
--- | The identifier of a < UsagePlanKey> resource for a plan customer.
+-- | The identifier of a 'UsagePlanKey' resource for a plan customer.
 cupkKeyId :: Lens' CreateUsagePlanKey Text
 cupkKeyId = lens _cupkKeyId (\ s a -> s{_cupkKeyId = a});
 
--- | The type of a < UsagePlanKey> resource for a plan customer.
+-- | The type of a 'UsagePlanKey' resource for a plan customer.
 cupkKeyType :: Lens' CreateUsagePlanKey Text
 cupkKeyType = lens _cupkKeyType (\ s a -> s{_cupkKeyType = a});
 

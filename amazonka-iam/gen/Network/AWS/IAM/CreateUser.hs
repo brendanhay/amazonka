@@ -20,7 +20,9 @@
 --
 -- Creates a new IAM user for your AWS account.
 --
--- For information about limitations on the number of IAM users you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/.
+--
+-- For information about limitations on the number of IAM users you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /IAM User Guide/ .
+--
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request
@@ -55,9 +57,9 @@ data CreateUser = CreateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cuPath'
+-- * 'cuPath' - The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cuUserName'
+-- * 'cuUserName' - The name of the user to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 createUser
     :: Text -- ^ 'cuUserName'
     -> CreateUser
@@ -67,17 +69,11 @@ createUser pUserName_ =
     , _cuUserName = pUserName_
     }
 
--- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a slash (\/).
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (\/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\\u0021) thru the DEL character (\\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 
--- | The name of the user to create.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.\'-. User names are not distinguished by case. For example, you cannot create users named both \"TESTUSER\" and \"testuser\".
+-- | The name of the user to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
@@ -107,7 +103,9 @@ instance ToQuery CreateUser where
                "Version" =: ("2010-05-08" :: ByteString),
                "Path" =: _cuPath, "UserName" =: _cuUserName]
 
--- | Contains the response to a successful < CreateUser> request.
+-- | Contains the response to a successful 'CreateUser' request.
+--
+--
 --
 -- /See:/ 'createUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
@@ -119,9 +117,9 @@ data CreateUserResponse = CreateUserResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cursUser'
+-- * 'cursUser' - A structure with details about the new IAM user.
 --
--- * 'cursResponseStatus'
+-- * 'cursResponseStatus' - -- | The response status code.
 createUserResponse
     :: Int -- ^ 'cursResponseStatus'
     -> CreateUserResponse
@@ -135,7 +133,7 @@ createUserResponse pResponseStatus_ =
 cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
--- | The response status code.
+-- | -- | The response status code.
 cursResponseStatus :: Lens' CreateUserResponse Int
 cursResponseStatus = lens _cursResponseStatus (\ s a -> s{_cursResponseStatus = a});
 

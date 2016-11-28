@@ -52,7 +52,7 @@ newtype GetBucketACL = GetBucketACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbaBucket'
+-- * 'gbaBucket' - Undocumented member.
 getBucketACL
     :: BucketName -- ^ 'gbaBucket'
     -> GetBucketACL
@@ -102,11 +102,11 @@ data GetBucketACLResponse = GetBucketACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbarsGrants'
+-- * 'gbarsGrants' - A list of grants.
 --
--- * 'gbarsOwner'
+-- * 'gbarsOwner' - Undocumented member.
 --
--- * 'gbarsResponseStatus'
+-- * 'gbarsResponseStatus' - -- | The response status code.
 getBucketACLResponse
     :: Int -- ^ 'gbarsResponseStatus'
     -> GetBucketACLResponse
@@ -125,7 +125,7 @@ gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coe
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
--- | The response status code.
+-- | -- | The response status code.
 gbarsResponseStatus :: Lens' GetBucketACLResponse Int
 gbarsResponseStatus = lens _gbarsResponseStatus (\ s a -> s{_gbarsResponseStatus = a});
 

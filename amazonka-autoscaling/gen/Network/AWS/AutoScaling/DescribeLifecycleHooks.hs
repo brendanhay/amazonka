@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the lifecycle hooks for the specified Auto Scaling group.
+--
+--
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeLifecycleHooks.
 --
+--
+--
 -- /See:/ 'describeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
     { _dlhLifecycleHookNames   :: !(Maybe [Text])
@@ -55,9 +59,9 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlhLifecycleHookNames'
+-- * 'dlhLifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
 --
--- * 'dlhAutoScalingGroupName'
+-- * 'dlhAutoScalingGroupName' - The name of the group.
 describeLifecycleHooks
     :: Text -- ^ 'dlhAutoScalingGroupName'
     -> DescribeLifecycleHooks
@@ -110,6 +114,8 @@ instance ToQuery DescribeLifecycleHooks where
 
 -- | Contains the output of DescribeLifecycleHooks.
 --
+--
+--
 -- /See:/ 'describeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
@@ -120,9 +126,9 @@ data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlhrsLifecycleHooks'
+-- * 'dlhrsLifecycleHooks' - The lifecycle hooks for the specified group.
 --
--- * 'dlhrsResponseStatus'
+-- * 'dlhrsResponseStatus' - -- | The response status code.
 describeLifecycleHooksResponse
     :: Int -- ^ 'dlhrsResponseStatus'
     -> DescribeLifecycleHooksResponse
@@ -136,7 +142,7 @@ describeLifecycleHooksResponse pResponseStatus_ =
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrsResponseStatus = lens _dlhrsResponseStatus (\ s a -> s{_dlhrsResponseStatus = a});
 

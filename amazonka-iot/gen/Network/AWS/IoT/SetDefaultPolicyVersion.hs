@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the specified version of the specified policy as the policy\'s default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.
+-- Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.
+--
+--
 module Network.AWS.IoT.SetDefaultPolicyVersion
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The input for the SetDefaultPolicyVersion operation.
 --
+--
+--
 -- /See:/ 'setDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
     { _sdpvPolicyName      :: !Text
@@ -52,9 +56,9 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdpvPolicyName'
+-- * 'sdpvPolicyName' - The policy name.
 --
--- * 'sdpvPolicyVersionId'
+-- * 'sdpvPolicyVersionId' - The policy version ID.
 setDefaultPolicyVersion
     :: Text -- ^ 'sdpvPolicyName'
     -> Text -- ^ 'sdpvPolicyVersionId'

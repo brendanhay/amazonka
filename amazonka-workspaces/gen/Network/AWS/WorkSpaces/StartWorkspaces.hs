@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the specified WorkSpaces. The API only works with WorkSpaces that have RunningMode configured as AutoStop and the State set to “STOPPED.”
+--
+--
 module Network.AWS.WorkSpaces.StartWorkspaces
     (
     -- * Creating a Request
@@ -51,7 +53,7 @@ newtype StartWorkspaces = StartWorkspaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swStartWorkspaceRequests'
+-- * 'swStartWorkspaceRequests' - The requests.
 startWorkspaces
     :: NonEmpty StartRequest -- ^ 'swStartWorkspaceRequests'
     -> StartWorkspaces
@@ -111,9 +113,9 @@ data StartWorkspacesResponse = StartWorkspacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'swrsFailedRequests'
+-- * 'swrsFailedRequests' - The failed requests.
 --
--- * 'swrsResponseStatus'
+-- * 'swrsResponseStatus' - -- | The response status code.
 startWorkspacesResponse
     :: Int -- ^ 'swrsResponseStatus'
     -> StartWorkspacesResponse
@@ -127,7 +129,7 @@ startWorkspacesResponse pResponseStatus_ =
 swrsFailedRequests :: Lens' StartWorkspacesResponse [FailedWorkspaceChangeRequest]
 swrsFailedRequests = lens _swrsFailedRequests (\ s a -> s{_swrsFailedRequests = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 swrsResponseStatus :: Lens' StartWorkspacesResponse Int
 swrsResponseStatus = lens _swrsResponseStatus (\ s a -> s{_swrsResponseStatus = a});
 

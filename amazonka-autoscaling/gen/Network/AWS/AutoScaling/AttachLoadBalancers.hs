@@ -20,11 +20,13 @@
 --
 -- Attaches one or more Classic load balancers to the specified Auto Scaling group.
 --
--- To attach an Application load balancer instead, see < AttachLoadBalancerTargetGroups>.
 --
--- To describe the load balancers for an Auto Scaling group, use < DescribeLoadBalancers>. To detach the load balancer from the Auto Scaling group, use < DetachLoadBalancers>.
+-- To attach an Application load balancer instead, see 'AttachLoadBalancerTargetGroups' .
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/.
+-- To describe the load balancers for an Auto Scaling group, use 'DescribeLoadBalancers' . To detach the load balancer from the Auto Scaling group, use 'DetachLoadBalancers' .
+--
+-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+--
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
     -- * Creating a Request
@@ -50,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for AttachLoadBalancers.
 --
+--
+--
 -- /See:/ 'attachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
     { _albAutoScalingGroupName :: !Text
@@ -60,9 +64,9 @@ data AttachLoadBalancers = AttachLoadBalancers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albAutoScalingGroupName'
+-- * 'albAutoScalingGroupName' - The name of the group.
 --
--- * 'albLoadBalancerNames'
+-- * 'albLoadBalancerNames' - One or more load balancer names.
 attachLoadBalancers
     :: Text -- ^ 'albAutoScalingGroupName'
     -> AttachLoadBalancers
@@ -110,6 +114,8 @@ instance ToQuery AttachLoadBalancers where
 
 -- | Contains the output of AttachLoadBalancers.
 --
+--
+--
 -- /See:/ 'attachLoadBalancersResponse' smart constructor.
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
     { _albrsResponseStatus :: Int
@@ -119,7 +125,7 @@ newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'albrsResponseStatus'
+-- * 'albrsResponseStatus' - -- | The response status code.
 attachLoadBalancersResponse
     :: Int -- ^ 'albrsResponseStatus'
     -> AttachLoadBalancersResponse
@@ -128,7 +134,7 @@ attachLoadBalancersResponse pResponseStatus_ =
     { _albrsResponseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | -- | The response status code.
 albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
 albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
 

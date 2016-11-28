@@ -20,7 +20,9 @@
 --
 -- Returns information about the upload buffer of a gateway. This operation is supported for both the gateway-stored and gateway-cached volume architectures.
 --
+--
 -- The response includes disk IDs that are configured as upload buffer space, and it includes the amount of upload buffer space allocated and used.
+--
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Creating a Request
@@ -56,7 +58,7 @@ newtype DescribeUploadBuffer = DescribeUploadBuffer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dubGatewayARN'
+-- * 'dubGatewayARN' - Undocumented member.
 describeUploadBuffer
     :: Text -- ^ 'dubGatewayARN'
     -> DescribeUploadBuffer
@@ -121,15 +123,15 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dubrsUploadBufferAllocatedInBytes'
+-- * 'dubrsUploadBufferAllocatedInBytes' - Undocumented member.
 --
--- * 'dubrsGatewayARN'
+-- * 'dubrsGatewayARN' - Undocumented member.
 --
--- * 'dubrsDiskIds'
+-- * 'dubrsDiskIds' - Undocumented member.
 --
--- * 'dubrsUploadBufferUsedInBytes'
+-- * 'dubrsUploadBufferUsedInBytes' - Undocumented member.
 --
--- * 'dubrsResponseStatus'
+-- * 'dubrsResponseStatus' - -- | The response status code.
 describeUploadBufferResponse
     :: Int -- ^ 'dubrsResponseStatus'
     -> DescribeUploadBufferResponse
@@ -158,7 +160,7 @@ dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
 
--- | The response status code.
+-- | -- | The response status code.
 dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsResponseStatus = lens _dubrsResponseStatus (\ s a -> s{_dubrsResponseStatus = a});
 

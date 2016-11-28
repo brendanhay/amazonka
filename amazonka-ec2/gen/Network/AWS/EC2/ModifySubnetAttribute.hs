@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies a subnet attribute.
+--
+--
 module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for ModifySubnetAttribute.
 --
+--
+--
 -- /See:/ 'modifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
@@ -52,9 +56,9 @@ data ModifySubnetAttribute = ModifySubnetAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msaMapPublicIPOnLaunch'
+-- * 'msaMapPublicIPOnLaunch' - Specify @true@ to indicate that instances launched into the specified subnet should be assigned public IP address.
 --
--- * 'msaSubnetId'
+-- * 'msaSubnetId' - The ID of the subnet.
 modifySubnetAttribute
     :: Text -- ^ 'msaSubnetId'
     -> ModifySubnetAttribute
@@ -64,7 +68,7 @@ modifySubnetAttribute pSubnetId_ =
     , _msaSubnetId = pSubnetId_
     }
 
--- | Specify 'true' to indicate that instances launched into the specified subnet should be assigned public IP address.
+-- | Specify @true@ to indicate that instances launched into the specified subnet should be assigned public IP address.
 msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicIPOnLaunch = a});
 

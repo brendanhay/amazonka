@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about replication instances for your account in the current region.
+--
+--
 module Network.AWS.DMS.DescribeReplicationInstances
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- |
 --
+--
+--
 -- /See:/ 'describeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
     { _driFilters    :: !(Maybe [Filter])
@@ -58,11 +62,11 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'driFilters'
+-- * 'driFilters' - Filters applied to the describe action. Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
 --
--- * 'driMarker'
+-- * 'driMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'driMaxRecords'
+-- * 'driMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 describeReplicationInstances
     :: DescribeReplicationInstances
 describeReplicationInstances =
@@ -72,21 +76,15 @@ describeReplicationInstances =
     , _driMaxRecords = Nothing
     }
 
--- | Filters applied to the describe action.
---
--- Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
+-- | Filters applied to the describe action. Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
 driFilters :: Lens' DescribeReplicationInstances [Filter]
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 driMarker :: Lens' DescribeReplicationInstances (Maybe Text)
 driMarker = lens _driMarker (\ s a -> s{_driMarker = a});
 
--- | The maximum number of records to include in the response. If more records exist than the specified 'MaxRecords' value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
 driMaxRecords :: Lens' DescribeReplicationInstances (Maybe Int)
 driMaxRecords = lens _driMaxRecords (\ s a -> s{_driMaxRecords = a});
 
@@ -133,6 +131,8 @@ instance ToQuery DescribeReplicationInstances where
 
 -- |
 --
+--
+--
 -- /See:/ 'describeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
     { _drisrsMarker               :: !(Maybe Text)
@@ -144,11 +144,11 @@ data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drisrsMarker'
+-- * 'drisrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'drisrsReplicationInstances'
+-- * 'drisrsReplicationInstances' - The replication instances described.
 --
--- * 'drisrsResponseStatus'
+-- * 'drisrsResponseStatus' - -- | The response status code.
 describeReplicationInstancesResponse
     :: Int -- ^ 'drisrsResponseStatus'
     -> DescribeReplicationInstancesResponse
@@ -159,7 +159,7 @@ describeReplicationInstancesResponse pResponseStatus_ =
     , _drisrsResponseStatus = pResponseStatus_
     }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by 'MaxRecords'.
+-- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drisrsMarker :: Lens' DescribeReplicationInstancesResponse (Maybe Text)
 drisrsMarker = lens _drisrsMarker (\ s a -> s{_drisrsMarker = a});
 
@@ -167,7 +167,7 @@ drisrsMarker = lens _drisrsMarker (\ s a -> s{_drisrsMarker = a});
 drisrsReplicationInstances :: Lens' DescribeReplicationInstancesResponse [ReplicationInstance]
 drisrsReplicationInstances = lens _drisrsReplicationInstances (\ s a -> s{_drisrsReplicationInstances = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 drisrsResponseStatus :: Lens' DescribeReplicationInstancesResponse Int
 drisrsResponseStatus = lens _drisrsResponseStatus (\ s a -> s{_drisrsResponseStatus = a});
 

@@ -20,7 +20,9 @@
 --
 -- Disassociates a subnet from a route table.
 --
--- After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC\'s main route table. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon Virtual Private Cloud User Guide/ .
+--
 module Network.AWS.EC2.DisassociateRouteTable
     (
     -- * Creating a Request
@@ -44,6 +46,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DisassociateRouteTable.
 --
+--
+--
 -- /See:/ 'disassociateRouteTable' smart constructor.
 data DisassociateRouteTable = DisassociateRouteTable'
     { _drtDryRun        :: !(Maybe Bool)
@@ -54,9 +58,9 @@ data DisassociateRouteTable = DisassociateRouteTable'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drtDryRun'
+-- * 'drtDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'drtAssociationId'
+-- * 'drtAssociationId' - The association ID representing the current association between the route table and subnet.
 disassociateRouteTable
     :: Text -- ^ 'drtAssociationId'
     -> DisassociateRouteTable
@@ -66,7 +70,7 @@ disassociateRouteTable pAssociationId_ =
     , _drtAssociationId = pAssociationId_
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\ s a -> s{_drtDryRun = a});
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes your import snapshot tasks.
+--
+--
 module Network.AWS.EC2.DescribeImportSnapshotTasks
     (
     -- * Creating a Request
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | Contains the parameters for DescribeImportSnapshotTasks.
 --
+--
+--
 -- /See:/ 'describeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
     { _distFilters       :: !(Maybe [Filter])
@@ -62,15 +66,15 @@ data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'distFilters'
+-- * 'distFilters' - One or more filters.
 --
--- * 'distImportTaskIds'
+-- * 'distImportTaskIds' - A list of import snapshot task IDs.
 --
--- * 'distNextToken'
+-- * 'distNextToken' - A token that indicates the next page of results.
 --
--- * 'distDryRun'
+-- * 'distDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'distMaxResults'
+-- * 'distMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 describeImportSnapshotTasks
     :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks =
@@ -94,11 +98,11 @@ distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a})
 distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
 distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
 distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned 'NextToken' value.
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
 distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 
@@ -140,6 +144,8 @@ instance ToQuery DescribeImportSnapshotTasks where
 
 -- | Contains the output for DescribeImportSnapshotTasks.
 --
+--
+--
 -- /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrsNextToken           :: !(Maybe Text)
@@ -151,11 +157,11 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'distrsNextToken'
+-- * 'distrsNextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 --
--- * 'distrsImportSnapshotTasks'
+-- * 'distrsImportSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
 --
--- * 'distrsResponseStatus'
+-- * 'distrsResponseStatus' - -- | The response status code.
 describeImportSnapshotTasksResponse
     :: Int -- ^ 'distrsResponseStatus'
     -> DescribeImportSnapshotTasksResponse
@@ -166,7 +172,7 @@ describeImportSnapshotTasksResponse pResponseStatus_ =
     , _distrsResponseStatus = pResponseStatus_
     }
 
--- | The token to use to get the next page of results. This value is 'null' when there are no more results to return.
+-- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
 distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 
@@ -174,7 +180,7 @@ distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
 distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 
--- | The response status code.
+-- | -- | The response status code.
 distrsResponseStatus :: Lens' DescribeImportSnapshotTasksResponse Int
 distrsResponseStatus = lens _distrsResponseStatus (\ s a -> s{_distrsResponseStatus = a});
 

@@ -110,7 +110,7 @@ data GetByteMatchSetResponse = GetByteMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbmsrsByteMatchSet' - Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- * 'gbmsrsByteMatchSet' - Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
 -- * 'gbmsrsResponseStatus' - -- | The response status code.
 getByteMatchSetResponse
@@ -122,7 +122,7 @@ getByteMatchSetResponse pResponseStatus_ =
     , _gbmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
 gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\ s a -> s{_gbmsrsByteMatchSet = a});
 

@@ -115,19 +115,22 @@ instance ToJSON ComparisonOperator where
 instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
-data IPSetDescriptorType =
-    IPV4
+data IPSetDescriptorType
+    = IPV4
+    | IPV6
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IPSetDescriptorType where
     parser = takeLowerText >>= \case
         "ipv4" -> pure IPV4
+        "ipv6" -> pure IPV6
         e -> fromTextError $ "Failure parsing IPSetDescriptorType from value: '" <> e
-           <> "'. Accepted values: ipv4"
+           <> "'. Accepted values: ipv4, ipv6"
 
 instance ToText IPSetDescriptorType where
     toText = \case
         IPV4 -> "IPV4"
+        IPV6 -> "IPV6"
 
 instance Hashable     IPSetDescriptorType
 instance NFData       IPSetDescriptorType

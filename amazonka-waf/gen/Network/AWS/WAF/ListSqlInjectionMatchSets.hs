@@ -21,6 +21,8 @@
 -- Returns an array of 'SqlInjectionMatchSet' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListSqlInjectionMatchSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListSqlInjectionMatchSets
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -53,7 +56,7 @@ import           Network.AWS.WAF.Types.Product
 -- /See:/ 'listSqlInjectionMatchSets' smart constructor.
 data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
     { _lsimsNextMarker :: !(Maybe Text)
-    , _lsimsLimit      :: !Nat
+    , _lsimsLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSqlInjectionMatchSets' with the minimum fields required to make a request.
@@ -64,12 +67,11 @@ data ListSqlInjectionMatchSets = ListSqlInjectionMatchSets'
 --
 -- * 'lsimsLimit' - Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 listSqlInjectionMatchSets
-    :: Natural -- ^ 'lsimsLimit'
-    -> ListSqlInjectionMatchSets
-listSqlInjectionMatchSets pLimit_ =
+    :: ListSqlInjectionMatchSets
+listSqlInjectionMatchSets =
     ListSqlInjectionMatchSets'
     { _lsimsNextMarker = Nothing
-    , _lsimsLimit = _Nat # pLimit_
+    , _lsimsLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more 'SqlInjectionMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SqlInjectionMatchSets@ . For the second and subsequent @ListSqlInjectionMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SqlInjectionMatchSets@ .
@@ -77,8 +79,16 @@ lsimsNextMarker :: Lens' ListSqlInjectionMatchSets (Maybe Text)
 lsimsNextMarker = lens _lsimsNextMarker (\ s a -> s{_lsimsNextMarker = a});
 
 -- | Specifies the number of 'SqlInjectionMatchSet' objects that you want AWS WAF to return for this request. If you have more @SqlInjectionMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-lsimsLimit :: Lens' ListSqlInjectionMatchSets Natural
-lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . _Nat;
+lsimsLimit :: Lens' ListSqlInjectionMatchSets (Maybe Natural)
+lsimsLimit = lens _lsimsLimit (\ s a -> s{_lsimsLimit = a}) . mapping _Nat;
+
+instance AWSPager ListSqlInjectionMatchSets where
+        page rq rs
+          | stop (rs ^. lsimsrsNextMarker) = Nothing
+          | stop (rs ^. lsimsrsSqlInjectionMatchSets) = Nothing
+          | otherwise =
+            Just $ rq &
+              lsimsNextMarker .~ rs ^. lsimsrsNextMarker
 
 instance AWSRequest ListSqlInjectionMatchSets where
         type Rs ListSqlInjectionMatchSets =
@@ -111,7 +121,7 @@ instance ToJSON ListSqlInjectionMatchSets where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lsimsNextMarker,
-                  Just ("Limit" .= _lsimsLimit)])
+                  ("Limit" .=) <$> _lsimsLimit])
 
 instance ToPath ListSqlInjectionMatchSets where
         toPath = const "/"

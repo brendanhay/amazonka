@@ -109,7 +109,7 @@ data GetIPSetResponse = GetIPSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gisrsIPSet' - Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+-- * 'gisrsIPSet' - Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 --
 -- * 'gisrsResponseStatus' - -- | The response status code.
 getIPSetResponse
@@ -121,7 +121,7 @@ getIPSetResponse pResponseStatus_ =
     , _gisrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+-- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@      * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
 gisrsIPSet :: Lens' GetIPSetResponse (Maybe IPSet)
 gisrsIPSet = lens _gisrsIPSet (\ s a -> s{_gisrsIPSet = a});
 

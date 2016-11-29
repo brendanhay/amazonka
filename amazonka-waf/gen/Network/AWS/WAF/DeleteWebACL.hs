@@ -23,7 +23,13 @@
 --
 -- To delete a @WebACL@ , perform the following steps:
 --
---     * Update the @WebACL@ to remove @Rules@ , if any. For more information, see 'UpdateWebACL' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteWebACL@ request.    * Submit a @DeleteWebACL@ request.
+--     * Update the @WebACL@ to remove @Rules@ , if any. For more information, see 'UpdateWebACL' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteWebACL@ request.
+--
+--     * Submit a @DeleteWebACL@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteWebACL
     (

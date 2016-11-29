@@ -113,7 +113,7 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gscsrsSizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- * 'gscsrsSizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
 -- * 'gscsrsResponseStatus' - -- | The response status code.
 getSizeConstraintSetResponse
@@ -125,7 +125,7 @@ getSizeConstraintSetResponse pResponseStatus_ =
     , _gscsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
 gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a});
 

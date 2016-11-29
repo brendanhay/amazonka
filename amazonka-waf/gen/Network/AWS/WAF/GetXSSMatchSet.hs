@@ -118,7 +118,7 @@ data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gxmsrsXSSMatchSet' - Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects    * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- * 'gxmsrsXSSMatchSet' - Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
 -- * 'gxmsrsResponseStatus' - -- | The response status code.
 getXSSMatchSetResponse
@@ -130,7 +130,7 @@ getXSSMatchSetResponse pResponseStatus_ =
     , _gxmsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects    * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
 gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\ s a -> s{_gxmsrsXSSMatchSet = a});
 

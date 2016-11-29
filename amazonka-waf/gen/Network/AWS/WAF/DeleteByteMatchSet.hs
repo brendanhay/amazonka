@@ -25,7 +25,13 @@
 --
 -- To permanently delete a @ByteMatchSet@ , perform the following steps:
 --
---     * Update the @ByteMatchSet@ to remove filters, if any. For more information, see 'UpdateByteMatchSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteByteMatchSet@ request.    * Submit a @DeleteByteMatchSet@ request.
+--     * Update the @ByteMatchSet@ to remove filters, if any. For more information, see 'UpdateByteMatchSet' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteByteMatchSet@ request.
+--
+--     * Submit a @DeleteByteMatchSet@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteByteMatchSet
     (

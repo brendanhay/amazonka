@@ -108,7 +108,7 @@ data GetRuleResponse = GetRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRule' - Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
+-- * 'grrsRule' - Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@      * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 --
 -- * 'grrsResponseStatus' - -- | The response status code.
 getRuleResponse
@@ -120,7 +120,7 @@ getRuleResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
+-- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@      * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
 grrsRule :: Lens' GetRuleResponse (Maybe Rule)
 grrsRule = lens _grrsRule (\ s a -> s{_grrsRule = a});
 

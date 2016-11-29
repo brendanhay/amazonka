@@ -25,7 +25,13 @@
 --
 -- To permanently delete an @IPSet@ from AWS WAF, perform the following steps:
 --
---     * Update the @IPSet@ to remove IP address ranges, if any. For more information, see 'UpdateIPSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteIPSet@ request.    * Submit a @DeleteIPSet@ request.
+--     * Update the @IPSet@ to remove IP address ranges, if any. For more information, see 'UpdateIPSet' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteIPSet@ request.
+--
+--     * Submit a @DeleteIPSet@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteIPSet
     (

@@ -109,7 +109,7 @@ data GetWebACLResponse = GetWebACLResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gwarsWebACL' - Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@     * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@     * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@     * @Action@ : Contains @Type@
+-- * 'gwarsWebACL' - Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@      * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@      * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@      * @Action@ : Contains @Type@
 --
 -- * 'gwarsResponseStatus' - -- | The response status code.
 getWebACLResponse
@@ -121,7 +121,7 @@ getWebACLResponse pResponseStatus_ =
     , _gwarsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@     * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@     * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@     * @Action@ : Contains @Type@
+-- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@      * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@      * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@      * @Action@ : Contains @Type@
 gwarsWebACL :: Lens' GetWebACLResponse (Maybe WebACL)
 gwarsWebACL = lens _gwarsWebACL (\ s a -> s{_gwarsWebACL = a});
 

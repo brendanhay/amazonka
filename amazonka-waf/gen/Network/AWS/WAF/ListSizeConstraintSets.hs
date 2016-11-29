@@ -21,6 +21,8 @@
 -- Returns an array of 'SizeConstraintSetSummary' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListSizeConstraintSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListSizeConstraintSets
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -49,7 +52,7 @@ import           Network.AWS.WAF.Types.Product
 -- | /See:/ 'listSizeConstraintSets' smart constructor.
 data ListSizeConstraintSets = ListSizeConstraintSets'
     { _lscsNextMarker :: !(Maybe Text)
-    , _lscsLimit      :: !Nat
+    , _lscsLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListSizeConstraintSets' with the minimum fields required to make a request.
@@ -60,12 +63,11 @@ data ListSizeConstraintSets = ListSizeConstraintSets'
 --
 -- * 'lscsLimit' - Specifies the number of @SizeConstraintSet@ objects that you want AWS WAF to return for this request. If you have more @SizeConstraintSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @SizeConstraintSet@ objects.
 listSizeConstraintSets
-    :: Natural -- ^ 'lscsLimit'
-    -> ListSizeConstraintSets
-listSizeConstraintSets pLimit_ =
+    :: ListSizeConstraintSets
+listSizeConstraintSets =
     ListSizeConstraintSets'
     { _lscsNextMarker = Nothing
-    , _lscsLimit = _Nat # pLimit_
+    , _lscsLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @SizeConstraintSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @SizeConstraintSets@ . For the second and subsequent @ListSizeConstraintSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @SizeConstraintSets@ .
@@ -73,8 +75,15 @@ lscsNextMarker :: Lens' ListSizeConstraintSets (Maybe Text)
 lscsNextMarker = lens _lscsNextMarker (\ s a -> s{_lscsNextMarker = a});
 
 -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS WAF to return for this request. If you have more @SizeConstraintSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @SizeConstraintSet@ objects.
-lscsLimit :: Lens' ListSizeConstraintSets Natural
-lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . _Nat;
+lscsLimit :: Lens' ListSizeConstraintSets (Maybe Natural)
+lscsLimit = lens _lscsLimit (\ s a -> s{_lscsLimit = a}) . mapping _Nat;
+
+instance AWSPager ListSizeConstraintSets where
+        page rq rs
+          | stop (rs ^. lscsrsNextMarker) = Nothing
+          | stop (rs ^. lscsrsSizeConstraintSets) = Nothing
+          | otherwise =
+            Just $ rq & lscsNextMarker .~ rs ^. lscsrsNextMarker
 
 instance AWSRequest ListSizeConstraintSets where
         type Rs ListSizeConstraintSets =
@@ -107,7 +116,7 @@ instance ToJSON ListSizeConstraintSets where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lscsNextMarker,
-                  Just ("Limit" .= _lscsLimit)])
+                  ("Limit" .=) <$> _lscsLimit])
 
 instance ToPath ListSizeConstraintSets where
         toPath = const "/"

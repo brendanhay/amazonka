@@ -21,11 +21,31 @@
 -- Inserts or deletes 'ActivatedRule' objects in a @WebACL@ . Each @Rule@ identifies web requests that you want to allow, block, or count. When you update a @WebACL@ , you specify the following values:
 --
 --
---     * A default action for the @WebACL@ , either @ALLOW@ or @BLOCK@ . AWS WAF performs the default action if a request doesn't match the criteria in any of the @Rules@ in a @WebACL@ .    * The @Rules@ that you want to add and/or delete. If you want to replace one @Rule@ with another, you delete the existing @Rule@ and add the new one.    * For each @Rule@ , whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the @Rule@ .    * The order in which you want AWS WAF to evaluate the @Rules@ in a @WebACL@ . If you add more than one @Rule@ to a @WebACL@ , AWS WAF evaluates each request against the @Rules@ in order based on the value of @Priority@ . (The @Rule@ that has the lowest value for @Priority@ is evaluated first.) When a web request matches all of the predicates (such as @ByteMatchSets@ and @IPSets@ ) in a @Rule@ , AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining @Rules@ in the @WebACL@ , if any.     * The CloudFront distribution that you want to associate with the @WebACL@ .
+--     * A default action for the @WebACL@ , either @ALLOW@ or @BLOCK@ . AWS WAF performs the default action if a request doesn't match the criteria in any of the @Rules@ in a @WebACL@ .
+--
+--     * The @Rules@ that you want to add and/or delete. If you want to replace one @Rule@ with another, you delete the existing @Rule@ and add the new one.
+--
+--     * For each @Rule@ , whether you want AWS WAF to allow requests, block requests, or count requests that match the conditions in the @Rule@ .
+--
+--     * The order in which you want AWS WAF to evaluate the @Rules@ in a @WebACL@ . If you add more than one @Rule@ to a @WebACL@ , AWS WAF evaluates each request against the @Rules@ in order based on the value of @Priority@ . (The @Rule@ that has the lowest value for @Priority@ is evaluated first.) When a web request matches all of the predicates (such as @ByteMatchSets@ and @IPSets@ ) in a @Rule@ , AWS WAF immediately takes the corresponding action, allow or block, and doesn't evaluate the request against the remaining @Rules@ in the @WebACL@ , if any.
+--
+--     * The CloudFront distribution that you want to associate with the @WebACL@ .
+--
+--
 --
 -- To create and configure a @WebACL@ , perform the following steps:
 --
---     * Create and update the predicates that you want to include in @Rules@ . For more information, see 'CreateByteMatchSet' , 'UpdateByteMatchSet' , 'CreateIPSet' , 'UpdateIPSet' , 'CreateSqlInjectionMatchSet' , and 'UpdateSqlInjectionMatchSet' .    * Create and update the @Rules@ that you want to include in the @WebACL@ . For more information, see 'CreateRule' and 'UpdateRule' .    * Create a @WebACL@ . See 'CreateWebACL' .    * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateWebACL' request.    * Submit an @UpdateWebACL@ request to specify the @Rules@ that you want to include in the @WebACL@ , to specify the default action, and to associate the @WebACL@ with a CloudFront distribution.
+--     * Create and update the predicates that you want to include in @Rules@ . For more information, see 'CreateByteMatchSet' , 'UpdateByteMatchSet' , 'CreateIPSet' , 'UpdateIPSet' , 'CreateSqlInjectionMatchSet' , and 'UpdateSqlInjectionMatchSet' .
+--
+--     * Create and update the @Rules@ that you want to include in the @WebACL@ . For more information, see 'CreateRule' and 'UpdateRule' .
+--
+--     * Create a @WebACL@ . See 'CreateWebACL' .
+--
+--     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateWebACL' request.
+--
+--     * Submit an @UpdateWebACL@ request to specify the @Rules@ that you want to include in the @WebACL@ , to specify the default action, and to associate the @WebACL@ with a CloudFront distribution.
+--
+--
 --
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --
@@ -67,7 +87,7 @@ data UpdateWebACL = UpdateWebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@     * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@     * 'WafAction' : Contains @Type@
+-- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@      * 'WafAction' : Contains @Type@
 --
 -- * 'uwaDefaultAction' - Undocumented member.
 --
@@ -86,7 +106,7 @@ updateWebACL pWebACLId_ pChangeToken_ =
     , _uwaChangeToken = pChangeToken_
     }
 
--- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@     * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@     * 'WafAction' : Contains @Type@
+-- | An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@      * 'WafAction' : Contains @Type@
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
 uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce;
 

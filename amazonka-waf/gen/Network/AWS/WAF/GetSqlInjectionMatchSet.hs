@@ -123,7 +123,7 @@ data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsimsrsSqlInjectionMatchSet' - Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects    * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- * 'gsimsrsSqlInjectionMatchSet' - Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
 -- * 'gsimsrsResponseStatus' - -- | The response status code.
 getSqlInjectionMatchSetResponse
@@ -135,7 +135,7 @@ getSqlInjectionMatchSetResponse pResponseStatus_ =
     , _gsimsrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects    * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@     * 'FieldToMatch' : Contains @Data@ and @Type@
+-- | Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 gsimsrsSqlInjectionMatchSet :: Lens' GetSqlInjectionMatchSetResponse (Maybe SqlInjectionMatchSet)
 gsimsrsSqlInjectionMatchSet = lens _gsimsrsSqlInjectionMatchSet (\ s a -> s{_gsimsrsSqlInjectionMatchSet = a});
 

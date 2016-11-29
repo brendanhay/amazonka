@@ -25,7 +25,13 @@
 --
 -- To permanently delete a @Rule@ from AWS WAF, perform the following steps:
 --
---     * Update the @Rule@ to remove predicates, if any. For more information, see 'UpdateRule' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRule@ request.    * Submit a @DeleteRule@ request.
+--     * Update the @Rule@ to remove predicates, if any. For more information, see 'UpdateRule' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRule@ request.
+--
+--     * Submit a @DeleteRule@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteRule
     (

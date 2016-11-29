@@ -21,6 +21,8 @@
 -- Returns an array of 'XssMatchSet' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListXSSMatchSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListXSSMatchSets
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -53,7 +56,7 @@ import           Network.AWS.WAF.Types.Product
 -- /See:/ 'listXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
     { _lxmsNextMarker :: !(Maybe Text)
-    , _lxmsLimit      :: !Nat
+    , _lxmsLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListXSSMatchSets' with the minimum fields required to make a request.
@@ -64,12 +67,11 @@ data ListXSSMatchSets = ListXSSMatchSets'
 --
 -- * 'lxmsLimit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 listXSSMatchSets
-    :: Natural -- ^ 'lxmsLimit'
-    -> ListXSSMatchSets
-listXSSMatchSets pLimit_ =
+    :: ListXSSMatchSets
+listXSSMatchSets =
     ListXSSMatchSets'
     { _lxmsNextMarker = Nothing
-    , _lxmsLimit = _Nat # pLimit_
+    , _lxmsLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
@@ -77,8 +79,15 @@ lxmsNextMarker :: Lens' ListXSSMatchSets (Maybe Text)
 lxmsNextMarker = lens _lxmsNextMarker (\ s a -> s{_lxmsNextMarker = a});
 
 -- | Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-lxmsLimit :: Lens' ListXSSMatchSets Natural
-lxmsLimit = lens _lxmsLimit (\ s a -> s{_lxmsLimit = a}) . _Nat;
+lxmsLimit :: Lens' ListXSSMatchSets (Maybe Natural)
+lxmsLimit = lens _lxmsLimit (\ s a -> s{_lxmsLimit = a}) . mapping _Nat;
+
+instance AWSPager ListXSSMatchSets where
+        page rq rs
+          | stop (rs ^. lxmsrsNextMarker) = Nothing
+          | stop (rs ^. lxmsrsXSSMatchSets) = Nothing
+          | otherwise =
+            Just $ rq & lxmsNextMarker .~ rs ^. lxmsrsNextMarker
 
 instance AWSRequest ListXSSMatchSets where
         type Rs ListXSSMatchSets = ListXSSMatchSetsResponse
@@ -109,7 +118,7 @@ instance ToJSON ListXSSMatchSets where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lxmsNextMarker,
-                  Just ("Limit" .= _lxmsLimit)])
+                  ("Limit" .=) <$> _lxmsLimit])
 
 instance ToPath ListXSSMatchSets where
         toPath = const "/"

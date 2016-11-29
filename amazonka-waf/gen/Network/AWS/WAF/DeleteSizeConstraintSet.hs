@@ -25,7 +25,13 @@
 --
 -- To permanently delete a @SizeConstraintSet@ , perform the following steps:
 --
---     * Update the @SizeConstraintSet@ to remove filters, if any. For more information, see 'UpdateSizeConstraintSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSizeConstraintSet@ request.    * Submit a @DeleteSizeConstraintSet@ request.
+--     * Update the @SizeConstraintSet@ to remove filters, if any. For more information, see 'UpdateSizeConstraintSet' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSizeConstraintSet@ request.
+--
+--     * Submit a @DeleteSizeConstraintSet@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteSizeConstraintSet
     (

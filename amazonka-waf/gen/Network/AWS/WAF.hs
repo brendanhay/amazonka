@@ -82,10 +82,10 @@ module Network.AWS.WAF
     -- ** UpdateWebACL
     , module Network.AWS.WAF.UpdateWebACL
 
-    -- ** ListWebACLs
+    -- ** ListWebACLs (Paginated)
     , module Network.AWS.WAF.ListWebACLs
 
-    -- ** ListRules
+    -- ** ListRules (Paginated)
     , module Network.AWS.WAF.ListRules
 
     -- ** CreateRule
@@ -94,7 +94,7 @@ module Network.AWS.WAF
     -- ** CreateWebACL
     , module Network.AWS.WAF.CreateWebACL
 
-    -- ** ListByteMatchSets
+    -- ** ListByteMatchSets (Paginated)
     , module Network.AWS.WAF.ListByteMatchSets
 
     -- ** GetIPSet
@@ -112,13 +112,13 @@ module Network.AWS.WAF
     -- ** UpdateXSSMatchSet
     , module Network.AWS.WAF.UpdateXSSMatchSet
 
-    -- ** ListXSSMatchSets
+    -- ** ListXSSMatchSets (Paginated)
     , module Network.AWS.WAF.ListXSSMatchSets
 
     -- ** GetChangeToken
     , module Network.AWS.WAF.GetChangeToken
 
-    -- ** ListSizeConstraintSets
+    -- ** ListSizeConstraintSets (Paginated)
     , module Network.AWS.WAF.ListSizeConstraintSets
 
     -- ** GetSampledRequests
@@ -148,7 +148,7 @@ module Network.AWS.WAF
     -- ** UpdateIPSet
     , module Network.AWS.WAF.UpdateIPSet
 
-    -- ** ListIPSets
+    -- ** ListIPSets (Paginated)
     , module Network.AWS.WAF.ListIPSets
 
     -- ** CreateXSSMatchSet
@@ -166,7 +166,7 @@ module Network.AWS.WAF
     -- ** CreateSizeConstraintSet
     , module Network.AWS.WAF.CreateSizeConstraintSet
 
-    -- ** ListSqlInjectionMatchSets
+    -- ** ListSqlInjectionMatchSets (Paginated)
     , module Network.AWS.WAF.ListSqlInjectionMatchSets
 
     -- ** DeleteSqlInjectionMatchSet

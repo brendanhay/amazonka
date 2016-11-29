@@ -21,7 +21,13 @@
 -- Returns the status of a @ChangeToken@ that you got by calling 'GetChangeToken' . @ChangeTokenStatus@ is one of the following values:
 --
 --
---     * @PROVISIONED@ : You requested the change token by calling @GetChangeToken@ , but you haven't used it yet in a call to create, update, or delete an AWS WAF object.    * @PENDING@ : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.    * @IN_SYNC@ : Propagation is complete.
+--     * @PROVISIONED@ : You requested the change token by calling @GetChangeToken@ , but you haven't used it yet in a call to create, update, or delete an AWS WAF object.
+--
+--     * @PENDING@ : AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
+--
+--     * @IN_SYNC@ : Propagation is complete.
+--
+--
 --
 module Network.AWS.WAF.GetChangeTokenStatus
     (

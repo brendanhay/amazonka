@@ -25,7 +25,13 @@
 --
 -- To permanently delete a @SqlInjectionMatchSet@ from AWS WAF, perform the following steps:
 --
---     * Update the @SqlInjectionMatchSet@ to remove filters, if any. For more information, see 'UpdateSqlInjectionMatchSet' .    * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSqlInjectionMatchSet@ request.    * Submit a @DeleteSqlInjectionMatchSet@ request.
+--     * Update the @SqlInjectionMatchSet@ to remove filters, if any. For more information, see 'UpdateSqlInjectionMatchSet' .
+--
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteSqlInjectionMatchSet@ request.
+--
+--     * Submit a @DeleteSqlInjectionMatchSet@ request.
+--
+--
 --
 module Network.AWS.WAF.DeleteSqlInjectionMatchSet
     (

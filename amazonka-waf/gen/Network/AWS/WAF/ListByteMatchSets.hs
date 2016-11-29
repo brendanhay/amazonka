@@ -21,6 +21,8 @@
 -- Returns an array of 'ByteMatchSetSummary' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListByteMatchSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListByteMatchSets
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -49,7 +52,7 @@ import           Network.AWS.WAF.Types.Product
 -- | /See:/ 'listByteMatchSets' smart constructor.
 data ListByteMatchSets = ListByteMatchSets'
     { _lbmsNextMarker :: !(Maybe Text)
-    , _lbmsLimit      :: !Nat
+    , _lbmsLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListByteMatchSets' with the minimum fields required to make a request.
@@ -60,12 +63,11 @@ data ListByteMatchSets = ListByteMatchSets'
 --
 -- * 'lbmsLimit' - Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
 listByteMatchSets
-    :: Natural -- ^ 'lbmsLimit'
-    -> ListByteMatchSets
-listByteMatchSets pLimit_ =
+    :: ListByteMatchSets
+listByteMatchSets =
     ListByteMatchSets'
     { _lbmsNextMarker = Nothing
-    , _lbmsLimit = _Nat # pLimit_
+    , _lbmsLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ByteMatchSets@ . For the second and subsequent @ListByteMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
@@ -73,8 +75,15 @@ lbmsNextMarker :: Lens' ListByteMatchSets (Maybe Text)
 lbmsNextMarker = lens _lbmsNextMarker (\ s a -> s{_lbmsNextMarker = a});
 
 -- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to return for this request. If you have more @ByteMatchSets@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ByteMatchSet@ objects.
-lbmsLimit :: Lens' ListByteMatchSets Natural
-lbmsLimit = lens _lbmsLimit (\ s a -> s{_lbmsLimit = a}) . _Nat;
+lbmsLimit :: Lens' ListByteMatchSets (Maybe Natural)
+lbmsLimit = lens _lbmsLimit (\ s a -> s{_lbmsLimit = a}) . mapping _Nat;
+
+instance AWSPager ListByteMatchSets where
+        page rq rs
+          | stop (rs ^. lbmsrsNextMarker) = Nothing
+          | stop (rs ^. lbmsrsByteMatchSets) = Nothing
+          | otherwise =
+            Just $ rq & lbmsNextMarker .~ rs ^. lbmsrsNextMarker
 
 instance AWSRequest ListByteMatchSets where
         type Rs ListByteMatchSets = ListByteMatchSetsResponse
@@ -105,7 +114,7 @@ instance ToJSON ListByteMatchSets where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lbmsNextMarker,
-                  Just ("Limit" .= _lbmsLimit)])
+                  ("Limit" .=) <$> _lbmsLimit])
 
 instance ToPath ListByteMatchSets where
         toPath = const "/"

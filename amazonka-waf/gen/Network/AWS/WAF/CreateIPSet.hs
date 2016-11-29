@@ -23,7 +23,15 @@
 --
 -- To create and configure an @IPSet@ , perform the following steps:
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateIPSet@ request.    * Submit a @CreateIPSet@ request.    * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateIPSet' request.    * Submit an @UpdateIPSet@ request to specify the IP addresses that you want AWS WAF to watch for.
+--     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateIPSet@ request.
+--
+--     * Submit a @CreateIPSet@ request.
+--
+--     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateIPSet' request.
+--
+--     * Submit an @UpdateIPSet@ request to specify the IP addresses that you want AWS WAF to watch for.
+--
+--
 --
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 --

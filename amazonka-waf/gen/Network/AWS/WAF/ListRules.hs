@@ -21,6 +21,8 @@
 -- Returns an array of 'RuleSummary' objects.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListRules
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListRules
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -49,7 +52,7 @@ import           Network.AWS.WAF.Types.Product
 -- | /See:/ 'listRules' smart constructor.
 data ListRules = ListRules'
     { _lrNextMarker :: !(Maybe Text)
-    , _lrLimit      :: !Nat
+    , _lrLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRules' with the minimum fields required to make a request.
@@ -60,12 +63,11 @@ data ListRules = ListRules'
 --
 -- * 'lrLimit' - Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 listRules
-    :: Natural -- ^ 'lrLimit'
-    -> ListRules
-listRules pLimit_ =
+    :: ListRules
+listRules =
     ListRules'
     { _lrNextMarker = Nothing
-    , _lrLimit = _Nat # pLimit_
+    , _lrLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
@@ -73,8 +75,15 @@ lrNextMarker :: Lens' ListRules (Maybe Text)
 lrNextMarker = lens _lrNextMarker (\ s a -> s{_lrNextMarker = a});
 
 -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-lrLimit :: Lens' ListRules Natural
-lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . _Nat;
+lrLimit :: Lens' ListRules (Maybe Natural)
+lrLimit = lens _lrLimit (\ s a -> s{_lrLimit = a}) . mapping _Nat;
+
+instance AWSPager ListRules where
+        page rq rs
+          | stop (rs ^. lrrsNextMarker) = Nothing
+          | stop (rs ^. lrrsRules) = Nothing
+          | otherwise =
+            Just $ rq & lrNextMarker .~ rs ^. lrrsNextMarker
 
 instance AWSRequest ListRules where
         type Rs ListRules = ListRulesResponse
@@ -104,7 +113,7 @@ instance ToJSON ListRules where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lrNextMarker,
-                  Just ("Limit" .= _lrLimit)])
+                  ("Limit" .=) <$> _lrLimit])
 
 instance ToPath ListRules where
         toPath = const "/"

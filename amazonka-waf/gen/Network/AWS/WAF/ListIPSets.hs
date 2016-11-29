@@ -21,6 +21,8 @@
 -- Returns an array of 'IPSetSummary' objects in the response.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WAF.ListIPSets
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.WAF.ListIPSets
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -49,7 +52,7 @@ import           Network.AWS.WAF.Types.Product
 -- | /See:/ 'listIPSets' smart constructor.
 data ListIPSets = ListIPSets'
     { _lisNextMarker :: !(Maybe Text)
-    , _lisLimit      :: !Nat
+    , _lisLimit      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListIPSets' with the minimum fields required to make a request.
@@ -60,12 +63,11 @@ data ListIPSets = ListIPSets'
 --
 -- * 'lisLimit' - Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
 listIPSets
-    :: Natural -- ^ 'lisLimit'
-    -> ListIPSets
-listIPSets pLimit_ =
+    :: ListIPSets
+listIPSets =
     ListIPSets'
     { _lisNextMarker = Nothing
-    , _lisLimit = _Nat # pLimit_
+    , _lisLimit = Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @IPSets@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @IPSets@ . For the second and subsequent @ListIPSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ByteMatchSets@ .
@@ -73,8 +75,15 @@ lisNextMarker :: Lens' ListIPSets (Maybe Text)
 lisNextMarker = lens _lisNextMarker (\ s a -> s{_lisNextMarker = a});
 
 -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return for this request. If you have more @IPSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @IPSet@ objects.
-lisLimit :: Lens' ListIPSets Natural
-lisLimit = lens _lisLimit (\ s a -> s{_lisLimit = a}) . _Nat;
+lisLimit :: Lens' ListIPSets (Maybe Natural)
+lisLimit = lens _lisLimit (\ s a -> s{_lisLimit = a}) . mapping _Nat;
+
+instance AWSPager ListIPSets where
+        page rq rs
+          | stop (rs ^. lisrsNextMarker) = Nothing
+          | stop (rs ^. lisrsIPSets) = Nothing
+          | otherwise =
+            Just $ rq & lisNextMarker .~ rs ^. lisrsNextMarker
 
 instance AWSRequest ListIPSets where
         type Rs ListIPSets = ListIPSetsResponse
@@ -104,7 +113,7 @@ instance ToJSON ListIPSets where
           = object
               (catMaybes
                  [("NextMarker" .=) <$> _lisNextMarker,
-                  Just ("Limit" .= _lisLimit)])
+                  ("Limit" .=) <$> _lisLimit])
 
 instance ToPath ListIPSets where
         toPath = const "/"

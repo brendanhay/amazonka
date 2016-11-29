@@ -17,6 +17,8 @@ module Network.AWS.DirectConnect.Types
 
     -- * Errors
     , _DirectConnectClientException
+    , _DuplicateTagKeysException
+    , _TooManyTagsException
     , _DirectConnectServerException
 
     -- * ConnectionState
@@ -116,10 +118,22 @@ module Network.AWS.DirectConnect.Types
     , newCustomerAddress
     , newRouteFilterPrefixes
 
+    -- * ResourceTag
+    , ResourceTag
+    , resourceTag
+    , rtResourceARN
+    , rtTags
+
     -- * RouteFilterPrefix
     , RouteFilterPrefix
     , routeFilterPrefix
     , rfpCidr
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
 
     -- * VirtualGateway
     , VirtualGateway
@@ -193,6 +207,19 @@ directConnect =
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectClientException =
     _ServiceError . hasCode "DirectConnectClientException"
+
+-- | A tag key was specified more than once.
+--
+--
+_DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateTagKeysException =
+    _ServiceError . hasCode "DuplicateTagKeysException"
+
+-- | You have reached the limit on the number of tags that can be assigned to a Direct Connect resource.
+--
+--
+_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyTagsException = _ServiceError . hasCode "TooManyTagsException"
 
 -- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
 --

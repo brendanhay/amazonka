@@ -25,6 +25,12 @@ module Network.AWS.DirectConnect
     -- ** DirectConnectClientException
     , _DirectConnectClientException
 
+    -- ** DuplicateTagKeysException
+    , _DuplicateTagKeysException
+
+    -- ** TooManyTagsException
+    , _TooManyTagsException
+
     -- ** DirectConnectServerException
     , _DirectConnectServerException
 
@@ -36,6 +42,9 @@ module Network.AWS.DirectConnect
 
     -- ** DescribeInterconnects
     , module Network.AWS.DirectConnect.DescribeInterconnects
+
+    -- ** DescribeTags
+    , module Network.AWS.DirectConnect.DescribeTags
 
     -- ** DeleteConnection
     , module Network.AWS.DirectConnect.DeleteConnection
@@ -90,6 +99,12 @@ module Network.AWS.DirectConnect
 
     -- ** AllocateConnectionOnInterconnect
     , module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+
+    -- ** TagResource
+    , module Network.AWS.DirectConnect.TagResource
+
+    -- ** UntagResource
+    , module Network.AWS.DirectConnect.UntagResource
 
     -- ** CreateInterconnect
     , module Network.AWS.DirectConnect.CreateInterconnect
@@ -196,10 +211,22 @@ module Network.AWS.DirectConnect
     , newCustomerAddress
     , newRouteFilterPrefixes
 
+    -- ** ResourceTag
+    , ResourceTag
+    , resourceTag
+    , rtResourceARN
+    , rtTags
+
     -- ** RouteFilterPrefix
     , RouteFilterPrefix
     , routeFilterPrefix
     , rfpCidr
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagValue
+    , tagKey
 
     -- ** VirtualGateway
     , VirtualGateway
@@ -246,9 +273,12 @@ import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
 import           Network.AWS.DirectConnect.DescribeInterconnectLoa
 import           Network.AWS.DirectConnect.DescribeInterconnects
 import           Network.AWS.DirectConnect.DescribeLocations
+import           Network.AWS.DirectConnect.DescribeTags
 import           Network.AWS.DirectConnect.DescribeVirtualGateways
 import           Network.AWS.DirectConnect.DescribeVirtualInterfaces
+import           Network.AWS.DirectConnect.TagResource
 import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.UntagResource
 import           Network.AWS.DirectConnect.Waiters
 
 {- $errors

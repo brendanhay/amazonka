@@ -31,6 +31,9 @@ import Test.AWS.DirectConnect.Internal
 --         [ requestDescribeInterconnects $
 --             describeInterconnects
 --
+--         , requestDescribeTags $
+--             describeTags
+--
 --         , requestDeleteConnection $
 --             deleteConnection
 --
@@ -85,6 +88,12 @@ import Test.AWS.DirectConnect.Internal
 --         , requestAllocateConnectionOnInterconnect $
 --             allocateConnectionOnInterconnect
 --
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestUntagResource $
+--             untagResource
+--
 --         , requestCreateInterconnect $
 --             createInterconnect
 --
@@ -96,6 +105,9 @@ import Test.AWS.DirectConnect.Internal
 --     , testGroup "response"
 --         [ responseDescribeInterconnects $
 --             describeInterconnectsResponse
+--
+--         , responseDescribeTags $
+--             describeTagsResponse
 --
 --         , responseDeleteConnection $
 --             connection
@@ -151,6 +163,12 @@ import Test.AWS.DirectConnect.Internal
 --         , responseAllocateConnectionOnInterconnect $
 --             connection
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
+--
 --         , responseCreateInterconnect $
 --             interconnect
 --
@@ -166,6 +184,11 @@ requestDescribeInterconnects :: DescribeInterconnects -> TestTree
 requestDescribeInterconnects = req
     "DescribeInterconnects"
     "fixture/DescribeInterconnects.yaml"
+
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
 
 requestDeleteConnection :: DeleteConnection -> TestTree
 requestDeleteConnection = req
@@ -257,6 +280,16 @@ requestAllocateConnectionOnInterconnect = req
     "AllocateConnectionOnInterconnect"
     "fixture/AllocateConnectionOnInterconnect.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestCreateInterconnect :: CreateInterconnect -> TestTree
 requestCreateInterconnect = req
     "CreateInterconnect"
@@ -275,6 +308,13 @@ responseDescribeInterconnects = res
     "fixture/DescribeInterconnectsResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeInterconnects)
+
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags = res
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeTags)
 
 responseDeleteConnection :: Connection -> TestTree
 responseDeleteConnection = res
@@ -401,6 +441,20 @@ responseAllocateConnectionOnInterconnect = res
     "fixture/AllocateConnectionOnInterconnectResponse.proto"
     directConnect
     (Proxy :: Proxy AllocateConnectionOnInterconnect)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    directConnect
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    directConnect
+    (Proxy :: Proxy UntagResource)
 
 responseCreateInterconnect :: Interconnect -> TestTree
 responseCreateInterconnect = res

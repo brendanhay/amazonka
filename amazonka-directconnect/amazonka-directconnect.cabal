@@ -59,9 +59,12 @@ library
         , Network.AWS.DirectConnect.DescribeInterconnectLoa
         , Network.AWS.DirectConnect.DescribeInterconnects
         , Network.AWS.DirectConnect.DescribeLocations
+        , Network.AWS.DirectConnect.DescribeTags
         , Network.AWS.DirectConnect.DescribeVirtualGateways
         , Network.AWS.DirectConnect.DescribeVirtualInterfaces
+        , Network.AWS.DirectConnect.TagResource
         , Network.AWS.DirectConnect.Types
+        , Network.AWS.DirectConnect.UntagResource
         , Network.AWS.DirectConnect.Waiters
 
     other-modules:

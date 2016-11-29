@@ -725,6 +725,50 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
                   Just
                     ("routeFilterPrefixes" .= _newRouteFilterPrefixes)])
 
+-- | The tags associated with a Direct Connect resource.
+--
+--
+--
+-- /See:/ 'resourceTag' smart constructor.
+data ResourceTag = ResourceTag'
+    { _rtResourceARN :: !(Maybe Text)
+    , _rtTags        :: !(Maybe (List1 Tag))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtResourceARN' - The Amazon Resource Name (ARN) of the Direct Connect resource.
+--
+-- * 'rtTags' - The tags.
+resourceTag
+    :: ResourceTag
+resourceTag =
+    ResourceTag'
+    { _rtResourceARN = Nothing
+    , _rtTags = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the Direct Connect resource.
+rtResourceARN :: Lens' ResourceTag (Maybe Text)
+rtResourceARN = lens _rtResourceARN (\ s a -> s{_rtResourceARN = a});
+
+-- | The tags.
+rtTags :: Lens' ResourceTag (Maybe (NonEmpty Tag))
+rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . mapping _List1;
+
+instance FromJSON ResourceTag where
+        parseJSON
+          = withObject "ResourceTag"
+              (\ x ->
+                 ResourceTag' <$>
+                   (x .:? "resourceArn") <*> (x .:? "tags"))
+
+instance Hashable ResourceTag
+
+instance NFData ResourceTag
+
 -- | A route filter prefix that the customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.
 --
 --
@@ -762,6 +806,56 @@ instance NFData RouteFilterPrefix
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
           = object (catMaybes [("cidr" .=) <$> _rfpCidr])
+
+-- | Information about a tag.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagValue :: !(Maybe Text)
+    , _tagKey   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue' - The value of the tag.
+--
+-- * 'tagKey' - The key of the tag.
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
+tag pKey_ =
+    Tag'
+    { _tagValue = Nothing
+    , _tagKey = pKey_
+    }
+
+-- | The value of the tag.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
+-- | The key of the tag.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x -> Tag' <$> (x .:? "value") <*> (x .: "key"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [("value" .=) <$> _tagValue,
+                  Just ("key" .= _tagKey)])
 
 -- | You can create one or more AWS Direct Connect private virtual interfaces linking to your virtual private gateway.
 --

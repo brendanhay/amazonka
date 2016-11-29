@@ -18,7 +18,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Lists the resource record sets in a specified hosted zone.
+--
+--
+-- @ListResourceRecordSets@ returns up to 100 resource record sets at a time in ASCII order, beginning at a position specified by the @name@ and @type@ elements. The action sorts results first by DNS name with the labels reversed, for example:
+--
+-- @com.example.www.@
+--
+-- Note the trailing dot, which can change the sort order in some circumstances.
+--
+-- When multiple records have the same DNS name, the action sorts results by the record type.
+--
+-- You can use the name and type elements to adjust the beginning position of the list of resource record sets returned:
+--
+--     * If you do not specify Name or Type    * The results begin with the first resource record set that the hosted zone contains.
+--
+--     * If you specify Name but not Type    * The results begin with the first resource record set in the list whose name is greater than or equal to @Name@ .
+--
+--     * If you specify Type but not Name    * Amazon Route 53 returns the @InvalidInput@ error.
+--
+--     * If you specify both Name and Type    * The results begin with the first resource record set in the list whose name is greater than or equal to @Name@ , and whose type is greater than or equal to @Type@ .
+--
+--
+--
+-- This action returns the most current version of the records. This includes records that are @PENDING@ , and that are not yet available on all Amazon Route 53 DNS servers.
+--
+-- To ensure that you get an accurate listing of the resource record sets for a hosted zone at a point in time, do not submit a @ChangeResourceRecordSets@ request while you're paging through the results of a @ListResourceRecordSets@ request. If you do, some pages may display results without the latest changes while other pages display results with the latest changes.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
@@ -73,7 +99,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
 --
 -- * 'lrrsStartRecordName' - The first name in the lexicographic ordering of domain names that you want the @ListResourceRecordSets@ request to list.
 --
--- * 'lrrsStartRecordType' - The type of resource record set to begin the record listing from. Valid values for basic resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@  Values for weighted, latency, geo, and failover resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@  Values for alias resource record sets:      * __CloudFront distribution__ : A     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A     * __ELB load balancer__ : A | AAAA     * __Amazon S3 bucket__ : A Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
+-- * 'lrrsStartRecordType' - The type of resource record set to begin the record listing from. Valid values for basic resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@  Values for weighted, latency, geo, and failover resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@  Values for alias resource record sets:      * __CloudFront distribution__ : A or AAAA     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A     * __ELB load balancer__ : A | AAAA     * __Amazon S3 bucket__ : A Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
 --
 -- * 'lrrsStartRecordIdentifier' - /Weighted resource record sets only:/ If results were truncated for a given DNS name and type, specify the value of @NextRecordIdentifier@ from the previous response to get the next resource record set that has the current DNS name and type.
 --
@@ -96,7 +122,7 @@ listResourceRecordSets pHostedZoneId_ =
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
--- | The type of resource record set to begin the record listing from. Valid values for basic resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@  Values for weighted, latency, geo, and failover resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@  Values for alias resource record sets:      * __CloudFront distribution__ : A     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A     * __ELB load balancer__ : A | AAAA     * __Amazon S3 bucket__ : A Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
+-- | The type of resource record set to begin the record listing from. Valid values for basic resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @NS@ | @PTR@ | @SOA@ | @SPF@ | @SRV@ | @TXT@  Values for weighted, latency, geo, and failover resource record sets: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NAPTR@ | @PTR@ | @SPF@ | @SRV@ | @TXT@  Values for alias resource record sets:      * __CloudFront distribution__ : A or AAAA     * __Elastic Beanstalk environment that has a regionalized subdomain__ : A     * __ELB load balancer__ : A | AAAA     * __Amazon S3 bucket__ : A Constraint: Specifying @type@ without specifying @name@ returns an @InvalidInput@ error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 

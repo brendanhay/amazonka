@@ -21,7 +21,7 @@
 -- Updates the comment for a specified traffic policy version.
 --
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicy/@ resource.
+-- Send a @POST@ request to the @/2013-04-01/trafficpolicy/@ resource.
 --
 -- The request body must include a document with an @UpdateTrafficPolicyCommentRequest@ element.
 --

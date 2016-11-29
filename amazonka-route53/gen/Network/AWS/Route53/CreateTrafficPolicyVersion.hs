@@ -21,7 +21,7 @@
 -- Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the traffic policy that you want to update and a JSON-formatted document that describes the new version. You use traffic policies to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com). You can create a maximum of 1000 versions of a traffic policy. If you reach the limit and need to create another version, you'll need to start a new traffic policy.
 --
 --
--- Send a @POST@ request to the @//Amazon Route 53 version/ /trafficpolicy/@ resource. The request body includes a document with a @CreateTrafficPolicyVersionRequest@ element. The response returns the @CreateTrafficPolicyVersionResponse@ element, which contains information about the new version of the traffic policy.
+-- Send a @POST@ request to the @/2013-04-01/trafficpolicy/@ resource. The request body includes a document with a @CreateTrafficPolicyVersionRequest@ element. The response returns the @CreateTrafficPolicyVersionResponse@ element, which contains information about the new version of the traffic policy.
 --
 module Network.AWS.Route53.CreateTrafficPolicyVersion
     (
@@ -148,7 +148,7 @@ data CreateTrafficPolicyVersionResponse = CreateTrafficPolicyVersionResponse'
 --
 -- * 'ctpvrsTrafficPolicy' - A complex type that contains settings for the new version of the traffic policy.
 --
--- * 'ctpvrsLocation' - Undocumented member.
+-- * 'ctpvrsLocation' - A unique URL that represents a new traffic policy version.
 createTrafficPolicyVersionResponse
     :: Int -- ^ 'ctpvrsResponseStatus'
     -> TrafficPolicy -- ^ 'ctpvrsTrafficPolicy'
@@ -169,7 +169,7 @@ ctpvrsResponseStatus = lens _ctpvrsResponseStatus (\ s a -> s{_ctpvrsResponseSta
 ctpvrsTrafficPolicy :: Lens' CreateTrafficPolicyVersionResponse TrafficPolicy
 ctpvrsTrafficPolicy = lens _ctpvrsTrafficPolicy (\ s a -> s{_ctpvrsTrafficPolicy = a});
 
--- | Undocumented member.
+-- | A unique URL that represents a new traffic policy version.
 ctpvrsLocation :: Lens' CreateTrafficPolicyVersionResponse Text
 ctpvrsLocation = lens _ctpvrsLocation (\ s a -> s{_ctpvrsLocation = a});
 

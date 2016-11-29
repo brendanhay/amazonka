@@ -76,6 +76,12 @@ import Test.AWS.Route53.Internal
 --         , requestCreateHostedZone $
 --             createHostedZone
 --
+--         , requestCreateVPCAssociationAuthorization $
+--             createVPCAssociationAuthorization
+--
+--         , requestListVPCAssociationAuthorizations $
+--             listVPCAssociationAuthorizations
+--
 --         , requestListTrafficPolicyInstancesByPolicy $
 --             listTrafficPolicyInstancesByPolicy
 --
@@ -84,6 +90,9 @@ import Test.AWS.Route53.Internal
 --
 --         , requestCreateHealthCheck $
 --             createHealthCheck
+--
+--         , requestDeleteVPCAssociationAuthorization $
+--             deleteVPCAssociationAuthorization
 --
 --         , requestChangeTagsForResource $
 --             changeTagsForResource
@@ -217,6 +226,12 @@ import Test.AWS.Route53.Internal
 --         , responseCreateHostedZone $
 --             createHostedZoneResponse
 --
+--         , responseCreateVPCAssociationAuthorization $
+--             createVPCAssociationAuthorizationResponse
+--
+--         , responseListVPCAssociationAuthorizations $
+--             listVPCAssociationAuthorizationsResponse
+--
 --         , responseListTrafficPolicyInstancesByPolicy $
 --             listTrafficPolicyInstancesByPolicyResponse
 --
@@ -225,6 +240,9 @@ import Test.AWS.Route53.Internal
 --
 --         , responseCreateHealthCheck $
 --             createHealthCheckResponse
+--
+--         , responseDeleteVPCAssociationAuthorization $
+--             deleteVPCAssociationAuthorizationResponse
 --
 --         , responseChangeTagsForResource $
 --             changeTagsForResourceResponse
@@ -392,6 +410,16 @@ requestCreateHostedZone = req
     "CreateHostedZone"
     "fixture/CreateHostedZone.yaml"
 
+requestCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorization -> TestTree
+requestCreateVPCAssociationAuthorization = req
+    "CreateVPCAssociationAuthorization"
+    "fixture/CreateVPCAssociationAuthorization.yaml"
+
+requestListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizations -> TestTree
+requestListVPCAssociationAuthorizations = req
+    "ListVPCAssociationAuthorizations"
+    "fixture/ListVPCAssociationAuthorizations.yaml"
+
 requestListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicy -> TestTree
 requestListTrafficPolicyInstancesByPolicy = req
     "ListTrafficPolicyInstancesByPolicy"
@@ -406,6 +434,11 @@ requestCreateHealthCheck :: CreateHealthCheck -> TestTree
 requestCreateHealthCheck = req
     "CreateHealthCheck"
     "fixture/CreateHealthCheck.yaml"
+
+requestDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorization -> TestTree
+requestDeleteVPCAssociationAuthorization = req
+    "DeleteVPCAssociationAuthorization"
+    "fixture/DeleteVPCAssociationAuthorization.yaml"
 
 requestChangeTagsForResource :: ChangeTagsForResource -> TestTree
 requestChangeTagsForResource = req
@@ -656,6 +689,20 @@ responseCreateHostedZone = res
     route53
     (Proxy :: Proxy CreateHostedZone)
 
+responseCreateVPCAssociationAuthorization :: CreateVPCAssociationAuthorizationResponse -> TestTree
+responseCreateVPCAssociationAuthorization = res
+    "CreateVPCAssociationAuthorizationResponse"
+    "fixture/CreateVPCAssociationAuthorizationResponse.proto"
+    route53
+    (Proxy :: Proxy CreateVPCAssociationAuthorization)
+
+responseListVPCAssociationAuthorizations :: ListVPCAssociationAuthorizationsResponse -> TestTree
+responseListVPCAssociationAuthorizations = res
+    "ListVPCAssociationAuthorizationsResponse"
+    "fixture/ListVPCAssociationAuthorizationsResponse.proto"
+    route53
+    (Proxy :: Proxy ListVPCAssociationAuthorizations)
+
 responseListTrafficPolicyInstancesByPolicy :: ListTrafficPolicyInstancesByPolicyResponse -> TestTree
 responseListTrafficPolicyInstancesByPolicy = res
     "ListTrafficPolicyInstancesByPolicyResponse"
@@ -676,6 +723,13 @@ responseCreateHealthCheck = res
     "fixture/CreateHealthCheckResponse.proto"
     route53
     (Proxy :: Proxy CreateHealthCheck)
+
+responseDeleteVPCAssociationAuthorization :: DeleteVPCAssociationAuthorizationResponse -> TestTree
+responseDeleteVPCAssociationAuthorization = res
+    "DeleteVPCAssociationAuthorizationResponse"
+    "fixture/DeleteVPCAssociationAuthorizationResponse.proto"
+    route53
+    (Proxy :: Proxy DeleteVPCAssociationAuthorization)
 
 responseChangeTagsForResource :: ChangeTagsForResourceResponse -> TestTree
 responseChangeTagsForResource = res

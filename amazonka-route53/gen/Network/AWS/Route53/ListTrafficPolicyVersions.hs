@@ -25,7 +25,7 @@
 --
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policies, you can use the @maxitems@ parameter to list them in groups of up to 100.
 --
--- The response includes three values that help you navigate from one group of @maxitems@ maxitems traffic policies to the next:
+-- The response includes three values that help you navigate from one group of @maxitems@ traffic policies to the next:
 --
 --     * __IsTruncated__
 --

@@ -21,7 +21,7 @@
 -- Updates the resource record sets in a specified hosted zone that were created based on the settings in a specified traffic policy version.
 --
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance//traffic policy ID/ @ resource. The request body must include a document with an @UpdateTrafficPolicyInstanceRequest@ element.
+-- Send a @POST@ request to the @/2013-04-01/trafficpolicyinstance//traffic policy ID/ @ resource. The request body must include a document with an @UpdateTrafficPolicyInstanceRequest@ element.
 --
 -- When you update a traffic policy instance, Amazon Route 53 continues to respond to DNS queries for the root resource record set name (such as example.com) while it replaces one group of resource record sets with another. Amazon Route 53 performs the following operations:
 --

@@ -21,9 +21,9 @@
 -- Creates a new health check.
 --
 --
--- To create a new health check, send a @POST@ request to the @/2013-04-01/healthcheck@ resource. The request body must include an XML document with a @CreateHealthCheckRequest@ element. The response returns the @CreateHealthCheckResponse@ element, containing the health check ID specified when adding health check to a resource record set. For information about adding health checks to resource record sets, see 'ResourceRecordSet$HealthCheckId' in 'ChangeResourceRecordSets' .
+-- To create a new health check, send a @POST@ request to the @/2013-04-01/healthcheck@ resource. The request body must include a document with a @CreateHealthCheckRequest@ element. The response returns the @CreateHealthCheckResponse@ element, containing the health check ID specified when adding health check to a resource record set. For information about adding health checks to resource record sets, see 'ResourceRecordSet$HealthCheckId' in 'ChangeResourceRecordSets' .
 --
--- If you are registering Amazon EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the Amazon EC2 instances. When you register an Amazon EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
+-- If you are registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
 --
 -- You can associate health checks with failover resource record sets in a private hosted zone. Note the following:
 --
@@ -31,7 +31,7 @@
 --
 --     * You can configure a health checker to check the health of an external resource that the instance relies on, such as a database server.
 --
---     * You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 @StatusCheckFailed@ metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch Developer Guide> .
+--     * You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 @StatusCheckFailed@ metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html Amazon CloudWatch User Guide> .
 --
 --
 --

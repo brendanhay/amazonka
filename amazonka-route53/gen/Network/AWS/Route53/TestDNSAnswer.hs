@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
+--
+--
 module Network.AWS.Route53.TestDNSAnswer
     (
     -- * Creating a Request
@@ -86,17 +88,17 @@ data TestDNSAnswer = TestDNSAnswer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tdaResolverIP' - Undocumented member.
+-- * 'tdaResolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East region.
 --
--- * 'tdaEDNS0ClientSubnetIP' - Undocumented member.
+-- * 'tdaEDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IP address of a client in the applicable location.
 --
--- * 'tdaEDNS0ClientSubnetMask' - Undocumented member.
+-- * 'tdaEDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits.
 --
--- * 'tdaHostedZoneId' - Undocumented member.
+-- * 'tdaHostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
 --
--- * 'tdaRecordName' - Undocumented member.
+-- * 'tdaRecordName' - The name of the resource record set that you want Amazon Route 53 to simulate a query for.
 --
--- * 'tdaRecordType' - Undocumented member.
+-- * 'tdaRecordType' - The type of the resource record set.
 testDNSAnswer
     :: Text -- ^ 'tdaHostedZoneId'
     -> Text -- ^ 'tdaRecordName'
@@ -112,27 +114,27 @@ testDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
     , _tdaRecordType = pRecordType_
     }
 
--- | Undocumented member.
+-- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East region.
 tdaResolverIP :: Lens' TestDNSAnswer (Maybe Text)
 tdaResolverIP = lens _tdaResolverIP (\ s a -> s{_tdaResolverIP = a});
 
--- | Undocumented member.
+-- | If the resolver that you specified for resolverip supports EDNS0, specify the IP address of a client in the applicable location.
 tdaEDNS0ClientSubnetIP :: Lens' TestDNSAnswer (Maybe Text)
 tdaEDNS0ClientSubnetIP = lens _tdaEDNS0ClientSubnetIP (\ s a -> s{_tdaEDNS0ClientSubnetIP = a});
 
--- | Undocumented member.
+-- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits.
 tdaEDNS0ClientSubnetMask :: Lens' TestDNSAnswer (Maybe Text)
 tdaEDNS0ClientSubnetMask = lens _tdaEDNS0ClientSubnetMask (\ s a -> s{_tdaEDNS0ClientSubnetMask = a});
 
--- | Undocumented member.
+-- | The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
 tdaHostedZoneId :: Lens' TestDNSAnswer Text
 tdaHostedZoneId = lens _tdaHostedZoneId (\ s a -> s{_tdaHostedZoneId = a});
 
--- | Undocumented member.
+-- | The name of the resource record set that you want Amazon Route 53 to simulate a query for.
 tdaRecordName :: Lens' TestDNSAnswer Text
 tdaRecordName = lens _tdaRecordName (\ s a -> s{_tdaRecordName = a});
 
--- | Undocumented member.
+-- | The type of the resource record set.
 tdaRecordType :: Lens' TestDNSAnswer RecordType
 tdaRecordType = lens _tdaRecordType (\ s a -> s{_tdaRecordType = a});
 

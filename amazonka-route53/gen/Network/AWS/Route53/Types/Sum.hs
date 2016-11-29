@@ -85,6 +85,7 @@ data CloudWatchRegion
     | CWREuWest1
     | CWRSaEast1
     | CWRUsEast1
+    | CWRUsEast2
     | CWRUsWest1
     | CWRUsWest2
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -100,10 +101,11 @@ instance FromText CloudWatchRegion where
         "eu-west-1" -> pure CWREuWest1
         "sa-east-1" -> pure CWRSaEast1
         "us-east-1" -> pure CWRUsEast1
+        "us-east-2" -> pure CWRUsEast2
         "us-west-1" -> pure CWRUsWest1
         "us-west-2" -> pure CWRUsWest2
         e -> fromTextError $ "Failure parsing CloudWatchRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText CloudWatchRegion where
     toText = \case
@@ -116,6 +118,7 @@ instance ToText CloudWatchRegion where
         CWREuWest1 -> "eu-west-1"
         CWRSaEast1 -> "sa-east-1"
         CWRUsEast1 -> "us-east-1"
+        CWRUsEast2 -> "us-east-2"
         CWRUsWest1 -> "us-west-1"
         CWRUsWest2 -> "us-west-2"
 
@@ -192,7 +195,7 @@ instance FromXML Failover where
 instance ToXML Failover where
     toXML = toXMLText
 
--- | An Amazon EC2 region that you want Amazon Route 53 to use to perform health checks.
+-- | An Amazon EC2 Region that you want Amazon Route 53 to use to perform health checks.
 --
 --
 data HealthCheckRegion
@@ -449,6 +452,7 @@ data VPCRegion
     | EuWest1
     | SaEast1
     | UsEast1
+    | UsEast2
     | UsWest1
     | UsWest2
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -465,10 +469,11 @@ instance FromText VPCRegion where
         "eu-west-1" -> pure EuWest1
         "sa-east-1" -> pure SaEast1
         "us-east-1" -> pure UsEast1
+        "us-east-2" -> pure UsEast2
         "us-west-1" -> pure UsWest1
         "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
-           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
+           <> "'. Accepted values: ap-northeast-1, ap-northeast-2, ap-south-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
@@ -482,6 +487,7 @@ instance ToText VPCRegion where
         EuWest1 -> "eu-west-1"
         SaEast1 -> "sa-east-1"
         UsEast1 -> "us-east-1"
+        UsEast2 -> "us-east-2"
         UsWest1 -> "us-west-1"
         UsWest2 -> "us-west-2"
 

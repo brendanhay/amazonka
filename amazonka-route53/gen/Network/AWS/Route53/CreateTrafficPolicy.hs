@@ -21,7 +21,7 @@
 -- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource. The request body must include a document with a @CreateTrafficPolicyRequest@ element. The response includes the @CreateTrafficPolicyResponse@ element, which contains information about the new traffic policy.
+-- Send a @POST@ request to the @/2013-04-01/trafficpolicy@ resource. The request body must include a document with a @CreateTrafficPolicyRequest@ element. The response includes the @CreateTrafficPolicyResponse@ element, which contains information about the new traffic policy.
 --
 module Network.AWS.Route53.CreateTrafficPolicy
     (
@@ -68,7 +68,7 @@ data CreateTrafficPolicy = CreateTrafficPolicy'
 --
 -- * 'ctpName' - The name of the traffic policy.
 --
--- * 'ctpDocument' - The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/ .
+-- * 'ctpDocument' - The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
 createTrafficPolicy
     :: Text -- ^ 'ctpName'
     -> Text -- ^ 'ctpDocument'
@@ -88,7 +88,7 @@ ctpComment = lens _ctpComment (\ s a -> s{_ctpComment = a});
 ctpName :: Lens' CreateTrafficPolicy Text
 ctpName = lens _ctpName (\ s a -> s{_ctpName = a});
 
--- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> in the /Amazon Route 53 API Reference/ .
+-- | The definition of this traffic policy in JSON format. For more information, see <http://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html Traffic Policy Document Format> .
 ctpDocument :: Lens' CreateTrafficPolicy Text
 ctpDocument = lens _ctpDocument (\ s a -> s{_ctpDocument = a});
 
@@ -146,7 +146,7 @@ data CreateTrafficPolicyResponse = CreateTrafficPolicyResponse'
 --
 -- * 'ctprsTrafficPolicy' - A complex type that contains settings for the new traffic policy.
 --
--- * 'ctprsLocation' - Undocumented member.
+-- * 'ctprsLocation' - A unique URL that represents a new traffic policy.
 createTrafficPolicyResponse
     :: Int -- ^ 'ctprsResponseStatus'
     -> TrafficPolicy -- ^ 'ctprsTrafficPolicy'
@@ -167,7 +167,7 @@ ctprsResponseStatus = lens _ctprsResponseStatus (\ s a -> s{_ctprsResponseStatus
 ctprsTrafficPolicy :: Lens' CreateTrafficPolicyResponse TrafficPolicy
 ctprsTrafficPolicy = lens _ctprsTrafficPolicy (\ s a -> s{_ctprsTrafficPolicy = a});
 
--- | Undocumented member.
+-- | A unique URL that represents a new traffic policy.
 ctprsLocation :: Lens' CreateTrafficPolicyResponse Text
 ctprsLocation = lens _ctprsLocation (\ s a -> s{_ctprsLocation = a});
 

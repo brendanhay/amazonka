@@ -44,17 +44,26 @@ module Network.AWS.Route53
     -- ** DelegationSetAlreadyReusable
     , _DelegationSetAlreadyReusable
 
+    -- ** NotAuthorizedException
+    , _NotAuthorizedException
+
     -- ** PriorRequestNotComplete
     , _PriorRequestNotComplete
 
     -- ** InvalidChangeBatch
     , _InvalidChangeBatch
 
+    -- ** TooManyVPCAssociationAuthorizations
+    , _TooManyVPCAssociationAuthorizations
+
     -- ** TrafficPolicyAlreadyExists
     , _TrafficPolicyAlreadyExists
 
     -- ** InvalidTrafficPolicyDocument
     , _InvalidTrafficPolicyDocument
+
+    -- ** InvalidPaginationToken
+    , _InvalidPaginationToken
 
     -- ** DelegationSetNotReusable
     , _DelegationSetNotReusable
@@ -79,6 +88,9 @@ module Network.AWS.Route53
 
     -- ** TooManyTrafficPolicies
     , _TooManyTrafficPolicies
+
+    -- ** VPCAssociationAuthorizationNotFound
+    , _VPCAssociationAuthorizationNotFound
 
     -- ** NoSuchGeoLocation
     , _NoSuchGeoLocation
@@ -200,6 +212,12 @@ module Network.AWS.Route53
     -- ** CreateHostedZone
     , module Network.AWS.Route53.CreateHostedZone
 
+    -- ** CreateVPCAssociationAuthorization
+    , module Network.AWS.Route53.CreateVPCAssociationAuthorization
+
+    -- ** ListVPCAssociationAuthorizations
+    , module Network.AWS.Route53.ListVPCAssociationAuthorizations
+
     -- ** ListTrafficPolicyInstancesByPolicy
     , module Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
 
@@ -208,6 +226,9 @@ module Network.AWS.Route53
 
     -- ** CreateHealthCheck
     , module Network.AWS.Route53.CreateHealthCheck
+
+    -- ** DeleteVPCAssociationAuthorization
+    , module Network.AWS.Route53.DeleteVPCAssociationAuthorization
 
     -- ** ChangeTagsForResource
     , module Network.AWS.Route53.ChangeTagsForResource
@@ -545,11 +566,13 @@ import           Network.AWS.Route53.CreateReusableDelegationSet
 import           Network.AWS.Route53.CreateTrafficPolicy
 import           Network.AWS.Route53.CreateTrafficPolicyInstance
 import           Network.AWS.Route53.CreateTrafficPolicyVersion
+import           Network.AWS.Route53.CreateVPCAssociationAuthorization
 import           Network.AWS.Route53.DeleteHealthCheck
 import           Network.AWS.Route53.DeleteHostedZone
 import           Network.AWS.Route53.DeleteReusableDelegationSet
 import           Network.AWS.Route53.DeleteTrafficPolicy
 import           Network.AWS.Route53.DeleteTrafficPolicyInstance
+import           Network.AWS.Route53.DeleteVPCAssociationAuthorization
 import           Network.AWS.Route53.DisassociateVPCFromHostedZone
 import           Network.AWS.Route53.GetChange
 import           Network.AWS.Route53.GetCheckerIPRanges
@@ -578,6 +601,7 @@ import           Network.AWS.Route53.ListTrafficPolicyInstances
 import           Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
 import           Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
 import           Network.AWS.Route53.ListTrafficPolicyVersions
+import           Network.AWS.Route53.ListVPCAssociationAuthorizations
 import           Network.AWS.Route53.TestDNSAnswer
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.UpdateHealthCheck

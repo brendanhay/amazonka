@@ -49,11 +49,13 @@ library
         , Network.AWS.Route53.CreateTrafficPolicy
         , Network.AWS.Route53.CreateTrafficPolicyInstance
         , Network.AWS.Route53.CreateTrafficPolicyVersion
+        , Network.AWS.Route53.CreateVPCAssociationAuthorization
         , Network.AWS.Route53.DeleteHealthCheck
         , Network.AWS.Route53.DeleteHostedZone
         , Network.AWS.Route53.DeleteReusableDelegationSet
         , Network.AWS.Route53.DeleteTrafficPolicy
         , Network.AWS.Route53.DeleteTrafficPolicyInstance
+        , Network.AWS.Route53.DeleteVPCAssociationAuthorization
         , Network.AWS.Route53.DisassociateVPCFromHostedZone
         , Network.AWS.Route53.GetChange
         , Network.AWS.Route53.GetCheckerIPRanges
@@ -81,6 +83,7 @@ library
         , Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
         , Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
         , Network.AWS.Route53.ListTrafficPolicyVersions
+        , Network.AWS.Route53.ListVPCAssociationAuthorizations
         , Network.AWS.Route53.TestDNSAnswer
         , Network.AWS.Route53.Types
         , Network.AWS.Route53.UpdateHealthCheck

@@ -27,35 +27,57 @@
 --
 -- For example, a change batch request that deletes the @CNAME@ record for www.example.com and creates an alias resource record set for www.example.com. Amazon Route 53 deletes the first resource record set and creates the second resource record set in a single operation. If either the @DELETE@ or the @CREATE@ action fails, then both changes (plus any other changes in the batch) fail, and the original @CNAME@ record continues to exist.
 --
--- /Important:/ Due to the nature of transactional changes, you cannot delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an @InvalidChangeBatch@ error.
+-- /Important:/ Due to the nature of transactional changes, you can't delete the same resource record set more than once in a single change batch. If you attempt to delete the same change batch more than once, Amazon Route 53 returns an @InvalidChangeBatch@ error.
 --
 -- Use @ChangeResourceRecordsSetsRequest@ to perform the following actions:
 --
---     * @CREATE@ :Creates a resource record set that has the specified values.
+--     * @CREATE@ : Creates a resource record set that has the specified values.
 --
---     * @DELETE@ : Deletes an existing resource record set that has the specified values for @Name@ , @Type@ , @Set Identifier@ (for code latency, weighted, geolocation, and failover resource record sets), and @TTL@ (except alias resource record sets, for which the TTL is determined by the AWS resource you're routing queries to).
+--     * @DELETE@ : Deletes an existing resource record set that has the specified values.
 --
---     * @UPSERT@ : If a resource record set does not already exist, AWS creates it. If a resource set does exist, Amazon Route 53 updates it with the values in the request. Amazon Route 53 can update an existing resource record set only when all of the following values match: @Name@ , @Type@ , and @Set Identifier@ (for weighted, latency, geolocation, and failover resource record sets).
---
---
---
--- In response to a @ChangeResourceRecordSets@ request, the DNS data is changed on all Amazon Route 53 DNS servers. Initially, the status of a change is @PENDING@ , meaning the change has not yet propagated to all the authoritative Amazon Route 53 DNS servers. When the change is propagated to all hosts, the change returns a status of @INSYNC@ .
---
--- After sending a change request, confirm your change has propagated to all Amazon Route 53 DNS servers. Changes generally propagate to all Amazon Route 53 name servers in a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more information, see 'GetChange' .
---
--- Note the following limitations on a @ChangeResourceRecordSets@ request:
---
---     * A request cannot contain more than 100 Change elements.
---
---     * A request cannot contain more than 1000 ResourceRecord elements.
---
---     * The sum of the number of characters (including spaces) in all @Value@ elements in a request cannot exceed 32,000 characters.
---
---     *     * The same resource cannot be deleted more than once in a single batch.
+--     * @UPSERT@ : If a resource record set does not already exist, AWS creates it. If a resource set does exist, Amazon Route 53 updates it with the values in the request.
 --
 --
 --
--- For more information on transactional changes, see 'ChangeResourceRecordSets' .
+-- The values that you need to include in the request depend on the type of resource record set that you're creating, deleting, or updating:
+--
+-- __Basic resource record sets (excluding alias, failover, geolocation, latency, and weighted resource record sets)__
+--
+--     * @Name@
+--
+--     * @Type@
+--
+--     * @TTL@
+--
+--
+--
+-- __Failover, geolocation, latency, or weighted resource record sets (excluding alias resource record sets)__
+--
+--     * @Name@
+--
+--     * @Type@
+--
+--     * @TTL@
+--
+--     * @SetIdentifier@
+--
+--
+--
+-- __Alias resource record sets (including failover alias, geolocation alias, latency alias, and weighted alias resource record sets)__
+--
+--     * @Name@
+--
+--     * @Type@
+--
+--     * @AliasTarget@ (includes @DNSName@ , @EvaluateTargetHealth@ , and @HostedZoneId@ )
+--
+--     * @SetIdentifier@ (for failover, geolocation, latency, and weighted resource record sets)
+--
+--
+--
+-- When you submit a @ChangeResourceRecordSets@ request, Amazon Route 53 propagates your changes to all of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, @GetChange@ returns a status of @PENDING@ . When propagation is complete, @GetChange@ returns a status of @INSYNC@ . Changes generally propagate to all Amazon Route 53 name servers in a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more information, see 'GetChange'
+--
+-- For information about the limits on a @ChangeResourceRecordSets@ request, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ .
 --
 module Network.AWS.Route53.ChangeResourceRecordSets
     (

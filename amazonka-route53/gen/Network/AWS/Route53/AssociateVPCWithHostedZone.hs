@@ -21,9 +21,9 @@
 -- Associates an Amazon VPC with a private hosted zone.
 --
 --
--- /Important:/ The VPC and the hosted zone must already exist, and you must have created a private hosted zone. You cannot convert a public hosted zone into a private hosted zone.
+-- /Important:/ To perform the association, the VPC and the private hosted zone must already exist. You can't convert a public hosted zone into a private hosted zone.
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /hostedzone//hosted zone ID/ /associatevpc@ resource. The request body must include an XML document with a @AssociateVPCWithHostedZoneRequest@ element. The response returns the @AssociateVPCWithHostedZoneResponse@ element.
+-- Send a @POST@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /associatevpc@ resource. The request body must include a document with an @AssociateVPCWithHostedZoneRequest@ element. The response contains a @ChangeInfo@ data type that you can use to track the progress of the request.
 --
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
@@ -50,7 +50,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the VPC and the hosted zone that you want to associate.
+-- | A complex type that contains information about the request to associate a VPC with a private hosted zone.
 --
 --
 --
@@ -67,9 +67,9 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
 --
 -- * 'avwhzComment' - /Optional:/ A comment about the association request.
 --
--- * 'avwhzHostedZoneId' - The ID of the hosted zone you want to associate your VPC with. Note that you cannot associate a VPC with a hosted zone that doesn't have an existing VPC association.
+-- * 'avwhzHostedZoneId' - The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
 --
--- * 'avwhzVPC' - A complex type containing information about the Amazon VPC that you're associating with the specified hosted zone.
+-- * 'avwhzVPC' - A complex type that contains information about the VPC that you want to associate with a private hosted zone.
 associateVPCWithHostedZone
     :: Text -- ^ 'avwhzHostedZoneId'
     -> VPC -- ^ 'avwhzVPC'
@@ -85,11 +85,11 @@ associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
--- | The ID of the hosted zone you want to associate your VPC with. Note that you cannot associate a VPC with a hosted zone that doesn't have an existing VPC association.
+-- | The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
 avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
 avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
 
--- | A complex type containing information about the Amazon VPC that you're associating with the specified hosted zone.
+-- | A complex type that contains information about the VPC that you want to associate with a private hosted zone.
 avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
 avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
@@ -129,7 +129,7 @@ instance ToXML AssociateVPCWithHostedZone where
           = mconcat
               ["Comment" @= _avwhzComment, "VPC" @= _avwhzVPC]
 
--- | A complex type that contains the response information for the hosted zone.
+-- | A complex type that contains the response information for the @AssociateVPCWithHostedZone@ request.
 --
 --
 --

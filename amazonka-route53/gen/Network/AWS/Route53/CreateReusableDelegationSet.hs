@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a delegation set (a group of four anem servers) that can be reused by multiple hosted zones. If a hosted zoned ID is specified, @CreateReusableDelegationSet@ marks the delegation set associated with that zone as reusable
+-- Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones. If a hosted zoned ID is specified, @CreateReusableDelegationSet@ marks the delegation set associated with that zone as reusable
 --
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /delegationset@ resource. The request body must include an XML document with a @CreateReusableDelegationSetRequest@ element.
+-- Send a @POST@ request to the @/2013-04-01/delegationset@ resource. The request body must include a document with a @CreateReusableDelegationSetRequest@ element.
 --
 -- For more information, including a procedure on how to create and configure a reusable delegation set (also known as white label name servers), see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html Configuring White Label Name Servers> .
 --
@@ -130,7 +130,7 @@ data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
 --
 -- * 'crdsrsDelegationSet' - A complex type that contains name server information.
 --
--- * 'crdsrsLocation' - The unique URL representing the new reusbale delegation set.
+-- * 'crdsrsLocation' - The unique URL representing the new reusable delegation set.
 createReusableDelegationSetResponse
     :: Int -- ^ 'crdsrsResponseStatus'
     -> DelegationSet -- ^ 'crdsrsDelegationSet'
@@ -151,7 +151,7 @@ crdsrsResponseStatus = lens _crdsrsResponseStatus (\ s a -> s{_crdsrsResponseSta
 crdsrsDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
 crdsrsDelegationSet = lens _crdsrsDelegationSet (\ s a -> s{_crdsrsDelegationSet = a});
 
--- | The unique URL representing the new reusbale delegation set.
+-- | The unique URL representing the new reusable delegation set.
 crdsrsLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrsLocation = lens _crdsrsLocation (\ s a -> s{_crdsrsLocation = a});
 

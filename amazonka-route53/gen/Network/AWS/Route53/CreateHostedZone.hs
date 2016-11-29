@@ -21,15 +21,15 @@
 -- Creates a new public hosted zone, used to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains.
 --
 --
--- /Important:/ Public hosted zones cannot be converted to a private hosted zone or vice versa. Instead, create a new hosted zone with the same name and create new resource record sets.
+-- /Important:/ Public hosted zones can't be converted to a private hosted zone or vice versa. Instead, create a new hosted zone with the same name and create new resource record sets.
 --
--- Send a @POST@ request to the @//Amazon Route 53 API version/ /hostedzone@ resource. The request body must include an XML document with a @CreateHostedZoneRequest@ element. The response returns the @CreateHostedZoneResponse@ element containing metadata about the hosted zone.
+-- Send a @POST@ request to the @/2013-04-01/hostedzone@ resource. The request body must include a document with a @CreateHostedZoneRequest@ element. The response returns the @CreateHostedZoneResponse@ element containing metadata about the hosted zone.
 --
--- Fore more information about charges for hosted zones, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/pricing/ AmazonAmazon Route 53 Pricing> .
+-- Fore more information about charges for hosted zones, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
 --
 -- Note the following:
 --
---     * You cannot create a hosted zone for a top-level domain (TLD).
+--     * You can't create a hosted zone for a top-level domain (TLD).
 --
 --     * Amazon Route 53 automatically creates a default SOA record and four NS records for the zone. For more information about SOA and NS records, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html NS and SOA Records that Amazon Route 53 Creates for a Hosted Zone> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -39,7 +39,7 @@
 --
 -- After creating a zone, its initial status is @PENDING@ . This means that it is not yet available on all DNS servers. The status of the zone changes to @INSYNC@ when the NS and SOA records are available on all Amazon Route 53 DNS servers.
 --
--- When trying to create a hosted zone using a reusable delegation set, specify an optional DelegationSetId, and Amazon Route 53 would assign those 4 NS records for the zone, instead of alloting a new one.
+-- When trying to create a hosted zone using a reusable delegation set, specify an optional DelegationSetId, and Amazon Route 53 would assign those 4 NS records for the zone, instead of allotting a new one.
 --
 module Network.AWS.Route53.CreateHostedZone
     (
@@ -91,7 +91,7 @@ data CreateHostedZone = CreateHostedZone'
 --
 -- * 'chzDelegationSetId' - If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .     * Type    * String     * Default    * None     * Parent    * @CreatedHostedZoneRequest@
 --
--- * 'chzVPC' - The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted cannot be resolved anywhere other than the given VPC.
+-- * 'chzVPC' - The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted can't be resolved anywhere other than the given VPC.
 --
 -- * 'chzHostedZoneConfig' - (Optional) A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the @HostedZoneConfig@ and @Comment@ elements.
 --
@@ -115,7 +115,7 @@ createHostedZone pName_ pCallerReference_ =
 chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
 chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
--- | The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted cannot be resolved anywhere other than the given VPC.
+-- | The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted can't be resolved anywhere other than the given VPC.
 chzVPC :: Lens' CreateHostedZone (Maybe VPC)
 chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
 
@@ -189,7 +189,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chzrsVPC' - Undocumented member.
+-- * 'chzrsVPC' - A complex type that contains information about an Amazon VPC that you associated with this hosted zone.
 --
 -- * 'chzrsResponseStatus' - -- | The response status code.
 --
@@ -217,7 +217,7 @@ createHostedZoneResponse pResponseStatus_ pHostedZone_ pChangeInfo_ pDelegationS
     , _chzrsLocation = pLocation_
     }
 
--- | Undocumented member.
+-- | A complex type that contains information about an Amazon VPC that you associated with this hosted zone.
 chzrsVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrsVPC = lens _chzrsVPC (\ s a -> s{_chzrsVPC = a});
 

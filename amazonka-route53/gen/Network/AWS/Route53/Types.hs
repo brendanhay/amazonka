@@ -24,10 +24,13 @@ module Network.AWS.Route53.Types
     , _ConflictingTypes
     , _ConcurrentModification
     , _DelegationSetAlreadyReusable
+    , _NotAuthorizedException
     , _PriorRequestNotComplete
     , _InvalidChangeBatch
+    , _TooManyVPCAssociationAuthorizations
     , _TrafficPolicyAlreadyExists
     , _InvalidTrafficPolicyDocument
+    , _InvalidPaginationToken
     , _DelegationSetNotReusable
     , _InvalidDomainName
     , _NoSuchTrafficPolicy
@@ -36,6 +39,7 @@ module Network.AWS.Route53.Types
     , _NoSuchDelegationSet
     , _HealthCheckAlreadyExists
     , _TooManyTrafficPolicies
+    , _VPCAssociationAuthorizationNotFound
     , _NoSuchGeoLocation
     , _DelegationSetNotAvailable
     , _VPCAssociationNotFound
@@ -347,7 +351,9 @@ route53 =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for HealthCheckVersionMismatch' errors.
+-- | The value of @HealthCheckVersion@ in the request doesn't match the value of @HealthCheckVersion@ in the health check.
+--
+--
 _HealthCheckVersionMismatch :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckVersionMismatch =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch"
@@ -399,6 +405,13 @@ _DelegationSetAlreadyReusable :: AsError a => Getting (First ServiceError) a Ser
 _DelegationSetAlreadyReusable =
     _ServiceError . hasCode "DelegationSetAlreadyReusable"
 
+-- | Associating the specified VPC with the specified hosted zone has not been authorized.
+--
+--
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotAuthorizedException =
+    _ServiceError . hasStatus 401 . hasCode "NotAuthorizedException"
+
 -- | If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an @HTTP 400 error@ (@Bad request@ ). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
 --
 --
@@ -411,6 +424,14 @@ _PriorRequestNotComplete =
 --
 _InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
+
+-- | You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a @DeleteVPCAssociationAuthorization@ request to remove an existing authorization. To get a list of existing authorizations, submit a @ListVPCAssociationAuthorizations@ request.
+--
+--
+_TooManyVPCAssociationAuthorizations :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyVPCAssociationAuthorizations =
+    _ServiceError .
+    hasStatus 400 . hasCode "TooManyVPCAssociationAuthorizations"
 
 -- | A traffic policy that has the same value for @Name@ already exists.
 --
@@ -425,6 +446,11 @@ _TrafficPolicyAlreadyExists =
 _InvalidTrafficPolicyDocument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrafficPolicyDocument =
     _ServiceError . hasStatus 400 . hasCode "InvalidTrafficPolicyDocument"
+
+-- | Prism for InvalidPaginationToken' errors.
+_InvalidPaginationToken :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidPaginationToken =
+    _ServiceError . hasStatus 400 . hasCode "InvalidPaginationToken"
 
 -- | A reusable delegation set with the specified ID does not exist.
 --
@@ -446,7 +472,7 @@ _NoSuchTrafficPolicy :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchTrafficPolicy =
     _ServiceError . hasStatus 404 . hasCode "NoSuchTrafficPolicy"
 
--- | The specified HostedZone cannot be found.
+-- | The specified HostedZone can't be found.
 --
 --
 _HostedZoneNotFound :: AsError a => Getting (First ServiceError) a ServiceError
@@ -480,6 +506,14 @@ _TooManyTrafficPolicies :: AsError a => Getting (First ServiceError) a ServiceEr
 _TooManyTrafficPolicies =
     _ServiceError . hasStatus 400 . hasCode "TooManyTrafficPolicies"
 
+-- | The VPC that you specified is not authorized to be associated with the hosted zone.
+--
+--
+_VPCAssociationAuthorizationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
+_VPCAssociationAuthorizationNotFound =
+    _ServiceError .
+    hasStatus 404 . hasCode "VPCAssociationAuthorizationNotFound"
+
 -- | Amazon Route 53 doesn't support the specified geolocation.
 --
 --
@@ -501,12 +535,16 @@ _VPCAssociationNotFound :: AsError a => Getting (First ServiceError) a ServiceEr
 _VPCAssociationNotFound =
     _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound"
 
--- | Prism for ThrottlingException' errors.
+-- |
+--
+--
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
     _ServiceError . hasStatus 400 . hasCode "ThrottlingException"
 
--- | Prism for NoSuchChange' errors.
+-- | A change with the specified change ID does not exist.
+--
+--
 _NoSuchChange :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchChange = _ServiceError . hasStatus 404 . hasCode "NoSuchChange"
 
@@ -537,7 +575,7 @@ _IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersion =
     _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
 
--- | The hosted zone specified in @HostedZoneId@ is a public hosted zone.
+-- | You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.
 --
 --
 _PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
@@ -550,7 +588,7 @@ _PublicZoneVPCAssociation =
 _NoSuchHostedZone :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
 
--- | This hosted zone cannot be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <http://aws.amazon.com/route53-request/ Contact Us> page.
+-- | This hosted zone can't be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <http://aws.amazon.com/route53-request/ Contact Us> page.
 --
 --
 _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
@@ -570,18 +608,22 @@ _DelegationSetAlreadyCreated :: AsError a => Getting (First ServiceError) a Serv
 _DelegationSetAlreadyCreated =
     _ServiceError . hasCode "DelegationSetAlreadyCreated"
 
--- | Prism for ConflictingDomainExists' errors.
+-- | You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.
+--
+--
 _ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
 
--- | Only one VPC is currently associated with the hosted zone. You cannot convert a private hosted zone into a public hosted zone by disassociating the last VPC from a hosted zone.
+-- | The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
 --
 --
 _LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _LastVPCAssociation =
     _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
 
--- | Prism for TooManyHealthChecks' errors.
+-- | You have reached the maximum number of active health checks for an AWS account. The default limit is 100. To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
+--
+--
 _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
 
@@ -599,7 +641,7 @@ _TrafficPolicyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _TrafficPolicyInUse =
     _ServiceError . hasStatus 400 . hasCode "TrafficPolicyInUse"
 
--- | The hosted zone you are trying to create for your VPC_ID does not belong to you. Amazon Route 53 returns this error when the VPC specified by @VPCId@ does not belong to you.
+-- | The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
 --
 --
 _InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError

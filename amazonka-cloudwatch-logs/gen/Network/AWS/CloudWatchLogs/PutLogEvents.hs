@@ -21,7 +21,7 @@
 -- Uploads a batch of log events to the specified log stream.
 --
 --
--- Every PutLogEvents request must include the @sequenceToken@ obtained from the response of the previous request. An upload in a newly created log stream does not require a @sequenceToken@ . You can also get the @sequenceToken@ using 'DescribeLogStreams' .
+-- You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using 'DescribeLogStreams' .
 --
 -- The batch of events must satisfy the following constraints:
 --
@@ -31,7 +31,7 @@
 --
 --     * None of the log events in the batch can be older than 14 days or the retention period of the log group.
 --
---     * The log events in the batch must be in chronological ordered by their @timestamp@ .
+--     * The log events in the batch must be in chronological ordered by their timestamp.
 --
 --     * The maximum number of log events in a batch is 10,000.
 --
@@ -78,13 +78,13 @@ data PutLogEvents = PutLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pleSequenceToken' - A string token that must be obtained from the response of the previous @PutLogEvents@ request.
+-- * 'pleSequenceToken' - The sequence token.
 --
--- * 'pleLogGroupName' - The name of the log group to put log events to.
+-- * 'pleLogGroupName' - The name of the log group.
 --
--- * 'pleLogStreamName' - The name of the log stream to put log events to.
+-- * 'pleLogStreamName' - The name of the log stream.
 --
--- * 'pleLogEvents' - Undocumented member.
+-- * 'pleLogEvents' - The log events.
 putLogEvents
     :: Text -- ^ 'pleLogGroupName'
     -> Text -- ^ 'pleLogStreamName'
@@ -98,19 +98,19 @@ putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     , _pleLogEvents = _List1 # pLogEvents_
     }
 
--- | A string token that must be obtained from the response of the previous @PutLogEvents@ request.
+-- | The sequence token.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 
--- | The name of the log group to put log events to.
+-- | The name of the log group.
 pleLogGroupName :: Lens' PutLogEvents Text
 pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a});
 
--- | The name of the log stream to put log events to.
+-- | The name of the log stream.
 pleLogStreamName :: Lens' PutLogEvents Text
 pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
 
--- | Undocumented member.
+-- | The log events.
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
@@ -164,9 +164,9 @@ data PutLogEventsResponse = PutLogEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'plersRejectedLogEventsInfo' - Undocumented member.
+-- * 'plersRejectedLogEventsInfo' - The rejected events.
 --
--- * 'plersNextSequenceToken' - Undocumented member.
+-- * 'plersNextSequenceToken' - The next sequence token.
 --
 -- * 'plersResponseStatus' - -- | The response status code.
 putLogEventsResponse
@@ -179,11 +179,11 @@ putLogEventsResponse pResponseStatus_ =
     , _plersResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The rejected events.
 plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
 plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a});
 
--- | Undocumented member.
+-- | The next sequence token.
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 

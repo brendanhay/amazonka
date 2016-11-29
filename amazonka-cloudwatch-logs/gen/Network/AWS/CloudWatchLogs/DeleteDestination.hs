@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the destination with the specified name and eventually disables all the subscription filters that publish to it. This will not delete the physical resource encapsulated by the destination.
+-- Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.
 --
 --
 module Network.AWS.CloudWatchLogs.DeleteDestination
@@ -50,7 +50,7 @@ newtype DeleteDestination = DeleteDestination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDestinationName' - The name of destination to delete.
+-- * 'ddDestinationName' - The name of the destination.
 deleteDestination
     :: Text -- ^ 'ddDestinationName'
     -> DeleteDestination
@@ -59,7 +59,7 @@ deleteDestination pDestinationName_ =
     { _ddDestinationName = pDestinationName_
     }
 
--- | The name of destination to delete.
+-- | The name of the destination.
 ddDestinationName :: Lens' DeleteDestination Text
 ddDestinationName = lens _ddDestinationName (\ s a -> s{_ddDestinationName = a});
 

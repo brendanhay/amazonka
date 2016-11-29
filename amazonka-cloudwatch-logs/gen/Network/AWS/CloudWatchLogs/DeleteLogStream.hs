@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a log stream and permanently deletes all the archived log events associated with it.
+-- Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.
 --
 --
 module Network.AWS.CloudWatchLogs.DeleteLogStream
@@ -52,9 +52,9 @@ data DeleteLogStream = DeleteLogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsLogGroupName' - The name of the log group under which the log stream to delete belongs.
+-- * 'dlsLogGroupName' - The name of the log group.
 --
--- * 'dlsLogStreamName' - The name of the log stream to delete.
+-- * 'dlsLogStreamName' - The name of the log stream.
 deleteLogStream
     :: Text -- ^ 'dlsLogGroupName'
     -> Text -- ^ 'dlsLogStreamName'
@@ -65,11 +65,11 @@ deleteLogStream pLogGroupName_ pLogStreamName_ =
     , _dlsLogStreamName = pLogStreamName_
     }
 
--- | The name of the log group under which the log stream to delete belongs.
+-- | The name of the log group.
 dlsLogGroupName :: Lens' DeleteLogStream Text
 dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a});
 
--- | The name of the log stream to delete.
+-- | The name of the log stream.
 dlsLogStreamName :: Lens' DeleteLogStream Text
 dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
 

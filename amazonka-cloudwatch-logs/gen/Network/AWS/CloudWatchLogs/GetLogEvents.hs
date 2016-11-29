@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves log events from the specified log stream. You can provide an optional time range to filter the results on the event @timestamp@ .
+-- Lists log events from the specified log stream. You can list all the log events or filter using a time range.
 --
 --
--- By default, this operation returns as much log events as can fit in a response size of 1MB, up to 10,000 log events. The response will always include a @nextForwardToken@ and a @nextBackwardToken@ in the response body. You can use any of these tokens in subsequent @GetLogEvents@ requests to paginate through events in either forward or backward direction. You can also limit the number of log events returned in the response by specifying the @limit@ parameter in the request.
+-- By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). If the results include tokens, there are more log events available. You can get additional log events by specifying one of the tokens in a subsequent call.
 --
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
@@ -69,19 +69,19 @@ data GetLogEvents = GetLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gleStartTime' - Undocumented member.
+-- * 'gleStartTime' - The start of the time range. Events with a timestamp earlier than this time are not included.
 --
--- * 'gleStartFromHead' - If set to true, the earliest log events would be returned first. The default is false (the latest log events are returned first).
+-- * 'gleStartFromHead' - If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 --
--- * 'gleNextToken' - A string token used for pagination that points to the next page of results. It must be a value obtained from the @nextForwardToken@ or @nextBackwardToken@ fields in the response of the previous @GetLogEvents@ request.
+-- * 'gleNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'gleEndTime' - Undocumented member.
+-- * 'gleEndTime' - The end of the time range. Events with a timestamp later than this time are not included.
 --
--- * 'gleLimit' - The maximum number of log events returned in the response. If you don't specify a value, the request would return as many log events as can fit in a response size of 1MB, up to 10,000 log events.
+-- * 'gleLimit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1MB, up to 10,000 log events.
 --
--- * 'gleLogGroupName' - The name of the log group to query.
+-- * 'gleLogGroupName' - The name of the log group.
 --
--- * 'gleLogStreamName' - The name of the log stream to query.
+-- * 'gleLogStreamName' - The name of the log stream.
 getLogEvents
     :: Text -- ^ 'gleLogGroupName'
     -> Text -- ^ 'gleLogStreamName'
@@ -97,31 +97,31 @@ getLogEvents pLogGroupName_ pLogStreamName_ =
     , _gleLogStreamName = pLogStreamName_
     }
 
--- | Undocumented member.
+-- | The start of the time range. Events with a timestamp earlier than this time are not included.
 gleStartTime :: Lens' GetLogEvents (Maybe Natural)
 gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat;
 
--- | If set to true, the earliest log events would be returned first. The default is false (the latest log events are returned first).
+-- | If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the @nextForwardToken@ or @nextBackwardToken@ fields in the response of the previous @GetLogEvents@ request.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 
--- | Undocumented member.
+-- | The end of the time range. Events with a timestamp later than this time are not included.
 gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat;
 
--- | The maximum number of log events returned in the response. If you don't specify a value, the request would return as many log events as can fit in a response size of 1MB, up to 10,000 log events.
+-- | The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
 gleLimit = lens _gleLimit (\ s a -> s{_gleLimit = a}) . mapping _Nat;
 
--- | The name of the log group to query.
+-- | The name of the log group.
 gleLogGroupName :: Lens' GetLogEvents Text
 gleLogGroupName = lens _gleLogGroupName (\ s a -> s{_gleLogGroupName = a});
 
--- | The name of the log stream to query.
+-- | The name of the log stream.
 gleLogStreamName :: Lens' GetLogEvents Text
 gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
 
@@ -180,11 +180,11 @@ data GetLogEventsResponse = GetLogEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glersNextBackwardToken' - Undocumented member.
+-- * 'glersNextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours.
 --
--- * 'glersNextForwardToken' - Undocumented member.
+-- * 'glersNextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours.
 --
--- * 'glersEvents' - Undocumented member.
+-- * 'glersEvents' - The events.
 --
 -- * 'glersResponseStatus' - -- | The response status code.
 getLogEventsResponse
@@ -198,15 +198,15 @@ getLogEventsResponse pResponseStatus_ =
     , _glersResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The token for the next set of items in the backward direction. The token expires after 24 hours.
 glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextBackwardToken = lens _glersNextBackwardToken (\ s a -> s{_glersNextBackwardToken = a});
 
--- | Undocumented member.
+-- | The token for the next set of items in the forward direction. The token expires after 24 hours.
 glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwardToken = a});
 
--- | Undocumented member.
+-- | The events.
 glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coerce;
 

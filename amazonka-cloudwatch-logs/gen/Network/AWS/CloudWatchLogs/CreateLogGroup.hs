@@ -18,14 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new log group with the specified name. The name of the log group must be unique within a region for an AWS account. You can create up to 500 log groups per account.
+-- Creates a log group with the specified name.
 --
+--
+-- You can create up to 5000 log groups per account.
 --
 -- You must use the following guidelines when naming a log group:
 --
+--     * Log group names must be unique within a region for an AWS account.
+--
 --     * Log group names can be between 1 and 512 characters long.
 --
---     * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
+--     * Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
 --
 --
 --
@@ -58,7 +62,7 @@ newtype CreateLogGroup = CreateLogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clgLogGroupName' - The name of the log group to create.
+-- * 'clgLogGroupName' - The name of the log group.
 createLogGroup
     :: Text -- ^ 'clgLogGroupName'
     -> CreateLogGroup
@@ -67,7 +71,7 @@ createLogGroup pLogGroupName_ =
     { _clgLogGroupName = pLogGroupName_
     }
 
--- | The name of the log group to create.
+-- | The name of the log group.
 clgLogGroupName :: Lens' CreateLogGroup Text
 clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a});
 

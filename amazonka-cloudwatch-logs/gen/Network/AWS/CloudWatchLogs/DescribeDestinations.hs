@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the destinations that are associated with the AWS account making the request. The list returned in the response is ASCII-sorted by destination name.
+-- Lists all your destinations. The results are ASCII-sorted by destination name.
 --
---
--- By default, this operation returns up to 50 destinations. If there are more destinations to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of destinations returned in the response by specifying the @limit@ parameter in the request.
 --
 --
 -- This operation returns paginated results.
@@ -63,11 +61,11 @@ data DescribeDestinations = DescribeDestinations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddNextToken' - Undocumented member.
+-- * 'ddNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'ddLimit' - Undocumented member.
+-- * 'ddLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 --
--- * 'ddDestinationNamePrefix' - Will only return destinations that match the provided destinationNamePrefix. If you don't specify a value, no prefix is applied.
+-- * 'ddDestinationNamePrefix' - The prefix to match. If you don't specify a value, no prefix filter is applied.
 describeDestinations
     :: DescribeDestinations
 describeDestinations =
@@ -77,15 +75,15 @@ describeDestinations =
     , _ddDestinationNamePrefix = Nothing
     }
 
--- | Undocumented member.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 ddNextToken :: Lens' DescribeDestinations (Maybe Text)
 ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 
--- | Undocumented member.
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 ddLimit :: Lens' DescribeDestinations (Maybe Natural)
 ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
 
--- | Will only return destinations that match the provided destinationNamePrefix. If you don't specify a value, no prefix is applied.
+-- | The prefix to match. If you don't specify a value, no prefix filter is applied.
 ddDestinationNamePrefix :: Lens' DescribeDestinations (Maybe Text)
 ddDestinationNamePrefix = lens _ddDestinationNamePrefix (\ s a -> s{_ddDestinationNamePrefix = a});
 
@@ -149,7 +147,7 @@ data DescribeDestinationsResponse = DescribeDestinationsResponse'
 --
 -- * 'ddrsNextToken' - Undocumented member.
 --
--- * 'ddrsDestinations' - Undocumented member.
+-- * 'ddrsDestinations' - The destinations.
 --
 -- * 'ddrsResponseStatus' - -- | The response status code.
 describeDestinationsResponse
@@ -166,7 +164,7 @@ describeDestinationsResponse pResponseStatus_ =
 ddrsNextToken :: Lens' DescribeDestinationsResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
--- | Undocumented member.
+-- | The destinations.
 ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 

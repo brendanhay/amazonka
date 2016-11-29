@@ -57,7 +57,7 @@ data TestMetricFilter = TestMetricFilter'
 --
 -- * 'tmfFilterPattern' - Undocumented member.
 --
--- * 'tmfLogEventMessages' - A list of log event messages to test.
+-- * 'tmfLogEventMessages' - The log event messages to test.
 testMetricFilter
     :: Text -- ^ 'tmfFilterPattern'
     -> NonEmpty Text -- ^ 'tmfLogEventMessages'
@@ -72,7 +72,7 @@ testMetricFilter pFilterPattern_ pLogEventMessages_ =
 tmfFilterPattern :: Lens' TestMetricFilter Text
 tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
 
--- | A list of log event messages to test.
+-- | The log event messages to test.
 tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
 tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
 
@@ -121,7 +121,7 @@ data TestMetricFilterResponse = TestMetricFilterResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tmfrsMatches' - Undocumented member.
+-- * 'tmfrsMatches' - The matched events.
 --
 -- * 'tmfrsResponseStatus' - -- | The response status code.
 testMetricFilterResponse
@@ -133,7 +133,7 @@ testMetricFilterResponse pResponseStatus_ =
     , _tmfrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The matched events.
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 

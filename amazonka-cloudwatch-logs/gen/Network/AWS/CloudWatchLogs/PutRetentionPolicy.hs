@@ -52,7 +52,7 @@ data PutRetentionPolicy = PutRetentionPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prpLogGroupName' - The name of the log group to associate the retention policy with.
+-- * 'prpLogGroupName' - The name of the log group.
 --
 -- * 'prpRetentionInDays' - Undocumented member.
 putRetentionPolicy
@@ -65,7 +65,7 @@ putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
     , _prpRetentionInDays = pRetentionInDays_
     }
 
--- | The name of the log group to associate the retention policy with.
+-- | The name of the log group.
 prpLogGroupName :: Lens' PutRetentionPolicy Text
 prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a});
 

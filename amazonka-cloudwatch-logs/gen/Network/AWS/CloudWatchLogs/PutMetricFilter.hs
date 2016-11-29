@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through @PutLogEvents@ requests.
+-- Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through 'PutLogEvents' .
 --
 --
 -- The maximum number of metric filters that can be associated with a log group is 100.
@@ -58,11 +58,11 @@ data PutMetricFilter = PutMetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmfLogGroupName' - The name of the log group to associate the metric filter with.
+-- * 'pmfLogGroupName' - The name of the log group.
 --
 -- * 'pmfFilterName' - A name for the metric filter.
 --
--- * 'pmfFilterPattern' - A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events.
+-- * 'pmfFilterPattern' - A filter pattern for extracting metric data out of ingested log events.
 --
 -- * 'pmfMetricTransformations' - A collection of information needed to define how metric data gets emitted.
 putMetricFilter
@@ -79,7 +79,7 @@ putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformatio
     , _pmfMetricTransformations = _List1 # pMetricTransformations_
     }
 
--- | The name of the log group to associate the metric filter with.
+-- | The name of the log group.
 pmfLogGroupName :: Lens' PutMetricFilter Text
 pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a});
 
@@ -87,7 +87,7 @@ pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a});
 pmfFilterName :: Lens' PutMetricFilter Text
 pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a});
 
--- | A valid CloudWatch Logs filter pattern for extracting metric data out of ingested log events.
+-- | A filter pattern for extracting metric data out of ingested log events.
 pmfFilterPattern :: Lens' PutMetricFilter Text
 pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a});
 

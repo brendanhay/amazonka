@@ -109,6 +109,7 @@ module Network.AWS.CloudWatchLogs.Types
     , metricFilter
     , mfCreationTime
     , mfFilterName
+    , mfLogGroupName
     , mfFilterPattern
     , mfMetricTransformations
 
@@ -198,59 +199,63 @@ cloudWatchLogs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Returned if a parameter of the request is incorrectly specified.
+-- | A parameter is specified incorrectly.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _ServiceError . hasCode "InvalidParameterException"
 
--- | Prism for InvalidSequenceTokenException' errors.
+-- | The sequence token is not valid.
+--
+--
 _InvalidSequenceTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSequenceTokenException =
     _ServiceError . hasCode "InvalidSequenceTokenException"
 
--- | Returned if the specified resource already exists.
+-- | The specified resource already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
     _ServiceError . hasCode "ResourceAlreadyExistsException"
 
--- | Returned if multiple requests to update the same resource were in conflict.
+-- | Multiple requests to update the same resource were in conflict.
 --
 --
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
     _ServiceError . hasCode "OperationAbortedException"
 
--- | Returned if the service cannot complete the request.
+-- | The service cannot complete the request.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
     _ServiceError . hasCode "ServiceUnavailableException"
 
--- | Prism for DataAlreadyAcceptedException' errors.
+-- | The event was already logged.
+--
+--
 _DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DataAlreadyAcceptedException =
     _ServiceError . hasCode "DataAlreadyAcceptedException"
 
--- | Returned if the operation is not valid on the specified resource
+-- | The operation is not valid on the specified resource.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
     _ServiceError . hasCode "InvalidOperationException"
 
--- | Returned if the specified resource does not exist.
+-- | The specified resource does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
--- | Returned if you have reached the maximum number of resources that can be created.
+-- | You have reached the maximum number of resources that can be created.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

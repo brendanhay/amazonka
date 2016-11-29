@@ -18,14 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new log stream in the specified log group. The name of the log stream must be unique within the log group. There is no limit on the number of log streams that can exist in a log group.
+-- Creates a log stream for the specified log group.
 --
+--
+-- There is no limit on the number of log streams that you can create for a log group.
 --
 -- You must use the following guidelines when naming a log stream:
 --
+--     * Log stream names must be unique within the log group.
+--
 --     * Log stream names can be between 1 and 512 characters long.
 --
---     * The ':' colon character is not allowed.
+--     * The ':' (colon) and '*' (asterisk) characters are not allowed.
 --
 --
 --
@@ -60,9 +64,9 @@ data CreateLogStream = CreateLogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clsLogGroupName' - The name of the log group under which the log stream is to be created.
+-- * 'clsLogGroupName' - The name of the log group.
 --
--- * 'clsLogStreamName' - The name of the log stream to create.
+-- * 'clsLogStreamName' - The name of the log stream.
 createLogStream
     :: Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'
@@ -73,11 +77,11 @@ createLogStream pLogGroupName_ pLogStreamName_ =
     , _clsLogStreamName = pLogStreamName_
     }
 
--- | The name of the log group under which the log stream is to be created.
+-- | The name of the log group.
 clsLogGroupName :: Lens' CreateLogStream Text
 clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
 
--- | The name of the log stream to create.
+-- | The name of the log stream.
 clsLogStreamName :: Lens' CreateLogStream Text
 clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 

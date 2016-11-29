@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the log streams that are associated with the specified log group. The list returned in the response is ASCII-sorted by log stream name.
+-- Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.
 --
 --
--- By default, this operation returns up to 50 log streams. If there are more log streams to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of log streams returned in the response by specifying the @limit@ parameter in the request. This operation has a limit of five transactions per second, after which transactions are throttled.
+-- This operation has a limit of five transactions per second, after which transactions are throttled.
 --
 --
 -- This operation returns paginated results.
@@ -69,17 +69,17 @@ data DescribeLogStreams = DescribeLogStreams'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlssOrderBy' - Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot also contain a logStreamNamePrefix.
+-- * 'dlssOrderBy' - If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ . If you order the results by event time, you cannot specify the @logStreamNamePrefix@ parameter.
 --
--- * 'dlssDescending' - If set to true, results are returned in descending order. If you don't specify a value or set it to false, results are returned in ascending order.
+-- * 'dlssDescending' - If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
 --
--- * 'dlssNextToken' - A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeLogStreams@ request.
+-- * 'dlssNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlssLogStreamNamePrefix' - Will only return log streams that match the provided logStreamNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- * 'dlssLogStreamNamePrefix' - The prefix to match. You cannot specify this parameter if @orderBy@ is @LastEventTime@ .
 --
--- * 'dlssLimit' - The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- * 'dlssLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 --
--- * 'dlssLogGroupName' - The log group name for which log streams are to be listed.
+-- * 'dlssLogGroupName' - The name of the log group.
 describeLogStreams
     :: Text -- ^ 'dlssLogGroupName'
     -> DescribeLogStreams
@@ -93,27 +93,27 @@ describeLogStreams pLogGroupName_ =
     , _dlssLogGroupName = pLogGroupName_
     }
 
--- | Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot also contain a logStreamNamePrefix.
+-- | If the value is @LogStreamName@ , the results are ordered by log stream name. If the value is @LastEventTime@ , the results are ordered by the event time. The default value is @LogStreamName@ . If you order the results by event time, you cannot specify the @logStreamNamePrefix@ parameter.
 dlssOrderBy :: Lens' DescribeLogStreams (Maybe OrderBy)
 dlssOrderBy = lens _dlssOrderBy (\ s a -> s{_dlssOrderBy = a});
 
--- | If set to true, results are returned in descending order. If you don't specify a value or set it to false, results are returned in ascending order.
+-- | If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.
 dlssDescending :: Lens' DescribeLogStreams (Maybe Bool)
 dlssDescending = lens _dlssDescending (\ s a -> s{_dlssDescending = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeLogStreams@ request.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
 dlssNextToken = lens _dlssNextToken (\ s a -> s{_dlssNextToken = a});
 
--- | Will only return log streams that match the provided logStreamNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- | The prefix to match. You cannot specify this parameter if @orderBy@ is @LastEventTime@ .
 dlssLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dlssLogStreamNamePrefix = lens _dlssLogStreamNamePrefix (\ s a -> s{_dlssLogStreamNamePrefix = a});
 
--- | The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 dlssLimit :: Lens' DescribeLogStreams (Maybe Natural)
 dlssLimit = lens _dlssLimit (\ s a -> s{_dlssLimit = a}) . mapping _Nat;
 
--- | The log group name for which log streams are to be listed.
+-- | The name of the log group.
 dlssLogGroupName :: Lens' DescribeLogStreams Text
 dlssLogGroupName = lens _dlssLogGroupName (\ s a -> s{_dlssLogGroupName = a});
 
@@ -180,7 +180,7 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
 --
 -- * 'dlsrsNextToken' - Undocumented member.
 --
--- * 'dlsrsLogStreams' - Undocumented member.
+-- * 'dlsrsLogStreams' - The log streams.
 --
 -- * 'dlsrsResponseStatus' - -- | The response status code.
 describeLogStreamsResponse
@@ -197,7 +197,7 @@ describeLogStreamsResponse pResponseStatus_ =
 dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 
--- | Undocumented member.
+-- | The log streams.
 dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default . _Coerce;
 

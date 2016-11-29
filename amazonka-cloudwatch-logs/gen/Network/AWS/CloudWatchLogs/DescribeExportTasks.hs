@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the export tasks that are associated with the AWS account making the request. The export tasks can be filtered based on @TaskId@ or @TaskStatus@ .
+-- Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
 --
---
--- By default, this operation returns up to 50 export tasks that satisfy the specified filters. If there are more export tasks to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of export tasks returned in the response by specifying the @limit@ parameter in the request.
 --
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
     (
@@ -62,13 +60,13 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detTaskId' - Export task that matches the specified task Id will be returned. This can result in zero or one export task.
+-- * 'detTaskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 --
--- * 'detNextToken' - A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeExportTasks@ request.
+-- * 'detNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'detLimit' - The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- * 'detLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 --
--- * 'detStatusCode' - All export tasks that matches the specified status code will be returned. This can return zero or more export tasks.
+-- * 'detStatusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 describeExportTasks
     :: DescribeExportTasks
 describeExportTasks =
@@ -79,19 +77,19 @@ describeExportTasks =
     , _detStatusCode = Nothing
     }
 
--- | Export task that matches the specified task Id will be returned. This can result in zero or one export task.
+-- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
 detTaskId :: Lens' DescribeExportTasks (Maybe Text)
 detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeExportTasks@ request.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 detNextToken :: Lens' DescribeExportTasks (Maybe Text)
 detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
 
--- | The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 detLimit :: Lens' DescribeExportTasks (Maybe Natural)
 detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat;
 
--- | All export tasks that matches the specified status code will be returned. This can return zero or more export tasks.
+-- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
 detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a});
 
@@ -148,7 +146,7 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 --
 -- * 'detrsNextToken' - Undocumented member.
 --
--- * 'detrsExportTasks' - Undocumented member.
+-- * 'detrsExportTasks' - The export tasks.
 --
 -- * 'detrsResponseStatus' - -- | The response status code.
 describeExportTasksResponse
@@ -165,7 +163,7 @@ describeExportTasksResponse pResponseStatus_ =
 detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
 detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a});
 
--- | Undocumented member.
+-- | The export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 

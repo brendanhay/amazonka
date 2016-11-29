@@ -21,7 +21,7 @@ import           Network.AWS.CloudWatchLogs.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | A cross account destination that is the recipient of subscription log events.
+-- | Represents a cross-account destination that receives subscription log events.
 --
 --
 --
@@ -39,17 +39,17 @@ data Destination = Destination'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dTargetARN' - ARN of the physical target where the log events will be delivered (eg. ARN of a Kinesis stream).
+-- * 'dTargetARN' - The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
 --
--- * 'dCreationTime' - A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC specifying when this destination was created.
+-- * 'dCreationTime' - The creation time of the destination.
 --
--- * 'dArn' - ARN of this destination.
+-- * 'dArn' - The ARN of this destination.
 --
 -- * 'dAccessPolicy' - An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 --
--- * 'dDestinationName' - Name of the destination.
+-- * 'dDestinationName' - The name of the destination.
 --
--- * 'dRoleARN' - A role for impersonation for delivering log events to the target.
+-- * 'dRoleARN' - A role for impersonation, used when delivering log events to the target.
 destination
     :: Destination
 destination =
@@ -62,15 +62,15 @@ destination =
     , _dRoleARN = Nothing
     }
 
--- | ARN of the physical target where the log events will be delivered (eg. ARN of a Kinesis stream).
+-- | The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC specifying when this destination was created.
+-- | The creation time of the destination.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
--- | ARN of this destination.
+-- | The ARN of this destination.
 dArn :: Lens' Destination (Maybe Text)
 dArn = lens _dArn (\ s a -> s{_dArn = a});
 
@@ -78,11 +78,11 @@ dArn = lens _dArn (\ s a -> s{_dArn = a});
 dAccessPolicy :: Lens' Destination (Maybe Text)
 dAccessPolicy = lens _dAccessPolicy (\ s a -> s{_dAccessPolicy = a});
 
--- | Name of the destination.
+-- | The name of the destination.
 dDestinationName :: Lens' Destination (Maybe Text)
 dDestinationName = lens _dDestinationName (\ s a -> s{_dDestinationName = a});
 
--- | A role for impersonation for delivering log events to the target.
+-- | A role for impersonation, used when delivering log events to the target.
 dRoleARN :: Lens' Destination (Maybe Text)
 dRoleARN = lens _dRoleARN (\ s a -> s{_dRoleARN = a});
 
@@ -122,19 +122,19 @@ data ExportTask = ExportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etDestinationPrefix' - Prefix that was used as the start of Amazon S3 key for every object exported.
+-- * 'etDestinationPrefix' - The prefix that was used as the start of Amazon S3 key for every object exported.
 --
--- * 'etDestination' - Name of Amazon S3 bucket to which the log data was exported.
+-- * 'etDestination' - The name of Amazon S3 bucket to which the log data was exported.
 --
--- * 'etStatus' - Status of the export task.
+-- * 'etStatus' - The status of the export task.
 --
 -- * 'etTaskName' - The name of the export task.
 --
--- * 'etTaskId' - Id of the export task.
+-- * 'etTaskId' - The ID of the export task.
 --
--- * 'etTo' - A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- * 'etTo' - The end time. Events with a timestamp later than this time are not exported.
 --
--- * 'etFrom' - A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
+-- * 'etFrom' - The start time. Events with a timestamp prior to this time are not exported.
 --
 -- * 'etLogGroupName' - The name of the log group from which logs data was exported.
 --
@@ -154,15 +154,15 @@ exportTask =
     , _etExecutionInfo = Nothing
     }
 
--- | Prefix that was used as the start of Amazon S3 key for every object exported.
+-- | The prefix that was used as the start of Amazon S3 key for every object exported.
 etDestinationPrefix :: Lens' ExportTask (Maybe Text)
 etDestinationPrefix = lens _etDestinationPrefix (\ s a -> s{_etDestinationPrefix = a});
 
--- | Name of Amazon S3 bucket to which the log data was exported.
+-- | The name of Amazon S3 bucket to which the log data was exported.
 etDestination :: Lens' ExportTask (Maybe Text)
 etDestination = lens _etDestination (\ s a -> s{_etDestination = a});
 
--- | Status of the export task.
+-- | The status of the export task.
 etStatus :: Lens' ExportTask (Maybe ExportTaskStatus)
 etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
 
@@ -170,15 +170,15 @@ etStatus = lens _etStatus (\ s a -> s{_etStatus = a});
 etTaskName :: Lens' ExportTask (Maybe Text)
 etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
 
--- | Id of the export task.
+-- | The ID of the export task.
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- | The end time. Events with a timestamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
 
--- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
+-- | The start time. Events with a timestamp prior to this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
 
@@ -222,9 +222,9 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eteiCreationTime' - A point in time when the export task got created.
+-- * 'eteiCreationTime' - The creation time of the export task.
 --
--- * 'eteiCompletionTime' - A point in time when the export task got completed.
+-- * 'eteiCompletionTime' - The completion time of the export task.
 exportTaskExecutionInfo
     :: ExportTaskExecutionInfo
 exportTaskExecutionInfo =
@@ -233,11 +233,11 @@ exportTaskExecutionInfo =
     , _eteiCompletionTime = Nothing
     }
 
--- | A point in time when the export task got created.
+-- | The creation time of the export task.
 eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat;
 
--- | A point in time when the export task got completed.
+-- | The completion time of the export task.
 eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat;
 
@@ -266,9 +266,9 @@ data ExportTaskStatus = ExportTaskStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'etsCode' - Status code of the export task.
+-- * 'etsCode' - The status code of the export task.
 --
--- * 'etsMessage' - Status message related to the @code@ .
+-- * 'etsMessage' - The status message related to the status code.
 exportTaskStatus
     :: ExportTaskStatus
 exportTaskStatus =
@@ -277,11 +277,11 @@ exportTaskStatus =
     , _etsMessage = Nothing
     }
 
--- | Status code of the export task.
+-- | The status code of the export task.
 etsCode :: Lens' ExportTaskStatus (Maybe ExportTaskStatusCode)
 etsCode = lens _etsCode (\ s a -> s{_etsCode = a});
 
--- | Status message related to the @code@ .
+-- | The status message related to the status code.
 etsMessage :: Lens' ExportTaskStatus (Maybe Text)
 etsMessage = lens _etsMessage (\ s a -> s{_etsMessage = a});
 
@@ -296,7 +296,7 @@ instance Hashable ExportTaskStatus
 
 instance NFData ExportTaskStatus
 
--- | Represents a matched event from a @FilterLogEvents@ request.
+-- | Represents a matched event.
 --
 --
 --
@@ -313,15 +313,15 @@ data FilteredLogEvent = FilteredLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fleIngestionTime' - Undocumented member.
+-- * 'fleIngestionTime' - The time the event was ingested.
 --
 -- * 'fleLogStreamName' - The name of the log stream this event belongs to.
 --
 -- * 'fleMessage' - The data contained in the log event.
 --
--- * 'fleTimestamp' - Undocumented member.
+-- * 'fleTimestamp' - The time the event occurred.
 --
--- * 'fleEventId' - A unique identifier for this event.
+-- * 'fleEventId' - The ID of the event.
 filteredLogEvent
     :: FilteredLogEvent
 filteredLogEvent =
@@ -333,7 +333,7 @@ filteredLogEvent =
     , _fleEventId = Nothing
     }
 
--- | Undocumented member.
+-- | The time the event was ingested.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
 fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat;
 
@@ -345,11 +345,11 @@ fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a});
 fleMessage :: Lens' FilteredLogEvent (Maybe Text)
 fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a});
 
--- | Undocumented member.
+-- | The time the event occurred.
 fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
 fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat;
 
--- | A unique identifier for this event.
+-- | The ID of the event.
 fleEventId :: Lens' FilteredLogEvent (Maybe Text)
 fleEventId = lens _fleEventId (\ s a -> s{_fleEventId = a});
 
@@ -367,7 +367,7 @@ instance Hashable FilteredLogEvent
 
 instance NFData FilteredLogEvent
 
--- | A log event is a record of some activity that was recorded by the application or resource being monitored. The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message.
+-- | Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.
 --
 --
 --
@@ -381,9 +381,9 @@ data InputLogEvent = InputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ileTimestamp' - Undocumented member.
+-- * 'ileTimestamp' - The time the event occurred.
 --
--- * 'ileMessage' - Undocumented member.
+-- * 'ileMessage' - The raw event message.
 inputLogEvent
     :: Natural -- ^ 'ileTimestamp'
     -> Text -- ^ 'ileMessage'
@@ -394,11 +394,11 @@ inputLogEvent pTimestamp_ pMessage_ =
     , _ileMessage = pMessage_
     }
 
--- | Undocumented member.
+-- | The time the event occurred.
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 
--- | Undocumented member.
+-- | The raw event message.
 ileMessage :: Lens' InputLogEvent Text
 ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
 
@@ -413,7 +413,11 @@ instance ToJSON InputLogEvent where
                  [Just ("timestamp" .= _ileTimestamp),
                   Just ("message" .= _ileMessage)])
 
--- | /See:/ 'logGroup' smart constructor.
+-- | Represents a log group.
+--
+--
+--
+-- /See:/ 'logGroup' smart constructor.
 data LogGroup = LogGroup'
     { _lgCreationTime      :: !(Maybe Nat)
     , _lgMetricFilterCount :: !(Maybe Int)
@@ -427,17 +431,17 @@ data LogGroup = LogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgCreationTime' - Undocumented member.
+-- * 'lgCreationTime' - The creation time of the log group.
 --
--- * 'lgMetricFilterCount' - Undocumented member.
+-- * 'lgMetricFilterCount' - The number of metric filters.
 --
--- * 'lgArn' - Undocumented member.
+-- * 'lgArn' - The Amazon Resource Name (ARN) of the log group.
 --
--- * 'lgLogGroupName' - Undocumented member.
+-- * 'lgLogGroupName' - The name of the log group.
 --
 -- * 'lgRetentionInDays' - Undocumented member.
 --
--- * 'lgStoredBytes' - Undocumented member.
+-- * 'lgStoredBytes' - The number of bytes stored.
 logGroup
     :: LogGroup
 logGroup =
@@ -450,19 +454,19 @@ logGroup =
     , _lgStoredBytes = Nothing
     }
 
--- | Undocumented member.
+-- | The creation time of the log group.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
 lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The number of metric filters.
 lgMetricFilterCount :: Lens' LogGroup (Maybe Int)
 lgMetricFilterCount = lens _lgMetricFilterCount (\ s a -> s{_lgMetricFilterCount = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the log group.
 lgArn :: Lens' LogGroup (Maybe Text)
 lgArn = lens _lgArn (\ s a -> s{_lgArn = a});
 
--- | Undocumented member.
+-- | The name of the log group.
 lgLogGroupName :: Lens' LogGroup (Maybe Text)
 lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a});
 
@@ -470,7 +474,7 @@ lgLogGroupName = lens _lgLogGroupName (\ s a -> s{_lgLogGroupName = a});
 lgRetentionInDays :: Lens' LogGroup (Maybe Int)
 lgRetentionInDays = lens _lgRetentionInDays (\ s a -> s{_lgRetentionInDays = a});
 
--- | Undocumented member.
+-- | The number of bytes stored.
 lgStoredBytes :: Lens' LogGroup (Maybe Natural)
 lgStoredBytes = lens _lgStoredBytes (\ s a -> s{_lgStoredBytes = a}) . mapping _Nat;
 
@@ -490,7 +494,7 @@ instance Hashable LogGroup
 
 instance NFData LogGroup
 
--- | A log stream is sequence of log events from a single emitter of logs.
+-- | Represents a log stream, which is a sequence of log events from a single emitter of logs.
 --
 --
 --
@@ -510,21 +514,21 @@ data LogStream = LogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsCreationTime' - Undocumented member.
+-- * 'lsCreationTime' - The creation time of the stream.
 --
--- * 'lsUploadSequenceToken' - Undocumented member.
+-- * 'lsUploadSequenceToken' - The sequence token.
 --
--- * 'lsArn' - Undocumented member.
+-- * 'lsArn' - The Amazon Resource Name (ARN) of the log stream.
 --
--- * 'lsFirstEventTimestamp' - Undocumented member.
+-- * 'lsFirstEventTimestamp' - The time of the first event.
 --
--- * 'lsLogStreamName' - Undocumented member.
+-- * 'lsLogStreamName' - The name of the log stream.
 --
--- * 'lsStoredBytes' - Undocumented member.
+-- * 'lsStoredBytes' - The number of bytes stored.
 --
--- * 'lsLastIngestionTime' - Undocumented member.
+-- * 'lsLastIngestionTime' - The ingestion time.
 --
--- * 'lsLastEventTimestamp' - Undocumented member.
+-- * 'lsLastEventTimestamp' - The time of the last event.
 logStream
     :: LogStream
 logStream =
@@ -539,35 +543,35 @@ logStream =
     , _lsLastEventTimestamp = Nothing
     }
 
--- | Undocumented member.
+-- | The creation time of the stream.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
 lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The sequence token.
 lsUploadSequenceToken :: Lens' LogStream (Maybe Text)
 lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenceToken = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the log stream.
 lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
--- | Undocumented member.
+-- | The time of the first event.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The name of the log stream.
 lsLogStreamName :: Lens' LogStream (Maybe Text)
 lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a});
 
--- | Undocumented member.
+-- | The number of bytes stored.
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
 lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The ingestion time.
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The time of the last event.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
 
@@ -589,7 +593,7 @@ instance Hashable LogStream
 
 instance NFData LogStream
 
--- | Metric filters can be used to express how CloudWatch Logs would extract metric observations from ingested log events and transform them to metric data in a CloudWatch metric.
+-- | Metric filters express how CloudWatch Logs would extract metric observations from ingested log events and transform them into metric data in a CloudWatch metric.
 --
 --
 --
@@ -597,6 +601,7 @@ instance NFData LogStream
 data MetricFilter = MetricFilter'
     { _mfCreationTime          :: !(Maybe Nat)
     , _mfFilterName            :: !(Maybe Text)
+    , _mfLogGroupName          :: !(Maybe Text)
     , _mfFilterPattern         :: !(Maybe Text)
     , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -605,36 +610,43 @@ data MetricFilter = MetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mfCreationTime' - Undocumented member.
+-- * 'mfCreationTime' - The creation time of the metric filter.
 --
--- * 'mfFilterName' - Undocumented member.
+-- * 'mfFilterName' - The name of the metric filter.
+--
+-- * 'mfLogGroupName' - The name of the log group.
 --
 -- * 'mfFilterPattern' - Undocumented member.
 --
--- * 'mfMetricTransformations' - Undocumented member.
+-- * 'mfMetricTransformations' - The metric transformations.
 metricFilter
     :: MetricFilter
 metricFilter =
     MetricFilter'
     { _mfCreationTime = Nothing
     , _mfFilterName = Nothing
+    , _mfLogGroupName = Nothing
     , _mfFilterPattern = Nothing
     , _mfMetricTransformations = Nothing
     }
 
--- | Undocumented member.
+-- | The creation time of the metric filter.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
 mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The name of the metric filter.
 mfFilterName :: Lens' MetricFilter (Maybe Text)
 mfFilterName = lens _mfFilterName (\ s a -> s{_mfFilterName = a});
+
+-- | The name of the log group.
+mfLogGroupName :: Lens' MetricFilter (Maybe Text)
+mfLogGroupName = lens _mfLogGroupName (\ s a -> s{_mfLogGroupName = a});
 
 -- | Undocumented member.
 mfFilterPattern :: Lens' MetricFilter (Maybe Text)
 mfFilterPattern = lens _mfFilterPattern (\ s a -> s{_mfFilterPattern = a});
 
--- | Undocumented member.
+-- | The metric transformations.
 mfMetricTransformations :: Lens' MetricFilter (Maybe (NonEmpty MetricTransformation))
 mfMetricTransformations = lens _mfMetricTransformations (\ s a -> s{_mfMetricTransformations = a}) . mapping _List1;
 
@@ -644,14 +656,19 @@ instance FromJSON MetricFilter where
               (\ x ->
                  MetricFilter' <$>
                    (x .:? "creationTime") <*> (x .:? "filterName") <*>
-                     (x .:? "filterPattern")
+                     (x .:? "logGroupName")
+                     <*> (x .:? "filterPattern")
                      <*> (x .:? "metricTransformations"))
 
 instance Hashable MetricFilter
 
 instance NFData MetricFilter
 
--- | /See:/ 'metricFilterMatchRecord' smart constructor.
+-- | Represents a matched event.
+--
+--
+--
+-- /See:/ 'metricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
     , _mfmrEventNumber     :: !(Maybe Integer)
@@ -662,11 +679,11 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mfmrExtractedValues' - Undocumented member.
+-- * 'mfmrExtractedValues' - The values extracted from the event data by the filter.
 --
--- * 'mfmrEventNumber' - Undocumented member.
+-- * 'mfmrEventNumber' - The event number.
 --
--- * 'mfmrEventMessage' - Undocumented member.
+-- * 'mfmrEventMessage' - The raw event data.
 metricFilterMatchRecord
     :: MetricFilterMatchRecord
 metricFilterMatchRecord =
@@ -676,15 +693,15 @@ metricFilterMatchRecord =
     , _mfmrEventMessage = Nothing
     }
 
--- | Undocumented member.
+-- | The values extracted from the event data by the filter.
 mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The event number.
 mfmrEventNumber :: Lens' MetricFilterMatchRecord (Maybe Integer)
 mfmrEventNumber = lens _mfmrEventNumber (\ s a -> s{_mfmrEventNumber = a});
 
--- | Undocumented member.
+-- | The raw event data.
 mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
 mfmrEventMessage = lens _mfmrEventMessage (\ s a -> s{_mfmrEventMessage = a});
 
@@ -701,7 +718,11 @@ instance Hashable MetricFilterMatchRecord
 
 instance NFData MetricFilterMatchRecord
 
--- | /See:/ 'metricTransformation' smart constructor.
+-- | Indicates how to transform ingested log events into metric data in a CloudWatch metric.
+--
+--
+--
+-- /See:/ 'metricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
     { _mtDefaultValue    :: !(Maybe Double)
     , _mtMetricName      :: !Text
@@ -713,13 +734,13 @@ data MetricTransformation = MetricTransformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mtDefaultValue' - (Optional) A default value to emit when a filter pattern does not match a log event. Can be null.
+-- * 'mtDefaultValue' - (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
 --
--- * 'mtMetricName' - Name of the metric.
+-- * 'mtMetricName' - The name of the CloudWatch metric.
 --
--- * 'mtMetricNamespace' - Namespace to which the metric belongs.
+-- * 'mtMetricNamespace' - The namespace of the CloudWatch metric.
 --
--- * 'mtMetricValue' - A string representing a value to publish to this metric when a filter pattern matches a log event.
+-- * 'mtMetricValue' - The value to publish to the CloudWatch metric when a filter pattern matches a log event.
 metricTransformation
     :: Text -- ^ 'mtMetricName'
     -> Text -- ^ 'mtMetricNamespace'
@@ -733,19 +754,19 @@ metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     , _mtMetricValue = pMetricValue_
     }
 
--- | (Optional) A default value to emit when a filter pattern does not match a log event. Can be null.
+-- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
 mtDefaultValue :: Lens' MetricTransformation (Maybe Double)
 mtDefaultValue = lens _mtDefaultValue (\ s a -> s{_mtDefaultValue = a});
 
--- | Name of the metric.
+-- | The name of the CloudWatch metric.
 mtMetricName :: Lens' MetricTransformation Text
 mtMetricName = lens _mtMetricName (\ s a -> s{_mtMetricName = a});
 
--- | Namespace to which the metric belongs.
+-- | The namespace of the CloudWatch metric.
 mtMetricNamespace :: Lens' MetricTransformation Text
 mtMetricNamespace = lens _mtMetricNamespace (\ s a -> s{_mtMetricNamespace = a});
 
--- | A string representing a value to publish to this metric when a filter pattern matches a log event.
+-- | The value to publish to the CloudWatch metric when a filter pattern matches a log event.
 mtMetricValue :: Lens' MetricTransformation Text
 mtMetricValue = lens _mtMetricValue (\ s a -> s{_mtMetricValue = a});
 
@@ -771,7 +792,11 @@ instance ToJSON MetricTransformation where
                   Just ("metricNamespace" .= _mtMetricNamespace),
                   Just ("metricValue" .= _mtMetricValue)])
 
--- | /See:/ 'outputLogEvent' smart constructor.
+-- | Represents a log event.
+--
+--
+--
+-- /See:/ 'outputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
     { _oleIngestionTime :: !(Maybe Nat)
     , _oleMessage       :: !(Maybe Text)
@@ -782,11 +807,11 @@ data OutputLogEvent = OutputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oleIngestionTime' - Undocumented member.
+-- * 'oleIngestionTime' - The time the event was ingested.
 --
--- * 'oleMessage' - Undocumented member.
+-- * 'oleMessage' - The data contained in the log event.
 --
--- * 'oleTimestamp' - Undocumented member.
+-- * 'oleTimestamp' - The time the event occurred.
 outputLogEvent
     :: OutputLogEvent
 outputLogEvent =
@@ -796,15 +821,15 @@ outputLogEvent =
     , _oleTimestamp = Nothing
     }
 
--- | Undocumented member.
+-- | The time the event was ingested.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
 oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The data contained in the log event.
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a});
 
--- | Undocumented member.
+-- | The time the event occurred.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat;
 
@@ -820,7 +845,11 @@ instance Hashable OutputLogEvent
 
 instance NFData OutputLogEvent
 
--- | /See:/ 'rejectedLogEventsInfo' smart constructor.
+-- | Represents the rejected events.
+--
+--
+--
+-- /See:/ 'rejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
     , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
@@ -831,11 +860,11 @@ data RejectedLogEventsInfo = RejectedLogEventsInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rleiTooOldLogEventEndIndex' - Undocumented member.
+-- * 'rleiTooOldLogEventEndIndex' - The log events that are too old.
 --
--- * 'rleiTooNewLogEventStartIndex' - Undocumented member.
+-- * 'rleiTooNewLogEventStartIndex' - The log events that are too new.
 --
--- * 'rleiExpiredLogEventEndIndex' - Undocumented member.
+-- * 'rleiExpiredLogEventEndIndex' - The expired log events.
 rejectedLogEventsInfo
     :: RejectedLogEventsInfo
 rejectedLogEventsInfo =
@@ -845,15 +874,15 @@ rejectedLogEventsInfo =
     , _rleiExpiredLogEventEndIndex = Nothing
     }
 
--- | Undocumented member.
+-- | The log events that are too old.
 rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiTooOldLogEventEndIndex = lens _rleiTooOldLogEventEndIndex (\ s a -> s{_rleiTooOldLogEventEndIndex = a});
 
--- | Undocumented member.
+-- | The log events that are too new.
 rleiTooNewLogEventStartIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiTooNewLogEventStartIndex = lens _rleiTooNewLogEventStartIndex (\ s a -> s{_rleiTooNewLogEventStartIndex = a});
 
--- | Undocumented member.
+-- | The expired log events.
 rleiExpiredLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
 rleiExpiredLogEventEndIndex = lens _rleiExpiredLogEventEndIndex (\ s a -> s{_rleiExpiredLogEventEndIndex = a});
 
@@ -870,7 +899,7 @@ instance Hashable RejectedLogEventsInfo
 
 instance NFData RejectedLogEventsInfo
 
--- | An object indicating the search status of a log stream in a @FilterLogEvents@ request.
+-- | Represents the search status of a log stream.
 --
 --
 --
@@ -886,7 +915,7 @@ data SearchedLogStream = SearchedLogStream'
 --
 -- * 'slsLogStreamName' - The name of the log stream.
 --
--- * 'slsSearchedCompletely' - Indicates whether all the events in this log stream were searched or more data exists to search by paginating further.
+-- * 'slsSearchedCompletely' - Indicates whether all the events in this log stream were searched.
 searchedLogStream
     :: SearchedLogStream
 searchedLogStream =
@@ -899,7 +928,7 @@ searchedLogStream =
 slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
 slsLogStreamName = lens _slsLogStreamName (\ s a -> s{_slsLogStreamName = a});
 
--- | Indicates whether all the events in this log stream were searched or more data exists to search by paginating further.
+-- | Indicates whether all the events in this log stream were searched.
 slsSearchedCompletely :: Lens' SearchedLogStream (Maybe Bool)
 slsSearchedCompletely = lens _slsSearchedCompletely (\ s a -> s{_slsSearchedCompletely = a});
 
@@ -915,7 +944,11 @@ instance Hashable SearchedLogStream
 
 instance NFData SearchedLogStream
 
--- | /See:/ 'subscriptionFilter' smart constructor.
+-- | Represents a subscription filter.
+--
+--
+--
+-- /See:/ 'subscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
     { _sfCreationTime   :: !(Maybe Nat)
     , _sfFilterName     :: !(Maybe Text)
@@ -929,17 +962,17 @@ data SubscriptionFilter = SubscriptionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfCreationTime' - Undocumented member.
+-- * 'sfCreationTime' - The creation time of the subscription filter.
 --
--- * 'sfFilterName' - Undocumented member.
+-- * 'sfFilterName' - The name of the subscription filter.
 --
--- * 'sfDestinationARN' - Undocumented member.
+-- * 'sfDestinationARN' - The Amazon Resource Name (ARN) of the destination.
 --
--- * 'sfLogGroupName' - Undocumented member.
+-- * 'sfLogGroupName' - The name of the log group.
 --
 -- * 'sfFilterPattern' - Undocumented member.
 --
--- * 'sfRoleARN' - Undocumented member.
+-- * 'sfRoleARN' -
 subscriptionFilter
     :: SubscriptionFilter
 subscriptionFilter =
@@ -952,19 +985,19 @@ subscriptionFilter =
     , _sfRoleARN = Nothing
     }
 
--- | Undocumented member.
+-- | The creation time of the subscription filter.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
 sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The name of the subscription filter.
 sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the destination.
 sfDestinationARN :: Lens' SubscriptionFilter (Maybe Text)
 sfDestinationARN = lens _sfDestinationARN (\ s a -> s{_sfDestinationARN = a});
 
--- | Undocumented member.
+-- | The name of the log group.
 sfLogGroupName :: Lens' SubscriptionFilter (Maybe Text)
 sfLogGroupName = lens _sfLogGroupName (\ s a -> s{_sfLogGroupName = a});
 
@@ -972,7 +1005,7 @@ sfLogGroupName = lens _sfLogGroupName (\ s a -> s{_sfLogGroupName = a});
 sfFilterPattern :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterPattern = lens _sfFilterPattern (\ s a -> s{_sfFilterPattern = a});
 
--- | Undocumented member.
+-- |
 sfRoleARN :: Lens' SubscriptionFilter (Maybe Text)
 sfRoleARN = lens _sfRoleARN (\ s a -> s{_sfRoleARN = a});
 

@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the metrics filters associated with the specified log group. The list returned in the response is ASCII-sorted by filter name.
+-- Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.
 --
---
--- By default, this operation returns up to 50 metric filters. If there are more metric filters to list, the response would contain a @nextToken@ value in the response body. You can also limit the number of metric filters returned in the response by specifying the @limit@ parameter in the request.
 --
 --
 -- This operation returns paginated results.
@@ -32,9 +30,11 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     , DescribeMetricFilters
     -- * Request Lenses
     , dmfFilterNamePrefix
-    , dmfNextToken
-    , dmfLimit
+    , dmfMetricName
     , dmfLogGroupName
+    , dmfNextToken
+    , dmfMetricNamespace
+    , dmfLimit
 
     -- * Destructuring the Response
     , describeMetricFiltersResponse
@@ -56,48 +56,63 @@ import           Network.AWS.Response
 -- | /See:/ 'describeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
     { _dmfFilterNamePrefix :: !(Maybe Text)
+    , _dmfMetricName       :: !(Maybe Text)
+    , _dmfLogGroupName     :: !(Maybe Text)
     , _dmfNextToken        :: !(Maybe Text)
+    , _dmfMetricNamespace  :: !(Maybe Text)
     , _dmfLimit            :: !(Maybe Nat)
-    , _dmfLogGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMetricFilters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmfFilterNamePrefix' - Will only return metric filters that match the provided filterNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- * 'dmfFilterNamePrefix' - The prefix to match.
 --
--- * 'dmfNextToken' - A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeMetricFilters@ request.
+-- * 'dmfMetricName' - The name of the CloudWatch metric.
 --
--- * 'dmfLimit' - The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- * 'dmfLogGroupName' - The name of the log group.
 --
--- * 'dmfLogGroupName' - The log group name for which metric filters are to be listed.
+-- * 'dmfNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- * 'dmfMetricNamespace' - The namespace of the CloudWatch metric.
+--
+-- * 'dmfLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 describeMetricFilters
-    :: Text -- ^ 'dmfLogGroupName'
-    -> DescribeMetricFilters
-describeMetricFilters pLogGroupName_ =
+    :: DescribeMetricFilters
+describeMetricFilters =
     DescribeMetricFilters'
     { _dmfFilterNamePrefix = Nothing
+    , _dmfMetricName = Nothing
+    , _dmfLogGroupName = Nothing
     , _dmfNextToken = Nothing
+    , _dmfMetricNamespace = Nothing
     , _dmfLimit = Nothing
-    , _dmfLogGroupName = pLogGroupName_
     }
 
--- | Will only return metric filters that match the provided filterNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- | The prefix to match.
 dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
 dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
 
--- | A string token used for pagination that points to the next page of results. It must be a value obtained from the response of the previous @DescribeMetricFilters@ request.
+-- | The name of the CloudWatch metric.
+dmfMetricName :: Lens' DescribeMetricFilters (Maybe Text)
+dmfMetricName = lens _dmfMetricName (\ s a -> s{_dmfMetricName = a});
+
+-- | The name of the log group.
+dmfLogGroupName :: Lens' DescribeMetricFilters (Maybe Text)
+dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
+
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
 
--- | The maximum number of items returned in the response. If you don't specify a value, the request would return up to 50 items.
+-- | The namespace of the CloudWatch metric.
+dmfMetricNamespace :: Lens' DescribeMetricFilters (Maybe Text)
+dmfMetricNamespace = lens _dmfMetricNamespace (\ s a -> s{_dmfMetricNamespace = a});
+
+-- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
 dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
-
--- | The log group name for which metric filters are to be listed.
-dmfLogGroupName :: Lens' DescribeMetricFilters Text
-dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
 
 instance AWSPager DescribeMetricFilters where
         page rq rs
@@ -137,9 +152,11 @@ instance ToJSON DescribeMetricFilters where
           = object
               (catMaybes
                  [("filterNamePrefix" .=) <$> _dmfFilterNamePrefix,
+                  ("metricName" .=) <$> _dmfMetricName,
+                  ("logGroupName" .=) <$> _dmfLogGroupName,
                   ("nextToken" .=) <$> _dmfNextToken,
-                  ("limit" .=) <$> _dmfLimit,
-                  Just ("logGroupName" .= _dmfLogGroupName)])
+                  ("metricNamespace" .=) <$> _dmfMetricNamespace,
+                  ("limit" .=) <$> _dmfLimit])
 
 instance ToPath DescribeMetricFilters where
         toPath = const "/"
@@ -160,7 +177,7 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
 --
 -- * 'dmfrsNextToken' - Undocumented member.
 --
--- * 'dmfrsMetricFilters' - Undocumented member.
+-- * 'dmfrsMetricFilters' - The metric filters.
 --
 -- * 'dmfrsResponseStatus' - -- | The response status code.
 describeMetricFiltersResponse
@@ -177,7 +194,7 @@ describeMetricFiltersResponse pResponseStatus_ =
 dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
 
--- | Undocumented member.
+-- | The metric filters.
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
 

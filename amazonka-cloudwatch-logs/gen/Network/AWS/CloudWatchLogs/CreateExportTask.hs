@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an @ExportTask@ which allows you to efficiently export data from a Log Group to your Amazon S3 bucket.
+-- Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.
 --
 --
--- This is an asynchronous call. If all the required information is provided, this API will initiate an export task and respond with the task Id. Once started, @DescribeExportTasks@ can be used to get the status of an export task. You can only have one active (@RUNNING@ or @PENDING@ ) export task at a time, per account.
+-- This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use 'DescribeExportTasks' to get the status of the export task. Each account can only have one active (@RUNNING@ or @PENDING@ ) export task at a time. To cancel an export task, use 'CancelExportTask' .
 --
--- You can export logs from multiple log groups or multiple time ranges to the same Amazon S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.
+-- You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.
 --
 module Network.AWS.CloudWatchLogs.CreateExportTask
     (
@@ -69,19 +69,19 @@ data CreateExportTask = CreateExportTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cetDestinationPrefix' - Prefix that will be used as the start of Amazon S3 key for every object exported. If not specified, this defaults to 'exportedlogs'.
+-- * 'cetDestinationPrefix' - The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
 --
 -- * 'cetTaskName' - The name of the export task.
 --
--- * 'cetLogStreamNamePrefix' - Will only export log streams that match the provided logStreamNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- * 'cetLogStreamNamePrefix' - Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
 --
--- * 'cetLogGroupName' - The name of the log group to export.
+-- * 'cetLogGroupName' - The name of the log group.
 --
--- * 'cetFrom' - A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the start time of the range for the request. Events with a timestamp prior to this time will not be exported.
+-- * 'cetFrom' - The start time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 --
--- * 'cetTo' - A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the end time of the range for the request. Events with a timestamp later than this time will not be exported.
+-- * 'cetTo' - The end time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 --
--- * 'cetDestination' - Name of Amazon S3 bucket to which the log data will be exported. __Note:__ Only buckets in the same AWS region are supported.
+-- * 'cetDestination' - The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 createExportTask
     :: Text -- ^ 'cetLogGroupName'
     -> Natural -- ^ 'cetFrom'
@@ -99,7 +99,7 @@ createExportTask pLogGroupName_ pFrom_ pTo_ pDestination_ =
     , _cetDestination = pDestination_
     }
 
--- | Prefix that will be used as the start of Amazon S3 key for every object exported. If not specified, this defaults to 'exportedlogs'.
+-- | The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
 cetDestinationPrefix :: Lens' CreateExportTask (Maybe Text)
 cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPrefix = a});
 
@@ -107,23 +107,23 @@ cetDestinationPrefix = lens _cetDestinationPrefix (\ s a -> s{_cetDestinationPre
 cetTaskName :: Lens' CreateExportTask (Maybe Text)
 cetTaskName = lens _cetTaskName (\ s a -> s{_cetTaskName = a});
 
--- | Will only export log streams that match the provided logStreamNamePrefix. If you don't specify a value, no prefix filter is applied.
+-- | Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
 cetLogStreamNamePrefix :: Lens' CreateExportTask (Maybe Text)
 cetLogStreamNamePrefix = lens _cetLogStreamNamePrefix (\ s a -> s{_cetLogStreamNamePrefix = a});
 
--- | The name of the log group to export.
+-- | The name of the log group.
 cetLogGroupName :: Lens' CreateExportTask Text
 cetLogGroupName = lens _cetLogGroupName (\ s a -> s{_cetLogGroupName = a});
 
--- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the start time of the range for the request. Events with a timestamp prior to this time will not be exported.
+-- | The start time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 cetFrom :: Lens' CreateExportTask Natural
 cetFrom = lens _cetFrom (\ s a -> s{_cetFrom = a}) . _Nat;
 
--- | A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. It indicates the end time of the range for the request. Events with a timestamp later than this time will not be exported.
+-- | The end time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 cetTo :: Lens' CreateExportTask Natural
 cetTo = lens _cetTo (\ s a -> s{_cetTo = a}) . _Nat;
 
--- | Name of Amazon S3 bucket to which the log data will be exported. __Note:__ Only buckets in the same AWS region are supported.
+-- | The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 cetDestination :: Lens' CreateExportTask Text
 cetDestination = lens _cetDestination (\ s a -> s{_cetDestination = a});
 
@@ -177,7 +177,7 @@ data CreateExportTaskResponse = CreateExportTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cetrsTaskId' - Id of the export task that got created.
+-- * 'cetrsTaskId' - The ID of the export task.
 --
 -- * 'cetrsResponseStatus' - -- | The response status code.
 createExportTaskResponse
@@ -189,7 +189,7 @@ createExportTaskResponse pResponseStatus_ =
     , _cetrsResponseStatus = pResponseStatus_
     }
 
--- | Id of the export task that got created.
+-- | The ID of the export task.
 cetrsTaskId :: Lens' CreateExportTaskResponse (Maybe Text)
 cetrsTaskId = lens _cetrsTaskId (\ s a -> s{_cetrsTaskId = a});
 

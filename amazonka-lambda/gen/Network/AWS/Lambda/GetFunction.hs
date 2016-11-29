@@ -110,7 +110,7 @@ instance ToQuery GetFunction where
         toQuery GetFunction'{..}
           = mconcat ["Qualifier" =: _gfQualifier]
 
--- | This response contains the object for the Lambda function location (see .
+-- | This response contains the object for the Lambda function location (see 'FunctionCodeLocation' .
 --
 --
 --

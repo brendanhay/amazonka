@@ -41,6 +41,8 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion

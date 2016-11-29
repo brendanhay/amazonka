@@ -33,6 +33,8 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     -- * Request Lenses
     , ufcMemorySize
     , ufcRuntime
+    , ufcKMSKeyARN
+    , ufcEnvironment
     , ufcRole
     , ufcVPCConfig
     , ufcHandler
@@ -47,6 +49,8 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -74,6 +78,8 @@ import           Network.AWS.Response
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     { _ufcMemorySize   :: !(Maybe Nat)
     , _ufcRuntime      :: !(Maybe Runtime)
+    , _ufcKMSKeyARN    :: !(Maybe Text)
+    , _ufcEnvironment  :: !(Maybe Environment)
     , _ufcRole         :: !(Maybe Text)
     , _ufcVPCConfig    :: !(Maybe VPCConfig)
     , _ufcHandler      :: !(Maybe Text)
@@ -89,6 +95,10 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- * 'ufcMemorySize' - The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
 -- * 'ufcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+--
+-- * 'ufcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
+--
+-- * 'ufcEnvironment' - The parent object that contains your environment's configuration settings.
 --
 -- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 --
@@ -108,6 +118,8 @@ updateFunctionConfiguration pFunctionName_ =
     UpdateFunctionConfiguration'
     { _ufcMemorySize = Nothing
     , _ufcRuntime = Nothing
+    , _ufcKMSKeyARN = Nothing
+    , _ufcEnvironment = Nothing
     , _ufcRole = Nothing
     , _ufcVPCConfig = Nothing
     , _ufcHandler = Nothing
@@ -123,6 +135,14 @@ ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _
 -- | The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
 ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a});
+
+-- | The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
+ufcKMSKeyARN :: Lens' UpdateFunctionConfiguration (Maybe Text)
+ufcKMSKeyARN = lens _ufcKMSKeyARN (\ s a -> s{_ufcKMSKeyARN = a});
+
+-- | The parent object that contains your environment's configuration settings.
+ufcEnvironment :: Lens' UpdateFunctionConfiguration (Maybe Environment)
+ufcEnvironment = lens _ufcEnvironment (\ s a -> s{_ufcEnvironment = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 ufcRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
@@ -167,6 +187,8 @@ instance ToJSON UpdateFunctionConfiguration where
               (catMaybes
                  [("MemorySize" .=) <$> _ufcMemorySize,
                   ("Runtime" .=) <$> _ufcRuntime,
+                  ("KMSKeyArn" .=) <$> _ufcKMSKeyARN,
+                  ("Environment" .=) <$> _ufcEnvironment,
                   ("Role" .=) <$> _ufcRole,
                   ("VpcConfig" .=) <$> _ufcVPCConfig,
                   ("Handler" .=) <$> _ufcHandler,

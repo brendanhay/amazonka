@@ -83,6 +83,128 @@ instance Hashable AliasConfiguration
 
 instance NFData AliasConfiguration
 
+-- | The parent object that contains your environment's configuration settings.
+--
+--
+--
+-- /See:/ 'environment' smart constructor.
+newtype Environment = Environment'
+    { _eVariables :: Maybe (Map Text Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Environment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eVariables' - The key-value pairs that represent your environment's configuration settings. The value you specify cannot contain a ",".
+environment
+    :: Environment
+environment =
+    Environment'
+    { _eVariables = Nothing
+    }
+
+-- | The key-value pairs that represent your environment's configuration settings. The value you specify cannot contain a ",".
+eVariables :: Lens' Environment (HashMap Text Text)
+eVariables = lens _eVariables (\ s a -> s{_eVariables = a}) . _Default . _Map;
+
+instance Hashable Environment
+
+instance NFData Environment
+
+instance ToJSON Environment where
+        toJSON Environment'{..}
+          = object
+              (catMaybes [("Variables" .=) <$> _eVariables])
+
+-- | The parent object that contains error information associated with your configuration settings.
+--
+--
+--
+-- /See:/ 'environmentError' smart constructor.
+data EnvironmentError = EnvironmentError'
+    { _eeErrorCode :: !(Maybe Text)
+    , _eeMessage   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eeErrorCode' - The error code returned by the environment error object.
+--
+-- * 'eeMessage' - The message returned by the environment error object.
+environmentError
+    :: EnvironmentError
+environmentError =
+    EnvironmentError'
+    { _eeErrorCode = Nothing
+    , _eeMessage = Nothing
+    }
+
+-- | The error code returned by the environment error object.
+eeErrorCode :: Lens' EnvironmentError (Maybe Text)
+eeErrorCode = lens _eeErrorCode (\ s a -> s{_eeErrorCode = a});
+
+-- | The message returned by the environment error object.
+eeMessage :: Lens' EnvironmentError (Maybe Text)
+eeMessage = lens _eeMessage (\ s a -> s{_eeMessage = a});
+
+instance FromJSON EnvironmentError where
+        parseJSON
+          = withObject "EnvironmentError"
+              (\ x ->
+                 EnvironmentError' <$>
+                   (x .:? "ErrorCode") <*> (x .:? "Message"))
+
+instance Hashable EnvironmentError
+
+instance NFData EnvironmentError
+
+-- | The parent object returned that contains your environment's configuration settings or any error information associated with your configuration settings.
+--
+--
+--
+-- /See:/ 'environmentResponse' smart constructor.
+data EnvironmentResponse = EnvironmentResponse'
+    { _envVariables :: !(Maybe (Map Text Text))
+    , _envError     :: !(Maybe EnvironmentError)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'envVariables' - The key-value pairs returned that represent your environment's configuration settings or error information.
+--
+-- * 'envError' - Undocumented member.
+environmentResponse
+    :: EnvironmentResponse
+environmentResponse =
+    EnvironmentResponse'
+    { _envVariables = Nothing
+    , _envError = Nothing
+    }
+
+-- | The key-value pairs returned that represent your environment's configuration settings or error information.
+envVariables :: Lens' EnvironmentResponse (HashMap Text Text)
+envVariables = lens _envVariables (\ s a -> s{_envVariables = a}) . _Default . _Map;
+
+-- | Undocumented member.
+envError :: Lens' EnvironmentResponse (Maybe EnvironmentError)
+envError = lens _envError (\ s a -> s{_envError = a});
+
+instance FromJSON EnvironmentResponse where
+        parseJSON
+          = withObject "EnvironmentResponse"
+              (\ x ->
+                 EnvironmentResponse' <$>
+                   (x .:? "Variables" .!= mempty) <*> (x .:? "Error"))
+
+instance Hashable EnvironmentResponse
+
+instance NFData EnvironmentResponse
+
 -- | Describes mapping between an Amazon Kinesis stream and a Lambda function.
 --
 --
@@ -297,6 +419,8 @@ data FunctionConfiguration = FunctionConfiguration'
     { _fcMemorySize   :: !(Maybe Nat)
     , _fcRuntime      :: !(Maybe Runtime)
     , _fcFunctionARN  :: !(Maybe Text)
+    , _fcKMSKeyARN    :: !(Maybe Text)
+    , _fcEnvironment  :: !(Maybe EnvironmentResponse)
     , _fcRole         :: !(Maybe Text)
     , _fcVPCConfig    :: !(Maybe VPCConfigResponse)
     , _fcVersion      :: !(Maybe Text)
@@ -318,6 +442,10 @@ data FunctionConfiguration = FunctionConfiguration'
 -- * 'fcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 --
 -- * 'fcFunctionARN' - The Amazon Resource Name (ARN) assigned to the function.
+--
+-- * 'fcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it means you are using the AWS Lambda default service key.
+--
+-- * 'fcEnvironment' - The parent object that contains your environment's configuration settings.
 --
 -- * 'fcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 --
@@ -345,6 +473,8 @@ functionConfiguration =
     { _fcMemorySize = Nothing
     , _fcRuntime = Nothing
     , _fcFunctionARN = Nothing
+    , _fcKMSKeyARN = Nothing
+    , _fcEnvironment = Nothing
     , _fcRole = Nothing
     , _fcVPCConfig = Nothing
     , _fcVersion = Nothing
@@ -368,6 +498,14 @@ fcRuntime = lens _fcRuntime (\ s a -> s{_fcRuntime = a});
 -- | The Amazon Resource Name (ARN) assigned to the function.
 fcFunctionARN :: Lens' FunctionConfiguration (Maybe Text)
 fcFunctionARN = lens _fcFunctionARN (\ s a -> s{_fcFunctionARN = a});
+
+-- | The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it means you are using the AWS Lambda default service key.
+fcKMSKeyARN :: Lens' FunctionConfiguration (Maybe Text)
+fcKMSKeyARN = lens _fcKMSKeyARN (\ s a -> s{_fcKMSKeyARN = a});
+
+-- | The parent object that contains your environment's configuration settings.
+fcEnvironment :: Lens' FunctionConfiguration (Maybe EnvironmentResponse)
+fcEnvironment = lens _fcEnvironment (\ s a -> s{_fcEnvironment = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 fcRole :: Lens' FunctionConfiguration (Maybe Text)
@@ -416,6 +554,8 @@ instance FromJSON FunctionConfiguration where
                  FunctionConfiguration' <$>
                    (x .:? "MemorySize") <*> (x .:? "Runtime") <*>
                      (x .:? "FunctionArn")
+                     <*> (x .:? "KMSKeyArn")
+                     <*> (x .:? "Environment")
                      <*> (x .:? "Role")
                      <*> (x .:? "VpcConfig")
                      <*> (x .:? "Version")

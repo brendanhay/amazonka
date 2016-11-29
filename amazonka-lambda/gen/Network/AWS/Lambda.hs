@@ -25,6 +25,9 @@ module Network.AWS.Lambda
     -- * Errors
     -- $errors
 
+    -- ** KMSInvalidStateException
+    , _KMSInvalidStateException
+
     -- ** EC2ThrottledException
     , _EC2ThrottledException
 
@@ -43,6 +46,9 @@ module Network.AWS.Lambda
     -- ** InvalidRequestContentException
     , _InvalidRequestContentException
 
+    -- ** KMSNotFoundException
+    , _KMSNotFoundException
+
     -- ** ENILimitReachedException
     , _ENILimitReachedException
 
@@ -57,6 +63,9 @@ module Network.AWS.Lambda
 
     -- ** InvalidSecurityGroupIdException
     , _InvalidSecurityGroupIdException
+
+    -- ** KMSDisabledException
+    , _KMSDisabledException
 
     -- ** SubnetIPAddressLimitReachedException
     , _SubnetIPAddressLimitReachedException
@@ -78,6 +87,9 @@ module Network.AWS.Lambda
 
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
+
+    -- ** KMSAccessDeniedException
+    , _KMSAccessDeniedException
 
     -- * Waiters
     -- $waiters
@@ -176,6 +188,23 @@ module Network.AWS.Lambda
     , acAliasARN
     , acDescription
 
+    -- ** Environment
+    , Environment
+    , environment
+    , eVariables
+
+    -- ** EnvironmentError
+    , EnvironmentError
+    , environmentError
+    , eeErrorCode
+    , eeMessage
+
+    -- ** EnvironmentResponse
+    , EnvironmentResponse
+    , environmentResponse
+    , envVariables
+    , envError
+
     -- ** EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
@@ -208,6 +237,8 @@ module Network.AWS.Lambda
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion

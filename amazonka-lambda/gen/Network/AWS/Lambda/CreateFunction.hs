@@ -32,6 +32,8 @@ module Network.AWS.Lambda.CreateFunction
     , CreateFunction
     -- * Request Lenses
     , cfMemorySize
+    , cfKMSKeyARN
+    , cfEnvironment
     , cfVPCConfig
     , cfTimeout
     , cfDescription
@@ -49,6 +51,8 @@ module Network.AWS.Lambda.CreateFunction
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -75,6 +79,8 @@ import           Network.AWS.Response
 -- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
     { _cfMemorySize   :: !(Maybe Nat)
+    , _cfKMSKeyARN    :: !(Maybe Text)
+    , _cfEnvironment  :: !(Maybe Environment)
     , _cfVPCConfig    :: !(Maybe VPCConfig)
     , _cfTimeout      :: !(Maybe Nat)
     , _cfDescription  :: !(Maybe Text)
@@ -91,6 +97,10 @@ data CreateFunction = CreateFunction'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cfMemorySize' - The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
+--
+-- * 'cfKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
+--
+-- * 'cfEnvironment' - Undocumented member.
 --
 -- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
@@ -119,6 +129,8 @@ createFunction
 createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     CreateFunction'
     { _cfMemorySize = Nothing
+    , _cfKMSKeyARN = Nothing
+    , _cfEnvironment = Nothing
     , _cfVPCConfig = Nothing
     , _cfTimeout = Nothing
     , _cfDescription = Nothing
@@ -133,6 +145,14 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
 -- | The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 cfMemorySize :: Lens' CreateFunction (Maybe Natural)
 cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
+
+-- | The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
+cfKMSKeyARN :: Lens' CreateFunction (Maybe Text)
+cfKMSKeyARN = lens _cfKMSKeyARN (\ s a -> s{_cfKMSKeyARN = a});
+
+-- | Undocumented member.
+cfEnvironment :: Lens' CreateFunction (Maybe Environment)
+cfEnvironment = lens _cfEnvironment (\ s a -> s{_cfEnvironment = a});
 
 -- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
@@ -187,6 +207,8 @@ instance ToJSON CreateFunction where
           = object
               (catMaybes
                  [("MemorySize" .=) <$> _cfMemorySize,
+                  ("KMSKeyArn" .=) <$> _cfKMSKeyARN,
+                  ("Environment" .=) <$> _cfEnvironment,
                   ("VpcConfig" .=) <$> _cfVPCConfig,
                   ("Timeout" .=) <$> _cfTimeout,
                   ("Description" .=) <$> _cfDescription,

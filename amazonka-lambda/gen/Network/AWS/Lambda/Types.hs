@@ -16,17 +16,20 @@ module Network.AWS.Lambda.Types
       lambda
 
     -- * Errors
+    , _KMSInvalidStateException
     , _EC2ThrottledException
     , _PolicyLengthExceededException
     , _EC2AccessDeniedException
     , _InvalidSubnetIdException
     , _UnsupportedMediaTypeException
     , _InvalidRequestContentException
+    , _KMSNotFoundException
     , _ENILimitReachedException
     , _InvalidParameterValueException
     , _RequestTooLargeException
     , _TooManyRequestsException
     , _InvalidSecurityGroupIdException
+    , _KMSDisabledException
     , _SubnetIPAddressLimitReachedException
     , _ServiceException
     , _CodeStorageExceededException
@@ -34,6 +37,7 @@ module Network.AWS.Lambda.Types
     , _ResourceConflictException
     , _EC2UnexpectedException
     , _ResourceNotFoundException
+    , _KMSAccessDeniedException
 
     -- * EventSourcePosition
     , EventSourcePosition (..)
@@ -54,6 +58,23 @@ module Network.AWS.Lambda.Types
     , acFunctionVersion
     , acAliasARN
     , acDescription
+
+    -- * Environment
+    , Environment
+    , environment
+    , eVariables
+
+    -- * EnvironmentError
+    , EnvironmentError
+    , environmentError
+    , eeErrorCode
+    , eeMessage
+
+    -- * EnvironmentResponse
+    , EnvironmentResponse
+    , environmentResponse
+    , envVariables
+    , envError
 
     -- * EventSourceMappingConfiguration
     , EventSourceMappingConfiguration
@@ -87,6 +108,8 @@ module Network.AWS.Lambda.Types
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -152,6 +175,13 @@ lambda =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for Decrypt. Please check the function's KMS key settings.
+--
+--
+_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSInvalidStateException =
+    _ServiceError . hasStatus 502 . hasCode "KMSInvalidStateException"
+
 -- | AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided for the Lambda function.
 --
 --
@@ -194,6 +224,13 @@ _InvalidRequestContentException :: AsError a => Getting (First ServiceError) a S
 _InvalidRequestContentException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
+-- | Lambda was unable to decrypt the environment variables because the KMS key was not found. Please check the function's KMS key settings.
+--
+--
+_KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSNotFoundException =
+    _ServiceError . hasStatus 502 . hasCode "KMSNotFoundException"
+
 -- | AWS Lambda was not able to create an Elastic Network Interface (ENI) in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached.
 --
 --
@@ -228,6 +265,13 @@ _TooManyRequestsException =
 _InvalidSecurityGroupIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSecurityGroupIdException =
     _ServiceError . hasStatus 502 . hasCode "InvalidSecurityGroupIDException"
+
+-- | Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Please check the Lambda function's KMS key settings.
+--
+--
+_KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSDisabledException =
+    _ServiceError . hasStatus 502 . hasCode "KMSDisabledException"
 
 -- | AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.
 --
@@ -277,3 +321,10 @@ _EC2UnexpectedException =
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
+
+-- | Lambda was unable to decrypt the environment variables becauses KMS access was denied. Please check the Lambda function's KMS permissions.
+--
+--
+_KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSAccessDeniedException =
+    _ServiceError . hasStatus 502 . hasCode "KMSAccessDeniedException"

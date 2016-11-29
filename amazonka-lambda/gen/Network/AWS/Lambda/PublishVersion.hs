@@ -38,6 +38,8 @@ module Network.AWS.Lambda.PublishVersion
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion

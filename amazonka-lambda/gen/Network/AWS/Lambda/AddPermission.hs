@@ -77,7 +77,7 @@ data AddPermission = AddPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apSourceAccount' - This parameter is used for S3 and SES only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
+-- * 'apSourceAccount' - This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
 --
 -- * 'apEventSourceToken' - A unique token that must be supplied by the principal invoking the function. This is currently only used for Alexa Smart Home functions.
 --
@@ -110,7 +110,7 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     , _apPrincipal = pPrincipal_
     }
 
--- | This parameter is used for S3 and SES only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
+-- | This parameter is used for S3, SES, CloudWatch Logs and CloudWatch Rules only. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
 apSourceAccount :: Lens' AddPermission (Maybe Text)
 apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 

@@ -142,7 +142,7 @@ instance ToQuery ListEventSourceMappings where
                "Marker" =: _lesmMarker, "MaxItems" =: _lesmMaxItems,
                "FunctionName" =: _lesmFunctionName]
 
--- | Contains a list of event sources (see )
+-- | Contains a list of event sources (see 'EventSourceMappingConfiguration' )
 --
 --
 --

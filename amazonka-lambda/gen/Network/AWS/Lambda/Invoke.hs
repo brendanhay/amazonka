@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Invokes a specific Lambda function.
+-- Invokes a specific Lambda function. For an example, see <http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually Create the Lambda Function and Test It Manually> .
 --
 --
 -- If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the @Qualifier@ parameter in the request. If you don't provide the @Qualifier@ parameter, the @> LATEST@ version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
@@ -178,7 +178,7 @@ data InvokeResponse = InvokeResponse'
 --
 -- * 'irsLogResult' - It is the base64-encoded logs for the Lambda function invocation. This is present only if the invocation type is @RequestResponse@ and the logs were requested.
 --
--- * 'irsPayload' - It is the JSON representation of the object returned by the Lambda function. In This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
+-- * 'irsPayload' - It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
 --
 -- * 'irsStatusCode' - The HTTP status code will be in the 200 range for successful request. For the @RequestResonse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
 invokeResponse
@@ -200,7 +200,7 @@ irsFunctionError = lens _irsFunctionError (\ s a -> s{_irsFunctionError = a});
 irsLogResult :: Lens' InvokeResponse (Maybe Text)
 irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 
--- | It is the JSON representation of the object returned by the Lambda function. In This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
+-- | It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
 irsPayload :: Lens' InvokeResponse (Maybe (HashMap Text Value))
 irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 

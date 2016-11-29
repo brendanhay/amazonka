@@ -45,6 +45,8 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcMemorySize
     , fcRuntime
     , fcFunctionARN
+    , fcKMSKeyARN
+    , fcEnvironment
     , fcRole
     , fcVPCConfig
     , fcVersion

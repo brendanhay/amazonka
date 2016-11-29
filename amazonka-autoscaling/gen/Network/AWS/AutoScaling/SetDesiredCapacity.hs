@@ -21,7 +21,7 @@
 -- Sets the size of the specified Auto Scaling group.
 --
 --
--- For more information about desired capacity, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling User Guide/ .
+-- For more information about desired capacity, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/WhatIsAutoScaling.html What Is Auto Scaling?> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (

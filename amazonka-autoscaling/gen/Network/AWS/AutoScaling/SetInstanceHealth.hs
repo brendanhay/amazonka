@@ -21,7 +21,7 @@
 -- Sets the health status of the specified instance.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html Health Checks> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SetInstanceHealth
     (

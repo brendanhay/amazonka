@@ -490,7 +490,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 --
 -- * 'asidAvailabilityZone' - The Availability Zone for the instance.
 --
--- * 'asidLifecycleState' - The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- * 'asidLifecycleState' - The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
 --
 -- * 'asidHealthStatus' - The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Auto Scaling should terminate and replace it.
 --
@@ -530,7 +530,7 @@ asidAutoScalingGroupName = lens _asidAutoScalingGroupName (\ s a -> s{_asidAutoS
 asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
 asidAvailabilityZone = lens _asidAvailabilityZone (\ s a -> s{_asidAvailabilityZone = a});
 
--- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
 asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
 asidLifecycleState = lens _asidLifecycleState (\ s a -> s{_asidLifecycleState = a});
 
@@ -1135,7 +1135,7 @@ instance NFData LaunchConfiguration
 --
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
 --
 --
 -- /See:/ 'lifecycleHook' smart constructor.
@@ -1165,7 +1165,7 @@ data LifecycleHook = LifecycleHook'
 --
 -- * 'lhNotificationMetadata' - Additional information that you want to include any time Auto Scaling sends a message to the notification target.
 --
--- * 'lhGlobalTimeout' - The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The default is 172800 seconds (48 hours).
+-- * 'lhGlobalTimeout' - The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
 --
 -- * 'lhNotificationTargetARN' - The ARN of the notification target that Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic. The notification message sent to the target includes the following:     * Lifecycle action token     * User account ID     * Name of the Auto Scaling group     * Lifecycle hook name     * EC2 instance ID     * Lifecycle transition     * Notification metadata
 --
@@ -1207,7 +1207,7 @@ lhAutoScalingGroupName = lens _lhAutoScalingGroupName (\ s a -> s{_lhAutoScaling
 lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
 lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
 
--- | The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The default is 172800 seconds (48 hours).
+-- | The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
@@ -1451,7 +1451,7 @@ instance NFData NotificationConfiguration
 -- | Describes a process type.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html#process-types Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html#process-types Auto Scaling Processes> in the /Auto Scaling User Guide/ .
 --
 --
 -- /See:/ 'processType' smart constructor.

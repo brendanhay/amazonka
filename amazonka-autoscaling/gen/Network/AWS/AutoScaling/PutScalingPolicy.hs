@@ -89,7 +89,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- * 'pspScalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. This parameter is required if the policy type is @SimpleScaling@ and not supported otherwise.
 --
--- * 'pspCooldown' - The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is not supported unless the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- * 'pspCooldown' - The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is not supported unless the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 --
 -- * 'pspMetricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ . This parameter is not supported if the policy type is @SimpleScaling@ .
 --
@@ -99,7 +99,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- * 'pspPolicyName' - The name of the policy.
 --
--- * 'pspAdjustmentType' - The adjustment type. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
+-- * 'pspAdjustmentType' - The adjustment type. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
 putScalingPolicy
     :: Text -- ^ 'pspAutoScalingGroupName'
     -> Text -- ^ 'pspPolicyName'
@@ -140,7 +140,7 @@ pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = 
 pspScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
 pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a});
 
--- | The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is not supported unless the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
+-- | The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is not supported unless the policy type is @SimpleScaling@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html Auto Scaling Cooldowns> in the /Auto Scaling User Guide/ .
 pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a});
 
@@ -160,7 +160,7 @@ pspAutoScalingGroupName = lens _pspAutoScalingGroupName (\ s a -> s{_pspAutoScal
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
--- | The adjustment type. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
+-- | The adjustment type. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ . For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling User Guide/ .
 pspAdjustmentType :: Lens' PutScalingPolicy Text
 pspAdjustmentType = lens _pspAdjustmentType (\ s a -> s{_pspAdjustmentType = a});
 

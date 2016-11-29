@@ -21,7 +21,7 @@
 -- Resumes the specified suspended Auto Scaling processes, or all suspended process, for the specified Auto Scaling group.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.ResumeProcesses
     (

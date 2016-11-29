@@ -21,7 +21,7 @@
 -- Updates the instance protection settings of the specified instances.
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SetInstanceProtection
     (

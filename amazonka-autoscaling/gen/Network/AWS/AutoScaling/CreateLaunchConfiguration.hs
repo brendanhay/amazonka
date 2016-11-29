@@ -23,7 +23,7 @@
 --
 -- If you exceed your maximum limit of launch configurations, which by default is 100 per region, the call fails. For information about viewing and updating this limit, see 'DescribeAccountLimits' .
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/LaunchConfiguration.html Launch Configurations> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
@@ -92,13 +92,13 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clcInstanceId' - The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, with the exception of the block device mapping. To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/ .
+-- * 'clcInstanceId' - The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, with the exception of the block device mapping. To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/ .
 --
--- * 'clcAssociatePublicIPAddress' - Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . If you specify this parameter, be sure to specify at least one subnet when you create your group. Default: If the instance is launched into a default subnet, the default is @true@ . If the instance is launched into a nondefault subnet, the default is @false@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'clcAssociatePublicIPAddress' - Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . If you specify this parameter, be sure to specify at least one subnet when you create your group. Default: If the instance is launched into a default subnet, the default is @true@ . If the instance is launched into a nondefault subnet, the default is @false@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- * 'clcSecurityGroups' - One or more security groups with which to associate the instances. If your instances are launched in EC2-Classic, you can either specify security group names or the security group IDs. For more information about security groups for EC2-Classic, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ . If your instances are launched into a VPC, specify security group IDs. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
 --
--- * 'clcSpotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- * 'clcSpotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
 --
 -- * 'clcInstanceMonitoring' - Enables detailed monitoring (@true@ ) or basic monitoring (@false@ ) for the Auto Scaling instances.
 --
@@ -118,11 +118,11 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 --
 -- * 'clcClassicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter is supported only if you are launching EC2-Classic instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'clcIAMInstanceProfile' - The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling User Guide/ .
+-- * 'clcIAMInstanceProfile' - The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling User Guide/ .
 --
 -- * 'clcImageId' - The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'clcPlacementTenancy' - The tenancy of the instance. An instance with a tenancy of @dedicated@ runs on single-tenant hardware and can only be launched into a VPC. You must set the value of this parameter to @dedicated@ if want to launch Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy attribute set to @default@ ). If you specify this parameter, be sure to specify at least one subnet when you create your group. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . Valid values: @default@ | @dedicated@
+-- * 'clcPlacementTenancy' - The tenancy of the instance. An instance with a tenancy of @dedicated@ runs on single-tenant hardware and can only be launched into a VPC. You must set the value of this parameter to @dedicated@ if want to launch Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy attribute set to @default@ ). If you specify this parameter, be sure to specify at least one subnet when you create your group. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . Valid values: @default@ | @dedicated@
 --
 -- * 'clcBlockDeviceMappings' - One or more mappings that specify how block devices are exposed to the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -152,11 +152,11 @@ createLaunchConfiguration pLaunchConfigurationName_ =
     , _clcLaunchConfigurationName = pLaunchConfigurationName_
     }
 
--- | The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, with the exception of the block device mapping. To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/ .
+-- | The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, with the exception of the block device mapping. To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance> in the /Auto Scaling User Guide/ .
 clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 
--- | Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . If you specify this parameter, be sure to specify at least one subnet when you create your group. Default: If the instance is launched into a default subnet, the default is @true@ . If the instance is launched into a nondefault subnet, the default is @false@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- | Used for groups that launch instances into a virtual private cloud (VPC). Specifies whether to assign a public IP address to each instance. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . If you specify this parameter, be sure to specify at least one subnet when you create your group. Default: If the instance is launched into a default subnet, the default is @true@ . If the instance is launched into a nondefault subnet, the default is @false@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> in the /Amazon Elastic Compute Cloud User Guide/ .
 clcAssociatePublicIPAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
 clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clcAssociatePublicIPAddress = a});
 
@@ -164,7 +164,7 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
 clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a}) . _Default . _Coerce;
 
--- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/US-SpotInstances.html Launching Spot Instances in Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
 clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
 
@@ -204,7 +204,7 @@ clcUserData = lens _clcUserData (\ s a -> s{_clcUserData = a});
 clcClassicLinkVPCId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcClassicLinkVPCId = lens _clcClassicLinkVPCId (\ s a -> s{_clcClassicLinkVPCId = a});
 
--- | The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling User Guide/ .
+-- | The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. EC2 instances launched with an IAM role will automatically have AWS security credentials available. You can use IAM roles with Auto Scaling to automatically enable applications running on your EC2 instances to securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role> in the /Auto Scaling User Guide/ .
 clcIAMInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcIAMInstanceProfile = lens _clcIAMInstanceProfile (\ s a -> s{_clcIAMInstanceProfile = a});
 
@@ -212,7 +212,7 @@ clcIAMInstanceProfile = lens _clcIAMInstanceProfile (\ s a -> s{_clcIAMInstanceP
 clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 
--- | The tenancy of the instance. An instance with a tenancy of @dedicated@ runs on single-tenant hardware and can only be launched into a VPC. You must set the value of this parameter to @dedicated@ if want to launch Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy attribute set to @default@ ). If you specify this parameter, be sure to specify at least one subnet when you create your group. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . Valid values: @default@ | @dedicated@
+-- | The tenancy of the instance. An instance with a tenancy of @dedicated@ runs on single-tenant hardware and can only be launched into a VPC. You must set the value of this parameter to @dedicated@ if want to launch Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy attribute set to @default@ ). If you specify this parameter, be sure to specify at least one subnet when you create your group. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html Launching Auto Scaling Instances in a VPC> in the /Auto Scaling User Guide/ . Valid values: @default@ | @dedicated@
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy = lens _clcPlacementTenancy (\ s a -> s{_clcPlacementTenancy = a});
 

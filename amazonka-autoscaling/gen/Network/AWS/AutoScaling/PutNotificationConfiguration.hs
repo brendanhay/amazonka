@@ -23,7 +23,7 @@
 --
 -- This configuration overwrites any existing configuration.
 --
--- For more information see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html Getting SNS Notifications When Your Auto Scaling Group Scales> in the /Auto Scaling User Guide/ .
+-- For more information see <http://docs.aws.amazon.com/autoscaling/latest/userguide/ASGettingNotifications.html Getting SNS Notifications When Your Auto Scaling Group Scales> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (

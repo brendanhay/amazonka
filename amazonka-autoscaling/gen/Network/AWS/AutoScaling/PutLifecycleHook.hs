@@ -37,7 +37,7 @@
 --
 --
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html Auto Scaling Lifecycle> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html Auto Scaling Lifecycle Hooks> in the /Auto Scaling User Guide/ .
 --
 -- If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits> in the /Amazon Web Services General Reference/ .
 --
@@ -96,7 +96,7 @@ data PutLifecycleHook = PutLifecycleHook'
 --
 -- * 'plhNotificationMetadata' - Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
 --
--- * 'plhNotificationTargetARN' - The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic. If you specify an empty string, this overrides the current ARN. The notification messages sent to the target include the following information:     * __AutoScalingGroupName__ . The name of the Auto Scaling group.     * __AccountId__ . The AWS account ID.     * __LifecycleTransition__ . The lifecycle hook type.     * __LifecycleActionToken__ . The lifecycle action token.     * __EC2InstanceId__ . The EC2 instance ID.     * __LifecycleHookName__ . The name of the lifecycle hook.     * __NotificationMetadata__ . User-defined information. This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic. When you specify a notification target, Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
+-- * 'plhNotificationTargetARN' - The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic. If you specify an empty string, this overrides the current ARN. This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic. When you specify a notification target, Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
 --
 -- * 'plhLifecycleTransition' - The instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see 'DescribeLifecycleHookTypes' . This parameter is required for new lifecycle hooks, but optional when updating existing hooks.
 --
@@ -133,7 +133,7 @@ plhHeartbeatTimeout = lens _plhHeartbeatTimeout (\ s a -> s{_plhHeartbeatTimeout
 plhNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationMetadata = lens _plhNotificationMetadata (\ s a -> s{_plhNotificationMetadata = a});
 
--- | The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic. If you specify an empty string, this overrides the current ARN. The notification messages sent to the target include the following information:     * __AutoScalingGroupName__ . The name of the Auto Scaling group.     * __AccountId__ . The AWS account ID.     * __LifecycleTransition__ . The lifecycle hook type.     * __LifecycleActionToken__ . The lifecycle action token.     * __EC2InstanceId__ . The EC2 instance ID.     * __LifecycleHookName__ . The name of the lifecycle hook.     * __NotificationMetadata__ . User-defined information. This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic. When you specify a notification target, Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
+-- | The ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic. If you specify an empty string, this overrides the current ARN. This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key/value pair format when sending notifications to an Amazon SNS topic. When you specify a notification target, Auto Scaling sends it a test message. Test messages contains the following additional key/value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
 plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationTargetARN = lens _plhNotificationTargetARN (\ s a -> s{_plhNotificationTargetARN = a});
 

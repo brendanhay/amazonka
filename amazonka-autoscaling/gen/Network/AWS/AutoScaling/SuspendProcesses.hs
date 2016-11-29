@@ -25,7 +25,7 @@
 --
 -- To resume processes that have been suspended, use 'ResumeProcesses' .
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
 --
 module Network.AWS.AutoScaling.SuspendProcesses
     (

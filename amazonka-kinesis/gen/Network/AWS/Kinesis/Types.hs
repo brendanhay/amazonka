@@ -26,6 +26,9 @@ module Network.AWS.Kinesis.Types
     -- * MetricsName
     , MetricsName (..)
 
+    -- * ScalingType
+    , ScalingType (..)
+
     -- * ShardIteratorType
     , ShardIteratorType (..)
 
@@ -97,6 +100,7 @@ module Network.AWS.Kinesis.Types
     , sdShards
     , sdHasMoreShards
     , sdRetentionPeriodHours
+    , sdStreamCreationTimestamp
     , sdEnhancedMonitoring
 
     -- * Tag
@@ -165,7 +169,7 @@ _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceEr
 _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
--- | The requested resource could not be found. The stream might not be specified correctly, or it might not be in the @ACTIVE@ state if the operation requires it.
+-- | The requested resource could not be found. The stream might not be specified correctly.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -29,7 +29,11 @@
 --
 -- You receive a @LimitExceededException@ when making a @CreateStream@ request if you try to do one of the following:
 --
---     * Have more than five streams in the @CREATING@ state at any point in time.    * Create more shards than are authorized for your account.
+--     * Have more than five streams in the @CREATING@ state at any point in time.
+--
+--     * Create more shards than are authorized for your account.
+--
+--
 --
 -- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ . If you need to increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> .
 --

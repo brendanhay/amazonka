@@ -71,8 +71,14 @@ module Network.AWS.Kinesis
     -- ** EnableEnhancedMonitoring
     , module Network.AWS.Kinesis.EnableEnhancedMonitoring
 
+    -- ** DescribeLimits
+    , module Network.AWS.Kinesis.DescribeLimits
+
     -- ** DisableEnhancedMonitoring
     , module Network.AWS.Kinesis.DisableEnhancedMonitoring
+
+    -- ** UpdateShardCount
+    , module Network.AWS.Kinesis.UpdateShardCount
 
     -- ** ListTagsForStream
     , module Network.AWS.Kinesis.ListTagsForStream
@@ -108,6 +114,9 @@ module Network.AWS.Kinesis
 
     -- ** MetricsName
     , MetricsName (..)
+
+    -- ** ScalingType
+    , ScalingType (..)
 
     -- ** ShardIteratorType
     , ShardIteratorType (..)
@@ -180,6 +189,7 @@ module Network.AWS.Kinesis
     , sdShards
     , sdHasMoreShards
     , sdRetentionPeriodHours
+    , sdStreamCreationTimestamp
     , sdEnhancedMonitoring
 
     -- ** Tag
@@ -193,6 +203,7 @@ import           Network.AWS.Kinesis.AddTagsToStream
 import           Network.AWS.Kinesis.CreateStream
 import           Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
 import           Network.AWS.Kinesis.DeleteStream
+import           Network.AWS.Kinesis.DescribeLimits
 import           Network.AWS.Kinesis.DescribeStream
 import           Network.AWS.Kinesis.DisableEnhancedMonitoring
 import           Network.AWS.Kinesis.EnableEnhancedMonitoring
@@ -207,6 +218,7 @@ import           Network.AWS.Kinesis.PutRecords
 import           Network.AWS.Kinesis.RemoveTagsFromStream
 import           Network.AWS.Kinesis.SplitShard
 import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.UpdateShardCount
 import           Network.AWS.Kinesis.Waiters
 
 {- $errors

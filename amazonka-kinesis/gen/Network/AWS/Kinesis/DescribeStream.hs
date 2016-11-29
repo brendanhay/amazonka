@@ -21,15 +21,13 @@
 -- Describes the specified Amazon Kinesis stream.
 --
 --
--- The information about the stream includes its current status, its Amazon Resource Name (ARN), and an array of shard objects. For each shard object, there is information about the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. A sequence number is the identifier associated with every record ingested in the stream. The sequence number is assigned when a record is put into the stream.
+-- The information returned includes the stream name, Amazon Resource Name (ARN), creation time, enhanced metric configuration, and shard map. The shard map is an array of shard objects. For each shard object, there is the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. Every record ingested in the stream is identified by a sequence number, which is assigned when the record is put into the stream.
 --
--- You can limit the number of returned shards using the @Limit@ parameter. The number of shards in a stream may be too large to return from a single call to @DescribeStream@ . You can detect this by using the @HasMoreShards@ flag in the returned output. @HasMoreShards@ is set to @true@ when there is more data available.
+-- You can limit the number of shards returned by each call. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html Retrieving Shards from a Stream> in the /Amazon Kinesis Streams Developer Guide/ .
 --
--- @DescribeStream@ is a paginated operation. If there are more shards available, you can request them using the shard ID of the last shard returned. Specify this ID in the @ExclusiveStartShardId@ parameter in a subsequent request to @DescribeStream@ .
+-- There are no guarantees about the chronological order shards returned. To process shards in chronological order, use the ID of the parent shard to track the lineage to the oldest shard.
 --
--- There are no guarantees about the chronological order shards returned in @DescribeStream@ results. If you want to process shards in chronological order, use @ParentShardId@ to track lineage to the oldest shard.
---
--- 'DescribeStream' has a limit of 10 transactions per second per account.
+-- This operation has a limit of 10 transactions per second per account.
 --
 --
 -- This operation returns paginated results.
@@ -76,7 +74,7 @@ data DescribeStream = DescribeStream'
 --
 -- * 'dExclusiveStartShardId' - The shard ID of the shard to start with.
 --
--- * 'dLimit' - The maximum number of shards to return.
+-- * 'dLimit' - The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
 --
 -- * 'dStreamName' - The name of the stream to describe.
 describeStream
@@ -93,7 +91,7 @@ describeStream pStreamName_ =
 dExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 dExclusiveStartShardId = lens _dExclusiveStartShardId (\ s a -> s{_dExclusiveStartShardId = a});
 
--- | The maximum number of shards to return.
+-- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
 dLimit :: Lens' DescribeStream (Maybe Natural)
 dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 
@@ -169,7 +167,7 @@ data DescribeStreamResponse = DescribeStreamResponse'
 --
 -- * 'dsrsResponseStatus' - -- | The response status code.
 --
--- * 'dsrsStreamDescription' - The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.
+-- * 'dsrsStreamDescription' - The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and whether there are more shards available.
 describeStreamResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> StreamDescription -- ^ 'dsrsStreamDescription'
@@ -184,7 +182,7 @@ describeStreamResponse pResponseStatus_ pStreamDescription_ =
 dsrsResponseStatus :: Lens' DescribeStreamResponse Int
 dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
 
--- | The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and states whether there are more shards available.
+-- | The current status of the stream, the stream ARN, an array of shard objects that comprise the stream, and whether there are more shards available.
 dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 

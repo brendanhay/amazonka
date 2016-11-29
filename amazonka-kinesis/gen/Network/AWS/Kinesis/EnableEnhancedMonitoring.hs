@@ -62,7 +62,7 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
 --
 -- * 'eemStreamName' - The name of the stream for which to enable enhanced monitoring.
 --
--- * 'eemShardLevelMetrics' - List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- * 'eemShardLevelMetrics' - List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 enableEnhancedMonitoring
     :: Text -- ^ 'eemStreamName'
     -> EnableEnhancedMonitoring
@@ -76,7 +76,7 @@ enableEnhancedMonitoring pStreamName_ =
 eemStreamName :: Lens' EnableEnhancedMonitoring Text
 eemStreamName = lens _eemStreamName (\ s a -> s{_eemStreamName = a});
 
--- | List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- | List of shard-level metrics to enable. The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 eemShardLevelMetrics :: Lens' EnableEnhancedMonitoring [MetricsName]
 eemShardLevelMetrics = lens _eemShardLevelMetrics (\ s a -> s{_eemShardLevelMetrics = a}) . _Coerce;
 

@@ -34,7 +34,7 @@ newtype EnhancedMetrics = EnhancedMetrics'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emShardLevelMetrics' - List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- * 'emShardLevelMetrics' - List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 enhancedMetrics
     :: EnhancedMetrics
 enhancedMetrics =
@@ -42,7 +42,7 @@ enhancedMetrics =
     { _emShardLevelMetrics = Nothing
     }
 
--- | List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@     * @IncomingRecords@     * @OutgoingBytes@     * @OutgoingRecords@     * @WriteProvisionedThroughputExceeded@     * @ReadProvisionedThroughputExceeded@     * @IteratorAgeMilliseconds@     * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
+-- | List of shard-level metrics. The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.     * @IncomingBytes@      * @IncomingRecords@      * @OutgoingBytes@      * @OutgoingRecords@      * @WriteProvisionedThroughputExceeded@      * @ReadProvisionedThroughputExceeded@      * @IteratorAgeMilliseconds@      * @ALL@  For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Streams Developer Guide/ .
 emShardLevelMetrics :: Lens' EnhancedMetrics [MetricsName]
 emShardLevelMetrics = lens _emShardLevelMetrics (\ s a -> s{_emShardLevelMetrics = a}) . _Default . _Coerce;
 
@@ -467,13 +467,14 @@ instance NFData Shard
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-    { _sdStreamName           :: !Text
-    , _sdStreamARN            :: !Text
-    , _sdStreamStatus         :: !StreamStatus
-    , _sdShards               :: ![Shard]
-    , _sdHasMoreShards        :: !Bool
-    , _sdRetentionPeriodHours :: !Nat
-    , _sdEnhancedMonitoring   :: ![EnhancedMetrics]
+    { _sdStreamName              :: !Text
+    , _sdStreamARN               :: !Text
+    , _sdStreamStatus            :: !StreamStatus
+    , _sdShards                  :: ![Shard]
+    , _sdHasMoreShards           :: !Bool
+    , _sdRetentionPeriodHours    :: !Nat
+    , _sdStreamCreationTimestamp :: !POSIX
+    , _sdEnhancedMonitoring      :: ![EnhancedMetrics]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
@@ -484,13 +485,15 @@ data StreamDescription = StreamDescription'
 --
 -- * 'sdStreamARN' - The Amazon Resource Name (ARN) for the stream being described.
 --
--- * 'sdStreamStatus' - The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .    * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.    * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.    * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
+-- * 'sdStreamStatus' - The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
 --
 -- * 'sdShards' - The shards that comprise the stream.
 --
 -- * 'sdHasMoreShards' - If set to @true@ , more shards in the stream are available to describe.
 --
 -- * 'sdRetentionPeriodHours' - The current retention period, in hours.
+--
+-- * 'sdStreamCreationTimestamp' - The approximate time that the stream was created.
 --
 -- * 'sdEnhancedMonitoring' - Represents the current enhanced monitoring settings of the stream.
 streamDescription
@@ -499,8 +502,9 @@ streamDescription
     -> StreamStatus -- ^ 'sdStreamStatus'
     -> Bool -- ^ 'sdHasMoreShards'
     -> Natural -- ^ 'sdRetentionPeriodHours'
+    -> UTCTime -- ^ 'sdStreamCreationTimestamp'
     -> StreamDescription
-streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pRetentionPeriodHours_ =
+streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pRetentionPeriodHours_ pStreamCreationTimestamp_ =
     StreamDescription'
     { _sdStreamName = pStreamName_
     , _sdStreamARN = pStreamARN_
@@ -508,6 +512,7 @@ streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pReten
     , _sdShards = mempty
     , _sdHasMoreShards = pHasMoreShards_
     , _sdRetentionPeriodHours = _Nat # pRetentionPeriodHours_
+    , _sdStreamCreationTimestamp = _Time # pStreamCreationTimestamp_
     , _sdEnhancedMonitoring = mempty
     }
 
@@ -519,7 +524,7 @@ sdStreamName = lens _sdStreamName (\ s a -> s{_sdStreamName = a});
 sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 
--- | The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .    * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.    * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.    * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
+-- | The current status of the stream being described. The stream status is one of the following states:     * @CREATING@ - The stream is being created. Amazon Kinesis immediately returns and sets @StreamStatus@ to @CREATING@ .     * @DELETING@ - The stream is being deleted. The specified stream is in the @DELETING@ state until Amazon Kinesis completes the deletion.     * @ACTIVE@ - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an @ACTIVE@ stream.     * @UPDATING@ - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the @UPDATING@ state.
 sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 
@@ -535,6 +540,10 @@ sdHasMoreShards = lens _sdHasMoreShards (\ s a -> s{_sdHasMoreShards = a});
 sdRetentionPeriodHours :: Lens' StreamDescription Natural
 sdRetentionPeriodHours = lens _sdRetentionPeriodHours (\ s a -> s{_sdRetentionPeriodHours = a}) . _Nat;
 
+-- | The approximate time that the stream was created.
+sdStreamCreationTimestamp :: Lens' StreamDescription UTCTime
+sdStreamCreationTimestamp = lens _sdStreamCreationTimestamp (\ s a -> s{_sdStreamCreationTimestamp = a}) . _Time;
+
 -- | Represents the current enhanced monitoring settings of the stream.
 sdEnhancedMonitoring :: Lens' StreamDescription [EnhancedMetrics]
 sdEnhancedMonitoring = lens _sdEnhancedMonitoring (\ s a -> s{_sdEnhancedMonitoring = a}) . _Coerce;
@@ -549,6 +558,7 @@ instance FromJSON StreamDescription where
                      <*> (x .:? "Shards" .!= mempty)
                      <*> (x .: "HasMoreShards")
                      <*> (x .: "RetentionPeriodHours")
+                     <*> (x .: "StreamCreationTimestamp")
                      <*> (x .:? "EnhancedMonitoring" .!= mempty))
 
 instance Hashable StreamDescription

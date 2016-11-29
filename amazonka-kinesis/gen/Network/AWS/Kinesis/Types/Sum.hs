@@ -66,6 +66,29 @@ instance ToJSON MetricsName where
 instance FromJSON MetricsName where
     parseJSON = parseJSONText "MetricsName"
 
+data ScalingType =
+    UniformScaling
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ScalingType where
+    parser = takeLowerText >>= \case
+        "uniform_scaling" -> pure UniformScaling
+        e -> fromTextError $ "Failure parsing ScalingType from value: '" <> e
+           <> "'. Accepted values: uniform_scaling"
+
+instance ToText ScalingType where
+    toText = \case
+        UniformScaling -> "UNIFORM_SCALING"
+
+instance Hashable     ScalingType
+instance NFData       ScalingType
+instance ToByteString ScalingType
+instance ToQuery      ScalingType
+instance ToHeader     ScalingType
+
+instance ToJSON ScalingType where
+    toJSON = toJSONText
+
 data ShardIteratorType
     = AfterSequenceNumber
     | AtSequenceNumber

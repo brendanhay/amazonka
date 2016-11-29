@@ -44,6 +44,7 @@ library
         , Network.AWS.Kinesis.CreateStream
         , Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
         , Network.AWS.Kinesis.DeleteStream
+        , Network.AWS.Kinesis.DescribeLimits
         , Network.AWS.Kinesis.DescribeStream
         , Network.AWS.Kinesis.DisableEnhancedMonitoring
         , Network.AWS.Kinesis.EnableEnhancedMonitoring
@@ -58,6 +59,7 @@ library
         , Network.AWS.Kinesis.RemoveTagsFromStream
         , Network.AWS.Kinesis.SplitShard
         , Network.AWS.Kinesis.Types
+        , Network.AWS.Kinesis.UpdateShardCount
         , Network.AWS.Kinesis.Waiters
 
     other-modules:

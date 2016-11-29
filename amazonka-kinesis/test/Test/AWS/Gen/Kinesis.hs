@@ -46,8 +46,14 @@ import Test.AWS.Kinesis.Internal
 --         , requestEnableEnhancedMonitoring $
 --             enableEnhancedMonitoring
 --
+--         , requestDescribeLimits $
+--             describeLimits
+--
 --         , requestDisableEnhancedMonitoring $
 --             disableEnhancedMonitoring
+--
+--         , requestUpdateShardCount $
+--             updateShardCount
 --
 --         , requestListTagsForStream $
 --             listTagsForStream
@@ -100,8 +106,14 @@ import Test.AWS.Kinesis.Internal
 --         , responseEnableEnhancedMonitoring $
 --             enhancedMonitoringOutput
 --
+--         , responseDescribeLimits $
+--             describeLimitsResponse
+--
 --         , responseDisableEnhancedMonitoring $
 --             enhancedMonitoringOutput
+--
+--         , responseUpdateShardCount $
+--             updateShardCountResponse
 --
 --         , responseListTagsForStream $
 --             listTagsForStreamResponse
@@ -168,10 +180,20 @@ requestEnableEnhancedMonitoring = req
     "EnableEnhancedMonitoring"
     "fixture/EnableEnhancedMonitoring.yaml"
 
+requestDescribeLimits :: DescribeLimits -> TestTree
+requestDescribeLimits = req
+    "DescribeLimits"
+    "fixture/DescribeLimits.yaml"
+
 requestDisableEnhancedMonitoring :: DisableEnhancedMonitoring -> TestTree
 requestDisableEnhancedMonitoring = req
     "DisableEnhancedMonitoring"
     "fixture/DisableEnhancedMonitoring.yaml"
+
+requestUpdateShardCount :: UpdateShardCount -> TestTree
+requestUpdateShardCount = req
+    "UpdateShardCount"
+    "fixture/UpdateShardCount.yaml"
 
 requestListTagsForStream :: ListTagsForStream -> TestTree
 requestListTagsForStream = req
@@ -267,12 +289,26 @@ responseEnableEnhancedMonitoring = res
     kinesis
     (Proxy :: Proxy EnableEnhancedMonitoring)
 
+responseDescribeLimits :: DescribeLimitsResponse -> TestTree
+responseDescribeLimits = res
+    "DescribeLimitsResponse"
+    "fixture/DescribeLimitsResponse.proto"
+    kinesis
+    (Proxy :: Proxy DescribeLimits)
+
 responseDisableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseDisableEnhancedMonitoring = res
     "DisableEnhancedMonitoringResponse"
     "fixture/DisableEnhancedMonitoringResponse.proto"
     kinesis
     (Proxy :: Proxy DisableEnhancedMonitoring)
+
+responseUpdateShardCount :: UpdateShardCountResponse -> TestTree
+responseUpdateShardCount = res
+    "UpdateShardCountResponse"
+    "fixture/UpdateShardCountResponse.proto"
+    kinesis
+    (Proxy :: Proxy UpdateShardCount)
 
 responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
 responseListTagsForStream = res

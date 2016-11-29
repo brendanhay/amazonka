@@ -38,19 +38,6 @@
         }
       ]
     },
-    "ConsoleOutputAvailable": {
-      "operation": "GetConsoleOutput",
-      "maxAttempts": 40,
-      "delay": 15,
-      "acceptors": [
-        {
-          "state": "success",
-          "matcher": "path",
-          "argument": "length(Output || '') > `0`",
-          "expected": true
-        }
-      ]
-    },
     "ConversionTaskCancelled": {
       "delay": 15,
       "operation": "DescribeConversionTasks",
@@ -294,24 +281,6 @@
         }
       ]
     },
-    "KeyPairExists": {
-      "operation": "DescribeKeyPairs",
-      "delay": 5,
-      "maxAttempts": 6,
-      "acceptors": [
-        {
-          "expected": true,
-          "matcher": "path",
-          "state": "success",
-          "argument": "length(KeyPairs[].KeyName) > `0`"
-        },
-        {
-          "expected": "InvalidKeyPair.NotFound",
-          "matcher": "error",
-          "state": "retry"
-        }
-      ]
-    },
     "NatGatewayAvailable": {
       "operation": "DescribeNatGateways",
       "delay": 15,
@@ -345,24 +314,6 @@
           "state": "retry",
           "matcher": "error",
           "expected": "NatGatewayNotFound"
-        }
-      ]
-    },
-    "NetworkAclExists": {
-      "operation": "DescribeNetworkAcls",
-      "delay": 20,
-      "maxAttempts": 10,
-      "acceptors": [
-        {
-          "matcher": "path",
-          "expected": true,
-          "argument": "length(NetworkAcls[]) > `0`",
-          "state": "success"
-        },
-        {
-          "expected": "InvalidNetworkAclID.NotFound",
-          "matcher": "error",
-          "state": "retry"
         }
       ]
     },
@@ -542,8 +493,25 @@
         }
       ]
     },
+    "VpcExists": {
+      "operation": "DescribeVpcs",
+      "delay": 1,
+      "maxAttempts": 5,
+      "acceptors": [
+        {
+          "matcher": "status",
+          "expected": 200,
+          "state": "success"
+        },
+        {
+          "matcher": "error",
+          "expected": "InvalidVpcID.NotFound",
+          "state": "retry"
+        }
+      ]
+    },
     "VpnConnectionAvailable": {
-      "delay": 60,
+      "delay": 15,
       "operation": "DescribeVpnConnections",
       "maxAttempts": 40,
       "acceptors": [

@@ -111,7 +111,7 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crrsRepository' - Undocumented member.
+-- * 'crrsRepository' - The repository that was created.
 --
 -- * 'crrsResponseStatus' - -- | The response status code.
 createRepositoryResponse
@@ -123,7 +123,7 @@ createRepositoryResponse pResponseStatus_ =
     , _crrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The repository that was created.
 crrsRepository :: Lens' CreateRepositoryResponse (Maybe Repository)
 crrsRepository = lens _crrsRepository (\ s a -> s{_crrsRepository = a});
 

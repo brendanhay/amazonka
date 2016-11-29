@@ -43,6 +43,9 @@ module Network.AWS.ECR
     -- ** LayerPartTooSmallException
     , _LayerPartTooSmallException
 
+    -- ** ImageNotFoundException
+    , _ImageNotFoundException
+
     -- ** ImageAlreadyExistsException
     , _ImageAlreadyExistsException
 
@@ -94,7 +97,7 @@ module Network.AWS.ECR
     -- ** CompleteLayerUpload
     , module Network.AWS.ECR.CompleteLayerUpload
 
-    -- ** DescribeRepositories
+    -- ** DescribeRepositories (Paginated)
     , module Network.AWS.ECR.DescribeRepositories
 
     -- ** UploadLayerPart
@@ -124,6 +127,9 @@ module Network.AWS.ECR
     -- ** GetDownloadURLForLayer
     , module Network.AWS.ECR.GetDownloadURLForLayer
 
+    -- ** DescribeImages (Paginated)
+    , module Network.AWS.ECR.DescribeImages
+
     -- * Types
 
     -- ** ImageFailureCode
@@ -145,6 +151,11 @@ module Network.AWS.ECR
     , adProxyEndpoint
     , adAuthorizationToken
 
+    -- ** DescribeImagesFilter
+    , DescribeImagesFilter
+    , describeImagesFilter
+    , difTagStatus
+
     -- ** Image
     , Image
     , image
@@ -152,6 +163,16 @@ module Network.AWS.ECR
     , iImageId
     , iRepositoryName
     , iImageManifest
+
+    -- ** ImageDetail
+    , ImageDetail
+    , imageDetail
+    , idRegistryId
+    , idImageTags
+    , idImageSizeInBytes
+    , idImageDigest
+    , idImagePushedAt
+    , idRepositoryName
 
     -- ** ImageFailure
     , ImageFailure
@@ -189,6 +210,7 @@ module Network.AWS.ECR
     , Repository
     , repository
     , rRepositoryARN
+    , rCreatedAt
     , rRegistryId
     , rRepositoryURI
     , rRepositoryName
@@ -201,6 +223,7 @@ import           Network.AWS.ECR.CompleteLayerUpload
 import           Network.AWS.ECR.CreateRepository
 import           Network.AWS.ECR.DeleteRepository
 import           Network.AWS.ECR.DeleteRepositoryPolicy
+import           Network.AWS.ECR.DescribeImages
 import           Network.AWS.ECR.DescribeRepositories
 import           Network.AWS.ECR.GetAuthorizationToken
 import           Network.AWS.ECR.GetDownloadURLForLayer

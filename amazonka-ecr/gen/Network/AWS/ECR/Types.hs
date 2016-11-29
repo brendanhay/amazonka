@@ -23,6 +23,7 @@ module Network.AWS.ECR.Types
     , _LayerInaccessibleException
     , _InvalidLayerException
     , _LayerPartTooSmallException
+    , _ImageNotFoundException
     , _ImageAlreadyExistsException
     , _RepositoryNotFoundException
     , _UploadNotFoundException
@@ -52,6 +53,11 @@ module Network.AWS.ECR.Types
     , adProxyEndpoint
     , adAuthorizationToken
 
+    -- * DescribeImagesFilter
+    , DescribeImagesFilter
+    , describeImagesFilter
+    , difTagStatus
+
     -- * Image
     , Image
     , image
@@ -59,6 +65,16 @@ module Network.AWS.ECR.Types
     , iImageId
     , iRepositoryName
     , iImageManifest
+
+    -- * ImageDetail
+    , ImageDetail
+    , imageDetail
+    , idRegistryId
+    , idImageTags
+    , idImageSizeInBytes
+    , idImageDigest
+    , idImagePushedAt
+    , idRepositoryName
 
     -- * ImageFailure
     , ImageFailure
@@ -96,6 +112,7 @@ module Network.AWS.ECR.Types
     , Repository
     , repository
     , rRepositoryARN
+    , rCreatedAt
     , rRegistryId
     , rRepositoryURI
     , rRepositoryName
@@ -186,6 +203,12 @@ _InvalidLayerException = _ServiceError . hasCode "InvalidLayerException"
 _LayerPartTooSmallException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayerPartTooSmallException =
     _ServiceError . hasCode "LayerPartTooSmallException"
+
+-- | The image requested does not exist in the specified repository.
+--
+--
+_ImageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ImageNotFoundException = _ServiceError . hasCode "ImageNotFoundException"
 
 -- | The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.
 --

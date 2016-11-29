@@ -47,6 +47,7 @@ library
         , Network.AWS.ECR.CreateRepository
         , Network.AWS.ECR.DeleteRepository
         , Network.AWS.ECR.DeleteRepositoryPolicy
+        , Network.AWS.ECR.DescribeImages
         , Network.AWS.ECR.DescribeRepositories
         , Network.AWS.ECR.GetAuthorizationToken
         , Network.AWS.ECR.GetDownloadURLForLayer

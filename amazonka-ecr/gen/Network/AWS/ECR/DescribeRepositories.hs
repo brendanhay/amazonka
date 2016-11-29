@@ -21,6 +21,8 @@
 -- Describes image repositories in a registry.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ECR.DescribeRepositories
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.ECR.DescribeRepositories
 import           Network.AWS.ECR.Types
 import           Network.AWS.ECR.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -92,6 +95,13 @@ drNextToken = lens _drNextToken (\ s a -> s{_drNextToken = a});
 -- | The maximum number of repository results returned by @DescribeRepositories@ in paginated output. When this parameter is used, @DescribeRepositories@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeRepositories@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeRepositories@ returns up to 100 results and a @nextToken@ value, if applicable.
 drMaxResults :: Lens' DescribeRepositories (Maybe Natural)
 drMaxResults = lens _drMaxResults (\ s a -> s{_drMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeRepositories where
+        page rq rs
+          | stop (rs ^. drrsNextToken) = Nothing
+          | stop (rs ^. drrsRepositories) = Nothing
+          | otherwise =
+            Just $ rq & drNextToken .~ rs ^. drrsNextToken
 
 instance AWSRequest DescribeRepositories where
         type Rs DescribeRepositories =

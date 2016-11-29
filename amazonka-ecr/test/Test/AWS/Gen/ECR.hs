@@ -76,6 +76,9 @@ import Test.AWS.ECR.Internal
 --         , requestGetDownloadURLForLayer $
 --             getDownloadURLForLayer
 --
+--         , requestDescribeImages $
+--             describeImages
+--
 --           ]
 
 --     , testGroup "response"
@@ -126,6 +129,9 @@ import Test.AWS.ECR.Internal
 --
 --         , responseGetDownloadURLForLayer $
 --             getDownloadURLForLayerResponse
+--
+--         , responseDescribeImages $
+--             describeImagesResponse
 --
 --           ]
 --     ]
@@ -211,6 +217,11 @@ requestGetDownloadURLForLayer :: GetDownloadURLForLayer -> TestTree
 requestGetDownloadURLForLayer = req
     "GetDownloadURLForLayer"
     "fixture/GetDownloadURLForLayer.yaml"
+
+requestDescribeImages :: DescribeImages -> TestTree
+requestDescribeImages = req
+    "DescribeImages"
+    "fixture/DescribeImages.yaml"
 
 -- Responses
 
@@ -325,3 +336,10 @@ responseGetDownloadURLForLayer = res
     "fixture/GetDownloadURLForLayerResponse.proto"
     ecr
     (Proxy :: Proxy GetDownloadURLForLayer)
+
+responseDescribeImages :: DescribeImagesResponse -> TestTree
+responseDescribeImages = res
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse.proto"
+    ecr
+    (Proxy :: Proxy DescribeImages)

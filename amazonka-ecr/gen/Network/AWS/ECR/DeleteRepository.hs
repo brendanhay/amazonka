@@ -131,7 +131,7 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsRepository' - Undocumented member.
+-- * 'drsRepository' - The repository that was deleted.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 deleteRepositoryResponse
@@ -143,7 +143,7 @@ deleteRepositoryResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The repository that was deleted.
 drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
 drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
 

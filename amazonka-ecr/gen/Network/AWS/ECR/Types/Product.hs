@@ -74,6 +74,40 @@ instance Hashable AuthorizationData
 
 instance NFData AuthorizationData
 
+-- | An object representing a filter on a 'DescribeImages' operation.
+--
+--
+--
+-- /See:/ 'describeImagesFilter' smart constructor.
+newtype DescribeImagesFilter = DescribeImagesFilter'
+    { _difTagStatus :: Maybe TagStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeImagesFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'difTagStatus' - The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
+describeImagesFilter
+    :: DescribeImagesFilter
+describeImagesFilter =
+    DescribeImagesFilter'
+    { _difTagStatus = Nothing
+    }
+
+-- | The tag status with which to filter your 'DescribeImages' results. You can filter results based on whether they are @TAGGED@ or @UNTAGGED@ .
+difTagStatus :: Lens' DescribeImagesFilter (Maybe TagStatus)
+difTagStatus = lens _difTagStatus (\ s a -> s{_difTagStatus = a});
+
+instance Hashable DescribeImagesFilter
+
+instance NFData DescribeImagesFilter
+
+instance ToJSON DescribeImagesFilter where
+        toJSON DescribeImagesFilter'{..}
+          = object
+              (catMaybes [("tagStatus" .=) <$> _difTagStatus])
+
 -- | An object representing an Amazon ECR image.
 --
 --
@@ -135,6 +169,87 @@ instance FromJSON Image where
 instance Hashable Image
 
 instance NFData Image
+
+-- | An object that describes an image returned by a 'DescribeImages' operation.
+--
+--
+--
+-- /See:/ 'imageDetail' smart constructor.
+data ImageDetail = ImageDetail'
+    { _idRegistryId       :: !(Maybe Text)
+    , _idImageTags        :: !(Maybe [Text])
+    , _idImageSizeInBytes :: !(Maybe Integer)
+    , _idImageDigest      :: !(Maybe Text)
+    , _idImagePushedAt    :: !(Maybe POSIX)
+    , _idRepositoryName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImageDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idRegistryId' - The AWS account ID associated with the registry to which this image belongs.
+--
+-- * 'idImageTags' - The list of tags associated with this image.
+--
+-- * 'idImageSizeInBytes' - The size, in bytes, of the image in the repository.
+--
+-- * 'idImageDigest' - The @sha256@ digest of the image manifest.
+--
+-- * 'idImagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+--
+-- * 'idRepositoryName' - The name of the repository to which this image belongs.
+imageDetail
+    :: ImageDetail
+imageDetail =
+    ImageDetail'
+    { _idRegistryId = Nothing
+    , _idImageTags = Nothing
+    , _idImageSizeInBytes = Nothing
+    , _idImageDigest = Nothing
+    , _idImagePushedAt = Nothing
+    , _idRepositoryName = Nothing
+    }
+
+-- | The AWS account ID associated with the registry to which this image belongs.
+idRegistryId :: Lens' ImageDetail (Maybe Text)
+idRegistryId = lens _idRegistryId (\ s a -> s{_idRegistryId = a});
+
+-- | The list of tags associated with this image.
+idImageTags :: Lens' ImageDetail [Text]
+idImageTags = lens _idImageTags (\ s a -> s{_idImageTags = a}) . _Default . _Coerce;
+
+-- | The size, in bytes, of the image in the repository.
+idImageSizeInBytes :: Lens' ImageDetail (Maybe Integer)
+idImageSizeInBytes = lens _idImageSizeInBytes (\ s a -> s{_idImageSizeInBytes = a});
+
+-- | The @sha256@ digest of the image manifest.
+idImageDigest :: Lens' ImageDetail (Maybe Text)
+idImageDigest = lens _idImageDigest (\ s a -> s{_idImageDigest = a});
+
+-- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+idImagePushedAt :: Lens' ImageDetail (Maybe UTCTime)
+idImagePushedAt = lens _idImagePushedAt (\ s a -> s{_idImagePushedAt = a}) . mapping _Time;
+
+-- | The name of the repository to which this image belongs.
+idRepositoryName :: Lens' ImageDetail (Maybe Text)
+idRepositoryName = lens _idRepositoryName (\ s a -> s{_idRepositoryName = a});
+
+instance FromJSON ImageDetail where
+        parseJSON
+          = withObject "ImageDetail"
+              (\ x ->
+                 ImageDetail' <$>
+                   (x .:? "registryId") <*>
+                     (x .:? "imageTags" .!= mempty)
+                     <*> (x .:? "imageSizeInBytes")
+                     <*> (x .:? "imageDigest")
+                     <*> (x .:? "imagePushedAt")
+                     <*> (x .:? "repositoryName"))
+
+instance Hashable ImageDetail
+
+instance NFData ImageDetail
 
 -- | An object representing an Amazon ECR image failure.
 --
@@ -387,6 +502,7 @@ instance ToJSON ListImagesFilter where
 -- /See:/ 'repository' smart constructor.
 data Repository = Repository'
     { _rRepositoryARN  :: !(Maybe Text)
+    , _rCreatedAt      :: !(Maybe POSIX)
     , _rRegistryId     :: !(Maybe Text)
     , _rRepositoryURI  :: !(Maybe Text)
     , _rRepositoryName :: !(Maybe Text)
@@ -398,6 +514,8 @@ data Repository = Repository'
 --
 -- * 'rRepositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 --
+-- * 'rCreatedAt' - The date and time, in JavaScript date/time format, when the repository was created.
+--
 -- * 'rRegistryId' - The AWS account ID associated with the registry that contains the repository.
 --
 -- * 'rRepositoryURI' - The URI for the repository. You can use this URI for Docker @push@ and @pull@ operations.
@@ -408,6 +526,7 @@ repository
 repository =
     Repository'
     { _rRepositoryARN = Nothing
+    , _rCreatedAt = Nothing
     , _rRegistryId = Nothing
     , _rRepositoryURI = Nothing
     , _rRepositoryName = Nothing
@@ -416,6 +535,10 @@ repository =
 -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, the AWS account ID of the repository owner, the repository namespace, and then the repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
 rRepositoryARN :: Lens' Repository (Maybe Text)
 rRepositoryARN = lens _rRepositoryARN (\ s a -> s{_rRepositoryARN = a});
+
+-- | The date and time, in JavaScript date/time format, when the repository was created.
+rCreatedAt :: Lens' Repository (Maybe UTCTime)
+rCreatedAt = lens _rCreatedAt (\ s a -> s{_rCreatedAt = a}) . mapping _Time;
 
 -- | The AWS account ID associated with the registry that contains the repository.
 rRegistryId :: Lens' Repository (Maybe Text)
@@ -434,8 +557,9 @@ instance FromJSON Repository where
           = withObject "Repository"
               (\ x ->
                  Repository' <$>
-                   (x .:? "repositoryArn") <*> (x .:? "registryId") <*>
-                     (x .:? "repositoryUri")
+                   (x .:? "repositoryArn") <*> (x .:? "createdAt") <*>
+                     (x .:? "registryId")
+                     <*> (x .:? "repositoryUri")
                      <*> (x .:? "repositoryName"))
 
 instance Hashable Repository

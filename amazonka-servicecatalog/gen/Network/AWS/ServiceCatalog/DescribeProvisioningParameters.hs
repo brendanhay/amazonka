@@ -27,10 +27,10 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
       describeProvisioningParameters
     , DescribeProvisioningParameters
     -- * Request Lenses
-    , dppAcceptLanguage
-    , dppPathId
-    , dppProductId
-    , dppProvisioningArtifactId
+    , dppsAcceptLanguage
+    , dppsPathId
+    , dppsProductId
+    , dppsProvisioningArtifactId
 
     -- * Destructuring the Response
     , describeProvisioningParametersResponse
@@ -51,50 +51,50 @@ import           Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'describeProvisioningParameters' smart constructor.
 data DescribeProvisioningParameters = DescribeProvisioningParameters'
-    { _dppAcceptLanguage         :: !(Maybe Text)
-    , _dppPathId                 :: !(Maybe Text)
-    , _dppProductId              :: !Text
-    , _dppProvisioningArtifactId :: !Text
+    { _dppsAcceptLanguage         :: !(Maybe Text)
+    , _dppsPathId                 :: !(Maybe Text)
+    , _dppsProductId              :: !Text
+    , _dppsProvisioningArtifactId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeProvisioningParameters' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dppsAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'dppPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
+-- * 'dppsPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
--- * 'dppProductId' - The identifier of the product.
+-- * 'dppsProductId' - The product identifier.
 --
--- * 'dppProvisioningArtifactId' - The provisioning artifact identifier for this product.
+-- * 'dppsProvisioningArtifactId' - The provisioning artifact identifier for this product.
 describeProvisioningParameters
-    :: Text -- ^ 'dppProductId'
-    -> Text -- ^ 'dppProvisioningArtifactId'
+    :: Text -- ^ 'dppsProductId'
+    -> Text -- ^ 'dppsProvisioningArtifactId'
     -> DescribeProvisioningParameters
 describeProvisioningParameters pProductId_ pProvisioningArtifactId_ =
     DescribeProvisioningParameters'
-    { _dppAcceptLanguage = Nothing
-    , _dppPathId = Nothing
-    , _dppProductId = pProductId_
-    , _dppProvisioningArtifactId = pProvisioningArtifactId_
+    { _dppsAcceptLanguage = Nothing
+    , _dppsPathId = Nothing
+    , _dppsProductId = pProductId_
+    , _dppsProvisioningArtifactId = pProvisioningArtifactId_
     }
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
-dppAcceptLanguage :: Lens' DescribeProvisioningParameters (Maybe Text)
-dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a});
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+dppsAcceptLanguage :: Lens' DescribeProvisioningParameters (Maybe Text)
+dppsAcceptLanguage = lens _dppsAcceptLanguage (\ s a -> s{_dppsAcceptLanguage = a});
 
 -- | The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
-dppPathId :: Lens' DescribeProvisioningParameters (Maybe Text)
-dppPathId = lens _dppPathId (\ s a -> s{_dppPathId = a});
+dppsPathId :: Lens' DescribeProvisioningParameters (Maybe Text)
+dppsPathId = lens _dppsPathId (\ s a -> s{_dppsPathId = a});
 
--- | The identifier of the product.
-dppProductId :: Lens' DescribeProvisioningParameters Text
-dppProductId = lens _dppProductId (\ s a -> s{_dppProductId = a});
+-- | The product identifier.
+dppsProductId :: Lens' DescribeProvisioningParameters Text
+dppsProductId = lens _dppsProductId (\ s a -> s{_dppsProductId = a});
 
 -- | The provisioning artifact identifier for this product.
-dppProvisioningArtifactId :: Lens' DescribeProvisioningParameters Text
-dppProvisioningArtifactId = lens _dppProvisioningArtifactId (\ s a -> s{_dppProvisioningArtifactId = a});
+dppsProvisioningArtifactId :: Lens' DescribeProvisioningParameters Text
+dppsProvisioningArtifactId = lens _dppsProvisioningArtifactId (\ s a -> s{_dppsProvisioningArtifactId = a});
 
 instance AWSRequest DescribeProvisioningParameters
          where
@@ -129,12 +129,12 @@ instance ToJSON DescribeProvisioningParameters where
         toJSON DescribeProvisioningParameters'{..}
           = object
               (catMaybes
-                 [("AcceptLanguage" .=) <$> _dppAcceptLanguage,
-                  ("PathId" .=) <$> _dppPathId,
-                  Just ("ProductId" .= _dppProductId),
+                 [("AcceptLanguage" .=) <$> _dppsAcceptLanguage,
+                  ("PathId" .=) <$> _dppsPathId,
+                  Just ("ProductId" .= _dppsProductId),
                   Just
                     ("ProvisioningArtifactId" .=
-                       _dppProvisioningArtifactId)])
+                       _dppsProvisioningArtifactId)])
 
 instance ToPath DescribeProvisioningParameters where
         toPath = const "/"

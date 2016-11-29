@@ -73,7 +73,7 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 -- * 'uppProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
--- * 'uppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'uppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
 -- * 'uppPathId' - The identifier of the path to use in the updated ProvisionedProduct object. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
@@ -107,7 +107,7 @@ uppProvisionedProductName = lens _uppProvisionedProductName (\ s a -> s{_uppProv
 uppProvisioningArtifactId :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppProvisioningArtifactId = lens _uppProvisioningArtifactId (\ s a -> s{_uppProvisioningArtifactId = a});
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 uppAcceptLanguage :: Lens' UpdateProvisionedProduct (Maybe Text)
 uppAcceptLanguage = lens _uppAcceptLanguage (\ s a -> s{_uppAcceptLanguage = a});
 

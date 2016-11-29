@@ -42,11 +42,26 @@ module Network.AWS.ServiceCatalog
     -- ** ResourceNotFoundException
     , _ResourceNotFoundException
 
+    -- ** LimitExceededException
+    , _LimitExceededException
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** DeleteConstraint
+    , module Network.AWS.ServiceCatalog.DeleteConstraint
+
+    -- ** UpdateConstraint
+    , module Network.AWS.ServiceCatalog.UpdateConstraint
+
+    -- ** CreateProduct
+    , module Network.AWS.ServiceCatalog.CreateProduct
 
     -- ** TerminateProvisionedProduct
     , module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
@@ -54,14 +69,38 @@ module Network.AWS.ServiceCatalog
     -- ** UpdateProvisionedProduct
     , module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
 
+    -- ** DescribeProvisioningArtifact
+    , module Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
+
     -- ** ListRecordHistory
     , module Network.AWS.ServiceCatalog.ListRecordHistory
+
+    -- ** DisassociateProductFromPortfolio
+    , module Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
+
+    -- ** ListConstraintsForPortfolio
+    , module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
 
     -- ** DescribeRecord
     , module Network.AWS.ServiceCatalog.DescribeRecord
 
+    -- ** DescribeConstraint
+    , module Network.AWS.ServiceCatalog.DescribeConstraint
+
+    -- ** CreateProvisioningArtifact
+    , module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
+
+    -- ** ListPortfolios
+    , module Network.AWS.ServiceCatalog.ListPortfolios
+
     -- ** DescribeProductView
     , module Network.AWS.ServiceCatalog.DescribeProductView
+
+    -- ** CreatePortfolioShare
+    , module Network.AWS.ServiceCatalog.CreatePortfolioShare
+
+    -- ** ListProvisioningArtifacts
+    , module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
 
     -- ** SearchProducts
     , module Network.AWS.ServiceCatalog.SearchProducts
@@ -69,19 +108,94 @@ module Network.AWS.ServiceCatalog
     -- ** DescribeProduct
     , module Network.AWS.ServiceCatalog.DescribeProduct
 
+    -- ** CreateConstraint
+    , module Network.AWS.ServiceCatalog.CreateConstraint
+
+    -- ** ListPortfolioAccess
+    , module Network.AWS.ServiceCatalog.ListPortfolioAccess
+
+    -- ** DisassociatePrincipalFromPortfolio
+    , module Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
+
+    -- ** DescribePortfolio
+    , module Network.AWS.ServiceCatalog.DescribePortfolio
+
+    -- ** AssociateProductWithPortfolio
+    , module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
+
+    -- ** ListAcceptedPortfolioShares
+    , module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
+
+    -- ** AcceptPortfolioShare
+    , module Network.AWS.ServiceCatalog.AcceptPortfolioShare
+
     -- ** ScanProvisionedProducts
     , module Network.AWS.ServiceCatalog.ScanProvisionedProducts
+
+    -- ** ListPrincipalsForPortfolio
+    , module Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
+
+    -- ** DeleteProduct
+    , module Network.AWS.ServiceCatalog.DeleteProduct
+
+    -- ** UpdateProduct
+    , module Network.AWS.ServiceCatalog.UpdateProduct
 
     -- ** ProvisionProduct
     , module Network.AWS.ServiceCatalog.ProvisionProduct
 
+    -- ** RejectPortfolioShare
+    , module Network.AWS.ServiceCatalog.RejectPortfolioShare
+
+    -- ** SearchProductsAsAdmin
+    , module Network.AWS.ServiceCatalog.SearchProductsAsAdmin
+
+    -- ** DeletePortfolio
+    , module Network.AWS.ServiceCatalog.DeletePortfolio
+
+    -- ** UpdatePortfolio
+    , module Network.AWS.ServiceCatalog.UpdatePortfolio
+
+    -- ** ListPortfoliosForProduct
+    , module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
+
+    -- ** DescribeProductAsAdmin
+    , module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
+
     -- ** DescribeProvisioningParameters
     , module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
+
+    -- ** AssociatePrincipalWithPortfolio
+    , module Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
+
+    -- ** UpdateProvisioningArtifact
+    , module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
+
+    -- ** DeletePortfolioShare
+    , module Network.AWS.ServiceCatalog.DeletePortfolioShare
+
+    -- ** DeleteProvisioningArtifact
+    , module Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
+
+    -- ** CreatePortfolio
+    , module Network.AWS.ServiceCatalog.CreatePortfolio
 
     -- ** ListLaunchPaths
     , module Network.AWS.ServiceCatalog.ListLaunchPaths
 
     -- * Types
+
+    -- ** AccessLevelFilterKey
+    , AccessLevelFilterKey (..)
+
+    -- ** PrincipalType
+    , PrincipalType (..)
+
+    -- ** ProductSource
+    , ProductSource (..)
+
+    -- ** ProductType
+    , ProductType (..)
 
     -- ** ProductViewFilterBy
     , ProductViewFilterBy (..)
@@ -89,11 +203,31 @@ module Network.AWS.ServiceCatalog
     -- ** ProductViewSortBy
     , ProductViewSortBy (..)
 
+    -- ** ProvisioningArtifactType
+    , ProvisioningArtifactType (..)
+
     -- ** RecordStatus
     , RecordStatus (..)
 
     -- ** SortOrder
     , SortOrder (..)
+
+    -- ** Status
+    , Status (..)
+
+    -- ** AccessLevelFilter
+    , AccessLevelFilter
+    , accessLevelFilter
+    , alfValue
+    , alfKey
+
+    -- ** ConstraintDetail
+    , ConstraintDetail
+    , constraintDetail
+    , cdConstraintId
+    , cdOwner
+    , cdType
+    , cdDescription
 
     -- ** ConstraintSummary
     , ConstraintSummary
@@ -120,11 +254,35 @@ module Network.AWS.ServiceCatalog
     , parameterConstraints
     , pcAllowedValues
 
+    -- ** PortfolioDetail
+    , PortfolioDetail
+    , portfolioDetail
+    , pdARN
+    , pdCreatedTime
+    , pdId
+    , pdDisplayName
+    , pdDescription
+    , pdProviderName
+
+    -- ** Principal
+    , Principal
+    , principal
+    , pPrincipalType
+    , pPrincipalARN
+
     -- ** ProductViewAggregationValue
     , ProductViewAggregationValue
     , productViewAggregationValue
     , pvavValue
     , pvavApproximateCount
+
+    -- ** ProductViewDetail
+    , ProductViewDetail
+    , productViewDetail
+    , pvdStatus
+    , pvdProductViewSummary
+    , pvdCreatedTime
+    , pvdProductARN
 
     -- ** ProductViewSummary
     , ProductViewSummary
@@ -162,15 +320,32 @@ module Network.AWS.ServiceCatalog
     , paId
     , paDescription
 
+    -- ** ProvisioningArtifactDetail
+    , ProvisioningArtifactDetail
+    , provisioningArtifactDetail
+    , padCreatedTime
+    , padName
+    , padId
+    , padType
+    , padDescription
+
     -- ** ProvisioningArtifactParameter
     , ProvisioningArtifactParameter
     , provisioningArtifactParameter
-    , papIsNoEcho
-    , papParameterKey
-    , papParameterType
-    , papParameterConstraints
-    , papDefaultValue
+    , pIsNoEcho
+    , pParameterKey
+    , pParameterType
+    , pParameterConstraints
+    , pDefaultValue
+    , pDescription
+
+    -- ** ProvisioningArtifactProperties
+    , ProvisioningArtifactProperties
+    , provisioningArtifactProperties
+    , papName
+    , papType
     , papDescription
+    , papInfo
 
     -- ** ProvisioningParameter
     , ProvisioningParameter
@@ -217,8 +392,8 @@ module Network.AWS.ServiceCatalog
     -- ** Tag
     , Tag
     , tag
-    , tagValue
     , tagKey
+    , tagValue
 
     -- ** UpdateProvisioningParameter
     , UpdateProvisioningParameter
@@ -234,18 +409,50 @@ module Network.AWS.ServiceCatalog
     , uiType
     ) where
 
+import           Network.AWS.ServiceCatalog.AcceptPortfolioShare
+import           Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
+import           Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
+import           Network.AWS.ServiceCatalog.CreateConstraint
+import           Network.AWS.ServiceCatalog.CreatePortfolio
+import           Network.AWS.ServiceCatalog.CreatePortfolioShare
+import           Network.AWS.ServiceCatalog.CreateProduct
+import           Network.AWS.ServiceCatalog.CreateProvisioningArtifact
+import           Network.AWS.ServiceCatalog.DeleteConstraint
+import           Network.AWS.ServiceCatalog.DeletePortfolio
+import           Network.AWS.ServiceCatalog.DeletePortfolioShare
+import           Network.AWS.ServiceCatalog.DeleteProduct
+import           Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
+import           Network.AWS.ServiceCatalog.DescribeConstraint
+import           Network.AWS.ServiceCatalog.DescribePortfolio
 import           Network.AWS.ServiceCatalog.DescribeProduct
+import           Network.AWS.ServiceCatalog.DescribeProductAsAdmin
 import           Network.AWS.ServiceCatalog.DescribeProductView
+import           Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
 import           Network.AWS.ServiceCatalog.DescribeProvisioningParameters
 import           Network.AWS.ServiceCatalog.DescribeRecord
+import           Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
+import           Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
+import           Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
+import           Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
 import           Network.AWS.ServiceCatalog.ListLaunchPaths
+import           Network.AWS.ServiceCatalog.ListPortfolioAccess
+import           Network.AWS.ServiceCatalog.ListPortfolios
+import           Network.AWS.ServiceCatalog.ListPortfoliosForProduct
+import           Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
+import           Network.AWS.ServiceCatalog.ListProvisioningArtifacts
 import           Network.AWS.ServiceCatalog.ListRecordHistory
 import           Network.AWS.ServiceCatalog.ProvisionProduct
+import           Network.AWS.ServiceCatalog.RejectPortfolioShare
 import           Network.AWS.ServiceCatalog.ScanProvisionedProducts
 import           Network.AWS.ServiceCatalog.SearchProducts
+import           Network.AWS.ServiceCatalog.SearchProductsAsAdmin
 import           Network.AWS.ServiceCatalog.TerminateProvisionedProduct
 import           Network.AWS.ServiceCatalog.Types
+import           Network.AWS.ServiceCatalog.UpdateConstraint
+import           Network.AWS.ServiceCatalog.UpdatePortfolio
+import           Network.AWS.ServiceCatalog.UpdateProduct
 import           Network.AWS.ServiceCatalog.UpdateProvisionedProduct
+import           Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
 import           Network.AWS.ServiceCatalog.Waiters
 
 {- $errors

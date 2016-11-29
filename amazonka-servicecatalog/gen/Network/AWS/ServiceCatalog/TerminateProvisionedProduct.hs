@@ -67,9 +67,9 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 --
 -- * 'tppProvisionedProductName' - The name of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
--- * 'tppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'tppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'tppIgnoreErrors' - Optional Boolean parameter. If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
+-- * 'tppIgnoreErrors' - If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
 --
 -- * 'tppProvisionedProductId' - The identifier of the ProvisionedProduct object to terminate. You must specify either @ProvisionedProductName@ or @ProvisionedProductId@ , but not both.
 --
@@ -90,11 +90,11 @@ terminateProvisionedProduct pTerminateToken_ =
 tppProvisionedProductName :: Lens' TerminateProvisionedProduct (Maybe Text)
 tppProvisionedProductName = lens _tppProvisionedProductName (\ s a -> s{_tppProvisionedProductName = a});
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 tppAcceptLanguage :: Lens' TerminateProvisionedProduct (Maybe Text)
 tppAcceptLanguage = lens _tppAcceptLanguage (\ s a -> s{_tppAcceptLanguage = a});
 
--- | Optional Boolean parameter. If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
+-- | If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct object even if it cannot delete the underlying resources.
 tppIgnoreErrors :: Lens' TerminateProvisionedProduct (Maybe Bool)
 tppIgnoreErrors = lens _tppIgnoreErrors (\ s a -> s{_tppIgnoreErrors = a});
 

@@ -21,6 +21,111 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.ServiceCatalog.Types.Sum
 
+-- | The access level to limit results.
+--
+--
+--
+-- /See:/ 'accessLevelFilter' smart constructor.
+data AccessLevelFilter = AccessLevelFilter'
+    { _alfValue :: !(Maybe Text)
+    , _alfKey   :: !(Maybe AccessLevelFilterKey)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccessLevelFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'alfValue' - Specifies the user to which the access level applies. A value of @Self@ is currently supported.
+--
+-- * 'alfKey' - Specifies the access level. @Account@ allows results at the account level.  @Role@ allows results based on the federated role of the specified user. @User@ allows results limited to the specified user.
+accessLevelFilter
+    :: AccessLevelFilter
+accessLevelFilter =
+    AccessLevelFilter'
+    { _alfValue = Nothing
+    , _alfKey = Nothing
+    }
+
+-- | Specifies the user to which the access level applies. A value of @Self@ is currently supported.
+alfValue :: Lens' AccessLevelFilter (Maybe Text)
+alfValue = lens _alfValue (\ s a -> s{_alfValue = a});
+
+-- | Specifies the access level. @Account@ allows results at the account level.  @Role@ allows results based on the federated role of the specified user. @User@ allows results limited to the specified user.
+alfKey :: Lens' AccessLevelFilter (Maybe AccessLevelFilterKey)
+alfKey = lens _alfKey (\ s a -> s{_alfKey = a});
+
+instance Hashable AccessLevelFilter
+
+instance NFData AccessLevelFilter
+
+instance ToJSON AccessLevelFilter where
+        toJSON AccessLevelFilter'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _alfValue, ("Key" .=) <$> _alfKey])
+
+-- | Detailed constraint information.
+--
+--
+--
+-- /See:/ 'constraintDetail' smart constructor.
+data ConstraintDetail = ConstraintDetail'
+    { _cdConstraintId :: !(Maybe Text)
+    , _cdOwner        :: !(Maybe Text)
+    , _cdType         :: !(Maybe Text)
+    , _cdDescription  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConstraintDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdConstraintId' - The identifier of the constraint.
+--
+-- * 'cdOwner' - The owner of the constraint.
+--
+-- * 'cdType' - The type of the constraint.
+--
+-- * 'cdDescription' - The text description of the constraint.
+constraintDetail
+    :: ConstraintDetail
+constraintDetail =
+    ConstraintDetail'
+    { _cdConstraintId = Nothing
+    , _cdOwner = Nothing
+    , _cdType = Nothing
+    , _cdDescription = Nothing
+    }
+
+-- | The identifier of the constraint.
+cdConstraintId :: Lens' ConstraintDetail (Maybe Text)
+cdConstraintId = lens _cdConstraintId (\ s a -> s{_cdConstraintId = a});
+
+-- | The owner of the constraint.
+cdOwner :: Lens' ConstraintDetail (Maybe Text)
+cdOwner = lens _cdOwner (\ s a -> s{_cdOwner = a});
+
+-- | The type of the constraint.
+cdType :: Lens' ConstraintDetail (Maybe Text)
+cdType = lens _cdType (\ s a -> s{_cdType = a});
+
+-- | The text description of the constraint.
+cdDescription :: Lens' ConstraintDetail (Maybe Text)
+cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+
+instance FromJSON ConstraintDetail where
+        parseJSON
+          = withObject "ConstraintDetail"
+              (\ x ->
+                 ConstraintDetail' <$>
+                   (x .:? "ConstraintId") <*> (x .:? "Owner") <*>
+                     (x .:? "Type")
+                     <*> (x .:? "Description"))
+
+instance Hashable ConstraintDetail
+
+instance NFData ConstraintDetail
+
 -- | An administrator-specified constraint to apply when provisioning a product.
 --
 --
@@ -208,6 +313,130 @@ instance Hashable ParameterConstraints
 
 instance NFData ParameterConstraints
 
+-- | Detailed portfolio information.
+--
+--
+--
+-- /See:/ 'portfolioDetail' smart constructor.
+data PortfolioDetail = PortfolioDetail'
+    { _pdARN          :: !(Maybe Text)
+    , _pdCreatedTime  :: !(Maybe POSIX)
+    , _pdId           :: !(Maybe Text)
+    , _pdDisplayName  :: !(Maybe Text)
+    , _pdDescription  :: !(Maybe Text)
+    , _pdProviderName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PortfolioDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdARN' - The ARN assigned to the portfolio.
+--
+-- * 'pdCreatedTime' - The UTC timestamp of the creation time.
+--
+-- * 'pdId' - The identifier for the portfolio.
+--
+-- * 'pdDisplayName' - The name to use for display purposes.
+--
+-- * 'pdDescription' - The text description of the portfolio.
+--
+-- * 'pdProviderName' - The name of the portfolio provider.
+portfolioDetail
+    :: PortfolioDetail
+portfolioDetail =
+    PortfolioDetail'
+    { _pdARN = Nothing
+    , _pdCreatedTime = Nothing
+    , _pdId = Nothing
+    , _pdDisplayName = Nothing
+    , _pdDescription = Nothing
+    , _pdProviderName = Nothing
+    }
+
+-- | The ARN assigned to the portfolio.
+pdARN :: Lens' PortfolioDetail (Maybe Text)
+pdARN = lens _pdARN (\ s a -> s{_pdARN = a});
+
+-- | The UTC timestamp of the creation time.
+pdCreatedTime :: Lens' PortfolioDetail (Maybe UTCTime)
+pdCreatedTime = lens _pdCreatedTime (\ s a -> s{_pdCreatedTime = a}) . mapping _Time;
+
+-- | The identifier for the portfolio.
+pdId :: Lens' PortfolioDetail (Maybe Text)
+pdId = lens _pdId (\ s a -> s{_pdId = a});
+
+-- | The name to use for display purposes.
+pdDisplayName :: Lens' PortfolioDetail (Maybe Text)
+pdDisplayName = lens _pdDisplayName (\ s a -> s{_pdDisplayName = a});
+
+-- | The text description of the portfolio.
+pdDescription :: Lens' PortfolioDetail (Maybe Text)
+pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
+
+-- | The name of the portfolio provider.
+pdProviderName :: Lens' PortfolioDetail (Maybe Text)
+pdProviderName = lens _pdProviderName (\ s a -> s{_pdProviderName = a});
+
+instance FromJSON PortfolioDetail where
+        parseJSON
+          = withObject "PortfolioDetail"
+              (\ x ->
+                 PortfolioDetail' <$>
+                   (x .:? "ARN") <*> (x .:? "CreatedTime") <*>
+                     (x .:? "Id")
+                     <*> (x .:? "DisplayName")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "ProviderName"))
+
+instance Hashable PortfolioDetail
+
+instance NFData PortfolioDetail
+
+-- | A principal's ARN and type.
+--
+--
+--
+-- /See:/ 'principal' smart constructor.
+data Principal = Principal'
+    { _pPrincipalType :: !(Maybe PrincipalType)
+    , _pPrincipalARN  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Principal' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pPrincipalType' - The principal type. Must be @IAM@
+--
+-- * 'pPrincipalARN' - The ARN representing the principal (IAM user, role, or group).
+principal
+    :: Principal
+principal =
+    Principal'
+    { _pPrincipalType = Nothing
+    , _pPrincipalARN = Nothing
+    }
+
+-- | The principal type. Must be @IAM@
+pPrincipalType :: Lens' Principal (Maybe PrincipalType)
+pPrincipalType = lens _pPrincipalType (\ s a -> s{_pPrincipalType = a});
+
+-- | The ARN representing the principal (IAM user, role, or group).
+pPrincipalARN :: Lens' Principal (Maybe Text)
+pPrincipalARN = lens _pPrincipalARN (\ s a -> s{_pPrincipalARN = a});
+
+instance FromJSON Principal where
+        parseJSON
+          = withObject "Principal"
+              (\ x ->
+                 Principal' <$>
+                   (x .:? "PrincipalType") <*> (x .:? "PrincipalARN"))
+
+instance Hashable Principal
+
+instance NFData Principal
+
 -- | A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
 --
 --
@@ -252,6 +481,68 @@ instance Hashable ProductViewAggregationValue
 
 instance NFData ProductViewAggregationValue
 
+-- | Detailed product view information.
+--
+--
+--
+-- /See:/ 'productViewDetail' smart constructor.
+data ProductViewDetail = ProductViewDetail'
+    { _pvdStatus             :: !(Maybe Status)
+    , _pvdProductViewSummary :: !(Maybe ProductViewSummary)
+    , _pvdCreatedTime        :: !(Maybe POSIX)
+    , _pvdProductARN         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProductViewDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pvdStatus' - Current status of the product.
+--
+-- * 'pvdProductViewSummary' - The summary metadata about the specified product view.
+--
+-- * 'pvdCreatedTime' - The UTC timestamp of the creation time.
+--
+-- * 'pvdProductARN' - The ARN associated with the product.
+productViewDetail
+    :: ProductViewDetail
+productViewDetail =
+    ProductViewDetail'
+    { _pvdStatus = Nothing
+    , _pvdProductViewSummary = Nothing
+    , _pvdCreatedTime = Nothing
+    , _pvdProductARN = Nothing
+    }
+
+-- | Current status of the product.
+pvdStatus :: Lens' ProductViewDetail (Maybe Status)
+pvdStatus = lens _pvdStatus (\ s a -> s{_pvdStatus = a});
+
+-- | The summary metadata about the specified product view.
+pvdProductViewSummary :: Lens' ProductViewDetail (Maybe ProductViewSummary)
+pvdProductViewSummary = lens _pvdProductViewSummary (\ s a -> s{_pvdProductViewSummary = a});
+
+-- | The UTC timestamp of the creation time.
+pvdCreatedTime :: Lens' ProductViewDetail (Maybe UTCTime)
+pvdCreatedTime = lens _pvdCreatedTime (\ s a -> s{_pvdCreatedTime = a}) . mapping _Time;
+
+-- | The ARN associated with the product.
+pvdProductARN :: Lens' ProductViewDetail (Maybe Text)
+pvdProductARN = lens _pvdProductARN (\ s a -> s{_pvdProductARN = a});
+
+instance FromJSON ProductViewDetail where
+        parseJSON
+          = withObject "ProductViewDetail"
+              (\ x ->
+                 ProductViewDetail' <$>
+                   (x .:? "Status") <*> (x .:? "ProductViewSummary") <*>
+                     (x .:? "CreatedTime")
+                     <*> (x .:? "ProductARN"))
+
+instance Hashable ProductViewDetail
+
+instance NFData ProductViewDetail
+
 -- | The summary metadata about the specified product.
 --
 --
@@ -265,7 +556,7 @@ data ProductViewSummary = ProductViewSummary'
     , _pvsDistributor        :: !(Maybe Text)
     , _pvsName               :: !(Maybe Text)
     , _pvsId                 :: !(Maybe Text)
-    , _pvsType               :: !(Maybe Text)
+    , _pvsType               :: !(Maybe ProductType)
     , _pvsSupportEmail       :: !(Maybe Text)
     , _pvsProductId          :: !(Maybe Text)
     , _pvsSupportDescription :: !(Maybe Text)
@@ -342,7 +633,7 @@ pvsId :: Lens' ProductViewSummary (Maybe Text)
 pvsId = lens _pvsId (\ s a -> s{_pvsId = a});
 
 -- | The product type. Contact the product administrator for the significance of this value.
-pvsType :: Lens' ProductViewSummary (Maybe Text)
+pvsType :: Lens' ProductViewSummary (Maybe ProductType)
 pvsType = lens _pvsType (\ s a -> s{_pvsType = a});
 
 -- | The email contact information to obtain support for this Product.
@@ -398,13 +689,13 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ppdIdempotencyToken' - An idempotency token that uniquely identifies this ProvisionedProduct.
+-- * 'ppdIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 --
 -- * 'ppdStatus' - The current status of the ProvisionedProduct.
 --
 -- * 'ppdARN' - The ARN associated with the ProvisionedProduct object.
 --
--- * 'ppdCreatedTime' - The time the ProvisionedProduct was created.
+-- * 'ppdCreatedTime' - The UTC timestamp of the creation time.
 --
 -- * 'ppdStatusMessage' - The current status message of the ProvisionedProduct.
 --
@@ -430,7 +721,7 @@ provisionedProductDetail =
     , _ppdType = Nothing
     }
 
--- | An idempotency token that uniquely identifies this ProvisionedProduct.
+-- | A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdIdempotencyToken = lens _ppdIdempotencyToken (\ s a -> s{_ppdIdempotencyToken = a});
 
@@ -442,7 +733,7 @@ ppdStatus = lens _ppdStatus (\ s a -> s{_ppdStatus = a});
 ppdARN :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdARN = lens _ppdARN (\ s a -> s{_ppdARN = a});
 
--- | The time the ProvisionedProduct was created.
+-- | The UTC timestamp of the creation time.
 ppdCreatedTime :: Lens' ProvisionedProductDetail (Maybe UTCTime)
 ppdCreatedTime = lens _ppdCreatedTime (\ s a -> s{_ppdCreatedTime = a}) . mapping _Time;
 
@@ -500,7 +791,7 @@ data ProvisioningArtifact = ProvisioningArtifact'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paCreatedTime' - The time that the artifact was created by the Administrator.
+-- * 'paCreatedTime' - The UTC timestamp of the creation time.
 --
 -- * 'paName' - The name of the artifact.
 --
@@ -517,7 +808,7 @@ provisioningArtifact =
     , _paDescription = Nothing
     }
 
--- | The time that the artifact was created by the Administrator.
+-- | The UTC timestamp of the creation time.
 paCreatedTime :: Lens' ProvisioningArtifact (Maybe UTCTime)
 paCreatedTime = lens _paCreatedTime (\ s a -> s{_paCreatedTime = a}) . mapping _Time;
 
@@ -546,70 +837,141 @@ instance Hashable ProvisioningArtifact
 
 instance NFData ProvisioningArtifact
 
+-- | Detailed provisioning artifact information.
+--
+--
+--
+-- /See:/ 'provisioningArtifactDetail' smart constructor.
+data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
+    { _padCreatedTime :: !(Maybe POSIX)
+    , _padName        :: !(Maybe Text)
+    , _padId          :: !(Maybe Text)
+    , _padType        :: !(Maybe ProvisioningArtifactType)
+    , _padDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisioningArtifactDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'padCreatedTime' - The UTC timestamp of the creation time.
+--
+-- * 'padName' - The name assigned to the provisioning artifact.
+--
+-- * 'padId' - The identifier of the provisioning artifact.
+--
+-- * 'padType' - The type of the provisioning artifact.
+--
+-- * 'padDescription' - The text description of the provisioning artifact.
+provisioningArtifactDetail
+    :: ProvisioningArtifactDetail
+provisioningArtifactDetail =
+    ProvisioningArtifactDetail'
+    { _padCreatedTime = Nothing
+    , _padName = Nothing
+    , _padId = Nothing
+    , _padType = Nothing
+    , _padDescription = Nothing
+    }
+
+-- | The UTC timestamp of the creation time.
+padCreatedTime :: Lens' ProvisioningArtifactDetail (Maybe UTCTime)
+padCreatedTime = lens _padCreatedTime (\ s a -> s{_padCreatedTime = a}) . mapping _Time;
+
+-- | The name assigned to the provisioning artifact.
+padName :: Lens' ProvisioningArtifactDetail (Maybe Text)
+padName = lens _padName (\ s a -> s{_padName = a});
+
+-- | The identifier of the provisioning artifact.
+padId :: Lens' ProvisioningArtifactDetail (Maybe Text)
+padId = lens _padId (\ s a -> s{_padId = a});
+
+-- | The type of the provisioning artifact.
+padType :: Lens' ProvisioningArtifactDetail (Maybe ProvisioningArtifactType)
+padType = lens _padType (\ s a -> s{_padType = a});
+
+-- | The text description of the provisioning artifact.
+padDescription :: Lens' ProvisioningArtifactDetail (Maybe Text)
+padDescription = lens _padDescription (\ s a -> s{_padDescription = a});
+
+instance FromJSON ProvisioningArtifactDetail where
+        parseJSON
+          = withObject "ProvisioningArtifactDetail"
+              (\ x ->
+                 ProvisioningArtifactDetail' <$>
+                   (x .:? "CreatedTime") <*> (x .:? "Name") <*>
+                     (x .:? "Id")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Description"))
+
+instance Hashable ProvisioningArtifactDetail
+
+instance NFData ProvisioningArtifactDetail
+
 -- | A parameter used to successfully provision the product. This value includes a list of allowable values and additional metadata.
 --
 --
 --
 -- /See:/ 'provisioningArtifactParameter' smart constructor.
 data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
-    { _papIsNoEcho             :: !(Maybe Bool)
-    , _papParameterKey         :: !(Maybe Text)
-    , _papParameterType        :: !(Maybe Text)
-    , _papParameterConstraints :: !(Maybe ParameterConstraints)
-    , _papDefaultValue         :: !(Maybe Text)
-    , _papDescription          :: !(Maybe Text)
+    { _pIsNoEcho             :: !(Maybe Bool)
+    , _pParameterKey         :: !(Maybe Text)
+    , _pParameterType        :: !(Maybe Text)
+    , _pParameterConstraints :: !(Maybe ParameterConstraints)
+    , _pDefaultValue         :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ProvisioningArtifactParameter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'papIsNoEcho' - If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
+-- * 'pIsNoEcho' - If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
 --
--- * 'papParameterKey' - The parameter key.
+-- * 'pParameterKey' - The parameter key.
 --
--- * 'papParameterType' - The parameter type.
+-- * 'pParameterType' - The parameter type.
 --
--- * 'papParameterConstraints' - The list of constraints that the administrator has put on the parameter.
+-- * 'pParameterConstraints' - The list of constraints that the administrator has put on the parameter.
 --
--- * 'papDefaultValue' - The default value for this parameter.
+-- * 'pDefaultValue' - The default value for this parameter.
 --
--- * 'papDescription' - The text description of the parameter.
+-- * 'pDescription' - The text description of the parameter.
 provisioningArtifactParameter
     :: ProvisioningArtifactParameter
 provisioningArtifactParameter =
     ProvisioningArtifactParameter'
-    { _papIsNoEcho = Nothing
-    , _papParameterKey = Nothing
-    , _papParameterType = Nothing
-    , _papParameterConstraints = Nothing
-    , _papDefaultValue = Nothing
-    , _papDescription = Nothing
+    { _pIsNoEcho = Nothing
+    , _pParameterKey = Nothing
+    , _pParameterType = Nothing
+    , _pParameterConstraints = Nothing
+    , _pDefaultValue = Nothing
+    , _pDescription = Nothing
     }
 
 -- | If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
-papIsNoEcho :: Lens' ProvisioningArtifactParameter (Maybe Bool)
-papIsNoEcho = lens _papIsNoEcho (\ s a -> s{_papIsNoEcho = a});
+pIsNoEcho :: Lens' ProvisioningArtifactParameter (Maybe Bool)
+pIsNoEcho = lens _pIsNoEcho (\ s a -> s{_pIsNoEcho = a});
 
 -- | The parameter key.
-papParameterKey :: Lens' ProvisioningArtifactParameter (Maybe Text)
-papParameterKey = lens _papParameterKey (\ s a -> s{_papParameterKey = a});
+pParameterKey :: Lens' ProvisioningArtifactParameter (Maybe Text)
+pParameterKey = lens _pParameterKey (\ s a -> s{_pParameterKey = a});
 
 -- | The parameter type.
-papParameterType :: Lens' ProvisioningArtifactParameter (Maybe Text)
-papParameterType = lens _papParameterType (\ s a -> s{_papParameterType = a});
+pParameterType :: Lens' ProvisioningArtifactParameter (Maybe Text)
+pParameterType = lens _pParameterType (\ s a -> s{_pParameterType = a});
 
 -- | The list of constraints that the administrator has put on the parameter.
-papParameterConstraints :: Lens' ProvisioningArtifactParameter (Maybe ParameterConstraints)
-papParameterConstraints = lens _papParameterConstraints (\ s a -> s{_papParameterConstraints = a});
+pParameterConstraints :: Lens' ProvisioningArtifactParameter (Maybe ParameterConstraints)
+pParameterConstraints = lens _pParameterConstraints (\ s a -> s{_pParameterConstraints = a});
 
 -- | The default value for this parameter.
-papDefaultValue :: Lens' ProvisioningArtifactParameter (Maybe Text)
-papDefaultValue = lens _papDefaultValue (\ s a -> s{_papDefaultValue = a});
+pDefaultValue :: Lens' ProvisioningArtifactParameter (Maybe Text)
+pDefaultValue = lens _pDefaultValue (\ s a -> s{_pDefaultValue = a});
 
 -- | The text description of the parameter.
-papDescription :: Lens' ProvisioningArtifactParameter (Maybe Text)
-papDescription = lens _papDescription (\ s a -> s{_papDescription = a});
+pDescription :: Lens' ProvisioningArtifactParameter (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
 instance FromJSON ProvisioningArtifactParameter where
         parseJSON
@@ -625,6 +987,67 @@ instance FromJSON ProvisioningArtifactParameter where
 instance Hashable ProvisioningArtifactParameter
 
 instance NFData ProvisioningArtifactParameter
+
+-- | Provisioning artifact properties.
+--
+--
+--
+-- /See:/ 'provisioningArtifactProperties' smart constructor.
+data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
+    { _papName        :: !(Maybe Text)
+    , _papType        :: !(Maybe ProvisioningArtifactType)
+    , _papDescription :: !(Maybe Text)
+    , _papInfo        :: !(Map Text Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisioningArtifactProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'papName' - The name assigned to the provisioning artifact properties.
+--
+-- * 'papType' - The type of the provisioning artifact properties.
+--
+-- * 'papDescription' - The text description of the provisioning artifact properties.
+--
+-- * 'papInfo' - Additional information about the provisioning artifact properties.
+provisioningArtifactProperties
+    :: ProvisioningArtifactProperties
+provisioningArtifactProperties =
+    ProvisioningArtifactProperties'
+    { _papName = Nothing
+    , _papType = Nothing
+    , _papDescription = Nothing
+    , _papInfo = mempty
+    }
+
+-- | The name assigned to the provisioning artifact properties.
+papName :: Lens' ProvisioningArtifactProperties (Maybe Text)
+papName = lens _papName (\ s a -> s{_papName = a});
+
+-- | The type of the provisioning artifact properties.
+papType :: Lens' ProvisioningArtifactProperties (Maybe ProvisioningArtifactType)
+papType = lens _papType (\ s a -> s{_papType = a});
+
+-- | The text description of the provisioning artifact properties.
+papDescription :: Lens' ProvisioningArtifactProperties (Maybe Text)
+papDescription = lens _papDescription (\ s a -> s{_papDescription = a});
+
+-- | Additional information about the provisioning artifact properties.
+papInfo :: Lens' ProvisioningArtifactProperties (HashMap Text Text)
+papInfo = lens _papInfo (\ s a -> s{_papInfo = a}) . _Map;
+
+instance Hashable ProvisioningArtifactProperties
+
+instance NFData ProvisioningArtifactProperties
+
+instance ToJSON ProvisioningArtifactProperties where
+        toJSON ProvisioningArtifactProperties'{..}
+          = object
+              (catMaybes
+                 [("Name" .=) <$> _papName, ("Type" .=) <$> _papType,
+                  ("Description" .=) <$> _papDescription,
+                  Just ("Info" .= _papInfo)])
 
 -- | The arameter key/value pairs used to provision a product.
 --
@@ -702,7 +1125,7 @@ data RecordDetail = RecordDetail'
 --
 -- * 'rdProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
--- * 'rdCreatedTime' - The time when the record for the ProvisionedProduct object was created.
+-- * 'rdCreatedTime' - The UTC timestamp of the creation time.
 --
 -- * 'rdRecordType' - The record type for this record.
 --
@@ -718,7 +1141,7 @@ data RecordDetail = RecordDetail'
 --
 -- * 'rdRecordErrors' - A list of errors that occurred while processing the request.
 --
--- * 'rdProductId' - The identifier of the product.
+-- * 'rdProductId' - The product identifier.
 recordDetail
     :: RecordDetail
 recordDetail =
@@ -754,7 +1177,7 @@ rdProvisionedProductName = lens _rdProvisionedProductName (\ s a -> s{_rdProvisi
 rdProvisioningArtifactId :: Lens' RecordDetail (Maybe Text)
 rdProvisioningArtifactId = lens _rdProvisioningArtifactId (\ s a -> s{_rdProvisioningArtifactId = a});
 
--- | The time when the record for the ProvisionedProduct object was created.
+-- | The UTC timestamp of the creation time.
 rdCreatedTime :: Lens' RecordDetail (Maybe UTCTime)
 rdCreatedTime = lens _rdCreatedTime (\ s a -> s{_rdCreatedTime = a}) . mapping _Time;
 
@@ -786,7 +1209,7 @@ rdProvisionedProductId = lens _rdProvisionedProductId (\ s a -> s{_rdProvisioned
 rdRecordErrors :: Lens' RecordDetail [RecordError]
 rdRecordErrors = lens _rdRecordErrors (\ s a -> s{_rdRecordErrors = a}) . _Default . _Coerce;
 
--- | The identifier of the product.
+-- | The product identifier.
 rdProductId :: Lens' RecordDetail (Maybe Text)
 rdProductId = lens _rdProductId (\ s a -> s{_rdProductId = a});
 
@@ -952,43 +1375,45 @@ instance Hashable RecordTag
 
 instance NFData RecordTag
 
--- | Optional key/value pairs to associate with this provisioning. These tags are propagated to the resources created in the provisioning.
+-- | Key/value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
 --
 --
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue' - The esired value for this key.
---
 -- * 'tagKey' - The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
+--
+-- * 'tagValue' - The esired value for this key.
 tag
-    :: Tag
-tag =
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ =
     Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
--- | The esired value for this key.
-tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
-
 -- | The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
-tagKey :: Lens' Tag (Maybe Text)
+tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
+
+-- | The esired value for this key.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
+              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance Hashable Tag
 
@@ -998,7 +1423,8 @@ instance ToJSON Tag where
         toJSON Tag'{..}
           = object
               (catMaybes
-                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
+                 [Just ("Key" .= _tagKey),
+                  Just ("Value" .= _tagValue)])
 
 -- | The parameter key/value pair used to update a ProvisionedProduct object. If @UsePreviousValue@ is set to true, @Value@ is ignored and the value for @Key@ is kept as previously set (current value).
 --

@@ -19,6 +19,20 @@ module Network.AWS.ServiceCatalog.Types
     , _InvalidParametersException
     , _DuplicateResourceException
     , _ResourceNotFoundException
+    , _LimitExceededException
+    , _ResourceInUseException
+
+    -- * AccessLevelFilterKey
+    , AccessLevelFilterKey (..)
+
+    -- * PrincipalType
+    , PrincipalType (..)
+
+    -- * ProductSource
+    , ProductSource (..)
+
+    -- * ProductType
+    , ProductType (..)
 
     -- * ProductViewFilterBy
     , ProductViewFilterBy (..)
@@ -26,11 +40,31 @@ module Network.AWS.ServiceCatalog.Types
     -- * ProductViewSortBy
     , ProductViewSortBy (..)
 
+    -- * ProvisioningArtifactType
+    , ProvisioningArtifactType (..)
+
     -- * RecordStatus
     , RecordStatus (..)
 
     -- * SortOrder
     , SortOrder (..)
+
+    -- * Status
+    , Status (..)
+
+    -- * AccessLevelFilter
+    , AccessLevelFilter
+    , accessLevelFilter
+    , alfValue
+    , alfKey
+
+    -- * ConstraintDetail
+    , ConstraintDetail
+    , constraintDetail
+    , cdConstraintId
+    , cdOwner
+    , cdType
+    , cdDescription
 
     -- * ConstraintSummary
     , ConstraintSummary
@@ -57,11 +91,35 @@ module Network.AWS.ServiceCatalog.Types
     , parameterConstraints
     , pcAllowedValues
 
+    -- * PortfolioDetail
+    , PortfolioDetail
+    , portfolioDetail
+    , pdARN
+    , pdCreatedTime
+    , pdId
+    , pdDisplayName
+    , pdDescription
+    , pdProviderName
+
+    -- * Principal
+    , Principal
+    , principal
+    , pPrincipalType
+    , pPrincipalARN
+
     -- * ProductViewAggregationValue
     , ProductViewAggregationValue
     , productViewAggregationValue
     , pvavValue
     , pvavApproximateCount
+
+    -- * ProductViewDetail
+    , ProductViewDetail
+    , productViewDetail
+    , pvdStatus
+    , pvdProductViewSummary
+    , pvdCreatedTime
+    , pvdProductARN
 
     -- * ProductViewSummary
     , ProductViewSummary
@@ -99,15 +157,32 @@ module Network.AWS.ServiceCatalog.Types
     , paId
     , paDescription
 
+    -- * ProvisioningArtifactDetail
+    , ProvisioningArtifactDetail
+    , provisioningArtifactDetail
+    , padCreatedTime
+    , padName
+    , padId
+    , padType
+    , padDescription
+
     -- * ProvisioningArtifactParameter
     , ProvisioningArtifactParameter
     , provisioningArtifactParameter
-    , papIsNoEcho
-    , papParameterKey
-    , papParameterType
-    , papParameterConstraints
-    , papDefaultValue
+    , pIsNoEcho
+    , pParameterKey
+    , pParameterType
+    , pParameterConstraints
+    , pDefaultValue
+    , pDescription
+
+    -- * ProvisioningArtifactProperties
+    , ProvisioningArtifactProperties
+    , provisioningArtifactProperties
+    , papName
+    , papType
     , papDescription
+    , papInfo
 
     -- * ProvisioningParameter
     , ProvisioningParameter
@@ -154,8 +229,8 @@ module Network.AWS.ServiceCatalog.Types
     -- * Tag
     , Tag
     , tag
-    , tagValue
     , tagKey
+    , tagValue
 
     -- * UpdateProvisioningParameter
     , UpdateProvisioningParameter
@@ -231,3 +306,15 @@ _DuplicateResourceException =
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
+
+-- | The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
+--
+--
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+
+-- | The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.
+--
+--
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"

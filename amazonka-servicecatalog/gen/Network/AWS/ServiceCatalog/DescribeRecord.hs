@@ -61,9 +61,9 @@ data DescribeRecord = DescribeRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'drAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'drPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- * 'drPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
 -- * 'drPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 --
@@ -79,11 +79,11 @@ describeRecord pId_ =
     , _drId = pId_
     }
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
 drAcceptLanguage = lens _drAcceptLanguage (\ s a -> s{_drAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 drPageToken :: Lens' DescribeRecord (Maybe Text)
 drPageToken = lens _drPageToken (\ s a -> s{_drPageToken = a});
 

@@ -29,6 +29,7 @@ module Network.AWS.ServiceCatalog.ListRecordHistory
     -- * Request Lenses
     , lrhSearchFilter
     , lrhAcceptLanguage
+    , lrhAccessLevelFilter
     , lrhPageToken
     , lrhPageSize
 
@@ -50,21 +51,24 @@ import           Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'listRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-    { _lrhSearchFilter   :: !(Maybe ListRecordHistorySearchFilter)
-    , _lrhAcceptLanguage :: !(Maybe Text)
-    , _lrhPageToken      :: !(Maybe Text)
-    , _lrhPageSize       :: !(Maybe Nat)
+    { _lrhSearchFilter      :: !(Maybe ListRecordHistorySearchFilter)
+    , _lrhAcceptLanguage    :: !(Maybe Text)
+    , _lrhAccessLevelFilter :: !(Maybe AccessLevelFilter)
+    , _lrhPageToken         :: !(Maybe Text)
+    , _lrhPageSize          :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListRecordHistory' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrhSearchFilter' - (Optional) The filter to limit search results.
+-- * 'lrhSearchFilter' - The filter to limit search results.
 --
--- * 'lrhAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'lrhAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'lrhPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- * 'lrhAccessLevelFilter' - The access level for obtaining results. If left unspecified, @User@ level access is used.
+--
+-- * 'lrhPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
 -- * 'lrhPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 listRecordHistory
@@ -73,19 +77,24 @@ listRecordHistory =
     ListRecordHistory'
     { _lrhSearchFilter = Nothing
     , _lrhAcceptLanguage = Nothing
+    , _lrhAccessLevelFilter = Nothing
     , _lrhPageToken = Nothing
     , _lrhPageSize = Nothing
     }
 
--- | (Optional) The filter to limit search results.
+-- | The filter to limit search results.
 lrhSearchFilter :: Lens' ListRecordHistory (Maybe ListRecordHistorySearchFilter)
 lrhSearchFilter = lens _lrhSearchFilter (\ s a -> s{_lrhSearchFilter = a});
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 lrhAcceptLanguage :: Lens' ListRecordHistory (Maybe Text)
 lrhAcceptLanguage = lens _lrhAcceptLanguage (\ s a -> s{_lrhAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- | The access level for obtaining results. If left unspecified, @User@ level access is used.
+lrhAccessLevelFilter :: Lens' ListRecordHistory (Maybe AccessLevelFilter)
+lrhAccessLevelFilter = lens _lrhAccessLevelFilter (\ s a -> s{_lrhAccessLevelFilter = a});
+
+-- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 lrhPageToken :: Lens' ListRecordHistory (Maybe Text)
 lrhPageToken = lens _lrhPageToken (\ s a -> s{_lrhPageToken = a});
 
@@ -124,6 +133,7 @@ instance ToJSON ListRecordHistory where
               (catMaybes
                  [("SearchFilter" .=) <$> _lrhSearchFilter,
                   ("AcceptLanguage" .=) <$> _lrhAcceptLanguage,
+                  ("AccessLevelFilter" .=) <$> _lrhAccessLevelFilter,
                   ("PageToken" .=) <$> _lrhPageToken,
                   ("PageSize" .=) <$> _lrhPageSize])
 

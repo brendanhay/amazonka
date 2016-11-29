@@ -28,6 +28,7 @@ module Network.AWS.ServiceCatalog.ScanProvisionedProducts
     , ScanProvisionedProducts
     -- * Request Lenses
     , sppAcceptLanguage
+    , sppAccessLevelFilter
     , sppPageToken
     , sppPageSize
 
@@ -49,18 +50,21 @@ import           Network.AWS.ServiceCatalog.Types.Product
 
 -- | /See:/ 'scanProvisionedProducts' smart constructor.
 data ScanProvisionedProducts = ScanProvisionedProducts'
-    { _sppAcceptLanguage :: !(Maybe Text)
-    , _sppPageToken      :: !(Maybe Text)
-    , _sppPageSize       :: !(Maybe Nat)
+    { _sppAcceptLanguage    :: !(Maybe Text)
+    , _sppAccessLevelFilter :: !(Maybe AccessLevelFilter)
+    , _sppPageToken         :: !(Maybe Text)
+    , _sppPageSize          :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScanProvisionedProducts' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'sppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'sppPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- * 'sppAccessLevelFilter' - The access level for obtaining results. If left unspecified, @User@ level access is used.
+--
+-- * 'sppPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
 -- * 'sppPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 scanProvisionedProducts
@@ -68,15 +72,20 @@ scanProvisionedProducts
 scanProvisionedProducts =
     ScanProvisionedProducts'
     { _sppAcceptLanguage = Nothing
+    , _sppAccessLevelFilter = Nothing
     , _sppPageToken = Nothing
     , _sppPageSize = Nothing
     }
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 sppAcceptLanguage :: Lens' ScanProvisionedProducts (Maybe Text)
 sppAcceptLanguage = lens _sppAcceptLanguage (\ s a -> s{_sppAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- | The access level for obtaining results. If left unspecified, @User@ level access is used.
+sppAccessLevelFilter :: Lens' ScanProvisionedProducts (Maybe AccessLevelFilter)
+sppAccessLevelFilter = lens _sppAccessLevelFilter (\ s a -> s{_sppAccessLevelFilter = a});
+
+-- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 sppPageToken :: Lens' ScanProvisionedProducts (Maybe Text)
 sppPageToken = lens _sppPageToken (\ s a -> s{_sppPageToken = a});
 
@@ -115,6 +124,7 @@ instance ToJSON ScanProvisionedProducts where
           = object
               (catMaybes
                  [("AcceptLanguage" .=) <$> _sppAcceptLanguage,
+                  ("AccessLevelFilter" .=) <$> _sppAccessLevelFilter,
                   ("PageToken" .=) <$> _sppPageToken,
                   ("PageSize" .=) <$> _sppPageSize])
 

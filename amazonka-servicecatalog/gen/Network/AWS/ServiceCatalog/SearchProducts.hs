@@ -67,17 +67,17 @@ data SearchProducts = SearchProducts'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spFilters' - (Optional) The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
+-- * 'spFilters' - The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
 --
--- * 'spSortOrder' - (Optional) The sort order specifier. If no value is specified, results are not sorted.
+-- * 'spSortOrder' - The sort order specifier. If no value is specified, results are not sorted.
 --
--- * 'spAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'spAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
--- * 'spPageToken' - The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- * 'spPageToken' - The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 --
 -- * 'spPageSize' - The maximum number of items to return in the results. If more results exist than fit in the specified @PageSize@ , the value of @NextPageToken@ in the response is non-null.
 --
--- * 'spSortBy' - (Optional) The sort field specifier. If no value is specified, results are not sorted.
+-- * 'spSortBy' - The sort field specifier. If no value is specified, results are not sorted.
 searchProducts
     :: SearchProducts
 searchProducts =
@@ -90,19 +90,19 @@ searchProducts =
     , _spSortBy = Nothing
     }
 
--- | (Optional) The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
+-- | The list of filters with which to limit search results. If no search filters are specified, the output is all the products to which the calling user has access.
 spFilters :: Lens' SearchProducts (HashMap ProductViewFilterBy [Text])
 spFilters = lens _spFilters (\ s a -> s{_spFilters = a}) . _Default . _Map;
 
--- | (Optional) The sort order specifier. If no value is specified, results are not sorted.
+-- | The sort order specifier. If no value is specified, results are not sorted.
 spSortOrder :: Lens' SearchProducts (Maybe SortOrder)
 spSortOrder = lens _spSortOrder (\ s a -> s{_spSortOrder = a});
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 spAcceptLanguage :: Lens' SearchProducts (Maybe Text)
 spAcceptLanguage = lens _spAcceptLanguage (\ s a -> s{_spAcceptLanguage = a});
 
--- | The page token of the first page retrieve. If null, this retrieves the first page of size @PageSize@ .
+-- | The page token of the first page retrieved. If null, this retrieves the first page of size @PageSize@ .
 spPageToken :: Lens' SearchProducts (Maybe Text)
 spPageToken = lens _spPageToken (\ s a -> s{_spPageToken = a});
 
@@ -110,7 +110,7 @@ spPageToken = lens _spPageToken (\ s a -> s{_spPageToken = a});
 spPageSize :: Lens' SearchProducts (Maybe Natural)
 spPageSize = lens _spPageSize (\ s a -> s{_spPageSize = a}) . mapping _Nat;
 
--- | (Optional) The sort field specifier. If no value is specified, results are not sorted.
+-- | The sort field specifier. If no value is specified, results are not sorted.
 spSortBy :: Lens' SearchProducts (Maybe ProductViewSortBy)
 spSortBy = lens _spSortBy (\ s a -> s{_spSortBy = a});
 

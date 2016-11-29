@@ -19,6 +19,110 @@ module Network.AWS.ServiceCatalog.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data AccessLevelFilterKey
+    = Account
+    | Role
+    | User
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AccessLevelFilterKey where
+    parser = takeLowerText >>= \case
+        "account" -> pure Account
+        "role" -> pure Role
+        "user" -> pure User
+        e -> fromTextError $ "Failure parsing AccessLevelFilterKey from value: '" <> e
+           <> "'. Accepted values: account, role, user"
+
+instance ToText AccessLevelFilterKey where
+    toText = \case
+        Account -> "Account"
+        Role -> "Role"
+        User -> "User"
+
+instance Hashable     AccessLevelFilterKey
+instance NFData       AccessLevelFilterKey
+instance ToByteString AccessLevelFilterKey
+instance ToQuery      AccessLevelFilterKey
+instance ToHeader     AccessLevelFilterKey
+
+instance ToJSON AccessLevelFilterKey where
+    toJSON = toJSONText
+
+data PrincipalType =
+    IAM
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PrincipalType where
+    parser = takeLowerText >>= \case
+        "iam" -> pure IAM
+        e -> fromTextError $ "Failure parsing PrincipalType from value: '" <> e
+           <> "'. Accepted values: iam"
+
+instance ToText PrincipalType where
+    toText = \case
+        IAM -> "IAM"
+
+instance Hashable     PrincipalType
+instance NFData       PrincipalType
+instance ToByteString PrincipalType
+instance ToQuery      PrincipalType
+instance ToHeader     PrincipalType
+
+instance ToJSON PrincipalType where
+    toJSON = toJSONText
+
+instance FromJSON PrincipalType where
+    parseJSON = parseJSONText "PrincipalType"
+
+data ProductSource =
+    PSAccount
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProductSource where
+    parser = takeLowerText >>= \case
+        "account" -> pure PSAccount
+        e -> fromTextError $ "Failure parsing ProductSource from value: '" <> e
+           <> "'. Accepted values: account"
+
+instance ToText ProductSource where
+    toText = \case
+        PSAccount -> "ACCOUNT"
+
+instance Hashable     ProductSource
+instance NFData       ProductSource
+instance ToByteString ProductSource
+instance ToQuery      ProductSource
+instance ToHeader     ProductSource
+
+instance ToJSON ProductSource where
+    toJSON = toJSONText
+
+data ProductType =
+    CloudFormationTemplate
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProductType where
+    parser = takeLowerText >>= \case
+        "cloud_formation_template" -> pure CloudFormationTemplate
+        e -> fromTextError $ "Failure parsing ProductType from value: '" <> e
+           <> "'. Accepted values: cloud_formation_template"
+
+instance ToText ProductType where
+    toText = \case
+        CloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
+
+instance Hashable     ProductType
+instance NFData       ProductType
+instance ToByteString ProductType
+instance ToQuery      ProductType
+instance ToHeader     ProductType
+
+instance ToJSON ProductType where
+    toJSON = toJSONText
+
+instance FromJSON ProductType where
+    parseJSON = parseJSONText "ProductType"
+
 data ProductViewFilterBy
     = FullTextSearch
     | Owner
@@ -77,6 +181,32 @@ instance ToHeader     ProductViewSortBy
 instance ToJSON ProductViewSortBy where
     toJSON = toJSONText
 
+data ProvisioningArtifactType =
+    PATCloudFormationTemplate
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProvisioningArtifactType where
+    parser = takeLowerText >>= \case
+        "cloud_formation_template" -> pure PATCloudFormationTemplate
+        e -> fromTextError $ "Failure parsing ProvisioningArtifactType from value: '" <> e
+           <> "'. Accepted values: cloud_formation_template"
+
+instance ToText ProvisioningArtifactType where
+    toText = \case
+        PATCloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
+
+instance Hashable     ProvisioningArtifactType
+instance NFData       ProvisioningArtifactType
+instance ToByteString ProvisioningArtifactType
+instance ToQuery      ProvisioningArtifactType
+instance ToHeader     ProvisioningArtifactType
+
+instance ToJSON ProvisioningArtifactType where
+    toJSON = toJSONText
+
+instance FromJSON ProvisioningArtifactType where
+    parseJSON = parseJSONText "ProvisioningArtifactType"
+
 data RecordStatus
     = Error'
     | InProgress
@@ -131,3 +261,32 @@ instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
+
+data Status
+    = Available
+    | Creating
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Status where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "creating" -> pure Creating
+        "failed" -> pure Failed
+        e -> fromTextError $ "Failure parsing Status from value: '" <> e
+           <> "'. Accepted values: available, creating, failed"
+
+instance ToText Status where
+    toText = \case
+        Available -> "AVAILABLE"
+        Creating -> "CREATING"
+        Failed -> "FAILED"
+
+instance Hashable     Status
+instance NFData       Status
+instance ToByteString Status
+instance ToQuery      Status
+instance ToHeader     Status
+
+instance FromJSON Status where
+    parseJSON = parseJSONText "Status"

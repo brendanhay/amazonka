@@ -73,15 +73,15 @@ data ProvisionProduct = ProvisionProduct'
 --
 -- * 'ppNotificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 --
--- * 'ppAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'ppAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
 -- * 'ppPathId' - The identifier of the path for this product's provisioning. This value is optional if the product has a default path, and is required if there is more than one path for the specified product.
 --
 -- * 'ppProvisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
 --
--- * 'ppTags' - (Optional) A list of tags to use as provisioning options.
+-- * 'ppTags' - A list of tags to use as provisioning options.
 --
--- * 'ppProductId' - The identifier of the product.
+-- * 'ppProductId' - The product identifier.
 --
 -- * 'ppProvisioningArtifactId' - The provisioning artifact identifier for this product.
 --
@@ -111,7 +111,7 @@ provisionProduct pProductId_ pProvisioningArtifactId_ pProvisionedProductName_ p
 ppNotificationARNs :: Lens' ProvisionProduct [Text]
 ppNotificationARNs = lens _ppNotificationARNs (\ s a -> s{_ppNotificationARNs = a}) . _Default . _Coerce;
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 ppAcceptLanguage :: Lens' ProvisionProduct (Maybe Text)
 ppAcceptLanguage = lens _ppAcceptLanguage (\ s a -> s{_ppAcceptLanguage = a});
 
@@ -123,11 +123,11 @@ ppPathId = lens _ppPathId (\ s a -> s{_ppPathId = a});
 ppProvisioningParameters :: Lens' ProvisionProduct [ProvisioningParameter]
 ppProvisioningParameters = lens _ppProvisioningParameters (\ s a -> s{_ppProvisioningParameters = a}) . _Default . _Coerce;
 
--- | (Optional) A list of tags to use as provisioning options.
+-- | A list of tags to use as provisioning options.
 ppTags :: Lens' ProvisionProduct [Tag]
 ppTags = lens _ppTags (\ s a -> s{_ppTags = a}) . _Default . _Coerce;
 
--- | The identifier of the product.
+-- | The product identifier.
 ppProductId :: Lens' ProvisionProduct Text
 ppProductId = lens _ppProductId (\ s a -> s{_ppProductId = a});
 

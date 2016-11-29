@@ -36,9 +36,9 @@ module Network.AWS.ServiceCatalog.DescribeProduct
     , describeProductResponse
     , DescribeProductResponse
     -- * Response Lenses
-    , dprsProductViewSummary
-    , dprsProvisioningArtifacts
-    , dprsResponseStatus
+    , ddrsProductViewSummary
+    , ddrsProvisioningArtifacts
+    , ddrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -58,7 +58,7 @@ data DescribeProduct = DescribeProduct'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpAcceptLanguage' - Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- * 'dpAcceptLanguage' - The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 --
 -- * 'dpId' - The @ProductId@ of the product to describe.
 describeProduct
@@ -70,7 +70,7 @@ describeProduct pId_ =
     , _dpId = pId_
     }
 
--- | Optional language code. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
+-- | The language code to use for this operation. Supported language codes are as follows: "en" (English) "jp" (Japanese) "zh" (Chinese) If no code is specified, "en" is used as the default.
 dpAcceptLanguage :: Lens' DescribeProduct (Maybe Text)
 dpAcceptLanguage = lens _dpAcceptLanguage (\ s a -> s{_dpAcceptLanguage = a});
 
@@ -118,40 +118,40 @@ instance ToQuery DescribeProduct where
 
 -- | /See:/ 'describeProductResponse' smart constructor.
 data DescribeProductResponse = DescribeProductResponse'
-    { _dprsProductViewSummary    :: !(Maybe ProductViewSummary)
-    , _dprsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
-    , _dprsResponseStatus        :: !Int
+    { _ddrsProductViewSummary    :: !(Maybe ProductViewSummary)
+    , _ddrsProvisioningArtifacts :: !(Maybe [ProvisioningArtifact])
+    , _ddrsResponseStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeProductResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dprsProductViewSummary' - The summary metadata about the specified product.
+-- * 'ddrsProductViewSummary' - The summary metadata about the specified product.
 --
--- * 'dprsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ parameter represent the ways the specified product can be provisioned.
+-- * 'ddrsProvisioningArtifacts' - A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ parameter represent the ways the specified product can be provisioned.
 --
--- * 'dprsResponseStatus' - -- | The response status code.
+-- * 'ddrsResponseStatus' - -- | The response status code.
 describeProductResponse
-    :: Int -- ^ 'dprsResponseStatus'
+    :: Int -- ^ 'ddrsResponseStatus'
     -> DescribeProductResponse
 describeProductResponse pResponseStatus_ =
     DescribeProductResponse'
-    { _dprsProductViewSummary = Nothing
-    , _dprsProvisioningArtifacts = Nothing
-    , _dprsResponseStatus = pResponseStatus_
+    { _ddrsProductViewSummary = Nothing
+    , _ddrsProvisioningArtifacts = Nothing
+    , _ddrsResponseStatus = pResponseStatus_
     }
 
 -- | The summary metadata about the specified product.
-dprsProductViewSummary :: Lens' DescribeProductResponse (Maybe ProductViewSummary)
-dprsProductViewSummary = lens _dprsProductViewSummary (\ s a -> s{_dprsProductViewSummary = a});
+ddrsProductViewSummary :: Lens' DescribeProductResponse (Maybe ProductViewSummary)
+ddrsProductViewSummary = lens _ddrsProductViewSummary (\ s a -> s{_ddrsProductViewSummary = a});
 
 -- | A list of provisioning artifact objects for the specified product. The @ProvisioningArtifacts@ parameter represent the ways the specified product can be provisioned.
-dprsProvisioningArtifacts :: Lens' DescribeProductResponse [ProvisioningArtifact]
-dprsProvisioningArtifacts = lens _dprsProvisioningArtifacts (\ s a -> s{_dprsProvisioningArtifacts = a}) . _Default . _Coerce;
+ddrsProvisioningArtifacts :: Lens' DescribeProductResponse [ProvisioningArtifact]
+ddrsProvisioningArtifacts = lens _ddrsProvisioningArtifacts (\ s a -> s{_ddrsProvisioningArtifacts = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-dprsResponseStatus :: Lens' DescribeProductResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
+ddrsResponseStatus :: Lens' DescribeProductResponse Int
+ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
 instance NFData DescribeProductResponse

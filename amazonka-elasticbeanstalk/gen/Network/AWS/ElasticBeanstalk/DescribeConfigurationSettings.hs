@@ -27,6 +27,8 @@
 --
 --     * 'DeleteEnvironmentConfiguration'
 --
+--
+--
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Creating a Request
@@ -67,9 +69,9 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsTemplateName' - The name of the configuration template to describe.  Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- * 'dcsTemplateName' - The name of the configuration template to describe. Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 --
--- * 'dcsEnvironmentName' - The name of the environment to describe.  Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'dcsEnvironmentName' - The name of the environment to describe. Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- * 'dcsApplicationName' - The application for the environment or configuration template.
 describeConfigurationSettings
@@ -82,11 +84,11 @@ describeConfigurationSettings pApplicationName_ =
     , _dcsApplicationName = pApplicationName_
     }
 
--- | The name of the configuration template to describe.  Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- | The name of the configuration template to describe. Conditional: You must specify either this parameter or an EnvironmentName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 
--- | The name of the environment to describe.  Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | The name of the environment to describe. Condition: You must specify either this or a TemplateName, but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
 

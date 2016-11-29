@@ -105,7 +105,7 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- * 'ueVersionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
 --
--- * 'ueTier' - This specifies the tier to use to update the environment.  Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+-- * 'ueTier' - This specifies the tier to use to update the environment. Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
 --
 -- * 'ueEnvironmentName' - The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
@@ -151,7 +151,7 @@ ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . 
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\ s a -> s{_ueVersionLabel = a});
 
--- | This specifies the tier to use to update the environment.  Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+-- | This specifies the tier to use to update the environment. Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 ueTier = lens _ueTier (\ s a -> s{_ueTier = a});
 

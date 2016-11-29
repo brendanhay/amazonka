@@ -31,6 +31,8 @@
 --
 --     * 'RetrieveEnvironmentInfo'
 --
+--
+--
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Creating a Request

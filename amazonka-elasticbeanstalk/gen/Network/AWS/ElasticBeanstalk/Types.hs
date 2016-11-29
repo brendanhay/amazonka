@@ -72,6 +72,12 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * InstancesHealthAttribute
     , InstancesHealthAttribute (..)
 
+    -- * SourceRepository
+    , SourceRepository (..)
+
+    -- * SourceType
+    , SourceType (..)
+
     -- * ValidationSeverity
     , ValidationSeverity (..)
 
@@ -106,6 +112,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , avdDateUpdated
     , avdDateCreated
     , avdVersionLabel
+    , avdSourceBuildInformation
     , avdApplicationName
     , avdDescription
 
@@ -367,6 +374,13 @@ module Network.AWS.ElasticBeanstalk.Types
     , solutionStackDescription
     , ssdPermittedFileTypes
     , ssdSolutionStackName
+
+    -- * SourceBuildInformation
+    , SourceBuildInformation
+    , sourceBuildInformation
+    , sbiSourceType
+    , sbiSourceRepository
+    , sbiSourceLocation
 
     -- * SourceConfiguration
     , SourceConfiguration

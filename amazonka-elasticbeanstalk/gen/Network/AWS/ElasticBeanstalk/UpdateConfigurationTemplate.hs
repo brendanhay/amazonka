@@ -25,6 +25,8 @@
 --
 --     * 'DescribeConfigurationOptions'
 --
+--
+--
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Creating a Request
@@ -76,7 +78,7 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uctOptionsToRemove' - A list of configuration options to remove from the configuration set.  Constraint: You can remove only @UserDefined@ configuration options.
+-- * 'uctOptionsToRemove' - A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
 --
 -- * 'uctOptionSettings' - A list of configuration option settings to update with the new specified option value.
 --
@@ -98,7 +100,7 @@ updateConfigurationTemplate pApplicationName_ pTemplateName_ =
     , _uctTemplateName = pTemplateName_
     }
 
--- | A list of configuration options to remove from the configuration set.  Constraint: You can remove only @UserDefined@ configuration options.
+-- | A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
 

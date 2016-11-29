@@ -65,9 +65,9 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vcsTemplateName' - The name of the configuration template to validate the settings against.  Condition: You cannot specify both this and an environment name.
+-- * 'vcsTemplateName' - The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 --
--- * 'vcsEnvironmentName' - The name of the environment to validate the settings against.  Condition: You cannot specify both this and a configuration template name.
+-- * 'vcsEnvironmentName' - The name of the environment to validate the settings against. Condition: You cannot specify both this and a configuration template name.
 --
 -- * 'vcsApplicationName' - The name of the application that the configuration template or environment belongs to.
 --
@@ -83,11 +83,11 @@ validateConfigurationSettings pApplicationName_ =
     , _vcsOptionSettings = mempty
     }
 
--- | The name of the configuration template to validate the settings against.  Condition: You cannot specify both this and an environment name.
+-- | The name of the configuration template to validate the settings against. Condition: You cannot specify both this and an environment name.
 vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
 
--- | The name of the environment to validate the settings against.  Condition: You cannot specify both this and a configuration template name.
+-- | The name of the environment to validate the settings against. Condition: You cannot specify both this and a configuration template name.
 vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
 vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
 

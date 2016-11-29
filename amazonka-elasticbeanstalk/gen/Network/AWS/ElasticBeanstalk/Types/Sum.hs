@@ -503,6 +503,52 @@ instance ToByteString InstancesHealthAttribute
 instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
 
+data SourceRepository =
+    CodeCommit
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SourceRepository where
+    parser = takeLowerText >>= \case
+        "codecommit" -> pure CodeCommit
+        e -> fromTextError $ "Failure parsing SourceRepository from value: '" <> e
+           <> "'. Accepted values: codecommit"
+
+instance ToText SourceRepository where
+    toText = \case
+        CodeCommit -> "CodeCommit"
+
+instance Hashable     SourceRepository
+instance NFData       SourceRepository
+instance ToByteString SourceRepository
+instance ToQuery      SourceRepository
+instance ToHeader     SourceRepository
+
+instance FromXML SourceRepository where
+    parseXML = parseXMLText "SourceRepository"
+
+data SourceType =
+    Git
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SourceType where
+    parser = takeLowerText >>= \case
+        "git" -> pure Git
+        e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
+           <> "'. Accepted values: git"
+
+instance ToText SourceType where
+    toText = \case
+        Git -> "Git"
+
+instance Hashable     SourceType
+instance NFData       SourceType
+instance ToByteString SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
+
+instance FromXML SourceType where
+    parseXML = parseXMLText "SourceType"
+
 data ValidationSeverity
     = Error'
     | Warning

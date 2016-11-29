@@ -59,9 +59,9 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derEnvironmentName' - The name of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'derEnvironmentName' - The name of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
--- * 'derEnvironmentId' - The ID of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'derEnvironmentId' - The ID of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 describeEnvironmentResources
     :: DescribeEnvironmentResources
 describeEnvironmentResources =
@@ -70,11 +70,11 @@ describeEnvironmentResources =
     , _derEnvironmentId = Nothing
     }
 
--- | The name of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | The name of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
--- | The ID of the environment to retrieve AWS resource usage data.  Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | The ID of the environment to retrieve AWS resource usage data. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 

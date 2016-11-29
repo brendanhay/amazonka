@@ -116,7 +116,7 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
 --
 -- * 'cdarsFullyQualifiedCNAME' - The fully qualified CNAME to reserve when 'CreateEnvironment' is called with the provided prefix.
 --
--- * 'cdarsAvailable' - Indicates if the specified CNAME is available:      * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
+-- * 'cdarsAvailable' - Indicates if the specified CNAME is available:     * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
 --
 -- * 'cdarsResponseStatus' - -- | The response status code.
 checkDNSAvailabilityResponse
@@ -133,7 +133,7 @@ checkDNSAvailabilityResponse pResponseStatus_ =
 cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 
--- | Indicates if the specified CNAME is available:      * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
+-- | Indicates if the specified CNAME is available:     * @true@ : The CNAME is available.     * @false@ : The CNAME is not available.
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 

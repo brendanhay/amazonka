@@ -58,7 +58,7 @@ data UpdateApplication = UpdateApplication'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaDescription' - A new description for the application.  Default: If not specified, AWS Elastic Beanstalk does not update the description.
+-- * 'uaDescription' - A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
 --
 -- * 'uaApplicationName' - The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 updateApplication
@@ -70,7 +70,7 @@ updateApplication pApplicationName_ =
     , _uaApplicationName = pApplicationName_
     }
 
--- | A new description for the application.  Default: If not specified, AWS Elastic Beanstalk does not update the description.
+-- | A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
 uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 

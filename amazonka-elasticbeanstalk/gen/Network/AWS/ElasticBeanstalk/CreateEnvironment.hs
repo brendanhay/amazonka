@@ -107,9 +107,9 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- * 'cTier' - This specifies the tier to use for creating this environment.
 --
--- * 'cEnvironmentName' - A unique name for the deployment environment. Used in the application URL.  Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+-- * 'cEnvironmentName' - A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 --
--- * 'cSolutionStackName' - This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.  Condition: You must specify either this or a @TemplateName@ , but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- * 'cSolutionStackName' - This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. Condition: You must specify either this or a @TemplateName@ , but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 --
 -- * 'cGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
@@ -117,7 +117,7 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- * 'cTags' - This specifies the tags applied to resources in the environment.
 --
--- * 'cApplicationName' - The name of the application that contains the version to be deployed.  If no application is found with this name, @CreateEnvironment@ returns an @InvalidParameterValue@ error.
+-- * 'cApplicationName' - The name of the application that contains the version to be deployed. If no application is found with this name, @CreateEnvironment@ returns an @InvalidParameterValue@ error.
 createEnvironment
     :: Text -- ^ 'cApplicationName'
     -> CreateEnvironment
@@ -161,11 +161,11 @@ cVersionLabel = lens _cVersionLabel (\ s a -> s{_cVersionLabel = a});
 cTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
 cTier = lens _cTier (\ s a -> s{_cTier = a});
 
--- | A unique name for the deployment environment. Used in the application URL.  Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+-- | A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 cEnvironmentName :: Lens' CreateEnvironment (Maybe Text)
 cEnvironmentName = lens _cEnvironmentName (\ s a -> s{_cEnvironmentName = a});
 
--- | This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.  Condition: You must specify either this or a @TemplateName@ , but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- | This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. Condition: You must specify either this or a @TemplateName@ , but not both. If you specify both, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error. If you do not specify either, AWS Elastic Beanstalk returns a @MissingRequiredParameter@ error.
 cSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 cSolutionStackName = lens _cSolutionStackName (\ s a -> s{_cSolutionStackName = a});
 
@@ -181,7 +181,7 @@ cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 cTags :: Lens' CreateEnvironment [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
--- | The name of the application that contains the version to be deployed.  If no application is found with this name, @CreateEnvironment@ returns an @InvalidParameterValue@ error.
+-- | The name of the application that contains the version to be deployed. If no application is found with this name, @CreateEnvironment@ returns an @InvalidParameterValue@ error.
 cApplicationName :: Lens' CreateEnvironment Text
 cApplicationName = lens _cApplicationName (\ s a -> s{_cApplicationName = a});
 

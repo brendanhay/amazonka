@@ -203,13 +203,14 @@ instance NFData ApplicationMetrics
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdStatus          :: !(Maybe ApplicationVersionStatus)
-    , _avdSourceBundle    :: !(Maybe S3Location)
-    , _avdDateUpdated     :: !(Maybe ISO8601)
-    , _avdDateCreated     :: !(Maybe ISO8601)
-    , _avdVersionLabel    :: !(Maybe Text)
-    , _avdApplicationName :: !(Maybe Text)
-    , _avdDescription     :: !(Maybe Text)
+    { _avdStatus                 :: !(Maybe ApplicationVersionStatus)
+    , _avdSourceBundle           :: !(Maybe S3Location)
+    , _avdDateUpdated            :: !(Maybe ISO8601)
+    , _avdDateCreated            :: !(Maybe ISO8601)
+    , _avdVersionLabel           :: !(Maybe Text)
+    , _avdSourceBuildInformation :: !(Maybe SourceBuildInformation)
+    , _avdApplicationName        :: !(Maybe Text)
+    , _avdDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
@@ -226,6 +227,8 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- * 'avdVersionLabel' - A label uniquely identifying the version for the associated application.
 --
+-- * 'avdSourceBuildInformation' - Undocumented member.
+--
 -- * 'avdApplicationName' - The name of the application associated with this release.
 --
 -- * 'avdDescription' - The description of this application version.
@@ -238,6 +241,7 @@ applicationVersionDescription =
     , _avdDateUpdated = Nothing
     , _avdDateCreated = Nothing
     , _avdVersionLabel = Nothing
+    , _avdSourceBuildInformation = Nothing
     , _avdApplicationName = Nothing
     , _avdDescription = Nothing
     }
@@ -262,6 +266,10 @@ avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mappin
 avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
 avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
 
+-- | Undocumented member.
+avdSourceBuildInformation :: Lens' ApplicationVersionDescription (Maybe SourceBuildInformation)
+avdSourceBuildInformation = lens _avdSourceBuildInformation (\ s a -> s{_avdSourceBuildInformation = a});
+
 -- | The name of the application associated with this release.
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
 avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
@@ -277,6 +285,7 @@ instance FromXML ApplicationVersionDescription where
                 (x .@? "DateUpdated")
                 <*> (x .@? "DateCreated")
                 <*> (x .@? "VersionLabel")
+                <*> (x .@? "SourceBuildInformation")
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "Description")
 
@@ -468,7 +477,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- * 'codMaxLength' - If specified, the configuration option must be a string value no longer than this value.
 --
--- * 'codUserDefined' - An indication of whether the user defined this configuration option:      * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user.  Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
+-- * 'codUserDefined' - An indication of whether the user defined this configuration option:     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user. Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
 --
 -- * 'codNamespace' - A unique namespace identifying the option's associated AWS resource.
 --
@@ -476,11 +485,11 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- * 'codName' - The name of the configuration option.
 --
--- * 'codChangeSeverity' - An indication of which action is required if the value for this configuration option changes:      * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
+-- * 'codChangeSeverity' - An indication of which action is required if the value for this configuration option changes:     * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 --
 -- * 'codDefaultValue' - The default value for this configuration option.
 --
--- * 'codValueType' - An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:      * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
+-- * 'codValueType' - An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:     * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
 --
 -- * 'codMinValue' - If specified, the configuration option must be a numeric value greater than this value.
 configurationOptionDescription
@@ -512,7 +521,7 @@ codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
 codMaxLength :: Lens' ConfigurationOptionDescription (Maybe Int)
 codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
--- | An indication of whether the user defined this configuration option:      * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user.  Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
+-- | An indication of whether the user defined this configuration option:     * @true@ : This configuration option was defined by the user. It is a valid choice for specifying if this as an @Option to Remove@ when updating configuration settings.      * @false@ : This configuration was not defined by the user. Constraint: You can remove only @UserDefined@ options from a configuration.  Valid Values: @true@ | @false@
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
 
@@ -528,7 +537,7 @@ codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _De
 codName :: Lens' ConfigurationOptionDescription (Maybe Text)
 codName = lens _codName (\ s a -> s{_codName = a});
 
--- | An indication of which action is required if the value for this configuration option changes:      * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
+-- | An indication of which action is required if the value for this configuration option changes:     * @NoInterruption@ : There is no interruption to the environment or application availability.     * @RestartEnvironment@ : The environment is entirely restarted, all AWS resources are deleted and recreated, and the environment is unavailable during the process.     * @RestartApplicationServer@ : The environment is available the entire time. However, a short application outage occurs when the application servers on the running Amazon EC2 instances are restarted.
 codChangeSeverity :: Lens' ConfigurationOptionDescription (Maybe Text)
 codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a});
 
@@ -536,7 +545,7 @@ codChangeSeverity = lens _codChangeSeverity (\ s a -> s{_codChangeSeverity = a})
 codDefaultValue :: Lens' ConfigurationOptionDescription (Maybe Text)
 codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 
--- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:      * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
+-- | An indication of which type of values this option has and whether it is allowable to select one or more than one of the possible values:     * @Scalar@ : Values for this option are a single selection from the possible values, or an unformatted string, or numeric value governed by the @MIN/MAX/Regex@ constraints.     * @List@ : Values for this option are multiple selections from the possible values.     * @Boolean@ : Values for this option are either @true@ or @false@ .     * @Json@ : Values for this option are a JSON representation of a @ConfigDocument@ .
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
 
@@ -757,7 +766,7 @@ data Deployment = Deployment'
 --
 -- * 'dDeploymentId' - The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
 --
--- * 'dStatus' - The status of the deployment:     * @In Progress@ : The deployment is in progress.    * @Deployed@ : The deployment succeeded.    * @Failed@ : The deployment failed.
+-- * 'dStatus' - The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
 --
 -- * 'dDeploymentTime' - For in-progress deployments, the time that the deloyment started. For completed deployments, the time that the deployment ended.
 --
@@ -776,7 +785,7 @@ deployment =
 dDeploymentId :: Lens' Deployment (Maybe Integer)
 dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 
--- | The status of the deployment:     * @In Progress@ : The deployment is in progress.    * @Deployed@ : The deployment succeeded.    * @Failed@ : The deployment failed.
+-- | The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
@@ -829,7 +838,7 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eStatus' - The current operational status of the environment:      * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
+-- * 'eStatus' - The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 --
 -- * 'eCNAME' - The URL to the CNAME for this environment.
 --
@@ -845,7 +854,7 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eDateCreated' - The creation date for this environment.
 --
--- * 'eHealth' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:      * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request.  Default: @Grey@
+-- * 'eHealth' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request. Default: @Grey@
 --
 -- * 'eVersionLabel' - The application version deployed in this environment.
 --
@@ -888,7 +897,7 @@ environmentDescription =
     , _eDescription = Nothing
     }
 
--- | The current operational status of the environment:      * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
+-- | The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
@@ -920,7 +929,7 @@ eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Tim
 eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
 eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
 
--- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:      * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request.  Default: @Grey@
+-- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironement@ request. Default: @Grey@
 eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 
@@ -2298,6 +2307,63 @@ instance Hashable SolutionStackDescription
 
 instance NFData SolutionStackDescription
 
+-- | /See:/ 'sourceBuildInformation' smart constructor.
+data SourceBuildInformation = SourceBuildInformation'
+    { _sbiSourceType       :: !SourceType
+    , _sbiSourceRepository :: !SourceRepository
+    , _sbiSourceLocation   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SourceBuildInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sbiSourceType' - Undocumented member.
+--
+-- * 'sbiSourceRepository' - Undocumented member.
+--
+-- * 'sbiSourceLocation' - Undocumented member.
+sourceBuildInformation
+    :: SourceType -- ^ 'sbiSourceType'
+    -> SourceRepository -- ^ 'sbiSourceRepository'
+    -> Text -- ^ 'sbiSourceLocation'
+    -> SourceBuildInformation
+sourceBuildInformation pSourceType_ pSourceRepository_ pSourceLocation_ =
+    SourceBuildInformation'
+    { _sbiSourceType = pSourceType_
+    , _sbiSourceRepository = pSourceRepository_
+    , _sbiSourceLocation = pSourceLocation_
+    }
+
+-- | Undocumented member.
+sbiSourceType :: Lens' SourceBuildInformation SourceType
+sbiSourceType = lens _sbiSourceType (\ s a -> s{_sbiSourceType = a});
+
+-- | Undocumented member.
+sbiSourceRepository :: Lens' SourceBuildInformation SourceRepository
+sbiSourceRepository = lens _sbiSourceRepository (\ s a -> s{_sbiSourceRepository = a});
+
+-- | Undocumented member.
+sbiSourceLocation :: Lens' SourceBuildInformation Text
+sbiSourceLocation = lens _sbiSourceLocation (\ s a -> s{_sbiSourceLocation = a});
+
+instance FromXML SourceBuildInformation where
+        parseXML x
+          = SourceBuildInformation' <$>
+              (x .@ "SourceType") <*> (x .@ "SourceRepository") <*>
+                (x .@ "SourceLocation")
+
+instance Hashable SourceBuildInformation
+
+instance NFData SourceBuildInformation
+
+instance ToQuery SourceBuildInformation where
+        toQuery SourceBuildInformation'{..}
+          = mconcat
+              ["SourceType" =: _sbiSourceType,
+               "SourceRepository" =: _sbiSourceRepository,
+               "SourceLocation" =: _sbiSourceLocation]
+
 -- | A specification for an environment configuration
 --
 --
@@ -2536,7 +2602,7 @@ data ValidationMessage = ValidationMessage'
 --
 -- * 'vmOptionName' -
 --
--- * 'vmSeverity' - An indication of the severity of this message:      * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
+-- * 'vmSeverity' - An indication of the severity of this message:     * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 --
 -- * 'vmNamespace' -
 --
@@ -2555,7 +2621,7 @@ validationMessage =
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
 vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 
--- | An indication of the severity of this message:      * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
+-- | An indication of the severity of this message:     * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
 

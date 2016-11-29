@@ -28,6 +28,8 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , DescribeApplicationVersions
     -- * Request Lenses
     , dVersionLabels
+    , dNextToken
+    , dMaxRecords
     , dApplicationName
 
     -- * Destructuring the Response
@@ -35,6 +37,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     , DescribeApplicationVersionsResponse
     -- * Response Lenses
     , davrsApplicationVersions
+    , davrsNextToken
     , davrsResponseStatus
     ) where
 
@@ -52,6 +55,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
     { _dVersionLabels   :: !(Maybe [Text])
+    , _dNextToken       :: !(Maybe Text)
+    , _dMaxRecords      :: !(Maybe Nat)
     , _dApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,18 +66,32 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
 --
 -- * 'dVersionLabels' - If specified, restricts the returned descriptions to only include ones that have the specified version labels.
 --
+-- * 'dNextToken' - Specify a next token to retrieve the next page in a paginated request.
+--
+-- * 'dMaxRecords' - Specify a maximum number of application versions to paginate in the request.
+--
 -- * 'dApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
 describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
     DescribeApplicationVersions'
     { _dVersionLabels = Nothing
+    , _dNextToken = Nothing
+    , _dMaxRecords = Nothing
     , _dApplicationName = Nothing
     }
 
 -- | If specified, restricts the returned descriptions to only include ones that have the specified version labels.
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
 dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
+
+-- | Specify a next token to retrieve the next page in a paginated request.
+dNextToken :: Lens' DescribeApplicationVersions (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+
+-- | Specify a maximum number of application versions to paginate in the request.
+dMaxRecords :: Lens' DescribeApplicationVersions (Maybe Natural)
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
@@ -89,6 +108,7 @@ instance AWSRequest DescribeApplicationVersions where
                  DescribeApplicationVersionsResponse' <$>
                    (x .@? "ApplicationVersions" .!@ mempty >>=
                       may (parseXMLList "member"))
+                     <*> (x .@? "NextToken")
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeApplicationVersions
@@ -109,6 +129,8 @@ instance ToQuery DescribeApplicationVersions where
                "Version" =: ("2010-12-01" :: ByteString),
                "VersionLabels" =:
                  toQuery (toQueryList "member" <$> _dVersionLabels),
+               "NextToken" =: _dNextToken,
+               "MaxRecords" =: _dMaxRecords,
                "ApplicationName" =: _dApplicationName]
 
 -- | Result message wrapping a list of application version descriptions.
@@ -118,6 +140,7 @@ instance ToQuery DescribeApplicationVersions where
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
+    , _davrsNextToken           :: !(Maybe Text)
     , _davrsResponseStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -127,6 +150,8 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 --
 -- * 'davrsApplicationVersions' - List of @ApplicationVersionDescription@ objects sorted by order of creation.
 --
+-- * 'davrsNextToken' - For a paginated request, the token that you can pass in a subsequent request to get the next page.
+--
 -- * 'davrsResponseStatus' - -- | The response status code.
 describeApplicationVersionsResponse
     :: Int -- ^ 'davrsResponseStatus'
@@ -134,12 +159,17 @@ describeApplicationVersionsResponse
 describeApplicationVersionsResponse pResponseStatus_ =
     DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions = Nothing
+    , _davrsNextToken = Nothing
     , _davrsResponseStatus = pResponseStatus_
     }
 
 -- | List of @ApplicationVersionDescription@ objects sorted by order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
+
+-- | For a paginated request, the token that you can pass in a subsequent request to get the next page.
+davrsNextToken :: Lens' DescribeApplicationVersionsResponse (Maybe Text)
+davrsNextToken = lens _davrsNextToken (\ s a -> s{_davrsNextToken = a});
 
 -- | -- | The response status code.
 davrsResponseStatus :: Lens' DescribeApplicationVersionsResponse Int

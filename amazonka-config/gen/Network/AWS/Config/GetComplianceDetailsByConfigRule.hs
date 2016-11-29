@@ -48,7 +48,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getComplianceDetailsByConfigRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
     { _gcdbcrComplianceTypes :: !(Maybe [ComplianceType])
     , _gcdbcrNextToken       :: !(Maybe Text)
@@ -140,7 +144,11 @@ instance ToQuery GetComplianceDetailsByConfigRule
          where
         toQuery = const mempty
 
--- | /See:/ 'getComplianceDetailsByConfigRuleResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceDetailsByConfigRuleResponse' smart constructor.
 data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRuleResponse'
     { _gcdbcrrsEvaluationResults :: !(Maybe [EvaluationResult])
     , _gcdbcrrsNextToken         :: !(Maybe Text)

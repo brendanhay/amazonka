@@ -44,7 +44,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeConfigRuleEvaluationStatus' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeConfigRuleEvaluationStatus' smart constructor.
 newtype DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
     { _dcresConfigRuleNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -107,7 +111,11 @@ instance ToQuery DescribeConfigRuleEvaluationStatus
          where
         toQuery = const mempty
 
--- | /See:/ 'describeConfigRuleEvaluationStatusResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeConfigRuleEvaluationStatusResponse' smart constructor.
 data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationStatusResponse'
     { _dcresrsConfigRulesEvaluationStatus :: !(Maybe [ConfigRuleEvaluationStatus])
     , _dcresrsResponseStatus              :: !Int

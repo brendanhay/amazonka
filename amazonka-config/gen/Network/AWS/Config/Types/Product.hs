@@ -414,7 +414,7 @@ data ConfigRule = ConfigRule'
 --
 -- * 'crConfigRuleName' - The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
 --
--- * 'crMaximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:      * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
+-- * 'crMaximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:     * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 --
 -- * 'crConfigRuleId' - The ID of the AWS Config rule.
 --
@@ -451,7 +451,7 @@ crInputParameters = lens _crInputParameters (\ s a -> s{_crInputParameters = a})
 crConfigRuleName :: Lens' ConfigRule (Maybe Text)
 crConfigRuleName = lens _crConfigRuleName (\ s a -> s{_crConfigRuleName = a});
 
--- | The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:      * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
+-- | The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:     * You are using an AWS managed rule that is triggered at a periodic frequency.     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 crMaximumExecutionFrequency :: Lens' ConfigRule (Maybe MaximumExecutionFrequency)
 crMaximumExecutionFrequency = lens _crMaximumExecutionFrequency (\ s a -> s{_crMaximumExecutionFrequency = a});
 
@@ -554,7 +554,7 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 --
 -- * 'cresLastFailedInvocationTime' - The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
 --
--- * 'cresFirstEvaluationStarted' - Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.    * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
+-- * 'cresFirstEvaluationStarted' - Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
 --
 -- * 'cresLastSuccessfulInvocationTime' - The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
 --
@@ -608,7 +608,7 @@ cresConfigRuleId = lens _cresConfigRuleId (\ s a -> s{_cresConfigRuleId = a});
 cresLastFailedInvocationTime :: Lens' ConfigRuleEvaluationStatus (Maybe UTCTime)
 cresLastFailedInvocationTime = lens _cresLastFailedInvocationTime (\ s a -> s{_cresLastFailedInvocationTime = a}) . mapping _Time;
 
--- | Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.    * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
+-- | Indicates whether AWS Config has evaluated your resources against the rule at least once.     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
 cresFirstEvaluationStarted :: Lens' ConfigRuleEvaluationStatus (Maybe Bool)
 cresFirstEvaluationStarted = lens _cresFirstEvaluationStarted (\ s a -> s{_cresFirstEvaluationStarted = a});
 
@@ -1825,7 +1825,7 @@ data Source = Source'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSourceIdentifier' - For AWS managed Config rules, a pre-defined identifier from a list. To reference the list, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom Config rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function.
+-- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
 --
 -- * 'sOwner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
 --
@@ -1839,7 +1839,7 @@ source =
     , _sSourceDetails = Nothing
     }
 
--- | For AWS managed Config rules, a pre-defined identifier from a list. To reference the list, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom Config rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function.
+-- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
 sSourceIdentifier :: Lens' Source (Maybe Text)
 sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
 
@@ -1890,7 +1890,7 @@ data SourceDetail = SourceDetail'
 --
 -- * 'sdMaximumExecutionFrequency' - The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
 --
--- * 'sdEventSource' -  The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
+-- * 'sdEventSource' - The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 sourceDetail
     :: SourceDetail
 sourceDetail =
@@ -1908,7 +1908,7 @@ sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
 sdMaximumExecutionFrequency :: Lens' SourceDetail (Maybe MaximumExecutionFrequency)
 sdMaximumExecutionFrequency = lens _sdMaximumExecutionFrequency (\ s a -> s{_sdMaximumExecutionFrequency = a});
 
--- |  The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
+-- | The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 sdEventSource :: Lens' SourceDetail (Maybe EventSource)
 sdEventSource = lens _sdEventSource (\ s a -> s{_sdEventSource = a});
 

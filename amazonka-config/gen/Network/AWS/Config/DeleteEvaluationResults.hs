@@ -43,7 +43,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteEvaluationResults' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'deleteEvaluationResults' smart constructor.
 newtype DeleteEvaluationResults = DeleteEvaluationResults'
     { _derConfigRuleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

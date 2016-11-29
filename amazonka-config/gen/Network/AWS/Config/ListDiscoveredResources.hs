@@ -52,7 +52,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'listDiscoveredResources' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'listDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
     { _ldrResourceIds             :: !(Maybe [Text])
     , _ldrResourceName            :: !(Maybe Text)
@@ -158,7 +162,11 @@ instance ToPath ListDiscoveredResources where
 instance ToQuery ListDiscoveredResources where
         toQuery = const mempty
 
--- | /See:/ 'listDiscoveredResourcesResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'listDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
     { _ldrrsNextToken           :: !(Maybe Text)
     , _ldrrsResourceIdentifiers :: !(Maybe [ResourceIdentifier])

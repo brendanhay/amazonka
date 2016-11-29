@@ -48,7 +48,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getComplianceDetailsByResource' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceDetailsByResource' smart constructor.
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
     { _gcdbrComplianceTypes :: !(Maybe [ComplianceType])
     , _gcdbrNextToken       :: !(Maybe Text)
@@ -138,7 +142,11 @@ instance ToPath GetComplianceDetailsByResource where
 instance ToQuery GetComplianceDetailsByResource where
         toQuery = const mempty
 
--- | /See:/ 'getComplianceDetailsByResourceResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceDetailsByResourceResponse' smart constructor.
 data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResponse'
     { _gcdbrrsEvaluationResults :: !(Maybe [EvaluationResult])
     , _gcdbrrsNextToken         :: !(Maybe Text)

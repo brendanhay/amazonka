@@ -44,7 +44,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getComplianceSummaryByResourceType' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceSummaryByResourceType' smart constructor.
 newtype GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
     { _gcsbrtResourceTypes :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -108,7 +112,11 @@ instance ToQuery GetComplianceSummaryByResourceType
          where
         toQuery = const mempty
 
--- | /See:/ 'getComplianceSummaryByResourceTypeResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'getComplianceSummaryByResourceTypeResponse' smart constructor.
 data GetComplianceSummaryByResourceTypeResponse = GetComplianceSummaryByResourceTypeResponse'
     { _gcsbrtrsComplianceSummariesByResourceType :: !(Maybe [ComplianceSummaryByResourceType])
     , _gcsbrtrsResponseStatus                    :: !Int

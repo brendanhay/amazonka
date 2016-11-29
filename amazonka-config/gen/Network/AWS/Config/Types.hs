@@ -427,7 +427,11 @@ _NoSuchConfigRuleException =
 -- | Indicates one of the following errors:
 --
 --
---     * The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.    * The AWS Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.
+--     * The rule cannot be created because the IAM role assigned to AWS Config lacks permissions to perform the config:Put* action.
+--
+--     * The AWS Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.
+--
+--
 --
 _InsufficientPermissionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientPermissionsException =

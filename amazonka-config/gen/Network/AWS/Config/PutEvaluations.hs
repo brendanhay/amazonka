@@ -45,7 +45,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'putEvaluations' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'putEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
     { _peEvaluations :: !(Maybe [Evaluation])
     , _peResultToken :: !Text
@@ -111,7 +115,11 @@ instance ToPath PutEvaluations where
 instance ToQuery PutEvaluations where
         toQuery = const mempty
 
--- | /See:/ 'putEvaluationsResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'putEvaluationsResponse' smart constructor.
 data PutEvaluationsResponse = PutEvaluationsResponse'
     { _persFailedEvaluations :: !(Maybe [Evaluation])
     , _persResponseStatus    :: !Int

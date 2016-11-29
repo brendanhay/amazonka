@@ -45,7 +45,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteConfigRule' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'deleteConfigRule' smart constructor.
 newtype DeleteConfigRule = DeleteConfigRule'
     { _dcrConfigRuleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

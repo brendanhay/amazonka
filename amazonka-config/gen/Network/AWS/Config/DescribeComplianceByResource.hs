@@ -25,7 +25,13 @@
 --
 -- If AWS Config has no current evaluation results for the resource, it returns @INSUFFICIENT_DATA@ . This result might indicate one of the following conditions about the rules that evaluate the resource:
 --
---     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .    * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.    * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
+--     * AWS Config has never invoked an evaluation for the rule. To check whether it has, use the @DescribeConfigRuleEvaluationStatus@ action to get the @LastSuccessfulInvocationTime@ and @LastFailedInvocationTime@ .
+--
+--     * The rule's AWS Lambda function is failing to send evaluation results to AWS Config. Verify that the role that you assigned to your configuration recorder includes the @config:PutEvaluations@ permission. If the rule is a custom rule, verify that the AWS Lambda execution role includes the @config:PutEvaluations@ permission.
+--
+--     * The rule's AWS Lambda function has returned @NOT_APPLICABLE@ for all evaluation results. This can occur if the resources were deleted or removed from the rule's scope.
+--
+--
 --
 module Network.AWS.Config.DescribeComplianceByResource
     (
@@ -55,7 +61,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeComplianceByResource' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
     { _dcbrResourceId      :: !(Maybe Text)
     , _dcbrResourceType    :: !(Maybe Text)
@@ -151,7 +161,11 @@ instance ToPath DescribeComplianceByResource where
 instance ToQuery DescribeComplianceByResource where
         toQuery = const mempty
 
--- | /See:/ 'describeComplianceByResourceResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
     { _dcbrrsComplianceByResources :: !(Maybe [ComplianceByResource])
     , _dcbrrsNextToken             :: !(Maybe Text)

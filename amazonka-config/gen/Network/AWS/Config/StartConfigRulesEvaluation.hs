@@ -59,7 +59,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'startConfigRulesEvaluation' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'startConfigRulesEvaluation' smart constructor.
 newtype StartConfigRulesEvaluation = StartConfigRulesEvaluation'
     { _screConfigRuleNames :: Maybe (List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

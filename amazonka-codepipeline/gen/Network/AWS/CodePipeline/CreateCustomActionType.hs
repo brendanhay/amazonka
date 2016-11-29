@@ -73,11 +73,11 @@ data CreateCustomActionType = CreateCustomActionType'
 --
 -- * 'ccatConfigurationProperties' - The configuration properties for the custom action.
 --
--- * 'ccatCategory' - The category of the custom action, such as a source action or a build action.
+-- * 'ccatCategory' - The category of the custom action, such as a build action or a test action.
 --
 -- * 'ccatProvider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 --
--- * 'ccatVersion' - The version number of the custom action.
+-- * 'ccatVersion' - The version identifier of the custom action.
 --
 -- * 'ccatInputArtifactDetails' - Undocumented member.
 --
@@ -108,7 +108,7 @@ ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
 ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 
--- | The category of the custom action, such as a source action or a build action.
+-- | The category of the custom action, such as a build action or a test action.
 ccatCategory :: Lens' CreateCustomActionType ActionCategory
 ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 
@@ -116,7 +116,7 @@ ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
 ccatProvider :: Lens' CreateCustomActionType Text
 ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 
--- | The version number of the custom action.
+-- | The version identifier of the custom action.
 ccatVersion :: Lens' CreateCustomActionType Text
 ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
 

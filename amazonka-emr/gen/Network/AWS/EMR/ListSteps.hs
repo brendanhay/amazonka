@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides a list of steps for the cluster.
+-- Provides a list of steps for the cluster in reverse order unless you specify stepIds with the request.
 --
 --
 --

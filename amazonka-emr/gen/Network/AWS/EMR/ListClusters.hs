@@ -67,13 +67,13 @@ data ListClusters = ListClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcCreatedAfter' - The creation date and time beginning value filter for listing clusters .
+-- * 'lcCreatedAfter' - The creation date and time beginning value filter for listing clusters.
 --
 -- * 'lcMarker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- * 'lcClusterStates' - The cluster state filters to apply when listing clusters.
 --
--- * 'lcCreatedBefore' - The creation date and time end value filter for listing clusters .
+-- * 'lcCreatedBefore' - The creation date and time end value filter for listing clusters.
 listClusters
     :: ListClusters
 listClusters =
@@ -84,7 +84,7 @@ listClusters =
     , _lcCreatedBefore = Nothing
     }
 
--- | The creation date and time beginning value filter for listing clusters .
+-- | The creation date and time beginning value filter for listing clusters.
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedAfter = lens _lcCreatedAfter (\ s a -> s{_lcCreatedAfter = a}) . mapping _Time;
 
@@ -96,7 +96,7 @@ lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 lcClusterStates :: Lens' ListClusters [ClusterState]
 lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default . _Coerce;
 
--- | The creation date and time end value filter for listing clusters .
+-- | The creation date and time end value filter for listing clusters.
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
 lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
 

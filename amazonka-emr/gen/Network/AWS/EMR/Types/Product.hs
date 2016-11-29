@@ -101,6 +101,193 @@ instance ToJSON Application where
                   ("Name" .=) <$> _aName,
                   ("Version" .=) <$> _aVersion])
 
+-- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See 'PutAutoScalingPolicy' .
+--
+--
+--
+-- /See:/ 'autoScalingPolicy' smart constructor.
+data AutoScalingPolicy = AutoScalingPolicy'
+    { _aspConstraints :: !ScalingConstraints
+    , _aspRules       :: ![ScalingRule]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspConstraints' - The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+--
+-- * 'aspRules' - The scale-in and scale-out rules that comprise the automatic scaling policy.
+autoScalingPolicy
+    :: ScalingConstraints -- ^ 'aspConstraints'
+    -> AutoScalingPolicy
+autoScalingPolicy pConstraints_ =
+    AutoScalingPolicy'
+    { _aspConstraints = pConstraints_
+    , _aspRules = mempty
+    }
+
+-- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+aspConstraints :: Lens' AutoScalingPolicy ScalingConstraints
+aspConstraints = lens _aspConstraints (\ s a -> s{_aspConstraints = a});
+
+-- | The scale-in and scale-out rules that comprise the automatic scaling policy.
+aspRules :: Lens' AutoScalingPolicy [ScalingRule]
+aspRules = lens _aspRules (\ s a -> s{_aspRules = a}) . _Coerce;
+
+instance Hashable AutoScalingPolicy
+
+instance NFData AutoScalingPolicy
+
+instance ToJSON AutoScalingPolicy where
+        toJSON AutoScalingPolicy'{..}
+          = object
+              (catMaybes
+                 [Just ("Constraints" .= _aspConstraints),
+                  Just ("Rules" .= _aspRules)])
+
+-- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See 'PutAutoScalingPolicy' .
+--
+--
+--
+-- /See:/ 'autoScalingPolicyDescription' smart constructor.
+data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
+    { _aspdStatus      :: !(Maybe AutoScalingPolicyStatus)
+    , _aspdRules       :: !(Maybe [ScalingRule])
+    , _aspdConstraints :: !(Maybe ScalingConstraints)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingPolicyDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspdStatus' - The status of an automatic scaling policy.
+--
+-- * 'aspdRules' - The scale-in and scale-out rules that comprise the automatic scaling policy.
+--
+-- * 'aspdConstraints' - The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+autoScalingPolicyDescription
+    :: AutoScalingPolicyDescription
+autoScalingPolicyDescription =
+    AutoScalingPolicyDescription'
+    { _aspdStatus = Nothing
+    , _aspdRules = Nothing
+    , _aspdConstraints = Nothing
+    }
+
+-- | The status of an automatic scaling policy.
+aspdStatus :: Lens' AutoScalingPolicyDescription (Maybe AutoScalingPolicyStatus)
+aspdStatus = lens _aspdStatus (\ s a -> s{_aspdStatus = a});
+
+-- | The scale-in and scale-out rules that comprise the automatic scaling policy.
+aspdRules :: Lens' AutoScalingPolicyDescription [ScalingRule]
+aspdRules = lens _aspdRules (\ s a -> s{_aspdRules = a}) . _Default . _Coerce;
+
+-- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+aspdConstraints :: Lens' AutoScalingPolicyDescription (Maybe ScalingConstraints)
+aspdConstraints = lens _aspdConstraints (\ s a -> s{_aspdConstraints = a});
+
+instance FromJSON AutoScalingPolicyDescription where
+        parseJSON
+          = withObject "AutoScalingPolicyDescription"
+              (\ x ->
+                 AutoScalingPolicyDescription' <$>
+                   (x .:? "Status") <*> (x .:? "Rules" .!= mempty) <*>
+                     (x .:? "Constraints"))
+
+instance Hashable AutoScalingPolicyDescription
+
+instance NFData AutoScalingPolicyDescription
+
+-- | The reason for an 'AutoScalingPolicyStatus' change.
+--
+--
+--
+-- /See:/ 'autoScalingPolicyStateChangeReason' smart constructor.
+data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
+    { _aspscrCode    :: !(Maybe AutoScalingPolicyStateChangeReasonCode)
+    , _aspscrMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingPolicyStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspscrCode' - The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates something unclean happened.-->
+--
+-- * 'aspscrMessage' - A friendly, more verbose message that accompanies an automatic scaling policy state change.
+autoScalingPolicyStateChangeReason
+    :: AutoScalingPolicyStateChangeReason
+autoScalingPolicyStateChangeReason =
+    AutoScalingPolicyStateChangeReason'
+    { _aspscrCode = Nothing
+    , _aspscrMessage = Nothing
+    }
+
+-- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates something unclean happened.-->
+aspscrCode :: Lens' AutoScalingPolicyStateChangeReason (Maybe AutoScalingPolicyStateChangeReasonCode)
+aspscrCode = lens _aspscrCode (\ s a -> s{_aspscrCode = a});
+
+-- | A friendly, more verbose message that accompanies an automatic scaling policy state change.
+aspscrMessage :: Lens' AutoScalingPolicyStateChangeReason (Maybe Text)
+aspscrMessage = lens _aspscrMessage (\ s a -> s{_aspscrMessage = a});
+
+instance FromJSON AutoScalingPolicyStateChangeReason
+         where
+        parseJSON
+          = withObject "AutoScalingPolicyStateChangeReason"
+              (\ x ->
+                 AutoScalingPolicyStateChangeReason' <$>
+                   (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable AutoScalingPolicyStateChangeReason
+
+instance NFData AutoScalingPolicyStateChangeReason
+
+-- | The status of an automatic scaling policy.
+--
+--
+--
+-- /See:/ 'autoScalingPolicyStatus' smart constructor.
+data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
+    { _aspsState             :: !(Maybe AutoScalingPolicyState)
+    , _aspsStateChangeReason :: !(Maybe AutoScalingPolicyStateChangeReason)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingPolicyStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aspsState' -
+--
+-- * 'aspsStateChangeReason' - The reason for a change in status.
+autoScalingPolicyStatus
+    :: AutoScalingPolicyStatus
+autoScalingPolicyStatus =
+    AutoScalingPolicyStatus'
+    { _aspsState = Nothing
+    , _aspsStateChangeReason = Nothing
+    }
+
+-- |
+aspsState :: Lens' AutoScalingPolicyStatus (Maybe AutoScalingPolicyState)
+aspsState = lens _aspsState (\ s a -> s{_aspsState = a});
+
+-- | The reason for a change in status.
+aspsStateChangeReason :: Lens' AutoScalingPolicyStatus (Maybe AutoScalingPolicyStateChangeReason)
+aspsStateChangeReason = lens _aspsStateChangeReason (\ s a -> s{_aspsStateChangeReason = a});
+
+instance FromJSON AutoScalingPolicyStatus where
+        parseJSON
+          = withObject "AutoScalingPolicyStatus"
+              (\ x ->
+                 AutoScalingPolicyStatus' <$>
+                   (x .:? "State") <*> (x .:? "StateChangeReason"))
+
+instance Hashable AutoScalingPolicyStatus
+
+instance NFData AutoScalingPolicyStatus
+
 -- | Configuration of a bootstrap action.
 --
 --
@@ -149,6 +336,181 @@ instance ToJSON BootstrapActionConfig where
                     ("ScriptBootstrapAction" .=
                        _bacScriptBootstrapAction)])
 
+-- | /See:/ 'cancelStepsInfo' smart constructor.
+data CancelStepsInfo = CancelStepsInfo'
+    { _csiStatus :: !(Maybe CancelStepsRequestStatus)
+    , _csiStepId :: !(Maybe Text)
+    , _csiReason :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CancelStepsInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csiStatus' - Undocumented member.
+--
+-- * 'csiStepId' - Undocumented member.
+--
+-- * 'csiReason' - Undocumented member.
+cancelStepsInfo
+    :: CancelStepsInfo
+cancelStepsInfo =
+    CancelStepsInfo'
+    { _csiStatus = Nothing
+    , _csiStepId = Nothing
+    , _csiReason = Nothing
+    }
+
+-- | Undocumented member.
+csiStatus :: Lens' CancelStepsInfo (Maybe CancelStepsRequestStatus)
+csiStatus = lens _csiStatus (\ s a -> s{_csiStatus = a});
+
+-- | Undocumented member.
+csiStepId :: Lens' CancelStepsInfo (Maybe Text)
+csiStepId = lens _csiStepId (\ s a -> s{_csiStepId = a});
+
+-- | Undocumented member.
+csiReason :: Lens' CancelStepsInfo (Maybe Text)
+csiReason = lens _csiReason (\ s a -> s{_csiReason = a});
+
+instance FromJSON CancelStepsInfo where
+        parseJSON
+          = withObject "CancelStepsInfo"
+              (\ x ->
+                 CancelStepsInfo' <$>
+                   (x .:? "Status") <*> (x .:? "StepId") <*>
+                     (x .:? "Reason"))
+
+instance Hashable CancelStepsInfo
+
+instance NFData CancelStepsInfo
+
+-- | The definition of a CloudWatch metric alarm, which determines when an automatic scaling activity is triggered. When the defined alarm conditions are satisfied, scaling activity begins.
+--
+--
+--
+-- /See:/ 'cloudWatchAlarmDefinition' smart constructor.
+data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
+    { _cwadEvaluationPeriods  :: !(Maybe Int)
+    , _cwadNamespace          :: !(Maybe Text)
+    , _cwadDimensions         :: !(Maybe [MetricDimension])
+    , _cwadUnit               :: !(Maybe Unit)
+    , _cwadStatistic          :: !(Maybe Statistic)
+    , _cwadComparisonOperator :: !ComparisonOperator
+    , _cwadMetricName         :: !Text
+    , _cwadPeriod             :: !Int
+    , _cwadThreshold          :: !Double
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchAlarmDefinition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwadEvaluationPeriods' - The number of periods, expressed in seconds using @Period@ , during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
+--
+-- * 'cwadNamespace' - The namespace for the CloudWatch metric. The default is @AWS/ElasticMapReduce@ .
+--
+-- * 'cwadDimensions' - A CloudWatch metric dimension.
+--
+-- * 'cwadUnit' - The unit of measure associated with the CloudWatch metric being watched. The value specified for @Unit@ must correspond to the units specified in the CloudWatch metric.
+--
+-- * 'cwadStatistic' - The statistic to apply to the metric associated with the alarm. The default is @AVERAGE@ .
+--
+-- * 'cwadComparisonOperator' - Determines how the metric specified by @MetricName@ is compared to the value specified by @Threshold@ .
+--
+-- * 'cwadMetricName' - The name of the CloudWatch metric that is watched to determine an alarm condition.
+--
+-- * 'cwadPeriod' - The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify @300@ .
+--
+-- * 'cwadThreshold' - The value against which the specified statistic is compared.
+cloudWatchAlarmDefinition
+    :: ComparisonOperator -- ^ 'cwadComparisonOperator'
+    -> Text -- ^ 'cwadMetricName'
+    -> Int -- ^ 'cwadPeriod'
+    -> Double -- ^ 'cwadThreshold'
+    -> CloudWatchAlarmDefinition
+cloudWatchAlarmDefinition pComparisonOperator_ pMetricName_ pPeriod_ pThreshold_ =
+    CloudWatchAlarmDefinition'
+    { _cwadEvaluationPeriods = Nothing
+    , _cwadNamespace = Nothing
+    , _cwadDimensions = Nothing
+    , _cwadUnit = Nothing
+    , _cwadStatistic = Nothing
+    , _cwadComparisonOperator = pComparisonOperator_
+    , _cwadMetricName = pMetricName_
+    , _cwadPeriod = pPeriod_
+    , _cwadThreshold = pThreshold_
+    }
+
+-- | The number of periods, expressed in seconds using @Period@ , during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is @1@ .
+cwadEvaluationPeriods :: Lens' CloudWatchAlarmDefinition (Maybe Int)
+cwadEvaluationPeriods = lens _cwadEvaluationPeriods (\ s a -> s{_cwadEvaluationPeriods = a});
+
+-- | The namespace for the CloudWatch metric. The default is @AWS/ElasticMapReduce@ .
+cwadNamespace :: Lens' CloudWatchAlarmDefinition (Maybe Text)
+cwadNamespace = lens _cwadNamespace (\ s a -> s{_cwadNamespace = a});
+
+-- | A CloudWatch metric dimension.
+cwadDimensions :: Lens' CloudWatchAlarmDefinition [MetricDimension]
+cwadDimensions = lens _cwadDimensions (\ s a -> s{_cwadDimensions = a}) . _Default . _Coerce;
+
+-- | The unit of measure associated with the CloudWatch metric being watched. The value specified for @Unit@ must correspond to the units specified in the CloudWatch metric.
+cwadUnit :: Lens' CloudWatchAlarmDefinition (Maybe Unit)
+cwadUnit = lens _cwadUnit (\ s a -> s{_cwadUnit = a});
+
+-- | The statistic to apply to the metric associated with the alarm. The default is @AVERAGE@ .
+cwadStatistic :: Lens' CloudWatchAlarmDefinition (Maybe Statistic)
+cwadStatistic = lens _cwadStatistic (\ s a -> s{_cwadStatistic = a});
+
+-- | Determines how the metric specified by @MetricName@ is compared to the value specified by @Threshold@ .
+cwadComparisonOperator :: Lens' CloudWatchAlarmDefinition ComparisonOperator
+cwadComparisonOperator = lens _cwadComparisonOperator (\ s a -> s{_cwadComparisonOperator = a});
+
+-- | The name of the CloudWatch metric that is watched to determine an alarm condition.
+cwadMetricName :: Lens' CloudWatchAlarmDefinition Text
+cwadMetricName = lens _cwadMetricName (\ s a -> s{_cwadMetricName = a});
+
+-- | The period, in seconds, over which the statistic is applied. EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if an EMR CloudWatch metric is specified, specify @300@ .
+cwadPeriod :: Lens' CloudWatchAlarmDefinition Int
+cwadPeriod = lens _cwadPeriod (\ s a -> s{_cwadPeriod = a});
+
+-- | The value against which the specified statistic is compared.
+cwadThreshold :: Lens' CloudWatchAlarmDefinition Double
+cwadThreshold = lens _cwadThreshold (\ s a -> s{_cwadThreshold = a});
+
+instance FromJSON CloudWatchAlarmDefinition where
+        parseJSON
+          = withObject "CloudWatchAlarmDefinition"
+              (\ x ->
+                 CloudWatchAlarmDefinition' <$>
+                   (x .:? "EvaluationPeriods") <*> (x .:? "Namespace")
+                     <*> (x .:? "Dimensions" .!= mempty)
+                     <*> (x .:? "Unit")
+                     <*> (x .:? "Statistic")
+                     <*> (x .: "ComparisonOperator")
+                     <*> (x .: "MetricName")
+                     <*> (x .: "Period")
+                     <*> (x .: "Threshold"))
+
+instance Hashable CloudWatchAlarmDefinition
+
+instance NFData CloudWatchAlarmDefinition
+
+instance ToJSON CloudWatchAlarmDefinition where
+        toJSON CloudWatchAlarmDefinition'{..}
+          = object
+              (catMaybes
+                 [("EvaluationPeriods" .=) <$> _cwadEvaluationPeriods,
+                  ("Namespace" .=) <$> _cwadNamespace,
+                  ("Dimensions" .=) <$> _cwadDimensions,
+                  ("Unit" .=) <$> _cwadUnit,
+                  ("Statistic" .=) <$> _cwadStatistic,
+                  Just
+                    ("ComparisonOperator" .= _cwadComparisonOperator),
+                  Just ("MetricName" .= _cwadMetricName),
+                  Just ("Period" .= _cwadPeriod),
+                  Just ("Threshold" .= _cwadThreshold)])
+
 -- | The detailed description of the cluster.
 --
 --
@@ -159,6 +521,9 @@ data Cluster = Cluster'
     , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
     , _cluNormalizedInstanceHours :: !(Maybe Int)
     , _cluConfigurations          :: !(Maybe [Configuration])
+    , _cluAutoScalingRole         :: !(Maybe Text)
+    , _cluSecurityConfiguration   :: !(Maybe Text)
+    , _cluScaleDownBehavior       :: !(Maybe ScaleDownBehavior)
     , _cluReleaseLabel            :: !(Maybe Text)
     , _cluLogURI                  :: !(Maybe Text)
     , _cluRunningAMIVersion       :: !(Maybe Text)
@@ -180,11 +545,17 @@ data Cluster = Cluster'
 --
 -- * 'cluRequestedAMIVersion' - The AMI version requested for this cluster.
 --
--- * 'cluEC2InstanceAttributes' - Undocumented member.
+-- * 'cluEC2InstanceAttributes' - Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 --
 -- * 'cluNormalizedInstanceHours' - An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
 -- * 'cluConfigurations' - The list of Configurations supplied to the EMR cluster.
+--
+-- * 'cluAutoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+--
+-- * 'cluSecurityConfiguration' - The name of the security configuration applied to the cluster.
+--
+-- * 'cluScaleDownBehavior' - The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 --
 -- * 'cluReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 --
@@ -222,6 +593,9 @@ cluster pId_ pName_ pStatus_ =
     , _cluEC2InstanceAttributes = Nothing
     , _cluNormalizedInstanceHours = Nothing
     , _cluConfigurations = Nothing
+    , _cluAutoScalingRole = Nothing
+    , _cluSecurityConfiguration = Nothing
+    , _cluScaleDownBehavior = Nothing
     , _cluReleaseLabel = Nothing
     , _cluLogURI = Nothing
     , _cluRunningAMIVersion = Nothing
@@ -241,7 +615,7 @@ cluster pId_ pName_ pStatus_ =
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
 cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedAMIVersion = a});
 
--- | Undocumented member.
+-- | Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
 cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
 
@@ -252,6 +626,18 @@ cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNo
 -- | The list of Configurations supplied to the EMR cluster.
 cluConfigurations :: Lens' Cluster [Configuration]
 cluConfigurations = lens _cluConfigurations (\ s a -> s{_cluConfigurations = a}) . _Default . _Coerce;
+
+-- | An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+cluAutoScalingRole :: Lens' Cluster (Maybe Text)
+cluAutoScalingRole = lens _cluAutoScalingRole (\ s a -> s{_cluAutoScalingRole = a});
+
+-- | The name of the security configuration applied to the cluster.
+cluSecurityConfiguration :: Lens' Cluster (Maybe Text)
+cluSecurityConfiguration = lens _cluSecurityConfiguration (\ s a -> s{_cluSecurityConfiguration = a});
+
+-- | The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+cluScaleDownBehavior :: Lens' Cluster (Maybe ScaleDownBehavior)
+cluScaleDownBehavior = lens _cluScaleDownBehavior (\ s a -> s{_cluScaleDownBehavior = a});
 
 -- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 cluReleaseLabel :: Lens' Cluster (Maybe Text)
@@ -314,6 +700,9 @@ instance FromJSON Cluster where
                      (x .:? "Ec2InstanceAttributes")
                      <*> (x .:? "NormalizedInstanceHours")
                      <*> (x .:? "Configurations" .!= mempty)
+                     <*> (x .:? "AutoScalingRole")
+                     <*> (x .:? "SecurityConfiguration")
+                     <*> (x .:? "ScaleDownBehavior")
                      <*> (x .:? "ReleaseLabel")
                      <*> (x .:? "LogUri")
                      <*> (x .:? "RunningAmiVersion")
@@ -677,7 +1066,7 @@ data EBSBlockDevice = EBSBlockDevice'
 --
 -- * 'ebdDevice' - The device name that is exposed to the instance, such as /dev/sdh.
 --
--- * 'ebdVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+-- * 'ebdVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebsBlockDevice
     :: EBSBlockDevice
 ebsBlockDevice =
@@ -690,7 +1079,7 @@ ebsBlockDevice =
 ebdDevice :: Lens' EBSBlockDevice (Maybe Text)
 ebdDevice = lens _ebdDevice (\ s a -> s{_ebdDevice = a});
 
--- | EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+-- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebdVolumeSpecification :: Lens' EBSBlockDevice (Maybe VolumeSpecification)
 ebdVolumeSpecification = lens _ebdVolumeSpecification (\ s a -> s{_ebdVolumeSpecification = a});
 
@@ -719,9 +1108,9 @@ data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ebdcVolumesPerInstance' - Number of EBS volumes with specific volume configuration, that will be associated with every instance in the instance group
+-- * 'ebdcVolumesPerInstance' - Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group
 --
--- * 'ebdcVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+-- * 'ebdcVolumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebsBlockDeviceConfig
     :: VolumeSpecification -- ^ 'ebdcVolumeSpecification'
     -> EBSBlockDeviceConfig
@@ -731,11 +1120,11 @@ ebsBlockDeviceConfig pVolumeSpecification_ =
     , _ebdcVolumeSpecification = pVolumeSpecification_
     }
 
--- | Number of EBS volumes with specific volume configuration, that will be associated with every instance in the instance group
+-- | Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group
 ebdcVolumesPerInstance :: Lens' EBSBlockDeviceConfig (Maybe Int)
 ebdcVolumesPerInstance = lens _ebdcVolumesPerInstance (\ s a -> s{_ebdcVolumesPerInstance = a});
 
--- | EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+-- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 ebdcVolumeSpecification :: Lens' EBSBlockDeviceConfig VolumeSpecification
 ebdcVolumeSpecification = lens _ebdcVolumeSpecification (\ s a -> s{_ebdcVolumeSpecification = a});
 
@@ -752,7 +1141,11 @@ instance ToJSON EBSBlockDeviceConfig where
                   Just
                     ("VolumeSpecification" .= _ebdcVolumeSpecification)])
 
--- | /See:/ 'ebsConfiguration' smart constructor.
+-- | The Amazon EBS configuration of a cluster instance.
+--
+--
+--
+-- /See:/ 'ebsConfiguration' smart constructor.
 data EBSConfiguration = EBSConfiguration'
     { _ecEBSOptimized          :: !(Maybe Bool)
     , _ecEBSBlockDeviceConfigs :: !(Maybe [EBSBlockDeviceConfig])
@@ -762,9 +1155,9 @@ data EBSConfiguration = EBSConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ecEBSOptimized' - Undocumented member.
+-- * 'ecEBSOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
 --
--- * 'ecEBSBlockDeviceConfigs' - Undocumented member.
+-- * 'ecEBSBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster instance.
 ebsConfiguration
     :: EBSConfiguration
 ebsConfiguration =
@@ -773,11 +1166,11 @@ ebsConfiguration =
     , _ecEBSBlockDeviceConfigs = Nothing
     }
 
--- | Undocumented member.
+-- | Indicates whether an Amazon EBS volume is EBS-optimized.
 ecEBSOptimized :: Lens' EBSConfiguration (Maybe Bool)
 ecEBSOptimized = lens _ecEBSOptimized (\ s a -> s{_ecEBSOptimized = a});
 
--- | Undocumented member.
+-- | An array of Amazon EBS volume specifications attached to a cluster instance.
 ecEBSBlockDeviceConfigs :: Lens' EBSConfiguration [EBSBlockDeviceConfig]
 ecEBSBlockDeviceConfigs = lens _ecEBSBlockDeviceConfigs (\ s a -> s{_ecEBSBlockDeviceConfigs = a}) . _Default . _Coerce;
 
@@ -1249,6 +1642,7 @@ data InstanceGroup = InstanceGroup'
     , _igEBSOptimized           :: !(Maybe Bool)
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
+    , _igAutoScalingPolicy      :: !(Maybe AutoScalingPolicyDescription)
     , _igShrinkPolicy           :: !(Maybe ShrinkPolicy)
     , _igId                     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1279,6 +1673,8 @@ data InstanceGroup = InstanceGroup'
 --
 -- * 'igName' - The name of the instance group.
 --
+-- * 'igAutoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+--
 -- * 'igShrinkPolicy' - Policy for customizing shrink operations.
 --
 -- * 'igId' - The identifier of the instance group.
@@ -1297,6 +1693,7 @@ instanceGroup =
     , _igEBSOptimized = Nothing
     , _igMarket = Nothing
     , _igName = Nothing
+    , _igAutoScalingPolicy = Nothing
     , _igShrinkPolicy = Nothing
     , _igId = Nothing
     }
@@ -1345,6 +1742,10 @@ igMarket = lens _igMarket (\ s a -> s{_igMarket = a});
 igName :: Lens' InstanceGroup (Maybe Text)
 igName = lens _igName (\ s a -> s{_igName = a});
 
+-- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+igAutoScalingPolicy :: Lens' InstanceGroup (Maybe AutoScalingPolicyDescription)
+igAutoScalingPolicy = lens _igAutoScalingPolicy (\ s a -> s{_igAutoScalingPolicy = a});
+
 -- | Policy for customizing shrink operations.
 igShrinkPolicy :: Lens' InstanceGroup (Maybe ShrinkPolicy)
 igShrinkPolicy = lens _igShrinkPolicy (\ s a -> s{_igShrinkPolicy = a});
@@ -1368,6 +1769,7 @@ instance FromJSON InstanceGroup where
                      <*> (x .:? "EbsOptimized")
                      <*> (x .:? "Market")
                      <*> (x .:? "Name")
+                     <*> (x .:? "AutoScalingPolicy")
                      <*> (x .:? "ShrinkPolicy")
                      <*> (x .:? "Id"))
 
@@ -1381,33 +1783,36 @@ instance NFData InstanceGroup
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
 data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcEBSConfiguration :: !(Maybe EBSConfiguration)
-    , _igcBidPrice         :: !(Maybe Text)
-    , _igcConfigurations   :: !(Maybe [Configuration])
-    , _igcMarket           :: !(Maybe MarketType)
-    , _igcName             :: !(Maybe Text)
-    , _igcInstanceRole     :: !InstanceRoleType
-    , _igcInstanceType     :: !Text
-    , _igcInstanceCount    :: !Int
+    { _igcEBSConfiguration  :: !(Maybe EBSConfiguration)
+    , _igcBidPrice          :: !(Maybe Text)
+    , _igcConfigurations    :: !(Maybe [Configuration])
+    , _igcMarket            :: !(Maybe MarketType)
+    , _igcName              :: !(Maybe Text)
+    , _igcAutoScalingPolicy :: !(Maybe AutoScalingPolicy)
+    , _igcInstanceRole      :: !InstanceRoleType
+    , _igcInstanceType      :: !Text
+    , _igcInstanceCount     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceGroupConfig' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'igcEBSConfiguration' - EBS configurations that will be attached to each Amazon EC2 instance in the instance group.
+-- * 'igcEBSConfiguration' - EBS configurations that will be attached to each EC2 instance in the instance group.
 --
--- * 'igcBidPrice' - Bid price for each Amazon EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
+-- * 'igcBidPrice' - Bid price for each EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
 --
 -- * 'igcConfigurations' - The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).
 --
--- * 'igcMarket' - Market type of the Amazon EC2 instances used to create a cluster node.
+-- * 'igcMarket' - Market type of the EC2 instances used to create a cluster node.
 --
 -- * 'igcName' - Friendly name given to the instance group.
 --
+-- * 'igcAutoScalingPolicy' - An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See 'PutAutoScalingPolicy' .
+--
 -- * 'igcInstanceRole' - The role of the instance group in the cluster.
 --
--- * 'igcInstanceType' - The Amazon EC2 instance type for all instances in the instance group.
+-- * 'igcInstanceType' - The EC2 instance type for all instances in the instance group.
 --
 -- * 'igcInstanceCount' - Target number of instances for the instance group.
 instanceGroupConfig
@@ -1422,16 +1827,17 @@ instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     , _igcConfigurations = Nothing
     , _igcMarket = Nothing
     , _igcName = Nothing
+    , _igcAutoScalingPolicy = Nothing
     , _igcInstanceRole = pInstanceRole_
     , _igcInstanceType = pInstanceType_
     , _igcInstanceCount = pInstanceCount_
     }
 
--- | EBS configurations that will be attached to each Amazon EC2 instance in the instance group.
+-- | EBS configurations that will be attached to each EC2 instance in the instance group.
 igcEBSConfiguration :: Lens' InstanceGroupConfig (Maybe EBSConfiguration)
 igcEBSConfiguration = lens _igcEBSConfiguration (\ s a -> s{_igcEBSConfiguration = a});
 
--- | Bid price for each Amazon EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
+-- | Bid price for each EC2 instance in the instance group when launching nodes as Spot Instances, expressed in USD.
 igcBidPrice :: Lens' InstanceGroupConfig (Maybe Text)
 igcBidPrice = lens _igcBidPrice (\ s a -> s{_igcBidPrice = a});
 
@@ -1439,7 +1845,7 @@ igcBidPrice = lens _igcBidPrice (\ s a -> s{_igcBidPrice = a});
 igcConfigurations :: Lens' InstanceGroupConfig [Configuration]
 igcConfigurations = lens _igcConfigurations (\ s a -> s{_igcConfigurations = a}) . _Default . _Coerce;
 
--- | Market type of the Amazon EC2 instances used to create a cluster node.
+-- | Market type of the EC2 instances used to create a cluster node.
 igcMarket :: Lens' InstanceGroupConfig (Maybe MarketType)
 igcMarket = lens _igcMarket (\ s a -> s{_igcMarket = a});
 
@@ -1447,11 +1853,15 @@ igcMarket = lens _igcMarket (\ s a -> s{_igcMarket = a});
 igcName :: Lens' InstanceGroupConfig (Maybe Text)
 igcName = lens _igcName (\ s a -> s{_igcName = a});
 
+-- | An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically adds and terminates EC2 instances in response to the value of a CloudWatch metric. See 'PutAutoScalingPolicy' .
+igcAutoScalingPolicy :: Lens' InstanceGroupConfig (Maybe AutoScalingPolicy)
+igcAutoScalingPolicy = lens _igcAutoScalingPolicy (\ s a -> s{_igcAutoScalingPolicy = a});
+
 -- | The role of the instance group in the cluster.
 igcInstanceRole :: Lens' InstanceGroupConfig InstanceRoleType
 igcInstanceRole = lens _igcInstanceRole (\ s a -> s{_igcInstanceRole = a});
 
--- | The Amazon EC2 instance type for all instances in the instance group.
+-- | The EC2 instance type for all instances in the instance group.
 igcInstanceType :: Lens' InstanceGroupConfig Text
 igcInstanceType = lens _igcInstanceType (\ s a -> s{_igcInstanceType = a});
 
@@ -1472,6 +1882,7 @@ instance ToJSON InstanceGroupConfig where
                   ("Configurations" .=) <$> _igcConfigurations,
                   ("Market" .=) <$> _igcMarket,
                   ("Name" .=) <$> _igcName,
+                  ("AutoScalingPolicy" .=) <$> _igcAutoScalingPolicy,
                   Just ("InstanceRole" .= _igcInstanceRole),
                   Just ("InstanceType" .= _igcInstanceType),
                   Just ("InstanceCount" .= _igcInstanceCount)])
@@ -1494,7 +1905,7 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- * 'igmcInstanceCount' - Target size for the instance group.
 --
--- * 'igmcEC2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. Once you terminate the instances, the instance group will not return to its original requested size.
+-- * 'igmcEC2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.
 --
 -- * 'igmcShrinkPolicy' - Policy for customizing shrink operations.
 --
@@ -1514,7 +1925,7 @@ instanceGroupModifyConfig pInstanceGroupId_ =
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
 igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a});
 
--- | The EC2 InstanceIds to terminate. Once you terminate the instances, the instance group will not return to its original requested size.
+-- | The EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.
 igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
 igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default . _Coerce;
 
@@ -1935,11 +2346,11 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jficEC2KeyName' - The name of the Amazon EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
+-- * 'jficEC2KeyName' - The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 --
 -- * 'jficSlaveInstanceType' - The EC2 instance type of the slave nodes.
 --
--- * 'jficInstanceCount' - The number of Amazon EC2 instances used to execute the job flow.
+-- * 'jficInstanceCount' - The number of EC2 instances used to execute the job flow.
 --
 -- * 'jficEmrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the slave nodes.
 --
@@ -1985,7 +2396,7 @@ jobFlowInstancesConfig =
     , _jficPlacement = Nothing
     }
 
--- | The name of the Amazon EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
+-- | The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 jficEC2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
 
@@ -1993,7 +2404,7 @@ jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
 jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
 
--- | The number of Amazon EC2 instances used to execute the job flow.
+-- | The number of EC2 instances used to execute the job flow.
 jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Int)
 jficInstanceCount = lens _jficInstanceCount (\ s a -> s{_jficInstanceCount = a});
 
@@ -2120,6 +2531,56 @@ instance ToJSON KeyValue where
               (catMaybes
                  [("Value" .=) <$> _kvValue, ("Key" .=) <$> _kvKey])
 
+-- | A CloudWatch dimension, which is specified using a @Key@ (known as a @Name@ in CloudWatch), Value pair. By default, Amazon EMR uses one dimension whose @Key@ is @JobFlowID@ and @Value@ is a variable representing the cluster ID, which is @> {emr:cluster_id}@ . This enables the rule to bootstrap when the cluster ID becomes available, and also enables a single automatic scaling policy to be reused for multiple clusters and instance groups.
+--
+--
+--
+-- /See:/ 'metricDimension' smart constructor.
+data MetricDimension = MetricDimension'
+    { _mdValue :: !(Maybe Text)
+    , _mdKey   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdValue' - The dimension value.
+--
+-- * 'mdKey' - The dimension name.
+metricDimension
+    :: MetricDimension
+metricDimension =
+    MetricDimension'
+    { _mdValue = Nothing
+    , _mdKey = Nothing
+    }
+
+-- | The dimension value.
+mdValue :: Lens' MetricDimension (Maybe Text)
+mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
+
+-- | The dimension name.
+mdKey :: Lens' MetricDimension (Maybe Text)
+mdKey = lens _mdKey (\ s a -> s{_mdKey = a});
+
+instance FromJSON MetricDimension where
+        parseJSON
+          = withObject "MetricDimension"
+              (\ x ->
+                 MetricDimension' <$>
+                   (x .:? "Value") <*> (x .:? "Key"))
+
+instance Hashable MetricDimension
+
+instance NFData MetricDimension
+
+instance ToJSON MetricDimension where
+        toJSON MetricDimension'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _mdValue, ("Key" .=) <$> _mdKey])
+
 -- | The Amazon EC2 location for the job flow.
 --
 --
@@ -2155,6 +2616,233 @@ instance ToJSON PlacementType where
           = object
               (catMaybes
                  [Just ("AvailabilityZone" .= _ptAvailabilityZone)])
+
+-- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+--
+--
+--
+-- /See:/ 'scalingAction' smart constructor.
+data ScalingAction = ScalingAction'
+    { _saMarket                           :: !(Maybe MarketType)
+    , _saSimpleScalingPolicyConfiguration :: !SimpleScalingPolicyConfiguration
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScalingAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saMarket' - Not available for instance groups. Instance groups use the market type specified for the group.
+--
+-- * 'saSimpleScalingPolicyConfiguration' - The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+scalingAction
+    :: SimpleScalingPolicyConfiguration -- ^ 'saSimpleScalingPolicyConfiguration'
+    -> ScalingAction
+scalingAction pSimpleScalingPolicyConfiguration_ =
+    ScalingAction'
+    { _saMarket = Nothing
+    , _saSimpleScalingPolicyConfiguration = pSimpleScalingPolicyConfiguration_
+    }
+
+-- | Not available for instance groups. Instance groups use the market type specified for the group.
+saMarket :: Lens' ScalingAction (Maybe MarketType)
+saMarket = lens _saMarket (\ s a -> s{_saMarket = a});
+
+-- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+saSimpleScalingPolicyConfiguration :: Lens' ScalingAction SimpleScalingPolicyConfiguration
+saSimpleScalingPolicyConfiguration = lens _saSimpleScalingPolicyConfiguration (\ s a -> s{_saSimpleScalingPolicyConfiguration = a});
+
+instance FromJSON ScalingAction where
+        parseJSON
+          = withObject "ScalingAction"
+              (\ x ->
+                 ScalingAction' <$>
+                   (x .:? "Market") <*>
+                     (x .: "SimpleScalingPolicyConfiguration"))
+
+instance Hashable ScalingAction
+
+instance NFData ScalingAction
+
+instance ToJSON ScalingAction where
+        toJSON ScalingAction'{..}
+          = object
+              (catMaybes
+                 [("Market" .=) <$> _saMarket,
+                  Just
+                    ("SimpleScalingPolicyConfiguration" .=
+                       _saSimpleScalingPolicyConfiguration)])
+
+-- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.
+--
+--
+--
+-- /See:/ 'scalingConstraints' smart constructor.
+data ScalingConstraints = ScalingConstraints'
+    { _scMinCapacity :: !Int
+    , _scMaxCapacity :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScalingConstraints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scMinCapacity' - The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+--
+-- * 'scMaxCapacity' - The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+scalingConstraints
+    :: Int -- ^ 'scMinCapacity'
+    -> Int -- ^ 'scMaxCapacity'
+    -> ScalingConstraints
+scalingConstraints pMinCapacity_ pMaxCapacity_ =
+    ScalingConstraints'
+    { _scMinCapacity = pMinCapacity_
+    , _scMaxCapacity = pMaxCapacity_
+    }
+
+-- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+scMinCapacity :: Lens' ScalingConstraints Int
+scMinCapacity = lens _scMinCapacity (\ s a -> s{_scMinCapacity = a});
+
+-- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+scMaxCapacity :: Lens' ScalingConstraints Int
+scMaxCapacity = lens _scMaxCapacity (\ s a -> s{_scMaxCapacity = a});
+
+instance FromJSON ScalingConstraints where
+        parseJSON
+          = withObject "ScalingConstraints"
+              (\ x ->
+                 ScalingConstraints' <$>
+                   (x .: "MinCapacity") <*> (x .: "MaxCapacity"))
+
+instance Hashable ScalingConstraints
+
+instance NFData ScalingConstraints
+
+instance ToJSON ScalingConstraints where
+        toJSON ScalingConstraints'{..}
+          = object
+              (catMaybes
+                 [Just ("MinCapacity" .= _scMinCapacity),
+                  Just ("MaxCapacity" .= _scMaxCapacity)])
+
+-- | A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments. The automatic scaling policy for an instance group can comprise one or more automatic scaling rules.
+--
+--
+--
+-- /See:/ 'scalingRule' smart constructor.
+data ScalingRule = ScalingRule'
+    { _srDescription :: !(Maybe Text)
+    , _srName        :: !Text
+    , _srAction      :: !ScalingAction
+    , _srTrigger     :: !ScalingTrigger
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScalingRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srDescription' - A friendly, more verbose description of the automatic scaling rule.
+--
+-- * 'srName' - The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+--
+-- * 'srAction' - The conditions that trigger an automatic scaling activity.
+--
+-- * 'srTrigger' - The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+scalingRule
+    :: Text -- ^ 'srName'
+    -> ScalingAction -- ^ 'srAction'
+    -> ScalingTrigger -- ^ 'srTrigger'
+    -> ScalingRule
+scalingRule pName_ pAction_ pTrigger_ =
+    ScalingRule'
+    { _srDescription = Nothing
+    , _srName = pName_
+    , _srAction = pAction_
+    , _srTrigger = pTrigger_
+    }
+
+-- | A friendly, more verbose description of the automatic scaling rule.
+srDescription :: Lens' ScalingRule (Maybe Text)
+srDescription = lens _srDescription (\ s a -> s{_srDescription = a});
+
+-- | The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+srName :: Lens' ScalingRule Text
+srName = lens _srName (\ s a -> s{_srName = a});
+
+-- | The conditions that trigger an automatic scaling activity.
+srAction :: Lens' ScalingRule ScalingAction
+srAction = lens _srAction (\ s a -> s{_srAction = a});
+
+-- | The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+srTrigger :: Lens' ScalingRule ScalingTrigger
+srTrigger = lens _srTrigger (\ s a -> s{_srTrigger = a});
+
+instance FromJSON ScalingRule where
+        parseJSON
+          = withObject "ScalingRule"
+              (\ x ->
+                 ScalingRule' <$>
+                   (x .:? "Description") <*> (x .: "Name") <*>
+                     (x .: "Action")
+                     <*> (x .: "Trigger"))
+
+instance Hashable ScalingRule
+
+instance NFData ScalingRule
+
+instance ToJSON ScalingRule where
+        toJSON ScalingRule'{..}
+          = object
+              (catMaybes
+                 [("Description" .=) <$> _srDescription,
+                  Just ("Name" .= _srName),
+                  Just ("Action" .= _srAction),
+                  Just ("Trigger" .= _srTrigger)])
+
+-- | The conditions that trigger an automatic scaling activity.
+--
+--
+--
+-- /See:/ 'scalingTrigger' smart constructor.
+newtype ScalingTrigger = ScalingTrigger'
+    { _stCloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScalingTrigger' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stCloudWatchAlarmDefinition' - The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+scalingTrigger
+    :: CloudWatchAlarmDefinition -- ^ 'stCloudWatchAlarmDefinition'
+    -> ScalingTrigger
+scalingTrigger pCloudWatchAlarmDefinition_ =
+    ScalingTrigger'
+    { _stCloudWatchAlarmDefinition = pCloudWatchAlarmDefinition_
+    }
+
+-- | The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+stCloudWatchAlarmDefinition :: Lens' ScalingTrigger CloudWatchAlarmDefinition
+stCloudWatchAlarmDefinition = lens _stCloudWatchAlarmDefinition (\ s a -> s{_stCloudWatchAlarmDefinition = a});
+
+instance FromJSON ScalingTrigger where
+        parseJSON
+          = withObject "ScalingTrigger"
+              (\ x ->
+                 ScalingTrigger' <$>
+                   (x .: "CloudWatchAlarmDefinition"))
+
+instance Hashable ScalingTrigger
+
+instance NFData ScalingTrigger
+
+instance ToJSON ScalingTrigger where
+        toJSON ScalingTrigger'{..}
+          = object
+              (catMaybes
+                 [Just
+                    ("CloudWatchAlarmDefinition" .=
+                       _stCloudWatchAlarmDefinition)])
 
 -- | Configuration of the script to run during a bootstrap action.
 --
@@ -2200,6 +2888,50 @@ instance ToJSON ScriptBootstrapActionConfig where
               (catMaybes
                  [("Args" .=) <$> _sbacArgs,
                   Just ("Path" .= _sbacPath)])
+
+-- | The creation date and time, and name, of a security configuration.
+--
+--
+--
+-- /See:/ 'securityConfigurationSummary' smart constructor.
+data SecurityConfigurationSummary = SecurityConfigurationSummary'
+    { _scsName             :: !(Maybe Text)
+    , _scsCreationDateTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SecurityConfigurationSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scsName' - The name of the security configuration.
+--
+-- * 'scsCreationDateTime' - The date and time the security configuration was created.
+securityConfigurationSummary
+    :: SecurityConfigurationSummary
+securityConfigurationSummary =
+    SecurityConfigurationSummary'
+    { _scsName = Nothing
+    , _scsCreationDateTime = Nothing
+    }
+
+-- | The name of the security configuration.
+scsName :: Lens' SecurityConfigurationSummary (Maybe Text)
+scsName = lens _scsName (\ s a -> s{_scsName = a});
+
+-- | The date and time the security configuration was created.
+scsCreationDateTime :: Lens' SecurityConfigurationSummary (Maybe UTCTime)
+scsCreationDateTime = lens _scsCreationDateTime (\ s a -> s{_scsCreationDateTime = a}) . mapping _Time;
+
+instance FromJSON SecurityConfigurationSummary where
+        parseJSON
+          = withObject "SecurityConfigurationSummary"
+              (\ x ->
+                 SecurityConfigurationSummary' <$>
+                   (x .:? "Name") <*> (x .:? "CreationDateTime"))
+
+instance Hashable SecurityConfigurationSummary
+
+instance NFData SecurityConfigurationSummary
 
 -- | Policy for customizing shrink operations. Allows configuration of decommissioning timeout and targeted instance shrinking.
 --
@@ -2254,6 +2986,71 @@ instance ToJSON ShrinkPolicy where
                     _spDecommissionTimeout,
                   ("InstanceResizePolicy" .=) <$>
                     _spInstanceResizePolicy])
+
+-- | An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.
+--
+--
+--
+-- /See:/ 'simpleScalingPolicyConfiguration' smart constructor.
+data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
+    { _sspcAdjustmentType    :: !(Maybe AdjustmentType)
+    , _sspcCoolDown          :: !(Maybe Int)
+    , _sspcScalingAdjustment :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SimpleScalingPolicyConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sspcAdjustmentType' - The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal, for example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
+--
+-- * 'sspcCoolDown' - The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+--
+-- * 'sspcScalingAdjustment' - The amount by which to scale in or scale out, based on the specified @AdjustmentType@ . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If @AdjustmentType@ is set to @EXACT_CAPACITY@ , the number should only be a positive integer. If @AdjustmentType@ is set to @PERCENT_CHANGE_IN_CAPACITY@ , the value should express the percentage as a decimal. For example, -0.20 indicates a decrease in 20% increments of cluster capacity.
+simpleScalingPolicyConfiguration
+    :: Int -- ^ 'sspcScalingAdjustment'
+    -> SimpleScalingPolicyConfiguration
+simpleScalingPolicyConfiguration pScalingAdjustment_ =
+    SimpleScalingPolicyConfiguration'
+    { _sspcAdjustmentType = Nothing
+    , _sspcCoolDown = Nothing
+    , _sspcScalingAdjustment = pScalingAdjustment_
+    }
+
+-- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal, for example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
+sspcAdjustmentType :: Lens' SimpleScalingPolicyConfiguration (Maybe AdjustmentType)
+sspcAdjustmentType = lens _sspcAdjustmentType (\ s a -> s{_sspcAdjustmentType = a});
+
+-- | The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+sspcCoolDown :: Lens' SimpleScalingPolicyConfiguration (Maybe Int)
+sspcCoolDown = lens _sspcCoolDown (\ s a -> s{_sspcCoolDown = a});
+
+-- | The amount by which to scale in or scale out, based on the specified @AdjustmentType@ . A positive value adds to the instance group's EC2 instance count while a negative number removes instances. If @AdjustmentType@ is set to @EXACT_CAPACITY@ , the number should only be a positive integer. If @AdjustmentType@ is set to @PERCENT_CHANGE_IN_CAPACITY@ , the value should express the percentage as a decimal. For example, -0.20 indicates a decrease in 20% increments of cluster capacity.
+sspcScalingAdjustment :: Lens' SimpleScalingPolicyConfiguration Int
+sspcScalingAdjustment = lens _sspcScalingAdjustment (\ s a -> s{_sspcScalingAdjustment = a});
+
+instance FromJSON SimpleScalingPolicyConfiguration
+         where
+        parseJSON
+          = withObject "SimpleScalingPolicyConfiguration"
+              (\ x ->
+                 SimpleScalingPolicyConfiguration' <$>
+                   (x .:? "AdjustmentType") <*> (x .:? "CoolDown") <*>
+                     (x .: "ScalingAdjustment"))
+
+instance Hashable SimpleScalingPolicyConfiguration
+
+instance NFData SimpleScalingPolicyConfiguration
+
+instance ToJSON SimpleScalingPolicyConfiguration
+         where
+        toJSON SimpleScalingPolicyConfiguration'{..}
+          = object
+              (catMaybes
+                 [("AdjustmentType" .=) <$> _sspcAdjustmentType,
+                  ("CoolDown" .=) <$> _sspcCoolDown,
+                  Just
+                    ("ScalingAdjustment" .= _sspcScalingAdjustment)])
 
 -- | This represents a step in a cluster.
 --
@@ -2654,7 +3451,7 @@ instance ToJSON SupportedProductConfig where
               (catMaybes
                  [("Args" .=) <$> _spcArgs, ("Name" .=) <$> _spcName])
 
--- | A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clu\ sters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
+-- | A key/value pair containing user-defined metadata that you can associate with an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources> .
 --
 --
 --
@@ -2702,7 +3499,7 @@ instance ToJSON Tag where
               (catMaybes
                  [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])
 
--- | EBS volume specifications such as volume type, IOPS, and size(GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+-- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 --
 --
 --

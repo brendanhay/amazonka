@@ -60,7 +60,7 @@ data AddTags = AddTags'
 --
 -- * 'atResourceId' - The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
 --
--- * 'atTags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+-- * 'atTags' - A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 addTags
     :: Text -- ^ 'atResourceId'
     -> AddTags
@@ -74,7 +74,7 @@ addTags pResourceId_ =
 atResourceId :: Lens' AddTags Text
 atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 
--- | A list of tags to associate with a cluster and propagate to Amazon EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+-- | A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key/value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 

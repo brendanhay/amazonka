@@ -23,11 +23,26 @@ module Network.AWS.EMR.Types
     -- * ActionOnFailure
     , ActionOnFailure (..)
 
+    -- * AdjustmentType
+    , AdjustmentType (..)
+
+    -- * AutoScalingPolicyState
+    , AutoScalingPolicyState (..)
+
+    -- * AutoScalingPolicyStateChangeReasonCode
+    , AutoScalingPolicyStateChangeReasonCode (..)
+
+    -- * CancelStepsRequestStatus
+    , CancelStepsRequestStatus (..)
+
     -- * ClusterState
     , ClusterState (..)
 
     -- * ClusterStateChangeReasonCode
     , ClusterStateChangeReasonCode (..)
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
 
     -- * InstanceGroupState
     , InstanceGroupState (..)
@@ -50,11 +65,20 @@ module Network.AWS.EMR.Types
     -- * MarketType
     , MarketType (..)
 
+    -- * ScaleDownBehavior
+    , ScaleDownBehavior (..)
+
+    -- * Statistic
+    , Statistic (..)
+
     -- * StepState
     , StepState (..)
 
     -- * StepStateChangeReasonCode
     , StepStateChangeReasonCode (..)
+
+    -- * Unit
+    , Unit (..)
 
     -- * Application
     , Application
@@ -64,11 +88,56 @@ module Network.AWS.EMR.Types
     , aName
     , aVersion
 
+    -- * AutoScalingPolicy
+    , AutoScalingPolicy
+    , autoScalingPolicy
+    , aspConstraints
+    , aspRules
+
+    -- * AutoScalingPolicyDescription
+    , AutoScalingPolicyDescription
+    , autoScalingPolicyDescription
+    , aspdStatus
+    , aspdRules
+    , aspdConstraints
+
+    -- * AutoScalingPolicyStateChangeReason
+    , AutoScalingPolicyStateChangeReason
+    , autoScalingPolicyStateChangeReason
+    , aspscrCode
+    , aspscrMessage
+
+    -- * AutoScalingPolicyStatus
+    , AutoScalingPolicyStatus
+    , autoScalingPolicyStatus
+    , aspsState
+    , aspsStateChangeReason
+
     -- * BootstrapActionConfig
     , BootstrapActionConfig
     , bootstrapActionConfig
     , bacName
     , bacScriptBootstrapAction
+
+    -- * CancelStepsInfo
+    , CancelStepsInfo
+    , cancelStepsInfo
+    , csiStatus
+    , csiStepId
+    , csiReason
+
+    -- * CloudWatchAlarmDefinition
+    , CloudWatchAlarmDefinition
+    , cloudWatchAlarmDefinition
+    , cwadEvaluationPeriods
+    , cwadNamespace
+    , cwadDimensions
+    , cwadUnit
+    , cwadStatistic
+    , cwadComparisonOperator
+    , cwadMetricName
+    , cwadPeriod
+    , cwadThreshold
 
     -- * Cluster
     , Cluster
@@ -77,6 +146,9 @@ module Network.AWS.EMR.Types
     , cluEC2InstanceAttributes
     , cluNormalizedInstanceHours
     , cluConfigurations
+    , cluAutoScalingRole
+    , cluSecurityConfiguration
+    , cluScaleDownBehavior
     , cluReleaseLabel
     , cluLogURI
     , cluRunningAMIVersion
@@ -220,6 +292,7 @@ module Network.AWS.EMR.Types
     , igEBSOptimized
     , igMarket
     , igName
+    , igAutoScalingPolicy
     , igShrinkPolicy
     , igId
 
@@ -231,6 +304,7 @@ module Network.AWS.EMR.Types
     , igcConfigurations
     , igcMarket
     , igcName
+    , igcAutoScalingPolicy
     , igcInstanceRole
     , igcInstanceType
     , igcInstanceCount
@@ -315,10 +389,41 @@ module Network.AWS.EMR.Types
     , kvValue
     , kvKey
 
+    -- * MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdValue
+    , mdKey
+
     -- * PlacementType
     , PlacementType
     , placementType
     , ptAvailabilityZone
+
+    -- * ScalingAction
+    , ScalingAction
+    , scalingAction
+    , saMarket
+    , saSimpleScalingPolicyConfiguration
+
+    -- * ScalingConstraints
+    , ScalingConstraints
+    , scalingConstraints
+    , scMinCapacity
+    , scMaxCapacity
+
+    -- * ScalingRule
+    , ScalingRule
+    , scalingRule
+    , srDescription
+    , srName
+    , srAction
+    , srTrigger
+
+    -- * ScalingTrigger
+    , ScalingTrigger
+    , scalingTrigger
+    , stCloudWatchAlarmDefinition
 
     -- * ScriptBootstrapActionConfig
     , ScriptBootstrapActionConfig
@@ -326,11 +431,24 @@ module Network.AWS.EMR.Types
     , sbacArgs
     , sbacPath
 
+    -- * SecurityConfigurationSummary
+    , SecurityConfigurationSummary
+    , securityConfigurationSummary
+    , scsName
+    , scsCreationDateTime
+
     -- * ShrinkPolicy
     , ShrinkPolicy
     , shrinkPolicy
     , spDecommissionTimeout
     , spInstanceResizePolicy
+
+    -- * SimpleScalingPolicyConfiguration
+    , SimpleScalingPolicyConfiguration
+    , simpleScalingPolicyConfiguration
+    , sspcAdjustmentType
+    , sspcCoolDown
+    , sspcScalingAdjustment
 
     -- * Step
     , Step

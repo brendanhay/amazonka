@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AddInstanceGroups adds an instance group to a running cluster.
+-- Adds one or more instance groups to a running cluster.
 --
 --
 module Network.AWS.EMR.AddInstanceGroups
@@ -60,7 +60,7 @@ data AddInstanceGroups = AddInstanceGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aigInstanceGroups' - Instance Groups to add.
+-- * 'aigInstanceGroups' - Instance groups to add.
 --
 -- * 'aigJobFlowId' - Job flow in which to add the instance groups.
 addInstanceGroups
@@ -72,7 +72,7 @@ addInstanceGroups pJobFlowId_ =
     , _aigJobFlowId = pJobFlowId_
     }
 
--- | Instance Groups to add.
+-- | Instance groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
 aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce;
 

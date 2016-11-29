@@ -54,6 +54,131 @@ instance ToJSON ActionOnFailure where
 instance FromJSON ActionOnFailure where
     parseJSON = parseJSONText "ActionOnFailure"
 
+data AdjustmentType
+    = ChangeInCapacity
+    | ExactCapacity
+    | PercentChangeInCapacity
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AdjustmentType where
+    parser = takeLowerText >>= \case
+        "change_in_capacity" -> pure ChangeInCapacity
+        "exact_capacity" -> pure ExactCapacity
+        "percent_change_in_capacity" -> pure PercentChangeInCapacity
+        e -> fromTextError $ "Failure parsing AdjustmentType from value: '" <> e
+           <> "'. Accepted values: change_in_capacity, exact_capacity, percent_change_in_capacity"
+
+instance ToText AdjustmentType where
+    toText = \case
+        ChangeInCapacity -> "CHANGE_IN_CAPACITY"
+        ExactCapacity -> "EXACT_CAPACITY"
+        PercentChangeInCapacity -> "PERCENT_CHANGE_IN_CAPACITY"
+
+instance Hashable     AdjustmentType
+instance NFData       AdjustmentType
+instance ToByteString AdjustmentType
+instance ToQuery      AdjustmentType
+instance ToHeader     AdjustmentType
+
+instance ToJSON AdjustmentType where
+    toJSON = toJSONText
+
+instance FromJSON AdjustmentType where
+    parseJSON = parseJSONText "AdjustmentType"
+
+data AutoScalingPolicyState
+    = Attached
+    | Attaching
+    | Detached
+    | Detaching
+    | Failed
+    | Pending
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AutoScalingPolicyState where
+    parser = takeLowerText >>= \case
+        "attached" -> pure Attached
+        "attaching" -> pure Attaching
+        "detached" -> pure Detached
+        "detaching" -> pure Detaching
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing AutoScalingPolicyState from value: '" <> e
+           <> "'. Accepted values: attached, attaching, detached, detaching, failed, pending"
+
+instance ToText AutoScalingPolicyState where
+    toText = \case
+        Attached -> "ATTACHED"
+        Attaching -> "ATTACHING"
+        Detached -> "DETACHED"
+        Detaching -> "DETACHING"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+
+instance Hashable     AutoScalingPolicyState
+instance NFData       AutoScalingPolicyState
+instance ToByteString AutoScalingPolicyState
+instance ToQuery      AutoScalingPolicyState
+instance ToHeader     AutoScalingPolicyState
+
+instance FromJSON AutoScalingPolicyState where
+    parseJSON = parseJSONText "AutoScalingPolicyState"
+
+data AutoScalingPolicyStateChangeReasonCode
+    = CleanupFailure
+    | ProvisionFailure
+    | UserRequest
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AutoScalingPolicyStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "cleanup_failure" -> pure CleanupFailure
+        "provision_failure" -> pure ProvisionFailure
+        "user_request" -> pure UserRequest
+        e -> fromTextError $ "Failure parsing AutoScalingPolicyStateChangeReasonCode from value: '" <> e
+           <> "'. Accepted values: cleanup_failure, provision_failure, user_request"
+
+instance ToText AutoScalingPolicyStateChangeReasonCode where
+    toText = \case
+        CleanupFailure -> "CLEANUP_FAILURE"
+        ProvisionFailure -> "PROVISION_FAILURE"
+        UserRequest -> "USER_REQUEST"
+
+instance Hashable     AutoScalingPolicyStateChangeReasonCode
+instance NFData       AutoScalingPolicyStateChangeReasonCode
+instance ToByteString AutoScalingPolicyStateChangeReasonCode
+instance ToQuery      AutoScalingPolicyStateChangeReasonCode
+instance ToHeader     AutoScalingPolicyStateChangeReasonCode
+
+instance FromJSON AutoScalingPolicyStateChangeReasonCode where
+    parseJSON = parseJSONText "AutoScalingPolicyStateChangeReasonCode"
+
+data CancelStepsRequestStatus
+    = CSRSFailed
+    | CSRSSubmitted
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CancelStepsRequestStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure CSRSFailed
+        "submitted" -> pure CSRSSubmitted
+        e -> fromTextError $ "Failure parsing CancelStepsRequestStatus from value: '" <> e
+           <> "'. Accepted values: failed, submitted"
+
+instance ToText CancelStepsRequestStatus where
+    toText = \case
+        CSRSFailed -> "FAILED"
+        CSRSSubmitted -> "SUBMITTED"
+
+instance Hashable     CancelStepsRequestStatus
+instance NFData       CancelStepsRequestStatus
+instance ToByteString CancelStepsRequestStatus
+instance ToQuery      CancelStepsRequestStatus
+instance ToHeader     CancelStepsRequestStatus
+
+instance FromJSON CancelStepsRequestStatus where
+    parseJSON = parseJSONText "CancelStepsRequestStatus"
+
 data ClusterState
     = CSBootstrapping
     | CSRunning
@@ -138,6 +263,41 @@ instance ToHeader     ClusterStateChangeReasonCode
 
 instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
+
+data ComparisonOperator
+    = GreaterThan
+    | GreaterThanOrEqual
+    | LessThan
+    | LessThanOrEqual
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComparisonOperator where
+    parser = takeLowerText >>= \case
+        "greater_than" -> pure GreaterThan
+        "greater_than_or_equal" -> pure GreaterThanOrEqual
+        "less_than" -> pure LessThan
+        "less_than_or_equal" -> pure LessThanOrEqual
+        e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
+           <> "'. Accepted values: greater_than, greater_than_or_equal, less_than, less_than_or_equal"
+
+instance ToText ComparisonOperator where
+    toText = \case
+        GreaterThan -> "GREATER_THAN"
+        GreaterThanOrEqual -> "GREATER_THAN_OR_EQUAL"
+        LessThan -> "LESS_THAN"
+        LessThanOrEqual -> "LESS_THAN_OR_EQUAL"
+
+instance Hashable     ComparisonOperator
+instance NFData       ComparisonOperator
+instance ToByteString ComparisonOperator
+instance ToQuery      ComparisonOperator
+instance ToHeader     ComparisonOperator
+
+instance ToJSON ComparisonOperator where
+    toJSON = toJSONText
+
+instance FromJSON ComparisonOperator where
+    parseJSON = parseJSONText "ComparisonOperator"
 
 data InstanceGroupState
     = Arrested
@@ -384,8 +544,76 @@ instance ToJSON MarketType where
 instance FromJSON MarketType where
     parseJSON = parseJSONText "MarketType"
 
+data ScaleDownBehavior
+    = TerminateAtInstanceHour
+    | TerminateAtTaskCompletion
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ScaleDownBehavior where
+    parser = takeLowerText >>= \case
+        "terminate_at_instance_hour" -> pure TerminateAtInstanceHour
+        "terminate_at_task_completion" -> pure TerminateAtTaskCompletion
+        e -> fromTextError $ "Failure parsing ScaleDownBehavior from value: '" <> e
+           <> "'. Accepted values: terminate_at_instance_hour, terminate_at_task_completion"
+
+instance ToText ScaleDownBehavior where
+    toText = \case
+        TerminateAtInstanceHour -> "TERMINATE_AT_INSTANCE_HOUR"
+        TerminateAtTaskCompletion -> "TERMINATE_AT_TASK_COMPLETION"
+
+instance Hashable     ScaleDownBehavior
+instance NFData       ScaleDownBehavior
+instance ToByteString ScaleDownBehavior
+instance ToQuery      ScaleDownBehavior
+instance ToHeader     ScaleDownBehavior
+
+instance ToJSON ScaleDownBehavior where
+    toJSON = toJSONText
+
+instance FromJSON ScaleDownBehavior where
+    parseJSON = parseJSONText "ScaleDownBehavior"
+
+data Statistic
+    = Average
+    | Maximum
+    | Minimum
+    | SampleCount
+    | Sum
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Statistic where
+    parser = takeLowerText >>= \case
+        "average" -> pure Average
+        "maximum" -> pure Maximum
+        "minimum" -> pure Minimum
+        "sample_count" -> pure SampleCount
+        "sum" -> pure Sum
+        e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
+           <> "'. Accepted values: average, maximum, minimum, sample_count, sum"
+
+instance ToText Statistic where
+    toText = \case
+        Average -> "AVERAGE"
+        Maximum -> "MAXIMUM"
+        Minimum -> "MINIMUM"
+        SampleCount -> "SAMPLE_COUNT"
+        Sum -> "SUM"
+
+instance Hashable     Statistic
+instance NFData       Statistic
+instance ToByteString Statistic
+instance ToQuery      Statistic
+instance ToHeader     Statistic
+
+instance ToJSON Statistic where
+    toJSON = toJSONText
+
+instance FromJSON Statistic where
+    parseJSON = parseJSONText "Statistic"
+
 data StepState
-    = SSCancelled
+    = SSCancelPending
+    | SSCancelled
     | SSCompleted
     | SSFailed
     | SSInterrupted
@@ -395,6 +623,7 @@ data StepState
 
 instance FromText StepState where
     parser = takeLowerText >>= \case
+        "cancel_pending" -> pure SSCancelPending
         "cancelled" -> pure SSCancelled
         "completed" -> pure SSCompleted
         "failed" -> pure SSFailed
@@ -402,10 +631,11 @@ instance FromText StepState where
         "pending" -> pure SSPending
         "running" -> pure SSRunning
         e -> fromTextError $ "Failure parsing StepState from value: '" <> e
-           <> "'. Accepted values: cancelled, completed, failed, interrupted, pending, running"
+           <> "'. Accepted values: cancel_pending, cancelled, completed, failed, interrupted, pending, running"
 
 instance ToText StepState where
     toText = \case
+        SSCancelPending -> "CANCEL_PENDING"
         SSCancelled -> "CANCELLED"
         SSCompleted -> "COMPLETED"
         SSFailed -> "FAILED"
@@ -426,18 +656,18 @@ instance FromJSON StepState where
     parseJSON = parseJSONText "StepState"
 
 data StepStateChangeReasonCode =
-    None
+    SSCRCNone
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
-        "none" -> pure None
+        "none" -> pure SSCRCNone
         e -> fromTextError $ "Failure parsing StepStateChangeReasonCode from value: '" <> e
            <> "'. Accepted values: none"
 
 instance ToText StepStateChangeReasonCode where
     toText = \case
-        None -> "NONE"
+        SSCRCNone -> "NONE"
 
 instance Hashable     StepStateChangeReasonCode
 instance NFData       StepStateChangeReasonCode
@@ -447,3 +677,107 @@ instance ToHeader     StepStateChangeReasonCode
 
 instance FromJSON StepStateChangeReasonCode where
     parseJSON = parseJSONText "StepStateChangeReasonCode"
+
+data Unit
+    = Bits
+    | BitsPerSecond
+    | Bytes
+    | BytesPerSecond
+    | Count
+    | CountPerSecond
+    | GigaBits
+    | GigaBitsPerSecond
+    | GigaBytes
+    | GigaBytesPerSecond
+    | KiloBits
+    | KiloBitsPerSecond
+    | KiloBytes
+    | KiloBytesPerSecond
+    | MegaBits
+    | MegaBitsPerSecond
+    | MegaBytes
+    | MegaBytesPerSecond
+    | MicroSeconds
+    | MilliSeconds
+    | None
+    | Percent
+    | Seconds
+    | TeraBits
+    | TeraBitsPerSecond
+    | TeraBytes
+    | TeraBytesPerSecond
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Unit where
+    parser = takeLowerText >>= \case
+        "bits" -> pure Bits
+        "bits_per_second" -> pure BitsPerSecond
+        "bytes" -> pure Bytes
+        "bytes_per_second" -> pure BytesPerSecond
+        "count" -> pure Count
+        "count_per_second" -> pure CountPerSecond
+        "giga_bits" -> pure GigaBits
+        "giga_bits_per_second" -> pure GigaBitsPerSecond
+        "giga_bytes" -> pure GigaBytes
+        "giga_bytes_per_second" -> pure GigaBytesPerSecond
+        "kilo_bits" -> pure KiloBits
+        "kilo_bits_per_second" -> pure KiloBitsPerSecond
+        "kilo_bytes" -> pure KiloBytes
+        "kilo_bytes_per_second" -> pure KiloBytesPerSecond
+        "mega_bits" -> pure MegaBits
+        "mega_bits_per_second" -> pure MegaBitsPerSecond
+        "mega_bytes" -> pure MegaBytes
+        "mega_bytes_per_second" -> pure MegaBytesPerSecond
+        "micro_seconds" -> pure MicroSeconds
+        "milli_seconds" -> pure MilliSeconds
+        "none" -> pure None
+        "percent" -> pure Percent
+        "seconds" -> pure Seconds
+        "tera_bits" -> pure TeraBits
+        "tera_bits_per_second" -> pure TeraBitsPerSecond
+        "tera_bytes" -> pure TeraBytes
+        "tera_bytes_per_second" -> pure TeraBytesPerSecond
+        e -> fromTextError $ "Failure parsing Unit from value: '" <> e
+           <> "'. Accepted values: bits, bits_per_second, bytes, bytes_per_second, count, count_per_second, giga_bits, giga_bits_per_second, giga_bytes, giga_bytes_per_second, kilo_bits, kilo_bits_per_second, kilo_bytes, kilo_bytes_per_second, mega_bits, mega_bits_per_second, mega_bytes, mega_bytes_per_second, micro_seconds, milli_seconds, none, percent, seconds, tera_bits, tera_bits_per_second, tera_bytes, tera_bytes_per_second"
+
+instance ToText Unit where
+    toText = \case
+        Bits -> "BITS"
+        BitsPerSecond -> "BITS_PER_SECOND"
+        Bytes -> "BYTES"
+        BytesPerSecond -> "BYTES_PER_SECOND"
+        Count -> "COUNT"
+        CountPerSecond -> "COUNT_PER_SECOND"
+        GigaBits -> "GIGA_BITS"
+        GigaBitsPerSecond -> "GIGA_BITS_PER_SECOND"
+        GigaBytes -> "GIGA_BYTES"
+        GigaBytesPerSecond -> "GIGA_BYTES_PER_SECOND"
+        KiloBits -> "KILO_BITS"
+        KiloBitsPerSecond -> "KILO_BITS_PER_SECOND"
+        KiloBytes -> "KILO_BYTES"
+        KiloBytesPerSecond -> "KILO_BYTES_PER_SECOND"
+        MegaBits -> "MEGA_BITS"
+        MegaBitsPerSecond -> "MEGA_BITS_PER_SECOND"
+        MegaBytes -> "MEGA_BYTES"
+        MegaBytesPerSecond -> "MEGA_BYTES_PER_SECOND"
+        MicroSeconds -> "MICRO_SECONDS"
+        MilliSeconds -> "MILLI_SECONDS"
+        None -> "NONE"
+        Percent -> "PERCENT"
+        Seconds -> "SECONDS"
+        TeraBits -> "TERA_BITS"
+        TeraBitsPerSecond -> "TERA_BITS_PER_SECOND"
+        TeraBytes -> "TERA_BYTES"
+        TeraBytesPerSecond -> "TERA_BYTES_PER_SECOND"
+
+instance Hashable     Unit
+instance NFData       Unit
+instance ToByteString Unit
+instance ToQuery      Unit
+instance ToHeader     Unit
+
+instance ToJSON Unit where
+    toJSON = toJSONText
+
+instance FromJSON Unit where
+    parseJSON = parseJSONText "Unit"

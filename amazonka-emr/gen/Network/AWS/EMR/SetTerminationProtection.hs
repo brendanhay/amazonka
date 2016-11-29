@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- SetTerminationProtection locks a job flow so the Amazon EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on all of the EC2 instances in a cluster.
+-- SetTerminationProtection locks a job flow so the EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on all of the EC2 instances in a cluster.
 --
 --
 -- SetTerminationProtection is used to prevent accidental termination of a job flow and to ensure that in the event of an error, the instances will persist so you can recover any data stored in their ephemeral instance storage.
 --
 -- To terminate a job flow that has been locked by setting SetTerminationProtection to @true@ , you must first unlock the job flow by a subsequent call to SetTerminationProtection in which you set the value to @false@ .
 --
--- For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination> in the /Amazon Elastic MapReduce Developer's Guide./
+-- For more information, see<http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination> in the /Amazon EMR Guide./
 --
 module Network.AWS.EMR.SetTerminationProtection
     (

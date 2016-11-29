@@ -31,6 +31,9 @@ import Test.AWS.EMR.Internal
 --         [ requestRunJobFlow $
 --             runJobFlow
 --
+--         , requestRemoveAutoScalingPolicy $
+--             removeAutoScalingPolicy
+--
 --         , requestSetVisibleToAllUsers $
 --             setVisibleToAllUsers
 --
@@ -45,6 +48,15 @@ import Test.AWS.EMR.Internal
 --
 --         , requestDescribeCluster $
 --             describeCluster
+--
+--         , requestListSecurityConfigurations $
+--             listSecurityConfigurations
+--
+--         , requestCancelSteps $
+--             cancelSteps
+--
+--         , requestCreateSecurityConfiguration $
+--             createSecurityConfiguration
 --
 --         , requestSetTerminationProtection $
 --             setTerminationProtection
@@ -61,6 +73,9 @@ import Test.AWS.EMR.Internal
 --         , requestAddInstanceGroups $
 --             addInstanceGroups
 --
+--         , requestDeleteSecurityConfiguration $
+--             deleteSecurityConfiguration
+--
 --         , requestListInstanceGroups $
 --             listInstanceGroups
 --
@@ -73,14 +88,23 @@ import Test.AWS.EMR.Internal
 --         , requestListInstances $
 --             listInstances
 --
+--         , requestPutAutoScalingPolicy $
+--             putAutoScalingPolicy
+--
 --         , requestListClusters $
 --             listClusters
+--
+--         , requestDescribeSecurityConfiguration $
+--             describeSecurityConfiguration
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseRunJobFlow $
 --             runJobFlowResponse
+--
+--         , responseRemoveAutoScalingPolicy $
+--             removeAutoScalingPolicyResponse
 --
 --         , responseSetVisibleToAllUsers $
 --             setVisibleToAllUsersResponse
@@ -97,6 +121,15 @@ import Test.AWS.EMR.Internal
 --         , responseDescribeCluster $
 --             describeClusterResponse
 --
+--         , responseListSecurityConfigurations $
+--             listSecurityConfigurationsResponse
+--
+--         , responseCancelSteps $
+--             cancelStepsResponse
+--
+--         , responseCreateSecurityConfiguration $
+--             createSecurityConfigurationResponse
+--
 --         , responseSetTerminationProtection $
 --             setTerminationProtectionResponse
 --
@@ -112,6 +145,9 @@ import Test.AWS.EMR.Internal
 --         , responseAddInstanceGroups $
 --             addInstanceGroupsResponse
 --
+--         , responseDeleteSecurityConfiguration $
+--             deleteSecurityConfigurationResponse
+--
 --         , responseListInstanceGroups $
 --             listInstanceGroupsResponse
 --
@@ -124,8 +160,14 @@ import Test.AWS.EMR.Internal
 --         , responseListInstances $
 --             listInstancesResponse
 --
+--         , responsePutAutoScalingPolicy $
+--             putAutoScalingPolicyResponse
+--
 --         , responseListClusters $
 --             listClustersResponse
+--
+--         , responseDescribeSecurityConfiguration $
+--             describeSecurityConfigurationResponse
 --
 --           ]
 --     ]
@@ -136,6 +178,11 @@ requestRunJobFlow :: RunJobFlow -> TestTree
 requestRunJobFlow = req
     "RunJobFlow"
     "fixture/RunJobFlow.yaml"
+
+requestRemoveAutoScalingPolicy :: RemoveAutoScalingPolicy -> TestTree
+requestRemoveAutoScalingPolicy = req
+    "RemoveAutoScalingPolicy"
+    "fixture/RemoveAutoScalingPolicy.yaml"
 
 requestSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
 requestSetVisibleToAllUsers = req
@@ -162,6 +209,21 @@ requestDescribeCluster = req
     "DescribeCluster"
     "fixture/DescribeCluster.yaml"
 
+requestListSecurityConfigurations :: ListSecurityConfigurations -> TestTree
+requestListSecurityConfigurations = req
+    "ListSecurityConfigurations"
+    "fixture/ListSecurityConfigurations.yaml"
+
+requestCancelSteps :: CancelSteps -> TestTree
+requestCancelSteps = req
+    "CancelSteps"
+    "fixture/CancelSteps.yaml"
+
+requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
+requestCreateSecurityConfiguration = req
+    "CreateSecurityConfiguration"
+    "fixture/CreateSecurityConfiguration.yaml"
+
 requestSetTerminationProtection :: SetTerminationProtection -> TestTree
 requestSetTerminationProtection = req
     "SetTerminationProtection"
@@ -187,6 +249,11 @@ requestAddInstanceGroups = req
     "AddInstanceGroups"
     "fixture/AddInstanceGroups.yaml"
 
+requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
+requestDeleteSecurityConfiguration = req
+    "DeleteSecurityConfiguration"
+    "fixture/DeleteSecurityConfiguration.yaml"
+
 requestListInstanceGroups :: ListInstanceGroups -> TestTree
 requestListInstanceGroups = req
     "ListInstanceGroups"
@@ -207,10 +274,20 @@ requestListInstances = req
     "ListInstances"
     "fixture/ListInstances.yaml"
 
+requestPutAutoScalingPolicy :: PutAutoScalingPolicy -> TestTree
+requestPutAutoScalingPolicy = req
+    "PutAutoScalingPolicy"
+    "fixture/PutAutoScalingPolicy.yaml"
+
 requestListClusters :: ListClusters -> TestTree
 requestListClusters = req
     "ListClusters"
     "fixture/ListClusters.yaml"
+
+requestDescribeSecurityConfiguration :: DescribeSecurityConfiguration -> TestTree
+requestDescribeSecurityConfiguration = req
+    "DescribeSecurityConfiguration"
+    "fixture/DescribeSecurityConfiguration.yaml"
 
 -- Responses
 
@@ -220,6 +297,13 @@ responseRunJobFlow = res
     "fixture/RunJobFlowResponse.proto"
     emr
     (Proxy :: Proxy RunJobFlow)
+
+responseRemoveAutoScalingPolicy :: RemoveAutoScalingPolicyResponse -> TestTree
+responseRemoveAutoScalingPolicy = res
+    "RemoveAutoScalingPolicyResponse"
+    "fixture/RemoveAutoScalingPolicyResponse.proto"
+    emr
+    (Proxy :: Proxy RemoveAutoScalingPolicy)
 
 responseSetVisibleToAllUsers :: SetVisibleToAllUsersResponse -> TestTree
 responseSetVisibleToAllUsers = res
@@ -256,6 +340,27 @@ responseDescribeCluster = res
     emr
     (Proxy :: Proxy DescribeCluster)
 
+responseListSecurityConfigurations :: ListSecurityConfigurationsResponse -> TestTree
+responseListSecurityConfigurations = res
+    "ListSecurityConfigurationsResponse"
+    "fixture/ListSecurityConfigurationsResponse.proto"
+    emr
+    (Proxy :: Proxy ListSecurityConfigurations)
+
+responseCancelSteps :: CancelStepsResponse -> TestTree
+responseCancelSteps = res
+    "CancelStepsResponse"
+    "fixture/CancelStepsResponse.proto"
+    emr
+    (Proxy :: Proxy CancelSteps)
+
+responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
+responseCreateSecurityConfiguration = res
+    "CreateSecurityConfigurationResponse"
+    "fixture/CreateSecurityConfigurationResponse.proto"
+    emr
+    (Proxy :: Proxy CreateSecurityConfiguration)
+
 responseSetTerminationProtection :: SetTerminationProtectionResponse -> TestTree
 responseSetTerminationProtection = res
     "SetTerminationProtectionResponse"
@@ -291,6 +396,13 @@ responseAddInstanceGroups = res
     emr
     (Proxy :: Proxy AddInstanceGroups)
 
+responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
+responseDeleteSecurityConfiguration = res
+    "DeleteSecurityConfigurationResponse"
+    "fixture/DeleteSecurityConfigurationResponse.proto"
+    emr
+    (Proxy :: Proxy DeleteSecurityConfiguration)
+
 responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
 responseListInstanceGroups = res
     "ListInstanceGroupsResponse"
@@ -319,9 +431,23 @@ responseListInstances = res
     emr
     (Proxy :: Proxy ListInstances)
 
+responsePutAutoScalingPolicy :: PutAutoScalingPolicyResponse -> TestTree
+responsePutAutoScalingPolicy = res
+    "PutAutoScalingPolicyResponse"
+    "fixture/PutAutoScalingPolicyResponse.proto"
+    emr
+    (Proxy :: Proxy PutAutoScalingPolicy)
+
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters = res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     emr
     (Proxy :: Proxy ListClusters)
+
+responseDescribeSecurityConfiguration :: DescribeSecurityConfigurationResponse -> TestTree
+responseDescribeSecurityConfiguration = res
+    "DescribeSecurityConfigurationResponse"
+    "fixture/DescribeSecurityConfigurationResponse.proto"
+    emr
+    (Proxy :: Proxy DescribeSecurityConfiguration)

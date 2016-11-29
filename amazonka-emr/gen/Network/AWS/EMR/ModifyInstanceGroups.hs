@@ -27,6 +27,7 @@ module Network.AWS.EMR.ModifyInstanceGroups
       modifyInstanceGroups
     , ModifyInstanceGroups
     -- * Request Lenses
+    , migClusterId
     , migInstanceGroups
 
     -- * Destructuring the Response
@@ -46,21 +47,29 @@ import           Network.AWS.Response
 --
 --
 -- /See:/ 'modifyInstanceGroups' smart constructor.
-newtype ModifyInstanceGroups = ModifyInstanceGroups'
-    { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
+data ModifyInstanceGroups = ModifyInstanceGroups'
+    { _migClusterId      :: !(Maybe Text)
+    , _migInstanceGroups :: !(Maybe [InstanceGroupModifyConfig])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyInstanceGroups' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'migClusterId' - The ID of the cluster to which the instance group belongs.
+--
 -- * 'migInstanceGroups' - Instance groups to change.
 modifyInstanceGroups
     :: ModifyInstanceGroups
 modifyInstanceGroups =
     ModifyInstanceGroups'
-    { _migInstanceGroups = Nothing
+    { _migClusterId = Nothing
+    , _migInstanceGroups = Nothing
     }
+
+-- | The ID of the cluster to which the instance group belongs.
+migClusterId :: Lens' ModifyInstanceGroups (Maybe Text)
+migClusterId = lens _migClusterId (\ s a -> s{_migClusterId = a});
 
 -- | Instance groups to change.
 migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
@@ -90,7 +99,8 @@ instance ToJSON ModifyInstanceGroups where
         toJSON ModifyInstanceGroups'{..}
           = object
               (catMaybes
-                 [("InstanceGroups" .=) <$> _migInstanceGroups])
+                 [("ClusterId" .=) <$> _migClusterId,
+                  ("InstanceGroups" .=) <$> _migInstanceGroups])
 
 instance ToPath ModifyInstanceGroups where
         toPath = const "/"

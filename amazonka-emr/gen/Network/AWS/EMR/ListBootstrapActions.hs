@@ -63,9 +63,9 @@ data ListBootstrapActions = ListBootstrapActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbaMarker' - The pagination token that indicates the next set of results to retrieve .
+-- * 'lbaMarker' - The pagination token that indicates the next set of results to retrieve.
 --
--- * 'lbaClusterId' - The cluster identifier for the bootstrap actions to list .
+-- * 'lbaClusterId' - The cluster identifier for the bootstrap actions to list.
 listBootstrapActions
     :: Text -- ^ 'lbaClusterId'
     -> ListBootstrapActions
@@ -75,11 +75,11 @@ listBootstrapActions pClusterId_ =
     , _lbaClusterId = pClusterId_
     }
 
--- | The pagination token that indicates the next set of results to retrieve .
+-- | The pagination token that indicates the next set of results to retrieve.
 lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
 lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 
--- | The cluster identifier for the bootstrap actions to list .
+-- | The cluster identifier for the bootstrap actions to list.
 lbaClusterId :: Lens' ListBootstrapActions Text
 lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 
@@ -129,7 +129,7 @@ instance ToPath ListBootstrapActions where
 instance ToQuery ListBootstrapActions where
         toQuery = const mempty
 
--- | This output contains the boostrap actions detail .
+-- | This output contains the bootstrap actions detail.
 --
 --
 --
@@ -144,9 +144,9 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbarsBootstrapActions' - The bootstrap actions associated with the cluster .
+-- * 'lbarsBootstrapActions' - The bootstrap actions associated with the cluster.
 --
--- * 'lbarsMarker' - The pagination token that indicates the next set of results to retrieve .
+-- * 'lbarsMarker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- * 'lbarsResponseStatus' - -- | The response status code.
 listBootstrapActionsResponse
@@ -159,11 +159,11 @@ listBootstrapActionsResponse pResponseStatus_ =
     , _lbarsResponseStatus = pResponseStatus_
     }
 
--- | The bootstrap actions associated with the cluster .
+-- | The bootstrap actions associated with the cluster.
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
 lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce;
 
--- | The pagination token that indicates the next set of results to retrieve .
+-- | The pagination token that indicates the next set of results to retrieve.
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 

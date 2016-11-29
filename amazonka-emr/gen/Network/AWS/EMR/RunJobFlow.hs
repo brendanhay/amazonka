@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. Once the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the 'JobFlowInstancesConfig' @KeepJobFlowAliveWhenNoSteps@ parameter is set to @TRUE@ , the job flow will transition to the WAITING state rather than shutting down once the steps have completed.
+-- RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. After the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the 'JobFlowInstancesConfig' @KeepJobFlowAliveWhenNoSteps@ parameter is set to @TRUE@ , the job flow will transition to the WAITING state rather than shutting down after the steps have completed.
 --
 --
 -- For additional protection, you can set the 'JobFlowInstancesConfig' @TerminationProtected@ parameter to @TRUE@ to lock the job flow and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.
 --
 -- A maximum of 256 steps are allowed in each job flow.
 --
--- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon Elastic MapReduce Developer's Guide/ .
+-- If your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon EMR Management Guide/ .
 --
 -- For long running job flows, we recommend that you periodically store your results.
 --
@@ -38,6 +38,9 @@ module Network.AWS.EMR.RunJobFlow
     , rjfAMIVersion
     , rjfAdditionalInfo
     , rjfConfigurations
+    , rjfAutoScalingRole
+    , rjfSecurityConfiguration
+    , rjfScaleDownBehavior
     , rjfSteps
     , rjfJobFlowRole
     , rjfBootstrapActions
@@ -73,33 +76,42 @@ import           Network.AWS.Response
 --
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
-    { _rjfAMIVersion           :: !(Maybe Text)
-    , _rjfAdditionalInfo       :: !(Maybe Text)
-    , _rjfConfigurations       :: !(Maybe [Configuration])
-    , _rjfSteps                :: !(Maybe [StepConfig])
-    , _rjfJobFlowRole          :: !(Maybe Text)
-    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
-    , _rjfReleaseLabel         :: !(Maybe Text)
-    , _rjfLogURI               :: !(Maybe Text)
-    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
-    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
-    , _rjfSupportedProducts    :: !(Maybe [Text])
-    , _rjfApplications         :: !(Maybe [Application])
-    , _rjfTags                 :: !(Maybe [Tag])
-    , _rjfServiceRole          :: !(Maybe Text)
-    , _rjfName                 :: !Text
-    , _rjfInstances            :: !JobFlowInstancesConfig
+    { _rjfAMIVersion            :: !(Maybe Text)
+    , _rjfAdditionalInfo        :: !(Maybe Text)
+    , _rjfConfigurations        :: !(Maybe [Configuration])
+    , _rjfAutoScalingRole       :: !(Maybe Text)
+    , _rjfSecurityConfiguration :: !(Maybe Text)
+    , _rjfScaleDownBehavior     :: !(Maybe ScaleDownBehavior)
+    , _rjfSteps                 :: !(Maybe [StepConfig])
+    , _rjfJobFlowRole           :: !(Maybe Text)
+    , _rjfBootstrapActions      :: !(Maybe [BootstrapActionConfig])
+    , _rjfReleaseLabel          :: !(Maybe Text)
+    , _rjfLogURI                :: !(Maybe Text)
+    , _rjfNewSupportedProducts  :: !(Maybe [SupportedProductConfig])
+    , _rjfVisibleToAllUsers     :: !(Maybe Bool)
+    , _rjfSupportedProducts     :: !(Maybe [Text])
+    , _rjfApplications          :: !(Maybe [Application])
+    , _rjfTags                  :: !(Maybe [Tag])
+    , _rjfServiceRole           :: !(Maybe Text)
+    , _rjfName                  :: !Text
+    , _rjfInstances             :: !JobFlowInstancesConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunJobFlow' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjfAMIVersion' - The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer's Guide./
+-- * 'rjfAMIVersion' - The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./
 --
 -- * 'rjfAdditionalInfo' - A JSON string for selecting additional features.
 --
 -- * 'rjfConfigurations' - The list of configurations supplied for the EMR cluster you are creating.
+--
+-- * 'rjfAutoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+--
+-- * 'rjfSecurityConfiguration' - The name of a security configuration to apply to the cluster.
+--
+-- * 'rjfScaleDownBehavior' - Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 --
 -- * 'rjfSteps' - A list of steps to be executed by the job flow.
 --
@@ -115,7 +127,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfVisibleToAllUsers' - Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and (if they have the proper policy permissions set) manage the job flow. If it is set to @false@ , only the IAM user that created the job flow can view and manage it.
 --
--- * 'rjfSupportedProducts' - A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
+-- * 'rjfSupportedProducts' - A list of strings that indicates third-party software to use with the job flow. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
 -- * 'rjfApplications' - A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
 --
@@ -135,6 +147,9 @@ runJobFlow pName_ pInstances_ =
     { _rjfAMIVersion = Nothing
     , _rjfAdditionalInfo = Nothing
     , _rjfConfigurations = Nothing
+    , _rjfAutoScalingRole = Nothing
+    , _rjfSecurityConfiguration = Nothing
+    , _rjfScaleDownBehavior = Nothing
     , _rjfSteps = Nothing
     , _rjfJobFlowRole = Nothing
     , _rjfBootstrapActions = Nothing
@@ -150,7 +165,7 @@ runJobFlow pName_ pInstances_ =
     , _rjfInstances = pInstances_
     }
 
--- | The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer's Guide./
+-- | The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./
 rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
 
@@ -161,6 +176,18 @@ rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a})
 -- | The list of configurations supplied for the EMR cluster you are creating.
 rjfConfigurations :: Lens' RunJobFlow [Configuration]
 rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
+
+-- | An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+rjfAutoScalingRole :: Lens' RunJobFlow (Maybe Text)
+rjfAutoScalingRole = lens _rjfAutoScalingRole (\ s a -> s{_rjfAutoScalingRole = a});
+
+-- | The name of a security configuration to apply to the cluster.
+rjfSecurityConfiguration :: Lens' RunJobFlow (Maybe Text)
+rjfSecurityConfiguration = lens _rjfSecurityConfiguration (\ s a -> s{_rjfSecurityConfiguration = a});
+
+-- | Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+rjfScaleDownBehavior :: Lens' RunJobFlow (Maybe ScaleDownBehavior)
+rjfScaleDownBehavior = lens _rjfScaleDownBehavior (\ s a -> s{_rjfScaleDownBehavior = a});
 
 -- | A list of steps to be executed by the job flow.
 rjfSteps :: Lens' RunJobFlow [StepConfig]
@@ -190,7 +217,7 @@ rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSuppo
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
 
--- | A list of strings that indicates third-party software to use with the job flow. For more information, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
+-- | A list of strings that indicates third-party software to use with the job flow. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 
@@ -243,6 +270,10 @@ instance ToJSON RunJobFlow where
                  [("AmiVersion" .=) <$> _rjfAMIVersion,
                   ("AdditionalInfo" .=) <$> _rjfAdditionalInfo,
                   ("Configurations" .=) <$> _rjfConfigurations,
+                  ("AutoScalingRole" .=) <$> _rjfAutoScalingRole,
+                  ("SecurityConfiguration" .=) <$>
+                    _rjfSecurityConfiguration,
+                  ("ScaleDownBehavior" .=) <$> _rjfScaleDownBehavior,
                   ("Steps" .=) <$> _rjfSteps,
                   ("JobFlowRole" .=) <$> _rjfJobFlowRole,
                   ("BootstrapActions" .=) <$> _rjfBootstrapActions,

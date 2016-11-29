@@ -13,7 +13,9 @@
 --
 -- __AWS Certificate Manager__
 --
--- Welcome to the AWS Certificate Manager (ACM) Command Reference. This guide provides descriptions, syntax, and usage examples for each ACM command. You can use AWS Certificate Manager to request ACM Certificates for your AWS-based websites and applications. For general information about using ACM and for more information about using the console, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager User Guide> . For more information about using the ACM API, see the <http://docs.aws.amazon.com/acm/latest/APIReference/Welcome.html AWS Certificate Manager API Reference> .
+-- Welcome to the AWS Certificate Manager (ACM) API documentation.
+--
+-- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <http://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
 --
 module Network.AWS.CertificateManager
     (
@@ -80,6 +82,9 @@ module Network.AWS.CertificateManager
     -- ** RemoveTagsFromCertificate
     , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
 
+    -- ** ImportCertificate
+    , module Network.AWS.CertificateManager.ImportCertificate
+
     -- ** DescribeCertificate
     , module Network.AWS.CertificateManager.DescribeCertificate
 
@@ -87,6 +92,9 @@ module Network.AWS.CertificateManager
 
     -- ** CertificateStatus
     , CertificateStatus (..)
+
+    -- ** CertificateType
+    , CertificateType (..)
 
     -- ** FailureReason
     , FailureReason (..)
@@ -108,11 +116,13 @@ module Network.AWS.CertificateManager
     , cdCreatedAt
     , cdCertificateARN
     , cdSerial
+    , cdImportedAt
     , cdRevokedAt
     , cdNotBefore
     , cdRevocationReason
     , cdDomainName
     , cdKeyAlgorithm
+    , cdType
     , cdIssuedAt
     , cdSignatureAlgorithm
     , cdDomainValidationOptions
@@ -149,6 +159,7 @@ import           Network.AWS.CertificateManager.AddTagsToCertificate
 import           Network.AWS.CertificateManager.DeleteCertificate
 import           Network.AWS.CertificateManager.DescribeCertificate
 import           Network.AWS.CertificateManager.GetCertificate
+import           Network.AWS.CertificateManager.ImportCertificate
 import           Network.AWS.CertificateManager.ListCertificates
 import           Network.AWS.CertificateManager.ListTagsForCertificate
 import           Network.AWS.CertificateManager.RemoveTagsFromCertificate

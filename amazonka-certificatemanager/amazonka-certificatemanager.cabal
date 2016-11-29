@@ -44,6 +44,7 @@ library
         , Network.AWS.CertificateManager.DeleteCertificate
         , Network.AWS.CertificateManager.DescribeCertificate
         , Network.AWS.CertificateManager.GetCertificate
+        , Network.AWS.CertificateManager.ImportCertificate
         , Network.AWS.CertificateManager.ListCertificates
         , Network.AWS.CertificateManager.ListTagsForCertificate
         , Network.AWS.CertificateManager.RemoveTagsFromCertificate

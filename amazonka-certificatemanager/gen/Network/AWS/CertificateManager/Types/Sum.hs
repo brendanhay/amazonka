@@ -63,6 +63,32 @@ instance ToJSON CertificateStatus where
 instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
 
+data CertificateType
+    = AmazonIssued
+    | Imported
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText CertificateType where
+    parser = takeLowerText >>= \case
+        "amazon_issued" -> pure AmazonIssued
+        "imported" -> pure Imported
+        e -> fromTextError $ "Failure parsing CertificateType from value: '" <> e
+           <> "'. Accepted values: amazon_issued, imported"
+
+instance ToText CertificateType where
+    toText = \case
+        AmazonIssued -> "AMAZON_ISSUED"
+        Imported -> "IMPORTED"
+
+instance Hashable     CertificateType
+instance NFData       CertificateType
+instance ToByteString CertificateType
+instance ToQuery      CertificateType
+instance ToHeader     CertificateType
+
+instance FromJSON CertificateType where
+    parseJSON = parseJSONText "CertificateType"
+
 data FailureReason
     = AdditionalVerificationRequired
     | DomainNotAllowed
@@ -100,19 +126,22 @@ instance FromJSON FailureReason where
 
 data KeyAlgorithm
     = EcPRIME256V1
+    | Rsa1024
     | Rsa2048
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyAlgorithm where
     parser = takeLowerText >>= \case
         "ec_prime256v1" -> pure EcPRIME256V1
+        "rsa_1024" -> pure Rsa1024
         "rsa_2048" -> pure Rsa2048
         e -> fromTextError $ "Failure parsing KeyAlgorithm from value: '" <> e
-           <> "'. Accepted values: ec_prime256v1, rsa_2048"
+           <> "'. Accepted values: ec_prime256v1, rsa_1024, rsa_2048"
 
 instance ToText KeyAlgorithm where
     toText = \case
         EcPRIME256V1 -> "EC_prime256v1"
+        Rsa1024 -> "RSA_1024"
         Rsa2048 -> "RSA_2048"
 
 instance Hashable     KeyAlgorithm

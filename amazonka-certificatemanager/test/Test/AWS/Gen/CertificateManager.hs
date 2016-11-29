@@ -52,6 +52,9 @@ import Test.AWS.CertificateManager.Internal
 --         , requestRemoveTagsFromCertificate $
 --             removeTagsFromCertificate
 --
+--         , requestImportCertificate $
+--             importCertificate
+--
 --         , requestDescribeCertificate $
 --             describeCertificate
 --
@@ -81,6 +84,9 @@ import Test.AWS.CertificateManager.Internal
 --
 --         , responseRemoveTagsFromCertificate $
 --             removeTagsFromCertificateResponse
+--
+--         , responseImportCertificate $
+--             importCertificateResponse
 --
 --         , responseDescribeCertificate $
 --             describeCertificateResponse
@@ -129,6 +135,11 @@ requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
 requestRemoveTagsFromCertificate = req
     "RemoveTagsFromCertificate"
     "fixture/RemoveTagsFromCertificate.yaml"
+
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate = req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
 
 requestDescribeCertificate :: DescribeCertificate -> TestTree
 requestDescribeCertificate = req
@@ -192,6 +203,13 @@ responseRemoveTagsFromCertificate = res
     "fixture/RemoveTagsFromCertificateResponse.proto"
     certificateManager
     (Proxy :: Proxy RemoveTagsFromCertificate)
+
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate = res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    certificateManager
+    (Proxy :: Proxy ImportCertificate)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
 responseDescribeCertificate = res

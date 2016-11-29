@@ -29,6 +29,9 @@ module Network.AWS.CertificateManager.Types
     -- * CertificateStatus
     , CertificateStatus (..)
 
+    -- * CertificateType
+    , CertificateType (..)
+
     -- * FailureReason
     , FailureReason (..)
 
@@ -49,11 +52,13 @@ module Network.AWS.CertificateManager.Types
     , cdCreatedAt
     , cdCertificateARN
     , cdSerial
+    , cdImportedAt
     , cdRevokedAt
     , cdNotBefore
     , cdRevocationReason
     , cdDomainName
     , cdKeyAlgorithm
+    , cdType
     , cdIssuedAt
     , cdSignatureAlgorithm
     , cdDomainValidationOptions

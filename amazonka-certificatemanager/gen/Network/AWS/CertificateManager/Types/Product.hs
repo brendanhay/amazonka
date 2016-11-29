@@ -35,11 +35,13 @@ data CertificateDetail = CertificateDetail'
     , _cdCreatedAt               :: !(Maybe POSIX)
     , _cdCertificateARN          :: !(Maybe Text)
     , _cdSerial                  :: !(Maybe Text)
+    , _cdImportedAt              :: !(Maybe POSIX)
     , _cdRevokedAt               :: !(Maybe POSIX)
     , _cdNotBefore               :: !(Maybe POSIX)
     , _cdRevocationReason        :: !(Maybe RevocationReason)
     , _cdDomainName              :: !(Maybe Text)
     , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
+    , _cdType                    :: !(Maybe CertificateType)
     , _cdIssuedAt                :: !(Maybe POSIX)
     , _cdSignatureAlgorithm      :: !(Maybe Text)
     , _cdDomainValidationOptions :: !(Maybe (List1 DomainValidation))
@@ -51,21 +53,23 @@ data CertificateDetail = CertificateDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdSubject' - The X.500 distinguished name of the entity associated with the public key contained in the certificate.
+-- * 'cdSubject' - The name of the entity that is associated with the public key contained in the certificate.
 --
 -- * 'cdStatus' - The status of the certificate.
 --
--- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the structure's @Status@ is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
 --
--- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate request. After the certificate is issued, this list includes the domain names bound to the public key contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
 --
--- * 'cdInUseBy' - A list of ARNs for the resources that are using the certificate. An ACM Certificate can be used by multiple AWS resources.
+-- * 'cdInUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
 --
--- * 'cdCreatedAt' - The time at which the certificate was requested.
+-- * 'cdCreatedAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
 --
--- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
 -- * 'cdSerial' - The serial number of the certificate.
+--
+-- * 'cdImportedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
 --
 -- * 'cdRevokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 --
@@ -73,17 +77,19 @@ data CertificateDetail = CertificateDetail'
 --
 -- * 'cdRevocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 --
--- * 'cdDomainName' - The fully qualified domain name (FQDN) for the certificate, such as www.example.com or example.com.
+-- * 'cdDomainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
 --
--- * 'cdKeyAlgorithm' - The algorithm used to generate the key pair (the public and private key). Currently the only supported value is @RSA_2048@ .
+-- * 'cdKeyAlgorithm' - The algorithm that was used to generate the key pair (the public and private key).
 --
--- * 'cdIssuedAt' - The time at which the certificate was issued.
+-- * 'cdType' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
 --
--- * 'cdSignatureAlgorithm' - The algorithm used to generate a signature. Currently the only supported value is @SHA256WITHRSA@ .
+-- * 'cdIssuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
 --
--- * 'cdDomainValidationOptions' - Contains information about the email address or addresses used for domain validation.
+-- * 'cdSignatureAlgorithm' - The algorithm that was used to sign the certificate.
 --
--- * 'cdIssuer' - The X.500 distinguished name of the CA that issued and signed the certificate.
+-- * 'cdDomainValidationOptions' - Contains information about the email address or addresses used for domain validation. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+--
+-- * 'cdIssuer' - The name of the certificate authority that issued and signed the certificate.
 --
 -- * 'cdNotAfter' - The time after which the certificate is not valid.
 certificateDetail
@@ -98,11 +104,13 @@ certificateDetail =
     , _cdCreatedAt = Nothing
     , _cdCertificateARN = Nothing
     , _cdSerial = Nothing
+    , _cdImportedAt = Nothing
     , _cdRevokedAt = Nothing
     , _cdNotBefore = Nothing
     , _cdRevocationReason = Nothing
     , _cdDomainName = Nothing
     , _cdKeyAlgorithm = Nothing
+    , _cdType = Nothing
     , _cdIssuedAt = Nothing
     , _cdSignatureAlgorithm = Nothing
     , _cdDomainValidationOptions = Nothing
@@ -110,7 +118,7 @@ certificateDetail =
     , _cdNotAfter = Nothing
     }
 
--- | The X.500 distinguished name of the entity associated with the public key contained in the certificate.
+-- | The name of the entity that is associated with the public key contained in the certificate.
 cdSubject :: Lens' CertificateDetail (Maybe Text)
 cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 
@@ -118,29 +126,33 @@ cdSubject = lens _cdSubject (\ s a -> s{_cdSubject = a});
 cdStatus :: Lens' CertificateDetail (Maybe CertificateStatus)
 cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
--- | The reason the certificate request failed. This value exists only when the structure's @Status@ is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- | The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
 cdFailureReason :: Lens' CertificateDetail (Maybe FailureReason)
 cdFailureReason = lens _cdFailureReason (\ s a -> s{_cdFailureReason = a});
 
--- | One or more domain names (subject alternative names) included in the certificate request. After the certificate is issued, this list includes the domain names bound to the public key contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- | One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
 cdSubjectAlternativeNames :: Lens' CertificateDetail (Maybe (NonEmpty Text))
 cdSubjectAlternativeNames = lens _cdSubjectAlternativeNames (\ s a -> s{_cdSubjectAlternativeNames = a}) . mapping _List1;
 
--- | A list of ARNs for the resources that are using the certificate. An ACM Certificate can be used by multiple AWS resources.
+-- | A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
 cdInUseBy :: Lens' CertificateDetail [Text]
 cdInUseBy = lens _cdInUseBy (\ s a -> s{_cdInUseBy = a}) . _Default . _Coerce;
 
--- | The time at which the certificate was requested.
+-- | The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
 cdCreatedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdCreatedAt = lens _cdCreatedAt (\ s a -> s{_cdCreatedAt = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 cdCertificateARN :: Lens' CertificateDetail (Maybe Text)
 cdCertificateARN = lens _cdCertificateARN (\ s a -> s{_cdCertificateARN = a});
 
 -- | The serial number of the certificate.
 cdSerial :: Lens' CertificateDetail (Maybe Text)
 cdSerial = lens _cdSerial (\ s a -> s{_cdSerial = a});
+
+-- | The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
+cdImportedAt :: Lens' CertificateDetail (Maybe UTCTime)
+cdImportedAt = lens _cdImportedAt (\ s a -> s{_cdImportedAt = a}) . mapping _Time;
 
 -- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
 cdRevokedAt :: Lens' CertificateDetail (Maybe UTCTime)
@@ -154,27 +166,31 @@ cdNotBefore = lens _cdNotBefore (\ s a -> s{_cdNotBefore = a}) . mapping _Time;
 cdRevocationReason :: Lens' CertificateDetail (Maybe RevocationReason)
 cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = a});
 
--- | The fully qualified domain name (FQDN) for the certificate, such as www.example.com or example.com.
+-- | The fully qualified domain name for the certificate, such as www.example.com or example.com.
 cdDomainName :: Lens' CertificateDetail (Maybe Text)
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
--- | The algorithm used to generate the key pair (the public and private key). Currently the only supported value is @RSA_2048@ .
+-- | The algorithm that was used to generate the key pair (the public and private key).
 cdKeyAlgorithm :: Lens' CertificateDetail (Maybe KeyAlgorithm)
 cdKeyAlgorithm = lens _cdKeyAlgorithm (\ s a -> s{_cdKeyAlgorithm = a});
 
--- | The time at which the certificate was issued.
+-- | The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+cdType :: Lens' CertificateDetail (Maybe CertificateType)
+cdType = lens _cdType (\ s a -> s{_cdType = a});
+
+-- | The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
 cdIssuedAt :: Lens' CertificateDetail (Maybe UTCTime)
 cdIssuedAt = lens _cdIssuedAt (\ s a -> s{_cdIssuedAt = a}) . mapping _Time;
 
--- | The algorithm used to generate a signature. Currently the only supported value is @SHA256WITHRSA@ .
+-- | The algorithm that was used to sign the certificate.
 cdSignatureAlgorithm :: Lens' CertificateDetail (Maybe Text)
 cdSignatureAlgorithm = lens _cdSignatureAlgorithm (\ s a -> s{_cdSignatureAlgorithm = a});
 
--- | Contains information about the email address or addresses used for domain validation.
+-- | Contains information about the email address or addresses used for domain validation. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 cdDomainValidationOptions :: Lens' CertificateDetail (Maybe (NonEmpty DomainValidation))
 cdDomainValidationOptions = lens _cdDomainValidationOptions (\ s a -> s{_cdDomainValidationOptions = a}) . mapping _List1;
 
--- | The X.500 distinguished name of the CA that issued and signed the certificate.
+-- | The name of the certificate authority that issued and signed the certificate.
 cdIssuer :: Lens' CertificateDetail (Maybe Text)
 cdIssuer = lens _cdIssuer (\ s a -> s{_cdIssuer = a});
 
@@ -194,11 +210,13 @@ instance FromJSON CertificateDetail where
                      <*> (x .:? "CreatedAt")
                      <*> (x .:? "CertificateArn")
                      <*> (x .:? "Serial")
+                     <*> (x .:? "ImportedAt")
                      <*> (x .:? "RevokedAt")
                      <*> (x .:? "NotBefore")
                      <*> (x .:? "RevocationReason")
                      <*> (x .:? "DomainName")
                      <*> (x .:? "KeyAlgorithm")
+                     <*> (x .:? "Type")
                      <*> (x .:? "IssuedAt")
                      <*> (x .:? "SignatureAlgorithm")
                      <*> (x .:? "DomainValidationOptions")

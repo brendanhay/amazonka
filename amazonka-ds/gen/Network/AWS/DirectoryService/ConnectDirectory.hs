@@ -21,6 +21,8 @@
 -- Creates an AD Connector to connect to an on-premises directory.
 --
 --
+-- Before you call /ConnectDirectory/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /ConnectDirectory/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
+--
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request

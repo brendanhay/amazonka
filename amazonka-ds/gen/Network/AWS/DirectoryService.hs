@@ -125,6 +125,9 @@ module Network.AWS.DirectoryService
     -- ** EnableSSO
     , module Network.AWS.DirectoryService.EnableSSO
 
+    -- ** CancelSchemaExtension
+    , module Network.AWS.DirectoryService.CancelSchemaExtension
+
     -- ** EnableRadius
     , module Network.AWS.DirectoryService.EnableRadius
 
@@ -133,6 +136,9 @@ module Network.AWS.DirectoryService
 
     -- ** AddTagsToResource
     , module Network.AWS.DirectoryService.AddTagsToResource
+
+    -- ** ListSchemaExtensions
+    , module Network.AWS.DirectoryService.ListSchemaExtensions
 
     -- ** DisableRadius
     , module Network.AWS.DirectoryService.DisableRadius
@@ -148,6 +154,9 @@ module Network.AWS.DirectoryService
 
     -- ** DeleteSnapshot
     , module Network.AWS.DirectoryService.DeleteSnapshot
+
+    -- ** StartSchemaExtension
+    , module Network.AWS.DirectoryService.StartSchemaExtension
 
     -- ** CreateTrust
     , module Network.AWS.DirectoryService.CreateTrust
@@ -198,6 +207,9 @@ module Network.AWS.DirectoryService
 
     -- ** ReplicationScope
     , ReplicationScope (..)
+
+    -- ** SchemaExtensionStatus
+    , SchemaExtensionStatus (..)
 
     -- ** SnapshotStatus
     , SnapshotStatus (..)
@@ -341,6 +353,17 @@ module Network.AWS.DirectoryService
     , rsRadiusTimeout
     , rsRadiusPort
 
+    -- ** SchemaExtensionInfo
+    , SchemaExtensionInfo
+    , schemaExtensionInfo
+    , seiDirectoryId
+    , seiSchemaExtensionId
+    , seiSchemaExtensionStatusReason
+    , seiSchemaExtensionStatus
+    , seiDescription
+    , seiEndDateTime
+    , seiStartDateTime
+
     -- ** Snapshot
     , Snapshot
     , snapshot
@@ -381,6 +404,7 @@ module Network.AWS.DirectoryService
 
 import           Network.AWS.DirectoryService.AddIPRoutes
 import           Network.AWS.DirectoryService.AddTagsToResource
+import           Network.AWS.DirectoryService.CancelSchemaExtension
 import           Network.AWS.DirectoryService.ConnectDirectory
 import           Network.AWS.DirectoryService.CreateAlias
 import           Network.AWS.DirectoryService.CreateComputer
@@ -406,11 +430,13 @@ import           Network.AWS.DirectoryService.EnableSSO
 import           Network.AWS.DirectoryService.GetDirectoryLimits
 import           Network.AWS.DirectoryService.GetSnapshotLimits
 import           Network.AWS.DirectoryService.ListIPRoutes
+import           Network.AWS.DirectoryService.ListSchemaExtensions
 import           Network.AWS.DirectoryService.ListTagsForResource
 import           Network.AWS.DirectoryService.RegisterEventTopic
 import           Network.AWS.DirectoryService.RemoveIPRoutes
 import           Network.AWS.DirectoryService.RemoveTagsFromResource
 import           Network.AWS.DirectoryService.RestoreFromSnapshot
+import           Network.AWS.DirectoryService.StartSchemaExtension
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.UpdateConditionalForwarder
 import           Network.AWS.DirectoryService.UpdateRadius

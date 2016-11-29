@@ -42,6 +42,7 @@ library
           Network.AWS.DirectoryService
         , Network.AWS.DirectoryService.AddIPRoutes
         , Network.AWS.DirectoryService.AddTagsToResource
+        , Network.AWS.DirectoryService.CancelSchemaExtension
         , Network.AWS.DirectoryService.ConnectDirectory
         , Network.AWS.DirectoryService.CreateAlias
         , Network.AWS.DirectoryService.CreateComputer
@@ -67,11 +68,13 @@ library
         , Network.AWS.DirectoryService.GetDirectoryLimits
         , Network.AWS.DirectoryService.GetSnapshotLimits
         , Network.AWS.DirectoryService.ListIPRoutes
+        , Network.AWS.DirectoryService.ListSchemaExtensions
         , Network.AWS.DirectoryService.ListTagsForResource
         , Network.AWS.DirectoryService.RegisterEventTopic
         , Network.AWS.DirectoryService.RemoveIPRoutes
         , Network.AWS.DirectoryService.RemoveTagsFromResource
         , Network.AWS.DirectoryService.RestoreFromSnapshot
+        , Network.AWS.DirectoryService.StartSchemaExtension
         , Network.AWS.DirectoryService.Types
         , Network.AWS.DirectoryService.UpdateConditionalForwarder
         , Network.AWS.DirectoryService.UpdateRadius

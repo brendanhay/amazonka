@@ -82,6 +82,9 @@ import Test.AWS.DirectoryService.Internal
 --         , requestEnableSSO $
 --             enableSSO
 --
+--         , requestCancelSchemaExtension $
+--             cancelSchemaExtension
+--
 --         , requestEnableRadius $
 --             enableRadius
 --
@@ -90,6 +93,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , requestAddTagsToResource $
 --             addTagsToResource
+--
+--         , requestListSchemaExtensions $
+--             listSchemaExtensions
 --
 --         , requestDisableRadius $
 --             disableRadius
@@ -105,6 +111,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , requestDeleteSnapshot $
 --             deleteSnapshot
+--
+--         , requestStartSchemaExtension $
+--             startSchemaExtension
 --
 --         , requestCreateTrust $
 --             createTrust
@@ -190,6 +199,9 @@ import Test.AWS.DirectoryService.Internal
 --         , responseEnableSSO $
 --             enableSSOResponse
 --
+--         , responseCancelSchemaExtension $
+--             cancelSchemaExtensionResponse
+--
 --         , responseEnableRadius $
 --             enableRadiusResponse
 --
@@ -198,6 +210,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , responseAddTagsToResource $
 --             addTagsToResourceResponse
+--
+--         , responseListSchemaExtensions $
+--             listSchemaExtensionsResponse
 --
 --         , responseDisableRadius $
 --             disableRadiusResponse
@@ -213,6 +228,9 @@ import Test.AWS.DirectoryService.Internal
 --
 --         , responseDeleteSnapshot $
 --             deleteSnapshotResponse
+--
+--         , responseStartSchemaExtension $
+--             startSchemaExtensionResponse
 --
 --         , responseCreateTrust $
 --             createTrustResponse
@@ -336,6 +354,11 @@ requestEnableSSO = req
     "EnableSSO"
     "fixture/EnableSSO.yaml"
 
+requestCancelSchemaExtension :: CancelSchemaExtension -> TestTree
+requestCancelSchemaExtension = req
+    "CancelSchemaExtension"
+    "fixture/CancelSchemaExtension.yaml"
+
 requestEnableRadius :: EnableRadius -> TestTree
 requestEnableRadius = req
     "EnableRadius"
@@ -350,6 +373,11 @@ requestAddTagsToResource :: AddTagsToResource -> TestTree
 requestAddTagsToResource = req
     "AddTagsToResource"
     "fixture/AddTagsToResource.yaml"
+
+requestListSchemaExtensions :: ListSchemaExtensions -> TestTree
+requestListSchemaExtensions = req
+    "ListSchemaExtensions"
+    "fixture/ListSchemaExtensions.yaml"
 
 requestDisableRadius :: DisableRadius -> TestTree
 requestDisableRadius = req
@@ -375,6 +403,11 @@ requestDeleteSnapshot :: DeleteSnapshot -> TestTree
 requestDeleteSnapshot = req
     "DeleteSnapshot"
     "fixture/DeleteSnapshot.yaml"
+
+requestStartSchemaExtension :: StartSchemaExtension -> TestTree
+requestStartSchemaExtension = req
+    "StartSchemaExtension"
+    "fixture/StartSchemaExtension.yaml"
 
 requestCreateTrust :: CreateTrust -> TestTree
 requestCreateTrust = req
@@ -549,6 +582,13 @@ responseEnableSSO = res
     directoryService
     (Proxy :: Proxy EnableSSO)
 
+responseCancelSchemaExtension :: CancelSchemaExtensionResponse -> TestTree
+responseCancelSchemaExtension = res
+    "CancelSchemaExtensionResponse"
+    "fixture/CancelSchemaExtensionResponse.proto"
+    directoryService
+    (Proxy :: Proxy CancelSchemaExtension)
+
 responseEnableRadius :: EnableRadiusResponse -> TestTree
 responseEnableRadius = res
     "EnableRadiusResponse"
@@ -569,6 +609,13 @@ responseAddTagsToResource = res
     "fixture/AddTagsToResourceResponse.proto"
     directoryService
     (Proxy :: Proxy AddTagsToResource)
+
+responseListSchemaExtensions :: ListSchemaExtensionsResponse -> TestTree
+responseListSchemaExtensions = res
+    "ListSchemaExtensionsResponse"
+    "fixture/ListSchemaExtensionsResponse.proto"
+    directoryService
+    (Proxy :: Proxy ListSchemaExtensions)
 
 responseDisableRadius :: DisableRadiusResponse -> TestTree
 responseDisableRadius = res
@@ -604,6 +651,13 @@ responseDeleteSnapshot = res
     "fixture/DeleteSnapshotResponse.proto"
     directoryService
     (Proxy :: Proxy DeleteSnapshot)
+
+responseStartSchemaExtension :: StartSchemaExtensionResponse -> TestTree
+responseStartSchemaExtension = res
+    "StartSchemaExtensionResponse"
+    "fixture/StartSchemaExtensionResponse.proto"
+    directoryService
+    (Proxy :: Proxy StartSchemaExtension)
 
 responseCreateTrust :: CreateTrustResponse -> TestTree
 responseCreateTrust = res

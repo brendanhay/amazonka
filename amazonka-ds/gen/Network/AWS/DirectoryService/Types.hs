@@ -52,6 +52,9 @@ module Network.AWS.DirectoryService.Types
     -- * ReplicationScope
     , ReplicationScope (..)
 
+    -- * SchemaExtensionStatus
+    , SchemaExtensionStatus (..)
+
     -- * SnapshotStatus
     , SnapshotStatus (..)
 
@@ -193,6 +196,17 @@ module Network.AWS.DirectoryService.Types
     , rsSharedSecret
     , rsRadiusTimeout
     , rsRadiusPort
+
+    -- * SchemaExtensionInfo
+    , SchemaExtensionInfo
+    , schemaExtensionInfo
+    , seiDirectoryId
+    , seiSchemaExtensionId
+    , seiSchemaExtensionStatusReason
+    , seiSchemaExtensionStatus
+    , seiDescription
+    , seiEndDateTime
+    , seiStartDateTime
 
     -- * Snapshot
     , Snapshot

@@ -118,7 +118,7 @@ instance ToQuery DescribeConstraint where
 
 -- | /See:/ 'describeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-    { _drsStatus               :: !(Maybe Status)
+    { _drsStatus               :: !(Maybe RequestStatus)
     , _drsConstraintDetail     :: !(Maybe ConstraintDetail)
     , _drsConstraintParameters :: !(Maybe Text)
     , _drsResponseStatus       :: !Int
@@ -147,7 +147,7 @@ describeConstraintResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-drsStatus :: Lens' DescribeConstraintResponse (Maybe Status)
+drsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | Detailed constraint information.

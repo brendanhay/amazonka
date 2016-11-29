@@ -127,7 +127,7 @@ instance ToQuery UpdateConstraint where
 
 -- | /See:/ 'updateConstraintResponse' smart constructor.
 data UpdateConstraintResponse = UpdateConstraintResponse'
-    { _ucrsStatus               :: !(Maybe Status)
+    { _ucrsStatus               :: !(Maybe RequestStatus)
     , _ucrsConstraintDetail     :: !(Maybe ConstraintDetail)
     , _ucrsConstraintParameters :: !(Maybe Text)
     , _ucrsResponseStatus       :: !Int
@@ -156,7 +156,7 @@ updateConstraintResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-ucrsStatus :: Lens' UpdateConstraintResponse (Maybe Status)
+ucrsStatus :: Lens' UpdateConstraintResponse (Maybe RequestStatus)
 ucrsStatus = lens _ucrsStatus (\ s a -> s{_ucrsStatus = a});
 
 -- | The resulting detailed constraint information.

@@ -132,7 +132,7 @@ instance ToQuery DescribeProvisioningArtifact where
 
 -- | /See:/ 'describeProvisioningArtifactResponse' smart constructor.
 data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse'
-    { _desrsStatus                     :: !(Maybe Status)
+    { _desrsStatus                     :: !(Maybe RequestStatus)
     , _desrsInfo                       :: !(Maybe (Map Text Text))
     , _desrsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
     , _desrsResponseStatus             :: !Int
@@ -161,7 +161,7 @@ describeProvisioningArtifactResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-desrsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe Status)
+desrsStatus :: Lens' DescribeProvisioningArtifactResponse (Maybe RequestStatus)
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
 
 -- | Additional information about the provisioning artifact.

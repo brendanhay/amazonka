@@ -151,7 +151,7 @@ instance ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'updateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-    { _uparsStatus                     :: !(Maybe Status)
+    { _uparsStatus                     :: !(Maybe RequestStatus)
     , _uparsInfo                       :: !(Maybe (Map Text Text))
     , _uparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
     , _uparsResponseStatus             :: !Int
@@ -180,7 +180,7 @@ updateProvisioningArtifactResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-uparsStatus :: Lens' UpdateProvisioningArtifactResponse (Maybe Status)
+uparsStatus :: Lens' UpdateProvisioningArtifactResponse (Maybe RequestStatus)
 uparsStatus = lens _uparsStatus (\ s a -> s{_uparsStatus = a});
 
 -- | Additional information about the provisioning artifact update request.

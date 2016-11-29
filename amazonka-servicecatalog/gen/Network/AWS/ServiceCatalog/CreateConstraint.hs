@@ -171,7 +171,7 @@ instance ToQuery CreateConstraint where
 
 -- | /See:/ 'createConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-    { _ccrsStatus               :: !(Maybe Status)
+    { _ccrsStatus               :: !(Maybe RequestStatus)
     , _ccrsConstraintDetail     :: !(Maybe ConstraintDetail)
     , _ccrsConstraintParameters :: !(Maybe Text)
     , _ccrsResponseStatus       :: !Int
@@ -200,7 +200,7 @@ createConstraintResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-ccrsStatus :: Lens' CreateConstraintResponse (Maybe Status)
+ccrsStatus :: Lens' CreateConstraintResponse (Maybe RequestStatus)
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});
 
 -- | The resulting detailed constraint information.

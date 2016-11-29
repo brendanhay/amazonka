@@ -209,11 +209,11 @@ module Network.AWS.ServiceCatalog
     -- ** RecordStatus
     , RecordStatus (..)
 
+    -- ** RequestStatus
+    , RequestStatus (..)
+
     -- ** SortOrder
     , SortOrder (..)
-
-    -- ** Status
-    , Status (..)
 
     -- ** AccessLevelFilter
     , AccessLevelFilter

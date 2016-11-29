@@ -46,11 +46,11 @@ module Network.AWS.ServiceCatalog.Types
     -- * RecordStatus
     , RecordStatus (..)
 
+    -- * RequestStatus
+    , RequestStatus (..)
+
     -- * SortOrder
     , SortOrder (..)
-
-    -- * Status
-    , Status (..)
 
     -- * AccessLevelFilter
     , AccessLevelFilter

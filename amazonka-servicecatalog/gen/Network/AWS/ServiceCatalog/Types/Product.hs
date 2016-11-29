@@ -487,7 +487,7 @@ instance NFData ProductViewAggregationValue
 --
 -- /See:/ 'productViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-    { _pvdStatus             :: !(Maybe Status)
+    { _pvdStatus             :: !(Maybe RequestStatus)
     , _pvdProductViewSummary :: !(Maybe ProductViewSummary)
     , _pvdCreatedTime        :: !(Maybe POSIX)
     , _pvdProductARN         :: !(Maybe Text)
@@ -515,7 +515,7 @@ productViewDetail =
     }
 
 -- | Current status of the product.
-pvdStatus :: Lens' ProductViewDetail (Maybe Status)
+pvdStatus :: Lens' ProductViewDetail (Maybe RequestStatus)
 pvdStatus = lens _pvdStatus (\ s a -> s{_pvdStatus = a});
 
 -- | The summary metadata about the specified product view.

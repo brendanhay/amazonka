@@ -236,6 +236,35 @@ instance ToHeader     RecordStatus
 instance FromJSON RecordStatus where
     parseJSON = parseJSONText "RecordStatus"
 
+data RequestStatus
+    = Available
+    | Creating
+    | Failed
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RequestStatus where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "creating" -> pure Creating
+        "failed" -> pure Failed
+        e -> fromTextError $ "Failure parsing RequestStatus from value: '" <> e
+           <> "'. Accepted values: available, creating, failed"
+
+instance ToText RequestStatus where
+    toText = \case
+        Available -> "AVAILABLE"
+        Creating -> "CREATING"
+        Failed -> "FAILED"
+
+instance Hashable     RequestStatus
+instance NFData       RequestStatus
+instance ToByteString RequestStatus
+instance ToQuery      RequestStatus
+instance ToHeader     RequestStatus
+
+instance FromJSON RequestStatus where
+    parseJSON = parseJSONText "RequestStatus"
+
 data SortOrder
     = Ascending
     | Descending
@@ -261,32 +290,3 @@ instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
-
-data Status
-    = Available
-    | Creating
-    | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
-
-instance FromText Status where
-    parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "creating" -> pure Creating
-        "failed" -> pure Failed
-        e -> fromTextError $ "Failure parsing Status from value: '" <> e
-           <> "'. Accepted values: available, creating, failed"
-
-instance ToText Status where
-    toText = \case
-        Available -> "AVAILABLE"
-        Creating -> "CREATING"
-        Failed -> "FAILED"
-
-instance Hashable     Status
-instance NFData       Status
-instance ToByteString Status
-instance ToQuery      Status
-instance ToHeader     Status
-
-instance FromJSON Status where
-    parseJSON = parseJSONText "Status"

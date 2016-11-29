@@ -140,7 +140,7 @@ instance ToQuery CreateProvisioningArtifact where
 
 -- | /See:/ 'createProvisioningArtifactResponse' smart constructor.
 data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
-    { _cparsStatus                     :: !(Maybe Status)
+    { _cparsStatus                     :: !(Maybe RequestStatus)
     , _cparsInfo                       :: !(Maybe (Map Text Text))
     , _cparsProvisioningArtifactDetail :: !(Maybe ProvisioningArtifactDetail)
     , _cparsResponseStatus             :: !Int
@@ -169,7 +169,7 @@ createProvisioningArtifactResponse pResponseStatus_ =
     }
 
 -- | The status of the current request.
-cparsStatus :: Lens' CreateProvisioningArtifactResponse (Maybe Status)
+cparsStatus :: Lens' CreateProvisioningArtifactResponse (Maybe RequestStatus)
 cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});
 
 -- | Additional information about the provisioning artifact create request.

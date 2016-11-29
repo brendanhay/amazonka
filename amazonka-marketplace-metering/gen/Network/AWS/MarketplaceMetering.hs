@@ -19,7 +19,15 @@
 --
 -- __Submitting Metering Records__
 --
---     * /MeterUsage/ - Submits the metering record for a Marketplace product.
+--     * /MeterUsage/ - Submits the metering record for a Marketplace product. MeterUsage is called from an EC2 instance.
+--
+--     * /BatchMeterUsage/ - Submits the metering record for a set of customers. BatchMeterUsage is called from a software-as-a-service (SaaS) application.
+--
+--
+--
+-- __Accepting New Customers__
+--
+--     * /ResolveCustomer/ - Called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a Registration Token through the browser. The Registration Token is resolved through this API to obtain a CustomerIdentifier and Product Code.
 --
 --
 --
@@ -52,19 +60,54 @@ module Network.AWS.MarketplaceMetering
     -- ** InternalServiceErrorException
     , _InternalServiceErrorException
 
+    -- ** InvalidTokenException
+    , _InvalidTokenException
+
+    -- ** ExpiredTokenException
+    , _ExpiredTokenException
+
+    -- ** InvalidCustomerIdentifierException
+    , _InvalidCustomerIdentifierException
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
+    -- ** BatchMeterUsage
+    , module Network.AWS.MarketplaceMetering.BatchMeterUsage
+
+    -- ** ResolveCustomer
+    , module Network.AWS.MarketplaceMetering.ResolveCustomer
+
     -- ** MeterUsage
     , module Network.AWS.MarketplaceMetering.MeterUsage
 
     -- * Types
+
+    -- ** UsageRecordResultStatus
+    , UsageRecordResultStatus (..)
+
+    -- ** UsageRecord
+    , UsageRecord
+    , usageRecord
+    , urTimestamp
+    , urCustomerIdentifier
+    , urDimension
+    , urQuantity
+
+    -- ** UsageRecordResult
+    , UsageRecordResult
+    , usageRecordResult
+    , urrStatus
+    , urrUsageRecord
+    , urrMeteringRecordId
     ) where
 
+import           Network.AWS.MarketplaceMetering.BatchMeterUsage
 import           Network.AWS.MarketplaceMetering.MeterUsage
+import           Network.AWS.MarketplaceMetering.ResolveCustomer
 import           Network.AWS.MarketplaceMetering.Types
 import           Network.AWS.MarketplaceMetering.Waiters
 

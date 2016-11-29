@@ -21,6 +21,8 @@
 -- API to emit metering records. For identical requests, the API is idempotent. It simply returns the metering record ID.
 --
 --
+-- MeterUsage is authenticated on the buyer's AWS account, generally when running from an EC2 instance on the AWS Marketplace.
+--
 module Network.AWS.MarketplaceMetering.MeterUsage
     (
     -- * Creating a Request
@@ -65,7 +67,7 @@ data MeterUsage = MeterUsage'
 --
 -- * 'muTimestamp' - Timestamp of the hour, recorded in UTC. The seconds and milliseconds portions of the timestamp will be ignored.
 --
--- * 'muUsageDimension' - It will be one of the 'fcp dimension name' provided during the publishing of the product.
+-- * 'muUsageDimension' - It will be one of the fcp dimension name provided during the publishing of the product.
 --
 -- * 'muUsageQuantity' - Consumption value for the hour.
 --
@@ -94,7 +96,7 @@ muProductCode = lens _muProductCode (\ s a -> s{_muProductCode = a});
 muTimestamp :: Lens' MeterUsage UTCTime
 muTimestamp = lens _muTimestamp (\ s a -> s{_muTimestamp = a}) . _Time;
 
--- | It will be one of the 'fcp dimension name' provided during the publishing of the product.
+-- | It will be one of the fcp dimension name provided during the publishing of the product.
 muUsageDimension :: Lens' MeterUsage Text
 muUsageDimension = lens _muUsageDimension (\ s a -> s{_muUsageDimension = a});
 

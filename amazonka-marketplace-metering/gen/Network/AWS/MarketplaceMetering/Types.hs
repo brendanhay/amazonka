@@ -23,6 +23,27 @@ module Network.AWS.MarketplaceMetering.Types
     , _TimestampOutOfBoundsException
     , _ThrottlingException
     , _InternalServiceErrorException
+    , _InvalidTokenException
+    , _ExpiredTokenException
+    , _InvalidCustomerIdentifierException
+
+    -- * UsageRecordResultStatus
+    , UsageRecordResultStatus (..)
+
+    -- * UsageRecord
+    , UsageRecord
+    , usageRecord
+    , urTimestamp
+    , urCustomerIdentifier
+    , urDimension
+    , urQuantity
+
+    -- * UsageRecordResult
+    , UsageRecordResult
+    , usageRecordResult
+    , urrStatus
+    , urrUsageRecord
+    , urrMeteringRecordId
     ) where
 
 import           Network.AWS.Lens
@@ -112,3 +133,20 @@ _ThrottlingException = _ServiceError . hasCode "ThrottlingException"
 _InternalServiceErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceErrorException =
     _ServiceError . hasCode "InternalServiceErrorException"
+
+-- | Prism for InvalidTokenException' errors.
+_InvalidTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTokenException = _ServiceError . hasCode "InvalidTokenException"
+
+-- | The submitted registration token has expired. This can happen if the buyer's browser takes too long to redirect to your page, the buyer has resubmitted the registration token, or your application has held on to the registration token for too long. Your SaaS registration website should redeem this token as soon as it is submitted by the buyer's browser.
+--
+--
+_ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredTokenException = _ServiceError . hasCode "ExpiredTokenException"
+
+-- | You have metered usage for a CustomerIdentifier that does not exist.
+--
+--
+_InvalidCustomerIdentifierException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCustomerIdentifierException =
+    _ServiceError . hasCode "InvalidCustomerIdentifierException"

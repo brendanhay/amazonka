@@ -28,13 +28,25 @@ import Test.AWS.MarketplaceMetering.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestMeterUsage $
+--         [ requestBatchMeterUsage $
+--             batchMeterUsage
+--
+--         , requestResolveCustomer $
+--             resolveCustomer
+--
+--         , requestMeterUsage $
 --             meterUsage
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseMeterUsage $
+--         [ responseBatchMeterUsage $
+--             batchMeterUsageResponse
+--
+--         , responseResolveCustomer $
+--             resolveCustomerResponse
+--
+--         , responseMeterUsage $
 --             meterUsageResponse
 --
 --           ]
@@ -42,12 +54,36 @@ import Test.AWS.MarketplaceMetering.Internal
 
 -- Requests
 
+requestBatchMeterUsage :: BatchMeterUsage -> TestTree
+requestBatchMeterUsage = req
+    "BatchMeterUsage"
+    "fixture/BatchMeterUsage.yaml"
+
+requestResolveCustomer :: ResolveCustomer -> TestTree
+requestResolveCustomer = req
+    "ResolveCustomer"
+    "fixture/ResolveCustomer.yaml"
+
 requestMeterUsage :: MeterUsage -> TestTree
 requestMeterUsage = req
     "MeterUsage"
     "fixture/MeterUsage.yaml"
 
 -- Responses
+
+responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
+responseBatchMeterUsage = res
+    "BatchMeterUsageResponse"
+    "fixture/BatchMeterUsageResponse.proto"
+    marketplaceMetering
+    (Proxy :: Proxy BatchMeterUsage)
+
+responseResolveCustomer :: ResolveCustomerResponse -> TestTree
+responseResolveCustomer = res
+    "ResolveCustomerResponse"
+    "fixture/ResolveCustomerResponse.proto"
+    marketplaceMetering
+    (Proxy :: Proxy ResolveCustomer)
 
 responseMeterUsage :: MeterUsageResponse -> TestTree
 responseMeterUsage = res

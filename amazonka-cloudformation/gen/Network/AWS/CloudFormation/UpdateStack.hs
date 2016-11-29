@@ -43,6 +43,7 @@ module Network.AWS.CloudFormation.UpdateStack
     , usCapabilities
     , usResourceTypes
     , usTags
+    , usRoleARN
     , usStackName
 
     -- * Destructuring the Response
@@ -78,6 +79,7 @@ data UpdateStack = UpdateStack'
     , _usCapabilities                :: !(Maybe [Capability])
     , _usResourceTypes               :: !(Maybe [Text])
     , _usTags                        :: !(Maybe [Tag])
+    , _usRoleARN                     :: !(Maybe Text)
     , _usStackName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -109,6 +111,8 @@ data UpdateStack = UpdateStack'
 --
 -- * 'usTags' - Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to supported resources in the stack. You can specify a maximum number of 10 tags. If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's tags. If you specify an empty value, AWS CloudFormation removes all associated tags.
 --
+-- * 'usRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+--
 -- * 'usStackName' - The name or unique stack ID of the stack to update.
 updateStack
     :: Text -- ^ 'usStackName'
@@ -127,6 +131,7 @@ updateStack pStackName_ =
     , _usCapabilities = Nothing
     , _usResourceTypes = Nothing
     , _usTags = Nothing
+    , _usRoleARN = Nothing
     , _usStackName = pStackName_
     }
 
@@ -178,6 +183,10 @@ usResourceTypes = lens _usResourceTypes (\ s a -> s{_usResourceTypes = a}) . _De
 usTags :: Lens' UpdateStack [Tag]
 usTags = lens _usTags (\ s a -> s{_usTags = a}) . _Default . _Coerce;
 
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+usRoleARN :: Lens' UpdateStack (Maybe Text)
+usRoleARN = lens _usRoleARN (\ s a -> s{_usRoleARN = a});
+
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\ s a -> s{_usStackName = a});
@@ -225,7 +234,7 @@ instance ToQuery UpdateStack where
                "ResourceTypes" =:
                  toQuery (toQueryList "member" <$> _usResourceTypes),
                "Tags" =: toQuery (toQueryList "member" <$> _usTags),
-               "StackName" =: _usStackName]
+               "RoleARN" =: _usRoleARN, "StackName" =: _usStackName]
 
 -- | The output for an 'UpdateStack' action.
 --

@@ -15,6 +15,7 @@
 --
 module Network.AWS.CloudFormation.Waiters where
 
+import           Network.AWS.CloudFormation.DescribeChangeSet
 import           Network.AWS.CloudFormation.DescribeStacks
 import           Network.AWS.CloudFormation.DescribeStacks
 import           Network.AWS.CloudFormation.DescribeStacks
@@ -47,17 +48,7 @@ stackCreateComplete =
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "DELETE_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
                              "DELETE_FAILED"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "ROLLBACK_COMPLETE"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
@@ -67,7 +58,7 @@ stackCreateComplete =
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "ROLLBACK_IN_PROGRESS"
+                             "ROLLBACK_COMPLETE"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
@@ -92,22 +83,12 @@ stackUpdateComplete =
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "UPDATE_ROLLBACK_COMPLETE"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
                              "UPDATE_ROLLBACK_FAILED"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_ROLLBACK_IN_PROGRESS"
+                             "UPDATE_ROLLBACK_COMPLETE"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
@@ -144,57 +125,12 @@ stackDeleteComplete =
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "CREATE_COMPLETE"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
                              "CREATE_FAILED"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
                        , matchAny
-                             "CREATE_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "ROLLBACK_COMPLETE"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
                              "ROLLBACK_FAILED"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "ROLLBACK_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_COMPLETE"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_IN_PROGRESS"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_ROLLBACK_COMPLETE"
-                             AcceptFailure
-                             (folding (concatOf dsrsStacks) .
-                              sStackStatus . to toTextCI)
-                       , matchAny
-                             "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)
@@ -208,4 +144,22 @@ stackDeleteComplete =
                              AcceptFailure
                              (folding (concatOf dsrsStacks) .
                               sStackStatus . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.CloudFormation.DescribeChangeSet' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+changeSetCreateComplete :: Wait DescribeChangeSet
+changeSetCreateComplete =
+    Wait
+    { _waitName = "ChangeSetCreateComplete"
+    , _waitAttempts = 120
+    , _waitDelay = 30
+    , _waitAcceptors = [ matchAll
+                             "CREATE_COMPLETE"
+                             AcceptSuccess
+                             (drsStatus . to toTextCI)
+                       , matchAll
+                             "FAILED"
+                             AcceptFailure
+                             (drsStatus . to toTextCI)
+                       , matchError "ValidationError" AcceptFailure]
     }

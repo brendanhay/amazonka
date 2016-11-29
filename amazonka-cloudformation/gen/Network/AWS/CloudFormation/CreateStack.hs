@@ -39,6 +39,7 @@ module Network.AWS.CloudFormation.CreateStack
     , csResourceTypes
     , csTags
     , csTimeoutInMinutes
+    , csRoleARN
     , csStackName
 
     -- * Destructuring the Response
@@ -74,6 +75,7 @@ data CreateStack = CreateStack'
     , _csResourceTypes    :: !(Maybe [Text])
     , _csTags             :: !(Maybe [Tag])
     , _csTimeoutInMinutes :: !(Maybe Nat)
+    , _csRoleARN          :: !(Maybe Text)
     , _csStackName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -85,11 +87,11 @@ data CreateStack = CreateStack'
 --
 -- * 'csNotificationARNs' - The Simple Notification Service (SNS) topic ARNs to publish stack related events. You can find your SNS topic ARNs using the <https://console.aws.amazon.com/sns SNS console> or your Command Line Interface (CLI).
 --
--- * 'csStackPolicyBody' - Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- * 'csStackPolicyBody' - Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the /AWS CloudFormation User Guide/ . You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- * 'csParameters' - A list of @Parameter@ structures that specify input parameters for the stack. For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 --
--- * 'csStackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (max size: 16KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- * 'csStackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- * 'csTemplateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify either the @TemplateBody@ or the @TemplateURL@ parameter, but not both.
 --
@@ -104,6 +106,8 @@ data CreateStack = CreateStack'
 -- * 'csTags' - Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 10 tags can be specified.
 --
 -- * 'csTimeoutInMinutes' - The amount of time that can pass before the stack status becomes CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@ , the stack will be rolled back.
+--
+-- * 'csRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
 --
 -- * 'csStackName' - The name that is associated with the stack. The name must be unique in the region in which you are creating the stack.
 createStack
@@ -123,6 +127,7 @@ createStack pStackName_ =
     , _csResourceTypes = Nothing
     , _csTags = Nothing
     , _csTimeoutInMinutes = Nothing
+    , _csRoleARN = Nothing
     , _csStackName = pStackName_
     }
 
@@ -134,7 +139,7 @@ csDisableRollback = lens _csDisableRollback (\ s a -> s{_csDisableRollback = a})
 csNotificationARNs :: Lens' CreateStack [Text]
 csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a}) . _Default . _Coerce;
 
--- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the /AWS CloudFormation User Guide/ . You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 csStackPolicyBody :: Lens' CreateStack (Maybe Text)
 csStackPolicyBody = lens _csStackPolicyBody (\ s a -> s{_csStackPolicyBody = a});
 
@@ -142,7 +147,7 @@ csStackPolicyBody = lens _csStackPolicyBody (\ s a -> s{_csStackPolicyBody = a})
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\ s a -> s{_csParameters = a}) . _Default . _Coerce;
 
--- | Location of a file containing the stack policy. The URL must point to a policy (max size: 16KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 csStackPolicyURL :: Lens' CreateStack (Maybe Text)
 csStackPolicyURL = lens _csStackPolicyURL (\ s a -> s{_csStackPolicyURL = a});
 
@@ -173,6 +178,10 @@ csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default . _Coerce;
 -- | The amount of time that can pass before the stack status becomes CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@ , the stack will be rolled back.
 csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
 csTimeoutInMinutes = lens _csTimeoutInMinutes (\ s a -> s{_csTimeoutInMinutes = a}) . mapping _Nat;
+
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+csRoleARN :: Lens' CreateStack (Maybe Text)
+csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
 
 -- | The name that is associated with the stack. The name must be unique in the region in which you are creating the stack.
 csStackName :: Lens' CreateStack Text
@@ -219,7 +228,7 @@ instance ToQuery CreateStack where
                  toQuery (toQueryList "member" <$> _csResourceTypes),
                "Tags" =: toQuery (toQueryList "member" <$> _csTags),
                "TimeoutInMinutes" =: _csTimeoutInMinutes,
-               "StackName" =: _csStackName]
+               "RoleARN" =: _csRoleARN, "StackName" =: _csStackName]
 
 -- | The output for a 'CreateStack' action.
 --

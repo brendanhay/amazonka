@@ -39,6 +39,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , getTemplateSummaryResponse
     , GetTemplateSummaryResponse
     -- * Response Lenses
+    , gtsrsDeclaredTransforms
     , gtsrsVersion
     , gtsrsCapabilitiesReason
     , gtsrsParameters
@@ -105,7 +106,10 @@ instance AWSRequest GetTemplateSummary where
           = receiveXMLWrapper "GetTemplateSummaryResult"
               (\ s h x ->
                  GetTemplateSummaryResponse' <$>
-                   (x .@? "Version") <*> (x .@? "CapabilitiesReason")
+                   (x .@? "DeclaredTransforms" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Version")
+                     <*> (x .@? "CapabilitiesReason")
                      <*>
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "member"))
@@ -144,7 +148,8 @@ instance ToQuery GetTemplateSummary where
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrsVersion            :: !(Maybe Text)
+    { _gtsrsDeclaredTransforms :: !(Maybe [Text])
+    , _gtsrsVersion            :: !(Maybe Text)
     , _gtsrsCapabilitiesReason :: !(Maybe Text)
     , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
     , _gtsrsMetadata           :: !(Maybe Text)
@@ -157,6 +162,8 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 -- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtsrsDeclaredTransforms' - A list of the transforms that are declared in the template.
 --
 -- * 'gtsrsVersion' - The AWS template format version, which identifies the capabilities of the template.
 --
@@ -178,7 +185,8 @@ getTemplateSummaryResponse
     -> GetTemplateSummaryResponse
 getTemplateSummaryResponse pResponseStatus_ =
     GetTemplateSummaryResponse'
-    { _gtsrsVersion = Nothing
+    { _gtsrsDeclaredTransforms = Nothing
+    , _gtsrsVersion = Nothing
     , _gtsrsCapabilitiesReason = Nothing
     , _gtsrsParameters = Nothing
     , _gtsrsMetadata = Nothing
@@ -187,6 +195,10 @@ getTemplateSummaryResponse pResponseStatus_ =
     , _gtsrsResourceTypes = Nothing
     , _gtsrsResponseStatus = pResponseStatus_
     }
+
+-- | A list of the transforms that are declared in the template.
+gtsrsDeclaredTransforms :: Lens' GetTemplateSummaryResponse [Text]
+gtsrsDeclaredTransforms = lens _gtsrsDeclaredTransforms (\ s a -> s{_gtsrsDeclaredTransforms = a}) . _Default . _Coerce;
 
 -- | The AWS template format version, which identifies the capabilities of the template.
 gtsrsVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)

@@ -73,6 +73,9 @@ import Test.AWS.CloudFormation.Internal
 --         , requestSetStackPolicy $
 --             setStackPolicy
 --
+--         , requestListImports $
+--             listImports
+--
 --         , requestListStacks $
 --             listStacks
 --
@@ -90,6 +93,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , requestDeleteChangeSet $
 --             deleteChangeSet
+--
+--         , requestListExports $
+--             listExports
 --
 --         , requestGetTemplate $
 --             getTemplate
@@ -148,6 +154,9 @@ import Test.AWS.CloudFormation.Internal
 --         , responseSetStackPolicy $
 --             setStackPolicyResponse
 --
+--         , responseListImports $
+--             listImportsResponse
+--
 --         , responseListStacks $
 --             listStacksResponse
 --
@@ -165,6 +174,9 @@ import Test.AWS.CloudFormation.Internal
 --
 --         , responseDeleteChangeSet $
 --             deleteChangeSetResponse
+--
+--         , responseListExports $
+--             listExportsResponse
 --
 --         , responseGetTemplate $
 --             getTemplateResponse
@@ -255,6 +267,11 @@ requestSetStackPolicy = req
     "SetStackPolicy"
     "fixture/SetStackPolicy.yaml"
 
+requestListImports :: ListImports -> TestTree
+requestListImports = req
+    "ListImports"
+    "fixture/ListImports.yaml"
+
 requestListStacks :: ListStacks -> TestTree
 requestListStacks = req
     "ListStacks"
@@ -284,6 +301,11 @@ requestDeleteChangeSet :: DeleteChangeSet -> TestTree
 requestDeleteChangeSet = req
     "DeleteChangeSet"
     "fixture/DeleteChangeSet.yaml"
+
+requestListExports :: ListExports -> TestTree
+requestListExports = req
+    "ListExports"
+    "fixture/ListExports.yaml"
 
 requestGetTemplate :: GetTemplate -> TestTree
 requestGetTemplate = req
@@ -407,6 +429,13 @@ responseSetStackPolicy = res
     cloudFormation
     (Proxy :: Proxy SetStackPolicy)
 
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports = res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListImports)
+
 responseListStacks :: ListStacksResponse -> TestTree
 responseListStacks = res
     "ListStacksResponse"
@@ -448,6 +477,13 @@ responseDeleteChangeSet = res
     "fixture/DeleteChangeSetResponse.proto"
     cloudFormation
     (Proxy :: Proxy DeleteChangeSet)
+
+responseListExports :: ListExportsResponse -> TestTree
+responseListExports = res
+    "ListExportsResponse"
+    "fixture/ListExportsResponse.proto"
+    cloudFormation
+    (Proxy :: Proxy ListExports)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
 responseGetTemplate = res

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a list of changes for a stack. AWS CloudFormation generates the change set by comparing the stack's information with the information that you submit. A change set can help you understand which resources AWS CloudFormation will change and how it will change them before you update your stack. Change sets allow you to check before you make a change so that you don't delete or replace critical resources.
+-- Creates a list of changes for a stack. AWS CloudFormation generates the change set by comparing the template's information with the information that you submit. A change set can help you understand which resources AWS CloudFormation will change, and how it will change them, before you update your stack. Change sets allow you to check before making a change to avoid deleting or replacing critical resources.
 --
 --
 -- AWS CloudFormation doesn't make any changes to the stack when you create a change set. To make the specified changes, you must execute the change set by using the 'ExecuteChangeSet' action.
@@ -31,6 +31,7 @@ module Network.AWS.CloudFormation.CreateChangeSet
       createChangeSet
     , CreateChangeSet
     -- * Request Lenses
+    , ccsChangeSetType
     , ccsUsePreviousTemplate
     , ccsClientToken
     , ccsNotificationARNs
@@ -41,6 +42,7 @@ module Network.AWS.CloudFormation.CreateChangeSet
     , ccsCapabilities
     , ccsResourceTypes
     , ccsTags
+    , ccsRoleARN
     , ccsStackName
     , ccsChangeSetName
 
@@ -49,6 +51,7 @@ module Network.AWS.CloudFormation.CreateChangeSet
     , CreateChangeSetResponse
     -- * Response Lenses
     , ccsrsId
+    , ccsrsStackId
     , ccsrsResponseStatus
     ) where
 
@@ -65,7 +68,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createChangeSet' smart constructor.
 data CreateChangeSet = CreateChangeSet'
-    { _ccsUsePreviousTemplate :: !(Maybe Bool)
+    { _ccsChangeSetType       :: !(Maybe ChangeSetType)
+    , _ccsUsePreviousTemplate :: !(Maybe Bool)
     , _ccsClientToken         :: !(Maybe Text)
     , _ccsNotificationARNs    :: !(Maybe [Text])
     , _ccsParameters          :: !(Maybe [Parameter])
@@ -75,6 +79,7 @@ data CreateChangeSet = CreateChangeSet'
     , _ccsCapabilities        :: !(Maybe [Capability])
     , _ccsResourceTypes       :: !(Maybe [Text])
     , _ccsTags                :: !(Maybe [Tag])
+    , _ccsRoleARN             :: !(Maybe Text)
     , _ccsStackName           :: !Text
     , _ccsChangeSetName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -82,6 +87,8 @@ data CreateChangeSet = CreateChangeSet'
 -- | Creates a value of 'CreateChangeSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsChangeSetType' - The type of change set operation. To create a change set for a new stack, specify @CREATE@ . To create a change set for an existing stack, specify @UPDATE@ . If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995 @REVIEW_IN_PROGRESS@ > state until you execute the change set. By default, AWS CloudFormation specifies @UPDATE@ . You can't use the @UPDATE@ type to create a change set for a new stack or the @CREATE@ type to create a change set for an existing stack.
 --
 -- * 'ccsUsePreviousTemplate' - Whether to reuse the template that is associated with the stack to create the change set.
 --
@@ -103,6 +110,8 @@ data CreateChangeSet = CreateChangeSet'
 --
 -- * 'ccsTags' - Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to resources in the stack. You can specify a maximum of 10 tags.
 --
+-- * 'ccsRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+--
 -- * 'ccsStackName' - The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates the change set by comparing this stack's information with the information that you submit, such as a modified template or different parameter input values.
 --
 -- * 'ccsChangeSetName' - The name of the change set. The name must be unique among all change sets that are associated with the specified stack. A change set name can contain only alphanumeric, case sensitive characters and hyphens. It must start with an alphabetic character and cannot exceed 128 characters.
@@ -112,7 +121,8 @@ createChangeSet
     -> CreateChangeSet
 createChangeSet pStackName_ pChangeSetName_ =
     CreateChangeSet'
-    { _ccsUsePreviousTemplate = Nothing
+    { _ccsChangeSetType = Nothing
+    , _ccsUsePreviousTemplate = Nothing
     , _ccsClientToken = Nothing
     , _ccsNotificationARNs = Nothing
     , _ccsParameters = Nothing
@@ -122,9 +132,14 @@ createChangeSet pStackName_ pChangeSetName_ =
     , _ccsCapabilities = Nothing
     , _ccsResourceTypes = Nothing
     , _ccsTags = Nothing
+    , _ccsRoleARN = Nothing
     , _ccsStackName = pStackName_
     , _ccsChangeSetName = pChangeSetName_
     }
+
+-- | The type of change set operation. To create a change set for a new stack, specify @CREATE@ . To create a change set for an existing stack, specify @UPDATE@ . If you create a change set for a new stack, AWS Cloudformation creates a stack with a unique stack ID, but no template or resources. The stack will be in the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995 @REVIEW_IN_PROGRESS@ > state until you execute the change set. By default, AWS CloudFormation specifies @UPDATE@ . You can't use the @UPDATE@ type to create a change set for a new stack or the @CREATE@ type to create a change set for an existing stack.
+ccsChangeSetType :: Lens' CreateChangeSet (Maybe ChangeSetType)
+ccsChangeSetType = lens _ccsChangeSetType (\ s a -> s{_ccsChangeSetType = a});
 
 -- | Whether to reuse the template that is associated with the stack to create the change set.
 ccsUsePreviousTemplate :: Lens' CreateChangeSet (Maybe Bool)
@@ -166,6 +181,10 @@ ccsResourceTypes = lens _ccsResourceTypes (\ s a -> s{_ccsResourceTypes = a}) . 
 ccsTags :: Lens' CreateChangeSet [Tag]
 ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+ccsRoleARN :: Lens' CreateChangeSet (Maybe Text)
+ccsRoleARN = lens _ccsRoleARN (\ s a -> s{_ccsRoleARN = a});
+
 -- | The name or the unique ID of the stack for which you are creating a change set. AWS CloudFormation generates the change set by comparing this stack's information with the information that you submit, such as a modified template or different parameter input values.
 ccsStackName :: Lens' CreateChangeSet Text
 ccsStackName = lens _ccsStackName (\ s a -> s{_ccsStackName = a});
@@ -181,7 +200,8 @@ instance AWSRequest CreateChangeSet where
           = receiveXMLWrapper "CreateChangeSetResult"
               (\ s h x ->
                  CreateChangeSetResponse' <$>
-                   (x .@? "Id") <*> (pure (fromEnum s)))
+                   (x .@? "Id") <*> (x .@? "StackId") <*>
+                     (pure (fromEnum s)))
 
 instance Hashable CreateChangeSet
 
@@ -198,6 +218,7 @@ instance ToQuery CreateChangeSet where
           = mconcat
               ["Action" =: ("CreateChangeSet" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "ChangeSetType" =: _ccsChangeSetType,
                "UsePreviousTemplate" =: _ccsUsePreviousTemplate,
                "ClientToken" =: _ccsClientToken,
                "NotificationARNs" =:
@@ -214,6 +235,7 @@ instance ToQuery CreateChangeSet where
                  toQuery (toQueryList "member" <$> _ccsResourceTypes),
                "Tags" =:
                  toQuery (toQueryList "member" <$> _ccsTags),
+               "RoleARN" =: _ccsRoleARN,
                "StackName" =: _ccsStackName,
                "ChangeSetName" =: _ccsChangeSetName]
 
@@ -224,6 +246,7 @@ instance ToQuery CreateChangeSet where
 -- /See:/ 'createChangeSetResponse' smart constructor.
 data CreateChangeSetResponse = CreateChangeSetResponse'
     { _ccsrsId             :: !(Maybe Text)
+    , _ccsrsStackId        :: !(Maybe Text)
     , _ccsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -233,6 +256,8 @@ data CreateChangeSetResponse = CreateChangeSetResponse'
 --
 -- * 'ccsrsId' - The Amazon Resource Name (ARN) of the change set.
 --
+-- * 'ccsrsStackId' - The unique ID of the stack.
+--
 -- * 'ccsrsResponseStatus' - -- | The response status code.
 createChangeSetResponse
     :: Int -- ^ 'ccsrsResponseStatus'
@@ -240,12 +265,17 @@ createChangeSetResponse
 createChangeSetResponse pResponseStatus_ =
     CreateChangeSetResponse'
     { _ccsrsId = Nothing
+    , _ccsrsStackId = Nothing
     , _ccsrsResponseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the change set.
 ccsrsId :: Lens' CreateChangeSetResponse (Maybe Text)
 ccsrsId = lens _ccsrsId (\ s a -> s{_ccsrsId = a});
+
+-- | The unique ID of the stack.
+ccsrsStackId :: Lens' CreateChangeSetResponse (Maybe Text)
+ccsrsStackId = lens _ccsrsStackId (\ s a -> s{_ccsrsStackId = a});
 
 -- | -- | The response status code.
 ccsrsResponseStatus :: Lens' CreateChangeSetResponse Int

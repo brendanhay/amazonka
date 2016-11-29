@@ -210,6 +210,57 @@ instance Hashable ChangeSetSummary
 
 instance NFData ChangeSetSummary
 
+-- | The @Export@ structure describes the exported output values for a stack.
+--
+--
+--
+-- /See:/ 'export'' smart constructor.
+data Export = Export'
+    { _eValue            :: !(Maybe Text)
+    , _eExportingStackId :: !(Maybe Text)
+    , _eName             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Export' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eValue' - The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
+--
+-- * 'eExportingStackId' - The stack that contains the exported output name and value.
+--
+-- * 'eName' - The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
+export'
+    :: Export
+export' =
+    Export'
+    { _eValue = Nothing
+    , _eExportingStackId = Nothing
+    , _eName = Nothing
+    }
+
+-- | The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
+eValue :: Lens' Export (Maybe Text)
+eValue = lens _eValue (\ s a -> s{_eValue = a});
+
+-- | The stack that contains the exported output name and value.
+eExportingStackId :: Lens' Export (Maybe Text)
+eExportingStackId = lens _eExportingStackId (\ s a -> s{_eExportingStackId = a});
+
+-- | The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
+eName :: Lens' Export (Maybe Text)
+eName = lens _eName (\ s a -> s{_eName = a});
+
+instance FromXML Export where
+        parseXML x
+          = Export' <$>
+              (x .@? "Value") <*> (x .@? "ExportingStackId") <*>
+                (x .@? "Name")
+
+instance Hashable Export
+
+instance NFData Export
+
 -- | The Output data type.
 --
 --
@@ -645,6 +696,7 @@ data Stack = Stack'
     , _sLastUpdatedTime   :: !(Maybe ISO8601)
     , _sNotificationARNs  :: !(Maybe [Text])
     , _sStackStatusReason :: !(Maybe Text)
+    , _sChangeSetId       :: !(Maybe Text)
     , _sOutputs           :: !(Maybe [Output])
     , _sParameters        :: !(Maybe [Parameter])
     , _sStackId           :: !(Maybe Text)
@@ -652,6 +704,7 @@ data Stack = Stack'
     , _sCapabilities      :: !(Maybe [Capability])
     , _sTags              :: !(Maybe [Tag])
     , _sTimeoutInMinutes  :: !(Maybe Nat)
+    , _sRoleARN           :: !(Maybe Text)
     , _sStackName         :: !Text
     , _sCreationTime      :: !ISO8601
     , _sStackStatus       :: !StackStatus
@@ -669,6 +722,8 @@ data Stack = Stack'
 --
 -- * 'sStackStatusReason' - Success/failure message associated with the stack status.
 --
+-- * 'sChangeSetId' - The unique ID of the change set.
+--
 -- * 'sOutputs' - A list of output structures.
 --
 -- * 'sParameters' - A list of @Parameter@ structures.
@@ -682,6 +737,8 @@ data Stack = Stack'
 -- * 'sTags' - A list of @Tag@ s that specify information about the stack.
 --
 -- * 'sTimeoutInMinutes' - The amount of time within which stack creation should complete.
+--
+-- * 'sRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
 --
 -- * 'sStackName' - The name associated with the stack.
 --
@@ -699,6 +756,7 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
     , _sLastUpdatedTime = Nothing
     , _sNotificationARNs = Nothing
     , _sStackStatusReason = Nothing
+    , _sChangeSetId = Nothing
     , _sOutputs = Nothing
     , _sParameters = Nothing
     , _sStackId = Nothing
@@ -706,6 +764,7 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
     , _sCapabilities = Nothing
     , _sTags = Nothing
     , _sTimeoutInMinutes = Nothing
+    , _sRoleARN = Nothing
     , _sStackName = pStackName_
     , _sCreationTime = _Time # pCreationTime_
     , _sStackStatus = pStackStatus_
@@ -726,6 +785,10 @@ sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a})
 -- | Success/failure message associated with the stack status.
 sStackStatusReason :: Lens' Stack (Maybe Text)
 sStackStatusReason = lens _sStackStatusReason (\ s a -> s{_sStackStatusReason = a});
+
+-- | The unique ID of the change set.
+sChangeSetId :: Lens' Stack (Maybe Text)
+sChangeSetId = lens _sChangeSetId (\ s a -> s{_sChangeSetId = a});
 
 -- | A list of output structures.
 sOutputs :: Lens' Stack [Output]
@@ -755,6 +818,10 @@ sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
 sTimeoutInMinutes = lens _sTimeoutInMinutes (\ s a -> s{_sTimeoutInMinutes = a}) . mapping _Nat;
 
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
+sRoleARN :: Lens' Stack (Maybe Text)
+sRoleARN = lens _sRoleARN (\ s a -> s{_sRoleARN = a});
+
 -- | The name associated with the stack.
 sStackName :: Lens' Stack Text
 sStackName = lens _sStackName (\ s a -> s{_sStackName = a});
@@ -776,6 +843,7 @@ instance FromXML Stack where
                 (x .@? "NotificationARNs" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "StackStatusReason")
+                <*> (x .@? "ChangeSetId")
                 <*>
                 (x .@? "Outputs" .!@ mempty >>=
                    may (parseXMLList "member"))
@@ -791,6 +859,7 @@ instance FromXML Stack where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "TimeoutInMinutes")
+                <*> (x .@? "RoleARN")
                 <*> (x .@ "StackName")
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
@@ -1054,7 +1123,7 @@ data StackResourceDetail = StackResourceDetail'
 --
 -- * 'srdResourceStatusReason' - Success/failure message associated with the resource.
 --
--- * 'srdMetadata' - The JSON format content of the @Metadata@ attribute declared for the resource. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User Guide.
+-- * 'srdMetadata' - The content of the @Metadata@ attribute declared for the resource. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User Guide.
 --
 -- * 'srdStackId' - Unique identifier of the stack.
 --
@@ -1097,7 +1166,7 @@ srdPhysicalResourceId = lens _srdPhysicalResourceId (\ s a -> s{_srdPhysicalReso
 srdResourceStatusReason :: Lens' StackResourceDetail (Maybe Text)
 srdResourceStatusReason = lens _srdResourceStatusReason (\ s a -> s{_srdResourceStatusReason = a});
 
--- | The JSON format content of the @Metadata@ attribute declared for the resource. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User Guide.
+-- | The content of the @Metadata@ attribute declared for the resource. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute> in the AWS CloudFormation User Guide.
 srdMetadata :: Lens' StackResourceDetail (Maybe Text)
 srdMetadata = lens _srdMetadata (\ s a -> s{_srdMetadata = a});
 

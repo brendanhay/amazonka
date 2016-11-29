@@ -28,6 +28,7 @@ module Network.AWS.CloudFormation.DeleteStack
     , DeleteStack
     -- * Request Lenses
     , dsRetainResources
+    , dsRoleARN
     , dsStackName
 
     -- * Destructuring the Response
@@ -49,6 +50,7 @@ import           Network.AWS.Response
 -- /See:/ 'deleteStack' smart constructor.
 data DeleteStack = DeleteStack'
     { _dsRetainResources :: !(Maybe [Text])
+    , _dsRoleARN         :: !(Maybe Text)
     , _dsStackName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -58,6 +60,8 @@ data DeleteStack = DeleteStack'
 --
 -- * 'dsRetainResources' - For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
 --
+-- * 'dsRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+--
 -- * 'dsStackName' - The name or the unique stack ID that is associated with the stack.
 deleteStack
     :: Text -- ^ 'dsStackName'
@@ -65,12 +69,17 @@ deleteStack
 deleteStack pStackName_ =
     DeleteStack'
     { _dsRetainResources = Nothing
+    , _dsRoleARN = Nothing
     , _dsStackName = pStackName_
     }
 
 -- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs that are associated with the resources you want to retain. During deletion, AWS CloudFormation deletes the stack but does not delete the retained resources. Retaining resources is useful when you cannot delete a resource, such as a non-empty S3 bucket, but you want to delete the stack.
 dsRetainResources :: Lens' DeleteStack [Text]
 dsRetainResources = lens _dsRetainResources (\ s a -> s{_dsRetainResources = a}) . _Default . _Coerce;
+
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+dsRoleARN :: Lens' DeleteStack (Maybe Text)
+dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
 
 -- | The name or the unique stack ID that is associated with the stack.
 dsStackName :: Lens' DeleteStack Text
@@ -99,7 +108,7 @@ instance ToQuery DeleteStack where
                "RetainResources" =:
                  toQuery
                    (toQueryList "member" <$> _dsRetainResources),
-               "StackName" =: _dsStackName]
+               "RoleARN" =: _dsRoleARN, "StackName" =: _dsStackName]
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =

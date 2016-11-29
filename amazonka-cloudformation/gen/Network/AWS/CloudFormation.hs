@@ -13,13 +13,13 @@
 --
 -- __AWS CloudFormation__
 --
--- AWS CloudFormation enables you to create and manage AWS infrastructure deployments predictably and repeatedly. AWS CloudFormation helps you leverage AWS products such as Amazon EC2, EBS, Amazon SNS, ELB, and Auto Scaling to build highly-reliable, highly scalable, cost effective applications without worrying about creating and configuring the underlying AWS infrastructure.
+-- AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and repeatedly. You can use AWS CloudFormation to leverage AWS products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly-reliable, highly scalable, cost-effective applications without creating or configuring the underlying AWS infrastructure.
 --
 -- With AWS CloudFormation, you declare all of your resources and dependencies in a template file. The template defines a collection of resources as a single unit called a stack. AWS CloudFormation creates and deletes all member resources of the stack together and manages all dependencies between the resources for you.
 --
--- For more information about this product, go to the <http://aws.amazon.com/cloudformation/ CloudFormation Product Page> .
+-- For more information about AWS CloudFormation, see the <http://aws.amazon.com/cloudformation/ AWS CloudFormation Product Page> .
 --
--- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <http://docs.aws.amazon.com/ http://docs.aws.amazon.com/> .
+-- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ http://docs.aws.amazon.com/> .
 --
 module Network.AWS.CloudFormation
     (
@@ -58,6 +58,9 @@ module Network.AWS.CloudFormation
 
     -- ** StackDeleteComplete
     , stackDeleteComplete
+
+    -- ** ChangeSetCreateComplete
+    , changeSetCreateComplete
 
     -- * Operations
     -- $operations
@@ -107,6 +110,9 @@ module Network.AWS.CloudFormation
     -- ** SetStackPolicy
     , module Network.AWS.CloudFormation.SetStackPolicy
 
+    -- ** ListImports
+    , module Network.AWS.CloudFormation.ListImports
+
     -- ** ListStacks (Paginated)
     , module Network.AWS.CloudFormation.ListStacks
 
@@ -124,6 +130,9 @@ module Network.AWS.CloudFormation
 
     -- ** DeleteChangeSet
     , module Network.AWS.CloudFormation.DeleteChangeSet
+
+    -- ** ListExports
+    , module Network.AWS.CloudFormation.ListExports
 
     -- ** GetTemplate
     , module Network.AWS.CloudFormation.GetTemplate
@@ -144,6 +153,9 @@ module Network.AWS.CloudFormation
 
     -- ** ChangeSetStatus
     , ChangeSetStatus (..)
+
+    -- ** ChangeSetType
+    , ChangeSetType (..)
 
     -- ** ChangeSource
     , ChangeSource (..)
@@ -178,6 +190,9 @@ module Network.AWS.CloudFormation
     -- ** StackStatus
     , StackStatus (..)
 
+    -- ** TemplateStage
+    , TemplateStage (..)
+
     -- ** AccountLimit
     , AccountLimit
     , accountLimit
@@ -202,6 +217,13 @@ module Network.AWS.CloudFormation
     , cssStackId
     , cssDescription
     , cssStackName
+
+    -- ** Export
+    , Export
+    , export'
+    , eValue
+    , eExportingStackId
+    , eName
 
     -- ** Output
     , Output
@@ -265,6 +287,7 @@ module Network.AWS.CloudFormation
     , sLastUpdatedTime
     , sNotificationARNs
     , sStackStatusReason
+    , sChangeSetId
     , sOutputs
     , sParameters
     , sStackId
@@ -272,6 +295,7 @@ module Network.AWS.CloudFormation
     , sCapabilities
     , sTags
     , sTimeoutInMinutes
+    , sRoleARN
     , sStackName
     , sCreationTime
     , sStackStatus
@@ -372,6 +396,8 @@ import           Network.AWS.CloudFormation.GetStackPolicy
 import           Network.AWS.CloudFormation.GetTemplate
 import           Network.AWS.CloudFormation.GetTemplateSummary
 import           Network.AWS.CloudFormation.ListChangeSets
+import           Network.AWS.CloudFormation.ListExports
+import           Network.AWS.CloudFormation.ListImports
 import           Network.AWS.CloudFormation.ListStackResources
 import           Network.AWS.CloudFormation.ListStacks
 import           Network.AWS.CloudFormation.SetStackPolicy

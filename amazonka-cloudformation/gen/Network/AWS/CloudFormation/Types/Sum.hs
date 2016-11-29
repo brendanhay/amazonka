@@ -109,6 +109,29 @@ instance ToHeader     ChangeSetStatus
 instance FromXML ChangeSetStatus where
     parseXML = parseXMLText "ChangeSetStatus"
 
+data ChangeSetType
+    = Create
+    | Update
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeSetType where
+    parser = takeLowerText >>= \case
+        "create" -> pure Create
+        "update" -> pure Update
+        e -> fromTextError $ "Failure parsing ChangeSetType from value: '" <> e
+           <> "'. Accepted values: create, update"
+
+instance ToText ChangeSetType where
+    toText = \case
+        Create -> "CREATE"
+        Update -> "UPDATE"
+
+instance Hashable     ChangeSetType
+instance NFData       ChangeSetType
+instance ToByteString ChangeSetType
+instance ToQuery      ChangeSetType
+instance ToHeader     ChangeSetType
+
 data ChangeSource
     = Automatic
     | DirectModification
@@ -433,6 +456,7 @@ data StackStatus
     | SSDeleteComplete
     | SSDeleteFailed
     | SSDeleteInProgress
+    | SSReviewInProgress
     | SSRollbackComplete
     | SSRollbackFailed
     | SSRollbackInProgress
@@ -453,6 +477,7 @@ instance FromText StackStatus where
         "delete_complete" -> pure SSDeleteComplete
         "delete_failed" -> pure SSDeleteFailed
         "delete_in_progress" -> pure SSDeleteInProgress
+        "review_in_progress" -> pure SSReviewInProgress
         "rollback_complete" -> pure SSRollbackComplete
         "rollback_failed" -> pure SSRollbackFailed
         "rollback_in_progress" -> pure SSRollbackInProgress
@@ -464,7 +489,7 @@ instance FromText StackStatus where
         "update_rollback_failed" -> pure SSUpdateRollbackFailed
         "update_rollback_in_progress" -> pure SSUpdateRollbackInProgress
         e -> fromTextError $ "Failure parsing StackStatus from value: '" <> e
-           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
+           <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, review_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
 
 instance ToText StackStatus where
     toText = \case
@@ -474,6 +499,7 @@ instance ToText StackStatus where
         SSDeleteComplete -> "DELETE_COMPLETE"
         SSDeleteFailed -> "DELETE_FAILED"
         SSDeleteInProgress -> "DELETE_IN_PROGRESS"
+        SSReviewInProgress -> "REVIEW_IN_PROGRESS"
         SSRollbackComplete -> "ROLLBACK_COMPLETE"
         SSRollbackFailed -> "ROLLBACK_FAILED"
         SSRollbackInProgress -> "ROLLBACK_IN_PROGRESS"
@@ -493,3 +519,29 @@ instance ToHeader     StackStatus
 
 instance FromXML StackStatus where
     parseXML = parseXMLText "StackStatus"
+
+data TemplateStage
+    = Original
+    | Processed
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TemplateStage where
+    parser = takeLowerText >>= \case
+        "original" -> pure Original
+        "processed" -> pure Processed
+        e -> fromTextError $ "Failure parsing TemplateStage from value: '" <> e
+           <> "'. Accepted values: original, processed"
+
+instance ToText TemplateStage where
+    toText = \case
+        Original -> "Original"
+        Processed -> "Processed"
+
+instance Hashable     TemplateStage
+instance NFData       TemplateStage
+instance ToByteString TemplateStage
+instance ToQuery      TemplateStage
+instance ToHeader     TemplateStage
+
+instance FromXML TemplateStage where
+    parseXML = parseXMLText "TemplateStage"

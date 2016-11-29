@@ -31,6 +31,9 @@ module Network.AWS.CloudFormation.Types
     -- * ChangeSetStatus
     , ChangeSetStatus (..)
 
+    -- * ChangeSetType
+    , ChangeSetType (..)
+
     -- * ChangeSource
     , ChangeSource (..)
 
@@ -64,6 +67,9 @@ module Network.AWS.CloudFormation.Types
     -- * StackStatus
     , StackStatus (..)
 
+    -- * TemplateStage
+    , TemplateStage (..)
+
     -- * AccountLimit
     , AccountLimit
     , accountLimit
@@ -88,6 +94,13 @@ module Network.AWS.CloudFormation.Types
     , cssStackId
     , cssDescription
     , cssStackName
+
+    -- * Export
+    , Export
+    , export'
+    , eValue
+    , eExportingStackId
+    , eName
 
     -- * Output
     , Output
@@ -151,6 +164,7 @@ module Network.AWS.CloudFormation.Types
     , sLastUpdatedTime
     , sNotificationARNs
     , sStackStatusReason
+    , sChangeSetId
     , sOutputs
     , sParameters
     , sStackId
@@ -158,6 +172,7 @@ module Network.AWS.CloudFormation.Types
     , sCapabilities
     , sTags
     , sTimeoutInMinutes
+    , sRoleARN
     , sStackName
     , sCreationTime
     , sStackStatus

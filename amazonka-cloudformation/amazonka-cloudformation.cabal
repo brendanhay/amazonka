@@ -58,6 +58,8 @@ library
         , Network.AWS.CloudFormation.GetTemplate
         , Network.AWS.CloudFormation.GetTemplateSummary
         , Network.AWS.CloudFormation.ListChangeSets
+        , Network.AWS.CloudFormation.ListExports
+        , Network.AWS.CloudFormation.ListImports
         , Network.AWS.CloudFormation.ListStackResources
         , Network.AWS.CloudFormation.ListStacks
         , Network.AWS.CloudFormation.SetStackPolicy

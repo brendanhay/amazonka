@@ -29,6 +29,8 @@ module Network.AWS.CloudFormation.ContinueUpdateRollback
       continueUpdateRollback
     , ContinueUpdateRollback
     -- * Request Lenses
+    , curResourcesToSkip
+    , curRoleARN
     , curStackName
 
     -- * Destructuring the Response
@@ -50,13 +52,19 @@ import           Network.AWS.Response
 --
 --
 -- /See:/ 'continueUpdateRollback' smart constructor.
-newtype ContinueUpdateRollback = ContinueUpdateRollback'
-    { _curStackName :: Text
+data ContinueUpdateRollback = ContinueUpdateRollback'
+    { _curResourcesToSkip :: !(Maybe [Text])
+    , _curRoleARN         :: !(Maybe Text)
+    , _curStackName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContinueUpdateRollback' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'curResourcesToSkip' - A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the @UPDATE_FAILED@ state because a rollback failed. You can't specify resources that are in the @UPDATE_FAILED@ state for other reasons, for example, because an update was canceled. To check why a resource update failed, use the 'DescribeStackResources' action, and view the resource status reason.  /Important:/ Specify this property to skip rolling back resources that AWS CloudFormation can't successfully roll back. We recommend that you <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot> resources before skipping them. AWS CloudFormation sets the status of the specified resources to @UPDATE_COMPLETE@ and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable.  Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources.  To specify resources in a nested stack, use the following format: @NestedStackName.ResourceLogicalID@ . You can specify a nested stack resource (the logical ID of an @AWS::CloudFormation::Stack@ resource) only if it's in one of the following states: @DELETE_IN_PROGRESS@ , @DELETE_COMPLETE@ , or @DELETE_FAILED@ .
+--
+-- * 'curRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
 --
 -- * 'curStackName' - The name or the unique ID of the stack that you want to continue rolling back.
 continueUpdateRollback
@@ -64,8 +72,18 @@ continueUpdateRollback
     -> ContinueUpdateRollback
 continueUpdateRollback pStackName_ =
     ContinueUpdateRollback'
-    { _curStackName = pStackName_
+    { _curResourcesToSkip = Nothing
+    , _curRoleARN = Nothing
+    , _curStackName = pStackName_
     }
+
+-- | A list of the logical IDs of the resources that AWS CloudFormation skips during the continue update rollback operation. You can specify only resources that are in the @UPDATE_FAILED@ state because a rollback failed. You can't specify resources that are in the @UPDATE_FAILED@ state for other reasons, for example, because an update was canceled. To check why a resource update failed, use the 'DescribeStackResources' action, and view the resource status reason.  /Important:/ Specify this property to skip rolling back resources that AWS CloudFormation can't successfully roll back. We recommend that you <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot> resources before skipping them. AWS CloudFormation sets the status of the specified resources to @UPDATE_COMPLETE@ and continues to roll back the stack. After the rollback is complete, the state of the skipped resources will be inconsistent with the state of the resources in the stack template. Before performing another stack update, you must update the stack or resources to be consistent with each other. If you don't, subsequent stack updates might fail, and the stack will become unrecoverable.  Specify the minimum number of resources required to successfully roll back your stack. For example, a failed resource update might cause dependent resources to fail. In this case, it might not be necessary to skip the dependent resources.  To specify resources in a nested stack, use the following format: @NestedStackName.ResourceLogicalID@ . You can specify a nested stack resource (the logical ID of an @AWS::CloudFormation::Stack@ resource) only if it's in one of the following states: @DELETE_IN_PROGRESS@ , @DELETE_COMPLETE@ , or @DELETE_FAILED@ .
+curResourcesToSkip :: Lens' ContinueUpdateRollback [Text]
+curResourcesToSkip = lens _curResourcesToSkip (\ s a -> s{_curResourcesToSkip = a}) . _Default . _Coerce;
+
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+curRoleARN :: Lens' ContinueUpdateRollback (Maybe Text)
+curRoleARN = lens _curRoleARN (\ s a -> s{_curRoleARN = a});
 
 -- | The name or the unique ID of the stack that you want to continue rolling back.
 curStackName :: Lens' ContinueUpdateRollback Text
@@ -97,6 +115,10 @@ instance ToQuery ContinueUpdateRollback where
               ["Action" =:
                  ("ContinueUpdateRollback" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "ResourcesToSkip" =:
+                 toQuery
+                   (toQueryList "member" <$> _curResourcesToSkip),
+               "RoleARN" =: _curRoleARN,
                "StackName" =: _curStackName]
 
 -- | The output for a 'ContinueUpdateRollback' action.

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Validates a specified template.
+-- Validates a specified template. AWS CloudFormation first checks if the template is valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML. If both these checks fail, AWS CloudFormation returns a template validation error.
 --
 --
 module Network.AWS.CloudFormation.ValidateTemplate
@@ -34,6 +34,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     , validateTemplateResponse
     , ValidateTemplateResponse
     -- * Response Lenses
+    , vtrsDeclaredTransforms
     , vtrsCapabilitiesReason
     , vtrsParameters
     , vtrsDescription
@@ -88,7 +89,10 @@ instance AWSRequest ValidateTemplate where
           = receiveXMLWrapper "ValidateTemplateResult"
               (\ s h x ->
                  ValidateTemplateResponse' <$>
-                   (x .@? "CapabilitiesReason") <*>
+                   (x .@? "DeclaredTransforms" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "CapabilitiesReason")
+                     <*>
                      (x .@? "Parameters" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "Description")
@@ -121,7 +125,8 @@ instance ToQuery ValidateTemplate where
 --
 -- /See:/ 'validateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrsCapabilitiesReason :: !(Maybe Text)
+    { _vtrsDeclaredTransforms :: !(Maybe [Text])
+    , _vtrsCapabilitiesReason :: !(Maybe Text)
     , _vtrsParameters         :: !(Maybe [TemplateParameter])
     , _vtrsDescription        :: !(Maybe Text)
     , _vtrsCapabilities       :: !(Maybe [Capability])
@@ -131,6 +136,8 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 -- | Creates a value of 'ValidateTemplateResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vtrsDeclaredTransforms' - A list of the transforms that are declared in the template.
 --
 -- * 'vtrsCapabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
 --
@@ -146,12 +153,17 @@ validateTemplateResponse
     -> ValidateTemplateResponse
 validateTemplateResponse pResponseStatus_ =
     ValidateTemplateResponse'
-    { _vtrsCapabilitiesReason = Nothing
+    { _vtrsDeclaredTransforms = Nothing
+    , _vtrsCapabilitiesReason = Nothing
     , _vtrsParameters = Nothing
     , _vtrsDescription = Nothing
     , _vtrsCapabilities = Nothing
     , _vtrsResponseStatus = pResponseStatus_
     }
+
+-- | A list of the transforms that are declared in the template.
+vtrsDeclaredTransforms :: Lens' ValidateTemplateResponse [Text]
+vtrsDeclaredTransforms = lens _vtrsDeclaredTransforms (\ s a -> s{_vtrsDeclaredTransforms = a}) . _Default . _Coerce;
 
 -- | The list of resources that generated the values in the @Capabilities@ response element.
 vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)

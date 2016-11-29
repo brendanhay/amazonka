@@ -21,6 +21,107 @@ import           Network.AWS.CodeDeploy.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | Information about an alarm.
+--
+--
+--
+-- /See:/ 'alarm' smart constructor.
+newtype Alarm = Alarm'
+    { _aName :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Alarm' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aName' - The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+alarm
+    :: Alarm
+alarm =
+    Alarm'
+    { _aName = Nothing
+    }
+
+-- | The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+aName :: Lens' Alarm (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
+
+instance FromJSON Alarm where
+        parseJSON
+          = withObject "Alarm"
+              (\ x -> Alarm' <$> (x .:? "name"))
+
+instance Hashable Alarm
+
+instance NFData Alarm
+
+instance ToJSON Alarm where
+        toJSON Alarm'{..}
+          = object (catMaybes [("name" .=) <$> _aName])
+
+-- | Information about alarms associated with the deployment group.
+--
+--
+--
+-- /See:/ 'alarmConfiguration' smart constructor.
+data AlarmConfiguration = AlarmConfiguration'
+    { _acIgnorePollAlarmFailure :: !(Maybe Bool)
+    , _acEnabled                :: !(Maybe Bool)
+    , _acAlarms                 :: !(Maybe [Alarm])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AlarmConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acIgnorePollAlarmFailure' - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch.     * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch.
+--
+-- * 'acEnabled' - Indicates whether the alarm configuration is enabled.
+--
+-- * 'acAlarms' - A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
+alarmConfiguration
+    :: AlarmConfiguration
+alarmConfiguration =
+    AlarmConfiguration'
+    { _acIgnorePollAlarmFailure = Nothing
+    , _acEnabled = Nothing
+    , _acAlarms = Nothing
+    }
+
+-- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch.     * false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch.
+acIgnorePollAlarmFailure :: Lens' AlarmConfiguration (Maybe Bool)
+acIgnorePollAlarmFailure = lens _acIgnorePollAlarmFailure (\ s a -> s{_acIgnorePollAlarmFailure = a});
+
+-- | Indicates whether the alarm configuration is enabled.
+acEnabled :: Lens' AlarmConfiguration (Maybe Bool)
+acEnabled = lens _acEnabled (\ s a -> s{_acEnabled = a});
+
+-- | A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
+acAlarms :: Lens' AlarmConfiguration [Alarm]
+acAlarms = lens _acAlarms (\ s a -> s{_acAlarms = a}) . _Default . _Coerce;
+
+instance FromJSON AlarmConfiguration where
+        parseJSON
+          = withObject "AlarmConfiguration"
+              (\ x ->
+                 AlarmConfiguration' <$>
+                   (x .:? "ignorePollAlarmFailure") <*>
+                     (x .:? "enabled")
+                     <*> (x .:? "alarms" .!= mempty))
+
+instance Hashable AlarmConfiguration
+
+instance NFData AlarmConfiguration
+
+instance ToJSON AlarmConfiguration where
+        toJSON AlarmConfiguration'{..}
+          = object
+              (catMaybes
+                 [("ignorePollAlarmFailure" .=) <$>
+                    _acIgnorePollAlarmFailure,
+                  ("enabled" .=) <$> _acEnabled,
+                  ("alarms" .=) <$> _acAlarms])
+
 -- | Information about an application.
 --
 --
@@ -82,6 +183,57 @@ instance FromJSON ApplicationInfo where
 instance Hashable ApplicationInfo
 
 instance NFData ApplicationInfo
+
+-- | Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.
+--
+--
+--
+-- /See:/ 'autoRollbackConfiguration' smart constructor.
+data AutoRollbackConfiguration = AutoRollbackConfiguration'
+    { _arcEnabled :: !(Maybe Bool)
+    , _arcEvents  :: !(Maybe [AutoRollbackEvent])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoRollbackConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arcEnabled' - Indicates whether a defined automatic rollback configuration is currently enabled.
+--
+-- * 'arcEvents' - The event type or types that trigger a rollback.
+autoRollbackConfiguration
+    :: AutoRollbackConfiguration
+autoRollbackConfiguration =
+    AutoRollbackConfiguration'
+    { _arcEnabled = Nothing
+    , _arcEvents = Nothing
+    }
+
+-- | Indicates whether a defined automatic rollback configuration is currently enabled.
+arcEnabled :: Lens' AutoRollbackConfiguration (Maybe Bool)
+arcEnabled = lens _arcEnabled (\ s a -> s{_arcEnabled = a});
+
+-- | The event type or types that trigger a rollback.
+arcEvents :: Lens' AutoRollbackConfiguration [AutoRollbackEvent]
+arcEvents = lens _arcEvents (\ s a -> s{_arcEvents = a}) . _Default . _Coerce;
+
+instance FromJSON AutoRollbackConfiguration where
+        parseJSON
+          = withObject "AutoRollbackConfiguration"
+              (\ x ->
+                 AutoRollbackConfiguration' <$>
+                   (x .:? "enabled") <*> (x .:? "events" .!= mempty))
+
+instance Hashable AutoRollbackConfiguration
+
+instance NFData AutoRollbackConfiguration
+
+instance ToJSON AutoRollbackConfiguration where
+        toJSON AutoRollbackConfiguration'{..}
+          = object
+              (catMaybes
+                 [("enabled" .=) <$> _arcEnabled,
+                  ("events" .=) <$> _arcEvents])
 
 -- | Information about an Auto Scaling group.
 --
@@ -202,9 +354,11 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
     , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
     , _dgiApplicationName              :: !(Maybe Text)
+    , _dgiAlarmConfiguration           :: !(Maybe AlarmConfiguration)
     , _dgiTriggerConfigurations        :: !(Maybe [TriggerConfig])
     , _dgiDeploymentGroupId            :: !(Maybe Text)
     , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
+    , _dgiAutoRollbackConfiguration    :: !(Maybe AutoRollbackConfiguration)
     , _dgiDeploymentGroupName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -224,11 +378,15 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
 --
 -- * 'dgiApplicationName' - The application name.
 --
--- * 'dgiTriggerConfigurations' - A list of associated triggers.
+-- * 'dgiAlarmConfiguration' - A list of alarms associated with the deployment group.
+--
+-- * 'dgiTriggerConfigurations' - Information about triggers associated with the deployment group.
 --
 -- * 'dgiDeploymentGroupId' - The deployment group ID.
 --
 -- * 'dgiAutoScalingGroups' - A list of associated Auto Scaling groups.
+--
+-- * 'dgiAutoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
 --
 -- * 'dgiDeploymentGroupName' - The deployment group name.
 deploymentGroupInfo
@@ -241,9 +399,11 @@ deploymentGroupInfo =
     , _dgiEc2TagFilters = Nothing
     , _dgiOnPremisesInstanceTagFilters = Nothing
     , _dgiApplicationName = Nothing
+    , _dgiAlarmConfiguration = Nothing
     , _dgiTriggerConfigurations = Nothing
     , _dgiDeploymentGroupId = Nothing
     , _dgiAutoScalingGroups = Nothing
+    , _dgiAutoRollbackConfiguration = Nothing
     , _dgiDeploymentGroupName = Nothing
     }
 
@@ -271,7 +431,11 @@ dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a});
 
--- | A list of associated triggers.
+-- | A list of alarms associated with the deployment group.
+dgiAlarmConfiguration :: Lens' DeploymentGroupInfo (Maybe AlarmConfiguration)
+dgiAlarmConfiguration = lens _dgiAlarmConfiguration (\ s a -> s{_dgiAlarmConfiguration = a});
+
+-- | Information about triggers associated with the deployment group.
 dgiTriggerConfigurations :: Lens' DeploymentGroupInfo [TriggerConfig]
 dgiTriggerConfigurations = lens _dgiTriggerConfigurations (\ s a -> s{_dgiTriggerConfigurations = a}) . _Default . _Coerce;
 
@@ -282,6 +446,10 @@ dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGrou
 -- | A list of associated Auto Scaling groups.
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
 dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default . _Coerce;
+
+-- | Information about the automatic rollback configuration associated with the deployment group.
+dgiAutoRollbackConfiguration :: Lens' DeploymentGroupInfo (Maybe AutoRollbackConfiguration)
+dgiAutoRollbackConfiguration = lens _dgiAutoRollbackConfiguration (\ s a -> s{_dgiAutoRollbackConfiguration = a});
 
 -- | The deployment group name.
 dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -298,9 +466,11 @@ instance FromJSON DeploymentGroupInfo where
                      <*> (x .:? "ec2TagFilters" .!= mempty)
                      <*> (x .:? "onPremisesInstanceTagFilters" .!= mempty)
                      <*> (x .:? "applicationName")
+                     <*> (x .:? "alarmConfiguration")
                      <*> (x .:? "triggerConfigurations" .!= mempty)
                      <*> (x .:? "deploymentGroupId")
                      <*> (x .:? "autoScalingGroups" .!= mempty)
+                     <*> (x .:? "autoRollbackConfiguration")
                      <*> (x .:? "deploymentGroupName"))
 
 instance Hashable DeploymentGroupInfo
@@ -322,9 +492,12 @@ data DeploymentInfo = DeploymentInfo'
     , _diErrorInformation              :: !(Maybe ErrorInformation)
     , _diDeploymentOverview            :: !(Maybe DeploymentOverview)
     , _diApplicationName               :: !(Maybe Text)
+    , _diRollbackInfo                  :: !(Maybe RollbackInfo)
     , _diRevision                      :: !(Maybe RevisionLocation)
     , _diDescription                   :: !(Maybe Text)
     , _diCreateTime                    :: !(Maybe POSIX)
+    , _diAutoRollbackConfiguration     :: !(Maybe AutoRollbackConfiguration)
+    , _diUpdateOutdatedInstancesOnly   :: !(Maybe Bool)
     , _diDeploymentGroupName           :: !(Maybe Text)
     , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -333,7 +506,7 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diCreator' - The means by which the deployment was created:     * user: A user created the deployment.    * autoscaling: Auto Scaling created the deployment.
+-- * 'diCreator' - The means by which the deployment was created:     * user: A user created the deployment.     * autoscaling: Auto Scaling created the deployment.     * codeDeployRollback: A rollback process created the deployment.
 --
 -- * 'diStatus' - The current state of the deployment as a whole.
 --
@@ -351,11 +524,17 @@ data DeploymentInfo = DeploymentInfo'
 --
 -- * 'diApplicationName' - The application name.
 --
+-- * 'diRollbackInfo' - Information about a deployment rollback.
+--
 -- * 'diRevision' - Information about the location of stored application artifacts and the service from which to retrieve them.
 --
 -- * 'diDescription' - A comment about the deployment.
 --
 -- * 'diCreateTime' - A timestamp indicating when the deployment was created.
+--
+-- * 'diAutoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment.
+--
+-- * 'diUpdateOutdatedInstancesOnly' - Indicates whether only instances that are not running the latest application revision are to be deployed to.
 --
 -- * 'diDeploymentGroupName' - The deployment group name.
 --
@@ -373,14 +552,17 @@ deploymentInfo =
     , _diErrorInformation = Nothing
     , _diDeploymentOverview = Nothing
     , _diApplicationName = Nothing
+    , _diRollbackInfo = Nothing
     , _diRevision = Nothing
     , _diDescription = Nothing
     , _diCreateTime = Nothing
+    , _diAutoRollbackConfiguration = Nothing
+    , _diUpdateOutdatedInstancesOnly = Nothing
     , _diDeploymentGroupName = Nothing
     , _diIgnoreApplicationStopFailures = Nothing
     }
 
--- | The means by which the deployment was created:     * user: A user created the deployment.    * autoscaling: Auto Scaling created the deployment.
+-- | The means by which the deployment was created:     * user: A user created the deployment.     * autoscaling: Auto Scaling created the deployment.     * codeDeployRollback: A rollback process created the deployment.
 diCreator :: Lens' DeploymentInfo (Maybe DeploymentCreator)
 diCreator = lens _diCreator (\ s a -> s{_diCreator = a});
 
@@ -416,6 +598,10 @@ diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverv
 diApplicationName :: Lens' DeploymentInfo (Maybe Text)
 diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a});
 
+-- | Information about a deployment rollback.
+diRollbackInfo :: Lens' DeploymentInfo (Maybe RollbackInfo)
+diRollbackInfo = lens _diRollbackInfo (\ s a -> s{_diRollbackInfo = a});
+
 -- | Information about the location of stored application artifacts and the service from which to retrieve them.
 diRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
 diRevision = lens _diRevision (\ s a -> s{_diRevision = a});
@@ -427,6 +613,14 @@ diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 -- | A timestamp indicating when the deployment was created.
 diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time;
+
+-- | Information about the automatic rollback configuration associated with the deployment.
+diAutoRollbackConfiguration :: Lens' DeploymentInfo (Maybe AutoRollbackConfiguration)
+diAutoRollbackConfiguration = lens _diAutoRollbackConfiguration (\ s a -> s{_diAutoRollbackConfiguration = a});
+
+-- | Indicates whether only instances that are not running the latest application revision are to be deployed to.
+diUpdateOutdatedInstancesOnly :: Lens' DeploymentInfo (Maybe Bool)
+diUpdateOutdatedInstancesOnly = lens _diUpdateOutdatedInstancesOnly (\ s a -> s{_diUpdateOutdatedInstancesOnly = a});
 
 -- | The deployment group name.
 diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
@@ -449,9 +643,12 @@ instance FromJSON DeploymentInfo where
                      <*> (x .:? "errorInformation")
                      <*> (x .:? "deploymentOverview")
                      <*> (x .:? "applicationName")
+                     <*> (x .:? "rollbackInfo")
                      <*> (x .:? "revision")
                      <*> (x .:? "description")
                      <*> (x .:? "createTime")
+                     <*> (x .:? "autoRollbackConfiguration")
+                     <*> (x .:? "updateOutdatedInstancesOnly")
                      <*> (x .:? "deploymentGroupName")
                      <*> (x .:? "ignoreApplicationStopFailures"))
 
@@ -548,7 +745,7 @@ data Diagnostics = Diagnostics'
 --
 -- * 'dLogTail' - The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 --
--- * 'dErrorCode' - The associated error code:     * Success: The specified script ran.    * ScriptMissing: The specified script was not found in the specified location.    * ScriptNotExecutable: The specified script is not a recognized executable file type.    * ScriptTimedOut: The specified script did not finish running in the specified time period.    * ScriptFailed: The specified script failed to run as expected.    * UnknownError: The specified script did not run for an unknown reason.
+-- * 'dErrorCode' - The associated error code:     * Success: The specified script ran.     * ScriptMissing: The specified script was not found in the specified location.     * ScriptNotExecutable: The specified script is not a recognized executable file type.     * ScriptTimedOut: The specified script did not finish running in the specified time period.     * ScriptFailed: The specified script failed to run as expected.     * UnknownError: The specified script did not run for an unknown reason.
 --
 -- * 'dScriptName' - The name of the script.
 --
@@ -567,7 +764,7 @@ diagnostics =
 dLogTail :: Lens' Diagnostics (Maybe Text)
 dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a});
 
--- | The associated error code:     * Success: The specified script ran.    * ScriptMissing: The specified script was not found in the specified location.    * ScriptNotExecutable: The specified script is not a recognized executable file type.    * ScriptTimedOut: The specified script did not finish running in the specified time period.    * ScriptFailed: The specified script failed to run as expected.    * UnknownError: The specified script did not run for an unknown reason.
+-- | The associated error code:     * Success: The specified script ran.     * ScriptMissing: The specified script was not found in the specified location.     * ScriptNotExecutable: The specified script is not a recognized executable file type.     * ScriptTimedOut: The specified script did not finish running in the specified time period.     * ScriptFailed: The specified script failed to run as expected.     * UnknownError: The specified script did not run for an unknown reason.
 dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
 dErrorCode = lens _dErrorCode (\ s a -> s{_dErrorCode = a});
 
@@ -611,7 +808,7 @@ data EC2TagFilter = EC2TagFilter'
 --
 -- * 'etfKey' - The tag filter key.
 --
--- * 'etfType' - The tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
+-- * 'etfType' - The tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 ec2TagFilter
     :: EC2TagFilter
 ec2TagFilter =
@@ -629,7 +826,7 @@ etfValue = lens _etfValue (\ s a -> s{_etfValue = a});
 etfKey :: Lens' EC2TagFilter (Maybe Text)
 etfKey = lens _etfKey (\ s a -> s{_etfKey = a});
 
--- | The tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
+-- | The tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 etfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
 etfType = lens _etfType (\ s a -> s{_etfType = a});
 
@@ -665,7 +862,7 @@ data ErrorInformation = ErrorInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eiCode' - The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.    * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.    * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.    * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.    * IAM_ROLE_MISSING: The service role cannot be accessed.    * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.    * INTERNAL_ERROR: There was an internal error.    * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.    * NO_INSTANCES: No instance were specified, or no instance can be found.    * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.    * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.    * TIMEOUT: The deployment has timed out.    * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
+-- * 'eiCode' - The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.     * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.     * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.     * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.     * IAM_ROLE_MISSING: The service role cannot be accessed.     * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.     * INTERNAL_ERROR: There was an internal error.     * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.     * NO_INSTANCES: No instance were specified, or no instance can be found.     * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.     * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.     * TIMEOUT: The deployment has timed out.     * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 --
 -- * 'eiMessage' - An accompanying error message.
 errorInformation
@@ -676,7 +873,7 @@ errorInformation =
     , _eiMessage = Nothing
     }
 
--- | The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.    * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.    * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.    * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.    * IAM_ROLE_MISSING: The service role cannot be accessed.    * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.    * INTERNAL_ERROR: There was an internal error.    * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.    * NO_INSTANCES: No instance were specified, or no instance can be found.    * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.    * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.    * TIMEOUT: The deployment has timed out.    * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
+-- | The error code:     * APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.     * DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.     * HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.     * HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.     * IAM_ROLE_MISSING: The service role cannot be accessed.     * IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.     * INTERNAL_ERROR: There was an internal error.     * NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.     * NO_INSTANCES: No instance were specified, or no instance can be found.     * OVER_MAX_INSTANCES: The maximum number of instance was exceeded.     * THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.     * TIMEOUT: The deployment has timed out.     * REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.
 eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
 eiCode = lens _eiCode (\ s a -> s{_eiCode = a});
 
@@ -916,7 +1113,7 @@ data InstanceSummary = InstanceSummary'
 --
 -- * 'isInstanceId' - The instance ID.
 --
--- * 'isStatus' - The deployment status for this instance:     * Pending: The deployment is pending for this instance.    * In Progress: The deployment is in progress for this instance.    * Succeeded: The deployment has succeeded for this instance.    * Failed: The deployment has failed for this instance.    * Skipped: The deployment has been skipped for this instance.    * Unknown: The deployment status is unknown for this instance.
+-- * 'isStatus' - The deployment status for this instance:     * Pending: The deployment is pending for this instance.     * In Progress: The deployment is in progress for this instance.     * Succeeded: The deployment has succeeded for this instance.     * Failed: The deployment has failed for this instance.     * Skipped: The deployment has been skipped for this instance.     * Unknown: The deployment status is unknown for this instance.
 --
 -- * 'isDeploymentId' - The deployment ID.
 --
@@ -938,7 +1135,7 @@ instanceSummary =
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
 isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 
--- | The deployment status for this instance:     * Pending: The deployment is pending for this instance.    * In Progress: The deployment is in progress for this instance.    * Succeeded: The deployment has succeeded for this instance.    * Failed: The deployment has failed for this instance.    * Skipped: The deployment has been skipped for this instance.    * Unknown: The deployment status is unknown for this instance.
+-- | The deployment status for this instance:     * Pending: The deployment is pending for this instance.     * In Progress: The deployment is in progress for this instance.     * Succeeded: The deployment has succeeded for this instance.     * Failed: The deployment has failed for this instance.     * Skipped: The deployment has been skipped for this instance.     * Unknown: The deployment status is unknown for this instance.
 isStatus :: Lens' InstanceSummary (Maybe InstanceStatus)
 isStatus = lens _isStatus (\ s a -> s{_isStatus = a});
 
@@ -985,7 +1182,7 @@ data LifecycleEvent = LifecycleEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'leStatus' - The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.    * InProgress: The deployment lifecycle event is in progress.    * Succeeded: The deployment lifecycle event ran successfully.    * Failed: The deployment lifecycle event has failed.    * Skipped: The deployment lifecycle event has been skipped.    * Unknown: The deployment lifecycle event is unknown.
+-- * 'leStatus' - The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.     * InProgress: The deployment lifecycle event is in progress.     * Succeeded: The deployment lifecycle event ran successfully.     * Failed: The deployment lifecycle event has failed.     * Skipped: The deployment lifecycle event has been skipped.     * Unknown: The deployment lifecycle event is unknown.
 --
 -- * 'leLifecycleEventName' - The deployment lifecycle event name, such as ApplicationStop, BeforeInstall, AfterInstall, ApplicationStart, or ValidateService.
 --
@@ -1005,7 +1202,7 @@ lifecycleEvent =
     , _leEndTime = Nothing
     }
 
--- | The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.    * InProgress: The deployment lifecycle event is in progress.    * Succeeded: The deployment lifecycle event ran successfully.    * Failed: The deployment lifecycle event has failed.    * Skipped: The deployment lifecycle event has been skipped.    * Unknown: The deployment lifecycle event is unknown.
+-- | The deployment lifecycle event status:     * Pending: The deployment lifecycle event is pending.     * InProgress: The deployment lifecycle event is in progress.     * Succeeded: The deployment lifecycle event ran successfully.     * Failed: The deployment lifecycle event has failed.     * Skipped: The deployment lifecycle event has been skipped.     * Unknown: The deployment lifecycle event is unknown.
 leStatus :: Lens' LifecycleEvent (Maybe LifecycleEventStatus)
 leStatus = lens _leStatus (\ s a -> s{_leStatus = a});
 
@@ -1055,7 +1252,7 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 --
 -- * 'mhhValue' - The minimum healthy instance value.
 --
--- * 'mhhType' - The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.    * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
+-- * 'mhhType' - The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
 minimumHealthyHosts
     :: MinimumHealthyHosts
 minimumHealthyHosts =
@@ -1068,7 +1265,7 @@ minimumHealthyHosts =
 mhhValue :: Lens' MinimumHealthyHosts (Maybe Int)
 mhhValue = lens _mhhValue (\ s a -> s{_mhhValue = a});
 
--- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.    * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
+-- | The minimum healthy instance type:     * HOST_COUNT: The minimum number of healthy instance as an absolute value.     * FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment. In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\ s a -> s{_mhhType = a});
 
@@ -1150,7 +1347,7 @@ data RevisionLocation = RevisionLocation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rlRevisionType' - The type of application revision:     * S3: An application revision stored in Amazon S3.    * GitHub: An application revision stored in GitHub.
+-- * 'rlRevisionType' - The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub.
 --
 -- * 'rlS3Location' - Undocumented member.
 --
@@ -1164,7 +1361,7 @@ revisionLocation =
     , _rlGitHubLocation = Nothing
     }
 
--- | The type of application revision:     * S3: An application revision stored in Amazon S3.    * GitHub: An application revision stored in GitHub.
+-- | The type of application revision:     * S3: An application revision stored in Amazon S3.     * GitHub: An application revision stored in GitHub.
 rlRevisionType :: Lens' RevisionLocation (Maybe RevisionLocationType)
 rlRevisionType = lens _rlRevisionType (\ s a -> s{_rlRevisionType = a});
 
@@ -1196,6 +1393,60 @@ instance ToJSON RevisionLocation where
                   ("s3Location" .=) <$> _rlS3Location,
                   ("gitHubLocation" .=) <$> _rlGitHubLocation])
 
+-- | Information about a deployment rollback.
+--
+--
+--
+-- /See:/ 'rollbackInfo' smart constructor.
+data RollbackInfo = RollbackInfo'
+    { _riRollbackTriggeringDeploymentId :: !(Maybe Text)
+    , _riRollbackMessage                :: !(Maybe Text)
+    , _riRollbackDeploymentId           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RollbackInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riRollbackTriggeringDeploymentId' - The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+--
+-- * 'riRollbackMessage' - Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded.
+--
+-- * 'riRollbackDeploymentId' - The ID of the deployment rollback.
+rollbackInfo
+    :: RollbackInfo
+rollbackInfo =
+    RollbackInfo'
+    { _riRollbackTriggeringDeploymentId = Nothing
+    , _riRollbackMessage = Nothing
+    , _riRollbackDeploymentId = Nothing
+    }
+
+-- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+riRollbackTriggeringDeploymentId :: Lens' RollbackInfo (Maybe Text)
+riRollbackTriggeringDeploymentId = lens _riRollbackTriggeringDeploymentId (\ s a -> s{_riRollbackTriggeringDeploymentId = a});
+
+-- | Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded.
+riRollbackMessage :: Lens' RollbackInfo (Maybe Text)
+riRollbackMessage = lens _riRollbackMessage (\ s a -> s{_riRollbackMessage = a});
+
+-- | The ID of the deployment rollback.
+riRollbackDeploymentId :: Lens' RollbackInfo (Maybe Text)
+riRollbackDeploymentId = lens _riRollbackDeploymentId (\ s a -> s{_riRollbackDeploymentId = a});
+
+instance FromJSON RollbackInfo where
+        parseJSON
+          = withObject "RollbackInfo"
+              (\ x ->
+                 RollbackInfo' <$>
+                   (x .:? "rollbackTriggeringDeploymentId") <*>
+                     (x .:? "rollbackMessage")
+                     <*> (x .:? "rollbackDeploymentId"))
+
+instance Hashable RollbackInfo
+
+instance NFData RollbackInfo
+
 -- | Information about the location of application artifacts stored in Amazon S3.
 --
 --
@@ -1213,7 +1464,7 @@ data S3Location = S3Location'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slBundleType' - The file type of the application revision. Must be one of the following:     * tar: A tar archive file.    * tgz: A compressed tar archive file.    * zip: A zip archive file.
+-- * 'slBundleType' - The file type of the application revision. Must be one of the following:     * tar: A tar archive file.     * tgz: A compressed tar archive file.     * zip: A zip archive file.
 --
 -- * 'slETag' - The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.
 --
@@ -1233,7 +1484,7 @@ s3Location =
     , _slVersion = Nothing
     }
 
--- | The file type of the application revision. Must be one of the following:     * tar: A tar archive file.    * tgz: A compressed tar archive file.    * zip: A zip archive file.
+-- | The file type of the application revision. Must be one of the following:     * tar: A tar archive file.     * tgz: A compressed tar archive file.     * zip: A zip archive file.
 slBundleType :: Lens' S3Location (Maybe BundleType)
 slBundleType = lens _slBundleType (\ s a -> s{_slBundleType = a});
 
@@ -1343,7 +1594,7 @@ data TagFilter = TagFilter'
 --
 -- * 'tfKey' - The on-premises instance tag filter key.
 --
--- * 'tfType' - The on-premises instance tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
+-- * 'tfType' - The on-premises instance tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 tagFilter
     :: TagFilter
 tagFilter =
@@ -1361,7 +1612,7 @@ tfValue = lens _tfValue (\ s a -> s{_tfValue = a});
 tfKey :: Lens' TagFilter (Maybe Text)
 tfKey = lens _tfKey (\ s a -> s{_tfKey = a});
 
--- | The on-premises instance tag filter type:     * KEY_ONLY: Key only.    * VALUE_ONLY: Value only.    * KEY_AND_VALUE: Key and value.
+-- | The on-premises instance tag filter type:     * KEY_ONLY: Key only.     * VALUE_ONLY: Value only.     * KEY_AND_VALUE: Key and value.
 tfType :: Lens' TagFilter (Maybe TagFilterType)
 tfType = lens _tfType (\ s a -> s{_tfType = a});
 
@@ -1443,7 +1694,7 @@ data TriggerConfig = TriggerConfig'
 --
 -- * 'tcTriggerName' - The name of the notification trigger.
 --
--- * 'tcTriggerEvents' - The event type or types for which notifications are triggered. The following event type values are supported:     * DEPLOYMENT_START    * DEPLOYMENT_SUCCESS    * DEPLOYMENT_FAILURE    * DEPLOYMENT_STOP    * INSTANCE_START    * INSTANCE_SUCCESS    * INSTANCE_FAILURE
+-- * 'tcTriggerEvents' - The event type or types for which notifications are triggered.
 --
 -- * 'tcTriggerTargetARN' - The ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
 triggerConfig
@@ -1459,7 +1710,7 @@ triggerConfig =
 tcTriggerName :: Lens' TriggerConfig (Maybe Text)
 tcTriggerName = lens _tcTriggerName (\ s a -> s{_tcTriggerName = a});
 
--- | The event type or types for which notifications are triggered. The following event type values are supported:     * DEPLOYMENT_START    * DEPLOYMENT_SUCCESS    * DEPLOYMENT_FAILURE    * DEPLOYMENT_STOP    * INSTANCE_START    * INSTANCE_SUCCESS    * INSTANCE_FAILURE
+-- | The event type or types for which notifications are triggered.
 tcTriggerEvents :: Lens' TriggerConfig [TriggerEventType]
 tcTriggerEvents = lens _tcTriggerEvents (\ s a -> s{_tcTriggerEvents = a}) . _Default . _Coerce;
 

@@ -30,6 +30,8 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdDeploymentConfigName
     , cdRevision
     , cdDescription
+    , cdAutoRollbackConfiguration
+    , cdUpdateOutdatedInstancesOnly
     , cdDeploymentGroupName
     , cdIgnoreApplicationStopFailures
     , cdApplicationName
@@ -58,6 +60,8 @@ data CreateDeployment = CreateDeployment'
     { _cdDeploymentConfigName          :: !(Maybe Text)
     , _cdRevision                      :: !(Maybe RevisionLocation)
     , _cdDescription                   :: !(Maybe Text)
+    , _cdAutoRollbackConfiguration     :: !(Maybe AutoRollbackConfiguration)
+    , _cdUpdateOutdatedInstancesOnly   :: !(Maybe Bool)
     , _cdDeploymentGroupName           :: !(Maybe Text)
     , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
     , _cdApplicationName               :: !Text
@@ -73,6 +77,10 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdDescription' - A comment about the deployment.
 --
+-- * 'cdAutoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a deployment is created.
+--
+-- * 'cdUpdateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that are not running the latest application revision.
+--
 -- * 'cdDeploymentGroupName' - The name of the deployment group.
 --
 -- * 'cdIgnoreApplicationStopFailures' - If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
@@ -86,6 +94,8 @@ createDeployment pApplicationName_ =
     { _cdDeploymentConfigName = Nothing
     , _cdRevision = Nothing
     , _cdDescription = Nothing
+    , _cdAutoRollbackConfiguration = Nothing
+    , _cdUpdateOutdatedInstancesOnly = Nothing
     , _cdDeploymentGroupName = Nothing
     , _cdIgnoreApplicationStopFailures = Nothing
     , _cdApplicationName = pApplicationName_
@@ -102,6 +112,14 @@ cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
 -- | A comment about the deployment.
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+
+-- | Configuration information for an automatic rollback that is added when a deployment is created.
+cdAutoRollbackConfiguration :: Lens' CreateDeployment (Maybe AutoRollbackConfiguration)
+cdAutoRollbackConfiguration = lens _cdAutoRollbackConfiguration (\ s a -> s{_cdAutoRollbackConfiguration = a});
+
+-- | Indicates whether to deploy to all instances or only to instances that are not running the latest application revision.
+cdUpdateOutdatedInstancesOnly :: Lens' CreateDeployment (Maybe Bool)
+cdUpdateOutdatedInstancesOnly = lens _cdUpdateOutdatedInstancesOnly (\ s a -> s{_cdUpdateOutdatedInstancesOnly = a});
 
 -- | The name of the deployment group.
 cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
@@ -146,6 +164,10 @@ instance ToJSON CreateDeployment where
                     _cdDeploymentConfigName,
                   ("revision" .=) <$> _cdRevision,
                   ("description" .=) <$> _cdDescription,
+                  ("autoRollbackConfiguration" .=) <$>
+                    _cdAutoRollbackConfiguration,
+                  ("updateOutdatedInstancesOnly" .=) <$>
+                    _cdUpdateOutdatedInstancesOnly,
                   ("deploymentGroupName" .=) <$>
                     _cdDeploymentGroupName,
                   ("ignoreApplicationStopFailures" .=) <$>

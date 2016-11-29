@@ -62,7 +62,7 @@ data ListDeploymentInstances = ListDeploymentInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldiInstanceStatusFilter' - A subset of instances to list by status:     * Pending: Include those instance with pending deployments.    * InProgress: Include those instance where deployments are still in progress.    * Succeeded: Include those instances with successful deployments.    * Failed: Include those instance with failed deployments.    * Skipped: Include those instance with skipped deployments.    * Unknown: Include those instance with deployments in an unknown state.
+-- * 'ldiInstanceStatusFilter' - A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
 --
 -- * 'ldiNextToken' - An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 --
@@ -77,7 +77,7 @@ listDeploymentInstances pDeploymentId_ =
     , _ldiDeploymentId = pDeploymentId_
     }
 
--- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.    * InProgress: Include those instance where deployments are still in progress.    * Succeeded: Include those instances with successful deployments.    * Failed: Include those instance with failed deployments.    * Skipped: Include those instance with skipped deployments.    * Unknown: Include those instance with deployments in an unknown state.
+-- | A subset of instances to list by status:     * Pending: Include those instance with pending deployments.     * InProgress: Include those instance where deployments are still in progress.     * Succeeded: Include those instances with successful deployments.     * Failed: Include those instance with failed deployments.     * Skipped: Include those instance with skipped deployments.     * Unknown: Include those instance with deployments in an unknown state.
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
 ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default . _Coerce;
 

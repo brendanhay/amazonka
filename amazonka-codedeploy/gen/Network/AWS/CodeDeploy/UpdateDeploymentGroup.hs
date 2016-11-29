@@ -32,8 +32,10 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgNewDeploymentGroupName
     , udgEc2TagFilters
     , udgOnPremisesInstanceTagFilters
+    , udgAlarmConfiguration
     , udgTriggerConfigurations
     , udgAutoScalingGroups
+    , udgAutoRollbackConfiguration
     , udgApplicationName
     , udgCurrentDeploymentGroupName
 
@@ -63,8 +65,10 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
     , _udgNewDeploymentGroupName       :: !(Maybe Text)
     , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
     , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _udgAlarmConfiguration           :: !(Maybe AlarmConfiguration)
     , _udgTriggerConfigurations        :: !(Maybe [TriggerConfig])
     , _udgAutoScalingGroups            :: !(Maybe [Text])
+    , _udgAutoRollbackConfiguration    :: !(Maybe AutoRollbackConfiguration)
     , _udgApplicationName              :: !Text
     , _udgCurrentDeploymentGroupName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -83,9 +87,13 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgOnPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
--- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated.
+-- * 'udgAlarmConfiguration' - Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
+--
+-- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated. For examples, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
 --
 -- * 'udgAutoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
+--
+-- * 'udgAutoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 --
 -- * 'udgApplicationName' - The application name corresponding to the deployment group to update.
 --
@@ -101,8 +109,10 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     , _udgNewDeploymentGroupName = Nothing
     , _udgEc2TagFilters = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
+    , _udgAlarmConfiguration = Nothing
     , _udgTriggerConfigurations = Nothing
     , _udgAutoScalingGroups = Nothing
+    , _udgAutoRollbackConfiguration = Nothing
     , _udgApplicationName = pApplicationName_
     , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
     }
@@ -127,13 +137,21 @@ udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . 
 udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
 udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
--- | Information about triggers to change when the deployment group is updated.
+-- | Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
+udgAlarmConfiguration :: Lens' UpdateDeploymentGroup (Maybe AlarmConfiguration)
+udgAlarmConfiguration = lens _udgAlarmConfiguration (\ s a -> s{_udgAlarmConfiguration = a});
+
+-- | Information about triggers to change when the deployment group is updated. For examples, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
 udgTriggerConfigurations :: Lens' UpdateDeploymentGroup [TriggerConfig]
 udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTriggerConfigurations = a}) . _Default . _Coerce;
 
 -- | The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
+
+-- | Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
+udgAutoRollbackConfiguration :: Lens' UpdateDeploymentGroup (Maybe AutoRollbackConfiguration)
+udgAutoRollbackConfiguration = lens _udgAutoRollbackConfiguration (\ s a -> s{_udgAutoRollbackConfiguration = a});
 
 -- | The application name corresponding to the deployment group to update.
 udgApplicationName :: Lens' UpdateDeploymentGroup Text
@@ -180,9 +198,12 @@ instance ToJSON UpdateDeploymentGroup where
                   ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _udgOnPremisesInstanceTagFilters,
+                  ("alarmConfiguration" .=) <$> _udgAlarmConfiguration,
                   ("triggerConfigurations" .=) <$>
                     _udgTriggerConfigurations,
                   ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,
+                  ("autoRollbackConfiguration" .=) <$>
+                    _udgAutoRollbackConfiguration,
                   Just ("applicationName" .= _udgApplicationName),
                   Just
                     ("currentDeploymentGroupName" .=

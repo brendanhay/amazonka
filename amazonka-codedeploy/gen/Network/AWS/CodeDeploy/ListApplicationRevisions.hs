@@ -72,15 +72,15 @@ data ListApplicationRevisions = ListApplicationRevisions'
 --
 -- * 'larS3KeyPrefix' - A key prefix for the set of Amazon S3 objects to limit the search for revisions.
 --
--- * 'larDeployed' - Whether to list revisions based on whether the revision is the target revision of an deployment group:     * include: List revisions that are target revisions of a deployment group.    * exclude: Do not list revisions that are target revisions of a deployment group.    * ignore: List all revisions.
+-- * 'larDeployed' - Whether to list revisions based on whether the revision is the target revision of an deployment group:     * include: List revisions that are target revisions of a deployment group.     * exclude: Do not list revisions that are target revisions of a deployment group.     * ignore: List all revisions.
 --
--- * 'larSortOrder' - The order in which to sort the list results:     * ascending: ascending order.    * descending: descending order. If not specified, the results will be sorted in ascending order. If set to null, the results will be sorted in an arbitrary order.
+-- * 'larSortOrder' - The order in which to sort the list results:     * ascending: ascending order.     * descending: descending order. If not specified, the results will be sorted in ascending order. If set to null, the results will be sorted in an arbitrary order.
 --
 -- * 'larNextToken' - An identifier returned from the previous list application revisions call. It can be used to return the next set of applications in the list.
 --
 -- * 'larS3Bucket' - An Amazon S3 bucket name to limit the search for revisions. If set to null, all of the user's buckets will be searched.
 --
--- * 'larSortBy' - The column name to use to sort the list results:     * registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.    * firstUsedTime: Sort by the time the revisions were first used in a deployment.    * lastUsedTime: Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results will be returned in an arbitrary order.
+-- * 'larSortBy' - The column name to use to sort the list results:     * registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.     * firstUsedTime: Sort by the time the revisions were first used in a deployment.     * lastUsedTime: Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results will be returned in an arbitrary order.
 --
 -- * 'larApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 listApplicationRevisions
@@ -101,11 +101,11 @@ listApplicationRevisions pApplicationName_ =
 larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
 larS3KeyPrefix = lens _larS3KeyPrefix (\ s a -> s{_larS3KeyPrefix = a});
 
--- | Whether to list revisions based on whether the revision is the target revision of an deployment group:     * include: List revisions that are target revisions of a deployment group.    * exclude: Do not list revisions that are target revisions of a deployment group.    * ignore: List all revisions.
+-- | Whether to list revisions based on whether the revision is the target revision of an deployment group:     * include: List revisions that are target revisions of a deployment group.     * exclude: Do not list revisions that are target revisions of a deployment group.     * ignore: List all revisions.
 larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
 larDeployed = lens _larDeployed (\ s a -> s{_larDeployed = a});
 
--- | The order in which to sort the list results:     * ascending: ascending order.    * descending: descending order. If not specified, the results will be sorted in ascending order. If set to null, the results will be sorted in an arbitrary order.
+-- | The order in which to sort the list results:     * ascending: ascending order.     * descending: descending order. If not specified, the results will be sorted in ascending order. If set to null, the results will be sorted in an arbitrary order.
 larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
 larSortOrder = lens _larSortOrder (\ s a -> s{_larSortOrder = a});
 
@@ -117,7 +117,7 @@ larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 larS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
 larS3Bucket = lens _larS3Bucket (\ s a -> s{_larS3Bucket = a});
 
--- | The column name to use to sort the list results:     * registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.    * firstUsedTime: Sort by the time the revisions were first used in a deployment.    * lastUsedTime: Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results will be returned in an arbitrary order.
+-- | The column name to use to sort the list results:     * registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.     * firstUsedTime: Sort by the time the revisions were first used in a deployment.     * lastUsedTime: Sort by the time the revisions were last used in a deployment. If not specified or set to null, the results will be returned in an arbitrary order.
 larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
 larSortBy = lens _larSortBy (\ s a -> s{_larSortBy = a});
 

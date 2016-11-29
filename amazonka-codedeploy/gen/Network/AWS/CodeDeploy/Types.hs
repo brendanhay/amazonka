@@ -19,6 +19,7 @@ module Network.AWS.CodeDeploy.Types
     , _LifecycleHookLimitExceededException
     , _InvalidTimeRangeException
     , _InvalidTagException
+    , _InvalidAlarmConfigException
     , _InstanceNameAlreadyRegisteredException
     , _IAMUserARNRequiredException
     , _InvalidDeploymentGroupNameException
@@ -37,6 +38,7 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidApplicationNameException
     , _ApplicationDoesNotExistException
     , _InvalidMinimumHealthyHostValueException
+    , _AlarmsLimitExceededException
     , _InvalidTagFilterException
     , _InvalidTriggerConfigException
     , _TagRequiredException
@@ -56,6 +58,7 @@ module Network.AWS.CodeDeploy.Types
     , _InstanceIdRequiredException
     , _InvalidDeploymentIdException
     , _InvalidSortOrderException
+    , _InvalidAutoRollbackConfigException
     , _DeploymentAlreadyCompletedException
     , _DeploymentDoesNotExistException
     , _BatchLimitExceededException
@@ -80,6 +83,9 @@ module Network.AWS.CodeDeploy.Types
 
     -- * ApplicationRevisionSortBy
     , ApplicationRevisionSortBy (..)
+
+    -- * AutoRollbackEvent
+    , AutoRollbackEvent (..)
 
     -- * BundleType
     , BundleType (..)
@@ -129,6 +135,18 @@ module Network.AWS.CodeDeploy.Types
     -- * TriggerEventType
     , TriggerEventType (..)
 
+    -- * Alarm
+    , Alarm
+    , alarm
+    , aName
+
+    -- * AlarmConfiguration
+    , AlarmConfiguration
+    , alarmConfiguration
+    , acIgnorePollAlarmFailure
+    , acEnabled
+    , acAlarms
+
     -- * ApplicationInfo
     , ApplicationInfo
     , applicationInfo
@@ -136,6 +154,12 @@ module Network.AWS.CodeDeploy.Types
     , aiApplicationId
     , aiApplicationName
     , aiCreateTime
+
+    -- * AutoRollbackConfiguration
+    , AutoRollbackConfiguration
+    , autoRollbackConfiguration
+    , arcEnabled
+    , arcEvents
 
     -- * AutoScalingGroup
     , AutoScalingGroup
@@ -160,9 +184,11 @@ module Network.AWS.CodeDeploy.Types
     , dgiEc2TagFilters
     , dgiOnPremisesInstanceTagFilters
     , dgiApplicationName
+    , dgiAlarmConfiguration
     , dgiTriggerConfigurations
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
+    , dgiAutoRollbackConfiguration
     , dgiDeploymentGroupName
 
     -- * DeploymentInfo
@@ -177,9 +203,12 @@ module Network.AWS.CodeDeploy.Types
     , diErrorInformation
     , diDeploymentOverview
     , diApplicationName
+    , diRollbackInfo
     , diRevision
     , diDescription
     , diCreateTime
+    , diAutoRollbackConfiguration
+    , diUpdateOutdatedInstancesOnly
     , diDeploymentGroupName
     , diIgnoreApplicationStopFailures
 
@@ -274,6 +303,13 @@ module Network.AWS.CodeDeploy.Types
     , rlRevisionType
     , rlS3Location
     , rlGitHubLocation
+
+    -- * RollbackInfo
+    , RollbackInfo
+    , rollbackInfo
+    , riRollbackTriggeringDeploymentId
+    , riRollbackMessage
+    , riRollbackDeploymentId
 
     -- * S3Location
     , S3Location
@@ -370,6 +406,25 @@ _InvalidTimeRangeException =
 --
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagException = _ServiceError . hasCode "InvalidTagException"
+
+-- | The format of the alarm configuration is invalid. Possible causes include:
+--
+--
+--     * The alarm list is null.
+--
+--     * The alarm object is null.
+--
+--     * The alarm name is empty or null or exceeds the 255 character limit.
+--
+--     * Two alarms with the same name have been specified.
+--
+--     * The alarm configuration is enabled but the alarm list is empty.
+--
+--
+--
+_InvalidAlarmConfigException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAlarmConfigException =
+    _ServiceError . hasCode "InvalidAlarmConfigException"
 
 -- | The specified on-premises instance name is already registered.
 --
@@ -494,6 +549,13 @@ _ApplicationDoesNotExistException =
 _InvalidMinimumHealthyHostValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumHealthyHostValueException =
     _ServiceError . hasCode "InvalidMinimumHealthyHostValueException"
+
+-- | The maximum number of alarms for a deployment group (10) was exceeded.
+--
+--
+_AlarmsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_AlarmsLimitExceededException =
+    _ServiceError . hasCode "AlarmsLimitExceededException"
 
 -- | The specified tag filter was specified in an invalid format.
 --
@@ -625,6 +687,13 @@ _InvalidDeploymentIdException =
 _InvalidSortOrderException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSortOrderException =
     _ServiceError . hasCode "InvalidSortOrderException"
+
+-- | The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled but an invalid triggering event type or no event types were listed.
+--
+--
+_InvalidAutoRollbackConfigException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAutoRollbackConfigException =
+    _ServiceError . hasCode "InvalidAutoRollbackConfigException"
 
 -- | The deployment is already complete.
 --

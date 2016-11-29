@@ -13,9 +13,13 @@
 --
 -- __AWS CodeDeploy__
 --
--- __Overview__ This reference guide provides descriptions of the AWS CodeDeploy APIs. For more information about AWS CodeDeploy, see the <docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide> .
+-- __Overview__
 --
--- __Using the APIs__ You can use the AWS CodeDeploy APIs to work with the following:
+-- This reference guide provides descriptions of the AWS CodeDeploy APIs. For more information about AWS CodeDeploy, see the <http://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide> .
+--
+-- __Using the APIs__
+--
+-- You can use the AWS CodeDeploy APIs to work with the following:
 --
 --     * Applications are unique identifiers used by AWS CodeDeploy to ensure the correct combinations of revisions, deployment configurations, and deployment groups are being referenced during deployments.
 --
@@ -37,7 +41,7 @@
 --
 -- You can use the AWS CodeDeploy APIs to create, get, list, and stop deployments.
 --
---     * Application revisions are archive files stored in Amazon S3 buckets or GitHub repositories. These revisions contain source content (such as source code, web pages, executable files, and deployment scripts) along with an application specification (AppSpec) file. (The AppSpec file is unique to AWS CodeDeploy; it defines the deployment actions you want AWS CodeDeploy to execute.) Ffor application revisions stored in Amazon S3 buckets, an application revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For application revisions stored in GitHub repositories, an application revision is uniquely identified by its repository name and commit ID. Application revisions are deployed through deployment groups.
+--     * Application revisions are archive files stored in Amazon S3 buckets or GitHub repositories. These revisions contain source content (such as source code, web pages, executable files, and deployment scripts) along with an application specification (AppSpec) file. (The AppSpec file is unique to AWS CodeDeploy; it defines the deployment actions you want AWS CodeDeploy to execute.) For application revisions stored in Amazon S3 buckets, an application revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For application revisions stored in GitHub repositories, an application revision is uniquely identified by its repository name and commit ID. Application revisions are deployed through deployment groups.
 --
 -- You can use the AWS CodeDeploy APIs to get, list, and register application revisions.
 --
@@ -59,6 +63,9 @@ module Network.AWS.CodeDeploy
 
     -- ** InvalidTagException
     , _InvalidTagException
+
+    -- ** InvalidAlarmConfigException
+    , _InvalidAlarmConfigException
 
     -- ** InstanceNameAlreadyRegisteredException
     , _InstanceNameAlreadyRegisteredException
@@ -113,6 +120,9 @@ module Network.AWS.CodeDeploy
 
     -- ** InvalidMinimumHealthyHostValueException
     , _InvalidMinimumHealthyHostValueException
+
+    -- ** AlarmsLimitExceededException
+    , _AlarmsLimitExceededException
 
     -- ** InvalidTagFilterException
     , _InvalidTagFilterException
@@ -170,6 +180,9 @@ module Network.AWS.CodeDeploy
 
     -- ** InvalidSortOrderException
     , _InvalidSortOrderException
+
+    -- ** InvalidAutoRollbackConfigException
+    , _InvalidAutoRollbackConfigException
 
     -- ** DeploymentAlreadyCompletedException
     , _DeploymentAlreadyCompletedException
@@ -353,6 +366,9 @@ module Network.AWS.CodeDeploy
     -- ** ApplicationRevisionSortBy
     , ApplicationRevisionSortBy (..)
 
+    -- ** AutoRollbackEvent
+    , AutoRollbackEvent (..)
+
     -- ** BundleType
     , BundleType (..)
 
@@ -401,6 +417,18 @@ module Network.AWS.CodeDeploy
     -- ** TriggerEventType
     , TriggerEventType (..)
 
+    -- ** Alarm
+    , Alarm
+    , alarm
+    , aName
+
+    -- ** AlarmConfiguration
+    , AlarmConfiguration
+    , alarmConfiguration
+    , acIgnorePollAlarmFailure
+    , acEnabled
+    , acAlarms
+
     -- ** ApplicationInfo
     , ApplicationInfo
     , applicationInfo
@@ -408,6 +436,12 @@ module Network.AWS.CodeDeploy
     , aiApplicationId
     , aiApplicationName
     , aiCreateTime
+
+    -- ** AutoRollbackConfiguration
+    , AutoRollbackConfiguration
+    , autoRollbackConfiguration
+    , arcEnabled
+    , arcEvents
 
     -- ** AutoScalingGroup
     , AutoScalingGroup
@@ -432,9 +466,11 @@ module Network.AWS.CodeDeploy
     , dgiEc2TagFilters
     , dgiOnPremisesInstanceTagFilters
     , dgiApplicationName
+    , dgiAlarmConfiguration
     , dgiTriggerConfigurations
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
+    , dgiAutoRollbackConfiguration
     , dgiDeploymentGroupName
 
     -- ** DeploymentInfo
@@ -449,9 +485,12 @@ module Network.AWS.CodeDeploy
     , diErrorInformation
     , diDeploymentOverview
     , diApplicationName
+    , diRollbackInfo
     , diRevision
     , diDescription
     , diCreateTime
+    , diAutoRollbackConfiguration
+    , diUpdateOutdatedInstancesOnly
     , diDeploymentGroupName
     , diIgnoreApplicationStopFailures
 
@@ -546,6 +585,13 @@ module Network.AWS.CodeDeploy
     , rlRevisionType
     , rlS3Location
     , rlGitHubLocation
+
+    -- ** RollbackInfo
+    , RollbackInfo
+    , rollbackInfo
+    , riRollbackTriggeringDeploymentId
+    , riRollbackMessage
+    , riRollbackDeploymentId
 
     -- ** S3Location
     , S3Location

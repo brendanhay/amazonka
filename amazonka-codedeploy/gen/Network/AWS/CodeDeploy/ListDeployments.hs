@@ -70,7 +70,7 @@ data ListDeployments = ListDeployments'
 --
 -- * 'ldNextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
 --
--- * 'ldIncludeOnlyStatuses' - A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.    * Queued: Include queued deployments in the resulting list.    * In Progress: Include in-progress deployments in the resulting list.    * Succeeded: Include successful deployments in the resulting list.    * Failed: Include failed deployments in the resulting list.    * Stopped: Include stopped deployments in the resulting list.
+-- * 'ldIncludeOnlyStatuses' - A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.     * Queued: Include queued deployments in the resulting list.     * In Progress: Include in-progress deployments in the resulting list.     * Succeeded: Include successful deployments in the resulting list.     * Failed: Include failed deployments in the resulting list.     * Stopped: Include stopped deployments in the resulting list.
 --
 -- * 'ldApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
@@ -94,7 +94,7 @@ ldCreateTimeRange = lens _ldCreateTimeRange (\ s a -> s{_ldCreateTimeRange = a})
 ldNextToken :: Lens' ListDeployments (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
--- | A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.    * Queued: Include queued deployments in the resulting list.    * In Progress: Include in-progress deployments in the resulting list.    * Succeeded: Include successful deployments in the resulting list.    * Failed: Include failed deployments in the resulting list.    * Stopped: Include stopped deployments in the resulting list.
+-- | A subset of deployments to list by status:     * Created: Include created deployments in the resulting list.     * Queued: Include queued deployments in the resulting list.     * In Progress: Include in-progress deployments in the resulting list.     * Succeeded: Include successful deployments in the resulting list.     * Failed: Include failed deployments in the resulting list.     * Stopped: Include stopped deployments in the resulting list.
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default . _Coerce;
 

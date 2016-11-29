@@ -27,6 +27,7 @@ module Network.AWS.CodeDeploy.StopDeployment
       stopDeployment
     , StopDeployment
     -- * Request Lenses
+    , sdAutoRollbackEnabled
     , sdDeploymentId
 
     -- * Destructuring the Response
@@ -50,13 +51,16 @@ import           Network.AWS.Response
 --
 --
 -- /See:/ 'stopDeployment' smart constructor.
-newtype StopDeployment = StopDeployment'
-    { _sdDeploymentId :: Text
+data StopDeployment = StopDeployment'
+    { _sdAutoRollbackEnabled :: !(Maybe Bool)
+    , _sdDeploymentId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdAutoRollbackEnabled' - Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
 --
 -- * 'sdDeploymentId' - The unique ID of a deployment.
 stopDeployment
@@ -64,8 +68,13 @@ stopDeployment
     -> StopDeployment
 stopDeployment pDeploymentId_ =
     StopDeployment'
-    { _sdDeploymentId = pDeploymentId_
+    { _sdAutoRollbackEnabled = Nothing
+    , _sdDeploymentId = pDeploymentId_
     }
+
+-- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
+sdAutoRollbackEnabled :: Lens' StopDeployment (Maybe Bool)
+sdAutoRollbackEnabled = lens _sdAutoRollbackEnabled (\ s a -> s{_sdAutoRollbackEnabled = a});
 
 -- | The unique ID of a deployment.
 sdDeploymentId :: Lens' StopDeployment Text
@@ -98,7 +107,9 @@ instance ToJSON StopDeployment where
         toJSON StopDeployment'{..}
           = object
               (catMaybes
-                 [Just ("deploymentId" .= _sdDeploymentId)])
+                 [("autoRollbackEnabled" .=) <$>
+                    _sdAutoRollbackEnabled,
+                  Just ("deploymentId" .= _sdDeploymentId)])
 
 instance ToPath StopDeployment where
         toPath = const "/"
@@ -121,7 +132,7 @@ data StopDeploymentResponse = StopDeploymentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdrsStatus' - The status of the stop deployment operation:     * Pending: The stop operation is pending.    * Succeeded: The stop operation was successful.
+-- * 'sdrsStatus' - The status of the stop deployment operation:     * Pending: The stop operation is pending.     * Succeeded: The stop operation was successful.
 --
 -- * 'sdrsStatusMessage' - An accompanying status message.
 --
@@ -136,7 +147,7 @@ stopDeploymentResponse pResponseStatus_ =
     , _sdrsResponseStatus = pResponseStatus_
     }
 
--- | The status of the stop deployment operation:     * Pending: The stop operation is pending.    * Succeeded: The stop operation was successful.
+-- | The status of the stop deployment operation:     * Pending: The stop operation is pending.     * Succeeded: The stop operation was successful.
 sdrsStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});
 

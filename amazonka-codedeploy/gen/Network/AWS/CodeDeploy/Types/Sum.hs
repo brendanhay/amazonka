@@ -48,6 +48,38 @@ instance ToHeader     ApplicationRevisionSortBy
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
+data AutoRollbackEvent
+    = AREDeploymentFailure
+    | AREDeploymentStopOnAlarm
+    | AREDeploymentStopOnRequest
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AutoRollbackEvent where
+    parser = takeLowerText >>= \case
+        "deployment_failure" -> pure AREDeploymentFailure
+        "deployment_stop_on_alarm" -> pure AREDeploymentStopOnAlarm
+        "deployment_stop_on_request" -> pure AREDeploymentStopOnRequest
+        e -> fromTextError $ "Failure parsing AutoRollbackEvent from value: '" <> e
+           <> "'. Accepted values: deployment_failure, deployment_stop_on_alarm, deployment_stop_on_request"
+
+instance ToText AutoRollbackEvent where
+    toText = \case
+        AREDeploymentFailure -> "DEPLOYMENT_FAILURE"
+        AREDeploymentStopOnAlarm -> "DEPLOYMENT_STOP_ON_ALARM"
+        AREDeploymentStopOnRequest -> "DEPLOYMENT_STOP_ON_REQUEST"
+
+instance Hashable     AutoRollbackEvent
+instance NFData       AutoRollbackEvent
+instance ToByteString AutoRollbackEvent
+instance ToQuery      AutoRollbackEvent
+instance ToHeader     AutoRollbackEvent
+
+instance ToJSON AutoRollbackEvent where
+    toJSON = toJSONText
+
+instance FromJSON AutoRollbackEvent where
+    parseJSON = parseJSONText "AutoRollbackEvent"
+
 data BundleType
     = TAR
     | TGZ
@@ -81,13 +113,18 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data DeployErrorCode
-    = ApplicationMissing
+    = AgentIssue
+    | AlarmActive
+    | ApplicationMissing
+    | AutoScalingConfiguration
+    | AutoScalingIAMRolePermissions
     | DeploymentGroupMissing
     | HealthConstraints
     | HealthConstraintsInvalid
     | IAMRoleMissing
     | IAMRolePermissions
     | InternalError
+    | ManualStop
     | NoEC2Subscription
     | NoInstances
     | OverMaxInstances
@@ -98,13 +135,18 @@ data DeployErrorCode
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
+        "agent_issue" -> pure AgentIssue
+        "alarm_active" -> pure AlarmActive
         "application_missing" -> pure ApplicationMissing
+        "auto_scaling_configuration" -> pure AutoScalingConfiguration
+        "auto_scaling_iam_role_permissions" -> pure AutoScalingIAMRolePermissions
         "deployment_group_missing" -> pure DeploymentGroupMissing
         "health_constraints" -> pure HealthConstraints
         "health_constraints_invalid" -> pure HealthConstraintsInvalid
         "iam_role_missing" -> pure IAMRoleMissing
         "iam_role_permissions" -> pure IAMRolePermissions
         "internal_error" -> pure InternalError
+        "manual_stop" -> pure ManualStop
         "no_ec2_subscription" -> pure NoEC2Subscription
         "no_instances" -> pure NoInstances
         "over_max_instances" -> pure OverMaxInstances
@@ -112,17 +154,22 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: application_missing, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
+           <> "'. Accepted values: agent_issue, alarm_active, application_missing, auto_scaling_configuration, auto_scaling_iam_role_permissions, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, manual_stop, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
 
 instance ToText DeployErrorCode where
     toText = \case
+        AgentIssue -> "AGENT_ISSUE"
+        AlarmActive -> "ALARM_ACTIVE"
         ApplicationMissing -> "APPLICATION_MISSING"
+        AutoScalingConfiguration -> "AUTO_SCALING_CONFIGURATION"
+        AutoScalingIAMRolePermissions -> "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
         DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
         HealthConstraints -> "HEALTH_CONSTRAINTS"
         HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
         IAMRoleMissing -> "IAM_ROLE_MISSING"
         IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
         InternalError -> "INTERNAL_ERROR"
+        ManualStop -> "MANUAL_STOP"
         NoEC2Subscription -> "NO_EC2_SUBSCRIPTION"
         NoInstances -> "NO_INSTANCES"
         OverMaxInstances -> "OVER_MAX_INSTANCES"
@@ -141,19 +188,22 @@ instance FromJSON DeployErrorCode where
 
 data DeploymentCreator
     = Autoscaling
+    | CodeDeployRollback
     | User
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
         "autoscaling" -> pure Autoscaling
+        "codedeployrollback" -> pure CodeDeployRollback
         "user" -> pure User
         e -> fromTextError $ "Failure parsing DeploymentCreator from value: '" <> e
-           <> "'. Accepted values: autoscaling, user"
+           <> "'. Accepted values: autoscaling, codedeployrollback, user"
 
 instance ToText DeploymentCreator where
     toText = \case
         Autoscaling -> "autoscaling"
+        CodeDeployRollback -> "codeDeployRollback"
         User -> "user"
 
 instance Hashable     DeploymentCreator
@@ -554,6 +604,7 @@ instance FromJSON TagFilterType where
 
 data TriggerEventType
     = DeploymentFailure
+    | DeploymentRollback
     | DeploymentStart
     | DeploymentStop
     | DeploymentSuccess
@@ -565,6 +616,7 @@ data TriggerEventType
 instance FromText TriggerEventType where
     parser = takeLowerText >>= \case
         "deploymentfailure" -> pure DeploymentFailure
+        "deploymentrollback" -> pure DeploymentRollback
         "deploymentstart" -> pure DeploymentStart
         "deploymentstop" -> pure DeploymentStop
         "deploymentsuccess" -> pure DeploymentSuccess
@@ -572,11 +624,12 @@ instance FromText TriggerEventType where
         "instancestart" -> pure InstanceStart
         "instancesuccess" -> pure InstanceSuccess
         e -> fromTextError $ "Failure parsing TriggerEventType from value: '" <> e
-           <> "'. Accepted values: deploymentfailure, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instancestart, instancesuccess"
+           <> "'. Accepted values: deploymentfailure, deploymentrollback, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instancestart, instancesuccess"
 
 instance ToText TriggerEventType where
     toText = \case
         DeploymentFailure -> "DeploymentFailure"
+        DeploymentRollback -> "DeploymentRollback"
         DeploymentStart -> "DeploymentStart"
         DeploymentStop -> "DeploymentStop"
         DeploymentSuccess -> "DeploymentSuccess"

@@ -68,7 +68,7 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
 --
 -- * 'lopiNextToken' - An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list.
 --
--- * 'lopiRegistrationStatus' - The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.    * Registered: Include registered on-premises instances in the resulting list.
+-- * 'lopiRegistrationStatus' - The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.     * Registered: Include registered on-premises instances in the resulting list.
 listOnPremisesInstances
     :: ListOnPremisesInstances
 listOnPremisesInstances =
@@ -86,7 +86,7 @@ lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Defau
 lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
 lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 
--- | The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.    * Registered: Include registered on-premises instances in the resulting list.
+-- | The registration status of the on-premises instances:     * Deregistered: Include deregistered on-premises instances in the resulting list.     * Registered: Include registered on-premises instances in the resulting list.
 lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
 lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 

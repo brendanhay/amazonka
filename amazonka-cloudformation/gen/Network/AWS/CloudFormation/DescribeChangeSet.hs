@@ -36,7 +36,6 @@ module Network.AWS.CloudFormation.DescribeChangeSet
     , DescribeChangeSetResponse
     -- * Response Lenses
     , drsCreationTime
-    , drsStatus
     , drsChanges
     , drsNotificationARNs
     , drsChangeSetName
@@ -51,6 +50,7 @@ module Network.AWS.CloudFormation.DescribeChangeSet
     , drsTags
     , drsStackName
     , drsResponseStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -109,7 +109,7 @@ instance AWSRequest DescribeChangeSet where
           = receiveXMLWrapper "DescribeChangeSetResult"
               (\ s h x ->
                  DescribeChangeSetResponse' <$>
-                   (x .@? "CreationTime") <*> (x .@? "Status") <*>
+                   (x .@? "CreationTime") <*>
                      (x .@? "Changes" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*>
@@ -132,7 +132,8 @@ instance AWSRequest DescribeChangeSet where
                      (x .@? "Tags" .!@ mempty >>=
                         may (parseXMLList "member"))
                      <*> (x .@? "StackName")
-                     <*> (pure (fromEnum s)))
+                     <*> (pure (fromEnum s))
+                     <*> (x .@ "Status"))
 
 instance Hashable DescribeChangeSet
 
@@ -160,7 +161,6 @@ instance ToQuery DescribeChangeSet where
 -- /See:/ 'describeChangeSetResponse' smart constructor.
 data DescribeChangeSetResponse = DescribeChangeSetResponse'
     { _drsCreationTime     :: !(Maybe ISO8601)
-    , _drsStatus           :: !(Maybe ChangeSetStatus)
     , _drsChanges          :: !(Maybe [Change])
     , _drsNotificationARNs :: !(Maybe [Text])
     , _drsChangeSetName    :: !(Maybe Text)
@@ -175,6 +175,7 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     , _drsTags             :: !(Maybe [Tag])
     , _drsStackName        :: !(Maybe Text)
     , _drsResponseStatus   :: !Int
+    , _drsStatus           :: !ChangeSetStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeChangeSetResponse' with the minimum fields required to make a request.
@@ -182,8 +183,6 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drsCreationTime' - The start time when the change set was created, in UTC.
---
--- * 'drsStatus' - The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 --
 -- * 'drsChanges' - A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
 --
@@ -212,13 +211,15 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- * 'drsStackName' - The name of the stack that is associated with the change set.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
+--
+-- * 'drsStatus' - The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 describeChangeSetResponse
     :: Int -- ^ 'drsResponseStatus'
+    -> ChangeSetStatus -- ^ 'drsStatus'
     -> DescribeChangeSetResponse
-describeChangeSetResponse pResponseStatus_ =
+describeChangeSetResponse pResponseStatus_ pStatus_ =
     DescribeChangeSetResponse'
     { _drsCreationTime = Nothing
-    , _drsStatus = Nothing
     , _drsChanges = Nothing
     , _drsNotificationARNs = Nothing
     , _drsChangeSetName = Nothing
@@ -233,15 +234,12 @@ describeChangeSetResponse pResponseStatus_ =
     , _drsTags = Nothing
     , _drsStackName = Nothing
     , _drsResponseStatus = pResponseStatus_
+    , _drsStatus = pStatus_
     }
 
 -- | The start time when the change set was created, in UTC.
 drsCreationTime :: Lens' DescribeChangeSetResponse (Maybe UTCTime)
 drsCreationTime = lens _drsCreationTime (\ s a -> s{_drsCreationTime = a}) . mapping _Time;
-
--- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
-drsStatus :: Lens' DescribeChangeSetResponse (Maybe ChangeSetStatus)
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | A list of @Change@ structures that describes the resources AWS CloudFormation changes if you execute the change set.
 drsChanges :: Lens' DescribeChangeSetResponse [Change]
@@ -298,5 +296,9 @@ drsStackName = lens _drsStackName (\ s a -> s{_drsStackName = a});
 -- | -- | The response status code.
 drsResponseStatus :: Lens' DescribeChangeSetResponse Int
 drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+
+-- | The current status of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
+drsStatus :: Lens' DescribeChangeSetResponse ChangeSetStatus
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 instance NFData DescribeChangeSetResponse

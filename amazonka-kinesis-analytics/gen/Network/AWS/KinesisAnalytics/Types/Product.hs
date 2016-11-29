@@ -383,8 +383,8 @@ data Input = Input'
     { _iInputParallelism     :: !(Maybe InputParallelism)
     , _iKinesisStreamsInput  :: !(Maybe KinesisStreamsInput)
     , _iKinesisFirehoseInput :: !(Maybe KinesisFirehoseInput)
-    , _iInputSchema          :: !(Maybe SourceSchema)
     , _iNamePrefix           :: !Text
+    , _iInputSchema          :: !SourceSchema
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Input' with the minimum fields required to make a request.
@@ -397,19 +397,20 @@ data Input = Input'
 --
 -- * 'iKinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the Firehose delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
--- * 'iInputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. Also used to describe the format of the reference data source.
---
 -- * 'iNamePrefix' - Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
+--
+-- * 'iInputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. Also used to describe the format of the reference data source.
 input
     :: Text -- ^ 'iNamePrefix'
+    -> SourceSchema -- ^ 'iInputSchema'
     -> Input
-input pNamePrefix_ =
+input pNamePrefix_ pInputSchema_ =
     Input'
     { _iInputParallelism = Nothing
     , _iKinesisStreamsInput = Nothing
     , _iKinesisFirehoseInput = Nothing
-    , _iInputSchema = Nothing
     , _iNamePrefix = pNamePrefix_
+    , _iInputSchema = pInputSchema_
     }
 
 -- | Describes the number of in-application streams to create.  Data from your source will be routed to these in-application input streams. (see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
@@ -424,13 +425,13 @@ iKinesisStreamsInput = lens _iKinesisStreamsInput (\ s a -> s{_iKinesisStreamsIn
 iKinesisFirehoseInput :: Lens' Input (Maybe KinesisFirehoseInput)
 iKinesisFirehoseInput = lens _iKinesisFirehoseInput (\ s a -> s{_iKinesisFirehoseInput = a});
 
--- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. Also used to describe the format of the reference data source.
-iInputSchema :: Lens' Input (Maybe SourceSchema)
-iInputSchema = lens _iInputSchema (\ s a -> s{_iInputSchema = a});
-
 -- | Name prefix to use when creating in-application stream. Suppose you specify a prefix "MyInApplicationStream". Kinesis Analytics will then create one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on.
 iNamePrefix :: Lens' Input Text
 iNamePrefix = lens _iNamePrefix (\ s a -> s{_iNamePrefix = a});
+
+-- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. Also used to describe the format of the reference data source.
+iInputSchema :: Lens' Input SourceSchema
+iInputSchema = lens _iInputSchema (\ s a -> s{_iInputSchema = a});
 
 instance Hashable Input
 
@@ -444,8 +445,8 @@ instance ToJSON Input where
                   ("KinesisStreamsInput" .=) <$> _iKinesisStreamsInput,
                   ("KinesisFirehoseInput" .=) <$>
                     _iKinesisFirehoseInput,
-                  ("InputSchema" .=) <$> _iInputSchema,
-                  Just ("NamePrefix" .= _iNamePrefix)])
+                  Just ("NamePrefix" .= _iNamePrefix),
+                  Just ("InputSchema" .= _iInputSchema)])
 
 -- | When you start your application, you provide this configuration, which identifies the input source and the point in the input source at which you want the application to start processing records.
 --

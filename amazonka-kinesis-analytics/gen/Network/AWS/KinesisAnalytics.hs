@@ -153,8 +153,8 @@ module Network.AWS.KinesisAnalytics
     , iInputParallelism
     , iKinesisStreamsInput
     , iKinesisFirehoseInput
-    , iInputSchema
     , iNamePrefix
+    , iInputSchema
 
     -- ** InputConfiguration
     , InputConfiguration

@@ -212,6 +212,13 @@ data EventCode
     | FleetValidationLaunchPathNotFound
     | FleetValidationTimedOut
     | GenericEvent
+    | ServerProcessCrashed
+    | ServerProcessForceTerminated
+    | ServerProcessInvalidPath
+    | ServerProcessProcessExitTimeout
+    | ServerProcessProcessReadyTimeout
+    | ServerProcessSDKInitializationTimeout
+    | ServerProcessTerminatedUnhealthy
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventCode where
@@ -234,8 +241,15 @@ instance FromText EventCode where
         "fleet_validation_launch_path_not_found" -> pure FleetValidationLaunchPathNotFound
         "fleet_validation_timed_out" -> pure FleetValidationTimedOut
         "generic_event" -> pure GenericEvent
+        "server_process_crashed" -> pure ServerProcessCrashed
+        "server_process_force_terminated" -> pure ServerProcessForceTerminated
+        "server_process_invalid_path" -> pure ServerProcessInvalidPath
+        "server_process_process_exit_timeout" -> pure ServerProcessProcessExitTimeout
+        "server_process_process_ready_timeout" -> pure ServerProcessProcessReadyTimeout
+        "server_process_sdk_initialization_timeout" -> pure ServerProcessSDKInitializationTimeout
+        "server_process_terminated_unhealthy" -> pure ServerProcessTerminatedUnhealthy
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, generic_event"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
 
 instance ToText EventCode where
     toText = \case
@@ -257,6 +271,13 @@ instance ToText EventCode where
         FleetValidationLaunchPathNotFound -> "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND"
         FleetValidationTimedOut -> "FLEET_VALIDATION_TIMED_OUT"
         GenericEvent -> "GENERIC_EVENT"
+        ServerProcessCrashed -> "SERVER_PROCESS_CRASHED"
+        ServerProcessForceTerminated -> "SERVER_PROCESS_FORCE_TERMINATED"
+        ServerProcessInvalidPath -> "SERVER_PROCESS_INVALID_PATH"
+        ServerProcessProcessExitTimeout -> "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT"
+        ServerProcessProcessReadyTimeout -> "SERVER_PROCESS_PROCESS_READY_TIMEOUT"
+        ServerProcessSDKInitializationTimeout -> "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT"
+        ServerProcessTerminatedUnhealthy -> "SERVER_PROCESS_TERMINATED_UNHEALTHY"
 
 instance Hashable     EventCode
 instance NFData       EventCode
@@ -317,6 +338,7 @@ instance FromJSON FleetStatus where
 data GameSessionStatus
     = GSSActivating
     | GSSActive
+    | GSSError'
     | GSSTerminated
     | GSSTerminating
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -325,15 +347,17 @@ instance FromText GameSessionStatus where
     parser = takeLowerText >>= \case
         "activating" -> pure GSSActivating
         "active" -> pure GSSActive
+        "error" -> pure GSSError'
         "terminated" -> pure GSSTerminated
         "terminating" -> pure GSSTerminating
         e -> fromTextError $ "Failure parsing GameSessionStatus from value: '" <> e
-           <> "'. Accepted values: activating, active, terminated, terminating"
+           <> "'. Accepted values: activating, active, error, terminated, terminating"
 
 instance ToText GameSessionStatus where
     toText = \case
         GSSActivating -> "ACTIVATING"
         GSSActive -> "ACTIVE"
+        GSSError' -> "ERROR"
         GSSTerminated -> "TERMINATED"
         GSSTerminating -> "TERMINATING"
 
@@ -374,6 +398,35 @@ instance ToJSON IPProtocol where
 
 instance FromJSON IPProtocol where
     parseJSON = parseJSONText "IPProtocol"
+
+data InstanceStatus
+    = ISActive
+    | ISPending
+    | ISTerminating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure ISActive
+        "pending" -> pure ISPending
+        "terminating" -> pure ISTerminating
+        e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
+           <> "'. Accepted values: active, pending, terminating"
+
+instance ToText InstanceStatus where
+    toText = \case
+        ISActive -> "ACTIVE"
+        ISPending -> "PENDING"
+        ISTerminating -> "TERMINATING"
+
+instance Hashable     InstanceStatus
+instance NFData       InstanceStatus
+instance ToByteString InstanceStatus
+instance ToQuery      InstanceStatus
+instance ToHeader     InstanceStatus
+
+instance FromJSON InstanceStatus where
+    parseJSON = parseJSONText "InstanceStatus"
 
 data MetricName
     = ActivatingGameSessions

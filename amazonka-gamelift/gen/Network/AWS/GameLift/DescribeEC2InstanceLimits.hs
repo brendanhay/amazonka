@@ -21,7 +21,11 @@
 -- Retrieves the following information for the specified EC2 instance type:
 --
 --
---     * maximum number of instances allowed per AWS account (service limit)    * current usage level for the AWS account
+--     * maximum number of instances allowed per AWS account (service limit)
+--
+--     * current usage level for the AWS account
+--
+--
 --
 -- Service limits vary depending on region. Available regions for GameLift can be found in the AWS Management Console for GameLift (see the drop-down list in the upper right corner).
 --
@@ -61,7 +65,7 @@ newtype DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deilEC2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
+-- * 'deilEC2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
 describeEC2InstanceLimits
     :: DescribeEC2InstanceLimits
 describeEC2InstanceLimits =
@@ -69,7 +73,7 @@ describeEC2InstanceLimits =
     { _deilEC2InstanceType = Nothing
     }
 
--- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <https://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
+-- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions. Leave this parameter blank to retrieve limits for all types.
 deilEC2InstanceType :: Lens' DescribeEC2InstanceLimits (Maybe EC2InstanceType)
 deilEC2InstanceType = lens _deilEC2InstanceType (\ s a -> s{_deilEC2InstanceType = a});
 

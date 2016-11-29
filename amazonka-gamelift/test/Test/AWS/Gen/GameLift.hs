@@ -64,6 +64,9 @@ import Test.AWS.GameLift.Internal
 --         , requestSearchGameSessions $
 --             searchGameSessions
 --
+--         , requestGetInstanceAccess $
+--             getInstanceAccess
+--
 --         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
 --
@@ -102,6 +105,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestUpdateAlias $
 --             updateAlias
+--
+--         , requestDescribeInstances $
+--             describeInstances
 --
 --         , requestDescribeGameSessionDetails $
 --             describeGameSessionDetails
@@ -181,6 +187,9 @@ import Test.AWS.GameLift.Internal
 --         , responseSearchGameSessions $
 --             searchGameSessionsResponse
 --
+--         , responseGetInstanceAccess $
+--             getInstanceAccessResponse
+--
 --         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
 --
@@ -219,6 +228,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseUpdateAlias $
 --             updateAliasResponse
+--
+--         , responseDescribeInstances $
+--             describeInstancesResponse
 --
 --         , responseDescribeGameSessionDetails $
 --             describeGameSessionDetailsResponse
@@ -324,6 +336,11 @@ requestSearchGameSessions = req
     "SearchGameSessions"
     "fixture/SearchGameSessions.yaml"
 
+requestGetInstanceAccess :: GetInstanceAccess -> TestTree
+requestGetInstanceAccess = req
+    "GetInstanceAccess"
+    "fixture/GetInstanceAccess.yaml"
+
 requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
 requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
@@ -388,6 +405,11 @@ requestUpdateAlias :: UpdateAlias -> TestTree
 requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
+
+requestDescribeInstances :: DescribeInstances -> TestTree
+requestDescribeInstances = req
+    "DescribeInstances"
+    "fixture/DescribeInstances.yaml"
 
 requestDescribeGameSessionDetails :: DescribeGameSessionDetails -> TestTree
 requestDescribeGameSessionDetails = req
@@ -540,6 +562,13 @@ responseSearchGameSessions = res
     gameLift
     (Proxy :: Proxy SearchGameSessions)
 
+responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
+responseGetInstanceAccess = res
+    "GetInstanceAccessResponse"
+    "fixture/GetInstanceAccessResponse.proto"
+    gameLift
+    (Proxy :: Proxy GetInstanceAccess)
+
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
 responseDescribeScalingPolicies = res
     "DescribeScalingPoliciesResponse"
@@ -630,6 +659,13 @@ responseUpdateAlias = res
     "fixture/UpdateAliasResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateAlias)
+
+responseDescribeInstances :: DescribeInstancesResponse -> TestTree
+responseDescribeInstances = res
+    "DescribeInstancesResponse"
+    "fixture/DescribeInstancesResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeInstances)
 
 responseDescribeGameSessionDetails :: DescribeGameSessionDetailsResponse -> TestTree
 responseDescribeGameSessionDetails = res

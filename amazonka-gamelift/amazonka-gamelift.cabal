@@ -60,10 +60,12 @@ library
         , Network.AWS.GameLift.DescribeFleetUtilization
         , Network.AWS.GameLift.DescribeGameSessionDetails
         , Network.AWS.GameLift.DescribeGameSessions
+        , Network.AWS.GameLift.DescribeInstances
         , Network.AWS.GameLift.DescribePlayerSessions
         , Network.AWS.GameLift.DescribeRuntimeConfiguration
         , Network.AWS.GameLift.DescribeScalingPolicies
         , Network.AWS.GameLift.GetGameSessionLogURL
+        , Network.AWS.GameLift.GetInstanceAccess
         , Network.AWS.GameLift.ListAliases
         , Network.AWS.GameLift.ListBuilds
         , Network.AWS.GameLift.ListFleets

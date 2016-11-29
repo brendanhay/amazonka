@@ -73,9 +73,9 @@ data CreateBuild = CreateBuild'
 --
 -- * 'cbOperatingSystem' - Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
 --
--- * 'cbName' - Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using @'UpdateBuild' @ .
+-- * 'cbName' - Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using@'UpdateBuild' @ .
 --
--- * 'cbVersion' - Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using @'UpdateBuild' @ .
+-- * 'cbVersion' - Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using@'UpdateBuild' @ .
 createBuild
     :: CreateBuild
 createBuild =
@@ -94,11 +94,11 @@ cbStorageLocation = lens _cbStorageLocation (\ s a -> s{_cbStorageLocation = a})
 cbOperatingSystem :: Lens' CreateBuild (Maybe OperatingSystem)
 cbOperatingSystem = lens _cbOperatingSystem (\ s a -> s{_cbOperatingSystem = a});
 
--- | Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using @'UpdateBuild' @ .
+-- | Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using@'UpdateBuild' @ .
 cbName :: Lens' CreateBuild (Maybe Text)
 cbName = lens _cbName (\ s a -> s{_cbName = a});
 
--- | Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using @'UpdateBuild' @ .
+-- | Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using@'UpdateBuild' @ .
 cbVersion :: Lens' CreateBuild (Maybe Text)
 cbVersion = lens _cbVersion (\ s a -> s{_cbVersion = a});
 
@@ -160,7 +160,7 @@ data CreateBuildResponse = CreateBuildResponse'
 --
 -- * 'cbrsStorageLocation' - Amazon S3 path and key, identifying where the game build files are stored.
 --
--- * 'cbrsUploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call @'RequestUploadCredentials' @ .
+-- * 'cbrsUploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call@'RequestUploadCredentials' @ .
 --
 -- * 'cbrsBuild' - Set of properties for the newly created build.
 --
@@ -180,7 +180,7 @@ createBuildResponse pResponseStatus_ =
 cbrsStorageLocation :: Lens' CreateBuildResponse (Maybe S3Location)
 cbrsStorageLocation = lens _cbrsStorageLocation (\ s a -> s{_cbrsStorageLocation = a});
 
--- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call @'RequestUploadCredentials' @ .
+-- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call@'RequestUploadCredentials' @ .
 cbrsUploadCredentials :: Lens' CreateBuildResponse (Maybe AWSCredentials)
 cbrsUploadCredentials = lens _cbrsUploadCredentials (\ s a -> s{_cbrsUploadCredentials = a}) . mapping _Sensitive;
 

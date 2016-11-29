@@ -66,11 +66,11 @@ data DescribeFleetEvents = DescribeFleetEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfeStartTime' - Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
+-- * 'dfeStartTime' - Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 --
 -- * 'dfeNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
--- * 'dfeEndTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
+-- * 'dfeEndTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 --
 -- * 'dfeLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
@@ -87,7 +87,7 @@ describeFleetEvents pFleetId_ =
     , _dfeFleetId = pFleetId_
     }
 
--- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
+-- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 dfeStartTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Time;
 
@@ -95,7 +95,7 @@ dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Tim
 dfeNextToken :: Lens' DescribeFleetEvents (Maybe Text)
 dfeNextToken = lens _dfeNextToken (\ s a -> s{_dfeNextToken = a});
 
--- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057".
+-- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 dfeEndTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeEndTime = lens _dfeEndTime (\ s a -> s{_dfeEndTime = a}) . mapping _Time;
 

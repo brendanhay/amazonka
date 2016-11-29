@@ -30,6 +30,7 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     , ufaNewGameSessionProtectionPolicy
     , ufaName
     , ufaDescription
+    , ufaResourceCreationLimitPolicy
     , ufaFleetId
 
     -- * Destructuring the Response
@@ -56,6 +57,7 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
     { _ufaNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
     , _ufaName                           :: !(Maybe Text)
     , _ufaDescription                    :: !(Maybe Text)
+    , _ufaResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
     , _ufaFleetId                        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,11 +65,13 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufaNewGameSessionProtectionPolicy' - Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- * 'ufaNewGameSessionProtectionPolicy' - Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
 -- * 'ufaName' - Descriptive label associated with a fleet. Fleet names do not need to be unique.
 --
 -- * 'ufaDescription' - Human-readable description of a fleet.
+--
+-- * 'ufaResourceCreationLimitPolicy' - Policy that limits the number of game sessions an individual player can create over a span of time.
 --
 -- * 'ufaFleetId' - Unique identifier for the fleet you want to update attribute metadata for.
 updateFleetAttributes
@@ -78,10 +82,11 @@ updateFleetAttributes pFleetId_ =
     { _ufaNewGameSessionProtectionPolicy = Nothing
     , _ufaName = Nothing
     , _ufaDescription = Nothing
+    , _ufaResourceCreationLimitPolicy = Nothing
     , _ufaFleetId = pFleetId_
     }
 
--- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.    * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+-- | Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
 ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s a -> s{_ufaNewGameSessionProtectionPolicy = a});
 
@@ -92,6 +97,10 @@ ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
 -- | Human-readable description of a fleet.
 ufaDescription :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaDescription = lens _ufaDescription (\ s a -> s{_ufaDescription = a});
+
+-- | Policy that limits the number of game sessions an individual player can create over a span of time.
+ufaResourceCreationLimitPolicy :: Lens' UpdateFleetAttributes (Maybe ResourceCreationLimitPolicy)
+ufaResourceCreationLimitPolicy = lens _ufaResourceCreationLimitPolicy (\ s a -> s{_ufaResourceCreationLimitPolicy = a});
 
 -- | Unique identifier for the fleet you want to update attribute metadata for.
 ufaFleetId :: Lens' UpdateFleetAttributes Text
@@ -128,6 +137,8 @@ instance ToJSON UpdateFleetAttributes where
                     _ufaNewGameSessionProtectionPolicy,
                   ("Name" .=) <$> _ufaName,
                   ("Description" .=) <$> _ufaDescription,
+                  ("ResourceCreationLimitPolicy" .=) <$>
+                    _ufaResourceCreationLimitPolicy,
                   Just ("FleetId" .= _ufaFleetId)])
 
 instance ToPath UpdateFleetAttributes where

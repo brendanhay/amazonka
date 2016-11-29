@@ -24,6 +24,7 @@ module Network.AWS.GameLift.Types
     , _GameSessionFullException
     , _InvalidGameSessionStatusException
     , _InternalServiceException
+    , _IdempotentParameterMismatchException
     , _UnauthorizedException
     , _FleetCapacityExceededException
     , _LimitExceededException
@@ -48,6 +49,9 @@ module Network.AWS.GameLift.Types
 
     -- * IPProtocol
     , IPProtocol (..)
+
+    -- * InstanceStatus
+    , InstanceStatus (..)
 
     -- * MetricName
     , MetricName (..)
@@ -143,6 +147,7 @@ module Network.AWS.GameLift.Types
     , faServerLaunchPath
     , faFleetId
     , faDescription
+    , faResourceCreationLimitPolicy
 
     -- * FleetCapacity
     , FleetCapacity
@@ -180,6 +185,7 @@ module Network.AWS.GameLift.Types
     , gsName
     , gsCurrentPlayerSessionCount
     , gsFleetId
+    , gsCreatorId
     , gsPort
 
     -- * GameSessionDetail
@@ -196,6 +202,32 @@ module Network.AWS.GameLift.Types
     , ipIPRange
     , ipProtocol
 
+    -- * Instance
+    , Instance
+    , instance'
+    , iCreationTime
+    , iInstanceId
+    , iStatus
+    , iIPAddress
+    , iOperatingSystem
+    , iType
+    , iFleetId
+
+    -- * InstanceAccess
+    , InstanceAccess
+    , instanceAccess
+    , iaInstanceId
+    , iaIPAddress
+    , iaOperatingSystem
+    , iaCredentials
+    , iaFleetId
+
+    -- * InstanceCredentials
+    , InstanceCredentials
+    , instanceCredentials
+    , icUserName
+    , icSecret
+
     -- * PlayerSession
     , PlayerSession
     , playerSession
@@ -208,6 +240,12 @@ module Network.AWS.GameLift.Types
     , psFleetId
     , psPlayerId
     , psPort
+
+    -- * ResourceCreationLimitPolicy
+    , ResourceCreationLimitPolicy
+    , resourceCreationLimitPolicy
+    , rclpNewGameSessionsPerCreator
+    , rclpPolicyPeriodInMinutes
 
     -- * RoutingStrategy
     , RoutingStrategy
@@ -296,7 +334,7 @@ _InvalidFleetStatusException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidFleetStatusException =
     _ServiceError . hasCode "InvalidFleetStatusException"
 
--- | One or more parameters specified as part of the request are invalid. Correct the invalid parameters before retrying.
+-- | One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -315,38 +353,45 @@ _TerminalRoutingStrategyException :: AsError a => Getting (First ServiceError) a
 _TerminalRoutingStrategyException =
     _ServiceError . hasCode "TerminalRoutingStrategyException"
 
--- | A service resource associated with the request could not be found. Clients should not retry such requests
+-- | A service resource associated with the request could not be found. Clients should not retry such requests.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException = _ServiceError . hasCode "NotFoundException"
 
--- | The game instance is currently full and cannot allow the requested player(s) to join. This exception occurs in response to a 'CreatePlayerSession' request.
+-- | The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
 _GameSessionFullException = _ServiceError . hasCode "GameSessionFullException"
 
--- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Clients should not retry such requests without resolving the conflict.
+-- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
 --
 --
 _InvalidGameSessionStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGameSessionStatusException =
     _ServiceError . hasCode "InvalidGameSessionStatusException"
 
--- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests, either immediately or after a back-off period.
+-- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceException = _ServiceError . hasCode "InternalServiceException"
 
--- | The client failed authentication. Clients should not retry such requests
+-- | A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.
+--
+--
+_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdempotentParameterMismatchException =
+    _ServiceError . hasCode "IdempotentParameterMismatchException"
+
+-- | The client failed authentication. Clients should not retry such requests.
 --
 --
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException = _ServiceError . hasCode "UnauthorizedException"
 
--- | The specified fleet has no available instances to fulfill a request to create a new game session. Such requests should only be retried once the fleet capacity has been increased.
+-- | The specified fleet has no available instances to fulfill a @CreateGameSession@ request. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _FleetCapacityExceededException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -59,7 +59,7 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscClusterIdentifier' - The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.  Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
+-- * 'dscClusterIdentifier' - The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 disableSnapshotCopy
     :: Text -- ^ 'dscClusterIdentifier'
     -> DisableSnapshotCopy
@@ -68,7 +68,7 @@ disableSnapshotCopy pClusterIdentifier_ =
     { _dscClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.  Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
+-- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region. Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
 dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
 dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 

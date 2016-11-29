@@ -31,6 +31,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
       restoreFromClusterSnapshot
     , RestoreFromClusterSnapshot
     -- * Request Lenses
+    , rfcsEnhancedVPCRouting
     , rfcsAdditionalInfo
     , rfcsPubliclyAccessible
     , rfcsSnapshotClusterIdentifier
@@ -74,7 +75,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-    { _rfcsAdditionalInfo                   :: !(Maybe Text)
+    { _rfcsEnhancedVPCRouting               :: !(Maybe Bool)
+    , _rfcsAdditionalInfo                   :: !(Maybe Text)
     , _rfcsPubliclyAccessible               :: !(Maybe Bool)
     , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
     , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
@@ -101,6 +103,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rfcsEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+--
 -- * 'rfcsAdditionalInfo' - Reserved.
 --
 -- * 'rfcsPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
@@ -109,23 +113,23 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- * 'rfcsHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 --
--- * 'rfcsClusterSecurityGroups' - A list of security groups to be associated with this cluster.  Default: The default cluster security group for Amazon Redshift.  Cluster security groups only apply to clusters outside of VPCs.
+-- * 'rfcsClusterSecurityGroups' - A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift. Cluster security groups only apply to clusters outside of VPCs.
 --
--- * 'rfcsAutomatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: The value selected for the cluster from which the snapshot was taken.  Constraints: Must be a value from 0 to 35.
+-- * 'rfcsAutomatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: The value selected for the cluster from which the snapshot was taken. Constraints: Must be a value from 0 to 35.
 --
--- * 'rfcsClusterSubnetGroupName' - The name of the subnet group where you want to cluster restored.  A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
+-- * 'rfcsClusterSubnetGroupName' - The name of the subnet group where you want to cluster restored. A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
 --
 -- * 'rfcsHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 --
 -- * 'rfcsElasticIP' - The elastic IP (EIP) address for the cluster.
 --
--- * 'rfcsPreferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur.  Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.  Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
+-- * 'rfcsPreferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.  Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
 --
 -- * 'rfcsKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
 --
--- * 'rfcsAvailabilityZone' - The Amazon EC2 Availability Zone in which to restore the cluster.  Default: A random, system-chosen Availability Zone. Example: @us-east-1a@
+-- * 'rfcsAvailabilityZone' - The Amazon EC2 Availability Zone in which to restore the cluster. Default: A random, system-chosen Availability Zone. Example: @us-east-1a@
 --
--- * 'rfcsVPCSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.  Default: The default VPC security group is associated with the cluster.  VPC security groups only apply to clusters in VPCs.
+-- * 'rfcsVPCSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster. VPC security groups only apply to clusters in VPCs.
 --
 -- * 'rfcsIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. A cluster can have up to 10 IAM roles associated at any time.
 --
@@ -135,20 +139,21 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --
 -- * 'rfcsAllowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.  Default: @true@
 --
--- * 'rfcsClusterParameterGroupName' - The name of the parameter group to be associated with this cluster.  Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> . Constraints:      * Must be 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'rfcsClusterParameterGroupName' - The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> . Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'rfcsPort' - The port number on which the cluster accepts connections.  Default: The same port as the original cluster. Constraints: Must be between @1115@ and @65535@ .
+-- * 'rfcsPort' - The port number on which the cluster accepts connections. Default: The same port as the original cluster. Constraints: Must be between @1115@ and @65535@ .
 --
--- * 'rfcsClusterIdentifier' - The identifier of the cluster that will be created from restoring the snapshot.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.    * Alphabetic characters must be lowercase.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for all clusters within an AWS account.
+-- * 'rfcsClusterIdentifier' - The identifier of the cluster that will be created from restoring the snapshot. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
 --
--- * 'rfcsSnapshotIdentifier' - The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.  Example: @my-snapshot-id@
+-- * 'rfcsSnapshotIdentifier' - The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive. Example: @my-snapshot-id@
 restoreFromClusterSnapshot
     :: Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
     -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
-    { _rfcsAdditionalInfo = Nothing
+    { _rfcsEnhancedVPCRouting = Nothing
+    , _rfcsAdditionalInfo = Nothing
     , _rfcsPubliclyAccessible = Nothing
     , _rfcsSnapshotClusterIdentifier = Nothing
     , _rfcsHSMConfigurationIdentifier = Nothing
@@ -171,6 +176,10 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     , _rfcsSnapshotIdentifier = pSnapshotIdentifier_
     }
 
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+rfcsEnhancedVPCRouting :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
+rfcsEnhancedVPCRouting = lens _rfcsEnhancedVPCRouting (\ s a -> s{_rfcsEnhancedVPCRouting = a});
+
 -- | Reserved.
 rfcsAdditionalInfo :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAdditionalInfo = lens _rfcsAdditionalInfo (\ s a -> s{_rfcsAdditionalInfo = a});
@@ -187,15 +196,15 @@ rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{
 rfcsHSMConfigurationIdentifier :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsHSMConfigurationIdentifier = lens _rfcsHSMConfigurationIdentifier (\ s a -> s{_rfcsHSMConfigurationIdentifier = a});
 
--- | A list of security groups to be associated with this cluster.  Default: The default cluster security group for Amazon Redshift.  Cluster security groups only apply to clusters outside of VPCs.
+-- | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift. Cluster security groups only apply to clusters outside of VPCs.
 rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a}) . _Default . _Coerce;
 
--- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: The value selected for the cluster from which the snapshot was taken.  Constraints: Must be a value from 0 to 35.
+-- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: The value selected for the cluster from which the snapshot was taken. Constraints: Must be a value from 0 to 35.
 rfcsAutomatedSnapshotRetentionPeriod :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsAutomatedSnapshotRetentionPeriod = lens _rfcsAutomatedSnapshotRetentionPeriod (\ s a -> s{_rfcsAutomatedSnapshotRetentionPeriod = a});
 
--- | The name of the subnet group where you want to cluster restored.  A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
+-- | The name of the subnet group where you want to cluster restored. A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
 rfcsClusterSubnetGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsClusterSubnetGroupName = lens _rfcsClusterSubnetGroupName (\ s a -> s{_rfcsClusterSubnetGroupName = a});
 
@@ -207,7 +216,7 @@ rfcsHSMClientCertificateIdentifier = lens _rfcsHSMClientCertificateIdentifier (\
 rfcsElasticIP :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsElasticIP = lens _rfcsElasticIP (\ s a -> s{_rfcsElasticIP = a});
 
--- | The weekly time range (in UTC) during which automated cluster maintenance can occur.  Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.  Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
+-- | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.  Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
 rfcsPreferredMaintenanceWindow :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> s{_rfcsPreferredMaintenanceWindow = a});
 
@@ -215,11 +224,11 @@ rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> 
 rfcsKMSKeyId :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 
--- | The Amazon EC2 Availability Zone in which to restore the cluster.  Default: A random, system-chosen Availability Zone. Example: @us-east-1a@
+-- | The Amazon EC2 Availability Zone in which to restore the cluster. Default: A random, system-chosen Availability Zone. Example: @us-east-1a@
 rfcsAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZone = a});
 
--- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.  Default: The default VPC security group is associated with the cluster.  VPC security groups only apply to clusters in VPCs.
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster. VPC security groups only apply to clusters in VPCs.
 rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
 rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
@@ -239,19 +248,19 @@ rfcsNodeType = lens _rfcsNodeType (\ s a -> s{_rfcsNodeType = a});
 rfcsAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsAllowVersionUpgrade = lens _rfcsAllowVersionUpgrade (\ s a -> s{_rfcsAllowVersionUpgrade = a});
 
--- | The name of the parameter group to be associated with this cluster.  Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> . Constraints:      * Must be 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> . Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 rfcsClusterParameterGroupName :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsClusterParameterGroupName = lens _rfcsClusterParameterGroupName (\ s a -> s{_rfcsClusterParameterGroupName = a});
 
--- | The port number on which the cluster accepts connections.  Default: The same port as the original cluster. Constraints: Must be between @1115@ and @65535@ .
+-- | The port number on which the cluster accepts connections. Default: The same port as the original cluster. Constraints: Must be between @1115@ and @65535@ .
 rfcsPort :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsPort = lens _rfcsPort (\ s a -> s{_rfcsPort = a});
 
--- | The identifier of the cluster that will be created from restoring the snapshot.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.    * Alphabetic characters must be lowercase.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for all clusters within an AWS account.
+-- | The identifier of the cluster that will be created from restoring the snapshot. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
 rfcsClusterIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsClusterIdentifier = lens _rfcsClusterIdentifier (\ s a -> s{_rfcsClusterIdentifier = a});
 
--- | The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.  Example: @my-snapshot-id@
+-- | The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive. Example: @my-snapshot-id@
 rfcsSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsSnapshotIdentifier = lens _rfcsSnapshotIdentifier (\ s a -> s{_rfcsSnapshotIdentifier = a});
 
@@ -282,6 +291,7 @@ instance ToQuery RestoreFromClusterSnapshot where
               ["Action" =:
                  ("RestoreFromClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
+               "EnhancedVpcRouting" =: _rfcsEnhancedVPCRouting,
                "AdditionalInfo" =: _rfcsAdditionalInfo,
                "PubliclyAccessible" =: _rfcsPubliclyAccessible,
                "SnapshotClusterIdentifier" =:

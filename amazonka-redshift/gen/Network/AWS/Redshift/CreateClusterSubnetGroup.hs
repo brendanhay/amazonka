@@ -67,7 +67,7 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
 --
 -- * 'ccsgTags' - A list of tag instances.
 --
--- * 'ccsgClusterSubnetGroupName' - The name for the subnet group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
+-- * 'ccsgClusterSubnetGroupName' - The name for the subnet group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
 --
 -- * 'ccsgDescription' - A description for the subnet group.
 --
@@ -88,7 +88,7 @@ createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
 ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
 
--- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
+-- | The name for the subnet group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all subnet groups that are created by your AWS account. Example: @examplesubnetgroup@
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
 

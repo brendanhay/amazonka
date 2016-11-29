@@ -57,7 +57,7 @@ newtype DescribeEventCategories = DescribeEventCategories'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decSourceType' - The source type, such as cluster or parameter group, to which the described event categories apply.  Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
+-- * 'decSourceType' - The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 describeEventCategories
     :: DescribeEventCategories
 describeEventCategories =
@@ -65,7 +65,7 @@ describeEventCategories =
     { _decSourceType = Nothing
     }
 
--- | The source type, such as cluster or parameter group, to which the described event categories apply.  Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
+-- | The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
 decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 

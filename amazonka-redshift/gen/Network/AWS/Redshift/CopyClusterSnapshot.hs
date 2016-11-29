@@ -65,11 +65,11 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints:     * Must be the identifier for a valid cluster.
+-- * 'ccsSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
 --
--- * 'ccsSourceSnapshotIdentifier' - The identifier for the source snapshot.  Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+-- * 'ccsSourceSnapshotIdentifier' - The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 --
--- * 'ccsTargetSnapshotIdentifier' - The identifier given to the new manual snapshot.  Constraints:     * Cannot be null, empty, or blank.    * Must contain from 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for the AWS account that is making the request.
+-- * 'ccsTargetSnapshotIdentifier' - The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
 copyClusterSnapshot
     :: Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
@@ -81,15 +81,15 @@ copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
--- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints:     * Must be the identifier for a valid cluster.
+-- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
 ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
 ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
 
--- | The identifier for the source snapshot.  Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+-- | The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
 
--- | The identifier given to the new manual snapshot.  Constraints:     * Cannot be null, empty, or blank.    * Must contain from 1 to 255 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for the AWS account that is making the request.
+-- | The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
 ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
 

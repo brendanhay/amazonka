@@ -61,7 +61,7 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlsClusterIdentifier' - The identifier of the cluster from which to get the logging status.  Example: @examplecluster@
+-- * 'dlsClusterIdentifier' - The identifier of the cluster from which to get the logging status. Example: @examplecluster@
 describeLoggingStatus
     :: Text -- ^ 'dlsClusterIdentifier'
     -> DescribeLoggingStatus
@@ -70,7 +70,7 @@ describeLoggingStatus pClusterIdentifier_ =
     { _dlsClusterIdentifier = pClusterIdentifier_
     }
 
--- | The identifier of the cluster from which to get the logging status.  Example: @examplecluster@
+-- | The identifier of the cluster from which to get the logging status. Example: @examplecluster@
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
 

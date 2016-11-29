@@ -65,7 +65,7 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
 --
 -- * 'creTags' - A list of tag instances.
 --
--- * 'creClusterSecurityGroupName' - The name for the security group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
+-- * 'creClusterSecurityGroupName' - The name for the security group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
 --
 -- * 'creDescription' - A description for the security group.
 createClusterSecurityGroup
@@ -83,7 +83,7 @@ createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
 creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
--- | The name for the security group. Amazon Redshift stores the value as a lowercase string.  Constraints:      * Must contain no more than 255 alphanumeric characters or hyphens.    * Must not be "Default".    * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
+-- | The name for the security group. Amazon Redshift stores the value as a lowercase string. Constraints:     * Must contain no more than 255 alphanumeric characters or hyphens.     * Must not be "Default".     * Must be unique for all security groups that are created by your AWS account. Example: @examplesecuritygroup@
 creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
 

@@ -53,7 +53,11 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'restoreTableFromClusterSnapshot' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'restoreTableFromClusterSnapshot' smart constructor.
 data RestoreTableFromClusterSnapshot = RestoreTableFromClusterSnapshot'
     { _rtfcsTargetSchemaName   :: !(Maybe Text)
     , _rtfcsTargetDatabaseName :: !(Maybe Text)

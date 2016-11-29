@@ -63,9 +63,9 @@ data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcirRemoveIAMRoles' - Zero or more IAM roles (in their ARN format) to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
+-- * 'mcirRemoveIAMRoles' - Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 --
--- * 'mcirAddIAMRoles' - Zero or more IAM roles (in their ARN format) to associate with the cluster. You can associate up to 10 IAM roles with a single cluster in a single request.
+-- * 'mcirAddIAMRoles' - Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
 --
 -- * 'mcirClusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 modifyClusterIAMRoles
@@ -78,11 +78,11 @@ modifyClusterIAMRoles pClusterIdentifier_ =
     , _mcirClusterIdentifier = pClusterIdentifier_
     }
 
--- | Zero or more IAM roles (in their ARN format) to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
+-- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
 mcirRemoveIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
 mcirRemoveIAMRoles = lens _mcirRemoveIAMRoles (\ s a -> s{_mcirRemoveIAMRoles = a}) . _Default . _Coerce;
 
--- | Zero or more IAM roles (in their ARN format) to associate with the cluster. You can associate up to 10 IAM roles with a single cluster in a single request.
+-- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
 mcirAddIAMRoles :: Lens' ModifyClusterIAMRoles [Text]
 mcirAddIAMRoles = lens _mcirAddIAMRoles (\ s a -> s{_mcirAddIAMRoles = a}) . _Default . _Coerce;
 

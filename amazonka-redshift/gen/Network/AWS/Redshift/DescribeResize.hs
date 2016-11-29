@@ -70,7 +70,7 @@ newtype DescribeResize = DescribeResize'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drClusterIdentifier' - The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.  By default, resize operations for all clusters defined for an AWS account are returned.
+-- * 'drClusterIdentifier' - The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
 describeResize
     :: Text -- ^ 'drClusterIdentifier'
     -> DescribeResize
@@ -79,7 +79,7 @@ describeResize pClusterIdentifier_ =
     { _drClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.  By default, resize operations for all clusters defined for an AWS account are returned.
+-- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
 drClusterIdentifier :: Lens' DescribeResize Text
 drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a});
 

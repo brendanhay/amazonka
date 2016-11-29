@@ -75,9 +75,9 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deStartTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2009-07-08T18:00Z@
 --
--- * 'deSourceType' - The event source to retrieve events for. If no value is specified, all events are returned.  Constraints: If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.     * Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.    * Specify @cluster-security-group@ when /SourceIdentifier/ is a cluster security group name.    * Specify @cluster-parameter-group@ when /SourceIdentifier/ is a cluster parameter group name.    * Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster snapshot identifier.
+-- * 'deSourceType' - The event source to retrieve events for. If no value is specified, all events are returned. Constraints: If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.     * Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.     * Specify @cluster-security-group@ when /SourceIdentifier/ is a cluster security group name.     * Specify @cluster-parameter-group@ when /SourceIdentifier/ is a cluster parameter group name.     * Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster snapshot identifier.
 --
--- * 'deSourceIdentifier' - The identifier of the event source for which events will be returned. If this parameter is not specified, then all sources are included in the response.  Constraints: If /SourceIdentifier/ is supplied, /SourceType/ must also be provided.     * Specify a cluster identifier when /SourceType/ is @cluster@ .    * Specify a cluster security group name when /SourceType/ is @cluster-security-group@ .    * Specify a cluster parameter group name when /SourceType/ is @cluster-parameter-group@ .    * Specify a cluster snapshot identifier when /SourceType/ is @cluster-snapshot@ .
+-- * 'deSourceIdentifier' - The identifier of the event source for which events will be returned. If this parameter is not specified, then all sources are included in the response. Constraints: If /SourceIdentifier/ is supplied, /SourceType/ must also be provided.     * Specify a cluster identifier when /SourceType/ is @cluster@ .     * Specify a cluster security group name when /SourceType/ is @cluster-security-group@ .     * Specify a cluster parameter group name when /SourceType/ is @cluster-parameter-group@ .     * Specify a cluster snapshot identifier when /SourceType/ is @cluster-snapshot@ .
 --
 -- * 'deMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeEvents' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
@@ -85,7 +85,7 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deEndTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>  Example: @2009-07-08T18:00Z@
 --
--- * 'deDuration' - The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned.  Default: @60@
+-- * 'deDuration' - The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned. Default: @60@
 describeEvents
     :: DescribeEvents
 describeEvents =
@@ -103,11 +103,11 @@ describeEvents =
 deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
 deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
--- | The event source to retrieve events for. If no value is specified, all events are returned.  Constraints: If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.     * Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.    * Specify @cluster-security-group@ when /SourceIdentifier/ is a cluster security group name.    * Specify @cluster-parameter-group@ when /SourceIdentifier/ is a cluster parameter group name.    * Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster snapshot identifier.
+-- | The event source to retrieve events for. If no value is specified, all events are returned. Constraints: If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.     * Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.     * Specify @cluster-security-group@ when /SourceIdentifier/ is a cluster security group name.     * Specify @cluster-parameter-group@ when /SourceIdentifier/ is a cluster parameter group name.     * Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster snapshot identifier.
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
--- | The identifier of the event source for which events will be returned. If this parameter is not specified, then all sources are included in the response.  Constraints: If /SourceIdentifier/ is supplied, /SourceType/ must also be provided.     * Specify a cluster identifier when /SourceType/ is @cluster@ .    * Specify a cluster security group name when /SourceType/ is @cluster-security-group@ .    * Specify a cluster parameter group name when /SourceType/ is @cluster-parameter-group@ .    * Specify a cluster snapshot identifier when /SourceType/ is @cluster-snapshot@ .
+-- | The identifier of the event source for which events will be returned. If this parameter is not specified, then all sources are included in the response. Constraints: If /SourceIdentifier/ is supplied, /SourceType/ must also be provided.     * Specify a cluster identifier when /SourceType/ is @cluster@ .     * Specify a cluster security group name when /SourceType/ is @cluster-security-group@ .     * Specify a cluster parameter group name when /SourceType/ is @cluster-parameter-group@ .     * Specify a cluster snapshot identifier when /SourceType/ is @cluster-snapshot@ .
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
@@ -123,7 +123,7 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
--- | The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned.  Default: @60@
+-- | The number of minutes prior to the time of the request for which to retrieve events. For example, if the request is sent at 18:00 and you specify a duration of 60, then only events which have occurred after 17:00 will be returned. Default: @60@
 deDuration :: Lens' DescribeEvents (Maybe Int)
 deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 

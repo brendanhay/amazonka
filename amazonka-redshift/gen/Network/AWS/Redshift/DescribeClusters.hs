@@ -77,7 +77,7 @@ data DescribeClusters = DescribeClusters'
 --
 -- * 'dcTagKeys' - A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
 --
--- * 'dcClusterIdentifier' - The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.  The default is that all clusters defined for an account are returned.
+-- * 'dcClusterIdentifier' - The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive. The default is that all clusters defined for an account are returned.
 --
 -- * 'dcMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.  Constraints: You can specify either the __ClusterIdentifier__ parameter or the __Marker__ parameter, but not both.
 --
@@ -101,7 +101,7 @@ dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default . _Coe
 dcTagKeys :: Lens' DescribeClusters [Text]
 dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default . _Coerce;
 
--- | The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.  The default is that all clusters defined for an account are returned.
+-- | The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive. The default is that all clusters defined for an account are returned.
 dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
 dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
 

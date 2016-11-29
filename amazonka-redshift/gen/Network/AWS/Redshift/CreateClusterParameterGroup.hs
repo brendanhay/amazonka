@@ -69,9 +69,9 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
 --
 -- * 'ccpgTags' - A list of tag instances.
 --
--- * 'ccpgParameterGroupName' - The name of the cluster parameter group.  Constraints:      * Must be 1 to 255 alphanumeric characters or hyphens    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique withing your AWS account.
+-- * 'ccpgParameterGroupName' - The name of the cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique withing your AWS account.
 --
--- * 'ccpgParameterGroupFamily' - The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.  To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
+-- * 'ccpgParameterGroupFamily' - The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters. To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
 --
 -- * 'ccpgDescription' - A description of the parameter group.
 createClusterParameterGroup
@@ -91,11 +91,11 @@ createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescrip
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
 ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default . _Coerce;
 
--- | The name of the cluster parameter group.  Constraints:      * Must be 1 to 255 alphanumeric characters or hyphens    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique withing your AWS account.
+-- | The name of the cluster parameter group. Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique withing your AWS account.
 ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupName = lens _ccpgParameterGroupName (\ s a -> s{_ccpgParameterGroupName = a});
 
--- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.  To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
+-- | The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters. To get a list of valid parameter group family names, you can call 'DescribeClusterParameterGroups' . By default, Amazon Redshift returns a list of all the parameter groups that are owned by your AWS account, including the default parameter groups for each Amazon Redshift engine version. The parameter group family names associated with the default parameter groups provide you the valid values. For example, a valid family name is "redshift-1.0".
 ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
 ccpgParameterGroupFamily = lens _ccpgParameterGroupFamily (\ s a -> s{_ccpgParameterGroupFamily = a});
 

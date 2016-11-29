@@ -65,7 +65,7 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 --
 -- * 'ccsTags' - A list of tag instances.
 --
--- * 'ccsSnapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.  Constraints:     * Cannot be null, empty, or blank    * Must contain from 1 to 255 alphanumeric characters or hyphens    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- * 'ccsSnapshotIdentifier' - A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 --
 -- * 'ccsClusterIdentifier' - The cluster identifier for which you want a snapshot.
 createClusterSnapshot
@@ -83,7 +83,7 @@ createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
 ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 
--- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account.  Constraints:     * Cannot be null, empty, or blank    * Must contain from 1 to 255 alphanumeric characters or hyphens    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- | A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the AWS account. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
 

@@ -123,6 +123,7 @@ module Network.AWS.Redshift.Types
     , Cluster
     , cluster
     , cRestoreStatus
+    , cEnhancedVPCRouting
     , cClusterSnapshotCopyStatus
     , cClusterRevisionNumber
     , cPubliclyAccessible
@@ -366,6 +367,7 @@ module Network.AWS.Redshift.Types
     -- * PendingModifiedValues
     , PendingModifiedValues
     , pendingModifiedValues
+    , pmvEnhancedVPCRouting
     , pmvMasterUserPassword
     , pmvPubliclyAccessible
     , pmvAutomatedSnapshotRetentionPeriod
@@ -425,6 +427,7 @@ module Network.AWS.Redshift.Types
     , sStatus
     , sRestorableNodeTypes
     , sAccountsWithRestoreAccess
+    , sEnhancedVPCRouting
     , sSnapshotIdentifier
     , sEncryptedWithHSM
     , sMasterUsername

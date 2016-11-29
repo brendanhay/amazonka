@@ -93,7 +93,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 --
 -- * 'dClusterIdentifier' - The identifier of the cluster for which information about snapshots is requested.
 --
--- * 'dSnapshotType' - The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.  Valid Values: @automated@ | @manual@
+-- * 'dSnapshotType' - The type of snapshots for which you are requesting information. By default, snapshots of all types are returned. Valid Values: @automated@ | @manual@
 --
 -- * 'dMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSnapshots' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
@@ -138,7 +138,7 @@ dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Default . _Coerce;
 dClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
 dClusterIdentifier = lens _dClusterIdentifier (\ s a -> s{_dClusterIdentifier = a});
 
--- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.  Valid Values: @automated@ | @manual@
+-- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned. Valid Values: @automated@ | @manual@
 dSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
 dSnapshotType = lens _dSnapshotType (\ s a -> s{_dSnapshotType = a});
 

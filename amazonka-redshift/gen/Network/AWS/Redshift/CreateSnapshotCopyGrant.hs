@@ -67,7 +67,7 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 --
 -- * 'cscgTags' - A list of tag instances.
 --
--- * 'cscgSnapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.    * Alphabetic characters must be lowercase.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for all clusters within an AWS account.
+-- * 'cscgSnapshotCopyGrantName' - The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
 createSnapshotCopyGrant
     :: Text -- ^ 'cscgSnapshotCopyGrantName'
     -> CreateSnapshotCopyGrant
@@ -86,7 +86,7 @@ cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
 cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
 cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce;
 
--- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.    * Alphabetic characters must be lowercase.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.    * Must be unique for all clusters within an AWS account.
+-- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account.
 cscgSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
 cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a});
 

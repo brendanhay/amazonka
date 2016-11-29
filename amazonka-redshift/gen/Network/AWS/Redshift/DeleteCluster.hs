@@ -67,9 +67,9 @@ data DeleteCluster = DeleteCluster'
 --
 -- * 'delSkipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If @true@ , a final cluster snapshot is not created. If @false@ , a final cluster snapshot is created before the cluster is deleted.  Default: @false@
 --
--- * 'delFinalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'delFinalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'delClusterIdentifier' - The identifier of the cluster to be deleted.  Constraints:     * Must contain lowercase characters.    * Must contain from 1 to 63 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- * 'delClusterIdentifier' - The identifier of the cluster to be deleted. Constraints:     * Must contain lowercase characters.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 deleteCluster
     :: Text -- ^ 'delClusterIdentifier'
     -> DeleteCluster
@@ -84,11 +84,11 @@ deleteCluster pClusterIdentifier_ =
 delSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 delSkipFinalClusterSnapshot = lens _delSkipFinalClusterSnapshot (\ s a -> s{_delSkipFinalClusterSnapshot = a});
 
--- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, /SkipFinalClusterSnapshot/ must be @false@ .  Constraints:     * Must be 1 to 255 alphanumeric characters.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 delFinalClusterSnapshotIdentifier :: Lens' DeleteCluster (Maybe Text)
 delFinalClusterSnapshotIdentifier = lens _delFinalClusterSnapshotIdentifier (\ s a -> s{_delFinalClusterSnapshotIdentifier = a});
 
--- | The identifier of the cluster to be deleted.  Constraints:     * Must contain lowercase characters.    * Must contain from 1 to 63 alphanumeric characters or hyphens.    * First character must be a letter.    * Cannot end with a hyphen or contain two consecutive hyphens.
+-- | The identifier of the cluster to be deleted. Constraints:     * Must contain lowercase characters.     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 delClusterIdentifier :: Lens' DeleteCluster Text
 delClusterIdentifier = lens _delClusterIdentifier (\ s a -> s{_delClusterIdentifier = a});
 

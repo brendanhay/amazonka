@@ -54,7 +54,7 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dParameterGroupName' - The name of the parameter group to be deleted.  Constraints:     * Must be the name of an existing cluster parameter group.    * Cannot delete a default cluster parameter group.
+-- * 'dParameterGroupName' - The name of the parameter group to be deleted. Constraints:     * Must be the name of an existing cluster parameter group.     * Cannot delete a default cluster parameter group.
 deleteClusterParameterGroup
     :: Text -- ^ 'dParameterGroupName'
     -> DeleteClusterParameterGroup
@@ -63,7 +63,7 @@ deleteClusterParameterGroup pParameterGroupName_ =
     { _dParameterGroupName = pParameterGroupName_
     }
 
--- | The name of the parameter group to be deleted.  Constraints:     * Must be the name of an existing cluster parameter group.    * Cannot delete a default cluster parameter group.
+-- | The name of the parameter group to be deleted. Constraints:     * Must be the name of an existing cluster parameter group.     * Cannot delete a default cluster parameter group.
 dParameterGroupName :: Lens' DeleteClusterParameterGroup Text
 dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a});
 

@@ -48,7 +48,11 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeTableRestoreStatus' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
     { _dtrssTableRestoreRequestId :: !(Maybe Text)
     , _dtrssClusterIdentifier     :: !(Maybe Text)
@@ -129,7 +133,11 @@ instance ToQuery DescribeTableRestoreStatus where
                "Marker" =: _dtrssMarker,
                "MaxRecords" =: _dtrssMaxRecords]
 
--- | /See:/ 'describeTableRestoreStatusResponse' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
     { _dtrsrsMarker                    :: !(Maybe Text)
     , _dtrsrsTableRestoreStatusDetails :: !(Maybe [TableRestoreStatus])

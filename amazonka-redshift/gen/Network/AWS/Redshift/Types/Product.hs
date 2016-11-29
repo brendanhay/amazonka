@@ -93,6 +93,7 @@ instance NFData AvailabilityZone
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
     { _cRestoreStatus                    :: !(Maybe RestoreStatus)
+    , _cEnhancedVPCRouting               :: !(Maybe Bool)
     , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
     , _cClusterRevisionNumber            :: !(Maybe Text)
     , _cPubliclyAccessible               :: !(Maybe Bool)
@@ -130,23 +131,25 @@ data Cluster = Cluster'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cRestoreStatus' - Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
+-- * 'cRestoreStatus' - A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 --
--- * 'cClusterSnapshotCopyStatus' - Returns the destination region and retention period that are configured for cross-region snapshot copy.
+-- * 'cEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+--
+-- * 'cClusterSnapshotCopyStatus' - A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
 --
 -- * 'cClusterRevisionNumber' - The specific revision number of the database in the cluster.
 --
--- * 'cPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
+-- * 'cPubliclyAccessible' - A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 --
--- * 'cMasterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in __DBName__ .
+-- * 'cMasterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
 --
 -- * 'cVPCId' - The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 --
--- * 'cClusterSecurityGroups' - A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
+-- * 'cClusterSecurityGroups' - A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
 --
 -- * 'cAutomatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
 --
--- * 'cEncrypted' - If @true@ , data in the cluster is encrypted at rest.
+-- * 'cEncrypted' - A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 --
 -- * 'cClusterSubnetGroupName' - The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
 --
@@ -156,19 +159,19 @@ data Cluster = Cluster'
 --
 -- * 'cClusterPublicKey' - The public key for the cluster.
 --
--- * 'cPreferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can occur.
+-- * 'cPreferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
 --
 -- * 'cModifyStatus' - The status of a modify operation, if any, initiated for the cluster.
 --
--- * 'cKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key used to encrypt data in the cluster.
+-- * 'cKMSKeyId' - The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
 --
 -- * 'cClusterParameterGroups' - The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
 --
 -- * 'cAvailabilityZone' - The name of the Availability Zone in which the cluster is located.
 --
--- * 'cVPCSecurityGroups' - A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
+-- * 'cVPCSecurityGroups' - A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
 --
--- * 'cHSMStatus' - Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
+-- * 'cHSMStatus' - A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command. Values: active, applying
 --
 -- * 'cIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
 --
@@ -182,22 +185,23 @@ data Cluster = Cluster'
 --
 -- * 'cEndpoint' - The connection endpoint.
 --
--- * 'cAllowVersionUpgrade' - If @true@ , major version upgrades will be applied automatically to the cluster during the maintenance window.
+-- * 'cAllowVersionUpgrade' - A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 --
--- * 'cClusterStatus' - The current state of the cluster. Possible values are:     * @available@     * @creating@     * @deleting@     * @final-snapshot@     * @hardware-failure@     * @incompatible-hsm@     * @incompatible-network@     * @incompatible-parameters@     * @incompatible-restore@     * @modifying@     * @rebooting@     * @renaming@     * @resizing@     * @rotating-keys@     * @storage-full@     * @updating-hsm@
+-- * 'cClusterStatus' - The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 --
--- * 'cPendingModifiedValues' - If present, changes to the cluster are pending. Specific pending changes are identified by subelements.
+-- * 'cPendingModifiedValues' - A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
 --
 -- * 'cTags' - The list of tags for the cluster.
 --
--- * 'cClusterNodes' - The nodes in a cluster.
+-- * 'cClusterNodes' - The nodes in the cluster.
 --
--- * 'cDBName' - The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named "dev" was created by default.
+-- * 'cDBName' - The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
 cluster
     :: Cluster
 cluster =
     Cluster'
     { _cRestoreStatus = Nothing
+    , _cEnhancedVPCRouting = Nothing
     , _cClusterSnapshotCopyStatus = Nothing
     , _cClusterRevisionNumber = Nothing
     , _cPubliclyAccessible = Nothing
@@ -231,11 +235,15 @@ cluster =
     , _cDBName = Nothing
     }
 
--- | Describes the status of a cluster restore action. Returns null if the cluster was not created by restoring a snapshot.
+-- | A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
 cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
 cRestoreStatus = lens _cRestoreStatus (\ s a -> s{_cRestoreStatus = a});
 
--- | Returns the destination region and retention period that are configured for cross-region snapshot copy.
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+cEnhancedVPCRouting :: Lens' Cluster (Maybe Bool)
+cEnhancedVPCRouting = lens _cEnhancedVPCRouting (\ s a -> s{_cEnhancedVPCRouting = a});
+
+-- | A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
 cClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
 cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClusterSnapshotCopyStatus = a});
 
@@ -243,11 +251,11 @@ cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClus
 cClusterRevisionNumber :: Lens' Cluster (Maybe Text)
 cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevisionNumber = a});
 
--- | If @true@ , the cluster can be accessed from a public network.
+-- | A Boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
--- | The master user name for the cluster. This name is used to connect to the database that is specified in __DBName__ .
+-- | The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 
@@ -255,7 +263,7 @@ cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 cVPCId :: Lens' Cluster (Maybe Text)
 cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
--- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in a VPC. Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
+-- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.  Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
 cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default . _Coerce;
 
@@ -263,7 +271,7 @@ cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecur
 cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
 cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s a -> s{_cAutomatedSnapshotRetentionPeriod = a});
 
--- | If @true@ , data in the cluster is encrypted at rest.
+-- | A Boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
@@ -283,7 +291,7 @@ cNumberOfNodes = lens _cNumberOfNodes (\ s a -> s{_cNumberOfNodes = a});
 cClusterPublicKey :: Lens' Cluster (Maybe Text)
 cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
 
--- | The weekly time range (in UTC) during which system maintenance can occur.
+-- | The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
 cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
 cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a});
 
@@ -291,7 +299,7 @@ cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPr
 cModifyStatus :: Lens' Cluster (Maybe Text)
 cModifyStatus = lens _cModifyStatus (\ s a -> s{_cModifyStatus = a});
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key used to encrypt data in the cluster.
+-- | The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
 cKMSKeyId :: Lens' Cluster (Maybe Text)
 cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
@@ -303,11 +311,11 @@ cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterPar
 cAvailabilityZone :: Lens' Cluster (Maybe Text)
 cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
 
--- | A list of Virtual Private Cloud (VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
+-- | A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
 cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
 cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default . _Coerce;
 
--- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
+-- | A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command. Values: active, applying
 cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
 cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
@@ -335,15 +343,15 @@ cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = 
 cEndpoint :: Lens' Cluster (Maybe Endpoint)
 cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 
--- | If @true@ , major version upgrades will be applied automatically to the cluster during the maintenance window.
+-- | A Boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
--- | The current state of the cluster. Possible values are:     * @available@     * @creating@     * @deleting@     * @final-snapshot@     * @hardware-failure@     * @incompatible-hsm@     * @incompatible-network@     * @incompatible-parameters@     * @incompatible-restore@     * @modifying@     * @rebooting@     * @renaming@     * @resizing@     * @rotating-keys@     * @storage-full@     * @updating-hsm@
+-- | The current state of the cluster. Possible values are the following:     * @available@      * @creating@      * @deleting@      * @final-snapshot@      * @hardware-failure@      * @incompatible-hsm@      * @incompatible-network@      * @incompatible-parameters@      * @incompatible-restore@      * @modifying@      * @rebooting@      * @renaming@      * @resizing@      * @rotating-keys@      * @storage-full@      * @updating-hsm@
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
--- | If present, changes to the cluster are pending. Specific pending changes are identified by subelements.
+-- | A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
 cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
 cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
@@ -351,11 +359,11 @@ cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModif
 cTags :: Lens' Cluster [Tag]
 cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
--- | The nodes in a cluster.
+-- | The nodes in the cluster.
 cClusterNodes :: Lens' Cluster [ClusterNode]
 cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default . _Coerce;
 
--- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named "dev" was created by default.
+-- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
 cDBName :: Lens' Cluster (Maybe Text)
 cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
 
@@ -363,7 +371,8 @@ instance FromXML Cluster where
         parseXML x
           = Cluster' <$>
               (x .@? "RestoreStatus") <*>
-                (x .@? "ClusterSnapshotCopyStatus")
+                (x .@? "EnhancedVpcRouting")
+                <*> (x .@? "ClusterSnapshotCopyStatus")
                 <*> (x .@? "ClusterRevisionNumber")
                 <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "MasterUsername")
@@ -425,9 +434,9 @@ data ClusterIAMRole = ClusterIAMRole'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cirIAMRoleARN' - The Amazon Resource Name (ARN) of the IAM role. For example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
+-- * 'cirIAMRoleARN' - The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
 --
--- * 'cirApplyStatus' - Describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.    * @in-sync@ : The role is available for use by the cluster.    * @adding@ : The role is in the process of being associated with the cluster.    * @removing@ : The role is in the process of being disassociated with the cluster.
+-- * 'cirApplyStatus' - A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
 clusterIAMRole
     :: ClusterIAMRole
 clusterIAMRole =
@@ -436,11 +445,11 @@ clusterIAMRole =
     , _cirApplyStatus = Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the IAM role. For example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
+-- | The Amazon Resource Name (ARN) of the IAM role, for example, @arn:aws:iam::123456789012:role/RedshiftCopyUnload@ .
 cirIAMRoleARN :: Lens' ClusterIAMRole (Maybe Text)
 cirIAMRoleARN = lens _cirIAMRoleARN (\ s a -> s{_cirIAMRoleARN = a});
 
--- | Describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.    * @in-sync@ : The role is available for use by the cluster.    * @adding@ : The role is in the process of being associated with the cluster.    * @removing@ : The role is in the process of being disassociated with the cluster.
+-- | A value that describes the status of the IAM role's association with an Amazon Redshift cluster. The following are possible statuses and descriptions.     * @in-sync@ : The role is available for use by the cluster.     * @adding@ : The role is in the process of being associated with the cluster.     * @removing@ : The role is in the process of being disassociated with the cluster.
 cirApplyStatus :: Lens' ClusterIAMRole (Maybe Text)
 cirApplyStatus = lens _cirApplyStatus (\ s a -> s{_cirApplyStatus = a});
 
@@ -683,7 +692,7 @@ data ClusterParameterStatus = ClusterParameterStatus'
 --
 -- * 'cpsParameterName' - The name of the parameter.
 --
--- * 'cpsParameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.    * @in-sync@ : The parameter value is in sync with the database.    * @pending-reboot@ : The parameter value will be applied after the cluster reboots.    * @applying@ : The parameter value is being applied to the database.    * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.    * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.    * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.    * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+-- * 'cpsParameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
 clusterParameterStatus
     :: ClusterParameterStatus
 clusterParameterStatus =
@@ -701,7 +710,7 @@ cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\ s
 cpsParameterName :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterName = lens _cpsParameterName (\ s a -> s{_cpsParameterName = a});
 
--- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.    * @in-sync@ : The parameter value is in sync with the database.    * @pending-reboot@ : The parameter value will be applied after the cluster reboots.    * @applying@ : The parameter value is being applied to the database.    * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.    * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.    * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.    * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+-- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
 cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\ s a -> s{_cpsParameterApplyStatus = a});
 
@@ -1246,7 +1255,7 @@ data Event = Event'
 --
 -- * 'eDate' - The date and time of the event.
 --
--- * 'eEventCategories' - A list of the event categories.  Values: Configuration, Management, Monitoring, Security
+-- * 'eEventCategories' - A list of the event categories. Values: Configuration, Management, Monitoring, Security
 --
 -- * 'eMessage' - The text of this event.
 --
@@ -1280,7 +1289,7 @@ eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a})
 eDate :: Lens' Event (Maybe UTCTime)
 eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
--- | A list of the event categories.  Values: Configuration, Management, Monitoring, Security
+-- | A list of the event categories. Values: Configuration, Management, Monitoring, Security
 eEventCategories :: Lens' Event [Text]
 eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default . _Coerce;
 
@@ -1436,7 +1445,7 @@ data EventSubscription = EventSubscription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esStatus' - The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist    * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+-- * 'esStatus' - The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 --
 -- * 'esCustomerAWSId' - The AWS customer account associated with the Amazon Redshift event notification subscription.
 --
@@ -1474,7 +1483,7 @@ eventSubscription =
     , _esSourceIdsList = Nothing
     }
 
--- | The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist    * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+-- | The status of the Amazon Redshift event notification subscription. Constraints:     * Can be one of the following: active | no-permission | topic-not-exist     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 esStatus :: Lens' EventSubscription (Maybe Text)
 esStatus = lens _esStatus (\ s a -> s{_esStatus = a});
 
@@ -2037,7 +2046,8 @@ instance ToQuery Parameter where
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-    { _pmvMasterUserPassword               :: !(Maybe Text)
+    { _pmvEnhancedVPCRouting               :: !(Maybe Bool)
+    , _pmvMasterUserPassword               :: !(Maybe Text)
     , _pmvPubliclyAccessible               :: !(Maybe Bool)
     , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
     , _pmvClusterIdentifier                :: !(Maybe Text)
@@ -2050,6 +2060,8 @@ data PendingModifiedValues = PendingModifiedValues'
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmvEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'pmvMasterUserPassword' - The pending or in-progress change of the master user password for the cluster.
 --
@@ -2070,7 +2082,8 @@ pendingModifiedValues
     :: PendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
-    { _pmvMasterUserPassword = Nothing
+    { _pmvEnhancedVPCRouting = Nothing
+    , _pmvMasterUserPassword = Nothing
     , _pmvPubliclyAccessible = Nothing
     , _pmvAutomatedSnapshotRetentionPeriod = Nothing
     , _pmvClusterIdentifier = Nothing
@@ -2079,6 +2092,10 @@ pendingModifiedValues =
     , _pmvClusterVersion = Nothing
     , _pmvNodeType = Nothing
     }
+
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+pmvEnhancedVPCRouting :: Lens' PendingModifiedValues (Maybe Bool)
+pmvEnhancedVPCRouting = lens _pmvEnhancedVPCRouting (\ s a -> s{_pmvEnhancedVPCRouting = a});
 
 -- | The pending or in-progress change of the master user password for the cluster.
 pmvMasterUserPassword :: Lens' PendingModifiedValues (Maybe Text)
@@ -2115,8 +2132,9 @@ pmvNodeType = lens _pmvNodeType (\ s a -> s{_pmvNodeType = a});
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              (x .@? "MasterUserPassword") <*>
-                (x .@? "PubliclyAccessible")
+              (x .@? "EnhancedVpcRouting") <*>
+                (x .@? "MasterUserPassword")
+                <*> (x .@? "PubliclyAccessible")
                 <*> (x .@? "AutomatedSnapshotRetentionPeriod")
                 <*> (x .@? "ClusterIdentifier")
                 <*> (x .@? "NumberOfNodes")
@@ -2195,7 +2213,7 @@ data ReservedNode = ReservedNode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rnState' - The state of the reserved compute node.  Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.    * active-This reserved node is owned by the caller and is available for use.    * payment-failed-Payment failed for the purchase attempt.
+-- * 'rnState' - The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
 --
 -- * 'rnCurrencyCode' - The currency code for the reserved cluster.
 --
@@ -2236,7 +2254,7 @@ reservedNode =
     , _rnDuration = Nothing
     }
 
--- | The state of the reserved compute node.  Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.    * active-This reserved node is owned by the caller and is available for use.    * payment-failed-Payment failed for the purchase attempt.
+-- | The state of the reserved compute node. Possible Values:     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.     * active-This reserved node is owned by the caller and is available for use.     * payment-failed-Payment failed for the purchase attempt.
 rnState :: Lens' ReservedNode (Maybe Text)
 rnState = lens _rnState (\ s a -> s{_rnState = a});
 
@@ -2492,6 +2510,7 @@ data Snapshot = Snapshot'
     { _sStatus                                 :: !(Maybe Text)
     , _sRestorableNodeTypes                    :: !(Maybe [Text])
     , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
+    , _sEnhancedVPCRouting                     :: !(Maybe Bool)
     , _sSnapshotIdentifier                     :: !(Maybe Text)
     , _sEncryptedWithHSM                       :: !(Maybe Bool)
     , _sMasterUsername                         :: !(Maybe Text)
@@ -2523,11 +2542,13 @@ data Snapshot = Snapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStatus' - The snapshot status. The value of the status depends on the API operation used.     * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".     * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".    * 'DeleteClusterSnapshot' returns status as "deleted".
+-- * 'sStatus' - The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 --
 -- * 'sRestorableNodeTypes' - The list of node types that this cluster snapshot is able to restore into.
 --
 -- * 'sAccountsWithRestoreAccess' - A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
+--
+-- * 'sEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
 --
 -- * 'sSnapshotIdentifier' - The snapshot identifier that is provided in the request.
 --
@@ -2585,6 +2606,7 @@ snapshot =
     { _sStatus = Nothing
     , _sRestorableNodeTypes = Nothing
     , _sAccountsWithRestoreAccess = Nothing
+    , _sEnhancedVPCRouting = Nothing
     , _sSnapshotIdentifier = Nothing
     , _sEncryptedWithHSM = Nothing
     , _sMasterUsername = Nothing
@@ -2612,7 +2634,7 @@ snapshot =
     , _sDBName = Nothing
     }
 
--- | The snapshot status. The value of the status depends on the API operation used.     * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".     * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".    * 'DeleteClusterSnapshot' returns status as "deleted".
+-- | The snapshot status. The value of the status depends on the API operation used.      * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".      * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".     * 'DeleteClusterSnapshot' returns status as "deleted".
 sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
@@ -2623,6 +2645,10 @@ sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTy
 -- | A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce;
+
+-- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
+sEnhancedVPCRouting :: Lens' Snapshot (Maybe Bool)
+sEnhancedVPCRouting = lens _sEnhancedVPCRouting (\ s a -> s{_sEnhancedVPCRouting = a});
 
 -- | The snapshot identifier that is provided in the request.
 sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
@@ -2733,6 +2759,7 @@ instance FromXML Snapshot where
                 <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
                    may (parseXMLList "AccountWithRestoreAccess"))
+                <*> (x .@? "EnhancedVpcRouting")
                 <*> (x .@? "SnapshotIdentifier")
                 <*> (x .@? "EncryptedWithHSM")
                 <*> (x .@? "MasterUsername")
@@ -3084,7 +3111,7 @@ data TaggedResource = TaggedResource'
 --
 -- * 'trTag' - The tag for the resource.
 --
--- * 'trResourceType' - The type of resource with which the tag is associated. Valid resource types are:     * Cluster    * CIDR/IP    * EC2 security group    * Snapshot    * Cluster security group    * Subnet group    * HSM connection    * HSM certificate    * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
+-- * 'trResourceType' - The type of resource with which the tag is associated. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 --
 -- * 'trResourceName' - The Amazon Resource Name (ARN) with which the tag is associated. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
 taggedResource
@@ -3100,7 +3127,7 @@ taggedResource =
 trTag :: Lens' TaggedResource (Maybe Tag)
 trTag = lens _trTag (\ s a -> s{_trTag = a});
 
--- | The type of resource with which the tag is associated. Valid resource types are:     * Cluster    * CIDR/IP    * EC2 security group    * Snapshot    * Cluster security group    * Subnet group    * HSM connection    * HSM certificate    * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
+-- | The type of resource with which the tag is associated. Valid resource types are:      * Cluster     * CIDR/IP     * EC2 security group     * Snapshot     * Cluster security group     * Subnet group     * HSM connection     * HSM certificate     * Parameter group For more information about Amazon Redshift resource types and constructing ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 trResourceType :: Lens' TaggedResource (Maybe Text)
 trResourceType = lens _trResourceType (\ s a -> s{_trResourceType = a});
 

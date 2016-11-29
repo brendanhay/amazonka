@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
+-- Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 --
 --
 --
@@ -67,13 +67,13 @@ data DescribeClusterVersions = DescribeClusterVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcvClusterParameterGroupFamily' - The name of a specific cluster parameter group family to return details for.  Constraints:     * Must be 1 to 255 alphanumeric characters    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens
+-- * 'dcvClusterParameterGroupFamily' - The name of a specific cluster parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- * 'dcvMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterVersions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- * 'dcvMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
 --
--- * 'dcvClusterVersion' - The specific cluster version to return.  Example: @1.0@
+-- * 'dcvClusterVersion' - The specific cluster version to return. Example: @1.0@
 describeClusterVersions
     :: DescribeClusterVersions
 describeClusterVersions =
@@ -84,7 +84,7 @@ describeClusterVersions =
     , _dcvClusterVersion = Nothing
     }
 
--- | The name of a specific cluster parameter group family to return details for.  Constraints:     * Must be 1 to 255 alphanumeric characters    * First character must be a letter    * Cannot end with a hyphen or contain two consecutive hyphens
+-- | The name of a specific cluster parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterParameterGroupFamily = lens _dcvClusterParameterGroupFamily (\ s a -> s{_dcvClusterParameterGroupFamily = a});
 
@@ -96,7 +96,7 @@ dcvMarker = lens _dcvMarker (\ s a -> s{_dcvMarker = a});
 dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
 dcvMaxRecords = lens _dcvMaxRecords (\ s a -> s{_dcvMaxRecords = a});
 
--- | The specific cluster version to return.  Example: @1.0@
+-- | The specific cluster version to return. Example: @1.0@
 dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
 dcvClusterVersion = lens _dcvClusterVersion (\ s a -> s{_dcvClusterVersion = a});
 

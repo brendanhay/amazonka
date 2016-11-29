@@ -55,7 +55,11 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeClusterParameters' smart constructor.
+-- |
+--
+--
+--
+-- /See:/ 'describeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
     { _dcpsMarker             :: !(Maybe Text)
     , _dcpsMaxRecords         :: !(Maybe Int)

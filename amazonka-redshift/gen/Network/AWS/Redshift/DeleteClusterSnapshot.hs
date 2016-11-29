@@ -61,9 +61,9 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsSnapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints: Must be the name of valid cluster.
+-- * 'dcsSnapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
 --
--- * 'dcsSnapshotIdentifier' - The unique identifier of the manual snapshot to be deleted.  Constraints: Must be the name of an existing snapshot that is in the @available@ state.
+-- * 'dcsSnapshotIdentifier' - The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ state.
 deleteClusterSnapshot
     :: Text -- ^ 'dcsSnapshotIdentifier'
     -> DeleteClusterSnapshot
@@ -73,11 +73,11 @@ deleteClusterSnapshot pSnapshotIdentifier_ =
     , _dcsSnapshotIdentifier = pSnapshotIdentifier_
     }
 
--- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.  Constraints: Must be the name of valid cluster.
+-- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
 dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
 dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a});
 
--- | The unique identifier of the manual snapshot to be deleted.  Constraints: Must be the name of an existing snapshot that is in the @available@ state.
+-- | The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ state.
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
 

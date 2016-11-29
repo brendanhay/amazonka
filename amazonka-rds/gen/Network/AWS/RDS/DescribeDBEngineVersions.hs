@@ -30,6 +30,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , DescribeDBEngineVersions
     -- * Request Lenses
     , ddevEngineVersion
+    , ddevListSupportedTimezones
     , ddevDefaultOnly
     , ddevFilters
     , ddevEngine
@@ -58,6 +59,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeDBEngineVersions' smart constructor.
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
     { _ddevEngineVersion              :: !(Maybe Text)
+    , _ddevListSupportedTimezones     :: !(Maybe Bool)
     , _ddevDefaultOnly                :: !(Maybe Bool)
     , _ddevFilters                    :: !(Maybe [Filter])
     , _ddevEngine                     :: !(Maybe Text)
@@ -73,6 +75,8 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --
 -- * 'ddevEngineVersion' - The database engine version to return. Example: @5.1.49@
 --
+-- * 'ddevListSupportedTimezones' - If this parameter is specified and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+--
 -- * 'ddevDefaultOnly' - Indicates that only the default version of the specified engine or engine and major version combination is returned.
 --
 -- * 'ddevFilters' - Not currently supported.
@@ -81,7 +85,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --
 -- * 'ddevDBParameterGroupFamily' - The name of a specific DB parameter group family to return details for. Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddevListSupportedCharacterSets' - If this parameter is specified, and if the requested engine supports the CharacterSetName parameter for CreateDBInstance, the response includes a list of supported character sets for each engine version.
+-- * 'ddevListSupportedCharacterSets' - If this parameter is specified and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
 --
 -- * 'ddevMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -91,6 +95,7 @@ describeDBEngineVersions
 describeDBEngineVersions =
     DescribeDBEngineVersions'
     { _ddevEngineVersion = Nothing
+    , _ddevListSupportedTimezones = Nothing
     , _ddevDefaultOnly = Nothing
     , _ddevFilters = Nothing
     , _ddevEngine = Nothing
@@ -103,6 +108,10 @@ describeDBEngineVersions =
 -- | The database engine version to return. Example: @5.1.49@
 ddevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a});
+
+-- | If this parameter is specified and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+ddevListSupportedTimezones :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddevListSupportedTimezones = lens _ddevListSupportedTimezones (\ s a -> s{_ddevListSupportedTimezones = a});
 
 -- | Indicates that only the default version of the specified engine or engine and major version combination is returned.
 ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
@@ -120,7 +129,7 @@ ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
 ddevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a});
 
--- | If this parameter is specified, and if the requested engine supports the CharacterSetName parameter for CreateDBInstance, the response includes a list of supported character sets for each engine version.
+-- | If this parameter is specified and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
 ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
 
@@ -169,6 +178,8 @@ instance ToQuery DescribeDBEngineVersions where
                  ("DescribeDBEngineVersions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _ddevEngineVersion,
+               "ListSupportedTimezones" =:
+                 _ddevListSupportedTimezones,
                "DefaultOnly" =: _ddevDefaultOnly,
                "Filters" =:
                  toQuery (toQueryList "Filter" <$> _ddevFilters),

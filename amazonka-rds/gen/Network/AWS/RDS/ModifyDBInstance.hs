@@ -131,7 +131,7 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiAutoMinorVersionUpgrade' - Indicates that minor version upgrades will be applied automatically to the DB instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to @true@ during the maintenance window, and a newer minor version is available, and RDS has enabled auto patching for that engine version.
 --
--- * 'mdiDBSubnetGroupName' - The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC, or to a different subnet group in the same VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Example: @mySubnetGroup@
+-- * 'mdiDBSubnetGroupName' - The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Example: @mySubnetGroup@
 --
 -- * 'mdiMonitoringRoleARN' - The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, @arn:aws:iam:123456789012:role/emaccess@ . For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring> . If @MonitoringInterval@ is set to a value other than 0, then you must supply a @MonitoringRoleArn@ value.
 --
@@ -141,7 +141,7 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiNewDBInstanceIdentifier' - The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance identifier, an instance reboot will occur immediately if you set @Apply Immediately@ to true, or will occur during the next maintenance window if @Apply Immediately@ to false. This value is stored as a lowercase string.  Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'mdiDomain' - Specify the Active Directory Domain to move the instance to. The specified Active Directory Domain must be created prior to this operation. Currently only a SQL Server instance can be created in a Active Directory Domain.
+-- * 'mdiDomain' - The Active Directory Domain to move the instance to. Specify @none@ to remove the instance from its current domain. The domain must be created prior to this operation. Currently only a Microsoft SQL Server instance can be created in a Active Directory Domain.
 --
 -- * 'mdiMonitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
 --
@@ -177,7 +177,7 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- * 'mdiTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
 --
--- * 'mdiDomainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
+-- * 'mdiDomainIAMRoleName' - The name of the IAM role to use when making API calls to the Directory Service.
 --
 -- * 'mdiStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
 --
@@ -245,7 +245,7 @@ mdiPubliclyAccessible = lens _mdiPubliclyAccessible (\ s a -> s{_mdiPubliclyAcce
 mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
 
--- | The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC, or to a different subnet group in the same VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Example: @mySubnetGroup@
+-- | The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Example: @mySubnetGroup@
 mdiDBSubnetGroupName :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBSubnetGroupName = lens _mdiDBSubnetGroupName (\ s a -> s{_mdiDBSubnetGroupName = a});
 
@@ -265,7 +265,7 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
 mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
 
--- | Specify the Active Directory Domain to move the instance to. The specified Active Directory Domain must be created prior to this operation. Currently only a SQL Server instance can be created in a Active Directory Domain.
+-- | The Active Directory Domain to move the instance to. Specify @none@ to remove the instance from its current domain. The domain must be created prior to this operation. Currently only a Microsoft SQL Server instance can be created in a Active Directory Domain.
 mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
 mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
 
@@ -337,7 +337,7 @@ mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSn
 mdiTDECredentialARN :: Lens' ModifyDBInstance (Maybe Text)
 mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN = a});
 
--- | Specify the name of the IAM role to be used when making API calls to the Directory Service.
+-- | The name of the IAM role to use when making API calls to the Directory Service.
 mdiDomainIAMRoleName :: Lens' ModifyDBInstance (Maybe Text)
 mdiDomainIAMRoleName = lens _mdiDomainIAMRoleName (\ s a -> s{_mdiDomainIAMRoleName = a});
 

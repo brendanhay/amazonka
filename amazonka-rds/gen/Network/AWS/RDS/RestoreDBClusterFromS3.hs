@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Migrate.html Migrating Data from an External MySQL Database to an Amazon Aurora DB Cluster> .
+-- Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <AmazonRDS/latest/UserGuide/Aurora.Migrate.MySQL.html#Aurora.Migrate.MySQL.S3 Migrating Data from MySQL by Using an Amazon S3 Bucket> .
 --
 --
 module Network.AWS.RDS.RestoreDBClusterFromS3

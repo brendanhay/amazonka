@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list that includes the status of each source AWS Region that the current region can get a Read Replica or a DB snapshot from. This API action supports pagination.
+-- Returns a list of the source AWS regions where the current AWS region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
 --
 --
 module Network.AWS.RDS.DescribeSourceRegions
@@ -64,7 +64,7 @@ data DescribeSourceRegions = DescribeSourceRegions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrRegionName' - The source region name, for example US West (Oregon). Constraints:     * Must specify a valid AWS Region name, for example US West (Oregon).
+-- * 'dsrRegionName' - The source region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 --
 -- * 'dsrFilters' - This parameter is not currently supported.
 --
@@ -81,7 +81,7 @@ describeSourceRegions =
     , _dsrMaxRecords = Nothing
     }
 
--- | The source region name, for example US West (Oregon). Constraints:     * Must specify a valid AWS Region name, for example US West (Oregon).
+-- | The source region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
 dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a});
 

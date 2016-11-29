@@ -274,6 +274,7 @@ data DBCluster = DBCluster'
     , _dcCharacterSetName                :: !(Maybe Text)
     , _dcKMSKeyId                        :: !(Maybe Text)
     , _dcPreferredBackupWindow           :: !(Maybe Text)
+    , _dcAssociatedRoles                 :: !(Maybe [DBClusterRole])
     , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
     , _dcBackupRetentionPeriod           :: !(Maybe Int)
     , _dcDBSubnetGroup                   :: !(Maybe Text)
@@ -281,6 +282,7 @@ data DBCluster = DBCluster'
     , _dcAllocatedStorage                :: !(Maybe Int)
     , _dcEndpoint                        :: !(Maybe Text)
     , _dcPercentProgress                 :: !(Maybe Text)
+    , _dcReaderEndpoint                  :: !(Maybe Text)
     , _dcPort                            :: !(Maybe Int)
     , _dcDBClusterOptionGroupMemberships :: !(Maybe [DBClusterOptionGroupStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -329,6 +331,8 @@ data DBCluster = DBCluster'
 --
 -- * 'dcPreferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
 --
+-- * 'dcAssociatedRoles' - Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+--
 -- * 'dcVPCSecurityGroups' - Provides a list of VPC security groups that the DB cluster belongs to.
 --
 -- * 'dcBackupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
@@ -342,6 +346,8 @@ data DBCluster = DBCluster'
 -- * 'dcEndpoint' - Specifies the connection endpoint for the primary instance of the DB cluster.
 --
 -- * 'dcPercentProgress' - Specifies the progress of the operation as a percentage.
+--
+-- * 'dcReaderEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then recoonect to the reader endpoint.
 --
 -- * 'dcPort' - Specifies the port that the database engine is listening on.
 --
@@ -370,6 +376,7 @@ dbCluster =
     , _dcCharacterSetName = Nothing
     , _dcKMSKeyId = Nothing
     , _dcPreferredBackupWindow = Nothing
+    , _dcAssociatedRoles = Nothing
     , _dcVPCSecurityGroups = Nothing
     , _dcBackupRetentionPeriod = Nothing
     , _dcDBSubnetGroup = Nothing
@@ -377,6 +384,7 @@ dbCluster =
     , _dcAllocatedStorage = Nothing
     , _dcEndpoint = Nothing
     , _dcPercentProgress = Nothing
+    , _dcReaderEndpoint = Nothing
     , _dcPort = Nothing
     , _dcDBClusterOptionGroupMemberships = Nothing
     }
@@ -461,6 +469,10 @@ dcKMSKeyId = lens _dcKMSKeyId (\ s a -> s{_dcKMSKeyId = a});
 dcPreferredBackupWindow :: Lens' DBCluster (Maybe Text)
 dcPreferredBackupWindow = lens _dcPreferredBackupWindow (\ s a -> s{_dcPreferredBackupWindow = a});
 
+-- | Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+dcAssociatedRoles :: Lens' DBCluster [DBClusterRole]
+dcAssociatedRoles = lens _dcAssociatedRoles (\ s a -> s{_dcAssociatedRoles = a}) . _Default . _Coerce;
+
 -- | Provides a list of VPC security groups that the DB cluster belongs to.
 dcVPCSecurityGroups :: Lens' DBCluster [VPCSecurityGroupMembership]
 dcVPCSecurityGroups = lens _dcVPCSecurityGroups (\ s a -> s{_dcVPCSecurityGroups = a}) . _Default . _Coerce;
@@ -488,6 +500,10 @@ dcEndpoint = lens _dcEndpoint (\ s a -> s{_dcEndpoint = a});
 -- | Specifies the progress of the operation as a percentage.
 dcPercentProgress :: Lens' DBCluster (Maybe Text)
 dcPercentProgress = lens _dcPercentProgress (\ s a -> s{_dcPercentProgress = a});
+
+-- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.  If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection will be dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then recoonect to the reader endpoint.
+dcReaderEndpoint :: Lens' DBCluster (Maybe Text)
+dcReaderEndpoint = lens _dcReaderEndpoint (\ s a -> s{_dcReaderEndpoint = a});
 
 -- | Specifies the port that the database engine is listening on.
 dcPort :: Lens' DBCluster (Maybe Int)
@@ -526,6 +542,9 @@ instance FromXML DBCluster where
                 <*> (x .@? "KmsKeyId")
                 <*> (x .@? "PreferredBackupWindow")
                 <*>
+                (x .@? "AssociatedRoles" .!@ mempty >>=
+                   may (parseXMLList "DBClusterRole"))
+                <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
                    may (parseXMLList "VpcSecurityGroupMembership"))
                 <*> (x .@? "BackupRetentionPeriod")
@@ -534,6 +553,7 @@ instance FromXML DBCluster where
                 <*> (x .@? "AllocatedStorage")
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "PercentProgress")
+                <*> (x .@? "ReaderEndpoint")
                 <*> (x .@? "Port")
                 <*>
                 (x .@? "DBClusterOptionGroupMemberships" .!@ mempty
@@ -744,6 +764,48 @@ instance FromXML DBClusterParameterGroupNameMessage
 instance Hashable DBClusterParameterGroupNameMessage
 
 instance NFData DBClusterParameterGroupNameMessage
+
+-- | Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
+--
+--
+--
+-- /See:/ 'dbClusterRole' smart constructor.
+data DBClusterRole = DBClusterRole'
+    { _dcrStatus  :: !(Maybe Text)
+    , _dcrRoleARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBClusterRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrStatus' - Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+--
+-- * 'dcrRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+dbClusterRole
+    :: DBClusterRole
+dbClusterRole =
+    DBClusterRole'
+    { _dcrStatus = Nothing
+    , _dcrRoleARN = Nothing
+    }
+
+-- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+dcrStatus :: Lens' DBClusterRole (Maybe Text)
+dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+
+-- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+dcrRoleARN :: Lens' DBClusterRole (Maybe Text)
+dcrRoleARN = lens _dcrRoleARN (\ s a -> s{_dcrRoleARN = a});
+
+instance FromXML DBClusterRole where
+        parseXML x
+          = DBClusterRole' <$>
+              (x .@? "Status") <*> (x .@? "RoleArn")
+
+instance Hashable DBClusterRole
+
+instance NFData DBClusterRole
 
 -- | Contains the result of a successful invocation of the following actions:
 --
@@ -1048,6 +1110,7 @@ data DBEngineVersion = DBEngineVersion'
     , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
     , _devDBEngineDescription        :: !(Maybe Text)
     , _devValidUpgradeTarget         :: !(Maybe [UpgradeTarget])
+    , _devSupportedTimezones         :: !(Maybe [Timezone])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
@@ -1064,11 +1127,13 @@ data DBEngineVersion = DBEngineVersion'
 --
 -- * 'devDBParameterGroupFamily' - The name of the DB parameter group family for the database engine.
 --
--- * 'devSupportedCharacterSets' - A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the CreateDBInstance API.
+-- * 'devSupportedCharacterSets' - A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ action.
 --
 -- * 'devDBEngineDescription' - The description of the database engine.
 --
 -- * 'devValidUpgradeTarget' - A list of engine versions that this database engine version can be upgraded to.
+--
+-- * 'devSupportedTimezones' - A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
 dbEngineVersion
     :: DBEngineVersion
 dbEngineVersion =
@@ -1081,6 +1146,7 @@ dbEngineVersion =
     , _devSupportedCharacterSets = Nothing
     , _devDBEngineDescription = Nothing
     , _devValidUpgradeTarget = Nothing
+    , _devSupportedTimezones = Nothing
     }
 
 -- | The version number of the database engine.
@@ -1103,7 +1169,7 @@ devEngine = lens _devEngine (\ s a -> s{_devEngine = a});
 devDBParameterGroupFamily :: Lens' DBEngineVersion (Maybe Text)
 devDBParameterGroupFamily = lens _devDBParameterGroupFamily (\ s a -> s{_devDBParameterGroupFamily = a});
 
--- | A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the CreateDBInstance API.
+-- | A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ action.
 devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default . _Coerce;
 
@@ -1114,6 +1180,10 @@ devDBEngineDescription = lens _devDBEngineDescription (\ s a -> s{_devDBEngineDe
 -- | A list of engine versions that this database engine version can be upgraded to.
 devValidUpgradeTarget :: Lens' DBEngineVersion [UpgradeTarget]
 devValidUpgradeTarget = lens _devValidUpgradeTarget (\ s a -> s{_devValidUpgradeTarget = a}) . _Default . _Coerce;
+
+-- | A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
+devSupportedTimezones :: Lens' DBEngineVersion [Timezone]
+devSupportedTimezones = lens _devSupportedTimezones (\ s a -> s{_devSupportedTimezones = a}) . _Default . _Coerce;
 
 instance FromXML DBEngineVersion where
         parseXML x
@@ -1130,6 +1200,9 @@ instance FromXML DBEngineVersion where
                 <*>
                 (x .@? "ValidUpgradeTarget" .!@ mempty >>=
                    may (parseXMLList "UpgradeTarget"))
+                <*>
+                (x .@? "SupportedTimezones" .!@ mempty >>=
+                   may (parseXMLList "Timezone"))
 
 instance Hashable DBEngineVersion
 
@@ -1188,6 +1261,7 @@ data DBInstance = DBInstance'
     , _diDBiResourceId                         :: !(Maybe Text)
     , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
     , _diCopyTagsToSnapshot                    :: !(Maybe Bool)
+    , _diTimezone                              :: !(Maybe Text)
     , _diTDECredentialARN                      :: !(Maybe Text)
     , _diEndpoint                              :: !(Maybe Endpoint)
     , _diDBInstanceStatus                      :: !(Maybe Text)
@@ -1255,7 +1329,7 @@ data DBInstance = DBInstance'
 --
 -- * 'diAvailabilityZone' - Specifies the name of the Availability Zone the DB instance is located in.
 --
--- * 'diVPCSecurityGroups' - Provides List of VPC security group elements that the DB instance belongs to.
+-- * 'diVPCSecurityGroups' - Provides a list of VPC security group elements that the DB instance belongs to.
 --
 -- * 'diBackupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
 --
@@ -1277,7 +1351,9 @@ data DBInstance = DBInstance'
 --
 -- * 'diCopyTagsToSnapshot' - Specifies whether tags are copied from the DB instance to snapshots of the DB instance.
 --
--- * 'diTDECredentialARN' - The ARN from the Key Store with which the instance is associated for TDE encryption.
+-- * 'diTimezone' - The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+--
+-- * 'diTDECredentialARN' - The ARN from the key store with which the instance is associated for TDE encryption.
 --
 -- * 'diEndpoint' - Specifies the connection endpoint.
 --
@@ -1335,6 +1411,7 @@ dbInstance =
     , _diDBiResourceId = Nothing
     , _diDBParameterGroups = Nothing
     , _diCopyTagsToSnapshot = Nothing
+    , _diTimezone = Nothing
     , _diTDECredentialARN = Nothing
     , _diEndpoint = Nothing
     , _diDBInstanceStatus = Nothing
@@ -1450,7 +1527,7 @@ diPreferredBackupWindow = lens _diPreferredBackupWindow (\ s a -> s{_diPreferred
 diAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diAvailabilityZone = lens _diAvailabilityZone (\ s a -> s{_diAvailabilityZone = a});
 
--- | Provides List of VPC security group elements that the DB instance belongs to.
+-- | Provides a list of VPC security group elements that the DB instance belongs to.
 diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
 diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a}) . _Default . _Coerce;
 
@@ -1494,7 +1571,11 @@ diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups
 diCopyTagsToSnapshot :: Lens' DBInstance (Maybe Bool)
 diCopyTagsToSnapshot = lens _diCopyTagsToSnapshot (\ s a -> s{_diCopyTagsToSnapshot = a});
 
--- | The ARN from the Key Store with which the instance is associated for TDE encryption.
+-- | The time zone of the DB instance. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+diTimezone :: Lens' DBInstance (Maybe Text)
+diTimezone = lens _diTimezone (\ s a -> s{_diTimezone = a});
+
+-- | The ARN from the key store with which the instance is associated for TDE encryption.
 diTDECredentialARN :: Lens' DBInstance (Maybe Text)
 diTDECredentialARN = lens _diTDECredentialARN (\ s a -> s{_diTDECredentialARN = a});
 
@@ -1580,6 +1661,7 @@ instance FromXML DBInstance where
                 (x .@? "DBParameterGroups" .!@ mempty >>=
                    may (parseXMLList "DBParameterGroup"))
                 <*> (x .@? "CopyTagsToSnapshot")
+                <*> (x .@? "Timezone")
                 <*> (x .@? "TdeCredentialArn")
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "DBInstanceStatus")
@@ -2003,6 +2085,7 @@ data DBSnapshot = DBSnapshot'
     , _dsSnapshotCreateTime         :: !(Maybe ISO8601)
     , _dsAllocatedStorage           :: !(Maybe Int)
     , _dsOptionGroupName            :: !(Maybe Text)
+    , _dsTimezone                   :: !(Maybe Text)
     , _dsTDECredentialARN           :: !(Maybe Text)
     , _dsPercentProgress            :: !(Maybe Int)
     , _dsPort                       :: !(Maybe Int)
@@ -2053,13 +2136,15 @@ data DBSnapshot = DBSnapshot'
 --
 -- * 'dsOptionGroupName' - Provides the option group name for the DB snapshot.
 --
--- * 'dsTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
+-- * 'dsTimezone' - The time zone of the DB snapshot. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for snapshots taken from Microsoft SQL Server DB instances that were created with a time zone specified.
+--
+-- * 'dsTDECredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
 --
 -- * 'dsPercentProgress' - The percentage of the estimated data that has been transferred.
 --
 -- * 'dsPort' - Specifies the port that the database engine was listening on at the time of the snapshot.
 --
--- * 'dsStorageType' - Specifies the storage type associated with DB Snapshot.
+-- * 'dsStorageType' - Specifies the storage type associated with DB snapshot.
 dbSnapshot
     :: DBSnapshot
 dbSnapshot =
@@ -2084,6 +2169,7 @@ dbSnapshot =
     , _dsSnapshotCreateTime = Nothing
     , _dsAllocatedStorage = Nothing
     , _dsOptionGroupName = Nothing
+    , _dsTimezone = Nothing
     , _dsTDECredentialARN = Nothing
     , _dsPercentProgress = Nothing
     , _dsPort = Nothing
@@ -2170,7 +2256,11 @@ dsAllocatedStorage = lens _dsAllocatedStorage (\ s a -> s{_dsAllocatedStorage = 
 dsOptionGroupName :: Lens' DBSnapshot (Maybe Text)
 dsOptionGroupName = lens _dsOptionGroupName (\ s a -> s{_dsOptionGroupName = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE encryption.
+-- | The time zone of the DB snapshot. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for snapshots taken from Microsoft SQL Server DB instances that were created with a time zone specified.
+dsTimezone :: Lens' DBSnapshot (Maybe Text)
+dsTimezone = lens _dsTimezone (\ s a -> s{_dsTimezone = a});
+
+-- | The ARN from the key store with which to associate the instance for TDE encryption.
 dsTDECredentialARN :: Lens' DBSnapshot (Maybe Text)
 dsTDECredentialARN = lens _dsTDECredentialARN (\ s a -> s{_dsTDECredentialARN = a});
 
@@ -2182,7 +2272,7 @@ dsPercentProgress = lens _dsPercentProgress (\ s a -> s{_dsPercentProgress = a})
 dsPort :: Lens' DBSnapshot (Maybe Int)
 dsPort = lens _dsPort (\ s a -> s{_dsPort = a});
 
--- | Specifies the storage type associated with DB Snapshot.
+-- | Specifies the storage type associated with DB snapshot.
 dsStorageType :: Lens' DBSnapshot (Maybe Text)
 dsStorageType = lens _dsStorageType (\ s a -> s{_dsStorageType = a});
 
@@ -2208,6 +2298,7 @@ instance FromXML DBSnapshot where
                 <*> (x .@? "SnapshotCreateTime")
                 <*> (x .@? "AllocatedStorage")
                 <*> (x .@? "OptionGroupName")
+                <*> (x .@? "Timezone")
                 <*> (x .@? "TdeCredentialArn")
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "Port")
@@ -4740,6 +4831,38 @@ instance NFData Tag
 instance ToQuery Tag where
         toQuery Tag'{..}
           = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
+
+-- | A time zone associated with a 'DBInstance' or a 'DBSnapshot' . This data type is an element in the response to the 'DescribeDBInstances' , the 'DescribeDBSnapshots' , and the 'DescribeDBEngineVersions' actions.
+--
+--
+--
+-- /See:/ 'timezone' smart constructor.
+newtype Timezone = Timezone'
+    { _tTimezoneName :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Timezone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tTimezoneName' - The name of the time zone.
+timezone
+    :: Timezone
+timezone =
+    Timezone'
+    { _tTimezoneName = Nothing
+    }
+
+-- | The name of the time zone.
+tTimezoneName :: Lens' Timezone (Maybe Text)
+tTimezoneName = lens _tTimezoneName (\ s a -> s{_tTimezoneName = a});
+
+instance FromXML Timezone where
+        parseXML x = Timezone' <$> (x .@? "TimezoneName")
+
+instance Hashable Timezone
+
+instance NFData Timezone
 
 -- | The version of the database engine that a DB instance can be upgraded to.
 --

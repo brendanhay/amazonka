@@ -40,6 +40,7 @@ library
 
     exposed-modules:
           Network.AWS.RDS
+        , Network.AWS.RDS.AddRoleToDBCluster
         , Network.AWS.RDS.AddSourceIdentifierToSubscription
         , Network.AWS.RDS.AddTagsToResource
         , Network.AWS.RDS.ApplyPendingMaintenanceAction
@@ -114,6 +115,7 @@ library
         , Network.AWS.RDS.PromoteReadReplicaDBCluster
         , Network.AWS.RDS.PurchaseReservedDBInstancesOffering
         , Network.AWS.RDS.RebootDBInstance
+        , Network.AWS.RDS.RemoveRoleFromDBCluster
         , Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
         , Network.AWS.RDS.RemoveTagsFromResource
         , Network.AWS.RDS.ResetDBClusterParameterGroup

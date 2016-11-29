@@ -202,6 +202,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActions
 --
+--         , requestAddRoleToDBCluster $
+--             addRoleToDBCluster
+--
 --         , requestCopyDBClusterSnapshot $
 --             copyDBClusterSnapshot
 --
@@ -210,6 +213,9 @@ import Test.AWS.RDS.Internal
 --
 --         , requestCreateDBCluster $
 --             createDBCluster
+--
+--         , requestRemoveRoleFromDBCluster $
+--             removeRoleFromDBCluster
 --
 --         , requestFailoverDBCluster $
 --             failoverDBCluster
@@ -457,6 +463,9 @@ import Test.AWS.RDS.Internal
 --         , responseDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActionsResponse
 --
+--         , responseAddRoleToDBCluster $
+--             addRoleToDBClusterResponse
+--
 --         , responseCopyDBClusterSnapshot $
 --             copyDBClusterSnapshotResponse
 --
@@ -465,6 +474,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseCreateDBCluster $
 --             createDBClusterResponse
+--
+--         , responseRemoveRoleFromDBCluster $
+--             removeRoleFromDBClusterResponse
 --
 --         , responseFailoverDBCluster $
 --             failoverDBClusterResponse
@@ -830,6 +842,11 @@ requestDescribePendingMaintenanceActions = req
     "DescribePendingMaintenanceActions"
     "fixture/DescribePendingMaintenanceActions.yaml"
 
+requestAddRoleToDBCluster :: AddRoleToDBCluster -> TestTree
+requestAddRoleToDBCluster = req
+    "AddRoleToDBCluster"
+    "fixture/AddRoleToDBCluster.yaml"
+
 requestCopyDBClusterSnapshot :: CopyDBClusterSnapshot -> TestTree
 requestCopyDBClusterSnapshot = req
     "CopyDBClusterSnapshot"
@@ -844,6 +861,11 @@ requestCreateDBCluster :: CreateDBCluster -> TestTree
 requestCreateDBCluster = req
     "CreateDBCluster"
     "fixture/CreateDBCluster.yaml"
+
+requestRemoveRoleFromDBCluster :: RemoveRoleFromDBCluster -> TestTree
+requestRemoveRoleFromDBCluster = req
+    "RemoveRoleFromDBCluster"
+    "fixture/RemoveRoleFromDBCluster.yaml"
 
 requestFailoverDBCluster :: FailoverDBCluster -> TestTree
 requestFailoverDBCluster = req
@@ -1368,6 +1390,13 @@ responseDescribePendingMaintenanceActions = res
     rds
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
+responseAddRoleToDBCluster :: AddRoleToDBClusterResponse -> TestTree
+responseAddRoleToDBCluster = res
+    "AddRoleToDBClusterResponse"
+    "fixture/AddRoleToDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy AddRoleToDBCluster)
+
 responseCopyDBClusterSnapshot :: CopyDBClusterSnapshotResponse -> TestTree
 responseCopyDBClusterSnapshot = res
     "CopyDBClusterSnapshotResponse"
@@ -1388,6 +1417,13 @@ responseCreateDBCluster = res
     "fixture/CreateDBClusterResponse.proto"
     rds
     (Proxy :: Proxy CreateDBCluster)
+
+responseRemoveRoleFromDBCluster :: RemoveRoleFromDBClusterResponse -> TestTree
+responseRemoveRoleFromDBCluster = res
+    "RemoveRoleFromDBClusterResponse"
+    "fixture/RemoveRoleFromDBClusterResponse.proto"
+    rds
+    (Proxy :: Proxy RemoveRoleFromDBCluster)
 
 responseFailoverDBCluster :: FailoverDBClusterResponse -> TestTree
 responseFailoverDBCluster = res

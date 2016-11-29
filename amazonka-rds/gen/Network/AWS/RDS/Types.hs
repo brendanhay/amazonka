@@ -66,6 +66,8 @@ module Network.AWS.RDS.Types
     , _InsufficientDBInstanceCapacityFault
     , _InvalidDBClusterSnapshotStateFault
     , _SubscriptionAlreadyExistFault
+    , _DBClusterRoleAlreadyExistsFault
+    , _DBClusterRoleQuotaExceededFault
     , _InvalidVPCNetworkStateFault
     , _AuthorizationNotFoundFault
     , _ReservedDBInstanceNotFoundFault
@@ -89,6 +91,7 @@ module Network.AWS.RDS.Types
     , _InvalidDBSubnetGroupStateFault
     , _DBSubnetGroupDoesNotCoverEnoughAZs
     , _SubnetAlreadyInUse
+    , _DBClusterRoleNotFoundFault
 
     -- * ApplyMethod
     , ApplyMethod (..)
@@ -147,6 +150,7 @@ module Network.AWS.RDS.Types
     , dcCharacterSetName
     , dcKMSKeyId
     , dcPreferredBackupWindow
+    , dcAssociatedRoles
     , dcVPCSecurityGroups
     , dcBackupRetentionPeriod
     , dcDBSubnetGroup
@@ -154,6 +158,7 @@ module Network.AWS.RDS.Types
     , dcAllocatedStorage
     , dcEndpoint
     , dcPercentProgress
+    , dcReaderEndpoint
     , dcPort
     , dcDBClusterOptionGroupMemberships
 
@@ -183,6 +188,12 @@ module Network.AWS.RDS.Types
     , DBClusterParameterGroupNameMessage
     , dbClusterParameterGroupNameMessage
     , dcpgnmDBClusterParameterGroupName
+
+    -- * DBClusterRole
+    , DBClusterRole
+    , dbClusterRole
+    , dcrStatus
+    , dcrRoleARN
 
     -- * DBClusterSnapshot
     , DBClusterSnapshot
@@ -229,6 +240,7 @@ module Network.AWS.RDS.Types
     , devSupportedCharacterSets
     , devDBEngineDescription
     , devValidUpgradeTarget
+    , devSupportedTimezones
 
     -- * DBInstance
     , DBInstance
@@ -270,6 +282,7 @@ module Network.AWS.RDS.Types
     , diDBiResourceId
     , diDBParameterGroups
     , diCopyTagsToSnapshot
+    , diTimezone
     , diTDECredentialARN
     , diEndpoint
     , diDBInstanceStatus
@@ -347,6 +360,7 @@ module Network.AWS.RDS.Types
     , dsSnapshotCreateTime
     , dsAllocatedStorage
     , dsOptionGroupName
+    , dsTimezone
     , dsTDECredentialARN
     , dsPercentProgress
     , dsPort
@@ -661,6 +675,11 @@ module Network.AWS.RDS.Types
     , tag
     , tagValue
     , tagKey
+
+    -- * Timezone
+    , Timezone
+    , timezone
+    , tTimezoneName
 
     -- * UpgradeTarget
     , UpgradeTarget
@@ -1071,6 +1090,20 @@ _SubscriptionAlreadyExistFault :: AsError a => Getting (First ServiceError) a Se
 _SubscriptionAlreadyExistFault =
     _ServiceError . hasStatus 400 . hasCode "SubscriptionAlreadyExist"
 
+-- | The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.
+--
+--
+_DBClusterRoleAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterRoleAlreadyExistsFault =
+    _ServiceError . hasStatus 400 . hasCode "DBClusterRoleAlreadyExists"
+
+-- | You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
+--
+--
+_DBClusterRoleQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterRoleQuotaExceededFault =
+    _ServiceError . hasStatus 400 . hasCode "DBClusterRoleQuotaExceeded"
+
 -- | DB subnet group does not cover all Availability Zones after it is created because users' change.
 --
 --
@@ -1235,3 +1268,10 @@ _DBSubnetGroupDoesNotCoverEnoughAZs =
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetAlreadyInUse =
     _ServiceError . hasStatus 400 . hasCode "SubnetAlreadyInUse"
+
+-- | The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
+--
+--
+_DBClusterRoleNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DBClusterRoleNotFoundFault =
+    _ServiceError . hasStatus 404 . hasCode "DBClusterRoleNotFound"

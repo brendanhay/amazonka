@@ -199,6 +199,12 @@ module Network.AWS.RDS
     -- ** SubscriptionAlreadyExistFault
     , _SubscriptionAlreadyExistFault
 
+    -- ** DBClusterRoleAlreadyExistsFault
+    , _DBClusterRoleAlreadyExistsFault
+
+    -- ** DBClusterRoleQuotaExceededFault
+    , _DBClusterRoleQuotaExceededFault
+
     -- ** InvalidVPCNetworkStateFault
     , _InvalidVPCNetworkStateFault
 
@@ -267,6 +273,9 @@ module Network.AWS.RDS
 
     -- ** SubnetAlreadyInUse
     , _SubnetAlreadyInUse
+
+    -- ** DBClusterRoleNotFoundFault
+    , _DBClusterRoleNotFoundFault
 
     -- * Waiters
     -- $waiters
@@ -457,6 +466,9 @@ module Network.AWS.RDS
     -- ** DescribePendingMaintenanceActions
     , module Network.AWS.RDS.DescribePendingMaintenanceActions
 
+    -- ** AddRoleToDBCluster
+    , module Network.AWS.RDS.AddRoleToDBCluster
+
     -- ** CopyDBClusterSnapshot
     , module Network.AWS.RDS.CopyDBClusterSnapshot
 
@@ -465,6 +477,9 @@ module Network.AWS.RDS
 
     -- ** CreateDBCluster
     , module Network.AWS.RDS.CreateDBCluster
+
+    -- ** RemoveRoleFromDBCluster
+    , module Network.AWS.RDS.RemoveRoleFromDBCluster
 
     -- ** FailoverDBCluster
     , module Network.AWS.RDS.FailoverDBCluster
@@ -594,6 +609,7 @@ module Network.AWS.RDS
     , dcCharacterSetName
     , dcKMSKeyId
     , dcPreferredBackupWindow
+    , dcAssociatedRoles
     , dcVPCSecurityGroups
     , dcBackupRetentionPeriod
     , dcDBSubnetGroup
@@ -601,6 +617,7 @@ module Network.AWS.RDS
     , dcAllocatedStorage
     , dcEndpoint
     , dcPercentProgress
+    , dcReaderEndpoint
     , dcPort
     , dcDBClusterOptionGroupMemberships
 
@@ -630,6 +647,12 @@ module Network.AWS.RDS
     , DBClusterParameterGroupNameMessage
     , dbClusterParameterGroupNameMessage
     , dcpgnmDBClusterParameterGroupName
+
+    -- ** DBClusterRole
+    , DBClusterRole
+    , dbClusterRole
+    , dcrStatus
+    , dcrRoleARN
 
     -- ** DBClusterSnapshot
     , DBClusterSnapshot
@@ -676,6 +699,7 @@ module Network.AWS.RDS
     , devSupportedCharacterSets
     , devDBEngineDescription
     , devValidUpgradeTarget
+    , devSupportedTimezones
 
     -- ** DBInstance
     , DBInstance
@@ -717,6 +741,7 @@ module Network.AWS.RDS
     , diDBiResourceId
     , diDBParameterGroups
     , diCopyTagsToSnapshot
+    , diTimezone
     , diTDECredentialARN
     , diEndpoint
     , diDBInstanceStatus
@@ -794,6 +819,7 @@ module Network.AWS.RDS
     , dsSnapshotCreateTime
     , dsAllocatedStorage
     , dsOptionGroupName
+    , dsTimezone
     , dsTDECredentialARN
     , dsPercentProgress
     , dsPort
@@ -1109,6 +1135,11 @@ module Network.AWS.RDS
     , tagValue
     , tagKey
 
+    -- ** Timezone
+    , Timezone
+    , timezone
+    , tTimezoneName
+
     -- ** UpgradeTarget
     , UpgradeTarget
     , upgradeTarget
@@ -1125,6 +1156,7 @@ module Network.AWS.RDS
     , vsgmVPCSecurityGroupId
     ) where
 
+import           Network.AWS.RDS.AddRoleToDBCluster
 import           Network.AWS.RDS.AddSourceIdentifierToSubscription
 import           Network.AWS.RDS.AddTagsToResource
 import           Network.AWS.RDS.ApplyPendingMaintenanceAction
@@ -1199,6 +1231,7 @@ import           Network.AWS.RDS.PromoteReadReplica
 import           Network.AWS.RDS.PromoteReadReplicaDBCluster
 import           Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 import           Network.AWS.RDS.RebootDBInstance
+import           Network.AWS.RDS.RemoveRoleFromDBCluster
 import           Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 import           Network.AWS.RDS.RemoveTagsFromResource
 import           Network.AWS.RDS.ResetDBClusterParameterGroup

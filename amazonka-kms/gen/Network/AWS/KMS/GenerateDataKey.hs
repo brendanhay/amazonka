@@ -18,14 +18,34 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a data key that you can use in your application to locally encrypt data. This call returns a plaintext version of the key in the @Plaintext@ field of the response object and an encrypted copy of the key in the @CiphertextBlob@ field. The key is encrypted by using the master key specified by the @KeyId@ field. To decrypt the encrypted key, pass it to the @Decrypt@ API.
+-- Returns a data encryption key that you can use in your application to encrypt data locally.
 --
 --
--- We recommend that you use the following pattern to locally encrypt data: call the @GenerateDataKey@ API, use the key returned in the @Plaintext@ response field to locally encrypt data, and then erase the plaintext data key from memory. Store the encrypted data key (contained in the @CiphertextBlob@ field) alongside of the locally encrypted data.
+-- You must specify the customer master key (CMK) under which to generate the data key. You must also specify the length of the data key using either the @KeySpec@ or @NumberOfBytes@ field. You must specify one field or the other, but not both. For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use @KeySpec@ .
 --
--- If you decide to use the optional @EncryptionContext@ parameter, you must also store the context in full or at least store enough information along with the encrypted data to be able to reconstruct the context when submitting the ciphertext to the @Decrypt@ API. It is a good practice to choose a context that you can reconstruct on the fly to better secure the ciphertext. For more information about how this parameter is used, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> .
+-- This operation returns a plaintext copy of the data key in the @Plaintext@ field of the response, and an encrypted copy of the data key in the @CiphertextBlob@ field. The data key is encrypted under the CMK specified in the @KeyId@ field of the request.
 --
--- To decrypt data, pass the encrypted data key to the @Decrypt@ API. @Decrypt@ uses the associated master key to decrypt the encrypted data key and returns it as plaintext. Use the plaintext data key to locally decrypt your data and then erase the key from memory. You must specify the encryption context, if any, that you specified when you generated the key. The encryption context is logged by CloudTrail, and you can use this log to help track the use of particular data.
+-- We recommend that you use the following pattern to encrypt data locally in your application:
+--
+--     * Use this operation (@GenerateDataKey@ ) to retrieve a data encryption key.
+--
+--     * Use the plaintext data encryption key (returned in the @Plaintext@ field of the response) to encrypt data locally, then erase the plaintext data key from memory.
+--
+--     * Store the encrypted data key (returned in the @CiphertextBlob@ field of the response) alongside the locally encrypted data.
+--
+--
+--
+-- To decrypt data locally:
+--
+--     * Use the 'Decrypt' operation to decrypt the encrypted data key into a plaintext copy of the data key.
+--
+--     * Use the plaintext data key to decrypt data locally, then erase the plaintext data key from memory.
+--
+--
+--
+-- To return only an encrypted copy of the data key, use 'GenerateDataKeyWithoutPlaintext' . To return an arbitrary unpredictable byte string, use 'GenerateRandom' .
+--
+-- If you use the optional @EncryptionContext@ field, you must store at least enough information to be able to reconstruct the full encryption context when you later send the ciphertext to the 'Decrypt' operation. It is a good practice to choose an encryption context that you can reconstruct on the fly to better secure the ciphertext. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 module Network.AWS.KMS.GenerateDataKey
     (
@@ -69,15 +89,15 @@ data GenerateDataKey = GenerateDataKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdkKeySpec' - Value that identifies the encryption algorithm and key size to generate a data key for. Currently this can be AES_128 or AES_256.
+-- * 'gdkKeySpec' - The length of the data encryption key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 --
--- * 'gdkEncryptionContext' - Name/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key.
+-- * 'gdkEncryptionContext' - A set of key-value pairs that represents additional authenticated data. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'gdkNumberOfBytes' - Integer that contains the number of bytes to generate. Common values are 128, 256, 512, and 1024. 1024 is the current limit. We recommend that you use the @KeySpec@ parameter instead.
+-- * 'gdkNumberOfBytes' - The length of the data encryption key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
 --
 -- * 'gdkGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'gdkKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- * 'gdkKeyId' - The identifier of the CMK under which to generate and encrypt the data encryption key. A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK, or the alias name or ARN of an alias that points to the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * CMK ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias@
 generateDataKey
     :: Text -- ^ 'gdkKeyId'
     -> GenerateDataKey
@@ -90,15 +110,15 @@ generateDataKey pKeyId_ =
     , _gdkKeyId = pKeyId_
     }
 
--- | Value that identifies the encryption algorithm and key size to generate a data key for. Currently this can be AES_128 or AES_256.
+-- | The length of the data encryption key. Use @AES_128@ to generate a 128-bit symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
 gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
 
--- | Name/value pair that contains additional data to be authenticated during the encryption and decryption processes that use the key. This value is logged by AWS CloudTrail to provide context around the data encrypted by the key.
+-- | A set of key-value pairs that represents additional authenticated data. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
 gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
 
--- | Integer that contains the number of bytes to generate. Common values are 128, 256, 512, and 1024. 1024 is the current limit. We recommend that you use the @KeySpec@ parameter instead.
+-- | The length of the data encryption key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the @KeySpec@ field instead of this one.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
 
@@ -106,7 +126,7 @@ gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . 
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
 gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default . _Coerce;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- | The identifier of the CMK under which to generate and encrypt the data encryption key. A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK, or the alias name or ARN of an alias that points to the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * CMK ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@      * Alias name: @alias/ExampleAlias@      * Alias ARN: @arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias@
 gdkKeyId :: Lens' GenerateDataKey Text
 gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
 
@@ -164,11 +184,11 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 --
 -- * 'gdkrsResponseStatus' - -- | The response status code.
 --
--- * 'gdkrsKeyId' - System generated unique identifier of the key to be used to decrypt the encrypted copy of the data key.
+-- * 'gdkrsKeyId' - The identifier of the CMK under which the data encryption key was generated and encrypted.
 --
--- * 'gdkrsPlaintext' - Plaintext that contains the data key. Use this for encryption and decryption and then remove it from memory as soon as possible.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'gdkrsPlaintext' - The data encryption key. Use this data key for local encryption and decryption, then remove it from memory as soon as possible.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'gdkrsCiphertextBlob' - Ciphertext that contains the encrypted data key. You must store the blob and enough information to reconstruct the encryption context so that the data encrypted by using the key can later be decrypted. You must provide both the ciphertext blob and the encryption context to the 'Decrypt' API to recover the plaintext data key and decrypt the object. If you are using the CLI, the value is Base64 encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'gdkrsCiphertextBlob' - The encrypted data encryption key.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyResponse
     :: Int -- ^ 'gdkrsResponseStatus'
     -> Text -- ^ 'gdkrsKeyId'
@@ -187,15 +207,15 @@ generateDataKeyResponse pResponseStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
 gdkrsResponseStatus :: Lens' GenerateDataKeyResponse Int
 gdkrsResponseStatus = lens _gdkrsResponseStatus (\ s a -> s{_gdkrsResponseStatus = a});
 
--- | System generated unique identifier of the key to be used to decrypt the encrypted copy of the data key.
+-- | The identifier of the CMK under which the data encryption key was generated and encrypted.
 gdkrsKeyId :: Lens' GenerateDataKeyResponse Text
 gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 
--- | Plaintext that contains the data key. Use this for encryption and decryption and then remove it from memory as soon as possible.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The data encryption key. Use this data key for local encryption and decryption, then remove it from memory as soon as possible.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gdkrsPlaintext :: Lens' GenerateDataKeyResponse ByteString
 gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensitive . _Base64;
 
--- | Ciphertext that contains the encrypted data key. You must store the blob and enough information to reconstruct the encryption context so that the data encrypted by using the key can later be decrypted. You must provide both the ciphertext blob and the encryption context to the 'Decrypt' API to recover the plaintext data key and decrypt the object. If you are using the CLI, the value is Base64 encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The encrypted data encryption key.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse ByteString
 gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . _Base64;
 

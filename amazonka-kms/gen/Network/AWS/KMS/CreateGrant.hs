@@ -72,7 +72,7 @@ data CreateGrant = CreateGrant'
 --
 -- * 'cgGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'cgConstraints' - The conditions under which the operations permitted by the grant are allowed. You can use this value to allow the operations permitted by the grant only when a specified encryption context is present. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+-- * 'cgConstraints' - The conditions under which the operations permitted by the grant are allowed. You can use this value to allow the operations permitted by the grant only when a specified encryption context is present. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 -- * 'cgName' - A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when retrying this request. When this value is absent, all @CreateGrant@ requests result in a new grant with a unique @GrantId@ even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the @CreateGrant@ request. When this value is present, you can retry a @CreateGrant@ request with identical parameters; if the grant already exists, the original @GrantId@ is returned without creating a new grant. Note that the returned grant token is unique with every @CreateGrant@ request, even when a duplicate @GrantId@ is returned. All grant tokens obtained in this way can be used interchangeably.
 --
@@ -104,7 +104,7 @@ cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
 
--- | The conditions under which the operations permitted by the grant are allowed. You can use this value to allow the operations permitted by the grant only when a specified encryption context is present. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+-- | The conditions under which the operations permitted by the grant are allowed. You can use this value to allow the operations permitted by the grant only when a specified encryption context is present. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 

@@ -70,7 +70,7 @@ data Encrypt = Encrypt'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eEncryptionContext' - Name/value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the @Decrypt@ API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> .
+-- * 'eEncryptionContext' - Name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the @Decrypt@ API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 --
 -- * 'eGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -89,7 +89,7 @@ encrypt pKeyId_ pPlaintext_ =
     , _ePlaintext = _Sensitive . _Base64 # pPlaintext_
     }
 
--- | Name/value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the @Decrypt@ API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> .
+-- | Name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the @Decrypt@ API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map;
 

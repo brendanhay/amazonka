@@ -166,12 +166,12 @@ _InvalidMarkerException = _ServiceError . hasCode "InvalidMarkerException"
 -- | The request was rejected because the state of the specified resource is not valid for this request.
 --
 --
--- For more information about how key state affects the use of a customer master key (CMK), see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+-- For more information about how key state affects the use of a CMK, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
 --
 _KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInvalidStateException = _ServiceError . hasCode "KMSInvalidStateException"
 
--- | The request was rejected because the specified KeySpec parameter is not valid. The currently supported value is ENCRYPT/DECRYPT.
+-- | The request was rejected because the specified @KeySpec@ value is not valid.
 --
 --
 _InvalidKeyUsageException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -191,13 +191,13 @@ _UnsupportedOperationException :: AsError a => Getting (First ServiceError) a Se
 _UnsupportedOperationException =
     _ServiceError . hasCode "UnsupportedOperationException"
 
--- | The request was rejected because the specified key was marked as disabled.
+-- | The request was rejected because the specified CMK is not enabled.
 --
 --
 _DisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledException = _ServiceError . hasCode "DisabledException"
 
--- | The request was rejected because the key was not available. The request can be retried.
+-- | The request was rejected because the specified CMK was not available. The request can be retried.
 --
 --
 _KeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -242,7 +242,7 @@ _InvalidAliasNameException =
 _InvalidGrantIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGrantIdException = _ServiceError . hasCode "InvalidGrantIdException"
 
--- | The request was rejected because a grant token provided as part of the request is invalid.
+-- | The request was rejected because the specified grant token is not valid.
 --
 --
 _InvalidGrantTokenException :: AsError a => Getting (First ServiceError) a ServiceError

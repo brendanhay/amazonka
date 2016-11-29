@@ -68,7 +68,7 @@ data Decrypt = Decrypt'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decEncryptionContext' - The encryption context. If this was specified in the 'Encrypt' function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> .
+-- * 'decEncryptionContext' - The encryption context. If this was specified in the 'Encrypt' function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 --
 -- * 'decGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -83,7 +83,7 @@ decrypt pCiphertextBlob_ =
     , _decCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
--- | The encryption context. If this was specified in the 'Encrypt' function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> .
+-- | The encryption context. If this was specified in the 'Encrypt' function, it must be specified here or the decryption operation will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> .
 decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
 

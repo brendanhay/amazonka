@@ -77,7 +77,7 @@ instance NFData AliasListEntry
 -- | A structure for specifying the conditions under which the operations permitted by the grant are allowed.
 --
 --
--- You can use this structure to allow the operations permitted by the grant only when a specified encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+-- You can use this structure to allow the operations permitted by the grant only when a specified encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 --
 -- /See:/ 'grantConstraints' smart constructor.

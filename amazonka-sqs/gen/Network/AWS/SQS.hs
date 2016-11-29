@@ -16,9 +16,19 @@
 --
 -- Amazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.
 --
--- Helpful Links:
+-- __Topics__
 --
---     * <http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl Current WSDL (2012-11-05)>
+--     *
+--
+--     *
+--
+--     * 'CommonParameters'
+--
+--     * 'CommonErrors'
+--
+--
+--
+-- __Helpful Links__
 --
 --     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
 --
@@ -42,7 +52,7 @@
 --
 --
 --
--- For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
+-- For a list of available SDKs, see <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
 --
 module Network.AWS.SQS
     (
@@ -221,12 +231,15 @@ module Network.AWS.SQS
     , sendMessageBatchRequestEntry
     , sMessageAttributes
     , sDelaySeconds
+    , sMessageDeduplicationId
+    , sMessageGroupId
     , sId
     , sMessageBody
 
     -- ** SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
     , sendMessageBatchResultEntry
+    , smbreSequenceNumber
     , smbreMD5OfMessageAttributes
     , smbreId
     , smbreMessageId

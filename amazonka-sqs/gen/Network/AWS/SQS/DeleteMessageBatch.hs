@@ -23,9 +23,9 @@
 --
 -- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
+-- @&amp;Attribute.1=this@
 --
---
---
+-- @&amp;Attribute.2=that@
 --
 module Network.AWS.SQS.DeleteMessageBatch
     (
@@ -117,7 +117,7 @@ instance ToQuery DeleteMessageBatch where
                toQueryList "DeleteMessageBatchRequestEntry"
                  _dmbEntries]
 
--- | For each message in the batch, the response contains a 'DeleteMessageBatchResultEntry' tag if the message is deleted or a 'BatchResultErrorEntry' tag if the message cannot be deleted.
+-- | For each message in the batch, the response contains a 'DeleteMessageBatchResultEntry' tag if the message is deleted or a 'BatchResultErrorEntry' tag if the message can't be deleted.
 --
 --
 --

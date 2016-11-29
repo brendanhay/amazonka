@@ -21,9 +21,9 @@
 -- Deletes the messages in a queue specified by the __queue URL__ .
 --
 --
--- /Important:/ When you use the @PurgeQueue@ API, the deleted messages in the queue cannot be retrieved.
+-- /Important:/ When you use the @PurgeQueue@ API, the deleted messages in the queue can't be retrieved.
 --
--- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling @PurgeQueue@ will be deleted; messages sent to the queue while it is being purged may be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ was called may be received, but will be deleted within the next minute.
+-- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling @PurgeQueue@ will be deleted; messages sent to the queue while it is being purged might be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ was called might be received, but will be deleted within the next minute.
 --
 module Network.AWS.SQS.PurgeQueue
     (

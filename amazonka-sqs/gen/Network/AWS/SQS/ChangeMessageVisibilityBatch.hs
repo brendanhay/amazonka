@@ -23,9 +23,9 @@
 --
 -- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
+-- @&amp;Attribute.1=this@
 --
---
---
+-- @&amp;Attribute.2=that@
 --
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (

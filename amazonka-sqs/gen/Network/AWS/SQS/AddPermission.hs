@@ -23,9 +23,9 @@
 --
 -- When you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant or deny permissions to the queue. For more information about these permissions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
 --
+-- @&amp;Attribute.1=this@
 --
---
---
+-- @&amp;Attribute.2=that@
 --
 module Network.AWS.SQS.AddPermission
     (

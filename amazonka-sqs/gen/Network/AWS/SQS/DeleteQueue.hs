@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the queue specified by the __queue URL__ , regardless of whether the queue is empty. If the specified queue does not exist, Amazon SQS returns a successful response.
+-- Deletes the queue specified by the __queue URL__ , regardless of whether the queue is empty. If the specified queue doesn't exist, Amazon SQS returns a successful response.
 --
 --
 -- /Important:/ Use @DeleteQueue@ with care; once you delete your queue, any messages in the queue are no longer available.

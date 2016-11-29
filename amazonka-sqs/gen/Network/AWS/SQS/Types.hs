@@ -95,12 +95,15 @@ module Network.AWS.SQS.Types
     , sendMessageBatchRequestEntry
     , sMessageAttributes
     , sDelaySeconds
+    , sMessageDeduplicationId
+    , sMessageGroupId
     , sId
     , sMessageBody
 
     -- * SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
     , sendMessageBatchResultEntry
+    , smbreSequenceNumber
     , smbreMD5OfMessageAttributes
     , smbreId
     , smbreMessageId
@@ -149,7 +152,7 @@ sqs =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The @Id@ of a batch entry in a batch request does not abide by the specification.
+-- | The @Id@ of a batch entry in a batch request doesn't abide by the specification.
 --
 --
 _InvalidBatchEntryId :: AsError a => Getting (First ServiceError) a ServiceError
@@ -174,7 +177,7 @@ _QueueDeletedRecently =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.QueueDeletedRecently"
 
--- | The queue referred to does not exist.
+-- | The queue referred to doesn't exist.
 --
 --
 _QueueDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
@@ -182,7 +185,7 @@ _QueueDoesNotExist =
     _ServiceError .
     hasStatus 400 . hasCode "AWS.SimpleQueueService.NonExistentQueue"
 
--- | The attribute referred to does not exist.
+-- | The attribute referred to doesn't exist.
 --
 --
 _InvalidAttributeName :: AsError a => Getting (First ServiceError) a ServiceError
@@ -242,7 +245,7 @@ _InvalidIdFormat = _ServiceError . hasCode "InvalidIdFormat"
 _ReceiptHandleIsInvalid :: AsError a => Getting (First ServiceError) a ServiceError
 _ReceiptHandleIsInvalid = _ServiceError . hasCode "ReceiptHandleIsInvalid"
 
--- | Batch request does not contain an entry.
+-- | Batch request doesn't contain an entry.
 --
 --
 _EmptyBatchRequest :: AsError a => Getting (First ServiceError) a ServiceError

@@ -18,22 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delivers up to ten messages to the specified queue. This is a batch version of 'SendMessage' . The result of the send action on each message is reported individually in the response. The maximum allowed individual message size is 256 KB (262,144 bytes).
+-- Delivers up to ten messages to the specified queue. This is a batch version of @'SendMessage' @ . For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.
 --
 --
--- The maximum total payload size (i.e., the sum of all a batch's individual message lengths) is also 256 KB (262,144 bytes).
+-- The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
 --
--- If the @DelaySeconds@ parameter is not specified for an entry, the default for the queue is used.
+-- The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes).
 --
--- /Important:/ The following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification. For more information, go to <http://www.faqs.org/rfcs/rfc1321.html http://www.faqs.org/rfcs/rfc1321.html> . If you send any characters that are not included in the list, your request will be rejected.
+-- /Important:/ The following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification:
 --
--- #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]
+-- @#x9@ | @#xA@ | @#xD@ | [@#x20@ to @#xD7FF@ ] | [@#xE000@ to @#xFFFD@ ] | [@#x10000@ to @#x10FFFF@ ]
 --
--- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
+-- For more information, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> . If you send any characters that aren't included in this list, your request will be rejected.
 --
+-- If you don't specify the @DelaySeconds@ parameter for an entry, Amazon SQS uses the default for the queue.
 --
+-- @&amp;Attribute.1=this@
 --
---
+-- @&amp;Attribute.2=that@
 --
 module Network.AWS.SQS.SendMessageBatch
     (

@@ -25,7 +25,7 @@
 --
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
--- For information about the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Working with Archives in Amazon Glacier> in the /Amazon Glacier Developer Guide/ .
+-- For information about the underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Working with Archives in Amazon Glacier> in the /Amazon Glacier Developer Guide/ .
 --
 module Network.AWS.Glacier.DescribeJob
     (
@@ -51,6 +51,7 @@ module Network.AWS.Glacier.DescribeJob
     , gjdSNSTopic
     , gjdStatusMessage
     , gjdVaultARN
+    , gjdTier
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
@@ -82,7 +83,7 @@ data DescribeJob = DescribeJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'djAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'djAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'djVaultName' - The name of the vault.
 --
@@ -99,7 +100,7 @@ describeJob pAccountId_ pVaultName_ pJobId_ =
     , _djJobId = pJobId_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 djAccountId :: Lens' DescribeJob Text
 djAccountId = lens _djAccountId (\ s a -> s{_djAccountId = a});
 

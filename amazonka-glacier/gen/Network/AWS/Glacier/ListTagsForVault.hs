@@ -59,7 +59,7 @@ data ListTagsForVault = ListTagsForVault'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'ltfvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'ltfvVaultName' - The name of the vault.
 listTagsForVault
@@ -72,7 +72,7 @@ listTagsForVault pAccountId_ pVaultName_ =
     , _ltfvVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
 ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
 

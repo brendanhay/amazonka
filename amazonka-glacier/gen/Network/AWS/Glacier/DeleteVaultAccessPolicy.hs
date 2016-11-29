@@ -58,7 +58,7 @@ data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'dvapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'dvapVaultName' - The name of the vault.
 deleteVaultAccessPolicy
@@ -71,7 +71,7 @@ deleteVaultAccessPolicy pAccountId_ pVaultName_ =
     , _dvapVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dvapAccountId :: Lens' DeleteVaultAccessPolicy Text
 dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a});
 

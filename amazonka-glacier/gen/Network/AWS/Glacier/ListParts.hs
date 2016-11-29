@@ -25,7 +25,7 @@
 --
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
--- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts> in the /Amazon Glacier Developer Guide/ .
+-- For conceptual information and the underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html List Parts> in the /Amazon Glacier Developer Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -82,9 +82,9 @@ data ListParts = ListParts'
 --
 -- * 'lpMarker' - An opaque string used for pagination. This value specifies the part at which the listing of parts should begin. Get the marker value from the response of a previous List Parts response. You need only include the marker if you are continuing the pagination of results started in a previous List Parts request.
 --
--- * 'lpLimit' - Specifies the maximum number of parts returned in the response body. If this value is not specified, the List Parts operation returns up to 1,000 uploads.
+-- * 'lpLimit' - The maximum number of parts to be returned. The default limit is 1000. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
 --
--- * 'lpAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'lpAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'lpVaultName' - The name of the vault.
 --
@@ -107,11 +107,11 @@ listParts pAccountId_ pVaultName_ pUploadId_ =
 lpMarker :: Lens' ListParts (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
--- | Specifies the maximum number of parts returned in the response body. If this value is not specified, the List Parts operation returns up to 1,000 uploads.
+-- | The maximum number of parts to be returned. The default limit is 1000. The number of parts returned might be fewer than the specified limit, but the number of returned parts never exceeds the limit.
 lpLimit :: Lens' ListParts (Maybe Text)
 lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 lpAccountId :: Lens' ListParts Text
 lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a});
 
@@ -185,11 +185,11 @@ data ListPartsResponse = ListPartsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsParts' - A list of the part sizes of the multipart upload.
+-- * 'lprsParts' - A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
 --
 -- * 'lprsMultipartUploadId' - The ID of the upload to which the parts are associated.
 --
--- * 'lprsPartSizeInBytes' - The part size in bytes.
+-- * 'lprsPartSizeInBytes' - The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
 --
 -- * 'lprsArchiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
 --
@@ -215,7 +215,7 @@ listPartsResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | A list of the part sizes of the multipart upload.
+-- | A list of the part sizes of the multipart upload. Each object in the array contains a @RangeBytes@ and @sha256-tree-hash@ name/value pair.
 lprsParts :: Lens' ListPartsResponse [PartListElement]
 lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 
@@ -223,7 +223,7 @@ lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 lprsMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsMultipartUploadId = lens _lprsMultipartUploadId (\ s a -> s{_lprsMultipartUploadId = a});
 
--- | The part size in bytes.
+-- | The part size in bytes. This is the same value that you specified in the Initiate Multipart Upload request.
 lprsPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
 lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a});
 

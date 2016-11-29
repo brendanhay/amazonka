@@ -25,7 +25,7 @@
 --
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
--- For conceptual information and underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html Deleting a Vault in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault > in the /Amazon Glacier Developer Guide/ .
+-- For conceptual information and underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html Deleting a Vault in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault > in the /Amazon Glacier Developer Guide/ .
 --
 module Network.AWS.Glacier.DeleteVault
     (
@@ -62,7 +62,7 @@ data DeleteVault = DeleteVault'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'dAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'dVaultName' - The name of the vault.
 deleteVault
@@ -75,7 +75,7 @@ deleteVault pAccountId_ pVaultName_ =
     , _dVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 dAccountId :: Lens' DeleteVault Text
 dAccountId = lens _dAccountId (\ s a -> s{_dAccountId = a});
 

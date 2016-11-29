@@ -60,7 +60,7 @@ data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
 --
 -- * 'sdrpPolicy' - The data retrieval policy in JSON format.
 --
--- * 'sdrpAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'sdrpAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 setDataRetrievalPolicy
     :: Text -- ^ 'sdrpAccountId'
     -> SetDataRetrievalPolicy
@@ -74,7 +74,7 @@ setDataRetrievalPolicy pAccountId_ =
 sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
 sdrpPolicy = lens _sdrpPolicy (\ s a -> s{_sdrpPolicy = a});
 
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 sdrpAccountId :: Lens' SetDataRetrievalPolicy Text
 sdrpAccountId = lens _sdrpAccountId (\ s a -> s{_sdrpAccountId = a});
 

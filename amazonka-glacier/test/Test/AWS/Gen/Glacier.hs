@@ -61,6 +61,9 @@ import Test.AWS.Glacier.Internal
 --         , requestListVaults $
 --             listVaults
 --
+--         , requestListProvisionedCapacity $
+--             listProvisionedCapacity
+--
 --         , requestListJobs $
 --             listJobs
 --
@@ -78,6 +81,9 @@ import Test.AWS.Glacier.Internal
 --
 --         , requestAbortMultipartUpload $
 --             abortMultipartUpload
+--
+--         , requestPurchaseProvisionedCapacity $
+--             purchaseProvisionedCapacity
 --
 --         , requestDescribeVault $
 --             describeVault
@@ -157,6 +163,9 @@ import Test.AWS.Glacier.Internal
 --         , responseListVaults $
 --             listVaultsResponse
 --
+--         , responseListProvisionedCapacity $
+--             listProvisionedCapacityResponse
+--
 --         , responseListJobs $
 --             listJobsResponse
 --
@@ -174,6 +183,9 @@ import Test.AWS.Glacier.Internal
 --
 --         , responseAbortMultipartUpload $
 --             abortMultipartUploadResponse
+--
+--         , responsePurchaseProvisionedCapacity $
+--             purchaseProvisionedCapacityResponse
 --
 --         , responseDescribeVault $
 --             describeVaultOutput
@@ -272,6 +284,11 @@ requestListVaults = req
     "ListVaults"
     "fixture/ListVaults.yaml"
 
+requestListProvisionedCapacity :: ListProvisionedCapacity -> TestTree
+requestListProvisionedCapacity = req
+    "ListProvisionedCapacity"
+    "fixture/ListProvisionedCapacity.yaml"
+
 requestListJobs :: ListJobs -> TestTree
 requestListJobs = req
     "ListJobs"
@@ -301,6 +318,11 @@ requestAbortMultipartUpload :: AbortMultipartUpload -> TestTree
 requestAbortMultipartUpload = req
     "AbortMultipartUpload"
     "fixture/AbortMultipartUpload.yaml"
+
+requestPurchaseProvisionedCapacity :: PurchaseProvisionedCapacity -> TestTree
+requestPurchaseProvisionedCapacity = req
+    "PurchaseProvisionedCapacity"
+    "fixture/PurchaseProvisionedCapacity.yaml"
 
 requestDescribeVault :: DescribeVault -> TestTree
 requestDescribeVault = req
@@ -446,6 +468,13 @@ responseListVaults = res
     glacier
     (Proxy :: Proxy ListVaults)
 
+responseListProvisionedCapacity :: ListProvisionedCapacityResponse -> TestTree
+responseListProvisionedCapacity = res
+    "ListProvisionedCapacityResponse"
+    "fixture/ListProvisionedCapacityResponse.proto"
+    glacier
+    (Proxy :: Proxy ListProvisionedCapacity)
+
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs = res
     "ListJobsResponse"
@@ -480,6 +509,13 @@ responseAbortMultipartUpload = res
     "fixture/AbortMultipartUploadResponse.proto"
     glacier
     (Proxy :: Proxy AbortMultipartUpload)
+
+responsePurchaseProvisionedCapacity :: PurchaseProvisionedCapacityResponse -> TestTree
+responsePurchaseProvisionedCapacity = res
+    "PurchaseProvisionedCapacityResponse"
+    "fixture/PurchaseProvisionedCapacityResponse.proto"
+    glacier
+    (Proxy :: Proxy PurchaseProvisionedCapacity)
 
 responseDescribeVault :: DescribeVaultOutput -> TestTree
 responseDescribeVault = res

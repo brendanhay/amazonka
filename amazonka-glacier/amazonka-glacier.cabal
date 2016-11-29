@@ -63,8 +63,10 @@ library
         , Network.AWS.Glacier.ListJobs
         , Network.AWS.Glacier.ListMultipartUploads
         , Network.AWS.Glacier.ListParts
+        , Network.AWS.Glacier.ListProvisionedCapacity
         , Network.AWS.Glacier.ListTagsForVault
         , Network.AWS.Glacier.ListVaults
+        , Network.AWS.Glacier.PurchaseProvisionedCapacity
         , Network.AWS.Glacier.RemoveTagsFromVault
         , Network.AWS.Glacier.SetDataRetrievalPolicy
         , Network.AWS.Glacier.SetVaultAccessPolicy

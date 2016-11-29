@@ -24,7 +24,7 @@ import           Network.AWS.Prelude
 -- | Contains the Amazon Glacier response to your request.
 --
 --
--- For information about the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive> . For conceptual information, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> .
+-- For information about the underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-post.html Upload Archive> . For conceptual information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier> .
 --
 --
 -- /See:/ 'archiveCreationOutput' smart constructor.
@@ -187,15 +187,15 @@ data DescribeVaultOutput = DescribeVaultOutput'
 --
 -- * 'dvoVaultName' - The name of the vault.
 --
--- * 'dvoSizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example, if you just created the vault.
+-- * 'dvoSizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
 --
--- * 'dvoLastInventoryDate' - The UTC date when Amazon Glacier completed the last vault inventory. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
+-- * 'dvoLastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
 --
 -- * 'dvoVaultARN' - The Amazon Resource Name (ARN) of the vault.
 --
--- * 'dvoCreationDate' - The UTC date when the vault was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
+-- * 'dvoCreationDate' - The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
 --
--- * 'dvoNumberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example, if you just created the vault.
+-- * 'dvoNumberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
 describeVaultOutput
     :: DescribeVaultOutput
 describeVaultOutput =
@@ -212,11 +212,11 @@ describeVaultOutput =
 dvoVaultName :: Lens' DescribeVaultOutput (Maybe Text)
 dvoVaultName = lens _dvoVaultName (\ s a -> s{_dvoVaultName = a});
 
--- | Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example, if you just created the vault.
+-- | Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
 dvoSizeInBytes :: Lens' DescribeVaultOutput (Maybe Integer)
 dvoSizeInBytes = lens _dvoSizeInBytes (\ s a -> s{_dvoSizeInBytes = a});
 
--- | The UTC date when Amazon Glacier completed the last vault inventory. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
+-- | The Universal Coordinated Time (UTC) date when Amazon Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
 dvoLastInventoryDate :: Lens' DescribeVaultOutput (Maybe Text)
 dvoLastInventoryDate = lens _dvoLastInventoryDate (\ s a -> s{_dvoLastInventoryDate = a});
 
@@ -224,11 +224,11 @@ dvoLastInventoryDate = lens _dvoLastInventoryDate (\ s a -> s{_dvoLastInventoryD
 dvoVaultARN :: Lens' DescribeVaultOutput (Maybe Text)
 dvoVaultARN = lens _dvoVaultARN (\ s a -> s{_dvoVaultARN = a});
 
--- | The UTC date when the vault was created. A string representation of ISO 8601 date format, for example, "2012-03-20T17:03:43.221Z".
+-- | The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
 dvoCreationDate :: Lens' DescribeVaultOutput (Maybe Text)
 dvoCreationDate = lens _dvoCreationDate (\ s a -> s{_dvoCreationDate = a});
 
--- | The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example, if you just created the vault.
+-- | The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
 dvoNumberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
 dvoNumberOfArchives = lens _dvoNumberOfArchives (\ s a -> s{_dvoNumberOfArchives = a});
 
@@ -263,6 +263,7 @@ data GlacierJobDescription = GlacierJobDescription'
     , _gjdSNSTopic                     :: !(Maybe Text)
     , _gjdStatusMessage                :: !(Maybe Text)
     , _gjdVaultARN                     :: !(Maybe Text)
+    , _gjdTier                         :: !(Maybe Text)
     , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
     , _gjdCreationDate                 :: !(Maybe Text)
     , _gjdCompleted                    :: !(Maybe Bool)
@@ -276,7 +277,7 @@ data GlacierJobDescription = GlacierJobDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjdSHA256TreeHash' - For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.  For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.  This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
+-- * 'gjdSHA256TreeHash' - For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value. For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value. This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
 --
 -- * 'gjdArchiveId' - For an ArchiveRetrieval job, this is the archive ID requested for download. Otherwise, this field is null.
 --
@@ -295,6 +296,8 @@ data GlacierJobDescription = GlacierJobDescription'
 -- * 'gjdStatusMessage' - A friendly message that describes the job status.
 --
 -- * 'gjdVaultARN' - The Amazon Resource Name (ARN) of the vault from which the archive retrieval was requested.
+--
+-- * 'gjdTier' - The retrieval option to use for the archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
 --
 -- * 'gjdArchiveSHA256TreeHash' - The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval jobs, this field is null.
 --
@@ -323,6 +326,7 @@ glacierJobDescription =
     , _gjdSNSTopic = Nothing
     , _gjdStatusMessage = Nothing
     , _gjdVaultARN = Nothing
+    , _gjdTier = Nothing
     , _gjdArchiveSHA256TreeHash = Nothing
     , _gjdCreationDate = Nothing
     , _gjdCompleted = Nothing
@@ -332,7 +336,7 @@ glacierJobDescription =
     , _gjdStatusCode = Nothing
     }
 
--- | For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value.  For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value.  This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
+-- | For an ArchiveRetrieval job, it is the checksum of the archive. Otherwise, the value is null. The SHA256 tree hash value for the requested range of an archive. If the Initiate a Job request for an archive specified a tree-hash aligned range, then this field returns a value. For the specific case when the whole archive is retrieved, this value is the same as the ArchiveSHA256TreeHash value. This field is null in the following situations:     * Archive retrieval jobs that specify a range that is not tree-hash aligned.     * Archival jobs that specify a range that is equal to the whole archive and the job status is InProgress.     * Inventory jobs.
 gjdSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
 gjdSHA256TreeHash = lens _gjdSHA256TreeHash (\ s a -> s{_gjdSHA256TreeHash = a});
 
@@ -371,6 +375,10 @@ gjdStatusMessage = lens _gjdStatusMessage (\ s a -> s{_gjdStatusMessage = a});
 -- | The Amazon Resource Name (ARN) of the vault from which the archive retrieval was requested.
 gjdVaultARN :: Lens' GlacierJobDescription (Maybe Text)
 gjdVaultARN = lens _gjdVaultARN (\ s a -> s{_gjdVaultARN = a});
+
+-- | The retrieval option to use for the archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
+gjdTier :: Lens' GlacierJobDescription (Maybe Text)
+gjdTier = lens _gjdTier (\ s a -> s{_gjdTier = a});
 
 -- | The SHA256 tree hash of the entire archive for an archive retrieval. For inventory retrieval jobs, this field is null.
 gjdArchiveSHA256TreeHash :: Lens' GlacierJobDescription (Maybe Text)
@@ -414,6 +422,7 @@ instance FromJSON GlacierJobDescription where
                      <*> (x .:? "SNSTopic")
                      <*> (x .:? "StatusMessage")
                      <*> (x .:? "VaultARN")
+                     <*> (x .:? "Tier")
                      <*> (x .:? "ArchiveSHA256TreeHash")
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "Completed")
@@ -443,15 +452,15 @@ data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irjdFormat' - The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are "CSV" and "JSON".
+-- * 'irjdFormat' - The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
 --
--- * 'irjdEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- * 'irjdEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 --
--- * 'irjdStartDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- * 'irjdStartDate' - The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 --
 -- * 'irjdMarker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ . For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval> .
 --
--- * 'irjdLimit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
+-- * 'irjdLimit' - The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
 inventoryRetrievalJobDescription
     :: InventoryRetrievalJobDescription
 inventoryRetrievalJobDescription =
@@ -463,15 +472,15 @@ inventoryRetrievalJobDescription =
     , _irjdLimit = Nothing
     }
 
--- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are "CSV" and "JSON".
+-- | The output format for the vault inventory list, which is set by the __InitiateJob__ request when initiating a job to retrieve a vault inventory. Valid values are @CSV@ and @JSON@ .
 irjdFormat :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdFormat = lens _irjdFormat (\ s a -> s{_irjdFormat = a});
 
--- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 irjdEndDate :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdEndDate = lens _irjdEndDate (\ s a -> s{_irjdEndDate = a});
 
--- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- | The start of the date range in Universal Coordinated Time (UTC) for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 irjdStartDate :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdStartDate = lens _irjdStartDate (\ s a -> s{_irjdStartDate = a});
 
@@ -479,7 +488,7 @@ irjdStartDate = lens _irjdStartDate (\ s a -> s{_irjdStartDate = a});
 irjdMarker :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdMarker = lens _irjdMarker (\ s a -> s{_irjdMarker = a});
 
--- | Specifies the maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
+-- | The maximum number of inventory items returned per vault inventory retrieval request. This limit is set when initiating the job with the a __InitiateJob__ request.
 irjdLimit :: Lens' InventoryRetrievalJobDescription (Maybe Text)
 irjdLimit = lens _irjdLimit (\ s a -> s{_irjdLimit = a});
 
@@ -514,9 +523,9 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irjiEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- * 'irjiEndDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 --
--- * 'irjiStartDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- * 'irjiStartDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 --
 -- * 'irjiMarker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
 --
@@ -531,11 +540,11 @@ inventoryRetrievalJobInput =
     , _irjiLimit = Nothing
     }
 
--- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 irjiEndDate :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiEndDate = lens _irjiEndDate (\ s a -> s{_irjiEndDate = a});
 
--- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. A string representation of ISO 8601 date format, for example, 2013-03-20T17:03:43Z.
+-- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 irjiStartDate :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiStartDate = lens _irjiStartDate (\ s a -> s{_irjiStartDate = a});
 
@@ -571,6 +580,7 @@ data JobParameters = JobParameters'
     , _jpRetrievalByteRange           :: !(Maybe Text)
     , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
     , _jpSNSTopic                     :: !(Maybe Text)
+    , _jpTier                         :: !(Maybe Text)
     , _jpType                         :: !(Maybe Text)
     , _jpDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -589,6 +599,8 @@ data JobParameters = JobParameters'
 --
 -- * 'jpSNSTopic' - The Amazon SNS topic ARN to which Amazon Glacier sends a notification when the job is completed and the output is ready for you to download. The specified topic publishes the notification to its subscribers. The SNS topic must exist.
 --
+-- * 'jpTier' - The retrieval option to use for the archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
+--
 -- * 'jpType' - The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are "archive-retrieval" and "inventory-retrieval".
 --
 -- * 'jpDescription' - The optional description for the job. The description must be less than or equal to 1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically, ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.
@@ -601,6 +613,7 @@ jobParameters =
     , _jpRetrievalByteRange = Nothing
     , _jpInventoryRetrievalParameters = Nothing
     , _jpSNSTopic = Nothing
+    , _jpTier = Nothing
     , _jpType = Nothing
     , _jpDescription = Nothing
     }
@@ -625,6 +638,10 @@ jpInventoryRetrievalParameters = lens _jpInventoryRetrievalParameters (\ s a -> 
 jpSNSTopic :: Lens' JobParameters (Maybe Text)
 jpSNSTopic = lens _jpSNSTopic (\ s a -> s{_jpSNSTopic = a});
 
+-- | The retrieval option to use for the archive retrieval. Valid values are @Expedited@ , @Standard@ , or @Bulk@ . @Standard@ is the default.
+jpTier :: Lens' JobParameters (Maybe Text)
+jpTier = lens _jpTier (\ s a -> s{_jpTier = a});
+
 -- | The job type. You can initiate a job to retrieve an archive or get an inventory of a vault. Valid values are "archive-retrieval" and "inventory-retrieval".
 jpType :: Lens' JobParameters (Maybe Text)
 jpType = lens _jpType (\ s a -> s{_jpType = a});
@@ -647,7 +664,7 @@ instance ToJSON JobParameters where
                   ("InventoryRetrievalParameters" .=) <$>
                     _jpInventoryRetrievalParameters,
                   ("SNSTopic" .=) <$> _jpSNSTopic,
-                  ("Type" .=) <$> _jpType,
+                  ("Tier" .=) <$> _jpTier, ("Type" .=) <$> _jpType,
                   ("Description" .=) <$> _jpDescription])
 
 -- | A list of the part sizes of the multipart upload.
@@ -693,6 +710,60 @@ instance FromJSON PartListElement where
 instance Hashable PartListElement
 
 instance NFData PartListElement
+
+-- | The definition for a provisioned capacity unit.
+--
+--
+--
+-- /See:/ 'provisionedCapacityDescription' smart constructor.
+data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
+    { _pcdCapacityId     :: !(Maybe Text)
+    , _pcdStartDate      :: !(Maybe Text)
+    , _pcdExpirationDate :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisionedCapacityDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcdCapacityId' - The ID that identifies the provisioned capacity unit.
+--
+-- * 'pcdStartDate' - The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
+--
+-- * 'pcdExpirationDate' - The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
+provisionedCapacityDescription
+    :: ProvisionedCapacityDescription
+provisionedCapacityDescription =
+    ProvisionedCapacityDescription'
+    { _pcdCapacityId = Nothing
+    , _pcdStartDate = Nothing
+    , _pcdExpirationDate = Nothing
+    }
+
+-- | The ID that identifies the provisioned capacity unit.
+pcdCapacityId :: Lens' ProvisionedCapacityDescription (Maybe Text)
+pcdCapacityId = lens _pcdCapacityId (\ s a -> s{_pcdCapacityId = a});
+
+-- | The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).
+pcdStartDate :: Lens' ProvisionedCapacityDescription (Maybe Text)
+pcdStartDate = lens _pcdStartDate (\ s a -> s{_pcdStartDate = a});
+
+-- | The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).
+pcdExpirationDate :: Lens' ProvisionedCapacityDescription (Maybe Text)
+pcdExpirationDate = lens _pcdExpirationDate (\ s a -> s{_pcdExpirationDate = a});
+
+instance FromJSON ProvisionedCapacityDescription
+         where
+        parseJSON
+          = withObject "ProvisionedCapacityDescription"
+              (\ x ->
+                 ProvisionedCapacityDescription' <$>
+                   (x .:? "CapacityId") <*> (x .:? "StartDate") <*>
+                     (x .:? "ExpirationDate"))
+
+instance Hashable ProvisionedCapacityDescription
+
+instance NFData ProvisionedCapacityDescription
 
 -- | A list of in-progress multipart uploads for a vault.
 --

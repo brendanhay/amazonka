@@ -25,7 +25,7 @@
 --
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
--- For conceptual information and underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html Retrieving Vault Metadata in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults > in the /Amazon Glacier Developer Guide/ .
+-- For conceptual information and underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html Retrieving Vault Metadata in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults > in the /Amazon Glacier Developer Guide/ .
 --
 --
 -- This operation returns paginated results.
@@ -73,9 +73,9 @@ data ListVaults = ListVaults'
 --
 -- * 'lvMarker' - A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
 --
--- * 'lvLimit' - The maximum number of items returned in the response. If you don't specify a value, the List Vaults operation returns up to 1,000 items.
+-- * 'lvLimit' - The maximum number of vaults to be returned. The default limit is 1000. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
 --
--- * 'lvAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'lvAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 listVaults
     :: Text -- ^ 'lvAccountId'
     -> ListVaults
@@ -90,11 +90,11 @@ listVaults pAccountId_ =
 lvMarker :: Lens' ListVaults (Maybe Text)
 lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
 
--- | The maximum number of items returned in the response. If you don't specify a value, the List Vaults operation returns up to 1,000 items.
+-- | The maximum number of vaults to be returned. The default limit is 1000. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
 lvLimit :: Lens' ListVaults (Maybe Text)
 lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
 
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 lvAccountId :: Lens' ListVaults Text
 lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
 

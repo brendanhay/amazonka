@@ -67,7 +67,21 @@
 --
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
 --
--- For conceptual information and the underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory>
+-- For conceptual information and the underlying REST API, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html Initiate a Job> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-inventory.html Downloading a Vault Inventory>
+--
+-- __Expedited and Bulk Archive Retrievals__
+--
+-- When retrieving an archive, you can specify one of the following options in the @Tier@ field of the request body:
+--
+--     * __Standard__ The default type of retrieval, which allows access to any of your archives within several hours. Standard retrievals typically complete within 3–5 hours.
+--
+--     * __Bulk__ Amazon Glacier’s lowest-cost retrieval option, which enables you to retrieve large amounts of data inexpensively in a day. Bulk retrieval requests typically complete within 5–12 hours.
+--
+--     * __Expedited__ Amazon Glacier’s option for the fastest retrievals. Archives requested using the expedited retrievals typically become accessible within 1–5 minutes.
+--
+--
+--
+-- For more information about expedited and bulk retrievals, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/downloading-an-archive-two-steps.html Retrieving Amazon Glacier Archives> .
 --
 module Network.AWS.Glacier.InitiateJob
     (
@@ -112,7 +126,7 @@ data InitiateJob = InitiateJob'
 --
 -- * 'ijJobParameters' - Provides options for specifying job information.
 --
--- * 'ijAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'ijAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'ijVaultName' - The name of the vault.
 initiateJob
@@ -130,7 +144,7 @@ initiateJob pAccountId_ pVaultName_ =
 ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
 ijJobParameters = lens _ijJobParameters (\ s a -> s{_ijJobParameters = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 ijAccountId :: Lens' InitiateJob Text
 ijAccountId = lens _ijAccountId (\ s a -> s{_ijAccountId = a});
 

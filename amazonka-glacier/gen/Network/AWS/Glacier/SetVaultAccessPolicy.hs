@@ -60,7 +60,7 @@ data SetVaultAccessPolicy = SetVaultAccessPolicy'
 --
 -- * 'svapPolicy' - The vault access policy as a JSON string.
 --
--- * 'svapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'svapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'svapVaultName' - The name of the vault.
 setVaultAccessPolicy
@@ -78,7 +78,7 @@ setVaultAccessPolicy pAccountId_ pVaultName_ =
 svapPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
 svapPolicy = lens _svapPolicy (\ s a -> s{_svapPolicy = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 svapAccountId :: Lens' SetVaultAccessPolicy Text
 svapAccountId = lens _svapAccountId (\ s a -> s{_svapAccountId = a});
 

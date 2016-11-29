@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation initiates the vault locking process by doing the following:     * Installing a vault lock policy on the specified vault.
+-- This operation initiates the vault locking process by doing the following:
 --
+--
+--     * Installing a vault lock policy on the specified vault.
 --
 --     * Setting the lock state of vault lock to @InProgress@ .
 --
 --     * Returning a lock ID, which is used to complete the vault locking process.
---
---
 --
 --
 --
@@ -81,7 +81,7 @@ data InitiateVaultLock = InitiateVaultLock'
 --
 -- * 'ivlPolicy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
 --
--- * 'ivlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'ivlAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'ivlVaultName' - The name of the vault.
 initiateVaultLock
@@ -99,7 +99,7 @@ initiateVaultLock pAccountId_ pVaultName_ =
 ivlPolicy :: Lens' InitiateVaultLock (Maybe VaultLockPolicy)
 ivlPolicy = lens _ivlPolicy (\ s a -> s{_ivlPolicy = a});
 
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 ivlAccountId :: Lens' InitiateVaultLock Text
 ivlAccountId = lens _ivlAccountId (\ s a -> s{_ivlAccountId = a});
 

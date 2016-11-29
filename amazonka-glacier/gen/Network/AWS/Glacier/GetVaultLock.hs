@@ -18,16 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the following attributes from the @lock-policy@ subresource set on the specified vault:     * The vault lock policy set on the vault.
+-- This operation retrieves the following attributes from the @lock-policy@ subresource set on the specified vault:
 --
+--
+--     * The vault lock policy set on the vault.
 --
 --     * The state of the vault lock, which is either @InProgess@ or @Locked@ .
 --
 --     * When the lock ID expires. The lock ID is used to complete the vault locking process.
 --
 --     * When the vault lock was initiated and put into the @InProgress@ state.
---
---
 --
 --
 --
@@ -76,7 +76,7 @@ data GetVaultLock = GetVaultLock'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gvlAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'gvlAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'gvlVaultName' - The name of the vault.
 getVaultLock
@@ -89,7 +89,7 @@ getVaultLock pAccountId_ pVaultName_ =
     , _gvlVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 gvlAccountId :: Lens' GetVaultLock Text
 gvlAccountId = lens _gvlAccountId (\ s a -> s{_gvlAccountId = a});
 

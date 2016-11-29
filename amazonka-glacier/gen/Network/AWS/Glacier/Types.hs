@@ -20,6 +20,7 @@ module Network.AWS.Glacier.Types
     , _InvalidParameterValueException
     , _RequestTimeoutException
     , _ServiceUnavailableException
+    , _InsufficientCapacityException
     , _ResourceNotFoundException
     , _LimitExceededException
     , _MissingParameterValueException
@@ -71,6 +72,7 @@ module Network.AWS.Glacier.Types
     , gjdSNSTopic
     , gjdStatusMessage
     , gjdVaultARN
+    , gjdTier
     , gjdArchiveSHA256TreeHash
     , gjdCreationDate
     , gjdCompleted
@@ -104,6 +106,7 @@ module Network.AWS.Glacier.Types
     , jpRetrievalByteRange
     , jpInventoryRetrievalParameters
     , jpSNSTopic
+    , jpTier
     , jpType
     , jpDescription
 
@@ -112,6 +115,13 @@ module Network.AWS.Glacier.Types
     , partListElement
     , pleSHA256TreeHash
     , pleRangeInBytes
+
+    -- * ProvisionedCapacityDescription
+    , ProvisionedCapacityDescription
+    , provisionedCapacityDescription
+    , pcdCapacityId
+    , pcdStartDate
+    , pcdExpirationDate
 
     -- * UploadListElement
     , UploadListElement
@@ -207,7 +217,14 @@ _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a Serv
 _ServiceUnavailableException =
     _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
 
--- | Returned if the specified resource, such as a vault, upload ID, or job ID, does not exist.
+-- | Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
+--
+--
+_InsufficientCapacityException :: AsError a => Getting (First ServiceError) a ServiceError
+_InsufficientCapacityException =
+    _ServiceError . hasStatus 400 . hasCode "InsufficientCapacityException"
+
+-- | Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError

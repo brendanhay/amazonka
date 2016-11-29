@@ -60,7 +60,7 @@ data AddTagsToVault = AddTagsToVault'
 --
 -- * 'attvTags' - The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 --
--- * 'attvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- * 'attvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- * 'attvVaultName' - The name of the vault.
 addTagsToVault
@@ -78,7 +78,7 @@ addTagsToVault pAccountId_ pVaultName_ =
 attvTags :: Lens' AddTagsToVault (HashMap Text Text)
 attvTags = lens _attvTags (\ s a -> s{_attvTags = a}) . _Default . _Map;
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single apos@-@ apos (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens (apos-apos) in the ID.
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 attvAccountId :: Lens' AddTagsToVault Text
 attvAccountId = lens _attvAccountId (\ s a -> s{_attvAccountId = a});
 

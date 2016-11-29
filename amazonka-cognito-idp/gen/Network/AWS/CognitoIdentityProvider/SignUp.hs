@@ -177,7 +177,7 @@ data SignUpResponse = SignUpResponse'
 --
 -- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
 --
--- * 'sursCodeDeliveryDetails' - Undocumented member.
+-- * 'sursCodeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
 --
 -- * 'sursResponseStatus' - -- | The response status code.
 signUpResponse
@@ -194,7 +194,7 @@ signUpResponse pResponseStatus_ =
 sursUserConfirmed :: Lens' SignUpResponse (Maybe Bool)
 sursUserConfirmed = lens _sursUserConfirmed (\ s a -> s{_sursUserConfirmed = a});
 
--- | Undocumented member.
+-- | The code delivery details returned by the server response to the user registration request.
 sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
 sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\ s a -> s{_sursCodeDeliveryDetails = a});
 

@@ -35,6 +35,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
     , uupMFAConfiguration
     , uupLambdaConfig
     , uupSmsConfiguration
+    , uupAdminCreateUserConfig
     , uupDeviceConfiguration
     , uupAutoVerifiedAttributes
     , uupPolicies
@@ -68,6 +69,7 @@ data UpdateUserPool = UpdateUserPool'
     , _uupMFAConfiguration         :: !(Maybe UserPoolMFAType)
     , _uupLambdaConfig             :: !(Maybe LambdaConfigType)
     , _uupSmsConfiguration         :: !(Maybe SmsConfigurationType)
+    , _uupAdminCreateUserConfig    :: !(Maybe AdminCreateUserConfigType)
     , _uupDeviceConfiguration      :: !(Maybe DeviceConfigurationType)
     , _uupAutoVerifiedAttributes   :: !(Maybe [VerifiedAttributeType])
     , _uupPolicies                 :: !(Maybe UserPoolPolicyType)
@@ -82,17 +84,19 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- * 'uupSmsAuthenticationMessage' - The contents of the SMS authentication message.
 --
--- * 'uupEmailVerificationSubject' - The subject of the email verfication message
+-- * 'uupEmailVerificationSubject' - The subject of the email verfication message.
 --
 -- * 'uupEmailConfiguration' - Email configuration.
 --
 -- * 'uupSmsVerificationMessage' - A container with information about the SMS verification message.
 --
--- * 'uupMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
+-- * 'uupMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
 -- * 'uupLambdaConfig' - The AWS Lambda configuration information from the request to update the user pool.
 --
 -- * 'uupSmsConfiguration' - SMS configuration.
+--
+-- * 'uupAdminCreateUserConfig' - The configuration for AdminCreateUser requests.
 --
 -- * 'uupDeviceConfiguration' - Device configuration.
 --
@@ -114,6 +118,7 @@ updateUserPool pUserPoolId_ =
     , _uupMFAConfiguration = Nothing
     , _uupLambdaConfig = Nothing
     , _uupSmsConfiguration = Nothing
+    , _uupAdminCreateUserConfig = Nothing
     , _uupDeviceConfiguration = Nothing
     , _uupAutoVerifiedAttributes = Nothing
     , _uupPolicies = Nothing
@@ -128,7 +133,7 @@ uupEmailVerificationMessage = lens _uupEmailVerificationMessage (\ s a -> s{_uup
 uupSmsAuthenticationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupSmsAuthenticationMessage = lens _uupSmsAuthenticationMessage (\ s a -> s{_uupSmsAuthenticationMessage = a});
 
--- | The subject of the email verfication message
+-- | The subject of the email verfication message.
 uupEmailVerificationSubject :: Lens' UpdateUserPool (Maybe Text)
 uupEmailVerificationSubject = lens _uupEmailVerificationSubject (\ s a -> s{_uupEmailVerificationSubject = a});
 
@@ -140,7 +145,7 @@ uupEmailConfiguration = lens _uupEmailConfiguration (\ s a -> s{_uupEmailConfigu
 uupSmsVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
 uupSmsVerificationMessage = lens _uupSmsVerificationMessage (\ s a -> s{_uupSmsVerificationMessage = a});
 
--- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
+-- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 uupMFAConfiguration :: Lens' UpdateUserPool (Maybe UserPoolMFAType)
 uupMFAConfiguration = lens _uupMFAConfiguration (\ s a -> s{_uupMFAConfiguration = a});
 
@@ -151,6 +156,10 @@ uupLambdaConfig = lens _uupLambdaConfig (\ s a -> s{_uupLambdaConfig = a});
 -- | SMS configuration.
 uupSmsConfiguration :: Lens' UpdateUserPool (Maybe SmsConfigurationType)
 uupSmsConfiguration = lens _uupSmsConfiguration (\ s a -> s{_uupSmsConfiguration = a});
+
+-- | The configuration for AdminCreateUser requests.
+uupAdminCreateUserConfig :: Lens' UpdateUserPool (Maybe AdminCreateUserConfigType)
+uupAdminCreateUserConfig = lens _uupAdminCreateUserConfig (\ s a -> s{_uupAdminCreateUserConfig = a});
 
 -- | Device configuration.
 uupDeviceConfiguration :: Lens' UpdateUserPool (Maybe DeviceConfigurationType)
@@ -206,6 +215,8 @@ instance ToJSON UpdateUserPool where
                   ("MfaConfiguration" .=) <$> _uupMFAConfiguration,
                   ("LambdaConfig" .=) <$> _uupLambdaConfig,
                   ("SmsConfiguration" .=) <$> _uupSmsConfiguration,
+                  ("AdminCreateUserConfig" .=) <$>
+                    _uupAdminCreateUserConfig,
                   ("DeviceConfiguration" .=) <$>
                     _uupDeviceConfiguration,
                   ("AutoVerifiedAttributes" .=) <$>

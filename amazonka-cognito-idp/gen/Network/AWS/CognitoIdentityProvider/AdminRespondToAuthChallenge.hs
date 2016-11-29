@@ -177,7 +177,7 @@ data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
 --
 -- * 'artacrsChallengeParameters' - The challenge parameters.
 --
--- * 'artacrsAuthenticationResult' - Undocumented member.
+-- * 'artacrsAuthenticationResult' - The result returned by the server in response to the authentication request.
 --
 -- * 'artacrsSession' - The session.
 --
@@ -202,7 +202,7 @@ artacrsChallengeName = lens _artacrsChallengeName (\ s a -> s{_artacrsChallengeN
 artacrsChallengeParameters :: Lens' AdminRespondToAuthChallengeResponse (HashMap Text Text)
 artacrsChallengeParameters = lens _artacrsChallengeParameters (\ s a -> s{_artacrsChallengeParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The result returned by the server in response to the authentication request.
 artacrsAuthenticationResult :: Lens' AdminRespondToAuthChallengeResponse (Maybe AuthenticationResultType)
 artacrsAuthenticationResult = lens _artacrsAuthenticationResult (\ s a -> s{_artacrsAuthenticationResult = a});
 

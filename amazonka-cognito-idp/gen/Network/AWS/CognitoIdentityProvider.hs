@@ -11,12 +11,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You can create a user pool in Amazon Cognito Identity to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
+-- Using the Amazon Cognito Your User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.
 --
 --
--- This API reference provides information about user pools in Amazon Cognito Identity.
+-- This API reference provides information about user pools in Amazon Cognito Your User Pools.
 --
--- For more information, see <https://aws.amazon.com/cognito/ Amazon Cognito> .
+-- For more information, see the Amazon Cognito Documentation.
 --
 module Network.AWS.CognitoIdentityProvider
     (
@@ -25,6 +25,9 @@ module Network.AWS.CognitoIdentityProvider
 
     -- * Errors
     -- $errors
+
+    -- ** UnsupportedUserStateException
+    , _UnsupportedUserStateException
 
     -- ** PasswordResetRequiredException
     , _PasswordResetRequiredException
@@ -224,6 +227,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** AdminUpdateDeviceStatus
     , module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
 
+    -- ** AdminCreateUser
+    , module Network.AWS.CognitoIdentityProvider.AdminCreateUser
+
     -- ** AddCustomAttributes
     , module Network.AWS.CognitoIdentityProvider.AddCustomAttributes
 
@@ -301,6 +307,9 @@ module Network.AWS.CognitoIdentityProvider
     -- ** ExplicitAuthFlowsType
     , ExplicitAuthFlowsType (..)
 
+    -- ** MessageActionType
+    , MessageActionType (..)
+
     -- ** StatusType
     , StatusType (..)
 
@@ -315,6 +324,13 @@ module Network.AWS.CognitoIdentityProvider
 
     -- ** VerifiedAttributeType
     , VerifiedAttributeType (..)
+
+    -- ** AdminCreateUserConfigType
+    , AdminCreateUserConfigType
+    , adminCreateUserConfigType
+    , acuctAllowAdminCreateUserOnly
+    , acuctUnusedAccountValidityDays
+    , acuctInviteMessageTemplate
 
     -- ** AttributeType
     , AttributeType
@@ -384,6 +400,13 @@ module Network.AWS.CognitoIdentityProvider
     , motDeliveryMedium
     , motAttributeName
 
+    -- ** MessageTemplateType
+    , MessageTemplateType
+    , messageTemplateType
+    , mttEmailSubject
+    , mttSMSMessage
+    , mttEmailMessage
+
     -- ** NewDeviceMetadataType
     , NewDeviceMetadataType
     , newDeviceMetadataType
@@ -419,8 +442,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** SmsConfigurationType
     , SmsConfigurationType
     , smsConfigurationType
-    , sctSNSCallerARN
     , sctExternalId
+    , sctSNSCallerARN
 
     -- ** StringAttributeConstraintsType
     , StringAttributeConstraintsType
@@ -502,6 +525,7 @@ module Network.AWS.CognitoIdentityProvider
     , uptCreationDate
     , uptLambdaConfig
     , uptSmsConfiguration
+    , uptAdminCreateUserConfig
     , uptDeviceConfiguration
     , uptAutoVerifiedAttributes
     , uptPolicies
@@ -514,11 +538,13 @@ module Network.AWS.CognitoIdentityProvider
     , utUsername
     , utUserCreateDate
     , utAttributes
+    , utMFAOptions
     , utUserLastModifiedDate
     ) where
 
 import           Network.AWS.CognitoIdentityProvider.AddCustomAttributes
 import           Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
+import           Network.AWS.CognitoIdentityProvider.AdminCreateUser
 import           Network.AWS.CognitoIdentityProvider.AdminDeleteUser
 import           Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
 import           Network.AWS.CognitoIdentityProvider.AdminDisableUser

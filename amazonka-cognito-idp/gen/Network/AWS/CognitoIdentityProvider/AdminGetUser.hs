@@ -150,7 +150,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
 --
 -- * 'agursEnabled' - Indicates that the status is enabled.
 --
--- * 'agursUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
+-- * 'agursUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.     * CONFIRMED - User has been confirmed.     * ARCHIVED - User is no longer active.     * COMPROMISED - User is disabled due to a potential security threat.     * UNKNOWN - User status is not known.
 --
 -- * 'agursUserAttributes' - An array of name-value pairs representing user attributes.
 --
@@ -183,7 +183,7 @@ adminGetUserResponse pResponseStatus_ pUsername_ =
 agursEnabled :: Lens' AdminGetUserResponse (Maybe Bool)
 agursEnabled = lens _agursEnabled (\ s a -> s{_agursEnabled = a});
 
--- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
+-- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.     * CONFIRMED - User has been confirmed.     * ARCHIVED - User is no longer active.     * COMPROMISED - User is disabled due to a potential security threat.     * UNKNOWN - User status is not known.
 agursUserStatus :: Lens' AdminGetUserResponse (Maybe UserStatusType)
 agursUserStatus = lens _agursUserStatus (\ s a -> s{_agursUserStatus = a});
 

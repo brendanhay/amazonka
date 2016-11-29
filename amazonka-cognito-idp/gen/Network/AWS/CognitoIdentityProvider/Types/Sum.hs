@@ -126,6 +126,7 @@ data ChallengeNameType
     | CNTCustomChallenge
     | CNTDevicePasswordVerifier
     | CNTDeviceSrpAuth
+    | CNTNewPasswordRequired
     | CNTPasswordVerifier
     | CNTSmsMFA
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -136,10 +137,11 @@ instance FromText ChallengeNameType where
         "custom_challenge" -> pure CNTCustomChallenge
         "device_password_verifier" -> pure CNTDevicePasswordVerifier
         "device_srp_auth" -> pure CNTDeviceSrpAuth
+        "new_password_required" -> pure CNTNewPasswordRequired
         "password_verifier" -> pure CNTPasswordVerifier
         "sms_mfa" -> pure CNTSmsMFA
         e -> fromTextError $ "Failure parsing ChallengeNameType from value: '" <> e
-           <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, password_verifier, sms_mfa"
+           <> "'. Accepted values: admin_no_srp_auth, custom_challenge, device_password_verifier, device_srp_auth, new_password_required, password_verifier, sms_mfa"
 
 instance ToText ChallengeNameType where
     toText = \case
@@ -147,6 +149,7 @@ instance ToText ChallengeNameType where
         CNTCustomChallenge -> "CUSTOM_CHALLENGE"
         CNTDevicePasswordVerifier -> "DEVICE_PASSWORD_VERIFIER"
         CNTDeviceSrpAuth -> "DEVICE_SRP_AUTH"
+        CNTNewPasswordRequired -> "NEW_PASSWORD_REQUIRED"
         CNTPasswordVerifier -> "PASSWORD_VERIFIER"
         CNTSmsMFA -> "SMS_MFA"
 
@@ -245,6 +248,32 @@ instance ToJSON ExplicitAuthFlowsType where
 
 instance FromJSON ExplicitAuthFlowsType where
     parseJSON = parseJSONText "ExplicitAuthFlowsType"
+
+data MessageActionType
+    = Resend
+    | Suppress
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MessageActionType where
+    parser = takeLowerText >>= \case
+        "resend" -> pure Resend
+        "suppress" -> pure Suppress
+        e -> fromTextError $ "Failure parsing MessageActionType from value: '" <> e
+           <> "'. Accepted values: resend, suppress"
+
+instance ToText MessageActionType where
+    toText = \case
+        Resend -> "RESEND"
+        Suppress -> "SUPPRESS"
+
+instance Hashable     MessageActionType
+instance NFData       MessageActionType
+instance ToByteString MessageActionType
+instance ToQuery      MessageActionType
+instance ToHeader     MessageActionType
+
+instance ToJSON MessageActionType where
+    toJSON = toJSONText
 
 data StatusType
     = Disabled
@@ -352,6 +381,7 @@ data UserStatusType
     = Archived
     | Compromised
     | Confirmed
+    | ForceChangePassword
     | ResetRequired
     | Unconfirmed
     | Unknown
@@ -362,17 +392,19 @@ instance FromText UserStatusType where
         "archived" -> pure Archived
         "compromised" -> pure Compromised
         "confirmed" -> pure Confirmed
+        "force_change_password" -> pure ForceChangePassword
         "reset_required" -> pure ResetRequired
         "unconfirmed" -> pure Unconfirmed
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing UserStatusType from value: '" <> e
-           <> "'. Accepted values: archived, compromised, confirmed, reset_required, unconfirmed, unknown"
+           <> "'. Accepted values: archived, compromised, confirmed, force_change_password, reset_required, unconfirmed, unknown"
 
 instance ToText UserStatusType where
     toText = \case
         Archived -> "ARCHIVED"
         Compromised -> "COMPROMISED"
         Confirmed -> "CONFIRMED"
+        ForceChangePassword -> "FORCE_CHANGE_PASSWORD"
         ResetRequired -> "RESET_REQUIRED"
         Unconfirmed -> "UNCONFIRMED"
         Unknown -> "UNKNOWN"

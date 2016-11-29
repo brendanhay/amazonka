@@ -21,6 +21,71 @@ import           Network.AWS.CognitoIdentityProvider.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | The type of configuration for creating a new user profile.
+--
+--
+--
+-- /See:/ 'adminCreateUserConfigType' smart constructor.
+data AdminCreateUserConfigType = AdminCreateUserConfigType'
+    { _acuctAllowAdminCreateUserOnly  :: !(Maybe Bool)
+    , _acuctUnusedAccountValidityDays :: !(Maybe Nat)
+    , _acuctInviteMessageTemplate     :: !(Maybe MessageTemplateType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AdminCreateUserConfigType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acuctAllowAdminCreateUserOnly' - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+--
+-- * 'acuctUnusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.
+--
+-- * 'acuctInviteMessageTemplate' - The message template to be used for the welcome message to new users.
+adminCreateUserConfigType
+    :: AdminCreateUserConfigType
+adminCreateUserConfigType =
+    AdminCreateUserConfigType'
+    { _acuctAllowAdminCreateUserOnly = Nothing
+    , _acuctUnusedAccountValidityDays = Nothing
+    , _acuctInviteMessageTemplate = Nothing
+    }
+
+-- | Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+acuctAllowAdminCreateUserOnly :: Lens' AdminCreateUserConfigType (Maybe Bool)
+acuctAllowAdminCreateUserOnly = lens _acuctAllowAdminCreateUserOnly (\ s a -> s{_acuctAllowAdminCreateUserOnly = a});
+
+-- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.
+acuctUnusedAccountValidityDays :: Lens' AdminCreateUserConfigType (Maybe Natural)
+acuctUnusedAccountValidityDays = lens _acuctUnusedAccountValidityDays (\ s a -> s{_acuctUnusedAccountValidityDays = a}) . mapping _Nat;
+
+-- | The message template to be used for the welcome message to new users.
+acuctInviteMessageTemplate :: Lens' AdminCreateUserConfigType (Maybe MessageTemplateType)
+acuctInviteMessageTemplate = lens _acuctInviteMessageTemplate (\ s a -> s{_acuctInviteMessageTemplate = a});
+
+instance FromJSON AdminCreateUserConfigType where
+        parseJSON
+          = withObject "AdminCreateUserConfigType"
+              (\ x ->
+                 AdminCreateUserConfigType' <$>
+                   (x .:? "AllowAdminCreateUserOnly") <*>
+                     (x .:? "UnusedAccountValidityDays")
+                     <*> (x .:? "InviteMessageTemplate"))
+
+instance Hashable AdminCreateUserConfigType
+
+instance NFData AdminCreateUserConfigType
+
+instance ToJSON AdminCreateUserConfigType where
+        toJSON AdminCreateUserConfigType'{..}
+          = object
+              (catMaybes
+                 [("AllowAdminCreateUserOnly" .=) <$>
+                    _acuctAllowAdminCreateUserOnly,
+                  ("UnusedAccountValidityDays" .=) <$>
+                    _acuctUnusedAccountValidityDays,
+                  ("InviteMessageTemplate" .=) <$>
+                    _acuctInviteMessageTemplate])
+
 -- | Specifies whether the attribute is standard or custom.
 --
 --
@@ -594,6 +659,67 @@ instance ToJSON MFAOptionType where
                  [("DeliveryMedium" .=) <$> _motDeliveryMedium,
                   ("AttributeName" .=) <$> _motAttributeName])
 
+-- | The message template structure.
+--
+--
+--
+-- /See:/ 'messageTemplateType' smart constructor.
+data MessageTemplateType = MessageTemplateType'
+    { _mttEmailSubject :: !(Maybe Text)
+    , _mttSMSMessage   :: !(Maybe Text)
+    , _mttEmailMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageTemplateType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mttEmailSubject' - The subject line for email messages.
+--
+-- * 'mttSMSMessage' - The message template for SMS messages.
+--
+-- * 'mttEmailMessage' - The message template for email messages.
+messageTemplateType
+    :: MessageTemplateType
+messageTemplateType =
+    MessageTemplateType'
+    { _mttEmailSubject = Nothing
+    , _mttSMSMessage = Nothing
+    , _mttEmailMessage = Nothing
+    }
+
+-- | The subject line for email messages.
+mttEmailSubject :: Lens' MessageTemplateType (Maybe Text)
+mttEmailSubject = lens _mttEmailSubject (\ s a -> s{_mttEmailSubject = a});
+
+-- | The message template for SMS messages.
+mttSMSMessage :: Lens' MessageTemplateType (Maybe Text)
+mttSMSMessage = lens _mttSMSMessage (\ s a -> s{_mttSMSMessage = a});
+
+-- | The message template for email messages.
+mttEmailMessage :: Lens' MessageTemplateType (Maybe Text)
+mttEmailMessage = lens _mttEmailMessage (\ s a -> s{_mttEmailMessage = a});
+
+instance FromJSON MessageTemplateType where
+        parseJSON
+          = withObject "MessageTemplateType"
+              (\ x ->
+                 MessageTemplateType' <$>
+                   (x .:? "EmailSubject") <*> (x .:? "SMSMessage") <*>
+                     (x .:? "EmailMessage"))
+
+instance Hashable MessageTemplateType
+
+instance NFData MessageTemplateType
+
+instance ToJSON MessageTemplateType where
+        toJSON MessageTemplateType'{..}
+          = object
+              (catMaybes
+                 [("EmailSubject" .=) <$> _mttEmailSubject,
+                  ("SMSMessage" .=) <$> _mttSMSMessage,
+                  ("EmailMessage" .=) <$> _mttEmailMessage])
+
 -- | The new device metadata type.
 --
 --
@@ -883,39 +1009,40 @@ instance ToJSON SchemaAttributeType where
 --
 -- /See:/ 'smsConfigurationType' smart constructor.
 data SmsConfigurationType = SmsConfigurationType'
-    { _sctSNSCallerARN :: !(Maybe Text)
-    , _sctExternalId   :: !(Maybe Text)
+    { _sctExternalId   :: !(Maybe Text)
+    , _sctSNSCallerARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SmsConfigurationType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sctSNSCallerARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
---
 -- * 'sctExternalId' - The external ID.
+--
+-- * 'sctSNSCallerARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
 smsConfigurationType
-    :: SmsConfigurationType
-smsConfigurationType =
+    :: Text -- ^ 'sctSNSCallerARN'
+    -> SmsConfigurationType
+smsConfigurationType pSNSCallerARN_ =
     SmsConfigurationType'
-    { _sctSNSCallerARN = Nothing
-    , _sctExternalId = Nothing
+    { _sctExternalId = Nothing
+    , _sctSNSCallerARN = pSNSCallerARN_
     }
-
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
-sctSNSCallerARN :: Lens' SmsConfigurationType (Maybe Text)
-sctSNSCallerARN = lens _sctSNSCallerARN (\ s a -> s{_sctSNSCallerARN = a});
 
 -- | The external ID.
 sctExternalId :: Lens' SmsConfigurationType (Maybe Text)
 sctExternalId = lens _sctExternalId (\ s a -> s{_sctExternalId = a});
+
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
+sctSNSCallerARN :: Lens' SmsConfigurationType Text
+sctSNSCallerARN = lens _sctSNSCallerARN (\ s a -> s{_sctSNSCallerARN = a});
 
 instance FromJSON SmsConfigurationType where
         parseJSON
           = withObject "SmsConfigurationType"
               (\ x ->
                  SmsConfigurationType' <$>
-                   (x .:? "SnsCallerArn") <*> (x .:? "ExternalId"))
+                   (x .:? "ExternalId") <*> (x .: "SnsCallerArn"))
 
 instance Hashable SmsConfigurationType
 
@@ -925,8 +1052,8 @@ instance ToJSON SmsConfigurationType where
         toJSON SmsConfigurationType'{..}
           = object
               (catMaybes
-                 [("SnsCallerArn" .=) <$> _sctSNSCallerARN,
-                  ("ExternalId" .=) <$> _sctExternalId])
+                 [("ExternalId" .=) <$> _sctExternalId,
+                  Just ("SnsCallerArn" .= _sctSNSCallerARN)])
 
 -- | The type of constraints associated with an attribute of the string type.
 --
@@ -1005,7 +1132,7 @@ data UserImportJobType = UserImportJobType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uijtStatus' - The status of the user import job. One of the following:     * Created - The job was created but not started.    * Pending - A transition state. You have started the job, but it has not begun importing users yet.    * InProgress - The job has started, and users are being imported.    * Stopping - You have stopped the job, but the job has not stopped importing users yet.    * Stopped - You have stopped the job, and the job has stopped importing users.    * Succeeded - The job has completed successfully.    * Failed - The job has stopped due to an error.    * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+-- * 'uijtStatus' - The status of the user import job. One of the following:     * Created - The job was created but not started.     * Pending - A transition state. You have started the job, but it has not begun importing users yet.     * InProgress - The job has started, and users are being imported.     * Stopping - You have stopped the job, but the job has not stopped importing users yet.     * Stopped - You have stopped the job, and the job has stopped importing users.     * Succeeded - The job has completed successfully.     * Failed - The job has stopped due to an error.     * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 --
 -- * 'uijtSkippedUsers' - The number of users that were skipped.
 --
@@ -1049,7 +1176,7 @@ userImportJobType =
     , _uijtImportedUsers = Nothing
     }
 
--- | The status of the user import job. One of the following:     * Created - The job was created but not started.    * Pending - A transition state. You have started the job, but it has not begun importing users yet.    * InProgress - The job has started, and users are being imported.    * Stopping - You have stopped the job, but the job has not stopped importing users yet.    * Stopped - You have stopped the job, and the job has stopped importing users.    * Succeeded - The job has completed successfully.    * Failed - The job has stopped due to an error.    * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+-- | The status of the user import job. One of the following:     * Created - The job was created but not started.     * Pending - A transition state. You have started the job, but it has not begun importing users yet.     * InProgress - The job has started, and users are being imported.     * Stopping - You have stopped the job, but the job has not stopped importing users yet.     * Stopped - You have stopped the job, and the job has stopped importing users.     * Succeeded - The job has completed successfully.     * Failed - The job has stopped due to an error.     * Expired - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 uijtStatus :: Lens' UserImportJobType (Maybe UserImportJobStatusType)
 uijtStatus = lens _uijtStatus (\ s a -> s{_uijtStatus = a});
 
@@ -1437,6 +1564,7 @@ data UserPoolType = UserPoolType'
     , _uptCreationDate              :: !(Maybe POSIX)
     , _uptLambdaConfig              :: !(Maybe LambdaConfigType)
     , _uptSmsConfiguration          :: !(Maybe SmsConfigurationType)
+    , _uptAdminCreateUserConfig     :: !(Maybe AdminCreateUserConfigType)
     , _uptDeviceConfiguration       :: !(Maybe DeviceConfigurationType)
     , _uptAutoVerifiedAttributes    :: !(Maybe [VerifiedAttributeType])
     , _uptPolicies                  :: !(Maybe UserPoolPolicyType)
@@ -1470,7 +1598,7 @@ data UserPoolType = UserPoolType'
 --
 -- * 'uptName' - The name of the user pool.
 --
--- * 'uptMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
+-- * 'uptMFAConfiguration' - Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
 -- * 'uptId' - The ID of the user pool.
 --
@@ -1481,6 +1609,8 @@ data UserPoolType = UserPoolType'
 -- * 'uptLambdaConfig' - A container describing the AWS Lambda triggers associated with a user pool.
 --
 -- * 'uptSmsConfiguration' - The SMS configuration.
+--
+-- * 'uptAdminCreateUserConfig' - The configuration for AdminCreateUser requests.
 --
 -- * 'uptDeviceConfiguration' - The device configuration.
 --
@@ -1509,6 +1639,7 @@ userPoolType =
     , _uptCreationDate = Nothing
     , _uptLambdaConfig = Nothing
     , _uptSmsConfiguration = Nothing
+    , _uptAdminCreateUserConfig = Nothing
     , _uptDeviceConfiguration = Nothing
     , _uptAutoVerifiedAttributes = Nothing
     , _uptPolicies = Nothing
@@ -1562,7 +1693,7 @@ uptSmsVerificationMessage = lens _uptSmsVerificationMessage (\ s a -> s{_uptSmsV
 uptName :: Lens' UserPoolType (Maybe Text)
 uptName = lens _uptName (\ s a -> s{_uptName = a});
 
--- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.    * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.    * @OPTIONAL@ - Users have the option when registering to create an MFA token.
+-- | Can be one of the following values:     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 uptMFAConfiguration :: Lens' UserPoolType (Maybe UserPoolMFAType)
 uptMFAConfiguration = lens _uptMFAConfiguration (\ s a -> s{_uptMFAConfiguration = a});
 
@@ -1585,6 +1716,10 @@ uptLambdaConfig = lens _uptLambdaConfig (\ s a -> s{_uptLambdaConfig = a});
 -- | The SMS configuration.
 uptSmsConfiguration :: Lens' UserPoolType (Maybe SmsConfigurationType)
 uptSmsConfiguration = lens _uptSmsConfiguration (\ s a -> s{_uptSmsConfiguration = a});
+
+-- | The configuration for AdminCreateUser requests.
+uptAdminCreateUserConfig :: Lens' UserPoolType (Maybe AdminCreateUserConfigType)
+uptAdminCreateUserConfig = lens _uptAdminCreateUserConfig (\ s a -> s{_uptAdminCreateUserConfig = a});
 
 -- | The device configuration.
 uptDeviceConfiguration :: Lens' UserPoolType (Maybe DeviceConfigurationType)
@@ -1621,6 +1756,7 @@ instance FromJSON UserPoolType where
                      <*> (x .:? "CreationDate")
                      <*> (x .:? "LambdaConfig")
                      <*> (x .:? "SmsConfiguration")
+                     <*> (x .:? "AdminCreateUserConfig")
                      <*> (x .:? "DeviceConfiguration")
                      <*> (x .:? "AutoVerifiedAttributes" .!= mempty)
                      <*> (x .:? "Policies"))
@@ -1640,6 +1776,7 @@ data UserType = UserType'
     , _utUsername             :: !(Maybe (Sensitive Text))
     , _utUserCreateDate       :: !(Maybe POSIX)
     , _utAttributes           :: !(Maybe [AttributeType])
+    , _utMFAOptions           :: !(Maybe [MFAOptionType])
     , _utUserLastModifiedDate :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1649,13 +1786,15 @@ data UserType = UserType'
 --
 -- * 'utEnabled' - Specifies whether the user is enabled.
 --
--- * 'utUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
+-- * 'utUserStatus' - The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.     * CONFIRMED - User has been confirmed.     * ARCHIVED - User is no longer active.     * COMPROMISED - User is disabled due to a potential security threat.     * UNKNOWN - User status is not known.
 --
 -- * 'utUsername' - The user name of the user you wish to describe.
 --
 -- * 'utUserCreateDate' - The creation date of the user.
 --
 -- * 'utAttributes' - A container with information about the user type attributes.
+--
+-- * 'utMFAOptions' - The MFA options for the user.
 --
 -- * 'utUserLastModifiedDate' - The last modified date of the user.
 userType
@@ -1667,6 +1806,7 @@ userType =
     , _utUsername = Nothing
     , _utUserCreateDate = Nothing
     , _utAttributes = Nothing
+    , _utMFAOptions = Nothing
     , _utUserLastModifiedDate = Nothing
     }
 
@@ -1674,7 +1814,7 @@ userType =
 utEnabled :: Lens' UserType (Maybe Bool)
 utEnabled = lens _utEnabled (\ s a -> s{_utEnabled = a});
 
--- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.    * CONFIRMED - User has been confirmed.    * ARCHIVED - User is no longer active.    * COMPROMISED - User is disabled due to a potential security threat.    * UNKNOWN - User status is not known.
+-- | The user status. Can be one of the following:     * UNCONFIRMED - User has been created but not confirmed.     * CONFIRMED - User has been confirmed.     * ARCHIVED - User is no longer active.     * COMPROMISED - User is disabled due to a potential security threat.     * UNKNOWN - User status is not known.
 utUserStatus :: Lens' UserType (Maybe UserStatusType)
 utUserStatus = lens _utUserStatus (\ s a -> s{_utUserStatus = a});
 
@@ -1690,6 +1830,10 @@ utUserCreateDate = lens _utUserCreateDate (\ s a -> s{_utUserCreateDate = a}) . 
 utAttributes :: Lens' UserType [AttributeType]
 utAttributes = lens _utAttributes (\ s a -> s{_utAttributes = a}) . _Default . _Coerce;
 
+-- | The MFA options for the user.
+utMFAOptions :: Lens' UserType [MFAOptionType]
+utMFAOptions = lens _utMFAOptions (\ s a -> s{_utMFAOptions = a}) . _Default . _Coerce;
+
 -- | The last modified date of the user.
 utUserLastModifiedDate :: Lens' UserType (Maybe UTCTime)
 utUserLastModifiedDate = lens _utUserLastModifiedDate (\ s a -> s{_utUserLastModifiedDate = a}) . mapping _Time;
@@ -1703,6 +1847,7 @@ instance FromJSON UserType where
                      (x .:? "Username")
                      <*> (x .:? "UserCreateDate")
                      <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "MFAOptions" .!= mempty)
                      <*> (x .:? "UserLastModifiedDate"))
 
 instance Hashable UserType

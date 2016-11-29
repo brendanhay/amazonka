@@ -42,6 +42,7 @@ library
           Network.AWS.CognitoIdentityProvider
         , Network.AWS.CognitoIdentityProvider.AddCustomAttributes
         , Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
+        , Network.AWS.CognitoIdentityProvider.AdminCreateUser
         , Network.AWS.CognitoIdentityProvider.AdminDeleteUser
         , Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
         , Network.AWS.CognitoIdentityProvider.AdminDisableUser

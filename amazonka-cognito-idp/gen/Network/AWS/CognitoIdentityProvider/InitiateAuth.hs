@@ -164,7 +164,7 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- * 'iarsChallengeParameters' - The challenge parameters.
 --
--- * 'iarsAuthenticationResult' - Undocumented member.
+-- * 'iarsAuthenticationResult' - The result returned by the server in response to the request to initiate authentication.
 --
 -- * 'iarsSession' - The session.
 --
@@ -189,7 +189,7 @@ iarsChallengeName = lens _iarsChallengeName (\ s a -> s{_iarsChallengeName = a})
 iarsChallengeParameters :: Lens' InitiateAuthResponse (HashMap Text Text)
 iarsChallengeParameters = lens _iarsChallengeParameters (\ s a -> s{_iarsChallengeParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The result returned by the server in response to the request to initiate authentication.
 iarsAuthenticationResult :: Lens' InitiateAuthResponse (Maybe AuthenticationResultType)
 iarsAuthenticationResult = lens _iarsAuthenticationResult (\ s a -> s{_iarsAuthenticationResult = a});
 

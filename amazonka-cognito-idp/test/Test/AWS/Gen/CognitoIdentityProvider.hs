@@ -139,6 +139,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminUpdateDeviceStatus $
 --             adminUpdateDeviceStatus
 --
+--         , requestAdminCreateUser $
+--             adminCreateUser
+--
 --         , requestAddCustomAttributes $
 --             addCustomAttributes
 --
@@ -306,6 +309,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseAdminUpdateDeviceStatus $
 --             adminUpdateDeviceStatusResponse
+--
+--         , responseAdminCreateUser $
+--             adminCreateUserResponse
 --
 --         , responseAddCustomAttributes $
 --             addCustomAttributesResponse
@@ -550,6 +556,11 @@ requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
 requestAdminUpdateDeviceStatus = req
     "AdminUpdateDeviceStatus"
     "fixture/AdminUpdateDeviceStatus.yaml"
+
+requestAdminCreateUser :: AdminCreateUser -> TestTree
+requestAdminCreateUser = req
+    "AdminCreateUser"
+    "fixture/AdminCreateUser.yaml"
 
 requestAddCustomAttributes :: AddCustomAttributes -> TestTree
 requestAddCustomAttributes = req
@@ -901,6 +912,13 @@ responseAdminUpdateDeviceStatus = res
     "fixture/AdminUpdateDeviceStatusResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminUpdateDeviceStatus)
+
+responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
+responseAdminCreateUser = res
+    "AdminCreateUserResponse"
+    "fixture/AdminCreateUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
 responseAddCustomAttributes = res

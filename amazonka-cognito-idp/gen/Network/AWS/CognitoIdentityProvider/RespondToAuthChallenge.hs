@@ -166,7 +166,7 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 --
 -- * 'rtacrsChallengeParameters' - The challenge parameters.
 --
--- * 'rtacrsAuthenticationResult' - Undocumented member.
+-- * 'rtacrsAuthenticationResult' - The result returned by the server in response to the request to respond to the authentication challenge.
 --
 -- * 'rtacrsSession' - The session.
 --
@@ -191,7 +191,7 @@ rtacrsChallengeName = lens _rtacrsChallengeName (\ s a -> s{_rtacrsChallengeName
 rtacrsChallengeParameters :: Lens' RespondToAuthChallengeResponse (HashMap Text Text)
 rtacrsChallengeParameters = lens _rtacrsChallengeParameters (\ s a -> s{_rtacrsChallengeParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The result returned by the server in response to the request to respond to the authentication challenge.
 rtacrsAuthenticationResult :: Lens' RespondToAuthChallengeResponse (Maybe AuthenticationResultType)
 rtacrsAuthenticationResult = lens _rtacrsAuthenticationResult (\ s a -> s{_rtacrsAuthenticationResult = a});
 

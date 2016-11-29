@@ -128,7 +128,7 @@ instance ToPath ResendConfirmationCode where
 instance ToQuery ResendConfirmationCode where
         toQuery = const mempty
 
--- | The response from the server when the Amazon Cognito service makes the request to resend a confirmation code.
+-- | The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.
 --
 --
 --
@@ -142,7 +142,7 @@ data ResendConfirmationCodeResponse = ResendConfirmationCodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccrsCodeDeliveryDetails' - Undocumented member.
+-- * 'rccrsCodeDeliveryDetails' - The code delivery details returned by the server in response to the request to resend the confirmation code.
 --
 -- * 'rccrsResponseStatus' - -- | The response status code.
 resendConfirmationCodeResponse
@@ -154,7 +154,7 @@ resendConfirmationCodeResponse pResponseStatus_ =
     , _rccrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The code delivery details returned by the server in response to the request to resend the confirmation code.
 rccrsCodeDeliveryDetails :: Lens' ResendConfirmationCodeResponse (Maybe CodeDeliveryDetailsType)
 rccrsCodeDeliveryDetails = lens _rccrsCodeDeliveryDetails (\ s a -> s{_rccrsCodeDeliveryDetails = a});
 

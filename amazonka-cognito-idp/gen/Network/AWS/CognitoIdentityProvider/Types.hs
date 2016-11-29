@@ -16,6 +16,7 @@ module Network.AWS.CognitoIdentityProvider.Types
       cognitoIdentityProvider
 
     -- * Errors
+    , _UnsupportedUserStateException
     , _PasswordResetRequiredException
     , _InvalidParameterException
     , _InvalidLambdaResponseException
@@ -65,6 +66,9 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * ExplicitAuthFlowsType
     , ExplicitAuthFlowsType (..)
 
+    -- * MessageActionType
+    , MessageActionType (..)
+
     -- * StatusType
     , StatusType (..)
 
@@ -79,6 +83,13 @@ module Network.AWS.CognitoIdentityProvider.Types
 
     -- * VerifiedAttributeType
     , VerifiedAttributeType (..)
+
+    -- * AdminCreateUserConfigType
+    , AdminCreateUserConfigType
+    , adminCreateUserConfigType
+    , acuctAllowAdminCreateUserOnly
+    , acuctUnusedAccountValidityDays
+    , acuctInviteMessageTemplate
 
     -- * AttributeType
     , AttributeType
@@ -148,6 +159,13 @@ module Network.AWS.CognitoIdentityProvider.Types
     , motDeliveryMedium
     , motAttributeName
 
+    -- * MessageTemplateType
+    , MessageTemplateType
+    , messageTemplateType
+    , mttEmailSubject
+    , mttSMSMessage
+    , mttEmailMessage
+
     -- * NewDeviceMetadataType
     , NewDeviceMetadataType
     , newDeviceMetadataType
@@ -183,8 +201,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * SmsConfigurationType
     , SmsConfigurationType
     , smsConfigurationType
-    , sctSNSCallerARN
     , sctExternalId
+    , sctSNSCallerARN
 
     -- * StringAttributeConstraintsType
     , StringAttributeConstraintsType
@@ -266,6 +284,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uptCreationDate
     , uptLambdaConfig
     , uptSmsConfiguration
+    , uptAdminCreateUserConfig
     , uptDeviceConfiguration
     , uptAutoVerifiedAttributes
     , uptPolicies
@@ -278,6 +297,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , utUsername
     , utUserCreateDate
     , utAttributes
+    , utMFAOptions
     , utUserLastModifiedDate
     ) where
 
@@ -320,6 +340,13 @@ cognitoIdentityProvider =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | The request failed because the user is in an unsupported state.
+--
+--
+_UnsupportedUserStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedUserStateException =
+    _ServiceError . hasCode "UnsupportedUserStateException"
 
 -- | This exception is thrown when a password reset is required.
 --

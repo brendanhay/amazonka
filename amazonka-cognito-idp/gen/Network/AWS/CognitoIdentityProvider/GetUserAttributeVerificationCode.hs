@@ -136,7 +136,7 @@ data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCode
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guavcrsCodeDeliveryDetails' - The code delivery details returned by the server response to get the user attribute verification code.
+-- * 'guavcrsCodeDeliveryDetails' - The code delivery details returned by the server in response to the request to get the user attribute verification code.
 --
 -- * 'guavcrsResponseStatus' - -- | The response status code.
 getUserAttributeVerificationCodeResponse
@@ -148,7 +148,7 @@ getUserAttributeVerificationCodeResponse pResponseStatus_ =
     , _guavcrsResponseStatus = pResponseStatus_
     }
 
--- | The code delivery details returned by the server response to get the user attribute verification code.
+-- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
 guavcrsCodeDeliveryDetails :: Lens' GetUserAttributeVerificationCodeResponse (Maybe CodeDeliveryDetailsType)
 guavcrsCodeDeliveryDetails = lens _guavcrsCodeDeliveryDetails (\ s a -> s{_guavcrsCodeDeliveryDetails = a});
 

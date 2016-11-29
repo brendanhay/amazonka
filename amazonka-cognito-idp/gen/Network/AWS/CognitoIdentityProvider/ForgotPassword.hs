@@ -65,7 +65,7 @@ data ForgotPassword = ForgotPassword'
 --
 -- * 'fpClientId' - The ID of the client associated with the user pool.
 --
--- * 'fpUsername' - The user name of the user for whom you want to enter a code to retrieve a forgotten password.
+-- * 'fpUsername' - The user name of the user for whom you want to enter a code to reset a forgotten password.
 forgotPassword
     :: Text -- ^ 'fpClientId'
     -> Text -- ^ 'fpUsername'
@@ -85,7 +85,7 @@ fpSecretHash = lens _fpSecretHash (\ s a -> s{_fpSecretHash = a}) . mapping _Sen
 fpClientId :: Lens' ForgotPassword Text
 fpClientId = lens _fpClientId (\ s a -> s{_fpClientId = a}) . _Sensitive;
 
--- | The user name of the user for whom you want to enter a code to retrieve a forgotten password.
+-- | The user name of the user for whom you want to enter a code to reset a forgotten password.
 fpUsername :: Lens' ForgotPassword Text
 fpUsername = lens _fpUsername (\ s a -> s{_fpUsername = a}) . _Sensitive;
 
@@ -141,7 +141,7 @@ data ForgotPasswordResponse = ForgotPasswordResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fprsCodeDeliveryDetails' - Undocumented member.
+-- * 'fprsCodeDeliveryDetails' - The code delivery details returned by the server in response to the request to reset a password.
 --
 -- * 'fprsResponseStatus' - -- | The response status code.
 forgotPasswordResponse
@@ -153,7 +153,7 @@ forgotPasswordResponse pResponseStatus_ =
     , _fprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The code delivery details returned by the server in response to the request to reset a password.
 fprsCodeDeliveryDetails :: Lens' ForgotPasswordResponse (Maybe CodeDeliveryDetailsType)
 fprsCodeDeliveryDetails = lens _fprsCodeDeliveryDetails (\ s a -> s{_fprsCodeDeliveryDetails = a});
 

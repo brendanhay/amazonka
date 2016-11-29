@@ -175,7 +175,7 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 --
 -- * 'aiarsChallengeParameters' - The challenge parameters.
 --
--- * 'aiarsAuthenticationResult' - Undocumented member.
+-- * 'aiarsAuthenticationResult' - The result of the authentication response.
 --
 -- * 'aiarsSession' - The session.
 --
@@ -200,7 +200,7 @@ aiarsChallengeName = lens _aiarsChallengeName (\ s a -> s{_aiarsChallengeName = 
 aiarsChallengeParameters :: Lens' AdminInitiateAuthResponse (HashMap Text Text)
 aiarsChallengeParameters = lens _aiarsChallengeParameters (\ s a -> s{_aiarsChallengeParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The result of the authentication response.
 aiarsAuthenticationResult :: Lens' AdminInitiateAuthResponse (Maybe AuthenticationResultType)
 aiarsAuthenticationResult = lens _aiarsAuthenticationResult (\ s a -> s{_aiarsAuthenticationResult = a});
 

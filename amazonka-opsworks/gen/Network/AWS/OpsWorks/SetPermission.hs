@@ -68,7 +68,7 @@ data SetPermission = SetPermission'
 --
 -- * 'spStackId' - The stack ID.
 --
--- * 'spIAMUserARN' - The user's IAM ARN.
+-- * 'spIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
 setPermission
     :: Text -- ^ 'spStackId'
     -> Text -- ^ 'spIAMUserARN'
@@ -98,7 +98,7 @@ spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a});
 spStackId :: Lens' SetPermission Text
 spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
 
--- | The user's IAM ARN.
+-- | The user's IAM ARN. This can also be a federated user's ARN.
 spIAMUserARN :: Lens' SetPermission Text
 spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 

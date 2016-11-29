@@ -55,7 +55,7 @@ newtype DescribeUserProfiles = DescribeUserProfiles'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARNs' - An array of IAM user ARNs that identify the users to be described.
+-- * 'dupIAMUserARNs' - An array of IAM or federated user ARNs that identify the users to be described.
 describeUserProfiles
     :: DescribeUserProfiles
 describeUserProfiles =
@@ -63,7 +63,7 @@ describeUserProfiles =
     { _dupIAMUserARNs = Nothing
     }
 
--- | An array of IAM user ARNs that identify the users to be described.
+-- | An array of IAM or federated user ARNs that identify the users to be described.
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
 dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce;
 

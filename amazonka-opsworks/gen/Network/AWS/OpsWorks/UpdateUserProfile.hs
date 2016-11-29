@@ -64,7 +64,7 @@ data UpdateUserProfile = UpdateUserProfile'
 --
 -- * 'uupSSHUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks generates one from the IAM user name.
 --
--- * 'uupIAMUserARN' - The user IAM ARN.
+-- * 'uupIAMUserARN' - The user IAM ARN. This can also be a federated user's ARN.
 updateUserProfile
     :: Text -- ^ 'uupIAMUserARN'
     -> UpdateUserProfile
@@ -88,7 +88,7 @@ uupSSHPublicKey = lens _uupSSHPublicKey (\ s a -> s{_uupSSHPublicKey = a});
 uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHUsername = lens _uupSSHUsername (\ s a -> s{_uupSSHUsername = a});
 
--- | The user IAM ARN.
+-- | The user IAM ARN. This can also be a federated user's ARN.
 uupIAMUserARN :: Lens' UpdateUserProfile Text
 uupIAMUserARN = lens _uupIAMUserARN (\ s a -> s{_uupIAMUserARN = a});
 

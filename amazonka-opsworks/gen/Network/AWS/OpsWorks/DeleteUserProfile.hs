@@ -52,7 +52,7 @@ newtype DeleteUserProfile = DeleteUserProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dupIAMUserARN' - The user's IAM ARN.
+-- * 'dupIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
 deleteUserProfile
     :: Text -- ^ 'dupIAMUserARN'
     -> DeleteUserProfile
@@ -61,7 +61,7 @@ deleteUserProfile pIAMUserARN_ =
     { _dupIAMUserARN = pIAMUserARN_
     }
 
--- | The user's IAM ARN.
+-- | The user's IAM ARN. This can also be a federated user's ARN.
 dupIAMUserARN :: Lens' DeleteUserProfile Text
 dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 

@@ -57,7 +57,7 @@ data DescribePermissions = DescribePermissions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpIAMUserARN' - The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'dpIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
 -- * 'dpStackId' - The stack ID.
 describePermissions
@@ -68,7 +68,7 @@ describePermissions =
     , _dpStackId = Nothing
     }
 
--- | The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- | The user's IAM ARN. This can also be a federated user's ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
 dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
 

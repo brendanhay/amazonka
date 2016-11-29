@@ -37,10 +37,11 @@ module Network.AWS.APIGateway.UpdateIntegrationResponse
     , integrationResponse
     , IntegrationResponse
     -- * Response Lenses
-    , iResponseTemplates
-    , iSelectionPattern
-    , iStatusCode
-    , iResponseParameters
+    , intContentHandling
+    , intResponseTemplates
+    , intSelectionPattern
+    , intStatusCode
+    , intResponseParameters
     ) where
 
 import           Network.AWS.APIGateway.Types

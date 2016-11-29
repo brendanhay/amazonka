@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.PutIntegrationResponse
       putIntegrationResponse
     , PutIntegrationResponse
     -- * Request Lenses
+    , piContentHandling
     , piResponseTemplates
     , piSelectionPattern
     , piResponseParameters
@@ -39,10 +40,11 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     , integrationResponse
     , IntegrationResponse
     -- * Response Lenses
-    , iResponseTemplates
-    , iSelectionPattern
-    , iStatusCode
-    , iResponseParameters
+    , intContentHandling
+    , intResponseTemplates
+    , intSelectionPattern
+    , intStatusCode
+    , intResponseParameters
     ) where
 
 import           Network.AWS.APIGateway.Types
@@ -58,7 +60,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-    { _piResponseTemplates  :: !(Maybe (Map Text Text))
+    { _piContentHandling    :: !(Maybe ContentHandlingStrategy)
+    , _piResponseTemplates  :: !(Maybe (Map Text Text))
     , _piSelectionPattern   :: !(Maybe Text)
     , _piResponseParameters :: !(Maybe (Map Text Text))
     , _piRestAPIId          :: !Text
@@ -70,6 +73,8 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- | Creates a value of 'PutIntegrationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piContentHandling' - Specifies how to handle response payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a response payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a response payload from a binary blob to a Base64-encoded string. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 --
 -- * 'piResponseTemplates' - Specifies a put integration response's templates.
 --
@@ -92,7 +97,8 @@ putIntegrationResponse
     -> PutIntegrationResponse
 putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     PutIntegrationResponse'
-    { _piResponseTemplates = Nothing
+    { _piContentHandling = Nothing
+    , _piResponseTemplates = Nothing
     , _piSelectionPattern = Nothing
     , _piResponseParameters = Nothing
     , _piRestAPIId = pRestAPIId_
@@ -100,6 +106,10 @@ putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _piHttpMethod = pHttpMethod_
     , _piStatusCode = pStatusCode_
     }
+
+-- | Specifies how to handle response payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a response payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a response payload from a binary blob to a Base64-encoded string. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+piContentHandling :: Lens' PutIntegrationResponse (Maybe ContentHandlingStrategy)
+piContentHandling = lens _piContentHandling (\ s a -> s{_piContentHandling = a});
 
 -- | Specifies a put integration response's templates.
 piResponseTemplates :: Lens' PutIntegrationResponse (HashMap Text Text)
@@ -148,7 +158,8 @@ instance ToJSON PutIntegrationResponse where
         toJSON PutIntegrationResponse'{..}
           = object
               (catMaybes
-                 [("responseTemplates" .=) <$> _piResponseTemplates,
+                 [("contentHandling" .=) <$> _piContentHandling,
+                  ("responseTemplates" .=) <$> _piResponseTemplates,
                   ("selectionPattern" .=) <$> _piSelectionPattern,
                   ("responseParameters" .=) <$> _piResponseParameters])
 

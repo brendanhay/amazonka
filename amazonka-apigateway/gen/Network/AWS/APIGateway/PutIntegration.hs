@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.PutIntegration
     , pRequestTemplates
     , pCredentials
     , pRequestParameters
+    , pContentHandling
     , pPassthroughBehavior
     , pUri
     , pCacheNamespace
@@ -48,6 +49,7 @@ module Network.AWS.APIGateway.PutIntegration
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
@@ -72,6 +74,7 @@ data PutIntegration = PutIntegration'
     { _pRequestTemplates      :: !(Maybe (Map Text Text))
     , _pCredentials           :: !(Maybe Text)
     , _pRequestParameters     :: !(Maybe (Map Text Text))
+    , _pContentHandling       :: !(Maybe ContentHandlingStrategy)
     , _pPassthroughBehavior   :: !(Maybe Text)
     , _pUri                   :: !(Maybe Text)
     , _pCacheNamespace        :: !(Maybe Text)
@@ -92,6 +95,8 @@ data PutIntegration = PutIntegration'
 -- * 'pCredentials' - Specifies whether credentials are required for a put integration.
 --
 -- * 'pRequestParameters' - A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ must be a valid and unique method request parameter name.
+--
+-- * 'pContentHandling' - Specifies how to handle request payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a request payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a request payload from a binary blob to a Base64-encoded string. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the @passthroughBehaviors@ is configured to support payload pass-through.
 --
 -- * 'pPassthroughBehavior' - Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the @requestTemplates@ property on the Integration resource. There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the request body for unmapped content types through to the integration back end without transformation.     * @NEVER@ rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.     * @WHEN_NO_TEMPLATES@ allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
 --
@@ -121,6 +126,7 @@ putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     { _pRequestTemplates = Nothing
     , _pCredentials = Nothing
     , _pRequestParameters = Nothing
+    , _pContentHandling = Nothing
     , _pPassthroughBehavior = Nothing
     , _pUri = Nothing
     , _pCacheNamespace = Nothing
@@ -143,6 +149,10 @@ pCredentials = lens _pCredentials (\ s a -> s{_pCredentials = a});
 -- | A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ must be a valid and unique method request parameter name.
 pRequestParameters :: Lens' PutIntegration (HashMap Text Text)
 pRequestParameters = lens _pRequestParameters (\ s a -> s{_pRequestParameters = a}) . _Default . _Map;
+
+-- | Specifies how to handle request payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a request payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a request payload from a binary blob to a Base64-encoded string. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the @passthroughBehaviors@ is configured to support payload pass-through.
+pContentHandling :: Lens' PutIntegration (Maybe ContentHandlingStrategy)
+pContentHandling = lens _pContentHandling (\ s a -> s{_pContentHandling = a});
 
 -- | Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the @requestTemplates@ property on the Integration resource. There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the request body for unmapped content types through to the integration back end without transformation.     * @NEVER@ rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.     * @WHEN_NO_TEMPLATES@ allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
 pPassthroughBehavior :: Lens' PutIntegration (Maybe Text)
@@ -202,6 +212,7 @@ instance ToJSON PutIntegration where
                  [("requestTemplates" .=) <$> _pRequestTemplates,
                   ("credentials" .=) <$> _pCredentials,
                   ("requestParameters" .=) <$> _pRequestParameters,
+                  ("contentHandling" .=) <$> _pContentHandling,
                   ("passthroughBehavior" .=) <$> _pPassthroughBehavior,
                   ("uri" .=) <$> _pUri,
                   ("cacheNamespace" .=) <$> _pCacheNamespace,

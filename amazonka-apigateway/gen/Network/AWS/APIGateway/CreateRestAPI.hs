@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.CreateRestAPI
       createRestAPI
     , CreateRestAPI
     -- * Request Lenses
+    , craBinaryMediaTypes
     , craCloneFrom
     , craDescription
     , craName
@@ -35,6 +36,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName
@@ -55,14 +57,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-    { _craCloneFrom   :: !(Maybe Text)
-    , _craDescription :: !(Maybe Text)
-    , _craName        :: !Text
+    { _craBinaryMediaTypes :: !(Maybe [Text])
+    , _craCloneFrom        :: !(Maybe Text)
+    , _craDescription      :: !(Maybe Text)
+    , _craName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRestAPI' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'craBinaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 --
 -- * 'craCloneFrom' - The ID of the 'RestApi' that you want to clone from.
 --
@@ -74,10 +79,15 @@ createRestAPI
     -> CreateRestAPI
 createRestAPI pName_ =
     CreateRestAPI'
-    { _craCloneFrom = Nothing
+    { _craBinaryMediaTypes = Nothing
+    , _craCloneFrom = Nothing
     , _craDescription = Nothing
     , _craName = pName_
     }
+
+-- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+craBinaryMediaTypes :: Lens' CreateRestAPI [Text]
+craBinaryMediaTypes = lens _craBinaryMediaTypes (\ s a -> s{_craBinaryMediaTypes = a}) . _Default . _Coerce;
 
 -- | The ID of the 'RestApi' that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
@@ -110,7 +120,8 @@ instance ToJSON CreateRestAPI where
         toJSON CreateRestAPI'{..}
           = object
               (catMaybes
-                 [("cloneFrom" .=) <$> _craCloneFrom,
+                 [("binaryMediaTypes" .=) <$> _craBinaryMediaTypes,
+                  ("cloneFrom" .=) <$> _craCloneFrom,
                   ("description" .=) <$> _craDescription,
                   Just ("name" .= _craName)])
 

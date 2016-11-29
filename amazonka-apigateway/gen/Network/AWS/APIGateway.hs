@@ -331,6 +331,9 @@ module Network.AWS.APIGateway
     -- ** CacheClusterStatus
     , CacheClusterStatus (..)
 
+    -- ** ContentHandlingStrategy
+    , ContentHandlingStrategy (..)
+
     -- ** IntegrationType
     , IntegrationType (..)
 
@@ -425,6 +428,7 @@ module Network.AWS.APIGateway
     , iRequestTemplates
     , iCredentials
     , iRequestParameters
+    , iContentHandling
     , iPassthroughBehavior
     , iUri
     , iIntegrationResponses
@@ -435,10 +439,11 @@ module Network.AWS.APIGateway
     -- ** IntegrationResponse
     , IntegrationResponse
     , integrationResponse
-    , iResponseTemplates
-    , iSelectionPattern
-    , iStatusCode
-    , iResponseParameters
+    , intContentHandling
+    , intResponseTemplates
+    , intSelectionPattern
+    , intStatusCode
+    , intResponseParameters
 
     -- ** Method
     , Method
@@ -515,6 +520,7 @@ module Network.AWS.APIGateway
     -- ** RestAPI
     , RestAPI
     , restAPI
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName

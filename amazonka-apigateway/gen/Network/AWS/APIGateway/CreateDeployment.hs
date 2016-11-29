@@ -31,9 +31,9 @@ module Network.AWS.APIGateway.CreateDeployment
     , cdVariables
     , cdCacheClusterSize
     , cdCacheClusterEnabled
+    , cdStageName
     , cdDescription
     , cdRestAPIId
-    , cdStageName
 
     -- * Destructuring the Response
     , deployment
@@ -62,9 +62,9 @@ data CreateDeployment = CreateDeployment'
     , _cdVariables           :: !(Maybe (Map Text Text))
     , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
     , _cdCacheClusterEnabled :: !(Maybe Bool)
+    , _cdStageName           :: !(Maybe Text)
     , _cdDescription         :: !(Maybe Text)
     , _cdRestAPIId           :: !Text
-    , _cdStageName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
@@ -79,24 +79,23 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdCacheClusterEnabled' - Enables a cache cluster for the 'Stage' resource specified in the input.
 --
+-- * 'cdStageName' - The name of the 'Stage' resource for the 'Deployment' resource to create.
+--
 -- * 'cdDescription' - The description for the 'Deployment' resource to create.
 --
 -- * 'cdRestAPIId' - The 'RestApi' resource identifier for the 'Deployment' resource to create.
---
--- * 'cdStageName' - The name of the 'Stage' resource for the 'Deployment' resource to create.
 createDeployment
     :: Text -- ^ 'cdRestAPIId'
-    -> Text -- ^ 'cdStageName'
     -> CreateDeployment
-createDeployment pRestAPIId_ pStageName_ =
+createDeployment pRestAPIId_ =
     CreateDeployment'
     { _cdStageDescription = Nothing
     , _cdVariables = Nothing
     , _cdCacheClusterSize = Nothing
     , _cdCacheClusterEnabled = Nothing
+    , _cdStageName = Nothing
     , _cdDescription = Nothing
     , _cdRestAPIId = pRestAPIId_
-    , _cdStageName = pStageName_
     }
 
 -- | The description of the 'Stage' resource for the 'Deployment' resource to create.
@@ -115,6 +114,10 @@ cdCacheClusterSize = lens _cdCacheClusterSize (\ s a -> s{_cdCacheClusterSize = 
 cdCacheClusterEnabled :: Lens' CreateDeployment (Maybe Bool)
 cdCacheClusterEnabled = lens _cdCacheClusterEnabled (\ s a -> s{_cdCacheClusterEnabled = a});
 
+-- | The name of the 'Stage' resource for the 'Deployment' resource to create.
+cdStageName :: Lens' CreateDeployment (Maybe Text)
+cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
+
 -- | The description for the 'Deployment' resource to create.
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
@@ -122,10 +125,6 @@ cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 -- | The 'RestApi' resource identifier for the 'Deployment' resource to create.
 cdRestAPIId :: Lens' CreateDeployment Text
 cdRestAPIId = lens _cdRestAPIId (\ s a -> s{_cdRestAPIId = a});
-
--- | The name of the 'Stage' resource for the 'Deployment' resource to create.
-cdStageName :: Lens' CreateDeployment Text
-cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
 
 instance AWSRequest CreateDeployment where
         type Rs CreateDeployment = Deployment
@@ -151,8 +150,8 @@ instance ToJSON CreateDeployment where
                   ("cacheClusterSize" .=) <$> _cdCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _cdCacheClusterEnabled,
-                  ("description" .=) <$> _cdDescription,
-                  Just ("stageName" .= _cdStageName)])
+                  ("stageName" .=) <$> _cdStageName,
+                  ("description" .=) <$> _cdDescription])
 
 instance ToPath CreateDeployment where
         toPath CreateDeployment'{..}

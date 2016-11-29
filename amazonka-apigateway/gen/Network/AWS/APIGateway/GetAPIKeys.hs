@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.GetAPIKeys
     , GetAPIKeys
     -- * Request Lenses
     , gakIncludeValues
+    , gakCustomerId
     , gakNameQuery
     , gakLimit
     , gakPosition
@@ -59,6 +60,7 @@ import           Network.AWS.Response
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
     { _gakIncludeValues :: !(Maybe Bool)
+    , _gakCustomerId    :: !(Maybe Text)
     , _gakNameQuery     :: !(Maybe Text)
     , _gakLimit         :: !(Maybe Int)
     , _gakPosition      :: !(Maybe Text)
@@ -70,6 +72,8 @@ data GetAPIKeys = GetAPIKeys'
 --
 -- * 'gakIncludeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 --
+-- * 'gakCustomerId' - Undocumented member.
+--
 -- * 'gakNameQuery' - The name of queried API keys.
 --
 -- * 'gakLimit' - The maximum number of 'ApiKeys' to get information about.
@@ -80,6 +84,7 @@ getAPIKeys
 getAPIKeys =
     GetAPIKeys'
     { _gakIncludeValues = Nothing
+    , _gakCustomerId = Nothing
     , _gakNameQuery = Nothing
     , _gakLimit = Nothing
     , _gakPosition = Nothing
@@ -88,6 +93,10 @@ getAPIKeys =
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
 gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
+
+-- | Undocumented member.
+gakCustomerId :: Lens' GetAPIKeys (Maybe Text)
+gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a});
 
 -- | The name of queried API keys.
 gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
@@ -137,6 +146,7 @@ instance ToQuery GetAPIKeys where
         toQuery GetAPIKeys'{..}
           = mconcat
               ["includeValues" =: _gakIncludeValues,
+               "customerId" =: _gakCustomerId,
                "name" =: _gakNameQuery, "limit" =: _gakLimit,
                "position" =: _gakPosition]
 

@@ -42,7 +42,7 @@ instance ToHeader     APIKeysFormat
 instance ToJSON APIKeysFormat where
     toJSON = toJSONText
 
--- | The authorizer type. the only current value is TOKEN.
+-- | The authorizer type. the current value is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito Your User Pool.
 --
 --
 data AuthorizerType
@@ -162,27 +162,62 @@ instance ToHeader     CacheClusterStatus
 instance FromJSON CacheClusterStatus where
     parseJSON = parseJSONText "CacheClusterStatus"
 
--- | The integration type. The valid value is @HTTP@ , @AWS@ , or @MOCK@ .
+data ContentHandlingStrategy
+    = ConvertToBinary
+    | ConvertToText
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ContentHandlingStrategy where
+    parser = takeLowerText >>= \case
+        "convert_to_binary" -> pure ConvertToBinary
+        "convert_to_text" -> pure ConvertToText
+        e -> fromTextError $ "Failure parsing ContentHandlingStrategy from value: '" <> e
+           <> "'. Accepted values: convert_to_binary, convert_to_text"
+
+instance ToText ContentHandlingStrategy where
+    toText = \case
+        ConvertToBinary -> "CONVERT_TO_BINARY"
+        ConvertToText -> "CONVERT_TO_TEXT"
+
+instance Hashable     ContentHandlingStrategy
+instance NFData       ContentHandlingStrategy
+instance ToByteString ContentHandlingStrategy
+instance ToQuery      ContentHandlingStrategy
+instance ToHeader     ContentHandlingStrategy
+
+instance ToJSON ContentHandlingStrategy where
+    toJSON = toJSONText
+
+instance FromJSON ContentHandlingStrategy where
+    parseJSON = parseJSONText "ContentHandlingStrategy"
+
+-- | The integration type. The valid value is @HTTP@ for integrating with an HTTP back end, @AWS@ for any AWS service endpoints, @MOCK@ for testing without actually invoking the back end, @HTTP_PROXY@ for integrating with the HTTP proxy integration, or @AWS_PROXY@ for integrating with the Lambda proxy integration type.
 --
 --
 data IntegrationType
     = AWS
+    | AWSProxy
     | HTTP
+    | HTTPProxy
     | Mock
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IntegrationType where
     parser = takeLowerText >>= \case
         "aws" -> pure AWS
+        "aws_proxy" -> pure AWSProxy
         "http" -> pure HTTP
+        "http_proxy" -> pure HTTPProxy
         "mock" -> pure Mock
         e -> fromTextError $ "Failure parsing IntegrationType from value: '" <> e
-           <> "'. Accepted values: aws, http, mock"
+           <> "'. Accepted values: aws, aws_proxy, http, http_proxy, mock"
 
 instance ToText IntegrationType where
     toText = \case
         AWS -> "AWS"
+        AWSProxy -> "AWS_PROXY"
         HTTP -> "HTTP"
+        HTTPProxy -> "HTTP_PROXY"
         Mock -> "MOCK"
 
 instance Hashable     IntegrationType

@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.PutRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName

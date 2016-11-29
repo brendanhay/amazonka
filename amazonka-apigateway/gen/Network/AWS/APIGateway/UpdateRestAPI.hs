@@ -34,6 +34,7 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName

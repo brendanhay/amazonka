@@ -273,11 +273,11 @@ data Authorizer = Authorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aAuthorizerURI' - [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For TOKEN authorizers, this must be a well-formed Lambda function URI. The URI should be of the form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ . @Region@ is used to determine the right endpoint. In this case, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations
+-- * 'aAuthorizerURI' - [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
 --
--- * 'aIdentityValidationExpression' - A validation expression for the incoming identity. For TOKEN authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
+-- * 'aIdentityValidationExpression' - A validation expression for the incoming identity. For @TOKEN@ authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
 --
--- * 'aProviderARNs' - A list of the provider ARNs of the authorizer.
+-- * 'aProviderARNs' - A list of the provider ARNs of the authorizer. For an @TOKEN@ authorizer, this is not defined. For authorizers of the @COGNITO_USER_POOLS@ type, each element corresponds to a user pool ARN of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ .
 --
 -- * 'aName' - [Required] The name of the authorizer.
 --
@@ -287,9 +287,9 @@ data Authorizer = Authorizer'
 --
 -- * 'aAuthType' - Optional customer-defined field, used in Swagger imports/exports. Has no functional impact.
 --
--- * 'aType' - [Required] The type of the authorizer. Currently, the only valid type is TOKEN.
+-- * 'aType' - [Required] The type of the authorizer. Currently, the valid type is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito user pool.
 --
--- * 'aIdentitySource' - [Required] The source of the identity in an incoming request. For TOKEN authorizers, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token.
+-- * 'aIdentitySource' - [Required] The source of the identity in an incoming request. For a @TOKEN@ authorizer, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token. For @COGNITO_USER_POOLS@ authorizers, this property is used.
 --
 -- * 'aAuthorizerCredentials' - Specifies the credentials required for the authorizer, if any. Two options are available. To specify an IAM role for Amazon API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.
 authorizer
@@ -308,15 +308,15 @@ authorizer =
     , _aAuthorizerCredentials = Nothing
     }
 
--- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For TOKEN authorizers, this must be a well-formed Lambda function URI. The URI should be of the form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ . @Region@ is used to determine the right endpoint. In this case, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations
+-- | [Required] Specifies the authorizer's Uniform Resource Identifier (URI). For @TOKEN@ authorizers, this must be a well-formed Lambda function URI, for example, @arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations@ . In general, the URI has this form @arn:aws:apigateway:{region}:lambda:path/{service_api}@ , where @{region}@ is the same as the region hosting the Lambda function, @path@ indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ . For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
 aAuthorizerURI :: Lens' Authorizer (Maybe Text)
 aAuthorizerURI = lens _aAuthorizerURI (\ s a -> s{_aAuthorizerURI = a});
 
--- | A validation expression for the incoming identity. For TOKEN authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
+-- | A validation expression for the incoming identity. For @TOKEN@ authorizers, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
 aIdentityValidationExpression :: Lens' Authorizer (Maybe Text)
 aIdentityValidationExpression = lens _aIdentityValidationExpression (\ s a -> s{_aIdentityValidationExpression = a});
 
--- | A list of the provider ARNs of the authorizer.
+-- | A list of the provider ARNs of the authorizer. For an @TOKEN@ authorizer, this is not defined. For authorizers of the @COGNITO_USER_POOLS@ type, each element corresponds to a user pool ARN of this format: @arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}@ .
 aProviderARNs :: Lens' Authorizer [Text]
 aProviderARNs = lens _aProviderARNs (\ s a -> s{_aProviderARNs = a}) . _Default . _Coerce;
 
@@ -336,11 +336,11 @@ aAuthorizerResultTtlInSeconds = lens _aAuthorizerResultTtlInSeconds (\ s a -> s{
 aAuthType :: Lens' Authorizer (Maybe Text)
 aAuthType = lens _aAuthType (\ s a -> s{_aAuthType = a});
 
--- | [Required] The type of the authorizer. Currently, the only valid type is TOKEN.
+-- | [Required] The type of the authorizer. Currently, the valid type is @TOKEN@ for a Lambda function or @COGNITO_USER_POOLS@ for an Amazon Cognito user pool.
 aType :: Lens' Authorizer (Maybe AuthorizerType)
 aType = lens _aType (\ s a -> s{_aType = a});
 
--- | [Required] The source of the identity in an incoming request. For TOKEN authorizers, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token.
+-- | [Required] The source of the identity in an incoming request. For a @TOKEN@ authorizer, this value is a mapping expression with the same syntax as integration parameter mappings. The only valid source for tokens is 'header', so the expression should match 'method.request.header.[headerName]'. The value of the header '[headerName]' will be interpreted as the incoming token. For @COGNITO_USER_POOLS@ authorizers, this property is used.
 aIdentitySource :: Lens' Authorizer (Maybe Text)
 aIdentitySource = lens _aIdentitySource (\ s a -> s{_aIdentitySource = a});
 
@@ -622,10 +622,10 @@ instance Hashable DomainName
 
 instance NFData DomainName
 
--- | Represents an HTTP, AWS, or Mock integration.
+-- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.
 --
 --
--- In the API Gateway console, the built-in Lambda integration is an AWS integration.<http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
+-- In the API Gateway console, the built-in Lambda integration is an AWS integration.<http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API> , <http://docs.aws.amazon.com/apigateway/latest/developerguide/.html >
 --
 -- /See:/ 'integration' smart constructor.
 data Integration = Integration'
@@ -633,6 +633,7 @@ data Integration = Integration'
     , _iRequestTemplates     :: !(Maybe (Map Text Text))
     , _iCredentials          :: !(Maybe Text)
     , _iRequestParameters    :: !(Maybe (Map Text Text))
+    , _iContentHandling      :: !(Maybe ContentHandlingStrategy)
     , _iPassthroughBehavior  :: !(Maybe Text)
     , _iUri                  :: !(Maybe Text)
     , _iIntegrationResponses :: !(Maybe (Map Text IntegrationResponse))
@@ -653,6 +654,8 @@ data Integration = Integration'
 --
 -- * 'iRequestParameters' - A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ must be a valid and unique method request parameter name.
 --
+-- * 'iContentHandling' - Specifies how to handle request payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a request payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a request payload from a binary blob to a Base64-encoded string. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the @passthroughBehaviors@ is configured to support payload pass-through.
+--
 -- * 'iPassthroughBehavior' - Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in @requestTemplates@ . There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request.     * @WHEN_NO_TEMPLATES@ passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP @415 Unsupported Media Type@ response.     * @NEVER@ rejects the method request with an HTTP @415 Unsupported Media Type@ response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 --
 -- * 'iUri' - Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
@@ -661,7 +664,7 @@ data Integration = Integration'
 --
 -- * 'iCacheNamespace' - Specifies the integration's cache namespace.
 --
--- * 'iType' - Specifies the integration's type. The valid value is @HTTP@ , @AWS@ , or @MOCK@ .
+-- * 'iType' - Specifies the integration's type. The valid value is @HTTP@ for integrating with an HTTP back end, @AWS@ for any AWS service endpoints, @MOCK@ for testing without actually invoking the back end, @HTTP_PROXY@ for integrating with the HTTP proxy integration, or @AWS_PROXY@ for integrating with the Lambda proxy integration type.
 --
 -- * 'iCacheKeyParameters' - Specifies the integration's cache key parameters.
 integration
@@ -672,6 +675,7 @@ integration =
     , _iRequestTemplates = Nothing
     , _iCredentials = Nothing
     , _iRequestParameters = Nothing
+    , _iContentHandling = Nothing
     , _iPassthroughBehavior = Nothing
     , _iUri = Nothing
     , _iIntegrationResponses = Nothing
@@ -696,6 +700,10 @@ iCredentials = lens _iCredentials (\ s a -> s{_iCredentials = a});
 iRequestParameters :: Lens' Integration (HashMap Text Text)
 iRequestParameters = lens _iRequestParameters (\ s a -> s{_iRequestParameters = a}) . _Default . _Map;
 
+-- | Specifies how to handle request payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a request payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a request payload from a binary blob to a Base64-encoded string. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the @passthroughBehaviors@ is configured to support payload pass-through.
+iContentHandling :: Lens' Integration (Maybe ContentHandlingStrategy)
+iContentHandling = lens _iContentHandling (\ s a -> s{_iContentHandling = a});
+
 -- | Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in @requestTemplates@ . There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request.     * @WHEN_NO_TEMPLATES@ passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP @415 Unsupported Media Type@ response.     * @NEVER@ rejects the method request with an HTTP @415 Unsupported Media Type@ response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 iPassthroughBehavior :: Lens' Integration (Maybe Text)
 iPassthroughBehavior = lens _iPassthroughBehavior (\ s a -> s{_iPassthroughBehavior = a});
@@ -712,7 +720,7 @@ iIntegrationResponses = lens _iIntegrationResponses (\ s a -> s{_iIntegrationRes
 iCacheNamespace :: Lens' Integration (Maybe Text)
 iCacheNamespace = lens _iCacheNamespace (\ s a -> s{_iCacheNamespace = a});
 
--- | Specifies the integration's type. The valid value is @HTTP@ , @AWS@ , or @MOCK@ .
+-- | Specifies the integration's type. The valid value is @HTTP@ for integrating with an HTTP back end, @AWS@ for any AWS service endpoints, @MOCK@ for testing without actually invoking the back end, @HTTP_PROXY@ for integrating with the HTTP proxy integration, or @AWS_PROXY@ for integrating with the Lambda proxy integration type.
 iType :: Lens' Integration (Maybe IntegrationType)
 iType = lens _iType (\ s a -> s{_iType = a});
 
@@ -729,6 +737,7 @@ instance FromJSON Integration where
                      (x .:? "requestTemplates" .!= mempty)
                      <*> (x .:? "credentials")
                      <*> (x .:? "requestParameters" .!= mempty)
+                     <*> (x .:? "contentHandling")
                      <*> (x .:? "passthroughBehavior")
                      <*> (x .:? "uri")
                      <*> (x .:? "integrationResponses" .!= mempty)
@@ -747,56 +756,65 @@ instance NFData Integration
 --
 -- /See:/ 'integrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
-    { _iResponseTemplates  :: !(Maybe (Map Text Text))
-    , _iSelectionPattern   :: !(Maybe Text)
-    , _iStatusCode         :: !(Maybe Text)
-    , _iResponseParameters :: !(Maybe (Map Text Text))
+    { _intContentHandling    :: !(Maybe ContentHandlingStrategy)
+    , _intResponseTemplates  :: !(Maybe (Map Text Text))
+    , _intSelectionPattern   :: !(Maybe Text)
+    , _intStatusCode         :: !(Maybe Text)
+    , _intResponseParameters :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'IntegrationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iResponseTemplates' - Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
+-- * 'intContentHandling' - Specifies how to handle response payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a response payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a response payload from a binary blob to a Base64-encoded string. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
 --
--- * 'iSelectionPattern' - Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the @.+@ regex to match error response. However, make sure that the error response does not contain any newline (@\n@ ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
+-- * 'intResponseTemplates' - Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
 --
--- * 'iStatusCode' - Specifies the status code that is used to map the integration response to an existing 'MethodResponse' .
+-- * 'intSelectionPattern' - Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the @.+@ regex to match error response. However, make sure that the error response does not contain any newline (@\n@ ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 --
--- * 'iResponseParameters' - A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The mapped non-static value must match the pattern of @integration.response.header.{name}@ or @integration.response.body.{JSON-expression}@ , where @name@ is a valid and unique response header name and @JSON-expression@ is a valid JSON expression without the @> @ prefix.
+-- * 'intStatusCode' - Specifies the status code that is used to map the integration response to an existing 'MethodResponse' .
+--
+-- * 'intResponseParameters' - A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The mapped non-static value must match the pattern of @integration.response.header.{name}@ or @integration.response.body.{JSON-expression}@ , where @name@ is a valid and unique response header name and @JSON-expression@ is a valid JSON expression without the @> @ prefix.
 integrationResponse
     :: IntegrationResponse
 integrationResponse =
     IntegrationResponse'
-    { _iResponseTemplates = Nothing
-    , _iSelectionPattern = Nothing
-    , _iStatusCode = Nothing
-    , _iResponseParameters = Nothing
+    { _intContentHandling = Nothing
+    , _intResponseTemplates = Nothing
+    , _intSelectionPattern = Nothing
+    , _intStatusCode = Nothing
+    , _intResponseParameters = Nothing
     }
 
+-- | Specifies how to handle response payload content type conversions. Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@ , with the following behaviors:     * @CONVERT_TO_BINARY@ : Converts a response payload from a Base64-encoded string to the corresponding binary blob.     * @CONVERT_TO_TEXT@ : Converts a response payload from a binary blob to a Base64-encoded string. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+intContentHandling :: Lens' IntegrationResponse (Maybe ContentHandlingStrategy)
+intContentHandling = lens _intContentHandling (\ s a -> s{_intContentHandling = a});
+
 -- | Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.
-iResponseTemplates :: Lens' IntegrationResponse (HashMap Text Text)
-iResponseTemplates = lens _iResponseTemplates (\ s a -> s{_iResponseTemplates = a}) . _Default . _Map;
+intResponseTemplates :: Lens' IntegrationResponse (HashMap Text Text)
+intResponseTemplates = lens _intResponseTemplates (\ s a -> s{_intResponseTemplates = a}) . _Default . _Map;
 
 -- | Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the @.+@ regex to match error response. However, make sure that the error response does not contain any newline (@\n@ ) character in such cases. If the back end is an AWS Lambda function, the AWS Lambda function error header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
-iSelectionPattern :: Lens' IntegrationResponse (Maybe Text)
-iSelectionPattern = lens _iSelectionPattern (\ s a -> s{_iSelectionPattern = a});
+intSelectionPattern :: Lens' IntegrationResponse (Maybe Text)
+intSelectionPattern = lens _intSelectionPattern (\ s a -> s{_intSelectionPattern = a});
 
 -- | Specifies the status code that is used to map the integration response to an existing 'MethodResponse' .
-iStatusCode :: Lens' IntegrationResponse (Maybe Text)
-iStatusCode = lens _iStatusCode (\ s a -> s{_iStatusCode = a});
+intStatusCode :: Lens' IntegrationResponse (Maybe Text)
+intStatusCode = lens _intStatusCode (\ s a -> s{_intStatusCode = a});
 
 -- | A key-value map specifying response parameters that are passed to the method response from the back end. The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of @method.response.header.{name}@ , where @name@ is a valid and unique header name. The mapped non-static value must match the pattern of @integration.response.header.{name}@ or @integration.response.body.{JSON-expression}@ , where @name@ is a valid and unique response header name and @JSON-expression@ is a valid JSON expression without the @> @ prefix.
-iResponseParameters :: Lens' IntegrationResponse (HashMap Text Text)
-iResponseParameters = lens _iResponseParameters (\ s a -> s{_iResponseParameters = a}) . _Default . _Map;
+intResponseParameters :: Lens' IntegrationResponse (HashMap Text Text)
+intResponseParameters = lens _intResponseParameters (\ s a -> s{_intResponseParameters = a}) . _Default . _Map;
 
 instance FromJSON IntegrationResponse where
         parseJSON
           = withObject "IntegrationResponse"
               (\ x ->
                  IntegrationResponse' <$>
-                   (x .:? "responseTemplates" .!= mempty) <*>
-                     (x .:? "selectionPattern")
+                   (x .:? "contentHandling") <*>
+                     (x .:? "responseTemplates" .!= mempty)
+                     <*> (x .:? "selectionPattern")
                      <*> (x .:? "statusCode")
                      <*> (x .:? "responseParameters" .!= mempty))
 
@@ -1416,16 +1434,19 @@ instance NFData Resource
 --
 -- /See:/ 'restAPI' smart constructor.
 data RestAPI = RestAPI'
-    { _raWarnings    :: !(Maybe [Text])
-    , _raCreatedDate :: !(Maybe POSIX)
-    , _raName        :: !(Maybe Text)
-    , _raId          :: !(Maybe Text)
-    , _raDescription :: !(Maybe Text)
+    { _raBinaryMediaTypes :: !(Maybe [Text])
+    , _raWarnings         :: !(Maybe [Text])
+    , _raCreatedDate      :: !(Maybe POSIX)
+    , _raName             :: !(Maybe Text)
+    , _raId               :: !(Maybe Text)
+    , _raDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestAPI' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'raBinaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 --
 -- * 'raWarnings' - The warning messages reported when @failonwarnings@ is turned on during API import.
 --
@@ -1440,12 +1461,17 @@ restAPI
     :: RestAPI
 restAPI =
     RestAPI'
-    { _raWarnings = Nothing
+    { _raBinaryMediaTypes = Nothing
+    , _raWarnings = Nothing
     , _raCreatedDate = Nothing
     , _raName = Nothing
     , _raId = Nothing
     , _raDescription = Nothing
     }
+
+-- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+raBinaryMediaTypes :: Lens' RestAPI [Text]
+raBinaryMediaTypes = lens _raBinaryMediaTypes (\ s a -> s{_raBinaryMediaTypes = a}) . _Default . _Coerce;
 
 -- | The warning messages reported when @failonwarnings@ is turned on during API import.
 raWarnings :: Lens' RestAPI [Text]
@@ -1472,8 +1498,9 @@ instance FromJSON RestAPI where
           = withObject "RestAPI"
               (\ x ->
                  RestAPI' <$>
-                   (x .:? "warnings" .!= mempty) <*>
-                     (x .:? "createdDate")
+                   (x .:? "binaryMediaTypes" .!= mempty) <*>
+                     (x .:? "warnings" .!= mempty)
+                     <*> (x .:? "createdDate")
                      <*> (x .:? "name")
                      <*> (x .:? "id")
                      <*> (x .:? "description"))
@@ -1516,7 +1543,7 @@ data Stage = Stage'
 --
 -- * 'sCacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
 --
--- * 'sMethodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage. Any forward slash ("/") characters in the @resource_path@ part must be encoded as "~1" as in, for example, @~1resource~1sub-resource/GET@ .
+-- * 'sMethodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
 --
 -- * 'sLastUpdatedDate' - The date and time that information about the stage was last updated, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
 --
@@ -1564,7 +1591,7 @@ sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Tim
 sCacheClusterStatus :: Lens' Stage (Maybe CacheClusterStatus)
 sCacheClusterStatus = lens _sCacheClusterStatus (\ s a -> s{_sCacheClusterStatus = a});
 
--- | A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage. Any forward slash ("/") characters in the @resource_path@ part must be encoded as "~1" as in, for example, @~1resource~1sub-resource/GET@ .
+-- | A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
 sMethodSettings :: Lens' Stage (HashMap Text MethodSetting)
 sMethodSettings = lens _sMethodSettings (\ s a -> s{_sMethodSettings = a}) . _Default . _Map;
 

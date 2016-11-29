@@ -35,6 +35,7 @@ module Network.AWS.APIGateway.ImportRestAPI
     , restAPI
     , RestAPI
     -- * Response Lenses
+    , raBinaryMediaTypes
     , raWarnings
     , raCreatedDate
     , raName

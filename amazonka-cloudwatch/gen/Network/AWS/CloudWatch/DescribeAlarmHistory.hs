@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms.
+-- Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
 --
+--
+-- Note that Amazon CloudWatch retains the history of an alarm even if you delete the alarm.
 --
 --
 -- This operation returns paginated results.
@@ -53,11 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for DescribeAlarmHistory.
---
---
---
--- /See:/ 'describeAlarmHistory' smart constructor.
+-- | /See:/ 'describeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
     { _dahAlarmName       :: !(Maybe Text)
     , _dahHistoryItemType :: !(Maybe HistoryItemType)
@@ -160,11 +158,7 @@ instance ToQuery DescribeAlarmHistory where
                "NextToken" =: _dahNextToken,
                "MaxRecords" =: _dahMaxRecords]
 
--- | The output for 'DescribeAlarmHistory' .
---
---
---
--- /See:/ 'describeAlarmHistoryResponse' smart constructor.
+-- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrsNextToken         :: !(Maybe Text)
@@ -175,9 +169,9 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dahrsAlarmHistoryItems' - A list of alarm histories in JSON format.
+-- * 'dahrsAlarmHistoryItems' - The alarm histories, in JSON format.
 --
--- * 'dahrsNextToken' - A string that marks the start of the next batch of returned results.
+-- * 'dahrsNextToken' - The token that marks the start of the next batch of returned results.
 --
 -- * 'dahrsResponseStatus' - -- | The response status code.
 describeAlarmHistoryResponse
@@ -190,11 +184,11 @@ describeAlarmHistoryResponse pResponseStatus_ =
     , _dahrsResponseStatus = pResponseStatus_
     }
 
--- | A list of alarm histories in JSON format.
+-- | The alarm histories, in JSON format.
 dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
 dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce;
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token that marks the start of the next batch of returned results.
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 

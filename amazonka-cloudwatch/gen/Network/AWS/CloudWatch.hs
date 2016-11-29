@@ -122,6 +122,7 @@ module Network.AWS.CloudWatch
     , dMaximum
     , dAverage
     , dMinimum
+    , dExtendedStatistics
     , dSum
     , dUnit
     , dTimestamp
@@ -169,6 +170,7 @@ module Network.AWS.CloudWatch
     , maAlarmActions
     , maUnit
     , maStatistic
+    , maExtendedStatistic
 
     -- ** MetricDatum
     , MetricDatum

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further.
+-- Retrieves the alarms for the specified metric. Specify a statistic, period, or unit to filter the results.
 --
 --
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
@@ -31,6 +31,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmDimensions
     , dafmUnit
     , dafmStatistic
+    , dafmExtendedStatistic
     , dafmMetricName
     , dafmNamespace
 
@@ -49,31 +50,30 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for DescribeAlarmsForMetric.
---
---
---
--- /See:/ 'describeAlarmsForMetric' smart constructor.
+-- | /See:/ 'describeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-    { _dafmPeriod     :: !(Maybe Nat)
-    , _dafmDimensions :: !(Maybe [Dimension])
-    , _dafmUnit       :: !(Maybe StandardUnit)
-    , _dafmStatistic  :: !(Maybe Statistic)
-    , _dafmMetricName :: !Text
-    , _dafmNamespace  :: !Text
+    { _dafmPeriod            :: !(Maybe Nat)
+    , _dafmDimensions        :: !(Maybe [Dimension])
+    , _dafmUnit              :: !(Maybe StandardUnit)
+    , _dafmStatistic         :: !(Maybe Statistic)
+    , _dafmExtendedStatistic :: !(Maybe Text)
+    , _dafmMetricName        :: !Text
+    , _dafmNamespace         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAlarmsForMetric' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dafmPeriod' - The period in seconds over which the statistic is applied.
+-- * 'dafmPeriod' - The period, in seconds, over which the statistic is applied.
 --
--- * 'dafmDimensions' - The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
+-- * 'dafmDimensions' - The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
 --
 -- * 'dafmUnit' - The unit for the metric.
 --
--- * 'dafmStatistic' - The statistic for the metric.
+-- * 'dafmStatistic' - The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
+--
+-- * 'dafmExtendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0 and p100.
 --
 -- * 'dafmMetricName' - The name of the metric.
 --
@@ -88,15 +88,16 @@ describeAlarmsForMetric pMetricName_ pNamespace_ =
     , _dafmDimensions = Nothing
     , _dafmUnit = Nothing
     , _dafmStatistic = Nothing
+    , _dafmExtendedStatistic = Nothing
     , _dafmMetricName = pMetricName_
     , _dafmNamespace = pNamespace_
     }
 
--- | The period in seconds over which the statistic is applied.
+-- | The period, in seconds, over which the statistic is applied.
 dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
--- | The list of dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the DescribeAlarmsForMetric to succeed.
+-- | The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 
@@ -104,9 +105,13 @@ dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Defau
 dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
 dafmUnit = lens _dafmUnit (\ s a -> s{_dafmUnit = a});
 
--- | The statistic for the metric.
+-- | The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
 dafmStatistic = lens _dafmStatistic (\ s a -> s{_dafmStatistic = a});
+
+-- | The percentile statistic for the metric. Specify a value between p0.0 and p100.
+dafmExtendedStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
+dafmExtendedStatistic = lens _dafmExtendedStatistic (\ s a -> s{_dafmExtendedStatistic = a});
 
 -- | The name of the metric.
 dafmMetricName :: Lens' DescribeAlarmsForMetric Text
@@ -148,14 +153,11 @@ instance ToQuery DescribeAlarmsForMetric where
                "Dimensions" =:
                  toQuery (toQueryList "member" <$> _dafmDimensions),
                "Unit" =: _dafmUnit, "Statistic" =: _dafmStatistic,
+               "ExtendedStatistic" =: _dafmExtendedStatistic,
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
 
--- | The output for 'DescribeAlarmsForMetric' .
---
---
---
--- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
+-- | /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms   :: !(Maybe [MetricAlarm])
     , _dafmrsResponseStatus :: !Int
@@ -165,7 +167,7 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dafmrsMetricAlarms' - A list of information for each alarm with the specified metric.
+-- * 'dafmrsMetricAlarms' - The information for each alarm with the specified metric.
 --
 -- * 'dafmrsResponseStatus' - -- | The response status code.
 describeAlarmsForMetricResponse
@@ -177,7 +179,7 @@ describeAlarmsForMetricResponse pResponseStatus_ =
     , _dafmrsResponseStatus = pResponseStatus_
     }
 
--- | A list of information for each alarm with the specified metric.
+-- | The information for each alarm with the specified metric.
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 

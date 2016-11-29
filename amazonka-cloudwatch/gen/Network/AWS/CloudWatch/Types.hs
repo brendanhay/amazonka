@@ -56,6 +56,7 @@ module Network.AWS.CloudWatch.Types
     , dMaximum
     , dAverage
     , dMinimum
+    , dExtendedStatistics
     , dSum
     , dUnit
     , dTimestamp
@@ -103,6 +104,7 @@ module Network.AWS.CloudWatch.Types
     , maAlarmActions
     , maUnit
     , maStatistic
+    , maExtendedStatistic
 
     -- * MetricDatum
     , MetricDatum
@@ -175,14 +177,14 @@ _LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
--- | Indicates that the request processing has failed due to some unknown error, exception, or failure.
+-- | Request processing has failed due to some unknown error, exception, or failure.
 --
 --
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
     _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
 
--- | Bad or out-of-range value was supplied for the input parameter.
+-- | The value of an input parameter is bad or out-of-range.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -195,14 +197,14 @@ _InvalidParameterValueException =
 _InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
 
--- | An input parameter that is mandatory for processing the request is not supplied.
+-- | An input parameter that is required is missing.
 --
 --
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
     _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
--- | Parameters that must not be used together were used together.
+-- | Parameters that cannot be used together were used together.
 --
 --
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError

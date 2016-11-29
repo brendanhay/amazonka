@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables actions for the specified alarms.
+-- Enables the actions for the specified alarms.
 --
 --
 module Network.AWS.CloudWatch.EnableAlarmActions
@@ -41,11 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for EnableAlarmActions.
---
---
---
--- /See:/ 'enableAlarmActions' smart constructor.
+-- | /See:/ 'enableAlarmActions' smart constructor.
 newtype EnableAlarmActions = EnableAlarmActions'
     { _eaaAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -54,7 +50,7 @@ newtype EnableAlarmActions = EnableAlarmActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eaaAlarmNames' - The names of the alarms to enable actions for.
+-- * 'eaaAlarmNames' - The names of the alarms.
 enableAlarmActions
     :: EnableAlarmActions
 enableAlarmActions =
@@ -62,7 +58,7 @@ enableAlarmActions =
     { _eaaAlarmNames = mempty
     }
 
--- | The names of the alarms to enable actions for.
+-- | The names of the alarms.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
 eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce;
 

@@ -21,7 +21,7 @@ import           Network.AWS.CloudWatch.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The @AlarmHistoryItem@ data type contains descriptive information about the history of a specific alarm. If you call 'DescribeAlarmHistory' , Amazon CloudWatch returns this data type as part of the DescribeAlarmHistoryResult data type.
+-- | Represents the history of a specific alarm.
 --
 --
 --
@@ -42,9 +42,9 @@ data AlarmHistoryItem = AlarmHistoryItem'
 --
 -- * 'ahiHistoryItemType' - The type of alarm history item.
 --
--- * 'ahiHistoryData' - Machine-readable data about the alarm in JSON format.
+-- * 'ahiHistoryData' - Data about the alarm, in JSON format.
 --
--- * 'ahiHistorySummary' - A human-readable summary of the alarm history.
+-- * 'ahiHistorySummary' - A summary of the alarm history, in text format.
 --
 -- * 'ahiTimestamp' - The time stamp for the alarm history item.
 alarmHistoryItem
@@ -66,11 +66,11 @@ ahiAlarmName = lens _ahiAlarmName (\ s a -> s{_ahiAlarmName = a});
 ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahiHistoryItemType = lens _ahiHistoryItemType (\ s a -> s{_ahiHistoryItemType = a});
 
--- | Machine-readable data about the alarm in JSON format.
+-- | Data about the alarm, in JSON format.
 ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
 
--- | A human-readable summary of the alarm history.
+-- | A summary of the alarm history, in text format.
 ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a});
 
@@ -90,38 +90,41 @@ instance Hashable AlarmHistoryItem
 
 instance NFData AlarmHistoryItem
 
--- | The @Datapoint@ data type encapsulates the statistical data that Amazon CloudWatch computes from metric data.
+-- | Encapsulates the statistical data that Amazon CloudWatch computes from metric data.
 --
 --
 --
 -- /See:/ 'datapoint' smart constructor.
 data Datapoint = Datapoint'
-    { _dSampleCount :: !(Maybe Double)
-    , _dMaximum     :: !(Maybe Double)
-    , _dAverage     :: !(Maybe Double)
-    , _dMinimum     :: !(Maybe Double)
-    , _dSum         :: !(Maybe Double)
-    , _dUnit        :: !(Maybe StandardUnit)
-    , _dTimestamp   :: !(Maybe ISO8601)
+    { _dSampleCount        :: !(Maybe Double)
+    , _dMaximum            :: !(Maybe Double)
+    , _dAverage            :: !(Maybe Double)
+    , _dMinimum            :: !(Maybe Double)
+    , _dExtendedStatistics :: !(Maybe (Map Text Double))
+    , _dSum                :: !(Maybe Double)
+    , _dUnit               :: !(Maybe StandardUnit)
+    , _dTimestamp          :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dSampleCount' - The number of metric values that contributed to the aggregate value of this datapoint.
+-- * 'dSampleCount' - The number of metric values that contributed to the aggregate value of this data point.
 --
--- * 'dMaximum' - The maximum of the metric value used for the datapoint.
+-- * 'dMaximum' - The maximum metric value for the data point.
 --
--- * 'dAverage' - The average of metric values that correspond to the datapoint.
+-- * 'dAverage' - The average of the metric values that correspond to the data point.
 --
--- * 'dMinimum' - The minimum metric value used for the datapoint.
+-- * 'dMinimum' - The minimum metric value for the data point.
 --
--- * 'dSum' - The sum of metric values used for the datapoint.
+-- * 'dExtendedStatistics' - The percentile statistic for the data point.
 --
--- * 'dUnit' - The standard unit used for the datapoint.
+-- * 'dSum' - The sum of the metric values for the data point.
 --
--- * 'dTimestamp' - The time stamp used for the datapoint.
+-- * 'dUnit' - The standard unit for the data point.
+--
+-- * 'dTimestamp' - The time stamp used for the data point.
 datapoint
     :: Datapoint
 datapoint =
@@ -130,36 +133,41 @@ datapoint =
     , _dMaximum = Nothing
     , _dAverage = Nothing
     , _dMinimum = Nothing
+    , _dExtendedStatistics = Nothing
     , _dSum = Nothing
     , _dUnit = Nothing
     , _dTimestamp = Nothing
     }
 
--- | The number of metric values that contributed to the aggregate value of this datapoint.
+-- | The number of metric values that contributed to the aggregate value of this data point.
 dSampleCount :: Lens' Datapoint (Maybe Double)
 dSampleCount = lens _dSampleCount (\ s a -> s{_dSampleCount = a});
 
--- | The maximum of the metric value used for the datapoint.
+-- | The maximum metric value for the data point.
 dMaximum :: Lens' Datapoint (Maybe Double)
 dMaximum = lens _dMaximum (\ s a -> s{_dMaximum = a});
 
--- | The average of metric values that correspond to the datapoint.
+-- | The average of the metric values that correspond to the data point.
 dAverage :: Lens' Datapoint (Maybe Double)
 dAverage = lens _dAverage (\ s a -> s{_dAverage = a});
 
--- | The minimum metric value used for the datapoint.
+-- | The minimum metric value for the data point.
 dMinimum :: Lens' Datapoint (Maybe Double)
 dMinimum = lens _dMinimum (\ s a -> s{_dMinimum = a});
 
--- | The sum of metric values used for the datapoint.
+-- | The percentile statistic for the data point.
+dExtendedStatistics :: Lens' Datapoint (HashMap Text Double)
+dExtendedStatistics = lens _dExtendedStatistics (\ s a -> s{_dExtendedStatistics = a}) . _Default . _Map;
+
+-- | The sum of the metric values for the data point.
 dSum :: Lens' Datapoint (Maybe Double)
 dSum = lens _dSum (\ s a -> s{_dSum = a});
 
--- | The standard unit used for the datapoint.
+-- | The standard unit for the data point.
 dUnit :: Lens' Datapoint (Maybe StandardUnit)
 dUnit = lens _dUnit (\ s a -> s{_dUnit = a});
 
--- | The time stamp used for the datapoint.
+-- | The time stamp used for the data point.
 dTimestamp :: Lens' Datapoint (Maybe UTCTime)
 dTimestamp = lens _dTimestamp (\ s a -> s{_dTimestamp = a}) . mapping _Time;
 
@@ -169,6 +177,9 @@ instance FromXML Datapoint where
               (x .@? "SampleCount") <*> (x .@? "Maximum") <*>
                 (x .@? "Average")
                 <*> (x .@? "Minimum")
+                <*>
+                (x .@? "ExtendedStatistics" .!@ mempty >>=
+                   may (parseXMLMap "entry" "key" "value"))
                 <*> (x .@? "Sum")
                 <*> (x .@? "Unit")
                 <*> (x .@? "Timestamp")
@@ -177,10 +188,8 @@ instance Hashable Datapoint
 
 instance NFData Datapoint
 
--- | The @Dimension@ data type further expands on the identity of a metric using a Name, Value pair.
+-- | Expands the identity of a metric.
 --
---
--- For examples that use one or more dimensions, see 'PutMetricData' .
 --
 --
 -- /See:/ 'dimension' smart constructor.
@@ -195,7 +204,7 @@ data Dimension = Dimension'
 --
 -- * 'dName' - The name of the dimension.
 --
--- * 'dValue' - The value representing the dimension measurement
+-- * 'dValue' - The value representing the dimension measurement.
 dimension
     :: Text -- ^ 'dName'
     -> Text -- ^ 'dValue'
@@ -210,7 +219,7 @@ dimension pName_ pValue_ =
 dName :: Lens' Dimension Text
 dName = lens _dName (\ s a -> s{_dName = a});
 
--- | The value representing the dimension measurement
+-- | The value representing the dimension measurement.
 dValue :: Lens' Dimension Text
 dValue = lens _dValue (\ s a -> s{_dValue = a});
 
@@ -226,7 +235,7 @@ instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
 
--- | The @DimensionFilter@ data type is used to filter 'ListMetrics' results.
+-- | Represents filters for a dimension.
 --
 --
 --
@@ -268,10 +277,8 @@ instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
           = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
--- | The @Metric@ data type contains information about a specific metric. If you call 'ListMetrics' , Amazon CloudWatch returns information contained by this data type.
+-- | Represents a specific metric.
 --
---
--- The example in the Examples section publishes two metrics named buffers and latency. Both metrics are in the examples namespace. Both metrics have two dimensions, InstanceID and InstanceType.
 --
 --
 -- /See:/ 'metric' smart constructor.
@@ -289,7 +296,7 @@ data Metric = Metric'
 --
 -- * 'mNamespace' - The namespace of the metric.
 --
--- * 'mDimensions' - A list of dimensions associated with the metric.
+-- * 'mDimensions' - The dimensions for the metric.
 metric
     :: Metric
 metric =
@@ -307,7 +314,7 @@ mMetricName = lens _mMetricName (\ s a -> s{_mMetricName = a});
 mNamespace :: Lens' Metric (Maybe Text)
 mNamespace = lens _mNamespace (\ s a -> s{_mNamespace = a});
 
--- | A list of dimensions associated with the metric.
+-- | The dimensions for the metric.
 mDimensions :: Lens' Metric [Dimension]
 mDimensions = lens _mDimensions (\ s a -> s{_mDimensions = a}) . _Default . _Coerce;
 
@@ -322,7 +329,7 @@ instance Hashable Metric
 
 instance NFData Metric
 
--- | The 'MetricAlarm' data type represents an alarm. You can use 'PutMetricAlarm' to create or update an alarm.
+-- | Represents an alarm.
 --
 --
 --
@@ -349,6 +356,7 @@ data MetricAlarm = MetricAlarm'
     , _maAlarmActions                       :: !(Maybe [Text])
     , _maUnit                               :: !(Maybe StandardUnit)
     , _maStatistic                          :: !(Maybe Statistic)
+    , _maExtendedStatistic                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
@@ -357,45 +365,47 @@ data MetricAlarm = MetricAlarm'
 --
 -- * 'maAlarmName' - The name of the alarm.
 --
--- * 'maStateUpdatedTimestamp' - The time stamp of the last update to the alarm's state.
+-- * 'maStateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
 --
--- * 'maPeriod' - The period in seconds over which the statistic is applied.
+-- * 'maPeriod' - The period, in seconds, over which the statistic is applied.
 --
--- * 'maAlarmDescription' - The description for the alarm.
+-- * 'maAlarmDescription' - The description of the alarm.
 --
 -- * 'maEvaluationPeriods' - The number of periods over which data is compared to the specified threshold.
 --
--- * 'maMetricName' - The name of the alarm's metric.
+-- * 'maMetricName' - The name of the metric associated with the alarm.
 --
--- * 'maNamespace' - The namespace of alarm's associated metric.
+-- * 'maNamespace' - The namespace of the metric associated with the alarm.
 --
--- * 'maComparisonOperator' - The arithmetic operation to use when comparing the specified @Statistic@ and @Threshold@ . The specified @Statistic@ value is used as the first operand.
+-- * 'maComparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 --
--- * 'maOKActions' - The list of actions to execute when this alarm transitions into an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'maOKActions' - The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
 -- * 'maStateValue' - The state value for the alarm.
 --
--- * 'maThreshold' - The value against which the specified statistic is compared.
+-- * 'maThreshold' - The value to compare with the specified statistic.
 --
 -- * 'maAlarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
 --
--- * 'maActionsEnabled' - Indicates whether actions should be executed during any changes to the alarm's state.
+-- * 'maActionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
 --
--- * 'maInsufficientDataActions' - The list of actions to execute when this alarm transitions into an @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).  /Important:/ The current WSDL lists this attribute as @UnknownActions@ .
+-- * 'maInsufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
--- * 'maStateReason' - A human-readable explanation for the alarm's state.
+-- * 'maStateReason' - An explanation for the alarm state, in text format.
 --
--- * 'maStateReasonData' - An explanation for the alarm's state in machine-readable JSON format
+-- * 'maStateReasonData' - An explanation for the alarm state, in JSON format.
 --
--- * 'maDimensions' - The list of dimensions associated with the alarm's associated metric.
+-- * 'maDimensions' - The dimensions for the metric associated with the alarm.
 --
 -- * 'maAlarmARN' - The Amazon Resource Name (ARN) of the alarm.
 --
--- * 'maAlarmActions' - The list of actions to execute when this alarm transitions into an @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'maAlarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
--- * 'maUnit' - The unit of the alarm's associated metric.
+-- * 'maUnit' - The unit of the metric associated with the alarm.
 --
--- * 'maStatistic' - The statistic to apply to the alarm's associated metric.
+-- * 'maStatistic' - The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
+--
+-- * 'maExtendedStatistic' - The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 metricAlarm
     :: MetricAlarm
 metricAlarm =
@@ -421,21 +431,22 @@ metricAlarm =
     , _maAlarmActions = Nothing
     , _maUnit = Nothing
     , _maStatistic = Nothing
+    , _maExtendedStatistic = Nothing
     }
 
 -- | The name of the alarm.
 maAlarmName :: Lens' MetricAlarm (Maybe Text)
 maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
 
--- | The time stamp of the last update to the alarm's state.
+-- | The time stamp of the last update to the alarm state.
 maStateUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpdatedTimestamp = a}) . mapping _Time;
 
--- | The period in seconds over which the statistic is applied.
+-- | The period, in seconds, over which the statistic is applied.
 maPeriod :: Lens' MetricAlarm (Maybe Natural)
 maPeriod = lens _maPeriod (\ s a -> s{_maPeriod = a}) . mapping _Nat;
 
--- | The description for the alarm.
+-- | The description of the alarm.
 maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = a});
 
@@ -443,19 +454,19 @@ maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = 
 maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods = lens _maEvaluationPeriods (\ s a -> s{_maEvaluationPeriods = a}) . mapping _Nat;
 
--- | The name of the alarm's metric.
+-- | The name of the metric associated with the alarm.
 maMetricName :: Lens' MetricAlarm (Maybe Text)
 maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
 
--- | The namespace of alarm's associated metric.
+-- | The namespace of the metric associated with the alarm.
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 
--- | The arithmetic operation to use when comparing the specified @Statistic@ and @Threshold@ . The specified @Statistic@ value is used as the first operand.
+-- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOperator = a});
 
--- | The list of actions to execute when this alarm transitions into an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
 
@@ -463,7 +474,7 @@ maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coe
 maStateValue :: Lens' MetricAlarm (Maybe StateValue)
 maStateValue = lens _maStateValue (\ s a -> s{_maStateValue = a});
 
--- | The value against which the specified statistic is compared.
+-- | The value to compare with the specified statistic.
 maThreshold :: Lens' MetricAlarm (Maybe Double)
 maThreshold = lens _maThreshold (\ s a -> s{_maThreshold = a});
 
@@ -471,23 +482,23 @@ maThreshold = lens _maThreshold (\ s a -> s{_maThreshold = a});
 maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestamp (\ s a -> s{_maAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time;
 
--- | Indicates whether actions should be executed during any changes to the alarm's state.
+-- | Indicates whether actions should be executed during any changes to the alarm state.
 maActionsEnabled :: Lens' MetricAlarm (Maybe Bool)
 maActionsEnabled = lens _maActionsEnabled (\ s a -> s{_maActionsEnabled = a});
 
--- | The list of actions to execute when this alarm transitions into an @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).  /Important:/ The current WSDL lists this attribute as @UnknownActions@ .
+-- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default . _Coerce;
 
--- | A human-readable explanation for the alarm's state.
+-- | An explanation for the alarm state, in text format.
 maStateReason :: Lens' MetricAlarm (Maybe Text)
 maStateReason = lens _maStateReason (\ s a -> s{_maStateReason = a});
 
--- | An explanation for the alarm's state in machine-readable JSON format
+-- | An explanation for the alarm state, in JSON format.
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
 maStateReasonData = lens _maStateReasonData (\ s a -> s{_maStateReasonData = a});
 
--- | The list of dimensions associated with the alarm's associated metric.
+-- | The dimensions for the metric associated with the alarm.
 maDimensions :: Lens' MetricAlarm [Dimension]
 maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _Coerce;
 
@@ -495,17 +506,21 @@ maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _
 maAlarmARN :: Lens' MetricAlarm (Maybe Text)
 maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 
--- | The list of actions to execute when this alarm transitions into an @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 maAlarmActions :: Lens' MetricAlarm [Text]
 maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default . _Coerce;
 
--- | The unit of the alarm's associated metric.
+-- | The unit of the metric associated with the alarm.
 maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\ s a -> s{_maUnit = a});
 
--- | The statistic to apply to the alarm's associated metric.
+-- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
 maStatistic :: Lens' MetricAlarm (Maybe Statistic)
 maStatistic = lens _maStatistic (\ s a -> s{_maStatistic = a});
+
+-- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+maExtendedStatistic :: Lens' MetricAlarm (Maybe Text)
+maExtendedStatistic = lens _maExtendedStatistic (\ s a -> s{_maExtendedStatistic = a});
 
 instance FromXML MetricAlarm where
         parseXML x
@@ -539,12 +554,13 @@ instance FromXML MetricAlarm where
                    may (parseXMLList "member"))
                 <*> (x .@? "Unit")
                 <*> (x .@? "Statistic")
+                <*> (x .@? "ExtendedStatistic")
 
 instance Hashable MetricAlarm
 
 instance NFData MetricAlarm
 
--- | The @MetricDatum@ data type encapsulates the information sent with 'PutMetricData' to either create a new metric or add new values to be aggregated into an existing metric.
+-- | Encapsulates the information sent to either create a metric or add new values to be aggregated into an existing metric.
 --
 --
 --
@@ -562,15 +578,15 @@ data MetricDatum = MetricDatum'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mdValue' - The value for the metric. /Important:/ Although the @Value@ parameter accepts numbers of type @Double@ , Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
+-- * 'mdValue' - The value for the metric. Although the parameter accepts numbers of type Double, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 --
--- * 'mdDimensions' - A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N).
+-- * 'mdDimensions' - The dimensions associated with the metric.
 --
 -- * 'mdUnit' - The unit of the metric.
 --
--- * 'mdTimestamp' - The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received.
+-- * 'mdTimestamp' - The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
--- * 'mdStatisticValues' - A set of statistical values describing the metric.
+-- * 'mdStatisticValues' - The statistical values for the metric.
 --
 -- * 'mdMetricName' - The name of the metric.
 metricDatum
@@ -586,11 +602,11 @@ metricDatum pMetricName_ =
     , _mdMetricName = pMetricName_
     }
 
--- | The value for the metric. /Important:/ Although the @Value@ parameter accepts numbers of type @Double@ , Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
+-- | The value for the metric. Although the parameter accepts numbers of type Double, Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 mdValue :: Lens' MetricDatum (Maybe Double)
 mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 
--- | A list of dimensions associated with the metric. Note, when using the Dimensions value in a query, you need to append .member.N to it (e.g., Dimensions.member.N).
+-- | The dimensions associated with the metric.
 mdDimensions :: Lens' MetricDatum [Dimension]
 mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _Coerce;
 
@@ -598,11 +614,11 @@ mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _
 mdUnit :: Lens' MetricDatum (Maybe StandardUnit)
 mdUnit = lens _mdUnit (\ s a -> s{_mdUnit = a});
 
--- | The time stamp used for the metric in ISO 8601 Universal Coordinated Time (UTC) format. If not specified, the default value is set to the time the metric data was received.
+-- | The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 mdTimestamp :: Lens' MetricDatum (Maybe UTCTime)
 mdTimestamp = lens _mdTimestamp (\ s a -> s{_mdTimestamp = a}) . mapping _Time;
 
--- | A set of statistical values describing the metric.
+-- | The statistical values for the metric.
 mdStatisticValues :: Lens' MetricDatum (Maybe StatisticSet)
 mdStatisticValues = lens _mdStatisticValues (\ s a -> s{_mdStatisticValues = a});
 
@@ -624,7 +640,7 @@ instance ToQuery MetricDatum where
                "StatisticValues" =: _mdStatisticValues,
                "MetricName" =: _mdMetricName]
 
--- | The @StatisticSet@ data type describes the @StatisticValues@ component of 'MetricDatum' , and represents a set of statistics that describes a specific metric.
+-- | Represents a set of statistics that describes a specific metric.
 --
 --
 --

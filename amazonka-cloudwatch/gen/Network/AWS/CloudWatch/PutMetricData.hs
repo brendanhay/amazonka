@@ -23,9 +23,9 @@
 --
 -- Each @PutMetricData@ request is limited to 8 KB in size for HTTP GET requests and is limited to 40 KB in size for HTTP POST requests.
 --
--- /Important:/ Although the @Value@ parameter accepts numbers of type @Double@ , Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
+-- Although the @Value@ parameter accepts numbers of type @Double@ , Amazon CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (e.g., NaN, +Infinity, -Infinity) are not supported.
 --
--- Data that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using @GetMetricStatistics@ .
+-- Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for 'GetMetricStatistics' from the time they are submitted.
 --
 module Network.AWS.CloudWatch.PutMetricData
     (
@@ -48,11 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for PutMetricData.
---
---
---
--- /See:/ 'putMetricData' smart constructor.
+-- | /See:/ 'putMetricData' smart constructor.
 data PutMetricData = PutMetricData'
     { _pmdNamespace  :: !Text
     , _pmdMetricData :: ![MetricDatum]
@@ -62,9 +58,9 @@ data PutMetricData = PutMetricData'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pmdNamespace' - The namespace for the metric data.
+-- * 'pmdNamespace' - The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products.
 --
--- * 'pmdMetricData' - A list of data describing the metric.
+-- * 'pmdMetricData' - The data for the metric.
 putMetricData
     :: Text -- ^ 'pmdNamespace'
     -> PutMetricData
@@ -74,11 +70,11 @@ putMetricData pNamespace_ =
     , _pmdMetricData = mempty
     }
 
--- | The namespace for the metric data.
+-- | The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products.
 pmdNamespace :: Lens' PutMetricData Text
 pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
 
--- | A list of data describing the metric.
+-- | The data for the metric.
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
 pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a}) . _Coerce;
 

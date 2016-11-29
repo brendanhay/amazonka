@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
+-- Retrieves the specified alarms. If no alarms are specified, all alarms are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action.
 --
 --
 --
@@ -53,11 +53,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for DescribeAlarms.
---
---
---
--- /See:/ 'describeAlarms' smart constructor.
+-- | /See:/ 'describeAlarms' smart constructor.
 data DescribeAlarms = DescribeAlarms'
     { _daAlarmNamePrefix :: !(Maybe Text)
     , _daActionPrefix    :: !(Maybe Text)
@@ -71,7 +67,7 @@ data DescribeAlarms = DescribeAlarms'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAlarmNamePrefix' - The alarm name prefix. @AlarmNames@ cannot be specified if this parameter is specified.
+-- * 'daAlarmNamePrefix' - The alarm name prefix. You cannot specify @AlarmNames@ if this parameter is specified.
 --
 -- * 'daActionPrefix' - The action name prefix.
 --
@@ -79,7 +75,7 @@ data DescribeAlarms = DescribeAlarms'
 --
 -- * 'daStateValue' - The state value to be used in matching alarms.
 --
--- * 'daAlarmNames' - A list of alarm names to retrieve information for.
+-- * 'daAlarmNames' - The names of the alarms.
 --
 -- * 'daMaxRecords' - The maximum number of alarm descriptions to retrieve.
 describeAlarms
@@ -94,7 +90,7 @@ describeAlarms =
     , _daMaxRecords = Nothing
     }
 
--- | The alarm name prefix. @AlarmNames@ cannot be specified if this parameter is specified.
+-- | The alarm name prefix. You cannot specify @AlarmNames@ if this parameter is specified.
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 
@@ -110,7 +106,7 @@ daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
--- | A list of alarm names to retrieve information for.
+-- | The names of the alarms.
 daAlarmNames :: Lens' DescribeAlarms [Text]
 daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce;
 
@@ -160,11 +156,7 @@ instance ToQuery DescribeAlarms where
                  toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
--- | The output for 'DescribeAlarms' .
---
---
---
--- /See:/ 'describeAlarmsResponse' smart constructor.
+-- | /See:/ 'describeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darsMetricAlarms   :: !(Maybe [MetricAlarm])
     , _darsNextToken      :: !(Maybe Text)
@@ -175,9 +167,9 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsMetricAlarms' - A list of information for the specified alarms.
+-- * 'darsMetricAlarms' - The information for the specified alarms.
 --
--- * 'darsNextToken' - A string that marks the start of the next batch of returned results.
+-- * 'darsNextToken' - The token that marks the start of the next batch of returned results.
 --
 -- * 'darsResponseStatus' - -- | The response status code.
 describeAlarmsResponse
@@ -190,11 +182,11 @@ describeAlarmsResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | A list of information for the specified alarms.
+-- | The information for the specified alarms.
 darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
 darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce;
 
--- | A string that marks the start of the next batch of returned results.
+-- | The token that marks the start of the next batch of returned results.
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 

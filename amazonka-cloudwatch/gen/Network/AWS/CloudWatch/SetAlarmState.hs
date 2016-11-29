@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Temporarily sets the state of an alarm for testing purposes. When the updated @StateValue@ differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm's state to __ALARM__ sends an Amazon SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens very quickly, it is typically only visible in the alarm's __History__ tab in the Amazon CloudWatch console or through @DescribeAlarmHistory@ .
+-- Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to @ALARM@ sends an Amazon SNS message. The alarm returns to its actual state (often within seconds). Because the alarm state change happens very quickly, it is typically only visible in the alarm's __History__ tab in the Amazon CloudWatch console or through 'DescribeAlarmHistory' .
 --
 --
 module Network.AWS.CloudWatch.SetAlarmState
@@ -44,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Describes the inputs for SetAlarmState.
---
---
---
--- /See:/ 'setAlarmState' smart constructor.
+-- | /See:/ 'setAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
     { _sasStateReasonData :: !(Maybe Text)
     , _sasAlarmName       :: !Text
@@ -60,13 +56,13 @@ data SetAlarmState = SetAlarmState'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sasStateReasonData' - The reason that this alarm is set to this specific state (in machine-readable JSON format)
+-- * 'sasStateReasonData' - The reason that this alarm is set to this specific state, in JSON format.
 --
--- * 'sasAlarmName' - The descriptive name for the alarm. This name must be unique within the user's AWS account. The maximum length is 255 characters.
+-- * 'sasAlarmName' - The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 --
 -- * 'sasStateValue' - The value of the state.
 --
--- * 'sasStateReason' - The reason that this alarm is set to this specific state (in human-readable text format)
+-- * 'sasStateReason' - The reason that this alarm is set to this specific state, in text format.
 setAlarmState
     :: Text -- ^ 'sasAlarmName'
     -> StateValue -- ^ 'sasStateValue'
@@ -80,11 +76,11 @@ setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
     , _sasStateReason = pStateReason_
     }
 
--- | The reason that this alarm is set to this specific state (in machine-readable JSON format)
+-- | The reason that this alarm is set to this specific state, in JSON format.
 sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
 sasStateReasonData = lens _sasStateReasonData (\ s a -> s{_sasStateReasonData = a});
 
--- | The descriptive name for the alarm. This name must be unique within the user's AWS account. The maximum length is 255 characters.
+-- | The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 sasAlarmName :: Lens' SetAlarmState Text
 sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
 
@@ -92,7 +88,7 @@ sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
 sasStateValue :: Lens' SetAlarmState StateValue
 sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a});
 
--- | The reason that this alarm is set to this specific state (in human-readable text format)
+-- | The reason that this alarm is set to this specific state, in text format.
 sasStateReason :: Lens' SetAlarmState Text
 sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
 

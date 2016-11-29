@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables actions for the specified alarms. When an alarm's actions are disabled the alarm's state may change, but none of the alarm's actions will execute.
+-- Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.
 --
 --
 module Network.AWS.CloudWatch.DisableAlarmActions
@@ -41,11 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- |
---
---
---
--- /See:/ 'disableAlarmActions' smart constructor.
+-- | /See:/ 'disableAlarmActions' smart constructor.
 newtype DisableAlarmActions = DisableAlarmActions'
     { _daaAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -54,7 +50,7 @@ newtype DisableAlarmActions = DisableAlarmActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daaAlarmNames' - The names of the alarms to disable actions for.
+-- * 'daaAlarmNames' - The names of the alarms.
 disableAlarmActions
     :: DisableAlarmActions
 disableAlarmActions =
@@ -62,7 +58,7 @@ disableAlarmActions =
     { _daaAlarmNames = mempty
     }
 
--- | The names of the alarms to disable actions for.
+-- | The names of the alarms.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]
 daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a}) . _Coerce;
 

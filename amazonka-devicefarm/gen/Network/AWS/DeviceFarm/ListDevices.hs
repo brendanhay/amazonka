@@ -63,7 +63,7 @@ data ListDevices = ListDevices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldArn' - The device types' ARNs.
+-- * 'ldArn' - The Amazon Resource Name (ARN) of the project.
 --
 -- * 'ldNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listDevices
@@ -74,7 +74,7 @@ listDevices =
     , _ldNextToken = Nothing
     }
 
--- | The device types' ARNs.
+-- | The Amazon Resource Name (ARN) of the project.
 ldArn :: Lens' ListDevices (Maybe Text)
 ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 

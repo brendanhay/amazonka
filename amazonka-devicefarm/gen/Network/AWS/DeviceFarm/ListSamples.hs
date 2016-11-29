@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about samples.
+-- Gets information about samples, given an AWS Device Farm project ARN
 --
 --
 --
@@ -65,7 +65,7 @@ data ListSamples = ListSamples'
 --
 -- * 'lsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lsArn' - The samples' ARNs.
+-- * 'lsArn' - The Amazon Resource Name (ARN) of the project for which you want to list samples.
 listSamples
     :: Text -- ^ 'lsArn'
     -> ListSamples
@@ -79,7 +79,7 @@ listSamples pArn_ =
 lsNextToken :: Lens' ListSamples (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
--- | The samples' ARNs.
+-- | The Amazon Resource Name (ARN) of the project for which you want to list samples.
 lsArn :: Lens' ListSamples Text
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 

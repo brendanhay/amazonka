@@ -69,7 +69,7 @@ data ListArtifacts = ListArtifacts'
 --
 -- * 'laArn' - The Run, Job, Suite, or Test ARN.
 --
--- * 'laType' - The artifacts' type. Allowed values include:     * FILE: The artifacts are files.    * LOG: The artifacts are logs.    * SCREENSHOT: The artifacts are screenshots.
+-- * 'laType' - The artifacts' type. Allowed values include:     * FILE: The artifacts are files.     * LOG: The artifacts are logs.     * SCREENSHOT: The artifacts are screenshots.
 listArtifacts
     :: Text -- ^ 'laArn'
     -> ArtifactCategory -- ^ 'laType'
@@ -89,7 +89,7 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 laArn :: Lens' ListArtifacts Text
 laArn = lens _laArn (\ s a -> s{_laArn = a});
 
--- | The artifacts' type. Allowed values include:     * FILE: The artifacts are files.    * LOG: The artifacts are logs.    * SCREENSHOT: The artifacts are screenshots.
+-- | The artifacts' type. Allowed values include:     * FILE: The artifacts are files.     * LOG: The artifacts are logs.     * SCREENSHOT: The artifacts are screenshots.
 laType :: Lens' ListArtifacts ArtifactCategory
 laType = lens _laType (\ s a -> s{_laType = a});
 

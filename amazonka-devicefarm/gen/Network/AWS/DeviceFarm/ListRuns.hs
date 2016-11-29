@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about runs.
+-- Gets information about runs, given an AWS Device Farm project ARN.
 --
 --
 --
@@ -65,7 +65,7 @@ data ListRuns = ListRuns'
 --
 -- * 'lrNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
--- * 'lrArn' - The runs' ARNs.
+-- * 'lrArn' - The Amazon Resource Name (ARN) of the project for which you want to list runs.
 listRuns
     :: Text -- ^ 'lrArn'
     -> ListRuns
@@ -79,7 +79,7 @@ listRuns pArn_ =
 lrNextToken :: Lens' ListRuns (Maybe Text)
 lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
--- | The runs' ARNs.
+-- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
 lrArn :: Lens' ListRuns Text
 lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
 

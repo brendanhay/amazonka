@@ -63,7 +63,7 @@ data ListProjects = ListProjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lpArn' - The projects' ARNs.
+-- * 'lpArn' - Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
 --
 -- * 'lpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 listProjects
@@ -74,7 +74,7 @@ listProjects =
     , _lpNextToken = Nothing
     }
 
--- | The projects' ARNs.
+-- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
 lpArn :: Lens' ListProjects (Maybe Text)
 lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
 

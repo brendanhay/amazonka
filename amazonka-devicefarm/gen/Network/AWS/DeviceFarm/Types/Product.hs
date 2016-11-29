@@ -1705,7 +1705,7 @@ data Run = Run'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'runBillingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @unmetered@ .
+-- * 'runBillingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 --
 -- * 'runStatus' - The run's status. Allowed values include:     * PENDING: A pending status.     * PENDING_CONCURRENCY: A pending concurrency status.     * PENDING_DEVICE: A pending device status.     * PROCESSING: A processing status.     * SCHEDULING: A scheduling status.     * PREPARING: A preparing status.     * RUNNING: A running status.     * COMPLETED: A completed status.     * STOPPING: A stopping status.
 --
@@ -1755,7 +1755,7 @@ run =
     , _runStarted = Nothing
     }
 
--- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @unmetered@ .
+-- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 runBillingMethod :: Lens' Run (Maybe BillingMethod)
 runBillingMethod = lens _runBillingMethod (\ s a -> s{_runBillingMethod = a});
 
@@ -1910,7 +1910,7 @@ data ScheduleRunConfiguration = ScheduleRunConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srcBillingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @unmetered@ .
+-- * 'srcBillingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 --
 -- * 'srcRadios' - Information about the radio states for the run.
 --
@@ -1936,7 +1936,7 @@ scheduleRunConfiguration =
     , _srcAuxiliaryApps = Nothing
     }
 
--- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @unmetered@ .
+-- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 srcBillingMethod :: Lens' ScheduleRunConfiguration (Maybe BillingMethod)
 srcBillingMethod = lens _srcBillingMethod (\ s a -> s{_srcBillingMethod = a});
 

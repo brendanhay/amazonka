@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified Application load balancers or all of your Application load balancers.
+-- Describes the specified Application Load Balancers or all of your Application Load Balancers.
 --
 --
 -- To describe the listeners for a load balancer, use 'DescribeListeners' . To describe the attributes for a load balancer, use 'DescribeLoadBalancerAttributes' .

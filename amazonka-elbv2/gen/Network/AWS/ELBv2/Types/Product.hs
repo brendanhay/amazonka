@@ -425,7 +425,7 @@ data LoadBalancerAttribute = LoadBalancerAttribute'
 --
 -- * 'lbaValue' - The value of the attribute.
 --
--- * 'lbaKey' - The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled.     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled.     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
+-- * 'lbaKey' - The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
 loadBalancerAttribute
     :: LoadBalancerAttribute
 loadBalancerAttribute =
@@ -438,7 +438,7 @@ loadBalancerAttribute =
 lbaValue :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaValue = lens _lbaValue (\ s a -> s{_lbaValue = a});
 
--- | The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled.     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled.     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
+-- | The name of the attribute.     * @access_logs.s3.enabled@ - Indicates whether access logs stored in Amazon S3 are enabled. The value is @true@ or @false@ .     * @access_logs.s3.bucket@ - The name of the S3 bucket for the access logs. This attribute is required if access logs in Amazon S3 are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permission to write to the bucket.     * @access_logs.s3.prefix@ - The prefix for the location in the S3 bucket. If you don't specify a prefix, the access logs are stored in the root of the bucket.     * @deletion_protection.enabled@ - Indicates whether deletion protection is enabled. The value is @true@ or @false@ .     * @idle_timeout.timeout_seconds@ - The idle timeout value, in seconds. The valid range is 1-3600. The default is 60 seconds.
 lbaKey :: Lens' LoadBalancerAttribute (Maybe Text)
 lbaKey = lens _lbaKey (\ s a -> s{_lbaKey = a});
 
@@ -621,9 +621,9 @@ data RuleCondition = RuleCondition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcField' - The name of the field. The possible value is @path-pattern@ .
+-- * 'rcField' - The only possible value is @path-pattern@ .
 --
--- * 'rcValues' - The values for the field. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * &amp; (using &amp;amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'rcValues' - The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 ruleCondition
     :: RuleCondition
 ruleCondition =
@@ -632,11 +632,11 @@ ruleCondition =
     , _rcValues = Nothing
     }
 
--- | The name of the field. The possible value is @path-pattern@ .
+-- | The only possible value is @path-pattern@ .
 rcField :: Lens' RuleCondition (Maybe Text)
 rcField = lens _rcField (\ s a -> s{_rcField = a});
 
--- | The values for the field. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * &amp; (using &amp;amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 rcValues :: Lens' RuleCondition [Text]
 rcValues = lens _rcValues (\ s a -> s{_rcValues = a}) . _Default . _Coerce;
 
@@ -1061,7 +1061,7 @@ data TargetGroupAttribute = TargetGroupAttribute'
 --
 -- * 'tgaValue' - The value of the attribute.
 --
--- * 'tgaKey' - The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled.     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+-- * 'tgaKey' - The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 targetGroupAttribute
     :: TargetGroupAttribute
 targetGroupAttribute =
@@ -1074,7 +1074,7 @@ targetGroupAttribute =
 tgaValue :: Lens' TargetGroupAttribute (Maybe Text)
 tgaValue = lens _tgaValue (\ s a -> s{_tgaValue = a});
 
--- | The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled.     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
+-- | The name of the attribute.     * @deregistration_delay.timeout_seconds@ - The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from @draining@ to @unused@ . The range is 0-3600 seconds. The default value is 300 seconds.     * @stickiness.enabled@ - Indicates whether sticky sessions are enabled. The value is @true@ or @false@ .     * @stickiness.type@ - The type of sticky sessions. The possible value is @lb_cookie@ .     * @stickiness.lb_cookie.duration_seconds@ - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 tgaKey :: Lens' TargetGroupAttribute (Maybe Text)
 tgaKey = lens _tgaKey (\ s a -> s{_tgaKey = a});
 

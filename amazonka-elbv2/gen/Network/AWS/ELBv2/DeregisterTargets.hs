@@ -60,7 +60,7 @@ data DeregisterTargets = DeregisterTargets'
 --
 -- * 'dtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'dtTargets' - The targets.
+-- * 'dtTargets' - The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 deregisterTargets
     :: Text -- ^ 'dtTargetGroupARN'
     -> DeregisterTargets
@@ -74,7 +74,7 @@ deregisterTargets pTargetGroupARN_ =
 dtTargetGroupARN :: Lens' DeregisterTargets Text
 dtTargetGroupARN = lens _dtTargetGroupARN (\ s a -> s{_dtTargetGroupARN = a});
 
--- | The targets.
+-- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
 dtTargets :: Lens' DeregisterTargets [TargetDescription]
 dtTargets = lens _dtTargets (\ s a -> s{_dtTargets = a}) . _Coerce;
 

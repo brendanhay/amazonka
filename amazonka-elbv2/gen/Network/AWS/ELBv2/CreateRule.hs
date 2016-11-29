@@ -21,7 +21,7 @@
 -- Creates a rule for the specified listener.
 --
 --
--- A rule consists conditions and actions. Rules are evaluated in priority order, from the lowest value to the highest value. When the conditions for a rule are met, the specified actions are taken. If no rule's conditions are met, the default actions for the listener are taken.
+-- Each rule can have one action and one condition. Rules are evaluated in priority order, from the lowest value to the highest value. When the condition for a rule is met, the specified action is taken. If no conditions are met, the default action for the default rule is taken. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules Listener Rules> in the /Application Load Balancers Guide/ .
 --
 -- To view your current rules, use 'DescribeRules' . To update a rule, use 'ModifyRule' . To set the priorities of your rules, use 'SetRulePriorities' . To delete a rule, use 'DeleteRule' .
 --
@@ -69,11 +69,11 @@ data CreateRule = CreateRule'
 --
 -- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'crConditions' - The conditions.
+-- * 'crConditions' - A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 --
 -- * 'crPriority' - The priority for the rule. A listener can't have multiple rules with the same priority.
 --
--- * 'crActions' - The actions for the rule.
+-- * 'crActions' - An action. Each action has the type @forward@ and specifies a target group.
 createRule
     :: Text -- ^ 'crListenerARN'
     -> Natural -- ^ 'crPriority'
@@ -90,7 +90,7 @@ createRule pListenerARN_ pPriority_ =
 crListenerARN :: Lens' CreateRule Text
 crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a});
 
--- | The conditions.
+-- | A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 crConditions :: Lens' CreateRule [RuleCondition]
 crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
 
@@ -98,7 +98,7 @@ crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
 crPriority :: Lens' CreateRule Natural
 crPriority = lens _crPriority (\ s a -> s{_crPriority = a}) . _Nat;
 
--- | The actions for the rule.
+-- | An action. Each action has the type @forward@ and specifies a target group.
 crActions :: Lens' CreateRule [Action]
 crActions = lens _crActions (\ s a -> s{_crActions = a}) . _Coerce;
 

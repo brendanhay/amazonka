@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Application load balancer.
+-- Creates an Application Load Balancer.
 --
 --
 -- To create listeners for your load balancer, use 'CreateListener' . You can add security groups, subnets, and tags when you create your load balancer, or you can add them later using 'SetSecurityGroups' , 'SetSubnets' , and 'AddTags' .
@@ -26,6 +26,8 @@
 -- To describe your current load balancers, see 'DescribeLoadBalancers' . When you are finished with a load balancer, you can delete it using 'DeleteLoadBalancer' .
 --
 -- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/ .
+--
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html Application Load Balancers> in the /Application Load Balancers Guide/ .
 --
 module Network.AWS.ELBv2.CreateLoadBalancer
     (

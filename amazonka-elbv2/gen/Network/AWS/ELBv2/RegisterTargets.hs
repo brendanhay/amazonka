@@ -21,7 +21,9 @@
 -- Registers the specified targets with the specified target group.
 --
 --
--- The target must be in the virtual private cloud (VPC) that you specified for the target group.
+-- By default, the load balancer routes requests to registered targets using the protocol and port number for the target group. Alternatively, you can override the port for a target when you register it.
+--
+-- The target must be in the virtual private cloud (VPC) that you specified for the target group. If the target is an EC2 instance, it can't be in the @stopped@ or @running@ state when you register it.
 --
 -- To remove a target from a target group, use 'DeregisterTargets' .
 --
@@ -64,7 +66,7 @@ data RegisterTargets = RegisterTargets'
 --
 -- * 'rtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 --
--- * 'rtTargets' - The targets.
+-- * 'rtTargets' - The targets. The default port for a target is the port for the target group. You can specify a port override. If a target is already registered, you can register it again using a different port.
 registerTargets
     :: Text -- ^ 'rtTargetGroupARN'
     -> RegisterTargets
@@ -78,7 +80,7 @@ registerTargets pTargetGroupARN_ =
 rtTargetGroupARN :: Lens' RegisterTargets Text
 rtTargetGroupARN = lens _rtTargetGroupARN (\ s a -> s{_rtTargetGroupARN = a});
 
--- | The targets.
+-- | The targets. The default port for a target is the port for the target group. You can specify a port override. If a target is already registered, you can register it again using a different port.
 rtTargets :: Lens' RegisterTargets [TargetDescription]
 rtTargets = lens _rtTargets (\ s a -> s{_rtTargets = a}) . _Coerce;
 

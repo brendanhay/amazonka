@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a listener for the specified Application load balancer.
+-- Creates a listener for the specified Application Load Balancer.
 --
+--
+-- You can create up to 10 listeners per load balancer.
 --
 -- To update a listener, use 'ModifyListener' . When you are finished with a listener, you can delete it using 'DeleteListener' . If you are finished with both the listener and the load balancer, you can delete them both using 'DeleteLoadBalancer' .
 --
@@ -81,7 +83,7 @@ data CreateListener = CreateListener'
 --
 -- * 'clPort' - The port on which the load balancer is listening.
 --
--- * 'clDefaultActions' - The default actions for the listener.
+-- * 'clDefaultActions' - The default action for the listener.
 createListener
     :: Text -- ^ 'clLoadBalancerARN'
     -> ProtocolEnum -- ^ 'clProtocol'
@@ -117,7 +119,7 @@ clProtocol = lens _clProtocol (\ s a -> s{_clProtocol = a});
 clPort :: Lens' CreateListener Natural
 clPort = lens _clPort (\ s a -> s{_clPort = a}) . _Nat;
 
--- | The default actions for the listener.
+-- | The default action for the listener.
 clDefaultActions :: Lens' CreateListener [Action]
 clDefaultActions = lens _clDefaultActions (\ s a -> s{_clDefaultActions = a}) . _Coerce;
 

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Add tags to a CloudFront resource.
+--
+--
 module Network.AWS.CloudFront.TagResource
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The request to add tags to a CloudFront resource.
 --
+--
+--
 -- /See:/ 'tagResource' smart constructor.
 data TagResource = TagResource'
     { _trResource :: !Text
@@ -54,7 +58,7 @@ data TagResource = TagResource'
 --
 -- * 'trResource' - An ARN of a CloudFront resource.
 --
--- * 'trTags' - A complex type that contains zero or more Tag elements.
+-- * 'trTags' - A complex type that contains zero or more @Tag@ elements.
 tagResource
     :: Text -- ^ 'trResource'
     -> Tags -- ^ 'trTags'
@@ -69,7 +73,7 @@ tagResource pResource_ pTags_ =
 trResource :: Lens' TagResource Text
 trResource = lens _trResource (\ s a -> s{_trResource = a});
 
--- | A complex type that contains zero or more Tag elements.
+-- | A complex type that contains zero or more @Tag@ elements.
 trTags :: Lens' TagResource Tags
 trTags = lens _trTags (\ s a -> s{_trTags = a});
 
@@ -85,7 +89,7 @@ instance NFData TagResource
 instance ToElement TagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}Tags"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}Tags"
               .
               _trTags
 
@@ -93,7 +97,7 @@ instance ToHeaders TagResource where
         toHeaders = const mempty
 
 instance ToPath TagResource where
-        toPath = const "/2016-09-07/tagging"
+        toPath = const "/2016-09-29/tagging"
 
 instance ToQuery TagResource where
         toQuery TagResource'{..}

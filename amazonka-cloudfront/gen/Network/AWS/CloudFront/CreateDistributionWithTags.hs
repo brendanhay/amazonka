@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new distribution with tags.
+--
+--
 module Network.AWS.CloudFront.CreateDistributionWithTags
     (
     -- * Creating a Request
@@ -44,7 +46,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to create a new distribution with tags
+-- | The request to create a new distribution with tags.
+--
+--
 --
 -- /See:/ 'createDistributionWithTags' smart constructor.
 newtype CreateDistributionWithTags = CreateDistributionWithTags'
@@ -87,7 +91,7 @@ instance NFData CreateDistributionWithTags
 instance ToElement CreateDistributionWithTags where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}DistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}DistributionConfigWithTags"
               .
               _cdwtDistributionConfigWithTags
 
@@ -95,12 +99,14 @@ instance ToHeaders CreateDistributionWithTags where
         toHeaders = const mempty
 
 instance ToPath CreateDistributionWithTags where
-        toPath = const "/2016-09-07/distribution"
+        toPath = const "/2016-09-29/distribution"
 
 instance ToQuery CreateDistributionWithTags where
         toQuery = const (mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'createDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
@@ -118,7 +124,7 @@ data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
 --
 -- * 'cdwtrsDistribution' - The distribution's information.
 --
--- * 'cdwtrsLocation' - The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+-- * 'cdwtrsLocation' - The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 --
 -- * 'cdwtrsResponseStatus' - -- | The response status code.
 createDistributionWithTagsResponse
@@ -140,7 +146,7 @@ cdwtrsETag = lens _cdwtrsETag (\ s a -> s{_cdwtrsETag = a});
 cdwtrsDistribution :: Lens' CreateDistributionWithTagsResponse (Maybe Distribution)
 cdwtrsDistribution = lens _cdwtrsDistribution (\ s a -> s{_cdwtrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 cdwtrsLocation :: Lens' CreateDistributionWithTagsResponse (Maybe Text)
 cdwtrsLocation = lens _cdwtrsLocation (\ s a -> s{_cdwtrsLocation = a});
 

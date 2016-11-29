@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new invalidation.
+--
+--
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The request to create an invalidation.
+--
+--
 --
 -- /See:/ 'createInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
@@ -95,7 +99,7 @@ instance NFData CreateInvalidation
 instance ToElement CreateInvalidation where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}InvalidationBatch"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}InvalidationBatch"
               .
               _ciInvalidationBatch
 
@@ -105,13 +109,15 @@ instance ToHeaders CreateInvalidation where
 instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _ciDistributionId,
+              ["/2016-09-29/distribution/", toBS _ciDistributionId,
                "/invalidation"]
 
 instance ToQuery CreateInvalidation where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'createInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
@@ -126,7 +132,7 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 --
 -- * 'cirsInvalidation' - The invalidation's information.
 --
--- * 'cirsLocation' - The fully qualified URI of the distribution and invalidation batch request, including the Invalidation ID.
+-- * 'cirsLocation' - The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
 --
 -- * 'cirsResponseStatus' - -- | The response status code.
 createInvalidationResponse
@@ -143,7 +149,7 @@ createInvalidationResponse pResponseStatus_ =
 cirsInvalidation :: Lens' CreateInvalidationResponse (Maybe Invalidation)
 cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 
--- | The fully qualified URI of the distribution and invalidation batch request, including the Invalidation ID.
+-- | The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 

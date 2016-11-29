@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the configuration information about a distribution.
+--
+--
 module Network.AWS.CloudFront.GetDistributionConfig
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The request to get a distribution configuration.
 --
+--
+--
 -- /See:/ 'getDistributionConfig' smart constructor.
 newtype GetDistributionConfig = GetDistributionConfig'
     { _gdcId :: Text
@@ -54,7 +58,7 @@ newtype GetDistributionConfig = GetDistributionConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcId' - The distribution's id.
+-- * 'gdcId' - The distribution's ID.
 getDistributionConfig
     :: Text -- ^ 'gdcId'
     -> GetDistributionConfig
@@ -63,7 +67,7 @@ getDistributionConfig pId_ =
     { _gdcId = pId_
     }
 
--- | The distribution's id.
+-- | The distribution's ID.
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
@@ -88,12 +92,14 @@ instance ToHeaders GetDistributionConfig where
 instance ToPath GetDistributionConfig where
         toPath GetDistributionConfig'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _gdcId, "/config"]
+              ["/2016-09-29/distribution/", toBS _gdcId, "/config"]
 
 instance ToQuery GetDistributionConfig where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'getDistributionConfigResponse' smart constructor.
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
@@ -106,7 +112,7 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- * 'gdcrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'gdcrsDistributionConfig' - The distribution's configuration information.
 --
@@ -121,7 +127,7 @@ getDistributionConfigResponse pResponseStatus_ =
     , _gdcrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
 gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
 

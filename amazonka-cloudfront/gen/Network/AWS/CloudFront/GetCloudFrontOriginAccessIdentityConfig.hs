@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the configuration information about an origin access identity.
+--
+--
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     (
     -- * Creating a Request
@@ -43,7 +45,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to get an origin access identity's configuration.
+-- | The origin access identity's configuration information. For more information, see 'CloudFrontOriginAccessIdentityConfigComplexType' .
+--
+--
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfig' smart constructor.
 newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig'
@@ -54,7 +58,7 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfoaicId' - The identity's id.
+-- * 'gcfoaicId' - The identity's ID.
 getCloudFrontOriginAccessIdentityConfig
     :: Text -- ^ 'gcfoaicId'
     -> GetCloudFrontOriginAccessIdentityConfig
@@ -63,7 +67,7 @@ getCloudFrontOriginAccessIdentityConfig pId_ =
     { _gcfoaicId = pId_
     }
 
--- | The identity's id.
+-- | The identity's ID.
 gcfoaicId :: Lens' GetCloudFrontOriginAccessIdentityConfig Text
 gcfoaicId = lens _gcfoaicId (\ s a -> s{_gcfoaicId = a});
 
@@ -93,7 +97,7 @@ instance ToPath
          GetCloudFrontOriginAccessIdentityConfig where
         toPath GetCloudFrontOriginAccessIdentityConfig'{..}
           = mconcat
-              ["/2016-09-07/origin-access-identity/cloudfront/",
+              ["/2016-09-29/origin-access-identity/cloudfront/",
                toBS _gcfoaicId, "/config"]
 
 instance ToQuery
@@ -101,6 +105,8 @@ instance ToQuery
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
@@ -115,7 +121,7 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
 --
 -- * 'gcfoaicrsCloudFrontOriginAccessIdentityConfig' - The origin access identity's configuration information.
 --
--- * 'gcfoaicrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- * 'gcfoaicrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'gcfoaicrsResponseStatus' - -- | The response status code.
 getCloudFrontOriginAccessIdentityConfigResponse
@@ -132,7 +138,7 @@ getCloudFrontOriginAccessIdentityConfigResponse pResponseStatus_ =
 gcfoaicrsCloudFrontOriginAccessIdentityConfig :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe CloudFrontOriginAccessIdentityConfig)
 gcfoaicrsCloudFrontOriginAccessIdentityConfig = lens _gcfoaicrsCloudFrontOriginAccessIdentityConfig (\ s a -> s{_gcfoaicrsCloudFrontOriginAccessIdentityConfig = a});
 
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 gcfoaicrsETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Maybe Text)
 gcfoaicrsETag = lens _gcfoaicrsETag (\ s a -> s{_gcfoaicrsETag = a});
 

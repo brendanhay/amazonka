@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- List tags for a CloudFront resource.
+--
+--
 module Network.AWS.CloudFront.ListTagsForResource
     (
     -- * Creating a Request
@@ -43,6 +45,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The request to list tags for a CloudFront resource.
+--
+--
 --
 -- /See:/ 'listTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
@@ -84,13 +88,15 @@ instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
 
 instance ToPath ListTagsForResource where
-        toPath = const "/2016-09-07/tagging"
+        toPath = const "/2016-09-29/tagging"
 
 instance ToQuery ListTagsForResource where
         toQuery ListTagsForResource'{..}
           = mconcat ["Resource" =: _ltfrResource]
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
@@ -104,7 +110,7 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- * 'ltfrrsResponseStatus' - -- | The response status code.
 --
--- * 'ltfrrsTags' - A complex type that contains zero or more Tag elements.
+-- * 'ltfrrsTags' - A complex type that contains zero or more @Tag@ elements.
 listTagsForResourceResponse
     :: Int -- ^ 'ltfrrsResponseStatus'
     -> Tags -- ^ 'ltfrrsTags'
@@ -119,7 +125,7 @@ listTagsForResourceResponse pResponseStatus_ pTags_ =
 ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
 
--- | A complex type that contains zero or more Tag elements.
+-- | A complex type that contains zero or more @Tag@ elements.
 ltfrrsTags :: Lens' ListTagsForResourceResponse Tags
 ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a});
 

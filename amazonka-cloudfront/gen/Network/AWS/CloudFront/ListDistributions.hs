@@ -20,6 +20,8 @@
 --
 -- List distributions.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
     (
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The request to list your distributions.
 --
+--
+--
 -- /See:/ 'listDistributions' smart constructor.
 data ListDistributions = ListDistributions'
     { _ldMarker   :: !(Maybe Text)
@@ -58,9 +62,9 @@ data ListDistributions = ListDistributions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldMarker' - Use Marker and MaxItems to control pagination of results. If you have more than MaxItems distributions that satisfy the request, the response includes a NextMarker element. To get the next page of results, submit another request. For the value of Marker, specify the value of NextMarker from the last response. (For the first request, omit Marker.)
+-- * 'ldMarker' - Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 --
--- * 'ldMaxItems' - The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
+-- * 'ldMaxItems' - The maximum number of distributions you want in the response body.
 listDistributions
     :: ListDistributions
 listDistributions =
@@ -69,11 +73,11 @@ listDistributions =
     , _ldMaxItems = Nothing
     }
 
--- | Use Marker and MaxItems to control pagination of results. If you have more than MaxItems distributions that satisfy the request, the response includes a NextMarker element. To get the next page of results, submit another request. For the value of Marker, specify the value of NextMarker from the last response. (For the first request, omit Marker.)
+-- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
 ldMarker :: Lens' ListDistributions (Maybe Text)
 ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
--- | The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
+-- | The maximum number of distributions you want in the response body.
 ldMaxItems :: Lens' ListDistributions (Maybe Text)
 ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
@@ -106,7 +110,7 @@ instance ToHeaders ListDistributions where
         toHeaders = const mempty
 
 instance ToPath ListDistributions where
-        toPath = const "/2016-09-07/distribution"
+        toPath = const "/2016-09-29/distribution"
 
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}
@@ -114,6 +118,8 @@ instance ToQuery ListDistributions where
               ["Marker" =: _ldMarker, "MaxItems" =: _ldMaxItems]
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'listDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
@@ -127,7 +133,7 @@ data ListDistributionsResponse = ListDistributionsResponse'
 --
 -- * 'ldrsResponseStatus' - -- | The response status code.
 --
--- * 'ldrsDistributionList' - The DistributionList type.
+-- * 'ldrsDistributionList' - The @DistributionList@ type.
 listDistributionsResponse
     :: Int -- ^ 'ldrsResponseStatus'
     -> DistributionList -- ^ 'ldrsDistributionList'
@@ -142,7 +148,7 @@ listDistributionsResponse pResponseStatus_ pDistributionList_ =
 ldrsResponseStatus :: Lens' ListDistributionsResponse Int
 ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a});
 
--- | The DistributionList type.
+-- | The @DistributionList@ type.
 ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a});
 

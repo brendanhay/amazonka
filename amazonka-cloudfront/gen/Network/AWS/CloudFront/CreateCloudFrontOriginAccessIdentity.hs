@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new origin access identity.
+-- Creates a new origin access identity. If you're using Amazon S3 for your origin, you can use an origin access identity to require users to access your content using a CloudFront URL instead of the Amazon S3 URL. For more information about how to use origin access identities, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+--
+--
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -46,6 +48,8 @@ import           Network.AWS.Response
 
 -- | The request to create a new origin access identity.
 --
+--
+--
 -- /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
@@ -55,7 +59,7 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' - The origin access identity's configuration information.
+-- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' - The current configuration information for the identity.
 createCloudFrontOriginAccessIdentity
     :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
     -> CreateCloudFrontOriginAccessIdentity
@@ -64,7 +68,7 @@ createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
     }
 
--- | The origin access identity's configuration information.
+-- | The current configuration information for the identity.
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
 ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoaiCloudFrontOriginAccessIdentityConfig = a});
 
@@ -90,7 +94,7 @@ instance ToElement
          CreateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}CloudFrontOriginAccessIdentityConfig"
               .
               _ccfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -102,13 +106,15 @@ instance ToPath CreateCloudFrontOriginAccessIdentity
          where
         toPath
           = const
-              "/2016-09-07/origin-access-identity/cloudfront"
+              "/2016-09-29/origin-access-identity/cloudfront"
 
 instance ToQuery CreateCloudFrontOriginAccessIdentity
          where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
@@ -124,7 +130,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 --
 -- * 'ccfoairsETag' - The current version of the origin access identity created.
 --
--- * 'ccfoairsLocation' - The fully qualified URI of the new origin access identity just created. For example: https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
+-- * 'ccfoairsLocation' - The fully qualified URI of the new origin access identity just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A@ .
 --
 -- * 'ccfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
 --
@@ -144,7 +150,7 @@ createCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
 ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsETag = lens _ccfoairsETag (\ s a -> s{_ccfoairsETag = a});
 
--- | The fully qualified URI of the new origin access identity just created. For example: https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
+-- | The fully qualified URI of the new origin access identity just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A@ .
 ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ccfoairsLocation = lens _ccfoairsLocation (\ s a -> s{_ccfoairsLocation = a});
 

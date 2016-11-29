@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new streaming distribution with tags.
+--
+--
 module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The request to create a new streaming distribution with tags.
+--
+--
 --
 -- /See:/ 'createStreamingDistributionWithTags' smart constructor.
 newtype CreateStreamingDistributionWithTags = CreateStreamingDistributionWithTags'
@@ -89,7 +93,7 @@ instance ToElement
          CreateStreamingDistributionWithTags where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}StreamingDistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}StreamingDistributionConfigWithTags"
               .
               _csdwtStreamingDistributionConfigWithTags
 
@@ -99,13 +103,15 @@ instance ToHeaders
 
 instance ToPath CreateStreamingDistributionWithTags
          where
-        toPath = const "/2016-09-07/streaming-distribution"
+        toPath = const "/2016-09-29/streaming-distribution"
 
 instance ToQuery CreateStreamingDistributionWithTags
          where
         toQuery = const (mconcat ["WithTags"])
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'createStreamingDistributionWithTagsResponse' smart constructor.
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
@@ -119,9 +125,9 @@ data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWi
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdwtrsETag' - The current version of the streaming distribution created.
+-- * 'csdwtrsETag' - Undocumented member.
 --
--- * 'csdwtrsLocation' - The fully qualified URI of the new streaming distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
+-- * 'csdwtrsLocation' - The fully qualified URI of the new streaming distribution resource just created. For example:@https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
 --
 -- * 'csdwtrsStreamingDistribution' - The streaming distribution's information.
 --
@@ -137,11 +143,11 @@ createStreamingDistributionWithTagsResponse pResponseStatus_ =
     , _csdwtrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the streaming distribution created.
+-- | Undocumented member.
 csdwtrsETag :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
 csdwtrsETag = lens _csdwtrsETag (\ s a -> s{_csdwtrsETag = a});
 
--- | The fully qualified URI of the new streaming distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8.
+-- | The fully qualified URI of the new streaming distribution resource just created. For example:@https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
 csdwtrsLocation :: Lens' CreateStreamingDistributionWithTagsResponse (Maybe Text)
 csdwtrsLocation = lens _csdwtrsLocation (\ s a -> s{_csdwtrsLocation = a});
 

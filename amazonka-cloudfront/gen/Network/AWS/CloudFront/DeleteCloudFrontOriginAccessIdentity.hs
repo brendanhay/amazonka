@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete an origin access identity.
+--
+--
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -40,7 +42,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to delete a origin access identity.
+-- | Deletes a origin access identity.
+--
+--
 --
 -- /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
@@ -52,9 +56,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcfoaiIfMatch' - The value of the ETag header you received from a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
+-- * 'dcfoaiIfMatch' - The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
 --
--- * 'dcfoaiId' - The origin access identity's id.
+-- * 'dcfoaiId' - The origin access identity's ID.
 deleteCloudFrontOriginAccessIdentity
     :: Text -- ^ 'dcfoaiId'
     -> DeleteCloudFrontOriginAccessIdentity
@@ -64,11 +68,11 @@ deleteCloudFrontOriginAccessIdentity pId_ =
     , _dcfoaiId = pId_
     }
 
--- | The value of the ETag header you received from a previous GET or PUT request. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 
--- | The origin access identity's id.
+-- | The origin access identity's ID.
 dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
 dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 
@@ -95,7 +99,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-09-07/origin-access-identity/cloudfront/",
+              ["/2016-09-29/origin-access-identity/cloudfront/",
                toBS _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity

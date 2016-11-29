@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get the information about a streaming distribution.
+-- Gets information about a specified RTMP distribution, including the distribution configuration.
+--
+--
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The request to get a streaming distribution's information.
 --
+--
+--
 -- /See:/ 'getStreamingDistribution' smart constructor.
 newtype GetStreamingDistribution = GetStreamingDistribution'
     { _gsdId :: Text
@@ -54,7 +58,7 @@ newtype GetStreamingDistribution = GetStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdId' - The streaming distribution's id.
+-- * 'gsdId' - The streaming distribution's ID.
 getStreamingDistribution
     :: Text -- ^ 'gsdId'
     -> GetStreamingDistribution
@@ -63,7 +67,7 @@ getStreamingDistribution pId_ =
     { _gsdId = pId_
     }
 
--- | The streaming distribution's id.
+-- | The streaming distribution's ID.
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
@@ -88,12 +92,14 @@ instance ToHeaders GetStreamingDistribution where
 instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
-              ["/2016-09-07/streaming-distribution/", toBS _gsdId]
+              ["/2016-09-29/streaming-distribution/", toBS _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'getStreamingDistributionResponse' smart constructor.
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
@@ -106,7 +112,7 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsdrsETag' - The current version of the streaming distribution's information. For example: E2QWRUHAPOMQZL.
+-- * 'gsdrsETag' - The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'gsdrsStreamingDistribution' - The streaming distribution's information.
 --
@@ -121,7 +127,7 @@ getStreamingDistributionResponse pResponseStatus_ =
     , _gsdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the streaming distribution's information. For example: E2QWRUHAPOMQZL.
+-- | The current version of the streaming distribution's information. For example: @E2QWRUHAPOMQZL@ .
 gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
 gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 

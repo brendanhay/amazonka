@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a distribution.
+--
+--
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Creating a Request
@@ -40,7 +42,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The request to delete a distribution.
+-- | This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.
+--
+--
+-- __To delete a web distribution using the CloudFront API:__
+--
+--     * Disable the web distribution
+--
+--     * Submit a @GET Distribution Config@ request to get the current configuration and the @Etag@ header for the distribution.
+--
+--     * Update the XML document that was returned in the response to your @GET Distribution Config@ request to change the value of @Enabled@ to @false@ .
+--
+--     * Submit a @PUT Distribution Config@ request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Distribution Config@ request in Step 2.
+--
+--     * Review the response to the @PUT Distribution Config@ request to confirm that the distribution was successfully disabled.
+--
+--     * Submit a @GET Distribution@ request to confirm that your changes have propagated. When propagation is complete, the value of @Status@ is @Deployed@ .
+--
+--     * Submit a @DELETE Distribution@ request. Set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Distribution Config@ request in Step 6.
+--
+--     * Review the response to your @DELETE Distribution@ request to confirm that the distribution was successfully deleted.
+--
+--
+--
+-- For information about deleting a distribution using the CloudFront console, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html Deleting a Distribution> in the /Amazon CloudFront Developer Guide/ .
+--
 --
 -- /See:/ 'deleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
@@ -52,9 +78,9 @@ data DeleteDistribution = DeleteDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddIfMatch' - The value of the ETag header you received when you disabled the distribution. For example: E2QWRUHAPOMQZL.
+-- * 'ddIfMatch' - The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
 --
--- * 'ddId' - The distribution id.
+-- * 'ddId' - The distribution ID.
 deleteDistribution
     :: Text -- ^ 'ddId'
     -> DeleteDistribution
@@ -64,11 +90,11 @@ deleteDistribution pId_ =
     , _ddId = pId_
     }
 
--- | The value of the ETag header you received when you disabled the distribution. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a});
 
--- | The distribution id.
+-- | The distribution ID.
 ddId :: Lens' DeleteDistribution Text
 ddId = lens _ddId (\ s a -> s{_ddId = a});
 
@@ -88,7 +114,7 @@ instance ToHeaders DeleteDistribution where
 
 instance ToPath DeleteDistribution where
         toPath DeleteDistribution'{..}
-          = mconcat ["/2016-09-07/distribution/", toBS _ddId]
+          = mconcat ["/2016-09-29/distribution/", toBS _ddId]
 
 instance ToQuery DeleteDistribution where
         toQuery = const mempty

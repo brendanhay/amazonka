@@ -20,6 +20,8 @@
 --
 -- List streaming distributions.
 --
+--
+--
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
@@ -48,6 +50,8 @@ import           Network.AWS.Response
 
 -- | The request to list your streaming distributions.
 --
+--
+--
 -- /See:/ 'listStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
     { _lsdMarker   :: !(Maybe Text)
@@ -58,9 +62,9 @@ data ListStreamingDistributions = ListStreamingDistributions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsdMarker' - Use this when paginating results to indicate where to begin in your list of streaming distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response (which is also the ID of the last distribution on that page).
+-- * 'lsdMarker' - The value that you provided for the @Marker@ request parameter.
 --
--- * 'lsdMaxItems' - The maximum number of streaming distributions you want in the response body.
+-- * 'lsdMaxItems' - The value that you provided for the @MaxItems@ request parameter.
 listStreamingDistributions
     :: ListStreamingDistributions
 listStreamingDistributions =
@@ -69,11 +73,11 @@ listStreamingDistributions =
     , _lsdMaxItems = Nothing
     }
 
--- | Use this when paginating results to indicate where to begin in your list of streaming distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response (which is also the ID of the last distribution on that page).
+-- | The value that you provided for the @Marker@ request parameter.
 lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
--- | The maximum number of streaming distributions you want in the response body.
+-- | The value that you provided for the @MaxItems@ request parameter.
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 
@@ -113,7 +117,7 @@ instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty
 
 instance ToPath ListStreamingDistributions where
-        toPath = const "/2016-09-07/streaming-distribution"
+        toPath = const "/2016-09-29/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}
@@ -121,6 +125,8 @@ instance ToQuery ListStreamingDistributions where
               ["Marker" =: _lsdMarker, "MaxItems" =: _lsdMaxItems]
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
@@ -134,7 +140,7 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
 --
 -- * 'lsdrsResponseStatus' - -- | The response status code.
 --
--- * 'lsdrsStreamingDistributionList' - The StreamingDistributionList type.
+-- * 'lsdrsStreamingDistributionList' - The @StreamingDistributionList@ type.
 listStreamingDistributionsResponse
     :: Int -- ^ 'lsdrsResponseStatus'
     -> StreamingDistributionList -- ^ 'lsdrsStreamingDistributionList'
@@ -149,7 +155,7 @@ listStreamingDistributionsResponse pResponseStatus_ pStreamingDistributionList_ 
 lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
 lsdrsResponseStatus = lens _lsdrsResponseStatus (\ s a -> s{_lsdrsResponseStatus = a});
 
--- | The StreamingDistributionList type.
+-- | The @StreamingDistributionList@ type.
 lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
 lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\ s a -> s{_lsdrsStreamingDistributionList = a});
 

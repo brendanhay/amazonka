@@ -18,7 +18,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a streaming distribution.
+-- Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API, perform the following steps.
+--
+--
+-- __To delete an RTMP distribution using the CloudFront API__ :
+--
+--     * Disable the RTMP distribution.
+--
+--     * Submit a @GET Streaming Distribution Config@ request to get the current configuration and the @Etag@ header for the distribution.
+--
+--     * Update the XML document that was returned in the response to your @GET Streaming Distribution Config@ request to change the value of @Enabled@ to @false@ .
+--
+--     * Submit a @PUT Streaming Distribution Config@ request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Then set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Streaming Distribution Config@ request in Step 2.
+--
+--     * Review the response to the @PUT Streaming Distribution Config@ request to confirm that the distribution was successfully disabled.
+--
+--     * Submit a @GET Streaming Distribution Config@ request to confirm that your changes have propagated. When propagation is complete, the value of @Status@ is @Deployed@ .
+--
+--     * Submit a @DELETE Streaming Distribution@ request. Set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Streaming Distribution Config@ request in Step 2.
+--
+--     * Review the response to your @DELETE Streaming Distribution@ request to confirm that the distribution was successfully deleted.
+--
+--
+--
+-- For information about deleting a distribution using the CloudFront console, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html Deleting a Distribution> in the /Amazon CloudFront Developer Guide/ .
+--
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Creating a Request
@@ -42,6 +66,8 @@ import           Network.AWS.Response
 
 -- | The request to delete a streaming distribution.
 --
+--
+--
 -- /See:/ 'deleteStreamingDistribution' smart constructor.
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
     { _dsdIfMatch :: !(Maybe Text)
@@ -52,9 +78,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsdIfMatch' - The value of the ETag header you received when you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
+-- * 'dsdIfMatch' - The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
 --
--- * 'dsdId' - The distribution id.
+-- * 'dsdId' - The distribution ID.
 deleteStreamingDistribution
     :: Text -- ^ 'dsdId'
     -> DeleteStreamingDistribution
@@ -64,11 +90,11 @@ deleteStreamingDistribution pId_ =
     , _dsdId = pId_
     }
 
--- | The value of the ETag header you received when you disabled the streaming distribution. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header that you received when you disabled the streaming distribution. For example: @E2QWRUHAPOMQZL@ .
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a});
 
--- | The distribution id.
+-- | The distribution ID.
 dsdId :: Lens' DeleteStreamingDistribution Text
 dsdId = lens _dsdId (\ s a -> s{_dsdId = a});
 
@@ -90,7 +116,7 @@ instance ToHeaders DeleteStreamingDistribution where
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
           = mconcat
-              ["/2016-09-07/streaming-distribution/", toBS _dsdId]
+              ["/2016-09-29/streaming-distribution/", toBS _dsdId]
 
 instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty

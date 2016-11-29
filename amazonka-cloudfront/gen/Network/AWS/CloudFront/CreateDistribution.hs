@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new distribution.
+-- Creates a new web distribution. Send a @GET@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
+--
+--
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | The request to create a new distribution.
+--
+--
 --
 -- /See:/ 'createDistribution' smart constructor.
 newtype CreateDistribution = CreateDistribution'
@@ -87,7 +91,7 @@ instance NFData CreateDistribution
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -95,12 +99,14 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2016-09-07/distribution"
+        toPath = const "/2016-09-29/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'createDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
@@ -118,7 +124,7 @@ data CreateDistributionResponse = CreateDistributionResponse'
 --
 -- * 'cdrsDistribution' - The distribution's information.
 --
--- * 'cdrsLocation' - The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+-- * 'cdrsLocation' - The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 --
 -- * 'cdrsResponseStatus' - -- | The response status code.
 createDistributionResponse
@@ -140,7 +146,7 @@ cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
 cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
 cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 
--- | The fully qualified URI of the new distribution resource just created. For example: https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
+-- | The fully qualified URI of the new distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5@ .
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 

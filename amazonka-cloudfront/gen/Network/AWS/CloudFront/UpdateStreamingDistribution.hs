@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a streaming distribution.
+--
+--
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The request to update a streaming distribution.
 --
+--
+--
 -- /See:/ 'updateStreamingDistribution' smart constructor.
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
     { _usdIfMatch                     :: !(Maybe Text)
@@ -58,7 +62,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usdIfMatch' - The value of the ETag header you received when retrieving the streaming distribution's configuration. For example: E2QWRUHAPOMQZL.
+-- * 'usdIfMatch' - The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'usdStreamingDistributionConfig' - The streaming distribution's configuration information.
 --
@@ -74,7 +78,7 @@ updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     , _usdId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the streaming distribution's configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header that you received when retrieving the streaming distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
 
@@ -104,7 +108,7 @@ instance NFData UpdateStreamingDistribution
 instance ToElement UpdateStreamingDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}StreamingDistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}StreamingDistributionConfig"
               .
               _usdStreamingDistributionConfig
 
@@ -115,13 +119,15 @@ instance ToHeaders UpdateStreamingDistribution where
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
-              ["/2016-09-07/streaming-distribution/", toBS _usdId,
+              ["/2016-09-29/streaming-distribution/", toBS _usdId,
                "/config"]
 
 instance ToQuery UpdateStreamingDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'updateStreamingDistributionResponse' smart constructor.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
@@ -134,7 +140,7 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usdrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- * 'usdrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'usdrsStreamingDistribution' - The streaming distribution's information.
 --
@@ -149,7 +155,7 @@ updateStreamingDistributionResponse pResponseStatus_ =
     , _usdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
 usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
 

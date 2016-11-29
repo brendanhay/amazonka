@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about an origin access identity.
+--
+--
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The request to get an origin access identity's information.
 --
+--
+--
 -- /See:/ 'getCloudFrontOriginAccessIdentity' smart constructor.
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
     { _gcfoaiId :: Text
@@ -54,7 +58,7 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfoaiId' - The identity's id.
+-- * 'gcfoaiId' - The identity's ID.
 getCloudFrontOriginAccessIdentity
     :: Text -- ^ 'gcfoaiId'
     -> GetCloudFrontOriginAccessIdentity
@@ -63,7 +67,7 @@ getCloudFrontOriginAccessIdentity pId_ =
     { _gcfoaiId = pId_
     }
 
--- | The identity's id.
+-- | The identity's ID.
 gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
 gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
 
@@ -91,7 +95,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
          where
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-09-07/origin-access-identity/cloudfront/",
+              ["/2016-09-29/origin-access-identity/cloudfront/",
                toBS _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity
@@ -99,6 +103,8 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
@@ -111,7 +117,7 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcfoairsETag' - The current version of the origin access identity's information. For example: E2QWRUHAPOMQZL.
+-- * 'gcfoairsETag' - The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'gcfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
 --
@@ -126,7 +132,7 @@ getCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     , _gcfoairsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the origin access identity's information. For example: E2QWRUHAPOMQZL.
+-- | The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
 gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
 gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
 

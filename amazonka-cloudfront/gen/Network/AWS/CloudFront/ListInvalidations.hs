@@ -18,7 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List invalidation batches.
+-- Lists invalidation batches.
+--
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListInvalidations
@@ -49,6 +51,8 @@ import           Network.AWS.Response
 
 -- | The request to list invalidations.
 --
+--
+--
 -- /See:/ 'listInvalidations' smart constructor.
 data ListInvalidations = ListInvalidations'
     { _liMarker         :: !(Maybe Text)
@@ -60,11 +64,11 @@ data ListInvalidations = ListInvalidations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liMarker' - Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
+-- * 'liMarker' - Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set @Marker@ to the value of the @NextMarker@ from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 --
--- * 'liMaxItems' - The maximum number of invalidation batches you want in the response body.
+-- * 'liMaxItems' - The maximum number of invalidation batches that you want in the response body.
 --
--- * 'liDistributionId' - The distribution's id.
+-- * 'liDistributionId' - The distribution's ID.
 listInvalidations
     :: Text -- ^ 'liDistributionId'
     -> ListInvalidations
@@ -75,15 +79,15 @@ listInvalidations pDistributionId_ =
     , _liDistributionId = pDistributionId_
     }
 
--- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set the Marker to the value of the NextMarker from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
+-- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set @Marker@ to the value of the @NextMarker@ from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 liMarker :: Lens' ListInvalidations (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
--- | The maximum number of invalidation batches you want in the response body.
+-- | The maximum number of invalidation batches that you want in the response body.
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
--- | The distribution's id.
+-- | The distribution's ID.
 liDistributionId :: Lens' ListInvalidations Text
 liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
@@ -118,7 +122,7 @@ instance ToHeaders ListInvalidations where
 instance ToPath ListInvalidations where
         toPath ListInvalidations'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _liDistributionId,
+              ["/2016-09-29/distribution/", toBS _liDistributionId,
                "/invalidation"]
 
 instance ToQuery ListInvalidations where
@@ -127,6 +131,8 @@ instance ToQuery ListInvalidations where
               ["Marker" =: _liMarker, "MaxItems" =: _liMaxItems]
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'listInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'

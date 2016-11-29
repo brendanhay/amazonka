@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the information about a distribution.
+--
+--
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Creating a Request
@@ -45,6 +47,8 @@ import           Network.AWS.Response
 
 -- | The request to get a distribution's information.
 --
+--
+--
 -- /See:/ 'getDistribution' smart constructor.
 newtype GetDistribution = GetDistribution'
     { _gdId :: Text
@@ -54,7 +58,7 @@ newtype GetDistribution = GetDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdId' - The distribution's id.
+-- * 'gdId' - The distribution's ID.
 getDistribution
     :: Text -- ^ 'gdId'
     -> GetDistribution
@@ -63,7 +67,7 @@ getDistribution pId_ =
     { _gdId = pId_
     }
 
--- | The distribution's id.
+-- | The distribution's ID.
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\ s a -> s{_gdId = a});
 
@@ -86,12 +90,14 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2016-09-07/distribution/", toBS _gdId]
+          = mconcat ["/2016-09-29/distribution/", toBS _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'getDistributionResponse' smart constructor.
 data GetDistributionResponse = GetDistributionResponse'
@@ -104,7 +110,7 @@ data GetDistributionResponse = GetDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsETag' - The current version of the distribution's information. For example: E2QWRUHAPOMQZL.
+-- * 'gdrsETag' - The current version of the distribution's information. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'gdrsDistribution' - The distribution's information.
 --
@@ -119,7 +125,7 @@ getDistributionResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the distribution's information. For example: E2QWRUHAPOMQZL.
+-- | The current version of the distribution's information. For example: @E2QWRUHAPOMQZL@ .
 gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
 gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 

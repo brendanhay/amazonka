@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Remove tags from a CloudFront resource.
+--
+--
 module Network.AWS.CloudFront.UntagResource
     (
     -- * Creating a Request
@@ -42,6 +44,8 @@ import           Network.AWS.Response
 
 -- | The request to remove tags from a CloudFront resource.
 --
+--
+--
 -- /See:/ 'untagResource' smart constructor.
 data UntagResource = UntagResource'
     { _urResource :: !Text
@@ -54,7 +58,7 @@ data UntagResource = UntagResource'
 --
 -- * 'urResource' - An ARN of a CloudFront resource.
 --
--- * 'urTagKeys' - A complex type that contains zero or more Tag key elements.
+-- * 'urTagKeys' - A complex type that contains zero or more @Tag@ key elements.
 untagResource
     :: Text -- ^ 'urResource'
     -> TagKeys -- ^ 'urTagKeys'
@@ -69,7 +73,7 @@ untagResource pResource_ pTagKeys_ =
 urResource :: Lens' UntagResource Text
 urResource = lens _urResource (\ s a -> s{_urResource = a});
 
--- | A complex type that contains zero or more Tag key elements.
+-- | A complex type that contains zero or more @Tag@ key elements.
 urTagKeys :: Lens' UntagResource TagKeys
 urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a});
 
@@ -85,7 +89,7 @@ instance NFData UntagResource
 instance ToElement UntagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}TagKeys"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}TagKeys"
               .
               _urTagKeys
 
@@ -93,7 +97,7 @@ instance ToHeaders UntagResource where
         toHeaders = const mempty
 
 instance ToPath UntagResource where
-        toPath = const "/2016-09-07/tagging"
+        toPath = const "/2016-09-29/tagging"
 
 instance ToQuery UntagResource where
         toQuery UntagResource'{..}

@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update an origin access identity.
+--
+--
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The request to update an origin access identity.
 --
+--
+--
 -- /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
     { _ucfoaiIfMatch                              :: !(Maybe Text)
@@ -58,7 +62,7 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfoaiIfMatch' - The value of the ETag header you received when retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
+-- * 'ucfoaiIfMatch' - The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'ucfoaiCloudFrontOriginAccessIdentityConfig' - The identity's configuration information.
 --
@@ -74,7 +78,7 @@ updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_
     , _ucfoaiId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the identity's configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoaiIfMatch = lens _ucfoaiIfMatch (\ s a -> s{_ucfoaiIfMatch = a});
 
@@ -107,7 +111,7 @@ instance ToElement
          UpdateCloudFrontOriginAccessIdentity where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}CloudFrontOriginAccessIdentityConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}CloudFrontOriginAccessIdentityConfig"
               .
               _ucfoaiCloudFrontOriginAccessIdentityConfig
 
@@ -120,7 +124,7 @@ instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-09-07/origin-access-identity/cloudfront/",
+              ["/2016-09-29/origin-access-identity/cloudfront/",
                toBS _ucfoaiId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
@@ -128,6 +132,8 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
@@ -140,7 +146,7 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucfoairsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- * 'ucfoairsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'ucfoairsCloudFrontOriginAccessIdentity' - The origin access identity's information.
 --
@@ -155,7 +161,7 @@ updateCloudFrontOriginAccessIdentityResponse pResponseStatus_ =
     , _ucfoairsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
 ucfoairsETag = lens _ucfoairsETag (\ s a -> s{_ucfoairsETag = a});
 

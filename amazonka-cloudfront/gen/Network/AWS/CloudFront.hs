@@ -469,6 +469,7 @@ module Network.AWS.CloudFront
     , dcRestrictions
     , dcLogging
     , dcCacheBehaviors
+    , dcIsIPV6Enabled
     , dcCallerReference
     , dcOrigins
     , dcDefaultCacheBehavior
@@ -511,6 +512,7 @@ module Network.AWS.CloudFront
     , dsRestrictions
     , dsWebACLId
     , dsHTTPVersion
+    , dsIsIPV6Enabled
 
     -- ** ForwardedValues
     , ForwardedValues

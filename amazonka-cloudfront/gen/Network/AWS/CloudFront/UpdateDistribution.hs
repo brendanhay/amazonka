@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a distribution.
+--
+--
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Creating a Request
@@ -47,6 +49,8 @@ import           Network.AWS.Response
 
 -- | The request to update a distribution.
 --
+--
+--
 -- /See:/ 'updateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
     { _udIfMatch            :: !(Maybe Text)
@@ -58,7 +62,7 @@ data UpdateDistribution = UpdateDistribution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udIfMatch' - The value of the ETag header you received when retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
+-- * 'udIfMatch' - The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'udDistributionConfig' - The distribution's configuration information.
 --
@@ -74,7 +78,7 @@ updateDistribution pDistributionConfig_ pId_ =
     , _udId = pId_
     }
 
--- | The value of the ETag header you received when retrieving the distribution's configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the @ETag@ header that you received when retrieving the distribution's configuration. For example: @E2QWRUHAPOMQZL@ .
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
 
@@ -104,7 +108,7 @@ instance NFData UpdateDistribution
 instance ToElement UpdateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-07/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}DistributionConfig"
               .
               _udDistributionConfig
 
@@ -115,12 +119,14 @@ instance ToHeaders UpdateDistribution where
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2016-09-07/distribution/", toBS _udId, "/config"]
+              ["/2016-09-29/distribution/", toBS _udId, "/config"]
 
 instance ToQuery UpdateDistribution where
         toQuery = const mempty
 
 -- | The returned result of the corresponding request.
+--
+--
 --
 -- /See:/ 'updateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
@@ -133,7 +139,7 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udrsETag' - The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- * 'udrsETag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- * 'udrsDistribution' - The distribution's information.
 --
@@ -148,7 +154,7 @@ updateDistributionResponse pResponseStatus_ =
     , _udrsResponseStatus = pResponseStatus_
     }
 
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+-- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
 udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
 

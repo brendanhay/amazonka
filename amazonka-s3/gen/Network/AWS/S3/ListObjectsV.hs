@@ -30,6 +30,7 @@ module Network.AWS.S3.ListObjectsV
     , lFetchOwner
     , lPrefix
     , lEncodingType
+    , lRequestPayer
     , lMaxKeys
     , lDelimiter
     , lBucket
@@ -67,6 +68,7 @@ data ListObjectsV = ListObjectsV'
     , _lFetchOwner        :: !(Maybe Bool)
     , _lPrefix            :: !(Maybe Text)
     , _lEncodingType      :: !(Maybe EncodingType)
+    , _lRequestPayer      :: !(Maybe RequestPayer)
     , _lMaxKeys           :: !(Maybe Int)
     , _lDelimiter         :: !(Maybe Delimiter)
     , _lBucket            :: !BucketName
@@ -86,6 +88,8 @@ data ListObjectsV = ListObjectsV'
 --
 -- * 'lEncodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
 --
+-- * 'lRequestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.
+--
 -- * 'lMaxKeys' - Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 --
 -- * 'lDelimiter' - A delimiter is a character you use to group keys.
@@ -101,6 +105,7 @@ listObjectsV pBucket_ =
     , _lFetchOwner = Nothing
     , _lPrefix = Nothing
     , _lEncodingType = Nothing
+    , _lRequestPayer = Nothing
     , _lMaxKeys = Nothing
     , _lDelimiter = Nothing
     , _lBucket = pBucket_
@@ -125,6 +130,10 @@ lPrefix = lens _lPrefix (\ s a -> s{_lPrefix = a});
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lEncodingType :: Lens' ListObjectsV (Maybe EncodingType)
 lEncodingType = lens _lEncodingType (\ s a -> s{_lEncodingType = a});
+
+-- | Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.
+lRequestPayer :: Lens' ListObjectsV (Maybe RequestPayer)
+lRequestPayer = lens _lRequestPayer (\ s a -> s{_lRequestPayer = a});
 
 -- | Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
 lMaxKeys :: Lens' ListObjectsV (Maybe Int)
@@ -163,7 +172,8 @@ instance Hashable ListObjectsV
 instance NFData ListObjectsV
 
 instance ToHeaders ListObjectsV where
-        toHeaders = const mempty
+        toHeaders ListObjectsV'{..}
+          = mconcat ["x-amz-request-payer" =# _lRequestPayer]
 
 instance ToPath ListObjectsV where
         toPath ListObjectsV'{..}

@@ -35,6 +35,7 @@ module Network.AWS.S3.GetObject
     , goRequestPayer
     , goResponseContentEncoding
     , goIfModifiedSince
+    , goPartNumber
     , goRange
     , goIfUnmodifiedSince
     , goSSECustomerKeyMD5
@@ -49,6 +50,7 @@ module Network.AWS.S3.GetObject
     , GetObjectResponse
     -- * Response Lenses
     , gorsRequestCharged
+    , gorsPartsCount
     , gorsETag
     , gorsVersionId
     , gorsContentLength
@@ -96,6 +98,7 @@ data GetObject = GetObject'
     , _goRequestPayer               :: !(Maybe RequestPayer)
     , _goResponseContentEncoding    :: !(Maybe Text)
     , _goIfModifiedSince            :: !(Maybe RFC822)
+    , _goPartNumber                 :: !(Maybe Int)
     , _goRange                      :: !(Maybe Text)
     , _goIfUnmodifiedSince          :: !(Maybe RFC822)
     , _goSSECustomerKeyMD5          :: !(Maybe Text)
@@ -130,6 +133,8 @@ data GetObject = GetObject'
 --
 -- * 'goIfModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
+-- * 'goPartNumber' - Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+--
 -- * 'goRange' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 --
 -- * 'goIfUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
@@ -161,6 +166,7 @@ getObject pBucket_ pKey_ =
     , _goRequestPayer = Nothing
     , _goResponseContentEncoding = Nothing
     , _goIfModifiedSince = Nothing
+    , _goPartNumber = Nothing
     , _goRange = Nothing
     , _goIfUnmodifiedSince = Nothing
     , _goSSECustomerKeyMD5 = Nothing
@@ -211,6 +217,10 @@ goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goRespo
 goIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
 goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time;
 
+-- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+goPartNumber :: Lens' GetObject (Maybe Int)
+goPartNumber = lens _goPartNumber (\ s a -> s{_goPartNumber = a});
+
 -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
 goRange = lens _goRange (\ s a -> s{_goRange = a});
@@ -250,7 +260,9 @@ instance AWSRequest GetObject where
           = receiveBody
               (\ s h x ->
                  GetObjectResponse' <$>
-                   (h .#? "x-amz-request-charged") <*> (h .#? "ETag")
+                   (h .#? "x-amz-request-charged") <*>
+                     (h .#? "x-amz-mp-parts-count")
+                     <*> (h .#? "ETag")
                      <*> (h .#? "x-amz-version-id")
                      <*> (h .#? "Content-Length")
                      <*> (h .#? "Expires")
@@ -317,12 +329,14 @@ instance ToQuery GetObject where
                  _goResponseContentLanguage,
                "response-content-encoding" =:
                  _goResponseContentEncoding,
+               "partNumber" =: _goPartNumber,
                "response-cache-control" =: _goResponseCacheControl,
                "response-expires" =: _goResponseExpires]
 
 -- | /See:/ 'getObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
     { _gorsRequestCharged          :: !(Maybe RequestCharged)
+    , _gorsPartsCount              :: !(Maybe Int)
     , _gorsETag                    :: !(Maybe ETag)
     , _gorsVersionId               :: !(Maybe ObjectVersionId)
     , _gorsContentLength           :: !(Maybe Integer)
@@ -356,6 +370,8 @@ data GetObjectResponse = GetObjectResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gorsRequestCharged' - Undocumented member.
+--
+-- * 'gorsPartsCount' - The count of parts this object has.
 --
 -- * 'gorsETag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 --
@@ -415,6 +431,7 @@ getObjectResponse
 getObjectResponse pResponseStatus_ pBody_ =
     GetObjectResponse'
     { _gorsRequestCharged = Nothing
+    , _gorsPartsCount = Nothing
     , _gorsETag = Nothing
     , _gorsVersionId = Nothing
     , _gorsContentLength = Nothing
@@ -446,6 +463,10 @@ getObjectResponse pResponseStatus_ pBody_ =
 -- | Undocumented member.
 gorsRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
 gorsRequestCharged = lens _gorsRequestCharged (\ s a -> s{_gorsRequestCharged = a});
+
+-- | The count of parts this object has.
+gorsPartsCount :: Lens' GetObjectResponse (Maybe Int)
+gorsPartsCount = lens _gorsPartsCount (\ s a -> s{_gorsPartsCount = a});
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 gorsETag :: Lens' GetObjectResponse (Maybe ETag)

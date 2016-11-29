@@ -859,6 +859,36 @@ instance ToXML FilterRule where
         toXML FilterRule'{..}
           = mconcat ["Value" @= _frValue, "Name" @= _frName]
 
+-- | /See:/ 'glacierJobParameters' smart constructor.
+newtype GlacierJobParameters = GlacierJobParameters'
+    { _gjpTier :: Tier
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GlacierJobParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gjpTier' - Glacier retrieval tier at which the restore will be processed.
+glacierJobParameters
+    :: Tier -- ^ 'gjpTier'
+    -> GlacierJobParameters
+glacierJobParameters pTier_ =
+    GlacierJobParameters'
+    { _gjpTier = pTier_
+    }
+
+-- | Glacier retrieval tier at which the restore will be processed.
+gjpTier :: Lens' GlacierJobParameters Tier
+gjpTier = lens _gjpTier (\ s a -> s{_gjpTier = a});
+
+instance Hashable GlacierJobParameters
+
+instance NFData GlacierJobParameters
+
+instance ToXML GlacierJobParameters where
+        toXML GlacierJobParameters'{..}
+          = mconcat ["Tier" @= _gjpTier]
+
 -- | /See:/ 'grant' smart constructor.
 data Grant = Grant'
     { _gPermission :: !(Maybe Permission)
@@ -2225,13 +2255,16 @@ instance ToXML RequestPaymentConfiguration where
           = mconcat ["Payer" @= _rpcPayer]
 
 -- | /See:/ 'restoreRequest' smart constructor.
-newtype RestoreRequest = RestoreRequest'
-    { _rrDays :: Int
+data RestoreRequest = RestoreRequest'
+    { _rrGlacierJobParameters :: !(Maybe GlacierJobParameters)
+    , _rrDays                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RestoreRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrGlacierJobParameters' - Glacier related prameters pertaining to this job.
 --
 -- * 'rrDays' - Lifetime of the active copy in days
 restoreRequest
@@ -2239,8 +2272,13 @@ restoreRequest
     -> RestoreRequest
 restoreRequest pDays_ =
     RestoreRequest'
-    { _rrDays = pDays_
+    { _rrGlacierJobParameters = Nothing
+    , _rrDays = pDays_
     }
+
+-- | Glacier related prameters pertaining to this job.
+rrGlacierJobParameters :: Lens' RestoreRequest (Maybe GlacierJobParameters)
+rrGlacierJobParameters = lens _rrGlacierJobParameters (\ s a -> s{_rrGlacierJobParameters = a});
 
 -- | Lifetime of the active copy in days
 rrDays :: Lens' RestoreRequest Int
@@ -2252,7 +2290,9 @@ instance NFData RestoreRequest
 
 instance ToXML RestoreRequest where
         toXML RestoreRequest'{..}
-          = mconcat ["Days" @= _rrDays]
+          = mconcat
+              ["GlacierJobParameters" @= _rrGlacierJobParameters,
+               "Days" @= _rrDays]
 
 -- | /See:/ 'routingRule' smart constructor.
 data RoutingRule = RoutingRule'

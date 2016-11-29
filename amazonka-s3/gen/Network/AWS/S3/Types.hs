@@ -96,6 +96,9 @@ module Network.AWS.S3.Types
     -- * StorageClass
     , StorageClass (..)
 
+    -- * Tier
+    , Tier (..)
+
     -- * TransitionStorageClass
     , TransitionStorageClass (..)
 
@@ -226,6 +229,11 @@ module Network.AWS.S3.Types
     , filterRule
     , frValue
     , frName
+
+    -- * GlacierJobParameters
+    , GlacierJobParameters
+    , glacierJobParameters
+    , gjpTier
 
     -- * Grant
     , Grant
@@ -407,6 +415,7 @@ module Network.AWS.S3.Types
     -- * RestoreRequest
     , RestoreRequest
     , restoreRequest
+    , rrGlacierJobParameters
     , rrDays
 
     -- * RoutingRule

@@ -31,6 +31,7 @@ module Network.AWS.S3.HeadObject
     , hoSSECustomerKey
     , hoRequestPayer
     , hoIfModifiedSince
+    , hoPartNumber
     , hoRange
     , hoIfUnmodifiedSince
     , hoSSECustomerKeyMD5
@@ -43,6 +44,7 @@ module Network.AWS.S3.HeadObject
     , HeadObjectResponse
     -- * Response Lenses
     , horsRequestCharged
+    , horsPartsCount
     , horsETag
     , horsVersionId
     , horsContentLength
@@ -84,6 +86,7 @@ data HeadObject = HeadObject'
     , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
     , _hoRequestPayer         :: !(Maybe RequestPayer)
     , _hoIfModifiedSince      :: !(Maybe RFC822)
+    , _hoPartNumber           :: !(Maybe Int)
     , _hoRange                :: !(Maybe Text)
     , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
     , _hoSSECustomerKeyMD5    :: !(Maybe Text)
@@ -108,6 +111,8 @@ data HeadObject = HeadObject'
 --
 -- * 'hoIfModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
 --
+-- * 'hoPartNumber' - Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+--
 -- * 'hoRange' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 --
 -- * 'hoIfUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
@@ -131,6 +136,7 @@ headObject pBucket_ pKey_ =
     , _hoSSECustomerKey = Nothing
     , _hoRequestPayer = Nothing
     , _hoIfModifiedSince = Nothing
+    , _hoPartNumber = Nothing
     , _hoRange = Nothing
     , _hoIfUnmodifiedSince = Nothing
     , _hoSSECustomerKeyMD5 = Nothing
@@ -163,6 +169,10 @@ hoRequestPayer = lens _hoRequestPayer (\ s a -> s{_hoRequestPayer = a});
 hoIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
 hoIfModifiedSince = lens _hoIfModifiedSince (\ s a -> s{_hoIfModifiedSince = a}) . mapping _Time;
 
+-- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.
+hoPartNumber :: Lens' HeadObject (Maybe Int)
+hoPartNumber = lens _hoPartNumber (\ s a -> s{_hoPartNumber = a});
+
 -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 hoRange :: Lens' HeadObject (Maybe Text)
 hoRange = lens _hoRange (\ s a -> s{_hoRange = a});
@@ -194,7 +204,9 @@ instance AWSRequest HeadObject where
           = receiveEmpty
               (\ s h x ->
                  HeadObjectResponse' <$>
-                   (h .#? "x-amz-request-charged") <*> (h .#? "ETag")
+                   (h .#? "x-amz-request-charged") <*>
+                     (h .#? "x-amz-mp-parts-count")
+                     <*> (h .#? "ETag")
                      <*> (h .#? "x-amz-version-id")
                      <*> (h .#? "Content-Length")
                      <*> (h .#? "Expires")
@@ -250,11 +262,14 @@ instance ToPath HeadObject where
 
 instance ToQuery HeadObject where
         toQuery HeadObject'{..}
-          = mconcat ["versionId" =: _hoVersionId]
+          = mconcat
+              ["versionId" =: _hoVersionId,
+               "partNumber" =: _hoPartNumber]
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 data HeadObjectResponse = HeadObjectResponse'
     { _horsRequestCharged          :: !(Maybe RequestCharged)
+    , _horsPartsCount              :: !(Maybe Int)
     , _horsETag                    :: !(Maybe ETag)
     , _horsVersionId               :: !(Maybe ObjectVersionId)
     , _horsContentLength           :: !(Maybe Integer)
@@ -286,6 +301,8 @@ data HeadObjectResponse = HeadObjectResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'horsRequestCharged' - Undocumented member.
+--
+-- * 'horsPartsCount' - The count of parts this object has.
 --
 -- * 'horsETag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 --
@@ -340,6 +357,7 @@ headObjectResponse
 headObjectResponse pResponseStatus_ =
     HeadObjectResponse'
     { _horsRequestCharged = Nothing
+    , _horsPartsCount = Nothing
     , _horsETag = Nothing
     , _horsVersionId = Nothing
     , _horsContentLength = Nothing
@@ -369,6 +387,10 @@ headObjectResponse pResponseStatus_ =
 -- | Undocumented member.
 horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
 horsRequestCharged = lens _horsRequestCharged (\ s a -> s{_horsRequestCharged = a});
+
+-- | The count of parts this object has.
+horsPartsCount :: Lens' HeadObjectResponse (Maybe Int)
+horsPartsCount = lens _horsPartsCount (\ s a -> s{_horsPartsCount = a});
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL
 horsETag :: Lens' HeadObjectResponse (Maybe ETag)

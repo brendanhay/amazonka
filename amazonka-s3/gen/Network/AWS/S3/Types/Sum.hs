@@ -718,6 +718,35 @@ instance FromXML StorageClass where
 instance ToXML StorageClass where
     toXML = toXMLText
 
+data Tier
+    = TBulk
+    | TExpedited
+    | TStandard
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Tier where
+    parser = takeLowerText >>= \case
+        "bulk" -> pure TBulk
+        "expedited" -> pure TExpedited
+        "standard" -> pure TStandard
+        e -> fromTextError $ "Failure parsing Tier from value: '" <> e
+           <> "'. Accepted values: bulk, expedited, standard"
+
+instance ToText Tier where
+    toText = \case
+        TBulk -> "Bulk"
+        TExpedited -> "Expedited"
+        TStandard -> "Standard"
+
+instance Hashable     Tier
+instance NFData       Tier
+instance ToByteString Tier
+instance ToQuery      Tier
+instance ToHeader     Tier
+
+instance ToXML Tier where
+    toXML = toXMLText
+
 data TransitionStorageClass
     = TSCGlacier
     | TSCStandardIA

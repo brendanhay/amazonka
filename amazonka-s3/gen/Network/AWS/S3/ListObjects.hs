@@ -29,6 +29,7 @@ module Network.AWS.S3.ListObjects
     -- * Request Lenses
     , loPrefix
     , loEncodingType
+    , loRequestPayer
     , loMarker
     , loMaxKeys
     , loDelimiter
@@ -63,6 +64,7 @@ import           Network.AWS.S3.Types.Product
 data ListObjects = ListObjects'
     { _loPrefix       :: !(Maybe Text)
     , _loEncodingType :: !(Maybe EncodingType)
+    , _loRequestPayer :: !(Maybe RequestPayer)
     , _loMarker       :: !(Maybe Text)
     , _loMaxKeys      :: !(Maybe Int)
     , _loDelimiter    :: !(Maybe Delimiter)
@@ -76,6 +78,8 @@ data ListObjects = ListObjects'
 -- * 'loPrefix' - Limits the response to keys that begin with the specified prefix.
 --
 -- * 'loEncodingType' - Undocumented member.
+--
+-- * 'loRequestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
 --
 -- * 'loMarker' - Specifies the key to start with when listing objects in a bucket.
 --
@@ -91,6 +95,7 @@ listObjects pBucket_ =
     ListObjects'
     { _loPrefix = Nothing
     , _loEncodingType = Nothing
+    , _loRequestPayer = Nothing
     , _loMarker = Nothing
     , _loMaxKeys = Nothing
     , _loDelimiter = Nothing
@@ -104,6 +109,10 @@ loPrefix = lens _loPrefix (\ s a -> s{_loPrefix = a});
 -- | Undocumented member.
 loEncodingType :: Lens' ListObjects (Maybe EncodingType)
 loEncodingType = lens _loEncodingType (\ s a -> s{_loEncodingType = a});
+
+-- | Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
+loRequestPayer :: Lens' ListObjects (Maybe RequestPayer)
+loRequestPayer = lens _loRequestPayer (\ s a -> s{_loRequestPayer = a});
 
 -- | Specifies the key to start with when listing objects in a bucket.
 loMarker :: Lens' ListObjects (Maybe Text)
@@ -160,7 +169,8 @@ instance Hashable ListObjects
 instance NFData ListObjects
 
 instance ToHeaders ListObjects where
-        toHeaders = const mempty
+        toHeaders ListObjects'{..}
+          = mconcat ["x-amz-request-payer" =# _loRequestPayer]
 
 instance ToPath ListObjects where
         toPath ListObjects'{..}

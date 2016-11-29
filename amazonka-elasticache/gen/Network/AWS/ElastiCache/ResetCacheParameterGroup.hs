@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /ResetCacheParameterGroup/ action modifies the parameters of a cache parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire cache parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/ parameters.
+-- Modifies the parameters of a cache parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire cache parameter group, specify the @ResetAllParameters@ and @CacheParameterGroupName@ parameters.
 --
 --
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
@@ -45,7 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /ResetCacheParameterGroup/ action.
+-- | Represents the input of a @ResetCacheParameterGroup@ operation.
 --
 --
 --
@@ -60,9 +60,9 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcpgResetAllParameters' - If /true/ , all parameters in the cache parameter group will be reset to their default values. If /false/ , only the parameters listed by /ParameterNameValues/ are reset to their default values. Valid values: @true@ | @false@
+-- * 'rcpgResetAllParameters' - If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values. Valid values: @true@ | @false@
 --
--- * 'rcpgParameterNameValues' - An array of parameter names to reset to their default values. If /ResetAllParameters/ is /false/ , you must specify the name of at least one parameter to reset.
+-- * 'rcpgParameterNameValues' - An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
 --
 -- * 'rcpgCacheParameterGroupName' - The name of the cache parameter group to reset.
 resetCacheParameterGroup
@@ -75,11 +75,11 @@ resetCacheParameterGroup pCacheParameterGroupName_ =
     , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
     }
 
--- | If /true/ , all parameters in the cache parameter group will be reset to their default values. If /false/ , only the parameters listed by /ParameterNameValues/ are reset to their default values. Valid values: @true@ | @false@
+-- | If @true@ , all parameters in the cache parameter group are reset to their default values. If @false@ , only the parameters listed by @ParameterNameValues@ are reset to their default values. Valid values: @true@ | @false@
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
 
--- | An array of parameter names to reset to their default values. If /ResetAllParameters/ is /false/ , you must specify the name of at least one parameter to reset.
+-- | An array of parameter names to reset to their default values. If @ResetAllParameters@ is @true@ , do not use @ParameterNameValues@ . If @ResetAllParameters@ is @false@ , you must specify the name of at least one parameter to reset.
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
 rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Default . _Coerce;
 

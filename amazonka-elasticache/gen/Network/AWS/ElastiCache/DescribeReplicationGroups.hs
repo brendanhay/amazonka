@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeReplicationGroups/ action returns information about a particular replication group. If no identifier is specified, /DescribeReplicationGroups/ returns information about all replication groups.
+-- Returns information about a particular replication group. If no identifier is specified, @DescribeReplicationGroups@ returns information about all replication groups.
 --
 --
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeReplicationGroups/ action.
+-- | Represents the input of a @DescribeReplicationGroups@ operation.
 --
 --
 --
@@ -65,7 +65,7 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'drgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- * 'drgsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
@@ -79,7 +79,7 @@ describeReplicationGroups =
     , _drgsReplicationGroupId = Nothing
     }
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drgsMarker :: Lens' DescribeReplicationGroups (Maybe Text)
 drgsMarker = lens _drgsMarker (\ s a -> s{_drgsMarker = a});
 
@@ -131,7 +131,7 @@ instance ToQuery DescribeReplicationGroups where
                "MaxRecords" =: _drgsMaxRecords,
                "ReplicationGroupId" =: _drgsReplicationGroupId]
 
--- | Represents the output of a /DescribeReplicationGroups/ action.
+-- | Represents the output of a @DescribeReplicationGroups@ operation.
 --
 --
 --

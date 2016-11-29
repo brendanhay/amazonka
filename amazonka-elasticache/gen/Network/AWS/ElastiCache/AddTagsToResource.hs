@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /AddTagsToResource/ action adds up to 10 cost allocation tags to the named resource. A /cost allocation tag/ is a key-value pair where the key and value are case-sensitive. Cost allocation tags can be used to categorize and track your AWS costs.
+-- Adds up to 10 cost allocation tags to the named resource. A cost allocation tag is a key-value pair where the key and value are case-sensitive. You can use cost allocation tags to categorize and track your AWS costs.
 --
 --
 -- When you apply tags to your ElastiCache resources, AWS generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache> in the /ElastiCache User Guide/ .
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an /AddTagsToResource/ action.
+-- | Represents the input of an AddTagsToResource operation.
 --
 --
 --
@@ -60,7 +60,7 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceName' - The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'attrResourceName' - The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
 -- * 'attrTags' - A list of cost allocation tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value.
 addTagsToResource
@@ -72,7 +72,7 @@ addTagsToResource pResourceName_ =
     , _attrTags = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 

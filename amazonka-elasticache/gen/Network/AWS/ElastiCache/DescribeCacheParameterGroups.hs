@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheParameterGroups/ action returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list will contain only the descriptions for that group.
+-- Returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list contains only the descriptions for that group.
 --
 --
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeCacheParameterGroups/ action.
+-- | Represents the input of a @DescribeCacheParameterGroups@ operation.
 --
 --
 --
@@ -67,7 +67,7 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
 --
 -- * 'dcpgCacheParameterGroupName' - The name of a specific cache parameter group to return details for.
 --
--- * 'dcpgMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'dcpgMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- * 'dcpgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 describeCacheParameterGroups
@@ -83,7 +83,7 @@ describeCacheParameterGroups =
 dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
@@ -134,7 +134,7 @@ instance ToQuery DescribeCacheParameterGroups where
                "Marker" =: _dcpgMarker,
                "MaxRecords" =: _dcpgMaxRecords]
 
--- | Represents the output of a /DescribeCacheParameterGroups/ action.
+-- | Represents the output of a @DescribeCacheParameterGroups@ operation.
 --
 --
 --

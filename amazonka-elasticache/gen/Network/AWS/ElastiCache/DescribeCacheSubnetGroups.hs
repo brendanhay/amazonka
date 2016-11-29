@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheSubnetGroups/ action returns a list of cache subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.
+-- Returns a list of cache subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.
 --
 --
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeCacheSubnetGroups/ action.
+-- | Represents the input of a @DescribeCacheSubnetGroups@ operation.
 --
 --
 --
@@ -67,7 +67,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
 --
 -- * 'dcsgCacheSubnetGroupName' - The name of the cache subnet group to return details for.
 --
--- * 'dcsgMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'dcsgMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- * 'dcsgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 describeCacheSubnetGroups
@@ -83,7 +83,7 @@ describeCacheSubnetGroups =
 dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
@@ -131,7 +131,7 @@ instance ToQuery DescribeCacheSubnetGroups where
                "Marker" =: _dcsgMarker,
                "MaxRecords" =: _dcsgMaxRecords]
 
--- | Represents the output of a /DescribeCacheSubnetGroups/ action.
+-- | Represents the output of a @DescribeCacheSubnetGroups@ operation.
 --
 --
 --

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
+-- Deletes a cache subnet group.
 --
 --
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
@@ -41,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DeleteCacheSubnetGroup/ action.
+-- | Represents the input of a @DeleteCacheSubnetGroup@ operation.
 --
 --
 --

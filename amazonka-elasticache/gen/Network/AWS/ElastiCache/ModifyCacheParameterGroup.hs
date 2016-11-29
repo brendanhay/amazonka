@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /ModifyCacheParameterGroup/ action modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
+-- Modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.
 --
 --
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /ModifyCacheParameterGroup/ action.
+-- | Represents the input of a @ModifyCacheParameterGroup@ operation.
 --
 --
 --

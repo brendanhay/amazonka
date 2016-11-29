@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet group.
+-- Modifies an existing cache subnet group.
 --
 --
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /ModifyCacheSubnetGroup/ action.
+-- | Represents the input of a @ModifyCacheSubnetGroup@ operation.
 --
 --
 --
@@ -63,7 +63,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
 --
 -- * 'mcsgSubnetIds' - The EC2 subnet IDs for the cache subnet group.
 --
--- * 'mcsgCacheSubnetGroupDescription' - A description for the cache subnet group.
+-- * 'mcsgCacheSubnetGroupDescription' - A description of the cache subnet group.
 --
 -- * 'mcsgCacheSubnetGroupName' - The name for the cache subnet group. This value is stored as a lowercase string. Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Example: @mysubnetgroup@
 modifyCacheSubnetGroup
@@ -80,7 +80,7 @@ modifyCacheSubnetGroup pCacheSubnetGroupName_ =
 mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
 mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Default . _Coerce;
 
--- | A description for the cache subnet group.
+-- | A description of the cache subnet group.
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
 mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -> s{_mcsgCacheSubnetGroupDescription = a});
 

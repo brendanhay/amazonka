@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteReplicationGroup/ action deletes an existing replication group. By default, this action deletes the entire replication group, including the primary cluster and all of the read replicas. You can optionally delete only the read replicas, while retaining the primary cluster.
+-- Deletes an existing replication group. By default, this operation deletes the entire replication group, including the primary/primaries and all of the read replicas. If the replication group has only one primary, you can optionally delete only the read replicas, while retaining the primary by setting @RetainPrimaryCluster=true@ .
 --
 --
--- When you receive a successful response from this action, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this action.
+-- When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.
 --
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DeleteReplicationGroup/ action.
+-- | Represents the input of a @DeleteReplicationGroup@ operation.
 --
 --
 --
@@ -63,9 +63,9 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drgFinalSnapshotIdentifier' - The name of a final node group snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the cluster is immediately deleted.
+-- * 'drgFinalSnapshotIdentifier' - The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 --
--- * 'drgRetainPrimaryCluster' - If set to /true/ , all of the read replicas will be deleted, but the primary node will be retained.
+-- * 'drgRetainPrimaryCluster' - If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
 --
 -- * 'drgReplicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case sensitive.
 deleteReplicationGroup
@@ -78,11 +78,11 @@ deleteReplicationGroup pReplicationGroupId_ =
     , _drgReplicationGroupId = pReplicationGroupId_
     }
 
--- | The name of a final node group snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the cluster is immediately deleted.
+-- | The name of a final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster, rather than one of the replicas; this is to ensure that it captures the freshest data. After the final snapshot is taken, the replication group is immediately deleted.
 drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
 drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a});
 
--- | If set to /true/ , all of the read replicas will be deleted, but the primary node will be retained.
+-- | If set to @true@ , all of the read replicas are deleted, but the primary node is retained.
 drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
 drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a});
 

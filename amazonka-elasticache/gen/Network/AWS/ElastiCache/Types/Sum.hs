@@ -131,6 +131,7 @@ data SourceType
     | CacheParameterGroup
     | CacheSecurityGroup
     | CacheSubnetGroup
+    | ReplicationGroup
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceType where
@@ -139,8 +140,9 @@ instance FromText SourceType where
         "cache-parameter-group" -> pure CacheParameterGroup
         "cache-security-group" -> pure CacheSecurityGroup
         "cache-subnet-group" -> pure CacheSubnetGroup
+        "replication-group" -> pure ReplicationGroup
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group"
+           <> "'. Accepted values: cache-cluster, cache-parameter-group, cache-security-group, cache-subnet-group, replication-group"
 
 instance ToText SourceType where
     toText = \case
@@ -148,6 +150,7 @@ instance ToText SourceType where
         CacheParameterGroup -> "cache-parameter-group"
         CacheSecurityGroup -> "cache-security-group"
         CacheSubnetGroup -> "cache-subnet-group"
+        ReplicationGroup -> "replication-group"
 
 instance Hashable     SourceType
 instance NFData       SourceType

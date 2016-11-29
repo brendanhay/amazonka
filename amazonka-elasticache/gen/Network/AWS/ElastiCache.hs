@@ -15,7 +15,7 @@
 --
 -- Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed cache in the cloud.
 --
--- With ElastiCache, customers gain all of the benefits of a high-performance, in-memory cache with far less of the administrative burden of launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.
+-- With ElastiCache, customers get all of the benefits of a high-performance, in-memory cache with less of the administrative burden involved in launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.
 --
 -- In addition, through integration with Amazon CloudWatch, customers get enhanced visibility into the key performance statistics associated with their cache and can receive alarms if a part of their cache runs hot.
 --
@@ -38,6 +38,9 @@ module Network.AWS.ElastiCache
 
     -- ** CacheSubnetGroupAlreadyExistsFault
     , _CacheSubnetGroupAlreadyExistsFault
+
+    -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
+    , _NodeGroupsPerReplicationGroupQuotaExceededFault
 
     -- ** CacheSubnetGroupQuotaExceededFault
     , _CacheSubnetGroupQuotaExceededFault
@@ -447,8 +450,17 @@ module Network.AWS.ElastiCache
     , nodeGroup
     , ngStatus
     , ngPrimaryEndpoint
+    , ngSlots
     , ngNodeGroupMembers
     , ngNodeGroupId
+
+    -- ** NodeGroupConfiguration
+    , NodeGroupConfiguration
+    , nodeGroupConfiguration
+    , ngcSlots
+    , ngcReplicaCount
+    , ngcPrimaryAvailabilityZone
+    , ngcReplicaAvailabilityZones
 
     -- ** NodeGroupMember
     , NodeGroupMember
@@ -462,8 +474,11 @@ module Network.AWS.ElastiCache
     -- ** NodeSnapshot
     , NodeSnapshot
     , nodeSnapshot
+    , nsNodeGroupConfiguration
     , nsCacheNodeCreateTime
+    , nsCacheClusterId
     , nsCacheNodeId
+    , nsNodeGroupId
     , nsSnapshotCreateTime
     , nsCacheSize
 
@@ -512,7 +527,10 @@ module Network.AWS.ElastiCache
     , rgStatus
     , rgNodeGroups
     , rgSnapshottingClusterId
+    , rgSnapshotWindow
+    , rgConfigurationEndpoint
     , rgMemberClusters
+    , rgSnapshotRetentionLimit
     , rgDescription
     , rgReplicationGroupId
     , rgPendingModifiedValues
@@ -566,6 +584,7 @@ module Network.AWS.ElastiCache
     , sCacheClusterCreateTime
     , sAutoMinorVersionUpgrade
     , sCacheParameterGroupName
+    , sReplicationGroupDescription
     , sVPCId
     , sSnapshotStatus
     , sSnapshotWindow
@@ -576,10 +595,13 @@ module Network.AWS.ElastiCache
     , sNodeSnapshots
     , sCacheSubnetGroupName
     , sPreferredAvailabilityZone
+    , sNumNodeGroups
     , sSnapshotRetentionLimit
     , sSnapshotName
+    , sReplicationGroupId
     , sNumCacheNodes
     , sPort
+    , sAutomaticFailover
     , sSnapshotSource
 
     -- ** Subnet

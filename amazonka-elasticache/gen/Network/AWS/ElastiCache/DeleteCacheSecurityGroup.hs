@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteCacheSecurityGroup/ action deletes a cache security group.
+-- Deletes a cache security group.
 --
 --
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
@@ -41,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DeleteCacheSecurityGroup/ action.
+-- | Represents the input of a @DeleteCacheSecurityGroup@ operation.
 --
 --
 --

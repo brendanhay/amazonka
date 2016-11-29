@@ -20,6 +20,7 @@ module Network.AWS.ElastiCache.Types
     , _ReservedCacheNodeAlreadyExistsFault
     , _CacheSecurityGroupNotFoundFault
     , _CacheSubnetGroupAlreadyExistsFault
+    , _NodeGroupsPerReplicationGroupQuotaExceededFault
     , _CacheSubnetGroupQuotaExceededFault
     , _AuthorizationAlreadyExistsFault
     , _ReservedCacheNodeQuotaExceededFault
@@ -219,8 +220,17 @@ module Network.AWS.ElastiCache.Types
     , nodeGroup
     , ngStatus
     , ngPrimaryEndpoint
+    , ngSlots
     , ngNodeGroupMembers
     , ngNodeGroupId
+
+    -- * NodeGroupConfiguration
+    , NodeGroupConfiguration
+    , nodeGroupConfiguration
+    , ngcSlots
+    , ngcReplicaCount
+    , ngcPrimaryAvailabilityZone
+    , ngcReplicaAvailabilityZones
 
     -- * NodeGroupMember
     , NodeGroupMember
@@ -234,8 +244,11 @@ module Network.AWS.ElastiCache.Types
     -- * NodeSnapshot
     , NodeSnapshot
     , nodeSnapshot
+    , nsNodeGroupConfiguration
     , nsCacheNodeCreateTime
+    , nsCacheClusterId
     , nsCacheNodeId
+    , nsNodeGroupId
     , nsSnapshotCreateTime
     , nsCacheSize
 
@@ -284,7 +297,10 @@ module Network.AWS.ElastiCache.Types
     , rgStatus
     , rgNodeGroups
     , rgSnapshottingClusterId
+    , rgSnapshotWindow
+    , rgConfigurationEndpoint
     , rgMemberClusters
+    , rgSnapshotRetentionLimit
     , rgDescription
     , rgReplicationGroupId
     , rgPendingModifiedValues
@@ -338,6 +354,7 @@ module Network.AWS.ElastiCache.Types
     , sCacheClusterCreateTime
     , sAutoMinorVersionUpgrade
     , sCacheParameterGroupName
+    , sReplicationGroupDescription
     , sVPCId
     , sSnapshotStatus
     , sSnapshotWindow
@@ -348,10 +365,13 @@ module Network.AWS.ElastiCache.Types
     , sNodeSnapshots
     , sCacheSubnetGroupName
     , sPreferredAvailabilityZone
+    , sNumNodeGroups
     , sSnapshotRetentionLimit
     , sSnapshotName
+    , sReplicationGroupId
     , sNumCacheNodes
     , sPort
+    , sAutomaticFailover
     , sSnapshotSource
 
     -- * Subnet
@@ -440,6 +460,14 @@ _CacheSubnetGroupAlreadyExistsFault :: AsError a => Getting (First ServiceError)
 _CacheSubnetGroupAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupAlreadyExists"
 
+-- | The request cannot be processed because it would exceed the maximum of 15 node groups (shards) in a single replication group.
+--
+--
+_NodeGroupsPerReplicationGroupQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
+_NodeGroupsPerReplicationGroupQuotaExceededFault =
+    _ServiceError .
+    hasStatus 400 . hasCode "NodeGroupsPerReplicationGroupQuotaExceeded"
+
 -- | The request cannot be processed because it would exceed the allowed number of cache subnet groups.
 --
 --
@@ -503,7 +531,7 @@ _InsufficientCacheClusterCapacityFault :: AsError a => Getting (First ServiceErr
 _InsufficientCacheClusterCapacityFault =
     _ServiceError . hasStatus 400 . hasCode "InsufficientCacheClusterCapacity"
 
--- | The current state of the snapshot does not allow the requested action to occur.
+-- | The current state of the snapshot does not allow the requested operation to occur.
 --
 --
 _InvalidSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -558,10 +586,10 @@ _CacheSubnetGroupNotFoundFault :: AsError a => Getting (First ServiceError) a Se
 _CacheSubnetGroupNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "CacheSubnetGroupNotFoundFault"
 
--- | You attempted one of the following actions:
+-- | You attempted one of the following operations:
 --
 --
---     * Creating a snapshot of a Redis cache cluster running on a /t1.micro/ cache node.
+--     * Creating a snapshot of a Redis cache cluster running on a @cache.t1.micro@ cache node.
 --
 --     * Creating a snapshot of a cache cluster that is running Memcached rather than Redis.
 --
@@ -580,7 +608,7 @@ _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a S
 _InvalidParameterValueException =
     _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
--- | The requested replication group is not in the /available/ state.
+-- | The requested replication group is not in the @available@ state.
 --
 --
 _InvalidReplicationGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -628,7 +656,7 @@ _AuthorizationNotFoundFault :: AsError a => Getting (First ServiceError) a Servi
 _AuthorizationNotFoundFault =
     _ServiceError . hasStatus 404 . hasCode "AuthorizationNotFound"
 
--- | The requested cache cluster is not in the /available/ state.
+-- | The requested cache cluster is not in the @available@ state.
 --
 --
 _InvalidCacheClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
@@ -683,7 +711,7 @@ _CacheParameterGroupNotFoundFault =
 _InvalidARNFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidARNFault = _ServiceError . hasStatus 400 . hasCode "InvalidARN"
 
--- | The current state of the cache parameter group does not allow the requested action to occur.
+-- | The current state of the cache parameter group does not allow the requested operation to occur.
 --
 --
 _InvalidCacheParameterGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError

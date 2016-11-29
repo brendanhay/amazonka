@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a reserved cache node offering.
+-- Allows you to purchase a reserved cache node offering.
 --
 --
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /PurchaseReservedCacheNodesOffering/ action.
+-- | Represents the input of a @PurchaseReservedCacheNodesOffering@ operation.
 --
 --
 --

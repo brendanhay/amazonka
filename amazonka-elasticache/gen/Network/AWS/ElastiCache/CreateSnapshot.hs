@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /CreateSnapshot/ action creates a copy of an entire cache cluster at a specific moment in time.
+-- Creates a copy of an entire cache cluster or replication group at a specific moment in time.
 --
 --
 module Network.AWS.ElastiCache.CreateSnapshot
@@ -28,6 +28,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     , CreateSnapshot
     -- * Request Lenses
     , csCacheClusterId
+    , csReplicationGroupId
     , csSnapshotName
 
     -- * Destructuring the Response
@@ -45,36 +46,43 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /CreateSnapshot/ action.
+-- | Represents the input of a @CreateSnapshot@ operation.
 --
 --
 --
 -- /See:/ 'createSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-    { _csCacheClusterId :: !Text
-    , _csSnapshotName   :: !Text
+    { _csCacheClusterId     :: !(Maybe Text)
+    , _csReplicationGroupId :: !(Maybe Text)
+    , _csSnapshotName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csCacheClusterId' - The identifier of an existing cache cluster. The snapshot will be created from this cache cluster.
+-- * 'csCacheClusterId' - The identifier of an existing cache cluster. The snapshot is created from this cache cluster.
+--
+-- * 'csReplicationGroupId' - The identifier of an existing replication group. The snapshot is created from this replication group.
 --
 -- * 'csSnapshotName' - A name for the snapshot being created.
 createSnapshot
-    :: Text -- ^ 'csCacheClusterId'
-    -> Text -- ^ 'csSnapshotName'
+    :: Text -- ^ 'csSnapshotName'
     -> CreateSnapshot
-createSnapshot pCacheClusterId_ pSnapshotName_ =
+createSnapshot pSnapshotName_ =
     CreateSnapshot'
-    { _csCacheClusterId = pCacheClusterId_
+    { _csCacheClusterId = Nothing
+    , _csReplicationGroupId = Nothing
     , _csSnapshotName = pSnapshotName_
     }
 
--- | The identifier of an existing cache cluster. The snapshot will be created from this cache cluster.
-csCacheClusterId :: Lens' CreateSnapshot Text
+-- | The identifier of an existing cache cluster. The snapshot is created from this cache cluster.
+csCacheClusterId :: Lens' CreateSnapshot (Maybe Text)
 csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
+
+-- | The identifier of an existing replication group. The snapshot is created from this replication group.
+csReplicationGroupId :: Lens' CreateSnapshot (Maybe Text)
+csReplicationGroupId = lens _csReplicationGroupId (\ s a -> s{_csReplicationGroupId = a});
 
 -- | A name for the snapshot being created.
 csSnapshotName :: Lens' CreateSnapshot Text
@@ -105,6 +113,7 @@ instance ToQuery CreateSnapshot where
               ["Action" =: ("CreateSnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheClusterId" =: _csCacheClusterId,
+               "ReplicationGroupId" =: _csReplicationGroupId,
                "SnapshotName" =: _csSnapshotName]
 
 -- | /See:/ 'createSnapshotResponse' smart constructor.

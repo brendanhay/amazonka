@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheSecurityGroups/ action returns a list of cache security group descriptions. If a cache security group name is specified, the list will contain only the description of that group.
+-- Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
 --
 --
 --
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeCacheSecurityGroups/ action.
+-- | Represents the input of a @DescribeCacheSecurityGroups@ operation.
 --
 --
 --
@@ -67,7 +67,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
 --
 -- * 'dcsgsCacheSecurityGroupName' - The name of the cache security group to return details for.
 --
--- * 'dcsgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'dcsgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- * 'dcsgsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 describeCacheSecurityGroups
@@ -83,7 +83,7 @@ describeCacheSecurityGroups =
 dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
@@ -133,7 +133,7 @@ instance ToQuery DescribeCacheSecurityGroups where
                "Marker" =: _dcsgsMarker,
                "MaxRecords" =: _dcsgsMaxRecords]
 
--- | Represents the output of a /DescribeCacheSecurityGroups/ action.
+-- | Represents the output of a @DescribeCacheSecurityGroups@ operation.
 --
 --
 --

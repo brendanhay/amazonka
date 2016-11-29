@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a successful response from this action, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this action.
+-- Deletes an existing snapshot. When you receive a successful response from this operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this operation.
 --
 --
 module Network.AWS.ElastiCache.DeleteSnapshot
@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DeleteSnapshot/ action.
+-- | Represents the input of a @DeleteSnapshot@ operation.
 --
 --
 --

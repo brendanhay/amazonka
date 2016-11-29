@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeCacheParameters/ action returns the detailed parameter list for a particular cache parameter group.
+-- Returns the detailed parameter list for a particular cache parameter group.
 --
 --
 --
@@ -52,7 +52,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeCacheParameters/ action.
+-- | Represents the input of a @DescribeCacheParameters@ operation.
 --
 --
 --
@@ -68,9 +68,9 @@ data DescribeCacheParameters = DescribeCacheParameters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'dcpMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dcpMaxRecords' - The maximum number of brecords to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+-- * 'dcpMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
 -- * 'dcpSource' - The parameter types to return. Valid values: @user@ | @system@ | @engine-default@
 --
@@ -86,11 +86,11 @@ describeCacheParameters pCacheParameterGroupName_ =
     , _dcpCacheParameterGroupName = pCacheParameterGroupName_
     }
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
--- | The maximum number of brecords to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
 dcpMaxRecords = lens _dcpMaxRecords (\ s a -> s{_dcpMaxRecords = a});
 
@@ -148,7 +148,7 @@ instance ToQuery DescribeCacheParameters where
                "CacheParameterGroupName" =:
                  _dcpCacheParameterGroupName]
 
--- | Represents the output of a /DescribeCacheParameters/ action.
+-- | Represents the output of a @DescribeCacheParameters@ operation.
 --
 --
 --

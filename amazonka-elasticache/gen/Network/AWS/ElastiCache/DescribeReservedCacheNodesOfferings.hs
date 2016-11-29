@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DescribeReservedCacheNodesOfferings/ action lists available reserved cache node offerings.
+-- Lists available reserved cache node offerings.
 --
 --
 --
@@ -54,7 +54,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeReservedCacheNodesOfferings/ action.
+-- | Represents the input of a @DescribeReservedCacheNodesOfferings@ operation.
 --
 --
 --
@@ -73,11 +73,11 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcnoCacheNodeType' - The cache node type filter value. Use this parameter to show only the available offerings matching the specified cache node type. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).     * Redis backup/restore is not supported for t2 instances.     * Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances. For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- * 'drcnoCacheNodeType' - The cache node type filter value. Use this parameter to show only the available offerings matching the specified cache node type. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 --
 -- * 'drcnoProductDescription' - The product description filter value. Use this parameter to show only the available offerings matching the specified product description.
 --
--- * 'drcnoMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- * 'drcnoMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- * 'drcnoMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
 --
@@ -99,7 +99,7 @@ describeReservedCacheNodesOfferings =
     , _drcnoReservedCacheNodesOfferingId = Nothing
     }
 
--- | The cache node type filter value. Use this parameter to show only the available offerings matching the specified cache node type. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All t2 instances are created in an Amazon Virtual Private Cloud (VPC).     * Redis backup/restore is not supported for t2 instances.     * Redis Append-only files (AOF) functionality is not supported for t1 or t2 instances. For a complete listing of cache node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
+-- | The cache node type filter value. Use this parameter to show only the available offerings matching the specified cache node type. Valid node types are as follows:     * General purpose:     * Current generation: @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@ , @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@ , @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@      * Previous generation: @cache.t1.micro@ , @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@      * Compute optimized: @cache.c1.xlarge@      * Memory optimized:     * Current generation: @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@      * Previous generation: @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@  __Notes:__      * All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).     * Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2 instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.     * Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances. For a complete listing of node types and specifications, see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and either <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis> .
 drcnoCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoCacheNodeType = lens _drcnoCacheNodeType (\ s a -> s{_drcnoCacheNodeType = a});
 
@@ -107,7 +107,7 @@ drcnoCacheNodeType = lens _drcnoCacheNodeType (\ s a -> s{_drcnoCacheNodeType = 
 drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProductDescription = a});
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this action. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by /MaxRecords/ .
+-- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoMarker = lens _drcnoMarker (\ s a -> s{_drcnoMarker = a});
 
@@ -180,7 +180,7 @@ instance ToQuery DescribeReservedCacheNodesOfferings
                "ReservedCacheNodesOfferingId" =:
                  _drcnoReservedCacheNodesOfferingId]
 
--- | Represents the output of a /DescribeReservedCacheNodesOfferings/ action.
+-- | Represents the output of a @DescribeReservedCacheNodesOfferings@ operation.
 --
 --
 --

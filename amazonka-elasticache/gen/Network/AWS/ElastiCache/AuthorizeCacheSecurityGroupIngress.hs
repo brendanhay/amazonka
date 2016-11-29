@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.
+-- Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.
 --
 --
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
@@ -46,7 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
+-- | Represents the input of an AuthorizeCacheSecurityGroupIngress operation.
 --
 --
 --
@@ -61,7 +61,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsgiCacheSecurityGroupName' - The cache security group which will allow network ingress.
+-- * 'acsgiCacheSecurityGroupName' - The cache security group that allows network ingress.
 --
 -- * 'acsgiEC2SecurityGroupName' - The Amazon EC2 security group to be authorized for ingress to the cache security group.
 --
@@ -78,7 +78,7 @@ authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupNam
     , _acsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
     }
 
--- | The cache security group which will allow network ingress.
+-- | The cache security group that allows network ingress.
 acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
 acsgiCacheSecurityGroupName = lens _acsgiCacheSecurityGroupName (\ s a -> s{_acsgiCacheSecurityGroupName = a});
 

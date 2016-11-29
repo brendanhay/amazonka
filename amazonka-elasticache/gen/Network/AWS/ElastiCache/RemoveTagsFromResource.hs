@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /RemoveTagsFromResource/ action removes the tags identified by the @TagKeys@ list from the named resource.
+-- Removes the tags identified by the @TagKeys@ list from the named resource.
 --
 --
 module Network.AWS.ElastiCache.RemoveTagsFromResource
@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /RemoveTagsFromResource/ action.
+-- | Represents the input of a @RemoveTagsFromResource@ operation.
 --
 --
 --
@@ -58,9 +58,9 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtfrResourceName' - The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'rtfrResourceName' - The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- * 'rtfrTagKeys' - A list of @TagKeys@ identifying the tags you want removed from the named resource. For example, @TagKeys.member.1=Region@ removes the cost allocation tag with the key name @Region@ from the resource named by the /ResourceName/ parameter.
+-- * 'rtfrTagKeys' - A list of @TagKeys@ identifying the tags you want removed from the named resource.
 removeTagsFromResource
     :: Text -- ^ 'rtfrResourceName'
     -> RemoveTagsFromResource
@@ -70,11 +70,11 @@ removeTagsFromResource pResourceName_ =
     , _rtfrTagKeys = mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information on ARNs, go to <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 
--- | A list of @TagKeys@ identifying the tags you want removed from the named resource. For example, @TagKeys.member.1=Region@ removes the cost allocation tag with the key name @Region@ from the resource named by the /ResourceName/ parameter.
+-- | A list of @TagKeys@ identifying the tags you want removed from the named resource.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 

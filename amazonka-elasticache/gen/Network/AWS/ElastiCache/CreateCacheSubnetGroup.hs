@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
+-- Creates a new cache subnet group.
 --
 --
--- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (VPC).
+-- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
 --
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /CreateCacheSubnetGroup/ action.
+-- | Represents the input of a @CreateCacheSubnetGroup@ operation.
 --
 --
 --

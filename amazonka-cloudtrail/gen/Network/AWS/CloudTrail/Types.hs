@@ -33,6 +33,7 @@ module Network.AWS.CloudTrail.Types
     , _CloudWatchLogsDeliveryUnavailableException
     , _KMSKeyNotFoundException
     , _TrailNotFoundException
+    , _InvalidEventSelectorsException
     , _TrailNotProvidedException
     , _InvalidS3BucketNameException
     , _InvalidCloudWatchLogsLogGroupARNException
@@ -53,6 +54,15 @@ module Network.AWS.CloudTrail.Types
     -- * LookupAttributeKey
     , LookupAttributeKey (..)
 
+    -- * ReadWriteType
+    , ReadWriteType (..)
+
+    -- * DataResource
+    , DataResource
+    , dataResource
+    , drValues
+    , drType
+
     -- * Event
     , Event
     , event
@@ -61,7 +71,15 @@ module Network.AWS.CloudTrail.Types
     , eEventTime
     , eCloudTrailEvent
     , eEventName
+    , eEventSource
     , eEventId
+
+    -- * EventSelector
+    , EventSelector
+    , eventSelector
+    , esDataResources
+    , esReadWriteType
+    , esIncludeManagementEvents
 
     -- * LookupAttribute
     , LookupAttribute
@@ -108,6 +126,7 @@ module Network.AWS.CloudTrail.Types
     , tHomeRegion
     , tName
     , tIncludeGlobalServiceEvents
+    , tHasCustomEventSelectors
     , tCloudWatchLogsRoleARN
     , tS3BucketName
     , tIsMultiRegionTrail
@@ -208,7 +227,7 @@ _InvalidCloudWatchLogsRoleARNException :: AsError a => Getting (First ServiceErr
 _InvalidCloudWatchLogsRoleARNException =
     _ServiceError . hasCode "InvalidCloudWatchLogsRoleArnException"
 
--- | The number of tags per trail has exceeded the permitted amount. Currently, the limit is 10.
+-- | The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.
 --
 --
 _TagsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -282,6 +301,21 @@ _KMSKeyNotFoundException = _ServiceError . hasCode "KmsKeyNotFoundException"
 --
 _TrailNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrailNotFoundException = _ServiceError . hasCode "TrailNotFoundException"
+
+-- | This exception is thrown when the @PutEventSelectors@ operation is called with an invalid number of event selectors, data resources, or an invalid value for a parameter:
+--
+--
+--     * Specify a valid number of event selectors (1 to 5) for a trail.
+--
+--     * Specify a valid number of data resources (1 to 50) for an event selector.
+--
+--     * Specify a valid value for a parameter. For example, specifying the @ReadWriteType@ parameter with a value of @read-only@ is invalid.
+--
+--
+--
+_InvalidEventSelectorsException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidEventSelectorsException =
+    _ServiceError . hasCode "InvalidEventSelectorsException"
 
 -- | This exception is deprecated.
 --

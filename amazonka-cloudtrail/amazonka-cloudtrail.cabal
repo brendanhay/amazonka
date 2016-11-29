@@ -44,10 +44,12 @@ library
         , Network.AWS.CloudTrail.CreateTrail
         , Network.AWS.CloudTrail.DeleteTrail
         , Network.AWS.CloudTrail.DescribeTrails
+        , Network.AWS.CloudTrail.GetEventSelectors
         , Network.AWS.CloudTrail.GetTrailStatus
         , Network.AWS.CloudTrail.ListPublicKeys
         , Network.AWS.CloudTrail.ListTags
         , Network.AWS.CloudTrail.LookupEvents
+        , Network.AWS.CloudTrail.PutEventSelectors
         , Network.AWS.CloudTrail.RemoveTags
         , Network.AWS.CloudTrail.StartLogging
         , Network.AWS.CloudTrail.StopLogging

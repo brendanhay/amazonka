@@ -21,6 +21,71 @@ import           Network.AWS.CloudTrail.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object level API operations that access S3 objects, such as @GetObject@ , @DeleteObject@ , and @PutObject@ . You can specify up to 50 S3 buckets and object prefixes for an event selector.
+--
+--
+-- Example
+--
+--     * You create an event selector for a trail and specify an S3 bucket and an empty prefix, such as @arn:aws:s3:::bucket-1/@ .
+--
+--     * You upload an image file to @bucket-1@ .
+--
+--     * The @PutObject@ API operation occurs on an object in the S3 bucket that you specified in the event selector. The trail processes and logs the event.
+--
+--     * You upload another image file to a different S3 bucket named @arn:aws:s3:::bucket-2@ .
+--
+--     * The event occurs on an object in an S3 bucket that you didn't specify in the event selector. The trail doesn’t log the event.
+--
+--
+--
+--
+-- /See:/ 'dataResource' smart constructor.
+data DataResource = DataResource'
+    { _drValues :: !(Maybe [Text])
+    , _drType   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DataResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drValues' - A list of ARN-like strings for the specified S3 objects. To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket. To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
+--
+-- * 'drType' - The resource type in which you want to log data events. You can specify only the following value: @AWS::S3::Object@ .
+dataResource
+    :: DataResource
+dataResource =
+    DataResource'
+    { _drValues = Nothing
+    , _drType = Nothing
+    }
+
+-- | A list of ARN-like strings for the specified S3 objects. To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket. To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
+drValues :: Lens' DataResource [Text]
+drValues = lens _drValues (\ s a -> s{_drValues = a}) . _Default . _Coerce;
+
+-- | The resource type in which you want to log data events. You can specify only the following value: @AWS::S3::Object@ .
+drType :: Lens' DataResource (Maybe Text)
+drType = lens _drType (\ s a -> s{_drType = a});
+
+instance FromJSON DataResource where
+        parseJSON
+          = withObject "DataResource"
+              (\ x ->
+                 DataResource' <$>
+                   (x .:? "Values" .!= mempty) <*> (x .:? "Type"))
+
+instance Hashable DataResource
+
+instance NFData DataResource
+
+instance ToJSON DataResource where
+        toJSON DataResource'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _drValues,
+                  ("Type" .=) <$> _drType])
+
 -- | Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.
 --
 --
@@ -32,6 +97,7 @@ data Event = Event'
     , _eEventTime       :: !(Maybe POSIX)
     , _eCloudTrailEvent :: !(Maybe Text)
     , _eEventName       :: !(Maybe Text)
+    , _eEventSource     :: !(Maybe Text)
     , _eEventId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -49,6 +115,8 @@ data Event = Event'
 --
 -- * 'eEventName' - The name of the event returned.
 --
+-- * 'eEventSource' - The AWS service that the request was made to.
+--
 -- * 'eEventId' - The CloudTrail ID of the event returned.
 event
     :: Event
@@ -59,6 +127,7 @@ event =
     , _eEventTime = Nothing
     , _eCloudTrailEvent = Nothing
     , _eEventName = Nothing
+    , _eEventSource = Nothing
     , _eEventId = Nothing
     }
 
@@ -82,6 +151,10 @@ eCloudTrailEvent = lens _eCloudTrailEvent (\ s a -> s{_eCloudTrailEvent = a});
 eEventName :: Lens' Event (Maybe Text)
 eEventName = lens _eEventName (\ s a -> s{_eEventName = a});
 
+-- | The AWS service that the request was made to.
+eEventSource :: Lens' Event (Maybe Text)
+eEventSource = lens _eEventSource (\ s a -> s{_eEventSource = a});
+
 -- | The CloudTrail ID of the event returned.
 eEventId :: Lens' Event (Maybe Text)
 eEventId = lens _eEventId (\ s a -> s{_eEventId = a});
@@ -95,11 +168,77 @@ instance FromJSON Event where
                      <*> (x .:? "EventTime")
                      <*> (x .:? "CloudTrailEvent")
                      <*> (x .:? "EventName")
+                     <*> (x .:? "EventSource")
                      <*> (x .:? "EventId"))
 
 instance Hashable Event
 
 instance NFData Event
+
+-- | Use event selectors to specify the types of events that you want your trail to log. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
+--
+--
+-- You can configure up to five event selectors for a trail.
+--
+--
+-- /See:/ 'eventSelector' smart constructor.
+data EventSelector = EventSelector'
+    { _esDataResources           :: !(Maybe [DataResource])
+    , _esReadWriteType           :: !(Maybe ReadWriteType)
+    , _esIncludeManagementEvents :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventSelector' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esDataResources' - CloudTrail supports logging only data events for S3 objects. You can specify up to 50 S3 buckets and object prefixes for an event selector. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources Data Events> in the /AWS CloudTrail User Guide/ .
+--
+-- * 'esReadWriteType' - Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation. By default, the value is @All@ .
+--
+-- * 'esIncludeManagementEvents' - Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
+eventSelector
+    :: EventSelector
+eventSelector =
+    EventSelector'
+    { _esDataResources = Nothing
+    , _esReadWriteType = Nothing
+    , _esIncludeManagementEvents = Nothing
+    }
+
+-- | CloudTrail supports logging only data events for S3 objects. You can specify up to 50 S3 buckets and object prefixes for an event selector. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources Data Events> in the /AWS CloudTrail User Guide/ .
+esDataResources :: Lens' EventSelector [DataResource]
+esDataResources = lens _esDataResources (\ s a -> s{_esDataResources = a}) . _Default . _Coerce;
+
+-- | Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation. By default, the value is @All@ .
+esReadWriteType :: Lens' EventSelector (Maybe ReadWriteType)
+esReadWriteType = lens _esReadWriteType (\ s a -> s{_esReadWriteType = a});
+
+-- | Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
+esIncludeManagementEvents :: Lens' EventSelector (Maybe Bool)
+esIncludeManagementEvents = lens _esIncludeManagementEvents (\ s a -> s{_esIncludeManagementEvents = a});
+
+instance FromJSON EventSelector where
+        parseJSON
+          = withObject "EventSelector"
+              (\ x ->
+                 EventSelector' <$>
+                   (x .:? "DataResources" .!= mempty) <*>
+                     (x .:? "ReadWriteType")
+                     <*> (x .:? "IncludeManagementEvents"))
+
+instance Hashable EventSelector
+
+instance NFData EventSelector
+
+instance ToJSON EventSelector where
+        toJSON EventSelector'{..}
+          = object
+              (catMaybes
+                 [("DataResources" .=) <$> _esDataResources,
+                  ("ReadWriteType" .=) <$> _esReadWriteType,
+                  ("IncludeManagementEvents" .=) <$>
+                    _esIncludeManagementEvents])
 
 -- | Specifies an attribute and value that filter the events returned.
 --
@@ -364,6 +503,7 @@ data Trail = Trail'
     , _tHomeRegion                 :: !(Maybe Text)
     , _tName                       :: !(Maybe Text)
     , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _tHasCustomEventSelectors    :: !(Maybe Bool)
     , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _tS3BucketName               :: !(Maybe Text)
     , _tIsMultiRegionTrail         :: !(Maybe Bool)
@@ -393,6 +533,8 @@ data Trail = Trail'
 --
 -- * 'tIncludeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
 --
+-- * 'tHasCustomEventSelectors' - Specifies if the trail has custom event selectors.
+--
 -- * 'tCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 --
 -- * 'tS3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
@@ -412,6 +554,7 @@ trail =
     , _tHomeRegion = Nothing
     , _tName = Nothing
     , _tIncludeGlobalServiceEvents = Nothing
+    , _tHasCustomEventSelectors = Nothing
     , _tCloudWatchLogsRoleARN = Nothing
     , _tS3BucketName = Nothing
     , _tIsMultiRegionTrail = Nothing
@@ -457,6 +600,10 @@ tName = lens _tName (\ s a -> s{_tName = a});
 tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
 tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a});
 
+-- | Specifies if the trail has custom event selectors.
+tHasCustomEventSelectors :: Lens' Trail (Maybe Bool)
+tHasCustomEventSelectors = lens _tHasCustomEventSelectors (\ s a -> s{_tHasCustomEventSelectors = a});
+
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
 tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
 tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a});
@@ -484,6 +631,7 @@ instance FromJSON Trail where
                      <*> (x .:? "HomeRegion")
                      <*> (x .:? "Name")
                      <*> (x .:? "IncludeGlobalServiceEvents")
+                     <*> (x .:? "HasCustomEventSelectors")
                      <*> (x .:? "CloudWatchLogsRoleArn")
                      <*> (x .:? "S3BucketName")
                      <*> (x .:? "IsMultiRegionTrail"))

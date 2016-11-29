@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to a trail, up to a limit of 10. Tags must be unique per trail. Overwrites an existing tag's value when a new value is specified for an existing tag key. If you specify a key without a value, the tag will be created with the specified key and a value of null. You can tag a trail that applies to all regions only from the region in which the trail was created (that is, from its home region).
+-- Adds one or more tags to a trail, up to a limit of 50. Tags must be unique per trail. Overwrites an existing tag's value when a new value is specified for an existing tag key. If you specify a key without a value, the tag will be created with the specified key and a value of null. You can tag a trail that applies to all regions only from the region in which the trail was created (that is, from its home region).
 --
 --
 module Network.AWS.CloudTrail.AddTags
@@ -58,7 +58,7 @@ data AddTags = AddTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atTagsList' - Contains a list of CloudTrail tags, up to a limit of 10.
+-- * 'atTagsList' - Contains a list of CloudTrail tags, up to a limit of 50
 --
 -- * 'atResourceId' - Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 addTags
@@ -70,7 +70,7 @@ addTags pResourceId_ =
     , _atResourceId = pResourceId_
     }
 
--- | Contains a list of CloudTrail tags, up to a limit of 10.
+-- | Contains a list of CloudTrail tags, up to a limit of 50
 atTagsList :: Lens' AddTags [Tag]
 atTagsList = lens _atTagsList (\ s a -> s{_atTagsList = a}) . _Default . _Coerce;
 

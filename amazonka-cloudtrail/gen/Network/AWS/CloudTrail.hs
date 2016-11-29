@@ -17,7 +17,7 @@
 --
 -- CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.
 --
--- See the CloudTrail User Guide for information about the data that is included with each AWS API call listed in the log files.
+-- See the <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html AWS CloudTrail User Guide> for information about the data that is included with each AWS API call listed in the log files.
 --
 module Network.AWS.CloudTrail
     (
@@ -77,6 +77,9 @@ module Network.AWS.CloudTrail
 
     -- ** TrailNotFoundException
     , _TrailNotFoundException
+
+    -- ** InvalidEventSelectorsException
+    , _InvalidEventSelectorsException
 
     -- ** TrailNotProvidedException
     , _TrailNotProvidedException
@@ -156,6 +159,9 @@ module Network.AWS.CloudTrail
     -- ** CreateTrail
     , module Network.AWS.CloudTrail.CreateTrail
 
+    -- ** GetEventSelectors
+    , module Network.AWS.CloudTrail.GetEventSelectors
+
     -- ** GetTrailStatus
     , module Network.AWS.CloudTrail.GetTrailStatus
 
@@ -165,6 +171,9 @@ module Network.AWS.CloudTrail
     -- ** ListTags
     , module Network.AWS.CloudTrail.ListTags
 
+    -- ** PutEventSelectors
+    , module Network.AWS.CloudTrail.PutEventSelectors
+
     -- ** StartLogging
     , module Network.AWS.CloudTrail.StartLogging
 
@@ -172,6 +181,15 @@ module Network.AWS.CloudTrail
 
     -- ** LookupAttributeKey
     , LookupAttributeKey (..)
+
+    -- ** ReadWriteType
+    , ReadWriteType (..)
+
+    -- ** DataResource
+    , DataResource
+    , dataResource
+    , drValues
+    , drType
 
     -- ** Event
     , Event
@@ -181,7 +199,15 @@ module Network.AWS.CloudTrail
     , eEventTime
     , eCloudTrailEvent
     , eEventName
+    , eEventSource
     , eEventId
+
+    -- ** EventSelector
+    , EventSelector
+    , eventSelector
+    , esDataResources
+    , esReadWriteType
+    , esIncludeManagementEvents
 
     -- ** LookupAttribute
     , LookupAttribute
@@ -228,6 +254,7 @@ module Network.AWS.CloudTrail
     , tHomeRegion
     , tName
     , tIncludeGlobalServiceEvents
+    , tHasCustomEventSelectors
     , tCloudWatchLogsRoleARN
     , tS3BucketName
     , tIsMultiRegionTrail
@@ -237,10 +264,12 @@ import           Network.AWS.CloudTrail.AddTags
 import           Network.AWS.CloudTrail.CreateTrail
 import           Network.AWS.CloudTrail.DeleteTrail
 import           Network.AWS.CloudTrail.DescribeTrails
+import           Network.AWS.CloudTrail.GetEventSelectors
 import           Network.AWS.CloudTrail.GetTrailStatus
 import           Network.AWS.CloudTrail.ListPublicKeys
 import           Network.AWS.CloudTrail.ListTags
 import           Network.AWS.CloudTrail.LookupEvents
+import           Network.AWS.CloudTrail.PutEventSelectors
 import           Network.AWS.CloudTrail.RemoveTags
 import           Network.AWS.CloudTrail.StartLogging
 import           Network.AWS.CloudTrail.StopLogging

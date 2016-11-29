@@ -130,7 +130,7 @@ instance ToQuery DescribeImages where
         toQuery DescribeImages'{..}
           = mconcat
               ["Action" =: ("DescribeImages" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery (toQueryList "Owner" <$> _deseOwners),
                toQuery
                  (toQueryList "ExecutableBy" <$>

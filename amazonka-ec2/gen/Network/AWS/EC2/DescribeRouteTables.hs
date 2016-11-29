@@ -117,7 +117,7 @@ instance ToQuery DescribeRouteTables where
         toQuery DescribeRouteTables'{..}
           = mconcat
               ["Action" =: ("DescribeRouteTables" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _drtsFilters),
                "DryRun" =: _drtsDryRun,
                toQuery

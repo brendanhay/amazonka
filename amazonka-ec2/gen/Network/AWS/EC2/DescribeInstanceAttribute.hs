@@ -148,7 +148,7 @@ instance ToQuery DescribeInstanceAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeInstanceAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _diaDryRun,
                "InstanceId" =: _diaInstanceId,
                "Attribute" =: _diaAttribute]

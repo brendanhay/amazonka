@@ -116,7 +116,7 @@ instance ToQuery ImportKeyPair where
         toQuery ImportKeyPair'{..}
           = mconcat
               ["Action" =: ("ImportKeyPair" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _ikpDryRun, "KeyName" =: _ikpKeyName,
                "PublicKeyMaterial" =: _ikpPublicKeyMaterial]
 

@@ -105,7 +105,7 @@ instance ToQuery CreateTags where
         toQuery CreateTags'{..}
           = mconcat
               ["Action" =: ("CreateTags" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _cDryRun,
                toQueryList "ResourceId" _cResources,
                toQueryList "Tag" _cTags]

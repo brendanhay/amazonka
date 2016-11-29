@@ -80,6 +80,9 @@ module Network.AWS.EC2
     -- ** VolumeDeleted
     , volumeDeleted
 
+    -- ** VPCExists
+    , vpcExists
+
     -- ** BundleTaskComplete
     , bundleTaskComplete
 
@@ -154,6 +157,9 @@ module Network.AWS.EC2
 
     -- ** CancelBundleTask
     , module Network.AWS.EC2.CancelBundleTask
+
+    -- ** AcceptReservedInstancesExchangeQuote
+    , module Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
 
     -- ** ReleaseAddress
     , module Network.AWS.EC2.ReleaseAddress
@@ -734,6 +740,9 @@ module Network.AWS.EC2
     -- ** CreateKeyPair
     , module Network.AWS.EC2.CreateKeyPair
 
+    -- ** GetReservedInstancesExchangeQuote
+    , module Network.AWS.EC2.GetReservedInstancesExchangeQuote
+
     -- ** DeleteVolume
     , module Network.AWS.EC2.DeleteVolume
 
@@ -883,6 +892,9 @@ module Network.AWS.EC2
     -- ** NetworkInterfaceType
     , NetworkInterfaceType (..)
 
+    -- ** OfferingClassType
+    , OfferingClassType (..)
+
     -- ** OfferingTypeValues
     , OfferingTypeValues (..)
 
@@ -939,6 +951,9 @@ module Network.AWS.EC2
 
     -- ** RuleAction
     , RuleAction (..)
+
+    -- ** Scope
+    , Scope (..)
 
     -- ** ShutdownBehavior
     , ShutdownBehavior (..)
@@ -2022,11 +2037,24 @@ module Network.AWS.EC2
     , rReservationId
     , rOwnerId
 
+    -- ** ReservationValue
+    , ReservationValue
+    , reservationValue
+    , rvHourlyPrice
+    , rvRemainingTotalValue
+    , rvRemainingUpfrontValue
+
     -- ** ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
     , reservedInstanceLimitPrice
     , rilpAmount
     , rilpCurrencyCode
+
+    -- ** ReservedInstanceReservationValue
+    , ReservedInstanceReservationValue
+    , reservedInstanceReservationValue
+    , rirvReservationValue
+    , rirvReservedInstanceId
 
     -- ** ReservedInstances
     , ReservedInstances
@@ -2039,12 +2067,14 @@ module Network.AWS.EC2
     , riInstanceType
     , riEnd
     , riAvailabilityZone
+    , riScope
     , riRecurringCharges
     , riOfferingType
     , riUsagePrice
     , riFixedPrice
     , riReservedInstancesId
     , riInstanceTenancy
+    , riOfferingClass
     , riDuration
     , riTags
 
@@ -2055,6 +2085,7 @@ module Network.AWS.EC2
     , ricInstanceCount
     , ricInstanceType
     , ricAvailabilityZone
+    , ricScope
 
     -- ** ReservedInstancesId
     , ReservedInstancesId
@@ -2103,12 +2134,14 @@ module Network.AWS.EC2
     , rioInstanceType
     , rioAvailabilityZone
     , rioPricingDetails
+    , rioScope
     , rioRecurringCharges
     , rioOfferingType
     , rioUsagePrice
     , rioFixedPrice
     , rioInstanceTenancy
     , rioReservedInstancesOfferingId
+    , rioOfferingClass
     , rioDuration
 
     -- ** Route
@@ -2536,6 +2569,24 @@ module Network.AWS.EC2
     , tdKey
     , tdValue
 
+    -- ** TargetConfiguration
+    , TargetConfiguration
+    , targetConfiguration
+    , tcInstanceCount
+    , tcOfferingId
+
+    -- ** TargetConfigurationRequest
+    , TargetConfigurationRequest
+    , targetConfigurationRequest
+    , tcrInstanceCount
+    , tcrOfferingId
+
+    -- ** TargetReservationValue
+    , TargetReservationValue
+    , targetReservationValue
+    , trvReservationValue
+    , trvTargetConfiguration
+
     -- ** UnsuccessfulItem
     , UnsuccessfulItem
     , unsuccessfulItem
@@ -2761,6 +2812,7 @@ module Network.AWS.EC2
     , vsiVolumeId
     ) where
 
+import           Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
 import           Network.AWS.EC2.AcceptVPCPeeringConnection
 import           Network.AWS.EC2.AllocateAddress
 import           Network.AWS.EC2.AllocateHosts
@@ -2920,6 +2972,7 @@ import           Network.AWS.EC2.GetConsoleOutput
 import           Network.AWS.EC2.GetConsoleScreenshot
 import           Network.AWS.EC2.GetHostReservationPurchasePreview
 import           Network.AWS.EC2.GetPasswordData
+import           Network.AWS.EC2.GetReservedInstancesExchangeQuote
 import           Network.AWS.EC2.ImportImage
 import           Network.AWS.EC2.ImportInstance
 import           Network.AWS.EC2.ImportKeyPair

@@ -116,7 +116,7 @@ instance ToQuery GetConsoleScreenshot where
         toQuery GetConsoleScreenshot'{..}
           = mconcat
               ["Action" =: ("GetConsoleScreenshot" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "WakeUp" =: _gcsWakeUp, "DryRun" =: _gcsDryRun,
                "InstanceId" =: _gcsInstanceId]
 

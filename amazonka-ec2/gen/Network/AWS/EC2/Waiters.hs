@@ -39,6 +39,7 @@ import           Network.AWS.EC2.DescribeVolumes
 import           Network.AWS.EC2.DescribeVolumes
 import           Network.AWS.EC2.DescribeVPCPeeringConnections
 import           Network.AWS.EC2.DescribeVPCs
+import           Network.AWS.EC2.DescribeVPCs
 import           Network.AWS.EC2.DescribeVPNConnections
 import           Network.AWS.EC2.DescribeVPNConnections
 import           Network.AWS.EC2.GetPasswordData
@@ -366,13 +367,13 @@ exportTaskCompleted =
                               etState . to toTextCI)]
     }
 
--- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
+-- | Polls 'Network.AWS.EC2.DescribeVPNConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 vpnConnectionAvailable :: Wait DescribeVPNConnections
 vpnConnectionAvailable =
     Wait
     { _waitName = "VpnConnectionAvailable"
     , _waitAttempts = 40
-    , _waitDelay = 60
+    , _waitDelay = 15
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
@@ -417,6 +418,17 @@ volumeDeleted =
                              (folding (concatOf dvvrsVolumes) .
                               vState . to toTextCI)
                        , matchError "InvalidVolume.NotFound" AcceptSuccess]
+    }
+
+-- | Polls 'Network.AWS.EC2.DescribeVPCs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
+vpcExists :: Wait DescribeVPCs
+vpcExists =
+    Wait
+    { _waitName = "VpcExists"
+    , _waitAttempts = 5
+    , _waitDelay = 1
+    , _waitAcceptors = [ matchStatus 200 AcceptSuccess
+                       , matchError "InvalidVpcID.NotFound" AcceptRetry]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.

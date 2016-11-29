@@ -133,7 +133,7 @@ instance ToQuery ImportVolume where
         toQuery ImportVolume'{..}
           = mconcat
               ["Action" =: ("ImportVolume" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Description" =: _ivDescription,
                "DryRun" =: _ivDryRun,
                "AvailabilityZone" =: _ivAvailabilityZone,

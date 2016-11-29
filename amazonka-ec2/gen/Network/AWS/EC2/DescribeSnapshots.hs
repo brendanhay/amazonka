@@ -182,7 +182,7 @@ instance ToQuery DescribeSnapshots where
         toQuery DescribeSnapshots'{..}
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery (toQueryList "Owner" <$> _dssOwnerIds),
                toQuery (toQueryList "Filter" <$> _dssFilters),
                "NextToken" =: _dssNextToken,

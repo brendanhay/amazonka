@@ -29,7 +29,6 @@ module Network.AWS.EC2.DescribeConversionTasks
       describeConversionTasks
     , DescribeConversionTasks
     -- * Request Lenses
-    , dctFilters
     , dctConversionTaskIds
     , dctDryRun
 
@@ -54,16 +53,13 @@ import           Network.AWS.Response
 --
 -- /See:/ 'describeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctFilters           :: !(Maybe [Filter])
-    , _dctConversionTaskIds :: !(Maybe [Text])
+    { _dctConversionTaskIds :: !(Maybe [Text])
     , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConversionTasks' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
---
--- * 'dctFilters' - One or more filters.
 --
 -- * 'dctConversionTaskIds' - One or more conversion task IDs.
 --
@@ -72,14 +68,9 @@ describeConversionTasks
     :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
-    { _dctFilters = Nothing
-    , _dctConversionTaskIds = Nothing
+    { _dctConversionTaskIds = Nothing
     , _dctDryRun = Nothing
     }
-
--- | One or more filters.
-dctFilters :: Lens' DescribeConversionTasks [Filter]
-dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce;
 
 -- | One or more conversion task IDs.
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
@@ -116,8 +107,7 @@ instance ToQuery DescribeConversionTasks where
           = mconcat
               ["Action" =:
                  ("DescribeConversionTasks" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dctFilters),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery
                  (toQueryList "ConversionTaskId" <$>
                     _dctConversionTaskIds),

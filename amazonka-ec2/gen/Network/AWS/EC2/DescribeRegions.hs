@@ -114,7 +114,7 @@ instance ToQuery DescribeRegions where
         toQuery DescribeRegions'{..}
           = mconcat
               ["Action" =: ("DescribeRegions" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery
                  (toQueryList "RegionName" <$> _drsRegionNames),
                toQuery (toQueryList "Filter" <$> _drsFilters),

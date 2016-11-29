@@ -104,7 +104,7 @@ instance ToQuery CreateRouteTable where
         toQuery CreateRouteTable'{..}
           = mconcat
               ["Action" =: ("CreateRouteTable" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
 
 -- | Contains the output of CreateRouteTable.

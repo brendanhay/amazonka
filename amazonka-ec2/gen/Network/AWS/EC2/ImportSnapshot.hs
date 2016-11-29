@@ -142,7 +142,7 @@ instance ToQuery ImportSnapshot where
         toQuery ImportSnapshot'{..}
           = mconcat
               ["Action" =: ("ImportSnapshot" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DiskContainer" =: _isDiskContainer,
                "ClientToken" =: _isClientToken,
                "RoleName" =: _isRoleName,

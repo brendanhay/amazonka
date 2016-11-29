@@ -27,7 +27,7 @@
 --
 -- [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation.
 --
--- This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.
+-- /Important:/ This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the /Elastic IP Addresses/ section of <http://aws.amazon.com/ec2/pricing/ Amazon EC2 Pricing> .
 --
 module Network.AWS.EC2.AssociateAddress
     (
@@ -154,7 +154,7 @@ instance ToQuery AssociateAddress where
         toQuery AssociateAddress'{..}
           = mconcat
               ["Action" =: ("AssociateAddress" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "InstanceId" =: _aasInstanceId,
                "AllocationId" =: _aasAllocationId,
                "NetworkInterfaceId" =: _aasNetworkInterfaceId,

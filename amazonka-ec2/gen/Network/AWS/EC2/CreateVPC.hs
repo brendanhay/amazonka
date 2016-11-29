@@ -117,7 +117,7 @@ instance ToQuery CreateVPC where
         toQuery CreateVPC'{..}
           = mconcat
               ["Action" =: ("CreateVpc" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "InstanceTenancy" =: _cvInstanceTenancy,
                "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
 

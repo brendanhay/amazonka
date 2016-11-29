@@ -121,7 +121,7 @@ instance ToQuery DescribeVolumeAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeVolumeAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Attribute" =: _dvaAttribute, "DryRun" =: _dvaDryRun,
                "VolumeId" =: _dvaVolumeId]
 

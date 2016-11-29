@@ -21,6 +21,8 @@
 -- Describes your Spot fleet requests.
 --
 --
+-- Spot fleet requests are deleted 48 hours after they are canceled and their instances are terminated.
+--
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotFleetRequests
@@ -135,7 +137,7 @@ instance ToQuery DescribeSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetRequests" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery
                  (toQueryList "SpotFleetRequestId" <$>
                     _dsfrSpotFleetRequestIds),

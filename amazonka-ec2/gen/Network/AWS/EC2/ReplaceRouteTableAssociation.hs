@@ -117,7 +117,7 @@ instance ToQuery ReplaceRouteTableAssociation where
           = mconcat
               ["Action" =:
                  ("ReplaceRouteTableAssociation" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _rrtaDryRun,
                "AssociationId" =: _rrtaAssociationId,
                "RouteTableId" =: _rrtaRouteTableId]

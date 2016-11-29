@@ -40,6 +40,7 @@ library
 
     exposed-modules:
           Network.AWS.EC2
+        , Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
         , Network.AWS.EC2.AcceptVPCPeeringConnection
         , Network.AWS.EC2.AllocateAddress
         , Network.AWS.EC2.AllocateHosts
@@ -199,6 +200,7 @@ library
         , Network.AWS.EC2.GetConsoleScreenshot
         , Network.AWS.EC2.GetHostReservationPurchasePreview
         , Network.AWS.EC2.GetPasswordData
+        , Network.AWS.EC2.GetReservedInstancesExchangeQuote
         , Network.AWS.EC2.ImportImage
         , Network.AWS.EC2.ImportInstance
         , Network.AWS.EC2.ImportKeyPair

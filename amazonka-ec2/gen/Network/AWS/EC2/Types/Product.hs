@@ -4922,7 +4922,7 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- * 'inisGroups' - The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 --
--- * 'inisPrivateIPAddresses' - One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary.
+-- * 'inisPrivateIPAddresses' - One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 --
 -- * 'inisDeleteOnTermination' - If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
 --
@@ -4932,9 +4932,9 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- * 'inisSubnetId' - The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
 --
--- * 'inisPrivateIPAddress' - The private IP address of the network interface. Applies only if creating a network interface when launching an instance.
+-- * 'inisPrivateIPAddress' - The private IP address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 --
--- * 'inisSecondaryPrivateIPAddressCount' - The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option.
+-- * 'inisSecondaryPrivateIPAddressCount' - The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 --
 -- * 'inisDescription' - The description of the network interface. Applies only if creating a network interface when launching an instance.
 --
@@ -4959,7 +4959,7 @@ instanceNetworkInterfaceSpecification =
 inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
 inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
--- | One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary.
+-- | One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
 inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default . _Coerce;
 
@@ -4979,11 +4979,11 @@ inisNetworkInterfaceId = lens _inisNetworkInterfaceId (\ s a -> s{_inisNetworkIn
 inisSubnetId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisSubnetId = lens _inisSubnetId (\ s a -> s{_inisSubnetId = a});
 
--- | The private IP address of the network interface. Applies only if creating a network interface when launching an instance.
+-- | The private IP address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisPrivateIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisPrivateIPAddress = lens _inisPrivateIPAddress (\ s a -> s{_inisPrivateIPAddress = a});
 
--- | The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option.
+-- | The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisSecondaryPrivateIPAddressCount :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisSecondaryPrivateIPAddressCount = lens _inisSecondaryPrivateIPAddressCount (\ s a -> s{_inisSecondaryPrivateIPAddressCount = a});
 
@@ -7991,6 +7991,58 @@ instance Hashable Reservation
 
 instance NFData Reservation
 
+-- | The cost associated with the Reserved Instance.
+--
+--
+--
+-- /See:/ 'reservationValue' smart constructor.
+data ReservationValue = ReservationValue'
+    { _rvHourlyPrice           :: !(Maybe Text)
+    , _rvRemainingTotalValue   :: !(Maybe Text)
+    , _rvRemainingUpfrontValue :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservationValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rvHourlyPrice' - The hourly rate of the reservation.
+--
+-- * 'rvRemainingTotalValue' - The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
+--
+-- * 'rvRemainingUpfrontValue' - The remaining upfront cost of the reservation.
+reservationValue
+    :: ReservationValue
+reservationValue =
+    ReservationValue'
+    { _rvHourlyPrice = Nothing
+    , _rvRemainingTotalValue = Nothing
+    , _rvRemainingUpfrontValue = Nothing
+    }
+
+-- | The hourly rate of the reservation.
+rvHourlyPrice :: Lens' ReservationValue (Maybe Text)
+rvHourlyPrice = lens _rvHourlyPrice (\ s a -> s{_rvHourlyPrice = a});
+
+-- | The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
+rvRemainingTotalValue :: Lens' ReservationValue (Maybe Text)
+rvRemainingTotalValue = lens _rvRemainingTotalValue (\ s a -> s{_rvRemainingTotalValue = a});
+
+-- | The remaining upfront cost of the reservation.
+rvRemainingUpfrontValue :: Lens' ReservationValue (Maybe Text)
+rvRemainingUpfrontValue = lens _rvRemainingUpfrontValue (\ s a -> s{_rvRemainingUpfrontValue = a});
+
+instance FromXML ReservationValue where
+        parseXML x
+          = ReservationValue' <$>
+              (x .@? "hourlyPrice") <*>
+                (x .@? "remainingTotalValue")
+                <*> (x .@? "remainingUpfrontValue")
+
+instance Hashable ReservationValue
+
+instance NFData ReservationValue
+
 -- | Describes the limit price of a Reserved Instance offering.
 --
 --
@@ -8034,6 +8086,50 @@ instance ToQuery ReservedInstanceLimitPrice where
               ["Amount" =: _rilpAmount,
                "CurrencyCode" =: _rilpCurrencyCode]
 
+-- | The total value of the Convertible Reserved Instance.
+--
+--
+--
+-- /See:/ 'reservedInstanceReservationValue' smart constructor.
+data ReservedInstanceReservationValue = ReservedInstanceReservationValue'
+    { _rirvReservationValue   :: !(Maybe ReservationValue)
+    , _rirvReservedInstanceId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstanceReservationValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rirvReservationValue' - The total value of the Convertible Reserved Instance that you are exchanging.
+--
+-- * 'rirvReservedInstanceId' - The ID of the Convertible Reserved Instance that you are exchanging.
+reservedInstanceReservationValue
+    :: ReservedInstanceReservationValue
+reservedInstanceReservationValue =
+    ReservedInstanceReservationValue'
+    { _rirvReservationValue = Nothing
+    , _rirvReservedInstanceId = Nothing
+    }
+
+-- | The total value of the Convertible Reserved Instance that you are exchanging.
+rirvReservationValue :: Lens' ReservedInstanceReservationValue (Maybe ReservationValue)
+rirvReservationValue = lens _rirvReservationValue (\ s a -> s{_rirvReservationValue = a});
+
+-- | The ID of the Convertible Reserved Instance that you are exchanging.
+rirvReservedInstanceId :: Lens' ReservedInstanceReservationValue (Maybe Text)
+rirvReservedInstanceId = lens _rirvReservedInstanceId (\ s a -> s{_rirvReservedInstanceId = a});
+
+instance FromXML ReservedInstanceReservationValue
+         where
+        parseXML x
+          = ReservedInstanceReservationValue' <$>
+              (x .@? "reservationValue") <*>
+                (x .@? "reservedInstanceId")
+
+instance Hashable ReservedInstanceReservationValue
+
+instance NFData ReservedInstanceReservationValue
+
 -- | Describes a Reserved Instance.
 --
 --
@@ -8048,12 +8144,14 @@ data ReservedInstances = ReservedInstances'
     , _riInstanceType        :: !(Maybe InstanceType)
     , _riEnd                 :: !(Maybe ISO8601)
     , _riAvailabilityZone    :: !(Maybe Text)
+    , _riScope               :: !(Maybe Scope)
     , _riRecurringCharges    :: !(Maybe [RecurringCharge])
     , _riOfferingType        :: !(Maybe OfferingTypeValues)
     , _riUsagePrice          :: !(Maybe Double)
     , _riFixedPrice          :: !(Maybe Double)
     , _riReservedInstancesId :: !(Maybe Text)
     , _riInstanceTenancy     :: !(Maybe Tenancy)
+    , _riOfferingClass       :: !(Maybe OfferingClassType)
     , _riDuration            :: !(Maybe Integer)
     , _riTags                :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -8078,6 +8176,8 @@ data ReservedInstances = ReservedInstances'
 --
 -- * 'riAvailabilityZone' - The Availability Zone in which the Reserved Instance can be used.
 --
+-- * 'riScope' - The scope of the Reserved Instance.
+--
 -- * 'riRecurringCharges' - The recurring charge tag assigned to the resource.
 --
 -- * 'riOfferingType' - The Reserved Instance offering type.
@@ -8089,6 +8189,8 @@ data ReservedInstances = ReservedInstances'
 -- * 'riReservedInstancesId' - The ID of the Reserved Instance.
 --
 -- * 'riInstanceTenancy' - The tenancy of the instance.
+--
+-- * 'riOfferingClass' - The offering class of the Reserved Instance.
 --
 -- * 'riDuration' - The duration of the Reserved Instance, in seconds.
 --
@@ -8105,12 +8207,14 @@ reservedInstances =
     , _riInstanceType = Nothing
     , _riEnd = Nothing
     , _riAvailabilityZone = Nothing
+    , _riScope = Nothing
     , _riRecurringCharges = Nothing
     , _riOfferingType = Nothing
     , _riUsagePrice = Nothing
     , _riFixedPrice = Nothing
     , _riReservedInstancesId = Nothing
     , _riInstanceTenancy = Nothing
+    , _riOfferingClass = Nothing
     , _riDuration = Nothing
     , _riTags = Nothing
     }
@@ -8147,6 +8251,10 @@ riEnd = lens _riEnd (\ s a -> s{_riEnd = a}) . mapping _Time;
 riAvailabilityZone :: Lens' ReservedInstances (Maybe Text)
 riAvailabilityZone = lens _riAvailabilityZone (\ s a -> s{_riAvailabilityZone = a});
 
+-- | The scope of the Reserved Instance.
+riScope :: Lens' ReservedInstances (Maybe Scope)
+riScope = lens _riScope (\ s a -> s{_riScope = a});
+
 -- | The recurring charge tag assigned to the resource.
 riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
 riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
@@ -8171,6 +8279,10 @@ riReservedInstancesId = lens _riReservedInstancesId (\ s a -> s{_riReservedInsta
 riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
 riInstanceTenancy = lens _riInstanceTenancy (\ s a -> s{_riInstanceTenancy = a});
 
+-- | The offering class of the Reserved Instance.
+riOfferingClass :: Lens' ReservedInstances (Maybe OfferingClassType)
+riOfferingClass = lens _riOfferingClass (\ s a -> s{_riOfferingClass = a});
+
 -- | The duration of the Reserved Instance, in seconds.
 riDuration :: Lens' ReservedInstances (Maybe Integer)
 riDuration = lens _riDuration (\ s a -> s{_riDuration = a});
@@ -8189,6 +8301,7 @@ instance FromXML ReservedInstances where
                 <*> (x .@? "instanceType")
                 <*> (x .@? "end")
                 <*> (x .@? "availabilityZone")
+                <*> (x .@? "scope")
                 <*>
                 (x .@? "recurringCharges" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -8197,6 +8310,7 @@ instance FromXML ReservedInstances where
                 <*> (x .@? "fixedPrice")
                 <*> (x .@? "reservedInstancesId")
                 <*> (x .@? "instanceTenancy")
+                <*> (x .@? "offeringClass")
                 <*> (x .@? "duration")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
@@ -8216,6 +8330,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
     , _ricInstanceCount    :: !(Maybe Int)
     , _ricInstanceType     :: !(Maybe InstanceType)
     , _ricAvailabilityZone :: !(Maybe Text)
+    , _ricScope            :: !(Maybe Scope)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReservedInstancesConfiguration' with the minimum fields required to make a request.
@@ -8229,6 +8344,8 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
 -- * 'ricInstanceType' - The instance type for the modified Reserved Instances.
 --
 -- * 'ricAvailabilityZone' - The Availability Zone for the modified Reserved Instances.
+--
+-- * 'ricScope' - Whether the Reserved Instance is @standard@ or @convertible@ .
 reservedInstancesConfiguration
     :: ReservedInstancesConfiguration
 reservedInstancesConfiguration =
@@ -8237,6 +8354,7 @@ reservedInstancesConfiguration =
     , _ricInstanceCount = Nothing
     , _ricInstanceType = Nothing
     , _ricAvailabilityZone = Nothing
+    , _ricScope = Nothing
     }
 
 -- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
@@ -8255,12 +8373,17 @@ ricInstanceType = lens _ricInstanceType (\ s a -> s{_ricInstanceType = a});
 ricAvailabilityZone :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricAvailabilityZone = lens _ricAvailabilityZone (\ s a -> s{_ricAvailabilityZone = a});
 
+-- | Whether the Reserved Instance is @standard@ or @convertible@ .
+ricScope :: Lens' ReservedInstancesConfiguration (Maybe Scope)
+ricScope = lens _ricScope (\ s a -> s{_ricScope = a});
+
 instance FromXML ReservedInstancesConfiguration where
         parseXML x
           = ReservedInstancesConfiguration' <$>
               (x .@? "platform") <*> (x .@? "instanceCount") <*>
                 (x .@? "instanceType")
                 <*> (x .@? "availabilityZone")
+                <*> (x .@? "scope")
 
 instance Hashable ReservedInstancesConfiguration
 
@@ -8272,7 +8395,8 @@ instance ToQuery ReservedInstancesConfiguration where
               ["Platform" =: _ricPlatform,
                "InstanceCount" =: _ricInstanceCount,
                "InstanceType" =: _ricInstanceType,
-               "AvailabilityZone" =: _ricAvailabilityZone]
+               "AvailabilityZone" =: _ricAvailabilityZone,
+               "Scope" =: _ricScope]
 
 -- | Describes the ID of a Reserved Instance.
 --
@@ -8593,12 +8717,14 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
     , _rioInstanceType                :: !(Maybe InstanceType)
     , _rioAvailabilityZone            :: !(Maybe Text)
     , _rioPricingDetails              :: !(Maybe [PricingDetail])
+    , _rioScope                       :: !(Maybe Scope)
     , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
     , _rioOfferingType                :: !(Maybe OfferingTypeValues)
     , _rioUsagePrice                  :: !(Maybe Double)
     , _rioFixedPrice                  :: !(Maybe Double)
     , _rioInstanceTenancy             :: !(Maybe Tenancy)
     , _rioReservedInstancesOfferingId :: !(Maybe Text)
+    , _rioOfferingClass               :: !(Maybe OfferingClassType)
     , _rioDuration                    :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -8618,6 +8744,8 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
 --
 -- * 'rioPricingDetails' - The pricing details of the Reserved Instance offering.
 --
+-- * 'rioScope' - Whether the Reserved Instance is applied to instances in a region or an Availability Zone.
+--
 -- * 'rioRecurringCharges' - The recurring charge tag assigned to the resource.
 --
 -- * 'rioOfferingType' - The Reserved Instance offering type.
@@ -8628,7 +8756,9 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
 --
 -- * 'rioInstanceTenancy' - The tenancy of the instance.
 --
--- * 'rioReservedInstancesOfferingId' - The ID of the Reserved Instance offering.
+-- * 'rioReservedInstancesOfferingId' - The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
+--
+-- * 'rioOfferingClass' - If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
 --
 -- * 'rioDuration' - The duration of the Reserved Instance, in seconds.
 reservedInstancesOffering
@@ -8641,12 +8771,14 @@ reservedInstancesOffering =
     , _rioInstanceType = Nothing
     , _rioAvailabilityZone = Nothing
     , _rioPricingDetails = Nothing
+    , _rioScope = Nothing
     , _rioRecurringCharges = Nothing
     , _rioOfferingType = Nothing
     , _rioUsagePrice = Nothing
     , _rioFixedPrice = Nothing
     , _rioInstanceTenancy = Nothing
     , _rioReservedInstancesOfferingId = Nothing
+    , _rioOfferingClass = Nothing
     , _rioDuration = Nothing
     }
 
@@ -8674,6 +8806,10 @@ rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
 rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default . _Coerce;
 
+-- | Whether the Reserved Instance is applied to instances in a region or an Availability Zone.
+rioScope :: Lens' ReservedInstancesOffering (Maybe Scope)
+rioScope = lens _rioScope (\ s a -> s{_rioScope = a});
+
 -- | The recurring charge tag assigned to the resource.
 rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
 rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
@@ -8694,9 +8830,13 @@ rioFixedPrice = lens _rioFixedPrice (\ s a -> s{_rioFixedPrice = a});
 rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
 rioInstanceTenancy = lens _rioInstanceTenancy (\ s a -> s{_rioInstanceTenancy = a});
 
--- | The ID of the Reserved Instance offering.
+-- | The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
 rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
 rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\ s a -> s{_rioReservedInstancesOfferingId = a});
+
+-- | If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
+rioOfferingClass :: Lens' ReservedInstancesOffering (Maybe OfferingClassType)
+rioOfferingClass = lens _rioOfferingClass (\ s a -> s{_rioOfferingClass = a});
 
 -- | The duration of the Reserved Instance, in seconds.
 rioDuration :: Lens' ReservedInstancesOffering (Maybe Integer)
@@ -8712,6 +8852,7 @@ instance FromXML ReservedInstancesOffering where
                 <*>
                 (x .@? "pricingDetailsSet" .!@ mempty >>=
                    may (parseXMLList "item"))
+                <*> (x .@? "scope")
                 <*>
                 (x .@? "recurringCharges" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -8720,6 +8861,7 @@ instance FromXML ReservedInstancesOffering where
                 <*> (x .@? "fixedPrice")
                 <*> (x .@? "instanceTenancy")
                 <*> (x .@? "reservedInstancesOfferingId")
+                <*> (x .@? "offeringClass")
                 <*> (x .@? "duration")
 
 instance Hashable ReservedInstancesOffering
@@ -12235,6 +12377,135 @@ instance FromXML TagDescription where
 instance Hashable TagDescription
 
 instance NFData TagDescription
+
+-- | Information about the Convertible Reserved Instance offering.
+--
+--
+--
+-- /See:/ 'targetConfiguration' smart constructor.
+data TargetConfiguration = TargetConfiguration'
+    { _tcInstanceCount :: !(Maybe Int)
+    , _tcOfferingId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcInstanceCount' - The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+--
+-- * 'tcOfferingId' - The ID of the Convertible Reserved Instance offering.
+targetConfiguration
+    :: TargetConfiguration
+targetConfiguration =
+    TargetConfiguration'
+    { _tcInstanceCount = Nothing
+    , _tcOfferingId = Nothing
+    }
+
+-- | The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+tcInstanceCount :: Lens' TargetConfiguration (Maybe Int)
+tcInstanceCount = lens _tcInstanceCount (\ s a -> s{_tcInstanceCount = a});
+
+-- | The ID of the Convertible Reserved Instance offering.
+tcOfferingId :: Lens' TargetConfiguration (Maybe Text)
+tcOfferingId = lens _tcOfferingId (\ s a -> s{_tcOfferingId = a});
+
+instance FromXML TargetConfiguration where
+        parseXML x
+          = TargetConfiguration' <$>
+              (x .@? "instanceCount") <*> (x .@? "offeringId")
+
+instance Hashable TargetConfiguration
+
+instance NFData TargetConfiguration
+
+-- | Details about the target configuration.
+--
+--
+--
+-- /See:/ 'targetConfigurationRequest' smart constructor.
+data TargetConfigurationRequest = TargetConfigurationRequest'
+    { _tcrInstanceCount :: !(Maybe Int)
+    , _tcrOfferingId    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetConfigurationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcrInstanceCount' - The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+--
+-- * 'tcrOfferingId' - The Convertible Reserved Instance offering ID. If this isn't included in the request, the response lists your current Convertible Reserved Instance/s and their value/s.
+targetConfigurationRequest
+    :: Text -- ^ 'tcrOfferingId'
+    -> TargetConfigurationRequest
+targetConfigurationRequest pOfferingId_ =
+    TargetConfigurationRequest'
+    { _tcrInstanceCount = Nothing
+    , _tcrOfferingId = pOfferingId_
+    }
+
+-- | The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+tcrInstanceCount :: Lens' TargetConfigurationRequest (Maybe Int)
+tcrInstanceCount = lens _tcrInstanceCount (\ s a -> s{_tcrInstanceCount = a});
+
+-- | The Convertible Reserved Instance offering ID. If this isn't included in the request, the response lists your current Convertible Reserved Instance/s and their value/s.
+tcrOfferingId :: Lens' TargetConfigurationRequest Text
+tcrOfferingId = lens _tcrOfferingId (\ s a -> s{_tcrOfferingId = a});
+
+instance Hashable TargetConfigurationRequest
+
+instance NFData TargetConfigurationRequest
+
+instance ToQuery TargetConfigurationRequest where
+        toQuery TargetConfigurationRequest'{..}
+          = mconcat
+              ["InstanceCount" =: _tcrInstanceCount,
+               "OfferingId" =: _tcrOfferingId]
+
+-- | The total value of the new Convertible Reserved Instances.
+--
+--
+--
+-- /See:/ 'targetReservationValue' smart constructor.
+data TargetReservationValue = TargetReservationValue'
+    { _trvReservationValue    :: !(Maybe ReservationValue)
+    , _trvTargetConfiguration :: !(Maybe TargetConfiguration)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetReservationValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trvReservationValue' - The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
+--
+-- * 'trvTargetConfiguration' - The configuration of the Convertible Reserved Instances that make up the exchange.
+targetReservationValue
+    :: TargetReservationValue
+targetReservationValue =
+    TargetReservationValue'
+    { _trvReservationValue = Nothing
+    , _trvTargetConfiguration = Nothing
+    }
+
+-- | The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of the list value, remaining upfront price, and additional upfront cost of the exchange.
+trvReservationValue :: Lens' TargetReservationValue (Maybe ReservationValue)
+trvReservationValue = lens _trvReservationValue (\ s a -> s{_trvReservationValue = a});
+
+-- | The configuration of the Convertible Reserved Instances that make up the exchange.
+trvTargetConfiguration :: Lens' TargetReservationValue (Maybe TargetConfiguration)
+trvTargetConfiguration = lens _trvTargetConfiguration (\ s a -> s{_trvTargetConfiguration = a});
+
+instance FromXML TargetReservationValue where
+        parseXML x
+          = TargetReservationValue' <$>
+              (x .@? "reservationValue") <*>
+                (x .@? "targetConfiguration")
+
+instance Hashable TargetReservationValue
+
+instance NFData TargetReservationValue
 
 -- | Information about items that were not successfully processed in a batch call.
 --

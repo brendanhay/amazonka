@@ -134,7 +134,7 @@ instance ToQuery DescribeImageAttribute where
           = mconcat
               ["Action" =:
                  ("DescribeImageAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _diaiDryRun, "ImageId" =: _diaiImageId,
                "Attribute" =: _diaiAttribute]
 

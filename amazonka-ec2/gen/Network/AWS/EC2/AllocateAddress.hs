@@ -107,7 +107,7 @@ instance ToQuery AllocateAddress where
         toQuery AllocateAddress'{..}
           = mconcat
               ["Action" =: ("AllocateAddress" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
 
 -- | Contains the output of AllocateAddress.

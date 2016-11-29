@@ -96,7 +96,7 @@ instance ToQuery DeleteCustomerGateway where
         toQuery DeleteCustomerGateway'{..}
           = mconcat
               ["Action" =: ("DeleteCustomerGateway" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _dcgcDryRun,
                "CustomerGatewayId" =: _dcgcCustomerGatewayId]
 

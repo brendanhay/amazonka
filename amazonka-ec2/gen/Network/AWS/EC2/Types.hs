@@ -158,6 +158,9 @@ module Network.AWS.EC2.Types
     -- * NetworkInterfaceType
     , NetworkInterfaceType (..)
 
+    -- * OfferingClassType
+    , OfferingClassType (..)
+
     -- * OfferingTypeValues
     , OfferingTypeValues (..)
 
@@ -214,6 +217,9 @@ module Network.AWS.EC2.Types
 
     -- * RuleAction
     , RuleAction (..)
+
+    -- * Scope
+    , Scope (..)
 
     -- * ShutdownBehavior
     , ShutdownBehavior (..)
@@ -1297,11 +1303,24 @@ module Network.AWS.EC2.Types
     , rReservationId
     , rOwnerId
 
+    -- * ReservationValue
+    , ReservationValue
+    , reservationValue
+    , rvHourlyPrice
+    , rvRemainingTotalValue
+    , rvRemainingUpfrontValue
+
     -- * ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
     , reservedInstanceLimitPrice
     , rilpAmount
     , rilpCurrencyCode
+
+    -- * ReservedInstanceReservationValue
+    , ReservedInstanceReservationValue
+    , reservedInstanceReservationValue
+    , rirvReservationValue
+    , rirvReservedInstanceId
 
     -- * ReservedInstances
     , ReservedInstances
@@ -1314,12 +1333,14 @@ module Network.AWS.EC2.Types
     , riInstanceType
     , riEnd
     , riAvailabilityZone
+    , riScope
     , riRecurringCharges
     , riOfferingType
     , riUsagePrice
     , riFixedPrice
     , riReservedInstancesId
     , riInstanceTenancy
+    , riOfferingClass
     , riDuration
     , riTags
 
@@ -1330,6 +1351,7 @@ module Network.AWS.EC2.Types
     , ricInstanceCount
     , ricInstanceType
     , ricAvailabilityZone
+    , ricScope
 
     -- * ReservedInstancesId
     , ReservedInstancesId
@@ -1378,12 +1400,14 @@ module Network.AWS.EC2.Types
     , rioInstanceType
     , rioAvailabilityZone
     , rioPricingDetails
+    , rioScope
     , rioRecurringCharges
     , rioOfferingType
     , rioUsagePrice
     , rioFixedPrice
     , rioInstanceTenancy
     , rioReservedInstancesOfferingId
+    , rioOfferingClass
     , rioDuration
 
     -- * Route
@@ -1811,6 +1835,24 @@ module Network.AWS.EC2.Types
     , tdKey
     , tdValue
 
+    -- * TargetConfiguration
+    , TargetConfiguration
+    , targetConfiguration
+    , tcInstanceCount
+    , tcOfferingId
+
+    -- * TargetConfigurationRequest
+    , TargetConfigurationRequest
+    , targetConfigurationRequest
+    , tcrInstanceCount
+    , tcrOfferingId
+
+    -- * TargetReservationValue
+    , TargetReservationValue
+    , targetReservationValue
+    , trvReservationValue
+    , trvTargetConfiguration
+
     -- * UnsuccessfulItem
     , UnsuccessfulItem
     , unsuccessfulItem
@@ -2043,14 +2085,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version @2016-04-01@ of the Amazon Elastic Compute Cloud SDK configuration.
+-- | API version @2016-09-15@ of the Amazon Elastic Compute Cloud SDK configuration.
 ec2 :: Service
 ec2 =
     Service
     { _svcAbbrev = "EC2"
     , _svcSigner = v4
     , _svcPrefix = "ec2"
-    , _svcVersion = "2016-04-01"
+    , _svcVersion = "2016-09-15"
     , _svcEndpoint = defaultEndpoint ec2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess

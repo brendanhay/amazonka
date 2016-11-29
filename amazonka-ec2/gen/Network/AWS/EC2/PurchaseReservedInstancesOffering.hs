@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases a Reserved Instance for use with your account. With Reserved Instances, you obtain a capacity reservation for a certain instance configuration over a specified period of time and pay a lower hourly rate compared to On-Demand instance pricing.
+-- Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.
 --
 --
 -- Use 'DescribeReservedInstancesOfferings' to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with 'DescribeReservedInstances' .
@@ -132,7 +132,7 @@ instance ToQuery PurchaseReservedInstancesOffering
           = mconcat
               ["Action" =:
                  ("PurchaseReservedInstancesOffering" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "LimitPrice" =: _prioLimitPrice,
                "DryRun" =: _prioDryRun,
                "ReservedInstancesOfferingId" =:

@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Reserved Instance listing at a time. To get a list of your Reserved Instances, you can use the 'DescribeReservedInstances' operation.
+-- Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the 'DescribeReservedInstances' operation.
 --
 --
--- The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.
+-- The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.
 --
--- To sell your Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Reserved Instances, and specify the upfront price to receive for them. Your Reserved Instance listings then become available for purchase. To view the details of your Reserved Instance listing, you can use the 'DescribeReservedInstancesListings' operation.
+-- To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the 'DescribeReservedInstancesListings' operation.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -69,11 +69,11 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crilReservedInstancesId' - The ID of the active Reserved Instance.
+-- * 'crilReservedInstancesId' - The ID of the active Standard Reserved Instance.
 --
 -- * 'crilInstanceCount' - The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
 --
--- * 'crilPriceSchedules' - A list specifying the price of the Reserved Instance for each month remaining in the Reserved Instance term.
+-- * 'crilPriceSchedules' - A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
 --
 -- * 'crilClientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 createReservedInstancesListing
@@ -89,7 +89,7 @@ createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToke
     , _crilClientToken = pClientToken_
     }
 
--- | The ID of the active Reserved Instance.
+-- | The ID of the active Standard Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
 
@@ -97,7 +97,7 @@ crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReserve
 crilInstanceCount :: Lens' CreateReservedInstancesListing Int
 crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
 
--- | A list specifying the price of the Reserved Instance for each month remaining in the Reserved Instance term.
+-- | A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
 crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
 
@@ -134,7 +134,7 @@ instance ToQuery CreateReservedInstancesListing where
           = mconcat
               ["Action" =:
                  ("CreateReservedInstancesListing" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "ReservedInstancesId" =: _crilReservedInstancesId,
                "InstanceCount" =: _crilInstanceCount,
                toQueryList "PriceSchedules" _crilPriceSchedules,
@@ -154,7 +154,7 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crersReservedInstancesListings' - Information about the Reserved Instance listing.
+-- * 'crersReservedInstancesListings' - Information about the Standard Reserved Instance listing.
 --
 -- * 'crersResponseStatus' - -- | The response status code.
 createReservedInstancesListingResponse
@@ -166,7 +166,7 @@ createReservedInstancesListingResponse pResponseStatus_ =
     , _crersResponseStatus = pResponseStatus_
     }
 
--- | Information about the Reserved Instance listing.
+-- | Information about the Standard Reserved Instance listing.
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 

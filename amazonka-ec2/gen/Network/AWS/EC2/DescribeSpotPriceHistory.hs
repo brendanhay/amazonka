@@ -182,7 +182,7 @@ instance ToQuery DescribeSpotPriceHistory where
           = mconcat
               ["Action" =:
                  ("DescribeSpotPriceHistory" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery
                  (toQueryList "InstanceType" <$> _dsphInstanceTypes),
                "StartTime" =: _dsphStartTime,

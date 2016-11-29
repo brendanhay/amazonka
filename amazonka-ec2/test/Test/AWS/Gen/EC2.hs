@@ -73,6 +73,9 @@ import Test.AWS.EC2.Internal
 --         , requestCancelBundleTask $
 --             cancelBundleTask
 --
+--         , requestAcceptReservedInstancesExchangeQuote $
+--             acceptReservedInstancesExchangeQuote
+--
 --         , requestReleaseAddress $
 --             releaseAddress
 --
@@ -652,6 +655,9 @@ import Test.AWS.EC2.Internal
 --         , requestCreateKeyPair $
 --             createKeyPair
 --
+--         , requestGetReservedInstancesExchangeQuote $
+--             getReservedInstancesExchangeQuote
+--
 --         , requestDeleteVolume $
 --             deleteVolume
 --
@@ -705,6 +711,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseCancelBundleTask $
 --             cancelBundleTaskResponse
+--
+--         , responseAcceptReservedInstancesExchangeQuote $
+--             acceptReservedInstancesExchangeQuoteResponse
 --
 --         , responseReleaseAddress $
 --             releaseAddressResponse
@@ -1285,6 +1294,9 @@ import Test.AWS.EC2.Internal
 --         , responseCreateKeyPair $
 --             createKeyPairResponse
 --
+--         , responseGetReservedInstancesExchangeQuote $
+--             getReservedInstancesExchangeQuoteResponse
+--
 --         , responseDeleteVolume $
 --             deleteVolumeResponse
 --
@@ -1370,6 +1382,11 @@ requestCancelBundleTask :: CancelBundleTask -> TestTree
 requestCancelBundleTask = req
     "CancelBundleTask"
     "fixture/CancelBundleTask.yaml"
+
+requestAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuote -> TestTree
+requestAcceptReservedInstancesExchangeQuote = req
+    "AcceptReservedInstancesExchangeQuote"
+    "fixture/AcceptReservedInstancesExchangeQuote.yaml"
 
 requestReleaseAddress :: ReleaseAddress -> TestTree
 requestReleaseAddress = req
@@ -2336,6 +2353,11 @@ requestCreateKeyPair = req
     "CreateKeyPair"
     "fixture/CreateKeyPair.yaml"
 
+requestGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuote -> TestTree
+requestGetReservedInstancesExchangeQuote = req
+    "GetReservedInstancesExchangeQuote"
+    "fixture/GetReservedInstancesExchangeQuote.yaml"
+
 requestDeleteVolume :: DeleteVolume -> TestTree
 requestDeleteVolume = req
     "DeleteVolume"
@@ -2452,6 +2474,13 @@ responseCancelBundleTask = res
     "fixture/CancelBundleTaskResponse.proto"
     ec2
     (Proxy :: Proxy CancelBundleTask)
+
+responseAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuoteResponse -> TestTree
+responseAcceptReservedInstancesExchangeQuote = res
+    "AcceptReservedInstancesExchangeQuoteResponse"
+    "fixture/AcceptReservedInstancesExchangeQuoteResponse.proto"
+    ec2
+    (Proxy :: Proxy AcceptReservedInstancesExchangeQuote)
 
 responseReleaseAddress :: ReleaseAddressResponse -> TestTree
 responseReleaseAddress = res
@@ -3803,6 +3832,13 @@ responseCreateKeyPair = res
     "fixture/CreateKeyPairResponse.proto"
     ec2
     (Proxy :: Proxy CreateKeyPair)
+
+responseGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuoteResponse -> TestTree
+responseGetReservedInstancesExchangeQuote = res
+    "GetReservedInstancesExchangeQuoteResponse"
+    "fixture/GetReservedInstancesExchangeQuoteResponse.proto"
+    ec2
+    (Proxy :: Proxy GetReservedInstancesExchangeQuote)
 
 responseDeleteVolume :: DeleteVolumeResponse -> TestTree
 responseDeleteVolume = res

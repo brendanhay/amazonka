@@ -119,7 +119,7 @@ instance ToQuery PurchaseScheduledInstances where
           = mconcat
               ["Action" =:
                  ("PurchaseScheduledInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "ClientToken" =: _psiClientToken,
                "DryRun" =: _psiDryRun,
                toQueryList "PurchaseRequest" _psiPurchaseRequests]

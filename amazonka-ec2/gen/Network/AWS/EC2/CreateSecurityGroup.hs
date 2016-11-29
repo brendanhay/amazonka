@@ -134,7 +134,7 @@ instance ToQuery CreateSecurityGroup where
         toQuery CreateSecurityGroup'{..}
           = mconcat
               ["Action" =: ("CreateSecurityGroup" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "VpcId" =: _csgVPCId, "DryRun" =: _csgDryRun,
                "GroupName" =: _csgGroupName,
                "GroupDescription" =: _csgDescription]

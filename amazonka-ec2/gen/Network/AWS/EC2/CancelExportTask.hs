@@ -86,7 +86,7 @@ instance ToQuery CancelExportTask where
         toQuery CancelExportTask'{..}
           = mconcat
               ["Action" =: ("CancelExportTask" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "ExportTaskId" =: _cetExportTaskId]
 
 -- | /See:/ 'cancelExportTaskResponse' smart constructor.

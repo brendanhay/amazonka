@@ -104,7 +104,7 @@ instance ToQuery DescribeSecurityGroupReferences
           = mconcat
               ["Action" =:
                  ("DescribeSecurityGroupReferences" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _dsgrDryRun,
                toQueryList "GroupId" _dsgrGroupId]
 

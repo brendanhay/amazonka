@@ -110,7 +110,7 @@ instance ToQuery DescribeIdentityIdFormat where
           = mconcat
               ["Action" =:
                  ("DescribeIdentityIdFormat" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Resource" =: _diifResource,
                "PrincipalArn" =: _diifPrincipalARN]
 

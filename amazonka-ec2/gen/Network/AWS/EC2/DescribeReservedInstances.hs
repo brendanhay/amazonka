@@ -32,6 +32,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     , driFilters
     , driReservedInstancesIds
     , driOfferingType
+    , driOfferingClass
     , driDryRun
 
     -- * Destructuring the Response
@@ -58,6 +59,7 @@ data DescribeReservedInstances = DescribeReservedInstances'
     { _driFilters              :: !(Maybe [Filter])
     , _driReservedInstancesIds :: !(Maybe [Text])
     , _driOfferingType         :: !(Maybe OfferingTypeValues)
+    , _driOfferingClass        :: !(Maybe OfferingClassType)
     , _driDryRun               :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -65,11 +67,13 @@ data DescribeReservedInstances = DescribeReservedInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'driFilters' - One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (one year or three years), in seconds (@31536000@ | @94608000@ ).     * @end@ - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ ).     * @reserved-instances-id@ - The ID of the Reserved Instance.     * @start@ - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).     * @state@ - The state of the Reserved Instance (@payment-pending@ | @active@ | @payment-failed@ | @retired@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
+-- * 'driFilters' - One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (one year or three years), in seconds (@31536000@ | @94608000@ ).     * @end@ - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @scope@ - The scope of the Reserved Instance (@Region@ or @Availability Zone@ ).     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ ).     * @reserved-instances-id@ - The ID of the Reserved Instance.     * @start@ - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).     * @state@ - The state of the Reserved Instance (@payment-pending@ | @active@ | @payment-failed@ | @retired@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
 --
 -- * 'driReservedInstancesIds' - One or more Reserved Instance IDs. Default: Describes all your Reserved Instances, or only those otherwise specified.
 --
 -- * 'driOfferingType' - The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
+--
+-- * 'driOfferingClass' - Describes whether the Reserved Instance is Standard or Convertible.
 --
 -- * 'driDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 describeReservedInstances
@@ -79,10 +83,11 @@ describeReservedInstances =
     { _driFilters = Nothing
     , _driReservedInstancesIds = Nothing
     , _driOfferingType = Nothing
+    , _driOfferingClass = Nothing
     , _driDryRun = Nothing
     }
 
--- | One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (one year or three years), in seconds (@31536000@ | @94608000@ ).     * @end@ - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ ).     * @reserved-instances-id@ - The ID of the Reserved Instance.     * @start@ - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).     * @state@ - The state of the Reserved Instance (@payment-pending@ | @active@ | @payment-failed@ | @retired@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
+-- | One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (one year or three years), in seconds (@31536000@ | @94608000@ ).     * @end@ - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @scope@ - The scope of the Reserved Instance (@Region@ or @Availability Zone@ ).     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ ).     * @reserved-instances-id@ - The ID of the Reserved Instance.     * @start@ - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).     * @state@ - The state of the Reserved Instance (@payment-pending@ | @active@ | @payment-failed@ | @retired@ ).     * @tag@ :/key/ =/value/ - The key/value combination of a tag assigned to the resource.     * @tag-key@ - The key of a tag assigned to the resource. This filter is independent of the @tag-value@ filter. For example, if you use both the filter "tag-key=Purpose" and the filter "tag-value=X", you get any resources assigned both the tag key Purpose (regardless of what the tag's value is), and the tag value X (regardless of what the tag's key is). If you want to list only resources where Purpose is X, see the @tag@ :/key/ =/value/ filter.     * @tag-value@ - The value of a tag assigned to the resource. This filter is independent of the @tag-key@ filter.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
 driFilters :: Lens' DescribeReservedInstances [Filter]
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
@@ -93,6 +98,10 @@ driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReserved
 -- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
 driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
 driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
+
+-- | Describes whether the Reserved Instance is Standard or Convertible.
+driOfferingClass :: Lens' DescribeReservedInstances (Maybe OfferingClassType)
+driOfferingClass = lens _driOfferingClass (\ s a -> s{_driOfferingClass = a});
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
@@ -125,12 +134,13 @@ instance ToQuery DescribeReservedInstances where
           = mconcat
               ["Action" =:
                  ("DescribeReservedInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _driFilters),
                toQuery
                  (toQueryList "ReservedInstancesId" <$>
                     _driReservedInstancesIds),
                "OfferingType" =: _driOfferingType,
+               "OfferingClass" =: _driOfferingClass,
                "DryRun" =: _driDryRun]
 
 -- | Contains the output for DescribeReservedInstances.

@@ -44,6 +44,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , drioOfferingType
     , drioReservedInstancesOfferingIds
     , drioInstanceTenancy
+    , drioOfferingClass
     , drioMaxInstanceCount
     , drioDryRun
     , drioMaxResults
@@ -82,6 +83,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     , _drioOfferingType                 :: !(Maybe OfferingTypeValues)
     , _drioReservedInstancesOfferingIds :: !(Maybe [Text])
     , _drioInstanceTenancy              :: !(Maybe Tenancy)
+    , _drioOfferingClass                :: !(Maybe OfferingClassType)
     , _drioMaxInstanceCount             :: !(Maybe Int)
     , _drioDryRun                       :: !(Maybe Bool)
     , _drioMaxResults                   :: !(Maybe Int)
@@ -95,7 +97,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --
 -- * 'drioProductDescription' - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
 --
--- * 'drioFilters' - One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )      * @reserved-instances-offering-id@ - The Reserved Instances offering ID.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
+-- * 'drioFilters' - One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )      * @reserved-instances-offering-id@ - The Reserved Instances offering ID.     * @scope@ - The scope of the Reserved Instance (@Availability Zone@ or @Region@ ).     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
 --
 -- * 'drioIncludeMarketplace' - Include Reserved Instance Marketplace offerings in the response.
 --
@@ -112,6 +114,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 -- * 'drioReservedInstancesOfferingIds' - One or more Reserved Instances offering IDs.
 --
 -- * 'drioInstanceTenancy' - The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances). Default: @default@
+--
+-- * 'drioOfferingClass' - The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
 --
 -- * 'drioMaxInstanceCount' - The maximum number of instances to filter when searching for offerings. Default: 20
 --
@@ -133,6 +137,7 @@ describeReservedInstancesOfferings =
     , _drioOfferingType = Nothing
     , _drioReservedInstancesOfferingIds = Nothing
     , _drioInstanceTenancy = Nothing
+    , _drioOfferingClass = Nothing
     , _drioMaxInstanceCount = Nothing
     , _drioDryRun = Nothing
     , _drioMaxResults = Nothing
@@ -146,7 +151,7 @@ drioMaxDuration = lens _drioMaxDuration (\ s a -> s{_drioMaxDuration = a});
 drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
 drioProductDescription = lens _drioProductDescription (\ s a -> s{_drioProductDescription = a});
 
--- | One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )      * @reserved-instances-offering-id@ - The Reserved Instances offering ID.     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
+-- | One or more filters.     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).     * @instance-type@ - The instance type that is covered by the reservation.     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )      * @reserved-instances-offering-id@ - The Reserved Instances offering ID.     * @scope@ - The scope of the Reserved Instance (@Availability Zone@ or @Region@ ).     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
 drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default . _Coerce;
 
@@ -181,6 +186,10 @@ drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a
 -- | The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances). Default: @default@
 drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
 drioInstanceTenancy = lens _drioInstanceTenancy (\ s a -> s{_drioInstanceTenancy = a});
+
+-- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
+drioOfferingClass :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingClassType)
+drioOfferingClass = lens _drioOfferingClass (\ s a -> s{_drioOfferingClass = a});
 
 -- | The maximum number of instances to filter when searching for offerings. Default: 20
 drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
@@ -235,7 +244,7 @@ instance ToQuery DescribeReservedInstancesOfferings
           = mconcat
               ["Action" =:
                  ("DescribeReservedInstancesOfferings" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "MaxDuration" =: _drioMaxDuration,
                "ProductDescription" =: _drioProductDescription,
                toQuery (toQueryList "Filter" <$> _drioFilters),
@@ -249,6 +258,7 @@ instance ToQuery DescribeReservedInstancesOfferings
                  (toQueryList "ReservedInstancesOfferingId" <$>
                     _drioReservedInstancesOfferingIds),
                "InstanceTenancy" =: _drioInstanceTenancy,
+               "OfferingClass" =: _drioOfferingClass,
                "MaxInstanceCount" =: _drioMaxInstanceCount,
                "DryRun" =: _drioDryRun,
                "MaxResults" =: _drioMaxResults]

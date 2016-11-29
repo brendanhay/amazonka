@@ -156,7 +156,7 @@ data RunInstances = RunInstances'
 --
 -- * 'rIAMInstanceProfile' - The IAM instance profile.
 --
--- * 'rPrivateIPAddress' - [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  Default: We select an IP address from the IP address range of the subnet.
+-- * 'rPrivateIPAddress' - [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  You cannot specify this option if you're launching more than one instance in the request. Default: We select an IP address from the IP address range of the subnet.
 --
 -- * 'rInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
 --
@@ -263,7 +263,7 @@ rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
 rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
 rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
 
--- | [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  Default: We select an IP address from the IP address range of the subnet.
+-- | [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  You cannot specify this option if you're launching more than one instance in the request. Default: We select an IP address from the IP address range of the subnet.
 rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
 rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a});
 
@@ -314,7 +314,7 @@ instance ToQuery RunInstances where
         toQuery RunInstances'{..}
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>

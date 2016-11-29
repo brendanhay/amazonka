@@ -105,7 +105,7 @@ instance ToQuery ModifyVPCAttribute where
         toQuery ModifyVPCAttribute'{..}
           = mconcat
               ["Action" =: ("ModifyVpcAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "EnableDnsHostnames" =: _mvaEnableDNSHostnames,
                "EnableDnsSupport" =: _mvaEnableDNSSupport,
                "VpcId" =: _mvaVPCId]

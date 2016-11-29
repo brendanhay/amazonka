@@ -96,7 +96,7 @@ instance ToQuery EnableVPCClassicLinkDNSSupport where
           = mconcat
               ["Action" =:
                  ("EnableVpcClassicLinkDnsSupport" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "VpcId" =: _evcldsVPCId]
 
 -- | Contains the output of EnableVpcClassicLinkDnsSupport.

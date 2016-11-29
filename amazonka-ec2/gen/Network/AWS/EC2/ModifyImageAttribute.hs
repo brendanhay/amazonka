@@ -168,7 +168,7 @@ instance ToQuery ModifyImageAttribute where
         toQuery ModifyImageAttribute'{..}
           = mconcat
               ["Action" =: ("ModifyImageAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Attribute" =: _miaAttribute,
                toQuery (toQueryList "UserId" <$> _miaUserIds),
                toQuery (toQueryList "UserGroup" <$> _miaUserGroups),

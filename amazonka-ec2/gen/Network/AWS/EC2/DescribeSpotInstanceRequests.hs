@@ -23,6 +23,8 @@
 --
 -- You can use @DescribeSpotInstanceRequests@ to find a running Spot instance by examining the response. If the status of the Spot instance is @fulfilled@ , the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use 'DescribeInstances' with a filter to look for instances where the instance lifecycle is @spot@ .
 --
+-- Spot instance requests are deleted 4 hours after they are canceled and their instances are terminated.
+--
 module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
     -- * Creating a Request
@@ -117,7 +119,7 @@ instance ToQuery DescribeSpotInstanceRequests where
           = mconcat
               ["Action" =:
                  ("DescribeSpotInstanceRequests" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dsirFilters),
                toQuery
                  (toQueryList "SpotInstanceRequestId" <$>

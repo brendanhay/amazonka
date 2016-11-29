@@ -114,7 +114,7 @@ instance ToQuery GetConsoleOutput where
         toQuery GetConsoleOutput'{..}
           = mconcat
               ["Action" =: ("GetConsoleOutput" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _gcoDryRun,
                "InstanceId" =: _gcoInstanceId]
 

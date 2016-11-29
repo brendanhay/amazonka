@@ -151,7 +151,7 @@ instance ToQuery CreateFlowLogs where
         toQuery CreateFlowLogs'{..}
           = mconcat
               ["Action" =: ("CreateFlowLogs" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "ClientToken" =: _cflClientToken,
                toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,

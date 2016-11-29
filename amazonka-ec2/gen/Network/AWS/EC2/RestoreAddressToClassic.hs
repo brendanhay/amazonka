@@ -106,7 +106,7 @@ instance ToQuery RestoreAddressToClassic where
           = mconcat
               ["Action" =:
                  ("RestoreAddressToClassic" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
 
 -- | Contains the output of RestoreAddressToClassic.

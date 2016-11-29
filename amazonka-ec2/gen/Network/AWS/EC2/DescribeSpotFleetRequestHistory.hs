@@ -156,7 +156,7 @@ instance ToQuery DescribeSpotFleetRequestHistory
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetRequestHistory" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "NextToken" =: _dsfrhNextToken,
                "EventType" =: _dsfrhEventType,
                "DryRun" =: _dsfrhDryRun,

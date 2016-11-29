@@ -96,7 +96,7 @@ instance ToQuery ModifySubnetAttribute where
         toQuery ModifySubnetAttribute'{..}
           = mconcat
               ["Action" =: ("ModifySubnetAttribute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "MapPublicIpOnLaunch" =: _msaMapPublicIPOnLaunch,
                "SubnetId" =: _msaSubnetId]
 

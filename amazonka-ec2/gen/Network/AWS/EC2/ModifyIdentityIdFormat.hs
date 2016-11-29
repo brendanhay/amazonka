@@ -115,7 +115,7 @@ instance ToQuery ModifyIdentityIdFormat where
           = mconcat
               ["Action" =:
                  ("ModifyIdentityIdFormat" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Resource" =: _miifResource,
                "UseLongIds" =: _miifUseLongIds,
                "PrincipalArn" =: _miifPrincipalARN]

@@ -137,7 +137,7 @@ instance ToQuery RunScheduledInstances where
         toQuery RunScheduledInstances'{..}
           = mconcat
               ["Action" =: ("RunScheduledInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "ClientToken" =: _rsiClientToken,
                "InstanceCount" =: _rsiInstanceCount,
                "DryRun" =: _rsiDryRun,

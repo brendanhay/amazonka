@@ -104,7 +104,7 @@ instance ToQuery CreateNetworkACL where
         toQuery CreateNetworkACL'{..}
           = mconcat
               ["Action" =: ("CreateNetworkAcl" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
 -- | Contains the output of CreateNetworkAcl.

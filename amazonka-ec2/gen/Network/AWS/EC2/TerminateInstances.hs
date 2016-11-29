@@ -21,6 +21,8 @@
 -- Shuts down one or more instances. This operation is idempotent; if you terminate an instance more than once, each call succeeds.
 --
 --
+-- If you specify multiple instances and the request fails (for example, because of a single incorrect instance ID), none of the instances are terminated.
+--
 -- Terminated instances remain visible after termination (for approximately one hour).
 --
 -- By default, Amazon EC2 deletes all EBS volumes that were attached when the instance launched. Volumes attached after instance launch continue running.
@@ -69,7 +71,7 @@ data TerminateInstances = TerminateInstances'
 --
 -- * 'tiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'tiInstanceIds' - One or more instance IDs.
+-- * 'tiInstanceIds' - One or more instance IDs. Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
 terminateInstances
     :: TerminateInstances
 terminateInstances =
@@ -82,7 +84,7 @@ terminateInstances =
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
 tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 
--- | One or more instance IDs.
+-- | One or more instance IDs. Constraints: Up to 1000 instance IDs. We recommend breaking up this request into smaller batches.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a}) . _Coerce;
 
@@ -112,7 +114,7 @@ instance ToQuery TerminateInstances where
         toQuery TerminateInstances'{..}
           = mconcat
               ["Action" =: ("TerminateInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _tiDryRun,
                toQueryList "InstanceId" _tiInstanceIds]
 

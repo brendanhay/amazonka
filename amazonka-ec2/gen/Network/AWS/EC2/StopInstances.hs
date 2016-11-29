@@ -122,7 +122,7 @@ instance ToQuery StopInstances where
         toQuery StopInstances'{..}
           = mconcat
               ["Action" =: ("StopInstances" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "Force" =: _siForce, "DryRun" =: _siDryRun,
                toQueryList "InstanceId" _siInstanceIds]
 

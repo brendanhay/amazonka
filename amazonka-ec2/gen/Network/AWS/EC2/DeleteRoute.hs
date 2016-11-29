@@ -105,7 +105,7 @@ instance ToQuery DeleteRoute where
         toQuery DeleteRoute'{..}
           = mconcat
               ["Action" =: ("DeleteRoute" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _drDryRun,
                "RouteTableId" =: _drRouteTableId,
                "DestinationCidrBlock" =: _drDestinationCIdRBlock]

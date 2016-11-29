@@ -106,7 +106,7 @@ instance ToQuery AttachInternetGateway where
         toQuery AttachInternetGateway'{..}
           = mconcat
               ["Action" =: ("AttachInternetGateway" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _aigDryRun,
                "InternetGatewayId" =: _aigInternetGatewayId,
                "VpcId" =: _aigVPCId]

@@ -112,7 +112,7 @@ instance ToQuery GetPasswordData where
         toQuery GetPasswordData'{..}
           = mconcat
               ["Action" =: ("GetPasswordData" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _gpdDryRun,
                "InstanceId" =: _gpdInstanceId]
 

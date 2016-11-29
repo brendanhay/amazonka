@@ -108,7 +108,7 @@ instance ToQuery ModifyHosts where
         toQuery ModifyHosts'{..}
           = mconcat
               ["Action" =: ("ModifyHosts" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                toQueryList "HostId" _mhHostIds,
                "AutoPlacement" =: _mhAutoPlacement]
 

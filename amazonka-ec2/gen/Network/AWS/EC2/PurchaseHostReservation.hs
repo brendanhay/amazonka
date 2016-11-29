@@ -137,7 +137,7 @@ instance ToQuery PurchaseHostReservation where
           = mconcat
               ["Action" =:
                  ("PurchaseHostReservation" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "CurrencyCode" =: _phrCurrencyCode,
                "ClientToken" =: _phrClientToken,
                "LimitPrice" =: _phrLimitPrice,

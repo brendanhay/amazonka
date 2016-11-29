@@ -121,7 +121,7 @@ instance ToQuery DescribeHostReservations where
           = mconcat
               ["Action" =:
                  ("DescribeHostReservations" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "NextToken" =: _dhrNextToken,
                toQuery
                  (toQueryList "HostReservationIdSet" <$>

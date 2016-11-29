@@ -1191,10 +1191,14 @@ data InstanceType
     | M3_Medium
     | M3_XLarge
     | M4_10XLarge
+    | M4_16XLarge
     | M4_2XLarge
     | M4_4XLarge
     | M4_Large
     | M4_XLarge
+    | P2_16XLarge
+    | P2_8XLarge
+    | P2_XLarge
     | R3_2XLarge
     | R3_4XLarge
     | R3_8XLarge
@@ -1208,8 +1212,6 @@ data InstanceType
     | T2_Small
     | X1_16XLarge
     | X1_32XLarge
-    | X1_4XLarge
-    | X1_8XLarge
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText InstanceType where
@@ -1254,10 +1256,14 @@ instance FromText InstanceType where
         "m3.medium" -> pure M3_Medium
         "m3.xlarge" -> pure M3_XLarge
         "m4.10xlarge" -> pure M4_10XLarge
+        "m4.16xlarge" -> pure M4_16XLarge
         "m4.2xlarge" -> pure M4_2XLarge
         "m4.4xlarge" -> pure M4_4XLarge
         "m4.large" -> pure M4_Large
         "m4.xlarge" -> pure M4_XLarge
+        "p2.16xlarge" -> pure P2_16XLarge
+        "p2.8xlarge" -> pure P2_8XLarge
+        "p2.xlarge" -> pure P2_XLarge
         "r3.2xlarge" -> pure R3_2XLarge
         "r3.4xlarge" -> pure R3_4XLarge
         "r3.8xlarge" -> pure R3_8XLarge
@@ -1271,10 +1277,8 @@ instance FromText InstanceType where
         "t2.small" -> pure T2_Small
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
-        "x1.4xlarge" -> pure X1_4XLarge
-        "x1.8xlarge" -> pure X1_8XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge, x1.4xlarge, x1.8xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1318,10 +1322,14 @@ instance ToText InstanceType where
         M3_Medium -> "m3.medium"
         M3_XLarge -> "m3.xlarge"
         M4_10XLarge -> "m4.10xlarge"
+        M4_16XLarge -> "m4.16xlarge"
         M4_2XLarge -> "m4.2xlarge"
         M4_4XLarge -> "m4.4xlarge"
         M4_Large -> "m4.large"
         M4_XLarge -> "m4.xlarge"
+        P2_16XLarge -> "p2.16xlarge"
+        P2_8XLarge -> "p2.8xlarge"
+        P2_XLarge -> "p2.xlarge"
         R3_2XLarge -> "r3.2xlarge"
         R3_4XLarge -> "r3.4xlarge"
         R3_8XLarge -> "r3.8xlarge"
@@ -1335,8 +1343,6 @@ instance ToText InstanceType where
         T2_Small -> "t2.small"
         X1_16XLarge -> "x1.16xlarge"
         X1_32XLarge -> "x1.32xlarge"
-        X1_4XLarge -> "x1.4xlarge"
-        X1_8XLarge -> "x1.8xlarge"
 
 instance Hashable     InstanceType
 instance NFData       InstanceType
@@ -1590,6 +1596,32 @@ instance ToHeader     NetworkInterfaceType
 
 instance FromXML NetworkInterfaceType where
     parseXML = parseXMLText "NetworkInterfaceType"
+
+data OfferingClassType
+    = Convertible
+    | Standard
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OfferingClassType where
+    parser = takeLowerText >>= \case
+        "convertible" -> pure Convertible
+        "standard" -> pure Standard
+        e -> fromTextError $ "Failure parsing OfferingClassType from value: '" <> e
+           <> "'. Accepted values: convertible, standard"
+
+instance ToText OfferingClassType where
+    toText = \case
+        Convertible -> "convertible"
+        Standard -> "standard"
+
+instance Hashable     OfferingClassType
+instance NFData       OfferingClassType
+instance ToByteString OfferingClassType
+instance ToQuery      OfferingClassType
+instance ToHeader     OfferingClassType
+
+instance FromXML OfferingClassType where
+    parseXML = parseXMLText "OfferingClassType"
 
 data OfferingTypeValues
     = AllUpfront
@@ -2165,6 +2197,32 @@ instance ToHeader     RuleAction
 
 instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
+
+data Scope
+    = AvailabilityZone
+    | Region
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Scope where
+    parser = takeLowerText >>= \case
+        "availability zone" -> pure AvailabilityZone
+        "region" -> pure Region
+        e -> fromTextError $ "Failure parsing Scope from value: '" <> e
+           <> "'. Accepted values: availability zone, region"
+
+instance ToText Scope where
+    toText = \case
+        AvailabilityZone -> "Availability Zone"
+        Region -> "Region"
+
+instance Hashable     Scope
+instance NFData       Scope
+instance ToByteString Scope
+instance ToQuery      Scope
+instance ToHeader     Scope
+
+instance FromXML Scope where
+    parseXML = parseXMLText "Scope"
 
 data ShutdownBehavior
     = Stop
@@ -2863,30 +2921,30 @@ instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
 
 data VolumeType
-    = GP2
-    | IO1
-    | SC1
-    | ST1
-    | Standard
+    = VTGP2
+    | VTIO1
+    | VTSC1
+    | VTST1
+    | VTStandard
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
-        "gp2" -> pure GP2
-        "io1" -> pure IO1
-        "sc1" -> pure SC1
-        "st1" -> pure ST1
-        "standard" -> pure Standard
+        "gp2" -> pure VTGP2
+        "io1" -> pure VTIO1
+        "sc1" -> pure VTSC1
+        "st1" -> pure VTST1
+        "standard" -> pure VTStandard
         e -> fromTextError $ "Failure parsing VolumeType from value: '" <> e
            <> "'. Accepted values: gp2, io1, sc1, st1, standard"
 
 instance ToText VolumeType where
     toText = \case
-        GP2 -> "gp2"
-        IO1 -> "io1"
-        SC1 -> "sc1"
-        ST1 -> "st1"
-        Standard -> "standard"
+        VTGP2 -> "gp2"
+        VTIO1 -> "io1"
+        VTSC1 -> "sc1"
+        VTST1 -> "st1"
+        VTStandard -> "standard"
 
 instance Hashable     VolumeType
 instance NFData       VolumeType

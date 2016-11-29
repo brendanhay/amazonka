@@ -173,7 +173,7 @@ instance ToQuery
               ["Action" =:
                  ("DescribeScheduledInstanceAvailability" ::
                     ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "MinSlotDurationInHours" =:
                  _dsiaMinSlotDurationInHours,
                toQuery (toQueryList "Filter" <$> _dsiaFilters),

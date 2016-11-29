@@ -104,7 +104,7 @@ instance ToQuery DeleteVPCEndpoints where
         toQuery DeleteVPCEndpoints'{..}
           = mconcat
               ["Action" =: ("DeleteVpcEndpoints" :: ByteString),
-               "Version" =: ("2016-04-01" :: ByteString),
+               "Version" =: ("2016-09-15" :: ByteString),
                "DryRun" =: _dveDryRun,
                toQueryList "VpcEndpointId" _dveVPCEndpointIds]
 

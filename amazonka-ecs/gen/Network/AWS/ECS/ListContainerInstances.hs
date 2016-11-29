@@ -61,7 +61,7 @@ data ListContainerInstances = ListContainerInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed..
+-- * 'lciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'lciNextToken' - The @nextToken@ value returned from a previous paginated @ListContainerInstances@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
@@ -75,7 +75,7 @@ listContainerInstances =
     , _lciMaxResults = Nothing
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.
 lciCluster :: Lens' ListContainerInstances (Maybe Text)
 lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
 

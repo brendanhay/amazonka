@@ -124,7 +124,7 @@ data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ucarsContainerInstance' - Undocumented member.
+-- * 'ucarsContainerInstance' - The container instance for which the container agent was updated.
 --
 -- * 'ucarsResponseStatus' - -- | The response status code.
 updateContainerAgentResponse
@@ -136,7 +136,7 @@ updateContainerAgentResponse pResponseStatus_ =
     , _ucarsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The container instance for which the container agent was updated.
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 

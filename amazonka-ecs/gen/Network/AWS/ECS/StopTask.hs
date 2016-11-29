@@ -59,7 +59,7 @@ data StopTask = StopTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed..
+-- * 'stCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'stReason' - An optional message specified when a task is stopped. For example, if you are using a custom scheduler, you can use this parameter to specify the reason for stopping the task here, and the message will appear in subsequent 'DescribeTasks' API operations on this task. Up to 255 characters are allowed in this message.
 --
@@ -74,7 +74,7 @@ stopTask pTask_ =
     , _stTask = pTask_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to stop. If you do not specify a cluster, the default cluster is assumed.
 stCluster :: Lens' StopTask (Maybe Text)
 stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
 
@@ -133,7 +133,7 @@ data StopTaskResponse = StopTaskResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsTask' - Undocumented member.
+-- * 'srsTask' - The task that was stopped.
 --
 -- * 'srsResponseStatus' - -- | The response status code.
 stopTaskResponse
@@ -145,7 +145,7 @@ stopTaskResponse pResponseStatus_ =
     , _srsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The task that was stopped.
 srsTask :: Lens' StopTaskResponse (Maybe Task)
 srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 

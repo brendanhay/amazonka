@@ -58,7 +58,7 @@ data DescribeServices = DescribeServices'
 --
 -- * 'dCluster' - The name of the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dServices' - A list of services to describe.
+-- * 'dServices' - A list of services to describe. You may specify up to 10 services to describe in a single operation.
 describeServices
     :: DescribeServices
 describeServices =
@@ -71,7 +71,7 @@ describeServices =
 dCluster :: Lens' DescribeServices (Maybe Text)
 dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 
--- | A list of services to describe.
+-- | A list of services to describe. You may specify up to 10 services to describe in a single operation.
 dServices :: Lens' DescribeServices [Text]
 dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
 

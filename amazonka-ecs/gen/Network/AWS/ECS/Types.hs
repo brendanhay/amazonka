@@ -125,6 +125,7 @@ module Network.AWS.ECS.Types
     , ciVersionInfo
     , ciAgentUpdateStatus
     , ciAttributes
+    , ciVersion
     , ciPendingTasksCount
     , ciRegisteredResources
 
@@ -260,6 +261,7 @@ module Network.AWS.ECS.Types
     , tLastStatus
     , tContainers
     , tStartedAt
+    , tVersion
     , tStartedBy
     , tStoppedReason
     , tTaskDefinitionARN

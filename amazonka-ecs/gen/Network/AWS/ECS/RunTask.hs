@@ -66,7 +66,7 @@ data RunTask = RunTask'
 --
 -- * 'rtOverrides' - A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
 --
--- * 'rtCluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task. If you do not specify a cluster, the default cluster is assumed..
+-- * 'rtCluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'rtCount' - The number of instantiations of the specified task to place on your cluster. /Important:/ The @count@ parameter is limited to 10 tasks per call.
 --
@@ -89,7 +89,7 @@ runTask pTaskDefinition_ =
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
 rtOverrides = lens _rtOverrides (\ s a -> s{_rtOverrides = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on which to run your task. If you do not specify a cluster, the default cluster is assumed.
 rtCluster :: Lens' RunTask (Maybe Text)
 rtCluster = lens _rtCluster (\ s a -> s{_rtCluster = a});
 

@@ -61,7 +61,7 @@ data ListServices = ListServices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed..
+-- * 'lsCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'lsNextToken' - The @nextToken@ value returned from a previous paginated @ListServices@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 --
@@ -75,7 +75,7 @@ listServices =
     , _lsMaxResults = Nothing
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed.
 lsCluster :: Lens' ListServices (Maybe Text)
 lsCluster = lens _lsCluster (\ s a -> s{_lsCluster = a});
 

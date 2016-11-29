@@ -75,7 +75,7 @@ data ListTasks = ListTasks'
 --
 -- * 'ltDesiredStatus' - The task desired status with which to filter the @ListTasks@ results. Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks that ECS has set the desired status to @STOPPED@ , which can be useful for debugging tasks that are not starting properly or have died or finished. The default status filter is @RUNNING@ , which shows tasks that ECS has set the desired status to @RUNNING@ .
 --
--- * 'ltCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed..
+-- * 'ltCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'ltFamily' - The name of the family with which to filter the @ListTasks@ results. Specifying a @family@ limits the results to tasks that belong to that family.
 --
@@ -106,7 +106,7 @@ listTasks =
 ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
 ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list. If you do not specify a cluster, the default cluster is assumed.
 ltCluster :: Lens' ListTasks (Maybe Text)
 ltCluster = lens _ltCluster (\ s a -> s{_ltCluster = a});
 

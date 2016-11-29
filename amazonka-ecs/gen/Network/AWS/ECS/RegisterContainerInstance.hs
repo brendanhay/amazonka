@@ -67,7 +67,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --
 -- * 'rciInstanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
 --
--- * 'rciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed..
+-- * 'rciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'rciInstanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
 --
@@ -95,7 +95,7 @@ registerContainerInstance =
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
 rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
 rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 
@@ -174,7 +174,7 @@ data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcirsContainerInstance' - Undocumented member.
+-- * 'rcirsContainerInstance' - The container instance that was registered.
 --
 -- * 'rcirsResponseStatus' - -- | The response status code.
 registerContainerInstanceResponse
@@ -186,7 +186,7 @@ registerContainerInstanceResponse pResponseStatus_ =
     , _rcirsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The container instance that was registered.
 rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
 rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
 

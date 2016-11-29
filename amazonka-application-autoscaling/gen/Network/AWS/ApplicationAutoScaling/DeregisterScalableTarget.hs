@@ -18,10 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregisters a scalable target that was previously registered. If you are no longer using a scalable target, you can delete it with this operation. When you deregister a scalable target, all of the scaling policies that are associated with that scalable target are deleted.
+-- Deregisters a scalable target.
 --
 --
--- To create a new scalable target or update an existing one, see 'RegisterScalableTarget' .
+-- Deregistering a scalable target deletes the scaling policies that are associated with it.
+--
+-- To create a scalable target or update an existing one, see 'RegisterScalableTarget' .
 --
 module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
     (
@@ -58,11 +60,11 @@ data DeregisterScalableTarget = DeregisterScalableTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derServiceNamespace' - The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'derServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'derResourceId' - The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- * 'derResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'derScalableDimension' - The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- * 'derScalableDimension' - The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 deregisterScalableTarget
     :: ServiceNamespace -- ^ 'derServiceNamespace'
     -> Text -- ^ 'derResourceId'
@@ -75,15 +77,15 @@ deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
     , _derScalableDimension = pScalableDimension_
     }
 
--- | The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 derServiceNamespace :: Lens' DeregisterScalableTarget ServiceNamespace
 derServiceNamespace = lens _derServiceNamespace (\ s a -> s{_derServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 derResourceId :: Lens' DeregisterScalableTarget Text
 derResourceId = lens _derResourceId (\ s a -> s{_derResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 derScalableDimension :: Lens' DeregisterScalableTarget ScalableDimension
 derScalableDimension = lens _derScalableDimension (\ s a -> s{_derScalableDimension = a});
 

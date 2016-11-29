@@ -18,12 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a policy for an existing Application Auto Scaling scalable target. Each scalable target is identified by service namespace, a resource ID, and a scalable dimension, and a scaling policy applies to a scalable target that is identified by those three attributes. You cannot create a scaling policy without first registering a scalable target with 'RegisterScalableTarget' .
+-- Creates or updates a policy for an Application Auto Scaling scalable target.
 --
 --
--- To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.
+-- Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy without first registering a scalable target using 'RegisterScalableTarget' .
 --
--- You can view the existing scaling policies for a service namespace with 'DescribeScalingPolicies' . If you are no longer using a scaling policy, you can delete it with 'DeleteScalingPolicy' .
+-- To update a policy, specify its policy name and the parameters that you want to change. Any parameters that you don't specify are not changed by this update request.
+--
+-- You can view the scaling policies for a service namespace using 'DescribeScalingPolicies' . If you are no longer using a scaling policy, you can delete it using 'DeleteScalingPolicy' .
 --
 module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     (
@@ -67,17 +69,17 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pspPolicyType' - The policy type. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required.
+-- * 'pspPolicyType' - The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required.
 --
--- * 'pspStepScalingPolicyConfiguration' - The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
+-- * 'pspStepScalingPolicyConfiguration' - The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
 --
 -- * 'pspPolicyName' - The name of the scaling policy.
 --
--- * 'pspServiceNamespace' - The AWS service namespace of the scalable target that this scaling policy applies to. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'pspServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'pspResourceId' - The unique resource identifier string for the scalable target that this scaling policy applies to. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- * 'pspResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'pspScalableDimension' - The scalable dimension of the scalable target that this scaling policy applies to. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- * 'pspScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 putScalingPolicy
     :: Text -- ^ 'pspPolicyName'
     -> ServiceNamespace -- ^ 'pspServiceNamespace'
@@ -94,11 +96,11 @@ putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension
     , _pspScalableDimension = pScalableDimension_
     }
 
--- | The policy type. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required.
+-- | The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 
--- | The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating an existing policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
+-- | The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
 pspStepScalingPolicyConfiguration :: Lens' PutScalingPolicy (Maybe StepScalingPolicyConfiguration)
 pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s a -> s{_pspStepScalingPolicyConfiguration = a});
 
@@ -106,15 +108,15 @@ pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
--- | The AWS service namespace of the scalable target that this scaling policy applies to. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 pspServiceNamespace :: Lens' PutScalingPolicy ServiceNamespace
 pspServiceNamespace = lens _pspServiceNamespace (\ s a -> s{_pspServiceNamespace = a});
 
--- | The unique resource identifier string for the scalable target that this scaling policy applies to. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 pspResourceId :: Lens' PutScalingPolicy Text
 pspResourceId = lens _pspResourceId (\ s a -> s{_pspResourceId = a});
 
--- | The scalable dimension of the scalable target that this scaling policy applies to. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 pspScalableDimension :: Lens' PutScalingPolicy ScalableDimension
 pspScalableDimension = lens _pspScalableDimension (\ s a -> s{_pspScalableDimension = a});
 

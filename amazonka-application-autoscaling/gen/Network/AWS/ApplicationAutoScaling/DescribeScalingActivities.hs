@@ -18,13 +18,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides descriptive information for scaling activities with a specified service namespace for the previous six weeks.
+-- Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.
 --
 --
--- You can filter the results in a service namespace with the @ResourceId@ and @ScalableDimension@ parameters.
+-- You can filter the results using the @ResourceId@ and @ScalableDimension@ parameters.
 --
--- Scaling activities are triggered by CloudWatch alarms that are associated with scaling policies. To view the existing scaling policies for a service namespace, see 'DescribeScalingPolicies' . To create a new scaling policy or update an existing one, see 'PutScalingPolicy' .
+-- Scaling activities are triggered by CloudWatch alarms that are associated with scaling policies. To view the scaling policies for a service namespace, see 'DescribeScalingPolicies' . To create a scaling policy or update an existing one, see 'PutScalingPolicy' .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
 import           Network.AWS.ApplicationAutoScaling.Types
 import           Network.AWS.ApplicationAutoScaling.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -66,15 +69,15 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaScalableDimension' - The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
+-- * 'dsaScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 --
--- * 'dsaResourceId' - The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
+-- * 'dsaResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'dsaNextToken' - The @NextToken@ value returned from a previous paginated @DescribeScalingActivities@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'dsaNextToken' - The token for the next set of results.
 --
--- * 'dsaMaxResults' - The maximum number of scaling activity results returned by @DescribeScalingActivities@ in paginated output. When this parameter is used, @DescribeScalingActivities@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalingActivities@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalingActivities@ returns up to 50 results and a @NextToken@ value, if applicable.
+-- * 'dsaMaxResults' - The maximum number of scalable target results. This value can be between 1 and 50. The default value is 50. If this parameter is used, the operation returns up to @MaxResults@ results at a time, along with a @NextToken@ value. To get the next set of results, include the @NextToken@ value in a subsequent call. If this parameter is not used, the operation returns up to 50 results and a @NextToken@ value, if applicable.
 --
--- * 'dsaServiceNamespace' - The namespace for the AWS service that the scaling activity is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'dsaServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 describeScalingActivities
     :: ServiceNamespace -- ^ 'dsaServiceNamespace'
     -> DescribeScalingActivities
@@ -87,25 +90,32 @@ describeScalingActivities pServiceNamespace_ =
     , _dsaServiceNamespace = pServiceNamespace_
     }
 
--- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request. If you specify a scalable dimension, you must also specify a resource ID.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 dsaScalableDimension :: Lens' DescribeScalingActivities (Maybe ScalableDimension)
 dsaScalableDimension = lens _dsaScalableDimension (\ s a -> s{_dsaScalableDimension = a});
 
--- | The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ . If you specify a scalable dimension, you must also specify a resource ID.
+-- | The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 dsaResourceId :: Lens' DescribeScalingActivities (Maybe Text)
 dsaResourceId = lens _dsaResourceId (\ s a -> s{_dsaResourceId = a});
 
--- | The @NextToken@ value returned from a previous paginated @DescribeScalingActivities@ request. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
+-- | The token for the next set of results.
 dsaNextToken :: Lens' DescribeScalingActivities (Maybe Text)
 dsaNextToken = lens _dsaNextToken (\ s a -> s{_dsaNextToken = a});
 
--- | The maximum number of scaling activity results returned by @DescribeScalingActivities@ in paginated output. When this parameter is used, @DescribeScalingActivities@ returns up to @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeScalingActivities@ request with the returned @NextToken@ value. This value can be between 1 and 50. If this parameter is not used, then @DescribeScalingActivities@ returns up to 50 results and a @NextToken@ value, if applicable.
+-- | The maximum number of scalable target results. This value can be between 1 and 50. The default value is 50. If this parameter is used, the operation returns up to @MaxResults@ results at a time, along with a @NextToken@ value. To get the next set of results, include the @NextToken@ value in a subsequent call. If this parameter is not used, the operation returns up to 50 results and a @NextToken@ value, if applicable.
 dsaMaxResults :: Lens' DescribeScalingActivities (Maybe Int)
 dsaMaxResults = lens _dsaMaxResults (\ s a -> s{_dsaMaxResults = a});
 
--- | The namespace for the AWS service that the scaling activity is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 dsaServiceNamespace :: Lens' DescribeScalingActivities ServiceNamespace
 dsaServiceNamespace = lens _dsaServiceNamespace (\ s a -> s{_dsaServiceNamespace = a});
+
+instance AWSPager DescribeScalingActivities where
+        page rq rs
+          | stop (rs ^. dsarsNextToken) = Nothing
+          | stop (rs ^. dsarsScalingActivities) = Nothing
+          | otherwise =
+            Just $ rq & dsaNextToken .~ rs ^. dsarsNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Rs DescribeScalingActivities =
@@ -162,7 +172,7 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 --
 -- * 'dsarsScalingActivities' - A list of scaling activity objects.
 --
--- * 'dsarsNextToken' - The @NextToken@ value to include in a future @DescribeScalingActivities@ request. When the results of a @DescribeScalingActivities@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'dsarsNextToken' - The token required to get the next set of results. This value is @null@ if there are no more results to return.
 --
 -- * 'dsarsResponseStatus' - -- | The response status code.
 describeScalingActivitiesResponse
@@ -179,7 +189,7 @@ describeScalingActivitiesResponse pResponseStatus_ =
 dsarsScalingActivities :: Lens' DescribeScalingActivitiesResponse [ScalingActivity]
 dsarsScalingActivities = lens _dsarsScalingActivities (\ s a -> s{_dsarsScalingActivities = a}) . _Default . _Coerce;
 
--- | The @NextToken@ value to include in a future @DescribeScalingActivities@ request. When the results of a @DescribeScalingActivities@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- | The token required to get the next set of results. This value is @null@ if there are no more results to return.
 dsarsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 

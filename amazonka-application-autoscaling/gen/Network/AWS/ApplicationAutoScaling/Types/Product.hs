@@ -21,7 +21,7 @@ import           Network.AWS.ApplicationAutoScaling.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | An object representing a CloudWatch alarm associated with a scaling policy.
+-- | Represents a CloudWatch alarm associated with a scaling policy.
 --
 --
 --
@@ -66,7 +66,7 @@ instance Hashable Alarm
 
 instance NFData Alarm
 
--- | An object representing a scalable target.
+-- | Represents a scalable target.
 --
 --
 --
@@ -85,17 +85,17 @@ data ScalableTarget = ScalableTarget'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'stServiceNamespace' - The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'stServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'stResourceId' - The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- * 'stResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'stScalableDimension' - The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- * 'stScalableDimension' - The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 --
--- * 'stMinCapacity' - The minimum value for this scalable target to scale in to in response to scaling activities.
+-- * 'stMinCapacity' - The minimum value to scale to in response to a scale in event.
 --
--- * 'stMaxCapacity' - The maximum value for this scalable target to scale out to in response to scaling activities.
+-- * 'stMaxCapacity' - The maximum value to scale to in response to a scale out event.
 --
--- * 'stRoleARN' - The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf.
+-- * 'stRoleARN' - The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your behalf.
 --
 -- * 'stCreationTime' - The Unix timestamp for when the scalable target was created.
 scalableTarget
@@ -118,27 +118,27 @@ scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_
     , _stCreationTime = _Time # pCreationTime_
     }
 
--- | The namespace for the AWS service that the scalable target is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 stServiceNamespace :: Lens' ScalableTarget ServiceNamespace
 stServiceNamespace = lens _stServiceNamespace (\ s a -> s{_stServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scalable target. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 stResourceId :: Lens' ScalableTarget Text
 stResourceId = lens _stResourceId (\ s a -> s{_stResourceId = a});
 
--- | The scalable dimension associated with the scalable target. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 stScalableDimension :: Lens' ScalableTarget ScalableDimension
 stScalableDimension = lens _stScalableDimension (\ s a -> s{_stScalableDimension = a});
 
--- | The minimum value for this scalable target to scale in to in response to scaling activities.
+-- | The minimum value to scale to in response to a scale in event.
 stMinCapacity :: Lens' ScalableTarget Int
 stMinCapacity = lens _stMinCapacity (\ s a -> s{_stMinCapacity = a});
 
--- | The maximum value for this scalable target to scale out to in response to scaling activities.
+-- | The maximum value to scale to in response to a scale out event.
 stMaxCapacity :: Lens' ScalableTarget Int
 stMaxCapacity = lens _stMaxCapacity (\ s a -> s{_stMaxCapacity = a});
 
--- | The ARN of the IAM role that allows Application Auto Scaling to modify your scalable target on your behalf.
+-- | The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your behalf.
 stRoleARN :: Lens' ScalableTarget Text
 stRoleARN = lens _stRoleARN (\ s a -> s{_stRoleARN = a});
 
@@ -162,7 +162,7 @@ instance Hashable ScalableTarget
 
 instance NFData ScalableTarget
 
--- | An object representing a scaling activity.
+-- | Represents a scaling activity.
 --
 --
 --
@@ -191,13 +191,13 @@ data ScalingActivity = ScalingActivity'
 --
 -- * 'saDetails' - The details about the scaling activity.
 --
--- * 'saActivityId' - The unique identifier string for the scaling activity.
+-- * 'saActivityId' - The unique identifier of the scaling activity.
 --
--- * 'saServiceNamespace' - The namespace for the AWS service that the scaling activity is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'saServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'saResourceId' - The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- * 'saResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'saScalableDimension' - The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- * 'saScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 --
 -- * 'saDescription' - A simple description of what action the scaling activity intends to accomplish.
 --
@@ -243,19 +243,19 @@ saEndTime = lens _saEndTime (\ s a -> s{_saEndTime = a}) . mapping _Time;
 saDetails :: Lens' ScalingActivity (Maybe Text)
 saDetails = lens _saDetails (\ s a -> s{_saDetails = a});
 
--- | The unique identifier string for the scaling activity.
+-- | The unique identifier of the scaling activity.
 saActivityId :: Lens' ScalingActivity Text
 saActivityId = lens _saActivityId (\ s a -> s{_saActivityId = a});
 
--- | The namespace for the AWS service that the scaling activity is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 saServiceNamespace :: Lens' ScalingActivity ServiceNamespace
 saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scaling activity. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- | The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 saResourceId :: Lens' ScalingActivity Text
 saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
 
--- | The scalable dimension associated with the scaling activity. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 saScalableDimension :: Lens' ScalingActivity ScalableDimension
 saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
 
@@ -295,7 +295,7 @@ instance Hashable ScalingActivity
 
 instance NFData ScalingActivity
 
--- | An object representing a scaling policy.
+-- | Represents a scaling policy.
 --
 --
 --
@@ -318,17 +318,17 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- * 'spStepScalingPolicyConfiguration' - The configuration for the step scaling policy.
 --
--- * 'spAlarms' - The CloudWatch alarms that are associated with the scaling policy.
+-- * 'spAlarms' - The CloudWatch alarms associated with the scaling policy.
 --
 -- * 'spPolicyARN' - The Amazon Resource Name (ARN) of the scaling policy.
 --
 -- * 'spPolicyName' - The name of the scaling policy.
 --
--- * 'spServiceNamespace' - The namespace for the AWS service that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- * 'spServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'spResourceId' - The resource type and unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- * 'spResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 --
--- * 'spScalableDimension' - The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- * 'spScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 --
 -- * 'spPolicyType' - The scaling policy type.
 --
@@ -359,7 +359,7 @@ scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalable
 spStepScalingPolicyConfiguration :: Lens' ScalingPolicy (Maybe StepScalingPolicyConfiguration)
 spStepScalingPolicyConfiguration = lens _spStepScalingPolicyConfiguration (\ s a -> s{_spStepScalingPolicyConfiguration = a});
 
--- | The CloudWatch alarms that are associated with the scaling policy.
+-- | The CloudWatch alarms associated with the scaling policy.
 spAlarms :: Lens' ScalingPolicy [Alarm]
 spAlarms = lens _spAlarms (\ s a -> s{_spAlarms = a}) . _Default . _Coerce;
 
@@ -371,15 +371,15 @@ spPolicyARN = lens _spPolicyARN (\ s a -> s{_spPolicyARN = a});
 spPolicyName :: Lens' ScalingPolicy Text
 spPolicyName = lens _spPolicyName (\ s a -> s{_spPolicyName = a});
 
--- | The namespace for the AWS service that the scaling policy is associated with. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the Amazon Web Services General Reference.
+-- | The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 spServiceNamespace :: Lens' ScalingPolicy ServiceNamespace
 spServiceNamespace = lens _spServiceNamespace (\ s a -> s{_spServiceNamespace = a});
 
--- | The resource type and unique identifier string for the resource associated with the scaling policy. For Amazon ECS services, the resource type is @services@ , and the identifier is the cluster name and service name; for example, @service/default/sample-webapp@ . For Amazon EC2 Spot fleet requests, the resource type is @spot-fleet-request@ , and the identifier is the Spot fleet request ID; for example, @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
 spResourceId :: Lens' ScalingPolicy Text
 spResourceId = lens _spResourceId (\ s a -> s{_spResourceId = a});
 
--- | The scalable dimension associated with the scaling policy. The scalable dimension contains the service namespace, resource type, and scaling property, such as @ecs:service:DesiredCount@ for the desired task count of an Amazon ECS service, or @ec2:spot-fleet-request:TargetCapacity@ for the target capacity of an Amazon EC2 Spot fleet request.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
 spScalableDimension :: Lens' ScalingPolicy ScalableDimension
 spScalableDimension = lens _spScalableDimension (\ s a -> s{_spScalableDimension = a});
 
@@ -410,14 +410,14 @@ instance Hashable ScalingPolicy
 
 instance NFData ScalingPolicy
 
--- | An object representing a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+-- | Represents a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 --
 --
 -- For the following examples, suppose that you have an alarm with a breach threshold of 50:
 --
---     * If you want the adjustment to be triggered when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.
+--     * To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.
 --
---     * If you want the adjustment to be triggered when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.
+--     * To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.
 --
 --
 --
@@ -495,7 +495,7 @@ instance ToJSON StepAdjustment where
                     _saMetricIntervalUpperBound,
                   Just ("ScalingAdjustment" .= _saScalingAdjustment)])
 
--- | An object representing a step scaling policy configuration.
+-- | Represents a step scaling policy configuration.
 --
 --
 --

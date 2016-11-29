@@ -1,0 +1,169 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.AWSBudgets.Types
+-- Copyright   : (c) 2013-2016 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+module Network.AWS.AWSBudgets.Types
+    (
+    -- * Service Configuration
+      awsBudgets
+
+    -- * Errors
+    , _InvalidParameterException
+    , _InternalErrorException
+    , _ExpiredNextTokenException
+    , _NotFoundException
+    , _InvalidNextTokenException
+    , _DuplicateRecordException
+    , _CreationLimitExceededException
+
+    -- * BudgetType
+    , BudgetType (..)
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- * NotificationType
+    , NotificationType (..)
+
+    -- * SubscriptionType
+    , SubscriptionType (..)
+
+    -- * TimeUnit
+    , TimeUnit (..)
+
+    -- * Budget
+    , Budget
+    , budget
+    , bCalculatedSpend
+    , bCostFilters
+    , bBudgetName
+    , bBudgetLimit
+    , bCostTypes
+    , bTimeUnit
+    , bTimePeriod
+    , bBudgetType
+
+    -- * CalculatedSpend
+    , CalculatedSpend
+    , calculatedSpend
+    , csForecastedSpend
+    , csActualSpend
+
+    -- * CostTypes
+    , CostTypes
+    , costTypes
+    , ctIncludeTax
+    , ctIncludeSubscription
+    , ctUseBlended
+
+    -- * Notification
+    , Notification
+    , notification
+    , nNotificationType
+    , nComparisonOperator
+    , nThreshold
+
+    -- * NotificationWithSubscribers
+    , NotificationWithSubscribers
+    , notificationWithSubscribers
+    , nwsNotification
+    , nwsSubscribers
+
+    -- * Spend
+    , Spend
+    , spend
+    , sAmount
+    , sUnit
+
+    -- * Subscriber
+    , Subscriber
+    , subscriber
+    , sSubscriptionType
+    , sAddress
+
+    -- * TimePeriod
+    , TimePeriod
+    , timePeriod
+    , tpStart
+    , tpEnd
+    ) where
+
+import           Network.AWS.AWSBudgets.Types.Product
+import           Network.AWS.AWSBudgets.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
+
+-- | API version @2016-10-20@ of the Amazon Budgets SDK configuration.
+awsBudgets :: Service
+awsBudgets =
+    Service
+    { _svcAbbrev = "AWSBudgets"
+    , _svcSigner = v4
+    , _svcPrefix = "budgets"
+    , _svcVersion = "2016-10-20"
+    , _svcEndpoint = defaultEndpoint awsBudgets
+    , _svcTimeout = Just 70
+    , _svcCheck = statusSuccess
+    , _svcError = parseJSONError "AWSBudgets"
+    , _svcRetry = retry
+    }
+  where
+    retry =
+        Exponential
+        { _retryBase = 5.0e-2
+        , _retryGrowth = 2
+        , _retryAttempts = 5
+        , _retryCheck = check
+        }
+    check e
+      | has (hasStatus 429) e = Just "too_many_requests"
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
+          Just "throttling_exception"
+      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+      | has (hasStatus 504) e = Just "gateway_timeout"
+      | has (hasStatus 502) e = Just "bad_gateway"
+      | has (hasStatus 503) e = Just "service_unavailable"
+      | has (hasStatus 500) e = Just "general_server_error"
+      | has (hasStatus 509) e = Just "limit_exceeded"
+      | otherwise = Nothing
+
+-- | This exception is thrown if any request is given an invalid parameter. E.g., if a required Date field is null.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasCode "InvalidParameterException"
+
+-- | This exception is thrown on an unknown internal failure.
+_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException = _ServiceError . hasCode "InternalErrorException"
+
+-- | This exception is thrown if the paging token is expired - past its TTL
+_ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredNextTokenException =
+    _ServiceError . hasCode "ExpiredNextTokenException"
+
+-- | This exception is thrown if a requested entity is not found. E.g., if a budget id doesn't exist for an account ID.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasCode "NotFoundException"
+
+-- | This exception is thrown if paging token signature didn't match the token, or the paging token isn't for this request
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException =
+    _ServiceError . hasCode "InvalidNextTokenException"
+
+-- | The exception is thrown when customer tries to create a record (e.g. budget) that already exists.
+_DuplicateRecordException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateRecordException = _ServiceError . hasCode "DuplicateRecordException"
+
+-- | The exception is thrown when customer tries to create a record (e.g. budget), but the number this record already exceeds the limitation.
+_CreationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_CreationLimitExceededException =
+    _ServiceError . hasCode "CreationLimitExceededException"

@@ -38,7 +38,7 @@ module Network.AWS.SES.DeleteReceiptRule
     , deleteReceiptRuleResponse
     , DeleteReceiptRuleResponse
     -- * Response Lenses
-    , drsResponseStatus
+    , delrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -115,24 +115,24 @@ instance ToQuery DeleteReceiptRule where
 --
 -- /See:/ 'deleteReceiptRuleResponse' smart constructor.
 newtype DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
-    { _drsResponseStatus :: Int
+    { _delrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteReceiptRuleResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'delrsResponseStatus' - -- | The response status code.
 deleteReceiptRuleResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'delrsResponseStatus'
     -> DeleteReceiptRuleResponse
 deleteReceiptRuleResponse pResponseStatus_ =
     DeleteReceiptRuleResponse'
-    { _drsResponseStatus = pResponseStatus_
+    { _delrsResponseStatus = pResponseStatus_
     }
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteReceiptRuleResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+delrsResponseStatus :: Lens' DeleteReceiptRuleResponse Int
+delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
 
 instance NFData DeleteReceiptRuleResponse

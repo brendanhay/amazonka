@@ -57,11 +57,13 @@ module Network.AWS.SES.SendRawEmail
       sendRawEmail
     , SendRawEmail
     -- * Request Lenses
+    , sreConfigurationSetName
     , sreSourceARN
     , sreDestinations
     , sreReturnPathARN
     , sreSource
     , sreFromARN
+    , sreTags
     , sreRawMessage
 
     -- * Destructuring the Response
@@ -85,17 +87,21 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-    { _sreSourceARN     :: !(Maybe Text)
-    , _sreDestinations  :: !(Maybe [Text])
-    , _sreReturnPathARN :: !(Maybe Text)
-    , _sreSource        :: !(Maybe Text)
-    , _sreFromARN       :: !(Maybe Text)
-    , _sreRawMessage    :: !RawMessage
+    { _sreConfigurationSetName :: !(Maybe Text)
+    , _sreSourceARN            :: !(Maybe Text)
+    , _sreDestinations         :: !(Maybe [Text])
+    , _sreReturnPathARN        :: !(Maybe Text)
+    , _sreSource               :: !(Maybe Text)
+    , _sreFromARN              :: !(Maybe Text)
+    , _sreTags                 :: !(Maybe [MessageTag])
+    , _sreRawMessage           :: !RawMessage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SendRawEmail' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sreConfigurationSetName' - The name of the configuration set to use when you send an email using @SendRawEmail@ .
 --
 -- * 'sreSourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
 --
@@ -107,19 +113,27 @@ data SendRawEmail = SendRawEmail'
 --
 -- * 'sreFromARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email. Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
 --
+-- * 'sreTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+--
 -- * 'sreRawMessage' - The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.
 sendRawEmail
     :: RawMessage -- ^ 'sreRawMessage'
     -> SendRawEmail
 sendRawEmail pRawMessage_ =
     SendRawEmail'
-    { _sreSourceARN = Nothing
+    { _sreConfigurationSetName = Nothing
+    , _sreSourceARN = Nothing
     , _sreDestinations = Nothing
     , _sreReturnPathARN = Nothing
     , _sreSource = Nothing
     , _sreFromARN = Nothing
+    , _sreTags = Nothing
     , _sreRawMessage = pRawMessage_
     }
+
+-- | The name of the configuration set to use when you send an email using @SendRawEmail@ .
+sreConfigurationSetName :: Lens' SendRawEmail (Maybe Text)
+sreConfigurationSetName = lens _sreConfigurationSetName (\ s a -> s{_sreConfigurationSetName = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
 sreSourceARN :: Lens' SendRawEmail (Maybe Text)
@@ -140,6 +154,10 @@ sreSource = lens _sreSource (\ s a -> s{_sreSource = a});
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email. Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
 sreFromARN :: Lens' SendRawEmail (Maybe Text)
 sreFromARN = lens _sreFromARN (\ s a -> s{_sreFromARN = a});
+
+-- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+sreTags :: Lens' SendRawEmail [MessageTag]
+sreTags = lens _sreTags (\ s a -> s{_sreTags = a}) . _Default . _Coerce;
 
 -- | The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.
 sreRawMessage :: Lens' SendRawEmail RawMessage
@@ -169,11 +187,14 @@ instance ToQuery SendRawEmail where
           = mconcat
               ["Action" =: ("SendRawEmail" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
+               "ConfigurationSetName" =: _sreConfigurationSetName,
                "SourceArn" =: _sreSourceARN,
                "Destinations" =:
                  toQuery (toQueryList "member" <$> _sreDestinations),
                "ReturnPathArn" =: _sreReturnPathARN,
                "Source" =: _sreSource, "FromArn" =: _sreFromARN,
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _sreTags),
                "RawMessage" =: _sreRawMessage]
 
 -- | Represents a unique message ID.

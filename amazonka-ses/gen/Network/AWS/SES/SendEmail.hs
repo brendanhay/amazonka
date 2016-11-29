@@ -40,8 +40,10 @@ module Network.AWS.SES.SendEmail
     , SendEmail
     -- * Request Lenses
     , seReturnPath
+    , seConfigurationSetName
     , seSourceARN
     , seReturnPathARN
+    , seTags
     , seReplyToAddresses
     , seSource
     , seDestination
@@ -68,13 +70,15 @@ import           Network.AWS.SES.Types.Product
 --
 -- /See:/ 'sendEmail' smart constructor.
 data SendEmail = SendEmail'
-    { _seReturnPath       :: !(Maybe Text)
-    , _seSourceARN        :: !(Maybe Text)
-    , _seReturnPathARN    :: !(Maybe Text)
-    , _seReplyToAddresses :: !(Maybe [Text])
-    , _seSource           :: !Text
-    , _seDestination      :: !Destination
-    , _seMessage          :: !Message
+    { _seReturnPath           :: !(Maybe Text)
+    , _seConfigurationSetName :: !(Maybe Text)
+    , _seSourceARN            :: !(Maybe Text)
+    , _seReturnPathARN        :: !(Maybe Text)
+    , _seTags                 :: !(Maybe [MessageTag])
+    , _seReplyToAddresses     :: !(Maybe [Text])
+    , _seSource               :: !Text
+    , _seDestination          :: !Destination
+    , _seMessage              :: !Message
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SendEmail' with the minimum fields required to make a request.
@@ -83,9 +87,13 @@ data SendEmail = SendEmail'
 --
 -- * 'seReturnPath' - The email address to which bounces and complaints are to be forwarded when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
 --
+-- * 'seConfigurationSetName' - The name of the configuration set to use when you send an email using @SendEmail@ .
+--
 -- * 'seSourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 --
 -- * 'seReturnPathARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- * 'seTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
 --
 -- * 'seReplyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 --
@@ -102,8 +110,10 @@ sendEmail
 sendEmail pSource_ pDestination_ pMessage_ =
     SendEmail'
     { _seReturnPath = Nothing
+    , _seConfigurationSetName = Nothing
     , _seSourceARN = Nothing
     , _seReturnPathARN = Nothing
+    , _seTags = Nothing
     , _seReplyToAddresses = Nothing
     , _seSource = pSource_
     , _seDestination = pDestination_
@@ -114,6 +124,10 @@ sendEmail pSource_ pDestination_ pMessage_ =
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 
+-- | The name of the configuration set to use when you send an email using @SendEmail@ .
+seConfigurationSetName :: Lens' SendEmail (Maybe Text)
+seConfigurationSetName = lens _seConfigurationSetName (\ s a -> s{_seConfigurationSetName = a});
+
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 seSourceARN :: Lens' SendEmail (Maybe Text)
 seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
@@ -121,6 +135,10 @@ seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 seReturnPathARN :: Lens' SendEmail (Maybe Text)
 seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a});
+
+-- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
+seTags :: Lens' SendEmail [MessageTag]
+seTags = lens _seTags (\ s a -> s{_seTags = a}) . _Default . _Coerce;
 
 -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
 seReplyToAddresses :: Lens' SendEmail [Text]
@@ -163,8 +181,10 @@ instance ToQuery SendEmail where
               ["Action" =: ("SendEmail" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "ReturnPath" =: _seReturnPath,
+               "ConfigurationSetName" =: _seConfigurationSetName,
                "SourceArn" =: _seSourceARN,
                "ReturnPathArn" =: _seReturnPathARN,
+               "Tags" =: toQuery (toQueryList "member" <$> _seTags),
                "ReplyToAddresses" =:
                  toQuery
                    (toQueryList "member" <$> _seReplyToAddresses),

@@ -16,15 +16,22 @@ module Network.AWS.SES.Types
       ses
 
     -- * Errors
+    , _InvalidConfigurationSetException
     , _CannotDeleteException
     , _RuleDoesNotExistException
     , _MessageRejected
     , _RuleSetDoesNotExistException
     , _MailFromDomainNotVerifiedException
+    , _InvalidFirehoseDestinationException
+    , _ConfigurationSetAlreadyExistsException
+    , _EventDestinationDoesNotExistException
+    , _InvalidCloudWatchDestinationException
     , _InvalidLambdaFunctionException
+    , _ConfigurationSetDoesNotExistException
     , _InvalidPolicyException
     , _InvalidS3ConfigurationException
     , _InvalidSNSTopicException
+    , _EventDestinationAlreadyExistsException
     , _AlreadyExistsException
     , _LimitExceededException
 
@@ -34,11 +41,20 @@ module Network.AWS.SES.Types
     -- * BounceType
     , BounceType (..)
 
+    -- * ConfigurationSetAttribute
+    , ConfigurationSetAttribute (..)
+
     -- * CustomMailFromStatus
     , CustomMailFromStatus (..)
 
+    -- * DimensionValueSource
+    , DimensionValueSource (..)
+
     -- * DsnAction
     , DsnAction (..)
+
+    -- * EventType
+    , EventType (..)
 
     -- * IdentityType
     , IdentityType (..)
@@ -93,6 +109,23 @@ module Network.AWS.SES.Types
     , briRecipientARN
     , briRecipient
 
+    -- * CloudWatchDestination
+    , CloudWatchDestination
+    , cloudWatchDestination
+    , cwdDimensionConfigurations
+
+    -- * CloudWatchDimensionConfiguration
+    , CloudWatchDimensionConfiguration
+    , cloudWatchDimensionConfiguration
+    , cwdcDimensionName
+    , cwdcDimensionValueSource
+    , cwdcDefaultDimensionValue
+
+    -- * ConfigurationSet
+    , ConfigurationSet
+    , configurationSet
+    , csName
+
     -- * Content
     , Content
     , content
@@ -105,6 +138,15 @@ module Network.AWS.SES.Types
     , dBCCAddresses
     , dCCAddresses
     , dToAddresses
+
+    -- * EventDestination
+    , EventDestination
+    , eventDestination
+    , edEnabled
+    , edKinesisFirehoseDestination
+    , edCloudWatchDestination
+    , edName
+    , edMatchingEventTypes
 
     -- * ExtensionField
     , ExtensionField
@@ -143,6 +185,12 @@ module Network.AWS.SES.Types
     , ivaVerificationToken
     , ivaVerificationStatus
 
+    -- * KinesisFirehoseDestination
+    , KinesisFirehoseDestination
+    , kinesisFirehoseDestination
+    , kfdIAMRoleARN
+    , kfdDeliveryStreamARN
+
     -- * LambdaAction
     , LambdaAction
     , lambdaAction
@@ -162,6 +210,12 @@ module Network.AWS.SES.Types
     , mdArrivalDate
     , mdExtensionFields
     , mdReportingMta
+
+    -- * MessageTag
+    , MessageTag
+    , messageTag
+    , mtName
+    , mtValue
 
     -- * RawMessage
     , RawMessage
@@ -294,6 +348,13 @@ ses =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
+-- | Indicates that the configuration set is invalid. See the error message for details.
+--
+--
+_InvalidConfigurationSetException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationSetException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidConfigurationSet"
+
 -- | Indicates that the delete operation could not be completed.
 --
 --
@@ -328,12 +389,47 @@ _MailFromDomainNotVerifiedException =
     _ServiceError .
     hasStatus 400 . hasCode "MailFromDomainNotVerifiedException"
 
+-- | Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.
+--
+--
+_InvalidFirehoseDestinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidFirehoseDestinationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidFirehoseDestination"
+
+-- | Indicates that the configuration set could not be created because of a naming conflict.
+--
+--
+_ConfigurationSetAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConfigurationSetAlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "ConfigurationSetAlreadyExists"
+
+-- | Indicates that the event destination does not exist.
+--
+--
+_EventDestinationDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_EventDestinationDoesNotExistException =
+    _ServiceError . hasStatus 400 . hasCode "EventDestinationDoesNotExist"
+
+-- | Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.
+--
+--
+_InvalidCloudWatchDestinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCloudWatchDestinationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchDestination"
+
 -- | Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
 --
 _InvalidLambdaFunctionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionException =
     _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunction"
+
+-- | Indicates that the configuration set does not exist.
+--
+--
+_ConfigurationSetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConfigurationSetDoesNotExistException =
+    _ServiceError . hasStatus 400 . hasCode "ConfigurationSetDoesNotExist"
 
 -- | Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.
 --
@@ -356,14 +452,21 @@ _InvalidSNSTopicException :: AsError a => Getting (First ServiceError) a Service
 _InvalidSNSTopicException =
     _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopic"
 
--- | Indicates that a resource could not be created due to a naming conflict.
+-- | Indicates that the event destination could not be created because of a naming conflict.
+--
+--
+_EventDestinationAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_EventDestinationAlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "EventDestinationAlreadyExists"
+
+-- | Indicates that a resource could not be created because of a naming conflict.
 --
 --
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
     _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 
--- | Indicates that a resource could not be created due to service limits. For a list of Amazon SES limits, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide> .
+-- | Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide> .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

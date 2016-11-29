@@ -80,6 +80,26 @@ instance ToByteString BounceType
 instance ToQuery      BounceType
 instance ToHeader     BounceType
 
+data ConfigurationSetAttribute =
+    EventDestinations
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ConfigurationSetAttribute where
+    parser = takeLowerText >>= \case
+        "eventdestinations" -> pure EventDestinations
+        e -> fromTextError $ "Failure parsing ConfigurationSetAttribute from value: '" <> e
+           <> "'. Accepted values: eventdestinations"
+
+instance ToText ConfigurationSetAttribute where
+    toText = \case
+        EventDestinations -> "eventDestinations"
+
+instance Hashable     ConfigurationSetAttribute
+instance NFData       ConfigurationSetAttribute
+instance ToByteString ConfigurationSetAttribute
+instance ToQuery      ConfigurationSetAttribute
+instance ToHeader     ConfigurationSetAttribute
+
 data CustomMailFromStatus
     = CMFSFailed
     | CMFSPending
@@ -112,6 +132,32 @@ instance ToHeader     CustomMailFromStatus
 instance FromXML CustomMailFromStatus where
     parseXML = parseXMLText "CustomMailFromStatus"
 
+data DimensionValueSource
+    = EmailHeader
+    | MessageTag
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DimensionValueSource where
+    parser = takeLowerText >>= \case
+        "emailheader" -> pure EmailHeader
+        "messagetag" -> pure MessageTag
+        e -> fromTextError $ "Failure parsing DimensionValueSource from value: '" <> e
+           <> "'. Accepted values: emailheader, messagetag"
+
+instance ToText DimensionValueSource where
+    toText = \case
+        EmailHeader -> "emailHeader"
+        MessageTag -> "messageTag"
+
+instance Hashable     DimensionValueSource
+instance NFData       DimensionValueSource
+instance ToByteString DimensionValueSource
+instance ToQuery      DimensionValueSource
+instance ToHeader     DimensionValueSource
+
+instance FromXML DimensionValueSource where
+    parseXML = parseXMLText "DimensionValueSource"
+
 data DsnAction
     = DADelayed
     | DADelivered
@@ -143,6 +189,41 @@ instance NFData       DsnAction
 instance ToByteString DsnAction
 instance ToQuery      DsnAction
 instance ToHeader     DsnAction
+
+data EventType
+    = ETBounce
+    | ETComplaint
+    | ETDelivery
+    | ETReject
+    | ETSend
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "bounce" -> pure ETBounce
+        "complaint" -> pure ETComplaint
+        "delivery" -> pure ETDelivery
+        "reject" -> pure ETReject
+        "send" -> pure ETSend
+        e -> fromTextError $ "Failure parsing EventType from value: '" <> e
+           <> "'. Accepted values: bounce, complaint, delivery, reject, send"
+
+instance ToText EventType where
+    toText = \case
+        ETBounce -> "bounce"
+        ETComplaint -> "complaint"
+        ETDelivery -> "delivery"
+        ETReject -> "reject"
+        ETSend -> "send"
+
+instance Hashable     EventType
+instance NFData       EventType
+instance ToByteString EventType
+instance ToQuery      EventType
+instance ToHeader     EventType
+
+instance FromXML EventType where
+    parseXML = parseXMLText "EventType"
 
 data IdentityType
     = Domain

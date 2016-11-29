@@ -260,6 +260,155 @@ instance ToQuery BouncedRecipientInfo where
                "RecipientArn" =: _briRecipientARN,
                "Recipient" =: _briRecipient]
 
+-- | Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.
+--
+--
+-- Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'cloudWatchDestination' smart constructor.
+newtype CloudWatchDestination = CloudWatchDestination'
+    { _cwdDimensionConfigurations :: [CloudWatchDimensionConfiguration]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwdDimensionConfigurations' - A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+cloudWatchDestination
+    :: CloudWatchDestination
+cloudWatchDestination =
+    CloudWatchDestination'
+    { _cwdDimensionConfigurations = mempty
+    }
+
+-- | A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.
+cwdDimensionConfigurations :: Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
+cwdDimensionConfigurations = lens _cwdDimensionConfigurations (\ s a -> s{_cwdDimensionConfigurations = a}) . _Coerce;
+
+instance FromXML CloudWatchDestination where
+        parseXML x
+          = CloudWatchDestination' <$>
+              (x .@? "DimensionConfigurations" .!@ mempty >>=
+                 parseXMLList "member")
+
+instance Hashable CloudWatchDestination
+
+instance NFData CloudWatchDestination
+
+instance ToQuery CloudWatchDestination where
+        toQuery CloudWatchDestination'{..}
+          = mconcat
+              ["DimensionConfigurations" =:
+                 toQueryList "member" _cwdDimensionConfigurations]
+
+-- | Contains the dimension configuration to use when you publish email sending events to Amazon CloudWatch.
+--
+--
+-- For information about publishing email sending events to Amazon CloudWatch, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'cloudWatchDimensionConfiguration' smart constructor.
+data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
+    { _cwdcDimensionName         :: !Text
+    , _cwdcDimensionValueSource  :: !DimensionValueSource
+    , _cwdcDefaultDimensionValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudWatchDimensionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwdcDimensionName' - The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+--
+-- * 'cwdcDimensionValueSource' - The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the @SendEmail@ /@SendRawEmail@ API, choose @messageTag@ . If you want Amazon SES to use your own email headers, choose @emailHeader@ .
+--
+-- * 'cwdcDefaultDimensionValue' - The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+cloudWatchDimensionConfiguration
+    :: Text -- ^ 'cwdcDimensionName'
+    -> DimensionValueSource -- ^ 'cwdcDimensionValueSource'
+    -> Text -- ^ 'cwdcDefaultDimensionValue'
+    -> CloudWatchDimensionConfiguration
+cloudWatchDimensionConfiguration pDimensionName_ pDimensionValueSource_ pDefaultDimensionValue_ =
+    CloudWatchDimensionConfiguration'
+    { _cwdcDimensionName = pDimensionName_
+    , _cwdcDimensionValueSource = pDimensionValueSource_
+    , _cwdcDefaultDimensionValue = pDefaultDimensionValue_
+    }
+
+-- | The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+cwdcDimensionName :: Lens' CloudWatchDimensionConfiguration Text
+cwdcDimensionName = lens _cwdcDimensionName (\ s a -> s{_cwdcDimensionName = a});
+
+-- | The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the @SendEmail@ /@SendRawEmail@ API, choose @messageTag@ . If you want Amazon SES to use your own email headers, choose @emailHeader@ .
+cwdcDimensionValueSource :: Lens' CloudWatchDimensionConfiguration DimensionValueSource
+cwdcDimensionValueSource = lens _cwdcDimensionValueSource (\ s a -> s{_cwdcDimensionValueSource = a});
+
+-- | The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+cwdcDefaultDimensionValue :: Lens' CloudWatchDimensionConfiguration Text
+cwdcDefaultDimensionValue = lens _cwdcDefaultDimensionValue (\ s a -> s{_cwdcDefaultDimensionValue = a});
+
+instance FromXML CloudWatchDimensionConfiguration
+         where
+        parseXML x
+          = CloudWatchDimensionConfiguration' <$>
+              (x .@ "DimensionName") <*>
+                (x .@ "DimensionValueSource")
+                <*> (x .@ "DefaultDimensionValue")
+
+instance Hashable CloudWatchDimensionConfiguration
+
+instance NFData CloudWatchDimensionConfiguration
+
+instance ToQuery CloudWatchDimensionConfiguration
+         where
+        toQuery CloudWatchDimensionConfiguration'{..}
+          = mconcat
+              ["DimensionName" =: _cwdcDimensionName,
+               "DimensionValueSource" =: _cwdcDimensionValueSource,
+               "DefaultDimensionValue" =:
+                 _cwdcDefaultDimensionValue]
+
+-- | The name of the configuration set.
+--
+--
+-- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'configurationSet' smart constructor.
+newtype ConfigurationSet = ConfigurationSet'
+    { _csName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csName' - The name of the configuration set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+configurationSet
+    :: Text -- ^ 'csName'
+    -> ConfigurationSet
+configurationSet pName_ =
+    ConfigurationSet'
+    { _csName = pName_
+    }
+
+-- | The name of the configuration set. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+csName :: Lens' ConfigurationSet Text
+csName = lens _csName (\ s a -> s{_csName = a});
+
+instance FromXML ConfigurationSet where
+        parseXML x = ConfigurationSet' <$> (x .@ "Name")
+
+instance Hashable ConfigurationSet
+
+instance NFData ConfigurationSet
+
+instance ToQuery ConfigurationSet where
+        toQuery ConfigurationSet'{..}
+          = mconcat ["Name" =: _csName]
+
 -- | Represents textual data, plus an optional character set specification.
 --
 --
@@ -361,6 +510,92 @@ instance ToQuery Destination where
                "ToAddresses" =:
                  toQuery (toQueryList "member" <$> _dToAddresses)]
 
+-- | Contains information about the event destination to which the specified email sending events are published.
+--
+--
+-- Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'eventDestination' smart constructor.
+data EventDestination = EventDestination'
+    { _edEnabled                    :: !(Maybe Bool)
+    , _edKinesisFirehoseDestination :: !(Maybe KinesisFirehoseDestination)
+    , _edCloudWatchDestination      :: !(Maybe CloudWatchDestination)
+    , _edName                       :: !Text
+    , _edMatchingEventTypes         :: ![EventType]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edEnabled' - Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
+--
+-- * 'edKinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+--
+-- * 'edCloudWatchDestination' - An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+--
+-- * 'edName' - The name of the event destination. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+--
+-- * 'edMatchingEventTypes' - The type of email sending events to publish to the event destination.
+eventDestination
+    :: Text -- ^ 'edName'
+    -> EventDestination
+eventDestination pName_ =
+    EventDestination'
+    { _edEnabled = Nothing
+    , _edKinesisFirehoseDestination = Nothing
+    , _edCloudWatchDestination = Nothing
+    , _edName = pName_
+    , _edMatchingEventTypes = mempty
+    }
+
+-- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
+edEnabled :: Lens' EventDestination (Maybe Bool)
+edEnabled = lens _edEnabled (\ s a -> s{_edEnabled = a});
+
+-- | An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+edKinesisFirehoseDestination :: Lens' EventDestination (Maybe KinesisFirehoseDestination)
+edKinesisFirehoseDestination = lens _edKinesisFirehoseDestination (\ s a -> s{_edKinesisFirehoseDestination = a});
+
+-- | An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+edCloudWatchDestination :: Lens' EventDestination (Maybe CloudWatchDestination)
+edCloudWatchDestination = lens _edCloudWatchDestination (\ s a -> s{_edCloudWatchDestination = a});
+
+-- | The name of the event destination. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
+edName :: Lens' EventDestination Text
+edName = lens _edName (\ s a -> s{_edName = a});
+
+-- | The type of email sending events to publish to the event destination.
+edMatchingEventTypes :: Lens' EventDestination [EventType]
+edMatchingEventTypes = lens _edMatchingEventTypes (\ s a -> s{_edMatchingEventTypes = a}) . _Coerce;
+
+instance FromXML EventDestination where
+        parseXML x
+          = EventDestination' <$>
+              (x .@? "Enabled") <*>
+                (x .@? "KinesisFirehoseDestination")
+                <*> (x .@? "CloudWatchDestination")
+                <*> (x .@ "Name")
+                <*>
+                (x .@? "MatchingEventTypes" .!@ mempty >>=
+                   parseXMLList "member")
+
+instance Hashable EventDestination
+
+instance NFData EventDestination
+
+instance ToQuery EventDestination where
+        toQuery EventDestination'{..}
+          = mconcat
+              ["Enabled" =: _edEnabled,
+               "KinesisFirehoseDestination" =:
+                 _edKinesisFirehoseDestination,
+               "CloudWatchDestination" =: _edCloudWatchDestination,
+               "Name" =: _edName,
+               "MatchingEventTypes" =:
+                 toQueryList "member" _edMatchingEventTypes]
+
 -- | Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
 --
@@ -423,7 +658,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
 --
 -- * 'idaDkimTokens' - A set of character strings that represent the domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 --
--- * 'idaDkimEnabled' - True if DKIM signing is enabled for email sent from the identity; false otherwise.
+-- * 'idaDkimEnabled' - True if DKIM signing is enabled for email sent from the identity; false otherwise. The default value is true.
 --
 -- * 'idaDkimVerificationStatus' - Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
 identityDkimAttributes
@@ -441,7 +676,7 @@ identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
 idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default . _Coerce;
 
--- | True if DKIM signing is enabled for email sent from the identity; false otherwise.
+-- | True if DKIM signing is enabled for email sent from the identity; false otherwise. The default value is true.
 idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
 idaDkimEnabled = lens _idaDkimEnabled (\ s a -> s{_idaDkimEnabled = a});
 
@@ -653,6 +888,58 @@ instance Hashable IdentityVerificationAttributes
 
 instance NFData IdentityVerificationAttributes
 
+-- | Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+--
+--
+-- Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'kinesisFirehoseDestination' smart constructor.
+data KinesisFirehoseDestination = KinesisFirehoseDestination'
+    { _kfdIAMRoleARN        :: !Text
+    , _kfdDeliveryStreamARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'KinesisFirehoseDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kfdIAMRoleARN' - The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+--
+-- * 'kfdDeliveryStreamARN' - The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.
+kinesisFirehoseDestination
+    :: Text -- ^ 'kfdIAMRoleARN'
+    -> Text -- ^ 'kfdDeliveryStreamARN'
+    -> KinesisFirehoseDestination
+kinesisFirehoseDestination pIAMRoleARN_ pDeliveryStreamARN_ =
+    KinesisFirehoseDestination'
+    { _kfdIAMRoleARN = pIAMRoleARN_
+    , _kfdDeliveryStreamARN = pDeliveryStreamARN_
+    }
+
+-- | The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+kfdIAMRoleARN :: Lens' KinesisFirehoseDestination Text
+kfdIAMRoleARN = lens _kfdIAMRoleARN (\ s a -> s{_kfdIAMRoleARN = a});
+
+-- | The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.
+kfdDeliveryStreamARN :: Lens' KinesisFirehoseDestination Text
+kfdDeliveryStreamARN = lens _kfdDeliveryStreamARN (\ s a -> s{_kfdDeliveryStreamARN = a});
+
+instance FromXML KinesisFirehoseDestination where
+        parseXML x
+          = KinesisFirehoseDestination' <$>
+              (x .@ "IAMRoleARN") <*> (x .@ "DeliveryStreamARN")
+
+instance Hashable KinesisFirehoseDestination
+
+instance NFData KinesisFirehoseDestination
+
+instance ToQuery KinesisFirehoseDestination where
+        toQuery KinesisFirehoseDestination'{..}
+          = mconcat
+              ["IAMRoleARN" =: _kfdIAMRoleARN,
+               "DeliveryStreamARN" =: _kfdDeliveryStreamARN]
+
 -- | When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 --
 --
@@ -815,6 +1102,51 @@ instance ToQuery MessageDsn where
                  toQuery
                    (toQueryList "member" <$> _mdExtensionFields),
                "ReportingMta" =: _mdReportingMta]
+
+-- | Contains the name and value of a tag that you can provide to @SendEmail@ or @SendRawEmail@ to apply to an email.
+--
+--
+-- Message tags, which you use with configuration sets, enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'messageTag' smart constructor.
+data MessageTag = MessageTag'
+    { _mtName  :: !Text
+    , _mtValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageTag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtName' - The name of the tag. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+--
+-- * 'mtValue' - The value of the tag. The value must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+messageTag
+    :: Text -- ^ 'mtName'
+    -> Text -- ^ 'mtValue'
+    -> MessageTag
+messageTag pName_ pValue_ =
+    MessageTag'
+    { _mtName = pName_
+    , _mtValue = pValue_
+    }
+
+-- | The name of the tag. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+mtName :: Lens' MessageTag Text
+mtName = lens _mtName (\ s a -> s{_mtName = a});
+
+-- | The value of the tag. The value must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 256 characters.
+mtValue :: Lens' MessageTag Text
+mtValue = lens _mtValue (\ s a -> s{_mtValue = a});
+
+instance Hashable MessageTag
+
+instance NFData MessageTag
+
+instance ToQuery MessageTag where
+        toQuery MessageTag'{..}
+          = mconcat ["Name" =: _mtName, "Value" =: _mtValue]
 
 -- | Represents the raw data of the message.
 --
@@ -1436,7 +1768,7 @@ data SendDataPoint = SendDataPoint'
 --
 -- * 'sdpComplaints' - Number of unwanted emails that were rejected by recipients.
 --
--- * 'sdpDeliveryAttempts' - Number of emails that have been enqueued for sending.
+-- * 'sdpDeliveryAttempts' - Number of emails that have been sent.
 --
 -- * 'sdpBounces' - Number of emails that have bounced.
 --
@@ -1460,7 +1792,7 @@ sdpRejects = lens _sdpRejects (\ s a -> s{_sdpRejects = a});
 sdpComplaints :: Lens' SendDataPoint (Maybe Integer)
 sdpComplaints = lens _sdpComplaints (\ s a -> s{_sdpComplaints = a});
 
--- | Number of emails that have been enqueued for sending.
+-- | Number of emails that have been sent.
 sdpDeliveryAttempts :: Lens' SendDataPoint (Maybe Integer)
 sdpDeliveryAttempts = lens _sdpDeliveryAttempts (\ s a -> s{_sdpDeliveryAttempts = a});
 

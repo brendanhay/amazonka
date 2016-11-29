@@ -23,6 +23,9 @@ module Network.AWS.SES
     -- * Errors
     -- $errors
 
+    -- ** InvalidConfigurationSetException
+    , _InvalidConfigurationSetException
+
     -- ** CannotDeleteException
     , _CannotDeleteException
 
@@ -38,8 +41,23 @@ module Network.AWS.SES
     -- ** MailFromDomainNotVerifiedException
     , _MailFromDomainNotVerifiedException
 
+    -- ** InvalidFirehoseDestinationException
+    , _InvalidFirehoseDestinationException
+
+    -- ** ConfigurationSetAlreadyExistsException
+    , _ConfigurationSetAlreadyExistsException
+
+    -- ** EventDestinationDoesNotExistException
+    , _EventDestinationDoesNotExistException
+
+    -- ** InvalidCloudWatchDestinationException
+    , _InvalidCloudWatchDestinationException
+
     -- ** InvalidLambdaFunctionException
     , _InvalidLambdaFunctionException
+
+    -- ** ConfigurationSetDoesNotExistException
+    , _ConfigurationSetDoesNotExistException
 
     -- ** InvalidPolicyException
     , _InvalidPolicyException
@@ -49,6 +67,9 @@ module Network.AWS.SES
 
     -- ** InvalidSNSTopicException
     , _InvalidSNSTopicException
+
+    -- ** EventDestinationAlreadyExistsException
+    , _EventDestinationAlreadyExistsException
 
     -- ** AlreadyExistsException
     , _AlreadyExistsException
@@ -70,6 +91,9 @@ module Network.AWS.SES
 
     -- ** GetSendQuota
     , module Network.AWS.SES.GetSendQuota
+
+    -- ** DescribeConfigurationSet
+    , module Network.AWS.SES.DescribeConfigurationSet
 
     -- ** PutIdentityPolicy
     , module Network.AWS.SES.PutIdentityPolicy
@@ -98,11 +122,23 @@ module Network.AWS.SES
     -- ** CreateReceiptFilter
     , module Network.AWS.SES.CreateReceiptFilter
 
+    -- ** UpdateConfigurationSetEventDestination
+    , module Network.AWS.SES.UpdateConfigurationSetEventDestination
+
+    -- ** DeleteConfigurationSetEventDestination
+    , module Network.AWS.SES.DeleteConfigurationSetEventDestination
+
     -- ** SetIdentityMailFromDomain
     , module Network.AWS.SES.SetIdentityMailFromDomain
 
     -- ** SetIdentityFeedbackForwardingEnabled
     , module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
+
+    -- ** ListConfigurationSets
+    , module Network.AWS.SES.ListConfigurationSets
+
+    -- ** DeleteConfigurationSet
+    , module Network.AWS.SES.DeleteConfigurationSet
 
     -- ** GetIdentityVerificationAttributes
     , module Network.AWS.SES.GetIdentityVerificationAttributes
@@ -179,11 +215,17 @@ module Network.AWS.SES
     -- ** CloneReceiptRuleSet
     , module Network.AWS.SES.CloneReceiptRuleSet
 
+    -- ** CreateConfigurationSetEventDestination
+    , module Network.AWS.SES.CreateConfigurationSetEventDestination
+
     -- ** CreateReceiptRule
     , module Network.AWS.SES.CreateReceiptRule
 
     -- ** SetActiveReceiptRuleSet
     , module Network.AWS.SES.SetActiveReceiptRuleSet
+
+    -- ** CreateConfigurationSet
+    , module Network.AWS.SES.CreateConfigurationSet
 
     -- ** DescribeActiveReceiptRuleSet
     , module Network.AWS.SES.DescribeActiveReceiptRuleSet
@@ -196,11 +238,20 @@ module Network.AWS.SES
     -- ** BounceType
     , BounceType (..)
 
+    -- ** ConfigurationSetAttribute
+    , ConfigurationSetAttribute (..)
+
     -- ** CustomMailFromStatus
     , CustomMailFromStatus (..)
 
+    -- ** DimensionValueSource
+    , DimensionValueSource (..)
+
     -- ** DsnAction
     , DsnAction (..)
+
+    -- ** EventType
+    , EventType (..)
 
     -- ** IdentityType
     , IdentityType (..)
@@ -255,6 +306,23 @@ module Network.AWS.SES
     , briRecipientARN
     , briRecipient
 
+    -- ** CloudWatchDestination
+    , CloudWatchDestination
+    , cloudWatchDestination
+    , cwdDimensionConfigurations
+
+    -- ** CloudWatchDimensionConfiguration
+    , CloudWatchDimensionConfiguration
+    , cloudWatchDimensionConfiguration
+    , cwdcDimensionName
+    , cwdcDimensionValueSource
+    , cwdcDefaultDimensionValue
+
+    -- ** ConfigurationSet
+    , ConfigurationSet
+    , configurationSet
+    , csName
+
     -- ** Content
     , Content
     , content
@@ -267,6 +335,15 @@ module Network.AWS.SES
     , dBCCAddresses
     , dCCAddresses
     , dToAddresses
+
+    -- ** EventDestination
+    , EventDestination
+    , eventDestination
+    , edEnabled
+    , edKinesisFirehoseDestination
+    , edCloudWatchDestination
+    , edName
+    , edMatchingEventTypes
 
     -- ** ExtensionField
     , ExtensionField
@@ -305,6 +382,12 @@ module Network.AWS.SES
     , ivaVerificationToken
     , ivaVerificationStatus
 
+    -- ** KinesisFirehoseDestination
+    , KinesisFirehoseDestination
+    , kinesisFirehoseDestination
+    , kfdIAMRoleARN
+    , kfdDeliveryStreamARN
+
     -- ** LambdaAction
     , LambdaAction
     , lambdaAction
@@ -324,6 +407,12 @@ module Network.AWS.SES
     , mdArrivalDate
     , mdExtensionFields
     , mdReportingMta
+
+    -- ** MessageTag
+    , MessageTag
+    , messageTag
+    , mtName
+    , mtValue
 
     -- ** RawMessage
     , RawMessage
@@ -417,9 +506,13 @@ module Network.AWS.SES
     ) where
 
 import           Network.AWS.SES.CloneReceiptRuleSet
+import           Network.AWS.SES.CreateConfigurationSet
+import           Network.AWS.SES.CreateConfigurationSetEventDestination
 import           Network.AWS.SES.CreateReceiptFilter
 import           Network.AWS.SES.CreateReceiptRule
 import           Network.AWS.SES.CreateReceiptRuleSet
+import           Network.AWS.SES.DeleteConfigurationSet
+import           Network.AWS.SES.DeleteConfigurationSetEventDestination
 import           Network.AWS.SES.DeleteIdentity
 import           Network.AWS.SES.DeleteIdentityPolicy
 import           Network.AWS.SES.DeleteReceiptFilter
@@ -427,6 +520,7 @@ import           Network.AWS.SES.DeleteReceiptRule
 import           Network.AWS.SES.DeleteReceiptRuleSet
 import           Network.AWS.SES.DeleteVerifiedEmailAddress
 import           Network.AWS.SES.DescribeActiveReceiptRuleSet
+import           Network.AWS.SES.DescribeConfigurationSet
 import           Network.AWS.SES.DescribeReceiptRule
 import           Network.AWS.SES.DescribeReceiptRuleSet
 import           Network.AWS.SES.GetIdentityDkimAttributes
@@ -436,6 +530,7 @@ import           Network.AWS.SES.GetIdentityPolicies
 import           Network.AWS.SES.GetIdentityVerificationAttributes
 import           Network.AWS.SES.GetSendQuota
 import           Network.AWS.SES.GetSendStatistics
+import           Network.AWS.SES.ListConfigurationSets
 import           Network.AWS.SES.ListIdentities
 import           Network.AWS.SES.ListIdentityPolicies
 import           Network.AWS.SES.ListReceiptFilters
@@ -454,6 +549,7 @@ import           Network.AWS.SES.SetIdentityMailFromDomain
 import           Network.AWS.SES.SetIdentityNotificationTopic
 import           Network.AWS.SES.SetReceiptRulePosition
 import           Network.AWS.SES.Types
+import           Network.AWS.SES.UpdateConfigurationSetEventDestination
 import           Network.AWS.SES.UpdateReceiptRule
 import           Network.AWS.SES.VerifyDomainDkim
 import           Network.AWS.SES.VerifyDomainIdentity

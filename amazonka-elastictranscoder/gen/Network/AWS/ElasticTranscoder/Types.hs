@@ -132,12 +132,19 @@ module Network.AWS.ElasticTranscoder.Types
     , hcpInitializationVector
     , hcpLicenseAcquisitionURL
 
+    -- * InputCaptions
+    , InputCaptions
+    , inputCaptions
+    , icMergePolicy
+    , icCaptionSources
+
     -- * Job'
     , Job'
     , job'
     , jStatus
     , jPipelineId
     , jARN
+    , jInputs
     , jInput
     , jUserMetadata
     , jOutputs
@@ -159,11 +166,13 @@ module Network.AWS.ElasticTranscoder.Types
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiTimeSpan
     , jiEncryption
     , jiKey
     , jiDetectedProperties
     , jiContainer
     , jiInterlaced
+    , jiInputCaptions
 
     -- * JobOutput
     , JobOutput

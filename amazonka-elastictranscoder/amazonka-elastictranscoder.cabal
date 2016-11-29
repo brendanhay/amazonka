@@ -53,7 +53,6 @@ library
         , Network.AWS.ElasticTranscoder.ReadJob
         , Network.AWS.ElasticTranscoder.ReadPipeline
         , Network.AWS.ElasticTranscoder.ReadPreset
-        , Network.AWS.ElasticTranscoder.TestRole
         , Network.AWS.ElasticTranscoder.Types
         , Network.AWS.ElasticTranscoder.UpdatePipeline
         , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications

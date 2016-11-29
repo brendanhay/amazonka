@@ -56,7 +56,7 @@ newtype CancelJob = CancelJob'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cjId' - The identifier of the job that you want to cancel.  To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
+-- * 'cjId' - The identifier of the job that you want to cancel. To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 cancelJob
     :: Text -- ^ 'cjId'
     -> CancelJob
@@ -65,7 +65,7 @@ cancelJob pId_ =
     { _cjId = pId_
     }
 
--- | The identifier of the job that you want to cancel.  To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
+-- | The identifier of the job that you want to cancel. To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 

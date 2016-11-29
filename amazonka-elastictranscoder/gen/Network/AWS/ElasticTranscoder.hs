@@ -62,9 +62,6 @@ module Network.AWS.ElasticTranscoder
     -- ** ListJobsByPipeline (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
 
-    -- ** TestRole
-    , module Network.AWS.ElasticTranscoder.TestRole
-
     -- ** UpdatePipeline
     , module Network.AWS.ElasticTranscoder.UpdatePipeline
 
@@ -214,12 +211,19 @@ module Network.AWS.ElasticTranscoder
     , hcpInitializationVector
     , hcpLicenseAcquisitionURL
 
+    -- ** InputCaptions
+    , InputCaptions
+    , inputCaptions
+    , icMergePolicy
+    , icCaptionSources
+
     -- ** Job'
     , Job'
     , job'
     , jStatus
     , jPipelineId
     , jARN
+    , jInputs
     , jInput
     , jUserMetadata
     , jOutputs
@@ -241,11 +245,13 @@ module Network.AWS.ElasticTranscoder
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiTimeSpan
     , jiEncryption
     , jiKey
     , jiDetectedProperties
     , jiContainer
     , jiInterlaced
+    , jiInputCaptions
 
     -- ** JobOutput
     , JobOutput
@@ -428,7 +434,6 @@ import           Network.AWS.ElasticTranscoder.ListPresets
 import           Network.AWS.ElasticTranscoder.ReadJob
 import           Network.AWS.ElasticTranscoder.ReadPipeline
 import           Network.AWS.ElasticTranscoder.ReadPreset
-import           Network.AWS.ElasticTranscoder.TestRole
 import           Network.AWS.ElasticTranscoder.Types
 import           Network.AWS.ElasticTranscoder.UpdatePipeline
 import           Network.AWS.ElasticTranscoder.UpdatePipelineNotifications

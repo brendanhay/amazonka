@@ -37,9 +37,6 @@ import Test.AWS.ElasticTranscoder.Internal
 --         , requestListJobsByPipeline $
 --             listJobsByPipeline
 --
---         , requestTestRole $
---             testRole
---
 --         , requestUpdatePipeline $
 --             updatePipeline
 --
@@ -90,9 +87,6 @@ import Test.AWS.ElasticTranscoder.Internal
 --
 --         , responseListJobsByPipeline $
 --             listJobsByPipelineResponse
---
---         , responseTestRole $
---             testRoleResponse
 --
 --         , responseUpdatePipeline $
 --             updatePipelineResponse
@@ -152,11 +146,6 @@ requestListJobsByPipeline :: ListJobsByPipeline -> TestTree
 requestListJobsByPipeline = req
     "ListJobsByPipeline"
     "fixture/ListJobsByPipeline.yaml"
-
-requestTestRole :: TestRole -> TestTree
-requestTestRole = req
-    "TestRole"
-    "fixture/TestRole.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
 requestUpdatePipeline = req
@@ -245,13 +234,6 @@ responseListJobsByPipeline = res
     "fixture/ListJobsByPipelineResponse.proto"
     elasticTranscoder
     (Proxy :: Proxy ListJobsByPipeline)
-
-responseTestRole :: TestRoleResponse -> TestTree
-responseTestRole = res
-    "TestRoleResponse"
-    "fixture/TestRoleResponse.proto"
-    elasticTranscoder
-    (Proxy :: Proxy TestRole)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline = res

@@ -63,7 +63,7 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 --
 -- * 'upsId' - The identifier of the pipeline to update.
 --
--- * 'upsStatus' - The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.    * @Paused@ : The pipeline is not currently processing jobs.
+-- * 'upsStatus' - The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
 updatePipelineStatus
     :: Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
@@ -78,7 +78,7 @@ updatePipelineStatus pId_ pStatus_ =
 upsId :: Lens' UpdatePipelineStatus Text
 upsId = lens _upsId (\ s a -> s{_upsId = a});
 
--- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.    * @Paused@ : The pipeline is not currently processing jobs.
+-- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
@@ -112,6 +112,8 @@ instance ToQuery UpdatePipelineStatus where
         toQuery = const mempty
 
 -- | When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
+--
+--
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'

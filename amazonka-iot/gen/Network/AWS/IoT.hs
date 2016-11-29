@@ -270,6 +270,9 @@ module Network.AWS.IoT
     -- ** CACertificateStatus
     , CACertificateStatus (..)
 
+    -- ** CannedAccessControlList
+    , CannedAccessControlList (..)
+
     -- ** CertificateStatus
     , CertificateStatus (..)
 
@@ -286,6 +289,7 @@ module Network.AWS.IoT
     , Action
     , action
     , aCloudwatchMetric
+    , aDynamoDBv2
     , aCloudwatchAlarm
     , aSns
     , aDynamoDB
@@ -365,16 +369,22 @@ module Network.AWS.IoT
     -- ** DynamoDBAction
     , DynamoDBAction
     , dynamoDBAction
-    , ddaHashKeyType
-    , ddaOperation
-    , ddaRangeKeyType
-    , ddaPayloadField
-    , ddaRangeKeyField
-    , ddaRangeKeyValue
-    , ddaTableName
+    , ddbaHashKeyType
+    , ddbaOperation
+    , ddbaRangeKeyType
+    , ddbaPayloadField
+    , ddbaRangeKeyField
+    , ddbaRangeKeyValue
+    , ddbaTableName
+    , ddbaRoleARN
+    , ddbaHashKeyField
+    , ddbaHashKeyValue
+
+    -- ** DynamoDBv2Action
+    , DynamoDBv2Action
+    , dynamoDBv2Action
+    , ddaPutItem
     , ddaRoleARN
-    , ddaHashKeyField
-    , ddaHashKeyValue
 
     -- ** ElasticsearchAction
     , ElasticsearchAction
@@ -439,6 +449,11 @@ module Network.AWS.IoT
     , pvCreateDate
     , pvIsDefaultVersion
 
+    -- ** PutItemInput
+    , PutItemInput
+    , putItemInput
+    , piiTableName
+
     -- ** RepublishAction
     , RepublishAction
     , republishAction
@@ -448,6 +463,7 @@ module Network.AWS.IoT
     -- ** S3Action
     , S3Action
     , s3Action
+    , sCannedACL
     , sRoleARN
     , sBucketName
     , sKey

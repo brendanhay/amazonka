@@ -27,6 +27,7 @@ module Network.AWS.IoT.RegisterCertificate
       registerCertificate
     , RegisterCertificate
     -- * Request Lenses
+    , rcStatus
     , rcCaCertificatePem
     , rcSetAsActive
     , rcCertificatePem
@@ -53,7 +54,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-    { _rcCaCertificatePem :: !(Maybe Text)
+    { _rcStatus           :: !(Maybe CertificateStatus)
+    , _rcCaCertificatePem :: !(Maybe Text)
     , _rcSetAsActive      :: !(Maybe Bool)
     , _rcCertificatePem   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -61,6 +63,8 @@ data RegisterCertificate = RegisterCertificate'
 -- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcStatus' - Undocumented member.
 --
 -- * 'rcCaCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
@@ -72,10 +76,15 @@ registerCertificate
     -> RegisterCertificate
 registerCertificate pCertificatePem_ =
     RegisterCertificate'
-    { _rcCaCertificatePem = Nothing
+    { _rcStatus = Nothing
+    , _rcCaCertificatePem = Nothing
     , _rcSetAsActive = Nothing
     , _rcCertificatePem = pCertificatePem_
     }
+
+-- | Undocumented member.
+rcStatus :: Lens' RegisterCertificate (Maybe CertificateStatus)
+rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a});
 
 -- | The CA certificate used to sign the device certificate being registered.
 rcCaCertificatePem :: Lens' RegisterCertificate (Maybe Text)
@@ -111,7 +120,8 @@ instance ToJSON RegisterCertificate where
         toJSON RegisterCertificate'{..}
           = object
               (catMaybes
-                 [("caCertificatePem" .=) <$> _rcCaCertificatePem,
+                 [("status" .=) <$> _rcStatus,
+                  ("caCertificatePem" .=) <$> _rcCaCertificatePem,
                   Just ("certificatePem" .= _rcCertificatePem)])
 
 instance ToPath RegisterCertificate where

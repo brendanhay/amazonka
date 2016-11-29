@@ -28,6 +28,7 @@ import           Network.AWS.Prelude
 -- /See:/ 'action' smart constructor.
 data Action = Action'
     { _aCloudwatchMetric :: !(Maybe CloudwatchMetricAction)
+    , _aDynamoDBv2       :: !(Maybe DynamoDBv2Action)
     , _aCloudwatchAlarm  :: !(Maybe CloudwatchAlarmAction)
     , _aSns              :: !(Maybe SNSAction)
     , _aDynamoDB         :: !(Maybe DynamoDBAction)
@@ -46,6 +47,8 @@ data Action = Action'
 --
 -- * 'aCloudwatchMetric' - Capture a CloudWatch metric.
 --
+-- * 'aDynamoDBv2' - Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+--
 -- * 'aCloudwatchAlarm' - Change the state of a CloudWatch alarm.
 --
 -- * 'aSns' - Publish to an Amazon SNS topic.
@@ -60,7 +63,7 @@ data Action = Action'
 --
 -- * 'aS3' - Write to an Amazon S3 bucket.
 --
--- * 'aElasticsearch' - Write data to an Amazon Elasticsearch Service; domain.
+-- * 'aElasticsearch' - Write data to an Amazon Elasticsearch Service domain.
 --
 -- * 'aRepublish' - Publish to another MQTT topic.
 --
@@ -70,6 +73,7 @@ action
 action =
     Action'
     { _aCloudwatchMetric = Nothing
+    , _aDynamoDBv2 = Nothing
     , _aCloudwatchAlarm = Nothing
     , _aSns = Nothing
     , _aDynamoDB = Nothing
@@ -85,6 +89,10 @@ action =
 -- | Capture a CloudWatch metric.
 aCloudwatchMetric :: Lens' Action (Maybe CloudwatchMetricAction)
 aCloudwatchMetric = lens _aCloudwatchMetric (\ s a -> s{_aCloudwatchMetric = a});
+
+-- | Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+aDynamoDBv2 :: Lens' Action (Maybe DynamoDBv2Action)
+aDynamoDBv2 = lens _aDynamoDBv2 (\ s a -> s{_aDynamoDBv2 = a});
 
 -- | Change the state of a CloudWatch alarm.
 aCloudwatchAlarm :: Lens' Action (Maybe CloudwatchAlarmAction)
@@ -114,7 +122,7 @@ aKinesis = lens _aKinesis (\ s a -> s{_aKinesis = a});
 aS3 :: Lens' Action (Maybe S3Action)
 aS3 = lens _aS3 (\ s a -> s{_aS3 = a});
 
--- | Write data to an Amazon Elasticsearch Service; domain.
+-- | Write data to an Amazon Elasticsearch Service domain.
 aElasticsearch :: Lens' Action (Maybe ElasticsearchAction)
 aElasticsearch = lens _aElasticsearch (\ s a -> s{_aElasticsearch = a});
 
@@ -131,8 +139,8 @@ instance FromJSON Action where
           = withObject "Action"
               (\ x ->
                  Action' <$>
-                   (x .:? "cloudwatchMetric") <*>
-                     (x .:? "cloudwatchAlarm")
+                   (x .:? "cloudwatchMetric") <*> (x .:? "dynamoDBv2")
+                     <*> (x .:? "cloudwatchAlarm")
                      <*> (x .:? "sns")
                      <*> (x .:? "dynamoDB")
                      <*> (x .:? "firehose")
@@ -152,6 +160,7 @@ instance ToJSON Action where
           = object
               (catMaybes
                  [("cloudwatchMetric" .=) <$> _aCloudwatchMetric,
+                  ("dynamoDBv2" .=) <$> _aDynamoDBv2,
                   ("cloudwatchAlarm" .=) <$> _aCloudwatchAlarm,
                   ("sns" .=) <$> _aSns, ("dynamoDB" .=) <$> _aDynamoDB,
                   ("firehose" .=) <$> _aFirehose,
@@ -723,100 +732,100 @@ instance ToJSON CloudwatchMetricAction where
 --
 -- /See:/ 'dynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
-    { _ddaHashKeyType   :: !(Maybe DynamoKeyType)
-    , _ddaOperation     :: !(Maybe Text)
-    , _ddaRangeKeyType  :: !(Maybe DynamoKeyType)
-    , _ddaPayloadField  :: !(Maybe Text)
-    , _ddaRangeKeyField :: !(Maybe Text)
-    , _ddaRangeKeyValue :: !(Maybe Text)
-    , _ddaTableName     :: !Text
-    , _ddaRoleARN       :: !Text
-    , _ddaHashKeyField  :: !Text
-    , _ddaHashKeyValue  :: !Text
+    { _ddbaHashKeyType   :: !(Maybe DynamoKeyType)
+    , _ddbaOperation     :: !(Maybe Text)
+    , _ddbaRangeKeyType  :: !(Maybe DynamoKeyType)
+    , _ddbaPayloadField  :: !(Maybe Text)
+    , _ddbaRangeKeyField :: !(Maybe Text)
+    , _ddbaRangeKeyValue :: !(Maybe Text)
+    , _ddbaTableName     :: !Text
+    , _ddbaRoleARN       :: !Text
+    , _ddbaHashKeyField  :: !Text
+    , _ddbaHashKeyValue  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DynamoDBAction' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddaHashKeyType' - The hash key type. Valid values are "STRING" or "NUMBER"
+-- * 'ddbaHashKeyType' - The hash key type. Valid values are "STRING" or "NUMBER"
 --
--- * 'ddaOperation' - The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
+-- * 'ddbaOperation' - The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
 --
--- * 'ddaRangeKeyType' - The range key type. Valid values are "STRING" or "NUMBER"
+-- * 'ddbaRangeKeyType' - The range key type. Valid values are "STRING" or "NUMBER"
 --
--- * 'ddaPayloadField' - The action payload. This name can be customized.
+-- * 'ddbaPayloadField' - The action payload. This name can be customized.
 --
--- * 'ddaRangeKeyField' - The range key name.
+-- * 'ddbaRangeKeyField' - The range key name.
 --
--- * 'ddaRangeKeyValue' - The range key value.
+-- * 'ddbaRangeKeyValue' - The range key value.
 --
--- * 'ddaTableName' - The name of the DynamoDB table.
+-- * 'ddbaTableName' - The name of the DynamoDB table.
 --
--- * 'ddaRoleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
+-- * 'ddbaRoleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
 --
--- * 'ddaHashKeyField' - The hash key name.
+-- * 'ddbaHashKeyField' - The hash key name.
 --
--- * 'ddaHashKeyValue' - The hash key value.
+-- * 'ddbaHashKeyValue' - The hash key value.
 dynamoDBAction
-    :: Text -- ^ 'ddaTableName'
-    -> Text -- ^ 'ddaRoleARN'
-    -> Text -- ^ 'ddaHashKeyField'
-    -> Text -- ^ 'ddaHashKeyValue'
+    :: Text -- ^ 'ddbaTableName'
+    -> Text -- ^ 'ddbaRoleARN'
+    -> Text -- ^ 'ddbaHashKeyField'
+    -> Text -- ^ 'ddbaHashKeyValue'
     -> DynamoDBAction
 dynamoDBAction pTableName_ pRoleARN_ pHashKeyField_ pHashKeyValue_ =
     DynamoDBAction'
-    { _ddaHashKeyType = Nothing
-    , _ddaOperation = Nothing
-    , _ddaRangeKeyType = Nothing
-    , _ddaPayloadField = Nothing
-    , _ddaRangeKeyField = Nothing
-    , _ddaRangeKeyValue = Nothing
-    , _ddaTableName = pTableName_
-    , _ddaRoleARN = pRoleARN_
-    , _ddaHashKeyField = pHashKeyField_
-    , _ddaHashKeyValue = pHashKeyValue_
+    { _ddbaHashKeyType = Nothing
+    , _ddbaOperation = Nothing
+    , _ddbaRangeKeyType = Nothing
+    , _ddbaPayloadField = Nothing
+    , _ddbaRangeKeyField = Nothing
+    , _ddbaRangeKeyValue = Nothing
+    , _ddbaTableName = pTableName_
+    , _ddbaRoleARN = pRoleARN_
+    , _ddbaHashKeyField = pHashKeyField_
+    , _ddbaHashKeyValue = pHashKeyValue_
     }
 
 -- | The hash key type. Valid values are "STRING" or "NUMBER"
-ddaHashKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
-ddaHashKeyType = lens _ddaHashKeyType (\ s a -> s{_ddaHashKeyType = a});
+ddbaHashKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
+ddbaHashKeyType = lens _ddbaHashKeyType (\ s a -> s{_ddbaHashKeyType = a});
 
 -- | The type of operation to be performed. This follows the substitution template, so it can be @> {operation}@ , but the substitution must result in one of the following: @INSERT@ , @UPDATE@ , or @DELETE@ .
-ddaOperation :: Lens' DynamoDBAction (Maybe Text)
-ddaOperation = lens _ddaOperation (\ s a -> s{_ddaOperation = a});
+ddbaOperation :: Lens' DynamoDBAction (Maybe Text)
+ddbaOperation = lens _ddbaOperation (\ s a -> s{_ddbaOperation = a});
 
 -- | The range key type. Valid values are "STRING" or "NUMBER"
-ddaRangeKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
-ddaRangeKeyType = lens _ddaRangeKeyType (\ s a -> s{_ddaRangeKeyType = a});
+ddbaRangeKeyType :: Lens' DynamoDBAction (Maybe DynamoKeyType)
+ddbaRangeKeyType = lens _ddbaRangeKeyType (\ s a -> s{_ddbaRangeKeyType = a});
 
 -- | The action payload. This name can be customized.
-ddaPayloadField :: Lens' DynamoDBAction (Maybe Text)
-ddaPayloadField = lens _ddaPayloadField (\ s a -> s{_ddaPayloadField = a});
+ddbaPayloadField :: Lens' DynamoDBAction (Maybe Text)
+ddbaPayloadField = lens _ddbaPayloadField (\ s a -> s{_ddbaPayloadField = a});
 
 -- | The range key name.
-ddaRangeKeyField :: Lens' DynamoDBAction (Maybe Text)
-ddaRangeKeyField = lens _ddaRangeKeyField (\ s a -> s{_ddaRangeKeyField = a});
+ddbaRangeKeyField :: Lens' DynamoDBAction (Maybe Text)
+ddbaRangeKeyField = lens _ddbaRangeKeyField (\ s a -> s{_ddbaRangeKeyField = a});
 
 -- | The range key value.
-ddaRangeKeyValue :: Lens' DynamoDBAction (Maybe Text)
-ddaRangeKeyValue = lens _ddaRangeKeyValue (\ s a -> s{_ddaRangeKeyValue = a});
+ddbaRangeKeyValue :: Lens' DynamoDBAction (Maybe Text)
+ddbaRangeKeyValue = lens _ddbaRangeKeyValue (\ s a -> s{_ddbaRangeKeyValue = a});
 
 -- | The name of the DynamoDB table.
-ddaTableName :: Lens' DynamoDBAction Text
-ddaTableName = lens _ddaTableName (\ s a -> s{_ddaTableName = a});
+ddbaTableName :: Lens' DynamoDBAction Text
+ddbaTableName = lens _ddbaTableName (\ s a -> s{_ddbaTableName = a});
 
 -- | The ARN of the IAM role that grants access to the DynamoDB table.
-ddaRoleARN :: Lens' DynamoDBAction Text
-ddaRoleARN = lens _ddaRoleARN (\ s a -> s{_ddaRoleARN = a});
+ddbaRoleARN :: Lens' DynamoDBAction Text
+ddbaRoleARN = lens _ddbaRoleARN (\ s a -> s{_ddbaRoleARN = a});
 
 -- | The hash key name.
-ddaHashKeyField :: Lens' DynamoDBAction Text
-ddaHashKeyField = lens _ddaHashKeyField (\ s a -> s{_ddaHashKeyField = a});
+ddbaHashKeyField :: Lens' DynamoDBAction Text
+ddbaHashKeyField = lens _ddbaHashKeyField (\ s a -> s{_ddbaHashKeyField = a});
 
 -- | The hash key value.
-ddaHashKeyValue :: Lens' DynamoDBAction Text
-ddaHashKeyValue = lens _ddaHashKeyValue (\ s a -> s{_ddaHashKeyValue = a});
+ddbaHashKeyValue :: Lens' DynamoDBAction Text
+ddbaHashKeyValue = lens _ddbaHashKeyValue (\ s a -> s{_ddbaHashKeyValue = a});
 
 instance FromJSON DynamoDBAction where
         parseJSON
@@ -841,18 +850,71 @@ instance ToJSON DynamoDBAction where
         toJSON DynamoDBAction'{..}
           = object
               (catMaybes
-                 [("hashKeyType" .=) <$> _ddaHashKeyType,
-                  ("operation" .=) <$> _ddaOperation,
-                  ("rangeKeyType" .=) <$> _ddaRangeKeyType,
-                  ("payloadField" .=) <$> _ddaPayloadField,
-                  ("rangeKeyField" .=) <$> _ddaRangeKeyField,
-                  ("rangeKeyValue" .=) <$> _ddaRangeKeyValue,
-                  Just ("tableName" .= _ddaTableName),
-                  Just ("roleArn" .= _ddaRoleARN),
-                  Just ("hashKeyField" .= _ddaHashKeyField),
-                  Just ("hashKeyValue" .= _ddaHashKeyValue)])
+                 [("hashKeyType" .=) <$> _ddbaHashKeyType,
+                  ("operation" .=) <$> _ddbaOperation,
+                  ("rangeKeyType" .=) <$> _ddbaRangeKeyType,
+                  ("payloadField" .=) <$> _ddbaPayloadField,
+                  ("rangeKeyField" .=) <$> _ddbaRangeKeyField,
+                  ("rangeKeyValue" .=) <$> _ddbaRangeKeyValue,
+                  Just ("tableName" .= _ddbaTableName),
+                  Just ("roleArn" .= _ddbaRoleARN),
+                  Just ("hashKeyField" .= _ddbaHashKeyField),
+                  Just ("hashKeyValue" .= _ddbaHashKeyValue)])
 
--- | Describes an action that writes data to an Amazon Elasticsearch Service; domain.
+-- | Describes an action to write to a DynamoDB table.
+--
+--
+-- This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+--
+--
+-- /See:/ 'dynamoDBv2Action' smart constructor.
+data DynamoDBv2Action = DynamoDBv2Action'
+    { _ddaPutItem :: !(Maybe PutItemInput)
+    , _ddaRoleARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DynamoDBv2Action' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddaPutItem' - Specifies the DynamoDB table to which the message data will be written. For example: @{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }@  Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+--
+-- * 'ddaRoleARN' - The ARN of the IAM role that grants access to the DynamoDB table.
+dynamoDBv2Action
+    :: DynamoDBv2Action
+dynamoDBv2Action =
+    DynamoDBv2Action'
+    { _ddaPutItem = Nothing
+    , _ddaRoleARN = Nothing
+    }
+
+-- | Specifies the DynamoDB table to which the message data will be written. For example: @{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }@  Each attribute in the message payload will be written to a separate column in the DynamoDB database.
+ddaPutItem :: Lens' DynamoDBv2Action (Maybe PutItemInput)
+ddaPutItem = lens _ddaPutItem (\ s a -> s{_ddaPutItem = a});
+
+-- | The ARN of the IAM role that grants access to the DynamoDB table.
+ddaRoleARN :: Lens' DynamoDBv2Action (Maybe Text)
+ddaRoleARN = lens _ddaRoleARN (\ s a -> s{_ddaRoleARN = a});
+
+instance FromJSON DynamoDBv2Action where
+        parseJSON
+          = withObject "DynamoDBv2Action"
+              (\ x ->
+                 DynamoDBv2Action' <$>
+                   (x .:? "putItem") <*> (x .:? "roleArn"))
+
+instance Hashable DynamoDBv2Action
+
+instance NFData DynamoDBv2Action
+
+instance ToJSON DynamoDBv2Action where
+        toJSON DynamoDBv2Action'{..}
+          = object
+              (catMaybes
+                 [("putItem" .=) <$> _ddaPutItem,
+                  ("roleArn" .=) <$> _ddaRoleARN])
+
+-- | Describes an action that writes data to an Amazon Elasticsearch Service domain.
 --
 --
 --
@@ -952,7 +1014,7 @@ data FirehoseAction = FirehoseAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'faSeparator' - A character separator that will be used to separate records written to the firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+-- * 'faSeparator' - A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 --
 -- * 'faRoleARN' - The IAM role that grants access to the Amazon Kinesis Firehost stream.
 --
@@ -968,7 +1030,7 @@ firehoseAction pRoleARN_ pDeliveryStreamName_ =
     , _faDeliveryStreamName = pDeliveryStreamName_
     }
 
--- | A character separator that will be used to separate records written to the firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
+-- | A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 faSeparator :: Lens' FirehoseAction (Maybe Text)
 faSeparator = lens _faSeparator (\ s a -> s{_faSeparator = a});
 
@@ -1370,6 +1432,46 @@ instance Hashable PolicyVersion
 
 instance NFData PolicyVersion
 
+-- | The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+--
+--
+--
+-- /See:/ 'putItemInput' smart constructor.
+newtype PutItemInput = PutItemInput'
+    { _piiTableName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutItemInput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piiTableName' - The table where the message data will be written
+putItemInput
+    :: Text -- ^ 'piiTableName'
+    -> PutItemInput
+putItemInput pTableName_ =
+    PutItemInput'
+    { _piiTableName = pTableName_
+    }
+
+-- | The table where the message data will be written
+piiTableName :: Lens' PutItemInput Text
+piiTableName = lens _piiTableName (\ s a -> s{_piiTableName = a});
+
+instance FromJSON PutItemInput where
+        parseJSON
+          = withObject "PutItemInput"
+              (\ x -> PutItemInput' <$> (x .: "tableName"))
+
+instance Hashable PutItemInput
+
+instance NFData PutItemInput
+
+instance ToJSON PutItemInput where
+        toJSON PutItemInput'{..}
+          = object
+              (catMaybes [Just ("tableName" .= _piiTableName)])
+
 -- | Describes an action to republish to another topic.
 --
 --
@@ -1429,7 +1531,8 @@ instance ToJSON RepublishAction where
 --
 -- /See:/ 's3Action' smart constructor.
 data S3Action = S3Action'
-    { _sRoleARN    :: !Text
+    { _sCannedACL  :: !(Maybe CannedAccessControlList)
+    , _sRoleARN    :: !Text
     , _sBucketName :: !Text
     , _sKey        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1437,6 +1540,8 @@ data S3Action = S3Action'
 -- | Creates a value of 'S3Action' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sCannedACL' - The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
 --
 -- * 'sRoleARN' - The ARN of the IAM role that grants access.
 --
@@ -1450,10 +1555,15 @@ s3Action
     -> S3Action
 s3Action pRoleARN_ pBucketName_ pKey_ =
     S3Action'
-    { _sRoleARN = pRoleARN_
+    { _sCannedACL = Nothing
+    , _sRoleARN = pRoleARN_
     , _sBucketName = pBucketName_
     , _sKey = pKey_
     }
+
+-- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
+sCannedACL :: Lens' S3Action (Maybe CannedAccessControlList)
+sCannedACL = lens _sCannedACL (\ s a -> s{_sCannedACL = a});
 
 -- | The ARN of the IAM role that grants access.
 sRoleARN :: Lens' S3Action Text
@@ -1472,8 +1582,9 @@ instance FromJSON S3Action where
           = withObject "S3Action"
               (\ x ->
                  S3Action' <$>
-                   (x .: "roleArn") <*> (x .: "bucketName") <*>
-                     (x .: "key"))
+                   (x .:? "cannedAcl") <*> (x .: "roleArn") <*>
+                     (x .: "bucketName")
+                     <*> (x .: "key"))
 
 instance Hashable S3Action
 
@@ -1483,7 +1594,8 @@ instance ToJSON S3Action where
         toJSON S3Action'{..}
           = object
               (catMaybes
-                 [Just ("roleArn" .= _sRoleARN),
+                 [("cannedAcl" .=) <$> _sCannedACL,
+                  Just ("roleArn" .= _sRoleARN),
                   Just ("bucketName" .= _sBucketName),
                   Just ("key" .= _sKey)])
 

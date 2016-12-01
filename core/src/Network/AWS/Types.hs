@@ -560,21 +560,23 @@ withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 withAuth (Auth  e) f = f e
 
--- | The sum of available AWS regions.
+-- | The available AWS regions.
 data Region
-    = Ireland         -- ^ Europe / eu-west-1
-    | Frankfurt       -- ^ Europe / eu-central-1
-    | Tokyo           -- ^ Asia Pacific / ap-northeast-1
-    | Singapore       -- ^ Asia Pacific / ap-southeast-1
-    | Sydney          -- ^ Asia Pacific / ap-southeast-2
-    | Bombay          -- ^ Asia Pacific / ap-south-1
-    | Beijing         -- ^ China / cn-north-1
-    | NorthVirginia   -- ^ US / us-east-1
-    | NorthCalifornia -- ^ US / us-west-1
-    | Oregon          -- ^ US / us-west-2
-    | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
-    | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
-    | SaoPaulo        -- ^ South America / sa-east-1
+    = NorthVirginia   -- ^ US East ('us-east-1').
+    | Ohio            -- ^ US East ('us-east-2').
+    | NorthCalifornia -- ^ US West ('us-west-1').
+    | Oregon          -- ^ US West ('us-west-2').
+    | Tokyo           -- ^ Asia Pacific ('ap-northeast-1').
+    | Seoul           -- ^ Asia Pacific ('ap-northeast-2').
+    | Mumbai          -- ^ Asia Pacific ('ap-south-1').
+    | Singapore       -- ^ Asia Pacific ('ap-southeast-1').
+    | Sydney          -- ^ Asia Pacific ('ap-southeast-2').
+    | SaoPaulo        -- ^ South America ('sa-east-1').
+    | Ireland         -- ^ EU ('eu-west-1').
+    | Frankfurt       -- ^ EU ('eu-central-1').
+    | GovCloud        -- ^ US GovCloud ('us-gov-west-1').
+    | GovCloudFIPS    -- ^ US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
+    | Beijing         -- ^ China ('cn-north-1').
       deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
 
 instance Hashable Region
@@ -582,36 +584,41 @@ instance NFData   Region
 
 instance FromText Region where
     parser = takeLowerText >>= \case
-        "eu-west-1"          -> pure Ireland
-        "eu-central-1"       -> pure Frankfurt
+        "us-east-1"          -> pure NorthVirginia
+        "us-east-2"          -> pure Ohio
+        "us-west-1"          -> pure NorthCalifornia
+        "us-west-2"          -> pure Oregon
         "ap-northeast-1"     -> pure Tokyo
+        "ap-northeast-2"     -> pure Seoul
+        "ap-south-1"         -> pure Mumbai
         "ap-southeast-1"     -> pure Singapore
         "ap-southeast-2"     -> pure Sydney
-        "ap-south-1"         -> pure Bombay
-        "cn-north-1"         -> pure Beijing
-        "us-east-1"          -> pure NorthVirginia
-        "us-west-2"          -> pure Oregon
-        "us-west-1"          -> pure NorthCalifornia
+        "sa-east-1"          -> pure SaoPaulo
+        "eu-west-1"          -> pure Ireland
+        "eu-central-1"       -> pure Frankfurt
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
-        "sa-east-1"          -> pure SaoPaulo
-        e                    -> fromTextError $ "Failure parsing Region from " <> e
+        "cn-north-1"         -> pure Beijing
+        e                    ->
+            fromTextError $ "Failure parsing Region from " <> e
 
 instance ToText Region where
     toText = \case
-        Ireland         -> "eu-west-1"
-        Frankfurt       -> "eu-central-1"
-        Tokyo           -> "ap-northeast-1"
-        Singapore       -> "ap-southeast-1"
-        Sydney          -> "ap-southeast-2"
-        Bombay          -> "ap-south-1"
-        Beijing         -> "cn-north-1"
         NorthVirginia   -> "us-east-1"
+        Ohio            -> "us-east-2"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
+        Tokyo           -> "ap-northeast-1"
+        Seoul           -> "ap-northeast-2"
+        Mumbai          -> "ap-south-1"
+        Tokyo           -> "ap-southeast-1"
+        Sydney          -> "ap-southeast-2"
+        SaoPaulo        -> "sa-east-1"
+        Ireland         -> "eu-west-1"
+        Frankfurt       -> "eu-central-1"
         GovCloud        -> "us-gov-west-1"
         GovCloudFIPS    -> "fips-us-gov-west-1"
-        SaoPaulo        -> "sa-east-1"
+        Beijing         -> "cn-north-1"
 
 instance ToByteString Region
 

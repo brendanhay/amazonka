@@ -126,7 +126,7 @@ instance ToQuery DescribeReservedInstancesListings
           = mconcat
               ["Action" =:
                  ("DescribeReservedInstancesListings" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _drilFilters),
                "ReservedInstancesId" =: _drilReservedInstancesId,
                "ReservedInstancesListingId" =:

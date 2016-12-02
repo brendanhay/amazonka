@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Disables detailed monitoring for a running instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 module Network.AWS.EC2.UnmonitorInstances
@@ -104,7 +104,7 @@ instance ToQuery UnmonitorInstances where
         toQuery UnmonitorInstances'{..}
           = mconcat
               ["Action" =: ("UnmonitorInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _uiDryRun,
                toQueryList "InstanceId" _uiInstanceIds]
 
@@ -122,7 +122,7 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uirsInstanceMonitorings' - Monitoring information for one or more instances.
+-- * 'uirsInstanceMonitorings' - The monitoring information.
 --
 -- * 'uirsResponseStatus' - -- | The response status code.
 unmonitorInstancesResponse
@@ -134,7 +134,7 @@ unmonitorInstancesResponse pResponseStatus_ =
     , _uirsResponseStatus = pResponseStatus_
     }
 
--- | Monitoring information for one or more instances.
+-- | The monitoring information.
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 

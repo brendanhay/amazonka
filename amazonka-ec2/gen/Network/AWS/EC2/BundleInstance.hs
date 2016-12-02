@@ -116,7 +116,7 @@ instance ToQuery BundleInstance where
         toQuery BundleInstance'{..}
           = mconcat
               ["Action" =: ("BundleInstance" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
                "Storage" =: _biStorage]
 

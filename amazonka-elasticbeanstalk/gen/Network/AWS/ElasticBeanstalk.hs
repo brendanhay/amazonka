@@ -65,6 +65,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** S3LocationNotInServiceRegionException
     , _S3LocationNotInServiceRegionException
 
+    -- ** CodeBuildNotInServiceRegionException
+    , _CodeBuildNotInServiceRegionException
+
     -- ** TooManyEnvironmentsException
     , _TooManyEnvironmentsException
 
@@ -196,6 +199,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** ApplicationVersionStatus
     , ApplicationVersionStatus (..)
 
+    -- ** ComputeType
+    , ComputeType (..)
+
     -- ** ConfigurationDeploymentStatus
     , ConfigurationDeploymentStatus (..)
 
@@ -268,6 +274,7 @@ module Network.AWS.ElasticBeanstalk
     , avdVersionLabel
     , avdSourceBuildInformation
     , avdApplicationName
+    , avdBuildARN
     , avdDescription
 
     -- ** ApplicationVersionDescriptionMessage
@@ -279,6 +286,15 @@ module Network.AWS.ElasticBeanstalk
     , AutoScalingGroup
     , autoScalingGroup
     , asgName
+
+    -- ** BuildConfiguration
+    , BuildConfiguration
+    , buildConfiguration
+    , bcArtifactName
+    , bcComputeType
+    , bcTimeoutInMinutes
+    , bcCodeBuildServiceRole
+    , bcImage
 
     -- ** CPUUtilization
     , CPUUtilization

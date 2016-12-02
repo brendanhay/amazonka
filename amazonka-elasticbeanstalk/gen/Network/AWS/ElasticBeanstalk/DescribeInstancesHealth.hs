@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns more detailed information about the health of the specified instances (for example, CPU utilization, load average, and causes). The __DescribeInstancesHealth__ operation is only available with AWS Elastic Beanstalk Enhanced Health.
+-- Retrives detailed information about the health of instances in your AWS Elastic Beanstalk. This operation requires <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html enhanced health reporting> .
 --
 --
 module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | See the example below to learn how to create a request body.
+-- | Parameters for a call to @DescribeInstancesHealth@ .
 --
 --
 --
@@ -65,13 +65,13 @@ data DescribeInstancesHealth = DescribeInstancesHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihNextToken' - Specifies the next token of the request.
+-- * 'dihNextToken' - Specify the pagination token returned by a previous call.
 --
--- * 'dihEnvironmentName' - Specifies the AWS Elastic Beanstalk environment name.
+-- * 'dihEnvironmentName' - Specify the AWS Elastic Beanstalk environment by name.
 --
--- * 'dihAttributeNames' - Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns a list of instances.
+-- * 'dihAttributeNames' - Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
 --
--- * 'dihEnvironmentId' - Specifies the AWS Elastic Beanstalk environment ID.
+-- * 'dihEnvironmentId' - Specify the AWS Elastic Beanstalk environment by ID.
 describeInstancesHealth
     :: DescribeInstancesHealth
 describeInstancesHealth =
@@ -82,19 +82,19 @@ describeInstancesHealth =
     , _dihEnvironmentId = Nothing
     }
 
--- | Specifies the next token of the request.
+-- | Specify the pagination token returned by a previous call.
 dihNextToken :: Lens' DescribeInstancesHealth (Maybe Text)
 dihNextToken = lens _dihNextToken (\ s a -> s{_dihNextToken = a});
 
--- | Specifies the AWS Elastic Beanstalk environment name.
+-- | Specify the AWS Elastic Beanstalk environment by name.
 dihEnvironmentName :: Lens' DescribeInstancesHealth (Maybe Text)
 dihEnvironmentName = lens _dihEnvironmentName (\ s a -> s{_dihEnvironmentName = a});
 
--- | Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns a list of instances.
+-- | Specifies the response elements you wish to receive. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns a list of instances.
 dihAttributeNames :: Lens' DescribeInstancesHealth [InstancesHealthAttribute]
 dihAttributeNames = lens _dihAttributeNames (\ s a -> s{_dihAttributeNames = a}) . _Default . _Coerce;
 
--- | Specifies the AWS Elastic Beanstalk environment ID.
+-- | Specify the AWS Elastic Beanstalk environment by ID.
 dihEnvironmentId :: Lens' DescribeInstancesHealth (Maybe Text)
 dihEnvironmentId = lens _dihEnvironmentId (\ s a -> s{_dihEnvironmentId = a});
 
@@ -135,7 +135,7 @@ instance ToQuery DescribeInstancesHealth where
                    (toQueryList "member" <$> _dihAttributeNames),
                "EnvironmentId" =: _dihEnvironmentId]
 
--- | See the example below for a sample response.
+-- | Detailed health information about the Amazon EC2 instances in an AWS Elastic Beanstalk environment.
 --
 --
 --
@@ -151,11 +151,11 @@ data DescribeInstancesHealthResponse = DescribeInstancesHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dihrsInstanceHealthList' - Contains the response body with information about the health of the instance.
+-- * 'dihrsInstanceHealthList' - Detailed health information about each instance.
 --
--- * 'dihrsNextToken' - The next token.
+-- * 'dihrsNextToken' - Pagination token for the next page of results, if available.
 --
--- * 'dihrsRefreshedAt' - The date and time the information was last refreshed.
+-- * 'dihrsRefreshedAt' - The date and time that the health information was retrieved.
 --
 -- * 'dihrsResponseStatus' - -- | The response status code.
 describeInstancesHealthResponse
@@ -169,15 +169,15 @@ describeInstancesHealthResponse pResponseStatus_ =
     , _dihrsResponseStatus = pResponseStatus_
     }
 
--- | Contains the response body with information about the health of the instance.
+-- | Detailed health information about each instance.
 dihrsInstanceHealthList :: Lens' DescribeInstancesHealthResponse [SingleInstanceHealth]
 dihrsInstanceHealthList = lens _dihrsInstanceHealthList (\ s a -> s{_dihrsInstanceHealthList = a}) . _Default . _Coerce;
 
--- | The next token.
+-- | Pagination token for the next page of results, if available.
 dihrsNextToken :: Lens' DescribeInstancesHealthResponse (Maybe Text)
 dihrsNextToken = lens _dihrsNextToken (\ s a -> s{_dihrsNextToken = a});
 
--- | The date and time the information was last refreshed.
+-- | The date and time that the health information was retrieved.
 dihrsRefreshedAt :: Lens' DescribeInstancesHealthResponse (Maybe UTCTime)
 dihrsRefreshedAt = lens _dihrsRefreshedAt (\ s a -> s{_dihrsRefreshedAt = a}) . mapping _Time;
 

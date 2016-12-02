@@ -1,4 +1,4 @@
-# Amazon Simple Systems Management Service SDK
+# Amazon Simple Systems Manager (SSM) SDK
 
 * [Version](#version)
 * [Description](#description)

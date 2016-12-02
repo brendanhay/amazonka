@@ -25,6 +25,8 @@
 --
 -- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.
 --
+-- When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom IPv6 Addresses are currently not supported.
+--
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -39,12 +41,14 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     , virtualInterface
     , VirtualInterface
     -- * Response Lenses
+    , viBgpPeers
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
     , viLocation
     , viAmazonAddress
+    , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
     , viVirtualInterfaceType

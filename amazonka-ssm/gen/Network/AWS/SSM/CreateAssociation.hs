@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified SSM document with the specified instance.
+-- Associates the specified SSM document with the specified instances or targets.
 --
 --
--- When you associate an SSM document with an instance, the configuration agent on the instance (SSM agent for Linux and EC2Config service for Windows) processes the document and configures the instance as specified.
+-- When you associate an SSM document with one or more instances using instance IDs or tags, the SSM agent running on the instance processes the document and configures the instance as specified.
 --
 -- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
 --
@@ -31,9 +31,13 @@ module Network.AWS.SSM.CreateAssociation
       createAssociation
     , CreateAssociation
     -- * Request Lenses
-    , caParameters
-    , caName
     , caInstanceId
+    , caScheduleExpression
+    , caOutputLocation
+    , caTargets
+    , caParameters
+    , caDocumentVersion
+    , caName
 
     -- * Destructuring the Response
     , createAssociationResponse
@@ -52,42 +56,73 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
 data CreateAssociation = CreateAssociation'
-    { _caParameters :: !(Maybe (Map Text [Text]))
-    , _caName       :: !Text
-    , _caInstanceId :: !Text
+    { _caInstanceId         :: !(Maybe Text)
+    , _caScheduleExpression :: !(Maybe Text)
+    , _caOutputLocation     :: !(Maybe InstanceAssociationOutputLocation)
+    , _caTargets            :: !(Maybe [Target])
+    , _caParameters         :: !(Maybe (Map Text [Text]))
+    , _caDocumentVersion    :: !(Maybe Text)
+    , _caName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'caInstanceId' - The instance ID.
+--
+-- * 'caScheduleExpression' - A cron expression when the association will be applied to the target(s). Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+--
+-- * 'caOutputLocation' - An Amazon S3 bucket where you want to store the output details of the request. For example: @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+--
+-- * 'caTargets' - The targets (either instances or tags) for the association. Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+--
 -- * 'caParameters' - The parameters for the documents runtime configuration.
 --
--- * 'caName' - The name of the SSM document.
+-- * 'caDocumentVersion' - The document version you want to associate with the target(s). Can be a specific version or the default version.
 --
--- * 'caInstanceId' - The instance ID.
+-- * 'caName' - The name of the SSM document.
 createAssociation
     :: Text -- ^ 'caName'
-    -> Text -- ^ 'caInstanceId'
     -> CreateAssociation
-createAssociation pName_ pInstanceId_ =
+createAssociation pName_ =
     CreateAssociation'
-    { _caParameters = Nothing
+    { _caInstanceId = Nothing
+    , _caScheduleExpression = Nothing
+    , _caOutputLocation = Nothing
+    , _caTargets = Nothing
+    , _caParameters = Nothing
+    , _caDocumentVersion = Nothing
     , _caName = pName_
-    , _caInstanceId = pInstanceId_
     }
+
+-- | The instance ID.
+caInstanceId :: Lens' CreateAssociation (Maybe Text)
+caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
+
+-- | A cron expression when the association will be applied to the target(s). Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+caScheduleExpression :: Lens' CreateAssociation (Maybe Text)
+caScheduleExpression = lens _caScheduleExpression (\ s a -> s{_caScheduleExpression = a});
+
+-- | An Amazon S3 bucket where you want to store the output details of the request. For example: @"{ \"S3Location\": { \"OutputS3Region\": \"<region>\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }"@
+caOutputLocation :: Lens' CreateAssociation (Maybe InstanceAssociationOutputLocation)
+caOutputLocation = lens _caOutputLocation (\ s a -> s{_caOutputLocation = a});
+
+-- | The targets (either instances or tags) for the association. Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
+caTargets :: Lens' CreateAssociation [Target]
+caTargets = lens _caTargets (\ s a -> s{_caTargets = a}) . _Default . _Coerce;
 
 -- | The parameters for the documents runtime configuration.
 caParameters :: Lens' CreateAssociation (HashMap Text [Text])
 caParameters = lens _caParameters (\ s a -> s{_caParameters = a}) . _Default . _Map;
 
+-- | The document version you want to associate with the target(s). Can be a specific version or the default version.
+caDocumentVersion :: Lens' CreateAssociation (Maybe Text)
+caDocumentVersion = lens _caDocumentVersion (\ s a -> s{_caDocumentVersion = a});
+
 -- | The name of the SSM document.
 caName :: Lens' CreateAssociation Text
 caName = lens _caName (\ s a -> s{_caName = a});
-
--- | The instance ID.
-caInstanceId :: Lens' CreateAssociation Text
-caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
 instance AWSRequest CreateAssociation where
         type Rs CreateAssociation = CreateAssociationResponse
@@ -116,9 +151,13 @@ instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
               (catMaybes
-                 [("Parameters" .=) <$> _caParameters,
-                  Just ("Name" .= _caName),
-                  Just ("InstanceId" .= _caInstanceId)])
+                 [("InstanceId" .=) <$> _caInstanceId,
+                  ("ScheduleExpression" .=) <$> _caScheduleExpression,
+                  ("OutputLocation" .=) <$> _caOutputLocation,
+                  ("Targets" .=) <$> _caTargets,
+                  ("Parameters" .=) <$> _caParameters,
+                  ("DocumentVersion" .=) <$> _caDocumentVersion,
+                  Just ("Name" .= _caName)])
 
 instance ToPath CreateAssociation where
         toPath = const "/"

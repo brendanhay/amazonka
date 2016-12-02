@@ -49,8 +49,8 @@ import Test.AWS.IoT.Internal
 --         , requestListThingTypes $
 --             listThingTypes
 --
---         , requestCreateCertificateFromCsr $
---             createCertificateFromCsr
+--         , requestCreateCertificateFromCSR $
+--             createCertificateFromCSR
 --
 --         , requestDeleteThing $
 --             deleteThing
@@ -223,8 +223,8 @@ import Test.AWS.IoT.Internal
 --         , responseListThingTypes $
 --             listThingTypesResponse
 --
---         , responseCreateCertificateFromCsr $
---             createCertificateFromCsrResponse
+--         , responseCreateCertificateFromCSR $
+--             createCertificateFromCSRResponse
 --
 --         , responseDeleteThing $
 --             deleteThingResponse
@@ -413,10 +413,10 @@ requestListThingTypes = req
     "ListThingTypes"
     "fixture/ListThingTypes.yaml"
 
-requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
-requestCreateCertificateFromCsr = req
-    "CreateCertificateFromCsr"
-    "fixture/CreateCertificateFromCsr.yaml"
+requestCreateCertificateFromCSR :: CreateCertificateFromCSR -> TestTree
+requestCreateCertificateFromCSR = req
+    "CreateCertificateFromCSR"
+    "fixture/CreateCertificateFromCSR.yaml"
 
 requestDeleteThing :: DeleteThing -> TestTree
 requestDeleteThing = req
@@ -714,12 +714,12 @@ responseListThingTypes = res
     ioT
     (Proxy :: Proxy ListThingTypes)
 
-responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
-responseCreateCertificateFromCsr = res
-    "CreateCertificateFromCsrResponse"
-    "fixture/CreateCertificateFromCsrResponse.proto"
+responseCreateCertificateFromCSR :: CreateCertificateFromCSRResponse -> TestTree
+responseCreateCertificateFromCSR = res
+    "CreateCertificateFromCSRResponse"
+    "fixture/CreateCertificateFromCSRResponse.proto"
     ioT
-    (Proxy :: Proxy CreateCertificateFromCsr)
+    (Proxy :: Proxy CreateCertificateFromCSR)
 
 responseDeleteThing :: DeleteThingResponse -> TestTree
 responseDeleteThing = res

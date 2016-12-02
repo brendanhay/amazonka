@@ -33,9 +33,9 @@ module Network.AWS.S3.GetObjectTorrent
     , getObjectTorrentResponse
     , GetObjectTorrentResponse
     -- * Response Lenses
-    , gotrsRequestCharged
-    , gotrsResponseStatus
-    , gotrsBody
+    , getrsRequestCharged
+    , getrsResponseStatus
+    , getrsBody
     ) where
 
 import           Network.AWS.Lens
@@ -112,39 +112,39 @@ instance ToQuery GetObjectTorrent where
 
 -- | /See:/ 'getObjectTorrentResponse' smart constructor.
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-    { _gotrsRequestCharged :: !(Maybe RequestCharged)
-    , _gotrsResponseStatus :: !Int
-    , _gotrsBody           :: !RsBody
+    { _getrsRequestCharged :: !(Maybe RequestCharged)
+    , _getrsResponseStatus :: !Int
+    , _getrsBody           :: !RsBody
     } deriving (Show,Generic)
 
 -- | Creates a value of 'GetObjectTorrentResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotrsRequestCharged' - Undocumented member.
+-- * 'getrsRequestCharged' - Undocumented member.
 --
--- * 'gotrsResponseStatus' - -- | The response status code.
+-- * 'getrsResponseStatus' - -- | The response status code.
 --
--- * 'gotrsBody' - Undocumented member.
+-- * 'getrsBody' - Undocumented member.
 getObjectTorrentResponse
-    :: Int -- ^ 'gotrsResponseStatus'
-    -> RsBody -- ^ 'gotrsBody'
+    :: Int -- ^ 'getrsResponseStatus'
+    -> RsBody -- ^ 'getrsBody'
     -> GetObjectTorrentResponse
 getObjectTorrentResponse pResponseStatus_ pBody_ =
     GetObjectTorrentResponse'
-    { _gotrsRequestCharged = Nothing
-    , _gotrsResponseStatus = pResponseStatus_
-    , _gotrsBody = pBody_
+    { _getrsRequestCharged = Nothing
+    , _getrsResponseStatus = pResponseStatus_
+    , _getrsBody = pBody_
     }
 
 -- | Undocumented member.
-gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
-gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
+getrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
+getrsRequestCharged = lens _getrsRequestCharged (\ s a -> s{_getrsRequestCharged = a});
 
 -- | -- | The response status code.
-gotrsResponseStatus :: Lens' GetObjectTorrentResponse Int
-gotrsResponseStatus = lens _gotrsResponseStatus (\ s a -> s{_gotrsResponseStatus = a});
+getrsResponseStatus :: Lens' GetObjectTorrentResponse Int
+getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a});
 
 -- | Undocumented member.
-gotrsBody :: Lens' GetObjectTorrentResponse RsBody
-gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});
+getrsBody :: Lens' GetObjectTorrentResponse RsBody
+getrsBody = lens _getrsBody (\ s a -> s{_getrsBody = a});

@@ -29,9 +29,9 @@ module Network.AWS.SSM.ListAssociations
       listAssociations
     , ListAssociations
     -- * Request Lenses
+    , laAssociationFilterList
     , laNextToken
     , laMaxResults
-    , laAssociationFilterList
 
     -- * Destructuring the Response
     , listAssociationsResponse
@@ -52,29 +52,32 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-    { _laNextToken             :: !(Maybe Text)
+    { _laAssociationFilterList :: !(Maybe (List1 AssociationFilter))
+    , _laNextToken             :: !(Maybe Text)
     , _laMaxResults            :: !(Maybe Nat)
-    , _laAssociationFilterList :: !(List1 AssociationFilter)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'laAssociationFilterList' - One or more filters. Use a filter to return a more specific list of results.
+--
 -- * 'laNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- * 'laMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- * 'laAssociationFilterList' - One or more filters. Use a filter to return a more specific list of results.
 listAssociations
-    :: NonEmpty AssociationFilter -- ^ 'laAssociationFilterList'
-    -> ListAssociations
-listAssociations pAssociationFilterList_ =
+    :: ListAssociations
+listAssociations =
     ListAssociations'
-    { _laNextToken = Nothing
+    { _laAssociationFilterList = Nothing
+    , _laNextToken = Nothing
     , _laMaxResults = Nothing
-    , _laAssociationFilterList = _List1 # pAssociationFilterList_
     }
+
+-- | One or more filters. Use a filter to return a more specific list of results.
+laAssociationFilterList :: Lens' ListAssociations (Maybe (NonEmpty AssociationFilter))
+laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . mapping _List1;
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 laNextToken :: Lens' ListAssociations (Maybe Text)
@@ -83,10 +86,6 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 laMaxResults :: Lens' ListAssociations (Maybe Natural)
 laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
-
--- | One or more filters. Use a filter to return a more specific list of results.
-laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
-laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
 instance AWSPager ListAssociations where
         page rq rs
@@ -123,11 +122,10 @@ instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
               (catMaybes
-                 [("NextToken" .=) <$> _laNextToken,
-                  ("MaxResults" .=) <$> _laMaxResults,
-                  Just
-                    ("AssociationFilterList" .=
-                       _laAssociationFilterList)])
+                 [("AssociationFilterList" .=) <$>
+                    _laAssociationFilterList,
+                  ("NextToken" .=) <$> _laNextToken,
+                  ("MaxResults" .=) <$> _laMaxResults])
 
 instance ToPath ListAssociations where
         toPath = const "/"

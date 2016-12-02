@@ -20,19 +20,22 @@ module Network.AWS.Lambda.Types.Sum where
 import           Network.AWS.Prelude
 
 data EventSourcePosition
-    = Latest
+    = AtTimestamp
+    | Latest
     | TrimHorizon
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
+        "at_timestamp" -> pure AtTimestamp
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing EventSourcePosition from value: '" <> e
-           <> "'. Accepted values: latest, trim_horizon"
+           <> "'. Accepted values: at_timestamp, latest, trim_horizon"
 
 instance ToText EventSourcePosition where
     toText = \case
+        AtTimestamp -> "AT_TIMESTAMP"
         Latest -> "LATEST"
         TrimHorizon -> "TRIM_HORIZON"
 
@@ -101,25 +104,31 @@ instance ToJSON LogType where
     toJSON = toJSONText
 
 data Runtime
-    = JAVA8
+    = DOTNETCORE1_0
+    | JAVA8
     | NODEJS4_3
+    | NODEJS4_3Edge
     | Nodejs
     | PYTHON2_7
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
+        "dotnetcore1.0" -> pure DOTNETCORE1_0
         "java8" -> pure JAVA8
         "nodejs4.3" -> pure NODEJS4_3
+        "nodejs4.3-edge" -> pure NODEJS4_3Edge
         "nodejs" -> pure Nodejs
         "python2.7" -> pure PYTHON2_7
         e -> fromTextError $ "Failure parsing Runtime from value: '" <> e
-           <> "'. Accepted values: java8, nodejs4.3, nodejs, python2.7"
+           <> "'. Accepted values: dotnetcore1.0, java8, nodejs4.3, nodejs4.3-edge, nodejs, python2.7"
 
 instance ToText Runtime where
     toText = \case
+        DOTNETCORE1_0 -> "dotnetcore1.0"
         JAVA8 -> "java8"
         NODEJS4_3 -> "nodejs4.3"
+        NODEJS4_3Edge -> "nodejs4.3-edge"
         Nodejs -> "nodejs"
         PYTHON2_7 -> "python2.7"
 

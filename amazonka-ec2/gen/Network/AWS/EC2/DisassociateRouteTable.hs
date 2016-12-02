@@ -100,7 +100,7 @@ instance ToQuery DisassociateRouteTable where
           = mconcat
               ["Action" =:
                  ("DisassociateRouteTable" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _drtDryRun,
                "AssociationId" =: _drtAssociationId]
 

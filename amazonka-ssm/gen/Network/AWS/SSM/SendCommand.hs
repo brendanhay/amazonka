@@ -31,12 +31,16 @@ module Network.AWS.SSM.SendCommand
     , scNotificationConfig
     , scDocumentHashType
     , scOutputS3KeyPrefix
+    , scMaxErrors
+    , scInstanceIds
+    , scOutputS3Region
+    , scTargets
     , scParameters
     , scDocumentHash
     , scTimeoutSeconds
     , scComment
     , scOutputS3BucketName
-    , scInstanceIds
+    , scMaxConcurrency
     , scDocumentName
 
     -- * Destructuring the Response
@@ -60,12 +64,16 @@ data SendCommand = SendCommand'
     , _scNotificationConfig :: !(Maybe NotificationConfig)
     , _scDocumentHashType   :: !(Maybe DocumentHashType)
     , _scOutputS3KeyPrefix  :: !(Maybe Text)
+    , _scMaxErrors          :: !(Maybe Text)
+    , _scInstanceIds        :: !(Maybe [Text])
+    , _scOutputS3Region     :: !(Maybe Text)
+    , _scTargets            :: !(Maybe [Target])
     , _scParameters         :: !(Maybe (Map Text [Text]))
     , _scDocumentHash       :: !(Maybe Text)
     , _scTimeoutSeconds     :: !(Maybe Nat)
     , _scComment            :: !(Maybe Text)
     , _scOutputS3BucketName :: !(Maybe Text)
-    , _scInstanceIds        :: !(List1 Text)
+    , _scMaxConcurrency     :: !(Maybe Text)
     , _scDocumentName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,13 +81,21 @@ data SendCommand = SendCommand'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scServiceRoleARN' - The IAM role that SSM uses to send notifications.
+-- * 'scServiceRoleARN' - The IAM role that Systems Manager uses to send notifications.
 --
 -- * 'scNotificationConfig' - Configurations for sending notifications.
 --
 -- * 'scDocumentHashType' - Sha256 or Sha1.
 --
 -- * 'scOutputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
+--
+-- * 'scMaxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of @MaxErrors@ , the systems stops sending the command to additional targets. You can specify a number like “10” or a percentage like “10%”. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+--
+-- * 'scInstanceIds' - Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+--
+-- * 'scOutputS3Region' - (Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+--
+-- * 'scTargets' - (Optional) An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call. For more information about how to use @Targets@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
 --
 -- * 'scParameters' - The required and optional parameters specified in the SSM document being executed.
 --
@@ -91,29 +107,32 @@ data SendCommand = SendCommand'
 --
 -- * 'scOutputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
 --
--- * 'scInstanceIds' - Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+-- * 'scMaxConcurrency' - (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as “10” or a percentage such as “10%”. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
 --
 -- * 'scDocumentName' - Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
 sendCommand
-    :: NonEmpty Text -- ^ 'scInstanceIds'
-    -> Text -- ^ 'scDocumentName'
+    :: Text -- ^ 'scDocumentName'
     -> SendCommand
-sendCommand pInstanceIds_ pDocumentName_ =
+sendCommand pDocumentName_ =
     SendCommand'
     { _scServiceRoleARN = Nothing
     , _scNotificationConfig = Nothing
     , _scDocumentHashType = Nothing
     , _scOutputS3KeyPrefix = Nothing
+    , _scMaxErrors = Nothing
+    , _scInstanceIds = Nothing
+    , _scOutputS3Region = Nothing
+    , _scTargets = Nothing
     , _scParameters = Nothing
     , _scDocumentHash = Nothing
     , _scTimeoutSeconds = Nothing
     , _scComment = Nothing
     , _scOutputS3BucketName = Nothing
-    , _scInstanceIds = _List1 # pInstanceIds_
+    , _scMaxConcurrency = Nothing
     , _scDocumentName = pDocumentName_
     }
 
--- | The IAM role that SSM uses to send notifications.
+-- | The IAM role that Systems Manager uses to send notifications.
 scServiceRoleARN :: Lens' SendCommand (Maybe Text)
 scServiceRoleARN = lens _scServiceRoleARN (\ s a -> s{_scServiceRoleARN = a});
 
@@ -128,6 +147,22 @@ scDocumentHashType = lens _scDocumentHashType (\ s a -> s{_scDocumentHashType = 
 -- | The directory structure within the S3 bucket where the responses should be stored.
 scOutputS3KeyPrefix :: Lens' SendCommand (Maybe Text)
 scOutputS3KeyPrefix = lens _scOutputS3KeyPrefix (\ s a -> s{_scOutputS3KeyPrefix = a});
+
+-- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of @MaxErrors@ , the systems stops sending the command to additional targets. You can specify a number like “10” or a percentage like “10%”. The default value is 50. For more information about how to use @MaxErrors@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+scMaxErrors :: Lens' SendCommand (Maybe Text)
+scMaxErrors = lens _scMaxErrors (\ s a -> s{_scMaxErrors = a});
+
+-- | Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+scInstanceIds :: Lens' SendCommand [Text]
+scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _Default . _Coerce;
+
+-- | (Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+scOutputS3Region :: Lens' SendCommand (Maybe Text)
+scOutputS3Region = lens _scOutputS3Region (\ s a -> s{_scOutputS3Region = a});
+
+-- | (Optional) An array of search criteria that targets instances using a @Key@ ;@Value@ combination that you specify. @Targets@ is required if you don't provide one or more instance IDs in the call. For more information about how to use @Targets@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+scTargets :: Lens' SendCommand [Target]
+scTargets = lens _scTargets (\ s a -> s{_scTargets = a}) . _Default . _Coerce;
 
 -- | The required and optional parameters specified in the SSM document being executed.
 scParameters :: Lens' SendCommand (HashMap Text [Text])
@@ -149,9 +184,9 @@ scComment = lens _scComment (\ s a -> s{_scComment = a});
 scOutputS3BucketName :: Lens' SendCommand (Maybe Text)
 scOutputS3BucketName = lens _scOutputS3BucketName (\ s a -> s{_scOutputS3BucketName = a});
 
--- | Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
-scInstanceIds :: Lens' SendCommand (NonEmpty Text)
-scInstanceIds = lens _scInstanceIds (\ s a -> s{_scInstanceIds = a}) . _List1;
+-- | (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as “10” or a percentage such as “10%”. The default value is 50. For more information about how to use @MaxConcurrency@ , see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Linux) or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/run-command.html Executing a Command Using Amazon EC2 Run Command> (Windows).
+scMaxConcurrency :: Lens' SendCommand (Maybe Text)
+scMaxConcurrency = lens _scMaxConcurrency (\ s a -> s{_scMaxConcurrency = a});
 
 -- | Required. The name of the SSM document to execute. This can be an SSM public document or a custom document.
 scDocumentName :: Lens' SendCommand Text
@@ -187,12 +222,16 @@ instance ToJSON SendCommand where
                   ("NotificationConfig" .=) <$> _scNotificationConfig,
                   ("DocumentHashType" .=) <$> _scDocumentHashType,
                   ("OutputS3KeyPrefix" .=) <$> _scOutputS3KeyPrefix,
+                  ("MaxErrors" .=) <$> _scMaxErrors,
+                  ("InstanceIds" .=) <$> _scInstanceIds,
+                  ("OutputS3Region" .=) <$> _scOutputS3Region,
+                  ("Targets" .=) <$> _scTargets,
                   ("Parameters" .=) <$> _scParameters,
                   ("DocumentHash" .=) <$> _scDocumentHash,
                   ("TimeoutSeconds" .=) <$> _scTimeoutSeconds,
                   ("Comment" .=) <$> _scComment,
                   ("OutputS3BucketName" .=) <$> _scOutputS3BucketName,
-                  Just ("InstanceIds" .= _scInstanceIds),
+                  ("MaxConcurrency" .=) <$> _scMaxConcurrency,
                   Just ("DocumentName" .= _scDocumentName)])
 
 instance ToPath SendCommand where
@@ -211,7 +250,7 @@ data SendCommandResponse = SendCommandResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrsCommand' - The request as it was received by SSM. Also provides the command ID which can be used future references to this request.
+-- * 'scrsCommand' - The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
 --
 -- * 'scrsResponseStatus' - -- | The response status code.
 sendCommandResponse
@@ -223,7 +262,7 @@ sendCommandResponse pResponseStatus_ =
     , _scrsResponseStatus = pResponseStatus_
     }
 
--- | The request as it was received by SSM. Also provides the command ID which can be used future references to this request.
+-- | The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
 scrsCommand :: Lens' SendCommandResponse (Maybe Command)
 scrsCommand = lens _scrsCommand (\ s a -> s{_scrsCommand = a});
 

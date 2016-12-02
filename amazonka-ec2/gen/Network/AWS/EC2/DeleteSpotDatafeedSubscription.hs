@@ -90,7 +90,7 @@ instance ToQuery DeleteSpotDatafeedSubscription where
           = mconcat
               ["Action" =:
                  ("DeleteSpotDatafeedSubscription" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _dsdssDryRun]
 
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.

@@ -76,6 +76,9 @@ import Test.AWS.Lambda.Internal
 --         , requestUpdateAlias $
 --             updateAlias
 --
+--         , requestGetAccountSettings $
+--             getAccountSettings
+--
 --         , requestAddPermission $
 --             addPermission
 --
@@ -147,6 +150,9 @@ import Test.AWS.Lambda.Internal
 --
 --         , responseUpdateAlias $
 --             aliasConfiguration
+--
+--         , responseGetAccountSettings $
+--             getAccountSettingsResponse
 --
 --         , responseAddPermission $
 --             addPermissionResponse
@@ -253,6 +259,11 @@ requestUpdateAlias :: UpdateAlias -> TestTree
 requestUpdateAlias = req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
+
+requestGetAccountSettings :: GetAccountSettings -> TestTree
+requestGetAccountSettings = req
+    "GetAccountSettings"
+    "fixture/GetAccountSettings.yaml"
 
 requestAddPermission :: AddPermission -> TestTree
 requestAddPermission = req
@@ -402,6 +413,13 @@ responseUpdateAlias = res
     "fixture/UpdateAliasResponse.proto"
     lambda
     (Proxy :: Proxy UpdateAlias)
+
+responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
+responseGetAccountSettings = res
+    "GetAccountSettingsResponse"
+    "fixture/GetAccountSettingsResponse.proto"
+    lambda
+    (Proxy :: Proxy GetAccountSettings)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission = res

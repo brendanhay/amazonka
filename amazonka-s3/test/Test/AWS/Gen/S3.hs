@@ -40,6 +40,9 @@ import Test.AWS.S3.Internal
 --         , requestPutBucketLogging $
 --             putBucketLogging
 --
+--         , requestGetBucketMetricsConfiguration $
+--             getBucketMetricsConfiguration
+--
 --         , requestListBuckets $
 --             listBuckets
 --
@@ -58,14 +61,32 @@ import Test.AWS.S3.Internal
 --         , requestPutBucketTagging $
 --             putBucketTagging
 --
+--         , requestGetBucketInventoryConfiguration $
+--             getBucketInventoryConfiguration
+--
+--         , requestPutBucketInventoryConfiguration $
+--             putBucketInventoryConfiguration
+--
 --         , requestGetBucketLocation $
 --             getBucketLocation
+--
+--         , requestListBucketInventoryConfigurations $
+--             listBucketInventoryConfigurations
+--
+--         , requestDeleteBucketInventoryConfiguration $
+--             deleteBucketInventoryConfiguration
 --
 --         , requestGetBucketNotificationConfiguration $
 --             getBucketNotificationConfiguration
 --
 --         , requestPutBucketAccelerateConfiguration $
 --             putBucketAccelerateConfiguration
+--
+--         , requestPutBucketMetricsConfiguration $
+--             putBucketMetricsConfiguration
+--
+--         , requestDeleteBucketMetricsConfiguration $
+--             deleteBucketMetricsConfiguration
 --
 --         , requestListObjectsV $
 --             listObjectsV
@@ -96,6 +117,15 @@ import Test.AWS.S3.Internal
 --
 --         , requestPutBucketLifecycleConfiguration $
 --             putBucketLifecycleConfiguration
+--
+--         , requestPutBucketAnalyticsConfiguration $
+--             putBucketAnalyticsConfiguration
+--
+--         , requestListBucketAnalyticsConfigurations $
+--             listBucketAnalyticsConfigurations
+--
+--         , requestDeleteBucketAnalyticsConfiguration $
+--             deleteBucketAnalyticsConfiguration
 --
 --         , requestCreateMultipartUpload $
 --             createMultipartUpload
@@ -172,6 +202,9 @@ import Test.AWS.S3.Internal
 --         , requestCopyObject $
 --             copyObject
 --
+--         , requestListBucketMetricsConfigurations $
+--             listBucketMetricsConfigurations
+--
 --         , requestGetBucketPolicy $
 --             getBucketPolicy
 --
@@ -184,11 +217,23 @@ import Test.AWS.S3.Internal
 --         , requestGetBucketLifecycleConfiguration $
 --             getBucketLifecycleConfiguration
 --
+--         , requestGetBucketAnalyticsConfiguration $
+--             getBucketAnalyticsConfiguration
+--
+--         , requestGetObjectTagging $
+--             getObjectTagging
+--
 --         , requestListParts $
 --             listParts
 --
+--         , requestDeleteObjectTagging $
+--             deleteObjectTagging
+--
 --         , requestUploadPartCopy $
 --             uploadPartCopy
+--
+--         , requestPutObjectTagging $
+--             putObjectTagging
 --
 --         , requestPutBucketACL $
 --             putBucketACL
@@ -208,6 +253,9 @@ import Test.AWS.S3.Internal
 --         , responsePutBucketLogging $
 --             putBucketLoggingResponse
 --
+--         , responseGetBucketMetricsConfiguration $
+--             getBucketMetricsConfigurationResponse
+--
 --         , responseListBuckets $
 --             listBucketsResponse
 --
@@ -226,14 +274,32 @@ import Test.AWS.S3.Internal
 --         , responsePutBucketTagging $
 --             putBucketTaggingResponse
 --
+--         , responseGetBucketInventoryConfiguration $
+--             getBucketInventoryConfigurationResponse
+--
+--         , responsePutBucketInventoryConfiguration $
+--             putBucketInventoryConfigurationResponse
+--
 --         , responseGetBucketLocation $
 --             getBucketLocationResponse
+--
+--         , responseListBucketInventoryConfigurations $
+--             listBucketInventoryConfigurationsResponse
+--
+--         , responseDeleteBucketInventoryConfiguration $
+--             deleteBucketInventoryConfigurationResponse
 --
 --         , responseGetBucketNotificationConfiguration $
 --             notificationConfiguration
 --
 --         , responsePutBucketAccelerateConfiguration $
 --             putBucketAccelerateConfigurationResponse
+--
+--         , responsePutBucketMetricsConfiguration $
+--             putBucketMetricsConfigurationResponse
+--
+--         , responseDeleteBucketMetricsConfiguration $
+--             deleteBucketMetricsConfigurationResponse
 --
 --         , responseListObjectsV $
 --             listObjectsVResponse
@@ -264,6 +330,15 @@ import Test.AWS.S3.Internal
 --
 --         , responsePutBucketLifecycleConfiguration $
 --             putBucketLifecycleConfigurationResponse
+--
+--         , responsePutBucketAnalyticsConfiguration $
+--             putBucketAnalyticsConfigurationResponse
+--
+--         , responseListBucketAnalyticsConfigurations $
+--             listBucketAnalyticsConfigurationsResponse
+--
+--         , responseDeleteBucketAnalyticsConfiguration $
+--             deleteBucketAnalyticsConfigurationResponse
 --
 --         , responseCreateMultipartUpload $
 --             createMultipartUploadResponse
@@ -340,6 +415,9 @@ import Test.AWS.S3.Internal
 --         , responseCopyObject $
 --             copyObjectResponse
 --
+--         , responseListBucketMetricsConfigurations $
+--             listBucketMetricsConfigurationsResponse
+--
 --         , responseGetBucketPolicy $
 --             getBucketPolicyResponse
 --
@@ -352,11 +430,23 @@ import Test.AWS.S3.Internal
 --         , responseGetBucketLifecycleConfiguration $
 --             getBucketLifecycleConfigurationResponse
 --
+--         , responseGetBucketAnalyticsConfiguration $
+--             getBucketAnalyticsConfigurationResponse
+--
+--         , responseGetObjectTagging $
+--             getObjectTaggingResponse
+--
 --         , responseListParts $
 --             listPartsResponse
 --
+--         , responseDeleteObjectTagging $
+--             deleteObjectTaggingResponse
+--
 --         , responseUploadPartCopy $
 --             uploadPartCopyResponse
+--
+--         , responsePutObjectTagging $
+--             putObjectTaggingResponse
 --
 --         , responsePutBucketACL $
 --             putBucketACLResponse
@@ -380,6 +470,11 @@ requestPutBucketLogging :: PutBucketLogging -> TestTree
 requestPutBucketLogging = req
     "PutBucketLogging"
     "fixture/PutBucketLogging.yaml"
+
+requestGetBucketMetricsConfiguration :: GetBucketMetricsConfiguration -> TestTree
+requestGetBucketMetricsConfiguration = req
+    "GetBucketMetricsConfiguration"
+    "fixture/GetBucketMetricsConfiguration.yaml"
 
 requestListBuckets :: ListBuckets -> TestTree
 requestListBuckets = req
@@ -411,10 +506,30 @@ requestPutBucketTagging = req
     "PutBucketTagging"
     "fixture/PutBucketTagging.yaml"
 
+requestGetBucketInventoryConfiguration :: GetBucketInventoryConfiguration -> TestTree
+requestGetBucketInventoryConfiguration = req
+    "GetBucketInventoryConfiguration"
+    "fixture/GetBucketInventoryConfiguration.yaml"
+
+requestPutBucketInventoryConfiguration :: PutBucketInventoryConfiguration -> TestTree
+requestPutBucketInventoryConfiguration = req
+    "PutBucketInventoryConfiguration"
+    "fixture/PutBucketInventoryConfiguration.yaml"
+
 requestGetBucketLocation :: GetBucketLocation -> TestTree
 requestGetBucketLocation = req
     "GetBucketLocation"
     "fixture/GetBucketLocation.yaml"
+
+requestListBucketInventoryConfigurations :: ListBucketInventoryConfigurations -> TestTree
+requestListBucketInventoryConfigurations = req
+    "ListBucketInventoryConfigurations"
+    "fixture/ListBucketInventoryConfigurations.yaml"
+
+requestDeleteBucketInventoryConfiguration :: DeleteBucketInventoryConfiguration -> TestTree
+requestDeleteBucketInventoryConfiguration = req
+    "DeleteBucketInventoryConfiguration"
+    "fixture/DeleteBucketInventoryConfiguration.yaml"
 
 requestGetBucketNotificationConfiguration :: GetBucketNotificationConfiguration -> TestTree
 requestGetBucketNotificationConfiguration = req
@@ -425,6 +540,16 @@ requestPutBucketAccelerateConfiguration :: PutBucketAccelerateConfiguration -> T
 requestPutBucketAccelerateConfiguration = req
     "PutBucketAccelerateConfiguration"
     "fixture/PutBucketAccelerateConfiguration.yaml"
+
+requestPutBucketMetricsConfiguration :: PutBucketMetricsConfiguration -> TestTree
+requestPutBucketMetricsConfiguration = req
+    "PutBucketMetricsConfiguration"
+    "fixture/PutBucketMetricsConfiguration.yaml"
+
+requestDeleteBucketMetricsConfiguration :: DeleteBucketMetricsConfiguration -> TestTree
+requestDeleteBucketMetricsConfiguration = req
+    "DeleteBucketMetricsConfiguration"
+    "fixture/DeleteBucketMetricsConfiguration.yaml"
 
 requestListObjectsV :: ListObjectsV -> TestTree
 requestListObjectsV = req
@@ -475,6 +600,21 @@ requestPutBucketLifecycleConfiguration :: PutBucketLifecycleConfiguration -> Tes
 requestPutBucketLifecycleConfiguration = req
     "PutBucketLifecycleConfiguration"
     "fixture/PutBucketLifecycleConfiguration.yaml"
+
+requestPutBucketAnalyticsConfiguration :: PutBucketAnalyticsConfiguration -> TestTree
+requestPutBucketAnalyticsConfiguration = req
+    "PutBucketAnalyticsConfiguration"
+    "fixture/PutBucketAnalyticsConfiguration.yaml"
+
+requestListBucketAnalyticsConfigurations :: ListBucketAnalyticsConfigurations -> TestTree
+requestListBucketAnalyticsConfigurations = req
+    "ListBucketAnalyticsConfigurations"
+    "fixture/ListBucketAnalyticsConfigurations.yaml"
+
+requestDeleteBucketAnalyticsConfiguration :: DeleteBucketAnalyticsConfiguration -> TestTree
+requestDeleteBucketAnalyticsConfiguration = req
+    "DeleteBucketAnalyticsConfiguration"
+    "fixture/DeleteBucketAnalyticsConfiguration.yaml"
 
 requestCreateMultipartUpload :: CreateMultipartUpload -> TestTree
 requestCreateMultipartUpload = req
@@ -596,6 +736,11 @@ requestCopyObject = req
     "CopyObject"
     "fixture/CopyObject.yaml"
 
+requestListBucketMetricsConfigurations :: ListBucketMetricsConfigurations -> TestTree
+requestListBucketMetricsConfigurations = req
+    "ListBucketMetricsConfigurations"
+    "fixture/ListBucketMetricsConfigurations.yaml"
+
 requestGetBucketPolicy :: GetBucketPolicy -> TestTree
 requestGetBucketPolicy = req
     "GetBucketPolicy"
@@ -616,15 +761,35 @@ requestGetBucketLifecycleConfiguration = req
     "GetBucketLifecycleConfiguration"
     "fixture/GetBucketLifecycleConfiguration.yaml"
 
+requestGetBucketAnalyticsConfiguration :: GetBucketAnalyticsConfiguration -> TestTree
+requestGetBucketAnalyticsConfiguration = req
+    "GetBucketAnalyticsConfiguration"
+    "fixture/GetBucketAnalyticsConfiguration.yaml"
+
+requestGetObjectTagging :: GetObjectTagging -> TestTree
+requestGetObjectTagging = req
+    "GetObjectTagging"
+    "fixture/GetObjectTagging.yaml"
+
 requestListParts :: ListParts -> TestTree
 requestListParts = req
     "ListParts"
     "fixture/ListParts.yaml"
 
+requestDeleteObjectTagging :: DeleteObjectTagging -> TestTree
+requestDeleteObjectTagging = req
+    "DeleteObjectTagging"
+    "fixture/DeleteObjectTagging.yaml"
+
 requestUploadPartCopy :: UploadPartCopy -> TestTree
 requestUploadPartCopy = req
     "UploadPartCopy"
     "fixture/UploadPartCopy.yaml"
+
+requestPutObjectTagging :: PutObjectTagging -> TestTree
+requestPutObjectTagging = req
+    "PutObjectTagging"
+    "fixture/PutObjectTagging.yaml"
 
 requestPutBucketACL :: PutBucketACL -> TestTree
 requestPutBucketACL = req
@@ -660,6 +825,13 @@ responsePutBucketLogging = res
     "fixture/PutBucketLoggingResponse.proto"
     s3
     (Proxy :: Proxy PutBucketLogging)
+
+responseGetBucketMetricsConfiguration :: GetBucketMetricsConfigurationResponse -> TestTree
+responseGetBucketMetricsConfiguration = res
+    "GetBucketMetricsConfigurationResponse"
+    "fixture/GetBucketMetricsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketMetricsConfiguration)
 
 responseListBuckets :: ListBucketsResponse -> TestTree
 responseListBuckets = res
@@ -703,12 +875,40 @@ responsePutBucketTagging = res
     s3
     (Proxy :: Proxy PutBucketTagging)
 
+responseGetBucketInventoryConfiguration :: GetBucketInventoryConfigurationResponse -> TestTree
+responseGetBucketInventoryConfiguration = res
+    "GetBucketInventoryConfigurationResponse"
+    "fixture/GetBucketInventoryConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketInventoryConfiguration)
+
+responsePutBucketInventoryConfiguration :: PutBucketInventoryConfigurationResponse -> TestTree
+responsePutBucketInventoryConfiguration = res
+    "PutBucketInventoryConfigurationResponse"
+    "fixture/PutBucketInventoryConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketInventoryConfiguration)
+
 responseGetBucketLocation :: GetBucketLocationResponse -> TestTree
 responseGetBucketLocation = res
     "GetBucketLocationResponse"
     "fixture/GetBucketLocationResponse.proto"
     s3
     (Proxy :: Proxy GetBucketLocation)
+
+responseListBucketInventoryConfigurations :: ListBucketInventoryConfigurationsResponse -> TestTree
+responseListBucketInventoryConfigurations = res
+    "ListBucketInventoryConfigurationsResponse"
+    "fixture/ListBucketInventoryConfigurationsResponse.proto"
+    s3
+    (Proxy :: Proxy ListBucketInventoryConfigurations)
+
+responseDeleteBucketInventoryConfiguration :: DeleteBucketInventoryConfigurationResponse -> TestTree
+responseDeleteBucketInventoryConfiguration = res
+    "DeleteBucketInventoryConfigurationResponse"
+    "fixture/DeleteBucketInventoryConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketInventoryConfiguration)
 
 responseGetBucketNotificationConfiguration :: NotificationConfiguration -> TestTree
 responseGetBucketNotificationConfiguration = res
@@ -723,6 +923,20 @@ responsePutBucketAccelerateConfiguration = res
     "fixture/PutBucketAccelerateConfigurationResponse.proto"
     s3
     (Proxy :: Proxy PutBucketAccelerateConfiguration)
+
+responsePutBucketMetricsConfiguration :: PutBucketMetricsConfigurationResponse -> TestTree
+responsePutBucketMetricsConfiguration = res
+    "PutBucketMetricsConfigurationResponse"
+    "fixture/PutBucketMetricsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketMetricsConfiguration)
+
+responseDeleteBucketMetricsConfiguration :: DeleteBucketMetricsConfigurationResponse -> TestTree
+responseDeleteBucketMetricsConfiguration = res
+    "DeleteBucketMetricsConfigurationResponse"
+    "fixture/DeleteBucketMetricsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketMetricsConfiguration)
 
 responseListObjectsV :: ListObjectsVResponse -> TestTree
 responseListObjectsV = res
@@ -786,6 +1000,27 @@ responsePutBucketLifecycleConfiguration = res
     "fixture/PutBucketLifecycleConfigurationResponse.proto"
     s3
     (Proxy :: Proxy PutBucketLifecycleConfiguration)
+
+responsePutBucketAnalyticsConfiguration :: PutBucketAnalyticsConfigurationResponse -> TestTree
+responsePutBucketAnalyticsConfiguration = res
+    "PutBucketAnalyticsConfigurationResponse"
+    "fixture/PutBucketAnalyticsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy PutBucketAnalyticsConfiguration)
+
+responseListBucketAnalyticsConfigurations :: ListBucketAnalyticsConfigurationsResponse -> TestTree
+responseListBucketAnalyticsConfigurations = res
+    "ListBucketAnalyticsConfigurationsResponse"
+    "fixture/ListBucketAnalyticsConfigurationsResponse.proto"
+    s3
+    (Proxy :: Proxy ListBucketAnalyticsConfigurations)
+
+responseDeleteBucketAnalyticsConfiguration :: DeleteBucketAnalyticsConfigurationResponse -> TestTree
+responseDeleteBucketAnalyticsConfiguration = res
+    "DeleteBucketAnalyticsConfigurationResponse"
+    "fixture/DeleteBucketAnalyticsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteBucketAnalyticsConfiguration)
 
 responseCreateMultipartUpload :: CreateMultipartUploadResponse -> TestTree
 responseCreateMultipartUpload = res
@@ -955,6 +1190,13 @@ responseCopyObject = res
     s3
     (Proxy :: Proxy CopyObject)
 
+responseListBucketMetricsConfigurations :: ListBucketMetricsConfigurationsResponse -> TestTree
+responseListBucketMetricsConfigurations = res
+    "ListBucketMetricsConfigurationsResponse"
+    "fixture/ListBucketMetricsConfigurationsResponse.proto"
+    s3
+    (Proxy :: Proxy ListBucketMetricsConfigurations)
+
 responseGetBucketPolicy :: GetBucketPolicyResponse -> TestTree
 responseGetBucketPolicy = res
     "GetBucketPolicyResponse"
@@ -983,6 +1225,20 @@ responseGetBucketLifecycleConfiguration = res
     s3
     (Proxy :: Proxy GetBucketLifecycleConfiguration)
 
+responseGetBucketAnalyticsConfiguration :: GetBucketAnalyticsConfigurationResponse -> TestTree
+responseGetBucketAnalyticsConfiguration = res
+    "GetBucketAnalyticsConfigurationResponse"
+    "fixture/GetBucketAnalyticsConfigurationResponse.proto"
+    s3
+    (Proxy :: Proxy GetBucketAnalyticsConfiguration)
+
+responseGetObjectTagging :: GetObjectTaggingResponse -> TestTree
+responseGetObjectTagging = res
+    "GetObjectTaggingResponse"
+    "fixture/GetObjectTaggingResponse.proto"
+    s3
+    (Proxy :: Proxy GetObjectTagging)
+
 responseListParts :: ListPartsResponse -> TestTree
 responseListParts = res
     "ListPartsResponse"
@@ -990,12 +1246,26 @@ responseListParts = res
     s3
     (Proxy :: Proxy ListParts)
 
+responseDeleteObjectTagging :: DeleteObjectTaggingResponse -> TestTree
+responseDeleteObjectTagging = res
+    "DeleteObjectTaggingResponse"
+    "fixture/DeleteObjectTaggingResponse.proto"
+    s3
+    (Proxy :: Proxy DeleteObjectTagging)
+
 responseUploadPartCopy :: UploadPartCopyResponse -> TestTree
 responseUploadPartCopy = res
     "UploadPartCopyResponse"
     "fixture/UploadPartCopyResponse.proto"
     s3
     (Proxy :: Proxy UploadPartCopy)
+
+responsePutObjectTagging :: PutObjectTaggingResponse -> TestTree
+responsePutObjectTagging = res
+    "PutObjectTaggingResponse"
+    "fixture/PutObjectTaggingResponse.proto"
+    s3
+    (Proxy :: Proxy PutObjectTagging)
 
 responsePutBucketACL :: PutBucketACLResponse -> TestTree
 responsePutBucketACL = res

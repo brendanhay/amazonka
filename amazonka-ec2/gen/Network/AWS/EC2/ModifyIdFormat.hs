@@ -100,7 +100,7 @@ instance ToQuery ModifyIdFormat where
         toQuery ModifyIdFormat'{..}
           = mconcat
               ["Action" =: ("ModifyIdFormat" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Resource" =: _mifResource,
                "UseLongIds" =: _mifUseLongIds]
 

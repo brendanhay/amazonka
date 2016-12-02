@@ -243,7 +243,7 @@ module Network.AWS.SES.Types
     , ReceiptIPFilter
     , receiptIPFilter
     , rifPolicy
-    , rifCIdR
+    , rifCidr
 
     -- * ReceiptRule
     , ReceiptRule

@@ -19,6 +19,129 @@ module Network.AWS.DirectConnect.Types.Sum where
 
 import           Network.AWS.Prelude
 
+-- | Indicates the address family for the BGP peer.
+--
+--
+--     * __ipv4__ : IPv4 address family
+--
+--     * __ipv6__ : IPv6 address family
+--
+--
+--
+data AddressFamily
+    = IPV4
+    | IPV6
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AddressFamily where
+    parser = takeLowerText >>= \case
+        "ipv4" -> pure IPV4
+        "ipv6" -> pure IPV6
+        e -> fromTextError $ "Failure parsing AddressFamily from value: '" <> e
+           <> "'. Accepted values: ipv4, ipv6"
+
+instance ToText AddressFamily where
+    toText = \case
+        IPV4 -> "ipv4"
+        IPV6 -> "ipv6"
+
+instance Hashable     AddressFamily
+instance NFData       AddressFamily
+instance ToByteString AddressFamily
+instance ToQuery      AddressFamily
+instance ToHeader     AddressFamily
+
+instance ToJSON AddressFamily where
+    toJSON = toJSONText
+
+instance FromJSON AddressFamily where
+    parseJSON = parseJSONText "AddressFamily"
+
+-- | The state of the BGP peer.
+--
+--
+--     * __Verifying__ : The BGP peering addresses or ASN require validation before the BGP peer can be created. This state only applies to BGP peers on a public virtual interface.
+--
+--     * __Pending__ : The BGP peer has been created, and is in this state until it is ready to be established.
+--
+--     * __Available__ : The BGP peer can be established.
+--
+--     * __Deleting__ : The BGP peer is in the process of being deleted.
+--
+--     * __Deleted__ : The BGP peer has been deleted and cannot be established.
+--
+--
+--
+data BGPPeerState
+    = Available
+    | Deleted
+    | Deleting
+    | Pending
+    | Verifying
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText BGPPeerState where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "pending" -> pure Pending
+        "verifying" -> pure Verifying
+        e -> fromTextError $ "Failure parsing BGPPeerState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, pending, verifying"
+
+instance ToText BGPPeerState where
+    toText = \case
+        Available -> "available"
+        Deleted -> "deleted"
+        Deleting -> "deleting"
+        Pending -> "pending"
+        Verifying -> "verifying"
+
+instance Hashable     BGPPeerState
+instance NFData       BGPPeerState
+instance ToByteString BGPPeerState
+instance ToQuery      BGPPeerState
+instance ToHeader     BGPPeerState
+
+instance FromJSON BGPPeerState where
+    parseJSON = parseJSONText "BGPPeerState"
+
+-- | The Up/Down state of the BGP peer.
+--
+--
+--     * __Up__ : The BGP peer is established.
+--
+--     * __Down__ : The BGP peer is down.
+--
+--
+--
+data BGPStatus
+    = Down
+    | UP
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText BGPStatus where
+    parser = takeLowerText >>= \case
+        "down" -> pure Down
+        "up" -> pure UP
+        e -> fromTextError $ "Failure parsing BGPStatus from value: '" <> e
+           <> "'. Accepted values: down, up"
+
+instance ToText BGPStatus where
+    toText = \case
+        Down -> "down"
+        UP -> "up"
+
+instance Hashable     BGPStatus
+instance NFData       BGPStatus
+instance ToByteString BGPStatus
+instance ToQuery      BGPStatus
+instance ToHeader     BGPStatus
+
+instance FromJSON BGPStatus where
+    parseJSON = parseJSONText "BGPStatus"
+
 -- | State of the connection.
 --
 --
@@ -192,39 +315,39 @@ instance FromJSON LoaContentType where
 --
 --
 data VirtualInterfaceState
-    = Available
-    | Confirming
-    | Deleted
-    | Deleting
-    | Down
-    | Pending
-    | Rejected
-    | Verifying
+    = VISAvailable
+    | VISConfirming
+    | VISDeleted
+    | VISDeleting
+    | VISDown
+    | VISPending
+    | VISRejected
+    | VISVerifying
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case
-        "available" -> pure Available
-        "confirming" -> pure Confirming
-        "deleted" -> pure Deleted
-        "deleting" -> pure Deleting
-        "down" -> pure Down
-        "pending" -> pure Pending
-        "rejected" -> pure Rejected
-        "verifying" -> pure Verifying
+        "available" -> pure VISAvailable
+        "confirming" -> pure VISConfirming
+        "deleted" -> pure VISDeleted
+        "deleting" -> pure VISDeleting
+        "down" -> pure VISDown
+        "pending" -> pure VISPending
+        "rejected" -> pure VISRejected
+        "verifying" -> pure VISVerifying
         e -> fromTextError $ "Failure parsing VirtualInterfaceState from value: '" <> e
            <> "'. Accepted values: available, confirming, deleted, deleting, down, pending, rejected, verifying"
 
 instance ToText VirtualInterfaceState where
     toText = \case
-        Available -> "available"
-        Confirming -> "confirming"
-        Deleted -> "deleted"
-        Deleting -> "deleting"
-        Down -> "down"
-        Pending -> "pending"
-        Rejected -> "rejected"
-        Verifying -> "verifying"
+        VISAvailable -> "available"
+        VISConfirming -> "confirming"
+        VISDeleted -> "deleted"
+        VISDeleting -> "deleting"
+        VISDown -> "down"
+        VISPending -> "pending"
+        VISRejected -> "rejected"
+        VISVerifying -> "verifying"
 
 instance Hashable     VirtualInterfaceState
 instance NFData       VirtualInterfaceState

@@ -41,6 +41,7 @@ module Network.AWS.APIGateway.PutRestAPI
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
     ) where

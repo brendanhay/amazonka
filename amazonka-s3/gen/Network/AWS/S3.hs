@@ -71,6 +71,9 @@ module Network.AWS.S3
     -- ** PutBucketLogging
     , module Network.AWS.S3.PutBucketLogging
 
+    -- ** GetBucketMetricsConfiguration
+    , module Network.AWS.S3.GetBucketMetricsConfiguration
+
     -- ** ListBuckets
     , module Network.AWS.S3.ListBuckets
 
@@ -89,14 +92,32 @@ module Network.AWS.S3
     -- ** PutBucketTagging
     , module Network.AWS.S3.PutBucketTagging
 
+    -- ** GetBucketInventoryConfiguration
+    , module Network.AWS.S3.GetBucketInventoryConfiguration
+
+    -- ** PutBucketInventoryConfiguration
+    , module Network.AWS.S3.PutBucketInventoryConfiguration
+
     -- ** GetBucketLocation
     , module Network.AWS.S3.GetBucketLocation
+
+    -- ** ListBucketInventoryConfigurations
+    , module Network.AWS.S3.ListBucketInventoryConfigurations
+
+    -- ** DeleteBucketInventoryConfiguration
+    , module Network.AWS.S3.DeleteBucketInventoryConfiguration
 
     -- ** GetBucketNotificationConfiguration
     , module Network.AWS.S3.GetBucketNotificationConfiguration
 
     -- ** PutBucketAccelerateConfiguration
     , module Network.AWS.S3.PutBucketAccelerateConfiguration
+
+    -- ** PutBucketMetricsConfiguration
+    , module Network.AWS.S3.PutBucketMetricsConfiguration
+
+    -- ** DeleteBucketMetricsConfiguration
+    , module Network.AWS.S3.DeleteBucketMetricsConfiguration
 
     -- ** ListObjectsV
     , module Network.AWS.S3.ListObjectsV
@@ -127,6 +148,15 @@ module Network.AWS.S3
 
     -- ** PutBucketLifecycleConfiguration
     , module Network.AWS.S3.PutBucketLifecycleConfiguration
+
+    -- ** PutBucketAnalyticsConfiguration
+    , module Network.AWS.S3.PutBucketAnalyticsConfiguration
+
+    -- ** ListBucketAnalyticsConfigurations
+    , module Network.AWS.S3.ListBucketAnalyticsConfigurations
+
+    -- ** DeleteBucketAnalyticsConfiguration
+    , module Network.AWS.S3.DeleteBucketAnalyticsConfiguration
 
     -- ** CreateMultipartUpload
     , module Network.AWS.S3.CreateMultipartUpload
@@ -203,6 +233,9 @@ module Network.AWS.S3
     -- ** CopyObject
     , module Network.AWS.S3.CopyObject
 
+    -- ** ListBucketMetricsConfigurations
+    , module Network.AWS.S3.ListBucketMetricsConfigurations
+
     -- ** GetBucketPolicy
     , module Network.AWS.S3.GetBucketPolicy
 
@@ -215,11 +248,23 @@ module Network.AWS.S3
     -- ** GetBucketLifecycleConfiguration
     , module Network.AWS.S3.GetBucketLifecycleConfiguration
 
+    -- ** GetBucketAnalyticsConfiguration
+    , module Network.AWS.S3.GetBucketAnalyticsConfiguration
+
+    -- ** GetObjectTagging
+    , module Network.AWS.S3.GetObjectTagging
+
     -- ** ListParts (Paginated)
     , module Network.AWS.S3.ListParts
 
+    -- ** DeleteObjectTagging
+    , module Network.AWS.S3.DeleteObjectTagging
+
     -- ** UploadPartCopy
     , module Network.AWS.S3.UploadPartCopy
+
+    -- ** PutObjectTagging
+    , module Network.AWS.S3.PutObjectTagging
 
     -- ** PutBucketACL
     , module Network.AWS.S3.PutBucketACL
@@ -228,6 +273,9 @@ module Network.AWS.S3
 
     -- ** Re-exported Types
     , module Network.AWS.S3.Internal
+
+    -- ** AnalyticsS3ExportFileFormat
+    , AnalyticsS3ExportFileFormat (..)
 
     -- ** BucketAccelerateStatus
     , BucketAccelerateStatus (..)
@@ -252,6 +300,18 @@ module Network.AWS.S3
 
     -- ** FilterRuleName
     , FilterRuleName (..)
+
+    -- ** InventoryFormat
+    , InventoryFormat (..)
+
+    -- ** InventoryFrequency
+    , InventoryFrequency (..)
+
+    -- ** InventoryIncludedObjectVersions
+    , InventoryIncludedObjectVersions (..)
+
+    -- ** InventoryOptionalField
+    , InventoryOptionalField (..)
 
     -- ** MFADelete
     , MFADelete (..)
@@ -298,6 +358,12 @@ module Network.AWS.S3
     -- ** StorageClass
     , StorageClass (..)
 
+    -- ** StorageClassAnalysisSchemaVersion
+    , StorageClassAnalysisSchemaVersion (..)
+
+    -- ** TaggingDirective
+    , TaggingDirective (..)
+
     -- ** Tier
     , Tier (..)
 
@@ -322,6 +388,39 @@ module Network.AWS.S3
     , accessControlPolicy
     , acpGrants
     , acpOwner
+
+    -- ** AnalyticsAndOperator
+    , AnalyticsAndOperator
+    , analyticsAndOperator
+    , aaoPrefix
+    , aaoTags
+
+    -- ** AnalyticsConfiguration
+    , AnalyticsConfiguration
+    , analyticsConfiguration
+    , acFilter
+    , acId
+    , acStorageClassAnalysis
+
+    -- ** AnalyticsExportDestination
+    , AnalyticsExportDestination
+    , analyticsExportDestination
+    , aedS3BucketDestination
+
+    -- ** AnalyticsFilter
+    , AnalyticsFilter
+    , analyticsFilter
+    , afTag
+    , afPrefix
+    , afAnd
+
+    -- ** AnalyticsS3BucketDestination
+    , AnalyticsS3BucketDestination
+    , analyticsS3BucketDestination
+    , asbdBucketAccountId
+    , asbdPrefix
+    , asbdFormat
+    , asbdBucket
 
     -- ** Bucket
     , Bucket
@@ -463,6 +562,40 @@ module Network.AWS.S3
     , iDisplayName
     , iId
 
+    -- ** InventoryConfiguration
+    , InventoryConfiguration
+    , inventoryConfiguration
+    , icOptionalFields
+    , icFilter
+    , icDestination
+    , icIsEnabled
+    , icId
+    , icIncludedObjectVersions
+    , icSchedule
+
+    -- ** InventoryDestination
+    , InventoryDestination
+    , inventoryDestination
+    , idS3BucketDestination
+
+    -- ** InventoryFilter
+    , InventoryFilter
+    , inventoryFilter
+    , ifPrefix
+
+    -- ** InventoryS3BucketDestination
+    , InventoryS3BucketDestination
+    , inventoryS3BucketDestination
+    , isbdPrefix
+    , isbdAccountId
+    , isbdBucket
+    , isbdFormat
+
+    -- ** InventorySchedule
+    , InventorySchedule
+    , inventorySchedule
+    , isFrequency
+
     -- ** LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
     , lambdaFunctionConfiguration
@@ -483,12 +616,26 @@ module Network.AWS.S3
     , lifecycleRule
     , lrTransitions
     , lrNoncurrentVersionExpiration
+    , lrPrefix
     , lrNoncurrentVersionTransitions
     , lrExpiration
     , lrId
+    , lrFilter
     , lrAbortIncompleteMultipartUpload
-    , lrPrefix
     , lrStatus
+
+    -- ** LifecycleRuleAndOperator
+    , LifecycleRuleAndOperator
+    , lifecycleRuleAndOperator
+    , lraoPrefix
+    , lraoTags
+
+    -- ** LifecycleRuleFilter
+    , LifecycleRuleFilter
+    , lifecycleRuleFilter
+    , lrfTag
+    , lrfPrefix
+    , lrfAnd
 
     -- ** LoggingEnabled
     , LoggingEnabled
@@ -496,6 +643,25 @@ module Network.AWS.S3
     , leTargetBucket
     , leTargetGrants
     , leTargetPrefix
+
+    -- ** MetricsAndOperator
+    , MetricsAndOperator
+    , metricsAndOperator
+    , maoPrefix
+    , maoTags
+
+    -- ** MetricsConfiguration
+    , MetricsConfiguration
+    , metricsConfiguration
+    , mcFilter
+    , mcId
+
+    -- ** MetricsFilter
+    , MetricsFilter
+    , metricsFilter
+    , mfTag
+    , mfPrefix
+    , mfAnd
 
     -- ** MultipartUpload
     , MultipartUpload
@@ -639,6 +805,17 @@ module Network.AWS.S3
     , sseCode
     , sseMessage
 
+    -- ** StorageClassAnalysis
+    , StorageClassAnalysis
+    , storageClassAnalysis
+    , scaDataExport
+
+    -- ** StorageClassAnalysisDataExport
+    , StorageClassAnalysisDataExport
+    , storageClassAnalysisDataExport
+    , scadeOutputSchemaVersion
+    , scadeDestination
+
     -- ** Tag
     , Tag
     , tag
@@ -692,20 +869,27 @@ import           Network.AWS.S3.CopyObject
 import           Network.AWS.S3.CreateBucket
 import           Network.AWS.S3.CreateMultipartUpload
 import           Network.AWS.S3.DeleteBucket
+import           Network.AWS.S3.DeleteBucketAnalyticsConfiguration
 import           Network.AWS.S3.DeleteBucketCORS
+import           Network.AWS.S3.DeleteBucketInventoryConfiguration
 import           Network.AWS.S3.DeleteBucketLifecycle
+import           Network.AWS.S3.DeleteBucketMetricsConfiguration
 import           Network.AWS.S3.DeleteBucketPolicy
 import           Network.AWS.S3.DeleteBucketReplication
 import           Network.AWS.S3.DeleteBucketTagging
 import           Network.AWS.S3.DeleteBucketWebsite
 import           Network.AWS.S3.DeleteObject
 import           Network.AWS.S3.DeleteObjects
+import           Network.AWS.S3.DeleteObjectTagging
 import           Network.AWS.S3.GetBucketAccelerateConfiguration
 import           Network.AWS.S3.GetBucketACL
+import           Network.AWS.S3.GetBucketAnalyticsConfiguration
 import           Network.AWS.S3.GetBucketCORS
+import           Network.AWS.S3.GetBucketInventoryConfiguration
 import           Network.AWS.S3.GetBucketLifecycleConfiguration
 import           Network.AWS.S3.GetBucketLocation
 import           Network.AWS.S3.GetBucketLogging
+import           Network.AWS.S3.GetBucketMetricsConfiguration
 import           Network.AWS.S3.GetBucketNotificationConfiguration
 import           Network.AWS.S3.GetBucketPolicy
 import           Network.AWS.S3.GetBucketReplication
@@ -715,10 +899,14 @@ import           Network.AWS.S3.GetBucketVersioning
 import           Network.AWS.S3.GetBucketWebsite
 import           Network.AWS.S3.GetObject
 import           Network.AWS.S3.GetObjectACL
+import           Network.AWS.S3.GetObjectTagging
 import           Network.AWS.S3.GetObjectTorrent
 import           Network.AWS.S3.HeadBucket
 import           Network.AWS.S3.HeadObject
 import           Network.AWS.S3.Internal
+import           Network.AWS.S3.ListBucketAnalyticsConfigurations
+import           Network.AWS.S3.ListBucketInventoryConfigurations
+import           Network.AWS.S3.ListBucketMetricsConfigurations
 import           Network.AWS.S3.ListBuckets
 import           Network.AWS.S3.ListMultipartUploads
 import           Network.AWS.S3.ListObjects
@@ -727,9 +915,12 @@ import           Network.AWS.S3.ListObjectVersions
 import           Network.AWS.S3.ListParts
 import           Network.AWS.S3.PutBucketAccelerateConfiguration
 import           Network.AWS.S3.PutBucketACL
+import           Network.AWS.S3.PutBucketAnalyticsConfiguration
 import           Network.AWS.S3.PutBucketCORS
+import           Network.AWS.S3.PutBucketInventoryConfiguration
 import           Network.AWS.S3.PutBucketLifecycleConfiguration
 import           Network.AWS.S3.PutBucketLogging
+import           Network.AWS.S3.PutBucketMetricsConfiguration
 import           Network.AWS.S3.PutBucketNotificationConfiguration
 import           Network.AWS.S3.PutBucketPolicy
 import           Network.AWS.S3.PutBucketReplication
@@ -739,6 +930,7 @@ import           Network.AWS.S3.PutBucketVersioning
 import           Network.AWS.S3.PutBucketWebsite
 import           Network.AWS.S3.PutObject
 import           Network.AWS.S3.PutObjectACL
+import           Network.AWS.S3.PutObjectTagging
 import           Network.AWS.S3.RestoreObject
 import           Network.AWS.S3.Types
 import           Network.AWS.S3.UploadPart

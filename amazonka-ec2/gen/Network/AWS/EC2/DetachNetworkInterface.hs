@@ -107,7 +107,7 @@ instance ToQuery DetachNetworkInterface where
           = mconcat
               ["Action" =:
                  ("DetachNetworkInterface" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Force" =: _dniForce, "DryRun" =: _dniDryRun,
                "AttachmentId" =: _dniAttachmentId]
 

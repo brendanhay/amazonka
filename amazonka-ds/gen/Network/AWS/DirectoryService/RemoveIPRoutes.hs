@@ -28,7 +28,7 @@ module Network.AWS.DirectoryService.RemoveIPRoutes
     , RemoveIPRoutes
     -- * Request Lenses
     , rirDirectoryId
-    , rirCIdRIPs
+    , rirCidrIPs
 
     -- * Destructuring the Response
     , removeIPRoutesResponse
@@ -47,7 +47,7 @@ import           Network.AWS.Response
 -- | /See:/ 'removeIPRoutes' smart constructor.
 data RemoveIPRoutes = RemoveIPRoutes'
     { _rirDirectoryId :: !Text
-    , _rirCIdRIPs     :: ![Text]
+    , _rirCidrIPs     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveIPRoutes' with the minimum fields required to make a request.
@@ -56,14 +56,14 @@ data RemoveIPRoutes = RemoveIPRoutes'
 --
 -- * 'rirDirectoryId' - Identifier (ID) of the directory from which you want to remove the IP addresses.
 --
--- * 'rirCIdRIPs' - IP address blocks that you want to remove.
+-- * 'rirCidrIPs' - IP address blocks that you want to remove.
 removeIPRoutes
     :: Text -- ^ 'rirDirectoryId'
     -> RemoveIPRoutes
 removeIPRoutes pDirectoryId_ =
     RemoveIPRoutes'
     { _rirDirectoryId = pDirectoryId_
-    , _rirCIdRIPs = mempty
+    , _rirCidrIPs = mempty
     }
 
 -- | Identifier (ID) of the directory from which you want to remove the IP addresses.
@@ -71,8 +71,8 @@ rirDirectoryId :: Lens' RemoveIPRoutes Text
 rirDirectoryId = lens _rirDirectoryId (\ s a -> s{_rirDirectoryId = a});
 
 -- | IP address blocks that you want to remove.
-rirCIdRIPs :: Lens' RemoveIPRoutes [Text]
-rirCIdRIPs = lens _rirCIdRIPs (\ s a -> s{_rirCIdRIPs = a}) . _Coerce;
+rirCidrIPs :: Lens' RemoveIPRoutes [Text]
+rirCidrIPs = lens _rirCidrIPs (\ s a -> s{_rirCidrIPs = a}) . _Coerce;
 
 instance AWSRequest RemoveIPRoutes where
         type Rs RemoveIPRoutes = RemoveIPRoutesResponse
@@ -101,7 +101,7 @@ instance ToJSON RemoveIPRoutes where
           = object
               (catMaybes
                  [Just ("DirectoryId" .= _rirDirectoryId),
-                  Just ("CidrIps" .= _rirCIdRIPs)])
+                  Just ("CidrIps" .= _rirCidrIPs)])
 
 instance ToPath RemoveIPRoutes where
         toPath = const "/"

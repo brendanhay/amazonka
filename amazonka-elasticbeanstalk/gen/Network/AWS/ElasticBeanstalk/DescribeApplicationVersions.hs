@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage bucket.
+-- Retrieve a list of application versions.
 --
 --
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Result message containing a list of configuration descriptions.
+-- | Request to describe application versions.
 --
 --
 --
@@ -64,13 +64,13 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dVersionLabels' - If specified, restricts the returned descriptions to only include ones that have the specified version labels.
+-- * 'dVersionLabels' - Specify a version label to show a specific application version.
 --
 -- * 'dNextToken' - Specify a next token to retrieve the next page in a paginated request.
 --
 -- * 'dMaxRecords' - Specify a maximum number of application versions to paginate in the request.
 --
--- * 'dApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
+-- * 'dApplicationName' - Specify an application name to show only application versions for that application.
 describeApplicationVersions
     :: DescribeApplicationVersions
 describeApplicationVersions =
@@ -81,7 +81,7 @@ describeApplicationVersions =
     , _dApplicationName = Nothing
     }
 
--- | If specified, restricts the returned descriptions to only include ones that have the specified version labels.
+-- | Specify a version label to show a specific application version.
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
 dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
 
@@ -93,7 +93,7 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 dMaxRecords :: Lens' DescribeApplicationVersions (Maybe Natural)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include ones that are associated with the specified application.
+-- | Specify an application name to show only application versions for that application.
 dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
@@ -148,7 +148,7 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davrsApplicationVersions' - List of @ApplicationVersionDescription@ objects sorted by order of creation.
+-- * 'davrsApplicationVersions' - List of @ApplicationVersionDescription@ objects sorted in order of creation.
 --
 -- * 'davrsNextToken' - For a paginated request, the token that you can pass in a subsequent request to get the next page.
 --
@@ -163,7 +163,7 @@ describeApplicationVersionsResponse pResponseStatus_ =
     , _davrsResponseStatus = pResponseStatus_
     }
 
--- | List of @ApplicationVersionDescription@ objects sorted by order of creation.
+-- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 

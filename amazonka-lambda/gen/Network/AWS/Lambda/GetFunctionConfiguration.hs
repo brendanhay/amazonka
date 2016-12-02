@@ -43,6 +43,7 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion

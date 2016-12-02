@@ -47,6 +47,7 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -74,7 +75,7 @@ import           Network.AWS.Response
 data UpdateFunctionCode = UpdateFunctionCode'
     { _uS3ObjectVersion :: !(Maybe Text)
     , _uS3Key           :: !(Maybe Text)
-    , _uZipFile         :: !(Maybe Base64)
+    , _uZipFile         :: !(Maybe (Sensitive Base64))
     , _uS3Bucket        :: !(Maybe Text)
     , _uPublish         :: !(Maybe Bool)
     , _uFunctionName    :: !Text
@@ -118,7 +119,7 @@ uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
 -- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 uZipFile :: Lens' UpdateFunctionCode (Maybe ByteString)
-uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping _Base64;
+uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping (_Sensitive . _Base64);
 
 -- | Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)

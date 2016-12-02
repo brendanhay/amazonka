@@ -36,6 +36,7 @@ module Network.AWS.APIGateway.GetAPIKey
     -- * Response Lenses
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId

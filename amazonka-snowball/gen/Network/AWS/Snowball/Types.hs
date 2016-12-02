@@ -20,7 +20,12 @@ module Network.AWS.Snowball.Types
     , _UnsupportedAddressException
     , _KMSRequestFailedException
     , _InvalidJobStateException
+    , _InvalidInputCombinationException
     , _InvalidAddressException
+    , _ClusterLimitExceededException
+
+    -- * ClusterState
+    , ClusterState (..)
 
     -- * JobState
     , JobState (..)
@@ -33,6 +38,9 @@ module Network.AWS.Snowball.Types
 
     -- * SnowballCapacity
     , SnowballCapacity (..)
+
+    -- * SnowballType
+    , SnowballType (..)
 
     -- * Address
     , Address
@@ -51,6 +59,30 @@ module Network.AWS.Snowball.Types
     , aPrefectureOrDistrict
     , aStreet1
 
+    -- * ClusterListEntry
+    , ClusterListEntry
+    , clusterListEntry
+    , cleClusterState
+    , cleClusterId
+    , cleCreationDate
+    , cleDescription
+
+    -- * ClusterMetadata
+    , ClusterMetadata
+    , clusterMetadata
+    , cmJobType
+    , cmKMSKeyARN
+    , cmClusterState
+    , cmNotification
+    , cmAddressId
+    , cmSnowballType
+    , cmShippingOption
+    , cmResources
+    , cmClusterId
+    , cmCreationDate
+    , cmDescription
+    , cmRoleARN
+
     -- * DataTransfer
     , DataTransfer
     , dataTransfer
@@ -59,11 +91,20 @@ module Network.AWS.Snowball.Types
     , dtObjectsTransferred
     , dtBytesTransferred
 
+    -- * EventTriggerDefinition
+    , EventTriggerDefinition
+    , eventTriggerDefinition
+    , etdEventResourceARN
+
     -- * JobListEntry
     , JobListEntry
     , jobListEntry
+    , jleJobType
     , jleJobId
     , jleJobState
+    , jleSnowballType
+    , jleCreationDate
+    , jleDescription
     , jleIsMaster
 
     -- * JobLogs
@@ -84,8 +125,10 @@ module Network.AWS.Snowball.Types
     , jmJobState
     , jmShippingDetails
     , jmAddressId
+    , jmSnowballType
     , jmDataTransferProgress
     , jmResources
+    , jmClusterId
     , jmCreationDate
     , jmDescription
     , jmRoleARN
@@ -94,6 +137,7 @@ module Network.AWS.Snowball.Types
     -- * JobResource
     , JobResource
     , jobResource
+    , jrLambdaResources
     , jrS3Resources
 
     -- * KeyRange
@@ -101,6 +145,12 @@ module Network.AWS.Snowball.Types
     , keyRange
     , krEndMarker
     , krBeginMarker
+
+    -- * LambdaResource
+    , LambdaResource
+    , lambdaResource
+    , lrEventTriggers
+    , lrLambdaARN
 
     -- * Notification
     , Notification
@@ -195,8 +245,22 @@ _KMSRequestFailedException =
 _InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidJobStateException = _ServiceError . hasCode "InvalidJobStateException"
 
+-- | Job or cluster creation failed. One ore more inputs were invalid. Confirm that the 'CreateClusterRequest$SnowballType' value supports your 'CreateJobRequest$JobType' , and try again.
+--
+--
+_InvalidInputCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidInputCombinationException =
+    _ServiceError . hasCode "InvalidInputCombinationException"
+
 -- | The address provided was invalid. Check the address with your region's carrier, and try again.
 --
 --
 _InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"
+
+-- | Job creation failed. Currently, clusters support five nodes. If you have less than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five notes.
+--
+--
+_ClusterLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_ClusterLimitExceededException =
+    _ServiceError . hasCode "ClusterLimitExceededException"

@@ -145,7 +145,7 @@ instance ToQuery ModifySnapshotAttribute where
           = mconcat
               ["Action" =:
                  ("ModifySnapshotAttribute" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Attribute" =: _msaAttribute,
                "CreateVolumePermission" =:
                  _msaCreateVolumePermission,

@@ -328,7 +328,7 @@ module Network.AWS.DirectoryService
     -- ** IPRoute
     , IPRoute
     , ipRoute
-    , irCIdRIP
+    , irCidrIP
     , irDescription
 
     -- ** IPRouteInfo
@@ -337,7 +337,7 @@ module Network.AWS.DirectoryService
     , iriDirectoryId
     , iriIPRouteStatusReason
     , iriAddedDateTime
-    , iriCIdRIP
+    , iriCidrIP
     , iriIPRouteStatusMsg
     , iriDescription
 

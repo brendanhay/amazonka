@@ -27,6 +27,7 @@ module Network.AWS.SSM.DescribeDocument
       describeDocument
     , DescribeDocument
     -- * Request Lenses
+    , ddDocumentVersion
     , ddName
 
     -- * Destructuring the Response
@@ -45,13 +46,16 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocument' smart constructor.
-newtype DescribeDocument = DescribeDocument'
-    { _ddName :: Text
+data DescribeDocument = DescribeDocument'
+    { _ddDocumentVersion :: !(Maybe Text)
+    , _ddName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDocumentVersion' - The document version for which you want information. Can be a specific version or the default version.
 --
 -- * 'ddName' - The name of the SSM document.
 describeDocument
@@ -59,8 +63,13 @@ describeDocument
     -> DescribeDocument
 describeDocument pName_ =
     DescribeDocument'
-    { _ddName = pName_
+    { _ddDocumentVersion = Nothing
+    , _ddName = pName_
     }
+
+-- | The document version for which you want information. Can be a specific version or the default version.
+ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
+ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a});
 
 -- | The name of the SSM document.
 ddName :: Lens' DescribeDocument Text
@@ -90,7 +99,10 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object (catMaybes [Just ("Name" .= _ddName)])
+          = object
+              (catMaybes
+                 [("DocumentVersion" .=) <$> _ddDocumentVersion,
+                  Just ("Name" .= _ddName)])
 
 instance ToPath DescribeDocument where
         toPath = const "/"

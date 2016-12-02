@@ -112,8 +112,8 @@ module Network.AWS.IoT
     -- ** ListThingTypes
     , module Network.AWS.IoT.ListThingTypes
 
-    -- ** CreateCertificateFromCsr
-    , module Network.AWS.IoT.CreateCertificateFromCsr
+    -- ** CreateCertificateFromCSR
+    , module Network.AWS.IoT.CreateCertificateFromCSR
 
     -- ** DeleteThing
     , module Network.AWS.IoT.DeleteThing
@@ -553,7 +553,7 @@ import           Network.AWS.IoT.AcceptCertificateTransfer
 import           Network.AWS.IoT.AttachPrincipalPolicy
 import           Network.AWS.IoT.AttachThingPrincipal
 import           Network.AWS.IoT.CancelCertificateTransfer
-import           Network.AWS.IoT.CreateCertificateFromCsr
+import           Network.AWS.IoT.CreateCertificateFromCSR
 import           Network.AWS.IoT.CreateKeysAndCertificate
 import           Network.AWS.IoT.CreatePolicy
 import           Network.AWS.IoT.CreatePolicyVersion

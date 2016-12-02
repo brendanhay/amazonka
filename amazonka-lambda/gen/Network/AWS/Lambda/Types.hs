@@ -51,6 +51,20 @@ module Network.AWS.Lambda.Types
     -- * Runtime
     , Runtime (..)
 
+    -- * AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alConcurrentExecutions
+    , alTotalCodeSize
+    , alCodeSizeUnzipped
+    , alCodeSizeZipped
+
+    -- * AccountUsage
+    , AccountUsage
+    , accountUsage
+    , auTotalCodeSize
+    , auFunctionCount
+
     -- * AliasConfiguration
     , AliasConfiguration
     , aliasConfiguration
@@ -58,6 +72,11 @@ module Network.AWS.Lambda.Types
     , acFunctionVersion
     , acAliasARN
     , acDescription
+
+    -- * DeadLetterConfig
+    , DeadLetterConfig
+    , deadLetterConfig
+    , dlcTargetARN
 
     -- * Environment
     , Environment
@@ -110,6 +129,7 @@ module Network.AWS.Lambda.Types
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -322,7 +342,7 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
--- | Lambda was unable to decrypt the environment variables becauses KMS access was denied. Please check the Lambda function's KMS permissions.
+-- | Lambda was unable to decrypt the environment variables because KMS access was denied. Please check the Lambda function's KMS permissions.
 --
 --
 _KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError

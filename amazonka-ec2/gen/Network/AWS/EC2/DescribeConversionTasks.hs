@@ -107,7 +107,7 @@ instance ToQuery DescribeConversionTasks where
           = mconcat
               ["Action" =:
                  ("DescribeConversionTasks" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery
                  (toQueryList "ConversionTaskId" <$>
                     _dctConversionTaskIds),

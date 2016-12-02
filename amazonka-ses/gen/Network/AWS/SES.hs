@@ -440,7 +440,7 @@ module Network.AWS.SES
     , ReceiptIPFilter
     , receiptIPFilter
     , rifPolicy
-    , rifCIdR
+    , rifCidr
 
     -- ** ReceiptRule
     , ReceiptRule

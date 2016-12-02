@@ -39,6 +39,7 @@ module Network.AWS.APIGateway.ImportRestAPI
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
     ) where

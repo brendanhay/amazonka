@@ -11,70 +11,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon EC2 Simple Systems Manager (SSM) enables you to remotely manage the configuration of your Amazon EC2 instances, virtual machines (VMs), or servers in your on-premises environment or in an environment provided by other cloud providers using scripts, commands, or the Amazon EC2 console. SSM includes an on-demand solution called /Amazon EC2 Run Command/ and a lightweight instance configuration solution called /SSM Config/ .
+-- Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager works with managed instances: Amazon EC2 instances and servers or virtual machines (VMs) in your on-premises environment that are configured for Systems Manager.
 --
 --
--- This references is intended to be used with the EC2 Run Command User Guide for <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/execute-remote-commands.html Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/execute-remote-commands.html Windows> .
+-- This references is intended to be used with the EC2 Systems Manager User Guide (<http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager.html Linux> ) (<http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager.html Windows> ).
 --
--- __Run Command__
---
--- Run Command provides an on-demand experience for executing commands. You can use pre-defined SSM documents to perform the actions listed later in this section, or you can create your own documents. With these documents, you can remotely configure your instances by sending commands using the __Commands__ page in the <http://console.aws.amazon.com/ec2/ Amazon EC2 console> , <http://docs.aws.amazon.com/powershell/latest/reference/items/Amazon_Simple_Systems_Management_cmdlets.html AWS Tools for Windows PowerShell> , the <http://docs.aws.amazon.com/cli/latest/reference/ssm/index.html AWS CLI> , or AWS SDKs.
---
--- Run Command reports the status of the command execution for each instance targeted by a command. You can also audit the command execution to understand who executed commands, when, and what changes were made. By switching between different SSM documents, you can quickly configure your instances with different types of commands. To get started with Run Command, verify that your environment meets the prerequisites for remotely running commands on EC2 instances (<http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/remote-commands-prereq.html Linux> or <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/remote-commands-prereq.html Windows> ).
---
---
---
--- __SSM Config__
---
--- SSM Config is a lightweight instance configuration solution. SSM Config is currently only available for Windows instances. With SSM Config, you can specify a setup configuration for your instances. SSM Config is similar to EC2 User Data, which is another way of running one-time scripts or applying settings during instance launch. SSM Config is an extension of this capability. Using SSM documents, you can specify which actions the system should perform on your instances, including which applications to install, which AWS Directory Service directory to join, which Microsoft PowerShell modules to install, etc. If an instance is missing one or more of these configurations, the system makes those changes. By default, the system checks every five minutes to see if there is a new configuration to apply as defined in a new SSM document. If so, the system updates the instances accordingly. In this way, you can remotely maintain a consistent configuration baseline on your instances. SSM Config is available using the AWS CLI or the AWS Tools for Windows PowerShell. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-configuration-manage.html Managing Windows Instance Configuration> .
---
--- SSM Config and Run Command include the following pre-defined documents.
---
--- __Linux__
---
---     * __AWS-RunShellScript__ to run shell scripts
---
---     * __AWS-UpdateSSMAgent__ to update the Amazon SSM agent
---
---
---
---
---
--- __Windows__
---
---     * __AWS-JoinDirectoryServiceDomain__ to join an AWS Directory
---
---     * __AWS-RunPowerShellScript__ to run PowerShell commands or scripts
---
---     * __AWS-UpdateEC2Config__ to update the EC2Config service
---
---     * __AWS-ConfigureWindowsUpdate__ to configure Windows Update settings
---
---     * __AWS-InstallApplication__ to install, repair, or uninstall software using an MSI package
---
---     * __AWS-InstallPowerShellModule__ to install PowerShell modules
---
---     * __AWS-ConfigureCloudWatch__ to configure Amazon CloudWatch Logs to monitor applications and systems
---
---     * __AWS-ListWindowsInventory__ to collect information about an EC2 instance running in Windows.
---
---     * __AWS-FindWindowsUpdates__ to scan an instance and determines which updates are missing.
---
---     * __AWS-InstallMissingWindowsUpdates__ to install missing updates on your EC2 instance.
---
---     * __AWS-InstallSpecificWindowsUpdates__ to install one or more specific updates.
---
---
---
--- /Important:/ The commands or scripts specified in SSM documents run with administrative privilege on your instances because the Amazon SSM agent runs as root on Linux and the EC2Config service runs in the Local System account on Windows. If a user has permission to execute any of the pre-defined SSM documents (any document that begins with AWS-*) then that user also has administrator access to the instance. Delegate access to Run Command and SSM Config judiciously. This becomes extremely important if you create your own SSM documents. Amazon Web Services does not provide guidance about how to create secure SSM documents. You create SSM documents and delegate access to Run Command at your own risk. As a security best practice, we recommend that you assign access to "AWS-*" documents, especially the AWS-RunShellScript document on Linux and the AWS-RunPowerShellScript document on Windows, to trusted administrators only. You can create SSM documents for specific tasks and delegate access to non-administrators.
---
--- For information about creating and sharing SSM documents, see the following topics in the SSM User Guide:
---
---     * <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-ssm-doc.html Creating SSM Documents> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssm-sharing.html Sharing SSM Documents> (Linux)
---
---     * <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/create-ssm-doc.html Creating SSM Documents> and <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ssm-sharing.html Sharing SSM Documents> (Windows)
---
---
+-- To get started, verify prerequisites and configure managed instances (<http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/systems-manager-prereqs.html Linux> ) (<http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/systems-manager-prereqs.html Windows> ).
 --
 module Network.AWS.SSM
     (
@@ -84,8 +26,29 @@ module Network.AWS.SSM
     -- * Errors
     -- $errors
 
+    -- ** AutomationDefinitionVersionNotFoundException
+    , _AutomationDefinitionVersionNotFoundException
+
+    -- ** InvalidDocumentVersion
+    , _InvalidDocumentVersion
+
+    -- ** InvalidSchedule
+    , _InvalidSchedule
+
+    -- ** UnsupportedParameterType
+    , _UnsupportedParameterType
+
+    -- ** InvalidPluginName
+    , _InvalidPluginName
+
     -- ** UnsupportedPlatformType
     , _UnsupportedPlatformType
+
+    -- ** InvalidFilterValue
+    , _InvalidFilterValue
+
+    -- ** InvalidItemContentException
+    , _InvalidItemContentException
 
     -- ** InvalidPermissionType
     , _InvalidPermissionType
@@ -108,6 +71,12 @@ module Network.AWS.SSM
     -- ** InvalidActivationId
     , _InvalidActivationId
 
+    -- ** InvalidResultAttributeException
+    , _InvalidResultAttributeException
+
+    -- ** ResourceLimitExceededException
+    , _ResourceLimitExceededException
+
     -- ** InvalidCommandId
     , _InvalidCommandId
 
@@ -117,14 +86,47 @@ module Network.AWS.SSM
     -- ** InvalidResourceType
     , _InvalidResourceType
 
+    -- ** UnsupportedInventorySchemaVersionException
+    , _UnsupportedInventorySchemaVersionException
+
     -- ** InvalidDocument
     , _InvalidDocument
+
+    -- ** AutomationDefinitionNotFoundException
+    , _AutomationDefinitionNotFoundException
 
     -- ** InvalidFilterKey
     , _InvalidFilterKey
 
+    -- ** InvalidAutomationExecutionParametersException
+    , _InvalidAutomationExecutionParametersException
+
+    -- ** AutomationExecutionNotFoundException
+    , _AutomationExecutionNotFoundException
+
+    -- ** InvalidTypeNameException
+    , _InvalidTypeNameException
+
+    -- ** ItemSizeLimitExceededException
+    , _ItemSizeLimitExceededException
+
+    -- ** DoesNotExistException
+    , _DoesNotExistException
+
+    -- ** AutomationExecutionLimitExceededException
+    , _AutomationExecutionLimitExceededException
+
+    -- ** IdempotentParameterMismatch
+    , _IdempotentParameterMismatch
+
     -- ** InvalidInstanceInformationFilterValue
     , _InvalidInstanceInformationFilterValue
+
+    -- ** ItemContentMismatchException
+    , _ItemContentMismatchException
+
+    -- ** ParameterAlreadyExists
+    , _ParameterAlreadyExists
 
     -- ** AssociationAlreadyExists
     , _AssociationAlreadyExists
@@ -132,11 +134,17 @@ module Network.AWS.SSM
     -- ** InvalidDocumentContent
     , _InvalidDocumentContent
 
+    -- ** ParameterLimitExceeded
+    , _ParameterLimitExceeded
+
     -- ** AssociationLimitExceeded
     , _AssociationLimitExceeded
 
     -- ** AssociationDoesNotExist
     , _AssociationDoesNotExist
+
+    -- ** ParameterNotFound
+    , _ParameterNotFound
 
     -- ** InternalServerError
     , _InternalServerError
@@ -150,11 +158,35 @@ module Network.AWS.SSM
     -- ** InvalidActivation
     , _InvalidActivation
 
+    -- ** InvalidDocumentSchemaVersion
+    , _InvalidDocumentSchemaVersion
+
     -- ** MaxDocumentSizeExceeded
     , _MaxDocumentSizeExceeded
 
+    -- ** InvalidUpdate
+    , _InvalidUpdate
+
+    -- ** CustomSchemaCountLimitExceededException
+    , _CustomSchemaCountLimitExceededException
+
+    -- ** InvalidTarget
+    , _InvalidTarget
+
     -- ** InvalidDocumentOperation
     , _InvalidDocumentOperation
+
+    -- ** InvocationDoesNotExist
+    , _InvocationDoesNotExist
+
+    -- ** DocumentVersionLimitExceeded
+    , _DocumentVersionLimitExceeded
+
+    -- ** InvalidOutputLocation
+    , _InvalidOutputLocation
+
+    -- ** InvalidKeyId
+    , _InvalidKeyId
 
     -- ** InvalidParameters
     , _InvalidParameters
@@ -165,8 +197,17 @@ module Network.AWS.SSM
     -- ** InvalidNotificationConfig
     , _InvalidNotificationConfig
 
+    -- ** TotalSizeLimitExceededException
+    , _TotalSizeLimitExceededException
+
+    -- ** TooManyTagsError
+    , _TooManyTagsError
+
     -- ** DocumentPermissionLimit
     , _DocumentPermissionLimit
+
+    -- ** DuplicateDocumentContent
+    , _DuplicateDocumentContent
 
     -- ** DocumentAlreadyExists
     , _DocumentAlreadyExists
@@ -183,6 +224,18 @@ module Network.AWS.SSM
     -- * Operations
     -- $operations
 
+    -- ** GetInventory
+    , module Network.AWS.SSM.GetInventory
+
+    -- ** GetParameters
+    , module Network.AWS.SSM.GetParameters
+
+    -- ** UpdateDocumentDefaultVersion
+    , module Network.AWS.SSM.UpdateDocumentDefaultVersion
+
+    -- ** DescribeParameters
+    , module Network.AWS.SSM.DescribeParameters
+
     -- ** DescribeActivations
     , module Network.AWS.SSM.DescribeActivations
 
@@ -198,8 +251,29 @@ module Network.AWS.SSM
     -- ** DeleteActivation
     , module Network.AWS.SSM.DeleteActivation
 
+    -- ** DescribeMaintenanceWindowExecutions
+    , module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
+
+    -- ** GetInventorySchema
+    , module Network.AWS.SSM.GetInventorySchema
+
+    -- ** StartAutomationExecution
+    , module Network.AWS.SSM.StartAutomationExecution
+
     -- ** CreateActivation
     , module Network.AWS.SSM.CreateActivation
+
+    -- ** DeleteMaintenanceWindow
+    , module Network.AWS.SSM.DeleteMaintenanceWindow
+
+    -- ** UpdateMaintenanceWindow
+    , module Network.AWS.SSM.UpdateMaintenanceWindow
+
+    -- ** DescribeMaintenanceWindowExecutionTasks
+    , module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
+
+    -- ** GetMaintenanceWindowExecutionTask
+    , module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
 
     -- ** CreateDocument
     , module Network.AWS.SSM.CreateDocument
@@ -209,6 +283,12 @@ module Network.AWS.SSM
 
     -- ** ListCommandInvocations (Paginated)
     , module Network.AWS.SSM.ListCommandInvocations
+
+    -- ** DeregisterTargetFromMaintenanceWindow
+    , module Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
+
+    -- ** DescribeMaintenanceWindowTargets
+    , module Network.AWS.SSM.DescribeMaintenanceWindowTargets
 
     -- ** ListDocuments (Paginated)
     , module Network.AWS.SSM.ListDocuments
@@ -225,6 +305,9 @@ module Network.AWS.SSM
     -- ** CancelCommand
     , module Network.AWS.SSM.CancelCommand
 
+    -- ** GetCommandInvocation
+    , module Network.AWS.SSM.GetCommandInvocation
+
     -- ** DeregisterManagedInstance
     , module Network.AWS.SSM.DeregisterManagedInstance
 
@@ -237,6 +320,51 @@ module Network.AWS.SSM
     -- ** UpdateAssociationStatus
     , module Network.AWS.SSM.UpdateAssociationStatus
 
+    -- ** ListDocumentVersions
+    , module Network.AWS.SSM.ListDocumentVersions
+
+    -- ** GetMaintenanceWindow
+    , module Network.AWS.SSM.GetMaintenanceWindow
+
+    -- ** DescribeMaintenanceWindows
+    , module Network.AWS.SSM.DescribeMaintenanceWindows
+
+    -- ** RegisterTaskWithMaintenanceWindow
+    , module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
+
+    -- ** DescribeMaintenanceWindowTasks
+    , module Network.AWS.SSM.DescribeMaintenanceWindowTasks
+
+    -- ** DescribeInstanceAssociationsStatus
+    , module Network.AWS.SSM.DescribeInstanceAssociationsStatus
+
+    -- ** DeregisterTaskFromMaintenanceWindow
+    , module Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
+
+    -- ** ListInventoryEntries
+    , module Network.AWS.SSM.ListInventoryEntries
+
+    -- ** GetParameterHistory
+    , module Network.AWS.SSM.GetParameterHistory
+
+    -- ** CreateMaintenanceWindow
+    , module Network.AWS.SSM.CreateMaintenanceWindow
+
+    -- ** StopAutomationExecution
+    , module Network.AWS.SSM.StopAutomationExecution
+
+    -- ** GetMaintenanceWindowExecution
+    , module Network.AWS.SSM.GetMaintenanceWindowExecution
+
+    -- ** PutParameter
+    , module Network.AWS.SSM.PutParameter
+
+    -- ** DescribeMaintenanceWindowExecutionTaskInvocations
+    , module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
+
+    -- ** DeleteParameter
+    , module Network.AWS.SSM.DeleteParameter
+
     -- ** DescribeInstanceInformation
     , module Network.AWS.SSM.DescribeInstanceInformation
 
@@ -246,11 +374,32 @@ module Network.AWS.SSM
     -- ** DeleteAssociation
     , module Network.AWS.SSM.DeleteAssociation
 
+    -- ** UpdateAssociation
+    , module Network.AWS.SSM.UpdateAssociation
+
+    -- ** PutInventory
+    , module Network.AWS.SSM.PutInventory
+
+    -- ** DescribeEffectiveInstanceAssociations
+    , module Network.AWS.SSM.DescribeEffectiveInstanceAssociations
+
+    -- ** DescribeAutomationExecutions
+    , module Network.AWS.SSM.DescribeAutomationExecutions
+
+    -- ** GetAutomationExecution
+    , module Network.AWS.SSM.GetAutomationExecution
+
     -- ** SendCommand
     , module Network.AWS.SSM.SendCommand
 
+    -- ** RegisterTargetWithMaintenanceWindow
+    , module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
+
     -- ** ListCommands (Paginated)
     , module Network.AWS.SSM.ListCommands
+
+    -- ** UpdateDocument
+    , module Network.AWS.SSM.UpdateDocument
 
     -- ** DeleteDocument
     , module Network.AWS.SSM.DeleteDocument
@@ -268,6 +417,12 @@ module Network.AWS.SSM
 
     -- ** AssociationStatusName
     , AssociationStatusName (..)
+
+    -- ** AutomationExecutionFilterKey
+    , AutomationExecutionFilterKey (..)
+
+    -- ** AutomationExecutionStatus
+    , AutomationExecutionStatus (..)
 
     -- ** CommandFilterKey
     , CommandFilterKey (..)
@@ -299,17 +454,41 @@ module Network.AWS.SSM
     -- ** DocumentStatus
     , DocumentStatus (..)
 
+    -- ** DocumentType
+    , DocumentType (..)
+
     -- ** Fault
     , Fault (..)
 
     -- ** InstanceInformationFilterKey
     , InstanceInformationFilterKey (..)
 
+    -- ** InventoryAttributeDataType
+    , InventoryAttributeDataType (..)
+
+    -- ** InventoryQueryOperatorType
+    , InventoryQueryOperatorType (..)
+
+    -- ** MaintenanceWindowExecutionStatus
+    , MaintenanceWindowExecutionStatus (..)
+
+    -- ** MaintenanceWindowResourceType
+    , MaintenanceWindowResourceType (..)
+
+    -- ** MaintenanceWindowTaskType
+    , MaintenanceWindowTaskType (..)
+
     -- ** NotificationEvent
     , NotificationEvent (..)
 
     -- ** NotificationType
     , NotificationType (..)
+
+    -- ** ParameterType
+    , ParameterType (..)
+
+    -- ** ParametersFilterKey
+    , ParametersFilterKey (..)
 
     -- ** PingStatus
     , PingStatus (..)
@@ -339,23 +518,45 @@ module Network.AWS.SSM
     -- ** Association
     , Association
     , association
+    , aAssociationId
     , aInstanceId
+    , aOverview
+    , aLastExecutionDate
+    , aScheduleExpression
     , aName
+    , aTargets
+    , aDocumentVersion
 
     -- ** AssociationDescription
     , AssociationDescription
     , associationDescription
+    , adAssociationId
     , adInstanceId
     , adStatus
+    , adLastSuccessfulExecutionDate
+    , adOverview
+    , adLastUpdateAssociationDate
     , adDate
+    , adLastExecutionDate
+    , adScheduleExpression
     , adName
+    , adOutputLocation
+    , adTargets
     , adParameters
+    , adDocumentVersion
 
     -- ** AssociationFilter
     , AssociationFilter
     , associationFilter
     , afKey
     , afValue
+
+    -- ** AssociationOverview
+    , AssociationOverview
+    , associationOverview
+    , aoDetailedStatus
+    , aoStatus
+    , aoAssociationStatusAggregatedCount
 
     -- ** AssociationStatus
     , AssociationStatus
@@ -365,19 +566,60 @@ module Network.AWS.SSM
     , asName
     , asMessage
 
+    -- ** AutomationExecution
+    , AutomationExecution
+    , automationExecution
+    , aeDocumentName
+    , aeExecutionEndTime
+    , aeFailureMessage
+    , aeAutomationExecutionStatus
+    , aeOutputs
+    , aeExecutionStartTime
+    , aeParameters
+    , aeDocumentVersion
+    , aeAutomationExecutionId
+    , aeStepExecutions
+
+    -- ** AutomationExecutionFilter
+    , AutomationExecutionFilter
+    , automationExecutionFilter
+    , aefKey
+    , aefValues
+
+    -- ** AutomationExecutionMetadata
+    , AutomationExecutionMetadata
+    , automationExecutionMetadata
+    , aemLogFile
+    , aemExecutedBy
+    , aemDocumentName
+    , aemExecutionEndTime
+    , aemAutomationExecutionStatus
+    , aemOutputs
+    , aemExecutionStartTime
+    , aemDocumentVersion
+    , aemAutomationExecutionId
+
     -- ** Command
     , Command
     , command
     , cStatus
     , cExpiresAfter
     , cNotificationConfig
+    , cTargetCount
     , cOutputS3KeyPrefix
     , cDocumentName
+    , cErrorCount
+    , cStatusDetails
+    , cMaxErrors
     , cInstanceIds
+    , cOutputS3Region
+    , cTargets
     , cCommandId
     , cParameters
     , cComment
+    , cCompletedCount
     , cOutputS3BucketName
+    , cMaxConcurrency
     , cRequestedDateTime
     , cServiceRole
 
@@ -395,9 +637,13 @@ module Network.AWS.SSM
     , ciNotificationConfig
     , ciCommandPlugins
     , ciDocumentName
+    , ciStandardErrorURL
+    , ciStatusDetails
+    , ciStandardOutputURL
     , ciCommandId
     , ciComment
     , ciTraceOutput
+    , ciInstanceName
     , ciRequestedDateTime
     , ciServiceRole
 
@@ -407,9 +653,13 @@ module Network.AWS.SSM
     , cpStatus
     , cpResponseStartDateTime
     , cpOutputS3KeyPrefix
+    , cpStandardErrorURL
     , cpResponseCode
+    , cpStatusDetails
     , cpOutput
+    , cpStandardOutputURL
     , cpName
+    , cpOutputS3Region
     , cpOutputS3BucketName
     , cpResponseFinishDateTime
 
@@ -417,8 +667,12 @@ module Network.AWS.SSM
     , CreateAssociationBatchRequestEntry
     , createAssociationBatchRequestEntry
     , cabreInstanceId
-    , cabreName
+    , cabreScheduleExpression
+    , cabreOutputLocation
+    , cabreTargets
     , cabreParameters
+    , cabreDocumentVersion
+    , cabreName
 
     -- ** DescribeActivationsFilter
     , DescribeActivationsFilter
@@ -426,19 +680,30 @@ module Network.AWS.SSM
     , dafFilterKey
     , dafFilterValues
 
+    -- ** DocumentDefaultVersionDescription
+    , DocumentDefaultVersionDescription
+    , documentDefaultVersionDescription
+    , ddvdDefaultVersion
+    , ddvdName
+
     -- ** DocumentDescription
     , DocumentDescription
     , documentDescription
     , dStatus
+    , dDocumentType
     , dHash
+    , dSchemaVersion
     , dSha1
+    , dDefaultVersion
     , dOwner
     , dPlatformTypes
     , dCreatedDate
     , dName
     , dHashType
     , dParameters
+    , dDocumentVersion
     , dDescription
+    , dLatestVersion
 
     -- ** DocumentFilter
     , DocumentFilter
@@ -449,9 +714,12 @@ module Network.AWS.SSM
     -- ** DocumentIdentifier
     , DocumentIdentifier
     , documentIdentifier
+    , diDocumentType
+    , diSchemaVersion
     , diOwner
     , diPlatformTypes
     , diName
+    , diDocumentVersion
 
     -- ** DocumentParameter
     , DocumentParameter
@@ -461,12 +729,57 @@ module Network.AWS.SSM
     , dpType
     , dpDescription
 
+    -- ** DocumentVersionInfo
+    , DocumentVersionInfo
+    , documentVersionInfo
+    , dviCreatedDate
+    , dviName
+    , dviDocumentVersion
+    , dviIsDefaultVersion
+
     -- ** FailedCreateAssociation
     , FailedCreateAssociation
     , failedCreateAssociation
     , fcaEntry
     , fcaFault
     , fcaMessage
+
+    -- ** InstanceAggregatedAssociationOverview
+    , InstanceAggregatedAssociationOverview
+    , instanceAggregatedAssociationOverview
+    , iaaoDetailedStatus
+    , iaaoInstanceAssociationStatusAggregatedCount
+
+    -- ** InstanceAssociation
+    , InstanceAssociation
+    , instanceAssociation
+    , iaAssociationId
+    , iaInstanceId
+    , iaContent
+
+    -- ** InstanceAssociationOutputLocation
+    , InstanceAssociationOutputLocation
+    , instanceAssociationOutputLocation
+    , iaolS3Location
+
+    -- ** InstanceAssociationOutputURL
+    , InstanceAssociationOutputURL
+    , instanceAssociationOutputURL
+    , iaouS3OutputURL
+
+    -- ** InstanceAssociationStatusInfo
+    , InstanceAssociationStatusInfo
+    , instanceAssociationStatusInfo
+    , iasiAssociationId
+    , iasiInstanceId
+    , iasiDetailedStatus
+    , iasiStatus
+    , iasiOutputURL
+    , iasiExecutionSummary
+    , iasiName
+    , iasiErrorCode
+    , iasiDocumentVersion
+    , iasiExecutionDate
 
     -- ** InstanceInformation
     , InstanceInformation
@@ -480,9 +793,13 @@ module Network.AWS.SSM
     , iiIsLatestVersion
     , iiAgentVersion
     , iiLastPingDateTime
+    , iiLastSuccessfulAssociationExecutionDate
     , iiActivationId
     , iiName
     , iiPlatformType
+    , iiAssociationOverview
+    , iiAssociationStatus
+    , iiLastAssociationExecutionDate
     , iiPlatformName
     , iiComputerName
     , iiIAMRole
@@ -493,6 +810,144 @@ module Network.AWS.SSM
     , iifKey
     , iifValueSet
 
+    -- ** InstanceInformationStringFilter
+    , InstanceInformationStringFilter
+    , instanceInformationStringFilter
+    , iisfKey
+    , iisfValues
+
+    -- ** InventoryFilter
+    , InventoryFilter
+    , inventoryFilter
+    , ifType
+    , ifKey
+    , ifValues
+
+    -- ** InventoryItem
+    , InventoryItem
+    , inventoryItem
+    , iiContentHash
+    , iiContent
+    , iiTypeName
+    , iiSchemaVersion
+    , iiCaptureTime
+
+    -- ** InventoryItemAttribute
+    , InventoryItemAttribute
+    , inventoryItemAttribute
+    , iiaName
+    , iiaDataType
+
+    -- ** InventoryItemSchema
+    , InventoryItemSchema
+    , inventoryItemSchema
+    , iisVersion
+    , iisTypeName
+    , iisAttributes
+
+    -- ** InventoryResultEntity
+    , InventoryResultEntity
+    , inventoryResultEntity
+    , ireData
+    , ireId
+
+    -- ** InventoryResultItem
+    , InventoryResultItem
+    , inventoryResultItem
+    , iriContentHash
+    , iriCaptureTime
+    , iriTypeName
+    , iriSchemaVersion
+    , iriContent
+
+    -- ** LoggingInfo
+    , LoggingInfo
+    , loggingInfo
+    , liS3KeyPrefix
+    , liS3BucketName
+    , liS3Region
+
+    -- ** MaintenanceWindowExecution
+    , MaintenanceWindowExecution
+    , maintenanceWindowExecution
+    , mweStatus
+    , mweStartTime
+    , mweWindowExecutionId
+    , mweStatusDetails
+    , mweEndTime
+    , mweWindowId
+
+    -- ** MaintenanceWindowExecutionTaskIdentity
+    , MaintenanceWindowExecutionTaskIdentity
+    , maintenanceWindowExecutionTaskIdentity
+    , mwetiStatus
+    , mwetiTaskExecutionId
+    , mwetiStartTime
+    , mwetiTaskType
+    , mwetiTaskARN
+    , mwetiWindowExecutionId
+    , mwetiStatusDetails
+    , mwetiEndTime
+
+    -- ** MaintenanceWindowExecutionTaskInvocationIdentity
+    , MaintenanceWindowExecutionTaskInvocationIdentity
+    , maintenanceWindowExecutionTaskInvocationIdentity
+    , mwetiiStatus
+    , mwetiiExecutionId
+    , mwetiiTaskExecutionId
+    , mwetiiStartTime
+    , mwetiiInvocationId
+    , mwetiiOwnerInformation
+    , mwetiiWindowTargetId
+    , mwetiiWindowExecutionId
+    , mwetiiStatusDetails
+    , mwetiiEndTime
+    , mwetiiParameters
+
+    -- ** MaintenanceWindowFilter
+    , MaintenanceWindowFilter
+    , maintenanceWindowFilter
+    , mwfValues
+    , mwfKey
+
+    -- ** MaintenanceWindowIdentity
+    , MaintenanceWindowIdentity
+    , maintenanceWindowIdentity
+    , mwiEnabled
+    , mwiName
+    , mwiCutoff
+    , mwiDuration
+    , mwiWindowId
+
+    -- ** MaintenanceWindowTarget
+    , MaintenanceWindowTarget
+    , maintenanceWindowTarget
+    , mResourceType
+    , mOwnerInformation
+    , mWindowTargetId
+    , mTargets
+    , mWindowId
+
+    -- ** MaintenanceWindowTask
+    , MaintenanceWindowTask
+    , maintenanceWindowTask
+    , mwtServiceRoleARN
+    , mwtWindowTaskId
+    , mwtTaskParameters
+    , mwtPriority
+    , mwtTaskARN
+    , mwtMaxErrors
+    , mwtTargets
+    , mwtLoggingInfo
+    , mwtType
+    , mwtMaxConcurrency
+    , mwtWindowId
+
+    -- ** MaintenanceWindowTaskParameterValueExpression
+    , MaintenanceWindowTaskParameterValueExpression
+    , maintenanceWindowTaskParameterValueExpression
+    , mwtpveValues
+
     -- ** NotificationConfig
     , NotificationConfig
     , notificationConfig
@@ -500,11 +955,82 @@ module Network.AWS.SSM
     , ncNotificationType
     , ncNotificationARN
 
+    -- ** Parameter
+    , Parameter
+    , parameter
+    , pValue
+    , pName
+    , pType
+
+    -- ** ParameterHistory
+    , ParameterHistory
+    , parameterHistory
+    , phLastModifiedDate
+    , phKeyId
+    , phValue
+    , phName
+    , phLastModifiedUser
+    , phType
+    , phDescription
+
+    -- ** ParameterMetadata
+    , ParameterMetadata
+    , parameterMetadata
+    , pmLastModifiedDate
+    , pmKeyId
+    , pmName
+    , pmLastModifiedUser
+    , pmType
+    , pmDescription
+
+    -- ** ParametersFilter
+    , ParametersFilter
+    , parametersFilter
+    , pfKey
+    , pfValues
+
+    -- ** ResultAttribute
+    , ResultAttribute
+    , resultAttribute
+    , raTypeName
+
+    -- ** S3OutputLocation
+    , S3OutputLocation
+    , s3OutputLocation
+    , solOutputS3KeyPrefix
+    , solOutputS3Region
+    , solOutputS3BucketName
+
+    -- ** S3OutputURL
+    , S3OutputURL
+    , s3OutputURL
+    , souOutputURL
+
+    -- ** StepExecution
+    , StepExecution
+    , stepExecution
+    , seInputs
+    , seStepName
+    , seExecutionEndTime
+    , seFailureMessage
+    , seResponse
+    , seAction
+    , seResponseCode
+    , seStepStatus
+    , seOutputs
+    , seExecutionStartTime
+
     -- ** Tag
     , Tag
     , tag
     , tagKey
     , tagValue
+
+    -- ** Target
+    , Target
+    , target
+    , tValues
+    , tKey
     ) where
 
 import           Network.AWS.SSM.AddTagsToResource
@@ -513,26 +1039,62 @@ import           Network.AWS.SSM.CreateActivation
 import           Network.AWS.SSM.CreateAssociation
 import           Network.AWS.SSM.CreateAssociationBatch
 import           Network.AWS.SSM.CreateDocument
+import           Network.AWS.SSM.CreateMaintenanceWindow
 import           Network.AWS.SSM.DeleteActivation
 import           Network.AWS.SSM.DeleteAssociation
 import           Network.AWS.SSM.DeleteDocument
+import           Network.AWS.SSM.DeleteMaintenanceWindow
+import           Network.AWS.SSM.DeleteParameter
 import           Network.AWS.SSM.DeregisterManagedInstance
+import           Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
+import           Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
 import           Network.AWS.SSM.DescribeActivations
 import           Network.AWS.SSM.DescribeAssociation
+import           Network.AWS.SSM.DescribeAutomationExecutions
 import           Network.AWS.SSM.DescribeDocument
 import           Network.AWS.SSM.DescribeDocumentPermission
+import           Network.AWS.SSM.DescribeEffectiveInstanceAssociations
+import           Network.AWS.SSM.DescribeInstanceAssociationsStatus
 import           Network.AWS.SSM.DescribeInstanceInformation
+import           Network.AWS.SSM.DescribeMaintenanceWindowExecutions
+import           Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
+import           Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
+import           Network.AWS.SSM.DescribeMaintenanceWindows
+import           Network.AWS.SSM.DescribeMaintenanceWindowTargets
+import           Network.AWS.SSM.DescribeMaintenanceWindowTasks
+import           Network.AWS.SSM.DescribeParameters
+import           Network.AWS.SSM.GetAutomationExecution
+import           Network.AWS.SSM.GetCommandInvocation
 import           Network.AWS.SSM.GetDocument
+import           Network.AWS.SSM.GetInventory
+import           Network.AWS.SSM.GetInventorySchema
+import           Network.AWS.SSM.GetMaintenanceWindow
+import           Network.AWS.SSM.GetMaintenanceWindowExecution
+import           Network.AWS.SSM.GetMaintenanceWindowExecutionTask
+import           Network.AWS.SSM.GetParameterHistory
+import           Network.AWS.SSM.GetParameters
 import           Network.AWS.SSM.ListAssociations
 import           Network.AWS.SSM.ListCommandInvocations
 import           Network.AWS.SSM.ListCommands
 import           Network.AWS.SSM.ListDocuments
+import           Network.AWS.SSM.ListDocumentVersions
+import           Network.AWS.SSM.ListInventoryEntries
 import           Network.AWS.SSM.ListTagsForResource
 import           Network.AWS.SSM.ModifyDocumentPermission
+import           Network.AWS.SSM.PutInventory
+import           Network.AWS.SSM.PutParameter
+import           Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
+import           Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
 import           Network.AWS.SSM.RemoveTagsFromResource
 import           Network.AWS.SSM.SendCommand
+import           Network.AWS.SSM.StartAutomationExecution
+import           Network.AWS.SSM.StopAutomationExecution
 import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.UpdateAssociation
 import           Network.AWS.SSM.UpdateAssociationStatus
+import           Network.AWS.SSM.UpdateDocument
+import           Network.AWS.SSM.UpdateDocumentDefaultVersion
+import           Network.AWS.SSM.UpdateMaintenanceWindow
 import           Network.AWS.SSM.UpdateManagedInstanceRole
 import           Network.AWS.SSM.Waiters
 

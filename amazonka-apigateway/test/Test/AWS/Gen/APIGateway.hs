@@ -76,6 +76,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetRestAPIs $
 --             getRestAPIs
 --
+--         , requestGetDocumentationVersions $
+--             getDocumentationVersions
+--
 --         , requestCreateDeployment $
 --             createDeployment
 --
@@ -84,6 +87,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestGetIntegration $
 --             getIntegration
+--
+--         , requestGetDocumentationParts $
+--             getDocumentationParts
 --
 --         , requestUpdateAccount $
 --             updateAccount
@@ -97,11 +103,17 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateDeployment $
 --             updateDeployment
 --
+--         , requestGetDocumentationPart $
+--             getDocumentationPart
+--
 --         , requestDeleteResource $
 --             deleteResource
 --
 --         , requestUpdateResource $
 --             updateResource
+--
+--         , requestImportDocumentationParts $
+--             importDocumentationParts
 --
 --         , requestGetUsage $
 --             getUsage
@@ -123,6 +135,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestUpdateModel $
 --             updateModel
+--
+--         , requestGetDocumentationVersion $
+--             getDocumentationVersion
 --
 --         , requestDeleteAPIKey $
 --             deleteAPIKey
@@ -154,14 +169,26 @@ import Test.AWS.APIGateway.Internal
 --         , requestImportAPIKeys $
 --             importAPIKeys
 --
+--         , requestCreateDocumentationPart $
+--             createDocumentationPart
+--
 --         , requestTestInvokeMethod $
 --             testInvokeMethod
 --
 --         , requestGetDomainName $
 --             getDomainName
 --
+--         , requestDeleteDocumentationPart $
+--             deleteDocumentationPart
+--
+--         , requestUpdateDocumentationPart $
+--             updateDocumentationPart
+--
 --         , requestGetAuthorizers $
 --             getAuthorizers
+--
+--         , requestCreateDocumentationVersion $
+--             createDocumentationVersion
 --
 --         , requestPutIntegrationResponse $
 --             putIntegrationResponse
@@ -289,6 +316,12 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetModelTemplate $
 --             getModelTemplate
 --
+--         , requestUpdateDocumentationVersion $
+--             updateDocumentationVersion
+--
+--         , requestDeleteDocumentationVersion $
+--             deleteDocumentationVersion
+--
 --         , requestGetBasePathMappings $
 --             getBasePathMappings
 --
@@ -346,6 +379,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseGetRestAPIs $
 --             getRestAPIsResponse
 --
+--         , responseGetDocumentationVersions $
+--             getDocumentationVersionsResponse
+--
 --         , responseCreateDeployment $
 --             deployment
 --
@@ -354,6 +390,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetIntegration $
 --             integration
+--
+--         , responseGetDocumentationParts $
+--             getDocumentationPartsResponse
 --
 --         , responseUpdateAccount $
 --             account
@@ -367,11 +406,17 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateDeployment $
 --             deployment
 --
+--         , responseGetDocumentationPart $
+--             documentationPart
+--
 --         , responseDeleteResource $
 --             deleteResourceResponse
 --
 --         , responseUpdateResource $
 --             resource
+--
+--         , responseImportDocumentationParts $
+--             importDocumentationPartsResponse
 --
 --         , responseGetUsage $
 --             usage
@@ -393,6 +438,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseUpdateModel $
 --             model
+--
+--         , responseGetDocumentationVersion $
+--             documentationVersion
 --
 --         , responseDeleteAPIKey $
 --             deleteAPIKeyResponse
@@ -424,14 +472,26 @@ import Test.AWS.APIGateway.Internal
 --         , responseImportAPIKeys $
 --             importAPIKeysResponse
 --
+--         , responseCreateDocumentationPart $
+--             documentationPart
+--
 --         , responseTestInvokeMethod $
 --             testInvokeMethodResponse
 --
 --         , responseGetDomainName $
 --             domainName
 --
+--         , responseDeleteDocumentationPart $
+--             deleteDocumentationPartResponse
+--
+--         , responseUpdateDocumentationPart $
+--             documentationPart
+--
 --         , responseGetAuthorizers $
 --             getAuthorizersResponse
+--
+--         , responseCreateDocumentationVersion $
+--             documentationVersion
 --
 --         , responsePutIntegrationResponse $
 --             integrationResponse
@@ -559,6 +619,12 @@ import Test.AWS.APIGateway.Internal
 --         , responseGetModelTemplate $
 --             getModelTemplateResponse
 --
+--         , responseUpdateDocumentationVersion $
+--             documentationVersion
+--
+--         , responseDeleteDocumentationVersion $
+--             deleteDocumentationVersionResponse
+--
 --         , responseGetBasePathMappings $
 --             getBasePathMappingsResponse
 --
@@ -650,6 +716,11 @@ requestGetRestAPIs = req
     "GetRestAPIs"
     "fixture/GetRestAPIs.yaml"
 
+requestGetDocumentationVersions :: GetDocumentationVersions -> TestTree
+requestGetDocumentationVersions = req
+    "GetDocumentationVersions"
+    "fixture/GetDocumentationVersions.yaml"
+
 requestCreateDeployment :: CreateDeployment -> TestTree
 requestCreateDeployment = req
     "CreateDeployment"
@@ -664,6 +735,11 @@ requestGetIntegration :: GetIntegration -> TestTree
 requestGetIntegration = req
     "GetIntegration"
     "fixture/GetIntegration.yaml"
+
+requestGetDocumentationParts :: GetDocumentationParts -> TestTree
+requestGetDocumentationParts = req
+    "GetDocumentationParts"
+    "fixture/GetDocumentationParts.yaml"
 
 requestUpdateAccount :: UpdateAccount -> TestTree
 requestUpdateAccount = req
@@ -685,6 +761,11 @@ requestUpdateDeployment = req
     "UpdateDeployment"
     "fixture/UpdateDeployment.yaml"
 
+requestGetDocumentationPart :: GetDocumentationPart -> TestTree
+requestGetDocumentationPart = req
+    "GetDocumentationPart"
+    "fixture/GetDocumentationPart.yaml"
+
 requestDeleteResource :: DeleteResource -> TestTree
 requestDeleteResource = req
     "DeleteResource"
@@ -694,6 +775,11 @@ requestUpdateResource :: UpdateResource -> TestTree
 requestUpdateResource = req
     "UpdateResource"
     "fixture/UpdateResource.yaml"
+
+requestImportDocumentationParts :: ImportDocumentationParts -> TestTree
+requestImportDocumentationParts = req
+    "ImportDocumentationParts"
+    "fixture/ImportDocumentationParts.yaml"
 
 requestGetUsage :: GetUsage -> TestTree
 requestGetUsage = req
@@ -729,6 +815,11 @@ requestUpdateModel :: UpdateModel -> TestTree
 requestUpdateModel = req
     "UpdateModel"
     "fixture/UpdateModel.yaml"
+
+requestGetDocumentationVersion :: GetDocumentationVersion -> TestTree
+requestGetDocumentationVersion = req
+    "GetDocumentationVersion"
+    "fixture/GetDocumentationVersion.yaml"
 
 requestDeleteAPIKey :: DeleteAPIKey -> TestTree
 requestDeleteAPIKey = req
@@ -780,6 +871,11 @@ requestImportAPIKeys = req
     "ImportAPIKeys"
     "fixture/ImportAPIKeys.yaml"
 
+requestCreateDocumentationPart :: CreateDocumentationPart -> TestTree
+requestCreateDocumentationPart = req
+    "CreateDocumentationPart"
+    "fixture/CreateDocumentationPart.yaml"
+
 requestTestInvokeMethod :: TestInvokeMethod -> TestTree
 requestTestInvokeMethod = req
     "TestInvokeMethod"
@@ -790,10 +886,25 @@ requestGetDomainName = req
     "GetDomainName"
     "fixture/GetDomainName.yaml"
 
+requestDeleteDocumentationPart :: DeleteDocumentationPart -> TestTree
+requestDeleteDocumentationPart = req
+    "DeleteDocumentationPart"
+    "fixture/DeleteDocumentationPart.yaml"
+
+requestUpdateDocumentationPart :: UpdateDocumentationPart -> TestTree
+requestUpdateDocumentationPart = req
+    "UpdateDocumentationPart"
+    "fixture/UpdateDocumentationPart.yaml"
+
 requestGetAuthorizers :: GetAuthorizers -> TestTree
 requestGetAuthorizers = req
     "GetAuthorizers"
     "fixture/GetAuthorizers.yaml"
+
+requestCreateDocumentationVersion :: CreateDocumentationVersion -> TestTree
+requestCreateDocumentationVersion = req
+    "CreateDocumentationVersion"
+    "fixture/CreateDocumentationVersion.yaml"
 
 requestPutIntegrationResponse :: PutIntegrationResponse -> TestTree
 requestPutIntegrationResponse = req
@@ -1005,6 +1116,16 @@ requestGetModelTemplate = req
     "GetModelTemplate"
     "fixture/GetModelTemplate.yaml"
 
+requestUpdateDocumentationVersion :: UpdateDocumentationVersion -> TestTree
+requestUpdateDocumentationVersion = req
+    "UpdateDocumentationVersion"
+    "fixture/UpdateDocumentationVersion.yaml"
+
+requestDeleteDocumentationVersion :: DeleteDocumentationVersion -> TestTree
+requestDeleteDocumentationVersion = req
+    "DeleteDocumentationVersion"
+    "fixture/DeleteDocumentationVersion.yaml"
+
 requestGetBasePathMappings :: GetBasePathMappings -> TestTree
 requestGetBasePathMappings = req
     "GetBasePathMappings"
@@ -1129,6 +1250,13 @@ responseGetRestAPIs = res
     apiGateway
     (Proxy :: Proxy GetRestAPIs)
 
+responseGetDocumentationVersions :: GetDocumentationVersionsResponse -> TestTree
+responseGetDocumentationVersions = res
+    "GetDocumentationVersionsResponse"
+    "fixture/GetDocumentationVersionsResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetDocumentationVersions)
+
 responseCreateDeployment :: Deployment -> TestTree
 responseCreateDeployment = res
     "CreateDeploymentResponse"
@@ -1149,6 +1277,13 @@ responseGetIntegration = res
     "fixture/GetIntegrationResponse.proto"
     apiGateway
     (Proxy :: Proxy GetIntegration)
+
+responseGetDocumentationParts :: GetDocumentationPartsResponse -> TestTree
+responseGetDocumentationParts = res
+    "GetDocumentationPartsResponse"
+    "fixture/GetDocumentationPartsResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetDocumentationParts)
 
 responseUpdateAccount :: Account -> TestTree
 responseUpdateAccount = res
@@ -1178,6 +1313,13 @@ responseUpdateDeployment = res
     apiGateway
     (Proxy :: Proxy UpdateDeployment)
 
+responseGetDocumentationPart :: DocumentationPart -> TestTree
+responseGetDocumentationPart = res
+    "GetDocumentationPartResponse"
+    "fixture/GetDocumentationPartResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetDocumentationPart)
+
 responseDeleteResource :: DeleteResourceResponse -> TestTree
 responseDeleteResource = res
     "DeleteResourceResponse"
@@ -1191,6 +1333,13 @@ responseUpdateResource = res
     "fixture/UpdateResourceResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateResource)
+
+responseImportDocumentationParts :: ImportDocumentationPartsResponse -> TestTree
+responseImportDocumentationParts = res
+    "ImportDocumentationPartsResponse"
+    "fixture/ImportDocumentationPartsResponse.proto"
+    apiGateway
+    (Proxy :: Proxy ImportDocumentationParts)
 
 responseGetUsage :: Usage -> TestTree
 responseGetUsage = res
@@ -1240,6 +1389,13 @@ responseUpdateModel = res
     "fixture/UpdateModelResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateModel)
+
+responseGetDocumentationVersion :: DocumentationVersion -> TestTree
+responseGetDocumentationVersion = res
+    "GetDocumentationVersionResponse"
+    "fixture/GetDocumentationVersionResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetDocumentationVersion)
 
 responseDeleteAPIKey :: DeleteAPIKeyResponse -> TestTree
 responseDeleteAPIKey = res
@@ -1311,6 +1467,13 @@ responseImportAPIKeys = res
     apiGateway
     (Proxy :: Proxy ImportAPIKeys)
 
+responseCreateDocumentationPart :: DocumentationPart -> TestTree
+responseCreateDocumentationPart = res
+    "CreateDocumentationPartResponse"
+    "fixture/CreateDocumentationPartResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateDocumentationPart)
+
 responseTestInvokeMethod :: TestInvokeMethodResponse -> TestTree
 responseTestInvokeMethod = res
     "TestInvokeMethodResponse"
@@ -1325,12 +1488,33 @@ responseGetDomainName = res
     apiGateway
     (Proxy :: Proxy GetDomainName)
 
+responseDeleteDocumentationPart :: DeleteDocumentationPartResponse -> TestTree
+responseDeleteDocumentationPart = res
+    "DeleteDocumentationPartResponse"
+    "fixture/DeleteDocumentationPartResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteDocumentationPart)
+
+responseUpdateDocumentationPart :: DocumentationPart -> TestTree
+responseUpdateDocumentationPart = res
+    "UpdateDocumentationPartResponse"
+    "fixture/UpdateDocumentationPartResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateDocumentationPart)
+
 responseGetAuthorizers :: GetAuthorizersResponse -> TestTree
 responseGetAuthorizers = res
     "GetAuthorizersResponse"
     "fixture/GetAuthorizersResponse.proto"
     apiGateway
     (Proxy :: Proxy GetAuthorizers)
+
+responseCreateDocumentationVersion :: DocumentationVersion -> TestTree
+responseCreateDocumentationVersion = res
+    "CreateDocumentationVersionResponse"
+    "fixture/CreateDocumentationVersionResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateDocumentationVersion)
 
 responsePutIntegrationResponse :: IntegrationResponse -> TestTree
 responsePutIntegrationResponse = res
@@ -1625,6 +1809,20 @@ responseGetModelTemplate = res
     "fixture/GetModelTemplateResponse.proto"
     apiGateway
     (Proxy :: Proxy GetModelTemplate)
+
+responseUpdateDocumentationVersion :: DocumentationVersion -> TestTree
+responseUpdateDocumentationVersion = res
+    "UpdateDocumentationVersionResponse"
+    "fixture/UpdateDocumentationVersionResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateDocumentationVersion)
+
+responseDeleteDocumentationVersion :: DeleteDocumentationVersionResponse -> TestTree
+responseDeleteDocumentationVersion = res
+    "DeleteDocumentationVersionResponse"
+    "fixture/DeleteDocumentationVersionResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteDocumentationVersion)
 
 responseGetBasePathMappings :: GetBasePathMappingsResponse -> TestTree
 responseGetBasePathMappings = res

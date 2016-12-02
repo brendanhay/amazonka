@@ -114,7 +114,7 @@ instance ToQuery DescribeInternetGateways where
           = mconcat
               ["Action" =:
                  ("DescribeInternetGateways" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dFilters),
                toQuery
                  (toQueryList "InternetGatewayId" <$>

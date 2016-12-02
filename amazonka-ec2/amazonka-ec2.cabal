@@ -44,10 +44,13 @@ library
         , Network.AWS.EC2.AcceptVPCPeeringConnection
         , Network.AWS.EC2.AllocateAddress
         , Network.AWS.EC2.AllocateHosts
+        , Network.AWS.EC2.AssignIPv6Addresses
         , Network.AWS.EC2.AssignPrivateIPAddresses
         , Network.AWS.EC2.AssociateAddress
         , Network.AWS.EC2.AssociateDHCPOptions
         , Network.AWS.EC2.AssociateRouteTable
+        , Network.AWS.EC2.AssociateSubnetCidrBlock
+        , Network.AWS.EC2.AssociateVPCCidrBlock
         , Network.AWS.EC2.AttachClassicLinkVPC
         , Network.AWS.EC2.AttachInternetGateway
         , Network.AWS.EC2.AttachNetworkInterface
@@ -68,6 +71,7 @@ library
         , Network.AWS.EC2.CopySnapshot
         , Network.AWS.EC2.CreateCustomerGateway
         , Network.AWS.EC2.CreateDHCPOptions
+        , Network.AWS.EC2.CreateEgressOnlyInternetGateway
         , Network.AWS.EC2.CreateFlowLogs
         , Network.AWS.EC2.CreateImage
         , Network.AWS.EC2.CreateInstanceExportTask
@@ -95,6 +99,7 @@ library
         , Network.AWS.EC2.CreateVolume
         , Network.AWS.EC2.DeleteCustomerGateway
         , Network.AWS.EC2.DeleteDHCPOptions
+        , Network.AWS.EC2.DeleteEgressOnlyInternetGateway
         , Network.AWS.EC2.DeleteFlowLogs
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
@@ -126,6 +131,7 @@ library
         , Network.AWS.EC2.DescribeConversionTasks
         , Network.AWS.EC2.DescribeCustomerGateways
         , Network.AWS.EC2.DescribeDHCPOptions
+        , Network.AWS.EC2.DescribeEgressOnlyInternetGateways
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeFlowLogs
         , Network.AWS.EC2.DescribeHostReservationOfferings
@@ -192,6 +198,8 @@ library
         , Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
         , Network.AWS.EC2.DisassociateAddress
         , Network.AWS.EC2.DisassociateRouteTable
+        , Network.AWS.EC2.DisassociateSubnetCidrBlock
+        , Network.AWS.EC2.DisassociateVPCCidrBlock
         , Network.AWS.EC2.EnableVGWRoutePropagation
         , Network.AWS.EC2.EnableVPCClassicLink
         , Network.AWS.EC2.EnableVPCClassicLinkDNSSupport
@@ -251,6 +259,7 @@ library
         , Network.AWS.EC2.StopInstances
         , Network.AWS.EC2.TerminateInstances
         , Network.AWS.EC2.Types
+        , Network.AWS.EC2.UnassignIPv6Addresses
         , Network.AWS.EC2.UnassignPrivateIPAddresses
         , Network.AWS.EC2.UnmonitorInstances
         , Network.AWS.EC2.Waiters

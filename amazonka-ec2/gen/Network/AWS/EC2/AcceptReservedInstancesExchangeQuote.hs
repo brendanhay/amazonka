@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases Convertible Reserved Instance offerings described in the 'GetReservedInstancesExchangeQuote' call.
+-- Accepts the Convertible Reserved Instance exchange quote described in the 'GetReservedInstancesExchangeQuote' call.
 --
 --
 module Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
@@ -61,11 +61,11 @@ data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arieqTargetConfigurations' - The configurations of the Convertible Reserved Instance offerings you are purchasing in this exchange.
+-- * 'arieqTargetConfigurations' - The configurations of the Convertible Reserved Instance offerings that you are purchasing in this exchange.
 --
 -- * 'arieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'arieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances that you want to exchange for other Convertible Reserved Instances of the same or higher value.
+-- * 'arieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved Instances of the same or higher value.
 acceptReservedInstancesExchangeQuote
     :: AcceptReservedInstancesExchangeQuote
 acceptReservedInstancesExchangeQuote =
@@ -75,7 +75,7 @@ acceptReservedInstancesExchangeQuote =
     , _arieqReservedInstanceIds = mempty
     }
 
--- | The configurations of the Convertible Reserved Instance offerings you are purchasing in this exchange.
+-- | The configurations of the Convertible Reserved Instance offerings that you are purchasing in this exchange.
 arieqTargetConfigurations :: Lens' AcceptReservedInstancesExchangeQuote [TargetConfigurationRequest]
 arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTargetConfigurations = a}) . _Default . _Coerce;
 
@@ -83,7 +83,7 @@ arieqTargetConfigurations = lens _arieqTargetConfigurations (\ s a -> s{_arieqTa
 arieqDryRun :: Lens' AcceptReservedInstancesExchangeQuote (Maybe Bool)
 arieqDryRun = lens _arieqDryRun (\ s a -> s{_arieqDryRun = a});
 
--- | The IDs of the Convertible Reserved Instances that you want to exchange for other Convertible Reserved Instances of the same or higher value.
+-- | The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved Instances of the same or higher value.
 arieqReservedInstanceIds :: Lens' AcceptReservedInstancesExchangeQuote [Text]
 arieqReservedInstanceIds = lens _arieqReservedInstanceIds (\ s a -> s{_arieqReservedInstanceIds = a}) . _Coerce;
 
@@ -118,7 +118,7 @@ instance ToQuery AcceptReservedInstancesExchangeQuote
               ["Action" =:
                  ("AcceptReservedInstancesExchangeQuote" ::
                     ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery
                  (toQueryList "TargetConfiguration" <$>
                     _arieqTargetConfigurations),

@@ -128,7 +128,7 @@ instance ToQuery DescribeSpotFleetInstances where
           = mconcat
               ["Action" =:
                  ("DescribeSpotFleetInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NextToken" =: _dsfiNextToken,
                "DryRun" =: _dsfiDryRun,
                "MaxResults" =: _dsfiMaxResults,

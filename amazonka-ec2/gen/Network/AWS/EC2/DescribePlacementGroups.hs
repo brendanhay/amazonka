@@ -114,7 +114,7 @@ instance ToQuery DescribePlacementGroups where
           = mconcat
               ["Action" =:
                  ("DescribePlacementGroups" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dpgsFilters),
                toQuery
                  (toQueryList "GroupName" <$> _dpgsGroupNames),

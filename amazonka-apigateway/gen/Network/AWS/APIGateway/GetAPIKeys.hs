@@ -72,7 +72,7 @@ data GetAPIKeys = GetAPIKeys'
 --
 -- * 'gakIncludeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
 --
--- * 'gakCustomerId' - Undocumented member.
+-- * 'gakCustomerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 --
 -- * 'gakNameQuery' - The name of queried API keys.
 --
@@ -94,7 +94,7 @@ getAPIKeys =
 gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
 gakIncludeValues = lens _gakIncludeValues (\ s a -> s{_gakIncludeValues = a});
 
--- | Undocumented member.
+-- | The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 gakCustomerId :: Lens' GetAPIKeys (Maybe Text)
 gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a});
 

@@ -186,7 +186,7 @@ instance ToQuery RequestSpotInstances where
         toQuery RequestSpotInstances'{..}
           = mconcat
               ["Action" =: ("RequestSpotInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "BlockDurationMinutes" =: _rsisBlockDurationMinutes,
                "ClientToken" =: _rsisClientToken,
                "InstanceCount" =: _rsisInstanceCount,

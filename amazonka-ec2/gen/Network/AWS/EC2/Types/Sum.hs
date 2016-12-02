@@ -1171,6 +1171,8 @@ data InstanceType
     | D2_4XLarge
     | D2_8XLarge
     | D2_XLarge
+    | F1_16XLarge
+    | F1_2XLarge
     | G2_2XLarge
     | G2_8XLarge
     | HI1_4XLarge
@@ -1236,6 +1238,8 @@ instance FromText InstanceType where
         "d2.4xlarge" -> pure D2_4XLarge
         "d2.8xlarge" -> pure D2_8XLarge
         "d2.xlarge" -> pure D2_XLarge
+        "f1.16xlarge" -> pure F1_16XLarge
+        "f1.2xlarge" -> pure F1_2XLarge
         "g2.2xlarge" -> pure G2_2XLarge
         "g2.8xlarge" -> pure G2_8XLarge
         "hi1.4xlarge" -> pure HI1_4XLarge
@@ -1278,7 +1282,7 @@ instance FromText InstanceType where
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1302,6 +1306,8 @@ instance ToText InstanceType where
         D2_4XLarge -> "d2.4xlarge"
         D2_8XLarge -> "d2.8xlarge"
         D2_XLarge -> "d2.xlarge"
+        F1_16XLarge -> "f1.16xlarge"
+        F1_2XLarge -> "f1.2xlarge"
         G2_2XLarge -> "g2.2xlarge"
         G2_8XLarge -> "g2.8xlarge"
         HI1_4XLarge -> "hi1.4xlarge"
@@ -2447,6 +2453,44 @@ instance ToHeader     StatusType
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
+data SubnetCidrBlockStateCode
+    = Associated
+    | Associating
+    | Disassociated
+    | Disassociating
+    | Failed
+    | Failing
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SubnetCidrBlockStateCode where
+    parser = takeLowerText >>= \case
+        "associated" -> pure Associated
+        "associating" -> pure Associating
+        "disassociated" -> pure Disassociated
+        "disassociating" -> pure Disassociating
+        "failed" -> pure Failed
+        "failing" -> pure Failing
+        e -> fromTextError $ "Failure parsing SubnetCidrBlockStateCode from value: '" <> e
+           <> "'. Accepted values: associated, associating, disassociated, disassociating, failed, failing"
+
+instance ToText SubnetCidrBlockStateCode where
+    toText = \case
+        Associated -> "associated"
+        Associating -> "associating"
+        Disassociated -> "disassociated"
+        Disassociating -> "disassociating"
+        Failed -> "failed"
+        Failing -> "failing"
+
+instance Hashable     SubnetCidrBlockStateCode
+instance NFData       SubnetCidrBlockStateCode
+instance ToByteString SubnetCidrBlockStateCode
+instance ToQuery      SubnetCidrBlockStateCode
+instance ToHeader     SubnetCidrBlockStateCode
+
+instance FromXML SubnetCidrBlockStateCode where
+    parseXML = parseXMLText "SubnetCidrBlockStateCode"
+
 data SubnetState
     = SubAvailable
     | SubPending
@@ -2614,6 +2658,44 @@ instance NFData       VPCAttributeName
 instance ToByteString VPCAttributeName
 instance ToQuery      VPCAttributeName
 instance ToHeader     VPCAttributeName
+
+data VPCCidrBlockStateCode
+    = VCBSCAssociated
+    | VCBSCAssociating
+    | VCBSCDisassociated
+    | VCBSCDisassociating
+    | VCBSCFailed
+    | VCBSCFailing
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText VPCCidrBlockStateCode where
+    parser = takeLowerText >>= \case
+        "associated" -> pure VCBSCAssociated
+        "associating" -> pure VCBSCAssociating
+        "disassociated" -> pure VCBSCDisassociated
+        "disassociating" -> pure VCBSCDisassociating
+        "failed" -> pure VCBSCFailed
+        "failing" -> pure VCBSCFailing
+        e -> fromTextError $ "Failure parsing VPCCidrBlockStateCode from value: '" <> e
+           <> "'. Accepted values: associated, associating, disassociated, disassociating, failed, failing"
+
+instance ToText VPCCidrBlockStateCode where
+    toText = \case
+        VCBSCAssociated -> "associated"
+        VCBSCAssociating -> "associating"
+        VCBSCDisassociated -> "disassociated"
+        VCBSCDisassociating -> "disassociating"
+        VCBSCFailed -> "failed"
+        VCBSCFailing -> "failing"
+
+instance Hashable     VPCCidrBlockStateCode
+instance NFData       VPCCidrBlockStateCode
+instance ToByteString VPCCidrBlockStateCode
+instance ToQuery      VPCCidrBlockStateCode
+instance ToHeader     VPCCidrBlockStateCode
+
+instance FromXML VPCCidrBlockStateCode where
+    parseXML = parseXMLText "VPCCidrBlockStateCode"
 
 data VPCPeeringConnectionStateReasonCode
     = VPCSRCActive

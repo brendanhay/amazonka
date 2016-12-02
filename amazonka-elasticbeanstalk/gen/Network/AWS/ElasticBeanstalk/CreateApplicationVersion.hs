@@ -32,6 +32,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     , cavAutoCreateApplication
     , cavSourceBuildInformation
     , cavDescription
+    , cavBuildConfiguration
     , cavApplicationName
     , cavVersionLabel
 
@@ -60,6 +61,7 @@ data CreateApplicationVersion = CreateApplicationVersion'
     , _cavAutoCreateApplication  :: !(Maybe Bool)
     , _cavSourceBuildInformation :: !(Maybe SourceBuildInformation)
     , _cavDescription            :: !(Maybe Text)
+    , _cavBuildConfiguration     :: !(Maybe BuildConfiguration)
     , _cavApplicationName        :: !Text
     , _cavVersionLabel           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -70,13 +72,15 @@ data CreateApplicationVersion = CreateApplicationVersion'
 --
 -- * 'cavProcess' - Preprocesses and validates the environment manifest and configuration files in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
 --
--- * 'cavSourceBundle' - The Amazon S3 bucket and key that identify the location of the source bundle for this version. If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error. The maximum size allowed is 512 MB.  Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
+-- * 'cavSourceBundle' - The Amazon S3 bucket and key that identify the location of the source bundle for this version. Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with @SourceBuildInformation@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
 --
--- * 'cavAutoCreateApplication' - Determines how the system behaves if the specified application for this version does not already exist:     * @true@ : Automatically creates the specified application for this release if it does not already exist.     * @false@ : Throws an @InvalidParameterValue@ if the specified application for this release does not already exist. Default: @false@  Valid Values: @true@ | @false@
+-- * 'cavAutoCreateApplication' - Set to @true@ to create an application with the specified name if it doesn't already exist.
 --
--- * 'cavSourceBuildInformation' - Undocumented member.
+-- * 'cavSourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version. Specify a commit in an AWS CodeCommit repository or a source bundle in S3 (with @SourceBundle@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
 --
 -- * 'cavDescription' - Describes this version.
+--
+-- * 'cavBuildConfiguration' - Undocumented member.
 --
 -- * 'cavApplicationName' - The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
 --
@@ -92,6 +96,7 @@ createApplicationVersion pApplicationName_ pVersionLabel_ =
     , _cavAutoCreateApplication = Nothing
     , _cavSourceBuildInformation = Nothing
     , _cavDescription = Nothing
+    , _cavBuildConfiguration = Nothing
     , _cavApplicationName = pApplicationName_
     , _cavVersionLabel = pVersionLabel_
     }
@@ -100,21 +105,25 @@ createApplicationVersion pApplicationName_ pVersionLabel_ =
 cavProcess :: Lens' CreateApplicationVersion (Maybe Bool)
 cavProcess = lens _cavProcess (\ s a -> s{_cavProcess = a});
 
--- | The Amazon S3 bucket and key that identify the location of the source bundle for this version. If data found at the Amazon S3 location exceeds the maximum allowed source bundle size, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error. The maximum size allowed is 512 MB.  Default: If not specified, AWS Elastic Beanstalk uses a sample application. If only partially specified (for example, a bucket is provided but not the key) or if no data is found at the Amazon S3 location, AWS Elastic Beanstalk returns an @InvalidParameterCombination@ error.
+-- | The Amazon S3 bucket and key that identify the location of the source bundle for this version. Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with @SourceBuildInformation@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
 cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
 cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
 
--- | Determines how the system behaves if the specified application for this version does not already exist:     * @true@ : Automatically creates the specified application for this release if it does not already exist.     * @false@ : Throws an @InvalidParameterValue@ if the specified application for this release does not already exist. Default: @false@  Valid Values: @true@ | @false@
+-- | Set to @true@ to create an application with the specified name if it doesn't already exist.
 cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavAutoCreateApplication = lens _cavAutoCreateApplication (\ s a -> s{_cavAutoCreateApplication = a});
 
--- | Undocumented member.
+-- | Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version. Specify a commit in an AWS CodeCommit repository or a source bundle in S3 (with @SourceBundle@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
 cavSourceBuildInformation :: Lens' CreateApplicationVersion (Maybe SourceBuildInformation)
 cavSourceBuildInformation = lens _cavSourceBuildInformation (\ s a -> s{_cavSourceBuildInformation = a});
 
 -- | Describes this version.
 cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavDescription = lens _cavDescription (\ s a -> s{_cavDescription = a});
+
+-- | Undocumented member.
+cavBuildConfiguration :: Lens' CreateApplicationVersion (Maybe BuildConfiguration)
+cavBuildConfiguration = lens _cavBuildConfiguration (\ s a -> s{_cavBuildConfiguration = a});
 
 -- | The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
 cavApplicationName :: Lens' CreateApplicationVersion Text
@@ -154,5 +163,6 @@ instance ToQuery CreateApplicationVersion where
                "SourceBuildInformation" =:
                  _cavSourceBuildInformation,
                "Description" =: _cavDescription,
+               "BuildConfiguration" =: _cavBuildConfiguration,
                "ApplicationName" =: _cavApplicationName,
                "VersionLabel" =: _cavVersionLabel]

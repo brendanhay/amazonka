@@ -128,6 +128,259 @@ instance ToXML AccessControlPolicy where
                  toXML (toXMLList "Grant" <$> _acpGrants),
                "Owner" @= _acpOwner]
 
+-- | /See:/ 'analyticsAndOperator' smart constructor.
+data AnalyticsAndOperator = AnalyticsAndOperator'
+    { _aaoPrefix :: !(Maybe Text)
+    , _aaoTags   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AnalyticsAndOperator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aaoPrefix' - The prefix to use when evaluating an AND predicate.
+--
+-- * 'aaoTags' - The list of tags to use when evaluating an AND predicate.
+analyticsAndOperator
+    :: AnalyticsAndOperator
+analyticsAndOperator =
+    AnalyticsAndOperator'
+    { _aaoPrefix = Nothing
+    , _aaoTags = Nothing
+    }
+
+-- | The prefix to use when evaluating an AND predicate.
+aaoPrefix :: Lens' AnalyticsAndOperator (Maybe Text)
+aaoPrefix = lens _aaoPrefix (\ s a -> s{_aaoPrefix = a});
+
+-- | The list of tags to use when evaluating an AND predicate.
+aaoTags :: Lens' AnalyticsAndOperator [Tag]
+aaoTags = lens _aaoTags (\ s a -> s{_aaoTags = a}) . _Default . _Coerce;
+
+instance FromXML AnalyticsAndOperator where
+        parseXML x
+          = AnalyticsAndOperator' <$>
+              (x .@? "Prefix") <*>
+                (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+
+instance Hashable AnalyticsAndOperator
+
+instance NFData AnalyticsAndOperator
+
+instance ToXML AnalyticsAndOperator where
+        toXML AnalyticsAndOperator'{..}
+          = mconcat
+              ["Prefix" @= _aaoPrefix,
+               "Tag" @= toXML (toXMLList "Tag" <$> _aaoTags)]
+
+-- | /See:/ 'analyticsConfiguration' smart constructor.
+data AnalyticsConfiguration = AnalyticsConfiguration'
+    { _acFilter               :: !(Maybe AnalyticsFilter)
+    , _acId                   :: !Text
+    , _acStorageClassAnalysis :: !StorageClassAnalysis
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AnalyticsConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acFilter' - The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+--
+-- * 'acId' - The identifier used to represent an analytics configuration.
+--
+-- * 'acStorageClassAnalysis' - If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.
+analyticsConfiguration
+    :: Text -- ^ 'acId'
+    -> StorageClassAnalysis -- ^ 'acStorageClassAnalysis'
+    -> AnalyticsConfiguration
+analyticsConfiguration pId_ pStorageClassAnalysis_ =
+    AnalyticsConfiguration'
+    { _acFilter = Nothing
+    , _acId = pId_
+    , _acStorageClassAnalysis = pStorageClassAnalysis_
+    }
+
+-- | The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+acFilter :: Lens' AnalyticsConfiguration (Maybe AnalyticsFilter)
+acFilter = lens _acFilter (\ s a -> s{_acFilter = a});
+
+-- | The identifier used to represent an analytics configuration.
+acId :: Lens' AnalyticsConfiguration Text
+acId = lens _acId (\ s a -> s{_acId = a});
+
+-- | If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.
+acStorageClassAnalysis :: Lens' AnalyticsConfiguration StorageClassAnalysis
+acStorageClassAnalysis = lens _acStorageClassAnalysis (\ s a -> s{_acStorageClassAnalysis = a});
+
+instance FromXML AnalyticsConfiguration where
+        parseXML x
+          = AnalyticsConfiguration' <$>
+              (x .@? "Filter") <*> (x .@ "Id") <*>
+                (x .@ "StorageClassAnalysis")
+
+instance Hashable AnalyticsConfiguration
+
+instance NFData AnalyticsConfiguration
+
+instance ToXML AnalyticsConfiguration where
+        toXML AnalyticsConfiguration'{..}
+          = mconcat
+              ["Filter" @= _acFilter, "Id" @= _acId,
+               "StorageClassAnalysis" @= _acStorageClassAnalysis]
+
+-- | /See:/ 'analyticsExportDestination' smart constructor.
+newtype AnalyticsExportDestination = AnalyticsExportDestination'
+    { _aedS3BucketDestination :: AnalyticsS3BucketDestination
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AnalyticsExportDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aedS3BucketDestination' - A destination signifying output to an S3 bucket.
+analyticsExportDestination
+    :: AnalyticsS3BucketDestination -- ^ 'aedS3BucketDestination'
+    -> AnalyticsExportDestination
+analyticsExportDestination pS3BucketDestination_ =
+    AnalyticsExportDestination'
+    { _aedS3BucketDestination = pS3BucketDestination_
+    }
+
+-- | A destination signifying output to an S3 bucket.
+aedS3BucketDestination :: Lens' AnalyticsExportDestination AnalyticsS3BucketDestination
+aedS3BucketDestination = lens _aedS3BucketDestination (\ s a -> s{_aedS3BucketDestination = a});
+
+instance FromXML AnalyticsExportDestination where
+        parseXML x
+          = AnalyticsExportDestination' <$>
+              (x .@ "S3BucketDestination")
+
+instance Hashable AnalyticsExportDestination
+
+instance NFData AnalyticsExportDestination
+
+instance ToXML AnalyticsExportDestination where
+        toXML AnalyticsExportDestination'{..}
+          = mconcat
+              ["S3BucketDestination" @= _aedS3BucketDestination]
+
+-- | /See:/ 'analyticsFilter' smart constructor.
+data AnalyticsFilter = AnalyticsFilter'
+    { _afTag    :: !(Maybe Tag)
+    , _afPrefix :: !(Maybe Text)
+    , _afAnd    :: !(Maybe AnalyticsAndOperator)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AnalyticsFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'afTag' - The tag to use when evaluating an analytics filter.
+--
+-- * 'afPrefix' - The prefix to use when evaluating an analytics filter.
+--
+-- * 'afAnd' - A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+analyticsFilter
+    :: AnalyticsFilter
+analyticsFilter =
+    AnalyticsFilter'
+    { _afTag = Nothing
+    , _afPrefix = Nothing
+    , _afAnd = Nothing
+    }
+
+-- | The tag to use when evaluating an analytics filter.
+afTag :: Lens' AnalyticsFilter (Maybe Tag)
+afTag = lens _afTag (\ s a -> s{_afTag = a});
+
+-- | The prefix to use when evaluating an analytics filter.
+afPrefix :: Lens' AnalyticsFilter (Maybe Text)
+afPrefix = lens _afPrefix (\ s a -> s{_afPrefix = a});
+
+-- | A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.
+afAnd :: Lens' AnalyticsFilter (Maybe AnalyticsAndOperator)
+afAnd = lens _afAnd (\ s a -> s{_afAnd = a});
+
+instance FromXML AnalyticsFilter where
+        parseXML x
+          = AnalyticsFilter' <$>
+              (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
+
+instance Hashable AnalyticsFilter
+
+instance NFData AnalyticsFilter
+
+instance ToXML AnalyticsFilter where
+        toXML AnalyticsFilter'{..}
+          = mconcat
+              ["Tag" @= _afTag, "Prefix" @= _afPrefix,
+               "And" @= _afAnd]
+
+-- | /See:/ 'analyticsS3BucketDestination' smart constructor.
+data AnalyticsS3BucketDestination = AnalyticsS3BucketDestination'
+    { _asbdBucketAccountId :: !(Maybe Text)
+    , _asbdPrefix          :: !(Maybe Text)
+    , _asbdFormat          :: !AnalyticsS3ExportFileFormat
+    , _asbdBucket          :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AnalyticsS3BucketDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asbdBucketAccountId' - The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
+--
+-- * 'asbdPrefix' - The prefix to use when exporting data. The exported data begins with this prefix.
+--
+-- * 'asbdFormat' - The file format used when exporting data to Amazon S3.
+--
+-- * 'asbdBucket' - The Amazon resource name (ARN) of the bucket to which data is exported.
+analyticsS3BucketDestination
+    :: AnalyticsS3ExportFileFormat -- ^ 'asbdFormat'
+    -> BucketName -- ^ 'asbdBucket'
+    -> AnalyticsS3BucketDestination
+analyticsS3BucketDestination pFormat_ pBucket_ =
+    AnalyticsS3BucketDestination'
+    { _asbdBucketAccountId = Nothing
+    , _asbdPrefix = Nothing
+    , _asbdFormat = pFormat_
+    , _asbdBucket = pBucket_
+    }
+
+-- | The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.
+asbdBucketAccountId :: Lens' AnalyticsS3BucketDestination (Maybe Text)
+asbdBucketAccountId = lens _asbdBucketAccountId (\ s a -> s{_asbdBucketAccountId = a});
+
+-- | The prefix to use when exporting data. The exported data begins with this prefix.
+asbdPrefix :: Lens' AnalyticsS3BucketDestination (Maybe Text)
+asbdPrefix = lens _asbdPrefix (\ s a -> s{_asbdPrefix = a});
+
+-- | The file format used when exporting data to Amazon S3.
+asbdFormat :: Lens' AnalyticsS3BucketDestination AnalyticsS3ExportFileFormat
+asbdFormat = lens _asbdFormat (\ s a -> s{_asbdFormat = a});
+
+-- | The Amazon resource name (ARN) of the bucket to which data is exported.
+asbdBucket :: Lens' AnalyticsS3BucketDestination BucketName
+asbdBucket = lens _asbdBucket (\ s a -> s{_asbdBucket = a});
+
+instance FromXML AnalyticsS3BucketDestination where
+        parseXML x
+          = AnalyticsS3BucketDestination' <$>
+              (x .@? "BucketAccountId") <*> (x .@? "Prefix") <*>
+                (x .@ "Format")
+                <*> (x .@ "Bucket")
+
+instance Hashable AnalyticsS3BucketDestination
+
+instance NFData AnalyticsS3BucketDestination
+
+instance ToXML AnalyticsS3BucketDestination where
+        toXML AnalyticsS3BucketDestination'{..}
+          = mconcat
+              ["BucketAccountId" @= _asbdBucketAccountId,
+               "Prefix" @= _asbdPrefix, "Format" @= _asbdFormat,
+               "Bucket" @= _asbdBucket]
+
 -- | /See:/ 'bucket' smart constructor.
 data Bucket = Bucket'
     { _bCreationDate :: !RFC822
@@ -1077,6 +1330,276 @@ instance Hashable Initiator
 
 instance NFData Initiator
 
+-- | /See:/ 'inventoryConfiguration' smart constructor.
+data InventoryConfiguration = InventoryConfiguration'
+    { _icOptionalFields         :: !(Maybe [InventoryOptionalField])
+    , _icFilter                 :: !(Maybe InventoryFilter)
+    , _icDestination            :: !InventoryDestination
+    , _icIsEnabled              :: !Bool
+    , _icId                     :: !Text
+    , _icIncludedObjectVersions :: !InventoryIncludedObjectVersions
+    , _icSchedule               :: !InventorySchedule
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'icOptionalFields' - Contains the optional fields that are included in the inventory results.
+--
+-- * 'icFilter' - Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+--
+-- * 'icDestination' - Contains information about where to publish the inventory results.
+--
+-- * 'icIsEnabled' - Specifies whether the inventory is enabled or disabled.
+--
+-- * 'icId' - The ID used to identify the inventory configuration.
+--
+-- * 'icIncludedObjectVersions' - Specifies which object version(s) to included in the inventory results.
+--
+-- * 'icSchedule' - Specifies the schedule for generating inventory results.
+inventoryConfiguration
+    :: InventoryDestination -- ^ 'icDestination'
+    -> Bool -- ^ 'icIsEnabled'
+    -> Text -- ^ 'icId'
+    -> InventoryIncludedObjectVersions -- ^ 'icIncludedObjectVersions'
+    -> InventorySchedule -- ^ 'icSchedule'
+    -> InventoryConfiguration
+inventoryConfiguration pDestination_ pIsEnabled_ pId_ pIncludedObjectVersions_ pSchedule_ =
+    InventoryConfiguration'
+    { _icOptionalFields = Nothing
+    , _icFilter = Nothing
+    , _icDestination = pDestination_
+    , _icIsEnabled = pIsEnabled_
+    , _icId = pId_
+    , _icIncludedObjectVersions = pIncludedObjectVersions_
+    , _icSchedule = pSchedule_
+    }
+
+-- | Contains the optional fields that are included in the inventory results.
+icOptionalFields :: Lens' InventoryConfiguration [InventoryOptionalField]
+icOptionalFields = lens _icOptionalFields (\ s a -> s{_icOptionalFields = a}) . _Default . _Coerce;
+
+-- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
+icFilter :: Lens' InventoryConfiguration (Maybe InventoryFilter)
+icFilter = lens _icFilter (\ s a -> s{_icFilter = a});
+
+-- | Contains information about where to publish the inventory results.
+icDestination :: Lens' InventoryConfiguration InventoryDestination
+icDestination = lens _icDestination (\ s a -> s{_icDestination = a});
+
+-- | Specifies whether the inventory is enabled or disabled.
+icIsEnabled :: Lens' InventoryConfiguration Bool
+icIsEnabled = lens _icIsEnabled (\ s a -> s{_icIsEnabled = a});
+
+-- | The ID used to identify the inventory configuration.
+icId :: Lens' InventoryConfiguration Text
+icId = lens _icId (\ s a -> s{_icId = a});
+
+-- | Specifies which object version(s) to included in the inventory results.
+icIncludedObjectVersions :: Lens' InventoryConfiguration InventoryIncludedObjectVersions
+icIncludedObjectVersions = lens _icIncludedObjectVersions (\ s a -> s{_icIncludedObjectVersions = a});
+
+-- | Specifies the schedule for generating inventory results.
+icSchedule :: Lens' InventoryConfiguration InventorySchedule
+icSchedule = lens _icSchedule (\ s a -> s{_icSchedule = a});
+
+instance FromXML InventoryConfiguration where
+        parseXML x
+          = InventoryConfiguration' <$>
+              (x .@? "OptionalFields" .!@ mempty >>=
+                 may (parseXMLList "Field"))
+                <*> (x .@? "Filter")
+                <*> (x .@ "Destination")
+                <*> (x .@ "IsEnabled")
+                <*> (x .@ "Id")
+                <*> (x .@ "IncludedObjectVersions")
+                <*> (x .@ "Schedule")
+
+instance Hashable InventoryConfiguration
+
+instance NFData InventoryConfiguration
+
+instance ToXML InventoryConfiguration where
+        toXML InventoryConfiguration'{..}
+          = mconcat
+              ["OptionalFields" @=
+                 toXML (toXMLList "Field" <$> _icOptionalFields),
+               "Filter" @= _icFilter,
+               "Destination" @= _icDestination,
+               "IsEnabled" @= _icIsEnabled, "Id" @= _icId,
+               "IncludedObjectVersions" @=
+                 _icIncludedObjectVersions,
+               "Schedule" @= _icSchedule]
+
+-- | /See:/ 'inventoryDestination' smart constructor.
+newtype InventoryDestination = InventoryDestination'
+    { _idS3BucketDestination :: InventoryS3BucketDestination
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idS3BucketDestination' - Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+inventoryDestination
+    :: InventoryS3BucketDestination -- ^ 'idS3BucketDestination'
+    -> InventoryDestination
+inventoryDestination pS3BucketDestination_ =
+    InventoryDestination'
+    { _idS3BucketDestination = pS3BucketDestination_
+    }
+
+-- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+idS3BucketDestination :: Lens' InventoryDestination InventoryS3BucketDestination
+idS3BucketDestination = lens _idS3BucketDestination (\ s a -> s{_idS3BucketDestination = a});
+
+instance FromXML InventoryDestination where
+        parseXML x
+          = InventoryDestination' <$>
+              (x .@ "S3BucketDestination")
+
+instance Hashable InventoryDestination
+
+instance NFData InventoryDestination
+
+instance ToXML InventoryDestination where
+        toXML InventoryDestination'{..}
+          = mconcat
+              ["S3BucketDestination" @= _idS3BucketDestination]
+
+-- | /See:/ 'inventoryFilter' smart constructor.
+newtype InventoryFilter = InventoryFilter'
+    { _ifPrefix :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifPrefix' - The prefix that an object must have to be included in the inventory results.
+inventoryFilter
+    :: Text -- ^ 'ifPrefix'
+    -> InventoryFilter
+inventoryFilter pPrefix_ =
+    InventoryFilter'
+    { _ifPrefix = pPrefix_
+    }
+
+-- | The prefix that an object must have to be included in the inventory results.
+ifPrefix :: Lens' InventoryFilter Text
+ifPrefix = lens _ifPrefix (\ s a -> s{_ifPrefix = a});
+
+instance FromXML InventoryFilter where
+        parseXML x = InventoryFilter' <$> (x .@ "Prefix")
+
+instance Hashable InventoryFilter
+
+instance NFData InventoryFilter
+
+instance ToXML InventoryFilter where
+        toXML InventoryFilter'{..}
+          = mconcat ["Prefix" @= _ifPrefix]
+
+-- | /See:/ 'inventoryS3BucketDestination' smart constructor.
+data InventoryS3BucketDestination = InventoryS3BucketDestination'
+    { _isbdPrefix    :: !(Maybe Text)
+    , _isbdAccountId :: !(Maybe Text)
+    , _isbdBucket    :: !BucketName
+    , _isbdFormat    :: !InventoryFormat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryS3BucketDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isbdPrefix' - The prefix that is prepended to all inventory results.
+--
+-- * 'isbdAccountId' - The ID of the account that owns the destination bucket.
+--
+-- * 'isbdBucket' - The Amazon resource name (ARN) of the bucket where inventory results will be published.
+--
+-- * 'isbdFormat' - Specifies the output format of the inventory results.
+inventoryS3BucketDestination
+    :: BucketName -- ^ 'isbdBucket'
+    -> InventoryFormat -- ^ 'isbdFormat'
+    -> InventoryS3BucketDestination
+inventoryS3BucketDestination pBucket_ pFormat_ =
+    InventoryS3BucketDestination'
+    { _isbdPrefix = Nothing
+    , _isbdAccountId = Nothing
+    , _isbdBucket = pBucket_
+    , _isbdFormat = pFormat_
+    }
+
+-- | The prefix that is prepended to all inventory results.
+isbdPrefix :: Lens' InventoryS3BucketDestination (Maybe Text)
+isbdPrefix = lens _isbdPrefix (\ s a -> s{_isbdPrefix = a});
+
+-- | The ID of the account that owns the destination bucket.
+isbdAccountId :: Lens' InventoryS3BucketDestination (Maybe Text)
+isbdAccountId = lens _isbdAccountId (\ s a -> s{_isbdAccountId = a});
+
+-- | The Amazon resource name (ARN) of the bucket where inventory results will be published.
+isbdBucket :: Lens' InventoryS3BucketDestination BucketName
+isbdBucket = lens _isbdBucket (\ s a -> s{_isbdBucket = a});
+
+-- | Specifies the output format of the inventory results.
+isbdFormat :: Lens' InventoryS3BucketDestination InventoryFormat
+isbdFormat = lens _isbdFormat (\ s a -> s{_isbdFormat = a});
+
+instance FromXML InventoryS3BucketDestination where
+        parseXML x
+          = InventoryS3BucketDestination' <$>
+              (x .@? "Prefix") <*> (x .@? "AccountId") <*>
+                (x .@ "Bucket")
+                <*> (x .@ "Format")
+
+instance Hashable InventoryS3BucketDestination
+
+instance NFData InventoryS3BucketDestination
+
+instance ToXML InventoryS3BucketDestination where
+        toXML InventoryS3BucketDestination'{..}
+          = mconcat
+              ["Prefix" @= _isbdPrefix,
+               "AccountId" @= _isbdAccountId,
+               "Bucket" @= _isbdBucket, "Format" @= _isbdFormat]
+
+-- | /See:/ 'inventorySchedule' smart constructor.
+newtype InventorySchedule = InventorySchedule'
+    { _isFrequency :: InventoryFrequency
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventorySchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isFrequency' - Specifies how frequently inventory results are produced.
+inventorySchedule
+    :: InventoryFrequency -- ^ 'isFrequency'
+    -> InventorySchedule
+inventorySchedule pFrequency_ =
+    InventorySchedule'
+    { _isFrequency = pFrequency_
+    }
+
+-- | Specifies how frequently inventory results are produced.
+isFrequency :: Lens' InventorySchedule InventoryFrequency
+isFrequency = lens _isFrequency (\ s a -> s{_isFrequency = a});
+
+instance FromXML InventorySchedule where
+        parseXML x
+          = InventorySchedule' <$> (x .@ "Frequency")
+
+instance Hashable InventorySchedule
+
+instance NFData InventorySchedule
+
+instance ToXML InventorySchedule where
+        toXML InventorySchedule'{..}
+          = mconcat ["Frequency" @= _isFrequency]
+
 -- | Container for specifying the AWS Lambda notification configuration.
 --
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
@@ -1201,11 +1724,12 @@ instance ToXML LifecycleExpiration where
 data LifecycleRule = LifecycleRule'
     { _lrTransitions                    :: !(Maybe [Transition])
     , _lrNoncurrentVersionExpiration    :: !(Maybe NoncurrentVersionExpiration)
+    , _lrPrefix                         :: !(Maybe Text)
     , _lrNoncurrentVersionTransitions   :: !(Maybe [NoncurrentVersionTransition])
     , _lrExpiration                     :: !(Maybe LifecycleExpiration)
     , _lrId                             :: !(Maybe Text)
+    , _lrFilter                         :: !(Maybe LifecycleRuleFilter)
     , _lrAbortIncompleteMultipartUpload :: !(Maybe AbortIncompleteMultipartUpload)
-    , _lrPrefix                         :: !Text
     , _lrStatus                         :: !ExpirationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1217,30 +1741,32 @@ data LifecycleRule = LifecycleRule'
 --
 -- * 'lrNoncurrentVersionExpiration' - Undocumented member.
 --
+-- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+--
 -- * 'lrNoncurrentVersionTransitions' - Undocumented member.
 --
 -- * 'lrExpiration' - Undocumented member.
 --
 -- * 'lrId' - Unique identifier for the rule. The value cannot be longer than 255 characters.
 --
--- * 'lrAbortIncompleteMultipartUpload' - Undocumented member.
+-- * 'lrFilter' - Undocumented member.
 --
--- * 'lrPrefix' - Prefix identifying one or more objects to which the rule applies.
+-- * 'lrAbortIncompleteMultipartUpload' - Undocumented member.
 --
 -- * 'lrStatus' - If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 lifecycleRule
-    :: Text -- ^ 'lrPrefix'
-    -> ExpirationStatus -- ^ 'lrStatus'
+    :: ExpirationStatus -- ^ 'lrStatus'
     -> LifecycleRule
-lifecycleRule pPrefix_ pStatus_ =
+lifecycleRule pStatus_ =
     LifecycleRule'
     { _lrTransitions = Nothing
     , _lrNoncurrentVersionExpiration = Nothing
+    , _lrPrefix = Nothing
     , _lrNoncurrentVersionTransitions = Nothing
     , _lrExpiration = Nothing
     , _lrId = Nothing
+    , _lrFilter = Nothing
     , _lrAbortIncompleteMultipartUpload = Nothing
-    , _lrPrefix = pPrefix_
     , _lrStatus = pStatus_
     }
 
@@ -1251,6 +1777,10 @@ lrTransitions = lens _lrTransitions (\ s a -> s{_lrTransitions = a}) . _Default 
 -- | Undocumented member.
 lrNoncurrentVersionExpiration :: Lens' LifecycleRule (Maybe NoncurrentVersionExpiration)
 lrNoncurrentVersionExpiration = lens _lrNoncurrentVersionExpiration (\ s a -> s{_lrNoncurrentVersionExpiration = a});
+
+-- | Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.
+lrPrefix :: Lens' LifecycleRule (Maybe Text)
+lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
 
 -- | Undocumented member.
 lrNoncurrentVersionTransitions :: Lens' LifecycleRule [NoncurrentVersionTransition]
@@ -1265,12 +1795,12 @@ lrId :: Lens' LifecycleRule (Maybe Text)
 lrId = lens _lrId (\ s a -> s{_lrId = a});
 
 -- | Undocumented member.
+lrFilter :: Lens' LifecycleRule (Maybe LifecycleRuleFilter)
+lrFilter = lens _lrFilter (\ s a -> s{_lrFilter = a});
+
+-- | Undocumented member.
 lrAbortIncompleteMultipartUpload :: Lens' LifecycleRule (Maybe AbortIncompleteMultipartUpload)
 lrAbortIncompleteMultipartUpload = lens _lrAbortIncompleteMultipartUpload (\ s a -> s{_lrAbortIncompleteMultipartUpload = a});
-
--- | Prefix identifying one or more objects to which the rule applies.
-lrPrefix :: Lens' LifecycleRule Text
-lrPrefix = lens _lrPrefix (\ s a -> s{_lrPrefix = a});
 
 -- | If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.
 lrStatus :: Lens' LifecycleRule ExpirationStatus
@@ -1281,12 +1811,13 @@ instance FromXML LifecycleRule where
           = LifecycleRule' <$>
               (may (parseXMLList "Transition") x) <*>
                 (x .@? "NoncurrentVersionExpiration")
+                <*> (x .@? "Prefix")
                 <*>
                 (may (parseXMLList "NoncurrentVersionTransition") x)
                 <*> (x .@? "Expiration")
                 <*> (x .@? "ID")
+                <*> (x .@? "Filter")
                 <*> (x .@? "AbortIncompleteMultipartUpload")
-                <*> (x .@ "Prefix")
                 <*> (x .@ "Status")
 
 instance Hashable LifecycleRule
@@ -1299,13 +1830,116 @@ instance ToXML LifecycleRule where
               [toXML (toXMLList "Transition" <$> _lrTransitions),
                "NoncurrentVersionExpiration" @=
                  _lrNoncurrentVersionExpiration,
+               "Prefix" @= _lrPrefix,
                toXML
                  (toXMLList "NoncurrentVersionTransition" <$>
                     _lrNoncurrentVersionTransitions),
                "Expiration" @= _lrExpiration, "ID" @= _lrId,
+               "Filter" @= _lrFilter,
                "AbortIncompleteMultipartUpload" @=
                  _lrAbortIncompleteMultipartUpload,
-               "Prefix" @= _lrPrefix, "Status" @= _lrStatus]
+               "Status" @= _lrStatus]
+
+-- | This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
+--
+-- /See:/ 'lifecycleRuleAndOperator' smart constructor.
+data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
+    { _lraoPrefix :: !(Maybe Text)
+    , _lraoTags   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LifecycleRuleAndOperator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lraoPrefix' - Undocumented member.
+--
+-- * 'lraoTags' - All of these tags must exist in the object's tag set in order for the rule to apply.
+lifecycleRuleAndOperator
+    :: LifecycleRuleAndOperator
+lifecycleRuleAndOperator =
+    LifecycleRuleAndOperator'
+    { _lraoPrefix = Nothing
+    , _lraoTags = Nothing
+    }
+
+-- | Undocumented member.
+lraoPrefix :: Lens' LifecycleRuleAndOperator (Maybe Text)
+lraoPrefix = lens _lraoPrefix (\ s a -> s{_lraoPrefix = a});
+
+-- | All of these tags must exist in the object's tag set in order for the rule to apply.
+lraoTags :: Lens' LifecycleRuleAndOperator [Tag]
+lraoTags = lens _lraoTags (\ s a -> s{_lraoTags = a}) . _Default . _Coerce;
+
+instance FromXML LifecycleRuleAndOperator where
+        parseXML x
+          = LifecycleRuleAndOperator' <$>
+              (x .@? "Prefix") <*>
+                (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+
+instance Hashable LifecycleRuleAndOperator
+
+instance NFData LifecycleRuleAndOperator
+
+instance ToXML LifecycleRuleAndOperator where
+        toXML LifecycleRuleAndOperator'{..}
+          = mconcat
+              ["Prefix" @= _lraoPrefix,
+               "Tag" @= toXML (toXMLList "Tag" <$> _lraoTags)]
+
+-- | The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.
+--
+-- /See:/ 'lifecycleRuleFilter' smart constructor.
+data LifecycleRuleFilter = LifecycleRuleFilter'
+    { _lrfTag    :: !(Maybe Tag)
+    , _lrfPrefix :: !(Maybe Text)
+    , _lrfAnd    :: !(Maybe LifecycleRuleAndOperator)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LifecycleRuleFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrfTag' - This tag must exist in the object's tag set in order for the rule to apply.
+--
+-- * 'lrfPrefix' - Prefix identifying one or more objects to which the rule applies.
+--
+-- * 'lrfAnd' - Undocumented member.
+lifecycleRuleFilter
+    :: LifecycleRuleFilter
+lifecycleRuleFilter =
+    LifecycleRuleFilter'
+    { _lrfTag = Nothing
+    , _lrfPrefix = Nothing
+    , _lrfAnd = Nothing
+    }
+
+-- | This tag must exist in the object's tag set in order for the rule to apply.
+lrfTag :: Lens' LifecycleRuleFilter (Maybe Tag)
+lrfTag = lens _lrfTag (\ s a -> s{_lrfTag = a});
+
+-- | Prefix identifying one or more objects to which the rule applies.
+lrfPrefix :: Lens' LifecycleRuleFilter (Maybe Text)
+lrfPrefix = lens _lrfPrefix (\ s a -> s{_lrfPrefix = a});
+
+-- | Undocumented member.
+lrfAnd :: Lens' LifecycleRuleFilter (Maybe LifecycleRuleAndOperator)
+lrfAnd = lens _lrfAnd (\ s a -> s{_lrfAnd = a});
+
+instance FromXML LifecycleRuleFilter where
+        parseXML x
+          = LifecycleRuleFilter' <$>
+              (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
+
+instance Hashable LifecycleRuleFilter
+
+instance NFData LifecycleRuleFilter
+
+instance ToXML LifecycleRuleFilter where
+        toXML LifecycleRuleFilter'{..}
+          = mconcat
+              ["Tag" @= _lrfTag, "Prefix" @= _lrfPrefix,
+               "And" @= _lrfAnd]
 
 -- | /See:/ 'loggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
@@ -1363,6 +1997,146 @@ instance ToXML LoggingEnabled where
                "TargetGrants" @=
                  toXML (toXMLList "Grant" <$> _leTargetGrants),
                "TargetPrefix" @= _leTargetPrefix]
+
+-- | /See:/ 'metricsAndOperator' smart constructor.
+data MetricsAndOperator = MetricsAndOperator'
+    { _maoPrefix :: !(Maybe Text)
+    , _maoTags   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricsAndOperator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'maoPrefix' - The prefix used when evaluating an AND predicate.
+--
+-- * 'maoTags' - The list of tags used when evaluating an AND predicate.
+metricsAndOperator
+    :: MetricsAndOperator
+metricsAndOperator =
+    MetricsAndOperator'
+    { _maoPrefix = Nothing
+    , _maoTags = Nothing
+    }
+
+-- | The prefix used when evaluating an AND predicate.
+maoPrefix :: Lens' MetricsAndOperator (Maybe Text)
+maoPrefix = lens _maoPrefix (\ s a -> s{_maoPrefix = a});
+
+-- | The list of tags used when evaluating an AND predicate.
+maoTags :: Lens' MetricsAndOperator [Tag]
+maoTags = lens _maoTags (\ s a -> s{_maoTags = a}) . _Default . _Coerce;
+
+instance FromXML MetricsAndOperator where
+        parseXML x
+          = MetricsAndOperator' <$>
+              (x .@? "Prefix") <*>
+                (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+
+instance Hashable MetricsAndOperator
+
+instance NFData MetricsAndOperator
+
+instance ToXML MetricsAndOperator where
+        toXML MetricsAndOperator'{..}
+          = mconcat
+              ["Prefix" @= _maoPrefix,
+               "Tag" @= toXML (toXMLList "Tag" <$> _maoTags)]
+
+-- | /See:/ 'metricsConfiguration' smart constructor.
+data MetricsConfiguration = MetricsConfiguration'
+    { _mcFilter :: !(Maybe MetricsFilter)
+    , _mcId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricsConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcFilter' - Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+--
+-- * 'mcId' - The ID used to identify the metrics configuration.
+metricsConfiguration
+    :: Text -- ^ 'mcId'
+    -> MetricsConfiguration
+metricsConfiguration pId_ =
+    MetricsConfiguration'
+    { _mcFilter = Nothing
+    , _mcId = pId_
+    }
+
+-- | Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+mcFilter :: Lens' MetricsConfiguration (Maybe MetricsFilter)
+mcFilter = lens _mcFilter (\ s a -> s{_mcFilter = a});
+
+-- | The ID used to identify the metrics configuration.
+mcId :: Lens' MetricsConfiguration Text
+mcId = lens _mcId (\ s a -> s{_mcId = a});
+
+instance FromXML MetricsConfiguration where
+        parseXML x
+          = MetricsConfiguration' <$>
+              (x .@? "Filter") <*> (x .@ "Id")
+
+instance Hashable MetricsConfiguration
+
+instance NFData MetricsConfiguration
+
+instance ToXML MetricsConfiguration where
+        toXML MetricsConfiguration'{..}
+          = mconcat ["Filter" @= _mcFilter, "Id" @= _mcId]
+
+-- | /See:/ 'metricsFilter' smart constructor.
+data MetricsFilter = MetricsFilter'
+    { _mfTag    :: !(Maybe Tag)
+    , _mfPrefix :: !(Maybe Text)
+    , _mfAnd    :: !(Maybe MetricsAndOperator)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricsFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mfTag' - The tag used when evaluating a metrics filter.
+--
+-- * 'mfPrefix' - The prefix used when evaluating a metrics filter.
+--
+-- * 'mfAnd' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+metricsFilter
+    :: MetricsFilter
+metricsFilter =
+    MetricsFilter'
+    { _mfTag = Nothing
+    , _mfPrefix = Nothing
+    , _mfAnd = Nothing
+    }
+
+-- | The tag used when evaluating a metrics filter.
+mfTag :: Lens' MetricsFilter (Maybe Tag)
+mfTag = lens _mfTag (\ s a -> s{_mfTag = a});
+
+-- | The prefix used when evaluating a metrics filter.
+mfPrefix :: Lens' MetricsFilter (Maybe Text)
+mfPrefix = lens _mfPrefix (\ s a -> s{_mfPrefix = a});
+
+-- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+mfAnd :: Lens' MetricsFilter (Maybe MetricsAndOperator)
+mfAnd = lens _mfAnd (\ s a -> s{_mfAnd = a});
+
+instance FromXML MetricsFilter where
+        parseXML x
+          = MetricsFilter' <$>
+              (x .@? "Tag") <*> (x .@? "Prefix") <*> (x .@? "And")
+
+instance Hashable MetricsFilter
+
+instance NFData MetricsFilter
+
+instance ToXML MetricsFilter where
+        toXML MetricsFilter'{..}
+          = mconcat
+              ["Tag" @= _mfTag, "Prefix" @= _mfPrefix,
+               "And" @= _mfAnd]
 
 -- | /See:/ 'multipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
@@ -2431,6 +3205,85 @@ instance FromXML S3ServiceError where
 instance Hashable S3ServiceError
 
 instance NFData S3ServiceError
+
+-- | /See:/ 'storageClassAnalysis' smart constructor.
+newtype StorageClassAnalysis = StorageClassAnalysis'
+    { _scaDataExport :: Maybe StorageClassAnalysisDataExport
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageClassAnalysis' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scaDataExport' - A container used to describe how data related to the storage class analysis should be exported.
+storageClassAnalysis
+    :: StorageClassAnalysis
+storageClassAnalysis =
+    StorageClassAnalysis'
+    { _scaDataExport = Nothing
+    }
+
+-- | A container used to describe how data related to the storage class analysis should be exported.
+scaDataExport :: Lens' StorageClassAnalysis (Maybe StorageClassAnalysisDataExport)
+scaDataExport = lens _scaDataExport (\ s a -> s{_scaDataExport = a});
+
+instance FromXML StorageClassAnalysis where
+        parseXML x
+          = StorageClassAnalysis' <$> (x .@? "DataExport")
+
+instance Hashable StorageClassAnalysis
+
+instance NFData StorageClassAnalysis
+
+instance ToXML StorageClassAnalysis where
+        toXML StorageClassAnalysis'{..}
+          = mconcat ["DataExport" @= _scaDataExport]
+
+-- | /See:/ 'storageClassAnalysisDataExport' smart constructor.
+data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
+    { _scadeOutputSchemaVersion :: !StorageClassAnalysisSchemaVersion
+    , _scadeDestination         :: !AnalyticsExportDestination
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageClassAnalysisDataExport' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scadeOutputSchemaVersion' - The version of the output schema to use when exporting data. Must be V_1.
+--
+-- * 'scadeDestination' - The place to store the data for an analysis.
+storageClassAnalysisDataExport
+    :: StorageClassAnalysisSchemaVersion -- ^ 'scadeOutputSchemaVersion'
+    -> AnalyticsExportDestination -- ^ 'scadeDestination'
+    -> StorageClassAnalysisDataExport
+storageClassAnalysisDataExport pOutputSchemaVersion_ pDestination_ =
+    StorageClassAnalysisDataExport'
+    { _scadeOutputSchemaVersion = pOutputSchemaVersion_
+    , _scadeDestination = pDestination_
+    }
+
+-- | The version of the output schema to use when exporting data. Must be V_1.
+scadeOutputSchemaVersion :: Lens' StorageClassAnalysisDataExport StorageClassAnalysisSchemaVersion
+scadeOutputSchemaVersion = lens _scadeOutputSchemaVersion (\ s a -> s{_scadeOutputSchemaVersion = a});
+
+-- | The place to store the data for an analysis.
+scadeDestination :: Lens' StorageClassAnalysisDataExport AnalyticsExportDestination
+scadeDestination = lens _scadeDestination (\ s a -> s{_scadeDestination = a});
+
+instance FromXML StorageClassAnalysisDataExport where
+        parseXML x
+          = StorageClassAnalysisDataExport' <$>
+              (x .@ "OutputSchemaVersion") <*> (x .@ "Destination")
+
+instance Hashable StorageClassAnalysisDataExport
+
+instance NFData StorageClassAnalysisDataExport
+
+instance ToXML StorageClassAnalysisDataExport where
+        toXML StorageClassAnalysisDataExport'{..}
+          = mconcat
+              ["OutputSchemaVersion" @= _scadeOutputSchemaVersion,
+               "Destination" @= _scadeDestination]
 
 -- | /See:/ 'tag' smart constructor.
 data Tag = Tag'

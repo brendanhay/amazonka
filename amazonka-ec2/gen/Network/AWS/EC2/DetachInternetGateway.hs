@@ -106,7 +106,7 @@ instance ToQuery DetachInternetGateway where
         toQuery DetachInternetGateway'{..}
           = mconcat
               ["Action" =: ("DetachInternetGateway" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _digDryRun,
                "InternetGatewayId" =: _digInternetGatewayId,
                "VpcId" =: _digVPCId]

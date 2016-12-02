@@ -25,7 +25,7 @@
 --
 -- As a best practice, we recommend that you don't save a copy of an @UnlockCode@ value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
 --
--- Note that the credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
+-- The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
 --
 module Network.AWS.Snowball.GetJobManifest
     (

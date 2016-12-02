@@ -115,7 +115,7 @@ instance ToQuery AssociateRouteTable where
         toQuery AssociateRouteTable'{..}
           = mconcat
               ["Action" =: ("AssociateRouteTable" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
                "RouteTableId" =: _artRouteTableId]
 

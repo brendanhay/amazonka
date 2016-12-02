@@ -11,11 +11,11 @@
 module Main (main) where
 
 import Test.Tasty
-import Test.AWS.AWSBudgets
-import Test.AWS.AWSBudgets.Internal
+import Test.AWS.Budgets
+import Test.AWS.Budgets.Internal
 
 main :: IO ()
-main = defaultMain $ testGroup "AWSBudgets"
+main = defaultMain $ testGroup "Budgets"
     [ testGroup "tests"    tests
     , testGroup "fixtures" fixtures
     ]

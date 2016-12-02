@@ -106,13 +106,28 @@ module Network.AWS.DirectConnect
     -- ** UntagResource
     , module Network.AWS.DirectConnect.UntagResource
 
+    -- ** CreateBGPPeer
+    , module Network.AWS.DirectConnect.CreateBGPPeer
+
     -- ** CreateInterconnect
     , module Network.AWS.DirectConnect.CreateInterconnect
+
+    -- ** DeleteBGPPeer
+    , module Network.AWS.DirectConnect.DeleteBGPPeer
 
     -- ** DescribeConnectionLoa
     , module Network.AWS.DirectConnect.DescribeConnectionLoa
 
     -- * Types
+
+    -- ** AddressFamily
+    , AddressFamily (..)
+
+    -- ** BGPPeerState
+    , BGPPeerState (..)
+
+    -- ** BGPStatus
+    , BGPStatus (..)
 
     -- ** ConnectionState
     , ConnectionState (..)
@@ -125,6 +140,17 @@ module Network.AWS.DirectConnect
 
     -- ** VirtualInterfaceState
     , VirtualInterfaceState (..)
+
+    -- ** BGPPeer
+    , BGPPeer
+    , bgpPeer
+    , bpCustomerAddress
+    , bpAmazonAddress
+    , bpAddressFamily
+    , bpBgpStatus
+    , bpAsn
+    , bpAuthKey
+    , bpBgpPeerState
 
     -- ** Connection
     , Connection
@@ -168,11 +194,21 @@ module Network.AWS.DirectConnect
     , lLocationName
     , lLocationCode
 
+    -- ** NewBGPPeer
+    , NewBGPPeer
+    , newBGPPeer
+    , nbpCustomerAddress
+    , nbpAmazonAddress
+    , nbpAddressFamily
+    , nbpAsn
+    , nbpAuthKey
+
     -- ** NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
     , nCustomerAddress
     , nAmazonAddress
+    , nAddressFamily
     , nAuthKey
     , nVirtualInterfaceName
     , nVlan
@@ -184,6 +220,7 @@ module Network.AWS.DirectConnect
     , newPrivateVirtualInterfaceAllocation
     , npviaCustomerAddress
     , npviaAmazonAddress
+    , npviaAddressFamily
     , npviaAuthKey
     , npviaVirtualInterfaceName
     , npviaVlan
@@ -192,24 +229,26 @@ module Network.AWS.DirectConnect
     -- ** NewPublicVirtualInterface
     , NewPublicVirtualInterface
     , newPublicVirtualInterface
+    , npviRouteFilterPrefixes
+    , npviCustomerAddress
+    , npviAmazonAddress
+    , npviAddressFamily
     , npviAuthKey
     , npviVirtualInterfaceName
     , npviVlan
     , npviAsn
-    , npviAmazonAddress
-    , npviCustomerAddress
-    , npviRouteFilterPrefixes
 
     -- ** NewPublicVirtualInterfaceAllocation
     , NewPublicVirtualInterfaceAllocation
     , newPublicVirtualInterfaceAllocation
+    , newRouteFilterPrefixes
+    , newCustomerAddress
+    , newAmazonAddress
+    , newAddressFamily
     , newAuthKey
     , newVirtualInterfaceName
     , newVlan
     , newAsn
-    , newAmazonAddress
-    , newCustomerAddress
-    , newRouteFilterPrefixes
 
     -- ** ResourceTag
     , ResourceTag
@@ -237,12 +276,14 @@ module Network.AWS.DirectConnect
     -- ** VirtualInterface
     , VirtualInterface
     , virtualInterface
+    , viBgpPeers
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
     , viLocation
     , viAmazonAddress
+    , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
     , viVirtualInterfaceType
@@ -260,10 +301,12 @@ import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 import           Network.AWS.DirectConnect.ConfirmConnection
 import           Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import           Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+import           Network.AWS.DirectConnect.CreateBGPPeer
 import           Network.AWS.DirectConnect.CreateConnection
 import           Network.AWS.DirectConnect.CreateInterconnect
 import           Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 import           Network.AWS.DirectConnect.CreatePublicVirtualInterface
+import           Network.AWS.DirectConnect.DeleteBGPPeer
 import           Network.AWS.DirectConnect.DeleteConnection
 import           Network.AWS.DirectConnect.DeleteInterconnect
 import           Network.AWS.DirectConnect.DeleteVirtualInterface

@@ -68,11 +68,11 @@ data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dehEnvironmentName' - Specifies the AWS Elastic Beanstalk environment name. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'dehEnvironmentName' - Specify the environment by name. You must specify either this or an EnvironmentName, or both.
 --
--- * 'dehAttributeNames' - Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns the name of the environment.
+-- * 'dehAttributeNames' - Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
 --
--- * 'dehEnvironmentId' - Specifies the AWS Elastic Beanstalk environment ID. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'dehEnvironmentId' - Specify the environment by ID. You must specify either this or an EnvironmentName, or both.
 describeEnvironmentHealth
     :: DescribeEnvironmentHealth
 describeEnvironmentHealth =
@@ -82,15 +82,15 @@ describeEnvironmentHealth =
     , _dehEnvironmentId = Nothing
     }
 
--- | Specifies the AWS Elastic Beanstalk environment name. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Specify the environment by name. You must specify either this or an EnvironmentName, or both.
 dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
 
--- | Specifies the response elements you wish to receive. If no attribute names are specified, AWS Elastic Beanstalk only returns the name of the environment.
+-- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
 dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
 dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
 
--- | Specifies the AWS Elastic Beanstalk environment ID. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Specify the environment by ID. You must specify either this or an EnvironmentName, or both.
 dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
 dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
 
@@ -135,7 +135,7 @@ instance ToQuery DescribeEnvironmentHealth where
                    (toQueryList "member" <$> _dehAttributeNames),
                "EnvironmentId" =: _dehEnvironmentId]
 
--- | See the example below for a sample response.
+-- | Health details for an AWS Elastic Beanstalk environment.
 --
 --
 --
@@ -156,21 +156,21 @@ data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dehrsStatus' - Returns the health status value of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'dehrsStatus' - The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 --
--- * 'dehrsCauses' - Returns potential causes for the reported status.
+-- * 'dehrsCauses' - Descriptions of the data that contributed to the environment's current health status.
 --
--- * 'dehrsApplicationMetrics' - Undocumented member.
+-- * 'dehrsApplicationMetrics' - Application request metrics for the environment.
 --
--- * 'dehrsColor' - Returns the color indicator that tells you information about the health of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'dehrsColor' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 --
--- * 'dehrsEnvironmentName' - The AWS Elastic Beanstalk environment name.
+-- * 'dehrsEnvironmentName' - The environment's name.
 --
--- * 'dehrsHealthStatus' - Contains the response body with information about the health of the environment.
+-- * 'dehrsHealthStatus' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 --
--- * 'dehrsInstancesHealth' - Undocumented member.
+-- * 'dehrsInstancesHealth' - Summary health information for the instances in the environment.
 --
--- * 'dehrsRefreshedAt' - The date and time the information was last refreshed.
+-- * 'dehrsRefreshedAt' - The date and time that the health information was retrieved.
 --
 -- * 'dehrsResponseStatus' - -- | The response status code.
 describeEnvironmentHealthResponse
@@ -189,35 +189,35 @@ describeEnvironmentHealthResponse pResponseStatus_ =
     , _dehrsResponseStatus = pResponseStatus_
     }
 
--- | Returns the health status value of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
 dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
 dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
 
--- | Returns potential causes for the reported status.
+-- | Descriptions of the data that contributed to the environment's current health status.
 dehrsCauses :: Lens' DescribeEnvironmentHealthResponse [Text]
 dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Application request metrics for the environment.
 dehrsApplicationMetrics :: Lens' DescribeEnvironmentHealthResponse (Maybe ApplicationMetrics)
 dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a});
 
--- | Returns the color indicator that tells you information about the health of the environment. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
 dehrsColor :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a});
 
--- | The AWS Elastic Beanstalk environment name.
+-- | The environment's name.
 dehrsEnvironmentName :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsEnvironmentName = lens _dehrsEnvironmentName (\ s a -> s{_dehrsEnvironmentName = a});
 
--- | Contains the response body with information about the health of the environment.
+-- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
 dehrsHealthStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
 dehrsHealthStatus = lens _dehrsHealthStatus (\ s a -> s{_dehrsHealthStatus = a});
 
--- | Undocumented member.
+-- | Summary health information for the instances in the environment.
 dehrsInstancesHealth :: Lens' DescribeEnvironmentHealthResponse (Maybe InstanceHealthSummary)
 dehrsInstancesHealth = lens _dehrsInstancesHealth (\ s a -> s{_dehrsInstancesHealth = a});
 
--- | The date and time the information was last refreshed.
+-- | The date and time that the health information was retrieved.
 dehrsRefreshedAt :: Lens' DescribeEnvironmentHealthResponse (Maybe UTCTime)
 dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time;
 

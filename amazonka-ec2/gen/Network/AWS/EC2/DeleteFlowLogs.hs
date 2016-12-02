@@ -94,7 +94,7 @@ instance ToQuery DeleteFlowLogs where
         toQuery DeleteFlowLogs'{..}
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQueryList "FlowLogId" _dflFlowLogIds]
 
 -- | Contains the output of DeleteFlowLogs.

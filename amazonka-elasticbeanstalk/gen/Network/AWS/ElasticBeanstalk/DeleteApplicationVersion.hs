@@ -58,9 +58,9 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'davDeleteSourceBundle' - Indicates whether to delete the associated source bundle from Amazon S3:     * @true@ : An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.     * @false@ : No action is taken on the Amazon S3 source bundle specified at time of creation. Valid Values: @true@ | @false@
+-- * 'davDeleteSourceBundle' - Set to @true@ to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3.
 --
--- * 'davApplicationName' - The name of the application to delete releases from.
+-- * 'davApplicationName' - The name of the application to which the version belongs.
 --
 -- * 'davVersionLabel' - The label of the version to delete.
 deleteApplicationVersion
@@ -74,11 +74,11 @@ deleteApplicationVersion pApplicationName_ pVersionLabel_ =
     , _davVersionLabel = pVersionLabel_
     }
 
--- | Indicates whether to delete the associated source bundle from Amazon S3:     * @true@ : An attempt is made to delete the associated Amazon S3 source bundle specified at time of creation.     * @false@ : No action is taken on the Amazon S3 source bundle specified at time of creation. Valid Values: @true@ | @false@
+-- | Set to @true@ to delete the source bundle from your storage bucket. Otherwise, the application version is deleted only from Elastic Beanstalk and the source bundle remains in Amazon S3.
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a});
 
--- | The name of the application to delete releases from.
+-- | The name of the application to which the version belongs.
 davApplicationName :: Lens' DeleteApplicationVersion Text
 davApplicationName = lens _davApplicationName (\ s a -> s{_davApplicationName = a});
 

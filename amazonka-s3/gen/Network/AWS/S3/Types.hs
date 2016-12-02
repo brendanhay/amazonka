@@ -27,6 +27,9 @@ module Network.AWS.S3.Types
     -- * Re-exported Types
     , module Network.AWS.S3.Internal
 
+    -- * AnalyticsS3ExportFileFormat
+    , AnalyticsS3ExportFileFormat (..)
+
     -- * BucketAccelerateStatus
     , BucketAccelerateStatus (..)
 
@@ -50,6 +53,18 @@ module Network.AWS.S3.Types
 
     -- * FilterRuleName
     , FilterRuleName (..)
+
+    -- * InventoryFormat
+    , InventoryFormat (..)
+
+    -- * InventoryFrequency
+    , InventoryFrequency (..)
+
+    -- * InventoryIncludedObjectVersions
+    , InventoryIncludedObjectVersions (..)
+
+    -- * InventoryOptionalField
+    , InventoryOptionalField (..)
 
     -- * MFADelete
     , MFADelete (..)
@@ -96,6 +111,12 @@ module Network.AWS.S3.Types
     -- * StorageClass
     , StorageClass (..)
 
+    -- * StorageClassAnalysisSchemaVersion
+    , StorageClassAnalysisSchemaVersion (..)
+
+    -- * TaggingDirective
+    , TaggingDirective (..)
+
     -- * Tier
     , Tier (..)
 
@@ -120,6 +141,39 @@ module Network.AWS.S3.Types
     , accessControlPolicy
     , acpGrants
     , acpOwner
+
+    -- * AnalyticsAndOperator
+    , AnalyticsAndOperator
+    , analyticsAndOperator
+    , aaoPrefix
+    , aaoTags
+
+    -- * AnalyticsConfiguration
+    , AnalyticsConfiguration
+    , analyticsConfiguration
+    , acFilter
+    , acId
+    , acStorageClassAnalysis
+
+    -- * AnalyticsExportDestination
+    , AnalyticsExportDestination
+    , analyticsExportDestination
+    , aedS3BucketDestination
+
+    -- * AnalyticsFilter
+    , AnalyticsFilter
+    , analyticsFilter
+    , afTag
+    , afPrefix
+    , afAnd
+
+    -- * AnalyticsS3BucketDestination
+    , AnalyticsS3BucketDestination
+    , analyticsS3BucketDestination
+    , asbdBucketAccountId
+    , asbdPrefix
+    , asbdFormat
+    , asbdBucket
 
     -- * Bucket
     , Bucket
@@ -261,6 +315,40 @@ module Network.AWS.S3.Types
     , iDisplayName
     , iId
 
+    -- * InventoryConfiguration
+    , InventoryConfiguration
+    , inventoryConfiguration
+    , icOptionalFields
+    , icFilter
+    , icDestination
+    , icIsEnabled
+    , icId
+    , icIncludedObjectVersions
+    , icSchedule
+
+    -- * InventoryDestination
+    , InventoryDestination
+    , inventoryDestination
+    , idS3BucketDestination
+
+    -- * InventoryFilter
+    , InventoryFilter
+    , inventoryFilter
+    , ifPrefix
+
+    -- * InventoryS3BucketDestination
+    , InventoryS3BucketDestination
+    , inventoryS3BucketDestination
+    , isbdPrefix
+    , isbdAccountId
+    , isbdBucket
+    , isbdFormat
+
+    -- * InventorySchedule
+    , InventorySchedule
+    , inventorySchedule
+    , isFrequency
+
     -- * LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
     , lambdaFunctionConfiguration
@@ -281,12 +369,26 @@ module Network.AWS.S3.Types
     , lifecycleRule
     , lrTransitions
     , lrNoncurrentVersionExpiration
+    , lrPrefix
     , lrNoncurrentVersionTransitions
     , lrExpiration
     , lrId
+    , lrFilter
     , lrAbortIncompleteMultipartUpload
-    , lrPrefix
     , lrStatus
+
+    -- * LifecycleRuleAndOperator
+    , LifecycleRuleAndOperator
+    , lifecycleRuleAndOperator
+    , lraoPrefix
+    , lraoTags
+
+    -- * LifecycleRuleFilter
+    , LifecycleRuleFilter
+    , lifecycleRuleFilter
+    , lrfTag
+    , lrfPrefix
+    , lrfAnd
 
     -- * LoggingEnabled
     , LoggingEnabled
@@ -294,6 +396,25 @@ module Network.AWS.S3.Types
     , leTargetBucket
     , leTargetGrants
     , leTargetPrefix
+
+    -- * MetricsAndOperator
+    , MetricsAndOperator
+    , metricsAndOperator
+    , maoPrefix
+    , maoTags
+
+    -- * MetricsConfiguration
+    , MetricsConfiguration
+    , metricsConfiguration
+    , mcFilter
+    , mcId
+
+    -- * MetricsFilter
+    , MetricsFilter
+    , metricsFilter
+    , mfTag
+    , mfPrefix
+    , mfAnd
 
     -- * MultipartUpload
     , MultipartUpload
@@ -436,6 +557,17 @@ module Network.AWS.S3.Types
     , sseKey
     , sseCode
     , sseMessage
+
+    -- * StorageClassAnalysis
+    , StorageClassAnalysis
+    , storageClassAnalysis
+    , scaDataExport
+
+    -- * StorageClassAnalysisDataExport
+    , StorageClassAnalysisDataExport
+    , storageClassAnalysisDataExport
+    , scadeOutputSchemaVersion
+    , scadeDestination
 
     -- * Tag
     , Tag

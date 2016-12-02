@@ -36,6 +36,7 @@ module Network.AWS.APIGateway.GetStage
     -- * Response Lenses
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus

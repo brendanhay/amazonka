@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns details about the values and term of your specified Convertible Reserved Instances. When an offering ID is specified it returns information about whether the exchange is valid and can be performed.
+-- Returns details about the values and term of your specified Convertible Reserved Instances. When a target configuration is specified, it returns information about whether the exchange is valid and can be performed.
 --
 --
 module Network.AWS.EC2.GetReservedInstancesExchangeQuote
@@ -69,11 +69,11 @@ data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grieqTargetConfigurations' - The configuration requirements of the Convertible Reserved Instances you want in exchange for your current Convertible Reserved Instances.
+-- * 'grieqTargetConfigurations' - The configuration requirements of the Convertible Reserved Instances to exchange for your current Convertible Reserved Instances.
 --
 -- * 'grieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'grieqReservedInstanceIds' - The ID/s of the Convertible Reserved Instances you want to exchange.
+-- * 'grieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange.
 getReservedInstancesExchangeQuote
     :: GetReservedInstancesExchangeQuote
 getReservedInstancesExchangeQuote =
@@ -83,7 +83,7 @@ getReservedInstancesExchangeQuote =
     , _grieqReservedInstanceIds = mempty
     }
 
--- | The configuration requirements of the Convertible Reserved Instances you want in exchange for your current Convertible Reserved Instances.
+-- | The configuration requirements of the Convertible Reserved Instances to exchange for your current Convertible Reserved Instances.
 grieqTargetConfigurations :: Lens' GetReservedInstancesExchangeQuote [TargetConfigurationRequest]
 grieqTargetConfigurations = lens _grieqTargetConfigurations (\ s a -> s{_grieqTargetConfigurations = a}) . _Default . _Coerce;
 
@@ -91,7 +91,7 @@ grieqTargetConfigurations = lens _grieqTargetConfigurations (\ s a -> s{_grieqTa
 grieqDryRun :: Lens' GetReservedInstancesExchangeQuote (Maybe Bool)
 grieqDryRun = lens _grieqDryRun (\ s a -> s{_grieqDryRun = a});
 
--- | The ID/s of the Convertible Reserved Instances you want to exchange.
+-- | The IDs of the Convertible Reserved Instances to exchange.
 grieqReservedInstanceIds :: Lens' GetReservedInstancesExchangeQuote [Text]
 grieqReservedInstanceIds = lens _grieqReservedInstanceIds (\ s a -> s{_grieqReservedInstanceIds = a}) . _Coerce;
 
@@ -137,7 +137,7 @@ instance ToQuery GetReservedInstancesExchangeQuote
           = mconcat
               ["Action" =:
                  ("GetReservedInstancesExchangeQuote" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery
                  (toQueryList "TargetConfiguration" <$>
                     _grieqTargetConfigurations),
@@ -167,7 +167,7 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grieqrsValidationFailureReason' - Describes the reason why the exchange can not be completed.
+-- * 'grieqrsValidationFailureReason' - Describes the reason why the exchange cannot be completed.
 --
 -- * 'grieqrsTargetConfigurationValueRollup' - Undocumented member.
 --
@@ -181,7 +181,7 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
 --
 -- * 'grieqrsReservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.
 --
--- * 'grieqrsIsValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be performed.
+-- * 'grieqrsIsValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
 --
 -- * 'grieqrsPaymentDue' - The total true upfront charge for the exchange.
 --
@@ -203,7 +203,7 @@ getReservedInstancesExchangeQuoteResponse pResponseStatus_ =
     , _grieqrsResponseStatus = pResponseStatus_
     }
 
--- | Describes the reason why the exchange can not be completed.
+-- | Describes the reason why the exchange cannot be completed.
 grieqrsValidationFailureReason :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
 grieqrsValidationFailureReason = lens _grieqrsValidationFailureReason (\ s a -> s{_grieqrsValidationFailureReason = a});
 
@@ -231,7 +231,7 @@ grieqrsOutputReservedInstancesWillExpireAt = lens _grieqrsOutputReservedInstance
 grieqrsReservedInstanceValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [ReservedInstanceReservationValue]
 grieqrsReservedInstanceValueSet = lens _grieqrsReservedInstanceValueSet (\ s a -> s{_grieqrsReservedInstanceValueSet = a}) . _Default . _Coerce;
 
--- | If @true@ , the exchange is valid. If @false@ , the exchange cannot be performed.
+-- | If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
 grieqrsIsValidExchange :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Bool)
 grieqrsIsValidExchange = lens _grieqrsIsValidExchange (\ s a -> s{_grieqrsIsValidExchange = a});
 

@@ -1341,7 +1341,7 @@ instance ToQuery ReceiptFilter where
 -- /See:/ 'receiptIPFilter' smart constructor.
 data ReceiptIPFilter = ReceiptIPFilter'
     { _rifPolicy :: !ReceiptFilterPolicy
-    , _rifCIdR   :: !Text
+    , _rifCidr   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReceiptIPFilter' with the minimum fields required to make a request.
@@ -1350,15 +1350,15 @@ data ReceiptIPFilter = ReceiptIPFilter'
 --
 -- * 'rifPolicy' - Indicates whether to block or allow incoming mail from the specified IP addresses.
 --
--- * 'rifCIdR' - A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
+-- * 'rifCidr' - A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
 receiptIPFilter
     :: ReceiptFilterPolicy -- ^ 'rifPolicy'
-    -> Text -- ^ 'rifCIdR'
+    -> Text -- ^ 'rifCidr'
     -> ReceiptIPFilter
-receiptIPFilter pPolicy_ pCIdR_ =
+receiptIPFilter pPolicy_ pCidr_ =
     ReceiptIPFilter'
     { _rifPolicy = pPolicy_
-    , _rifCIdR = pCIdR_
+    , _rifCidr = pCidr_
     }
 
 -- | Indicates whether to block or allow incoming mail from the specified IP addresses.
@@ -1366,8 +1366,8 @@ rifPolicy :: Lens' ReceiptIPFilter ReceiptFilterPolicy
 rifPolicy = lens _rifPolicy (\ s a -> s{_rifPolicy = a});
 
 -- | A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <https://tools.ietf.org/html/rfc2317 RFC 2317> .
-rifCIdR :: Lens' ReceiptIPFilter Text
-rifCIdR = lens _rifCIdR (\ s a -> s{_rifCIdR = a});
+rifCidr :: Lens' ReceiptIPFilter Text
+rifCidr = lens _rifCidr (\ s a -> s{_rifCidr = a});
 
 instance FromXML ReceiptIPFilter where
         parseXML x
@@ -1381,7 +1381,7 @@ instance NFData ReceiptIPFilter
 instance ToQuery ReceiptIPFilter where
         toQuery ReceiptIPFilter'{..}
           = mconcat
-              ["Policy" =: _rifPolicy, "Cidr" =: _rifCIdR]
+              ["Policy" =: _rifPolicy, "Cidr" =: _rifCidr]
 
 -- | Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.
 --

@@ -28,6 +28,7 @@ module Network.AWS.S3.CopyObject
     , coCopySourceIfModifiedSince
     , coCopySourceIfUnmodifiedSince
     , coCopySourceSSECustomerKeyMD5
+    , coTaggingDirective
     , coMetadataDirective
     , coExpires
     , coGrantReadACP
@@ -44,6 +45,7 @@ module Network.AWS.S3.CopyObject
     , coSSEKMSKeyId
     , coGrantFullControl
     , coContentEncoding
+    , coTagging
     , coMetadata
     , coCacheControl
     , coContentLanguage
@@ -85,6 +87,7 @@ data CopyObject = CopyObject'
     { _coCopySourceIfModifiedSince      :: !(Maybe RFC822)
     , _coCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
     , _coCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+    , _coTaggingDirective               :: !(Maybe TaggingDirective)
     , _coMetadataDirective              :: !(Maybe MetadataDirective)
     , _coExpires                        :: !(Maybe RFC822)
     , _coGrantReadACP                   :: !(Maybe Text)
@@ -101,6 +104,7 @@ data CopyObject = CopyObject'
     , _coSSEKMSKeyId                    :: !(Maybe (Sensitive Text))
     , _coGrantFullControl               :: !(Maybe Text)
     , _coContentEncoding                :: !(Maybe Text)
+    , _coTagging                        :: !(Maybe Text)
     , _coMetadata                       :: !(Map Text Text)
     , _coCacheControl                   :: !(Maybe Text)
     , _coContentLanguage                :: !(Maybe Text)
@@ -124,6 +128,8 @@ data CopyObject = CopyObject'
 -- * 'coCopySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
 --
 -- * 'coCopySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
+--
+-- * 'coTaggingDirective' - Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
 --
 -- * 'coMetadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
 --
@@ -156,6 +162,8 @@ data CopyObject = CopyObject'
 -- * 'coGrantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
 --
 -- * 'coContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+--
+-- * 'coTagging' - The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters
 --
 -- * 'coMetadata' - A map of metadata to store with the object in S3.
 --
@@ -190,6 +198,7 @@ copyObject pBucket_ pCopySource_ pKey_ =
     { _coCopySourceIfModifiedSince = Nothing
     , _coCopySourceIfUnmodifiedSince = Nothing
     , _coCopySourceSSECustomerKeyMD5 = Nothing
+    , _coTaggingDirective = Nothing
     , _coMetadataDirective = Nothing
     , _coExpires = Nothing
     , _coGrantReadACP = Nothing
@@ -206,6 +215,7 @@ copyObject pBucket_ pCopySource_ pKey_ =
     , _coSSEKMSKeyId = Nothing
     , _coGrantFullControl = Nothing
     , _coContentEncoding = Nothing
+    , _coTagging = Nothing
     , _coMetadata = mempty
     , _coCacheControl = Nothing
     , _coContentLanguage = Nothing
@@ -231,6 +241,10 @@ coCopySourceIfUnmodifiedSince = lens _coCopySourceIfUnmodifiedSince (\ s a -> s{
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
 coCopySourceSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coCopySourceSSECustomerKeyMD5 = lens _coCopySourceSSECustomerKeyMD5 (\ s a -> s{_coCopySourceSSECustomerKeyMD5 = a});
+
+-- | Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+coTaggingDirective :: Lens' CopyObject (Maybe TaggingDirective)
+coTaggingDirective = lens _coTaggingDirective (\ s a -> s{_coTaggingDirective = a});
 
 -- | Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
 coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
@@ -295,6 +309,10 @@ coGrantFullControl = lens _coGrantFullControl (\ s a -> s{_coGrantFullControl = 
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 coContentEncoding :: Lens' CopyObject (Maybe Text)
 coContentEncoding = lens _coContentEncoding (\ s a -> s{_coContentEncoding = a});
+
+-- | The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters
+coTagging :: Lens' CopyObject (Maybe Text)
+coTagging = lens _coTagging (\ s a -> s{_coTagging = a});
 
 -- | A map of metadata to store with the object in S3.
 coMetadata :: Lens' CopyObject (HashMap Text Text)
@@ -380,6 +398,7 @@ instance ToHeaders CopyObject where
                  _coCopySourceIfUnmodifiedSince,
                "x-amz-copy-source-server-side-encryption-customer-key-MD5"
                  =# _coCopySourceSSECustomerKeyMD5,
+               "x-amz-tagging-directive" =# _coTaggingDirective,
                "x-amz-metadata-directive" =# _coMetadataDirective,
                "Expires" =# _coExpires,
                "x-amz-grant-read-acp" =# _coGrantReadACP,
@@ -402,6 +421,7 @@ instance ToHeaders CopyObject where
                  _coSSEKMSKeyId,
                "x-amz-grant-full-control" =# _coGrantFullControl,
                "Content-Encoding" =# _coContentEncoding,
+               "x-amz-tagging" =# _coTagging,
                "x-amz-meta-" =# _coMetadata,
                "Cache-Control" =# _coCacheControl,
                "Content-Language" =# _coContentLanguage,

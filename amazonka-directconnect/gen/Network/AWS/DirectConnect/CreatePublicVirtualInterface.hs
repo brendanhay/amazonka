@@ -21,6 +21,8 @@
 -- Creates a new public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon Simple Storage Service (Amazon S3).
 --
 --
+-- When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom IPv6 Addresses are currently not supported.
+--
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Creating a Request
@@ -34,12 +36,14 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     , virtualInterface
     , VirtualInterface
     -- * Response Lenses
+    , viBgpPeers
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
     , viLocation
     , viAmazonAddress
+    , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
     , viVirtualInterfaceType

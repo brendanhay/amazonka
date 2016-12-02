@@ -46,20 +46,27 @@ library
         , Network.AWS.S3.CreateBucket
         , Network.AWS.S3.CreateMultipartUpload
         , Network.AWS.S3.DeleteBucket
+        , Network.AWS.S3.DeleteBucketAnalyticsConfiguration
         , Network.AWS.S3.DeleteBucketCORS
+        , Network.AWS.S3.DeleteBucketInventoryConfiguration
         , Network.AWS.S3.DeleteBucketLifecycle
+        , Network.AWS.S3.DeleteBucketMetricsConfiguration
         , Network.AWS.S3.DeleteBucketPolicy
         , Network.AWS.S3.DeleteBucketReplication
         , Network.AWS.S3.DeleteBucketTagging
         , Network.AWS.S3.DeleteBucketWebsite
         , Network.AWS.S3.DeleteObject
+        , Network.AWS.S3.DeleteObjectTagging
         , Network.AWS.S3.DeleteObjects
         , Network.AWS.S3.GetBucketACL
         , Network.AWS.S3.GetBucketAccelerateConfiguration
+        , Network.AWS.S3.GetBucketAnalyticsConfiguration
         , Network.AWS.S3.GetBucketCORS
+        , Network.AWS.S3.GetBucketInventoryConfiguration
         , Network.AWS.S3.GetBucketLifecycleConfiguration
         , Network.AWS.S3.GetBucketLocation
         , Network.AWS.S3.GetBucketLogging
+        , Network.AWS.S3.GetBucketMetricsConfiguration
         , Network.AWS.S3.GetBucketNotificationConfiguration
         , Network.AWS.S3.GetBucketPolicy
         , Network.AWS.S3.GetBucketReplication
@@ -69,9 +76,13 @@ library
         , Network.AWS.S3.GetBucketWebsite
         , Network.AWS.S3.GetObject
         , Network.AWS.S3.GetObjectACL
+        , Network.AWS.S3.GetObjectTagging
         , Network.AWS.S3.GetObjectTorrent
         , Network.AWS.S3.HeadBucket
         , Network.AWS.S3.HeadObject
+        , Network.AWS.S3.ListBucketAnalyticsConfigurations
+        , Network.AWS.S3.ListBucketInventoryConfigurations
+        , Network.AWS.S3.ListBucketMetricsConfigurations
         , Network.AWS.S3.ListBuckets
         , Network.AWS.S3.ListMultipartUploads
         , Network.AWS.S3.ListObjectVersions
@@ -80,9 +91,12 @@ library
         , Network.AWS.S3.ListParts
         , Network.AWS.S3.PutBucketACL
         , Network.AWS.S3.PutBucketAccelerateConfiguration
+        , Network.AWS.S3.PutBucketAnalyticsConfiguration
         , Network.AWS.S3.PutBucketCORS
+        , Network.AWS.S3.PutBucketInventoryConfiguration
         , Network.AWS.S3.PutBucketLifecycleConfiguration
         , Network.AWS.S3.PutBucketLogging
+        , Network.AWS.S3.PutBucketMetricsConfiguration
         , Network.AWS.S3.PutBucketNotificationConfiguration
         , Network.AWS.S3.PutBucketPolicy
         , Network.AWS.S3.PutBucketReplication
@@ -92,6 +106,7 @@ library
         , Network.AWS.S3.PutBucketWebsite
         , Network.AWS.S3.PutObject
         , Network.AWS.S3.PutObjectACL
+        , Network.AWS.S3.PutObjectTagging
         , Network.AWS.S3.RestoreObject
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart

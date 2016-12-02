@@ -36,7 +36,7 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , rsgiIPProtocol
     , rsgiGroupId
     , rsgiToPort
-    , rsgiCIdRIP
+    , rsgiCidrIP
     , rsgiSourceSecurityGroupOwnerId
     , rsgiGroupName
     , rsgiSourceSecurityGroupName
@@ -65,7 +65,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     , _rsgiIPProtocol                 :: !(Maybe Text)
     , _rsgiGroupId                    :: !(Maybe Text)
     , _rsgiToPort                     :: !(Maybe Int)
-    , _rsgiCIdRIP                     :: !(Maybe Text)
+    , _rsgiCidrIP                     :: !(Maybe Text)
     , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _rsgiGroupName                  :: !(Maybe Text)
     , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
@@ -86,7 +86,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 --
 -- * 'rsgiToPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
 --
--- * 'rsgiCIdRIP' - The CIDR IP address range. You can't specify this parameter when specifying a source security group.
+-- * 'rsgiCidrIP' - The CIDR IP address range. You can't specify this parameter when specifying a source security group.
 --
 -- * 'rsgiSourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
 --
@@ -104,7 +104,7 @@ revokeSecurityGroupIngress =
     , _rsgiIPProtocol = Nothing
     , _rsgiGroupId = Nothing
     , _rsgiToPort = Nothing
-    , _rsgiCIdRIP = Nothing
+    , _rsgiCidrIP = Nothing
     , _rsgiSourceSecurityGroupOwnerId = Nothing
     , _rsgiGroupName = Nothing
     , _rsgiSourceSecurityGroupName = Nothing
@@ -132,8 +132,8 @@ rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
 
 -- | The CIDR IP address range. You can't specify this parameter when specifying a source security group.
-rsgiCIdRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
+rsgiCidrIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiCidrIP = lens _rsgiCidrIP (\ s a -> s{_rsgiCidrIP = a});
 
 -- | [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
@@ -173,13 +173,13 @@ instance ToQuery RevokeSecurityGroupIngress where
           = mconcat
               ["Action" =:
                  ("RevokeSecurityGroupIngress" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "FromPort" =: _rsgiFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _rsgiIPPermissions),
                "IpProtocol" =: _rsgiIPProtocol,
                "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
-               "CidrIp" =: _rsgiCIdRIP,
+               "CidrIp" =: _rsgiCidrIP,
                "SourceSecurityGroupOwnerId" =:
                  _rsgiSourceSecurityGroupOwnerId,
                "GroupName" =: _rsgiGroupName,

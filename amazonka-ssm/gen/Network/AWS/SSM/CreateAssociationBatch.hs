@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates the specified SSM document with the specified instances.
+-- Associates the specified SSM document with the specified instances or targets.
 --
 --
--- When you associate an SSM document with an instance, the configuration agent on the instance (SSM agent for Linux and EC2Config service for Windows) processes the document and configures the instance as specified.
+-- When you associate an SSM document with one or more instances using instance IDs or tags, the SSM agent running on the instance processes the document and configures the instance as specified.
 --
 -- If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.
 --
@@ -51,7 +51,7 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociationBatch' smart constructor.
 newtype CreateAssociationBatch = CreateAssociationBatch'
-    { _cabEntries :: [CreateAssociationBatchRequestEntry]
+    { _cabEntries :: List1 CreateAssociationBatchRequestEntry
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAssociationBatch' with the minimum fields required to make a request.
@@ -60,15 +60,16 @@ newtype CreateAssociationBatch = CreateAssociationBatch'
 --
 -- * 'cabEntries' - One or more associations.
 createAssociationBatch
-    :: CreateAssociationBatch
-createAssociationBatch =
+    :: NonEmpty CreateAssociationBatchRequestEntry -- ^ 'cabEntries'
+    -> CreateAssociationBatch
+createAssociationBatch pEntries_ =
     CreateAssociationBatch'
-    { _cabEntries = mempty
+    { _cabEntries = _List1 # pEntries_
     }
 
 -- | One or more associations.
-cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
-cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _Coerce;
+cabEntries :: Lens' CreateAssociationBatch (NonEmpty CreateAssociationBatchRequestEntry)
+cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _List1;
 
 instance AWSRequest CreateAssociationBatch where
         type Rs CreateAssociationBatch =

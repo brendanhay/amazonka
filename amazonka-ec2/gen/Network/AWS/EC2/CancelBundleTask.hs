@@ -102,7 +102,7 @@ instance ToQuery CancelBundleTask where
         toQuery CancelBundleTask'{..}
           = mconcat
               ["Action" =: ("CancelBundleTask" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _cbtDryRun, "BundleId" =: _cbtBundleId]
 
 -- | Contains the output of CancelBundleTask.

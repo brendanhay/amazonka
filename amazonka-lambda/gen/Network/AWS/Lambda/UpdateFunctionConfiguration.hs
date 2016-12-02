@@ -35,6 +35,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , ufcRuntime
     , ufcKMSKeyARN
     , ufcEnvironment
+    , ufcDeadLetterConfig
     , ufcRole
     , ufcVPCConfig
     , ufcHandler
@@ -51,6 +52,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -76,16 +78,17 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateFunctionConfiguration' smart constructor.
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize   :: !(Maybe Nat)
-    , _ufcRuntime      :: !(Maybe Runtime)
-    , _ufcKMSKeyARN    :: !(Maybe Text)
-    , _ufcEnvironment  :: !(Maybe Environment)
-    , _ufcRole         :: !(Maybe Text)
-    , _ufcVPCConfig    :: !(Maybe VPCConfig)
-    , _ufcHandler      :: !(Maybe Text)
-    , _ufcTimeout      :: !(Maybe Nat)
-    , _ufcDescription  :: !(Maybe Text)
-    , _ufcFunctionName :: !Text
+    { _ufcMemorySize       :: !(Maybe Nat)
+    , _ufcRuntime          :: !(Maybe Runtime)
+    , _ufcKMSKeyARN        :: !(Maybe Text)
+    , _ufcEnvironment      :: !(Maybe Environment)
+    , _ufcDeadLetterConfig :: !(Maybe DeadLetterConfig)
+    , _ufcRole             :: !(Maybe Text)
+    , _ufcVPCConfig        :: !(Maybe VPCConfig)
+    , _ufcHandler          :: !(Maybe Text)
+    , _ufcTimeout          :: !(Maybe Nat)
+    , _ufcDescription      :: !(Maybe Text)
+    , _ufcFunctionName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateFunctionConfiguration' with the minimum fields required to make a request.
@@ -99,6 +102,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- * 'ufcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
 --
 -- * 'ufcEnvironment' - The parent object that contains your environment's configuration settings.
+--
+-- * 'ufcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 --
@@ -120,6 +125,7 @@ updateFunctionConfiguration pFunctionName_ =
     , _ufcRuntime = Nothing
     , _ufcKMSKeyARN = Nothing
     , _ufcEnvironment = Nothing
+    , _ufcDeadLetterConfig = Nothing
     , _ufcRole = Nothing
     , _ufcVPCConfig = Nothing
     , _ufcHandler = Nothing
@@ -143,6 +149,10 @@ ufcKMSKeyARN = lens _ufcKMSKeyARN (\ s a -> s{_ufcKMSKeyARN = a});
 -- | The parent object that contains your environment's configuration settings.
 ufcEnvironment :: Lens' UpdateFunctionConfiguration (Maybe Environment)
 ufcEnvironment = lens _ufcEnvironment (\ s a -> s{_ufcEnvironment = a});
+
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+ufcDeadLetterConfig :: Lens' UpdateFunctionConfiguration (Maybe DeadLetterConfig)
+ufcDeadLetterConfig = lens _ufcDeadLetterConfig (\ s a -> s{_ufcDeadLetterConfig = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 ufcRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
@@ -189,6 +199,7 @@ instance ToJSON UpdateFunctionConfiguration where
                   ("Runtime" .=) <$> _ufcRuntime,
                   ("KMSKeyArn" .=) <$> _ufcKMSKeyARN,
                   ("Environment" .=) <$> _ufcEnvironment,
+                  ("DeadLetterConfig" .=) <$> _ufcDeadLetterConfig,
                   ("Role" .=) <$> _ufcRole,
                   ("VpcConfig" .=) <$> _ufcVPCConfig,
                   ("Handler" .=) <$> _ufcHandler,

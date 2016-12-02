@@ -44,6 +44,8 @@ library
         , Network.AWS.APIGateway.CreateAuthorizer
         , Network.AWS.APIGateway.CreateBasePathMapping
         , Network.AWS.APIGateway.CreateDeployment
+        , Network.AWS.APIGateway.CreateDocumentationPart
+        , Network.AWS.APIGateway.CreateDocumentationVersion
         , Network.AWS.APIGateway.CreateDomainName
         , Network.AWS.APIGateway.CreateModel
         , Network.AWS.APIGateway.CreateResource
@@ -56,6 +58,8 @@ library
         , Network.AWS.APIGateway.DeleteBasePathMapping
         , Network.AWS.APIGateway.DeleteClientCertificate
         , Network.AWS.APIGateway.DeleteDeployment
+        , Network.AWS.APIGateway.DeleteDocumentationPart
+        , Network.AWS.APIGateway.DeleteDocumentationVersion
         , Network.AWS.APIGateway.DeleteDomainName
         , Network.AWS.APIGateway.DeleteIntegration
         , Network.AWS.APIGateway.DeleteIntegrationResponse
@@ -81,6 +85,10 @@ library
         , Network.AWS.APIGateway.GetClientCertificates
         , Network.AWS.APIGateway.GetDeployment
         , Network.AWS.APIGateway.GetDeployments
+        , Network.AWS.APIGateway.GetDocumentationPart
+        , Network.AWS.APIGateway.GetDocumentationParts
+        , Network.AWS.APIGateway.GetDocumentationVersion
+        , Network.AWS.APIGateway.GetDocumentationVersions
         , Network.AWS.APIGateway.GetDomainName
         , Network.AWS.APIGateway.GetDomainNames
         , Network.AWS.APIGateway.GetExport
@@ -104,6 +112,7 @@ library
         , Network.AWS.APIGateway.GetUsagePlanKeys
         , Network.AWS.APIGateway.GetUsagePlans
         , Network.AWS.APIGateway.ImportAPIKeys
+        , Network.AWS.APIGateway.ImportDocumentationParts
         , Network.AWS.APIGateway.ImportRestAPI
         , Network.AWS.APIGateway.PutIntegration
         , Network.AWS.APIGateway.PutIntegrationResponse
@@ -119,6 +128,8 @@ library
         , Network.AWS.APIGateway.UpdateBasePathMapping
         , Network.AWS.APIGateway.UpdateClientCertificate
         , Network.AWS.APIGateway.UpdateDeployment
+        , Network.AWS.APIGateway.UpdateDocumentationPart
+        , Network.AWS.APIGateway.UpdateDocumentationVersion
         , Network.AWS.APIGateway.UpdateDomainName
         , Network.AWS.APIGateway.UpdateIntegration
         , Network.AWS.APIGateway.UpdateIntegrationResponse

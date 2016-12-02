@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables monitoring for a running instance. For more information about monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
+--
+-- To disable detailed monitoring, see .
 --
 module Network.AWS.EC2.MonitorInstances
     (
@@ -103,7 +105,7 @@ instance ToQuery MonitorInstances where
         toQuery MonitorInstances'{..}
           = mconcat
               ["Action" =: ("MonitorInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _miDryRun,
                toQueryList "InstanceId" _miInstanceIds]
 
@@ -121,7 +123,7 @@ data MonitorInstancesResponse = MonitorInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mirsInstanceMonitorings' - Monitoring information for one or more instances.
+-- * 'mirsInstanceMonitorings' - The monitoring information.
 --
 -- * 'mirsResponseStatus' - -- | The response status code.
 monitorInstancesResponse
@@ -133,7 +135,7 @@ monitorInstancesResponse pResponseStatus_ =
     , _mirsResponseStatus = pResponseStatus_
     }
 
--- | Monitoring information for one or more instances.
+-- | The monitoring information.
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 

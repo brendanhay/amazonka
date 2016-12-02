@@ -94,8 +94,14 @@ import Test.AWS.DirectConnect.Internal
 --         , requestUntagResource $
 --             untagResource
 --
+--         , requestCreateBGPPeer $
+--             createBGPPeer
+--
 --         , requestCreateInterconnect $
 --             createInterconnect
+--
+--         , requestDeleteBGPPeer $
+--             deleteBGPPeer
 --
 --         , requestDescribeConnectionLoa $
 --             describeConnectionLoa
@@ -169,8 +175,14 @@ import Test.AWS.DirectConnect.Internal
 --         , responseUntagResource $
 --             untagResourceResponse
 --
+--         , responseCreateBGPPeer $
+--             createBGPPeerResponse
+--
 --         , responseCreateInterconnect $
 --             interconnect
+--
+--         , responseDeleteBGPPeer $
+--             deleteBGPPeerResponse
 --
 --         , responseDescribeConnectionLoa $
 --             describeConnectionLoaResponse
@@ -290,10 +302,20 @@ requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestCreateBGPPeer :: CreateBGPPeer -> TestTree
+requestCreateBGPPeer = req
+    "CreateBGPPeer"
+    "fixture/CreateBGPPeer.yaml"
+
 requestCreateInterconnect :: CreateInterconnect -> TestTree
 requestCreateInterconnect = req
     "CreateInterconnect"
     "fixture/CreateInterconnect.yaml"
+
+requestDeleteBGPPeer :: DeleteBGPPeer -> TestTree
+requestDeleteBGPPeer = req
+    "DeleteBGPPeer"
+    "fixture/DeleteBGPPeer.yaml"
 
 requestDescribeConnectionLoa :: DescribeConnectionLoa -> TestTree
 requestDescribeConnectionLoa = req
@@ -456,12 +478,26 @@ responseUntagResource = res
     directConnect
     (Proxy :: Proxy UntagResource)
 
+responseCreateBGPPeer :: CreateBGPPeerResponse -> TestTree
+responseCreateBGPPeer = res
+    "CreateBGPPeerResponse"
+    "fixture/CreateBGPPeerResponse.proto"
+    directConnect
+    (Proxy :: Proxy CreateBGPPeer)
+
 responseCreateInterconnect :: Interconnect -> TestTree
 responseCreateInterconnect = res
     "CreateInterconnectResponse"
     "fixture/CreateInterconnectResponse.proto"
     directConnect
     (Proxy :: Proxy CreateInterconnect)
+
+responseDeleteBGPPeer :: DeleteBGPPeerResponse -> TestTree
+responseDeleteBGPPeer = res
+    "DeleteBGPPeerResponse"
+    "fixture/DeleteBGPPeerResponse.proto"
+    directConnect
+    (Proxy :: Proxy DeleteBGPPeer)
 
 responseDescribeConnectionLoa :: DescribeConnectionLoaResponse -> TestTree
 responseDescribeConnectionLoa = res

@@ -19,6 +19,9 @@
         },
         "JsonPayload": {
             "type": "json"
+        },
+        "EnvironmentVariableName": {
+            "sensitive": false
         }
     }
 }

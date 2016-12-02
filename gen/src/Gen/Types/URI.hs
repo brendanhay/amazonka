@@ -21,14 +21,19 @@ module Gen.Types.URI where
 
 import           Control.Applicative
 import           Control.Lens
+
 import           Data.Aeson
 import           Data.Attoparsec.Text (Parser)
-import qualified Data.Attoparsec.Text as Parse
 import           Data.Text            (Text)
-import qualified Data.Text            as Text
+
 import           Gen.TH
 import           Gen.Types.Id
+
 import           GHC.Generics         (Generic)
+
+import qualified Data.Attoparsec.Text as Parse
+import qualified Data.Text            as Text
+import qualified Data.Text.Read       as Text
 
 data Segment
     = Tok Text
@@ -84,6 +89,9 @@ data Method
 instance FromJSON Method where
     parseJSON = gParseJSON' upper
 
+instance ToJSON Method where
+    toJSON = toJSON . methodToText
+
 methodToText :: Method -> Text
 methodToText = \case
    GET    -> "get"
@@ -93,18 +101,30 @@ methodToText = \case
    DELETE -> "delete"
    PATCH  -> "patch"
 
-data HTTP f = HTTP
+data HTTP = HTTP
     { _method       :: !Method
-    , _requestURI   :: URI
-    , _responseCode :: f Int
-    } deriving (Generic)
-
-deriving instance Show (HTTP Identity)
+    , _requestURI   :: !URI
+    , _responseCode :: !Int
+    } deriving (Show, Generic)
 
 makeClassy ''HTTP
 
-instance HasURI (HTTP f) where
+instance HasURI HTTP where
     uRI = requestURI
 
-instance FromJSON (HTTP Maybe) where
-    parseJSON = gParseJSON' camel
+instance FromJSON HTTP where
+    parseJSON = withObject "HTTP" $ \o -> HTTP
+        <$> o .: "method"
+        <*> o .: "requestUri"
+        <*> ((o .: "responseCode" <&> parseStatusCode) <|> pure 200)
+
+newtype StatusCodeParser = StatusCodeParser { parseStatusCode :: Int }
+
+instance FromJSON StatusCodeParser where
+   parseJSON (Number n) = StatusCodeParser <$> parseJSON (Number n)
+   parseJSON (String s) =
+       case Text.decimal s of
+           Right (n, "") -> pure (StatusCodeParser n)
+           v             -> fail ("Failure parsing responseCode from: " ++ show v)
+   parseJSON v =
+       fail ("Failure parsing responseCode from: " ++ show v)

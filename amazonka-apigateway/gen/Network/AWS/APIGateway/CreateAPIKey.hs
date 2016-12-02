@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.CreateAPIKey
     -- * Request Lenses
     , cakEnabled
     , cakValue
+    , cakCustomerId
     , cakGenerateDistinctId
     , cakName
     , cakStageKeys
@@ -41,6 +42,7 @@ module Network.AWS.APIGateway.CreateAPIKey
     -- * Response Lenses
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId
@@ -64,6 +66,7 @@ import           Network.AWS.Response
 data CreateAPIKey = CreateAPIKey'
     { _cakEnabled            :: !(Maybe Bool)
     , _cakValue              :: !(Maybe Text)
+    , _cakCustomerId         :: !(Maybe Text)
     , _cakGenerateDistinctId :: !(Maybe Bool)
     , _cakName               :: !(Maybe Text)
     , _cakStageKeys          :: !(Maybe [StageKey])
@@ -78,6 +81,8 @@ data CreateAPIKey = CreateAPIKey'
 --
 -- * 'cakValue' - Specifies a value of the API key.
 --
+-- * 'cakCustomerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
+--
 -- * 'cakGenerateDistinctId' - Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value.
 --
 -- * 'cakName' - The name of the 'ApiKey' .
@@ -91,6 +96,7 @@ createAPIKey =
     CreateAPIKey'
     { _cakEnabled = Nothing
     , _cakValue = Nothing
+    , _cakCustomerId = Nothing
     , _cakGenerateDistinctId = Nothing
     , _cakName = Nothing
     , _cakStageKeys = Nothing
@@ -104,6 +110,10 @@ cakEnabled = lens _cakEnabled (\ s a -> s{_cakEnabled = a});
 -- | Specifies a value of the API key.
 cakValue :: Lens' CreateAPIKey (Maybe Text)
 cakValue = lens _cakValue (\ s a -> s{_cakValue = a});
+
+-- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
+cakCustomerId :: Lens' CreateAPIKey (Maybe Text)
+cakCustomerId = lens _cakCustomerId (\ s a -> s{_cakCustomerId = a});
 
 -- | Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value.
 cakGenerateDistinctId :: Lens' CreateAPIKey (Maybe Bool)
@@ -142,6 +152,7 @@ instance ToJSON CreateAPIKey where
               (catMaybes
                  [("enabled" .=) <$> _cakEnabled,
                   ("value" .=) <$> _cakValue,
+                  ("customerId" .=) <$> _cakCustomerId,
                   ("generateDistinctId" .=) <$> _cakGenerateDistinctId,
                   ("name" .=) <$> _cakName,
                   ("stageKeys" .=) <$> _cakStageKeys,

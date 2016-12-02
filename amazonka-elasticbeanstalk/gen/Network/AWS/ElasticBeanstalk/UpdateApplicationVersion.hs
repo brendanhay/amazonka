@@ -60,7 +60,7 @@ data UpdateApplicationVersion = UpdateApplicationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uavDescription' - A new description for this release.
+-- * 'uavDescription' - A new description for this version.
 --
 -- * 'uavApplicationName' - The name of the application associated with this version. If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 --
@@ -76,7 +76,7 @@ updateApplicationVersion pApplicationName_ pVersionLabel_ =
     , _uavVersionLabel = pVersionLabel_
     }
 
--- | A new description for this release.
+-- | A new description for this version.
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
 uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a});
 

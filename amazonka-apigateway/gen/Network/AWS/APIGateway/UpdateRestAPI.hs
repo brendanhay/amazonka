@@ -38,6 +38,7 @@ module Network.AWS.APIGateway.UpdateRestAPI
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
     ) where

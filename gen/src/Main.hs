@@ -147,22 +147,30 @@ main = do
 
     run $ do
         title "Initialising..." <* done
-        title ("Loading templates from " % path) _optTemplates
 
         let load = readTemplate _optTemplates
 
-        tmpl <- flip evalStateT mempty $ Templates
-            <$> load "cabal.ede"
-            <*> load "toc.ede"
-            <*> load "waiters.ede"
-            <*> load "readme.ede"
-            <*> load "operation.ede"
-            <*> load "types.ede"
-            <*> load "types/sum.ede"
-            <*> load "types/product.ede"
-            <*> load "test/main.ede"
-            <*> load "test/fixtures.ede"
-            <*  lift done
+        tmpl <- flip evalStateT mempty $ do
+            lift (title ("Loading templates from " % path) _optTemplates)
+
+            cabalTemplate          <- load "cabal.ede"
+            tocTemplate            <- load "toc.ede"
+            waitersTemplate        <- load "waiters.ede"
+            readmeTemplate         <- load "readme.ede"
+            operationTemplate      <- load "operation.ede"
+            typesTemplate          <- load "types.ede"
+            sumTemplate            <- load "types/sum.ede"
+            productTemplate        <- load "types/product.ede"
+            testMainTemplate       <- load "test/main.ede"
+            testNamespaceTemplate  <- load "test/namespace.ede"
+            testInternalTemplate   <- load "test/internal.ede"
+            fixturesTemplate       <- load "test/fixtures.ede"
+            fixtureRequestTemplate <- load "test/fixtures/request.ede"
+            blankTemplate          <- load "blank.ede"
+
+            lift done
+
+            pure Templates{..}
 
         r  <- JS.required _optRetry
 
@@ -193,7 +201,7 @@ main = do
             lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
             dir <- hoistEither (Tree.populate _optOutput tmpl lib)
-                >>= Tree.fold createDir (\x -> maybe (touchFile x) (writeLTFile x))
+                >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
             say ("Successfully rendered " % stext % "-" % semver % " package")
                 (lib ^. libraryName)

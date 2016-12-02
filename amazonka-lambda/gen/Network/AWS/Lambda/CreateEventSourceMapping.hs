@@ -39,6 +39,7 @@ module Network.AWS.Lambda.CreateEventSourceMapping
       createEventSourceMapping
     , CreateEventSourceMapping
     -- * Request Lenses
+    , cesmStartingPositionTimestamp
     , cesmEnabled
     , cesmBatchSize
     , cesmEventSourceARN
@@ -72,16 +73,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
-    { _cesmEnabled          :: !(Maybe Bool)
-    , _cesmBatchSize        :: !(Maybe Nat)
-    , _cesmEventSourceARN   :: !Text
-    , _cesmFunctionName     :: !Text
-    , _cesmStartingPosition :: !EventSourcePosition
+    { _cesmStartingPositionTimestamp :: !(Maybe POSIX)
+    , _cesmEnabled                   :: !(Maybe Bool)
+    , _cesmBatchSize                 :: !(Maybe Nat)
+    , _cesmEventSourceARN            :: !Text
+    , _cesmFunctionName              :: !Text
+    , _cesmStartingPosition          :: !EventSourcePosition
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateEventSourceMapping' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cesmStartingPositionTimestamp' - The timestamp of the data record from which to start reading. Used with <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType shard iterator type> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for Kinesis streams.
 --
 -- * 'cesmEnabled' - Indicates whether AWS Lambda should begin polling the event source. By default, @Enabled@ is true.
 --
@@ -91,7 +95,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- * 'cesmFunctionName' - The Lambda function to invoke when AWS Lambda detects an event on the stream. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ).  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ).  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 --
--- * 'cesmStartingPosition' - The position in the stream where AWS Lambda should start reading. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
+-- * 'cesmStartingPosition' - The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
 createEventSourceMapping
     :: Text -- ^ 'cesmEventSourceARN'
     -> Text -- ^ 'cesmFunctionName'
@@ -99,12 +103,17 @@ createEventSourceMapping
     -> CreateEventSourceMapping
 createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
     CreateEventSourceMapping'
-    { _cesmEnabled = Nothing
+    { _cesmStartingPositionTimestamp = Nothing
+    , _cesmEnabled = Nothing
     , _cesmBatchSize = Nothing
     , _cesmEventSourceARN = pEventSourceARN_
     , _cesmFunctionName = pFunctionName_
     , _cesmStartingPosition = pStartingPosition_
     }
+
+-- | The timestamp of the data record from which to start reading. Used with <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType shard iterator type> AT_TIMESTAMP. If a record with this exact timestamp does not exist, the iterator returned is for the next (later) record. If the timestamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON). Valid only for Kinesis streams.
+cesmStartingPositionTimestamp :: Lens' CreateEventSourceMapping (Maybe UTCTime)
+cesmStartingPositionTimestamp = lens _cesmStartingPositionTimestamp (\ s a -> s{_cesmStartingPositionTimestamp = a}) . mapping _Time;
 
 -- | Indicates whether AWS Lambda should begin polling the event source. By default, @Enabled@ is true.
 cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
@@ -122,7 +131,7 @@ cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = 
 cesmFunctionName :: Lens' CreateEventSourceMapping Text
 cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 
--- | The position in the stream where AWS Lambda should start reading. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
+-- | The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
 cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
@@ -143,7 +152,9 @@ instance ToJSON CreateEventSourceMapping where
         toJSON CreateEventSourceMapping'{..}
           = object
               (catMaybes
-                 [("Enabled" .=) <$> _cesmEnabled,
+                 [("StartingPositionTimestamp" .=) <$>
+                    _cesmStartingPositionTimestamp,
+                  ("Enabled" .=) <$> _cesmEnabled,
                   ("BatchSize" .=) <$> _cesmBatchSize,
                   Just ("EventSourceArn" .= _cesmEventSourceARN),
                   Just ("FunctionName" .= _cesmFunctionName),

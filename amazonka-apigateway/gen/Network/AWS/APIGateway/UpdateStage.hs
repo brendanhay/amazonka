@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.UpdateStage
     -- * Response Lenses
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus

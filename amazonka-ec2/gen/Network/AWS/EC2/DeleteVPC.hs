@@ -95,7 +95,7 @@ instance ToQuery DeleteVPC where
         toQuery DeleteVPC'{..}
           = mconcat
               ["Action" =: ("DeleteVpc" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _delDryRun, "VpcId" =: _delVPCId]
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.

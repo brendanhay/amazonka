@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetRestAPI
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
     ) where

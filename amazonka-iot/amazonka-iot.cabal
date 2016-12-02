@@ -44,7 +44,7 @@ library
         , Network.AWS.IoT.AttachPrincipalPolicy
         , Network.AWS.IoT.AttachThingPrincipal
         , Network.AWS.IoT.CancelCertificateTransfer
-        , Network.AWS.IoT.CreateCertificateFromCsr
+        , Network.AWS.IoT.CreateCertificateFromCSR
         , Network.AWS.IoT.CreateKeysAndCertificate
         , Network.AWS.IoT.CreatePolicy
         , Network.AWS.IoT.CreatePolicyVersion

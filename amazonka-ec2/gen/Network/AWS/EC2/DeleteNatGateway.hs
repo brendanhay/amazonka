@@ -33,8 +33,8 @@ module Network.AWS.EC2.DeleteNatGateway
     , deleteNatGatewayResponse
     , DeleteNatGatewayResponse
     -- * Response Lenses
-    , delrsNatGatewayId
-    , delrsResponseStatus
+    , dngnrsNatGatewayId
+    , dngnrsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -93,7 +93,7 @@ instance ToQuery DeleteNatGateway where
         toQuery DeleteNatGateway'{..}
           = mconcat
               ["Action" =: ("DeleteNatGateway" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NatGatewayId" =: _dngNatGatewayId]
 
 -- | Contains the output of DeleteNatGateway.
@@ -102,32 +102,32 @@ instance ToQuery DeleteNatGateway where
 --
 -- /See:/ 'deleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
-    { _delrsNatGatewayId   :: !(Maybe Text)
-    , _delrsResponseStatus :: !Int
+    { _dngnrsNatGatewayId   :: !(Maybe Text)
+    , _dngnrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteNatGatewayResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delrsNatGatewayId' - The ID of the NAT gateway.
+-- * 'dngnrsNatGatewayId' - The ID of the NAT gateway.
 --
--- * 'delrsResponseStatus' - -- | The response status code.
+-- * 'dngnrsResponseStatus' - -- | The response status code.
 deleteNatGatewayResponse
-    :: Int -- ^ 'delrsResponseStatus'
+    :: Int -- ^ 'dngnrsResponseStatus'
     -> DeleteNatGatewayResponse
 deleteNatGatewayResponse pResponseStatus_ =
     DeleteNatGatewayResponse'
-    { _delrsNatGatewayId = Nothing
-    , _delrsResponseStatus = pResponseStatus_
+    { _dngnrsNatGatewayId = Nothing
+    , _dngnrsResponseStatus = pResponseStatus_
     }
 
 -- | The ID of the NAT gateway.
-delrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
-delrsNatGatewayId = lens _delrsNatGatewayId (\ s a -> s{_delrsNatGatewayId = a});
+dngnrsNatGatewayId :: Lens' DeleteNatGatewayResponse (Maybe Text)
+dngnrsNatGatewayId = lens _dngnrsNatGatewayId (\ s a -> s{_dngnrsNatGatewayId = a});
 
 -- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+dngnrsResponseStatus :: Lens' DeleteNatGatewayResponse Int
+dngnrsResponseStatus = lens _dngnrsResponseStatus (\ s a -> s{_dngnrsResponseStatus = a});
 
 instance NFData DeleteNatGatewayResponse

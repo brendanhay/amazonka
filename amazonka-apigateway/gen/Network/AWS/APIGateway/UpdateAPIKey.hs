@@ -36,6 +36,7 @@ module Network.AWS.APIGateway.UpdateAPIKey
     -- * Response Lenses
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId

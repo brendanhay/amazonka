@@ -1822,6 +1822,50 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
               ["DeleteOnTermination" =: _eibdsDeleteOnTermination,
                "VolumeId" =: _eibdsVolumeId]
 
+-- | Describes an egress-only Internet gateway.
+--
+--
+--
+-- /See:/ 'egressOnlyInternetGateway' smart constructor.
+data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
+    { _eoigEgressOnlyInternetGatewayId :: !(Maybe Text)
+    , _eoigAttachments                 :: !(Maybe [InternetGatewayAttachment])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EgressOnlyInternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eoigEgressOnlyInternetGatewayId' - The ID of the egress-only Internet gateway.
+--
+-- * 'eoigAttachments' - Information about the attachment of the egress-only Internet gateway.
+egressOnlyInternetGateway
+    :: EgressOnlyInternetGateway
+egressOnlyInternetGateway =
+    EgressOnlyInternetGateway'
+    { _eoigEgressOnlyInternetGatewayId = Nothing
+    , _eoigAttachments = Nothing
+    }
+
+-- | The ID of the egress-only Internet gateway.
+eoigEgressOnlyInternetGatewayId :: Lens' EgressOnlyInternetGateway (Maybe Text)
+eoigEgressOnlyInternetGatewayId = lens _eoigEgressOnlyInternetGatewayId (\ s a -> s{_eoigEgressOnlyInternetGatewayId = a});
+
+-- | Information about the attachment of the egress-only Internet gateway.
+eoigAttachments :: Lens' EgressOnlyInternetGateway [InternetGatewayAttachment]
+eoigAttachments = lens _eoigAttachments (\ s a -> s{_eoigAttachments = a}) . _Default . _Coerce;
+
+instance FromXML EgressOnlyInternetGateway where
+        parseXML x
+          = EgressOnlyInternetGateway' <$>
+              (x .@? "egressOnlyInternetGatewayId") <*>
+                (x .@? "attachmentSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable EgressOnlyInternetGateway
+
+instance NFData EgressOnlyInternetGateway
+
 -- | Describes a Spot fleet event.
 --
 --
@@ -2872,9 +2916,9 @@ data ICMPTypeCode = ICMPTypeCode'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itcCode' - The ICMP type. A value of -1 means all types.
+-- * 'itcCode' - The ICMP code. A value of -1 means all codes for the specified ICMP type.
 --
--- * 'itcType' - The ICMP code. A value of -1 means all codes for the specified ICMP type.
+-- * 'itcType' - The ICMP type. A value of -1 means all types.
 icmpTypeCode
     :: ICMPTypeCode
 icmpTypeCode =
@@ -2883,11 +2927,11 @@ icmpTypeCode =
     , _itcType = Nothing
     }
 
--- | The ICMP type. A value of -1 means all types.
+-- | The ICMP code. A value of -1 means all codes for the specified ICMP type.
 itcCode :: Lens' ICMPTypeCode (Maybe Int)
 itcCode = lens _itcCode (\ s a -> s{_itcCode = a});
 
--- | The ICMP code. A value of -1 means all codes for the specified ICMP type.
+-- | The ICMP type. A value of -1 means all types.
 itcType :: Lens' ICMPTypeCode (Maybe Int)
 itcType = lens _itcType (\ s a -> s{_itcType = a});
 
@@ -2913,6 +2957,7 @@ data IPPermission = IPPermission'
     , _ipUserIdGroupPairs :: !(Maybe [UserIdGroupPair])
     , _ipPrefixListIds    :: !(Maybe [PrefixListId])
     , _ipToPort           :: !(Maybe Int)
+    , _ipIPv6Ranges       :: !(Maybe [IPv6Range])
     , _ipIPRanges         :: !(Maybe [IPRange])
     , _ipIPProtocol       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2921,17 +2966,19 @@ data IPPermission = IPPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
+-- * 'ipFromPort' - The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
 --
 -- * 'ipUserIdGroupPairs' - One or more security group and AWS account ID pairs.
 --
 -- * 'ipPrefixListIds' - (Valid for 'AuthorizeSecurityGroupEgress' , 'RevokeSecurityGroupEgress' and 'DescribeSecurityGroups' only) One or more prefix list IDs for an AWS service. In an 'AuthorizeSecurityGroupEgress' request, this is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.
 --
--- * 'ipToPort' - The end of port range for the TCP and UDP protocols, or an ICMP code. A value of @-1@ indicates all ICMP codes for the specified ICMP type.
+-- * 'ipToPort' - The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type.
 --
--- * 'ipIPRanges' - One or more IP ranges.
+-- * 'ipIPv6Ranges' - [EC2-VPC only] One or more IPv6 ranges.
 --
--- * 'ipIPProtocol' - The IP protocol name (for @tcp@ , @udp@ , and @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ).  [EC2-VPC only] When you authorize or revoke security group rules, you can use @-1@ to specify all.
+-- * 'ipIPRanges' - One or more IPv4 ranges.
+--
+-- * 'ipIPProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ).  [EC2-VPC only] Use @-1@ to specify all protocols. When authorizing security group rules, specifying @-1@ or a protocol number other than @tcp@ , @udp@ , @icmp@ , or @58@ (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For @tcp@ , @udp@ , and @icmp@ , you must specify a port range. For @58@ (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules.
 ipPermission
     :: Text -- ^ 'ipIPProtocol'
     -> IPPermission
@@ -2941,11 +2988,12 @@ ipPermission pIPProtocol_ =
     , _ipUserIdGroupPairs = Nothing
     , _ipPrefixListIds = Nothing
     , _ipToPort = Nothing
+    , _ipIPv6Ranges = Nothing
     , _ipIPRanges = Nothing
     , _ipIPProtocol = pIPProtocol_
     }
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type number. A value of @-1@ indicates all ICMP types.
+-- | The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
 ipFromPort :: Lens' IPPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
@@ -2957,15 +3005,19 @@ ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = 
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code. A value of @-1@ indicates all ICMP codes for the specified ICMP type.
+-- | The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes for the specified ICMP type.
 ipToPort :: Lens' IPPermission (Maybe Int)
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
--- | One or more IP ranges.
+-- | [EC2-VPC only] One or more IPv6 ranges.
+ipIPv6Ranges :: Lens' IPPermission [IPv6Range]
+ipIPv6Ranges = lens _ipIPv6Ranges (\ s a -> s{_ipIPv6Ranges = a}) . _Default . _Coerce;
+
+-- | One or more IPv4 ranges.
 ipIPRanges :: Lens' IPPermission [IPRange]
 ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default . _Coerce;
 
--- | The IP protocol name (for @tcp@ , @udp@ , and @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ).  [EC2-VPC only] When you authorize or revoke security group rules, you can use @-1@ to specify all.
+-- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ).  [EC2-VPC only] Use @-1@ to specify all protocols. When authorizing security group rules, specifying @-1@ or a protocol number other than @tcp@ , @udp@ , @icmp@ , or @58@ (ICMPv6) allows traffic on all ports, regardless of any port range you specify. For @tcp@ , @udp@ , and @icmp@ , you must specify a port range. For @58@ (ICMPv6), you can optionally specify a port range; if you don't, traffic for all types and codes is allowed when authorizing rules.
 ipIPProtocol :: Lens' IPPermission Text
 ipIPProtocol = lens _ipIPProtocol (\ s a -> s{_ipIPProtocol = a});
 
@@ -2979,6 +3031,9 @@ instance FromXML IPPermission where
                 (x .@? "prefixListIds" .!@ mempty >>=
                    may (parseXMLList "item"))
                 <*> (x .@? "toPort")
+                <*>
+                (x .@? "ipv6Ranges" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*>
                 (x .@? "ipRanges" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -2997,34 +3052,35 @@ instance ToQuery IPPermission where
                toQuery
                  (toQueryList "PrefixListIds" <$> _ipPrefixListIds),
                "ToPort" =: _ipToPort,
+               toQuery (toQueryList "Ipv6Ranges" <$> _ipIPv6Ranges),
                toQuery (toQueryList "IpRanges" <$> _ipIPRanges),
                "IpProtocol" =: _ipIPProtocol]
 
--- | Describes an IP range.
+-- | Describes an IPv4 range.
 --
 --
 --
 -- /See:/ 'ipRange' smart constructor.
 newtype IPRange = IPRange'
-    { _irCIdRIP :: Text
+    { _irCidrIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irCIdRIP' - The CIDR range. You can either specify a CIDR range or a source security group, not both.
+-- * 'irCidrIP' - The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix.
 ipRange
-    :: Text -- ^ 'irCIdRIP'
+    :: Text -- ^ 'irCidrIP'
     -> IPRange
-ipRange pCIdRIP_ =
+ipRange pCidrIP_ =
     IPRange'
-    { _irCIdRIP = pCIdRIP_
+    { _irCidrIP = pCidrIP_
     }
 
--- | The CIDR range. You can either specify a CIDR range or a source security group, not both.
-irCIdRIP :: Lens' IPRange Text
-irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
+-- | The IPv4 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv4 address, use the /32 prefix.
+irCidrIP :: Lens' IPRange Text
+irCidrIP = lens _irCidrIP (\ s a -> s{_irCidrIP = a});
 
 instance FromXML IPRange where
         parseXML x = IPRange' <$> (x .@ "cidrIp")
@@ -3035,7 +3091,76 @@ instance NFData IPRange
 
 instance ToQuery IPRange where
         toQuery IPRange'{..}
-          = mconcat ["CidrIp" =: _irCIdRIP]
+          = mconcat ["CidrIp" =: _irCidrIP]
+
+-- | Describes an IPv6 CIDR block.
+--
+--
+--
+-- /See:/ 'ipv6CidrBlock' smart constructor.
+newtype IPv6CidrBlock = IPv6CidrBlock'
+    { _icbIPv6CidrBlock :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IPv6CidrBlock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'icbIPv6CidrBlock' - The IPv6 CIDR block.
+ipv6CidrBlock
+    :: IPv6CidrBlock
+ipv6CidrBlock =
+    IPv6CidrBlock'
+    { _icbIPv6CidrBlock = Nothing
+    }
+
+-- | The IPv6 CIDR block.
+icbIPv6CidrBlock :: Lens' IPv6CidrBlock (Maybe Text)
+icbIPv6CidrBlock = lens _icbIPv6CidrBlock (\ s a -> s{_icbIPv6CidrBlock = a});
+
+instance FromXML IPv6CidrBlock where
+        parseXML x
+          = IPv6CidrBlock' <$> (x .@? "ipv6CidrBlock")
+
+instance Hashable IPv6CidrBlock
+
+instance NFData IPv6CidrBlock
+
+-- | [EC2-VPC only] Describes an IPv6 range.
+--
+--
+--
+-- /See:/ 'ipv6Range' smart constructor.
+newtype IPv6Range = IPv6Range'
+    { _irCidrIPv6 :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IPv6Range' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irCidrIPv6' - The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix.
+ipv6Range
+    :: IPv6Range
+ipv6Range =
+    IPv6Range'
+    { _irCidrIPv6 = Nothing
+    }
+
+-- | The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix.
+irCidrIPv6 :: Lens' IPv6Range (Maybe Text)
+irCidrIPv6 = lens _irCidrIPv6 (\ s a -> s{_irCidrIPv6 = a});
+
+instance FromXML IPv6Range where
+        parseXML x = IPv6Range' <$> (x .@? "cidrIpv6")
+
+instance Hashable IPv6Range
+
+instance NFData IPv6Range
+
+instance ToQuery IPv6Range where
+        toQuery IPv6Range'{..}
+          = mconcat ["CidrIpv6" =: _irCidrIPv6]
 
 -- | Describes the ID format for a resource.
 --
@@ -4002,7 +4127,7 @@ data Instance = Instance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'insPublicDNSName' - The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+-- * 'insPublicDNSName' - (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
 --
 -- * 'insPlatform' - The value is @Windows@ for Windows instances; otherwise blank.
 --
@@ -4038,19 +4163,19 @@ data Instance = Instance'
 --
 -- * 'insIAMInstanceProfile' - The IAM instance profile associated with the instance, if applicable.
 --
--- * 'insPrivateIPAddress' - The private IP address assigned to the instance.
+-- * 'insPrivateIPAddress' - The private IPv4 address assigned to the instance.
 --
 -- * 'insProductCodes' - The product codes attached to this instance, if applicable.
 --
 -- * 'insSpotInstanceRequestId' - If the request is a Spot instance request, the ID of the request.
 --
--- * 'insPrivateDNSName' - The private DNS name assigned to the instance. This DNS name can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+-- * 'insPrivateDNSName' - (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 --
 -- * 'insStateReason' - The reason for the most recent state transition.
 --
 -- * 'insBlockDeviceMappings' - Any block device mapping entries for the instance.
 --
--- * 'insPublicIPAddress' - The public IP address assigned to the instance, if applicable.
+-- * 'insPublicIPAddress' - The public IPv4 address assigned to the instance, if applicable.
 --
 -- * 'insTags' - Any tags assigned to the instance.
 --
@@ -4066,7 +4191,7 @@ data Instance = Instance'
 --
 -- * 'insPlacement' - The location where the instance launched, if applicable.
 --
--- * 'insMonitoring' - The monitoring information for the instance.
+-- * 'insMonitoring' - The monitoring for the instance.
 --
 -- * 'insArchitecture' - The architecture of the image.
 --
@@ -4133,7 +4258,7 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insState = pState_
     }
 
--- | The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+-- | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
 insPublicDNSName :: Lens' Instance (Maybe Text)
 insPublicDNSName = lens _insPublicDNSName (\ s a -> s{_insPublicDNSName = a});
 
@@ -4205,7 +4330,7 @@ insInstanceLifecycle = lens _insInstanceLifecycle (\ s a -> s{_insInstanceLifecy
 insIAMInstanceProfile :: Lens' Instance (Maybe IAMInstanceProfile)
 insIAMInstanceProfile = lens _insIAMInstanceProfile (\ s a -> s{_insIAMInstanceProfile = a});
 
--- | The private IP address assigned to the instance.
+-- | The private IPv4 address assigned to the instance.
 insPrivateIPAddress :: Lens' Instance (Maybe Text)
 insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress = a});
 
@@ -4217,7 +4342,7 @@ insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _De
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
 insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotInstanceRequestId = a});
 
--- | The private DNS name assigned to the instance. This DNS name can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+-- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.  [EC2-VPC] The Amazon-provided DNS server will resolve Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
 insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
 
@@ -4229,7 +4354,7 @@ insStateReason = lens _insStateReason (\ s a -> s{_insStateReason = a});
 insBlockDeviceMappings :: Lens' Instance [InstanceBlockDeviceMapping]
 insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | The public IP address assigned to the instance, if applicable.
+-- | The public IPv4 address assigned to the instance, if applicable.
 insPublicIPAddress :: Lens' Instance (Maybe Text)
 insPublicIPAddress = lens _insPublicIPAddress (\ s a -> s{_insPublicIPAddress = a});
 
@@ -4261,7 +4386,7 @@ insLaunchTime = lens _insLaunchTime (\ s a -> s{_insLaunchTime = a}) . _Time;
 insPlacement :: Lens' Instance Placement
 insPlacement = lens _insPlacement (\ s a -> s{_insPlacement = a});
 
--- | The monitoring information for the instance.
+-- | The monitoring for the instance.
 insMonitoring :: Lens' Instance Monitoring
 insMonitoring = lens _insMonitoring (\ s a -> s{_insMonitoring = a});
 
@@ -4580,7 +4705,44 @@ instance Hashable InstanceExportDetails
 
 instance NFData InstanceExportDetails
 
--- | Describes the monitoring information of the instance.
+-- | Describes an IPv6 address.
+--
+--
+--
+-- /See:/ 'instanceIPv6Address' smart constructor.
+newtype InstanceIPv6Address = InstanceIPv6Address'
+    { _iiaIPv6Address :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceIPv6Address' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iiaIPv6Address' - The IPv6 address.
+instanceIPv6Address
+    :: InstanceIPv6Address
+instanceIPv6Address =
+    InstanceIPv6Address'
+    { _iiaIPv6Address = Nothing
+    }
+
+-- | The IPv6 address.
+iiaIPv6Address :: Lens' InstanceIPv6Address (Maybe Text)
+iiaIPv6Address = lens _iiaIPv6Address (\ s a -> s{_iiaIPv6Address = a});
+
+instance FromXML InstanceIPv6Address where
+        parseXML x
+          = InstanceIPv6Address' <$> (x .@? "ipv6Address")
+
+instance Hashable InstanceIPv6Address
+
+instance NFData InstanceIPv6Address
+
+instance ToQuery InstanceIPv6Address where
+        toQuery InstanceIPv6Address'{..}
+          = mconcat ["Ipv6Address" =: _iiaIPv6Address]
+
+-- | Describes the monitoring of an instance.
 --
 --
 --
@@ -4596,7 +4758,7 @@ data InstanceMonitoring = InstanceMonitoring'
 --
 -- * 'imInstanceId' - The ID of the instance.
 --
--- * 'imMonitoring' - The monitoring information.
+-- * 'imMonitoring' - The monitoring for the instance.
 instanceMonitoring
     :: InstanceMonitoring
 instanceMonitoring =
@@ -4609,7 +4771,7 @@ instanceMonitoring =
 imInstanceId :: Lens' InstanceMonitoring (Maybe Text)
 imInstanceId = lens _imInstanceId (\ s a -> s{_imInstanceId = a});
 
--- | The monitoring information.
+-- | The monitoring for the instance.
 imMonitoring :: Lens' InstanceMonitoring (Maybe Monitoring)
 imMonitoring = lens _imMonitoring (\ s a -> s{_imMonitoring = a});
 
@@ -4642,6 +4804,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
     , _iniPrivateDNSName     :: !(Maybe Text)
     , _iniDescription        :: !(Maybe Text)
     , _iniAssociation        :: !(Maybe InstanceNetworkInterfaceAssociation)
+    , _iniIPv6Addresses      :: !(Maybe [InstanceIPv6Address])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceNetworkInterface' with the minimum fields required to make a request.
@@ -4652,7 +4815,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- * 'iniStatus' - The status of the network interface.
 --
--- * 'iniPrivateIPAddresses' - The private IP addresses associated with the network interface.
+-- * 'iniPrivateIPAddresses' - One or more private IPv4 addresses associated with the network interface.
 --
 -- * 'iniSourceDestCheck' - Indicates whether to validate network traffic to or from this network interface.
 --
@@ -4668,13 +4831,15 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 --
 -- * 'iniOwnerId' - The ID of the AWS account that created the network interface.
 --
--- * 'iniPrivateIPAddress' - The IP address of the network interface within the subnet.
+-- * 'iniPrivateIPAddress' - The IPv4 address of the network interface within the subnet.
 --
 -- * 'iniPrivateDNSName' - The private DNS name.
 --
 -- * 'iniDescription' - The description.
 --
--- * 'iniAssociation' - The association information for an Elastic IP associated with the network interface.
+-- * 'iniAssociation' - The association information for an Elastic IPv4 associated with the network interface.
+--
+-- * 'iniIPv6Addresses' - One or more IPv6 addresses associated with the network interface.
 instanceNetworkInterface
     :: InstanceNetworkInterface
 instanceNetworkInterface =
@@ -4693,6 +4858,7 @@ instanceNetworkInterface =
     , _iniPrivateDNSName = Nothing
     , _iniDescription = Nothing
     , _iniAssociation = Nothing
+    , _iniIPv6Addresses = Nothing
     }
 
 -- | One or more security groups.
@@ -4703,7 +4869,7 @@ iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a}) . _Default . _Coerce;
 iniStatus :: Lens' InstanceNetworkInterface (Maybe NetworkInterfaceStatus)
 iniStatus = lens _iniStatus (\ s a -> s{_iniStatus = a});
 
--- | The private IP addresses associated with the network interface.
+-- | One or more private IPv4 addresses associated with the network interface.
 iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
 iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default . _Coerce;
 
@@ -4735,7 +4901,7 @@ iniAttachment = lens _iniAttachment (\ s a -> s{_iniAttachment = a});
 iniOwnerId :: Lens' InstanceNetworkInterface (Maybe Text)
 iniOwnerId = lens _iniOwnerId (\ s a -> s{_iniOwnerId = a});
 
--- | The IP address of the network interface within the subnet.
+-- | The IPv4 address of the network interface within the subnet.
 iniPrivateIPAddress :: Lens' InstanceNetworkInterface (Maybe Text)
 iniPrivateIPAddress = lens _iniPrivateIPAddress (\ s a -> s{_iniPrivateIPAddress = a});
 
@@ -4747,9 +4913,13 @@ iniPrivateDNSName = lens _iniPrivateDNSName (\ s a -> s{_iniPrivateDNSName = a})
 iniDescription :: Lens' InstanceNetworkInterface (Maybe Text)
 iniDescription = lens _iniDescription (\ s a -> s{_iniDescription = a});
 
--- | The association information for an Elastic IP associated with the network interface.
+-- | The association information for an Elastic IPv4 associated with the network interface.
 iniAssociation :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAssociation)
 iniAssociation = lens _iniAssociation (\ s a -> s{_iniAssociation = a});
+
+-- | One or more IPv6 addresses associated with the network interface.
+iniIPv6Addresses :: Lens' InstanceNetworkInterface [InstanceIPv6Address]
+iniIPv6Addresses = lens _iniIPv6Addresses (\ s a -> s{_iniIPv6Addresses = a}) . _Default . _Coerce;
 
 instance FromXML InstanceNetworkInterface where
         parseXML x
@@ -4771,12 +4941,15 @@ instance FromXML InstanceNetworkInterface where
                 <*> (x .@? "privateDnsName")
                 <*> (x .@? "description")
                 <*> (x .@? "association")
+                <*>
+                (x .@? "ipv6AddressesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable InstanceNetworkInterface
 
 instance NFData InstanceNetworkInterface
 
--- | Describes association information for an Elastic IP address.
+-- | Describes association information for an Elastic IP address (IPv4).
 --
 --
 --
@@ -4910,10 +5083,12 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     , _inisAssociatePublicIPAddress       :: !(Maybe Bool)
     , _inisNetworkInterfaceId             :: !(Maybe Text)
     , _inisSubnetId                       :: !(Maybe Text)
+    , _inisIPv6AddressCount               :: !(Maybe Int)
     , _inisPrivateIPAddress               :: !(Maybe Text)
     , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
     , _inisDescription                    :: !(Maybe Text)
     , _inisDeviceIndex                    :: !(Maybe Int)
+    , _inisIPv6Addresses                  :: !(Maybe [InstanceIPv6Address])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
@@ -4922,23 +5097,27 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- * 'inisGroups' - The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 --
--- * 'inisPrivateIPAddresses' - One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- * 'inisPrivateIPAddresses' - One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 --
 -- * 'inisDeleteOnTermination' - If set to @true@ , the interface is deleted when the instance is terminated. You can specify @true@ only if creating a new network interface when launching an instance.
 --
--- * 'inisAssociatePublicIPAddress' - Indicates whether to assign a public IP address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- * 'inisAssociatePublicIPAddress' - Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 --
 -- * 'inisNetworkInterfaceId' - The ID of the network interface.
 --
 -- * 'inisSubnetId' - The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.
 --
--- * 'inisPrivateIPAddress' - The private IP address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- * 'inisIPv6AddressCount' - A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
 --
--- * 'inisSecondaryPrivateIPAddressCount' - The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- * 'inisPrivateIPAddress' - The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+--
+-- * 'inisSecondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 --
 -- * 'inisDescription' - The description of the network interface. Applies only if creating a network interface when launching an instance.
 --
 -- * 'inisDeviceIndex' - The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a 'RunInstances' request, you must provide the device index.
+--
+-- * 'inisIPv6Addresses' - One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 instanceNetworkInterfaceSpecification
     :: InstanceNetworkInterfaceSpecification
 instanceNetworkInterfaceSpecification =
@@ -4949,17 +5128,19 @@ instanceNetworkInterfaceSpecification =
     , _inisAssociatePublicIPAddress = Nothing
     , _inisNetworkInterfaceId = Nothing
     , _inisSubnetId = Nothing
+    , _inisIPv6AddressCount = Nothing
     , _inisPrivateIPAddress = Nothing
     , _inisSecondaryPrivateIPAddressCount = Nothing
     , _inisDescription = Nothing
     , _inisDeviceIndex = Nothing
+    , _inisIPv6Addresses = Nothing
     }
 
 -- | The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
 inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
 inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
--- | One or more private IP addresses to assign to the network interface. Only one private IP address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- | One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
 inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default . _Coerce;
 
@@ -4967,7 +5148,7 @@ inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIP
 inisDeleteOnTermination :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteOnTermination = a});
 
--- | Indicates whether to assign a public IP address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- | Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 inisAssociatePublicIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisAssociatePublicIPAddress = lens _inisAssociatePublicIPAddress (\ s a -> s{_inisAssociatePublicIPAddress = a});
 
@@ -4979,11 +5160,15 @@ inisNetworkInterfaceId = lens _inisNetworkInterfaceId (\ s a -> s{_inisNetworkIn
 inisSubnetId :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisSubnetId = lens _inisSubnetId (\ s a -> s{_inisSubnetId = a});
 
--- | The private IP address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- | A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+inisIPv6AddressCount :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
+inisIPv6AddressCount = lens _inisIPv6AddressCount (\ s a -> s{_inisIPv6AddressCount = a});
+
+-- | The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisPrivateIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Text)
 inisPrivateIPAddress = lens _inisPrivateIPAddress (\ s a -> s{_inisPrivateIPAddress = a});
 
--- | The number of secondary private IP addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
+-- | The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a 'RunInstances' request.
 inisSecondaryPrivateIPAddressCount :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisSecondaryPrivateIPAddressCount = lens _inisSecondaryPrivateIPAddressCount (\ s a -> s{_inisSecondaryPrivateIPAddressCount = a});
 
@@ -4994,6 +5179,10 @@ inisDescription = lens _inisDescription (\ s a -> s{_inisDescription = a});
 -- | The index of the device on the instance for the network interface attachment. If you are specifying a network interface in a 'RunInstances' request, you must provide the device index.
 inisDeviceIndex :: Lens' InstanceNetworkInterfaceSpecification (Maybe Int)
 inisDeviceIndex = lens _inisDeviceIndex (\ s a -> s{_inisDeviceIndex = a});
+
+-- | One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+inisIPv6Addresses :: Lens' InstanceNetworkInterfaceSpecification [InstanceIPv6Address]
+inisIPv6Addresses = lens _inisIPv6Addresses (\ s a -> s{_inisIPv6Addresses = a}) . _Default . _Coerce;
 
 instance FromXML
          InstanceNetworkInterfaceSpecification where
@@ -5008,10 +5197,14 @@ instance FromXML
                 <*> (x .@? "associatePublicIpAddress")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "subnetId")
+                <*> (x .@? "ipv6AddressCount")
                 <*> (x .@? "privateIpAddress")
                 <*> (x .@? "secondaryPrivateIpAddressCount")
                 <*> (x .@? "description")
                 <*> (x .@? "deviceIndex")
+                <*>
+                (x .@? "ipv6AddressesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable
          InstanceNetworkInterfaceSpecification
@@ -5032,13 +5225,16 @@ instance ToQuery
                  _inisAssociatePublicIPAddress,
                "NetworkInterfaceId" =: _inisNetworkInterfaceId,
                "SubnetId" =: _inisSubnetId,
+               "Ipv6AddressCount" =: _inisIPv6AddressCount,
                "PrivateIpAddress" =: _inisPrivateIPAddress,
                "SecondaryPrivateIpAddressCount" =:
                  _inisSecondaryPrivateIPAddressCount,
                "Description" =: _inisDescription,
-               "DeviceIndex" =: _inisDeviceIndex]
+               "DeviceIndex" =: _inisDeviceIndex,
+               toQuery
+                 (toQueryList "Ipv6Addresses" <$> _inisIPv6Addresses)]
 
--- | Describes a private IP address.
+-- | Describes a private IPv4 address.
 --
 --
 --
@@ -5054,11 +5250,11 @@ data InstancePrivateIPAddress = InstancePrivateIPAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ipiaPrimary' - Indicates whether this IP address is the primary private IP address of the network interface.
+-- * 'ipiaPrimary' - Indicates whether this IPv4 address is the primary private IP address of the network interface.
 --
--- * 'ipiaPrivateIPAddress' - The private IP address of the network interface.
+-- * 'ipiaPrivateIPAddress' - The private IPv4 address of the network interface.
 --
--- * 'ipiaPrivateDNSName' - The private DNS name.
+-- * 'ipiaPrivateDNSName' - The private IPv4 DNS name.
 --
 -- * 'ipiaAssociation' - The association information for an Elastic IP address for the network interface.
 instancePrivateIPAddress
@@ -5071,15 +5267,15 @@ instancePrivateIPAddress =
     , _ipiaAssociation = Nothing
     }
 
--- | Indicates whether this IP address is the primary private IP address of the network interface.
+-- | Indicates whether this IPv4 address is the primary private IP address of the network interface.
 ipiaPrimary :: Lens' InstancePrivateIPAddress (Maybe Bool)
 ipiaPrimary = lens _ipiaPrimary (\ s a -> s{_ipiaPrimary = a});
 
--- | The private IP address of the network interface.
+-- | The private IPv4 address of the network interface.
 ipiaPrivateIPAddress :: Lens' InstancePrivateIPAddress (Maybe Text)
 ipiaPrivateIPAddress = lens _ipiaPrivateIPAddress (\ s a -> s{_ipiaPrivateIPAddress = a});
 
--- | The private DNS name.
+-- | The private IPv4 DNS name.
 ipiaPrivateDNSName :: Lens' InstancePrivateIPAddress (Maybe Text)
 ipiaPrivateDNSName = lens _ipiaPrivateDNSName (\ s a -> s{_ipiaPrivateDNSName = a});
 
@@ -5098,7 +5294,7 @@ instance Hashable InstancePrivateIPAddress
 
 instance NFData InstancePrivateIPAddress
 
--- | Describes the current state of the instance.
+-- | Describes the current state of an instance.
 --
 --
 --
@@ -5483,7 +5679,7 @@ instance Hashable InternetGateway
 
 instance NFData InternetGateway
 
--- | Describes the attachment of a VPC to an Internet gateway.
+-- | Describes the attachment of a VPC to an Internet gateway or an egress-only Internet gateway.
 --
 --
 --
@@ -5690,7 +5886,7 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- * 'lsKeyName' - The name of the key pair.
 --
--- * 'lsNetworkInterfaces' - One or more network interfaces.
+-- * 'lsNetworkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 --
 -- * 'lsRAMDiskId' - The ID of the RAM disk.
 --
@@ -5744,7 +5940,7 @@ lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . 
 lsKeyName :: Lens' LaunchSpecification (Maybe Text)
 lsKeyName = lens _lsKeyName (\ s a -> s{_lsKeyName = a});
 
--- | One or more network interfaces.
+-- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
 lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a}) . _Default . _Coerce;
 
@@ -5824,7 +6020,7 @@ instance Hashable LaunchSpecification
 
 instance NFData LaunchSpecification
 
--- | Describes the monitoring for the instance.
+-- | Describes the monitoring of an instance.
 --
 --
 --
@@ -5837,7 +6033,7 @@ newtype Monitoring = Monitoring'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mState' - Indicates whether monitoring is enabled for the instance.
+-- * 'mState' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 monitoring
     :: Monitoring
 monitoring =
@@ -5845,7 +6041,7 @@ monitoring =
     { _mState = Nothing
     }
 
--- | Indicates whether monitoring is enabled for the instance.
+-- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 mState :: Lens' Monitoring (Maybe MonitoringState)
 mState = lens _mState (\ s a -> s{_mState = a});
 
@@ -6215,18 +6411,21 @@ instance NFData NetworkACLAssociation
 --
 -- /See:/ 'networkACLEntry' smart constructor.
 data NetworkACLEntry = NetworkACLEntry'
-    { _naeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _naeRuleNumber   :: !(Maybe Int)
-    , _naeRuleAction   :: !(Maybe RuleAction)
-    , _naeProtocol     :: !(Maybe Text)
-    , _naePortRange    :: !(Maybe PortRange)
-    , _naeCIdRBlock    :: !(Maybe Text)
-    , _naeEgress       :: !(Maybe Bool)
+    { _naeIPv6CidrBlock :: !(Maybe Text)
+    , _naeICMPTypeCode  :: !(Maybe ICMPTypeCode)
+    , _naeRuleNumber    :: !(Maybe Int)
+    , _naeRuleAction    :: !(Maybe RuleAction)
+    , _naeProtocol      :: !(Maybe Text)
+    , _naePortRange     :: !(Maybe PortRange)
+    , _naeCidrBlock     :: !(Maybe Text)
+    , _naeEgress        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NetworkACLEntry' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'naeIPv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation.
 --
 -- * 'naeICMPTypeCode' - ICMP protocol: The ICMP type and code.
 --
@@ -6238,21 +6437,26 @@ data NetworkACLEntry = NetworkACLEntry'
 --
 -- * 'naePortRange' - TCP or UDP protocols: The range of ports the rule applies to.
 --
--- * 'naeCIdRBlock' - The network range to allow or deny, in CIDR notation.
+-- * 'naeCidrBlock' - The IPv4 network range to allow or deny, in CIDR notation.
 --
 -- * 'naeEgress' - Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
 networkACLEntry
     :: NetworkACLEntry
 networkACLEntry =
     NetworkACLEntry'
-    { _naeICMPTypeCode = Nothing
+    { _naeIPv6CidrBlock = Nothing
+    , _naeICMPTypeCode = Nothing
     , _naeRuleNumber = Nothing
     , _naeRuleAction = Nothing
     , _naeProtocol = Nothing
     , _naePortRange = Nothing
-    , _naeCIdRBlock = Nothing
+    , _naeCidrBlock = Nothing
     , _naeEgress = Nothing
     }
+
+-- | The IPv6 network range to allow or deny, in CIDR notation.
+naeIPv6CidrBlock :: Lens' NetworkACLEntry (Maybe Text)
+naeIPv6CidrBlock = lens _naeIPv6CidrBlock (\ s a -> s{_naeIPv6CidrBlock = a});
 
 -- | ICMP protocol: The ICMP type and code.
 naeICMPTypeCode :: Lens' NetworkACLEntry (Maybe ICMPTypeCode)
@@ -6274,9 +6478,9 @@ naeProtocol = lens _naeProtocol (\ s a -> s{_naeProtocol = a});
 naePortRange :: Lens' NetworkACLEntry (Maybe PortRange)
 naePortRange = lens _naePortRange (\ s a -> s{_naePortRange = a});
 
--- | The network range to allow or deny, in CIDR notation.
-naeCIdRBlock :: Lens' NetworkACLEntry (Maybe Text)
-naeCIdRBlock = lens _naeCIdRBlock (\ s a -> s{_naeCIdRBlock = a});
+-- | The IPv4 network range to allow or deny, in CIDR notation.
+naeCidrBlock :: Lens' NetworkACLEntry (Maybe Text)
+naeCidrBlock = lens _naeCidrBlock (\ s a -> s{_naeCidrBlock = a});
 
 -- | Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
 naeEgress :: Lens' NetworkACLEntry (Maybe Bool)
@@ -6285,8 +6489,9 @@ naeEgress = lens _naeEgress (\ s a -> s{_naeEgress = a});
 instance FromXML NetworkACLEntry where
         parseXML x
           = NetworkACLEntry' <$>
-              (x .@? "icmpTypeCode") <*> (x .@? "ruleNumber") <*>
-                (x .@? "ruleAction")
+              (x .@? "ipv6CidrBlock") <*> (x .@? "icmpTypeCode")
+                <*> (x .@? "ruleNumber")
+                <*> (x .@? "ruleAction")
                 <*> (x .@? "protocol")
                 <*> (x .@? "portRange")
                 <*> (x .@? "cidrBlock")
@@ -6321,6 +6526,7 @@ data NetworkInterface = NetworkInterface'
     , _niRequesterId        :: !(Maybe Text)
     , _niDescription        :: !(Maybe Text)
     , _niAssociation        :: !(Maybe NetworkInterfaceAssociation)
+    , _niIPv6Addresses      :: !(Maybe [NetworkInterfaceIPv6Address])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
@@ -6331,7 +6537,7 @@ data NetworkInterface = NetworkInterface'
 --
 -- * 'niStatus' - The status of the network interface.
 --
--- * 'niPrivateIPAddresses' - The private IP addresses associated with the network interface.
+-- * 'niPrivateIPAddresses' - The private IPv4 addresses associated with the network interface.
 --
 -- * 'niSourceDestCheck' - Indicates whether traffic to or from the instance is validated.
 --
@@ -6355,7 +6561,7 @@ data NetworkInterface = NetworkInterface'
 --
 -- * 'niAvailabilityZone' - The Availability Zone.
 --
--- * 'niPrivateIPAddress' - The IP address of the network interface within the subnet.
+-- * 'niPrivateIPAddress' - The IPv4 address of the network interface within the subnet.
 --
 -- * 'niPrivateDNSName' - The private DNS name.
 --
@@ -6363,7 +6569,9 @@ data NetworkInterface = NetworkInterface'
 --
 -- * 'niDescription' - A description.
 --
--- * 'niAssociation' - The association information for an Elastic IP associated with the network interface.
+-- * 'niAssociation' - The association information for an Elastic IP address (IPv4) associated with the network interface.
+--
+-- * 'niIPv6Addresses' - The IPv6 addresses associated with the network interface.
 networkInterface
     :: NetworkInterface
 networkInterface =
@@ -6387,6 +6595,7 @@ networkInterface =
     , _niRequesterId = Nothing
     , _niDescription = Nothing
     , _niAssociation = Nothing
+    , _niIPv6Addresses = Nothing
     }
 
 -- | Any security groups for the network interface.
@@ -6397,7 +6606,7 @@ niGroups = lens _niGroups (\ s a -> s{_niGroups = a}) . _Default . _Coerce;
 niStatus :: Lens' NetworkInterface (Maybe NetworkInterfaceStatus)
 niStatus = lens _niStatus (\ s a -> s{_niStatus = a});
 
--- | The private IP addresses associated with the network interface.
+-- | The private IPv4 addresses associated with the network interface.
 niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
 niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default . _Coerce;
 
@@ -6445,7 +6654,7 @@ niOwnerId = lens _niOwnerId (\ s a -> s{_niOwnerId = a});
 niAvailabilityZone :: Lens' NetworkInterface (Maybe Text)
 niAvailabilityZone = lens _niAvailabilityZone (\ s a -> s{_niAvailabilityZone = a});
 
--- | The IP address of the network interface within the subnet.
+-- | The IPv4 address of the network interface within the subnet.
 niPrivateIPAddress :: Lens' NetworkInterface (Maybe Text)
 niPrivateIPAddress = lens _niPrivateIPAddress (\ s a -> s{_niPrivateIPAddress = a});
 
@@ -6461,9 +6670,13 @@ niRequesterId = lens _niRequesterId (\ s a -> s{_niRequesterId = a});
 niDescription :: Lens' NetworkInterface (Maybe Text)
 niDescription = lens _niDescription (\ s a -> s{_niDescription = a});
 
--- | The association information for an Elastic IP associated with the network interface.
+-- | The association information for an Elastic IP address (IPv4) associated with the network interface.
 niAssociation :: Lens' NetworkInterface (Maybe NetworkInterfaceAssociation)
 niAssociation = lens _niAssociation (\ s a -> s{_niAssociation = a});
+
+-- | The IPv6 addresses associated with the network interface.
+niIPv6Addresses :: Lens' NetworkInterface [NetworkInterfaceIPv6Address]
+niIPv6Addresses = lens _niIPv6Addresses (\ s a -> s{_niIPv6Addresses = a}) . _Default . _Coerce;
 
 instance FromXML NetworkInterface where
         parseXML x
@@ -6492,12 +6705,15 @@ instance FromXML NetworkInterface where
                 <*> (x .@? "requesterId")
                 <*> (x .@? "description")
                 <*> (x .@? "association")
+                <*>
+                (x .@? "ipv6AddressesSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable NetworkInterface
 
 instance NFData NetworkInterface
 
--- | Describes association information for an Elastic IP address.
+-- | Describes association information for an Elastic IP address (IPv4 only).
 --
 --
 --
@@ -6697,7 +6913,41 @@ instance ToQuery NetworkInterfaceAttachmentChanges
               ["DeleteOnTermination" =: _niacDeleteOnTermination,
                "AttachmentId" =: _niacAttachmentId]
 
--- | Describes the private IP address of a network interface.
+-- | Describes an IPv6 address associated with a network interface.
+--
+--
+--
+-- /See:/ 'networkInterfaceIPv6Address' smart constructor.
+newtype NetworkInterfaceIPv6Address = NetworkInterfaceIPv6Address'
+    { _niiaIPv6Address :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfaceIPv6Address' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'niiaIPv6Address' - The IPv6 address.
+networkInterfaceIPv6Address
+    :: NetworkInterfaceIPv6Address
+networkInterfaceIPv6Address =
+    NetworkInterfaceIPv6Address'
+    { _niiaIPv6Address = Nothing
+    }
+
+-- | The IPv6 address.
+niiaIPv6Address :: Lens' NetworkInterfaceIPv6Address (Maybe Text)
+niiaIPv6Address = lens _niiaIPv6Address (\ s a -> s{_niiaIPv6Address = a});
+
+instance FromXML NetworkInterfaceIPv6Address where
+        parseXML x
+          = NetworkInterfaceIPv6Address' <$>
+              (x .@? "ipv6Address")
+
+instance Hashable NetworkInterfaceIPv6Address
+
+instance NFData NetworkInterfaceIPv6Address
+
+-- | Describes the private IPv4 address of a network interface.
 --
 --
 --
@@ -6713,13 +6963,13 @@ data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'nipiaPrimary' - Indicates whether this IP address is the primary private IP address of the network interface.
+-- * 'nipiaPrimary' - Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
 --
--- * 'nipiaPrivateIPAddress' - The private IP address.
+-- * 'nipiaPrivateIPAddress' - The private IPv4 address.
 --
 -- * 'nipiaPrivateDNSName' - The private DNS name.
 --
--- * 'nipiaAssociation' - The association information for an Elastic IP address associated with the network interface.
+-- * 'nipiaAssociation' - The association information for an Elastic IP address (IPv4) associated with the network interface.
 networkInterfacePrivateIPAddress
     :: NetworkInterfacePrivateIPAddress
 networkInterfacePrivateIPAddress =
@@ -6730,11 +6980,11 @@ networkInterfacePrivateIPAddress =
     , _nipiaAssociation = Nothing
     }
 
--- | Indicates whether this IP address is the primary private IP address of the network interface.
+-- | Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
 nipiaPrimary :: Lens' NetworkInterfacePrivateIPAddress (Maybe Bool)
 nipiaPrimary = lens _nipiaPrimary (\ s a -> s{_nipiaPrimary = a});
 
--- | The private IP address.
+-- | The private IPv4 address.
 nipiaPrivateIPAddress :: Lens' NetworkInterfacePrivateIPAddress (Maybe Text)
 nipiaPrivateIPAddress = lens _nipiaPrivateIPAddress (\ s a -> s{_nipiaPrivateIPAddress = a});
 
@@ -6742,7 +6992,7 @@ nipiaPrivateIPAddress = lens _nipiaPrivateIPAddress (\ s a -> s{_nipiaPrivateIPA
 nipiaPrivateDNSName :: Lens' NetworkInterfacePrivateIPAddress (Maybe Text)
 nipiaPrivateDNSName = lens _nipiaPrivateDNSName (\ s a -> s{_nipiaPrivateDNSName = a});
 
--- | The association information for an Elastic IP address associated with the network interface.
+-- | The association information for an Elastic IP address (IPv4) associated with the network interface.
 nipiaAssociation :: Lens' NetworkInterfacePrivateIPAddress (Maybe NetworkInterfaceAssociation)
 nipiaAssociation = lens _nipiaAssociation (\ s a -> s{_nipiaAssociation = a});
 
@@ -6906,7 +7156,7 @@ instance ToQuery PeeringConnectionOptionsRequest
                "AllowDnsResolutionFromRemoteVpc" =:
                  _pcorAllowDNSResolutionFromRemoteVPC]
 
--- | Describes the placement for the instance.
+-- | Describes the placement of an instance.
 --
 --
 --
@@ -7084,7 +7334,7 @@ instance ToQuery PortRange where
 --
 -- /See:/ 'prefixList' smart constructor.
 data PrefixList = PrefixList'
-    { _plCIdRs          :: !(Maybe [Text])
+    { _plCidrs          :: !(Maybe [Text])
     , _plPrefixListId   :: !(Maybe Text)
     , _plPrefixListName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -7093,7 +7343,7 @@ data PrefixList = PrefixList'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'plCIdRs' - The IP address range of the AWS service.
+-- * 'plCidrs' - The IP address range of the AWS service.
 --
 -- * 'plPrefixListId' - The ID of the prefix.
 --
@@ -7102,14 +7352,14 @@ prefixList
     :: PrefixList
 prefixList =
     PrefixList'
-    { _plCIdRs = Nothing
+    { _plCidrs = Nothing
     , _plPrefixListId = Nothing
     , _plPrefixListName = Nothing
     }
 
 -- | The IP address range of the AWS service.
-plCIdRs :: Lens' PrefixList [Text]
-plCIdRs = lens _plCIdRs (\ s a -> s{_plCIdRs = a}) . _Default . _Coerce;
+plCidrs :: Lens' PrefixList [Text]
+plCidrs = lens _plCidrs (\ s a -> s{_plCidrs = a}) . _Default . _Coerce;
 
 -- | The ID of the prefix.
 plPrefixListId :: Lens' PrefixList (Maybe Text)
@@ -7320,7 +7570,7 @@ instance Hashable PricingDetail
 
 instance NFData PricingDetail
 
--- | Describes a secondary private IP address for a network interface.
+-- | Describes a secondary private IPv4 address for a network interface.
 --
 --
 --
@@ -7334,9 +7584,9 @@ data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'piasPrimary' - Indicates whether the private IP address is the primary private IP address. Only one IP address can be designated as primary.
+-- * 'piasPrimary' - Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 --
--- * 'piasPrivateIPAddress' - The private IP addresses.
+-- * 'piasPrivateIPAddress' - The private IPv4 addresses.
 privateIPAddressSpecification
     :: Text -- ^ 'piasPrivateIPAddress'
     -> PrivateIPAddressSpecification
@@ -7346,11 +7596,11 @@ privateIPAddressSpecification pPrivateIPAddress_ =
     , _piasPrivateIPAddress = pPrivateIPAddress_
     }
 
--- | Indicates whether the private IP address is the primary private IP address. Only one IP address can be designated as primary.
+-- | Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
 piasPrimary :: Lens' PrivateIPAddressSpecification (Maybe Bool)
 piasPrimary = lens _piasPrimary (\ s a -> s{_piasPrimary = a});
 
--- | The private IP addresses.
+-- | The private IPv4 addresses.
 piasPrivateIPAddress :: Lens' PrivateIPAddressSpecification Text
 piasPrivateIPAddress = lens _piasPrivateIPAddress (\ s a -> s{_piasPrivateIPAddress = a});
 
@@ -7773,7 +8023,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- * 'rslsKeyName' - The name of the key pair.
 --
--- * 'rslsNetworkInterfaces' - One or more network interfaces.
+-- * 'rslsNetworkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 --
 -- * 'rslsRAMDiskId' - The ID of the RAM disk.
 --
@@ -7832,7 +8082,7 @@ rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = 
 rslsKeyName :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsKeyName = lens _rslsKeyName (\ s a -> s{_rslsKeyName = a});
 
--- | One or more network interfaces.
+-- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
 rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a}) . _Default . _Coerce;
 
@@ -8345,7 +8595,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
 --
 -- * 'ricAvailabilityZone' - The Availability Zone for the modified Reserved Instances.
 --
--- * 'ricScope' - Whether the Reserved Instance is @standard@ or @convertible@ .
+-- * 'ricScope' - Whether the Reserved Instance is applied to instances in a region or instances in a specific Availability Zone.
 reservedInstancesConfiguration
     :: ReservedInstancesConfiguration
 reservedInstancesConfiguration =
@@ -8373,7 +8623,7 @@ ricInstanceType = lens _ricInstanceType (\ s a -> s{_ricInstanceType = a});
 ricAvailabilityZone :: Lens' ReservedInstancesConfiguration (Maybe Text)
 ricAvailabilityZone = lens _ricAvailabilityZone (\ s a -> s{_ricAvailabilityZone = a});
 
--- | Whether the Reserved Instance is @standard@ or @convertible@ .
+-- | Whether the Reserved Instance is applied to instances in a region or instances in a specific Availability Zone.
 ricScope :: Lens' ReservedInstancesConfiguration (Maybe Scope)
 ricScope = lens _ricScope (\ s a -> s{_ricScope = a});
 
@@ -8874,16 +9124,18 @@ instance NFData ReservedInstancesOffering
 --
 -- /See:/ 'route' smart constructor.
 data Route = Route'
-    { _rVPCPeeringConnectionId  :: !(Maybe Text)
-    , _rInstanceId              :: !(Maybe Text)
-    , _rOrigin                  :: !(Maybe RouteOrigin)
-    , _rState                   :: !(Maybe RouteState)
-    , _rNatGatewayId            :: !(Maybe Text)
-    , _rNetworkInterfaceId      :: !(Maybe Text)
-    , _rGatewayId               :: !(Maybe Text)
-    , _rInstanceOwnerId         :: !(Maybe Text)
-    , _rDestinationPrefixListId :: !(Maybe Text)
-    , _rDestinationCIdRBlock    :: !(Maybe Text)
+    { _rVPCPeeringConnectionId      :: !(Maybe Text)
+    , _rInstanceId                  :: !(Maybe Text)
+    , _rOrigin                      :: !(Maybe RouteOrigin)
+    , _rState                       :: !(Maybe RouteState)
+    , _rEgressOnlyInternetGatewayId :: !(Maybe Text)
+    , _rDestinationIPv6CidrBlock    :: !(Maybe Text)
+    , _rNatGatewayId                :: !(Maybe Text)
+    , _rNetworkInterfaceId          :: !(Maybe Text)
+    , _rGatewayId                   :: !(Maybe Text)
+    , _rInstanceOwnerId             :: !(Maybe Text)
+    , _rDestinationPrefixListId     :: !(Maybe Text)
+    , _rDestinationCidrBlock        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Route' with the minimum fields required to make a request.
@@ -8898,6 +9150,10 @@ data Route = Route'
 --
 -- * 'rState' - The state of the route. The @blackhole@ state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
 --
+-- * 'rEgressOnlyInternetGatewayId' - The ID of the egress-only Internet gateway.
+--
+-- * 'rDestinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match.
+--
 -- * 'rNatGatewayId' - The ID of a NAT gateway.
 --
 -- * 'rNetworkInterfaceId' - The ID of the network interface.
@@ -8908,7 +9164,7 @@ data Route = Route'
 --
 -- * 'rDestinationPrefixListId' - The prefix of the AWS service.
 --
--- * 'rDestinationCIdRBlock' - The CIDR block used for the destination match.
+-- * 'rDestinationCidrBlock' - The IPv4 CIDR block used for the destination match.
 route
     :: Route
 route =
@@ -8917,12 +9173,14 @@ route =
     , _rInstanceId = Nothing
     , _rOrigin = Nothing
     , _rState = Nothing
+    , _rEgressOnlyInternetGatewayId = Nothing
+    , _rDestinationIPv6CidrBlock = Nothing
     , _rNatGatewayId = Nothing
     , _rNetworkInterfaceId = Nothing
     , _rGatewayId = Nothing
     , _rInstanceOwnerId = Nothing
     , _rDestinationPrefixListId = Nothing
-    , _rDestinationCIdRBlock = Nothing
+    , _rDestinationCidrBlock = Nothing
     }
 
 -- | The ID of the VPC peering connection.
@@ -8940,6 +9198,14 @@ rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 -- | The state of the route. The @blackhole@ state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
 rState :: Lens' Route (Maybe RouteState)
 rState = lens _rState (\ s a -> s{_rState = a});
+
+-- | The ID of the egress-only Internet gateway.
+rEgressOnlyInternetGatewayId :: Lens' Route (Maybe Text)
+rEgressOnlyInternetGatewayId = lens _rEgressOnlyInternetGatewayId (\ s a -> s{_rEgressOnlyInternetGatewayId = a});
+
+-- | The IPv6 CIDR block used for the destination match.
+rDestinationIPv6CidrBlock :: Lens' Route (Maybe Text)
+rDestinationIPv6CidrBlock = lens _rDestinationIPv6CidrBlock (\ s a -> s{_rDestinationIPv6CidrBlock = a});
 
 -- | The ID of a NAT gateway.
 rNatGatewayId :: Lens' Route (Maybe Text)
@@ -8961,9 +9227,9 @@ rInstanceOwnerId = lens _rInstanceOwnerId (\ s a -> s{_rInstanceOwnerId = a});
 rDestinationPrefixListId :: Lens' Route (Maybe Text)
 rDestinationPrefixListId = lens _rDestinationPrefixListId (\ s a -> s{_rDestinationPrefixListId = a});
 
--- | The CIDR block used for the destination match.
-rDestinationCIdRBlock :: Lens' Route (Maybe Text)
-rDestinationCIdRBlock = lens _rDestinationCIdRBlock (\ s a -> s{_rDestinationCIdRBlock = a});
+-- | The IPv4 CIDR block used for the destination match.
+rDestinationCidrBlock :: Lens' Route (Maybe Text)
+rDestinationCidrBlock = lens _rDestinationCidrBlock (\ s a -> s{_rDestinationCidrBlock = a});
 
 instance FromXML Route where
         parseXML x
@@ -8972,6 +9238,8 @@ instance FromXML Route where
                 (x .@? "instanceId")
                 <*> (x .@? "origin")
                 <*> (x .@? "state")
+                <*> (x .@? "egressOnlyInternetGatewayId")
+                <*> (x .@? "destinationIpv6CidrBlock")
                 <*> (x .@? "natGatewayId")
                 <*> (x .@? "networkInterfaceId")
                 <*> (x .@? "gatewayId")
@@ -9130,7 +9398,7 @@ instance Hashable RouteTableAssociation
 
 instance NFData RouteTableAssociation
 
--- | Describes the monitoring for the instance.
+-- | Describes the monitoring of an instance.
 --
 --
 --
@@ -9143,7 +9411,7 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rimeEnabled' - Indicates whether monitoring is enabled for the instance.
+-- * 'rimeEnabled' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 runInstancesMonitoringEnabled
     :: Bool -- ^ 'rimeEnabled'
     -> RunInstancesMonitoringEnabled
@@ -9152,7 +9420,7 @@ runInstancesMonitoringEnabled pEnabled_ =
     { _rimeEnabled = pEnabled_
     }
 
--- | Indicates whether monitoring is enabled for the instance.
+-- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 rimeEnabled :: Lens' RunInstancesMonitoringEnabled Bool
 rimeEnabled = lens _rimeEnabled (\ s a -> s{_rimeEnabled = a});
 
@@ -9876,6 +10144,39 @@ instance ToQuery ScheduledInstancesIAMInstanceProfile
         toQuery ScheduledInstancesIAMInstanceProfile'{..}
           = mconcat ["Arn" =: _siiapARN, "Name" =: _siiapName]
 
+-- | Describes an IPv6 address.
+--
+--
+--
+-- /See:/ 'scheduledInstancesIPv6Address' smart constructor.
+newtype ScheduledInstancesIPv6Address = ScheduledInstancesIPv6Address'
+    { _siiaIPv6Address :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledInstancesIPv6Address' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siiaIPv6Address' - The IPv6 address.
+scheduledInstancesIPv6Address
+    :: ScheduledInstancesIPv6Address
+scheduledInstancesIPv6Address =
+    ScheduledInstancesIPv6Address'
+    { _siiaIPv6Address = Nothing
+    }
+
+-- | The IPv6 address.
+siiaIPv6Address :: Lens' ScheduledInstancesIPv6Address (Maybe Text)
+siiaIPv6Address = lens _siiaIPv6Address (\ s a -> s{_siiaIPv6Address = a});
+
+instance Hashable ScheduledInstancesIPv6Address
+
+instance NFData ScheduledInstancesIPv6Address
+
+instance ToQuery ScheduledInstancesIPv6Address where
+        toQuery ScheduledInstancesIPv6Address'{..}
+          = mconcat ["Ipv6Address" =: _siiaIPv6Address]
+
 -- | Describes the launch specification for a Scheduled Instance.
 --
 --
@@ -10083,10 +10384,12 @@ data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
     , _siniPrivateIPAddressConfigs        :: !(Maybe [ScheduledInstancesPrivateIPAddressConfig])
     , _siniNetworkInterfaceId             :: !(Maybe Text)
     , _siniSubnetId                       :: !(Maybe Text)
+    , _siniIPv6AddressCount               :: !(Maybe Int)
     , _siniPrivateIPAddress               :: !(Maybe Text)
     , _siniSecondaryPrivateIPAddressCount :: !(Maybe Int)
     , _siniDescription                    :: !(Maybe Text)
     , _siniDeviceIndex                    :: !(Maybe Int)
+    , _siniIPv6Addresses                  :: !(Maybe [ScheduledInstancesIPv6Address])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScheduledInstancesNetworkInterface' with the minimum fields required to make a request.
@@ -10097,21 +10400,25 @@ data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
 --
 -- * 'siniDeleteOnTermination' - Indicates whether to delete the interface when the instance is terminated.
 --
--- * 'siniAssociatePublicIPAddress' - Indicates whether to assign a public IP address to instances launched in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- * 'siniAssociatePublicIPAddress' - Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 --
--- * 'siniPrivateIPAddressConfigs' - The private IP addresses.
+-- * 'siniPrivateIPAddressConfigs' - The private IPv4 addresses.
 --
 -- * 'siniNetworkInterfaceId' - The ID of the network interface.
 --
 -- * 'siniSubnetId' - The ID of the subnet.
 --
--- * 'siniPrivateIPAddress' - The IP address of the network interface within the subnet.
+-- * 'siniIPv6AddressCount' - The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
 --
--- * 'siniSecondaryPrivateIPAddressCount' - The number of secondary private IP addresses.
+-- * 'siniPrivateIPAddress' - The IPv4 address of the network interface within the subnet.
+--
+-- * 'siniSecondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses.
 --
 -- * 'siniDescription' - The description.
 --
 -- * 'siniDeviceIndex' - The index of the device for the network interface attachment.
+--
+-- * 'siniIPv6Addresses' - One or more specific IPv6 addresses from the subnet range.
 scheduledInstancesNetworkInterface
     :: ScheduledInstancesNetworkInterface
 scheduledInstancesNetworkInterface =
@@ -10122,10 +10429,12 @@ scheduledInstancesNetworkInterface =
     , _siniPrivateIPAddressConfigs = Nothing
     , _siniNetworkInterfaceId = Nothing
     , _siniSubnetId = Nothing
+    , _siniIPv6AddressCount = Nothing
     , _siniPrivateIPAddress = Nothing
     , _siniSecondaryPrivateIPAddressCount = Nothing
     , _siniDescription = Nothing
     , _siniDeviceIndex = Nothing
+    , _siniIPv6Addresses = Nothing
     }
 
 -- | The IDs of one or more security groups.
@@ -10136,11 +10445,11 @@ siniGroups = lens _siniGroups (\ s a -> s{_siniGroups = a}) . _Default . _Coerce
 siniDeleteOnTermination :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
 siniDeleteOnTermination = lens _siniDeleteOnTermination (\ s a -> s{_siniDeleteOnTermination = a});
 
--- | Indicates whether to assign a public IP address to instances launched in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
 siniAssociatePublicIPAddress :: Lens' ScheduledInstancesNetworkInterface (Maybe Bool)
 siniAssociatePublicIPAddress = lens _siniAssociatePublicIPAddress (\ s a -> s{_siniAssociatePublicIPAddress = a});
 
--- | The private IP addresses.
+-- | The private IPv4 addresses.
 siniPrivateIPAddressConfigs :: Lens' ScheduledInstancesNetworkInterface [ScheduledInstancesPrivateIPAddressConfig]
 siniPrivateIPAddressConfigs = lens _siniPrivateIPAddressConfigs (\ s a -> s{_siniPrivateIPAddressConfigs = a}) . _Default . _Coerce;
 
@@ -10152,11 +10461,15 @@ siniNetworkInterfaceId = lens _siniNetworkInterfaceId (\ s a -> s{_siniNetworkIn
 siniSubnetId :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
 siniSubnetId = lens _siniSubnetId (\ s a -> s{_siniSubnetId = a});
 
--- | The IP address of the network interface within the subnet.
+-- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
+siniIPv6AddressCount :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
+siniIPv6AddressCount = lens _siniIPv6AddressCount (\ s a -> s{_siniIPv6AddressCount = a});
+
+-- | The IPv4 address of the network interface within the subnet.
 siniPrivateIPAddress :: Lens' ScheduledInstancesNetworkInterface (Maybe Text)
 siniPrivateIPAddress = lens _siniPrivateIPAddress (\ s a -> s{_siniPrivateIPAddress = a});
 
--- | The number of secondary private IP addresses.
+-- | The number of secondary private IPv4 addresses.
 siniSecondaryPrivateIPAddressCount :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
 siniSecondaryPrivateIPAddressCount = lens _siniSecondaryPrivateIPAddressCount (\ s a -> s{_siniSecondaryPrivateIPAddressCount = a});
 
@@ -10167,6 +10480,10 @@ siniDescription = lens _siniDescription (\ s a -> s{_siniDescription = a});
 -- | The index of the device for the network interface attachment.
 siniDeviceIndex :: Lens' ScheduledInstancesNetworkInterface (Maybe Int)
 siniDeviceIndex = lens _siniDeviceIndex (\ s a -> s{_siniDeviceIndex = a});
+
+-- | One or more specific IPv6 addresses from the subnet range.
+siniIPv6Addresses :: Lens' ScheduledInstancesNetworkInterface [ScheduledInstancesIPv6Address]
+siniIPv6Addresses = lens _siniIPv6Addresses (\ s a -> s{_siniIPv6Addresses = a}) . _Default . _Coerce;
 
 instance Hashable ScheduledInstancesNetworkInterface
 
@@ -10185,11 +10502,14 @@ instance ToQuery ScheduledInstancesNetworkInterface
                     _siniPrivateIPAddressConfigs),
                "NetworkInterfaceId" =: _siniNetworkInterfaceId,
                "SubnetId" =: _siniSubnetId,
+               "Ipv6AddressCount" =: _siniIPv6AddressCount,
                "PrivateIpAddress" =: _siniPrivateIPAddress,
                "SecondaryPrivateIpAddressCount" =:
                  _siniSecondaryPrivateIPAddressCount,
                "Description" =: _siniDescription,
-               "DeviceIndex" =: _siniDeviceIndex]
+               "DeviceIndex" =: _siniDeviceIndex,
+               toQuery
+                 (toQueryList "Ipv6Address" <$> _siniIPv6Addresses)]
 
 -- | Describes the placement for a Scheduled Instance.
 --
@@ -10234,7 +10554,7 @@ instance ToQuery ScheduledInstancesPlacement where
               ["AvailabilityZone" =: _sipAvailabilityZone,
                "GroupName" =: _sipGroupName]
 
--- | Describes a private IP address for a Scheduled Instance.
+-- | Describes a private IPv4 address for a Scheduled Instance.
 --
 --
 --
@@ -10248,9 +10568,9 @@ data ScheduledInstancesPrivateIPAddressConfig = ScheduledInstancesPrivateIPAddre
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sipiacPrimary' - Indicates whether this is a primary IP address. Otherwise, this is a secondary IP address.
+-- * 'sipiacPrimary' - Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
 --
--- * 'sipiacPrivateIPAddress' - The IP address.
+-- * 'sipiacPrivateIPAddress' - The IPv4 address.
 scheduledInstancesPrivateIPAddressConfig
     :: ScheduledInstancesPrivateIPAddressConfig
 scheduledInstancesPrivateIPAddressConfig =
@@ -10259,11 +10579,11 @@ scheduledInstancesPrivateIPAddressConfig =
     , _sipiacPrivateIPAddress = Nothing
     }
 
--- | Indicates whether this is a primary IP address. Otherwise, this is a secondary IP address.
+-- | Indicates whether this is a primary IPv4 address. Otherwise, this is a secondary IPv4 address.
 sipiacPrimary :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Bool)
 sipiacPrimary = lens _sipiacPrimary (\ s a -> s{_sipiacPrimary = a});
 
--- | The IP address.
+-- | The IPv4 address.
 sipiacPrivateIPAddress :: Lens' ScheduledInstancesPrivateIPAddressConfig (Maybe Text)
 sipiacPrivateIPAddress = lens _sipiacPrivateIPAddress (\ s a -> s{_sipiacPrivateIPAddress = a});
 
@@ -11073,7 +11393,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsKeyName' - The name of the key pair.
 --
--- * 'sflsNetworkInterfaces' - One or more network interfaces.
+-- * 'sflsNetworkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 --
 -- * 'sflsRAMDiskId' - The ID of the RAM disk.
 --
@@ -11081,7 +11401,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsKernelId' - The ID of the kernel.
 --
--- * 'sflsInstanceType' - The instance type.
+-- * 'sflsInstanceType' - The instance type. Note that T2 and HS1 instance types are not supported.
 --
 -- * 'sflsEBSOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Default: @false@
 --
@@ -11137,7 +11457,7 @@ sflsWeightedCapacity = lens _sflsWeightedCapacity (\ s a -> s{_sflsWeightedCapac
 sflsKeyName :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsKeyName = lens _sflsKeyName (\ s a -> s{_sflsKeyName = a});
 
--- | One or more network interfaces.
+-- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
 sflsNetworkInterfaces :: Lens' SpotFleetLaunchSpecification [InstanceNetworkInterfaceSpecification]
 sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInterfaces = a}) . _Default . _Coerce;
 
@@ -11153,7 +11473,7 @@ sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
 sflsKernelId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
 sflsKernelId = lens _sflsKernelId (\ s a -> s{_sflsKernelId = a});
 
--- | The instance type.
+-- | The instance type. Note that T2 and HS1 instance types are not supported.
 sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
 sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 
@@ -11863,7 +12183,7 @@ data SpotPrice = SpotPrice'
 --
 -- * 'sSpotPrice' - The maximum price (bid) that you are willing to pay for a Spot instance.
 --
--- * 'sInstanceType' - The instance type.
+-- * 'sInstanceType' - The instance type. Note that T2 and HS1 instance types are not supported.
 --
 -- * 'sAvailabilityZone' - The Availability Zone.
 --
@@ -11887,7 +12207,7 @@ sProductDescription = lens _sProductDescription (\ s a -> s{_sProductDescription
 sSpotPrice :: Lens' SpotPrice (Maybe Text)
 sSpotPrice = lens _sSpotPrice (\ s a -> s{_sSpotPrice = a});
 
--- | The instance type.
+-- | The instance type. Note that T2 and HS1 instance types are not supported.
 sInstanceType :: Lens' SpotPrice (Maybe InstanceType)
 sInstanceType = lens _sInstanceType (\ s a -> s{_sInstanceType = a});
 
@@ -12160,22 +12480,28 @@ instance ToQuery Storage where
 --
 -- /See:/ 'subnet' smart constructor.
 data Subnet = Subnet'
-    { _subMapPublicIPOnLaunch     :: !(Maybe Bool)
-    , _subDefaultForAz            :: !(Maybe Bool)
-    , _subTags                    :: !(Maybe [Tag])
-    , _subAvailabilityZone        :: !Text
-    , _subAvailableIPAddressCount :: !Int
-    , _subCIdRBlock               :: !Text
-    , _subState                   :: !SubnetState
-    , _subSubnetId                :: !Text
-    , _subVPCId                   :: !Text
+    { _subIPv6CidrBlockAssociationSet :: !(Maybe [SubnetIPv6CidrBlockAssociation])
+    , _subAssignIPv6AddressOnCreation :: !(Maybe Bool)
+    , _subMapPublicIPOnLaunch         :: !(Maybe Bool)
+    , _subDefaultForAz                :: !(Maybe Bool)
+    , _subTags                        :: !(Maybe [Tag])
+    , _subAvailabilityZone            :: !Text
+    , _subAvailableIPAddressCount     :: !Int
+    , _subCidrBlock                   :: !Text
+    , _subState                       :: !SubnetState
+    , _subSubnetId                    :: !Text
+    , _subVPCId                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'subMapPublicIPOnLaunch' - Indicates whether instances launched in this subnet receive a public IP address.
+-- * 'subIPv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the subnet.
+--
+-- * 'subAssignIPv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+--
+-- * 'subMapPublicIPOnLaunch' - Indicates whether instances launched in this subnet receive a public IPv4 address.
 --
 -- * 'subDefaultForAz' - Indicates whether this is the default subnet for the Availability Zone.
 --
@@ -12183,9 +12509,9 @@ data Subnet = Subnet'
 --
 -- * 'subAvailabilityZone' - The Availability Zone of the subnet.
 --
--- * 'subAvailableIPAddressCount' - The number of unused IP addresses in the subnet. Note that the IP addresses for any stopped instances are considered unavailable.
+-- * 'subAvailableIPAddressCount' - The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances are considered unavailable.
 --
--- * 'subCIdRBlock' - The CIDR block assigned to the subnet.
+-- * 'subCidrBlock' - The IPv4 CIDR block assigned to the subnet.
 --
 -- * 'subState' - The current state of the subnet.
 --
@@ -12195,25 +12521,35 @@ data Subnet = Subnet'
 subnet
     :: Text -- ^ 'subAvailabilityZone'
     -> Int -- ^ 'subAvailableIPAddressCount'
-    -> Text -- ^ 'subCIdRBlock'
+    -> Text -- ^ 'subCidrBlock'
     -> SubnetState -- ^ 'subState'
     -> Text -- ^ 'subSubnetId'
     -> Text -- ^ 'subVPCId'
     -> Subnet
-subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pState_ pSubnetId_ pVPCId_ =
+subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCidrBlock_ pState_ pSubnetId_ pVPCId_ =
     Subnet'
-    { _subMapPublicIPOnLaunch = Nothing
+    { _subIPv6CidrBlockAssociationSet = Nothing
+    , _subAssignIPv6AddressOnCreation = Nothing
+    , _subMapPublicIPOnLaunch = Nothing
     , _subDefaultForAz = Nothing
     , _subTags = Nothing
     , _subAvailabilityZone = pAvailabilityZone_
     , _subAvailableIPAddressCount = pAvailableIPAddressCount_
-    , _subCIdRBlock = pCIdRBlock_
+    , _subCidrBlock = pCidrBlock_
     , _subState = pState_
     , _subSubnetId = pSubnetId_
     , _subVPCId = pVPCId_
     }
 
--- | Indicates whether instances launched in this subnet receive a public IP address.
+-- | Information about the IPv6 CIDR blocks associated with the subnet.
+subIPv6CidrBlockAssociationSet :: Lens' Subnet [SubnetIPv6CidrBlockAssociation]
+subIPv6CidrBlockAssociationSet = lens _subIPv6CidrBlockAssociationSet (\ s a -> s{_subIPv6CidrBlockAssociationSet = a}) . _Default . _Coerce;
+
+-- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+subAssignIPv6AddressOnCreation :: Lens' Subnet (Maybe Bool)
+subAssignIPv6AddressOnCreation = lens _subAssignIPv6AddressOnCreation (\ s a -> s{_subAssignIPv6AddressOnCreation = a});
+
+-- | Indicates whether instances launched in this subnet receive a public IPv4 address.
 subMapPublicIPOnLaunch :: Lens' Subnet (Maybe Bool)
 subMapPublicIPOnLaunch = lens _subMapPublicIPOnLaunch (\ s a -> s{_subMapPublicIPOnLaunch = a});
 
@@ -12229,13 +12565,13 @@ subTags = lens _subTags (\ s a -> s{_subTags = a}) . _Default . _Coerce;
 subAvailabilityZone :: Lens' Subnet Text
 subAvailabilityZone = lens _subAvailabilityZone (\ s a -> s{_subAvailabilityZone = a});
 
--- | The number of unused IP addresses in the subnet. Note that the IP addresses for any stopped instances are considered unavailable.
+-- | The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances are considered unavailable.
 subAvailableIPAddressCount :: Lens' Subnet Int
 subAvailableIPAddressCount = lens _subAvailableIPAddressCount (\ s a -> s{_subAvailableIPAddressCount = a});
 
--- | The CIDR block assigned to the subnet.
-subCIdRBlock :: Lens' Subnet Text
-subCIdRBlock = lens _subCIdRBlock (\ s a -> s{_subCIdRBlock = a});
+-- | The IPv4 CIDR block assigned to the subnet.
+subCidrBlock :: Lens' Subnet Text
+subCidrBlock = lens _subCidrBlock (\ s a -> s{_subCidrBlock = a});
 
 -- | The current state of the subnet.
 subState :: Lens' Subnet SubnetState
@@ -12252,8 +12588,11 @@ subVPCId = lens _subVPCId (\ s a -> s{_subVPCId = a});
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              (x .@? "mapPublicIpOnLaunch") <*>
-                (x .@? "defaultForAz")
+              (x .@? "ipv6CidrBlockAssociationSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*> (x .@? "assignIpv6AddressOnCreation")
+                <*> (x .@? "mapPublicIpOnLaunch")
+                <*> (x .@? "defaultForAz")
                 <*>
                 (x .@? "tagSet" .!@ mempty >>=
                    may (parseXMLList "item"))
@@ -12267,6 +12606,99 @@ instance FromXML Subnet where
 instance Hashable Subnet
 
 instance NFData Subnet
+
+-- | Describes the state of a CIDR block.
+--
+--
+--
+-- /See:/ 'subnetCidrBlockState' smart constructor.
+data SubnetCidrBlockState = SubnetCidrBlockState'
+    { _scbsState         :: !(Maybe SubnetCidrBlockStateCode)
+    , _scbsStatusMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubnetCidrBlockState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scbsState' - The state of a CIDR block.
+--
+-- * 'scbsStatusMessage' - A message about the status of the CIDR block, if applicable.
+subnetCidrBlockState
+    :: SubnetCidrBlockState
+subnetCidrBlockState =
+    SubnetCidrBlockState'
+    { _scbsState = Nothing
+    , _scbsStatusMessage = Nothing
+    }
+
+-- | The state of a CIDR block.
+scbsState :: Lens' SubnetCidrBlockState (Maybe SubnetCidrBlockStateCode)
+scbsState = lens _scbsState (\ s a -> s{_scbsState = a});
+
+-- | A message about the status of the CIDR block, if applicable.
+scbsStatusMessage :: Lens' SubnetCidrBlockState (Maybe Text)
+scbsStatusMessage = lens _scbsStatusMessage (\ s a -> s{_scbsStatusMessage = a});
+
+instance FromXML SubnetCidrBlockState where
+        parseXML x
+          = SubnetCidrBlockState' <$>
+              (x .@? "state") <*> (x .@? "statusMessage")
+
+instance Hashable SubnetCidrBlockState
+
+instance NFData SubnetCidrBlockState
+
+-- | Describes an IPv6 CIDR block associated with a subnet.
+--
+--
+--
+-- /See:/ 'subnetIPv6CidrBlockAssociation' smart constructor.
+data SubnetIPv6CidrBlockAssociation = SubnetIPv6CidrBlockAssociation'
+    { _sicbaAssociationId      :: !(Maybe Text)
+    , _sicbaIPv6CidrBlock      :: !(Maybe Text)
+    , _sicbaIPv6CidrBlockState :: !(Maybe SubnetCidrBlockState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubnetIPv6CidrBlockAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sicbaAssociationId' - The association ID for the CIDR block.
+--
+-- * 'sicbaIPv6CidrBlock' - The IPv6 CIDR block.
+--
+-- * 'sicbaIPv6CidrBlockState' - Information about the state of the CIDR block.
+subnetIPv6CidrBlockAssociation
+    :: SubnetIPv6CidrBlockAssociation
+subnetIPv6CidrBlockAssociation =
+    SubnetIPv6CidrBlockAssociation'
+    { _sicbaAssociationId = Nothing
+    , _sicbaIPv6CidrBlock = Nothing
+    , _sicbaIPv6CidrBlockState = Nothing
+    }
+
+-- | The association ID for the CIDR block.
+sicbaAssociationId :: Lens' SubnetIPv6CidrBlockAssociation (Maybe Text)
+sicbaAssociationId = lens _sicbaAssociationId (\ s a -> s{_sicbaAssociationId = a});
+
+-- | The IPv6 CIDR block.
+sicbaIPv6CidrBlock :: Lens' SubnetIPv6CidrBlockAssociation (Maybe Text)
+sicbaIPv6CidrBlock = lens _sicbaIPv6CidrBlock (\ s a -> s{_sicbaIPv6CidrBlock = a});
+
+-- | Information about the state of the CIDR block.
+sicbaIPv6CidrBlockState :: Lens' SubnetIPv6CidrBlockAssociation (Maybe SubnetCidrBlockState)
+sicbaIPv6CidrBlockState = lens _sicbaIPv6CidrBlockState (\ s a -> s{_sicbaIPv6CidrBlockState = a});
+
+instance FromXML SubnetIPv6CidrBlockAssociation where
+        parseXML x
+          = SubnetIPv6CidrBlockAssociation' <$>
+              (x .@? "associationId") <*> (x .@? "ipv6CidrBlock")
+                <*> (x .@? "ipv6CidrBlockState")
+
+instance Hashable SubnetIPv6CidrBlockAssociation
+
+instance NFData SubnetIPv6CidrBlockAssociation
 
 -- | Describes a tag.
 --
@@ -12436,7 +12868,7 @@ data TargetConfigurationRequest = TargetConfigurationRequest'
 --
 -- * 'tcrInstanceCount' - The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
 --
--- * 'tcrOfferingId' - The Convertible Reserved Instance offering ID. If this isn't included in the request, the response lists your current Convertible Reserved Instance/s and their value/s.
+-- * 'tcrOfferingId' - The Convertible Reserved Instance offering ID.
 targetConfigurationRequest
     :: Text -- ^ 'tcrOfferingId'
     -> TargetConfigurationRequest
@@ -12450,7 +12882,7 @@ targetConfigurationRequest pOfferingId_ =
 tcrInstanceCount :: Lens' TargetConfigurationRequest (Maybe Int)
 tcrInstanceCount = lens _tcrInstanceCount (\ s a -> s{_tcrInstanceCount = a});
 
--- | The Convertible Reserved Instance offering ID. If this isn't included in the request, the response lists your current Convertible Reserved Instance/s and their value/s.
+-- | The Convertible Reserved Instance offering ID.
 tcrOfferingId :: Lens' TargetConfigurationRequest Text
 tcrOfferingId = lens _tcrOfferingId (\ s a -> s{_tcrOfferingId = a});
 
@@ -12873,24 +13305,27 @@ instance NFData VGWTelemetry
 --
 -- /See:/ 'vpc' smart constructor.
 data VPC = VPC'
-    { _vpcTags            :: !(Maybe [Tag])
-    , _vpcIsDefault       :: !(Maybe Bool)
-    , _vpcCIdRBlock       :: !Text
-    , _vpcDHCPOptionsId   :: !Text
-    , _vpcInstanceTenancy :: !Tenancy
-    , _vpcState           :: !VPCState
-    , _vpcVPCId           :: !Text
+    { _vpcIPv6CidrBlockAssociationSet :: !(Maybe [VPCIPv6CidrBlockAssociation])
+    , _vpcTags                        :: !(Maybe [Tag])
+    , _vpcIsDefault                   :: !(Maybe Bool)
+    , _vpcCidrBlock                   :: !Text
+    , _vpcDHCPOptionsId               :: !Text
+    , _vpcInstanceTenancy             :: !Tenancy
+    , _vpcState                       :: !VPCState
+    , _vpcVPCId                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPC' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'vpcIPv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
+--
 -- * 'vpcTags' - Any tags assigned to the VPC.
 --
 -- * 'vpcIsDefault' - Indicates whether the VPC is the default VPC.
 --
--- * 'vpcCIdRBlock' - The CIDR block for the VPC.
+-- * 'vpcCidrBlock' - The IPv4 CIDR block for the VPC.
 --
 -- * 'vpcDHCPOptionsId' - The ID of the set of DHCP options you've associated with the VPC (or @default@ if the default options are associated with the VPC).
 --
@@ -12900,22 +13335,27 @@ data VPC = VPC'
 --
 -- * 'vpcVPCId' - The ID of the VPC.
 vpc
-    :: Text -- ^ 'vpcCIdRBlock'
+    :: Text -- ^ 'vpcCidrBlock'
     -> Text -- ^ 'vpcDHCPOptionsId'
     -> Tenancy -- ^ 'vpcInstanceTenancy'
     -> VPCState -- ^ 'vpcState'
     -> Text -- ^ 'vpcVPCId'
     -> VPC
-vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
+vpc pCidrBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
     VPC'
-    { _vpcTags = Nothing
+    { _vpcIPv6CidrBlockAssociationSet = Nothing
+    , _vpcTags = Nothing
     , _vpcIsDefault = Nothing
-    , _vpcCIdRBlock = pCIdRBlock_
+    , _vpcCidrBlock = pCidrBlock_
     , _vpcDHCPOptionsId = pDHCPOptionsId_
     , _vpcInstanceTenancy = pInstanceTenancy_
     , _vpcState = pState_
     , _vpcVPCId = pVPCId_
     }
+
+-- | Information about the IPv6 CIDR blocks associated with the VPC.
+vpcIPv6CidrBlockAssociationSet :: Lens' VPC [VPCIPv6CidrBlockAssociation]
+vpcIPv6CidrBlockAssociationSet = lens _vpcIPv6CidrBlockAssociationSet (\ s a -> s{_vpcIPv6CidrBlockAssociationSet = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
@@ -12925,9 +13365,9 @@ vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default . _Coerce;
 vpcIsDefault :: Lens' VPC (Maybe Bool)
 vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
 
--- | The CIDR block for the VPC.
-vpcCIdRBlock :: Lens' VPC Text
-vpcCIdRBlock = lens _vpcCIdRBlock (\ s a -> s{_vpcCIdRBlock = a});
+-- | The IPv4 CIDR block for the VPC.
+vpcCidrBlock :: Lens' VPC Text
+vpcCidrBlock = lens _vpcCidrBlock (\ s a -> s{_vpcCidrBlock = a});
 
 -- | The ID of the set of DHCP options you've associated with the VPC (or @default@ if the default options are associated with the VPC).
 vpcDHCPOptionsId :: Lens' VPC Text
@@ -12948,8 +13388,11 @@ vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 instance FromXML VPC where
         parseXML x
           = VPC' <$>
-              (x .@? "tagSet" .!@ mempty >>=
+              (x .@? "ipv6CidrBlockAssociationSet" .!@ mempty >>=
                  may (parseXMLList "item"))
+                <*>
+                (x .@? "tagSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "isDefault")
                 <*> (x .@ "cidrBlock")
                 <*> (x .@ "dhcpOptionsId")
@@ -13002,6 +13445,48 @@ instance FromXML VPCAttachment where
 instance Hashable VPCAttachment
 
 instance NFData VPCAttachment
+
+-- | Describes the state of a CIDR block.
+--
+--
+--
+-- /See:/ 'vpcCidrBlockState' smart constructor.
+data VPCCidrBlockState = VPCCidrBlockState'
+    { _vcbsState         :: !(Maybe VPCCidrBlockStateCode)
+    , _vcbsStatusMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCCidrBlockState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcbsState' - The state of the CIDR block.
+--
+-- * 'vcbsStatusMessage' - A message about the status of the CIDR block, if applicable.
+vpcCidrBlockState
+    :: VPCCidrBlockState
+vpcCidrBlockState =
+    VPCCidrBlockState'
+    { _vcbsState = Nothing
+    , _vcbsStatusMessage = Nothing
+    }
+
+-- | The state of the CIDR block.
+vcbsState :: Lens' VPCCidrBlockState (Maybe VPCCidrBlockStateCode)
+vcbsState = lens _vcbsState (\ s a -> s{_vcbsState = a});
+
+-- | A message about the status of the CIDR block, if applicable.
+vcbsStatusMessage :: Lens' VPCCidrBlockState (Maybe Text)
+vcbsStatusMessage = lens _vcbsStatusMessage (\ s a -> s{_vcbsStatusMessage = a});
+
+instance FromXML VPCCidrBlockState where
+        parseXML x
+          = VPCCidrBlockState' <$>
+              (x .@? "state") <*> (x .@? "statusMessage")
+
+instance Hashable VPCCidrBlockState
+
+instance NFData VPCCidrBlockState
 
 -- | Describes whether a VPC is enabled for ClassicLink.
 --
@@ -13144,6 +13629,57 @@ instance FromXML VPCEndpoint where
 instance Hashable VPCEndpoint
 
 instance NFData VPCEndpoint
+
+-- | Describes an IPv6 CIDR block associated with a VPC.
+--
+--
+--
+-- /See:/ 'vpcIPv6CidrBlockAssociation' smart constructor.
+data VPCIPv6CidrBlockAssociation = VPCIPv6CidrBlockAssociation'
+    { _vicbaAssociationId      :: !(Maybe Text)
+    , _vicbaIPv6CidrBlock      :: !(Maybe Text)
+    , _vicbaIPv6CidrBlockState :: !(Maybe VPCCidrBlockState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCIPv6CidrBlockAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vicbaAssociationId' - The association ID for the IPv6 CIDR block.
+--
+-- * 'vicbaIPv6CidrBlock' - The IPv6 CIDR block.
+--
+-- * 'vicbaIPv6CidrBlockState' - Information about the state of the CIDR block.
+vpcIPv6CidrBlockAssociation
+    :: VPCIPv6CidrBlockAssociation
+vpcIPv6CidrBlockAssociation =
+    VPCIPv6CidrBlockAssociation'
+    { _vicbaAssociationId = Nothing
+    , _vicbaIPv6CidrBlock = Nothing
+    , _vicbaIPv6CidrBlockState = Nothing
+    }
+
+-- | The association ID for the IPv6 CIDR block.
+vicbaAssociationId :: Lens' VPCIPv6CidrBlockAssociation (Maybe Text)
+vicbaAssociationId = lens _vicbaAssociationId (\ s a -> s{_vicbaAssociationId = a});
+
+-- | The IPv6 CIDR block.
+vicbaIPv6CidrBlock :: Lens' VPCIPv6CidrBlockAssociation (Maybe Text)
+vicbaIPv6CidrBlock = lens _vicbaIPv6CidrBlock (\ s a -> s{_vicbaIPv6CidrBlock = a});
+
+-- | Information about the state of the CIDR block.
+vicbaIPv6CidrBlockState :: Lens' VPCIPv6CidrBlockAssociation (Maybe VPCCidrBlockState)
+vicbaIPv6CidrBlockState = lens _vicbaIPv6CidrBlockState (\ s a -> s{_vicbaIPv6CidrBlockState = a});
+
+instance FromXML VPCIPv6CidrBlockAssociation where
+        parseXML x
+          = VPCIPv6CidrBlockAssociation' <$>
+              (x .@? "associationId") <*> (x .@? "ipv6CidrBlock")
+                <*> (x .@? "ipv6CidrBlockState")
+
+instance Hashable VPCIPv6CidrBlockAssociation
+
+instance NFData VPCIPv6CidrBlockAssociation
 
 -- | Describes a VPC peering connection.
 --
@@ -13330,10 +13866,11 @@ instance NFData VPCPeeringConnectionStateReason
 --
 -- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
-    { _vpcviVPCId          :: !(Maybe Text)
-    , _vpcviOwnerId        :: !(Maybe Text)
-    , _vpcviPeeringOptions :: !(Maybe VPCPeeringConnectionOptionsDescription)
-    , _vpcviCIdRBlock      :: !(Maybe Text)
+    { _vpcviVPCId            :: !(Maybe Text)
+    , _vpcviOwnerId          :: !(Maybe Text)
+    , _vpcviPeeringOptions   :: !(Maybe VPCPeeringConnectionOptionsDescription)
+    , _vpcviCidrBlock        :: !(Maybe Text)
+    , _vpcviIPv6CidrBlockSet :: !(Maybe [IPv6CidrBlock])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
@@ -13346,7 +13883,9 @@ data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
 --
 -- * 'vpcviPeeringOptions' - Information about the VPC peering connection options for the accepter or requester VPC.
 --
--- * 'vpcviCIdRBlock' - The CIDR block for the VPC.
+-- * 'vpcviCidrBlock' - The IPv4 CIDR block for the VPC.
+--
+-- * 'vpcviIPv6CidrBlockSet' - The IPv6 CIDR block for the VPC.
 vpcPeeringConnectionVPCInfo
     :: VPCPeeringConnectionVPCInfo
 vpcPeeringConnectionVPCInfo =
@@ -13354,7 +13893,8 @@ vpcPeeringConnectionVPCInfo =
     { _vpcviVPCId = Nothing
     , _vpcviOwnerId = Nothing
     , _vpcviPeeringOptions = Nothing
-    , _vpcviCIdRBlock = Nothing
+    , _vpcviCidrBlock = Nothing
+    , _vpcviIPv6CidrBlockSet = Nothing
     }
 
 -- | The ID of the VPC.
@@ -13369,9 +13909,13 @@ vpcviOwnerId = lens _vpcviOwnerId (\ s a -> s{_vpcviOwnerId = a});
 vpcviPeeringOptions :: Lens' VPCPeeringConnectionVPCInfo (Maybe VPCPeeringConnectionOptionsDescription)
 vpcviPeeringOptions = lens _vpcviPeeringOptions (\ s a -> s{_vpcviPeeringOptions = a});
 
--- | The CIDR block for the VPC.
-vpcviCIdRBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviCIdRBlock = lens _vpcviCIdRBlock (\ s a -> s{_vpcviCIdRBlock = a});
+-- | The IPv4 CIDR block for the VPC.
+vpcviCidrBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
+vpcviCidrBlock = lens _vpcviCidrBlock (\ s a -> s{_vpcviCidrBlock = a});
+
+-- | The IPv6 CIDR block for the VPC.
+vpcviIPv6CidrBlockSet :: Lens' VPCPeeringConnectionVPCInfo [IPv6CidrBlock]
+vpcviIPv6CidrBlockSet = lens _vpcviIPv6CidrBlockSet (\ s a -> s{_vpcviIPv6CidrBlockSet = a}) . _Default . _Coerce;
 
 instance FromXML VPCPeeringConnectionVPCInfo where
         parseXML x
@@ -13379,6 +13923,9 @@ instance FromXML VPCPeeringConnectionVPCInfo where
               (x .@? "vpcId") <*> (x .@? "ownerId") <*>
                 (x .@? "peeringOptions")
                 <*> (x .@? "cidrBlock")
+                <*>
+                (x .@? "ipv6CidrBlockSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
 
 instance Hashable VPCPeeringConnectionVPCInfo
 
@@ -13667,7 +14214,7 @@ instance NFData VPNGateway
 data VPNStaticRoute = VPNStaticRoute'
     { _vsrState                :: !(Maybe VPNState)
     , _vsrSource               :: !(Maybe VPNStaticRouteSource)
-    , _vsrDestinationCIdRBlock :: !(Maybe Text)
+    , _vsrDestinationCidrBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VPNStaticRoute' with the minimum fields required to make a request.
@@ -13678,14 +14225,14 @@ data VPNStaticRoute = VPNStaticRoute'
 --
 -- * 'vsrSource' - Indicates how the routes were provided.
 --
--- * 'vsrDestinationCIdRBlock' - The CIDR block associated with the local subnet of the customer data center.
+-- * 'vsrDestinationCidrBlock' - The CIDR block associated with the local subnet of the customer data center.
 vpnStaticRoute
     :: VPNStaticRoute
 vpnStaticRoute =
     VPNStaticRoute'
     { _vsrState = Nothing
     , _vsrSource = Nothing
-    , _vsrDestinationCIdRBlock = Nothing
+    , _vsrDestinationCidrBlock = Nothing
     }
 
 -- | The current state of the static route.
@@ -13697,8 +14244,8 @@ vsrSource :: Lens' VPNStaticRoute (Maybe VPNStaticRouteSource)
 vsrSource = lens _vsrSource (\ s a -> s{_vsrSource = a});
 
 -- | The CIDR block associated with the local subnet of the customer data center.
-vsrDestinationCIdRBlock :: Lens' VPNStaticRoute (Maybe Text)
-vsrDestinationCIdRBlock = lens _vsrDestinationCIdRBlock (\ s a -> s{_vsrDestinationCIdRBlock = a});
+vsrDestinationCidrBlock :: Lens' VPNStaticRoute (Maybe Text)
+vsrDestinationCidrBlock = lens _vsrDestinationCidrBlock (\ s a -> s{_vsrDestinationCidrBlock = a});
 
 instance FromXML VPNStaticRoute where
         parseXML x

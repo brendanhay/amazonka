@@ -29,6 +29,7 @@ module Network.AWS.SSM.CreateDocument
       createDocument
     , CreateDocument
     -- * Request Lenses
+    , cdDocumentType
     , cdContent
     , cdName
 
@@ -49,13 +50,16 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createDocument' smart constructor.
 data CreateDocument = CreateDocument'
-    { _cdContent :: !Text
-    , _cdName    :: !Text
+    { _cdDocumentType :: !(Maybe DocumentType)
+    , _cdContent      :: !Text
+    , _cdName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdDocumentType' - The type of document to create. Valid document types include: Policy, Automation, and Command.
 --
 -- * 'cdContent' - A valid JSON string.
 --
@@ -66,9 +70,14 @@ createDocument
     -> CreateDocument
 createDocument pContent_ pName_ =
     CreateDocument'
-    { _cdContent = pContent_
+    { _cdDocumentType = Nothing
+    , _cdContent = pContent_
     , _cdName = pName_
     }
+
+-- | The type of document to create. Valid document types include: Policy, Automation, and Command.
+cdDocumentType :: Lens' CreateDocument (Maybe DocumentType)
+cdDocumentType = lens _cdDocumentType (\ s a -> s{_cdDocumentType = a});
 
 -- | A valid JSON string.
 cdContent :: Lens' CreateDocument Text
@@ -105,7 +114,8 @@ instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
           = object
               (catMaybes
-                 [Just ("Content" .= _cdContent),
+                 [("DocumentType" .=) <$> _cdDocumentType,
+                  Just ("Content" .= _cdContent),
                   Just ("Name" .= _cdName)])
 
 instance ToPath CreateDocument where

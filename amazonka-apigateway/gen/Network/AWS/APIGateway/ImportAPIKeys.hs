@@ -123,7 +123,7 @@ instance ToQuery ImportAPIKeys where
               ["failonwarnings" =: _iakFailOnWarnings,
                "format" =: _iakFormat, "mode=import"]
 
--- | The identifier of an API key used to reference an API key in a usage plan.
+-- | The identifier of an 'ApiKey' used in a 'UsagePlan' .
 --
 --
 --

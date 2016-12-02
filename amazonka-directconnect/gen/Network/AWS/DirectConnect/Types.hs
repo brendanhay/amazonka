@@ -21,6 +21,15 @@ module Network.AWS.DirectConnect.Types
     , _TooManyTagsException
     , _DirectConnectServerException
 
+    -- * AddressFamily
+    , AddressFamily (..)
+
+    -- * BGPPeerState
+    , BGPPeerState (..)
+
+    -- * BGPStatus
+    , BGPStatus (..)
+
     -- * ConnectionState
     , ConnectionState (..)
 
@@ -32,6 +41,17 @@ module Network.AWS.DirectConnect.Types
 
     -- * VirtualInterfaceState
     , VirtualInterfaceState (..)
+
+    -- * BGPPeer
+    , BGPPeer
+    , bgpPeer
+    , bpCustomerAddress
+    , bpAmazonAddress
+    , bpAddressFamily
+    , bpBgpStatus
+    , bpAsn
+    , bpAuthKey
+    , bpBgpPeerState
 
     -- * Connection
     , Connection
@@ -75,11 +95,21 @@ module Network.AWS.DirectConnect.Types
     , lLocationName
     , lLocationCode
 
+    -- * NewBGPPeer
+    , NewBGPPeer
+    , newBGPPeer
+    , nbpCustomerAddress
+    , nbpAmazonAddress
+    , nbpAddressFamily
+    , nbpAsn
+    , nbpAuthKey
+
     -- * NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
     , nCustomerAddress
     , nAmazonAddress
+    , nAddressFamily
     , nAuthKey
     , nVirtualInterfaceName
     , nVlan
@@ -91,6 +121,7 @@ module Network.AWS.DirectConnect.Types
     , newPrivateVirtualInterfaceAllocation
     , npviaCustomerAddress
     , npviaAmazonAddress
+    , npviaAddressFamily
     , npviaAuthKey
     , npviaVirtualInterfaceName
     , npviaVlan
@@ -99,24 +130,26 @@ module Network.AWS.DirectConnect.Types
     -- * NewPublicVirtualInterface
     , NewPublicVirtualInterface
     , newPublicVirtualInterface
+    , npviRouteFilterPrefixes
+    , npviCustomerAddress
+    , npviAmazonAddress
+    , npviAddressFamily
     , npviAuthKey
     , npviVirtualInterfaceName
     , npviVlan
     , npviAsn
-    , npviAmazonAddress
-    , npviCustomerAddress
-    , npviRouteFilterPrefixes
 
     -- * NewPublicVirtualInterfaceAllocation
     , NewPublicVirtualInterfaceAllocation
     , newPublicVirtualInterfaceAllocation
+    , newRouteFilterPrefixes
+    , newCustomerAddress
+    , newAmazonAddress
+    , newAddressFamily
     , newAuthKey
     , newVirtualInterfaceName
     , newVlan
     , newAsn
-    , newAmazonAddress
-    , newCustomerAddress
-    , newRouteFilterPrefixes
 
     -- * ResourceTag
     , ResourceTag
@@ -144,12 +177,14 @@ module Network.AWS.DirectConnect.Types
     -- * VirtualInterface
     , VirtualInterface
     , virtualInterface
+    , viBgpPeers
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
     , viLocation
     , viAmazonAddress
+    , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
     , viVirtualInterfaceType

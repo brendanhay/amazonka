@@ -39,6 +39,9 @@ module Network.AWS.APIGateway.Types
     -- * ContentHandlingStrategy
     , ContentHandlingStrategy (..)
 
+    -- * DocumentationPartType
+    , DocumentationPartType (..)
+
     -- * IntegrationType
     , IntegrationType (..)
 
@@ -59,6 +62,7 @@ module Network.AWS.APIGateway.Types
     , apiKey
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId
@@ -117,6 +121,29 @@ module Network.AWS.APIGateway.Types
     , dCreatedDate
     , dId
     , dDescription
+
+    -- * DocumentationPart
+    , DocumentationPart
+    , documentationPart
+    , dpLocation
+    , dpId
+    , dpProperties
+
+    -- * DocumentationPartLocation
+    , DocumentationPartLocation
+    , documentationPartLocation
+    , dplPath
+    , dplName
+    , dplMethod
+    , dplStatusCode
+    , dplType
+
+    -- * DocumentationVersion
+    , DocumentationVersion
+    , documentationVersion
+    , dvCreatedDate
+    , dvVersion
+    , dvDescription
 
     -- * DomainName
     , DomainName
@@ -229,6 +256,7 @@ module Network.AWS.APIGateway.Types
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
 
@@ -237,6 +265,7 @@ module Network.AWS.APIGateway.Types
     , stage
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -277,6 +306,7 @@ module Network.AWS.APIGateway.Types
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
 
     -- * UsagePlanKey
     , UsagePlanKey

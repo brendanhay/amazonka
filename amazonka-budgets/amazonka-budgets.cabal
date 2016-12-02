@@ -25,7 +25,7 @@ description:
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
     .
-    See "Network.AWS.AWSBudgets" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    See "Network.AWS.Budgets" or <https://aws.amazon.com/documentation/ the AWS documentation>
     to get started.
 
 source-repository head
@@ -39,26 +39,26 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.AWSBudgets
-        , Network.AWS.AWSBudgets.CreateBudget
-        , Network.AWS.AWSBudgets.CreateNotification
-        , Network.AWS.AWSBudgets.CreateSubscriber
-        , Network.AWS.AWSBudgets.DeleteBudget
-        , Network.AWS.AWSBudgets.DeleteNotification
-        , Network.AWS.AWSBudgets.DeleteSubscriber
-        , Network.AWS.AWSBudgets.DescribeBudget
-        , Network.AWS.AWSBudgets.DescribeBudgets
-        , Network.AWS.AWSBudgets.DescribeNotificationsForBudget
-        , Network.AWS.AWSBudgets.DescribeSubscribersForNotification
-        , Network.AWS.AWSBudgets.Types
-        , Network.AWS.AWSBudgets.UpdateBudget
-        , Network.AWS.AWSBudgets.UpdateNotification
-        , Network.AWS.AWSBudgets.UpdateSubscriber
-        , Network.AWS.AWSBudgets.Waiters
+          Network.AWS.Budgets
+        , Network.AWS.Budgets.CreateBudget
+        , Network.AWS.Budgets.CreateNotification
+        , Network.AWS.Budgets.CreateSubscriber
+        , Network.AWS.Budgets.DeleteBudget
+        , Network.AWS.Budgets.DeleteNotification
+        , Network.AWS.Budgets.DeleteSubscriber
+        , Network.AWS.Budgets.DescribeBudget
+        , Network.AWS.Budgets.DescribeBudgets
+        , Network.AWS.Budgets.DescribeNotificationsForBudget
+        , Network.AWS.Budgets.DescribeSubscribersForNotification
+        , Network.AWS.Budgets.Types
+        , Network.AWS.Budgets.UpdateBudget
+        , Network.AWS.Budgets.UpdateNotification
+        , Network.AWS.Budgets.UpdateSubscriber
+        , Network.AWS.Budgets.Waiters
 
     other-modules:
-          Network.AWS.AWSBudgets.Types.Product
-        , Network.AWS.AWSBudgets.Types.Sum
+          Network.AWS.Budgets.Types.Product
+        , Network.AWS.Budgets.Types.Sum
 
     build-depends:
           amazonka-core == 1.4.4.*
@@ -76,9 +76,9 @@ test-suite amazonka-budgets-test
     -- hand outside these namespaces will not correctly be added to the
     -- distribution package.
     other-modules:
-          Test.AWS.AWSBudgets
-        , Test.AWS.Gen.AWSBudgets
-        , Test.AWS.AWSBudgets.Internal
+          Test.AWS.Budgets
+        , Test.AWS.Gen.Budgets
+        , Test.AWS.Budgets.Internal
 
     build-depends:
           amazonka-core == 1.4.4.*

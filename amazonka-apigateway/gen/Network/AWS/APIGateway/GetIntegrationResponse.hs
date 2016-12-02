@@ -27,10 +27,10 @@ module Network.AWS.APIGateway.GetIntegrationResponse
       getIntegrationResponse
     , GetIntegrationResponse
     -- * Request Lenses
-    , getRestAPIId
-    , getResourceId
-    , getHttpMethod
-    , getStatusCode
+    , giiRestAPIId
+    , giiResourceId
+    , giiHttpMethod
+    , giiStatusCode
 
     -- * Destructuring the Response
     , integrationResponse
@@ -56,52 +56,52 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-    { _getRestAPIId  :: !Text
-    , _getResourceId :: !Text
-    , _getHttpMethod :: !Text
-    , _getStatusCode :: !Text
+    { _giiRestAPIId  :: !Text
+    , _giiResourceId :: !Text
+    , _giiHttpMethod :: !Text
+    , _giiStatusCode :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetIntegrationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getRestAPIId' - Specifies a get integration response request's API identifier.
+-- * 'giiRestAPIId' - Specifies a get integration response request's API identifier.
 --
--- * 'getResourceId' - Specifies a get integration response request's resource identifier.
+-- * 'giiResourceId' - Specifies a get integration response request's resource identifier.
 --
--- * 'getHttpMethod' - Specifies a get integration response request's HTTP method.
+-- * 'giiHttpMethod' - Specifies a get integration response request's HTTP method.
 --
--- * 'getStatusCode' - Specifies a get integration response request's status code.
+-- * 'giiStatusCode' - Specifies a get integration response request's status code.
 getIntegrationResponse
-    :: Text -- ^ 'getRestAPIId'
-    -> Text -- ^ 'getResourceId'
-    -> Text -- ^ 'getHttpMethod'
-    -> Text -- ^ 'getStatusCode'
+    :: Text -- ^ 'giiRestAPIId'
+    -> Text -- ^ 'giiResourceId'
+    -> Text -- ^ 'giiHttpMethod'
+    -> Text -- ^ 'giiStatusCode'
     -> GetIntegrationResponse
 getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     GetIntegrationResponse'
-    { _getRestAPIId = pRestAPIId_
-    , _getResourceId = pResourceId_
-    , _getHttpMethod = pHttpMethod_
-    , _getStatusCode = pStatusCode_
+    { _giiRestAPIId = pRestAPIId_
+    , _giiResourceId = pResourceId_
+    , _giiHttpMethod = pHttpMethod_
+    , _giiStatusCode = pStatusCode_
     }
 
 -- | Specifies a get integration response request's API identifier.
-getRestAPIId :: Lens' GetIntegrationResponse Text
-getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a});
+giiRestAPIId :: Lens' GetIntegrationResponse Text
+giiRestAPIId = lens _giiRestAPIId (\ s a -> s{_giiRestAPIId = a});
 
 -- | Specifies a get integration response request's resource identifier.
-getResourceId :: Lens' GetIntegrationResponse Text
-getResourceId = lens _getResourceId (\ s a -> s{_getResourceId = a});
+giiResourceId :: Lens' GetIntegrationResponse Text
+giiResourceId = lens _giiResourceId (\ s a -> s{_giiResourceId = a});
 
 -- | Specifies a get integration response request's HTTP method.
-getHttpMethod :: Lens' GetIntegrationResponse Text
-getHttpMethod = lens _getHttpMethod (\ s a -> s{_getHttpMethod = a});
+giiHttpMethod :: Lens' GetIntegrationResponse Text
+giiHttpMethod = lens _giiHttpMethod (\ s a -> s{_giiHttpMethod = a});
 
 -- | Specifies a get integration response request's status code.
-getStatusCode :: Lens' GetIntegrationResponse Text
-getStatusCode = lens _getStatusCode (\ s a -> s{_getStatusCode = a});
+giiStatusCode :: Lens' GetIntegrationResponse Text
+giiStatusCode = lens _giiStatusCode (\ s a -> s{_giiStatusCode = a});
 
 instance AWSRequest GetIntegrationResponse where
         type Rs GetIntegrationResponse = IntegrationResponse
@@ -121,10 +121,10 @@ instance ToHeaders GetIntegrationResponse where
 instance ToPath GetIntegrationResponse where
         toPath GetIntegrationResponse'{..}
           = mconcat
-              ["/restapis/", toBS _getRestAPIId, "/resources/",
-               toBS _getResourceId, "/methods/",
-               toBS _getHttpMethod, "/integration/responses/",
-               toBS _getStatusCode]
+              ["/restapis/", toBS _giiRestAPIId, "/resources/",
+               toBS _giiResourceId, "/methods/",
+               toBS _giiHttpMethod, "/integration/responses/",
+               toBS _giiStatusCode]
 
 instance ToQuery GetIntegrationResponse where
         toQuery = const mempty

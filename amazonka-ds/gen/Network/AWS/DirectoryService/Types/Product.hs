@@ -805,7 +805,7 @@ instance NFData EventTopic
 --
 -- /See:/ 'ipRoute' smart constructor.
 data IPRoute = IPRoute'
-    { _irCIdRIP      :: !(Maybe Text)
+    { _irCidrIP      :: !(Maybe Text)
     , _irDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -813,20 +813,20 @@ data IPRoute = IPRoute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'irCIdRIP' - IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
+-- * 'irCidrIP' - IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
 --
 -- * 'irDescription' - Description of the address block.
 ipRoute
     :: IPRoute
 ipRoute =
     IPRoute'
-    { _irCIdRIP = Nothing
+    { _irCidrIP = Nothing
     , _irDescription = Nothing
     }
 
 -- | IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
-irCIdRIP :: Lens' IPRoute (Maybe Text)
-irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
+irCidrIP :: Lens' IPRoute (Maybe Text)
+irCidrIP = lens _irCidrIP (\ s a -> s{_irCidrIP = a});
 
 -- | Description of the address block.
 irDescription :: Lens' IPRoute (Maybe Text)
@@ -840,7 +840,7 @@ instance ToJSON IPRoute where
         toJSON IPRoute'{..}
           = object
               (catMaybes
-                 [("CidrIp" .=) <$> _irCIdRIP,
+                 [("CidrIp" .=) <$> _irCidrIP,
                   ("Description" .=) <$> _irDescription])
 
 -- | Information about one or more IP address blocks.
@@ -852,7 +852,7 @@ data IPRouteInfo = IPRouteInfo'
     { _iriDirectoryId         :: !(Maybe Text)
     , _iriIPRouteStatusReason :: !(Maybe Text)
     , _iriAddedDateTime       :: !(Maybe POSIX)
-    , _iriCIdRIP              :: !(Maybe Text)
+    , _iriCidrIP              :: !(Maybe Text)
     , _iriIPRouteStatusMsg    :: !(Maybe IPRouteStatusMsg)
     , _iriDescription         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -867,7 +867,7 @@ data IPRouteInfo = IPRouteInfo'
 --
 -- * 'iriAddedDateTime' - The date and time the address block was added to the directory.
 --
--- * 'iriCIdRIP' - IP address block in the 'IpRoute' .
+-- * 'iriCidrIP' - IP address block in the 'IpRoute' .
 --
 -- * 'iriIPRouteStatusMsg' - The status of the IP address block.
 --
@@ -879,7 +879,7 @@ ipRouteInfo =
     { _iriDirectoryId = Nothing
     , _iriIPRouteStatusReason = Nothing
     , _iriAddedDateTime = Nothing
-    , _iriCIdRIP = Nothing
+    , _iriCidrIP = Nothing
     , _iriIPRouteStatusMsg = Nothing
     , _iriDescription = Nothing
     }
@@ -897,8 +897,8 @@ iriAddedDateTime :: Lens' IPRouteInfo (Maybe UTCTime)
 iriAddedDateTime = lens _iriAddedDateTime (\ s a -> s{_iriAddedDateTime = a}) . mapping _Time;
 
 -- | IP address block in the 'IpRoute' .
-iriCIdRIP :: Lens' IPRouteInfo (Maybe Text)
-iriCIdRIP = lens _iriCIdRIP (\ s a -> s{_iriCIdRIP = a});
+iriCidrIP :: Lens' IPRouteInfo (Maybe Text)
+iriCidrIP = lens _iriCidrIP (\ s a -> s{_iriCidrIP = a});
 
 -- | The status of the IP address block.
 iriIPRouteStatusMsg :: Lens' IPRouteInfo (Maybe IPRouteStatusMsg)

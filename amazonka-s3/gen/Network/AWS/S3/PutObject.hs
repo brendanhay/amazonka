@@ -39,6 +39,7 @@ module Network.AWS.S3.PutObject
     , poSSEKMSKeyId
     , poGrantFullControl
     , poContentEncoding
+    , poTagging
     , poContentMD5
     , poMetadata
     , poCacheControl
@@ -89,6 +90,7 @@ data PutObject = PutObject'
     , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
     , _poGrantFullControl        :: !(Maybe Text)
     , _poContentEncoding         :: !(Maybe Text)
+    , _poTagging                 :: !(Maybe Text)
     , _poContentMD5              :: !(Maybe Text)
     , _poMetadata                :: !(Map Text Text)
     , _poCacheControl            :: !(Maybe Text)
@@ -134,6 +136,8 @@ data PutObject = PutObject'
 --
 -- * 'poContentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 --
+-- * 'poTagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters
+--
 -- * 'poContentMD5' - The base64-encoded 128-bit MD5 digest of the part data.
 --
 -- * 'poMetadata' - A map of metadata to store with the object in S3.
@@ -176,6 +180,7 @@ putObject pBucket_ pKey_ pBody_ =
     , _poSSEKMSKeyId = Nothing
     , _poGrantFullControl = Nothing
     , _poContentEncoding = Nothing
+    , _poTagging = Nothing
     , _poContentMD5 = Nothing
     , _poMetadata = mempty
     , _poCacheControl = Nothing
@@ -244,6 +249,10 @@ poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = 
 -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
 poContentEncoding :: Lens' PutObject (Maybe Text)
 poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
+
+-- | The tag-set for the object. The tag-set must be encoded as URL Query parameters
+poTagging :: Lens' PutObject (Maybe Text)
+poTagging = lens _poTagging (\ s a -> s{_poTagging = a});
 
 -- | The base64-encoded 128-bit MD5 digest of the part data.
 poContentMD5 :: Lens' PutObject (Maybe Text)
@@ -335,6 +344,7 @@ instance ToHeaders PutObject where
                  _poSSEKMSKeyId,
                "x-amz-grant-full-control" =# _poGrantFullControl,
                "Content-Encoding" =# _poContentEncoding,
+               "x-amz-tagging" =# _poTagging,
                "Content-MD5" =# _poContentMD5,
                "x-amz-meta-" =# _poMetadata,
                "Cache-Control" =# _poCacheControl,

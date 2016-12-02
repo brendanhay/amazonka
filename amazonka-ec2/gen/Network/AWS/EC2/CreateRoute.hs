@@ -21,9 +21,9 @@
 -- Creates a route in a route table within a VPC.
 --
 --
--- You must specify one of the following targets: Internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, or network interface.
+-- You must specify one of the following targets: Internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only Internet gateway.
 --
--- When determining how to route traffic, we use the route with the most specific match. For example, let's say the traffic is destined for @192.0.2.3@ , and the route table includes the following two routes:
+-- When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address @192.0.2.3@ , and the route table includes the following two IPv4 routes:
 --
 --     * @192.0.2.0/24@ (goes to some target A)
 --
@@ -43,12 +43,14 @@ module Network.AWS.EC2.CreateRoute
     -- * Request Lenses
     , crVPCPeeringConnectionId
     , crInstanceId
+    , crEgressOnlyInternetGatewayId
+    , crDestinationIPv6CidrBlock
     , crNatGatewayId
     , crNetworkInterfaceId
     , crGatewayId
     , crDryRun
+    , crDestinationCidrBlock
     , crRouteTableId
-    , crDestinationCIdRBlock
 
     -- * Destructuring the Response
     , createRouteResponse
@@ -71,14 +73,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createRoute' smart constructor.
 data CreateRoute = CreateRoute'
-    { _crVPCPeeringConnectionId :: !(Maybe Text)
-    , _crInstanceId             :: !(Maybe Text)
-    , _crNatGatewayId           :: !(Maybe Text)
-    , _crNetworkInterfaceId     :: !(Maybe Text)
-    , _crGatewayId              :: !(Maybe Text)
-    , _crDryRun                 :: !(Maybe Bool)
-    , _crRouteTableId           :: !Text
-    , _crDestinationCIdRBlock   :: !Text
+    { _crVPCPeeringConnectionId      :: !(Maybe Text)
+    , _crInstanceId                  :: !(Maybe Text)
+    , _crEgressOnlyInternetGatewayId :: !(Maybe Text)
+    , _crDestinationIPv6CidrBlock    :: !(Maybe Text)
+    , _crNatGatewayId                :: !(Maybe Text)
+    , _crNetworkInterfaceId          :: !(Maybe Text)
+    , _crGatewayId                   :: !(Maybe Text)
+    , _crDryRun                      :: !(Maybe Bool)
+    , _crDestinationCidrBlock        :: !(Maybe Text)
+    , _crRouteTableId                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRoute' with the minimum fields required to make a request.
@@ -89,7 +93,11 @@ data CreateRoute = CreateRoute'
 --
 -- * 'crInstanceId' - The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
 --
--- * 'crNatGatewayId' - The ID of a NAT gateway.
+-- * 'crEgressOnlyInternetGatewayId' - [IPv6 traffic only] The ID of an egress-only Internet gateway.
+--
+-- * 'crDestinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+--
+-- * 'crNatGatewayId' - [IPv4 traffic only] The ID of a NAT gateway.
 --
 -- * 'crNetworkInterfaceId' - The ID of a network interface.
 --
@@ -97,23 +105,24 @@ data CreateRoute = CreateRoute'
 --
 -- * 'crDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'crRouteTableId' - The ID of the route table for the route.
+-- * 'crDestinationCidrBlock' - The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match.
 --
--- * 'crDestinationCIdRBlock' - The CIDR address block used for the destination match. Routing decisions are based on the most specific match.
+-- * 'crRouteTableId' - The ID of the route table for the route.
 createRoute
     :: Text -- ^ 'crRouteTableId'
-    -> Text -- ^ 'crDestinationCIdRBlock'
     -> CreateRoute
-createRoute pRouteTableId_ pDestinationCIdRBlock_ =
+createRoute pRouteTableId_ =
     CreateRoute'
     { _crVPCPeeringConnectionId = Nothing
     , _crInstanceId = Nothing
+    , _crEgressOnlyInternetGatewayId = Nothing
+    , _crDestinationIPv6CidrBlock = Nothing
     , _crNatGatewayId = Nothing
     , _crNetworkInterfaceId = Nothing
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
+    , _crDestinationCidrBlock = Nothing
     , _crRouteTableId = pRouteTableId_
-    , _crDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of a VPC peering connection.
@@ -124,7 +133,15 @@ crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeer
 crInstanceId :: Lens' CreateRoute (Maybe Text)
 crInstanceId = lens _crInstanceId (\ s a -> s{_crInstanceId = a});
 
--- | The ID of a NAT gateway.
+-- | [IPv6 traffic only] The ID of an egress-only Internet gateway.
+crEgressOnlyInternetGatewayId :: Lens' CreateRoute (Maybe Text)
+crEgressOnlyInternetGatewayId = lens _crEgressOnlyInternetGatewayId (\ s a -> s{_crEgressOnlyInternetGatewayId = a});
+
+-- | The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
+crDestinationIPv6CidrBlock :: Lens' CreateRoute (Maybe Text)
+crDestinationIPv6CidrBlock = lens _crDestinationIPv6CidrBlock (\ s a -> s{_crDestinationIPv6CidrBlock = a});
+
+-- | [IPv4 traffic only] The ID of a NAT gateway.
 crNatGatewayId :: Lens' CreateRoute (Maybe Text)
 crNatGatewayId = lens _crNatGatewayId (\ s a -> s{_crNatGatewayId = a});
 
@@ -140,13 +157,13 @@ crGatewayId = lens _crGatewayId (\ s a -> s{_crGatewayId = a});
 crDryRun :: Lens' CreateRoute (Maybe Bool)
 crDryRun = lens _crDryRun (\ s a -> s{_crDryRun = a});
 
+-- | The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match.
+crDestinationCidrBlock :: Lens' CreateRoute (Maybe Text)
+crDestinationCidrBlock = lens _crDestinationCidrBlock (\ s a -> s{_crDestinationCidrBlock = a});
+
 -- | The ID of the route table for the route.
 crRouteTableId :: Lens' CreateRoute Text
 crRouteTableId = lens _crRouteTableId (\ s a -> s{_crRouteTableId = a});
-
--- | The CIDR address block used for the destination match. Routing decisions are based on the most specific match.
-crDestinationCIdRBlock :: Lens' CreateRoute Text
-crDestinationCIdRBlock = lens _crDestinationCIdRBlock (\ s a -> s{_crDestinationCIdRBlock = a});
 
 instance AWSRequest CreateRoute where
         type Rs CreateRoute = CreateRouteResponse
@@ -171,15 +188,19 @@ instance ToQuery CreateRoute where
         toQuery CreateRoute'{..}
           = mconcat
               ["Action" =: ("CreateRoute" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
                "InstanceId" =: _crInstanceId,
+               "EgressOnlyInternetGatewayId" =:
+                 _crEgressOnlyInternetGatewayId,
+               "DestinationIpv6CidrBlock" =:
+                 _crDestinationIPv6CidrBlock,
                "NatGatewayId" =: _crNatGatewayId,
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
-               "RouteTableId" =: _crRouteTableId,
-               "DestinationCidrBlock" =: _crDestinationCIdRBlock]
+               "DestinationCidrBlock" =: _crDestinationCidrBlock,
+               "RouteTableId" =: _crRouteTableId]
 
 -- | Contains the output of CreateRoute.
 --

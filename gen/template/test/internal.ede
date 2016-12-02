@@ -1,0 +1,3 @@
+{% include "_include/license.ede" %}
+--
+module {{ moduleName }} where

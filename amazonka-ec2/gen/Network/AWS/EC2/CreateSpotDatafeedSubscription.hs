@@ -116,7 +116,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
           = mconcat
               ["Action" =:
                  ("CreateSpotDatafeedSubscription" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Prefix" =: _csdsPrefix, "DryRun" =: _csdsDryRun,
                "Bucket" =: _csdsBucket]
 

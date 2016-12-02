@@ -28,6 +28,7 @@ module Network.AWS.SSM.DescribeInstanceInformation
     , DescribeInstanceInformation
     -- * Request Lenses
     , diiInstanceInformationFilterList
+    , diiFilters
     , diiNextToken
     , diiMaxResults
 
@@ -49,7 +50,8 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-    { _diiInstanceInformationFilterList :: !(Maybe (List1 InstanceInformationFilter))
+    { _diiInstanceInformationFilterList :: !(Maybe [InstanceInformationFilter])
+    , _diiFilters                       :: !(Maybe [InstanceInformationStringFilter])
     , _diiNextToken                     :: !(Maybe Text)
     , _diiMaxResults                    :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -60,6 +62,8 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- * 'diiInstanceInformationFilterList' - One or more filters. Use a filter to return a more specific list of instances.
 --
+-- * 'diiFilters' - One or more filters. Use a filter to return a more specific list of instances.
+--
 -- * 'diiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- * 'diiMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
@@ -68,13 +72,18 @@ describeInstanceInformation
 describeInstanceInformation =
     DescribeInstanceInformation'
     { _diiInstanceInformationFilterList = Nothing
+    , _diiFilters = Nothing
     , _diiNextToken = Nothing
     , _diiMaxResults = Nothing
     }
 
 -- | One or more filters. Use a filter to return a more specific list of instances.
-diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation (Maybe (NonEmpty InstanceInformationFilter))
-diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\ s a -> s{_diiInstanceInformationFilterList = a}) . mapping _List1;
+diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation [InstanceInformationFilter]
+diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\ s a -> s{_diiInstanceInformationFilterList = a}) . _Default . _Coerce;
+
+-- | One or more filters. Use a filter to return a more specific list of instances.
+diiFilters :: Lens' DescribeInstanceInformation [InstanceInformationStringFilter]
+diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 diiNextToken :: Lens' DescribeInstanceInformation (Maybe Text)
@@ -116,6 +125,7 @@ instance ToJSON DescribeInstanceInformation where
               (catMaybes
                  [("InstanceInformationFilterList" .=) <$>
                     _diiInstanceInformationFilterList,
+                  ("Filters" .=) <$> _diiFilters,
                   ("NextToken" .=) <$> _diiNextToken,
                   ("MaxResults" .=) <$> _diiMaxResults])
 

@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination CIDR IP address ranges, or to one or more destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to one or more destination IPv4 or IPv6 CIDR address ranges, or to one or more destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ . For more information about security group limits, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits> .
 --
---
--- /Important:/ You can have up to 50 rules per security group (covering both ingress and egress rules).
 --
 -- Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.
 --
@@ -37,7 +35,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , asgeIPPermissions
     , asgeIPProtocol
     , asgeToPort
-    , asgeCIdRIP
+    , asgeCidrIP
     , asgeSourceSecurityGroupOwnerId
     , asgeSourceSecurityGroupName
     , asgeDryRun
@@ -65,7 +63,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
     , _asgeIPPermissions              :: !(Maybe [IPPermission])
     , _asgeIPProtocol                 :: !(Maybe Text)
     , _asgeToPort                     :: !(Maybe Int)
-    , _asgeCIdRIP                     :: !(Maybe Text)
+    , _asgeCidrIP                     :: !(Maybe Text)
     , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _asgeSourceSecurityGroupName    :: !(Maybe Text)
     , _asgeDryRun                     :: !(Maybe Bool)
@@ -84,7 +82,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 --
 -- * 'asgeToPort' - The end of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'asgeCIdRIP' - The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
+-- * 'asgeCidrIP' - The CIDR IPv4 address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
 --
 -- * 'asgeSourceSecurityGroupOwnerId' - The AWS account number for a destination security group. To authorize outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
@@ -102,7 +100,7 @@ authorizeSecurityGroupEgress pGroupId_ =
     , _asgeIPPermissions = Nothing
     , _asgeIPProtocol = Nothing
     , _asgeToPort = Nothing
-    , _asgeCIdRIP = Nothing
+    , _asgeCidrIP = Nothing
     , _asgeSourceSecurityGroupOwnerId = Nothing
     , _asgeSourceSecurityGroupName = Nothing
     , _asgeDryRun = Nothing
@@ -125,9 +123,9 @@ asgeIPProtocol = lens _asgeIPProtocol (\ s a -> s{_asgeIPProtocol = a});
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
 
--- | The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
-asgeCIdRIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeCIdRIP = lens _asgeCIdRIP (\ s a -> s{_asgeCIdRIP = a});
+-- | The CIDR IPv4 address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
+asgeCidrIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
+asgeCidrIP = lens _asgeCidrIP (\ s a -> s{_asgeCidrIP = a});
 
 -- | The AWS account number for a destination security group. To authorize outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
@@ -168,12 +166,12 @@ instance ToQuery AuthorizeSecurityGroupEgress where
           = mconcat
               ["Action" =:
                  ("AuthorizeSecurityGroupEgress" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "FromPort" =: _asgeFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _asgeIPPermissions),
                "IpProtocol" =: _asgeIPProtocol,
-               "ToPort" =: _asgeToPort, "CidrIp" =: _asgeCIdRIP,
+               "ToPort" =: _asgeToPort, "CidrIp" =: _asgeCidrIP,
                "SourceSecurityGroupOwnerId" =:
                  _asgeSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:

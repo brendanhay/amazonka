@@ -21,7 +21,9 @@
 -- Creates a subnet in an existing VPC.
 --
 --
--- When you create each subnet, you provide the VPC ID and the CIDR block you want for the subnet. After you create a subnet, you can't change its CIDR block. The subnet's CIDR block can be the same as the VPC's CIDR block (assuming you want only a single subnet in the VPC), or a subset of the VPC's CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest subnet (and VPC) you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP addresses).
+-- When you create each subnet, you provide the VPC ID and the CIDR block you want for the subnet. After you create a subnet, you can't change its CIDR block. The subnet's IPv4 CIDR block can be the same as the VPC's IPv4 CIDR block (assuming you want only a single subnet in the VPC), or a subset of the VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+--
+-- If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length.
 --
 -- /Important:/ AWS reserves both the first four and the last IP address in each subnet's CIDR block. They're not available for use.
 --
@@ -37,10 +39,11 @@ module Network.AWS.EC2.CreateSubnet
       createSubnet
     , CreateSubnet
     -- * Request Lenses
+    , cssIPv6CidrBlock
     , cssAvailabilityZone
     , cssDryRun
     , cssVPCId
-    , cssCIdRBlock
+    , cssCidrBlock
 
     -- * Destructuring the Response
     , createSubnetResponse
@@ -63,15 +66,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createSubnet' smart constructor.
 data CreateSubnet = CreateSubnet'
-    { _cssAvailabilityZone :: !(Maybe Text)
+    { _cssIPv6CidrBlock    :: !(Maybe Text)
+    , _cssAvailabilityZone :: !(Maybe Text)
     , _cssDryRun           :: !(Maybe Bool)
     , _cssVPCId            :: !Text
-    , _cssCIdRBlock        :: !Text
+    , _cssCidrBlock        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateSubnet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cssIPv6CidrBlock' - The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
 --
 -- * 'cssAvailabilityZone' - The Availability Zone for the subnet. Default: AWS selects one for you. If you create more than one subnet in your VPC, we may not necessarily select a different zone for each subnet.
 --
@@ -79,18 +85,23 @@ data CreateSubnet = CreateSubnet'
 --
 -- * 'cssVPCId' - The ID of the VPC.
 --
--- * 'cssCIdRBlock' - The network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ .
+-- * 'cssCidrBlock' - The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ .
 createSubnet
     :: Text -- ^ 'cssVPCId'
-    -> Text -- ^ 'cssCIdRBlock'
+    -> Text -- ^ 'cssCidrBlock'
     -> CreateSubnet
-createSubnet pVPCId_ pCIdRBlock_ =
+createSubnet pVPCId_ pCidrBlock_ =
     CreateSubnet'
-    { _cssAvailabilityZone = Nothing
+    { _cssIPv6CidrBlock = Nothing
+    , _cssAvailabilityZone = Nothing
     , _cssDryRun = Nothing
     , _cssVPCId = pVPCId_
-    , _cssCIdRBlock = pCIdRBlock_
+    , _cssCidrBlock = pCidrBlock_
     }
+
+-- | The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length.
+cssIPv6CidrBlock :: Lens' CreateSubnet (Maybe Text)
+cssIPv6CidrBlock = lens _cssIPv6CidrBlock (\ s a -> s{_cssIPv6CidrBlock = a});
 
 -- | The Availability Zone for the subnet. Default: AWS selects one for you. If you create more than one subnet in your VPC, we may not necessarily select a different zone for each subnet.
 cssAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
@@ -104,9 +115,9 @@ cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a});
 cssVPCId :: Lens' CreateSubnet Text
 cssVPCId = lens _cssVPCId (\ s a -> s{_cssVPCId = a});
 
--- | The network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ .
-cssCIdRBlock :: Lens' CreateSubnet Text
-cssCIdRBlock = lens _cssCIdRBlock (\ s a -> s{_cssCIdRBlock = a});
+-- | The IPv4 network range for the subnet, in CIDR notation. For example, @10.0.0.0/24@ .
+cssCidrBlock :: Lens' CreateSubnet Text
+cssCidrBlock = lens _cssCidrBlock (\ s a -> s{_cssCidrBlock = a});
 
 instance AWSRequest CreateSubnet where
         type Rs CreateSubnet = CreateSubnetResponse
@@ -131,10 +142,11 @@ instance ToQuery CreateSubnet where
         toQuery CreateSubnet'{..}
           = mconcat
               ["Action" =: ("CreateSubnet" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
+               "Ipv6CidrBlock" =: _cssIPv6CidrBlock,
                "AvailabilityZone" =: _cssAvailabilityZone,
                "DryRun" =: _cssDryRun, "VpcId" =: _cssVPCId,
-               "CidrBlock" =: _cssCIdRBlock]
+               "CidrBlock" =: _cssCidrBlock]
 
 -- | Contains the output of CreateSubnet.
 --

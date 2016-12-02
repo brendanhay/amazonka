@@ -130,7 +130,7 @@ instance ToQuery ModifyInstancePlacement where
           = mconcat
               ["Action" =:
                  ("ModifyInstancePlacement" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Affinity" =: _mipAffinity, "HostId" =: _mipHostId,
                "Tenancy" =: _mipTenancy,
                "InstanceId" =: _mipInstanceId]

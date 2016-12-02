@@ -110,7 +110,8 @@ instance FromXML ActionType where
     parseXML = parseXMLText "ActionType"
 
 data ApplicationVersionStatus
-    = AVSFailed
+    = AVSBuilding
+    | AVSFailed
     | AVSProcessed
     | AVSProcessing
     | AVSUnprocessed
@@ -118,15 +119,17 @@ data ApplicationVersionStatus
 
 instance FromText ApplicationVersionStatus where
     parser = takeLowerText >>= \case
+        "building" -> pure AVSBuilding
         "failed" -> pure AVSFailed
         "processed" -> pure AVSProcessed
         "processing" -> pure AVSProcessing
         "unprocessed" -> pure AVSUnprocessed
         e -> fromTextError $ "Failure parsing ApplicationVersionStatus from value: '" <> e
-           <> "'. Accepted values: failed, processed, processing, unprocessed"
+           <> "'. Accepted values: building, failed, processed, processing, unprocessed"
 
 instance ToText ApplicationVersionStatus where
     toText = \case
+        AVSBuilding -> "Building"
         AVSFailed -> "Failed"
         AVSProcessed -> "Processed"
         AVSProcessing -> "Processing"
@@ -140,6 +143,32 @@ instance ToHeader     ApplicationVersionStatus
 
 instance FromXML ApplicationVersionStatus where
     parseXML = parseXMLText "ApplicationVersionStatus"
+
+data ComputeType
+    = BuildGENERAL1Large
+    | BuildGENERAL1Medium
+    | BuildGENERAL1Small
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ComputeType where
+    parser = takeLowerText >>= \case
+        "build_general1_large" -> pure BuildGENERAL1Large
+        "build_general1_medium" -> pure BuildGENERAL1Medium
+        "build_general1_small" -> pure BuildGENERAL1Small
+        e -> fromTextError $ "Failure parsing ComputeType from value: '" <> e
+           <> "'. Accepted values: build_general1_large, build_general1_medium, build_general1_small"
+
+instance ToText ComputeType where
+    toText = \case
+        BuildGENERAL1Large -> "BUILD_GENERAL1_LARGE"
+        BuildGENERAL1Medium -> "BUILD_GENERAL1_MEDIUM"
+        BuildGENERAL1Small -> "BUILD_GENERAL1_SMALL"
+
+instance Hashable     ComputeType
+instance NFData       ComputeType
+instance ToByteString ComputeType
+instance ToQuery      ComputeType
+instance ToHeader     ComputeType
 
 data ConfigurationDeploymentStatus
     = CDSDeployed
@@ -503,19 +532,22 @@ instance ToByteString InstancesHealthAttribute
 instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
 
-data SourceRepository =
-    CodeCommit
+data SourceRepository
+    = CodeCommit
+    | S3
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceRepository where
     parser = takeLowerText >>= \case
         "codecommit" -> pure CodeCommit
+        "s3" -> pure S3
         e -> fromTextError $ "Failure parsing SourceRepository from value: '" <> e
-           <> "'. Accepted values: codecommit"
+           <> "'. Accepted values: codecommit, s3"
 
 instance ToText SourceRepository where
     toText = \case
         CodeCommit -> "CodeCommit"
+        S3 -> "S3"
 
 instance Hashable     SourceRepository
 instance NFData       SourceRepository
@@ -526,19 +558,22 @@ instance ToHeader     SourceRepository
 instance FromXML SourceRepository where
     parseXML = parseXMLText "SourceRepository"
 
-data SourceType =
-    Git
+data SourceType
+    = Git
+    | Zip
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
         "git" -> pure Git
+        "zip" -> pure Zip
         e -> fromTextError $ "Failure parsing SourceType from value: '" <> e
-           <> "'. Accepted values: git"
+           <> "'. Accepted values: git, zip"
 
 instance ToText SourceType where
     toText = \case
         Git -> "Git"
+        Zip -> "Zip"
 
 instance Hashable     SourceType
 instance NFData       SourceType

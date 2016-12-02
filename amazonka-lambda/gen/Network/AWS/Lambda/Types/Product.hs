@@ -21,6 +21,113 @@ import           Network.AWS.Lambda.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | Provides limits of code size and concurrency associated with the current account and region.
+--
+--
+--
+-- /See:/ 'accountLimit' smart constructor.
+data AccountLimit = AccountLimit'
+    { _alConcurrentExecutions :: !(Maybe Int)
+    , _alTotalCodeSize        :: !(Maybe Integer)
+    , _alCodeSizeUnzipped     :: !(Maybe Integer)
+    , _alCodeSizeZipped       :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'alConcurrentExecutions' - Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Lambda Function Concurrent Executions> . The default limit is 100.
+--
+-- * 'alTotalCodeSize' - Maximum size, in megabytes, of a code package you can upload per region. The default size is 75 GB.
+--
+-- * 'alCodeSizeUnzipped' - Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for uploading. The default limit is 250 MB.
+--
+-- * 'alCodeSizeZipped' - Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger files. Default limit is 50 MB.
+accountLimit
+    :: AccountLimit
+accountLimit =
+    AccountLimit'
+    { _alConcurrentExecutions = Nothing
+    , _alTotalCodeSize = Nothing
+    , _alCodeSizeUnzipped = Nothing
+    , _alCodeSizeZipped = Nothing
+    }
+
+-- | Number of simultaneous executions of your function per region. For more information or to request a limit increase for concurrent executions, see <http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Lambda Function Concurrent Executions> . The default limit is 100.
+alConcurrentExecutions :: Lens' AccountLimit (Maybe Int)
+alConcurrentExecutions = lens _alConcurrentExecutions (\ s a -> s{_alConcurrentExecutions = a});
+
+-- | Maximum size, in megabytes, of a code package you can upload per region. The default size is 75 GB.
+alTotalCodeSize :: Lens' AccountLimit (Maybe Integer)
+alTotalCodeSize = lens _alTotalCodeSize (\ s a -> s{_alTotalCodeSize = a});
+
+-- | Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for uploading. The default limit is 250 MB.
+alCodeSizeUnzipped :: Lens' AccountLimit (Maybe Integer)
+alCodeSizeUnzipped = lens _alCodeSizeUnzipped (\ s a -> s{_alCodeSizeUnzipped = a});
+
+-- | Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger files. Default limit is 50 MB.
+alCodeSizeZipped :: Lens' AccountLimit (Maybe Integer)
+alCodeSizeZipped = lens _alCodeSizeZipped (\ s a -> s{_alCodeSizeZipped = a});
+
+instance FromJSON AccountLimit where
+        parseJSON
+          = withObject "AccountLimit"
+              (\ x ->
+                 AccountLimit' <$>
+                   (x .:? "ConcurrentExecutions") <*>
+                     (x .:? "TotalCodeSize")
+                     <*> (x .:? "CodeSizeUnzipped")
+                     <*> (x .:? "CodeSizeZipped"))
+
+instance Hashable AccountLimit
+
+instance NFData AccountLimit
+
+-- | Provides code size usage and function count associated with the current account and region.
+--
+--
+--
+-- /See:/ 'accountUsage' smart constructor.
+data AccountUsage = AccountUsage'
+    { _auTotalCodeSize :: !(Maybe Integer)
+    , _auFunctionCount :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccountUsage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'auTotalCodeSize' - Total size, in megabytes, of the account's deployment packages per region.
+--
+-- * 'auFunctionCount' - The number of your account's existing functions per region.
+accountUsage
+    :: AccountUsage
+accountUsage =
+    AccountUsage'
+    { _auTotalCodeSize = Nothing
+    , _auFunctionCount = Nothing
+    }
+
+-- | Total size, in megabytes, of the account's deployment packages per region.
+auTotalCodeSize :: Lens' AccountUsage (Maybe Integer)
+auTotalCodeSize = lens _auTotalCodeSize (\ s a -> s{_auTotalCodeSize = a});
+
+-- | The number of your account's existing functions per region.
+auFunctionCount :: Lens' AccountUsage (Maybe Integer)
+auFunctionCount = lens _auFunctionCount (\ s a -> s{_auFunctionCount = a});
+
+instance FromJSON AccountUsage where
+        parseJSON
+          = withObject "AccountUsage"
+              (\ x ->
+                 AccountUsage' <$>
+                   (x .:? "TotalCodeSize") <*> (x .:? "FunctionCount"))
+
+instance Hashable AccountUsage
+
+instance NFData AccountUsage
+
 -- | Provides configuration information about a Lambda function version alias.
 --
 --
@@ -83,13 +190,52 @@ instance Hashable AliasConfiguration
 
 instance NFData AliasConfiguration
 
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+--
+--
+--
+-- /See:/ 'deadLetterConfig' smart constructor.
+newtype DeadLetterConfig = DeadLetterConfig'
+    { _dlcTargetARN :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeadLetterConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcTargetARN' - The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
+deadLetterConfig
+    :: DeadLetterConfig
+deadLetterConfig =
+    DeadLetterConfig'
+    { _dlcTargetARN = Nothing
+    }
+
+-- | The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
+dlcTargetARN :: Lens' DeadLetterConfig (Maybe Text)
+dlcTargetARN = lens _dlcTargetARN (\ s a -> s{_dlcTargetARN = a});
+
+instance FromJSON DeadLetterConfig where
+        parseJSON
+          = withObject "DeadLetterConfig"
+              (\ x -> DeadLetterConfig' <$> (x .:? "TargetArn"))
+
+instance Hashable DeadLetterConfig
+
+instance NFData DeadLetterConfig
+
+instance ToJSON DeadLetterConfig where
+        toJSON DeadLetterConfig'{..}
+          = object
+              (catMaybes [("TargetArn" .=) <$> _dlcTargetARN])
+
 -- | The parent object that contains your environment's configuration settings.
 --
 --
 --
 -- /See:/ 'environment' smart constructor.
 newtype Environment = Environment'
-    { _eVariables :: Maybe (Map Text Text)
+    { _eVariables :: Maybe (Sensitive (Map Text (Sensitive Text)))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Environment' with the minimum fields required to make a request.
@@ -105,8 +251,8 @@ environment =
     }
 
 -- | The key-value pairs that represent your environment's configuration settings. The value you specify cannot contain a ",".
-eVariables :: Lens' Environment (HashMap Text Text)
-eVariables = lens _eVariables (\ s a -> s{_eVariables = a}) . _Default . _Map;
+eVariables :: Lens' Environment (Maybe (HashMap Text Text))
+eVariables = lens _eVariables (\ s a -> s{_eVariables = a}) . mapping (_Sensitive . _Map);
 
 instance Hashable Environment
 
@@ -124,7 +270,7 @@ instance ToJSON Environment where
 -- /See:/ 'environmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
     { _eeErrorCode :: !(Maybe Text)
-    , _eeMessage   :: !(Maybe Text)
+    , _eeMessage   :: !(Maybe (Sensitive Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
@@ -148,7 +294,7 @@ eeErrorCode = lens _eeErrorCode (\ s a -> s{_eeErrorCode = a});
 
 -- | The message returned by the environment error object.
 eeMessage :: Lens' EnvironmentError (Maybe Text)
-eeMessage = lens _eeMessage (\ s a -> s{_eeMessage = a});
+eeMessage = lens _eeMessage (\ s a -> s{_eeMessage = a}) . mapping _Sensitive;
 
 instance FromJSON EnvironmentError where
         parseJSON
@@ -167,7 +313,7 @@ instance NFData EnvironmentError
 --
 -- /See:/ 'environmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
-    { _envVariables :: !(Maybe (Map Text Text))
+    { _envVariables :: !(Maybe (Sensitive (Map Text (Sensitive Text))))
     , _envError     :: !(Maybe EnvironmentError)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -187,8 +333,8 @@ environmentResponse =
     }
 
 -- | The key-value pairs returned that represent your environment's configuration settings or error information.
-envVariables :: Lens' EnvironmentResponse (HashMap Text Text)
-envVariables = lens _envVariables (\ s a -> s{_envVariables = a}) . _Default . _Map;
+envVariables :: Lens' EnvironmentResponse (Maybe (HashMap Text Text))
+envVariables = lens _envVariables (\ s a -> s{_envVariables = a}) . mapping (_Sensitive . _Map);
 
 -- | Undocumented member.
 envError :: Lens' EnvironmentResponse (Maybe EnvironmentError)
@@ -312,7 +458,7 @@ instance NFData EventSourceMappingConfiguration
 data FunctionCode = FunctionCode'
     { _fcS3ObjectVersion :: !(Maybe Text)
     , _fcS3Key           :: !(Maybe Text)
-    , _fcZipFile         :: !(Maybe Base64)
+    , _fcZipFile         :: !(Maybe (Sensitive Base64))
     , _fcS3Bucket        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -347,7 +493,7 @@ fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
 -- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 fcZipFile :: Lens' FunctionCode (Maybe ByteString)
-fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
+fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping (_Sensitive . _Base64);
 
 -- | Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 fcS3Bucket :: Lens' FunctionCode (Maybe Text)
@@ -416,21 +562,22 @@ instance NFData FunctionCodeLocation
 --
 -- /See:/ 'functionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-    { _fcMemorySize   :: !(Maybe Nat)
-    , _fcRuntime      :: !(Maybe Runtime)
-    , _fcFunctionARN  :: !(Maybe Text)
-    , _fcKMSKeyARN    :: !(Maybe Text)
-    , _fcEnvironment  :: !(Maybe EnvironmentResponse)
-    , _fcRole         :: !(Maybe Text)
-    , _fcVPCConfig    :: !(Maybe VPCConfigResponse)
-    , _fcVersion      :: !(Maybe Text)
-    , _fcFunctionName :: !(Maybe Text)
-    , _fcCodeSize     :: !(Maybe Integer)
-    , _fcHandler      :: !(Maybe Text)
-    , _fcTimeout      :: !(Maybe Nat)
-    , _fcLastModified :: !(Maybe Text)
-    , _fcCodeSha256   :: !(Maybe Text)
-    , _fcDescription  :: !(Maybe Text)
+    { _fcMemorySize       :: !(Maybe Nat)
+    , _fcRuntime          :: !(Maybe Runtime)
+    , _fcFunctionARN      :: !(Maybe Text)
+    , _fcKMSKeyARN        :: !(Maybe Text)
+    , _fcEnvironment      :: !(Maybe EnvironmentResponse)
+    , _fcDeadLetterConfig :: !(Maybe DeadLetterConfig)
+    , _fcRole             :: !(Maybe Text)
+    , _fcVPCConfig        :: !(Maybe VPCConfigResponse)
+    , _fcVersion          :: !(Maybe Text)
+    , _fcFunctionName     :: !(Maybe Text)
+    , _fcCodeSize         :: !(Maybe Integer)
+    , _fcHandler          :: !(Maybe Text)
+    , _fcTimeout          :: !(Maybe Nat)
+    , _fcLastModified     :: !(Maybe Text)
+    , _fcCodeSha256       :: !(Maybe Text)
+    , _fcDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
@@ -446,6 +593,8 @@ data FunctionConfiguration = FunctionConfiguration'
 -- * 'fcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it means you are using the AWS Lambda default service key.
 --
 -- * 'fcEnvironment' - The parent object that contains your environment's configuration settings.
+--
+-- * 'fcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'fcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 --
@@ -475,6 +624,7 @@ functionConfiguration =
     , _fcFunctionARN = Nothing
     , _fcKMSKeyARN = Nothing
     , _fcEnvironment = Nothing
+    , _fcDeadLetterConfig = Nothing
     , _fcRole = Nothing
     , _fcVPCConfig = Nothing
     , _fcVersion = Nothing
@@ -506,6 +656,10 @@ fcKMSKeyARN = lens _fcKMSKeyARN (\ s a -> s{_fcKMSKeyARN = a});
 -- | The parent object that contains your environment's configuration settings.
 fcEnvironment :: Lens' FunctionConfiguration (Maybe EnvironmentResponse)
 fcEnvironment = lens _fcEnvironment (\ s a -> s{_fcEnvironment = a});
+
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+fcDeadLetterConfig :: Lens' FunctionConfiguration (Maybe DeadLetterConfig)
+fcDeadLetterConfig = lens _fcDeadLetterConfig (\ s a -> s{_fcDeadLetterConfig = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 fcRole :: Lens' FunctionConfiguration (Maybe Text)
@@ -556,6 +710,7 @@ instance FromJSON FunctionConfiguration where
                      (x .:? "FunctionArn")
                      <*> (x .:? "KMSKeyArn")
                      <*> (x .:? "Environment")
+                     <*> (x .:? "DeadLetterConfig")
                      <*> (x .:? "Role")
                      <*> (x .:? "VpcConfig")
                      <*> (x .:? "Version")

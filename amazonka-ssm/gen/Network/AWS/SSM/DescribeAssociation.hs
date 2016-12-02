@@ -27,8 +27,9 @@ module Network.AWS.SSM.DescribeAssociation
       describeAssociation
     , DescribeAssociation
     -- * Request Lenses
-    , daName
+    , daAssociationId
     , daInstanceId
+    , daName
 
     -- * Destructuring the Response
     , describeAssociationResponse
@@ -47,34 +48,40 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
-    { _daName       :: !Text
-    , _daInstanceId :: !Text
+    { _daAssociationId :: !(Maybe Text)
+    , _daInstanceId    :: !(Maybe Text)
+    , _daName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daName' - The name of the SSM document.
+-- * 'daAssociationId' - The association ID for which you want information.
 --
 -- * 'daInstanceId' - The instance ID.
+--
+-- * 'daName' - The name of the SSM document.
 describeAssociation
-    :: Text -- ^ 'daName'
-    -> Text -- ^ 'daInstanceId'
-    -> DescribeAssociation
-describeAssociation pName_ pInstanceId_ =
+    :: DescribeAssociation
+describeAssociation =
     DescribeAssociation'
-    { _daName = pName_
-    , _daInstanceId = pInstanceId_
+    { _daAssociationId = Nothing
+    , _daInstanceId = Nothing
+    , _daName = Nothing
     }
 
--- | The name of the SSM document.
-daName :: Lens' DescribeAssociation Text
-daName = lens _daName (\ s a -> s{_daName = a});
+-- | The association ID for which you want information.
+daAssociationId :: Lens' DescribeAssociation (Maybe Text)
+daAssociationId = lens _daAssociationId (\ s a -> s{_daAssociationId = a});
 
 -- | The instance ID.
-daInstanceId :: Lens' DescribeAssociation Text
+daInstanceId :: Lens' DescribeAssociation (Maybe Text)
 daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
+
+-- | The name of the SSM document.
+daName :: Lens' DescribeAssociation (Maybe Text)
+daName = lens _daName (\ s a -> s{_daName = a});
 
 instance AWSRequest DescribeAssociation where
         type Rs DescribeAssociation =
@@ -104,8 +111,9 @@ instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
               (catMaybes
-                 [Just ("Name" .= _daName),
-                  Just ("InstanceId" .= _daInstanceId)])
+                 [("AssociationId" .=) <$> _daAssociationId,
+                  ("InstanceId" .=) <$> _daInstanceId,
+                  ("Name" .=) <$> _daName])
 
 instance ToPath DescribeAssociation where
         toPath = const "/"

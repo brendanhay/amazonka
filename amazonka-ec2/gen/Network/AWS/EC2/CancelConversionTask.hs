@@ -107,7 +107,7 @@ instance ToQuery CancelConversionTask where
         toQuery CancelConversionTask'{..}
           = mconcat
               ["Action" =: ("CancelConversionTask" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "ReasonMessage" =: _cctReasonMessage,
                "DryRun" =: _cctDryRun,
                "ConversionTaskId" =: _cctConversionTaskId]

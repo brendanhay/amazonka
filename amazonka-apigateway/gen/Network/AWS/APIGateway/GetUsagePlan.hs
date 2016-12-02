@@ -39,6 +39,7 @@ module Network.AWS.APIGateway.GetUsagePlan
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
     ) where
 
 import           Network.AWS.APIGateway.Types

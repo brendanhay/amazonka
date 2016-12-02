@@ -21,7 +21,7 @@
 -- Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.
 --
 --
--- Note that the default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
+-- The default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
 --
 module Network.AWS.Snowball.GetSnowballUsage
     (

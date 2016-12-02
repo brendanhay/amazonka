@@ -96,6 +96,9 @@
         },
         "ObjectCannedACL": {
             "enumPrefix": "O"
+        },
+        "InventoryOptionalField": {
+            "enumPrefix": "Field"
         }
     }
 }

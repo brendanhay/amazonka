@@ -125,7 +125,7 @@ instance ToQuery DescribeHosts where
         toQuery DescribeHosts'{..}
           = mconcat
               ["Action" =: ("DescribeHosts" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "NextToken" =: _dhNextToken,
                toQuery (toQueryList "Filter" <$> _dhFilter),
                toQuery (toQueryList "HostId" <$> _dhHostIds),

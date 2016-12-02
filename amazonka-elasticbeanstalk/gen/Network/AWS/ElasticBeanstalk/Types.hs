@@ -28,6 +28,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , _ManagedActionInvalidStateException
     , _SourceBundleDeletionException
     , _S3LocationNotInServiceRegionException
+    , _CodeBuildNotInServiceRegionException
     , _TooManyEnvironmentsException
 
     -- * ActionHistoryStatus
@@ -41,6 +42,9 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * ApplicationVersionStatus
     , ApplicationVersionStatus (..)
+
+    -- * ComputeType
+    , ComputeType (..)
 
     -- * ConfigurationDeploymentStatus
     , ConfigurationDeploymentStatus (..)
@@ -114,6 +118,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , avdVersionLabel
     , avdSourceBuildInformation
     , avdApplicationName
+    , avdBuildARN
     , avdDescription
 
     -- * ApplicationVersionDescriptionMessage
@@ -125,6 +130,15 @@ module Network.AWS.ElasticBeanstalk.Types
     , AutoScalingGroup
     , autoScalingGroup
     , asgName
+
+    -- * BuildConfiguration
+    , BuildConfiguration
+    , buildConfiguration
+    , bcArtifactName
+    , bcComputeType
+    , bcTimeoutInMinutes
+    , bcCodeBuildServiceRole
+    , bcImage
 
     -- * CPUUtilization
     , CPUUtilization
@@ -548,6 +562,14 @@ _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceErr
 _S3LocationNotInServiceRegionException =
     _ServiceError .
     hasStatus 400 . hasCode "S3LocationNotInServiceRegionException"
+
+-- | The CodeBuild service is not supported in this region.
+--
+--
+_CodeBuildNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
+_CodeBuildNotInServiceRegionException =
+    _ServiceError .
+    hasStatus 400 . hasCode "CodeBuildNotInServiceRegionException"
 
 -- | The specified account has reached its limit of environments.
 --

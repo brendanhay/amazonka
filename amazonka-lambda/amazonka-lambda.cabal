@@ -47,6 +47,7 @@ library
         , Network.AWS.Lambda.DeleteAlias
         , Network.AWS.Lambda.DeleteEventSourceMapping
         , Network.AWS.Lambda.DeleteFunction
+        , Network.AWS.Lambda.GetAccountSettings
         , Network.AWS.Lambda.GetAlias
         , Network.AWS.Lambda.GetEventSourceMapping
         , Network.AWS.Lambda.GetFunction

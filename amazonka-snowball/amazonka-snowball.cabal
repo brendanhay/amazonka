@@ -40,17 +40,23 @@ library
 
     exposed-modules:
           Network.AWS.Snowball
+        , Network.AWS.Snowball.CancelCluster
         , Network.AWS.Snowball.CancelJob
         , Network.AWS.Snowball.CreateAddress
+        , Network.AWS.Snowball.CreateCluster
         , Network.AWS.Snowball.CreateJob
         , Network.AWS.Snowball.DescribeAddress
         , Network.AWS.Snowball.DescribeAddresses
+        , Network.AWS.Snowball.DescribeCluster
         , Network.AWS.Snowball.DescribeJob
         , Network.AWS.Snowball.GetJobManifest
         , Network.AWS.Snowball.GetJobUnlockCode
         , Network.AWS.Snowball.GetSnowballUsage
+        , Network.AWS.Snowball.ListClusterJobs
+        , Network.AWS.Snowball.ListClusters
         , Network.AWS.Snowball.ListJobs
         , Network.AWS.Snowball.Types
+        , Network.AWS.Snowball.UpdateCluster
         , Network.AWS.Snowball.UpdateJob
         , Network.AWS.Snowball.Waiters
 

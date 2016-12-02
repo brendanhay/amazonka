@@ -21,27 +21,31 @@
 -- Launches the specified number of instances using an AMI for which you have permissions.
 --
 --
--- When you launch an instance, it enters the @pending@ state. After the instance is ready for you, it enters the @running@ state. To check the state of your instance, call 'DescribeInstances' .
+-- You can specify a number of options, or leave the default options. The following rules apply:
 --
--- To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
+--     * [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.
 --
--- To tag your instance, ensure that it is @running@ as 'CreateTags' requires a resource ID. For more information about tagging, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
+--     * [EC2-Classic] If don't specify an Availability Zone, we choose one for you.
 --
--- If you don't specify a security group when launching an instance, Amazon EC2 uses the default security group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
+--     * Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types Instance Types Available Only in a VPC> .
 --
--- [EC2-VPC only accounts] If you don't specify a subnet in the request, we choose a default subnet from your default VPC for you.
+--     * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.
 --
--- [EC2-Classic accounts] If you're launching into EC2-Classic and you don't specify an Availability Zone, we choose one for you.
+--     * Not all instance types support IPv6 addresses. For more information, see <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> .
+--
+--     * If you don't specify a security group ID, we use the default security group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups> .
+--
+--     * If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.
+--
+--
+--
+-- To ensure faster instance launches, break up large requests into smaller batches. For example, create 5 separate launch requests for 100 instances each instead of 1 launch request for 500 instances.
+--
+-- An instance is ready for you to use when it's in the @running@ state. You can check the state of your instance using 'DescribeInstances' . After launch, you can apply tags to your running instance (requires a resource ID). For more information, see 'CreateTags' and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
 --
 -- Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- You can provide optional user data when launching an instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- If any of the AMIs have a product code attached for which the user has not subscribed, @RunInstances@ fails.
---
--- Some instance types can only be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID in the request, @RunInstances@ fails. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types Instance Types Available Only in a VPC> .
---
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What To Do If An Instance Immediately Terminates> , and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting Connecting to Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- For troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What To Do If An Instance Immediately Terminates> , and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting Connecting to Your Instance> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.RunInstances
     (
@@ -63,12 +67,14 @@ module Network.AWS.EC2.RunInstances
     , rEBSOptimized
     , rUserData
     , rMonitoring
+    , rIPv6AddressCount
     , rIAMInstanceProfile
     , rPrivateIPAddress
     , rInstanceInitiatedShutdownBehavior
     , rBlockDeviceMappings
     , rDryRun
     , rPlacement
+    , rIPv6Addresses
     , rImageId
     , rMinCount
     , rMaxCount
@@ -111,12 +117,14 @@ data RunInstances = RunInstances'
     , _rEBSOptimized                      :: !(Maybe Bool)
     , _rUserData                          :: !(Maybe Text)
     , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rIPv6AddressCount                  :: !(Maybe Int)
     , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
     , _rPrivateIPAddress                  :: !(Maybe Text)
     , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
     , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
     , _rDryRun                            :: !(Maybe Bool)
     , _rPlacement                         :: !(Maybe Placement)
+    , _rIPv6Addresses                     :: !(Maybe [InstanceIPv6Address])
     , _rImageId                           :: !Text
     , _rMinCount                          :: !Int
     , _rMaxCount                          :: !Int
@@ -134,7 +142,7 @@ data RunInstances = RunInstances'
 --
 -- * 'rClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraints: Maximum 64 ASCII characters
 --
--- * 'rDisableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this parameter to @true@ and then later want to be able to terminate the instance, you must first change the value of the @disableApiTermination@ attribute to @false@ using 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
+-- * 'rDisableAPITermination' - If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
 --
 -- * 'rKeyName' - The name of the key pair. You can create a key pair using 'CreateKeyPair' or 'ImportKeyPair' . /Important:/ If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.
 --
@@ -154,9 +162,11 @@ data RunInstances = RunInstances'
 --
 -- * 'rMonitoring' - The monitoring for the instance.
 --
+-- * 'rIPv6AddressCount' - [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+--
 -- * 'rIAMInstanceProfile' - The IAM instance profile.
 --
--- * 'rPrivateIPAddress' - [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  You cannot specify this option if you're launching more than one instance in the request. Default: We select an IP address from the IP address range of the subnet.
+-- * 'rPrivateIPAddress' - [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 --
 -- * 'rInstanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown). Default: @stop@
 --
@@ -165,6 +175,8 @@ data RunInstances = RunInstances'
 -- * 'rDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- * 'rPlacement' - The placement for the instance.
+--
+-- * 'rIPv6Addresses' - [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
 --
 -- * 'rImageId' - The ID of the AMI, which you can get by calling 'DescribeImages' .
 --
@@ -192,12 +204,14 @@ runInstances pImageId_ pMinCount_ pMaxCount_ =
     , _rEBSOptimized = Nothing
     , _rUserData = Nothing
     , _rMonitoring = Nothing
+    , _rIPv6AddressCount = Nothing
     , _rIAMInstanceProfile = Nothing
     , _rPrivateIPAddress = Nothing
     , _rInstanceInitiatedShutdownBehavior = Nothing
     , _rBlockDeviceMappings = Nothing
     , _rDryRun = Nothing
     , _rPlacement = Nothing
+    , _rIPv6Addresses = Nothing
     , _rImageId = pImageId_
     , _rMinCount = pMinCount_
     , _rMaxCount = pMaxCount_
@@ -219,7 +233,7 @@ rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _De
 rClientToken :: Lens' RunInstances (Maybe Text)
 rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 
--- | If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this parameter to @true@ and then later want to be able to terminate the instance, you must first change the value of the @disableApiTermination@ attribute to @false@ using 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
+-- | If you set this parameter to @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute to @false@ after launch, use 'ModifyInstanceAttribute' . Alternatively, if you set @InstanceInitiatedShutdownBehavior@ to @terminate@ , you can terminate the instance by running the shutdown command from the instance. Default: @false@
 rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
 
@@ -259,11 +273,15 @@ rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
 rMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
 rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
 
+-- | [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
+rIPv6AddressCount :: Lens' RunInstances (Maybe Int)
+rIPv6AddressCount = lens _rIPv6AddressCount (\ s a -> s{_rIPv6AddressCount = a});
+
 -- | The IAM instance profile.
 rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
 rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
 
--- | [EC2-VPC] The primary IP address. You must specify a value from the IP address range of the subnet. Only one private IP address can be designated as primary. Therefore, you can't specify this parameter if @PrivateIpAddresses.n.Primary@ is set to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP address.  You cannot specify this option if you're launching more than one instance in the request. Default: We select an IP address from the IP address range of the subnet.
+-- | [EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address range of the subnet. Only one private IP address can be designated as primary. You can't specify this option if you've specified the option to designate a private IP address as the primary IP address in a network interface specification. You cannot specify this option if you're launching more than one instance in the request.
 rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
 rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a});
 
@@ -282,6 +300,10 @@ rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a});
 -- | The placement for the instance.
 rPlacement :: Lens' RunInstances (Maybe Placement)
 rPlacement = lens _rPlacement (\ s a -> s{_rPlacement = a});
+
+-- | [EC2-VPC] Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
+rIPv6Addresses :: Lens' RunInstances [InstanceIPv6Address]
+rIPv6Addresses = lens _rIPv6Addresses (\ s a -> s{_rIPv6Addresses = a}) . _Default . _Coerce;
 
 -- | The ID of the AMI, which you can get by calling 'DescribeImages' .
 rImageId :: Lens' RunInstances Text
@@ -314,7 +336,7 @@ instance ToQuery RunInstances where
         toQuery RunInstances'{..}
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
                  (toQueryList "SecurityGroupId" <$>
@@ -333,6 +355,7 @@ instance ToQuery RunInstances where
                "EbsOptimized" =: _rEBSOptimized,
                "UserData" =: _rUserData,
                "Monitoring" =: _rMonitoring,
+               "Ipv6AddressCount" =: _rIPv6AddressCount,
                "IamInstanceProfile" =: _rIAMInstanceProfile,
                "PrivateIpAddress" =: _rPrivateIPAddress,
                "InstanceInitiatedShutdownBehavior" =:
@@ -341,5 +364,7 @@ instance ToQuery RunInstances where
                  (toQueryList "BlockDeviceMapping" <$>
                     _rBlockDeviceMappings),
                "DryRun" =: _rDryRun, "Placement" =: _rPlacement,
+               toQuery
+                 (toQueryList "Ipv6Address" <$> _rIPv6Addresses),
                "ImageId" =: _rImageId, "MinCount" =: _rMinCount,
                "MaxCount" =: _rMaxCount]

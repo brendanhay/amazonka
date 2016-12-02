@@ -27,9 +27,10 @@ module Network.AWS.EC2.DeleteRoute
       deleteRoute
     , DeleteRoute
     -- * Request Lenses
+    , drDestinationIPv6CidrBlock
     , drDryRun
+    , drDestinationCidrBlock
     , drRouteTableId
-    , drDestinationCIdRBlock
 
     -- * Destructuring the Response
     , deleteRouteResponse
@@ -49,42 +50,49 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteRoute' smart constructor.
 data DeleteRoute = DeleteRoute'
-    { _drDryRun               :: !(Maybe Bool)
-    , _drRouteTableId         :: !Text
-    , _drDestinationCIdRBlock :: !Text
+    { _drDestinationIPv6CidrBlock :: !(Maybe Text)
+    , _drDryRun                   :: !(Maybe Bool)
+    , _drDestinationCidrBlock     :: !(Maybe Text)
+    , _drRouteTableId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteRoute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'drDestinationIPv6CidrBlock' - The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+--
 -- * 'drDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'drRouteTableId' - The ID of the route table.
+-- * 'drDestinationCidrBlock' - The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
 --
--- * 'drDestinationCIdRBlock' - The CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+-- * 'drRouteTableId' - The ID of the route table.
 deleteRoute
     :: Text -- ^ 'drRouteTableId'
-    -> Text -- ^ 'drDestinationCIdRBlock'
     -> DeleteRoute
-deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
+deleteRoute pRouteTableId_ =
     DeleteRoute'
-    { _drDryRun = Nothing
+    { _drDestinationIPv6CidrBlock = Nothing
+    , _drDryRun = Nothing
+    , _drDestinationCidrBlock = Nothing
     , _drRouteTableId = pRouteTableId_
-    , _drDestinationCIdRBlock = pDestinationCIdRBlock_
     }
+
+-- | The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+drDestinationIPv6CidrBlock :: Lens' DeleteRoute (Maybe Text)
+drDestinationIPv6CidrBlock = lens _drDestinationIPv6CidrBlock (\ s a -> s{_drDestinationIPv6CidrBlock = a});
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
 
+-- | The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.
+drDestinationCidrBlock :: Lens' DeleteRoute (Maybe Text)
+drDestinationCidrBlock = lens _drDestinationCidrBlock (\ s a -> s{_drDestinationCidrBlock = a});
+
 -- | The ID of the route table.
 drRouteTableId :: Lens' DeleteRoute Text
 drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
-
--- | The CIDR range for the route. The value you specify must match the CIDR for the route exactly.
-drDestinationCIdRBlock :: Lens' DeleteRoute Text
-drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteRoute where
         type Rs DeleteRoute = DeleteRouteResponse
@@ -105,10 +113,12 @@ instance ToQuery DeleteRoute where
         toQuery DeleteRoute'{..}
           = mconcat
               ["Action" =: ("DeleteRoute" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
+               "DestinationIpv6CidrBlock" =:
+                 _drDestinationIPv6CidrBlock,
                "DryRun" =: _drDryRun,
-               "RouteTableId" =: _drRouteTableId,
-               "DestinationCidrBlock" =: _drDestinationCIdRBlock]
+               "DestinationCidrBlock" =: _drDestinationCidrBlock,
+               "RouteTableId" =: _drRouteTableId]
 
 -- | /See:/ 'deleteRouteResponse' smart constructor.
 data DeleteRouteResponse =

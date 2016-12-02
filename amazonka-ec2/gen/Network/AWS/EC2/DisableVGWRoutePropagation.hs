@@ -99,7 +99,7 @@ instance ToQuery DisableVGWRoutePropagation where
           = mconcat
               ["Action" =:
                  ("DisableVgwRoutePropagation" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "RouteTableId" =: _dvrpRouteTableId,
                "GatewayId" =: _dvrpGatewayId]
 

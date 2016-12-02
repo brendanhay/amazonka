@@ -28,6 +28,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , CreateRestAPI
     -- * Request Lenses
     , craBinaryMediaTypes
+    , craVersion
     , craCloneFrom
     , craDescription
     , craName
@@ -40,6 +41,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
     ) where
@@ -58,6 +60,7 @@ import           Network.AWS.Response
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
     { _craBinaryMediaTypes :: !(Maybe [Text])
+    , _craVersion          :: !(Maybe Text)
     , _craCloneFrom        :: !(Maybe Text)
     , _craDescription      :: !(Maybe Text)
     , _craName             :: !Text
@@ -68,6 +71,8 @@ data CreateRestAPI = CreateRestAPI'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'craBinaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+--
+-- * 'craVersion' - A version identifier for the API.
 --
 -- * 'craCloneFrom' - The ID of the 'RestApi' that you want to clone from.
 --
@@ -80,6 +85,7 @@ createRestAPI
 createRestAPI pName_ =
     CreateRestAPI'
     { _craBinaryMediaTypes = Nothing
+    , _craVersion = Nothing
     , _craCloneFrom = Nothing
     , _craDescription = Nothing
     , _craName = pName_
@@ -88,6 +94,10 @@ createRestAPI pName_ =
 -- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 craBinaryMediaTypes :: Lens' CreateRestAPI [Text]
 craBinaryMediaTypes = lens _craBinaryMediaTypes (\ s a -> s{_craBinaryMediaTypes = a}) . _Default . _Coerce;
+
+-- | A version identifier for the API.
+craVersion :: Lens' CreateRestAPI (Maybe Text)
+craVersion = lens _craVersion (\ s a -> s{_craVersion = a});
 
 -- | The ID of the 'RestApi' that you want to clone from.
 craCloneFrom :: Lens' CreateRestAPI (Maybe Text)
@@ -121,6 +131,7 @@ instance ToJSON CreateRestAPI where
           = object
               (catMaybes
                  [("binaryMediaTypes" .=) <$> _craBinaryMediaTypes,
+                  ("version" .=) <$> _craVersion,
                   ("cloneFrom" .=) <$> _craCloneFrom,
                   ("description" .=) <$> _craDescription,
                   Just ("name" .= _craName)])

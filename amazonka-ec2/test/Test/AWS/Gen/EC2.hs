@@ -49,6 +49,9 @@ import Test.AWS.EC2.Internal
 --         , requestDescribeTags $
 --             describeTags
 --
+--         , requestDisassociateSubnetCidrBlock $
+--             disassociateSubnetCidrBlock
+--
 --         , requestDetachNetworkInterface $
 --             detachNetworkInterface
 --
@@ -105,6 +108,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestDescribeVPCClassicLinkDNSSupport $
 --             describeVPCClassicLinkDNSSupport
+--
+--         , requestAssociateSubnetCidrBlock $
+--             associateSubnetCidrBlock
 --
 --         , requestRunScheduledInstances $
 --             runScheduledInstances
@@ -352,11 +358,17 @@ import Test.AWS.EC2.Internal
 --         , requestDisassociateAddress $
 --             disassociateAddress
 --
+--         , requestDescribeEgressOnlyInternetGateways $
+--             describeEgressOnlyInternetGateways
+--
 --         , requestDeleteVPC $
 --             deleteVPC
 --
 --         , requestCreateInstanceExportTask $
 --             createInstanceExportTask
+--
+--         , requestAssociateVPCCidrBlock $
+--             associateVPCCidrBlock
 --
 --         , requestDescribeVPCAttribute $
 --             describeVPCAttribute
@@ -417,6 +429,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestCancelExportTask $
 --             cancelExportTask
+--
+--         , requestDisassociateVPCCidrBlock $
+--             disassociateVPCCidrBlock
 --
 --         , requestDeleteNetworkInterface $
 --             deleteNetworkInterface
@@ -511,6 +526,9 @@ import Test.AWS.EC2.Internal
 --         , requestGetConsoleScreenshot $
 --             getConsoleScreenshot
 --
+--         , requestAssignIPv6Addresses $
+--             assignIPv6Addresses
+--
 --         , requestDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscription
 --
@@ -559,6 +577,12 @@ import Test.AWS.EC2.Internal
 --         , requestRebootInstances $
 --             rebootInstances
 --
+--         , requestUnassignIPv6Addresses $
+--             unassignIPv6Addresses
+--
+--         , requestDeleteEgressOnlyInternetGateway $
+--             deleteEgressOnlyInternetGateway
+--
 --         , requestPurchaseHostReservation $
 --             purchaseHostReservation
 --
@@ -600,6 +624,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestResetImageAttribute $
 --             resetImageAttribute
+--
+--         , requestCreateEgressOnlyInternetGateway $
+--             createEgressOnlyInternetGateway
 --
 --         , requestDescribeReservedInstancesModifications $
 --             describeReservedInstancesModifications
@@ -688,6 +715,9 @@ import Test.AWS.EC2.Internal
 --         , responseDescribeTags $
 --             describeTagsResponse
 --
+--         , responseDisassociateSubnetCidrBlock $
+--             disassociateSubnetCidrBlockResponse
+--
 --         , responseDetachNetworkInterface $
 --             detachNetworkInterfaceResponse
 --
@@ -744,6 +774,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseDescribeVPCClassicLinkDNSSupport $
 --             describeVPCClassicLinkDNSSupportResponse
+--
+--         , responseAssociateSubnetCidrBlock $
+--             associateSubnetCidrBlockResponse
 --
 --         , responseRunScheduledInstances $
 --             runScheduledInstancesResponse
@@ -991,11 +1024,17 @@ import Test.AWS.EC2.Internal
 --         , responseDisassociateAddress $
 --             disassociateAddressResponse
 --
+--         , responseDescribeEgressOnlyInternetGateways $
+--             describeEgressOnlyInternetGatewaysResponse
+--
 --         , responseDeleteVPC $
 --             deleteVPCResponse
 --
 --         , responseCreateInstanceExportTask $
 --             createInstanceExportTaskResponse
+--
+--         , responseAssociateVPCCidrBlock $
+--             associateVPCCidrBlockResponse
 --
 --         , responseDescribeVPCAttribute $
 --             describeVPCAttributeResponse
@@ -1056,6 +1095,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseCancelExportTask $
 --             cancelExportTaskResponse
+--
+--         , responseDisassociateVPCCidrBlock $
+--             disassociateVPCCidrBlockResponse
 --
 --         , responseDeleteNetworkInterface $
 --             deleteNetworkInterfaceResponse
@@ -1150,6 +1192,9 @@ import Test.AWS.EC2.Internal
 --         , responseGetConsoleScreenshot $
 --             getConsoleScreenshotResponse
 --
+--         , responseAssignIPv6Addresses $
+--             assignIPv6AddressesResponse
+--
 --         , responseDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscriptionResponse
 --
@@ -1198,6 +1243,12 @@ import Test.AWS.EC2.Internal
 --         , responseRebootInstances $
 --             rebootInstancesResponse
 --
+--         , responseUnassignIPv6Addresses $
+--             unassignIPv6AddressesResponse
+--
+--         , responseDeleteEgressOnlyInternetGateway $
+--             deleteEgressOnlyInternetGatewayResponse
+--
 --         , responsePurchaseHostReservation $
 --             purchaseHostReservationResponse
 --
@@ -1239,6 +1290,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseResetImageAttribute $
 --             resetImageAttributeResponse
+--
+--         , responseCreateEgressOnlyInternetGateway $
+--             createEgressOnlyInternetGatewayResponse
 --
 --         , responseDescribeReservedInstancesModifications $
 --             describeReservedInstancesModificationsResponse
@@ -1343,6 +1397,11 @@ requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
+requestDisassociateSubnetCidrBlock :: DisassociateSubnetCidrBlock -> TestTree
+requestDisassociateSubnetCidrBlock = req
+    "DisassociateSubnetCidrBlock"
+    "fixture/DisassociateSubnetCidrBlock.yaml"
+
 requestDetachNetworkInterface :: DetachNetworkInterface -> TestTree
 requestDetachNetworkInterface = req
     "DetachNetworkInterface"
@@ -1437,6 +1496,11 @@ requestDescribeVPCClassicLinkDNSSupport :: DescribeVPCClassicLinkDNSSupport -> T
 requestDescribeVPCClassicLinkDNSSupport = req
     "DescribeVPCClassicLinkDNSSupport"
     "fixture/DescribeVPCClassicLinkDNSSupport.yaml"
+
+requestAssociateSubnetCidrBlock :: AssociateSubnetCidrBlock -> TestTree
+requestAssociateSubnetCidrBlock = req
+    "AssociateSubnetCidrBlock"
+    "fixture/AssociateSubnetCidrBlock.yaml"
 
 requestRunScheduledInstances :: RunScheduledInstances -> TestTree
 requestRunScheduledInstances = req
@@ -1848,6 +1912,11 @@ requestDisassociateAddress = req
     "DisassociateAddress"
     "fixture/DisassociateAddress.yaml"
 
+requestDescribeEgressOnlyInternetGateways :: DescribeEgressOnlyInternetGateways -> TestTree
+requestDescribeEgressOnlyInternetGateways = req
+    "DescribeEgressOnlyInternetGateways"
+    "fixture/DescribeEgressOnlyInternetGateways.yaml"
+
 requestDeleteVPC :: DeleteVPC -> TestTree
 requestDeleteVPC = req
     "DeleteVPC"
@@ -1857,6 +1926,11 @@ requestCreateInstanceExportTask :: CreateInstanceExportTask -> TestTree
 requestCreateInstanceExportTask = req
     "CreateInstanceExportTask"
     "fixture/CreateInstanceExportTask.yaml"
+
+requestAssociateVPCCidrBlock :: AssociateVPCCidrBlock -> TestTree
+requestAssociateVPCCidrBlock = req
+    "AssociateVPCCidrBlock"
+    "fixture/AssociateVPCCidrBlock.yaml"
 
 requestDescribeVPCAttribute :: DescribeVPCAttribute -> TestTree
 requestDescribeVPCAttribute = req
@@ -1957,6 +2031,11 @@ requestCancelExportTask :: CancelExportTask -> TestTree
 requestCancelExportTask = req
     "CancelExportTask"
     "fixture/CancelExportTask.yaml"
+
+requestDisassociateVPCCidrBlock :: DisassociateVPCCidrBlock -> TestTree
+requestDisassociateVPCCidrBlock = req
+    "DisassociateVPCCidrBlock"
+    "fixture/DisassociateVPCCidrBlock.yaml"
 
 requestDeleteNetworkInterface :: DeleteNetworkInterface -> TestTree
 requestDeleteNetworkInterface = req
@@ -2113,6 +2192,11 @@ requestGetConsoleScreenshot = req
     "GetConsoleScreenshot"
     "fixture/GetConsoleScreenshot.yaml"
 
+requestAssignIPv6Addresses :: AssignIPv6Addresses -> TestTree
+requestAssignIPv6Addresses = req
+    "AssignIPv6Addresses"
+    "fixture/AssignIPv6Addresses.yaml"
+
 requestDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
 requestDeleteSpotDatafeedSubscription = req
     "DeleteSpotDatafeedSubscription"
@@ -2193,6 +2277,16 @@ requestRebootInstances = req
     "RebootInstances"
     "fixture/RebootInstances.yaml"
 
+requestUnassignIPv6Addresses :: UnassignIPv6Addresses -> TestTree
+requestUnassignIPv6Addresses = req
+    "UnassignIPv6Addresses"
+    "fixture/UnassignIPv6Addresses.yaml"
+
+requestDeleteEgressOnlyInternetGateway :: DeleteEgressOnlyInternetGateway -> TestTree
+requestDeleteEgressOnlyInternetGateway = req
+    "DeleteEgressOnlyInternetGateway"
+    "fixture/DeleteEgressOnlyInternetGateway.yaml"
+
 requestPurchaseHostReservation :: PurchaseHostReservation -> TestTree
 requestPurchaseHostReservation = req
     "PurchaseHostReservation"
@@ -2262,6 +2356,11 @@ requestResetImageAttribute :: ResetImageAttribute -> TestTree
 requestResetImageAttribute = req
     "ResetImageAttribute"
     "fixture/ResetImageAttribute.yaml"
+
+requestCreateEgressOnlyInternetGateway :: CreateEgressOnlyInternetGateway -> TestTree
+requestCreateEgressOnlyInternetGateway = req
+    "CreateEgressOnlyInternetGateway"
+    "fixture/CreateEgressOnlyInternetGateway.yaml"
 
 requestDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications -> TestTree
 requestDescribeReservedInstancesModifications = req
@@ -2419,6 +2518,13 @@ responseDescribeTags = res
     ec2
     (Proxy :: Proxy DescribeTags)
 
+responseDisassociateSubnetCidrBlock :: DisassociateSubnetCidrBlockResponse -> TestTree
+responseDisassociateSubnetCidrBlock = res
+    "DisassociateSubnetCidrBlockResponse"
+    "fixture/DisassociateSubnetCidrBlockResponse.proto"
+    ec2
+    (Proxy :: Proxy DisassociateSubnetCidrBlock)
+
 responseDetachNetworkInterface :: DetachNetworkInterfaceResponse -> TestTree
 responseDetachNetworkInterface = res
     "DetachNetworkInterfaceResponse"
@@ -2551,6 +2657,13 @@ responseDescribeVPCClassicLinkDNSSupport = res
     "fixture/DescribeVPCClassicLinkDNSSupportResponse.proto"
     ec2
     (Proxy :: Proxy DescribeVPCClassicLinkDNSSupport)
+
+responseAssociateSubnetCidrBlock :: AssociateSubnetCidrBlockResponse -> TestTree
+responseAssociateSubnetCidrBlock = res
+    "AssociateSubnetCidrBlockResponse"
+    "fixture/AssociateSubnetCidrBlockResponse.proto"
+    ec2
+    (Proxy :: Proxy AssociateSubnetCidrBlock)
 
 responseRunScheduledInstances :: RunScheduledInstancesResponse -> TestTree
 responseRunScheduledInstances = res
@@ -3126,6 +3239,13 @@ responseDisassociateAddress = res
     ec2
     (Proxy :: Proxy DisassociateAddress)
 
+responseDescribeEgressOnlyInternetGateways :: DescribeEgressOnlyInternetGatewaysResponse -> TestTree
+responseDescribeEgressOnlyInternetGateways = res
+    "DescribeEgressOnlyInternetGatewaysResponse"
+    "fixture/DescribeEgressOnlyInternetGatewaysResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeEgressOnlyInternetGateways)
+
 responseDeleteVPC :: DeleteVPCResponse -> TestTree
 responseDeleteVPC = res
     "DeleteVPCResponse"
@@ -3139,6 +3259,13 @@ responseCreateInstanceExportTask = res
     "fixture/CreateInstanceExportTaskResponse.proto"
     ec2
     (Proxy :: Proxy CreateInstanceExportTask)
+
+responseAssociateVPCCidrBlock :: AssociateVPCCidrBlockResponse -> TestTree
+responseAssociateVPCCidrBlock = res
+    "AssociateVPCCidrBlockResponse"
+    "fixture/AssociateVPCCidrBlockResponse.proto"
+    ec2
+    (Proxy :: Proxy AssociateVPCCidrBlock)
 
 responseDescribeVPCAttribute :: DescribeVPCAttributeResponse -> TestTree
 responseDescribeVPCAttribute = res
@@ -3279,6 +3406,13 @@ responseCancelExportTask = res
     "fixture/CancelExportTaskResponse.proto"
     ec2
     (Proxy :: Proxy CancelExportTask)
+
+responseDisassociateVPCCidrBlock :: DisassociateVPCCidrBlockResponse -> TestTree
+responseDisassociateVPCCidrBlock = res
+    "DisassociateVPCCidrBlockResponse"
+    "fixture/DisassociateVPCCidrBlockResponse.proto"
+    ec2
+    (Proxy :: Proxy DisassociateVPCCidrBlock)
 
 responseDeleteNetworkInterface :: DeleteNetworkInterfaceResponse -> TestTree
 responseDeleteNetworkInterface = res
@@ -3497,6 +3631,13 @@ responseGetConsoleScreenshot = res
     ec2
     (Proxy :: Proxy GetConsoleScreenshot)
 
+responseAssignIPv6Addresses :: AssignIPv6AddressesResponse -> TestTree
+responseAssignIPv6Addresses = res
+    "AssignIPv6AddressesResponse"
+    "fixture/AssignIPv6AddressesResponse.proto"
+    ec2
+    (Proxy :: Proxy AssignIPv6Addresses)
+
 responseDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
 responseDeleteSpotDatafeedSubscription = res
     "DeleteSpotDatafeedSubscriptionResponse"
@@ -3609,6 +3750,20 @@ responseRebootInstances = res
     ec2
     (Proxy :: Proxy RebootInstances)
 
+responseUnassignIPv6Addresses :: UnassignIPv6AddressesResponse -> TestTree
+responseUnassignIPv6Addresses = res
+    "UnassignIPv6AddressesResponse"
+    "fixture/UnassignIPv6AddressesResponse.proto"
+    ec2
+    (Proxy :: Proxy UnassignIPv6Addresses)
+
+responseDeleteEgressOnlyInternetGateway :: DeleteEgressOnlyInternetGatewayResponse -> TestTree
+responseDeleteEgressOnlyInternetGateway = res
+    "DeleteEgressOnlyInternetGatewayResponse"
+    "fixture/DeleteEgressOnlyInternetGatewayResponse.proto"
+    ec2
+    (Proxy :: Proxy DeleteEgressOnlyInternetGateway)
+
 responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
 responsePurchaseHostReservation = res
     "PurchaseHostReservationResponse"
@@ -3706,6 +3861,13 @@ responseResetImageAttribute = res
     "fixture/ResetImageAttributeResponse.proto"
     ec2
     (Proxy :: Proxy ResetImageAttribute)
+
+responseCreateEgressOnlyInternetGateway :: CreateEgressOnlyInternetGatewayResponse -> TestTree
+responseCreateEgressOnlyInternetGateway = res
+    "CreateEgressOnlyInternetGatewayResponse"
+    "fixture/CreateEgressOnlyInternetGatewayResponse.proto"
+    ec2
+    (Proxy :: Proxy CreateEgressOnlyInternetGateway)
 
 responseDescribeReservedInstancesModifications :: DescribeReservedInstancesModificationsResponse -> TestTree
 responseDescribeReservedInstancesModifications = res

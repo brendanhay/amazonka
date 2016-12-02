@@ -89,7 +89,7 @@ data CreateVolume = CreateVolume'
 --
 -- * 'creSize' - The size of the volume, in GiBs. Constraints: 1-16384 for @gp2@ , 4-16384 for @io1@ , 500-16384 for @st1@ , 500-16384 for @sc1@ , and 1-1024 for @standard@ . If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
 --
--- * 'creIOPS' - Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
+-- * 'creIOPS' - Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
 --
 -- * 'creEncrypted' - Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -121,7 +121,7 @@ createVolume pAvailabilityZone_ =
 creSize :: Lens' CreateVolume (Maybe Int)
 creSize = lens _creSize (\ s a -> s{_creSize = a});
 
--- | Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 30 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
+-- | Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
 creIOPS :: Lens' CreateVolume (Maybe Int)
 creIOPS = lens _creIOPS (\ s a -> s{_creIOPS = a});
 
@@ -168,7 +168,7 @@ instance ToQuery CreateVolume where
         toQuery CreateVolume'{..}
           = mconcat
               ["Action" =: ("CreateVolume" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "Size" =: _creSize, "Iops" =: _creIOPS,
                "Encrypted" =: _creEncrypted,
                "KmsKeyId" =: _creKMSKeyId,

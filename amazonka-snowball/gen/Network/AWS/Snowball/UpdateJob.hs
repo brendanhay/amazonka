@@ -78,7 +78,7 @@ data UpdateJob = UpdateJob'
 --
 -- * 'ujRoleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
 --
--- * 'ujSnowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. Note that the 50 TB Snowballs are only available in the US regions.
+-- * 'ujSnowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
 --
 -- * 'ujJobId' - The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 updateJob
@@ -120,7 +120,7 @@ ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a});
 ujRoleARN :: Lens' UpdateJob (Maybe Text)
 ujRoleARN = lens _ujRoleARN (\ s a -> s{_ujRoleARN = a});
 
--- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. Note that the 50 TB Snowballs are only available in the US regions.
+-- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
 ujSnowballCapacityPreference :: Lens' UpdateJob (Maybe SnowballCapacity)
 ujSnowballCapacityPreference = lens _ujSnowballCapacityPreference (\ s a -> s{_ujSnowballCapacityPreference = a});
 

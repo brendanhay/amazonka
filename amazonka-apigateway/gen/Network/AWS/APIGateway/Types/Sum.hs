@@ -191,6 +191,65 @@ instance ToJSON ContentHandlingStrategy where
 instance FromJSON ContentHandlingStrategy where
     parseJSON = parseJSONText "ContentHandlingStrategy"
 
+data DocumentationPartType
+    = API
+    | Authorizer
+    | Method
+    | Model
+    | PathParameter
+    | QueryParameter
+    | RequestBody
+    | RequestHeader
+    | Resource
+    | Response
+    | ResponseBody
+    | ResponseHeader
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DocumentationPartType where
+    parser = takeLowerText >>= \case
+        "api" -> pure API
+        "authorizer" -> pure Authorizer
+        "method" -> pure Method
+        "model" -> pure Model
+        "path_parameter" -> pure PathParameter
+        "query_parameter" -> pure QueryParameter
+        "request_body" -> pure RequestBody
+        "request_header" -> pure RequestHeader
+        "resource" -> pure Resource
+        "response" -> pure Response
+        "response_body" -> pure ResponseBody
+        "response_header" -> pure ResponseHeader
+        e -> fromTextError $ "Failure parsing DocumentationPartType from value: '" <> e
+           <> "'. Accepted values: api, authorizer, method, model, path_parameter, query_parameter, request_body, request_header, resource, response, response_body, response_header"
+
+instance ToText DocumentationPartType where
+    toText = \case
+        API -> "API"
+        Authorizer -> "AUTHORIZER"
+        Method -> "METHOD"
+        Model -> "MODEL"
+        PathParameter -> "PATH_PARAMETER"
+        QueryParameter -> "QUERY_PARAMETER"
+        RequestBody -> "REQUEST_BODY"
+        RequestHeader -> "REQUEST_HEADER"
+        Resource -> "RESOURCE"
+        Response -> "RESPONSE"
+        ResponseBody -> "RESPONSE_BODY"
+        ResponseHeader -> "RESPONSE_HEADER"
+
+instance Hashable     DocumentationPartType
+instance NFData       DocumentationPartType
+instance ToByteString DocumentationPartType
+instance ToQuery      DocumentationPartType
+instance ToHeader     DocumentationPartType
+
+instance ToJSON DocumentationPartType where
+    toJSON = toJSONText
+
+instance FromJSON DocumentationPartType where
+    parseJSON = parseJSONText "DocumentationPartType"
+
 -- | The integration type. The valid value is @HTTP@ for integrating with an HTTP back end, @AWS@ for any AWS service endpoints, @MOCK@ for testing without actually invoking the back end, @HTTP_PROXY@ for integrating with the HTTP proxy integration, or @AWS_PROXY@ for integrating with the Lambda proxy integration type.
 --
 --

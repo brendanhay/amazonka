@@ -71,9 +71,7 @@ substitute svc@Service{..} = do
         inp <- subst Input  (name Input  _opName) _opInput
         out <- subst Output (name Output _opName) _opOutput
         return $! o
-            { _opDocumentation =
-                _opDocumentation .! "-- | Undocumented operation."
-            , _opHTTP          = http _opHTTP
+            { _opDocumentation = _opDocumentation .! "-- | Undocumented operation."
             , _opInput         = Identity inp
             , _opOutput        = Identity out
             }
@@ -89,11 +87,6 @@ substitute svc@Service{..} = do
         | otherwise                 = rs
       where
         rs = mkId (typeId (appendId n "Response"))
-
-    http :: HTTP Maybe -> HTTP Identity
-    http h = h
-        { _responseCode = _responseCode h .! 200
-        }
 
     -- Fill out missing Refs with a default Ref pointing to an empty Shape,
     -- which is also inserted into the resulting Shape universe.

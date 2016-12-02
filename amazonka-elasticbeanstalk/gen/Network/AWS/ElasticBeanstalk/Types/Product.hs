@@ -137,7 +137,7 @@ instance Hashable ApplicationDescriptionMessage
 
 instance NFData ApplicationDescriptionMessage
 
--- | Represents the application metrics for a specified environment.
+-- | Application request metrics for an AWS Elastic Beanstalk environment.
 --
 --
 --
@@ -210,6 +210,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     , _avdVersionLabel           :: !(Maybe Text)
     , _avdSourceBuildInformation :: !(Maybe SourceBuildInformation)
     , _avdApplicationName        :: !(Maybe Text)
+    , _avdBuildARN               :: !(Maybe Text)
     , _avdDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -219,19 +220,21 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- * 'avdStatus' - The processing status of the application version.
 --
--- * 'avdSourceBundle' - The location where the source bundle is located for this version.
+-- * 'avdSourceBundle' - The storage location of the application version's source bundle in Amazon S3.
 --
 -- * 'avdDateUpdated' - The last modified date of the application version.
 --
 -- * 'avdDateCreated' - The creation date of the application version.
 --
--- * 'avdVersionLabel' - A label uniquely identifying the version for the associated application.
+-- * 'avdVersionLabel' - A unique identifier for the application version.
 --
--- * 'avdSourceBuildInformation' - Undocumented member.
+-- * 'avdSourceBuildInformation' - If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
 --
--- * 'avdApplicationName' - The name of the application associated with this release.
+-- * 'avdApplicationName' - The name of the application to which the application version belongs.
 --
--- * 'avdDescription' - The description of this application version.
+-- * 'avdBuildARN' - Undocumented member.
+--
+-- * 'avdDescription' - The description of the application version.
 applicationVersionDescription
     :: ApplicationVersionDescription
 applicationVersionDescription =
@@ -243,6 +246,7 @@ applicationVersionDescription =
     , _avdVersionLabel = Nothing
     , _avdSourceBuildInformation = Nothing
     , _avdApplicationName = Nothing
+    , _avdBuildARN = Nothing
     , _avdDescription = Nothing
     }
 
@@ -250,7 +254,7 @@ applicationVersionDescription =
 avdStatus :: Lens' ApplicationVersionDescription (Maybe ApplicationVersionStatus)
 avdStatus = lens _avdStatus (\ s a -> s{_avdStatus = a});
 
--- | The location where the source bundle is located for this version.
+-- | The storage location of the application version's source bundle in Amazon S3.
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
 avdSourceBundle = lens _avdSourceBundle (\ s a -> s{_avdSourceBundle = a});
 
@@ -262,19 +266,23 @@ avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mappin
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
 avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mapping _Time;
 
--- | A label uniquely identifying the version for the associated application.
+-- | A unique identifier for the application version.
 avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
 avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
 
--- | Undocumented member.
+-- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
 avdSourceBuildInformation :: Lens' ApplicationVersionDescription (Maybe SourceBuildInformation)
 avdSourceBuildInformation = lens _avdSourceBuildInformation (\ s a -> s{_avdSourceBuildInformation = a});
 
--- | The name of the application associated with this release.
+-- | The name of the application to which the application version belongs.
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
 avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
 
--- | The description of this application version.
+-- | Undocumented member.
+avdBuildARN :: Lens' ApplicationVersionDescription (Maybe Text)
+avdBuildARN = lens _avdBuildARN (\ s a -> s{_avdBuildARN = a});
+
+-- | The description of the application version.
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
 avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
 
@@ -287,6 +295,7 @@ instance FromXML ApplicationVersionDescription where
                 <*> (x .@? "VersionLabel")
                 <*> (x .@? "SourceBuildInformation")
                 <*> (x .@? "ApplicationName")
+                <*> (x .@? "BuildArn")
                 <*> (x .@? "Description")
 
 instance Hashable ApplicationVersionDescription
@@ -361,7 +370,75 @@ instance Hashable AutoScalingGroup
 
 instance NFData AutoScalingGroup
 
--- | Represents CPU utilization information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the @instanceId@ property to specify the application instance for which you'd like to return data.
+-- | /See:/ 'buildConfiguration' smart constructor.
+data BuildConfiguration = BuildConfiguration'
+    { _bcArtifactName         :: !(Maybe Text)
+    , _bcComputeType          :: !(Maybe ComputeType)
+    , _bcTimeoutInMinutes     :: !(Maybe Int)
+    , _bcCodeBuildServiceRole :: !Text
+    , _bcImage                :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BuildConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bcArtifactName' - Undocumented member.
+--
+-- * 'bcComputeType' - Undocumented member.
+--
+-- * 'bcTimeoutInMinutes' - Undocumented member.
+--
+-- * 'bcCodeBuildServiceRole' - Undocumented member.
+--
+-- * 'bcImage' - Undocumented member.
+buildConfiguration
+    :: Text -- ^ 'bcCodeBuildServiceRole'
+    -> Text -- ^ 'bcImage'
+    -> BuildConfiguration
+buildConfiguration pCodeBuildServiceRole_ pImage_ =
+    BuildConfiguration'
+    { _bcArtifactName = Nothing
+    , _bcComputeType = Nothing
+    , _bcTimeoutInMinutes = Nothing
+    , _bcCodeBuildServiceRole = pCodeBuildServiceRole_
+    , _bcImage = pImage_
+    }
+
+-- | Undocumented member.
+bcArtifactName :: Lens' BuildConfiguration (Maybe Text)
+bcArtifactName = lens _bcArtifactName (\ s a -> s{_bcArtifactName = a});
+
+-- | Undocumented member.
+bcComputeType :: Lens' BuildConfiguration (Maybe ComputeType)
+bcComputeType = lens _bcComputeType (\ s a -> s{_bcComputeType = a});
+
+-- | Undocumented member.
+bcTimeoutInMinutes :: Lens' BuildConfiguration (Maybe Int)
+bcTimeoutInMinutes = lens _bcTimeoutInMinutes (\ s a -> s{_bcTimeoutInMinutes = a});
+
+-- | Undocumented member.
+bcCodeBuildServiceRole :: Lens' BuildConfiguration Text
+bcCodeBuildServiceRole = lens _bcCodeBuildServiceRole (\ s a -> s{_bcCodeBuildServiceRole = a});
+
+-- | Undocumented member.
+bcImage :: Lens' BuildConfiguration Text
+bcImage = lens _bcImage (\ s a -> s{_bcImage = a});
+
+instance Hashable BuildConfiguration
+
+instance NFData BuildConfiguration
+
+instance ToQuery BuildConfiguration where
+        toQuery BuildConfiguration'{..}
+          = mconcat
+              ["ArtifactName" =: _bcArtifactName,
+               "ComputeType" =: _bcComputeType,
+               "TimeoutInMinutes" =: _bcTimeoutInMinutes,
+               "CodeBuildServiceRole" =: _bcCodeBuildServiceRole,
+               "Image" =: _bcImage]
+
+-- | CPU utilization metrics for an instance.
 --
 --
 --
@@ -2100,7 +2177,7 @@ instance Hashable Queue
 
 instance NFData Queue
 
--- | A specification of a location in Amazon S3.
+-- | The bucket and key of an item stored in Amazon S3.
 --
 --
 --
@@ -2147,7 +2224,7 @@ instance ToQuery S3Location where
           = mconcat
               ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
 
--- | Represents health information from the specified instance that belongs to the AWS Elastic Beanstalk environment. Use the @InstanceId@ property to specify the application instance for which you'd like to return data.
+-- | Detailed health information about an Amazon EC2 instance in your Elastic Beanstalk environment.
 --
 --
 --
@@ -2173,9 +2250,9 @@ data SingleInstanceHealth = SingleInstanceHealth'
 --
 -- * 'sihCauses' - Represents the causes, which provide more information about the current health status.
 --
--- * 'sihSystem' - Undocumented member.
+-- * 'sihSystem' - Operating system metrics from the instance.
 --
--- * 'sihApplicationMetrics' - Undocumented member.
+-- * 'sihApplicationMetrics' - Request metrics from your application.
 --
 -- * 'sihColor' - Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 --
@@ -2212,11 +2289,11 @@ sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 sihCauses :: Lens' SingleInstanceHealth [Text]
 sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Operating system metrics from the instance.
 sihSystem :: Lens' SingleInstanceHealth (Maybe SystemStatus)
 sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
 
--- | Undocumented member.
+-- | Request metrics from your application.
 sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
 sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
 
@@ -2307,7 +2384,11 @@ instance Hashable SolutionStackDescription
 
 instance NFData SolutionStackDescription
 
--- | /See:/ 'sourceBuildInformation' smart constructor.
+-- | Location of the source code for an application version.
+--
+--
+--
+-- /See:/ 'sourceBuildInformation' smart constructor.
 data SourceBuildInformation = SourceBuildInformation'
     { _sbiSourceType       :: !SourceType
     , _sbiSourceRepository :: !SourceRepository
@@ -2318,11 +2399,11 @@ data SourceBuildInformation = SourceBuildInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbiSourceType' - Undocumented member.
+-- * 'sbiSourceType' - The type of repository, such as @Git@ .
 --
--- * 'sbiSourceRepository' - Undocumented member.
+-- * 'sbiSourceRepository' - Location where the repository is stored, such as @CodeCommit@ .
 --
--- * 'sbiSourceLocation' - Undocumented member.
+-- * 'sbiSourceLocation' - The repository name and commit ID, separated by a forward slash. For example, @my-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
 sourceBuildInformation
     :: SourceType -- ^ 'sbiSourceType'
     -> SourceRepository -- ^ 'sbiSourceRepository'
@@ -2335,15 +2416,15 @@ sourceBuildInformation pSourceType_ pSourceRepository_ pSourceLocation_ =
     , _sbiSourceLocation = pSourceLocation_
     }
 
--- | Undocumented member.
+-- | The type of repository, such as @Git@ .
 sbiSourceType :: Lens' SourceBuildInformation SourceType
 sbiSourceType = lens _sbiSourceType (\ s a -> s{_sbiSourceType = a});
 
--- | Undocumented member.
+-- | Location where the repository is stored, such as @CodeCommit@ .
 sbiSourceRepository :: Lens' SourceBuildInformation SourceRepository
 sbiSourceRepository = lens _sbiSourceRepository (\ s a -> s{_sbiSourceRepository = a});
 
--- | Undocumented member.
+-- | The repository name and commit ID, separated by a forward slash. For example, @my-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
 sbiSourceLocation :: Lens' SourceBuildInformation Text
 sbiSourceLocation = lens _sbiSourceLocation (\ s a -> s{_sbiSourceLocation = a});
 
@@ -2467,7 +2548,7 @@ instance Hashable StatusCodes
 
 instance NFData StatusCodes
 
--- | Represents CPU utilization and load average information for applications running in the specified environment.
+-- | CPU utilization and load average metrics for an Amazon EC2 instance.
 --
 --
 --
@@ -2481,7 +2562,7 @@ data SystemStatus = SystemStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssCPUUtilization' - Undocumented member.
+-- * 'ssCPUUtilization' - CPU utilization metrics for the instance.
 --
 -- * 'ssLoadAverage' - Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 systemStatus
@@ -2492,7 +2573,7 @@ systemStatus =
     , _ssLoadAverage = Nothing
     }
 
--- | Undocumented member.
+-- | CPU utilization metrics for the instance.
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
 ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
 
@@ -2600,11 +2681,11 @@ data ValidationMessage = ValidationMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vmOptionName' -
+-- * 'vmOptionName' - The name of the option.
 --
 -- * 'vmSeverity' - An indication of the severity of this message:     * @error@ : This message indicates that this is not a valid setting for an option.     * @warning@ : This message is providing information you should take into account.
 --
--- * 'vmNamespace' -
+-- * 'vmNamespace' - The namespace to which the option belongs.
 --
 -- * 'vmMessage' - A message describing the error or warning.
 validationMessage
@@ -2617,7 +2698,7 @@ validationMessage =
     , _vmMessage = Nothing
     }
 
--- |
+-- | The name of the option.
 vmOptionName :: Lens' ValidationMessage (Maybe Text)
 vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 
@@ -2625,7 +2706,7 @@ vmOptionName = lens _vmOptionName (\ s a -> s{_vmOptionName = a});
 vmSeverity :: Lens' ValidationMessage (Maybe ValidationSeverity)
 vmSeverity = lens _vmSeverity (\ s a -> s{_vmSeverity = a});
 
--- |
+-- | The namespace to which the option belongs.
 vmNamespace :: Lens' ValidationMessage (Maybe Text)
 vmNamespace = lens _vmNamespace (\ s a -> s{_vmNamespace = a});
 

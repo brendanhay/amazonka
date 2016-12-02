@@ -145,6 +145,9 @@ module Network.AWS.Lambda
     -- ** UpdateAlias
     , module Network.AWS.Lambda.UpdateAlias
 
+    -- ** GetAccountSettings
+    , module Network.AWS.Lambda.GetAccountSettings
+
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
 
@@ -180,6 +183,20 @@ module Network.AWS.Lambda
     -- ** Runtime
     , Runtime (..)
 
+    -- ** AccountLimit
+    , AccountLimit
+    , accountLimit
+    , alConcurrentExecutions
+    , alTotalCodeSize
+    , alCodeSizeUnzipped
+    , alCodeSizeZipped
+
+    -- ** AccountUsage
+    , AccountUsage
+    , accountUsage
+    , auTotalCodeSize
+    , auFunctionCount
+
     -- ** AliasConfiguration
     , AliasConfiguration
     , aliasConfiguration
@@ -187,6 +204,11 @@ module Network.AWS.Lambda
     , acFunctionVersion
     , acAliasARN
     , acDescription
+
+    -- ** DeadLetterConfig
+    , DeadLetterConfig
+    , deadLetterConfig
+    , dlcTargetARN
 
     -- ** Environment
     , Environment
@@ -239,6 +261,7 @@ module Network.AWS.Lambda
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -271,6 +294,7 @@ import           Network.AWS.Lambda.CreateFunction
 import           Network.AWS.Lambda.DeleteAlias
 import           Network.AWS.Lambda.DeleteEventSourceMapping
 import           Network.AWS.Lambda.DeleteFunction
+import           Network.AWS.Lambda.GetAccountSettings
 import           Network.AWS.Lambda.GetAlias
 import           Network.AWS.Lambda.GetEventSourceMapping
 import           Network.AWS.Lambda.GetFunction

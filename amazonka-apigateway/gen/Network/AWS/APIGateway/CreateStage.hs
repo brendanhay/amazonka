@@ -28,6 +28,7 @@ module Network.AWS.APIGateway.CreateStage
     , CreateStage
     -- * Request Lenses
     , csVariables
+    , csDocumentationVersion
     , csCacheClusterSize
     , csCacheClusterEnabled
     , csDescription
@@ -41,6 +42,7 @@ module Network.AWS.APIGateway.CreateStage
     -- * Response Lenses
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -65,13 +67,14 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-    { _csVariables           :: !(Maybe (Map Text Text))
-    , _csCacheClusterSize    :: !(Maybe CacheClusterSize)
-    , _csCacheClusterEnabled :: !(Maybe Bool)
-    , _csDescription         :: !(Maybe Text)
-    , _csRestAPIId           :: !Text
-    , _csStageName           :: !Text
-    , _csDeploymentId        :: !Text
+    { _csVariables            :: !(Maybe (Map Text Text))
+    , _csDocumentationVersion :: !(Maybe Text)
+    , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
+    , _csCacheClusterEnabled  :: !(Maybe Bool)
+    , _csDescription          :: !(Maybe Text)
+    , _csRestAPIId            :: !Text
+    , _csStageName            :: !Text
+    , _csDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
@@ -79,6 +82,8 @@ data CreateStage = CreateStage'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csVariables' - A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+--
+-- * 'csDocumentationVersion' - The version of the associated API documentation.
 --
 -- * 'csCacheClusterSize' - The stage's cache cluster size.
 --
@@ -99,6 +104,7 @@ createStage
 createStage pRestAPIId_ pStageName_ pDeploymentId_ =
     CreateStage'
     { _csVariables = Nothing
+    , _csDocumentationVersion = Nothing
     , _csCacheClusterSize = Nothing
     , _csCacheClusterEnabled = Nothing
     , _csDescription = Nothing
@@ -110,6 +116,10 @@ createStage pRestAPIId_ pStageName_ pDeploymentId_ =
 -- | A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
 csVariables :: Lens' CreateStage (HashMap Text Text)
 csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
+
+-- | The version of the associated API documentation.
+csDocumentationVersion :: Lens' CreateStage (Maybe Text)
+csDocumentationVersion = lens _csDocumentationVersion (\ s a -> s{_csDocumentationVersion = a});
 
 -- | The stage's cache cluster size.
 csCacheClusterSize :: Lens' CreateStage (Maybe CacheClusterSize)
@@ -155,6 +165,8 @@ instance ToJSON CreateStage where
           = object
               (catMaybes
                  [("variables" .=) <$> _csVariables,
+                  ("documentationVersion" .=) <$>
+                    _csDocumentationVersion,
                   ("cacheClusterSize" .=) <$> _csCacheClusterSize,
                   ("cacheClusterEnabled" .=) <$>
                     _csCacheClusterEnabled,

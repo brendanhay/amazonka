@@ -132,13 +132,13 @@ errorS n = TypeSig noLoc [ident n] $
                      (tyvar "a"))
               (tycon "ServiceError")
 
-errorD :: Text -> Maybe Integer -> Text -> Decl
+errorD :: Text -> Maybe Int -> Text -> Decl
 errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
   where
     rhs = foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
         catMaybes [status <$> s, Just code]
 
-    status i = app (var "hasStatus") (intE i)
+    status i = app (var "hasStatus") (intE (fromIntegral i))
     code     = app (var "hasCode")   (str c)
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
@@ -296,7 +296,7 @@ notationE = \case
 requestD :: HasMetadata a Identity
          => Config
          -> a
-         -> HTTP Identity
+         -> HTTP
          -> (Ref, [Inst])
          -> (Ref, [Field])
          -> Decl
@@ -640,7 +640,7 @@ outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 requestF :: HasMetadata a Identity
          => Config
          -> a
-         -> HTTP Identity
+         -> HTTP
          -> Ref
          -> [Inst]
          -> Exp

@@ -40,6 +40,7 @@ module Network.AWS.APIGateway.UpdateUsagePlan
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
     ) where
 
 import           Network.AWS.APIGateway.Types

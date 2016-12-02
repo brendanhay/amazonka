@@ -34,12 +34,14 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     , virtualInterface
     , VirtualInterface
     -- * Response Lenses
+    , viBgpPeers
     , viVirtualGatewayId
     , viRouteFilterPrefixes
     , viCustomerAddress
     , viVlan
     , viLocation
     , viAmazonAddress
+    , viAddressFamily
     , viVirtualInterfaceState
     , viConnectionId
     , viVirtualInterfaceType

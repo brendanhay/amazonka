@@ -19,52 +19,87 @@ module Network.AWS.Snowball.Types.Sum where
 
 import           Network.AWS.Prelude
 
-data JobState
-    = Cancelled
+data ClusterState
+    = AwaitingQuorum
+    | Cancelled
     | Complete
-    | InProgress
-    | InTransitToAWS
-    | InTransitToCustomer
-    | Listing
-    | New
+    | InUse
     | Pending
-    | PreparingAppliance
-    | PreparingShipment
-    | WithAWS
-    | WithCustomer
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ClusterState where
+    parser = takeLowerText >>= \case
+        "awaitingquorum" -> pure AwaitingQuorum
+        "cancelled" -> pure Cancelled
+        "complete" -> pure Complete
+        "inuse" -> pure InUse
+        "pending" -> pure Pending
+        e -> fromTextError $ "Failure parsing ClusterState from value: '" <> e
+           <> "'. Accepted values: awaitingquorum, cancelled, complete, inuse, pending"
+
+instance ToText ClusterState where
+    toText = \case
+        AwaitingQuorum -> "AwaitingQuorum"
+        Cancelled -> "Cancelled"
+        Complete -> "Complete"
+        InUse -> "InUse"
+        Pending -> "Pending"
+
+instance Hashable     ClusterState
+instance NFData       ClusterState
+instance ToByteString ClusterState
+instance ToQuery      ClusterState
+instance ToHeader     ClusterState
+
+instance FromJSON ClusterState where
+    parseJSON = parseJSONText "ClusterState"
+
+data JobState
+    = JSCancelled
+    | JSComplete
+    | JSInProgress
+    | JSInTransitToAWS
+    | JSInTransitToCustomer
+    | JSListing
+    | JSNew
+    | JSPending
+    | JSPreparingAppliance
+    | JSPreparingShipment
+    | JSWithAWS
+    | JSWithCustomer
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText JobState where
     parser = takeLowerText >>= \case
-        "cancelled" -> pure Cancelled
-        "complete" -> pure Complete
-        "inprogress" -> pure InProgress
-        "intransittoaws" -> pure InTransitToAWS
-        "intransittocustomer" -> pure InTransitToCustomer
-        "listing" -> pure Listing
-        "new" -> pure New
-        "pending" -> pure Pending
-        "preparingappliance" -> pure PreparingAppliance
-        "preparingshipment" -> pure PreparingShipment
-        "withaws" -> pure WithAWS
-        "withcustomer" -> pure WithCustomer
+        "cancelled" -> pure JSCancelled
+        "complete" -> pure JSComplete
+        "inprogress" -> pure JSInProgress
+        "intransittoaws" -> pure JSInTransitToAWS
+        "intransittocustomer" -> pure JSInTransitToCustomer
+        "listing" -> pure JSListing
+        "new" -> pure JSNew
+        "pending" -> pure JSPending
+        "preparingappliance" -> pure JSPreparingAppliance
+        "preparingshipment" -> pure JSPreparingShipment
+        "withaws" -> pure JSWithAWS
+        "withcustomer" -> pure JSWithCustomer
         e -> fromTextError $ "Failure parsing JobState from value: '" <> e
            <> "'. Accepted values: cancelled, complete, inprogress, intransittoaws, intransittocustomer, listing, new, pending, preparingappliance, preparingshipment, withaws, withcustomer"
 
 instance ToText JobState where
     toText = \case
-        Cancelled -> "Cancelled"
-        Complete -> "Complete"
-        InProgress -> "InProgress"
-        InTransitToAWS -> "InTransitToAWS"
-        InTransitToCustomer -> "InTransitToCustomer"
-        Listing -> "Listing"
-        New -> "New"
-        Pending -> "Pending"
-        PreparingAppliance -> "PreparingAppliance"
-        PreparingShipment -> "PreparingShipment"
-        WithAWS -> "WithAWS"
-        WithCustomer -> "WithCustomer"
+        JSCancelled -> "Cancelled"
+        JSComplete -> "Complete"
+        JSInProgress -> "InProgress"
+        JSInTransitToAWS -> "InTransitToAWS"
+        JSInTransitToCustomer -> "InTransitToCustomer"
+        JSListing -> "Listing"
+        JSNew -> "New"
+        JSPending -> "Pending"
+        JSPreparingAppliance -> "PreparingAppliance"
+        JSPreparingShipment -> "PreparingShipment"
+        JSWithAWS -> "WithAWS"
+        JSWithCustomer -> "WithCustomer"
 
 instance Hashable     JobState
 instance NFData       JobState
@@ -81,19 +116,22 @@ instance FromJSON JobState where
 data JobType
     = Export
     | Import
+    | LocalUse
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText JobType where
     parser = takeLowerText >>= \case
         "export" -> pure Export
         "import" -> pure Import
+        "local_use" -> pure LocalUse
         e -> fromTextError $ "Failure parsing JobType from value: '" <> e
-           <> "'. Accepted values: export, import"
+           <> "'. Accepted values: export, import, local_use"
 
 instance ToText JobType where
     toText = \case
         Export -> "EXPORT"
         Import -> "IMPORT"
+        LocalUse -> "LOCAL_USE"
 
 instance Hashable     JobType
 instance NFData       JobType
@@ -108,27 +146,27 @@ instance FromJSON JobType where
     parseJSON = parseJSONText "JobType"
 
 data ShippingOption
-    = Express
-    | NextDay
-    | SecondDay
-    | Standard
+    = SOExpress
+    | SONextDay
+    | SOSecondDay
+    | SOStandard
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ShippingOption where
     parser = takeLowerText >>= \case
-        "express" -> pure Express
-        "next_day" -> pure NextDay
-        "second_day" -> pure SecondDay
-        "standard" -> pure Standard
+        "express" -> pure SOExpress
+        "next_day" -> pure SONextDay
+        "second_day" -> pure SOSecondDay
+        "standard" -> pure SOStandard
         e -> fromTextError $ "Failure parsing ShippingOption from value: '" <> e
            <> "'. Accepted values: express, next_day, second_day, standard"
 
 instance ToText ShippingOption where
     toText = \case
-        Express -> "EXPRESS"
-        NextDay -> "NEXT_DAY"
-        SecondDay -> "SECOND_DAY"
-        Standard -> "STANDARD"
+        SOExpress -> "EXPRESS"
+        SONextDay -> "NEXT_DAY"
+        SOSecondDay -> "SECOND_DAY"
+        SOStandard -> "STANDARD"
 
 instance Hashable     ShippingOption
 instance NFData       ShippingOption
@@ -144,6 +182,7 @@ instance FromJSON ShippingOption where
 
 data SnowballCapacity
     = NoPreference
+    | T100
     | T50
     | T80
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -151,14 +190,16 @@ data SnowballCapacity
 instance FromText SnowballCapacity where
     parser = takeLowerText >>= \case
         "nopreference" -> pure NoPreference
+        "t100" -> pure T100
         "t50" -> pure T50
         "t80" -> pure T80
         e -> fromTextError $ "Failure parsing SnowballCapacity from value: '" <> e
-           <> "'. Accepted values: nopreference, t50, t80"
+           <> "'. Accepted values: nopreference, t100, t50, t80"
 
 instance ToText SnowballCapacity where
     toText = \case
         NoPreference -> "NoPreference"
+        T100 -> "T100"
         T50 -> "T50"
         T80 -> "T80"
 
@@ -173,3 +214,32 @@ instance ToJSON SnowballCapacity where
 
 instance FromJSON SnowballCapacity where
     parseJSON = parseJSONText "SnowballCapacity"
+
+data SnowballType
+    = Edge
+    | Standard
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SnowballType where
+    parser = takeLowerText >>= \case
+        "edge" -> pure Edge
+        "standard" -> pure Standard
+        e -> fromTextError $ "Failure parsing SnowballType from value: '" <> e
+           <> "'. Accepted values: edge, standard"
+
+instance ToText SnowballType where
+    toText = \case
+        Edge -> "EDGE"
+        Standard -> "STANDARD"
+
+instance Hashable     SnowballType
+instance NFData       SnowballType
+instance ToByteString SnowballType
+instance ToQuery      SnowballType
+instance ToHeader     SnowballType
+
+instance ToJSON SnowballType where
+    toJSON = toJSONText
+
+instance FromJSON SnowballType where
+    parseJSON = parseJSONText "SnowballType"

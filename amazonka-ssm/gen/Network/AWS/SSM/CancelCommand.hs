@@ -50,7 +50,7 @@ import           Network.AWS.SSM.Types.Product
 --
 -- /See:/ 'cancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
-    { _ccInstanceIds :: !(Maybe (List1 Text))
+    { _ccInstanceIds :: !(Maybe [Text])
     , _ccCommandId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,8 +71,8 @@ cancelCommand pCommandId_ =
     }
 
 -- | (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
-ccInstanceIds :: Lens' CancelCommand (Maybe (NonEmpty Text))
-ccInstanceIds = lens _ccInstanceIds (\ s a -> s{_ccInstanceIds = a}) . mapping _List1;
+ccInstanceIds :: Lens' CancelCommand [Text]
+ccInstanceIds = lens _ccInstanceIds (\ s a -> s{_ccInstanceIds = a}) . _Default . _Coerce;
 
 -- | The ID of the command you want to cancel.
 ccCommandId :: Lens' CancelCommand Text

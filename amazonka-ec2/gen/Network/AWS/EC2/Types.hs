@@ -245,6 +245,9 @@ module Network.AWS.EC2.Types
     -- * StatusType
     , StatusType (..)
 
+    -- * SubnetCidrBlockStateCode
+    , SubnetCidrBlockStateCode (..)
+
     -- * SubnetState
     , SubnetState (..)
 
@@ -262,6 +265,9 @@ module Network.AWS.EC2.Types
 
     -- * VPCAttributeName
     , VPCAttributeName (..)
+
+    -- * VPCCidrBlockStateCode
+    , VPCCidrBlockStateCode (..)
 
     -- * VPCPeeringConnectionStateReasonCode
     , VPCPeeringConnectionStateReasonCode (..)
@@ -531,6 +537,12 @@ module Network.AWS.EC2.Types
     , eibdsDeleteOnTermination
     , eibdsVolumeId
 
+    -- * EgressOnlyInternetGateway
+    , EgressOnlyInternetGateway
+    , egressOnlyInternetGateway
+    , eoigEgressOnlyInternetGatewayId
+    , eoigAttachments
+
     -- * EventInformation
     , EventInformation
     , eventInformation
@@ -676,13 +688,24 @@ module Network.AWS.EC2.Types
     , ipUserIdGroupPairs
     , ipPrefixListIds
     , ipToPort
+    , ipIPv6Ranges
     , ipIPRanges
     , ipIPProtocol
 
     -- * IPRange
     , IPRange
     , ipRange
-    , irCIdRIP
+    , irCidrIP
+
+    -- * IPv6CidrBlock
+    , IPv6CidrBlock
+    , ipv6CidrBlock
+    , icbIPv6CidrBlock
+
+    -- * IPv6Range
+    , IPv6Range
+    , ipv6Range
+    , irCidrIPv6
 
     -- * IdFormat
     , IdFormat
@@ -869,6 +892,11 @@ module Network.AWS.EC2.Types
     , iedTargetEnvironment
     , iedInstanceId
 
+    -- * InstanceIPv6Address
+    , InstanceIPv6Address
+    , instanceIPv6Address
+    , iiaIPv6Address
+
     -- * InstanceMonitoring
     , InstanceMonitoring
     , instanceMonitoring
@@ -892,6 +920,7 @@ module Network.AWS.EC2.Types
     , iniPrivateDNSName
     , iniDescription
     , iniAssociation
+    , iniIPv6Addresses
 
     -- * InstanceNetworkInterfaceAssociation
     , InstanceNetworkInterfaceAssociation
@@ -918,10 +947,12 @@ module Network.AWS.EC2.Types
     , inisAssociatePublicIPAddress
     , inisNetworkInterfaceId
     , inisSubnetId
+    , inisIPv6AddressCount
     , inisPrivateIPAddress
     , inisSecondaryPrivateIPAddressCount
     , inisDescription
     , inisDeviceIndex
+    , inisIPv6Addresses
 
     -- * InstancePrivateIPAddress
     , InstancePrivateIPAddress
@@ -1078,12 +1109,13 @@ module Network.AWS.EC2.Types
     -- * NetworkACLEntry
     , NetworkACLEntry
     , networkACLEntry
+    , naeIPv6CidrBlock
     , naeICMPTypeCode
     , naeRuleNumber
     , naeRuleAction
     , naeProtocol
     , naePortRange
-    , naeCIdRBlock
+    , naeCidrBlock
     , naeEgress
 
     -- * NetworkInterface
@@ -1108,6 +1140,7 @@ module Network.AWS.EC2.Types
     , niRequesterId
     , niDescription
     , niAssociation
+    , niIPv6Addresses
 
     -- * NetworkInterfaceAssociation
     , NetworkInterfaceAssociation
@@ -1134,6 +1167,11 @@ module Network.AWS.EC2.Types
     , networkInterfaceAttachmentChanges
     , niacDeleteOnTermination
     , niacAttachmentId
+
+    -- * NetworkInterfaceIPv6Address
+    , NetworkInterfaceIPv6Address
+    , networkInterfaceIPv6Address
+    , niiaIPv6Address
 
     -- * NetworkInterfacePrivateIPAddress
     , NetworkInterfacePrivateIPAddress
@@ -1188,7 +1226,7 @@ module Network.AWS.EC2.Types
     -- * PrefixList
     , PrefixList
     , prefixList
-    , plCIdRs
+    , plCidrs
     , plPrefixListId
     , plPrefixListName
 
@@ -1417,12 +1455,14 @@ module Network.AWS.EC2.Types
     , rInstanceId
     , rOrigin
     , rState
+    , rEgressOnlyInternetGatewayId
+    , rDestinationIPv6CidrBlock
     , rNatGatewayId
     , rNetworkInterfaceId
     , rGatewayId
     , rInstanceOwnerId
     , rDestinationPrefixListId
-    , rDestinationCIdRBlock
+    , rDestinationCidrBlock
 
     -- * RouteTable
     , RouteTable
@@ -1534,6 +1574,11 @@ module Network.AWS.EC2.Types
     , siiapARN
     , siiapName
 
+    -- * ScheduledInstancesIPv6Address
+    , ScheduledInstancesIPv6Address
+    , scheduledInstancesIPv6Address
+    , siiaIPv6Address
+
     -- * ScheduledInstancesLaunchSpecification
     , ScheduledInstancesLaunchSpecification
     , scheduledInstancesLaunchSpecification
@@ -1566,10 +1611,12 @@ module Network.AWS.EC2.Types
     , siniPrivateIPAddressConfigs
     , siniNetworkInterfaceId
     , siniSubnetId
+    , siniIPv6AddressCount
     , siniPrivateIPAddress
     , siniSecondaryPrivateIPAddressCount
     , siniDescription
     , siniDeviceIndex
+    , siniIPv6Addresses
 
     -- * ScheduledInstancesPlacement
     , ScheduledInstancesPlacement
@@ -1811,15 +1858,30 @@ module Network.AWS.EC2.Types
     -- * Subnet
     , Subnet
     , subnet
+    , subIPv6CidrBlockAssociationSet
+    , subAssignIPv6AddressOnCreation
     , subMapPublicIPOnLaunch
     , subDefaultForAz
     , subTags
     , subAvailabilityZone
     , subAvailableIPAddressCount
-    , subCIdRBlock
+    , subCidrBlock
     , subState
     , subSubnetId
     , subVPCId
+
+    -- * SubnetCidrBlockState
+    , SubnetCidrBlockState
+    , subnetCidrBlockState
+    , scbsState
+    , scbsStatusMessage
+
+    -- * SubnetIPv6CidrBlockAssociation
+    , SubnetIPv6CidrBlockAssociation
+    , subnetIPv6CidrBlockAssociation
+    , sicbaAssociationId
+    , sicbaIPv6CidrBlock
+    , sicbaIPv6CidrBlockState
 
     -- * Tag
     , Tag
@@ -1904,9 +1966,10 @@ module Network.AWS.EC2.Types
     -- * VPC
     , VPC
     , vpc
+    , vpcIPv6CidrBlockAssociationSet
     , vpcTags
     , vpcIsDefault
-    , vpcCIdRBlock
+    , vpcCidrBlock
     , vpcDHCPOptionsId
     , vpcInstanceTenancy
     , vpcState
@@ -1917,6 +1980,12 @@ module Network.AWS.EC2.Types
     , vpcAttachment
     , vaState
     , vaVPCId
+
+    -- * VPCCidrBlockState
+    , VPCCidrBlockState
+    , vpcCidrBlockState
+    , vcbsState
+    , vcbsStatusMessage
 
     -- * VPCClassicLink
     , VPCClassicLink
@@ -1935,6 +2004,13 @@ module Network.AWS.EC2.Types
     , veServiceName
     , veVPCEndpointId
     , veRouteTableIds
+
+    -- * VPCIPv6CidrBlockAssociation
+    , VPCIPv6CidrBlockAssociation
+    , vpcIPv6CidrBlockAssociation
+    , vicbaAssociationId
+    , vicbaIPv6CidrBlock
+    , vicbaIPv6CidrBlockState
 
     -- * VPCPeeringConnection
     , VPCPeeringConnection
@@ -1965,7 +2041,8 @@ module Network.AWS.EC2.Types
     , vpcviVPCId
     , vpcviOwnerId
     , vpcviPeeringOptions
-    , vpcviCIdRBlock
+    , vpcviCidrBlock
+    , vpcviIPv6CidrBlockSet
 
     -- * VPNConnection
     , VPNConnection
@@ -2006,7 +2083,7 @@ module Network.AWS.EC2.Types
     , vpnStaticRoute
     , vsrState
     , vsrSource
-    , vsrDestinationCIdRBlock
+    , vsrDestinationCidrBlock
 
     -- * Volume
     , Volume
@@ -2085,14 +2162,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version @2016-09-15@ of the Amazon Elastic Compute Cloud SDK configuration.
+-- | API version @2016-11-15@ of the Amazon Elastic Compute Cloud SDK configuration.
 ec2 :: Service
 ec2 =
     Service
     { _svcAbbrev = "EC2"
     , _svcSigner = v4
     , _svcPrefix = "ec2"
-    , _svcVersion = "2016-09-15"
+    , _svcVersion = "2016-11-15"
     , _svcEndpoint = defaultEndpoint ec2
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess

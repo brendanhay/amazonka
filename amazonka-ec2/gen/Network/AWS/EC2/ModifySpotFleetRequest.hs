@@ -119,7 +119,7 @@ instance ToQuery ModifySpotFleetRequest where
           = mconcat
               ["Action" =:
                  ("ModifySpotFleetRequest" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "TargetCapacity" =: _msfrTargetCapacity,
                "ExcessCapacityTerminationPolicy" =:
                  _msfrExcessCapacityTerminationPolicy,

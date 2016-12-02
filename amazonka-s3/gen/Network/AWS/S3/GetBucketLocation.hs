@@ -31,8 +31,8 @@ module Network.AWS.S3.GetBucketLocation
     , getBucketLocationResponse
     , GetBucketLocationResponse
     -- * Response Lenses
-    , grsResponseStatus
-    , grsLocationConstraint
+    , gblbrsResponseStatus
+    , gblbrsLocationConstraint
     ) where
 
 import           Network.AWS.Lens
@@ -89,33 +89,33 @@ instance ToQuery GetBucketLocation where
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _grsResponseStatus     :: !Int
-    , _grsLocationConstraint :: !LocationConstraint
+    { _gblbrsResponseStatus     :: !Int
+    , _gblbrsLocationConstraint :: !LocationConstraint
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsResponseStatus' - -- | The response status code.
+-- * 'gblbrsResponseStatus' - -- | The response status code.
 --
--- * 'grsLocationConstraint' - Undocumented member.
+-- * 'gblbrsLocationConstraint' - Undocumented member.
 getBucketLocationResponse
-    :: Int -- ^ 'grsResponseStatus'
-    -> LocationConstraint -- ^ 'grsLocationConstraint'
+    :: Int -- ^ 'gblbrsResponseStatus'
+    -> LocationConstraint -- ^ 'gblbrsLocationConstraint'
     -> GetBucketLocationResponse
 getBucketLocationResponse pResponseStatus_ pLocationConstraint_ =
     GetBucketLocationResponse'
-    { _grsResponseStatus = pResponseStatus_
-    , _grsLocationConstraint = pLocationConstraint_
+    { _gblbrsResponseStatus = pResponseStatus_
+    , _gblbrsLocationConstraint = pLocationConstraint_
     }
 
 -- | -- | The response status code.
-grsResponseStatus :: Lens' GetBucketLocationResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
+gblbrsResponseStatus :: Lens' GetBucketLocationResponse Int
+gblbrsResponseStatus = lens _gblbrsResponseStatus (\ s a -> s{_gblbrsResponseStatus = a});
 
 -- | Undocumented member.
-grsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
-grsLocationConstraint = lens _grsLocationConstraint (\ s a -> s{_grsLocationConstraint = a});
+gblbrsLocationConstraint :: Lens' GetBucketLocationResponse LocationConstraint
+gblbrsLocationConstraint = lens _gblbrsLocationConstraint (\ s a -> s{_gblbrsLocationConstraint = a});
 
 instance NFData GetBucketLocationResponse

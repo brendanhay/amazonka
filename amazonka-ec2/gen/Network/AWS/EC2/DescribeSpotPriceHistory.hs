@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the Spot price history. The prices returned are listed in chronological order, from the oldest to the most recent, for up to the past 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Describes the Spot price history. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
 -- When you specify a start and end time, this operation returns the prices of the instance types within the time range that you specified and the time when the price changed. The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.
@@ -79,7 +79,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsphInstanceTypes' - Filters the results by the specified instance types.
+-- * 'dsphInstanceTypes' - Filters the results by the specified instance types. Note that T2 and HS1 instance types are not supported.
 --
 -- * 'dsphStartTime' - The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
@@ -111,7 +111,7 @@ describeSpotPriceHistory =
     , _dsphMaxResults = Nothing
     }
 
--- | Filters the results by the specified instance types.
+-- | Filters the results by the specified instance types. Note that T2 and HS1 instance types are not supported.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default . _Coerce;
 
@@ -182,7 +182,7 @@ instance ToQuery DescribeSpotPriceHistory where
           = mconcat
               ["Action" =:
                  ("DescribeSpotPriceHistory" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                toQuery
                  (toQueryList "InstanceType" <$> _dsphInstanceTypes),
                "StartTime" =: _dsphStartTime,

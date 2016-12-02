@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies a subnet attribute.
+-- Modifies a subnet attribute. You can only modify one attribute at a time.
 --
 --
 module Network.AWS.EC2.ModifySubnetAttribute
@@ -27,6 +27,7 @@ module Network.AWS.EC2.ModifySubnetAttribute
       modifySubnetAttribute
     , ModifySubnetAttribute
     -- * Request Lenses
+    , msaAssignIPv6AddressOnCreation
     , msaMapPublicIPOnLaunch
     , msaSubnetId
 
@@ -48,15 +49,18 @@ import           Network.AWS.Response
 --
 -- /See:/ 'modifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
-    { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
-    , _msaSubnetId            :: !Text
+    { _msaAssignIPv6AddressOnCreation :: !(Maybe AttributeBooleanValue)
+    , _msaMapPublicIPOnLaunch         :: !(Maybe AttributeBooleanValue)
+    , _msaSubnetId                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifySubnetAttribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'msaMapPublicIPOnLaunch' - Specify @true@ to indicate that instances launched into the specified subnet should be assigned public IP address.
+-- * 'msaAssignIPv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).
+--
+-- * 'msaMapPublicIPOnLaunch' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
 --
 -- * 'msaSubnetId' - The ID of the subnet.
 modifySubnetAttribute
@@ -64,11 +68,16 @@ modifySubnetAttribute
     -> ModifySubnetAttribute
 modifySubnetAttribute pSubnetId_ =
     ModifySubnetAttribute'
-    { _msaMapPublicIPOnLaunch = Nothing
+    { _msaAssignIPv6AddressOnCreation = Nothing
+    , _msaMapPublicIPOnLaunch = Nothing
     , _msaSubnetId = pSubnetId_
     }
 
--- | Specify @true@ to indicate that instances launched into the specified subnet should be assigned public IP address.
+-- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).
+msaAssignIPv6AddressOnCreation :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
+msaAssignIPv6AddressOnCreation = lens _msaAssignIPv6AddressOnCreation (\ s a -> s{_msaAssignIPv6AddressOnCreation = a});
+
+-- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
 msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicIPOnLaunch = a});
 
@@ -96,7 +105,9 @@ instance ToQuery ModifySubnetAttribute where
         toQuery ModifySubnetAttribute'{..}
           = mconcat
               ["Action" =: ("ModifySubnetAttribute" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
+               "AssignIpv6AddressOnCreation" =:
+                 _msaAssignIPv6AddressOnCreation,
                "MapPublicIpOnLaunch" =: _msaMapPublicIPOnLaunch,
                "SubnetId" =: _msaSubnetId]
 

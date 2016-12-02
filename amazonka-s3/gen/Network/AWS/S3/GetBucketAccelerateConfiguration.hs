@@ -31,8 +31,8 @@ module Network.AWS.S3.GetBucketAccelerateConfiguration
     , getBucketAccelerateConfigurationResponse
     , GetBucketAccelerateConfigurationResponse
     -- * Response Lenses
-    , gbacrsStatus
-    , gbacrsResponseStatus
+    , grsStatus
+    , grsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -94,33 +94,33 @@ instance ToQuery GetBucketAccelerateConfiguration
 
 -- | /See:/ 'getBucketAccelerateConfigurationResponse' smart constructor.
 data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfigurationResponse'
-    { _gbacrsStatus         :: !(Maybe BucketAccelerateStatus)
-    , _gbacrsResponseStatus :: !Int
+    { _grsStatus         :: !(Maybe BucketAccelerateStatus)
+    , _grsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbacrsStatus' - The accelerate configuration of the bucket.
+-- * 'grsStatus' - The accelerate configuration of the bucket.
 --
--- * 'gbacrsResponseStatus' - -- | The response status code.
+-- * 'grsResponseStatus' - -- | The response status code.
 getBucketAccelerateConfigurationResponse
-    :: Int -- ^ 'gbacrsResponseStatus'
+    :: Int -- ^ 'grsResponseStatus'
     -> GetBucketAccelerateConfigurationResponse
 getBucketAccelerateConfigurationResponse pResponseStatus_ =
     GetBucketAccelerateConfigurationResponse'
-    { _gbacrsStatus = Nothing
-    , _gbacrsResponseStatus = pResponseStatus_
+    { _grsStatus = Nothing
+    , _grsResponseStatus = pResponseStatus_
     }
 
 -- | The accelerate configuration of the bucket.
-gbacrsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
-gbacrsStatus = lens _gbacrsStatus (\ s a -> s{_gbacrsStatus = a});
+grsStatus :: Lens' GetBucketAccelerateConfigurationResponse (Maybe BucketAccelerateStatus)
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
 
 -- | -- | The response status code.
-gbacrsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
-gbacrsResponseStatus = lens _gbacrsResponseStatus (\ s a -> s{_gbacrsResponseStatus = a});
+grsResponseStatus :: Lens' GetBucketAccelerateConfigurationResponse Int
+grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a});
 
 instance NFData
          GetBucketAccelerateConfigurationResponse

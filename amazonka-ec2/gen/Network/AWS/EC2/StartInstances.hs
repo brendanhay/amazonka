@@ -120,7 +120,7 @@ instance ToQuery StartInstances where
         toQuery StartInstances'{..}
           = mconcat
               ["Action" =: ("StartInstances" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "AdditionalInfo" =: _sAdditionalInfo,
                "DryRun" =: _sDryRun,
                toQueryList "InstanceId" _sInstanceIds]

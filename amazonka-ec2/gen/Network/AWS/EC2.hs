@@ -134,6 +134,9 @@ module Network.AWS.EC2
     -- ** DescribeTags (Paginated)
     , module Network.AWS.EC2.DescribeTags
 
+    -- ** DisassociateSubnetCidrBlock
+    , module Network.AWS.EC2.DisassociateSubnetCidrBlock
+
     -- ** DetachNetworkInterface
     , module Network.AWS.EC2.DetachNetworkInterface
 
@@ -190,6 +193,9 @@ module Network.AWS.EC2
 
     -- ** DescribeVPCClassicLinkDNSSupport
     , module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
+
+    -- ** AssociateSubnetCidrBlock
+    , module Network.AWS.EC2.AssociateSubnetCidrBlock
 
     -- ** RunScheduledInstances
     , module Network.AWS.EC2.RunScheduledInstances
@@ -437,11 +443,17 @@ module Network.AWS.EC2
     -- ** DisassociateAddress
     , module Network.AWS.EC2.DisassociateAddress
 
+    -- ** DescribeEgressOnlyInternetGateways
+    , module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
+
     -- ** DeleteVPC
     , module Network.AWS.EC2.DeleteVPC
 
     -- ** CreateInstanceExportTask
     , module Network.AWS.EC2.CreateInstanceExportTask
+
+    -- ** AssociateVPCCidrBlock
+    , module Network.AWS.EC2.AssociateVPCCidrBlock
 
     -- ** DescribeVPCAttribute
     , module Network.AWS.EC2.DescribeVPCAttribute
@@ -502,6 +514,9 @@ module Network.AWS.EC2
 
     -- ** CancelExportTask
     , module Network.AWS.EC2.CancelExportTask
+
+    -- ** DisassociateVPCCidrBlock
+    , module Network.AWS.EC2.DisassociateVPCCidrBlock
 
     -- ** DeleteNetworkInterface
     , module Network.AWS.EC2.DeleteNetworkInterface
@@ -596,6 +611,9 @@ module Network.AWS.EC2
     -- ** GetConsoleScreenshot
     , module Network.AWS.EC2.GetConsoleScreenshot
 
+    -- ** AssignIPv6Addresses
+    , module Network.AWS.EC2.AssignIPv6Addresses
+
     -- ** DeleteSpotDatafeedSubscription
     , module Network.AWS.EC2.DeleteSpotDatafeedSubscription
 
@@ -644,6 +662,12 @@ module Network.AWS.EC2
     -- ** RebootInstances
     , module Network.AWS.EC2.RebootInstances
 
+    -- ** UnassignIPv6Addresses
+    , module Network.AWS.EC2.UnassignIPv6Addresses
+
+    -- ** DeleteEgressOnlyInternetGateway
+    , module Network.AWS.EC2.DeleteEgressOnlyInternetGateway
+
     -- ** PurchaseHostReservation
     , module Network.AWS.EC2.PurchaseHostReservation
 
@@ -685,6 +709,9 @@ module Network.AWS.EC2
 
     -- ** ResetImageAttribute
     , module Network.AWS.EC2.ResetImageAttribute
+
+    -- ** CreateEgressOnlyInternetGateway
+    , module Network.AWS.EC2.CreateEgressOnlyInternetGateway
 
     -- ** DescribeReservedInstancesModifications (Paginated)
     , module Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -979,6 +1006,9 @@ module Network.AWS.EC2
     -- ** StatusType
     , StatusType (..)
 
+    -- ** SubnetCidrBlockStateCode
+    , SubnetCidrBlockStateCode (..)
+
     -- ** SubnetState
     , SubnetState (..)
 
@@ -996,6 +1026,9 @@ module Network.AWS.EC2
 
     -- ** VPCAttributeName
     , VPCAttributeName (..)
+
+    -- ** VPCCidrBlockStateCode
+    , VPCCidrBlockStateCode (..)
 
     -- ** VPCPeeringConnectionStateReasonCode
     , VPCPeeringConnectionStateReasonCode (..)
@@ -1265,6 +1298,12 @@ module Network.AWS.EC2
     , eibdsDeleteOnTermination
     , eibdsVolumeId
 
+    -- ** EgressOnlyInternetGateway
+    , EgressOnlyInternetGateway
+    , egressOnlyInternetGateway
+    , eoigEgressOnlyInternetGatewayId
+    , eoigAttachments
+
     -- ** EventInformation
     , EventInformation
     , eventInformation
@@ -1410,13 +1449,24 @@ module Network.AWS.EC2
     , ipUserIdGroupPairs
     , ipPrefixListIds
     , ipToPort
+    , ipIPv6Ranges
     , ipIPRanges
     , ipIPProtocol
 
     -- ** IPRange
     , IPRange
     , ipRange
-    , irCIdRIP
+    , irCidrIP
+
+    -- ** IPv6CidrBlock
+    , IPv6CidrBlock
+    , ipv6CidrBlock
+    , icbIPv6CidrBlock
+
+    -- ** IPv6Range
+    , IPv6Range
+    , ipv6Range
+    , irCidrIPv6
 
     -- ** IdFormat
     , IdFormat
@@ -1603,6 +1653,11 @@ module Network.AWS.EC2
     , iedTargetEnvironment
     , iedInstanceId
 
+    -- ** InstanceIPv6Address
+    , InstanceIPv6Address
+    , instanceIPv6Address
+    , iiaIPv6Address
+
     -- ** InstanceMonitoring
     , InstanceMonitoring
     , instanceMonitoring
@@ -1626,6 +1681,7 @@ module Network.AWS.EC2
     , iniPrivateDNSName
     , iniDescription
     , iniAssociation
+    , iniIPv6Addresses
 
     -- ** InstanceNetworkInterfaceAssociation
     , InstanceNetworkInterfaceAssociation
@@ -1652,10 +1708,12 @@ module Network.AWS.EC2
     , inisAssociatePublicIPAddress
     , inisNetworkInterfaceId
     , inisSubnetId
+    , inisIPv6AddressCount
     , inisPrivateIPAddress
     , inisSecondaryPrivateIPAddressCount
     , inisDescription
     , inisDeviceIndex
+    , inisIPv6Addresses
 
     -- ** InstancePrivateIPAddress
     , InstancePrivateIPAddress
@@ -1812,12 +1870,13 @@ module Network.AWS.EC2
     -- ** NetworkACLEntry
     , NetworkACLEntry
     , networkACLEntry
+    , naeIPv6CidrBlock
     , naeICMPTypeCode
     , naeRuleNumber
     , naeRuleAction
     , naeProtocol
     , naePortRange
-    , naeCIdRBlock
+    , naeCidrBlock
     , naeEgress
 
     -- ** NetworkInterface
@@ -1842,6 +1901,7 @@ module Network.AWS.EC2
     , niRequesterId
     , niDescription
     , niAssociation
+    , niIPv6Addresses
 
     -- ** NetworkInterfaceAssociation
     , NetworkInterfaceAssociation
@@ -1868,6 +1928,11 @@ module Network.AWS.EC2
     , networkInterfaceAttachmentChanges
     , niacDeleteOnTermination
     , niacAttachmentId
+
+    -- ** NetworkInterfaceIPv6Address
+    , NetworkInterfaceIPv6Address
+    , networkInterfaceIPv6Address
+    , niiaIPv6Address
 
     -- ** NetworkInterfacePrivateIPAddress
     , NetworkInterfacePrivateIPAddress
@@ -1922,7 +1987,7 @@ module Network.AWS.EC2
     -- ** PrefixList
     , PrefixList
     , prefixList
-    , plCIdRs
+    , plCidrs
     , plPrefixListId
     , plPrefixListName
 
@@ -2151,12 +2216,14 @@ module Network.AWS.EC2
     , rInstanceId
     , rOrigin
     , rState
+    , rEgressOnlyInternetGatewayId
+    , rDestinationIPv6CidrBlock
     , rNatGatewayId
     , rNetworkInterfaceId
     , rGatewayId
     , rInstanceOwnerId
     , rDestinationPrefixListId
-    , rDestinationCIdRBlock
+    , rDestinationCidrBlock
 
     -- ** RouteTable
     , RouteTable
@@ -2268,6 +2335,11 @@ module Network.AWS.EC2
     , siiapARN
     , siiapName
 
+    -- ** ScheduledInstancesIPv6Address
+    , ScheduledInstancesIPv6Address
+    , scheduledInstancesIPv6Address
+    , siiaIPv6Address
+
     -- ** ScheduledInstancesLaunchSpecification
     , ScheduledInstancesLaunchSpecification
     , scheduledInstancesLaunchSpecification
@@ -2300,10 +2372,12 @@ module Network.AWS.EC2
     , siniPrivateIPAddressConfigs
     , siniNetworkInterfaceId
     , siniSubnetId
+    , siniIPv6AddressCount
     , siniPrivateIPAddress
     , siniSecondaryPrivateIPAddressCount
     , siniDescription
     , siniDeviceIndex
+    , siniIPv6Addresses
 
     -- ** ScheduledInstancesPlacement
     , ScheduledInstancesPlacement
@@ -2545,15 +2619,30 @@ module Network.AWS.EC2
     -- ** Subnet
     , Subnet
     , subnet
+    , subIPv6CidrBlockAssociationSet
+    , subAssignIPv6AddressOnCreation
     , subMapPublicIPOnLaunch
     , subDefaultForAz
     , subTags
     , subAvailabilityZone
     , subAvailableIPAddressCount
-    , subCIdRBlock
+    , subCidrBlock
     , subState
     , subSubnetId
     , subVPCId
+
+    -- ** SubnetCidrBlockState
+    , SubnetCidrBlockState
+    , subnetCidrBlockState
+    , scbsState
+    , scbsStatusMessage
+
+    -- ** SubnetIPv6CidrBlockAssociation
+    , SubnetIPv6CidrBlockAssociation
+    , subnetIPv6CidrBlockAssociation
+    , sicbaAssociationId
+    , sicbaIPv6CidrBlock
+    , sicbaIPv6CidrBlockState
 
     -- ** Tag
     , Tag
@@ -2638,9 +2727,10 @@ module Network.AWS.EC2
     -- ** VPC
     , VPC
     , vpc
+    , vpcIPv6CidrBlockAssociationSet
     , vpcTags
     , vpcIsDefault
-    , vpcCIdRBlock
+    , vpcCidrBlock
     , vpcDHCPOptionsId
     , vpcInstanceTenancy
     , vpcState
@@ -2651,6 +2741,12 @@ module Network.AWS.EC2
     , vpcAttachment
     , vaState
     , vaVPCId
+
+    -- ** VPCCidrBlockState
+    , VPCCidrBlockState
+    , vpcCidrBlockState
+    , vcbsState
+    , vcbsStatusMessage
 
     -- ** VPCClassicLink
     , VPCClassicLink
@@ -2669,6 +2765,13 @@ module Network.AWS.EC2
     , veServiceName
     , veVPCEndpointId
     , veRouteTableIds
+
+    -- ** VPCIPv6CidrBlockAssociation
+    , VPCIPv6CidrBlockAssociation
+    , vpcIPv6CidrBlockAssociation
+    , vicbaAssociationId
+    , vicbaIPv6CidrBlock
+    , vicbaIPv6CidrBlockState
 
     -- ** VPCPeeringConnection
     , VPCPeeringConnection
@@ -2699,7 +2802,8 @@ module Network.AWS.EC2
     , vpcviVPCId
     , vpcviOwnerId
     , vpcviPeeringOptions
-    , vpcviCIdRBlock
+    , vpcviCidrBlock
+    , vpcviIPv6CidrBlockSet
 
     -- ** VPNConnection
     , VPNConnection
@@ -2740,7 +2844,7 @@ module Network.AWS.EC2
     , vpnStaticRoute
     , vsrState
     , vsrSource
-    , vsrDestinationCIdRBlock
+    , vsrDestinationCidrBlock
 
     -- ** Volume
     , Volume
@@ -2816,10 +2920,13 @@ import           Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
 import           Network.AWS.EC2.AcceptVPCPeeringConnection
 import           Network.AWS.EC2.AllocateAddress
 import           Network.AWS.EC2.AllocateHosts
+import           Network.AWS.EC2.AssignIPv6Addresses
 import           Network.AWS.EC2.AssignPrivateIPAddresses
 import           Network.AWS.EC2.AssociateAddress
 import           Network.AWS.EC2.AssociateDHCPOptions
 import           Network.AWS.EC2.AssociateRouteTable
+import           Network.AWS.EC2.AssociateSubnetCidrBlock
+import           Network.AWS.EC2.AssociateVPCCidrBlock
 import           Network.AWS.EC2.AttachClassicLinkVPC
 import           Network.AWS.EC2.AttachInternetGateway
 import           Network.AWS.EC2.AttachNetworkInterface
@@ -2840,6 +2947,7 @@ import           Network.AWS.EC2.CopyImage
 import           Network.AWS.EC2.CopySnapshot
 import           Network.AWS.EC2.CreateCustomerGateway
 import           Network.AWS.EC2.CreateDHCPOptions
+import           Network.AWS.EC2.CreateEgressOnlyInternetGateway
 import           Network.AWS.EC2.CreateFlowLogs
 import           Network.AWS.EC2.CreateImage
 import           Network.AWS.EC2.CreateInstanceExportTask
@@ -2867,6 +2975,7 @@ import           Network.AWS.EC2.CreateVPNConnectionRoute
 import           Network.AWS.EC2.CreateVPNGateway
 import           Network.AWS.EC2.DeleteCustomerGateway
 import           Network.AWS.EC2.DeleteDHCPOptions
+import           Network.AWS.EC2.DeleteEgressOnlyInternetGateway
 import           Network.AWS.EC2.DeleteFlowLogs
 import           Network.AWS.EC2.DeleteInternetGateway
 import           Network.AWS.EC2.DeleteKeyPair
@@ -2898,6 +3007,7 @@ import           Network.AWS.EC2.DescribeClassicLinkInstances
 import           Network.AWS.EC2.DescribeConversionTasks
 import           Network.AWS.EC2.DescribeCustomerGateways
 import           Network.AWS.EC2.DescribeDHCPOptions
+import           Network.AWS.EC2.DescribeEgressOnlyInternetGateways
 import           Network.AWS.EC2.DescribeExportTasks
 import           Network.AWS.EC2.DescribeFlowLogs
 import           Network.AWS.EC2.DescribeHostReservationOfferings
@@ -2964,6 +3074,8 @@ import           Network.AWS.EC2.DisableVPCClassicLink
 import           Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.DisassociateAddress
 import           Network.AWS.EC2.DisassociateRouteTable
+import           Network.AWS.EC2.DisassociateSubnetCidrBlock
+import           Network.AWS.EC2.DisassociateVPCCidrBlock
 import           Network.AWS.EC2.EnableVGWRoutePropagation
 import           Network.AWS.EC2.EnableVolumeIO
 import           Network.AWS.EC2.EnableVPCClassicLink
@@ -3024,6 +3136,7 @@ import           Network.AWS.EC2.StartInstances
 import           Network.AWS.EC2.StopInstances
 import           Network.AWS.EC2.TerminateInstances
 import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.UnassignIPv6Addresses
 import           Network.AWS.EC2.UnassignPrivateIPAddresses
 import           Network.AWS.EC2.UnmonitorInstances
 import           Network.AWS.EC2.Waiters

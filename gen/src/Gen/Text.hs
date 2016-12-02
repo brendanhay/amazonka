@@ -172,7 +172,6 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Bcc([A-Z])",    "BCC$1")
          , ("Bgp",           "BGP")
          , ("Cc([A-Z])",     "CC$1")
-         , ("Cidr",          "CIDR")
          , ("Cors",          "CORS")
          , ("Csv",           "CSV")
          , ("Cpu",           "CPU")
@@ -243,6 +242,9 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Qos",           "QOS")
          , ("Sdk",           "SDK")
          , ("Xss",           "XSS")
+         , ("Gcm",           "GCM")
+         , ("Apns",          "APNS")
+         , ("Csr$",          "CSR")
          ]
 
 acronyms :: [(String, String)]
@@ -256,7 +258,6 @@ acronyms =
     , ("ASN",      "Asn")
     , ("AWS",      "Aws")
     , ("BGP",      "Bgp")
-    , ("CIDR",     "Cidr")
     , ("CORS",     "Cors")
     , ("CSV",      "Csv")
     , ("CPU",      "Cpu")
@@ -316,4 +317,6 @@ acronyms =
     , ("QOS",      "Qos")
     , ("SDK",      "Sdk")
     , ("XSS",      "Xss")
+    , ("GCM",      "Gcm")
+    , ("APNS",     "Apns")
     ]

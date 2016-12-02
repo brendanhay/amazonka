@@ -40,6 +40,7 @@ module Network.AWS.Lambda.PublishVersion
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion

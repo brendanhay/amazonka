@@ -98,6 +98,9 @@ module Network.AWS.APIGateway
     -- ** GetRestAPIs (Paginated)
     , module Network.AWS.APIGateway.GetRestAPIs
 
+    -- ** GetDocumentationVersions
+    , module Network.AWS.APIGateway.GetDocumentationVersions
+
     -- ** CreateDeployment
     , module Network.AWS.APIGateway.CreateDeployment
 
@@ -106,6 +109,9 @@ module Network.AWS.APIGateway
 
     -- ** GetIntegration
     , module Network.AWS.APIGateway.GetIntegration
+
+    -- ** GetDocumentationParts
+    , module Network.AWS.APIGateway.GetDocumentationParts
 
     -- ** UpdateAccount
     , module Network.AWS.APIGateway.UpdateAccount
@@ -119,11 +125,17 @@ module Network.AWS.APIGateway
     -- ** UpdateDeployment
     , module Network.AWS.APIGateway.UpdateDeployment
 
+    -- ** GetDocumentationPart
+    , module Network.AWS.APIGateway.GetDocumentationPart
+
     -- ** DeleteResource
     , module Network.AWS.APIGateway.DeleteResource
 
     -- ** UpdateResource
     , module Network.AWS.APIGateway.UpdateResource
+
+    -- ** ImportDocumentationParts
+    , module Network.AWS.APIGateway.ImportDocumentationParts
 
     -- ** GetUsage
     , module Network.AWS.APIGateway.GetUsage
@@ -145,6 +157,9 @@ module Network.AWS.APIGateway
 
     -- ** UpdateModel
     , module Network.AWS.APIGateway.UpdateModel
+
+    -- ** GetDocumentationVersion
+    , module Network.AWS.APIGateway.GetDocumentationVersion
 
     -- ** DeleteAPIKey
     , module Network.AWS.APIGateway.DeleteAPIKey
@@ -176,14 +191,26 @@ module Network.AWS.APIGateway
     -- ** ImportAPIKeys
     , module Network.AWS.APIGateway.ImportAPIKeys
 
+    -- ** CreateDocumentationPart
+    , module Network.AWS.APIGateway.CreateDocumentationPart
+
     -- ** TestInvokeMethod
     , module Network.AWS.APIGateway.TestInvokeMethod
 
     -- ** GetDomainName
     , module Network.AWS.APIGateway.GetDomainName
 
+    -- ** DeleteDocumentationPart
+    , module Network.AWS.APIGateway.DeleteDocumentationPart
+
+    -- ** UpdateDocumentationPart
+    , module Network.AWS.APIGateway.UpdateDocumentationPart
+
     -- ** GetAuthorizers
     , module Network.AWS.APIGateway.GetAuthorizers
+
+    -- ** CreateDocumentationVersion
+    , module Network.AWS.APIGateway.CreateDocumentationVersion
 
     -- ** PutIntegrationResponse
     , module Network.AWS.APIGateway.PutIntegrationResponse
@@ -311,6 +338,12 @@ module Network.AWS.APIGateway
     -- ** GetModelTemplate
     , module Network.AWS.APIGateway.GetModelTemplate
 
+    -- ** UpdateDocumentationVersion
+    , module Network.AWS.APIGateway.UpdateDocumentationVersion
+
+    -- ** DeleteDocumentationVersion
+    , module Network.AWS.APIGateway.DeleteDocumentationVersion
+
     -- ** GetBasePathMappings (Paginated)
     , module Network.AWS.APIGateway.GetBasePathMappings
 
@@ -334,6 +367,9 @@ module Network.AWS.APIGateway
     -- ** ContentHandlingStrategy
     , ContentHandlingStrategy (..)
 
+    -- ** DocumentationPartType
+    , DocumentationPartType (..)
+
     -- ** IntegrationType
     , IntegrationType (..)
 
@@ -354,6 +390,7 @@ module Network.AWS.APIGateway
     , apiKey
     , akEnabled
     , akValue
+    , akCustomerId
     , akCreatedDate
     , akName
     , akId
@@ -412,6 +449,29 @@ module Network.AWS.APIGateway
     , dCreatedDate
     , dId
     , dDescription
+
+    -- ** DocumentationPart
+    , DocumentationPart
+    , documentationPart
+    , dpLocation
+    , dpId
+    , dpProperties
+
+    -- ** DocumentationPartLocation
+    , DocumentationPartLocation
+    , documentationPartLocation
+    , dplPath
+    , dplName
+    , dplMethod
+    , dplStatusCode
+    , dplType
+
+    -- ** DocumentationVersion
+    , DocumentationVersion
+    , documentationVersion
+    , dvCreatedDate
+    , dvVersion
+    , dvDescription
 
     -- ** DomainName
     , DomainName
@@ -524,6 +584,7 @@ module Network.AWS.APIGateway
     , raWarnings
     , raCreatedDate
     , raName
+    , raVersion
     , raId
     , raDescription
 
@@ -532,6 +593,7 @@ module Network.AWS.APIGateway
     , stage
     , sDeploymentId
     , sVariables
+    , sDocumentationVersion
     , sClientCertificateId
     , sCreatedDate
     , sCacheClusterStatus
@@ -572,6 +634,7 @@ module Network.AWS.APIGateway
     , upThrottle
     , upQuota
     , upDescription
+    , upProductCode
 
     -- ** UsagePlanKey
     , UsagePlanKey
@@ -586,6 +649,8 @@ import           Network.AWS.APIGateway.CreateAPIKey
 import           Network.AWS.APIGateway.CreateAuthorizer
 import           Network.AWS.APIGateway.CreateBasePathMapping
 import           Network.AWS.APIGateway.CreateDeployment
+import           Network.AWS.APIGateway.CreateDocumentationPart
+import           Network.AWS.APIGateway.CreateDocumentationVersion
 import           Network.AWS.APIGateway.CreateDomainName
 import           Network.AWS.APIGateway.CreateModel
 import           Network.AWS.APIGateway.CreateResource
@@ -598,6 +663,8 @@ import           Network.AWS.APIGateway.DeleteAuthorizer
 import           Network.AWS.APIGateway.DeleteBasePathMapping
 import           Network.AWS.APIGateway.DeleteClientCertificate
 import           Network.AWS.APIGateway.DeleteDeployment
+import           Network.AWS.APIGateway.DeleteDocumentationPart
+import           Network.AWS.APIGateway.DeleteDocumentationVersion
 import           Network.AWS.APIGateway.DeleteDomainName
 import           Network.AWS.APIGateway.DeleteIntegration
 import           Network.AWS.APIGateway.DeleteIntegrationResponse
@@ -623,6 +690,10 @@ import           Network.AWS.APIGateway.GetClientCertificate
 import           Network.AWS.APIGateway.GetClientCertificates
 import           Network.AWS.APIGateway.GetDeployment
 import           Network.AWS.APIGateway.GetDeployments
+import           Network.AWS.APIGateway.GetDocumentationPart
+import           Network.AWS.APIGateway.GetDocumentationParts
+import           Network.AWS.APIGateway.GetDocumentationVersion
+import           Network.AWS.APIGateway.GetDocumentationVersions
 import           Network.AWS.APIGateway.GetDomainName
 import           Network.AWS.APIGateway.GetDomainNames
 import           Network.AWS.APIGateway.GetExport
@@ -646,6 +717,7 @@ import           Network.AWS.APIGateway.GetUsagePlanKey
 import           Network.AWS.APIGateway.GetUsagePlanKeys
 import           Network.AWS.APIGateway.GetUsagePlans
 import           Network.AWS.APIGateway.ImportAPIKeys
+import           Network.AWS.APIGateway.ImportDocumentationParts
 import           Network.AWS.APIGateway.ImportRestAPI
 import           Network.AWS.APIGateway.PutIntegration
 import           Network.AWS.APIGateway.PutIntegrationResponse
@@ -661,6 +733,8 @@ import           Network.AWS.APIGateway.UpdateAuthorizer
 import           Network.AWS.APIGateway.UpdateBasePathMapping
 import           Network.AWS.APIGateway.UpdateClientCertificate
 import           Network.AWS.APIGateway.UpdateDeployment
+import           Network.AWS.APIGateway.UpdateDocumentationPart
+import           Network.AWS.APIGateway.UpdateDocumentationVersion
 import           Network.AWS.APIGateway.UpdateDomainName
 import           Network.AWS.APIGateway.UpdateIntegration
 import           Network.AWS.APIGateway.UpdateIntegrationResponse

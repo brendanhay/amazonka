@@ -59,6 +59,7 @@ module Network.AWS.S3.GetObject
     , gorsExpiration
     , gorsDeleteMarker
     , gorsSSECustomerAlgorithm
+    , gorsTagCount
     , gorsMissingMeta
     , gorsWebsiteRedirectLocation
     , gorsAcceptRanges
@@ -272,6 +273,7 @@ instance AWSRequest GetObject where
                      <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-tagging-count")
                      <*> (h .#? "x-amz-missing-meta")
                      <*> (h .#? "x-amz-website-redirect-location")
                      <*> (h .#? "accept-ranges")
@@ -345,6 +347,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorsExpiration              :: !(Maybe Text)
     , _gorsDeleteMarker            :: !(Maybe Bool)
     , _gorsSSECustomerAlgorithm    :: !(Maybe Text)
+    , _gorsTagCount                :: !(Maybe Int)
     , _gorsMissingMeta             :: !(Maybe Int)
     , _gorsWebsiteRedirectLocation :: !(Maybe Text)
     , _gorsAcceptRanges            :: !(Maybe Text)
@@ -388,6 +391,8 @@ data GetObjectResponse = GetObjectResponse'
 -- * 'gorsDeleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 --
 -- * 'gorsSSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+--
+-- * 'gorsTagCount' - The number of tags, if any, on the object.
 --
 -- * 'gorsMissingMeta' - This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 --
@@ -440,6 +445,7 @@ getObjectResponse pResponseStatus_ pBody_ =
     , _gorsExpiration = Nothing
     , _gorsDeleteMarker = Nothing
     , _gorsSSECustomerAlgorithm = Nothing
+    , _gorsTagCount = Nothing
     , _gorsMissingMeta = Nothing
     , _gorsWebsiteRedirectLocation = Nothing
     , _gorsAcceptRanges = Nothing
@@ -499,6 +505,10 @@ gorsDeleteMarker = lens _gorsDeleteMarker (\ s a -> s{_gorsDeleteMarker = a});
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 gorsSSECustomerAlgorithm :: Lens' GetObjectResponse (Maybe Text)
 gorsSSECustomerAlgorithm = lens _gorsSSECustomerAlgorithm (\ s a -> s{_gorsSSECustomerAlgorithm = a});
+
+-- | The number of tags, if any, on the object.
+gorsTagCount :: Lens' GetObjectResponse (Maybe Int)
+gorsTagCount = lens _gorsTagCount (\ s a -> s{_gorsTagCount = a});
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
 gorsMissingMeta :: Lens' GetObjectResponse (Maybe Int)

@@ -29,8 +29,9 @@ module Network.AWS.SSM.DeleteAssociation
       deleteAssociation
     , DeleteAssociation
     -- * Request Lenses
-    , delName
-    , delInstanceId
+    , daaAssociationId
+    , daaInstanceId
+    , daaName
 
     -- * Destructuring the Response
     , deleteAssociationResponse
@@ -48,34 +49,40 @@ import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-    { _delName       :: !Text
-    , _delInstanceId :: !Text
+    { _daaAssociationId :: !(Maybe Text)
+    , _daaInstanceId    :: !(Maybe Text)
+    , _daaName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delName' - The name of the SSM document.
+-- * 'daaAssociationId' - The association ID that you want to delete.
 --
--- * 'delInstanceId' - The ID of the instance.
+-- * 'daaInstanceId' - The ID of the instance.
+--
+-- * 'daaName' - The name of the SSM document.
 deleteAssociation
-    :: Text -- ^ 'delName'
-    -> Text -- ^ 'delInstanceId'
-    -> DeleteAssociation
-deleteAssociation pName_ pInstanceId_ =
+    :: DeleteAssociation
+deleteAssociation =
     DeleteAssociation'
-    { _delName = pName_
-    , _delInstanceId = pInstanceId_
+    { _daaAssociationId = Nothing
+    , _daaInstanceId = Nothing
+    , _daaName = Nothing
     }
 
--- | The name of the SSM document.
-delName :: Lens' DeleteAssociation Text
-delName = lens _delName (\ s a -> s{_delName = a});
+-- | The association ID that you want to delete.
+daaAssociationId :: Lens' DeleteAssociation (Maybe Text)
+daaAssociationId = lens _daaAssociationId (\ s a -> s{_daaAssociationId = a});
 
 -- | The ID of the instance.
-delInstanceId :: Lens' DeleteAssociation Text
-delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
+daaInstanceId :: Lens' DeleteAssociation (Maybe Text)
+daaInstanceId = lens _daaInstanceId (\ s a -> s{_daaInstanceId = a});
+
+-- | The name of the SSM document.
+daaName :: Lens' DeleteAssociation (Maybe Text)
+daaName = lens _daaName (\ s a -> s{_daaName = a});
 
 instance AWSRequest DeleteAssociation where
         type Rs DeleteAssociation = DeleteAssociationResponse
@@ -102,8 +109,9 @@ instance ToJSON DeleteAssociation where
         toJSON DeleteAssociation'{..}
           = object
               (catMaybes
-                 [Just ("Name" .= _delName),
-                  Just ("InstanceId" .= _delInstanceId)])
+                 [("AssociationId" .=) <$> _daaAssociationId,
+                  ("InstanceId" .=) <$> _daaInstanceId,
+                  ("Name" .=) <$> _daaName])
 
 instance ToPath DeleteAssociation where
         toPath = const "/"

@@ -20,6 +20,32 @@ module Network.AWS.S3.Types.Sum where
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Internal
 
+data AnalyticsS3ExportFileFormat =
+    CSV
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AnalyticsS3ExportFileFormat where
+    parser = takeLowerText >>= \case
+        "csv" -> pure CSV
+        e -> fromTextError $ "Failure parsing AnalyticsS3ExportFileFormat from value: '" <> e
+           <> "'. Accepted values: csv"
+
+instance ToText AnalyticsS3ExportFileFormat where
+    toText = \case
+        CSV -> "CSV"
+
+instance Hashable     AnalyticsS3ExportFileFormat
+instance NFData       AnalyticsS3ExportFileFormat
+instance ToByteString AnalyticsS3ExportFileFormat
+instance ToQuery      AnalyticsS3ExportFileFormat
+instance ToHeader     AnalyticsS3ExportFileFormat
+
+instance FromXML AnalyticsS3ExportFileFormat where
+    parseXML = parseXMLText "AnalyticsS3ExportFileFormat"
+
+instance ToXML AnalyticsS3ExportFileFormat where
+    toXML = toXMLText
+
 data BucketAccelerateStatus
     = BASEnabled
     | BASSuspended
@@ -278,6 +304,131 @@ instance FromXML FilterRuleName where
 instance ToXML FilterRuleName where
     toXML = toXMLText
 
+data InventoryFormat =
+    IFCSV
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InventoryFormat where
+    parser = takeLowerText >>= \case
+        "csv" -> pure IFCSV
+        e -> fromTextError $ "Failure parsing InventoryFormat from value: '" <> e
+           <> "'. Accepted values: csv"
+
+instance ToText InventoryFormat where
+    toText = \case
+        IFCSV -> "CSV"
+
+instance Hashable     InventoryFormat
+instance NFData       InventoryFormat
+instance ToByteString InventoryFormat
+instance ToQuery      InventoryFormat
+instance ToHeader     InventoryFormat
+
+instance FromXML InventoryFormat where
+    parseXML = parseXMLText "InventoryFormat"
+
+instance ToXML InventoryFormat where
+    toXML = toXMLText
+
+data InventoryFrequency
+    = Daily
+    | Weekly
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InventoryFrequency where
+    parser = takeLowerText >>= \case
+        "daily" -> pure Daily
+        "weekly" -> pure Weekly
+        e -> fromTextError $ "Failure parsing InventoryFrequency from value: '" <> e
+           <> "'. Accepted values: daily, weekly"
+
+instance ToText InventoryFrequency where
+    toText = \case
+        Daily -> "Daily"
+        Weekly -> "Weekly"
+
+instance Hashable     InventoryFrequency
+instance NFData       InventoryFrequency
+instance ToByteString InventoryFrequency
+instance ToQuery      InventoryFrequency
+instance ToHeader     InventoryFrequency
+
+instance FromXML InventoryFrequency where
+    parseXML = parseXMLText "InventoryFrequency"
+
+instance ToXML InventoryFrequency where
+    toXML = toXMLText
+
+data InventoryIncludedObjectVersions
+    = All
+    | Current
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InventoryIncludedObjectVersions where
+    parser = takeLowerText >>= \case
+        "all" -> pure All
+        "current" -> pure Current
+        e -> fromTextError $ "Failure parsing InventoryIncludedObjectVersions from value: '" <> e
+           <> "'. Accepted values: all, current"
+
+instance ToText InventoryIncludedObjectVersions where
+    toText = \case
+        All -> "All"
+        Current -> "Current"
+
+instance Hashable     InventoryIncludedObjectVersions
+instance NFData       InventoryIncludedObjectVersions
+instance ToByteString InventoryIncludedObjectVersions
+instance ToQuery      InventoryIncludedObjectVersions
+instance ToHeader     InventoryIncludedObjectVersions
+
+instance FromXML InventoryIncludedObjectVersions where
+    parseXML = parseXMLText "InventoryIncludedObjectVersions"
+
+instance ToXML InventoryIncludedObjectVersions where
+    toXML = toXMLText
+
+data InventoryOptionalField
+    = FieldETag
+    | FieldIsMultipartUploaded
+    | FieldLastModifiedDate
+    | FieldReplicationStatus
+    | FieldSize
+    | FieldStorageClass
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InventoryOptionalField where
+    parser = takeLowerText >>= \case
+        "etag" -> pure FieldETag
+        "ismultipartuploaded" -> pure FieldIsMultipartUploaded
+        "lastmodifieddate" -> pure FieldLastModifiedDate
+        "replicationstatus" -> pure FieldReplicationStatus
+        "size" -> pure FieldSize
+        "storageclass" -> pure FieldStorageClass
+        e -> fromTextError $ "Failure parsing InventoryOptionalField from value: '" <> e
+           <> "'. Accepted values: etag, ismultipartuploaded, lastmodifieddate, replicationstatus, size, storageclass"
+
+instance ToText InventoryOptionalField where
+    toText = \case
+        FieldETag -> "ETag"
+        FieldIsMultipartUploaded -> "IsMultipartUploaded"
+        FieldLastModifiedDate -> "LastModifiedDate"
+        FieldReplicationStatus -> "ReplicationStatus"
+        FieldSize -> "Size"
+        FieldStorageClass -> "StorageClass"
+
+instance Hashable     InventoryOptionalField
+instance NFData       InventoryOptionalField
+instance ToByteString InventoryOptionalField
+instance ToQuery      InventoryOptionalField
+instance ToHeader     InventoryOptionalField
+
+instance FromXML InventoryOptionalField where
+    parseXML = parseXMLText "InventoryOptionalField"
+
+instance ToXML InventoryOptionalField where
+    toXML = toXMLText
+
 data MFADelete
     = MDDisabled
     | MDEnabled
@@ -331,21 +482,21 @@ instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
 
 data MetadataDirective
-    = Copy
-    | Replace
+    = MDCopy
+    | MDReplace
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MetadataDirective where
     parser = takeLowerText >>= \case
-        "copy" -> pure Copy
-        "replace" -> pure Replace
+        "copy" -> pure MDCopy
+        "replace" -> pure MDReplace
         e -> fromTextError $ "Failure parsing MetadataDirective from value: '" <> e
            <> "'. Accepted values: copy, replace"
 
 instance ToText MetadataDirective where
     toText = \case
-        Copy -> "COPY"
-        Replace -> "REPLACE"
+        MDCopy -> "COPY"
+        MDReplace -> "REPLACE"
 
 instance Hashable     MetadataDirective
 instance NFData       MetadataDirective
@@ -716,6 +867,58 @@ instance FromXML StorageClass where
     parseXML = parseXMLText "StorageClass"
 
 instance ToXML StorageClass where
+    toXML = toXMLText
+
+data StorageClassAnalysisSchemaVersion =
+    V1
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StorageClassAnalysisSchemaVersion where
+    parser = takeLowerText >>= \case
+        "v_1" -> pure V1
+        e -> fromTextError $ "Failure parsing StorageClassAnalysisSchemaVersion from value: '" <> e
+           <> "'. Accepted values: v_1"
+
+instance ToText StorageClassAnalysisSchemaVersion where
+    toText = \case
+        V1 -> "V_1"
+
+instance Hashable     StorageClassAnalysisSchemaVersion
+instance NFData       StorageClassAnalysisSchemaVersion
+instance ToByteString StorageClassAnalysisSchemaVersion
+instance ToQuery      StorageClassAnalysisSchemaVersion
+instance ToHeader     StorageClassAnalysisSchemaVersion
+
+instance FromXML StorageClassAnalysisSchemaVersion where
+    parseXML = parseXMLText "StorageClassAnalysisSchemaVersion"
+
+instance ToXML StorageClassAnalysisSchemaVersion where
+    toXML = toXMLText
+
+data TaggingDirective
+    = Copy
+    | Replace
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaggingDirective where
+    parser = takeLowerText >>= \case
+        "copy" -> pure Copy
+        "replace" -> pure Replace
+        e -> fromTextError $ "Failure parsing TaggingDirective from value: '" <> e
+           <> "'. Accepted values: copy, replace"
+
+instance ToText TaggingDirective where
+    toText = \case
+        Copy -> "COPY"
+        Replace -> "REPLACE"
+
+instance Hashable     TaggingDirective
+instance NFData       TaggingDirective
+instance ToByteString TaggingDirective
+instance ToQuery      TaggingDirective
+instance ToHeader     TaggingDirective
+
+instance ToXML TaggingDirective where
     toXML = toXMLText
 
 data Tier

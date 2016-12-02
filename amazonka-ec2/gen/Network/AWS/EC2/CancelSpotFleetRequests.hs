@@ -121,7 +121,7 @@ instance ToQuery CancelSpotFleetRequests where
           = mconcat
               ["Action" =:
                  ("CancelSpotFleetRequests" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _csfrDryRun,
                toQueryList "SpotFleetRequestId"
                  _csfrSpotFleetRequestIds,

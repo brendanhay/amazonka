@@ -34,6 +34,7 @@ module Network.AWS.Lambda.CreateFunction
     , cfMemorySize
     , cfKMSKeyARN
     , cfEnvironment
+    , cfDeadLetterConfig
     , cfVPCConfig
     , cfTimeout
     , cfDescription
@@ -53,6 +54,7 @@ module Network.AWS.Lambda.CreateFunction
     , fcFunctionARN
     , fcKMSKeyARN
     , fcEnvironment
+    , fcDeadLetterConfig
     , fcRole
     , fcVPCConfig
     , fcVersion
@@ -78,18 +80,19 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createFunction' smart constructor.
 data CreateFunction = CreateFunction'
-    { _cfMemorySize   :: !(Maybe Nat)
-    , _cfKMSKeyARN    :: !(Maybe Text)
-    , _cfEnvironment  :: !(Maybe Environment)
-    , _cfVPCConfig    :: !(Maybe VPCConfig)
-    , _cfTimeout      :: !(Maybe Nat)
-    , _cfDescription  :: !(Maybe Text)
-    , _cfPublish      :: !(Maybe Bool)
-    , _cfFunctionName :: !Text
-    , _cfRuntime      :: !Runtime
-    , _cfRole         :: !Text
-    , _cfHandler      :: !Text
-    , _cfCode         :: !FunctionCode
+    { _cfMemorySize       :: !(Maybe Nat)
+    , _cfKMSKeyARN        :: !(Maybe Text)
+    , _cfEnvironment      :: !(Maybe Environment)
+    , _cfDeadLetterConfig :: !(Maybe DeadLetterConfig)
+    , _cfVPCConfig        :: !(Maybe VPCConfig)
+    , _cfTimeout          :: !(Maybe Nat)
+    , _cfDescription      :: !(Maybe Text)
+    , _cfPublish          :: !(Maybe Bool)
+    , _cfFunctionName     :: !Text
+    , _cfRuntime          :: !Runtime
+    , _cfRole             :: !Text
+    , _cfHandler          :: !Text
+    , _cfCode             :: !FunctionCode
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
@@ -101,6 +104,8 @@ data CreateFunction = CreateFunction'
 -- * 'cfKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
 --
 -- * 'cfEnvironment' - Undocumented member.
+--
+-- * 'cfDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
@@ -131,6 +136,7 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     { _cfMemorySize = Nothing
     , _cfKMSKeyARN = Nothing
     , _cfEnvironment = Nothing
+    , _cfDeadLetterConfig = Nothing
     , _cfVPCConfig = Nothing
     , _cfTimeout = Nothing
     , _cfDescription = Nothing
@@ -153,6 +159,10 @@ cfKMSKeyARN = lens _cfKMSKeyARN (\ s a -> s{_cfKMSKeyARN = a});
 -- | Undocumented member.
 cfEnvironment :: Lens' CreateFunction (Maybe Environment)
 cfEnvironment = lens _cfEnvironment (\ s a -> s{_cfEnvironment = a});
+
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+cfDeadLetterConfig :: Lens' CreateFunction (Maybe DeadLetterConfig)
+cfDeadLetterConfig = lens _cfDeadLetterConfig (\ s a -> s{_cfDeadLetterConfig = a});
 
 -- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
@@ -209,6 +219,7 @@ instance ToJSON CreateFunction where
                  [("MemorySize" .=) <$> _cfMemorySize,
                   ("KMSKeyArn" .=) <$> _cfKMSKeyARN,
                   ("Environment" .=) <$> _cfEnvironment,
+                  ("DeadLetterConfig" .=) <$> _cfDeadLetterConfig,
                   ("VpcConfig" .=) <$> _cfVPCConfig,
                   ("Timeout" .=) <$> _cfTimeout,
                   ("Description" .=) <$> _cfDescription,

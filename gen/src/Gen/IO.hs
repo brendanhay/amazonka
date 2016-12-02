@@ -67,11 +67,11 @@ writeLTFile f t = do
         hSetEncoding  h utf8
         LText.hPutStr h t
 
-touchFile :: MonadIO m => Path -> ExceptT Error m ()
-touchFile f = do
+touchFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
+touchFile f t = do
     p <- isFile f
     unless p $
-        writeLTFile f mempty
+        writeLTFile f t
 
 createDir :: MonadIO m => Path -> ExceptT Error m ()
 createDir d = do

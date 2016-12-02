@@ -21,7 +21,7 @@
 -- [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be revoked.
 --
 --
--- Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
+-- Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
 --
 -- Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
 --
@@ -35,7 +35,7 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , rsgeIPPermissions
     , rsgeIPProtocol
     , rsgeToPort
-    , rsgeCIdRIP
+    , rsgeCidrIP
     , rsgeSourceSecurityGroupOwnerId
     , rsgeSourceSecurityGroupName
     , rsgeDryRun
@@ -63,7 +63,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     , _rsgeIPPermissions              :: !(Maybe [IPPermission])
     , _rsgeIPProtocol                 :: !(Maybe Text)
     , _rsgeToPort                     :: !(Maybe Int)
-    , _rsgeCIdRIP                     :: !(Maybe Text)
+    , _rsgeCidrIP                     :: !(Maybe Text)
     , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
     , _rsgeDryRun                     :: !(Maybe Bool)
@@ -82,7 +82,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 --
 -- * 'rsgeToPort' - The end of port range for the TCP and UDP protocols, or an ICMP type number. We recommend that you specify the port range in a set of IP permissions instead.
 --
--- * 'rsgeCIdRIP' - The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
+-- * 'rsgeCidrIP' - The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
 --
 -- * 'rsgeSourceSecurityGroupOwnerId' - The AWS account number for a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 --
@@ -100,7 +100,7 @@ revokeSecurityGroupEgress pGroupId_ =
     , _rsgeIPPermissions = Nothing
     , _rsgeIPProtocol = Nothing
     , _rsgeToPort = Nothing
-    , _rsgeCIdRIP = Nothing
+    , _rsgeCidrIP = Nothing
     , _rsgeSourceSecurityGroupOwnerId = Nothing
     , _rsgeSourceSecurityGroupName = Nothing
     , _rsgeDryRun = Nothing
@@ -124,8 +124,8 @@ rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
 
 -- | The CIDR IP address range. We recommend that you specify the CIDR range in a set of IP permissions instead.
-rsgeCIdRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeCIdRIP = lens _rsgeCIdRIP (\ s a -> s{_rsgeCIdRIP = a});
+rsgeCidrIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeCidrIP = lens _rsgeCidrIP (\ s a -> s{_rsgeCidrIP = a});
 
 -- | The AWS account number for a destination security group. To revoke outbound access to a destination security group, we recommend that you use a set of IP permissions instead.
 rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
@@ -165,12 +165,12 @@ instance ToQuery RevokeSecurityGroupEgress where
           = mconcat
               ["Action" =:
                  ("RevokeSecurityGroupEgress" :: ByteString),
-               "Version" =: ("2016-09-15" :: ByteString),
+               "Version" =: ("2016-11-15" :: ByteString),
                "FromPort" =: _rsgeFromPort,
                toQuery
                  (toQueryList "IpPermissions" <$> _rsgeIPPermissions),
                "IpProtocol" =: _rsgeIPProtocol,
-               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIdRIP,
+               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCidrIP,
                "SourceSecurityGroupOwnerId" =:
                  _rsgeSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:

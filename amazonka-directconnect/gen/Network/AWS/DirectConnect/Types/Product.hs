@@ -21,6 +21,95 @@ import           Network.AWS.DirectConnect.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | A structure containing information about a BGP peer.
+--
+--
+--
+-- /See:/ 'bgpPeer' smart constructor.
+data BGPPeer = BGPPeer'
+    { _bpCustomerAddress :: !(Maybe Text)
+    , _bpAmazonAddress   :: !(Maybe Text)
+    , _bpAddressFamily   :: !(Maybe AddressFamily)
+    , _bpBgpStatus       :: !(Maybe BGPStatus)
+    , _bpAsn             :: !(Maybe Int)
+    , _bpAuthKey         :: !(Maybe Text)
+    , _bpBgpPeerState    :: !(Maybe BGPPeerState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BGPPeer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bpCustomerAddress' - Undocumented member.
+--
+-- * 'bpAmazonAddress' - Undocumented member.
+--
+-- * 'bpAddressFamily' - Undocumented member.
+--
+-- * 'bpBgpStatus' - Undocumented member.
+--
+-- * 'bpAsn' - Undocumented member.
+--
+-- * 'bpAuthKey' - Undocumented member.
+--
+-- * 'bpBgpPeerState' - Undocumented member.
+bgpPeer
+    :: BGPPeer
+bgpPeer =
+    BGPPeer'
+    { _bpCustomerAddress = Nothing
+    , _bpAmazonAddress = Nothing
+    , _bpAddressFamily = Nothing
+    , _bpBgpStatus = Nothing
+    , _bpAsn = Nothing
+    , _bpAuthKey = Nothing
+    , _bpBgpPeerState = Nothing
+    }
+
+-- | Undocumented member.
+bpCustomerAddress :: Lens' BGPPeer (Maybe Text)
+bpCustomerAddress = lens _bpCustomerAddress (\ s a -> s{_bpCustomerAddress = a});
+
+-- | Undocumented member.
+bpAmazonAddress :: Lens' BGPPeer (Maybe Text)
+bpAmazonAddress = lens _bpAmazonAddress (\ s a -> s{_bpAmazonAddress = a});
+
+-- | Undocumented member.
+bpAddressFamily :: Lens' BGPPeer (Maybe AddressFamily)
+bpAddressFamily = lens _bpAddressFamily (\ s a -> s{_bpAddressFamily = a});
+
+-- | Undocumented member.
+bpBgpStatus :: Lens' BGPPeer (Maybe BGPStatus)
+bpBgpStatus = lens _bpBgpStatus (\ s a -> s{_bpBgpStatus = a});
+
+-- | Undocumented member.
+bpAsn :: Lens' BGPPeer (Maybe Int)
+bpAsn = lens _bpAsn (\ s a -> s{_bpAsn = a});
+
+-- | Undocumented member.
+bpAuthKey :: Lens' BGPPeer (Maybe Text)
+bpAuthKey = lens _bpAuthKey (\ s a -> s{_bpAuthKey = a});
+
+-- | Undocumented member.
+bpBgpPeerState :: Lens' BGPPeer (Maybe BGPPeerState)
+bpBgpPeerState = lens _bpBgpPeerState (\ s a -> s{_bpBgpPeerState = a});
+
+instance FromJSON BGPPeer where
+        parseJSON
+          = withObject "BGPPeer"
+              (\ x ->
+                 BGPPeer' <$>
+                   (x .:? "customerAddress") <*> (x .:? "amazonAddress")
+                     <*> (x .:? "addressFamily")
+                     <*> (x .:? "bgpStatus")
+                     <*> (x .:? "asn")
+                     <*> (x .:? "authKey")
+                     <*> (x .:? "bgpPeerState"))
+
+instance Hashable BGPPeer
+
+instance NFData BGPPeer
+
 -- | A connection represents the physical network connection between the AWS Direct Connect location and the customer.
 --
 --
@@ -353,6 +442,77 @@ instance Hashable Location
 
 instance NFData Location
 
+-- | A structure containing information about a new BGP peer.
+--
+--
+--
+-- /See:/ 'newBGPPeer' smart constructor.
+data NewBGPPeer = NewBGPPeer'
+    { _nbpCustomerAddress :: !(Maybe Text)
+    , _nbpAmazonAddress   :: !(Maybe Text)
+    , _nbpAddressFamily   :: !(Maybe AddressFamily)
+    , _nbpAsn             :: !(Maybe Int)
+    , _nbpAuthKey         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NewBGPPeer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nbpCustomerAddress' - Undocumented member.
+--
+-- * 'nbpAmazonAddress' - Undocumented member.
+--
+-- * 'nbpAddressFamily' - Undocumented member.
+--
+-- * 'nbpAsn' - Undocumented member.
+--
+-- * 'nbpAuthKey' - Undocumented member.
+newBGPPeer
+    :: NewBGPPeer
+newBGPPeer =
+    NewBGPPeer'
+    { _nbpCustomerAddress = Nothing
+    , _nbpAmazonAddress = Nothing
+    , _nbpAddressFamily = Nothing
+    , _nbpAsn = Nothing
+    , _nbpAuthKey = Nothing
+    }
+
+-- | Undocumented member.
+nbpCustomerAddress :: Lens' NewBGPPeer (Maybe Text)
+nbpCustomerAddress = lens _nbpCustomerAddress (\ s a -> s{_nbpCustomerAddress = a});
+
+-- | Undocumented member.
+nbpAmazonAddress :: Lens' NewBGPPeer (Maybe Text)
+nbpAmazonAddress = lens _nbpAmazonAddress (\ s a -> s{_nbpAmazonAddress = a});
+
+-- | Undocumented member.
+nbpAddressFamily :: Lens' NewBGPPeer (Maybe AddressFamily)
+nbpAddressFamily = lens _nbpAddressFamily (\ s a -> s{_nbpAddressFamily = a});
+
+-- | Undocumented member.
+nbpAsn :: Lens' NewBGPPeer (Maybe Int)
+nbpAsn = lens _nbpAsn (\ s a -> s{_nbpAsn = a});
+
+-- | Undocumented member.
+nbpAuthKey :: Lens' NewBGPPeer (Maybe Text)
+nbpAuthKey = lens _nbpAuthKey (\ s a -> s{_nbpAuthKey = a});
+
+instance Hashable NewBGPPeer
+
+instance NFData NewBGPPeer
+
+instance ToJSON NewBGPPeer where
+        toJSON NewBGPPeer'{..}
+          = object
+              (catMaybes
+                 [("customerAddress" .=) <$> _nbpCustomerAddress,
+                  ("amazonAddress" .=) <$> _nbpAmazonAddress,
+                  ("addressFamily" .=) <$> _nbpAddressFamily,
+                  ("asn" .=) <$> _nbpAsn,
+                  ("authKey" .=) <$> _nbpAuthKey])
+
 -- | A structure containing information about a new private virtual interface.
 --
 --
@@ -361,6 +521,7 @@ instance NFData Location
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
     { _nCustomerAddress      :: !(Maybe Text)
     , _nAmazonAddress        :: !(Maybe Text)
+    , _nAddressFamily        :: !(Maybe AddressFamily)
     , _nAuthKey              :: !(Maybe Text)
     , _nVirtualInterfaceName :: !Text
     , _nVlan                 :: !Int
@@ -375,6 +536,8 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 -- * 'nCustomerAddress' - Undocumented member.
 --
 -- * 'nAmazonAddress' - Undocumented member.
+--
+-- * 'nAddressFamily' - Undocumented member.
 --
 -- * 'nAuthKey' - Undocumented member.
 --
@@ -395,6 +558,7 @@ newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId
     NewPrivateVirtualInterface'
     { _nCustomerAddress = Nothing
     , _nAmazonAddress = Nothing
+    , _nAddressFamily = Nothing
     , _nAuthKey = Nothing
     , _nVirtualInterfaceName = pVirtualInterfaceName_
     , _nVlan = pVlan_
@@ -409,6 +573,10 @@ nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a});
 -- | Undocumented member.
 nAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
 nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
+
+-- | Undocumented member.
+nAddressFamily :: Lens' NewPrivateVirtualInterface (Maybe AddressFamily)
+nAddressFamily = lens _nAddressFamily (\ s a -> s{_nAddressFamily = a});
 
 -- | Undocumented member.
 nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
@@ -440,6 +608,7 @@ instance ToJSON NewPrivateVirtualInterface where
               (catMaybes
                  [("customerAddress" .=) <$> _nCustomerAddress,
                   ("amazonAddress" .=) <$> _nAmazonAddress,
+                  ("addressFamily" .=) <$> _nAddressFamily,
                   ("authKey" .=) <$> _nAuthKey,
                   Just
                     ("virtualInterfaceName" .= _nVirtualInterfaceName),
@@ -454,6 +623,7 @@ instance ToJSON NewPrivateVirtualInterface where
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress      :: !(Maybe Text)
     , _npviaAmazonAddress        :: !(Maybe Text)
+    , _npviaAddressFamily        :: !(Maybe AddressFamily)
     , _npviaAuthKey              :: !(Maybe Text)
     , _npviaVirtualInterfaceName :: !Text
     , _npviaVlan                 :: !Int
@@ -467,6 +637,8 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- * 'npviaCustomerAddress' - Undocumented member.
 --
 -- * 'npviaAmazonAddress' - Undocumented member.
+--
+-- * 'npviaAddressFamily' - Undocumented member.
 --
 -- * 'npviaAuthKey' - Undocumented member.
 --
@@ -484,6 +656,7 @@ newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress = Nothing
     , _npviaAmazonAddress = Nothing
+    , _npviaAddressFamily = Nothing
     , _npviaAuthKey = Nothing
     , _npviaVirtualInterfaceName = pVirtualInterfaceName_
     , _npviaVlan = pVlan_
@@ -497,6 +670,10 @@ npviaCustomerAddress = lens _npviaCustomerAddress (\ s a -> s{_npviaCustomerAddr
 -- | Undocumented member.
 npviaAmazonAddress :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
 npviaAmazonAddress = lens _npviaAmazonAddress (\ s a -> s{_npviaAmazonAddress = a});
+
+-- | Undocumented member.
+npviaAddressFamily :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe AddressFamily)
+npviaAddressFamily = lens _npviaAddressFamily (\ s a -> s{_npviaAddressFamily = a});
 
 -- | Undocumented member.
 npviaAuthKey :: Lens' NewPrivateVirtualInterfaceAllocation (Maybe Text)
@@ -526,6 +703,7 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
               (catMaybes
                  [("customerAddress" .=) <$> _npviaCustomerAddress,
                   ("amazonAddress" .=) <$> _npviaAmazonAddress,
+                  ("addressFamily" .=) <$> _npviaAddressFamily,
                   ("authKey" .=) <$> _npviaAuthKey,
                   Just
                     ("virtualInterfaceName" .=
@@ -539,18 +717,27 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 --
 -- /See:/ 'newPublicVirtualInterface' smart constructor.
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
-    { _npviAuthKey              :: !(Maybe Text)
+    { _npviRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
+    , _npviCustomerAddress      :: !(Maybe Text)
+    , _npviAmazonAddress        :: !(Maybe Text)
+    , _npviAddressFamily        :: !(Maybe AddressFamily)
+    , _npviAuthKey              :: !(Maybe Text)
     , _npviVirtualInterfaceName :: !Text
     , _npviVlan                 :: !Int
     , _npviAsn                  :: !Int
-    , _npviAmazonAddress        :: !Text
-    , _npviCustomerAddress      :: !Text
-    , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NewPublicVirtualInterface' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'npviRouteFilterPrefixes' - Undocumented member.
+--
+-- * 'npviCustomerAddress' - Undocumented member.
+--
+-- * 'npviAmazonAddress' - Undocumented member.
+--
+-- * 'npviAddressFamily' - Undocumented member.
 --
 -- * 'npviAuthKey' - Undocumented member.
 --
@@ -559,29 +746,38 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
 -- * 'npviVlan' - Undocumented member.
 --
 -- * 'npviAsn' - Undocumented member.
---
--- * 'npviAmazonAddress' - Undocumented member.
---
--- * 'npviCustomerAddress' - Undocumented member.
---
--- * 'npviRouteFilterPrefixes' - Undocumented member.
 newPublicVirtualInterface
     :: Text -- ^ 'npviVirtualInterfaceName'
     -> Int -- ^ 'npviVlan'
     -> Int -- ^ 'npviAsn'
-    -> Text -- ^ 'npviAmazonAddress'
-    -> Text -- ^ 'npviCustomerAddress'
     -> NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
+newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ =
     NewPublicVirtualInterface'
-    { _npviAuthKey = Nothing
+    { _npviRouteFilterPrefixes = Nothing
+    , _npviCustomerAddress = Nothing
+    , _npviAmazonAddress = Nothing
+    , _npviAddressFamily = Nothing
+    , _npviAuthKey = Nothing
     , _npviVirtualInterfaceName = pVirtualInterfaceName_
     , _npviVlan = pVlan_
     , _npviAsn = pAsn_
-    , _npviAmazonAddress = pAmazonAddress_
-    , _npviCustomerAddress = pCustomerAddress_
-    , _npviRouteFilterPrefixes = mempty
     }
+
+-- | Undocumented member.
+npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
+npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+npviCustomerAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
+npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a});
+
+-- | Undocumented member.
+npviAmazonAddress :: Lens' NewPublicVirtualInterface (Maybe Text)
+npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a});
+
+-- | Undocumented member.
+npviAddressFamily :: Lens' NewPublicVirtualInterface (Maybe AddressFamily)
+npviAddressFamily = lens _npviAddressFamily (\ s a -> s{_npviAddressFamily = a});
 
 -- | Undocumented member.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
@@ -599,18 +795,6 @@ npviVlan = lens _npviVlan (\ s a -> s{_npviVlan = a});
 npviAsn :: Lens' NewPublicVirtualInterface Int
 npviAsn = lens _npviAsn (\ s a -> s{_npviAsn = a});
 
--- | Undocumented member.
-npviAmazonAddress :: Lens' NewPublicVirtualInterface Text
-npviAmazonAddress = lens _npviAmazonAddress (\ s a -> s{_npviAmazonAddress = a});
-
--- | Undocumented member.
-npviCustomerAddress :: Lens' NewPublicVirtualInterface Text
-npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress = a});
-
--- | Undocumented member.
-npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
-npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Coerce;
-
 instance Hashable NewPublicVirtualInterface
 
 instance NFData NewPublicVirtualInterface
@@ -619,15 +803,17 @@ instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
           = object
               (catMaybes
-                 [("authKey" .=) <$> _npviAuthKey,
+                 [("routeFilterPrefixes" .=) <$>
+                    _npviRouteFilterPrefixes,
+                  ("customerAddress" .=) <$> _npviCustomerAddress,
+                  ("amazonAddress" .=) <$> _npviAmazonAddress,
+                  ("addressFamily" .=) <$> _npviAddressFamily,
+                  ("authKey" .=) <$> _npviAuthKey,
                   Just
                     ("virtualInterfaceName" .=
                        _npviVirtualInterfaceName),
-                  Just ("vlan" .= _npviVlan), Just ("asn" .= _npviAsn),
-                  Just ("amazonAddress" .= _npviAmazonAddress),
-                  Just ("customerAddress" .= _npviCustomerAddress),
-                  Just
-                    ("routeFilterPrefixes" .= _npviRouteFilterPrefixes)])
+                  Just ("vlan" .= _npviVlan),
+                  Just ("asn" .= _npviAsn)])
 
 -- | A structure containing information about a public virtual interface that will be provisioned on a connection.
 --
@@ -635,18 +821,27 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _newAuthKey              :: !(Maybe Text)
+    { _newRouteFilterPrefixes  :: !(Maybe [RouteFilterPrefix])
+    , _newCustomerAddress      :: !(Maybe Text)
+    , _newAmazonAddress        :: !(Maybe Text)
+    , _newAddressFamily        :: !(Maybe AddressFamily)
+    , _newAuthKey              :: !(Maybe Text)
     , _newVirtualInterfaceName :: !Text
     , _newVlan                 :: !Int
     , _newAsn                  :: !Int
-    , _newAmazonAddress        :: !Text
-    , _newCustomerAddress      :: !Text
-    , _newRouteFilterPrefixes  :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NewPublicVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'newRouteFilterPrefixes' - Undocumented member.
+--
+-- * 'newCustomerAddress' - Undocumented member.
+--
+-- * 'newAmazonAddress' - Undocumented member.
+--
+-- * 'newAddressFamily' - Undocumented member.
 --
 -- * 'newAuthKey' - Undocumented member.
 --
@@ -655,29 +850,38 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
 -- * 'newVlan' - Undocumented member.
 --
 -- * 'newAsn' - Undocumented member.
---
--- * 'newAmazonAddress' - Undocumented member.
---
--- * 'newCustomerAddress' - Undocumented member.
---
--- * 'newRouteFilterPrefixes' - Undocumented member.
 newPublicVirtualInterfaceAllocation
     :: Text -- ^ 'newVirtualInterfaceName'
     -> Int -- ^ 'newVlan'
     -> Int -- ^ 'newAsn'
-    -> Text -- ^ 'newAmazonAddress'
-    -> Text -- ^ 'newCustomerAddress'
     -> NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
+newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     NewPublicVirtualInterfaceAllocation'
-    { _newAuthKey = Nothing
+    { _newRouteFilterPrefixes = Nothing
+    , _newCustomerAddress = Nothing
+    , _newAmazonAddress = Nothing
+    , _newAddressFamily = Nothing
+    , _newAuthKey = Nothing
     , _newVirtualInterfaceName = pVirtualInterfaceName_
     , _newVlan = pVlan_
     , _newAsn = pAsn_
-    , _newAmazonAddress = pAmazonAddress_
-    , _newCustomerAddress = pCustomerAddress_
-    , _newRouteFilterPrefixes = mempty
     }
+
+-- | Undocumented member.
+newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
+newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
+newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
+
+-- | Undocumented member.
+newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
+newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
+
+-- | Undocumented member.
+newAddressFamily :: Lens' NewPublicVirtualInterfaceAllocation (Maybe AddressFamily)
+newAddressFamily = lens _newAddressFamily (\ s a -> s{_newAddressFamily = a});
 
 -- | Undocumented member.
 newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
@@ -695,18 +899,6 @@ newVlan = lens _newVlan (\ s a -> s{_newVlan = a});
 newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
 newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
 
--- | Undocumented member.
-newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
-newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
-
--- | Undocumented member.
-newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
-newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
-
--- | Undocumented member.
-newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
-newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Coerce;
-
 instance Hashable NewPublicVirtualInterfaceAllocation
 
 instance NFData NewPublicVirtualInterfaceAllocation
@@ -716,14 +908,15 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
         toJSON NewPublicVirtualInterfaceAllocation'{..}
           = object
               (catMaybes
-                 [("authKey" .=) <$> _newAuthKey,
+                 [("routeFilterPrefixes" .=) <$>
+                    _newRouteFilterPrefixes,
+                  ("customerAddress" .=) <$> _newCustomerAddress,
+                  ("amazonAddress" .=) <$> _newAmazonAddress,
+                  ("addressFamily" .=) <$> _newAddressFamily,
+                  ("authKey" .=) <$> _newAuthKey,
                   Just
                     ("virtualInterfaceName" .= _newVirtualInterfaceName),
-                  Just ("vlan" .= _newVlan), Just ("asn" .= _newAsn),
-                  Just ("amazonAddress" .= _newAmazonAddress),
-                  Just ("customerAddress" .= _newCustomerAddress),
-                  Just
-                    ("routeFilterPrefixes" .= _newRouteFilterPrefixes)])
+                  Just ("vlan" .= _newVlan), Just ("asn" .= _newAsn)])
 
 -- | The tags associated with a Direct Connect resource.
 --
@@ -782,7 +975,7 @@ newtype RouteFilterPrefix = RouteFilterPrefix'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rfpCidr' - CIDR notation for the advertised route. Multiple routes are separated by commas. Example: 10.10.10.0/24,10.10.11.0/24
+-- * 'rfpCidr' - CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
 routeFilterPrefix
     :: RouteFilterPrefix
 routeFilterPrefix =
@@ -790,7 +983,7 @@ routeFilterPrefix =
     { _rfpCidr = Nothing
     }
 
--- | CIDR notation for the advertised route. Multiple routes are separated by commas. Example: 10.10.10.0/24,10.10.11.0/24
+-- | CIDR notation for the advertised route. Multiple routes are separated by commas. IPv6 CIDRs must be at least a /64 or shorter Example: 10.10.10.0/24,10.10.11.0/24,2001:db8::/64
 rfpCidr :: Lens' RouteFilterPrefix (Maybe Text)
 rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a});
 
@@ -910,12 +1103,14 @@ instance NFData VirtualGateway
 --
 -- /See:/ 'virtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-    { _viVirtualGatewayId      :: !(Maybe Text)
+    { _viBgpPeers              :: !(Maybe [BGPPeer])
+    , _viVirtualGatewayId      :: !(Maybe Text)
     , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
     , _viCustomerAddress       :: !(Maybe Text)
     , _viVlan                  :: !(Maybe Int)
     , _viLocation              :: !(Maybe Text)
     , _viAmazonAddress         :: !(Maybe Text)
+    , _viAddressFamily         :: !(Maybe AddressFamily)
     , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _viConnectionId          :: !(Maybe Text)
     , _viVirtualInterfaceType  :: !(Maybe Text)
@@ -931,6 +1126,8 @@ data VirtualInterface = VirtualInterface'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'viBgpPeers' - Undocumented member.
+--
 -- * 'viVirtualGatewayId' - Undocumented member.
 --
 -- * 'viRouteFilterPrefixes' - Undocumented member.
@@ -942,6 +1139,8 @@ data VirtualInterface = VirtualInterface'
 -- * 'viLocation' - Undocumented member.
 --
 -- * 'viAmazonAddress' - Undocumented member.
+--
+-- * 'viAddressFamily' - Undocumented member.
 --
 -- * 'viVirtualInterfaceState' - Undocumented member.
 --
@@ -964,12 +1163,14 @@ virtualInterface
     :: VirtualInterface
 virtualInterface =
     VirtualInterface'
-    { _viVirtualGatewayId = Nothing
+    { _viBgpPeers = Nothing
+    , _viVirtualGatewayId = Nothing
     , _viRouteFilterPrefixes = Nothing
     , _viCustomerAddress = Nothing
     , _viVlan = Nothing
     , _viLocation = Nothing
     , _viAmazonAddress = Nothing
+    , _viAddressFamily = Nothing
     , _viVirtualInterfaceState = Nothing
     , _viConnectionId = Nothing
     , _viVirtualInterfaceType = Nothing
@@ -980,6 +1181,10 @@ virtualInterface =
     , _viVirtualInterfaceName = Nothing
     , _viVirtualInterfaceId = Nothing
     }
+
+-- | Undocumented member.
+viBgpPeers :: Lens' VirtualInterface [BGPPeer]
+viBgpPeers = lens _viBgpPeers (\ s a -> s{_viBgpPeers = a}) . _Default . _Coerce;
 
 -- | Undocumented member.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
@@ -1004,6 +1209,10 @@ viLocation = lens _viLocation (\ s a -> s{_viLocation = a});
 -- | Undocumented member.
 viAmazonAddress :: Lens' VirtualInterface (Maybe Text)
 viAmazonAddress = lens _viAmazonAddress (\ s a -> s{_viAmazonAddress = a});
+
+-- | Undocumented member.
+viAddressFamily :: Lens' VirtualInterface (Maybe AddressFamily)
+viAddressFamily = lens _viAddressFamily (\ s a -> s{_viAddressFamily = a});
 
 -- | Undocumented member.
 viVirtualInterfaceState :: Lens' VirtualInterface (Maybe VirtualInterfaceState)
@@ -1046,12 +1255,14 @@ instance FromJSON VirtualInterface where
           = withObject "VirtualInterface"
               (\ x ->
                  VirtualInterface' <$>
-                   (x .:? "virtualGatewayId") <*>
-                     (x .:? "routeFilterPrefixes" .!= mempty)
+                   (x .:? "bgpPeers" .!= mempty) <*>
+                     (x .:? "virtualGatewayId")
+                     <*> (x .:? "routeFilterPrefixes" .!= mempty)
                      <*> (x .:? "customerAddress")
                      <*> (x .:? "vlan")
                      <*> (x .:? "location")
                      <*> (x .:? "amazonAddress")
+                     <*> (x .:? "addressFamily")
                      <*> (x .:? "virtualInterfaceState")
                      <*> (x .:? "connectionId")
                      <*> (x .:? "virtualInterfaceType")

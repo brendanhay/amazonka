@@ -95,7 +95,7 @@ responseInsts fs
 requestInsts :: HasMetadata a f
              => a
              -> Id
-             -> HTTP Identity
+             -> HTTP
              -> Ref
              -> [Field]
              -> Either Error [Inst]

@@ -85,6 +85,7 @@ convertHaddock =
                 | otherwise                 -> mono (nodes x)
             "note"     -> mempty
             "div"      -> nodes x
+            "literal"  -> mono (nodes x)
             e          -> error ("Unhandled help tag: " ++ show e)
 
     title    x = bold x <> "\n"

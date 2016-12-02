@@ -32,13 +32,13 @@ module Gen.Types.Service where
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((:<), List, (.=))
+
 import           Data.Aeson             hiding (Bool)
 import           Data.Bifunctor
-import qualified Data.HashMap.Strict    as Map
 import           Data.List              (nub)
 import           Data.Maybe
 import           Data.Text              (Text)
-import qualified Data.Text              as Text
+
 import           Gen.Text
 import           Gen.TH
 import           Gen.Types.Ann
@@ -51,8 +51,13 @@ import           Gen.Types.Pager
 import           Gen.Types.Retry
 import           Gen.Types.URI
 import           Gen.Types.Waiter
+
 import           GHC.Generics           (Generic)
+
 import           Numeric.Natural
+
+import qualified Data.HashMap.Strict    as Map
+import qualified Data.Text              as Text
 
 makePrisms ''Identity
 
@@ -194,7 +199,7 @@ class HasRefs f where
 
 data ErrorInfo = ErrorInfo
     { _errCode        :: Maybe Text
-    , _errStatus      :: !Integer
+    , _errStatus      :: !Int
     , _errSenderFault :: !Bool
     } deriving (Show, Generic)
 
@@ -202,9 +207,9 @@ makeLenses ''ErrorInfo
 
 instance FromJSON ErrorInfo where
     parseJSON = withObject "error" $ \o -> ErrorInfo
-        <$> o .:? "code"
-        <*> o .:  "httpStatusCode"
-        <*> o .:? "senderFault" .!= False
+        <$>  o .:? "code"
+        <*> (o .:  "httpStatusCode" <&> parseStatusCode)
+        <*>  o .:? "senderFault" .!= False
 
 data Info = Info
     { _infoDocumentation :: Maybe Help
@@ -361,7 +366,7 @@ data Operation f a b = Operation
     { _opName          :: Id
     , _opDocumentation :: f Help
     , _opDeprecated    :: !Bool
-    , _opHTTP          :: HTTP f
+    , _opHTTP          :: !HTTP
     , _opInput         :: f a
     , _opOutput        :: f a
     , _opPager         :: Maybe b
@@ -376,7 +381,7 @@ inputName, outputName :: HasId a => Operation Identity a b -> Id
 inputName  = identifier . view (opInput  . _Identity)
 outputName = identifier . view (opOutput . _Identity)
 
-instance HasHTTP (Operation f a b) f where
+instance HasHTTP (Operation f a b) where
     hTTP = opHTTP
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where

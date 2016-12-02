@@ -43,7 +43,6 @@ packages:
   - amazonka-dms
   - amazonka-ds
   - amazonka-dynamodb
-  - amazonka-dynamodb-extras
   - amazonka-dynamodb-streams
   - amazonka-ec2
   - amazonka-ecr

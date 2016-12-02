@@ -89,6 +89,9 @@ data Method
 instance FromJSON Method where
     parseJSON = gParseJSON' upper
 
+instance ToJSON Method where
+    toJSON = toJSON . methodToText
+
 methodToText :: Method -> Text
 methodToText = \case
    GET    -> "get"
@@ -123,3 +126,5 @@ instance FromJSON StatusCodeParser where
        case Text.decimal s of
            Right (n, "") -> pure (StatusCodeParser n)
            v             -> fail ("Failure parsing responseCode from: " ++ show v)
+   parseJSON v =
+       fail ("Failure parsing responseCode from: " ++ show v)

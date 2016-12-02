@@ -54,8 +54,6 @@ import           Gen.Types.Waiter
 
 import           GHC.Generics           (Generic)
 
-import           Numeric.Natural
-
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.Text              as Text
 
@@ -213,8 +211,8 @@ instance FromJSON ErrorInfo where
 
 data Info = Info
     { _infoDocumentation :: Maybe Help
-    , _infoMin           :: Maybe Natural
-    , _infoMax           :: Maybe Natural
+    , _infoMin           :: Maybe Int
+    , _infoMax           :: Maybe Int
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool

@@ -33,16 +33,20 @@ module Network.AWS.S3.Internal
     , keyPrefix
     , keyName
     , keyComponents
+
+    -- * Website Endpoints
+    , getWebsiteEndpoint
     ) where
 
-import           Data.String
-import qualified Data.Text            as Text
-import           Network.AWS.Data.Log
-import           Network.AWS.Data.XML
-import           Network.AWS.Lens     (IndexedTraversal', Iso', Prism',
-                                       Traversal')
-import           Network.AWS.Lens     (iso, prism, traversed, _1, _2)
-import           Network.AWS.Prelude
+import Data.String (IsString)
+
+import Network.AWS.Data.Log
+import Network.AWS.Data.XML
+import Network.AWS.Lens     (IndexedTraversal', Iso', Prism', Traversal')
+import Network.AWS.Lens     (iso, prism, traversed, _1, _2)
+import Network.AWS.Prelude
+
+import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text
     deriving
@@ -250,3 +254,12 @@ _ObjectKeySnoc dir !c = prism (ObjectKey . uncurry cat) split
         | otherwise               = h <> suf <> t
 
     suf = Text.singleton c
+
+-- | Get the S3 website endpoint for a specific region.
+--
+-- When you configure your bucket as a website, the website is available using
+-- this region-specific website endpoint.
+--
+-- /See:/ <http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints Amazon Simple Storage Service Website Endpoints>.
+getWebsiteEndpoint :: Region -> Text
+getWebsiteEndpoint reg = "s3-website-" <> toText reg <> ".amazonaws.com"

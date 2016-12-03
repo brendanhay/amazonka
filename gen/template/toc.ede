@@ -42,7 +42,7 @@ module {{ moduleName }}
   {% for module in typeModules %}
     {% if module.first %}
 
-    -- ** Re-exported Types
+    -- ** Common
     {% endif %}
     , module {{ module.value }}
   {% endfor %}

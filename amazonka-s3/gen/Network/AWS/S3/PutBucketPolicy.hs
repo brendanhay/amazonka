@@ -82,7 +82,7 @@ pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
 
 instance AWSRequest PutBucketPolicy where
         type Rs PutBucketPolicy = PutBucketPolicyResponse
-        request = contentMD5 . putBody s3
+        request = contentMD5Header . putBody s3
         response = receiveNull PutBucketPolicyResponse'
 
 instance Hashable PutBucketPolicy

@@ -82,7 +82,7 @@ pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 
 instance AWSRequest PutBucketTagging where
         type Rs PutBucketTagging = PutBucketTaggingResponse
-        request = contentMD5 . putXML s3
+        request = contentMD5Header . putXML s3
         response = receiveNull PutBucketTaggingResponse'
 
 instance Hashable PutBucketTagging

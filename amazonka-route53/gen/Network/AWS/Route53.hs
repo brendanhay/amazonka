@@ -313,7 +313,7 @@ module Network.AWS.Route53
 
     -- * Types
 
-    -- ** Re-exported Types
+    -- ** Common
     , module Network.AWS.Route53.Internal
 
     -- ** ChangeAction

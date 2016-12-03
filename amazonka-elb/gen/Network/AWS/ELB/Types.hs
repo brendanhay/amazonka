@@ -38,6 +38,9 @@ module Network.AWS.ELB.Types
     , _TooManyPoliciesException
     , _CertificateNotFoundException
 
+    -- * Re-exported Types
+    , module Network.AWS.ELB.Internal
+
     -- * AccessLog
     , AccessLog
     , accessLog
@@ -218,6 +221,7 @@ module Network.AWS.ELB.Types
     , tkoKey
     ) where
 
+import           Network.AWS.ELB.Internal
 import           Network.AWS.ELB.Types.Product
 import           Network.AWS.ELB.Types.Sum
 import           Network.AWS.Lens

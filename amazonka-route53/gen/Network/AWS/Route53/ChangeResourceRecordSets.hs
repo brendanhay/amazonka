@@ -109,7 +109,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'changeResourceRecordSets' smart constructor.
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-    { _crrsHostedZoneId :: !Text
+    { _crrsHostedZoneId :: !ResourceId
     , _crrsChangeBatch  :: !ChangeBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -121,7 +121,7 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets'
 --
 -- * 'crrsChangeBatch' - A complex type that contains an optional comment and the @Changes@ element.
 changeResourceRecordSets
-    :: Text -- ^ 'crrsHostedZoneId'
+    :: ResourceId -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
     -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
@@ -131,7 +131,7 @@ changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
     }
 
 -- | The ID of the hosted zone that contains the resource record sets that you want to change.
-crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
+crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
 crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
 
 -- | A complex type that contains an optional comment and the @Changes@ element.

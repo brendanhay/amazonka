@@ -50,7 +50,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'getReusableDelegationSet' smart constructor.
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
-    { _grdsId :: Text
+    { _grdsId :: ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetReusableDelegationSet' with the minimum fields required to make a request.
@@ -59,7 +59,7 @@ newtype GetReusableDelegationSet = GetReusableDelegationSet'
 --
 -- * 'grdsId' - The ID of the reusable delegation set for which you want to get a list of the name server.
 getReusableDelegationSet
-    :: Text -- ^ 'grdsId'
+    :: ResourceId -- ^ 'grdsId'
     -> GetReusableDelegationSet
 getReusableDelegationSet pId_ =
     GetReusableDelegationSet'
@@ -67,7 +67,7 @@ getReusableDelegationSet pId_ =
     }
 
 -- | The ID of the reusable delegation set for which you want to get a list of the name server.
-grdsId :: Lens' GetReusableDelegationSet Text
+grdsId :: Lens' GetReusableDelegationSet ResourceId
 grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 
 instance AWSRequest GetReusableDelegationSet where

@@ -78,7 +78,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
-    { _chzDelegationSetId  :: !(Maybe Text)
+    { _chzDelegationSetId  :: !(Maybe ResourceId)
     , _chzVPC              :: !(Maybe VPC)
     , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
     , _chzName             :: !Text
@@ -112,7 +112,7 @@ createHostedZone pName_ pCallerReference_ =
     }
 
 -- | If you want to associate a reusable delegation set with this hosted zone, the ID that Amazon Route 53 assigned to the reusable delegation set when you created it. For more information about reusable delegation sets, see 'CreateReusableDelegationSet' .     * Type    * String     * Default    * None     * Parent    * @CreatedHostedZoneRequest@
-chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
+chzDelegationSetId :: Lens' CreateHostedZone (Maybe ResourceId)
 chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
 -- | The VPC that you want your hosted zone to be associated with. By providing this parameter, your newly created hosted can't be resolved anywhere other than the given VPC.

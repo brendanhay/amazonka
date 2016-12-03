@@ -57,7 +57,7 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'associateVPCWithHostedZone' smart constructor.
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
     { _avwhzComment      :: !(Maybe Text)
-    , _avwhzHostedZoneId :: !Text
+    , _avwhzHostedZoneId :: !ResourceId
     , _avwhzVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
 --
 -- * 'avwhzVPC' - A complex type that contains information about the VPC that you want to associate with a private hosted zone.
 associateVPCWithHostedZone
-    :: Text -- ^ 'avwhzHostedZoneId'
+    :: ResourceId -- ^ 'avwhzHostedZoneId'
     -> VPC -- ^ 'avwhzVPC'
     -> AssociateVPCWithHostedZone
 associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
@@ -86,7 +86,7 @@ avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
 -- | The ID of the private hosted zone that you want to associate an Amazon VPC with. Note that you can't associate a VPC with a hosted zone that doesn't have an existing VPC association.
-avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
+avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone ResourceId
 avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
 
 -- | A complex type that contains information about the VPC that you want to associate with a private hosted zone.

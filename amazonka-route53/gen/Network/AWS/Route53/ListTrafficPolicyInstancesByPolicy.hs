@@ -86,7 +86,7 @@ import           Network.AWS.Route53.Types.Product
 data ListTrafficPolicyInstancesByPolicy = ListTrafficPolicyInstancesByPolicy'
     { _ltpibpTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
     , _ltpibpMaxItems                        :: !(Maybe Text)
-    , _ltpibpHostedZoneIdMarker              :: !(Maybe Text)
+    , _ltpibpHostedZoneIdMarker              :: !(Maybe ResourceId)
     , _ltpibpTrafficPolicyInstanceNameMarker :: !(Maybe Text)
     , _ltpibpTrafficPolicyId                 :: !Text
     , _ltpibpTrafficPolicyVersion            :: !Nat
@@ -130,7 +130,7 @@ ltpibpMaxItems :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
 ltpibpMaxItems = lens _ltpibpMaxItems (\ s a -> s{_ltpibpMaxItems = a});
 
 -- | For the first request to @ListTrafficPolicyInstancesByPolicy@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone for the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone. If the value of @IsTruncated@ in the previous response was @false@ , omit this value.
-ltpibpHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe Text)
+ltpibpHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicy (Maybe ResourceId)
 ltpibpHostedZoneIdMarker = lens _ltpibpHostedZoneIdMarker (\ s a -> s{_ltpibpHostedZoneIdMarker = a});
 
 -- | For the first request to @ListTrafficPolicyInstancesByPolicy@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone. If the value of @IsTruncated@ in the previous response was @false@ , omit this value.
@@ -198,7 +198,7 @@ instance ToQuery ListTrafficPolicyInstancesByPolicy
 -- /See:/ 'listTrafficPolicyInstancesByPolicyResponse' smart constructor.
 data ListTrafficPolicyInstancesByPolicyResponse = ListTrafficPolicyInstancesByPolicyResponse'
     { _ltpibprsTrafficPolicyInstanceTypeMarker :: !(Maybe RecordType)
-    , _ltpibprsHostedZoneIdMarker              :: !(Maybe Text)
+    , _ltpibprsHostedZoneIdMarker              :: !(Maybe ResourceId)
     , _ltpibprsTrafficPolicyInstanceNameMarker :: !(Maybe Text)
     , _ltpibprsResponseStatus                  :: !Int
     , _ltpibprsTrafficPolicyInstances          :: ![TrafficPolicyInstance]
@@ -244,7 +244,7 @@ ltpibprsTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByPol
 ltpibprsTrafficPolicyInstanceTypeMarker = lens _ltpibprsTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibprsTrafficPolicyInstanceTypeMarker = a});
 
 -- | If @IsTruncated@ is @true@ , @HostedZoneIdMarker@ is the ID of the hosted zone of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
-ltpibprsHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe Text)
+ltpibprsHostedZoneIdMarker :: Lens' ListTrafficPolicyInstancesByPolicyResponse (Maybe ResourceId)
 ltpibprsHostedZoneIdMarker = lens _ltpibprsHostedZoneIdMarker (\ s a -> s{_ltpibprsHostedZoneIdMarker = a});
 
 -- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.

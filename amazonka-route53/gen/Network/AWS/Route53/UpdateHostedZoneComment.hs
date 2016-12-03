@@ -52,7 +52,7 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'updateHostedZoneComment' smart constructor.
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
     { _uhzcComment :: !(Maybe Text)
-    , _uhzcId      :: !Text
+    , _uhzcId      :: !ResourceId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
@@ -63,7 +63,7 @@ data UpdateHostedZoneComment = UpdateHostedZoneComment'
 --
 -- * 'uhzcId' - The ID for the hosted zone for which you want to update the comment.
 updateHostedZoneComment
-    :: Text -- ^ 'uhzcId'
+    :: ResourceId -- ^ 'uhzcId'
     -> UpdateHostedZoneComment
 updateHostedZoneComment pId_ =
     UpdateHostedZoneComment'
@@ -76,7 +76,7 @@ uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
 uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 
 -- | The ID for the hosted zone for which you want to update the comment.
-uhzcId :: Lens' UpdateHostedZoneComment Text
+uhzcId :: Lens' UpdateHostedZoneComment ResourceId
 uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
 instance AWSRequest UpdateHostedZoneComment where

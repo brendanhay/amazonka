@@ -54,7 +54,7 @@ import           Network.AWS.Route53.Types.Product
 --
 -- /See:/ 'createVPCAssociationAuthorization' smart constructor.
 data CreateVPCAssociationAuthorization = CreateVPCAssociationAuthorization'
-    { _cvaaHostedZoneId :: !Text
+    { _cvaaHostedZoneId :: !ResourceId
     , _cvaaVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,7 +66,7 @@ data CreateVPCAssociationAuthorization = CreateVPCAssociationAuthorization'
 --
 -- * 'cvaaVPC' - A complex type that contains the VPC ID and region for the VPC that you want to authorize associating with your hosted zone.
 createVPCAssociationAuthorization
-    :: Text -- ^ 'cvaaHostedZoneId'
+    :: ResourceId -- ^ 'cvaaHostedZoneId'
     -> VPC -- ^ 'cvaaVPC'
     -> CreateVPCAssociationAuthorization
 createVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
@@ -76,7 +76,7 @@ createVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
     }
 
 -- | The ID of the private hosted zone that you want to authorize associating a VPC with.
-cvaaHostedZoneId :: Lens' CreateVPCAssociationAuthorization Text
+cvaaHostedZoneId :: Lens' CreateVPCAssociationAuthorization ResourceId
 cvaaHostedZoneId = lens _cvaaHostedZoneId (\ s a -> s{_cvaaHostedZoneId = a});
 
 -- | A complex type that contains the VPC ID and region for the VPC that you want to authorize associating with your hosted zone.
@@ -132,7 +132,7 @@ instance ToXML CreateVPCAssociationAuthorization
 -- /See:/ 'createVPCAssociationAuthorizationResponse' smart constructor.
 data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizationResponse'
     { _cvaarsResponseStatus :: !Int
-    , _cvaarsHostedZoneId   :: !Text
+    , _cvaarsHostedZoneId   :: !ResourceId
     , _cvaarsVPC            :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -147,7 +147,7 @@ data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizati
 -- * 'cvaarsVPC' - The VPC that you authorized associating with a hosted zone.
 createVPCAssociationAuthorizationResponse
     :: Int -- ^ 'cvaarsResponseStatus'
-    -> Text -- ^ 'cvaarsHostedZoneId'
+    -> ResourceId -- ^ 'cvaarsHostedZoneId'
     -> VPC -- ^ 'cvaarsVPC'
     -> CreateVPCAssociationAuthorizationResponse
 createVPCAssociationAuthorizationResponse pResponseStatus_ pHostedZoneId_ pVPC_ =
@@ -162,7 +162,7 @@ cvaarsResponseStatus :: Lens' CreateVPCAssociationAuthorizationResponse Int
 cvaarsResponseStatus = lens _cvaarsResponseStatus (\ s a -> s{_cvaarsResponseStatus = a});
 
 -- | The ID of the hosted zone that you authorized associating a VPC with.
-cvaarsHostedZoneId :: Lens' CreateVPCAssociationAuthorizationResponse Text
+cvaarsHostedZoneId :: Lens' CreateVPCAssociationAuthorizationResponse ResourceId
 cvaarsHostedZoneId = lens _cvaarsHostedZoneId (\ s a -> s{_cvaarsHostedZoneId = a});
 
 -- | The VPC that you authorized associating with a hosted zone.

@@ -57,7 +57,7 @@ import           Network.AWS.Route53.Types.Product
 -- /See:/ 'disassociateVPCFromHostedZone' smart constructor.
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
     { _dvfhzComment      :: !(Maybe Text)
-    , _dvfhzHostedZoneId :: !Text
+    , _dvfhzHostedZoneId :: !ResourceId
     , _dvfhzVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
 --
 -- * 'dvfhzVPC' - A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
 disassociateVPCFromHostedZone
-    :: Text -- ^ 'dvfhzHostedZoneId'
+    :: ResourceId -- ^ 'dvfhzHostedZoneId'
     -> VPC -- ^ 'dvfhzVPC'
     -> DisassociateVPCFromHostedZone
 disassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
@@ -86,7 +86,7 @@ dvfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
 dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a});
 
 -- | The ID of the private hosted zone that you want to disassociate a VPC from.
-dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone Text
+dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone ResourceId
 dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a});
 
 -- | A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.

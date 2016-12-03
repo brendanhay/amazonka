@@ -611,7 +611,7 @@ instance ToText Region where
         Tokyo           -> "ap-northeast-1"
         Seoul           -> "ap-northeast-2"
         Mumbai          -> "ap-south-1"
-        Tokyo           -> "ap-southeast-1"
+        Singapore       -> "ap-southeast-1"
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
         Ireland         -> "eu-west-1"

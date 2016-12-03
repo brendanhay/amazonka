@@ -19,6 +19,7 @@ module Network.AWS.Redshift.Types.Product where
 
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Internal
 import           Network.AWS.Redshift.Types.Sum
 
 -- | Describes an AWS customer account authorized to restore a snapshot.

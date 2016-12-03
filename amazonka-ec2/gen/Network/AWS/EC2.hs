@@ -778,7 +778,7 @@ module Network.AWS.EC2
 
     -- * Types
 
-    -- ** Re-exported Types
+    -- ** Common
     , module Network.AWS.EC2.Internal
 
     -- ** AccountAttributeName

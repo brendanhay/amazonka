@@ -483,6 +483,9 @@ module Network.AWS.Redshift
 
     -- * Types
 
+    -- ** Common
+    , module Network.AWS.Redshift.Internal
+
     -- ** ParameterApplyType
     , ParameterApplyType (..)
 
@@ -937,6 +940,7 @@ import           Network.AWS.Redshift.DisableLogging
 import           Network.AWS.Redshift.DisableSnapshotCopy
 import           Network.AWS.Redshift.EnableLogging
 import           Network.AWS.Redshift.EnableSnapshotCopy
+import           Network.AWS.Redshift.Internal
 import           Network.AWS.Redshift.ModifyCluster
 import           Network.AWS.Redshift.ModifyClusterIAMRoles
 import           Network.AWS.Redshift.ModifyClusterParameterGroup

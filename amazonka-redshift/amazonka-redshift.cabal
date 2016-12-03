@@ -106,7 +106,8 @@ library
         , Network.AWS.Redshift.Waiters
 
     other-modules:
-          Network.AWS.Redshift.Types.Product
+          Network.AWS.Redshift.Internal
+        , Network.AWS.Redshift.Types.Product
         , Network.AWS.Redshift.Types.Sum
 
     build-depends:

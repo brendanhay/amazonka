@@ -100,6 +100,9 @@ module Network.AWS.Redshift.Types
     , _InsufficientS3BucketPolicyFault
     , _ClusterSubnetGroupQuotaExceededFault
 
+    -- * Re-exported Types
+    , module Network.AWS.Redshift.Internal
+
     -- * ParameterApplyType
     , ParameterApplyType (..)
 
@@ -508,6 +511,7 @@ module Network.AWS.Redshift.Types
 
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Internal
 import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Redshift.Types.Sum
 import           Network.AWS.Sign.V4

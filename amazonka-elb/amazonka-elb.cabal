@@ -72,7 +72,8 @@ library
         , Network.AWS.ELB.Waiters
 
     other-modules:
-          Network.AWS.ELB.Types.Product
+          Network.AWS.ELB.Internal
+        , Network.AWS.ELB.Types.Product
         , Network.AWS.ELB.Types.Sum
 
     build-depends:

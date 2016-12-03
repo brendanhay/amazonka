@@ -18,6 +18,7 @@
 module Network.AWS.Redshift.Types.Sum where
 
 import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Internal
 
 data ParameterApplyType
     = Dynamic

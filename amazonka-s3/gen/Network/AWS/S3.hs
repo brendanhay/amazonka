@@ -271,7 +271,7 @@ module Network.AWS.S3
 
     -- * Types
 
-    -- ** Re-exported Types
+    -- ** Common
     , module Network.AWS.S3.Internal
 
     -- ** AnalyticsS3ExportFileFormat

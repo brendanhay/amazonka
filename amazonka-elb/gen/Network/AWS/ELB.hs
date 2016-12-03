@@ -186,6 +186,9 @@ module Network.AWS.ELB
 
     -- * Types
 
+    -- ** Common
+    , module Network.AWS.ELB.Internal
+
     -- ** AccessLog
     , AccessLog
     , accessLog
@@ -388,6 +391,7 @@ import           Network.AWS.ELB.DescribeTags
 import           Network.AWS.ELB.DetachLoadBalancerFromSubnets
 import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+import           Network.AWS.ELB.Internal
 import           Network.AWS.ELB.ModifyLoadBalancerAttributes
 import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 import           Network.AWS.ELB.RemoveTags

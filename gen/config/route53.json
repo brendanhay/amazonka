@@ -1,5 +1,8 @@
 {
     "libraryName": "amazonka-route53",
+    "extraDependencies": [
+        "text >= 1.1"
+    ],
     "typeModules": [
         "Network.AWS.Route53.Internal"
     ],

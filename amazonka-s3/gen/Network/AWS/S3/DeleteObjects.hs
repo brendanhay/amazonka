@@ -96,7 +96,7 @@ dosDelete = lens _dosDelete (\ s a -> s{_dosDelete = a});
 
 instance AWSRequest DeleteObjects where
         type Rs DeleteObjects = DeleteObjectsResponse
-        request = contentMD5 . postXML s3
+        request = contentMD5Header . postXML s3
         response
           = receiveXML
               (\ s h x ->

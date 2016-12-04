@@ -300,7 +300,7 @@ poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
         type Rs PutObject = PutObjectResponse
-        request = putBody s3
+        request = expectHeader . putBody s3
         response
           = receiveEmpty
               (\ s h x ->

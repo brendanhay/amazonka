@@ -1,5 +1,5 @@
 name:                  amazonka-ml
-version:               1.4.4
+version:               1.4.5
 synopsis:              Amazon Machine Learning SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -76,7 +76,7 @@ library
         , Network.AWS.MachineLearning.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.4.5.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-ml-test
@@ -96,9 +96,9 @@ test-suite amazonka-ml-test
         , Test.AWS.MachineLearning.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-ml == 1.4.4.*
+          amazonka-core == 1.4.5.*
+        , amazonka-test == 1.4.5.*
+        , amazonka-ml == 1.4.5.*
         , base
         , bytestring
         , tasty

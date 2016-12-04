@@ -1,5 +1,5 @@
 name:                  amazonka-appstream
-version:               1.4.4
+version:               1.4.5
 synopsis:              Amazon AppStream SDK.
 homepage:              https://github.com/brendanhay/amazonka
 bug-reports:           https://github.com/brendanhay/amazonka/issues
@@ -66,7 +66,7 @@ library
         , Network.AWS.AppStream.Types.Sum
 
     build-depends:
-          amazonka-core == 1.4.4.*
+          amazonka-core == 1.4.5.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-appstream-test
@@ -86,9 +86,9 @@ test-suite amazonka-appstream-test
         , Test.AWS.AppStream.Internal
 
     build-depends:
-          amazonka-core == 1.4.4.*
-        , amazonka-test == 1.4.4.*
-        , amazonka-appstream == 1.4.4.*
+          amazonka-core == 1.4.5.*
+        , amazonka-test == 1.4.5.*
+        , amazonka-appstream == 1.4.5.*
         , base
         , bytestring
         , tasty

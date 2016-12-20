@@ -1,3 +1,23 @@
 {
-    "libraryName": "amazonka-sts"
+    "libraryName": "amazonka-sts",
+    "typeOverrides": {
+        "accessKeyIdType": {
+            "replacedBy": {
+                "name": "AccessKey",
+                "deriving": []
+            }
+        },
+        "accessKeySecretType": {
+            "replacedBy": {
+                "name": "SecretKey",
+                "deriving": []
+            }
+        },
+        "tokenType": {
+            "replacedBy": {
+                "name": "SessionToken",
+                "deriving": []
+            }
+        }
+    }
 }

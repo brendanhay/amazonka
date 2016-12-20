@@ -47,7 +47,7 @@ import           Network.AWS.Response
 -- | /See:/ 'deleteAccessKey' smart constructor.
 data DeleteAccessKey = DeleteAccessKey'
     { _dakUserName    :: !(Maybe Text)
-    , _dakAccessKeyId :: !Text
+    , _dakAccessKeyId :: !AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteAccessKey' with the minimum fields required to make a request.
@@ -58,7 +58,7 @@ data DeleteAccessKey = DeleteAccessKey'
 --
 -- * 'dakAccessKeyId' - The access key ID for the access key ID and secret access key you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 deleteAccessKey
-    :: Text -- ^ 'dakAccessKeyId'
+    :: AccessKey -- ^ 'dakAccessKeyId'
     -> DeleteAccessKey
 deleteAccessKey pAccessKeyId_ =
     DeleteAccessKey'
@@ -71,7 +71,7 @@ dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
 
 -- | The access key ID for the access key ID and secret access key you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
-dakAccessKeyId :: Lens' DeleteAccessKey Text
+dakAccessKeyId :: Lens' DeleteAccessKey AccessKey
 dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
 
 instance AWSRequest DeleteAccessKey where

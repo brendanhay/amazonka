@@ -71,7 +71,7 @@ instance NFData AssumedRoleUser
 --
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'
-    { _cAccessKeyId     :: !AccessId
+    { _cAccessKeyId     :: !AccessKey
     , _cSecretAccessKey :: !SecretKey
     , _cSessionToken    :: !SessionToken
     , _cExpiration      :: !ISO8601
@@ -89,7 +89,7 @@ data Credentials = Credentials'
 --
 -- * 'cExpiration' - The date on which the current credentials expire.
 credentials
-    :: AccessId -- ^ 'cAccessKeyId'
+    :: AccessKey -- ^ 'cAccessKeyId'
     -> SecretKey -- ^ 'cSecretAccessKey'
     -> SessionToken -- ^ 'cSessionToken'
     -> UTCTime -- ^ 'cExpiration'
@@ -103,7 +103,7 @@ credentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
     }
 
 -- | The access key ID that identifies the temporary security credentials.
-cAccessKeyId :: Lens' Credentials AccessId
+cAccessKeyId :: Lens' Credentials AccessKey
 cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a});
 
 -- | The secret access key that can be used to sign requests.

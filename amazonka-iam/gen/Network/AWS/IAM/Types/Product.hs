@@ -31,9 +31,9 @@ import           Network.AWS.Prelude
 data AccessKey = AccessKey'
     { _akCreateDate      :: !(Maybe ISO8601)
     , _akUserName        :: !Text
-    , _akAccessKeyId     :: !Text
+    , _akAccessKeyId     :: !AccessKey
     , _akStatus          :: !StatusType
-    , _akSecretAccessKey :: !(Sensitive Text)
+    , _akSecretAccessKey :: !(Sensitive SecretKey)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccessKey' with the minimum fields required to make a request.
@@ -51,9 +51,9 @@ data AccessKey = AccessKey'
 -- * 'akSecretAccessKey' - The secret key used to sign requests.
 accessKey
     :: Text -- ^ 'akUserName'
-    -> Text -- ^ 'akAccessKeyId'
+    -> AccessKey -- ^ 'akAccessKeyId'
     -> StatusType -- ^ 'akStatus'
-    -> Text -- ^ 'akSecretAccessKey'
+    -> SecretKey -- ^ 'akSecretAccessKey'
     -> AccessKey
 accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
     AccessKey'
@@ -73,7 +73,7 @@ akUserName :: Lens' AccessKey Text
 akUserName = lens _akUserName (\ s a -> s{_akUserName = a});
 
 -- | The ID for this access key.
-akAccessKeyId :: Lens' AccessKey Text
+akAccessKeyId :: Lens' AccessKey AccessKey
 akAccessKeyId = lens _akAccessKeyId (\ s a -> s{_akAccessKeyId = a});
 
 -- | The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
@@ -81,7 +81,7 @@ akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\ s a -> s{_akStatus = a});
 
 -- | The secret key used to sign requests.
-akSecretAccessKey :: Lens' AccessKey Text
+akSecretAccessKey :: Lens' AccessKey SecretKey
 akSecretAccessKey = lens _akSecretAccessKey (\ s a -> s{_akSecretAccessKey = a}) . _Sensitive;
 
 instance FromXML AccessKey where
@@ -163,7 +163,7 @@ data AccessKeyMetadata = AccessKeyMetadata'
     { _akmStatus      :: !(Maybe StatusType)
     , _akmCreateDate  :: !(Maybe ISO8601)
     , _akmUserName    :: !(Maybe Text)
-    , _akmAccessKeyId :: !(Maybe Text)
+    , _akmAccessKeyId :: !(Maybe AccessKey)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccessKeyMetadata' with the minimum fields required to make a request.
@@ -200,7 +200,7 @@ akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName = lens _akmUserName (\ s a -> s{_akmUserName = a});
 
 -- | The ID for this access key.
-akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe Text)
+akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe AccessKey)
 akmAccessKeyId = lens _akmAccessKeyId (\ s a -> s{_akmAccessKeyId = a});
 
 instance FromXML AccessKeyMetadata where

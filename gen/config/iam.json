@@ -1,6 +1,9 @@
 {
     "libraryName": "amazonka-iam",
     "typeOverrides": {
+        "AccessKey": {
+            "renamedTo": "AccessKeyMetadata"
+        },
         "accessKeyIdType": {
             "replacedBy": {
                 "name": "AccessKey",

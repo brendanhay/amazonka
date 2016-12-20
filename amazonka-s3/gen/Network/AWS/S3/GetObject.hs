@@ -108,7 +108,7 @@ data GetObject = GetObject'
     , _goIfNoneMatch                :: !(Maybe Text)
     , _goBucket                     :: !BucketName
     , _goKey                        :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetObject' with the minimum fields required to make a request.
 --

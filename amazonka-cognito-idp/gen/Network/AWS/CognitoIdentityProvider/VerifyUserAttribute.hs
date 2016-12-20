@@ -54,7 +54,7 @@ data VerifyUserAttribute = VerifyUserAttribute'
     { _vuaAccessToken   :: !(Maybe (Sensitive Text))
     , _vuaAttributeName :: !Text
     , _vuaCode          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VerifyUserAttribute' with the minimum fields required to make a request.
 --

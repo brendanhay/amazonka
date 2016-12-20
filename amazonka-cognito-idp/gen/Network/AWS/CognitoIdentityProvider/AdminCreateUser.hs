@@ -67,7 +67,7 @@ data AdminCreateUser = AdminCreateUser'
     , _acuValidationData         :: !(Maybe [AttributeType])
     , _acuUserPoolId             :: !Text
     , _acuUsername               :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminCreateUser' with the minimum fields required to make a request.
 --
@@ -187,7 +187,7 @@ instance ToQuery AdminCreateUser where
 data AdminCreateUserResponse = AdminCreateUserResponse'
     { _acursUser           :: !(Maybe UserType)
     , _acursResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminCreateUserResponse' with the minimum fields required to make a request.
 --

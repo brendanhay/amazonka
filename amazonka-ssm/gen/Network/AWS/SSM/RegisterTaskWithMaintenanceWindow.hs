@@ -67,7 +67,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     , _rtwmwTaskType       :: !MaintenanceWindowTaskType
     , _rtwmwMaxConcurrency :: !Text
     , _rtwmwMaxErrors      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterTaskWithMaintenanceWindow' with the minimum fields required to make a request.
 --

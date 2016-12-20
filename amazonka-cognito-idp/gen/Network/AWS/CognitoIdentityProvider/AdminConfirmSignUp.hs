@@ -52,7 +52,7 @@ import           Network.AWS.Response
 data AdminConfirmSignUp = AdminConfirmSignUp'
     { _acsuUserPoolId :: !Text
     , _acsuUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminConfirmSignUp' with the minimum fields required to make a request.
 --

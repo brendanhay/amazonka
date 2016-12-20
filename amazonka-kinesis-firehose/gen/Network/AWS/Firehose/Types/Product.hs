@@ -209,7 +209,7 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
     , _dsdVersionId            :: !Text
     , _dsdDestinations         :: ![DestinationDescription]
     , _dsdHasMoreDestinations  :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeliveryStreamDescription' with the minimum fields required to make a request.
 --
@@ -309,7 +309,7 @@ data DestinationDescription = DestinationDescription'
     , _ddElasticsearchDestinationDescription :: !(Maybe ElasticsearchDestinationDescription)
     , _ddRedshiftDestinationDescription      :: !(Maybe RedshiftDestinationDescription)
     , _ddDestinationId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DestinationDescription' with the minimum fields required to make a request.
 --
@@ -1003,7 +1003,7 @@ data RedshiftDestinationConfiguration = RedshiftDestinationConfiguration'
     , _rdcUsername                 :: !(Sensitive Text)
     , _rdcPassword                 :: !(Sensitive Text)
     , _rdcS3Configuration          :: !S3DestinationConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RedshiftDestinationConfiguration' with the minimum fields required to make a request.
 --
@@ -1108,7 +1108,7 @@ data RedshiftDestinationDescription = RedshiftDestinationDescription'
     , _rddCopyCommand              :: !CopyCommand
     , _rddUsername                 :: !(Sensitive Text)
     , _rddS3DestinationDescription :: !S3DestinationDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RedshiftDestinationDescription' with the minimum fields required to make a request.
 --
@@ -1205,7 +1205,7 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
     , _rduRetryOptions             :: !(Maybe RedshiftRetryOptions)
     , _rduClusterJDBCURL           :: !(Maybe Text)
     , _rduRoleARN                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RedshiftDestinationUpdate' with the minimum fields required to make a request.
 --

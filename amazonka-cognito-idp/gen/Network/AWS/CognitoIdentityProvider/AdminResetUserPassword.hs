@@ -54,7 +54,7 @@ import           Network.AWS.Response
 data AdminResetUserPassword = AdminResetUserPassword'
     { _arupUserPoolId :: !Text
     , _arupUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminResetUserPassword' with the minimum fields required to make a request.
 --

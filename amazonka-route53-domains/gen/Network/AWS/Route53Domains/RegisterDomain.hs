@@ -73,7 +73,7 @@ data RegisterDomain = RegisterDomain'
     , _rAdminContact                    :: !(Sensitive ContactDetail)
     , _rRegistrantContact               :: !(Sensitive ContactDetail)
     , _rTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
 --

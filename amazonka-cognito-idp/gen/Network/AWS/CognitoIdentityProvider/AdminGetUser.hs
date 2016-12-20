@@ -59,7 +59,7 @@ import           Network.AWS.Response
 data AdminGetUser = AdminGetUser'
     { _aguUserPoolId :: !Text
     , _aguUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminGetUser' with the minimum fields required to make a request.
 --
@@ -142,7 +142,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
     , _agursUserLastModifiedDate :: !(Maybe POSIX)
     , _agursResponseStatus       :: !Int
     , _agursUsername             :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminGetUserResponse' with the minimum fields required to make a request.
 --

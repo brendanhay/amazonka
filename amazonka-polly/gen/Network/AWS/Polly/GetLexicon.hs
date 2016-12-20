@@ -48,7 +48,7 @@ import           Network.AWS.Response
 -- | /See:/ 'getLexicon' smart constructor.
 newtype GetLexicon = GetLexicon'
     { _glName :: Sensitive Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetLexicon' with the minimum fields required to make a request.
 --
@@ -96,7 +96,7 @@ data GetLexiconResponse = GetLexiconResponse'
     { _glrsLexiconAttributes :: !(Maybe LexiconAttributes)
     , _glrsLexicon           :: !(Maybe Lexicon)
     , _glrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetLexiconResponse' with the minimum fields required to make a request.
 --

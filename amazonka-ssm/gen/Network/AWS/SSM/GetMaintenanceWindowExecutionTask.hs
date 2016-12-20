@@ -160,7 +160,7 @@ data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTa
     , _gmwetrsMaxConcurrency    :: !(Maybe Text)
     , _gmwetrsServiceRole       :: !(Maybe Text)
     , _gmwetrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTaskResponse' with the minimum fields required to make a request.
 --

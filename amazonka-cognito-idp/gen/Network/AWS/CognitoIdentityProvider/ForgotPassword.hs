@@ -55,7 +55,7 @@ data ForgotPassword = ForgotPassword'
     { _fpSecretHash :: !(Maybe (Sensitive Text))
     , _fpClientId   :: !(Sensitive Text)
     , _fpUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ForgotPassword' with the minimum fields required to make a request.
 --

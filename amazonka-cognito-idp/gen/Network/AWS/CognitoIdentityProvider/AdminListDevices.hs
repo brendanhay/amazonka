@@ -58,7 +58,7 @@ data AdminListDevices = AdminListDevices'
     , _aldLimit           :: !(Maybe Nat)
     , _aldUserPoolId      :: !Text
     , _aldUsername        :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminListDevices' with the minimum fields required to make a request.
 --
@@ -148,7 +148,7 @@ data AdminListDevicesResponse = AdminListDevicesResponse'
     { _aldrsPaginationToken :: !(Maybe Text)
     , _aldrsDevices         :: !(Maybe [DeviceType])
     , _aldrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminListDevicesResponse' with the minimum fields required to make a request.
 --

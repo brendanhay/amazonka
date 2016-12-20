@@ -164,7 +164,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _crsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
 --

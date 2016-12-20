@@ -131,9 +131,9 @@ instance ToQuery GetSessionToken where
 --
 -- /See:/ 'getSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'
-    { _gstrsCredentials    :: !(Maybe Credentials)
+    { _gstrsCredentials    :: !(Maybe AuthEnv)
     , _gstrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSessionTokenResponse' with the minimum fields required to make a request.
 --
@@ -152,7 +152,7 @@ getSessionTokenResponse pResponseStatus_ =
     }
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
+gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe AuthEnv)
 gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 
 -- | -- | The response status code.

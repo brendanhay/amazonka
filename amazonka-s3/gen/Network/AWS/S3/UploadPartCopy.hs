@@ -83,7 +83,7 @@ data UploadPartCopy = UploadPartCopy'
     , _upcKey                            :: !ObjectKey
     , _upcPartNumber                     :: !Int
     , _upcUploadId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadPartCopy' with the minimum fields required to make a request.
 --
@@ -288,7 +288,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     , _upcrsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _upcrsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _upcrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadPartCopyResponse' with the minimum fields required to make a request.
 --

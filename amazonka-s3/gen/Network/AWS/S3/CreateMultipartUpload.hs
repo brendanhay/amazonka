@@ -100,7 +100,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     , _cmuContentType             :: !(Maybe Text)
     , _cmuBucket                  :: !BucketName
     , _cmuKey                     :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMultipartUpload' with the minimum fields required to make a request.
 --
@@ -345,7 +345,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     , _cmursUploadId             :: !(Maybe Text)
     , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cmursResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMultipartUploadResponse' with the minimum fields required to make a request.
 --

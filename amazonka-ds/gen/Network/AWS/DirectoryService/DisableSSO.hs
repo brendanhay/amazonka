@@ -54,7 +54,7 @@ data DisableSSO = DisableSSO'
     { _dssoUserName    :: !(Maybe Text)
     , _dssoPassword    :: !(Maybe (Sensitive Text))
     , _dssoDirectoryId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableSSO' with the minimum fields required to make a request.
 --

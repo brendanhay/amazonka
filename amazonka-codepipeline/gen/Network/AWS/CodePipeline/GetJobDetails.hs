@@ -113,7 +113,7 @@ instance ToQuery GetJobDetails where
 data GetJobDetailsResponse = GetJobDetailsResponse'
     { _gjdrsJobDetails     :: !(Maybe JobDetails)
     , _gjdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
 --

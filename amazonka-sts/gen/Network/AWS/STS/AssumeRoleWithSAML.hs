@@ -184,13 +184,13 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     { _arwsamlrsSubject          :: !(Maybe Text)
     , _arwsamlrsAudience         :: !(Maybe Text)
     , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
-    , _arwsamlrsCredentials      :: !(Maybe Credentials)
+    , _arwsamlrsCredentials      :: !(Maybe AuthEnv)
     , _arwsamlrsSubjectType      :: !(Maybe Text)
     , _arwsamlrsNameQualifier    :: !(Maybe Text)
     , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrsIssuer           :: !(Maybe Text)
     , _arwsamlrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
 --
@@ -242,7 +242,7 @@ arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrsPackedPolicySize = lens _arwsamlrsPackedPolicySize (\ s a -> s{_arwsamlrsPackedPolicySize = a}) . mapping _Nat;
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
+arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe AuthEnv)
 arwsamlrsCredentials = lens _arwsamlrsCredentials (\ s a -> s{_arwsamlrsCredentials = a});
 
 -- | The format of the name ID, as defined by the @Format@ attribute in the @NameID@ element of the SAML assertion. Typical examples of the format are @transient@ or @persistent@ .  If the format includes the prefix @urn:oasis:names:tc:SAML:2.0:nameid-format@ , that prefix is removed. For example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is returned as @transient@ . If the format includes any other prefix, the format is returned with no modifications.

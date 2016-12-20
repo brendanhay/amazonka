@@ -108,7 +108,7 @@ data ContactDetail = ContactDetail'
     , _cdFirstName        :: !(Maybe Text)
     , _cdCountryCode      :: !(Maybe CountryCode)
     , _cdContactType      :: !(Maybe ContactType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContactDetail' with the minimum fields required to make a request.
 --

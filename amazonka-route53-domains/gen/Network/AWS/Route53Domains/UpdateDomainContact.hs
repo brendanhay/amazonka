@@ -59,7 +59,7 @@ data UpdateDomainContact = UpdateDomainContact'
     , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
     , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
     , _udcDomainName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDomainContact' with the minimum fields required to make a request.
 --

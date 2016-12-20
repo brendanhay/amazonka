@@ -117,7 +117,7 @@ data CopyObject = CopyObject'
     , _coBucket                         :: !BucketName
     , _coCopySource                     :: !Text
     , _coKey                            :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyObject' with the minimum fields required to make a request.
 --
@@ -455,7 +455,7 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
     , _corsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CopyObjectResponse' with the minimum fields required to make a request.
 --

@@ -119,7 +119,7 @@ instance ToQuery GetInstanceAccess where
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
     { _giarsInstanceAccess :: !(Maybe InstanceAccess)
     , _giarsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetInstanceAccessResponse' with the minimum fields required to make a request.
 --

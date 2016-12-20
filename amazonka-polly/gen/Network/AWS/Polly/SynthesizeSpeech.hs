@@ -59,7 +59,7 @@ data SynthesizeSpeech = SynthesizeSpeech'
     , _ssOutputFormat :: !OutputFormat
     , _ssText         :: !Text
     , _ssVoiceId      :: !VoiceId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SynthesizeSpeech' with the minimum fields required to make a request.
 --

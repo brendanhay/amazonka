@@ -60,7 +60,7 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     , _rtacSession            :: !(Maybe Text)
     , _rtacClientId           :: !(Sensitive Text)
     , _rtacChallengeName      :: !ChallengeNameType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RespondToAuthChallenge' with the minimum fields required to make a request.
 --
@@ -156,7 +156,7 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
     , _rtacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
     , _rtacrsSession              :: !(Maybe Text)
     , _rtacrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RespondToAuthChallengeResponse' with the minimum fields required to make a request.
 --

@@ -60,7 +60,7 @@ data InitiateAuth = InitiateAuth'
     , _iaAuthParameters :: !(Maybe (Map Text Text))
     , _iaAuthFlow       :: !AuthFlowType
     , _iaClientId       :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InitiateAuth' with the minimum fields required to make a request.
 --
@@ -154,7 +154,7 @@ data InitiateAuthResponse = InitiateAuthResponse'
     , _iarsAuthenticationResult :: !(Maybe AuthenticationResultType)
     , _iarsSession              :: !(Maybe Text)
     , _iarsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InitiateAuthResponse' with the minimum fields required to make a request.
 --

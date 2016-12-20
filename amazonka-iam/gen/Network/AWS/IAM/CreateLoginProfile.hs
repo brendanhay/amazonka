@@ -51,7 +51,7 @@ data CreateLoginProfile = CreateLoginProfile'
     { _clpPasswordResetRequired :: !(Maybe Bool)
     , _clpUserName              :: !Text
     , _clpPassword              :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLoginProfile' with the minimum fields required to make a request.
 --

@@ -48,7 +48,7 @@ import           Network.AWS.Response
 data ChangePassword = ChangePassword'
     { _cpOldPassword :: !(Sensitive Text)
     , _cpNewPassword :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
 --

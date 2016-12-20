@@ -79,7 +79,7 @@ data UpdateFunctionCode = UpdateFunctionCode'
     , _uS3Bucket        :: !(Maybe Text)
     , _uPublish         :: !(Maybe Bool)
     , _uFunctionName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateFunctionCode' with the minimum fields required to make a request.
 --

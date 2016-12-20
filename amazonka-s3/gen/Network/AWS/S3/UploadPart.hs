@@ -221,7 +221,7 @@ data UploadPartResponse = UploadPartResponse'
     , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _uprsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UploadPartResponse' with the minimum fields required to make a request.
 --

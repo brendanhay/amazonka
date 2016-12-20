@@ -103,7 +103,7 @@ instance ToQuery GenerateRandom where
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
     , _grrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
 --

@@ -30,7 +30,7 @@ data AWSCredentials = AWSCredentials'
     { _acSecretAccessKey :: !(Maybe Text)
     , _acSessionToken    :: !(Maybe Text)
     , _acAccessKeyId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AWSCredentials' with the minimum fields required to make a request.
 --
@@ -1138,7 +1138,7 @@ data InstanceAccess = InstanceAccess'
     , _iaOperatingSystem :: !(Maybe OperatingSystem)
     , _iaCredentials     :: !(Maybe (Sensitive InstanceCredentials))
     , _iaFleetId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceAccess' with the minimum fields required to make a request.
 --
@@ -1206,7 +1206,7 @@ instance NFData InstanceAccess
 data InstanceCredentials = InstanceCredentials'
     { _icUserName :: !(Maybe Text)
     , _icSecret   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'InstanceCredentials' with the minimum fields required to make a request.
 --

@@ -50,7 +50,7 @@ import           Network.AWS.Response
 data DeleteUserPoolClient = DeleteUserPoolClient'
     { _dupcUserPoolId :: !Text
     , _dupcClientId   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUserPoolClient' with the minimum fields required to make a request.
 --

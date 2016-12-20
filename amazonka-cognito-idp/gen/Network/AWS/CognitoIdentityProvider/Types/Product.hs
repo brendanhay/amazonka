@@ -94,7 +94,7 @@ instance ToJSON AdminCreateUserConfigType where
 data AttributeType = AttributeType'
     { _atValue :: !(Maybe (Sensitive Text))
     , _atName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttributeType' with the minimum fields required to make a request.
 --
@@ -149,7 +149,7 @@ data AuthenticationResultType = AuthenticationResultType'
     , _artExpiresIn         :: !(Maybe Int)
     , _artTokenType         :: !(Maybe Text)
     , _artIdToken           :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AuthenticationResultType' with the minimum fields required to make a request.
 --
@@ -379,7 +379,7 @@ data DeviceType = DeviceType'
     , _dtDeviceAttributes            :: !(Maybe [AttributeType])
     , _dtDeviceKey                   :: !(Maybe Text)
     , _dtDeviceLastAuthenticatedDate :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeviceType' with the minimum fields required to make a request.
 --
@@ -1259,7 +1259,7 @@ data UserPoolClientDescription = UserPoolClientDescription'
     { _upcdClientId   :: !(Maybe (Sensitive Text))
     , _upcdUserPoolId :: !(Maybe Text)
     , _upcdClientName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserPoolClientDescription' with the minimum fields required to make a request.
 --
@@ -1319,7 +1319,7 @@ data UserPoolClientType = UserPoolClientType'
     , _upctCreationDate         :: !(Maybe POSIX)
     , _upctReadAttributes       :: !(Maybe [Text])
     , _upctClientName           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserPoolClientType' with the minimum fields required to make a request.
 --
@@ -1778,7 +1778,7 @@ data UserType = UserType'
     , _utAttributes           :: !(Maybe [AttributeType])
     , _utMFAOptions           :: !(Maybe [MFAOptionType])
     , _utUserLastModifiedDate :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UserType' with the minimum fields required to make a request.
 --

@@ -73,7 +73,7 @@ data ModifyEndpoint = ModifyEndpoint'
     , _meEndpointIdentifier        :: !(Maybe Text)
     , _mePort                      :: !(Maybe Int)
     , _meEndpointARN               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ModifyEndpoint' with the minimum fields required to make a request.
 --

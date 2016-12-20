@@ -141,7 +141,7 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
     , _gpfirsParametersValidTo :: !(Maybe POSIX)
     , _gpfirsImportToken       :: !(Maybe Base64)
     , _gpfirsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetParametersForImportResponse' with the minimum fields required to make a request.
 --

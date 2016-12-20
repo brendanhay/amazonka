@@ -55,7 +55,7 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     , _rWindowId         :: !Text
     , _rResourceType     :: !MaintenanceWindowResourceType
     , _rTargets          :: ![Target]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterTargetWithMaintenanceWindow' with the minimum fields required to make a request.
 --

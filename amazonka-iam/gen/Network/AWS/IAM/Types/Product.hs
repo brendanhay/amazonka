@@ -2547,7 +2547,7 @@ data VirtualMFADevice = VirtualMFADevice'
     , _vmdUser             :: !(Maybe User)
     , _vmdEnableDate       :: !(Maybe ISO8601)
     , _vmdSerialNumber     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VirtualMFADevice' with the minimum fields required to make a request.
 --

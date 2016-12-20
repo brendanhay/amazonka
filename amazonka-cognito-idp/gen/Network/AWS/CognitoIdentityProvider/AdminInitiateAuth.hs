@@ -62,7 +62,7 @@ data AdminInitiateAuth = AdminInitiateAuth'
     , _aiaUserPoolId     :: !Text
     , _aiaClientId       :: !(Sensitive Text)
     , _aiaAuthFlow       :: !AuthFlowType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminInitiateAuth' with the minimum fields required to make a request.
 --
@@ -165,7 +165,7 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
     , _aiarsAuthenticationResult :: !(Maybe AuthenticationResultType)
     , _aiarsSession              :: !(Maybe Text)
     , _aiarsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminInitiateAuthResponse' with the minimum fields required to make a request.
 --

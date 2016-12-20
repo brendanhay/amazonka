@@ -52,7 +52,7 @@ data AdminForgetDevice = AdminForgetDevice'
     { _afdUserPoolId :: !Text
     , _afdUsername   :: !(Sensitive Text)
     , _afdDeviceKey  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminForgetDevice' with the minimum fields required to make a request.
 --

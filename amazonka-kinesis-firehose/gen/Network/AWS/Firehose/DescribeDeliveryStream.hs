@@ -137,7 +137,7 @@ instance ToQuery DescribeDeliveryStream where
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
     { _ddsrsResponseStatus            :: !Int
     , _ddsrsDeliveryStreamDescription :: !DeliveryStreamDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDeliveryStreamResponse' with the minimum fields required to make a request.
 --

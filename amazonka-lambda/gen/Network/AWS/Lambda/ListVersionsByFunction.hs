@@ -129,7 +129,7 @@ data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
     { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
     , _lvbfrsNextMarker     :: !(Maybe Text)
     , _lvbfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVersionsByFunctionResponse' with the minimum fields required to make a request.
 --

@@ -52,7 +52,7 @@ import           Network.AWS.Response
 data AdminEnableUser = AdminEnableUser'
     { _aeuUserPoolId :: !Text
     , _aeuUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminEnableUser' with the minimum fields required to make a request.
 --

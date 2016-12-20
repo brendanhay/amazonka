@@ -62,7 +62,7 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     , _artacUserPoolId         :: !Text
     , _artacClientId           :: !(Sensitive Text)
     , _artacChallengeName      :: !ChallengeNameType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminRespondToAuthChallenge' with the minimum fields required to make a request.
 --
@@ -167,7 +167,7 @@ data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
     , _artacrsAuthenticationResult :: !(Maybe AuthenticationResultType)
     , _artacrsSession              :: !(Maybe Text)
     , _artacrsResponseStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminRespondToAuthChallengeResponse' with the minimum fields required to make a request.
 --

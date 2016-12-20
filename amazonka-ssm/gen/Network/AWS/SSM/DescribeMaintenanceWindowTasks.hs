@@ -141,7 +141,7 @@ data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResp
     { _dmwtsrsTasks          :: !(Maybe [MaintenanceWindowTask])
     , _dmwtsrsNextToken      :: !(Maybe Text)
     , _dmwtsrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasksResponse' with the minimum fields required to make a request.
 --

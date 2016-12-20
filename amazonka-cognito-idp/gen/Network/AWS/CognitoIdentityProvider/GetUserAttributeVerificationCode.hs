@@ -53,7 +53,7 @@ import           Network.AWS.Response
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
     { _guavcAccessToken   :: !(Maybe (Sensitive Text))
     , _guavcAttributeName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUserAttributeVerificationCode' with the minimum fields required to make a request.
 --

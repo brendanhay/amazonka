@@ -50,7 +50,7 @@ import           Network.AWS.Response
 -- /See:/ 'globalSignOut' smart constructor.
 newtype GlobalSignOut = GlobalSignOut'
     { _gsoAccessToken :: Maybe (Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GlobalSignOut' with the minimum fields required to make a request.
 --

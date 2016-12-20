@@ -96,14 +96,6 @@ module Network.AWS.STS
     , aruAssumedRoleId
     , aruARN
 
-    -- ** Credentials
-    , Credentials
-    , credentials
-    , cAccessKeyId
-    , cSecretAccessKey
-    , cSessionToken
-    , cExpiration
-
     -- ** FederatedUser
     , FederatedUser
     , federatedUser

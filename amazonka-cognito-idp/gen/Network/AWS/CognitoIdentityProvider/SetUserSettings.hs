@@ -52,7 +52,7 @@ import           Network.AWS.Response
 data SetUserSettings = SetUserSettings'
     { _susAccessToken :: !(Sensitive Text)
     , _susMFAOptions  :: ![MFAOptionType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetUserSettings' with the minimum fields required to make a request.
 --

@@ -54,7 +54,7 @@ data AdminDeleteUserAttributes = AdminDeleteUserAttributes'
     { _aduaUserPoolId         :: !Text
     , _aduaUsername           :: !(Sensitive Text)
     , _aduaUserAttributeNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminDeleteUserAttributes' with the minimum fields required to make a request.
 --

@@ -30,7 +30,7 @@ data AWSSessionCredentials = AWSSessionCredentials'
     { _ascAccessKeyId     :: !Text
     , _ascSecretAccessKey :: !Text
     , _ascSessionToken    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AWSSessionCredentials' with the minimum fields required to make a request.
 --
@@ -1532,7 +1532,7 @@ data Job = Job'
     , _jAccountId :: !(Maybe Text)
     , _jId        :: !(Maybe Text)
     , _jNonce     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
@@ -1598,7 +1598,7 @@ data JobData = JobData'
     , _jdActionTypeId        :: !(Maybe ActionTypeId)
     , _jdInputArtifacts      :: !(Maybe [Artifact])
     , _jdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobData' with the minimum fields required to make a request.
 --
@@ -1692,7 +1692,7 @@ data JobDetails = JobDetails'
     { _jdData      :: !(Maybe JobData)
     , _jdAccountId :: !(Maybe Text)
     , _jdId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
 --
@@ -2354,7 +2354,7 @@ data ThirdPartyJobData = ThirdPartyJobData'
     , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
     , _tpjdInputArtifacts      :: !(Maybe [Artifact])
     , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThirdPartyJobData' with the minimum fields required to make a request.
 --
@@ -2448,7 +2448,7 @@ data ThirdPartyJobDetails = ThirdPartyJobDetails'
     { _tpjdData  :: !(Maybe ThirdPartyJobData)
     , _tpjdId    :: !(Maybe Text)
     , _tpjdNonce :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ThirdPartyJobDetails' with the minimum fields required to make a request.
 --

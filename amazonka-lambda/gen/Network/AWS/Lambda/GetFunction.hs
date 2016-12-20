@@ -119,7 +119,7 @@ data GetFunctionResponse = GetFunctionResponse'
     { _gfrsCode           :: !(Maybe FunctionCodeLocation)
     , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
     , _gfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
 --

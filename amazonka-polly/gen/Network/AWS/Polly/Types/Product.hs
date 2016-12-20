@@ -29,7 +29,7 @@ import           Network.AWS.Prelude
 data Lexicon = Lexicon'
     { _lContent :: !(Maybe Text)
     , _lName    :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Lexicon' with the minimum fields required to make a request.
 --
@@ -152,7 +152,7 @@ instance NFData LexiconAttributes
 data LexiconDescription = LexiconDescription'
     { _ldAttributes :: !(Maybe LexiconAttributes)
     , _ldName       :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LexiconDescription' with the minimum fields required to make a request.
 --

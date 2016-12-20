@@ -113,7 +113,7 @@ instance ToQuery RetrieveDomainAuthCode where
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
     { _rdacrsResponseStatus :: !Int
     , _rdacrsAuthCode       :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RetrieveDomainAuthCodeResponse' with the minimum fields required to make a request.
 --

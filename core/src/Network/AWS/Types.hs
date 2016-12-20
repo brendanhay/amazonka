@@ -590,7 +590,7 @@ data AuthEnv = AuthEnv
     , _authSecret :: !(Sensitive SecretKey)
     , _authToken  :: Maybe (Sensitive SessionToken)
     , _authExpiry :: Maybe ISO8601
-    } deriving (Eq, Show, Data, Generic)
+    } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance NFData AuthEnv
 

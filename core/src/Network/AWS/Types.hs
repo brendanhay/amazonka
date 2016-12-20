@@ -523,6 +523,7 @@ newtype AccessKey = AccessKey ByteString
         , Show
         , Read
         , Data
+        , Typeable
         , IsString
         , ToText
         , FromText
@@ -547,6 +548,7 @@ newtype SecretKey = SecretKey ByteString
     deriving
         ( Eq
         , Data
+        , Typeable
         , IsString
         , ToText
         , FromText
@@ -568,6 +570,7 @@ newtype SessionToken = SessionToken ByteString
     deriving
         ( Eq
         , Data
+        , Typeable
         , IsString
         , ToText
         , FromText

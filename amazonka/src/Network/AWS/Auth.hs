@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleContexts   #-}
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE TupleSections      #-}
 
 -- |
 -- Module      : Network.AWS.Auth
@@ -50,7 +51,6 @@ module Network.AWS.Auth
     , fromFilePath
     , fromProfile
     , fromProfileName
-    , fromAuthEnv
 
     -- ** Keys
     , AccessKey    (..)
@@ -62,32 +62,36 @@ module Network.AWS.Auth
     , AuthError    (..)
     ) where
 
-import           Control.Applicative
-import           Control.Concurrent
-import           Control.Monad
-import           Control.Monad.Catch
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Maybe  (MaybeT (..))
+import Control.Applicative
+import Control.Concurrent
+import Control.Monad
+import Control.Monad.Catch
+import Control.Monad.IO.Class
+import Control.Monad.Trans.Maybe (MaybeT (..))
+
+import Data.Char   (isSpace)
+import Data.IORef
+import Data.Monoid
+import Data.Time   (diffUTCTime, getCurrentTime)
+
+import Network.AWS.Data.Log
+import Network.AWS.EC2.Metadata
+import Network.AWS.Lens         (catching, catching_, exception, throwingM,
+                                 _IOException)
+import Network.AWS.Lens         (Prism', prism, (<&>))
+import Network.AWS.Prelude
+import Network.AWS.Types
+import Network.HTTP.Conduit
+
+import System.Directory   (doesFileExist, getHomeDirectory)
+import System.Environment
+import System.Mem.Weak
+
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
-import           Data.Char                  (isSpace)
 import qualified Data.Ini                   as INI
-import           Data.IORef
-import           Data.Monoid
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
-import           Data.Time                  (diffUTCTime, getCurrentTime)
-import           Network.AWS.Data.Log
-import           Network.AWS.EC2.Metadata
-import           Network.AWS.Lens           (catching, catching_, exception,
-                                             throwingM, _IOException)
-import           Network.AWS.Lens           (Prism', prism, (<&>))
-import           Network.AWS.Prelude
-import           Network.AWS.Types
-import           Network.HTTP.Conduit
-import           System.Directory           (doesFileExist, getHomeDirectory)
-import           System.Environment
-import           System.Mem.Weak
 
 -- | Default access key environment variable.
 envAccessKey :: Text -- ^ AWS_ACCESS_KEY_ID
@@ -152,30 +156,27 @@ constraint.
 
 -- | Explicit access and secret keys.
 fromKeys :: AccessKey -> SecretKey -> Auth
-fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
+fromKeys a s = Auth (AuthEnv a (Sensitive s) Nothing Nothing)
 
 -- | Temporary credentials from a STS session consisting of
 -- the access key, secret key, and session token.
 --
--- This does not perform any refresh of credentials.
---
 -- /See:/ 'fromTemporarySession'
 fromSession :: AccessKey -> SecretKey -> SessionToken -> Auth
-fromSession a s t = fromAuthEnv (AuthEnv a s (Just t) Nothing)
+fromSession a s t =
+    Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) Nothing)
 
 -- | Temporary credentials from a STS session consisting of
 -- the access key, secret key, session token, and expiration time.
 --
--- This will pre-emptively refresh the temporary session credentials
--- before expiration, see 'fromAuthEnv' for more information.
---
--- /See:/ 'fromSession', 'fromAuthEnv'
+-- /See:/ 'fromSession'
 fromTemporarySession :: AccessKey
                      -> SecretKey
                      -> SessionToken
                      -> UTCTime
                      -> Auth
-fromTemporarySession a s t = fromAuthEnv (AuthEnv a s (Just t) Nothing)
+fromTemporarySession a s t e =
+    Auth (AuthEnv a (Sensitive s) (Just (Sensitive t)) (Just (Time e)))
 
 -- | Determines how AuthN/AuthZ information is retrieved.
 data Credentials
@@ -376,8 +377,8 @@ fromEnvKeys access secret session region =
   where
     lookupKeys = AuthEnv
         <$> (req access  <&> AccessKey . BS8.pack)
-        <*> (req secret  <&> SecretKey . BS8.pack)
-        <*> (opt session <&> fmap (SessionToken . BS8.pack))
+        <*> (req secret  <&> Sensitive . SecretKey . BS8.pack)
+        <*> (opt session <&> fmap (Sensitive . SessionToken . BS8.pack))
         <*> return Nothing
 
     lookupRegion :: (MonadIO m, MonadThrow m) => m (Maybe Region)
@@ -426,8 +427,8 @@ fromFilePath n f = do
     ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
     env <- AuthEnv
         <$> (req credAccessKey    ini <&> AccessKey)
-        <*> (req credSecretKey    ini <&> SecretKey)
-        <*> (opt credSessionToken ini <&> fmap SessionToken)
+        <*> (req credSecretKey    ini <&> Sensitive . SecretKey)
+        <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
         <*> return Nothing
     return (Auth env, Nothing)
   where
@@ -468,16 +469,27 @@ fromProfile m = do
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
--- If valid STS security credentials are retrieved, they will be automatically
--- refreshed periodically before expiration.
+-- Additionally starts a refresh thread for the given authentication environment.
 --
--- /See:/ 'fromAuthEnv'.
+-- The resulting 'IORef' wrapper + timer is designed so that multiple concurrent
+-- accesses of 'AuthEnv' from the 'AWS' environment are not required to calculate
+-- expiry and sequentially queue to update it.
+--
+-- The forked timer ensures a singular owner and pre-emptive refresh of the
+-- temporary session credentials before expiration.
+--
+-- A weak reference is used to ensure that the forked thread will eventually
+-- terminate when 'Auth' is no longer referenced.
+--
+-- If no session token or expiration time is present the credentials will
+-- be returned verbatim.
+--
 fromProfileName :: (MonadIO m, MonadCatch m)
                 => Manager
                 -> Text
                 -> m (Auth, Maybe Region)
 fromProfileName m name = do
-    auth <- getCredentials >>= fromAuthEnv
+    auth <- getCredentials >>= start
     reg  <- getRegion
     return (auth, Just reg)
   where
@@ -502,37 +514,23 @@ fromProfileName m name = do
         . mappend "Error parsing Instance Identity Document "
         . Text.pack
 
--- | Starts a refresh thread for the given authentication environment.
---
--- The resulting 'IORef' wrapper + timer is designed so that multiple concurrent
--- accesses of 'AuthEnv' from the 'AWS' environment are not required to calculate
--- expiry and sequentially queue to update it.
---
--- The forked timer ensures a singular owner and pre-emptive refresh of the
--- temporary session credentials before expiration.
---
--- A weak reference is used to ensure that the forked thread will eventually
--- terminate when 'Auth' is no longer referenced.
---
--- If no STS token or expiration time is present the credentials will
--- be returned verbatim.
---
-fromAuthEnv :: MonadIO m => AuthEnv -> m Auth
-fromAuthEnv a
-    | Nothing <- _authExpiry a = return (Auth a)
-    | otherwise                = do
-        r <- newIORef a
-        p <- myThreadId
-        s <- timer r p x
-        return (Ref s r)
-  where
-    timer :: IORef AuthEnv -> ThreadId -> UTCTime -> IO ThreadId
+    start :: MonadIO m => AuthEnv -> m Auth
+    start !a = liftIO $
+        case _authExpiry a of
+            Nothing -> return (Auth a)
+            Just x  -> do
+                r <- newIORef a
+                p <- myThreadId
+                s <- timer r p x
+                return (Ref s r)
+
+    timer :: IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
     timer !r !p !x = forkIO $ do
         s <- myThreadId
         w <- mkWeakIORef r (killThread s)
         loop w p x
 
-    loop :: Weak (IORef AuthEnv) -> ThreadId -> UTCTime -> IO ()
+    loop :: Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
     loop w !p !x = do
         diff x <$> getCurrentTime >>= threadDelay
         env <- try getCredentials
@@ -546,6 +544,6 @@ fromAuthEnv a
                          atomicWriteIORef r a
                          maybe (return ()) (loop w p) (_authExpiry a)
 
-    diff !x !y = (* 1000000) $ if n > 0 then n else 1
+    diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where
         !n = truncate (diffUTCTime x y) - 60

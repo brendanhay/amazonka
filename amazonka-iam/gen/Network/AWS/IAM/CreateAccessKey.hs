@@ -43,12 +43,12 @@ module Network.AWS.IAM.CreateAccessKey
     , cakrsAccessKey
     ) where
 
-import           Network.AWS.IAM.Types
-import           Network.AWS.IAM.Types.Product
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
-import           Network.AWS.Request
-import           Network.AWS.Response
+import Network.AWS.IAM.Types
+import Network.AWS.IAM.Types.Product
+import Network.AWS.Lens
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Response
 
 -- | /See:/ 'createAccessKey' smart constructor.
 newtype CreateAccessKey = CreateAccessKey'
@@ -104,8 +104,8 @@ instance ToQuery CreateAccessKey where
 -- /See:/ 'createAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
     { _cakrsResponseStatus :: !Int
-    , _cakrsAccessKey      :: !AccessKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    , _cakrsAccessKey      :: !AccessKeyInfo
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
 --
@@ -116,7 +116,7 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse'
 -- * 'cakrsAccessKey' - A structure with details about the access key.
 createAccessKeyResponse
     :: Int -- ^ 'cakrsResponseStatus'
-    -> AccessKey -- ^ 'cakrsAccessKey'
+    -> AccessKeyInfo -- ^ 'cakrsAccessKey'
     -> CreateAccessKeyResponse
 createAccessKeyResponse pResponseStatus_ pAccessKey_ =
     CreateAccessKeyResponse'
@@ -129,7 +129,7 @@ cakrsResponseStatus :: Lens' CreateAccessKeyResponse Int
 cakrsResponseStatus = lens _cakrsResponseStatus (\ s a -> s{_cakrsResponseStatus = a});
 
 -- | A structure with details about the access key.
-cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
+cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKeyInfo
 cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a});
 
 instance NFData CreateAccessKeyResponse

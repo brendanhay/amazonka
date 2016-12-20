@@ -50,7 +50,7 @@ import           Network.AWS.Response
 -- | /See:/ 'updateAccessKey' smart constructor.
 data UpdateAccessKey = UpdateAccessKey'
     { _uakUserName    :: !(Maybe Text)
-    , _uakAccessKeyId :: !Text
+    , _uakAccessKeyId :: !AccessKey
     , _uakStatus      :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -64,7 +64,7 @@ data UpdateAccessKey = UpdateAccessKey'
 --
 -- * 'uakStatus' - The status you want to assign to the secret access key. @Active@ means the key can be used for API calls to AWS, while @Inactive@ means the key cannot be used.
 updateAccessKey
-    :: Text -- ^ 'uakAccessKeyId'
+    :: AccessKey -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
     -> UpdateAccessKey
 updateAccessKey pAccessKeyId_ pStatus_ =
@@ -79,7 +79,7 @@ uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
 -- | The access key ID of the secret access key you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
-uakAccessKeyId :: Lens' UpdateAccessKey Text
+uakAccessKeyId :: Lens' UpdateAccessKey AccessKey
 uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 
 -- | The status you want to assign to the secret access key. @Active@ means the key can be used for API calls to AWS, while @Inactive@ means the key cannot be used.

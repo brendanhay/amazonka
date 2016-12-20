@@ -495,14 +495,14 @@ module Network.AWS.IAM
     -- ** SummaryKeyType
     , SummaryKeyType (..)
 
-    -- ** AccessKey
-    , AccessKey
-    , accessKey
-    , akCreateDate
-    , akUserName
-    , akAccessKeyId
-    , akStatus
-    , akSecretAccessKey
+    -- ** AccessKeyInfo
+    , AccessKeyInfo
+    , accessKeyInfo
+    , akiCreateDate
+    , akiUserName
+    , akiAccessKeyId
+    , akiStatus
+    , akiSecretAccessKey
 
     -- ** AccessKeyLastUsed
     , AccessKeyLastUsed

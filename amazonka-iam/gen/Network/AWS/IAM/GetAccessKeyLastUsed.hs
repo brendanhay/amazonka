@@ -47,7 +47,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-    { _gakluAccessKeyId :: Text
+    { _gakluAccessKeyId :: AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
@@ -56,7 +56,7 @@ newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
 --
 -- * 'gakluAccessKeyId' - The identifier of an access key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
 getAccessKeyLastUsed
-    :: Text -- ^ 'gakluAccessKeyId'
+    :: AccessKey -- ^ 'gakluAccessKeyId'
     -> GetAccessKeyLastUsed
 getAccessKeyLastUsed pAccessKeyId_ =
     GetAccessKeyLastUsed'
@@ -64,7 +64,7 @@ getAccessKeyLastUsed pAccessKeyId_ =
     }
 
 -- | The identifier of an access key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
-gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
+gakluAccessKeyId :: Lens' GetAccessKeyLastUsed AccessKey
 gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
 instance AWSRequest GetAccessKeyLastUsed where

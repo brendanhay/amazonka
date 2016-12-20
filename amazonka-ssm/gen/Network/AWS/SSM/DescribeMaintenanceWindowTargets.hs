@@ -144,7 +144,7 @@ data DescribeMaintenanceWindowTargetsResponse = DescribeMaintenanceWindowTargets
     { _dmwtrsNextToken      :: !(Maybe Text)
     , _dmwtrsTargets        :: !(Maybe [MaintenanceWindowTarget])
     , _dmwtrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTargetsResponse' with the minimum fields required to make a request.
 --

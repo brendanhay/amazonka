@@ -93,7 +93,7 @@ data HeadObject = HeadObject'
     , _hoIfNoneMatch          :: !(Maybe Text)
     , _hoBucket               :: !BucketName
     , _hoKey                  :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HeadObject' with the minimum fields required to make a request.
 --
@@ -294,7 +294,7 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _horsContentType             :: !(Maybe Text)
     , _horsResponseStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HeadObjectResponse' with the minimum fields required to make a request.
 --

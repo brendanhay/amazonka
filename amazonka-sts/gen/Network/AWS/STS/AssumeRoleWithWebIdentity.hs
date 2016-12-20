@@ -191,11 +191,11 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     { _arwwirsAudience                    :: !(Maybe Text)
     , _arwwirsSubjectFromWebIdentityToken :: !(Maybe Text)
     , _arwwirsPackedPolicySize            :: !(Maybe Nat)
-    , _arwwirsCredentials                 :: !(Maybe Credentials)
+    , _arwwirsCredentials                 :: !(Maybe AuthEnv)
     , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
     , _arwwirsProvider                    :: !(Maybe Text)
     , _arwwirsResponseStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleWithWebIdentityResponse' with the minimum fields required to make a request.
 --
@@ -241,7 +241,7 @@ arwwirsPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Natura
 arwwirsPackedPolicySize = lens _arwwirsPackedPolicySize (\ s a -> s{_arwwirsPackedPolicySize = a}) . mapping _Nat;
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
+arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AuthEnv)
 arwwirsCredentials = lens _arwwirsCredentials (\ s a -> s{_arwwirsCredentials = a});
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .

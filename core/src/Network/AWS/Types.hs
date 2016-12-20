@@ -25,9 +25,14 @@ module Network.AWS.Types
     , SecretKey      (..)
     , SessionToken   (..)
     -- ** Environment
-    , AuthEnv        (..)
     , Auth           (..)
     , withAuth
+
+    , AuthEnv        (..)
+    , accessKeyId
+    , secretAccessKey
+    , sessionToken
+    , expiration
 
     -- * Logging
     , LogLevel       (..)
@@ -126,11 +131,12 @@ import Control.DeepSeq
 import Control.Exception
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
-import Data.Aeson                   hiding (Error)
-import Data.ByteString.Builder      (Builder)
+
+import Data.Aeson              hiding (Error)
+import Data.ByteString.Builder (Builder)
 import Data.Coerce
 import Data.Conduit
-import Data.Data                    (Data, Typeable)
+import Data.Data               (Data, Typeable)
 import Data.Hashable
 import Data.IORef
 import Data.Maybe
@@ -138,23 +144,27 @@ import Data.Monoid
 import Data.Proxy
 import Data.String
 import Data.Time
-import GHC.Generics                 (Generic)
+
+import GHC.Generics (Generic)
+
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Log
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
+import Network.AWS.Data.Sensitive  (Sensitive, _Sensitive)
 import Network.AWS.Data.Text
+import Network.AWS.Data.Time       (ISO8601, _Time)
 import Network.AWS.Data.XML
-import Network.AWS.Lens             (Iso', Lens', Prism', Setter')
-import Network.AWS.Lens             (exception, iso, lens, prism, sets)
-import Network.HTTP.Conduit         hiding (Proxy, Request, Response)
+import Network.AWS.Lens            (Iso', Lens', Prism', Setter')
+import Network.AWS.Lens            (exception, iso, lens, mapping, prism, sets,
+                                    view)
+import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
 import Network.HTTP.Types.Header
 import Network.HTTP.Types.Method
-import Network.HTTP.Types.Status    (Status)
+import Network.HTTP.Types.Status   (Status)
 
-import qualified Data.ByteString      as BS
 import qualified Data.Text            as Text
 import qualified Data.Text.Encoding   as Text
 import qualified Network.HTTP.Conduit as Client
@@ -502,49 +512,131 @@ class AWSRequest a where
              -> ClientResponse
              -> m (Response a)
 
--- | Access key credential.
+-- | An access key ID.
+--
+-- For example: @AKIAIOSFODNN7EXAMPLE@
+--
+-- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString, ToText, ToByteString, ToLog)
+    deriving
+        ( Eq
+        , Show
+        , Read
+        , Data
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , ToLog
+        , FromXML
+        , ToXML
+        , ToQuery
+        , Hashable
+        , NFData
+        )
 
--- | Secret key credential.
+instance ToJSON   AccessKey where toJSON    = toJSONText
+instance FromJSON AccessKey where parseJSON = parseJSONText "AccessKey"
+
+-- | Secret access key credential.
+--
+-- For example: @wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKE@
+--
+-- /See:/ <http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html Understanding and Getting Your Security Credentials>.
 newtype SecretKey = SecretKey ByteString
-    deriving (Eq, IsString, ToText, ToByteString)
+    deriving
+        ( Eq
+        , Data
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , Hashable
+        , NFData
+        )
+
+instance ToJSON   SecretKey where toJSON    = toJSONText
+instance FromJSON SecretKey where parseJSON = parseJSONText "SecretKey"
 
 -- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials>.
 newtype SessionToken = SessionToken ByteString
-    deriving (Eq, IsString, ToText, ToByteString)
+    deriving
+        ( Eq
+        , Data
+        , IsString
+        , ToText
+        , FromText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , Hashable
+        , NFData
+        )
 
--- | The authorisation environment.
+instance ToJSON   SessionToken where toJSON    = toJSONText
+instance FromJSON SessionToken where parseJSON = parseJSONText "SessionToken"
+
+-- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
-    , _authSecret :: !SecretKey
-    , _authToken  :: Maybe SessionToken
-    , _authExpiry :: Maybe UTCTime
-    }
+    , _authSecret :: !(Sensitive SecretKey)
+    , _authToken  :: Maybe (Sensitive SessionToken)
+    , _authExpiry :: Maybe ISO8601
+    } deriving (Eq, Show, Data, Generic)
+
+instance NFData AuthEnv
 
 instance ToLog AuthEnv where
     build AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
-        , "  access key     = ****" <> key _authAccess
-        , "  secret key     = ****"
-        , "  security token = " <> build (const "****" <$> _authToken :: Maybe Builder)
-        , "  expiry         = " <> build _authExpiry
+        , "  access key id     = " <> build _authAccess
+        , "  secret access key = " <> build _authSecret
+        , "  session token     = " <> build _authToken
+        , "  expiration        = " <> build (fmap (view _Time) _authExpiry)
         , "}"
         ]
-      where
-        -- An attempt to preserve sanity when debugging which keys
-        -- have been loaded by the auth module.
-        key (AccessKey k) = build . BS.reverse . BS.take 6 $ BS.reverse k
 
 instance FromJSON AuthEnv where
     parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
-        <$> f AccessKey (o .: "AccessKeyId")
-        <*> f SecretKey (o .: "SecretAccessKey")
-        <*> fmap (f SessionToken) (o .:? "Token")
+        <$> o .:  "AccessKeyId"
+        <*> o .:  "SecretAccessKey"
+        <*> o .:? "Token"
         <*> o .:? "Expiration"
-      where
-        f g = fmap (g . Text.encodeUtf8)
+
+instance FromXML AuthEnv where
+    parseXML x = AuthEnv
+        <$> x .@  "AccessKeyId"
+        <*> x .@  "SecretAccessKey"
+        <*> x .@? "SessionToken"
+        <*> x .@? "Expiration"
+
+-- | The access key ID that identifies the temporary security credentials.
+accessKeyId :: Lens' AuthEnv AccessKey
+accessKeyId = lens _authAccess (\s a -> s{ _authAccess = a })
+
+-- | The secret access key that can be used to sign requests.
+secretAccessKey :: Lens' AuthEnv SecretKey
+secretAccessKey =
+    lens _authSecret (\s a -> s { _authSecret = a })
+        . _Sensitive
+
+-- | The token that users must pass to the service API to use the temporary
+-- credentials.
+sessionToken :: Lens' AuthEnv (Maybe SessionToken)
+sessionToken =
+    lens _authToken (\s a -> s { _authToken = a })
+        . mapping _Sensitive
+
+-- | The date on which the current credentials expire.
+expiration :: Lens' AuthEnv (Maybe UTCTime)
+expiration =
+    lens _authExpiry (\s a -> s { _authExpiry = a })
+        . mapping _Time
 
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.

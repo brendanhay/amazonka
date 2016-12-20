@@ -57,7 +57,7 @@ data ConfirmDevice = ConfirmDevice'
     , _cdDeviceName                 :: !(Maybe Text)
     , _cdAccessToken                :: !(Sensitive Text)
     , _cdDeviceKey                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmDevice' with the minimum fields required to make a request.
 --

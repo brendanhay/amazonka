@@ -153,10 +153,10 @@ instance ToQuery GetFederationToken where
 -- /See:/ 'getFederationTokenResponse' smart constructor.
 data GetFederationTokenResponse = GetFederationTokenResponse'
     { _gftrsPackedPolicySize :: !(Maybe Nat)
-    , _gftrsCredentials      :: !(Maybe Credentials)
+    , _gftrsCredentials      :: !(Maybe AuthEnv)
     , _gftrsFederatedUser    :: !(Maybe FederatedUser)
     , _gftrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
 --
@@ -185,7 +185,7 @@ gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat;
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
+gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe AuthEnv)
 gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
 
 -- | Identifiers for the federated user associated with the credentials (such as @arn:aws:sts::123456789012:federated-user/Bob@ or @123456789012:Bob@ ). You can use the federated user's ARN in your resource-based policies, such as an Amazon S3 bucket policy.

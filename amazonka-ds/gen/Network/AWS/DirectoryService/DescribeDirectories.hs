@@ -143,7 +143,7 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrsNextToken             :: !(Maybe Text)
     , _ddrsResponseStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeDirectoriesResponse' with the minimum fields required to make a request.
 --

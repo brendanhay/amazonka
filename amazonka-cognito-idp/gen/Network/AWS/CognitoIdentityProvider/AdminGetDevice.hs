@@ -55,7 +55,7 @@ data AdminGetDevice = AdminGetDevice'
     { _agdDeviceKey  :: !Text
     , _agdUserPoolId :: !Text
     , _agdUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminGetDevice' with the minimum fields required to make a request.
 --
@@ -135,7 +135,7 @@ instance ToQuery AdminGetDevice where
 data AdminGetDeviceResponse = AdminGetDeviceResponse'
     { _agdrsResponseStatus :: !Int
     , _agdrsDevice         :: !DeviceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminGetDeviceResponse' with the minimum fields required to make a request.
 --

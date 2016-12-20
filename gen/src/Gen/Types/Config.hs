@@ -33,7 +33,7 @@ import           Control.Error
 import           Control.Lens              hiding ((.=))
 
 import           Data.Aeson
-import           Data.List                 (nub, sort, sortOn)
+import           Data.List                 (sort, sortOn, (\\))
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
 import           Data.Text                 (Text)
@@ -60,9 +60,6 @@ import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
 import qualified Filesystem.Path.CurrentOS as Path
 
-uniq :: Ord a => [a] -> [a]
-uniq = sort . nub
-
 type Error = LText.Text
 type Path  = Path.FilePath
 
@@ -71,7 +68,7 @@ toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
     { _replaceName     :: Id
-    , _replaceDeriving :: [Derive]
+    , _replaceUnderive :: [Derive]
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Replace
@@ -80,8 +77,8 @@ instance FromJSON Replace where
     parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
 instance TypeOf Replace where
-    typeOf Replace {..} =
-        TType (typeId _replaceName) (uniq (_replaceDeriving <> derivingBase))
+    typeOf Replace{..} =
+        TType (typeId _replaceName) (derivingBase \\ _replaceUnderive)
 
 data Override = Override
     { _renamedTo      :: Maybe Id      -- ^ Rename type

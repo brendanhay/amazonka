@@ -38,12 +38,15 @@ module Gen.Types.Id
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
+
 import           Data.Aeson
 import           Data.Hashable
 import           Data.Text              (Text)
-import qualified Data.Text              as Text
 import           Data.Text.Manipulate
+
 import           Gen.Text
+
+import qualified Data.Text              as Text
 
 -- | A class to extract identifiers from arbitrary products.
 class HasId a where

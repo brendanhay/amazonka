@@ -79,7 +79,7 @@ data CreateDeliveryStream = CreateDeliveryStream'
     , _cdsRedshiftDestinationConfiguration      :: !(Maybe RedshiftDestinationConfiguration)
     , _cdsElasticsearchDestinationConfiguration :: !(Maybe ElasticsearchDestinationConfiguration)
     , _cdsDeliveryStreamName                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDeliveryStream' with the minimum fields required to make a request.
 --

@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- |
 -- Module      : Network.AWS.Data.Sensitive
@@ -12,25 +13,27 @@
 --
 module Network.AWS.Data.Sensitive where
 
-import           Control.DeepSeq
-import           Data.Data                   (Data, Typeable)
-import           Data.Hashable
-import           Data.Monoid
-import           Data.String
-import           GHC.Generics                (Generic)
-import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.JSON
-import           Network.AWS.Data.Query
-import           Network.AWS.Data.Text
-import           Network.AWS.Data.XML
-import           Network.AWS.Lens            (Iso', iso)
+import Control.DeepSeq
+import Data.Data       (Data, Typeable)
+import Data.Hashable
+import Data.Monoid
+import Data.String
+
+import GHC.Generics (Generic)
+
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.JSON
+import Network.AWS.Data.Log        (ToLog (..))
+import Network.AWS.Data.Query
+import Network.AWS.Data.Text
+import Network.AWS.Data.XML
+import Network.AWS.Lens            (Iso', iso)
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive { desensitise :: a }
     deriving
         ( Eq
         , Ord
-        , Read
         , IsString
         , Monoid
         , Data
@@ -46,8 +49,8 @@ newtype Sensitive a = Sensitive { desensitise :: a }
         , FromJSON
         )
 
-instance Show (Sensitive a) where
-    show = const "******"
+instance Show  (Sensitive a) where show  = const "******"
+instance ToLog (Sensitive a) where build = const "******"
 
 instance Hashable a => Hashable (Sensitive a)
 instance NFData   a => NFData   (Sensitive a)

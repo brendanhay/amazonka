@@ -52,7 +52,7 @@ import           Network.AWS.Response
 data UpdateRadius = UpdateRadius'
     { _urDirectoryId    :: !Text
     , _urRadiusSettings :: !RadiusSettings
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
 --

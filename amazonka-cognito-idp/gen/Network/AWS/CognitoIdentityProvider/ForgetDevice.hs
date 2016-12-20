@@ -50,7 +50,7 @@ import           Network.AWS.Response
 data ForgetDevice = ForgetDevice'
     { _fdAccessToken :: !(Maybe (Sensitive Text))
     , _fdDeviceKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ForgetDevice' with the minimum fields required to make a request.
 --

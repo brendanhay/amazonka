@@ -53,7 +53,7 @@ import           Network.AWS.Response
 data GetDevice = GetDevice'
     { _gdAccessToken :: !(Maybe (Sensitive Text))
     , _gdDeviceKey   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
 --
@@ -123,7 +123,7 @@ instance ToQuery GetDevice where
 data GetDeviceResponse = GetDeviceResponse'
     { _gdrsResponseStatus :: !Int
     , _gdrsDevice         :: !DeviceType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
 --

@@ -52,7 +52,7 @@ import           Network.AWS.Response
 data AdminDisableUser = AdminDisableUser'
     { _aduUserPoolId :: !Text
     , _aduUsername   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminDisableUser' with the minimum fields required to make a request.
 --

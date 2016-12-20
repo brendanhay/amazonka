@@ -54,7 +54,7 @@ data AdminSetUserSettings = AdminSetUserSettings'
     { _asusUserPoolId :: !Text
     , _asusUsername   :: !(Sensitive Text)
     , _asusMFAOptions :: ![MFAOptionType]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminSetUserSettings' with the minimum fields required to make a request.
 --

@@ -53,7 +53,7 @@ import           Network.AWS.StorageGateway.Types.Product
 data SetLocalConsolePassword = SetLocalConsolePassword'
     { _slcpGatewayARN           :: !Text
     , _slcpLocalConsolePassword :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetLocalConsolePassword' with the minimum fields required to make a request.
 --

@@ -62,7 +62,7 @@ data SignUp = SignUp'
     , _suClientId       :: !(Sensitive Text)
     , _suUsername       :: !(Sensitive Text)
     , _suPassword       :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SignUp' with the minimum fields required to make a request.
 --

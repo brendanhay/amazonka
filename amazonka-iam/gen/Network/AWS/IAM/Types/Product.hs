@@ -27,74 +27,74 @@ import           Network.AWS.Prelude
 -- This data type is used as a response element in the 'CreateAccessKey' and 'ListAccessKeys' actions.
 --
 --
--- /See:/ 'accessKey' smart constructor.
-data AccessKey = AccessKey'
-    { _akCreateDate      :: !(Maybe ISO8601)
-    , _akUserName        :: !Text
-    , _akAccessKeyId     :: !Text
-    , _akStatus          :: !StatusType
-    , _akSecretAccessKey :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+-- /See:/ 'accessKeyInfo' smart constructor.
+data AccessKeyInfo = AccessKeyInfo'
+    { _akiCreateDate      :: !(Maybe ISO8601)
+    , _akiUserName        :: !Text
+    , _akiAccessKeyId     :: !AccessKey
+    , _akiStatus          :: !StatusType
+    , _akiSecretAccessKey :: !(Sensitive Text)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
--- | Creates a value of 'AccessKey' with the minimum fields required to make a request.
+-- | Creates a value of 'AccessKeyInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'akCreateDate' - The date when the access key was created.
+-- * 'akiCreateDate' - The date when the access key was created.
 --
--- * 'akUserName' - The name of the IAM user that the access key is associated with.
+-- * 'akiUserName' - The name of the IAM user that the access key is associated with.
 --
--- * 'akAccessKeyId' - The ID for this access key.
+-- * 'akiAccessKeyId' - The ID for this access key.
 --
--- * 'akStatus' - The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
+-- * 'akiStatus' - The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
 --
--- * 'akSecretAccessKey' - The secret key used to sign requests.
-accessKey
-    :: Text -- ^ 'akUserName'
-    -> Text -- ^ 'akAccessKeyId'
-    -> StatusType -- ^ 'akStatus'
-    -> Text -- ^ 'akSecretAccessKey'
-    -> AccessKey
-accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
-    AccessKey'
-    { _akCreateDate = Nothing
-    , _akUserName = pUserName_
-    , _akAccessKeyId = pAccessKeyId_
-    , _akStatus = pStatus_
-    , _akSecretAccessKey = _Sensitive # pSecretAccessKey_
+-- * 'akiSecretAccessKey' - The secret key used to sign requests.
+accessKeyInfo
+    :: Text -- ^ 'akiUserName'
+    -> AccessKey -- ^ 'akiAccessKeyId'
+    -> StatusType -- ^ 'akiStatus'
+    -> Text -- ^ 'akiSecretAccessKey'
+    -> AccessKeyInfo
+accessKeyInfo pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
+    AccessKeyInfo'
+    { _akiCreateDate = Nothing
+    , _akiUserName = pUserName_
+    , _akiAccessKeyId = pAccessKeyId_
+    , _akiStatus = pStatus_
+    , _akiSecretAccessKey = _Sensitive # pSecretAccessKey_
     }
 
 -- | The date when the access key was created.
-akCreateDate :: Lens' AccessKey (Maybe UTCTime)
-akCreateDate = lens _akCreateDate (\ s a -> s{_akCreateDate = a}) . mapping _Time;
+akiCreateDate :: Lens' AccessKeyInfo (Maybe UTCTime)
+akiCreateDate = lens _akiCreateDate (\ s a -> s{_akiCreateDate = a}) . mapping _Time;
 
 -- | The name of the IAM user that the access key is associated with.
-akUserName :: Lens' AccessKey Text
-akUserName = lens _akUserName (\ s a -> s{_akUserName = a});
+akiUserName :: Lens' AccessKeyInfo Text
+akiUserName = lens _akiUserName (\ s a -> s{_akiUserName = a});
 
 -- | The ID for this access key.
-akAccessKeyId :: Lens' AccessKey Text
-akAccessKeyId = lens _akAccessKeyId (\ s a -> s{_akAccessKeyId = a});
+akiAccessKeyId :: Lens' AccessKeyInfo AccessKey
+akiAccessKeyId = lens _akiAccessKeyId (\ s a -> s{_akiAccessKeyId = a});
 
 -- | The status of the access key. @Active@ means the key is valid for API calls, while @Inactive@ means it is not.
-akStatus :: Lens' AccessKey StatusType
-akStatus = lens _akStatus (\ s a -> s{_akStatus = a});
+akiStatus :: Lens' AccessKeyInfo StatusType
+akiStatus = lens _akiStatus (\ s a -> s{_akiStatus = a});
 
 -- | The secret key used to sign requests.
-akSecretAccessKey :: Lens' AccessKey Text
-akSecretAccessKey = lens _akSecretAccessKey (\ s a -> s{_akSecretAccessKey = a}) . _Sensitive;
+akiSecretAccessKey :: Lens' AccessKeyInfo Text
+akiSecretAccessKey = lens _akiSecretAccessKey (\ s a -> s{_akiSecretAccessKey = a}) . _Sensitive;
 
-instance FromXML AccessKey where
+instance FromXML AccessKeyInfo where
         parseXML x
-          = AccessKey' <$>
+          = AccessKeyInfo' <$>
               (x .@? "CreateDate") <*> (x .@ "UserName") <*>
                 (x .@ "AccessKeyId")
                 <*> (x .@ "Status")
                 <*> (x .@ "SecretAccessKey")
 
-instance Hashable AccessKey
+instance Hashable AccessKeyInfo
 
-instance NFData AccessKey
+instance NFData AccessKeyInfo
 
 -- | Contains information about the last time an AWS access key was used.
 --
@@ -163,7 +163,7 @@ data AccessKeyMetadata = AccessKeyMetadata'
     { _akmStatus      :: !(Maybe StatusType)
     , _akmCreateDate  :: !(Maybe ISO8601)
     , _akmUserName    :: !(Maybe Text)
-    , _akmAccessKeyId :: !(Maybe Text)
+    , _akmAccessKeyId :: !(Maybe AccessKey)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccessKeyMetadata' with the minimum fields required to make a request.
@@ -200,7 +200,7 @@ akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName = lens _akmUserName (\ s a -> s{_akmUserName = a});
 
 -- | The ID for this access key.
-akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe Text)
+akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe AccessKey)
 akmAccessKeyId = lens _akmAccessKeyId (\ s a -> s{_akmAccessKeyId = a});
 
 instance FromXML AccessKeyMetadata where
@@ -2547,7 +2547,7 @@ data VirtualMFADevice = VirtualMFADevice'
     , _vmdUser             :: !(Maybe User)
     , _vmdEnableDate       :: !(Maybe ISO8601)
     , _vmdSerialNumber     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'VirtualMFADevice' with the minimum fields required to make a request.
 --

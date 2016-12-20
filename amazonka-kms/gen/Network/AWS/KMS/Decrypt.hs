@@ -137,7 +137,7 @@ data DecryptResponse = DecryptResponse'
     { _drsKeyId          :: !(Maybe Text)
     , _drsPlaintext      :: !(Maybe (Sensitive Base64))
     , _drsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DecryptResponse' with the minimum fields required to make a request.
 --

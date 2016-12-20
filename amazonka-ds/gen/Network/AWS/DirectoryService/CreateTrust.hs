@@ -65,7 +65,7 @@ data CreateTrust = CreateTrust'
     , _ctRemoteDomainName            :: !Text
     , _ctTrustPassword               :: !(Sensitive Text)
     , _ctTrustDirection              :: !TrustDirection
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateTrust' with the minimum fields required to make a request.
 --

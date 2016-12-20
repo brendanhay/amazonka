@@ -54,7 +54,7 @@ data UpdateDeviceStatus = UpdateDeviceStatus'
     { _udsDeviceRememberedStatus :: !(Maybe DeviceRememberedStatusType)
     , _udsAccessToken            :: !(Sensitive Text)
     , _udsDeviceKey              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeviceStatus' with the minimum fields required to make a request.
 --

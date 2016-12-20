@@ -139,7 +139,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
     , _lvmdrsIsTruncated       :: !(Maybe Bool)
     , _lvmdrsResponseStatus    :: !Int
     , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListVirtualMFADevicesResponse' with the minimum fields required to make a request.
 --

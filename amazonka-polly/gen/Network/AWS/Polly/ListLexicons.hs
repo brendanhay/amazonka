@@ -95,7 +95,7 @@ data ListLexiconsResponse = ListLexiconsResponse'
     { _llrsLexicons       :: !(Maybe [LexiconDescription])
     , _llrsNextToken      :: !(Maybe Text)
     , _llrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListLexiconsResponse' with the minimum fields required to make a request.
 --

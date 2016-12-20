@@ -138,7 +138,7 @@ data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
     { _lupcrsNextToken       :: !(Maybe Text)
     , _lupcrsUserPoolClients :: !(Maybe [UserPoolClientDescription])
     , _lupcrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUserPoolClientsResponse' with the minimum fields required to make a request.
 --

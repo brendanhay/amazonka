@@ -61,7 +61,7 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
     , _cmadName        :: !Text
     , _cmadPassword    :: !(Sensitive Text)
     , _cmadVPCSettings :: !DirectoryVPCSettings
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateMicrosoftAD' with the minimum fields required to make a request.
 --

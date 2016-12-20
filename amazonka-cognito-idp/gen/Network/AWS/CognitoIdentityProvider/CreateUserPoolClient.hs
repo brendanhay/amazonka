@@ -176,7 +176,7 @@ instance ToQuery CreateUserPoolClient where
 data CreateUserPoolClientResponse = CreateUserPoolClientResponse'
     { _cupcrsUserPoolClient :: !(Maybe UserPoolClientType)
     , _cupcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserPoolClientResponse' with the minimum fields required to make a request.
 --

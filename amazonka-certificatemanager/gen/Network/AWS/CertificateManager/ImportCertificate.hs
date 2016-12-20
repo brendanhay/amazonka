@@ -63,7 +63,7 @@ data ImportCertificate = ImportCertificate'
     , _icCertificateChain :: !(Maybe Base64)
     , _icCertificate      :: !Base64
     , _icPrivateKey       :: !(Sensitive Base64)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
 --

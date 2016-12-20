@@ -116,7 +116,7 @@ instance ToQuery CreateVirtualMFADevice where
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
     { _cvmdrsResponseStatus   :: !Int
     , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVirtualMFADeviceResponse' with the minimum fields required to make a request.
 --

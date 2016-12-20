@@ -56,7 +56,7 @@ data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
     , _audsUserPoolId             :: !Text
     , _audsUsername               :: !(Sensitive Text)
     , _audsDeviceKey              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AdminUpdateDeviceStatus' with the minimum fields required to make a request.
 --

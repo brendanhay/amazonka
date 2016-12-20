@@ -127,7 +127,7 @@ instance ToQuery GetThirdPartyJobDetails where
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails     :: !(Maybe ThirdPartyJobDetails)
     , _gtpjdrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetThirdPartyJobDetailsResponse' with the minimum fields required to make a request.
 --

@@ -63,7 +63,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
     , _uupcClientName           :: !(Maybe Text)
     , _uupcUserPoolId           :: !Text
     , _uupcClientId             :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUserPoolClient' with the minimum fields required to make a request.
 --
@@ -176,7 +176,7 @@ instance ToQuery UpdateUserPoolClient where
 data UpdateUserPoolClientResponse = UpdateUserPoolClientResponse'
     { _uupcrsUserPoolClient :: !(Maybe UserPoolClientType)
     , _uupcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUserPoolClientResponse' with the minimum fields required to make a request.
 --

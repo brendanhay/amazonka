@@ -115,7 +115,7 @@ data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
     , _ckacrsCertificateARN :: !(Maybe Text)
     , _ckacrsCertificateId  :: !(Maybe Text)
     , _ckacrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateKeysAndCertificateResponse' with the minimum fields required to make a request.
 --

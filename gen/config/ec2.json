@@ -226,7 +226,7 @@
         "DeleteTag": {
             "replacedBy": {
                 "name": "DeleteTag",
-                "deriving": []
+                "underive": []
             }
         },
         "FleetType": {

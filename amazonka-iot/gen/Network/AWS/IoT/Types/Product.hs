@@ -1071,7 +1071,7 @@ instance ToJSON FirehoseAction where
 data KeyPair = KeyPair'
     { _kpPrivateKey :: !(Maybe (Sensitive Text))
     , _kpPublicKey  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
 --

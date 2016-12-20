@@ -189,10 +189,10 @@ instance ToQuery AssumeRole where
 -- /See:/ 'assumeRoleResponse' smart constructor.
 data AssumeRoleResponse = AssumeRoleResponse'
     { _arrsPackedPolicySize :: !(Maybe Nat)
-    , _arrsCredentials      :: !(Maybe Credentials)
+    , _arrsCredentials      :: !(Maybe AuthEnv)
     , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arrsResponseStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssumeRoleResponse' with the minimum fields required to make a request.
 --
@@ -221,7 +221,7 @@ arrsPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrsPackedPolicySize = lens _arrsPackedPolicySize (\ s a -> s{_arrsPackedPolicySize = a}) . mapping _Nat;
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-arrsCredentials :: Lens' AssumeRoleResponse (Maybe Credentials)
+arrsCredentials :: Lens' AssumeRoleResponse (Maybe AuthEnv)
 arrsCredentials = lens _arrsCredentials (\ s a -> s{_arrsCredentials = a});
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .

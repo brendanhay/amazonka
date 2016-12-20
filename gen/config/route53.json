@@ -15,7 +15,7 @@
         "ResourceRecordSetRegion": {
             "replacedBy": {
                 "name": "Region",
-                "deriving": []
+                "underive": []
             }
         },
         "RRType": {
@@ -27,7 +27,7 @@
         "ResourceId": {
             "replacedBy": {
                 "name": "ResourceId",
-                "deriving": []
+                "underive": []
             }
         }
     }

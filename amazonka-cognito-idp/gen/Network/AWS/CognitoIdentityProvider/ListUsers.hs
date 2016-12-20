@@ -157,7 +157,7 @@ data ListUsersResponse = ListUsersResponse'
     { _lursPaginationToken :: !(Maybe Text)
     , _lursUsers           :: !(Maybe [UserType])
     , _lursResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --

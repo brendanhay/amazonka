@@ -236,7 +236,7 @@ instance ToJSON DeadLetterConfig where
 -- /See:/ 'environment' smart constructor.
 newtype Environment = Environment'
     { _eVariables :: Maybe (Sensitive (Map Text (Sensitive Text)))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Environment' with the minimum fields required to make a request.
 --
@@ -271,7 +271,7 @@ instance ToJSON Environment where
 data EnvironmentError = EnvironmentError'
     { _eeErrorCode :: !(Maybe Text)
     , _eeMessage   :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
 --
@@ -315,7 +315,7 @@ instance NFData EnvironmentError
 data EnvironmentResponse = EnvironmentResponse'
     { _envVariables :: !(Maybe (Sensitive (Map Text (Sensitive Text))))
     , _envError     :: !(Maybe EnvironmentError)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnvironmentResponse' with the minimum fields required to make a request.
 --
@@ -460,7 +460,7 @@ data FunctionCode = FunctionCode'
     , _fcS3Key           :: !(Maybe Text)
     , _fcZipFile         :: !(Maybe (Sensitive Base64))
     , _fcS3Bucket        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FunctionCode' with the minimum fields required to make a request.
 --
@@ -578,7 +578,7 @@ data FunctionConfiguration = FunctionConfiguration'
     , _fcLastModified     :: !(Maybe Text)
     , _fcCodeSha256       :: !(Maybe Text)
     , _fcDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --

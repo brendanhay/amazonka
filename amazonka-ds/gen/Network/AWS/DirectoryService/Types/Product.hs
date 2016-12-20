@@ -348,7 +348,7 @@ data DirectoryDescription = DirectoryDescription'
     , _ddStageReason              :: !(Maybe Text)
     , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
     , _ddDescription              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DirectoryDescription' with the minimum fields required to make a request.
 --
@@ -938,7 +938,7 @@ data RadiusSettings = RadiusSettings'
     , _rsSharedSecret           :: !(Maybe (Sensitive Text))
     , _rsRadiusTimeout          :: !(Maybe Nat)
     , _rsRadiusPort             :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RadiusSettings' with the minimum fields required to make a request.
 --

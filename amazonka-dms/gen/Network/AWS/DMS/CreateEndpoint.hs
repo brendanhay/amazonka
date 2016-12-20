@@ -75,7 +75,7 @@ data CreateEndpoint = CreateEndpoint'
     , _cePassword                  :: !(Sensitive Text)
     , _ceServerName                :: !Text
     , _cePort                      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
 --

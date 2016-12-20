@@ -64,7 +64,7 @@ data Encrypt = Encrypt'
     , _eGrantTokens       :: !(Maybe [Text])
     , _eKeyId             :: !Text
     , _ePlaintext         :: !(Sensitive Base64)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Encrypt' with the minimum fields required to make a request.
 --

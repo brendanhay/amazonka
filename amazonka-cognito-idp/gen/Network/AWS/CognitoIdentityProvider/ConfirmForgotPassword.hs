@@ -58,7 +58,7 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
     , _cfpUsername         :: !(Sensitive Text)
     , _cfpConfirmationCode :: !Text
     , _cfpPassword         :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmForgotPassword' with the minimum fields required to make a request.
 --

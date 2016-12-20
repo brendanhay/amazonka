@@ -56,7 +56,7 @@ data ListDevices = ListDevices'
     { _ldPaginationToken :: !(Maybe Text)
     , _ldLimit           :: !(Maybe Nat)
     , _ldAccessToken     :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
 --
@@ -137,7 +137,7 @@ data ListDevicesResponse = ListDevicesResponse'
     { _ldrsPaginationToken :: !(Maybe Text)
     , _ldrsDevices         :: !(Maybe [DeviceType])
     , _ldrsResponseStatus  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
 --

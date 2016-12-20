@@ -53,7 +53,7 @@ import           Network.AWS.Response
 data DescribeUserPoolClient = DescribeUserPoolClient'
     { _desUserPoolId :: !Text
     , _desClientId   :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
 --
@@ -125,7 +125,7 @@ instance ToQuery DescribeUserPoolClient where
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
     { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
     , _dupcrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
 --

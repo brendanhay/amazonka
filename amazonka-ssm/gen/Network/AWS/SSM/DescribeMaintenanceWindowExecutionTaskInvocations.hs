@@ -169,7 +169,7 @@ data DescribeMaintenanceWindowExecutionTaskInvocationsResponse = DescribeMainten
     { _dmwetirsWindowExecutionTaskInvocationIdentities :: !(Maybe [MaintenanceWindowExecutionTaskInvocationIdentity])
     , _dmwetirsNextToken                               :: !(Maybe Text)
     , _dmwetirsResponseStatus                          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeMaintenanceWindowExecutionTaskInvocationsResponse' with the minimum fields required to make a request.
 --

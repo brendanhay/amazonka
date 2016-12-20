@@ -3205,7 +3205,7 @@ data MaintenanceWindowExecutionTaskInvocationIdentity = MaintenanceWindowExecuti
     , _mwetiiStatusDetails     :: !(Maybe Text)
     , _mwetiiEndTime           :: !(Maybe POSIX)
     , _mwetiiParameters        :: !(Maybe (Sensitive Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskInvocationIdentity' with the minimum fields required to make a request.
 --
@@ -3444,7 +3444,7 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     , _mWindowTargetId   :: !(Maybe Text)
     , _mTargets          :: !(Maybe [Target])
     , _mWindowId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MaintenanceWindowTarget' with the minimum fields required to make a request.
 --
@@ -3521,7 +3521,7 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
     , _mwtType           :: !(Maybe MaintenanceWindowTaskType)
     , _mwtMaxConcurrency :: !(Maybe Text)
     , _mwtWindowId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MaintenanceWindowTask' with the minimum fields required to make a request.
 --
@@ -3636,7 +3636,7 @@ instance NFData MaintenanceWindowTask
 -- /See:/ 'maintenanceWindowTaskParameterValueExpression' smart constructor.
 newtype MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
     { _mwtpveValues :: Maybe (Sensitive [Sensitive Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MaintenanceWindowTaskParameterValueExpression' with the minimum fields required to make a request.
 --

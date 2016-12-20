@@ -22,10 +22,11 @@ import           Control.Error
 import           Control.Lens           hiding ((:<))
 import           Control.Monad.Except
 import           Control.Monad.State
-import qualified Data.HashMap.Strict    as Map
-import           Gen.Types.TypeOf
+
 import           Gen.Formatting
 import           Gen.Types
+
+import qualified Data.HashMap.Strict    as Map
 
 newtype Fix f = Fix (f (Fix f))
 
@@ -45,7 +46,7 @@ attach ctor m = extend (go . extract)
 
 -- | Allows the new annotation to be memoised separately
 -- from the pre-existing annotation.
-annotate :: (Traversable t, MonadState s m, HasId a)
+annotate :: (Traversable t, MonadState s m, HasId a, Show b)
          => (a -> b -> c)
          -> Lens' s (Map Id b)
          -> (Cofree t a -> m b)
@@ -55,18 +56,19 @@ annotate ctor l f = sequence . extend go
   where
     go x@(a :< _) = ctor a <$> memoise l f x
 
-memoise :: (MonadState s m, HasId a)
+memoise :: (MonadState s m, HasId a, Show b)
         => Lens' s (Map Id b)
         -> (a -> m b)
         -> a
         -> m b
 memoise l f x = uses l (Map.lookup n) >>= maybe go return
   where
-    n  = identifier x
     go = do
         r <- f x
         l %= Map.insert n r
         return r
+
+    n = identifier x
 
 type MemoE = StateT (Map Id (Shape Id)) (Either Error)
 

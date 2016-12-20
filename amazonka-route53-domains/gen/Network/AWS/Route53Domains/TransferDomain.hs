@@ -79,7 +79,7 @@ data TransferDomain = TransferDomain'
     , _tdAdminContact                    :: !(Sensitive ContactDetail)
     , _tdRegistrantContact               :: !(Sensitive ContactDetail)
     , _tdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TransferDomain' with the minimum fields required to make a request.
 --

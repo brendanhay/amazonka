@@ -120,7 +120,7 @@ data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
     { _rucrsStorageLocation   :: !(Maybe S3Location)
     , _rucrsUploadCredentials :: !(Maybe (Sensitive AWSCredentials))
     , _rucrsResponseStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RequestUploadCredentialsResponse' with the minimum fields required to make a request.
 --

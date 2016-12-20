@@ -128,7 +128,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrsNextMarker     :: !(Maybe Text)
     , _lfrsFunctions      :: !(Maybe [FunctionConfiguration])
     , _lfrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
 --

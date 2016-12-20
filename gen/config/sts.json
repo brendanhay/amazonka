@@ -4,25 +4,25 @@
         "accessKeyIdType": {
             "replacedBy": {
                 "name": "AccessKey",
-                "deriving": []
+                "underive": []
             }
         },
         "accessKeySecretType": {
             "replacedBy": {
                 "name": "SecretKey",
-                "deriving": ["read", "show"]
+                "underive": ["read", "show"]
             }
         },
         "tokenType": {
             "replacedBy": {
                 "name": "SessionToken",
-                "deriving": ["read", "show"]
+                "underive": ["read", "show"]
             }
         },
         "Credentials": {
             "replacedBy": {
                 "name": "AuthEnv",
-                "deriving": ["read"]
+                "underive": ["read"]
             }
         }
     }

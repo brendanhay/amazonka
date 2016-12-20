@@ -48,37 +48,37 @@
         "BucketLocationConstraint": {
             "replacedBy": {
                 "name": "LocationConstraint",
-                "deriving": []
+                "underive": []
             }
         },
         "BucketName": {
             "replacedBy": {
                 "name": "BucketName",
-                "deriving": []
+                "underive": []
             }
         },
         "ObjectKey": {
             "replacedBy": {
                 "name": "ObjectKey",
-                "deriving": []
+                "underive": []
             }
         },
         "ObjectVersionId": {
             "replacedBy": {
                 "name": "ObjectVersionId",
-                "deriving": []
+                "underive": []
             }
         },
         "ETag": {
             "replacedBy": {
                 "name": "ETag",
-                "deriving": []
+                "underive": []
             }
         },
         "Delimiter": {
             "replacedBy": {
                 "name": "Delimiter",
-                "deriving": []
+                "underive": []
             }
         },
         "NoncurrentVersionExpiration": {

@@ -68,7 +68,7 @@ toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
     { _replaceName     :: Id
-    , _replaceDeriving :: [Derive]
+    , _replaceUnderive :: [Derive]
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Replace
@@ -77,8 +77,8 @@ instance FromJSON Replace where
     parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
 instance TypeOf Replace where
-    typeOf Replace {..} =
-        TType (typeId _replaceName) (derivingBase \\ _replaceDeriving)
+    typeOf Replace{..} =
+        TType (typeId _replaceName) (derivingBase \\ _replaceUnderive)
 
 data Override = Override
     { _renamedTo      :: Maybe Id      -- ^ Rename type

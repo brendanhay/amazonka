@@ -27,7 +27,7 @@ module Gen.Types.TypeOf
     ) where
 
 import           Control.Comonad.Cofree
-import           Control.Lens           ((^.), (^..))
+import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
 
 import           Data.Foldable          (foldr')
 import           Data.List              (delete, intersect, nub, sort)

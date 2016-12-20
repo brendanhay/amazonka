@@ -23,7 +23,7 @@ module Network.AWS.Auth
     -- ** Retrieving Authentication
       getAuth
     , Credentials  (..)
-    , Auth
+    , Auth         (..)
 
     -- ** Defaults
     -- *** Environment
@@ -43,12 +43,14 @@ module Network.AWS.Auth
 
     , fromKeys
     , fromSession
+    , fromTemporarySession
     , fromEnv
     , fromEnvKeys
     , fromFile
     , fromFilePath
     , fromProfile
     , fromProfileName
+    , fromAuthEnv
 
     -- ** Keys
     , AccessKey    (..)
@@ -152,9 +154,28 @@ constraint.
 fromKeys :: AccessKey -> SecretKey -> Auth
 fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
 
--- | A session containing the access key, secret key, and a session token.
+-- | Temporary credentials from a STS session consisting of
+-- the access key, secret key, and session token.
+--
+-- This does not perform any refresh of credentials.
+--
+-- /See:/ 'fromTemporarySession'
 fromSession :: AccessKey -> SecretKey -> SessionToken -> Auth
-fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
+fromSession a s t = fromAuthEnv (AuthEnv a s (Just t) Nothing)
+
+-- | Temporary credentials from a STS session consisting of
+-- the access key, secret key, session token, and expiration time.
+--
+-- This will pre-emptively refresh the temporary session credentials
+-- before expiration, see 'fromAuthEnv' for more information.
+--
+-- /See:/ 'fromSession', 'fromAuthEnv'
+fromTemporarySession :: AccessKey
+                     -> SecretKey
+                     -> SessionToken
+                     -> UTCTime
+                     -> Auth
+fromTemporarySession a s t = fromAuthEnv (AuthEnv a s (Just t) Nothing)
 
 -- | Determines how AuthN/AuthZ information is retrieved.
 data Credentials
@@ -447,24 +468,16 @@ fromProfile m = do
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
--- The resulting IONewRef wrapper + timer is designed so that multiple concurrent
--- accesses of 'AuthEnv' from the 'AWS' environment are not required to calculate
--- expiry and sequentially queue to update it.
+-- If valid STS security credentials are retrieved, they will be automatically
+-- refreshed periodically before expiration.
 --
--- The forked timer ensures a singular owner and pre-emptive refresh of the
--- temporary session credentials.
---
--- A weak reference is used to ensure that the forked thread will eventually
--- terminate when 'Auth' is no longer referenced.
---
--- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
--- the specified IAM profile cannot be read.
+-- /See:/ 'fromAuthEnv'.
 fromProfileName :: (MonadIO m, MonadCatch m)
                 => Manager
                 -> Text
                 -> m (Auth, Maybe Region)
 fromProfileName m name = do
-    auth <- getCredentials >>= start
+    auth <- getCredentials >>= fromAuthEnv
     reg  <- getRegion
     return (auth, Just reg)
   where
@@ -489,16 +502,30 @@ fromProfileName m name = do
         . mappend "Error parsing Instance Identity Document "
         . Text.pack
 
-    start :: MonadIO m => AuthEnv -> m Auth
-    start !a = liftIO $
-        case _authExpiry a of
-            Nothing -> return (Auth a)
-            Just x  -> do
-                r <- newIORef a
-                p <- myThreadId
-                s <- timer r p x
-                return (Ref s r)
-
+-- | Starts a refresh thread for the given authentication environment.
+--
+-- The resulting 'IORef' wrapper + timer is designed so that multiple concurrent
+-- accesses of 'AuthEnv' from the 'AWS' environment are not required to calculate
+-- expiry and sequentially queue to update it.
+--
+-- The forked timer ensures a singular owner and pre-emptive refresh of the
+-- temporary session credentials before expiration.
+--
+-- A weak reference is used to ensure that the forked thread will eventually
+-- terminate when 'Auth' is no longer referenced.
+--
+-- If no STS token or expiration time is present the credentials will
+-- be returned verbatim.
+--
+fromAuthEnv :: MonadIO m => AuthEnv -> m Auth
+fromAuthEnv a
+    | Nothing <- _authExpiry a = return (Auth a)
+    | otherwise                = do
+        r <- newIORef a
+        p <- myThreadId
+        s <- timer r p x
+        return (Ref s r)
+  where
     timer :: IORef AuthEnv -> ThreadId -> UTCTime -> IO ThreadId
     timer !r !p !x = forkIO $ do
         s <- myThreadId

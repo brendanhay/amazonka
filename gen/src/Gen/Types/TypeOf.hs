@@ -27,10 +27,12 @@ module Gen.Types.TypeOf
     ) where
 
 import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((:<), List, enum, mapping, (??))
+import           Control.Lens           ((^.), (^..))
+
 import           Data.Foldable          (foldr')
-import           Data.List              (intersect, nub, sort)
+import           Data.List              (delete, intersect, nub, sort)
 import           Data.Monoid
+
 import           Gen.Types.Ann
 import           Gen.Types.Id
 import           Gen.Types.Service
@@ -102,7 +104,7 @@ derivingOf = uniq . typ . typeOf
         TNatural        -> derivingBase <> num
         TStream         -> stream
         TMaybe     t    -> typ t
-        TSensitive t    -> DShow : typ t
+        TSensitive t    -> DShow : delete DRead (typ t)
         TList      e    -> monoid <> intersect derivingBase (typ e)
         TList1     e    -> DSemigroup : intersect derivingBase (typ e)
         TMap       k v  -> monoid <> intersect (typ k) (typ v)

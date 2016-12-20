@@ -71,9 +71,9 @@ instance NFData AssumedRoleUser
 --
 -- /See:/ 'credentials' smart constructor.
 data Credentials = Credentials'
-    { _cAccessKeyId     :: !Text
-    , _cSecretAccessKey :: !Text
-    , _cSessionToken    :: !Text
+    { _cAccessKeyId     :: !AccessId
+    , _cSecretAccessKey :: !SecretKey
+    , _cSessionToken    :: !SessionToken
     , _cExpiration      :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -89,9 +89,9 @@ data Credentials = Credentials'
 --
 -- * 'cExpiration' - The date on which the current credentials expire.
 credentials
-    :: Text -- ^ 'cAccessKeyId'
-    -> Text -- ^ 'cSecretAccessKey'
-    -> Text -- ^ 'cSessionToken'
+    :: AccessId -- ^ 'cAccessKeyId'
+    -> SecretKey -- ^ 'cSecretAccessKey'
+    -> SessionToken -- ^ 'cSessionToken'
     -> UTCTime -- ^ 'cExpiration'
     -> Credentials
 credentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
@@ -103,15 +103,15 @@ credentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
     }
 
 -- | The access key ID that identifies the temporary security credentials.
-cAccessKeyId :: Lens' Credentials Text
+cAccessKeyId :: Lens' Credentials AccessId
 cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a});
 
 -- | The secret access key that can be used to sign requests.
-cSecretAccessKey :: Lens' Credentials Text
+cSecretAccessKey :: Lens' Credentials SecretKey
 cSecretAccessKey = lens _cSecretAccessKey (\ s a -> s{_cSecretAccessKey = a});
 
 -- | The token that users must pass to the service API to use the temporary credentials.
-cSessionToken :: Lens' Credentials Text
+cSessionToken :: Lens' Credentials SessionToken
 cSessionToken = lens _cSessionToken (\ s a -> s{_cSessionToken = a});
 
 -- | The date on which the current credentials expire.

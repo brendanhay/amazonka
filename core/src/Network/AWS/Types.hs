@@ -166,7 +166,6 @@ import Network.HTTP.Types.Method
 import Network.HTTP.Types.Status   (Status)
 
 import qualified Data.Text            as Text
-import qualified Data.Text.Encoding   as Text
 import qualified Network.HTTP.Conduit as Client
 
 -- | A convenience alias to avoid type ambiguity.

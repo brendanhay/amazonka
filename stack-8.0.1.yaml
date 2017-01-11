@@ -1,10 +1,7 @@
 compiler:   ghc-8.0.1
-resolver:   nightly-2016-11-29
+resolver:   nightly-2017-01-10
 flags:      {}
-extra-deps:
-  - http-conduit-2.2.0
-  - http-client-0.5.0.1
-  - http-client-tls-0.3.0
+extra-deps: []
 packages:
   - core
   - test

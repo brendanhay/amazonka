@@ -14,12 +14,12 @@ module Test.AWS.S3
     , fixtures
     ) where
 
-import           Data.Time
-import           Network.AWS.Prelude
-import           Network.AWS.S3
-import           Test.AWS.Gen.S3
-import           Test.AWS.Prelude
-import           Test.AWS.S3.Internal
+import Data.Time
+import Network.AWS.Prelude
+import Network.AWS.S3
+import Test.AWS.Gen.S3
+import Test.AWS.Prelude
+import Test.AWS.S3.Internal
 
 tests :: [TestTree]
 tests =
@@ -98,9 +98,19 @@ fixtures =
                            & pSize         ?~ 10485760
                     ]
 
-        -- FIXME: Has a JSON body, not XML, hence, serialiser error.
-        -- , requestGetBucketPolicyResponse $
-        --     getBucketPolicyResponse 200
-        --         & gbprPolicy ?~ "foo"
+        , responseGetBucketACL $
+            getBucketACLResponse 200
+                & gbarsOwner                  ?~
+                    (owner
+                      & oId                   ?~ "fedcba0987654321"
+                      & oDisplayName          ?~ "foo")
+                & gbarsGrants                 .~
+                    [ grant
+                        & gPermission         ?~ PFullControl
+                        & gGrantee            ?~
+                            (grantee CanonicalUser
+                               & gId          ?~ "1234567890abcdef"
+                               & gDisplayName ?~ "bar")
+                    ]
         ]
     ]

@@ -1257,7 +1257,7 @@ instance ToXML Grantee where
           = mconcat
               ["URI" @= _gURI, "EmailAddress" @= _gEmailAddress,
                "DisplayName" @= _gDisplayName, "ID" @= _gId,
-               "xsi:type" @= _gType]
+               "xsi:type" @@= _gType]
 
 -- | /See:/ 'indexDocument' smart constructor.
 newtype IndexDocument = IndexDocument'

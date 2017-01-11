@@ -138,9 +138,9 @@ requestInsts m oname h r fs = do
         | all nonEmptyXML is = return $! filter anyXML is
         | otherwise          =
             case ( r ^? refXMLNamespace . _Just . xmlUri
-                  , r ^. refLocationName
-                  , listToMaybe (mapMaybe findElement is)
-                  ) of
+                 , r ^. refLocationName
+                 , listToMaybe (mapMaybe findElement is)
+                 ) of
 
             -- 1. If there's an xmlNamespace and/or locationName on the ref,
             --    it should define separate ToXML + ToElement instances

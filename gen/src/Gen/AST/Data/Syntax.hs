@@ -20,23 +20,27 @@ module Gen.AST.Data.Syntax where
 import           Control.Comonad
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op, strict)
+
 import           Data.Foldable                (foldl', foldr')
-import qualified Data.Foldable                as Fold
-import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
+
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
 import           Gen.Protocol                 (Names (..))
-import qualified Gen.Protocol                 as Proto
 import           Gen.Types
-import qualified Language.Haskell.Exts        as Exts
+
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
+
+import qualified Data.Foldable                as Fold
+import qualified Data.HashMap.Strict          as Map
+import qualified Data.Text                    as Text
+import qualified Gen.Protocol                 as Proto
+import qualified Language.Haskell.Exts        as Exts
 
 pX, pXMay, pXDef :: QOp
 pX      = ".@"
@@ -63,11 +67,12 @@ pXList  = var "parseXMLList"
 pXList1 = var "parseXMLList1"
 pHMap   = var "parseHeadersMap"
 
-toX, toJ, toQ, toH :: QOp
-toX = "@="
-toJ = ".="
-toQ = "=:"
-toH = "=#"
+toX, toXAttr, toJ, toQ, toH :: QOp
+toX     = "@="
+toXAttr = "@@="
+toJ     = ".="
+toQ     = "=:"
+toH     = "=#"
 
 toQList, toXList ::  Exp
 toQList = var "toQueryList"
@@ -471,17 +476,15 @@ constD :: Text -> Exp -> InstDecl
 constD f = funArgsD f [] . app (var "const")
 
 parseXMLE :: Protocol -> Field -> Exp
-parseXMLE p f = parse
+parseXMLE p f = case outputNames p f of
+    NMap  mn e k v      -> unflatE mn pXMap   [str e, str k, str v]
+    NList mn i
+        | fieldMonoid f -> unflatE mn pXList  [str i]
+        | otherwise     -> unflatE mn pXList1 [str i]
+    NName n
+        | req           -> decodeE x pX    n
+        | otherwise     -> decodeE x pXMay n
   where
-    parse = case outputNames p f of
-        NMap  mn e k v      -> unflatE mn pXMap   [str e, str k, str v]
-        NList mn i
-            | fieldMonoid f -> unflatE mn pXList  [str i]
-            | otherwise     -> unflatE mn pXList1 [str i]
-        NName n
-            | req           -> decodeE x pX    n
-            | otherwise     -> decodeE x pXMay n
-
     unflatE Nothing  g xs
         | req       = appFun g (xs ++ [x])
         | otherwise = app (may (appFun g xs)) x
@@ -523,7 +526,10 @@ parseStatusE f
     v = paren $ app (var "fromEnum") (var "s")
 
 toXMLE :: Protocol -> Field -> Exp
-toXMLE p = toGenericE p toX "toXML" toXMap toXList
+toXMLE p f = toGenericE p opX "toXML" toXMap toXList f
+  where
+    opX | f ^. fieldRef . refXMLAttribute = toXAttr
+        | otherwise                       = toX
 
 toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
 toElementE p ns = either (`root` []) node

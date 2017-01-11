@@ -89,7 +89,17 @@ mkFields (view metadata -> m) s st = sortFields rs $
     zipWith mk [1..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
-    mk i (k, v) = Field m i k v req pay p ns d
+    mk i (k, v) = Field
+        { _fieldMeta      = m
+        , _fieldOrdinal   = i
+        , _fieldId        = k
+        , _fieldRef       = v
+        , _fieldRequired' = req
+        , _fieldPayload   = pay
+        , _fieldPrefix    = p
+        , _fieldNamespace = ns
+        , _fieldDirection = d
+        }
       where
         req = k `elem` rs
         pay = Just k == st ^. payload

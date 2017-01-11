@@ -71,6 +71,7 @@ library
         , retry               >= 0.7
         , text                >= 1.1
         , time                >= 1.2
+        , tls                 >= 1.3.9
         , transformers        >= 0.2
         , transformers-base   >= 0.4
         , transformers-compat >= 0.3

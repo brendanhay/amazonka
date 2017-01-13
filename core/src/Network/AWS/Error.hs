@@ -38,14 +38,12 @@ import qualified Data.ByteString.Lazy as LBS
 -- @Network.AWS.<ServiceName>.Types@ do not cover all the thrown error codes.
 -- For example to define a new error prism:
 --
--- @
--- {-# LANGUAGE OverloadedStrings #-}
---
--- import Network.AWS.S3 (ServiceError, s3)
---
--- _NoSuchBucketPolicy :: AsError a => Getting (First ServiceError) a ServiceError
--- _NoSuchBucketPolicy = _MatchServiceError s3 "NoSuchBucketPolicy"
--- @
+-- > {-# LANGUAGE OverloadedStrings #-}
+-- >
+-- > import Network.AWS.S3 (ServiceError, s3)
+-- >
+-- > _NoSuchBucketPolicy :: AsError a => Getting (First ServiceError) a ServiceError
+-- > _NoSuchBucketPolicy = _MatchServiceError s3 "NoSuchBucketPolicy"
 --
 -- With example usage being:
 --

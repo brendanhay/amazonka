@@ -213,10 +213,10 @@ storageGateway =
 --
 _InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
-    _ServiceError . hasCode "InvalidGatewayRequestException"
+    _MatchServiceError storageGateway "InvalidGatewayRequestException"
 
 -- | An internal server error has occurred during the request. For more information, see the error and message fields.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError"
+_InternalServerError = _MatchServiceError storageGateway "InternalServerError"

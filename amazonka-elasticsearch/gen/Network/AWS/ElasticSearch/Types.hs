@@ -186,52 +186,55 @@ elasticSearch =
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException =
-    _ServiceError . hasStatus 400 . hasCode "ValidationException"
+    _MatchServiceError elasticSearch "ValidationException" . hasStatus 400
 
 -- | An exception for creating a resource that already exists. Gives http status code of 400.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasStatus 409 . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError elasticSearch "ResourceAlreadyExistsException" .
+    hasStatus 409
 
 -- | An error occurred while processing the request.
 --
 --
 _BaseException :: AsError a => Getting (First ServiceError) a ServiceError
-_BaseException = _ServiceError . hasCode "BaseException"
+_BaseException = _MatchServiceError elasticSearch "BaseException"
 
 -- | An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
 --
 --
 _DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledOperationException =
-    _ServiceError . hasStatus 409 . hasCode "DisabledOperationException"
+    _MatchServiceError elasticSearch "DisabledOperationException" .
+    hasStatus 409
 
 -- | The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
-    _ServiceError . hasStatus 500 . hasCode "InternalException"
+    _MatchServiceError elasticSearch "InternalException" . hasStatus 500
 
 -- | An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.
 --
 --
 _InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTypeException =
-    _ServiceError . hasStatus 409 . hasCode "InvalidTypeException"
+    _MatchServiceError elasticSearch "InvalidTypeException" . hasStatus 409
 
 -- | An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 409 . hasCode "ResourceNotFoundException"
+    _MatchServiceError elasticSearch "ResourceNotFoundException" .
+    hasStatus 409
 
 -- | An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 409 . hasCode "LimitExceededException"
+    _MatchServiceError elasticSearch "LimitExceededException" . hasStatus 409

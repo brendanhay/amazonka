@@ -68,4 +68,6 @@ marketplaceAnalytics =
 -- | This exception is thrown when an internal service error occurs.
 _MarketplaceCommerceAnalyticsException :: AsError a => Getting (First ServiceError) a ServiceError
 _MarketplaceCommerceAnalyticsException =
-    _ServiceError . hasCode "MarketplaceCommerceAnalyticsException"
+    _MatchServiceError
+        marketplaceAnalytics
+        "MarketplaceCommerceAnalyticsException"

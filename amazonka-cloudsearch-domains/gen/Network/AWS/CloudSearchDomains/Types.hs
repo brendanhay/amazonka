@@ -140,10 +140,11 @@ cloudSearchDomains =
 --
 --
 _DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentServiceException = _ServiceError . hasCode "DocumentServiceException"
+_DocumentServiceException =
+    _MatchServiceError cloudSearchDomains "DocumentServiceException"
 
 -- | Information about any problems encountered while processing a search request.
 --
 --
 _SearchException :: AsError a => Getting (First ServiceError) a ServiceError
-_SearchException = _ServiceError . hasCode "SearchException"
+_SearchException = _MatchServiceError cloudSearchDomains "SearchException"

@@ -197,55 +197,55 @@ support =
 --
 --
 _AttachmentSetExpired :: AsError a => Getting (First ServiceError) a ServiceError
-_AttachmentSetExpired = _ServiceError . hasCode "AttachmentSetExpired"
+_AttachmentSetExpired = _MatchServiceError support "AttachmentSetExpired"
 
 -- | The limit for the number of attachment sets created in a short period of time has been exceeded.
 --
 --
 _AttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_AttachmentLimitExceeded = _ServiceError . hasCode "AttachmentLimitExceeded"
+_AttachmentLimitExceeded = _MatchServiceError support "AttachmentLimitExceeded"
 
 -- | The limit for the number of 'DescribeAttachment' requests in a short period of time has been exceeded.
 --
 --
 _DescribeAttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DescribeAttachmentLimitExceeded =
-    _ServiceError . hasCode "DescribeAttachmentLimitExceeded"
+    _MatchServiceError support "DescribeAttachmentLimitExceeded"
 
 -- | The requested @caseId@ could not be located.
 --
 --
 _CaseIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound"
+_CaseIdNotFound = _MatchServiceError support "CaseIdNotFound"
 
 -- | An attachment set with the specified ID could not be found.
 --
 --
 _AttachmentSetIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_AttachmentSetIdNotFound = _ServiceError . hasCode "AttachmentSetIdNotFound"
+_AttachmentSetIdNotFound = _MatchServiceError support "AttachmentSetIdNotFound"
 
 -- | A limit for the size of an attachment set has been exceeded. The limits are 3 attachments and 5 MB per attachment.
 --
 --
 _AttachmentSetSizeLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _AttachmentSetSizeLimitExceeded =
-    _ServiceError . hasCode "AttachmentSetSizeLimitExceeded"
+    _MatchServiceError support "AttachmentSetSizeLimitExceeded"
 
 -- | An attachment with the specified ID could not be found.
 --
 --
 _AttachmentIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_AttachmentIdNotFound = _ServiceError . hasCode "AttachmentIdNotFound"
+_AttachmentIdNotFound = _MatchServiceError support "AttachmentIdNotFound"
 
 -- | An internal server error occurred.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError"
+_InternalServerError = _MatchServiceError support "InternalServerError"
 
 -- | The case creation limit for the account has been exceeded.
 --
 --
 _CaseCreationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _CaseCreationLimitExceeded =
-    _ServiceError . hasCode "CaseCreationLimitExceeded"
+    _MatchServiceError support "CaseCreationLimitExceeded"

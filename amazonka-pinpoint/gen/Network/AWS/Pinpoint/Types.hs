@@ -498,29 +498,29 @@ pinpoint =
 -- | Prism for ForbiddenException' errors.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ForbiddenException =
-    _ServiceError . hasStatus 403 . hasCode "ForbiddenException"
+    _MatchServiceError pinpoint "ForbiddenException" . hasStatus 403
 
 -- | Prism for NotFoundException' errors.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "NotFoundException"
+    _MatchServiceError pinpoint "NotFoundException" . hasStatus 404
 
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
-    _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
+    _MatchServiceError pinpoint "TooManyRequestsException" . hasStatus 429
 
 -- | Prism for InternalServerErrorException' errors.
 _InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerErrorException =
-    _ServiceError . hasStatus 500 . hasCode "InternalServerErrorException"
+    _MatchServiceError pinpoint "InternalServerErrorException" . hasStatus 500
 
 -- | Prism for MethodNotAllowedException' errors.
 _MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MethodNotAllowedException =
-    _ServiceError . hasStatus 405 . hasCode "MethodNotAllowedException"
+    _MatchServiceError pinpoint "MethodNotAllowedException" . hasStatus 405
 
 -- | Prism for BadRequestException' errors.
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _ServiceError . hasStatus 400 . hasCode "BadRequestException"
+    _MatchServiceError pinpoint "BadRequestException" . hasStatus 400

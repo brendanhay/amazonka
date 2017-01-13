@@ -167,253 +167,263 @@ codeCommit =
 --
 _InvalidRepositoryTriggerRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerRegionException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerRegionException"
+    _MatchServiceError codeCommit "InvalidRepositoryTriggerRegionException"
 
 -- | The specified continuation token is not valid.
 --
 --
 _InvalidContinuationTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidContinuationTokenException =
-    _ServiceError . hasCode "InvalidContinuationTokenException"
+    _MatchServiceError codeCommit "InvalidContinuationTokenException"
 
 -- | No encryption key was found.
 --
 --
 _EncryptionKeyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyNotFoundException =
-    _ServiceError . hasCode "EncryptionKeyNotFoundException"
+    _MatchServiceError codeCommit "EncryptionKeyNotFoundException"
 
 -- | One or more branch names specified for the trigger is not valid.
 --
 --
 _InvalidRepositoryTriggerBranchNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerBranchNameException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerBranchNameException"
+    _MatchServiceError codeCommit "InvalidRepositoryTriggerBranchNameException"
 
 -- | The custom data provided for the trigger is not valid.
 --
 --
 _InvalidRepositoryTriggerCustomDataException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerCustomDataException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerCustomDataException"
+    _MatchServiceError codeCommit "InvalidRepositoryTriggerCustomDataException"
 
 -- | The maximum number of allowed repository names was exceeded. Currently, this number is 25.
 --
 --
 _MaximumRepositoryNamesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumRepositoryNamesExceededException =
-    _ServiceError . hasCode "MaximumRepositoryNamesExceededException"
+    _MatchServiceError codeCommit "MaximumRepositoryNamesExceededException"
 
 -- | The specified repository description is not valid.
 --
 --
 _InvalidRepositoryDescriptionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryDescriptionException =
-    _ServiceError . hasCode "InvalidRepositoryDescriptionException"
+    _MatchServiceError codeCommit "InvalidRepositoryDescriptionException"
 
 -- | The specified repository name already exists.
 --
 --
 _RepositoryNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNameExistsException =
-    _ServiceError . hasCode "RepositoryNameExistsException"
+    _MatchServiceError codeCommit "RepositoryNameExistsException"
 
 -- | The number of triggers allowed for the repository was exceeded.
 --
 --
 _MaximumRepositoryTriggersExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumRepositoryTriggersExceededException =
-    _ServiceError . hasCode "MaximumRepositoryTriggersExceededException"
+    _MatchServiceError codeCommit "MaximumRepositoryTriggersExceededException"
 
 -- | The specified branch name is not valid.
 --
 --
 _InvalidBranchNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBranchNameException =
-    _ServiceError . hasCode "InvalidBranchNameException"
+    _MatchServiceError codeCommit "InvalidBranchNameException"
 
 -- | A branch name is required but was not specified.
 --
 --
 _BranchNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchNameRequiredException =
-    _ServiceError . hasCode "BranchNameRequiredException"
+    _MatchServiceError codeCommit "BranchNameRequiredException"
 
 -- | The list of triggers for the repository is required but was not specified.
 --
 --
 _RepositoryTriggersListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggersListRequiredException =
-    _ServiceError . hasCode "RepositoryTriggersListRequiredException"
+    _MatchServiceError codeCommit "RepositoryTriggersListRequiredException"
 
 -- | The encryption key is not available.
 --
 --
 _EncryptionKeyUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyUnavailableException =
-    _ServiceError . hasCode "EncryptionKeyUnavailableException"
+    _MatchServiceError codeCommit "EncryptionKeyUnavailableException"
 
 -- | The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.
 --
 --
 _InvalidRepositoryTriggerDestinationARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerDestinationARNException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerDestinationArnException"
+    _MatchServiceError
+        codeCommit
+        "InvalidRepositoryTriggerDestinationArnException"
 
 -- | A repository names object is required but was not specified.
 --
 --
 _RepositoryNamesRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNamesRequiredException =
-    _ServiceError . hasCode "RepositoryNamesRequiredException"
+    _MatchServiceError codeCommit "RepositoryNamesRequiredException"
 
 -- | The specified sort order is not valid.
 --
 --
 _InvalidOrderException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOrderException = _ServiceError . hasCode "InvalidOrderException"
+_InvalidOrderException = _MatchServiceError codeCommit "InvalidOrderException"
 
 -- | The specified branch does not exist.
 --
 --
 _BranchDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchDoesNotExistException =
-    _ServiceError . hasCode "BranchDoesNotExistException"
+    _MatchServiceError codeCommit "BranchDoesNotExistException"
 
 -- | A name for the trigger is required but was not specified.
 --
 --
 _RepositoryTriggerNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerNameRequiredException =
-    _ServiceError . hasCode "RepositoryTriggerNameRequiredException"
+    _MatchServiceError codeCommit "RepositoryTriggerNameRequiredException"
 
 -- | The specified repository does not exist.
 --
 --
 _RepositoryDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryDoesNotExistException =
-    _ServiceError . hasCode "RepositoryDoesNotExistException"
+    _MatchServiceError codeCommit "RepositoryDoesNotExistException"
 
 -- | The number of branches for the trigger was exceeded.
 --
 --
 _MaximumBranchesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumBranchesExceededException =
-    _ServiceError . hasCode "MaximumBranchesExceededException"
+    _MatchServiceError codeCommit "MaximumBranchesExceededException"
 
 -- | An encryption integrity check failed.
 --
 --
 _EncryptionIntegrityChecksFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionIntegrityChecksFailedException =
-    _ServiceError . hasCode "EncryptionIntegrityChecksFailedException"
+    _MatchServiceError codeCommit "EncryptionIntegrityChecksFailedException"
 
 -- | At least one event for the trigger is required but was not specified.
 --
 --
 _RepositoryTriggerEventsListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerEventsListRequiredException =
-    _ServiceError . hasCode "RepositoryTriggerEventsListRequiredException"
+    _MatchServiceError
+        codeCommit
+        "RepositoryTriggerEventsListRequiredException"
 
 -- | An encryption key could not be accessed.
 --
 --
 _EncryptionKeyAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyAccessDeniedException =
-    _ServiceError . hasCode "EncryptionKeyAccessDeniedException"
+    _MatchServiceError codeCommit "EncryptionKeyAccessDeniedException"
 
 -- | The specified branch name already exists.
 --
 --
 _BranchNameExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchNameExistsException =
-    _ServiceError . hasCode "BranchNameExistsException"
+    _MatchServiceError codeCommit "BranchNameExistsException"
 
 -- | The specified sort by value is not valid.
 --
 --
 _InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException"
+_InvalidSortByException =
+    _MatchServiceError codeCommit "InvalidSortByException"
 
 -- | The encryption key is disabled.
 --
 --
 _EncryptionKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyDisabledException =
-    _ServiceError . hasCode "EncryptionKeyDisabledException"
+    _MatchServiceError codeCommit "EncryptionKeyDisabledException"
 
 -- | A commit ID was not specified.
 --
 --
 _CommitIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _CommitIdRequiredException =
-    _ServiceError . hasCode "CommitIdRequiredException"
+    _MatchServiceError codeCommit "CommitIdRequiredException"
 
 -- | The specified commit ID is not valid.
 --
 --
 _InvalidCommitIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommitIdException = _ServiceError . hasCode "InvalidCommitIdException"
+_InvalidCommitIdException =
+    _MatchServiceError codeCommit "InvalidCommitIdException"
 
 -- | A destination ARN for the target service for the trigger is required but was not specified.
 --
 --
 _RepositoryTriggerDestinationARNRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerDestinationARNRequiredException =
-    _ServiceError . hasCode "RepositoryTriggerDestinationArnRequiredException"
+    _MatchServiceError
+        codeCommit
+        "RepositoryTriggerDestinationArnRequiredException"
 
 -- | The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
 --
 --
 _CommitDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _CommitDoesNotExistException =
-    _ServiceError . hasCode "CommitDoesNotExistException"
+    _MatchServiceError codeCommit "CommitDoesNotExistException"
 
 -- | At least one branch name is required but was not specified in the trigger configuration.
 --
 --
 _RepositoryTriggerBranchNameListRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryTriggerBranchNameListRequiredException =
-    _ServiceError . hasCode "RepositoryTriggerBranchNameListRequiredException"
+    _MatchServiceError
+        codeCommit
+        "RepositoryTriggerBranchNameListRequiredException"
 
 -- | The specified commit ID does not exist.
 --
 --
 _CommitIdDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _CommitIdDoesNotExistException =
-    _ServiceError . hasCode "CommitIdDoesNotExistException"
+    _MatchServiceError codeCommit "CommitIdDoesNotExistException"
 
 -- | The name of the trigger is not valid.
 --
 --
 _InvalidRepositoryTriggerNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerNameException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerNameException"
+    _MatchServiceError codeCommit "InvalidRepositoryTriggerNameException"
 
 -- | A repository name is required but was not specified.
 --
 --
 _RepositoryNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNameRequiredException =
-    _ServiceError . hasCode "RepositoryNameRequiredException"
+    _MatchServiceError codeCommit "RepositoryNameRequiredException"
 
 -- | A repository resource limit was exceeded.
 --
 --
 _RepositoryLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryLimitExceededException =
-    _ServiceError . hasCode "RepositoryLimitExceededException"
+    _MatchServiceError codeCommit "RepositoryLimitExceededException"
 
 -- | One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.
 --
 --
 _InvalidRepositoryTriggerEventsException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryTriggerEventsException =
-    _ServiceError . hasCode "InvalidRepositoryTriggerEventsException"
+    _MatchServiceError codeCommit "InvalidRepositoryTriggerEventsException"
 
 -- | At least one specified repository name is not valid.
 --
 --
 _InvalidRepositoryNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRepositoryNameException =
-    _ServiceError . hasCode "InvalidRepositoryNameException"
+    _MatchServiceError codeCommit "InvalidRepositoryNameException"

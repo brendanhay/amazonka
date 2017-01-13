@@ -356,139 +356,141 @@ route53 =
 --
 _HealthCheckVersionMismatch :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckVersionMismatch =
-    _ServiceError . hasStatus 409 . hasCode "HealthCheckVersionMismatch"
+    _MatchServiceError route53 "HealthCheckVersionMismatch" . hasStatus 409
 
 -- | The input is not valid.
 --
 --
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
+_InvalidInput = _MatchServiceError route53 "InvalidInput" . hasStatus 400
 
 -- | The hosted zone contains resource records that are not SOA or NS records.
 --
 --
 _HostedZoneNotEmpty :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneNotEmpty =
-    _ServiceError . hasStatus 400 . hasCode "HostedZoneNotEmpty"
+    _MatchServiceError route53 "HostedZoneNotEmpty" . hasStatus 400
 
 -- | Parameter name and problem.
 --
 --
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgument = _ServiceError . hasCode "InvalidArgument"
+_InvalidArgument = _MatchServiceError route53 "InvalidArgument"
 
 -- | Traffic policy instance with given Id already exists.
 --
 --
 _TrafficPolicyInstanceAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _TrafficPolicyInstanceAlreadyExists =
-    _ServiceError .
-    hasStatus 409 . hasCode "TrafficPolicyInstanceAlreadyExists"
+    _MatchServiceError route53 "TrafficPolicyInstanceAlreadyExists" .
+    hasStatus 409
 
 -- | You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the @CreateTrafficPolicy@ or @CreateTrafficPolicyVersion@ request.
 --
 --
 _ConflictingTypes :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictingTypes = _ServiceError . hasStatus 400 . hasCode "ConflictingTypes"
+_ConflictingTypes =
+    _MatchServiceError route53 "ConflictingTypes" . hasStatus 400
 
 -- | Another user submitted a request to update the object at the same time that you did. Retry the request.
 --
 --
 _ConcurrentModification :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModification =
-    _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
+    _MatchServiceError route53 "ConcurrentModification" . hasStatus 400
 
 -- | The specified delegation set has already been marked as reusable.
 --
 --
 _DelegationSetAlreadyReusable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetAlreadyReusable =
-    _ServiceError . hasCode "DelegationSetAlreadyReusable"
+    _MatchServiceError route53 "DelegationSetAlreadyReusable"
 
 -- | Associating the specified VPC with the specified hosted zone has not been authorized.
 --
 --
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException =
-    _ServiceError . hasStatus 401 . hasCode "NotAuthorizedException"
+    _MatchServiceError route53 "NotAuthorizedException" . hasStatus 401
 
 -- | If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an @HTTP 400 error@ (@Bad request@ ). If Amazon Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
 --
 --
 _PriorRequestNotComplete :: AsError a => Getting (First ServiceError) a ServiceError
 _PriorRequestNotComplete =
-    _ServiceError . hasStatus 400 . hasCode "PriorRequestNotComplete"
+    _MatchServiceError route53 "PriorRequestNotComplete" . hasStatus 400
 
 -- | This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.
 --
 --
 _InvalidChangeBatch :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidChangeBatch = _ServiceError . hasCode "InvalidChangeBatch"
+_InvalidChangeBatch = _MatchServiceError route53 "InvalidChangeBatch"
 
 -- | You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a @DeleteVPCAssociationAuthorization@ request to remove an existing authorization. To get a list of existing authorizations, submit a @ListVPCAssociationAuthorizations@ request.
 --
 --
 _TooManyVPCAssociationAuthorizations :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyVPCAssociationAuthorizations =
-    _ServiceError .
-    hasStatus 400 . hasCode "TooManyVPCAssociationAuthorizations"
+    _MatchServiceError route53 "TooManyVPCAssociationAuthorizations" .
+    hasStatus 400
 
 -- | A traffic policy that has the same value for @Name@ already exists.
 --
 --
 _TrafficPolicyAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _TrafficPolicyAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "TrafficPolicyAlreadyExists"
+    _MatchServiceError route53 "TrafficPolicyAlreadyExists" . hasStatus 409
 
 -- | The format of the traffic policy document that you specified in the @Document@ element is invalid.
 --
 --
 _InvalidTrafficPolicyDocument :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTrafficPolicyDocument =
-    _ServiceError . hasStatus 400 . hasCode "InvalidTrafficPolicyDocument"
+    _MatchServiceError route53 "InvalidTrafficPolicyDocument" . hasStatus 400
 
 -- | Prism for InvalidPaginationToken' errors.
 _InvalidPaginationToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPaginationToken =
-    _ServiceError . hasStatus 400 . hasCode "InvalidPaginationToken"
+    _MatchServiceError route53 "InvalidPaginationToken" . hasStatus 400
 
 -- | A reusable delegation set with the specified ID does not exist.
 --
 --
 _DelegationSetNotReusable :: AsError a => Getting (First ServiceError) a ServiceError
-_DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
+_DelegationSetNotReusable =
+    _MatchServiceError route53 "DelegationSetNotReusable"
 
 -- | The specified domain name is not valid.
 --
 --
 _InvalidDomainName :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDomainName =
-    _ServiceError . hasStatus 400 . hasCode "InvalidDomainName"
+    _MatchServiceError route53 "InvalidDomainName" . hasStatus 400
 
 -- | No traffic policy exists with the specified ID.
 --
 --
 _NoSuchTrafficPolicy :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchTrafficPolicy =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchTrafficPolicy"
+    _MatchServiceError route53 "NoSuchTrafficPolicy" . hasStatus 404
 
 -- | The specified HostedZone can't be found.
 --
 --
 _HostedZoneNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_HostedZoneNotFound = _ServiceError . hasCode "HostedZoneNotFound"
+_HostedZoneNotFound = _MatchServiceError route53 "HostedZoneNotFound"
 
 -- | The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.
 --
 --
 _DelegationSetInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_DelegationSetInUse = _ServiceError . hasCode "DelegationSetInUse"
+_DelegationSetInUse = _MatchServiceError route53 "DelegationSetInUse"
 
 -- | A reusable delegation set with the specified ID does not exist.
 --
 --
 _NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
+_NoSuchDelegationSet = _MatchServiceError route53 "NoSuchDelegationSet"
 
 -- | The health check you're attempting to create already exists.
 --
@@ -497,159 +499,161 @@ _NoSuchDelegationSet = _ServiceError . hasCode "NoSuchDelegationSet"
 --
 _HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
+    _MatchServiceError route53 "HealthCheckAlreadyExists" . hasStatus 409
 
 -- | You've created the maximum number of traffic policies that can be created for the current AWS account. You can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
 --
 --
 _TooManyTrafficPolicies :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrafficPolicies =
-    _ServiceError . hasStatus 400 . hasCode "TooManyTrafficPolicies"
+    _MatchServiceError route53 "TooManyTrafficPolicies" . hasStatus 400
 
 -- | The VPC that you specified is not authorized to be associated with the hosted zone.
 --
 --
 _VPCAssociationAuthorizationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _VPCAssociationAuthorizationNotFound =
-    _ServiceError .
-    hasStatus 404 . hasCode "VPCAssociationAuthorizationNotFound"
+    _MatchServiceError route53 "VPCAssociationAuthorizationNotFound" .
+    hasStatus 404
 
 -- | Amazon Route 53 doesn't support the specified geolocation.
 --
 --
 _NoSuchGeoLocation :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchGeoLocation =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchGeoLocation"
+    _MatchServiceError route53 "NoSuchGeoLocation" . hasStatus 404
 
 -- | You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Amazon Route 53 generates this error, contact Customer Support.
 --
 --
 _DelegationSetNotAvailable :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetNotAvailable =
-    _ServiceError . hasCode "DelegationSetNotAvailable"
+    _MatchServiceError route53 "DelegationSetNotAvailable"
 
 -- | The specified VPC and hosted zone are not currently associated.
 --
 --
 _VPCAssociationNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _VPCAssociationNotFound =
-    _ServiceError . hasStatus 404 . hasCode "VPCAssociationNotFound"
+    _MatchServiceError route53 "VPCAssociationNotFound" . hasStatus 404
 
 -- |
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
-    _ServiceError . hasStatus 400 . hasCode "ThrottlingException"
+    _MatchServiceError route53 "ThrottlingException" . hasStatus 400
 
 -- | A change with the specified change ID does not exist.
 --
 --
 _NoSuchChange :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchChange = _ServiceError . hasStatus 404 . hasCode "NoSuchChange"
+_NoSuchChange = _MatchServiceError route53 "NoSuchChange" . hasStatus 404
 
 -- | The limits specified for a resource have been exceeded.
 --
 --
 _LimitsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitsExceeded = _ServiceError . hasCode "LimitsExceeded"
+_LimitsExceeded = _MatchServiceError route53 "LimitsExceeded"
 
 -- | You've created the maximum number of traffic policy instances that can be created for the current AWS account. You can request an increase to the limit on the <http://aws.amazon.com/route53-request/ Contact Us> page.
 --
 --
 _TooManyTrafficPolicyInstances :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyTrafficPolicyInstances =
-    _ServiceError . hasStatus 400 . hasCode "TooManyTrafficPolicyInstances"
+    _MatchServiceError route53 "TooManyTrafficPolicyInstances" . hasStatus 400
 
 -- | No traffic policy instance exists with the specified ID.
 --
 --
 _NoSuchTrafficPolicyInstance :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchTrafficPolicyInstance =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchTrafficPolicyInstance"
+    _MatchServiceError route53 "NoSuchTrafficPolicyInstance" . hasStatus 404
 
 -- | The resource you are trying to access is unsupported on this Amazon Route 53 endpoint. Please consider using a newer endpoint or a tool that does so.
 --
 --
 _IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _IncompatibleVersion =
-    _ServiceError . hasStatus 400 . hasCode "IncompatibleVersion"
+    _MatchServiceError route53 "IncompatibleVersion" . hasStatus 400
 
 -- | You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.
 --
 --
 _PublicZoneVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _PublicZoneVPCAssociation =
-    _ServiceError . hasStatus 400 . hasCode "PublicZoneVPCAssociation"
+    _MatchServiceError route53 "PublicZoneVPCAssociation" . hasStatus 400
 
 -- | No hosted zone exists with the ID that you specified.
 --
 --
 _NoSuchHostedZone :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchHostedZone = _ServiceError . hasStatus 404 . hasCode "NoSuchHostedZone"
+_NoSuchHostedZone =
+    _MatchServiceError route53 "NoSuchHostedZone" . hasStatus 404
 
 -- | This hosted zone can't be created because the hosted zone limit is exceeded. To request a limit increase, go to the Amazon Route 53 <http://aws.amazon.com/route53-request/ Contact Us> page.
 --
 --
 _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
-    _ServiceError . hasStatus 400 . hasCode "TooManyHostedZones"
+    _MatchServiceError route53 "TooManyHostedZones" . hasStatus 400
 
 -- | The health check ID for this health check is referenced in the @HealthCheckId@ element in one of the resource record sets in one of the hosted zones that are owned by the current AWS account.
 --
 --
 _HealthCheckInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_HealthCheckInUse = _ServiceError . hasStatus 400 . hasCode "HealthCheckInUse"
+_HealthCheckInUse =
+    _MatchServiceError route53 "HealthCheckInUse" . hasStatus 400
 
 -- | A delegation set with the same owner and caller reference combination has already been created.
 --
 --
 _DelegationSetAlreadyCreated :: AsError a => Getting (First ServiceError) a ServiceError
 _DelegationSetAlreadyCreated =
-    _ServiceError . hasCode "DelegationSetAlreadyCreated"
+    _MatchServiceError route53 "DelegationSetAlreadyCreated"
 
 -- | You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.
 --
 --
 _ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictingDomainExists = _ServiceError . hasCode "ConflictingDomainExists"
+_ConflictingDomainExists = _MatchServiceError route53 "ConflictingDomainExists"
 
 -- | The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
 --
 --
 _LastVPCAssociation :: AsError a => Getting (First ServiceError) a ServiceError
 _LastVPCAssociation =
-    _ServiceError . hasStatus 400 . hasCode "LastVPCAssociation"
+    _MatchServiceError route53 "LastVPCAssociation" . hasStatus 400
 
 -- | You have reached the maximum number of active health checks for an AWS account. The default limit is 100. To request a higher limit, <http://aws.amazon.com/route53-request create a case> with the AWS Support Center.
 --
 --
 _TooManyHealthChecks :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyHealthChecks = _ServiceError . hasCode "TooManyHealthChecks"
+_TooManyHealthChecks = _MatchServiceError route53 "TooManyHealthChecks"
 
 -- | No health check exists with the ID that you specified in the @DeleteHealthCheck@ request.
 --
 --
 _NoSuchHealthCheck :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchHealthCheck =
-    _ServiceError . hasStatus 404 . hasCode "NoSuchHealthCheck"
+    _MatchServiceError route53 "NoSuchHealthCheck" . hasStatus 404
 
 -- | One or more traffic policy instances were created by using the specified traffic policy.
 --
 --
 _TrafficPolicyInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _TrafficPolicyInUse =
-    _ServiceError . hasStatus 400 . hasCode "TrafficPolicyInUse"
+    _MatchServiceError route53 "TrafficPolicyInUse" . hasStatus 400
 
 -- | The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
 --
 --
 _InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"
+_InvalidVPCId = _MatchServiceError route53 "InvalidVPCId" . hasStatus 400
 
 -- | The hosted zone you are trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified @CallerReference@ .
 --
 --
 _HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneAlreadyExists =
-    _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists"
+    _MatchServiceError route53 "HostedZoneAlreadyExists" . hasStatus 409

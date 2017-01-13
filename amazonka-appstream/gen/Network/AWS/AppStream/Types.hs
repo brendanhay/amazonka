@@ -181,44 +181,44 @@ appStream =
 --
 --
 _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
+_InvalidRoleException = _MatchServiceError appStream "InvalidRoleException"
 
 -- | The specified resource already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError appStream "ResourceAlreadyExistsException"
 
 -- | The attempted operation is not permitted.
 --
 --
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
-    _ServiceError . hasCode "OperationNotPermittedException"
+    _MatchServiceError appStream "OperationNotPermittedException"
 
 -- | The specified resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError appStream "ResourceNotFoundException"
 
 -- | The specified resource exists and is not in use, but isn't available.
 --
 --
 _ResourceNotAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotAvailableException =
-    _ServiceError . hasCode "ResourceNotAvailableException"
+    _MatchServiceError appStream "ResourceNotAvailableException"
 
 -- | The requested limit exceeds the permitted limit for an account.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError appStream "LimitExceededException"
 
 -- | The specified resource is in use.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException = _MatchServiceError appStream "ResourceInUseException"

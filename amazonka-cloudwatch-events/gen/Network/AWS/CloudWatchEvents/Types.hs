@@ -120,30 +120,31 @@ cloudWatchEvents =
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
-    _ServiceError . hasCode "ConcurrentModificationException"
+    _MatchServiceError cloudWatchEvents "ConcurrentModificationException"
 
 -- | The event pattern is invalid.
 --
 --
 _InvalidEventPatternException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEventPatternException =
-    _ServiceError . hasCode "InvalidEventPatternException"
+    _MatchServiceError cloudWatchEvents "InvalidEventPatternException"
 
 -- | This exception occurs due to unexpected causes.
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException = _ServiceError . hasCode "InternalException"
+_InternalException = _MatchServiceError cloudWatchEvents "InternalException"
 
 -- | The rule does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError cloudWatchEvents "ResourceNotFoundException"
 
 -- | This exception occurs if you try to create more rules or add more targets to a rule than allowed by default.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError cloudWatchEvents "LimitExceededException"

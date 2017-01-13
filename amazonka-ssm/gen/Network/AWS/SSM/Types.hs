@@ -747,62 +747,62 @@ ssm =
 --
 _AutomationDefinitionVersionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _AutomationDefinitionVersionNotFoundException =
-    _ServiceError . hasCode "AutomationDefinitionVersionNotFoundException"
+    _MatchServiceError ssm "AutomationDefinitionVersionNotFoundException"
 
 -- | The document version is not valid or does not exist.
 --
 --
 _InvalidDocumentVersion :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocumentVersion = _ServiceError . hasCode "InvalidDocumentVersion"
+_InvalidDocumentVersion = _MatchServiceError ssm "InvalidDocumentVersion"
 
 -- | The schedule is invalid. Verify your cron or rate expression and try again.
 --
 --
 _InvalidSchedule :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSchedule = _ServiceError . hasCode "InvalidSchedule"
+_InvalidSchedule = _MatchServiceError ssm "InvalidSchedule"
 
 -- | The parameter type is not supported.
 --
 --
 _UnsupportedParameterType :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedParameterType = _ServiceError . hasCode "UnsupportedParameterType"
+_UnsupportedParameterType = _MatchServiceError ssm "UnsupportedParameterType"
 
 -- | The plugin name is not valid.
 --
 --
 _InvalidPluginName :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPluginName = _ServiceError . hasCode "InvalidPluginName"
+_InvalidPluginName = _MatchServiceError ssm "InvalidPluginName"
 
 -- | The document does not support the platform type of the given instance ID(s). For example, you sent an SSM document for a Windows instance to a Linux instance.
 --
 --
 _UnsupportedPlatformType :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedPlatformType = _ServiceError . hasCode "UnsupportedPlatformType"
+_UnsupportedPlatformType = _MatchServiceError ssm "UnsupportedPlatformType"
 
 -- | The filter value is not valid. Verify the value and try again.
 --
 --
 _InvalidFilterValue :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFilterValue = _ServiceError . hasCode "InvalidFilterValue"
+_InvalidFilterValue = _MatchServiceError ssm "InvalidFilterValue"
 
 -- | One or more content items is not valid.
 --
 --
 _InvalidItemContentException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidItemContentException =
-    _ServiceError . hasCode "InvalidItemContentException"
+    _MatchServiceError ssm "InvalidItemContentException"
 
 -- | The permission type is not supported. /Share/ is the only supported permission type.
 --
 --
 _InvalidPermissionType :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPermissionType = _ServiceError . hasCode "InvalidPermissionType"
+_InvalidPermissionType = _MatchServiceError ssm "InvalidPermissionType"
 
 -- | You must disassociate an SSM document from all instances before you can delete it.
 --
 --
 _AssociatedInstances :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociatedInstances = _ServiceError . hasCode "AssociatedInstances"
+_AssociatedInstances = _MatchServiceError ssm "AssociatedInstances"
 
 -- | The following problems can cause this exception:
 --
@@ -816,336 +816,335 @@ _AssociatedInstances = _ServiceError . hasCode "AssociatedInstances"
 -- The instance is not in valid state. Valid states are: Running, Pending, Stopped, Stopping. Invalid states are: Shutting-down and Terminated.
 --
 _InvalidInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInstanceId = _ServiceError . hasCode "InvalidInstanceId"
+_InvalidInstanceId = _MatchServiceError ssm "InvalidInstanceId"
 
 -- | The updated status is the same as the current status.
 --
 --
 _StatusUnchanged :: AsError a => Getting (First ServiceError) a ServiceError
-_StatusUnchanged = _ServiceError . hasCode "StatusUnchanged"
+_StatusUnchanged = _MatchServiceError ssm "StatusUnchanged"
 
 -- | The specified token is not valid.
 --
 --
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasCode "InvalidNextToken"
+_InvalidNextToken = _MatchServiceError ssm "InvalidNextToken"
 
 -- | The S3 bucket does not exist.
 --
 --
 _InvalidOutputFolder :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOutputFolder = _ServiceError . hasCode "InvalidOutputFolder"
+_InvalidOutputFolder = _MatchServiceError ssm "InvalidOutputFolder"
 
 -- | The activation ID is not valid. Verify the you entered the correct ActivationId or ActivationCode and try again.
 --
 --
 _InvalidActivationId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidActivationId = _ServiceError . hasCode "InvalidActivationId"
+_InvalidActivationId = _MatchServiceError ssm "InvalidActivationId"
 
 -- | The specified inventory item result attribute is not valid.
 --
 --
 _InvalidResultAttributeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResultAttributeException =
-    _ServiceError . hasCode "InvalidResultAttributeException"
+    _MatchServiceError ssm "InvalidResultAttributeException"
 
 -- | Error returned when the caller has exceeded the default resource limits (e.g. too many Maintenance Windows have been created).
 --
 --
 _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceLimitExceededException =
-    _ServiceError . hasCode "ResourceLimitExceededException"
+    _MatchServiceError ssm "ResourceLimitExceededException"
 
 -- | Prism for InvalidCommandId' errors.
 _InvalidCommandId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCommandId = _ServiceError . hasCode "InvalidCommandId"
+_InvalidCommandId = _MatchServiceError ssm "InvalidCommandId"
 
 -- | You cannot specify an instance ID in more than one association.
 --
 --
 _DuplicateInstanceId :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateInstanceId = _ServiceError . hasCode "DuplicateInstanceId"
+_DuplicateInstanceId = _MatchServiceError ssm "DuplicateInstanceId"
 
 -- | The resource type is not valid. If you are attempting to tag an instance, the instance must be a registered, managed instance.
 --
 --
 _InvalidResourceType :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceType = _ServiceError . hasCode "InvalidResourceType"
+_InvalidResourceType = _MatchServiceError ssm "InvalidResourceType"
 
 -- | Inventory item type schema version has to match supported versions in the service. Check output of @GetInventorySchema@ to see the available schema version for each type.
 --
 --
 _UnsupportedInventorySchemaVersionException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedInventorySchemaVersionException =
-    _ServiceError . hasCode "UnsupportedInventorySchemaVersionException"
+    _MatchServiceError ssm "UnsupportedInventorySchemaVersionException"
 
 -- | The specified document does not exist.
 --
 --
 _InvalidDocument :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocument = _ServiceError . hasCode "InvalidDocument"
+_InvalidDocument = _MatchServiceError ssm "InvalidDocument"
 
 -- | An Automation document with the specified name could not be found.
 --
 --
 _AutomationDefinitionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _AutomationDefinitionNotFoundException =
-    _ServiceError . hasCode "AutomationDefinitionNotFoundException"
+    _MatchServiceError ssm "AutomationDefinitionNotFoundException"
 
 -- | The specified key is not valid.
 --
 --
 _InvalidFilterKey :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFilterKey = _ServiceError . hasCode "InvalidFilterKey"
+_InvalidFilterKey = _MatchServiceError ssm "InvalidFilterKey"
 
 -- | The supplied parameters for invoking the specified Automation document are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.
 --
 --
 _InvalidAutomationExecutionParametersException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAutomationExecutionParametersException =
-    _ServiceError . hasCode "InvalidAutomationExecutionParametersException"
+    _MatchServiceError ssm "InvalidAutomationExecutionParametersException"
 
 -- | There is no automation execution information for the requested automation execution ID.
 --
 --
 _AutomationExecutionNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _AutomationExecutionNotFoundException =
-    _ServiceError . hasCode "AutomationExecutionNotFoundException"
+    _MatchServiceError ssm "AutomationExecutionNotFoundException"
 
 -- | The parameter type name is not valid.
 --
 --
 _InvalidTypeNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTypeNameException = _ServiceError . hasCode "InvalidTypeNameException"
+_InvalidTypeNameException = _MatchServiceError ssm "InvalidTypeNameException"
 
 -- | The inventory item size has exceeded the size limit.
 --
 --
 _ItemSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ItemSizeLimitExceededException =
-    _ServiceError . hasCode "ItemSizeLimitExceededException"
+    _MatchServiceError ssm "ItemSizeLimitExceededException"
 
 -- | Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn’t exist.
 --
 --
 _DoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
-_DoesNotExistException = _ServiceError . hasCode "DoesNotExistException"
+_DoesNotExistException = _MatchServiceError ssm "DoesNotExistException"
 
 -- | The number of simultaneously running Automation executions exceeded the allowable limit.
 --
 --
 _AutomationExecutionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _AutomationExecutionLimitExceededException =
-    _ServiceError . hasCode "AutomationExecutionLimitExceededException"
+    _MatchServiceError ssm "AutomationExecutionLimitExceededException"
 
 -- | Error returned when an idempotent operation is retried and the parameters don’t match the original call to the API with the same idempotency token.
 --
 --
 _IdempotentParameterMismatch :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotentParameterMismatch =
-    _ServiceError . hasCode "IdempotentParameterMismatch"
+    _MatchServiceError ssm "IdempotentParameterMismatch"
 
 -- | The specified filter value is not valid.
 --
 --
 _InvalidInstanceInformationFilterValue :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceInformationFilterValue =
-    _ServiceError . hasCode "InvalidInstanceInformationFilterValue"
+    _MatchServiceError ssm "InvalidInstanceInformationFilterValue"
 
 -- | The inventory item has invalid content.
 --
 --
 _ItemContentMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _ItemContentMismatchException =
-    _ServiceError . hasCode "ItemContentMismatchException"
+    _MatchServiceError ssm "ItemContentMismatchException"
 
 -- | The parameter already exists. You can't create duplicate parameters.
 --
 --
 _ParameterAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_ParameterAlreadyExists = _ServiceError . hasCode "ParameterAlreadyExists"
+_ParameterAlreadyExists = _MatchServiceError ssm "ParameterAlreadyExists"
 
 -- | The specified association already exists.
 --
 --
 _AssociationAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationAlreadyExists = _ServiceError . hasCode "AssociationAlreadyExists"
+_AssociationAlreadyExists = _MatchServiceError ssm "AssociationAlreadyExists"
 
 -- | The content for the SSM document is not valid.
 --
 --
 _InvalidDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocumentContent = _ServiceError . hasCode "InvalidDocumentContent"
+_InvalidDocumentContent = _MatchServiceError ssm "InvalidDocumentContent"
 
 -- | You have exceeded the number of parameters for this AWS account. Delete one or more parameters and try again.
 --
 --
 _ParameterLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_ParameterLimitExceeded = _ServiceError . hasCode "ParameterLimitExceeded"
+_ParameterLimitExceeded = _MatchServiceError ssm "ParameterLimitExceeded"
 
 -- | You can have at most 2,000 active associations.
 --
 --
 _AssociationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationLimitExceeded = _ServiceError . hasCode "AssociationLimitExceeded"
+_AssociationLimitExceeded = _MatchServiceError ssm "AssociationLimitExceeded"
 
 -- | The specified association does not exist.
 --
 --
 _AssociationDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_AssociationDoesNotExist = _ServiceError . hasCode "AssociationDoesNotExist"
+_AssociationDoesNotExist = _MatchServiceError ssm "AssociationDoesNotExist"
 
 -- | The parameter could not be found. Verify the name and try again.
 --
 --
 _ParameterNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_ParameterNotFound = _ServiceError . hasCode "ParameterNotFound"
+_ParameterNotFound = _MatchServiceError ssm "ParameterNotFound"
 
 -- | An error occurred on the server side.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError"
+_InternalServerError = _MatchServiceError ssm "InternalServerError"
 
 -- | The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/rc-sns.html Getting Amazon SNS Notifications When a Command Changes Status> in the /Amazon Elastic Compute Cloud User Guide / .
 --
 --
 _InvalidRole :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRole = _ServiceError . hasCode "InvalidRole"
+_InvalidRole = _MatchServiceError ssm "InvalidRole"
 
 -- | There are concurrent updates for a resource that supports one update at a time.
 --
 --
 _TooManyUpdates :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyUpdates = _ServiceError . hasCode "TooManyUpdates"
+_TooManyUpdates = _MatchServiceError ssm "TooManyUpdates"
 
 -- | The activation is not valid. The activation might have been deleted, or the ActivationId and the ActivationCode do not match.
 --
 --
 _InvalidActivation :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidActivation = _ServiceError . hasCode "InvalidActivation"
+_InvalidActivation = _MatchServiceError ssm "InvalidActivation"
 
 -- | The version of the document schema is not supported.
 --
 --
 _InvalidDocumentSchemaVersion :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDocumentSchemaVersion =
-    _ServiceError . hasCode "InvalidDocumentSchemaVersion"
+    _MatchServiceError ssm "InvalidDocumentSchemaVersion"
 
 -- | The size limit of an SSM document is 64 KB.
 --
 --
 _MaxDocumentSizeExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_MaxDocumentSizeExceeded = _ServiceError . hasCode "MaxDocumentSizeExceeded"
+_MaxDocumentSizeExceeded = _MatchServiceError ssm "MaxDocumentSizeExceeded"
 
 -- | The update is not valid.
 --
 --
 _InvalidUpdate :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidUpdate = _ServiceError . hasCode "InvalidUpdate"
+_InvalidUpdate = _MatchServiceError ssm "InvalidUpdate"
 
 -- | You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.
 --
 --
 _CustomSchemaCountLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CustomSchemaCountLimitExceededException =
-    _ServiceError . hasCode "CustomSchemaCountLimitExceededException"
+    _MatchServiceError ssm "CustomSchemaCountLimitExceededException"
 
 -- | The target is not valid or does not exist. It might not be configured for EC2 Systems Manager or you might not have permission to perform the operation.
 --
 --
 _InvalidTarget :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTarget = _ServiceError . hasCode "InvalidTarget"
+_InvalidTarget = _MatchServiceError ssm "InvalidTarget"
 
 -- | You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
 --
 --
 _InvalidDocumentOperation :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDocumentOperation = _ServiceError . hasCode "InvalidDocumentOperation"
+_InvalidDocumentOperation = _MatchServiceError ssm "InvalidDocumentOperation"
 
 -- | The command ID and instance ID you specified did not match any invocations. Verify the command ID adn the instance ID and try again.
 --
 --
 _InvocationDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_InvocationDoesNotExist = _ServiceError . hasCode "InvocationDoesNotExist"
+_InvocationDoesNotExist = _MatchServiceError ssm "InvocationDoesNotExist"
 
 -- | The document has too many versions. Delete one or more document versions and try again.
 --
 --
 _DocumentVersionLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentVersionLimitExceeded =
-    _ServiceError . hasCode "DocumentVersionLimitExceeded"
+    _MatchServiceError ssm "DocumentVersionLimitExceeded"
 
 -- | The output location is not valid or does not exist.
 --
 --
 _InvalidOutputLocation :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOutputLocation = _ServiceError . hasCode "InvalidOutputLocation"
+_InvalidOutputLocation = _MatchServiceError ssm "InvalidOutputLocation"
 
 -- | The query key ID is not valid.
 --
 --
 _InvalidKeyId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidKeyId = _ServiceError . hasCode "InvalidKeyId"
+_InvalidKeyId = _MatchServiceError ssm "InvalidKeyId"
 
 -- | You must specify values for all required parameters in the SSM document. You can only supply values to parameters defined in the SSM document.
 --
 --
 _InvalidParameters :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameters = _ServiceError . hasCode "InvalidParameters"
+_InvalidParameters = _MatchServiceError ssm "InvalidParameters"
 
 -- | The resource ID is not valid. Verify that you entered the correct ID and try again.
 --
 --
 _InvalidResourceId :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceId = _ServiceError . hasCode "InvalidResourceId"
+_InvalidResourceId = _MatchServiceError ssm "InvalidResourceId"
 
 -- | One or more configuration items is not valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon SNS topic.
 --
 --
 _InvalidNotificationConfig :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNotificationConfig =
-    _ServiceError . hasCode "InvalidNotificationConfig"
+_InvalidNotificationConfig = _MatchServiceError ssm "InvalidNotificationConfig"
 
 -- | The size of inventory data has exceeded the total size limit for the resource.
 --
 --
 _TotalSizeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TotalSizeLimitExceededException =
-    _ServiceError . hasCode "TotalSizeLimitExceededException"
+    _MatchServiceError ssm "TotalSizeLimitExceededException"
 
 -- | The @Targets@ parameter includes too many tags. Remove one or more tags and try the command again.
 --
 --
 _TooManyTagsError :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsError = _ServiceError . hasCode "TooManyTagsError"
+_TooManyTagsError = _MatchServiceError ssm "TooManyTagsError"
 
 -- | The document cannot be shared with more AWS user accounts. You can share a document with a maximum of 20 accounts. You can publicly share up to five documents. If you need to increase this limit, contact AWS Support.
 --
 --
 _DocumentPermissionLimit :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentPermissionLimit = _ServiceError . hasCode "DocumentPermissionLimit"
+_DocumentPermissionLimit = _MatchServiceError ssm "DocumentPermissionLimit"
 
 -- | The content of the association document matches another document. Change the content of the document and try again.
 --
 --
 _DuplicateDocumentContent :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateDocumentContent = _ServiceError . hasCode "DuplicateDocumentContent"
+_DuplicateDocumentContent = _MatchServiceError ssm "DuplicateDocumentContent"
 
 -- | The specified SSM document already exists.
 --
 --
 _DocumentAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentAlreadyExists = _ServiceError . hasCode "DocumentAlreadyExists"
+_DocumentAlreadyExists = _MatchServiceError ssm "DocumentAlreadyExists"
 
 -- | You can have at most 200 active SSM documents.
 --
 --
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_DocumentLimitExceeded = _ServiceError . hasCode "DocumentLimitExceeded"
+_DocumentLimitExceeded = _MatchServiceError ssm "DocumentLimitExceeded"
 
 -- | The filter name is not valid. Verify the you entered the correct name and try again.
 --
 --
 _InvalidFilter :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFilter = _ServiceError . hasCode "InvalidFilter"
+_InvalidFilter = _MatchServiceError ssm "InvalidFilter"

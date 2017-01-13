@@ -430,149 +430,149 @@ iam =
 --
 _CredentialReportNotPresentException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportNotPresentException =
-    _ServiceError . hasStatus 410 . hasCode "ReportNotPresent"
+    _MatchServiceError iam "ReportNotPresent" . hasStatus 410
 
 -- | The request was rejected because the credential report is still being generated.
 --
 --
 _CredentialReportNotReadyException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportNotReadyException =
-    _ServiceError . hasStatus 404 . hasCode "ReportInProgress"
+    _MatchServiceError iam "ReportInProgress" . hasStatus 404
 
 -- | The request was rejected because the policy document was malformed. The error message describes the specific error.
 --
 --
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
-    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
+    _MatchServiceError iam "MalformedPolicyDocument" . hasStatus 400
 
 -- | The request was rejected because it attempted to create a resource that already exists.
 --
 --
 _EntityAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityAlreadyExistsException =
-    _ServiceError . hasStatus 409 . hasCode "EntityAlreadyExists"
+    _MatchServiceError iam "EntityAlreadyExists" . hasStatus 409
 
 -- | The request was rejected because the certificate was malformed or expired. The error message describes the specific error.
 --
 --
 _MalformedCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedCertificateException =
-    _ServiceError . hasStatus 400 . hasCode "MalformedCertificate"
+    _MatchServiceError iam "MalformedCertificate" . hasStatus 400
 
 -- | The request was rejected because the most recent credential report has expired. To generate a new credential report, use 'GenerateCredentialReport' . For more information about credential report expiration, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /IAM User Guide/ .
 --
 --
 _CredentialReportExpiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _CredentialReportExpiredException =
-    _ServiceError . hasStatus 410 . hasCode "ReportExpired"
+    _MatchServiceError iam "ReportExpired" . hasStatus 410
 
 -- | The request was rejected because the same certificate is associated with an IAM user in the account.
 --
 --
 _DuplicateCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateCertificateException =
-    _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
+    _MatchServiceError iam "DuplicateCertificate" . hasStatus 409
 
 -- | The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
 --
 --
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeleteConflictException =
-    _ServiceError . hasStatus 409 . hasCode "DeleteConflict"
+    _MatchServiceError iam "DeleteConflict" . hasStatus 409
 
 -- | The request was rejected because it referenced an entity that does not exist. The error message describes the entity.
 --
 --
 _NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchEntityException = _ServiceError . hasStatus 404 . hasCode "NoSuchEntity"
+_NoSuchEntityException = _MatchServiceError iam "NoSuchEntity" . hasStatus 404
 
 -- | The request was rejected because the certificate is invalid.
 --
 --
 _InvalidCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCertificateException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidCertificate"
+    _MatchServiceError iam "InvalidCertificate" . hasStatus 400
 
 -- | The request was rejected because the public key encoding format is unsupported or unrecognized.
 --
 --
 _UnrecognizedPublicKeyEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnrecognizedPublicKeyEncodingException =
-    _ServiceError . hasStatus 400 . hasCode "UnrecognizedPublicKeyEncoding"
+    _MatchServiceError iam "UnrecognizedPublicKeyEncoding" . hasStatus 400
 
 -- | The request was rejected because the type of user for the transaction was incorrect.
 --
 --
 _InvalidUserTypeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidUserTypeException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidUserType"
+    _MatchServiceError iam "InvalidUserType" . hasStatus 400
 
 -- | The request processing has failed because of an unknown error, exception or failure.
 --
 --
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceFailureException =
-    _ServiceError . hasStatus 500 . hasCode "ServiceFailure"
+    _MatchServiceError iam "ServiceFailure" . hasStatus 500
 
 -- | The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
 --
 --
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
+_InvalidInputException = _MatchServiceError iam "InvalidInput" . hasStatus 400
 
 -- | The request was rejected because the public key is malformed or otherwise invalid.
 --
 --
 _InvalidPublicKeyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPublicKeyException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidPublicKey"
+    _MatchServiceError iam "InvalidPublicKey" . hasStatus 400
 
 -- | The request was rejected because the authentication code was not recognized. The error message describes the specific error.
 --
 --
 _InvalidAuthenticationCodeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAuthenticationCodeException =
-    _ServiceError . hasStatus 403 . hasCode "InvalidAuthenticationCode"
+    _MatchServiceError iam "InvalidAuthenticationCode" . hasStatus 403
 
 -- | The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
 --
 --
 _EntityTemporarilyUnmodifiableException :: AsError a => Getting (First ServiceError) a ServiceError
 _EntityTemporarilyUnmodifiableException =
-    _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable"
+    _MatchServiceError iam "EntityTemporarilyUnmodifiable" . hasStatus 409
 
 -- | The request was rejected because the SSH public key is already associated with the specified IAM user.
 --
 --
 _DuplicateSSHPublicKeyException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateSSHPublicKeyException =
-    _ServiceError . hasStatus 400 . hasCode "DuplicateSSHPublicKey"
+    _MatchServiceError iam "DuplicateSSHPublicKey" . hasStatus 400
 
 -- | The request was rejected because the public key certificate and the private key do not match.
 --
 --
 _KeyPairMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _KeyPairMismatchException =
-    _ServiceError . hasStatus 400 . hasCode "KeyPairMismatch"
+    _MatchServiceError iam "KeyPairMismatch" . hasStatus 400
 
 -- | The request failed because a provided policy could not be successfully evaluated. An additional detail message indicates the source of the failure.
 --
 --
 _PolicyEvaluationException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyEvaluationException =
-    _ServiceError . hasStatus 500 . hasCode "PolicyEvaluation"
+    _MatchServiceError iam "PolicyEvaluation" . hasStatus 500
 
 -- | The request was rejected because the provided password did not meet the requirements imposed by the account password policy.
 --
 --
 _PasswordPolicyViolationException :: AsError a => Getting (First ServiceError) a ServiceError
 _PasswordPolicyViolationException =
-    _ServiceError . hasStatus 400 . hasCode "PasswordPolicyViolation"
+    _MatchServiceError iam "PasswordPolicyViolation" . hasStatus 400
 
 -- | The request was rejected because it attempted to create resources beyond the current AWS account limits. The error message describes the limit exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
+    _MatchServiceError iam "LimitExceeded" . hasStatus 409

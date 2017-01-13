@@ -73,68 +73,70 @@ ioTDataPlane =
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
+    _MatchServiceError ioTDataPlane "InvalidRequestException" . hasStatus 400
 
 -- | The specified version does not match the version of the document.
 --
 --
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
-    _ServiceError . hasStatus 409 . hasCode "ConflictException"
+    _MatchServiceError ioTDataPlane "ConflictException" . hasStatus 409
 
 -- | The payload exceeds the maximum size allowed.
 --
 --
 _RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestEntityTooLargeException =
-    _ServiceError . hasStatus 413 . hasCode "RequestEntityTooLargeException"
+    _MatchServiceError ioTDataPlane "RequestEntityTooLargeException" .
+    hasStatus 413
 
 -- | The rate exceeds the limit.
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
-    _ServiceError . hasStatus 429 . hasCode "ThrottlingException"
+    _MatchServiceError ioTDataPlane "ThrottlingException" . hasStatus 429
 
 -- | The specified combination of HTTP verb and URI is not supported.
 --
 --
 _MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MethodNotAllowedException =
-    _ServiceError . hasStatus 405 . hasCode "MethodNotAllowedException"
+    _MatchServiceError ioTDataPlane "MethodNotAllowedException" . hasStatus 405
 
 -- | An unexpected error has occurred.
 --
 --
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalFailureException =
-    _ServiceError . hasStatus 500 . hasCode "InternalFailureException"
+    _MatchServiceError ioTDataPlane "InternalFailureException" . hasStatus 500
 
 -- | The service is temporarily unavailable.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
+    _MatchServiceError ioTDataPlane "ServiceUnavailableException" .
+    hasStatus 503
 
 -- | You are not authorized to perform this operation.
 --
 --
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
-    _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
+    _MatchServiceError ioTDataPlane "UnauthorizedException" . hasStatus 401
 
 -- | The specified resource does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
+    _MatchServiceError ioTDataPlane "ResourceNotFoundException" . hasStatus 404
 
 -- | The document encoding is not supported.
 --
 --
 _UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedDocumentEncodingException =
-    _ServiceError .
-    hasStatus 415 . hasCode "UnsupportedDocumentEncodingException"
+    _MatchServiceError ioTDataPlane "UnsupportedDocumentEncodingException" .
+    hasStatus 415

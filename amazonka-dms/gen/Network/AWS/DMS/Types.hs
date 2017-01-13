@@ -275,83 +275,81 @@ dms =
 --
 --
 _InvalidSubnet :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSubnet = _ServiceError . hasCode "InvalidSubnet"
+_InvalidSubnet = _MatchServiceError dms "InvalidSubnet"
 
 -- | AWS DMS cannot access the KMS key.
 --
 --
 _KMSKeyNotAccessibleFault :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSKeyNotAccessibleFault = _ServiceError . hasCode "KMSKeyNotAccessibleFault"
+_KMSKeyNotAccessibleFault = _MatchServiceError dms "KMSKeyNotAccessibleFault"
 
 -- | The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
 --
 --
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
-    _ServiceError . hasCode "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+    _MatchServiceError dms "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
 -- | The resource is in a state that prevents it from being used for database migration.
 --
 --
 _InvalidResourceStateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceStateFault =
-    _ServiceError . hasCode "InvalidResourceStateFault"
+_InvalidResourceStateFault = _MatchServiceError dms "InvalidResourceStateFault"
 
 -- | The certificate was not valid.
 --
 --
 _InvalidCertificateFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCertificateFault = _ServiceError . hasCode "InvalidCertificateFault"
+_InvalidCertificateFault = _MatchServiceError dms "InvalidCertificateFault"
 
 -- | The resource you are attempting to create already exists.
 --
 --
 _ResourceAlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsFault =
-    _ServiceError . hasCode "ResourceAlreadyExistsFault"
+    _MatchServiceError dms "ResourceAlreadyExistsFault"
 
 -- | There are not enough resources allocated to the database migration.
 --
 --
 _InsufficientResourceCapacityFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientResourceCapacityFault =
-    _ServiceError . hasCode "InsufficientResourceCapacityFault"
+    _MatchServiceError dms "InsufficientResourceCapacityFault"
 
 -- | The quota for this resource quota has been exceeded.
 --
 --
 _ResourceQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceQuotaExceededFault =
-    _ServiceError . hasCode "ResourceQuotaExceededFault"
+    _MatchServiceError dms "ResourceQuotaExceededFault"
 
 -- | An upgrade dependency is preventing the database migration.
 --
 --
 _UpgradeDependencyFailureFault :: AsError a => Getting (First ServiceError) a ServiceError
 _UpgradeDependencyFailureFault =
-    _ServiceError . hasCode "UpgradeDependencyFailureFault"
+    _MatchServiceError dms "UpgradeDependencyFailureFault"
 
 -- | The resource could not be found.
 --
 --
 _ResourceNotFoundFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundFault = _ServiceError . hasCode "ResourceNotFoundFault"
+_ResourceNotFoundFault = _MatchServiceError dms "ResourceNotFoundFault"
 
 -- | The storage quota has been exceeded.
 --
 --
 _StorageQuotaExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_StorageQuotaExceededFault =
-    _ServiceError . hasCode "StorageQuotaExceededFault"
+_StorageQuotaExceededFault = _MatchServiceError dms "StorageQuotaExceededFault"
 
 -- | AWS DMS was denied access to the endpoint.
 --
 --
 _AccessDeniedFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedFault = _ServiceError . hasCode "AccessDeniedFault"
+_AccessDeniedFault = _MatchServiceError dms "AccessDeniedFault"
 
 -- | The specified subnet is already in use.
 --
 --
 _SubnetAlreadyInUse :: AsError a => Getting (First ServiceError) a ServiceError
-_SubnetAlreadyInUse = _ServiceError . hasCode "SubnetAlreadyInUse"
+_SubnetAlreadyInUse = _MatchServiceError dms "SubnetAlreadyInUse"

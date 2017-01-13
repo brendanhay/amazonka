@@ -154,36 +154,38 @@ kinesis =
 --
 --
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
+_ExpiredIteratorException =
+    _MatchServiceError kinesis "ExpiredIteratorException"
 
 -- | A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
 --
 --
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
+_InvalidArgumentException =
+    _MatchServiceError kinesis "InvalidArgumentException"
 
 -- | The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ , and <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS> in the /AWS General Reference/ .
 --
 --
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
-    _ServiceError . hasCode "ProvisionedThroughputExceededException"
+    _MatchServiceError kinesis "ProvisionedThroughputExceededException"
 
 -- | The requested resource could not be found. The stream might not be specified correctly.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError kinesis "ResourceNotFoundException"
 
 -- | The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError kinesis "LimitExceededException"
 
 -- | The resource is not available for this operation. For successful operation, the resource needs to be in the @ACTIVE@ state.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException = _MatchServiceError kinesis "ResourceInUseException"

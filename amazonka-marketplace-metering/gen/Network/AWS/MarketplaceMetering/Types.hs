@@ -91,62 +91,65 @@ marketplaceMetering =
 --
 _InvalidEndpointRegionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidEndpointRegionException =
-    _ServiceError . hasCode "InvalidEndpointRegionException"
+    _MatchServiceError marketplaceMetering "InvalidEndpointRegionException"
 
 -- | The product code passed does not match the product code used for publishing the product.
 --
 --
 _InvalidProductCodeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidProductCodeException =
-    _ServiceError . hasCode "InvalidProductCodeException"
+    _MatchServiceError marketplaceMetering "InvalidProductCodeException"
 
 -- | The usage dimension does not match one of the UsageDimensions associated with products.
 --
 --
 _InvalidUsageDimensionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidUsageDimensionException =
-    _ServiceError . hasCode "InvalidUsageDimensionException"
+    _MatchServiceError marketplaceMetering "InvalidUsageDimensionException"
 
 -- | A metering record has already been emitted by the same EC2 instance for the given {usageDimension, timestamp} with a different usageQuantity.
 --
 --
 _DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateRequestException =
-    _ServiceError . hasCode "DuplicateRequestException"
+    _MatchServiceError marketplaceMetering "DuplicateRequestException"
 
 -- | The timestamp value passed in the meterUsage() is out of allowed range.
 --
 --
 _TimestampOutOfBoundsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TimestampOutOfBoundsException =
-    _ServiceError . hasCode "TimestampOutOfBoundsException"
+    _MatchServiceError marketplaceMetering "TimestampOutOfBoundsException"
 
 -- | The calls to the MeterUsage API are throttled.
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottlingException = _ServiceError . hasCode "ThrottlingException"
+_ThrottlingException =
+    _MatchServiceError marketplaceMetering "ThrottlingException"
 
 -- | An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.
 --
 --
 _InternalServiceErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceErrorException =
-    _ServiceError . hasCode "InternalServiceErrorException"
+    _MatchServiceError marketplaceMetering "InternalServiceErrorException"
 
 -- | Prism for InvalidTokenException' errors.
 _InvalidTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTokenException = _ServiceError . hasCode "InvalidTokenException"
+_InvalidTokenException =
+    _MatchServiceError marketplaceMetering "InvalidTokenException"
 
 -- | The submitted registration token has expired. This can happen if the buyer's browser takes too long to redirect to your page, the buyer has resubmitted the registration token, or your application has held on to the registration token for too long. Your SaaS registration website should redeem this token as soon as it is submitted by the buyer's browser.
 --
 --
 _ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredTokenException = _ServiceError . hasCode "ExpiredTokenException"
+_ExpiredTokenException =
+    _MatchServiceError marketplaceMetering "ExpiredTokenException"
 
 -- | You have metered usage for a CustomerIdentifier that does not exist.
 --
 --
 _InvalidCustomerIdentifierException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCustomerIdentifierException =
-    _ServiceError . hasCode "InvalidCustomerIdentifierException"
+    _MatchServiceError marketplaceMetering "InvalidCustomerIdentifierException"

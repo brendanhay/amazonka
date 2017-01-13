@@ -83,17 +83,19 @@ cloudHSM =
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
+_InvalidRequestException =
+    _MatchServiceError cloudHSM "InvalidRequestException"
 
 -- | Indicates that an exception occurred in the AWS CloudHSM service.
 --
 --
 _CloudHSMServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException"
+_CloudHSMServiceException =
+    _MatchServiceError cloudHSM "CloudHsmServiceException"
 
 -- | Indicates that an internal error occurred.
 --
 --
 _CloudHSMInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _CloudHSMInternalException =
-    _ServiceError . hasCode "CloudHsmInternalException"
+    _MatchServiceError cloudHSM "CloudHsmInternalException"

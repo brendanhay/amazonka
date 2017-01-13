@@ -156,34 +156,35 @@ route53Domains =
 --
 --
 _InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInput = _ServiceError . hasCode "InvalidInput"
+_InvalidInput = _MatchServiceError route53Domains "InvalidInput"
 
 -- | The number of operations or jobs running exceeded the allowed threshold for the account.
 --
 --
 _OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationLimitExceeded = _ServiceError . hasCode "OperationLimitExceeded"
+_OperationLimitExceeded =
+    _MatchServiceError route53Domains "OperationLimitExceeded"
 
 -- | The number of domains has exceeded the allowed threshold for the account.
 --
 --
 _DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainLimitExceeded = _ServiceError . hasCode "DomainLimitExceeded"
+_DomainLimitExceeded = _MatchServiceError route53Domains "DomainLimitExceeded"
 
 -- | Amazon Route 53 does not support this top-level domain.
 --
 --
 _UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedTLD = _ServiceError . hasCode "UnsupportedTLD"
+_UnsupportedTLD = _MatchServiceError route53Domains "UnsupportedTLD"
 
 -- | The top-level domain does not support this operation.
 --
 --
 _TLDRulesViolation :: AsError a => Getting (First ServiceError) a ServiceError
-_TLDRulesViolation = _ServiceError . hasCode "TLDRulesViolation"
+_TLDRulesViolation = _MatchServiceError route53Domains "TLDRulesViolation"
 
 -- | The request is already in progress for the domain.
 --
 --
 _DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRequest = _ServiceError . hasCode "DuplicateRequest"
+_DuplicateRequest = _MatchServiceError route53Domains "DuplicateRequest"

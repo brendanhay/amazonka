@@ -661,30 +661,30 @@ s3 =
 
 -- | Prism for BucketAlreadyOwnedByYou' errors.
 _BucketAlreadyOwnedByYou :: AsError a => Getting (First ServiceError) a ServiceError
-_BucketAlreadyOwnedByYou = _ServiceError . hasCode "BucketAlreadyOwnedByYou"
+_BucketAlreadyOwnedByYou = _MatchServiceError s3 "BucketAlreadyOwnedByYou"
 
 -- | This operation is not allowed against this storage tier
 _ObjectAlreadyInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectAlreadyInActiveTierError =
-    _ServiceError . hasCode "ObjectAlreadyInActiveTierError"
+    _MatchServiceError s3 "ObjectAlreadyInActiveTierError"
 
 -- | The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
 _BucketAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_BucketAlreadyExists = _ServiceError . hasCode "BucketAlreadyExists"
+_BucketAlreadyExists = _MatchServiceError s3 "BucketAlreadyExists"
 
 -- | The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.
 _ObjectNotInActiveTierError :: AsError a => Getting (First ServiceError) a ServiceError
 _ObjectNotInActiveTierError =
-    _ServiceError . hasCode "ObjectNotInActiveTierError"
+    _MatchServiceError s3 "ObjectNotInActiveTierError"
 
 -- | The specified multipart upload does not exist.
 _NoSuchUpload :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchUpload = _ServiceError . hasCode "NoSuchUpload"
+_NoSuchUpload = _MatchServiceError s3 "NoSuchUpload"
 
 -- | The specified bucket does not exist.
 _NoSuchBucket :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchBucket = _ServiceError . hasCode "NoSuchBucket"
+_NoSuchBucket = _MatchServiceError s3 "NoSuchBucket"
 
 -- | The specified key does not exist.
 _NoSuchKey :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchKey = _ServiceError . hasCode "NoSuchKey"
+_NoSuchKey = _MatchServiceError s3 "NoSuchKey"

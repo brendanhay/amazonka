@@ -179,10 +179,10 @@ awsHealth =
 --
 --
 _InvalidPaginationToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPaginationToken = _ServiceError . hasCode "InvalidPaginationToken"
+_InvalidPaginationToken = _MatchServiceError awsHealth "InvalidPaginationToken"
 
 -- | The specified locale is not supported.
 --
 --
 _UnsupportedLocale :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedLocale = _ServiceError . hasCode "UnsupportedLocale"
+_UnsupportedLocale = _MatchServiceError awsHealth "UnsupportedLocale"

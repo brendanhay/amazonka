@@ -356,70 +356,67 @@ ecs =
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+_InvalidParameterException = _MatchServiceError ecs "InvalidParameterException"
 
 -- | These errors are usually caused by a server issue.
 --
 --
 _ServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServerException = _ServiceError . hasCode "ServerException"
+_ServerException = _MatchServiceError ecs "ServerException"
 
 -- | You cannot delete a cluster that contains services. You must first update the service to reduce its desired task count to 0 and then delete the service. For more information, see 'UpdateService' and 'DeleteService' .
 --
 --
 _ClusterContainsServicesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsServicesException =
-    _ServiceError . hasCode "ClusterContainsServicesException"
+    _MatchServiceError ecs "ClusterContainsServicesException"
 
 -- | You cannot delete a cluster that has registered container instances. You must first deregister the container instances before you can delete the cluster. For more information, see 'DeregisterContainerInstance' .
 --
 --
 _ClusterContainsContainerInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterContainsContainerInstancesException =
-    _ServiceError . hasCode "ClusterContainsContainerInstancesException"
+    _MatchServiceError ecs "ClusterContainsContainerInstancesException"
 
 -- | The specified service is not active. You cannot update a service that is not active. If you have previously deleted a service, you can re-create it with 'CreateService' .
 --
 --
 _ServiceNotActiveException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceNotActiveException =
-    _ServiceError . hasCode "ServiceNotActiveException"
+_ServiceNotActiveException = _MatchServiceError ecs "ServiceNotActiveException"
 
 -- | The specified cluster could not be found. You can view your available clusters with 'ListClusters' . Amazon ECS clusters are region-specific.
 --
 --
 _ClusterNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClusterNotFoundException = _ServiceError . hasCode "ClusterNotFoundException"
+_ClusterNotFoundException = _MatchServiceError ecs "ClusterNotFoundException"
 
 -- | There is no update available for this Amazon ECS container agent. This could be because the agent is already running the latest version, or it is so old that there is no update path to the current version.
 --
 --
 _NoUpdateAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoUpdateAvailableException =
-    _ServiceError . hasCode "NoUpdateAvailableException"
+    _MatchServiceError ecs "NoUpdateAvailableException"
 
 -- | The specified service could not be found. You can view your available services with 'ListServices' . Amazon ECS services are cluster-specific and region-specific.
 --
 --
 _ServiceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceNotFoundException = _ServiceError . hasCode "ServiceNotFoundException"
+_ServiceNotFoundException = _MatchServiceError ecs "ServiceNotFoundException"
 
 -- | Amazon ECS is unable to determine the current version of the Amazon ECS container agent on the container instance and does not have enough information to proceed with an update. This could be because the agent running on the container instance is an older or custom version that does not use our version information.
 --
 --
 _MissingVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingVersionException = _ServiceError . hasCode "MissingVersionException"
+_MissingVersionException = _MatchServiceError ecs "MissingVersionException"
 
 -- | There is already a current Amazon ECS container agent update in progress on the specified container instance. If the container agent becomes disconnected while it is in a transitional stage, such as @PENDING@ or @STAGING@ , the update process can get stuck in that state. However, when the agent reconnects, it resumes where it stopped previously.
 --
 --
 _UpdateInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_UpdateInProgressException =
-    _ServiceError . hasCode "UpdateInProgressException"
+_UpdateInProgressException = _MatchServiceError ecs "UpdateInProgressException"
 
 -- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid.
 --
 --
 _ClientException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClientException = _ServiceError . hasCode "ClientException"
+_ClientException = _MatchServiceError ecs "ClientException"

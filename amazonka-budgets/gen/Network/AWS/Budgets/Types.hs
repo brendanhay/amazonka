@@ -139,31 +139,32 @@ budgets =
 -- | This exception is thrown if any request is given an invalid parameter. E.g., if a required Date field is null.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+    _MatchServiceError budgets "InvalidParameterException"
 
 -- | This exception is thrown on an unknown internal failure.
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasCode "InternalErrorException"
+_InternalErrorException = _MatchServiceError budgets "InternalErrorException"
 
 -- | This exception is thrown if the paging token is expired - past its TTL
 _ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredNextTokenException =
-    _ServiceError . hasCode "ExpiredNextTokenException"
+    _MatchServiceError budgets "ExpiredNextTokenException"
 
 -- | This exception is thrown if a requested entity is not found. E.g., if a budget id doesn't exist for an account ID.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError budgets "NotFoundException"
 
 -- | This exception is thrown if paging token signature didn't match the token, or the paging token isn't for this request
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
-    _ServiceError . hasCode "InvalidNextTokenException"
+    _MatchServiceError budgets "InvalidNextTokenException"
 
 -- | The exception is thrown when customer tries to create a record (e.g. budget) that already exists.
 _DuplicateRecordException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRecordException = _ServiceError . hasCode "DuplicateRecordException"
+_DuplicateRecordException =
+    _MatchServiceError budgets "DuplicateRecordException"
 
 -- | The exception is thrown when customer tries to create a record (e.g. budget), but the number this record already exceeds the limitation.
 _CreationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreationLimitExceededException =
-    _ServiceError . hasCode "CreationLimitExceededException"
+    _MatchServiceError budgets "CreationLimitExceededException"

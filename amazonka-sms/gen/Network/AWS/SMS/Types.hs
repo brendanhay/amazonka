@@ -166,48 +166,47 @@ sms =
 -- | This user has exceeded the maximum allowed Replication Run limit.
 _ReplicationRunLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationRunLimitExceededException =
-    _ServiceError . hasCode "ReplicationRunLimitExceededException"
+    _MatchServiceError sms "ReplicationRunLimitExceededException"
 
 -- | A parameter specified in the request is not valid, is unsupported, or cannot be used.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+_InvalidParameterException = _MatchServiceError sms "InvalidParameterException"
 
 -- | No connectors are available to handle this request. Please associate connector(s) and verify any existing connectors are healthy and can respond to requests.
 _NoConnectorsAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoConnectorsAvailableException =
-    _ServiceError . hasCode "NoConnectorsAvailableException"
+    _MatchServiceError sms "NoConnectorsAvailableException"
 
 -- | The specified Replication Job cannot be found.
 _ReplicationJobNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobNotFoundException =
-    _ServiceError . hasCode "ReplicationJobNotFoundException"
+    _MatchServiceError sms "ReplicationJobNotFoundException"
 
 -- | The provided server cannot be replicated.
 _ServerCannotBeReplicatedException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServerCannotBeReplicatedException =
-    _ServiceError . hasCode "ServerCannotBeReplicatedException"
+    _MatchServiceError sms "ServerCannotBeReplicatedException"
 
 -- | An internal error has occured.
 _InternalError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalError = _ServiceError . hasCode "InternalError"
+_InternalError = _MatchServiceError sms "InternalError"
 
 -- | An active Replication Job already exists for the specified server.
 _ReplicationJobAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ReplicationJobAlreadyExistsException =
-    _ServiceError . hasCode "ReplicationJobAlreadyExistsException"
+    _MatchServiceError sms "ReplicationJobAlreadyExistsException"
 
 -- | The specified operation is not allowed. This error can occur for a number of reasons; for example, you might be trying to start a Replication Run before seed Replication Run.
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationNotPermittedException =
-    _ServiceError . hasCode "OperationNotPermittedException"
+    _MatchServiceError sms "OperationNotPermittedException"
 
 -- | The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request.
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
-    _ServiceError . hasCode "MissingRequiredParameterException"
+    _MatchServiceError sms "MissingRequiredParameterException"
 
 -- | This user does not have permissions to perform this operation.
 _UnauthorizedOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedOperationException =
-    _ServiceError . hasCode "UnauthorizedOperationException"
+    _MatchServiceError sms "UnauthorizedOperationException"

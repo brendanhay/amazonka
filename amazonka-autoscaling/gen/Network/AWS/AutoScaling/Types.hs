@@ -319,36 +319,40 @@ autoScaling =
 --
 --
 _AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+_AlreadyExistsFault =
+    _MatchServiceError autoScaling "AlreadyExists" . hasStatus 400
 
 -- | You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see 'DescribeAccountLimits' .
 --
 --
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
+_LimitExceededFault =
+    _MatchServiceError autoScaling "LimitExceeded" . hasStatus 400
 
 -- | The operation can't be performed because the resource is in use.
 --
 --
 _ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
+_ResourceInUseFault =
+    _MatchServiceError autoScaling "ResourceInUse" . hasStatus 400
 
 -- | The @NextToken@ value is not valid.
 --
 --
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
+_InvalidNextToken =
+    _MatchServiceError autoScaling "InvalidNextToken" . hasStatus 400
 
 -- | The operation can't be performed because there are scaling activities in progress.
 --
 --
 _ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ScalingActivityInProgressFault =
-    _ServiceError . hasStatus 400 . hasCode "ScalingActivityInProgress"
+    _MatchServiceError autoScaling "ScalingActivityInProgress" . hasStatus 400
 
 -- | You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load balancer).
 --
 --
 _ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceContentionFault =
-    _ServiceError . hasStatus 500 . hasCode "ResourceContention"
+    _MatchServiceError autoScaling "ResourceContention" . hasStatus 500

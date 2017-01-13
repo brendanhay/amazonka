@@ -162,110 +162,108 @@ ecr =
 --
 --
 _LayersNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_LayersNotFoundException = _ServiceError . hasCode "LayersNotFoundException"
+_LayersNotFoundException = _MatchServiceError ecr "LayersNotFoundException"
 
 -- | The specified parameter is invalid. Review the available parameters for the API request.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+_InvalidParameterException = _MatchServiceError ecr "InvalidParameterException"
 
 -- | The image layer already exists in the associated repository.
 --
 --
 _LayerAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayerAlreadyExistsException =
-    _ServiceError . hasCode "LayerAlreadyExistsException"
+    _MatchServiceError ecr "LayerAlreadyExistsException"
 
 -- | These errors are usually caused by a server-side issue.
 --
 --
 _ServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServerException = _ServiceError . hasCode "ServerException"
+_ServerException = _MatchServiceError ecr "ServerException"
 
 -- | The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
 --
 --
 _LayerInaccessibleException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayerInaccessibleException =
-    _ServiceError . hasCode "LayerInaccessibleException"
+    _MatchServiceError ecr "LayerInaccessibleException"
 
 -- | The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
 --
 --
 _InvalidLayerException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidLayerException = _ServiceError . hasCode "InvalidLayerException"
+_InvalidLayerException = _MatchServiceError ecr "InvalidLayerException"
 
 -- | Layer parts must be at least 5 MiB in size.
 --
 --
 _LayerPartTooSmallException :: AsError a => Getting (First ServiceError) a ServiceError
 _LayerPartTooSmallException =
-    _ServiceError . hasCode "LayerPartTooSmallException"
+    _MatchServiceError ecr "LayerPartTooSmallException"
 
 -- | The image requested does not exist in the specified repository.
 --
 --
 _ImageNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ImageNotFoundException = _ServiceError . hasCode "ImageNotFoundException"
+_ImageNotFoundException = _MatchServiceError ecr "ImageNotFoundException"
 
 -- | The specified image has already been pushed, and there are no changes to the manifest or image tag since the last push.
 --
 --
 _ImageAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ImageAlreadyExistsException =
-    _ServiceError . hasCode "ImageAlreadyExistsException"
+    _MatchServiceError ecr "ImageAlreadyExistsException"
 
 -- | The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
 --
 --
 _RepositoryNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNotFoundException =
-    _ServiceError . hasCode "RepositoryNotFoundException"
+    _MatchServiceError ecr "RepositoryNotFoundException"
 
 -- | The upload could not be found, or the specified upload id is not valid for this repository.
 --
 --
 _UploadNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_UploadNotFoundException = _ServiceError . hasCode "UploadNotFoundException"
+_UploadNotFoundException = _MatchServiceError ecr "UploadNotFoundException"
 
 -- | The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
 --
 --
 _InvalidLayerPartException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidLayerPartException =
-    _ServiceError . hasCode "InvalidLayerPartException"
+_InvalidLayerPartException = _MatchServiceError ecr "InvalidLayerPartException"
 
 -- | The specified repository contains images. To delete a repository that contains images, you must force the deletion with the @force@ parameter.
 --
 --
 _RepositoryNotEmptyException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNotEmptyException =
-    _ServiceError . hasCode "RepositoryNotEmptyException"
+    _MatchServiceError ecr "RepositoryNotEmptyException"
 
 -- | The specified repository already exists in the specified registry.
 --
 --
 _RepositoryAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryAlreadyExistsException =
-    _ServiceError . hasCode "RepositoryAlreadyExistsException"
+    _MatchServiceError ecr "RepositoryAlreadyExistsException"
 
 -- | The specified repository and registry combination does not have an associated repository policy.
 --
 --
 _RepositoryPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryPolicyNotFoundException =
-    _ServiceError . hasCode "RepositoryPolicyNotFoundException"
+    _MatchServiceError ecr "RepositoryPolicyNotFoundException"
 
 -- | The specified layer upload does not contain any layer parts.
 --
 --
 _EmptyUploadException :: AsError a => Getting (First ServiceError) a ServiceError
-_EmptyUploadException = _ServiceError . hasCode "EmptyUploadException"
+_EmptyUploadException = _MatchServiceError ecr "EmptyUploadException"
 
 -- | The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <http://docs.aws.amazon.com/AmazonECR/latest/userguide/service_limits.html Amazon ECR Default Service Limits> in the Amazon EC2 Container Registry User Guide.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError ecr "LimitExceededException"

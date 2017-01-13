@@ -204,59 +204,60 @@ cloudWatchLogs =
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+    _MatchServiceError cloudWatchLogs "InvalidParameterException"
 
 -- | The sequence token is not valid.
 --
 --
 _InvalidSequenceTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSequenceTokenException =
-    _ServiceError . hasCode "InvalidSequenceTokenException"
+    _MatchServiceError cloudWatchLogs "InvalidSequenceTokenException"
 
 -- | The specified resource already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError cloudWatchLogs "ResourceAlreadyExistsException"
 
 -- | Multiple requests to update the same resource were in conflict.
 --
 --
 _OperationAbortedException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationAbortedException =
-    _ServiceError . hasCode "OperationAbortedException"
+    _MatchServiceError cloudWatchLogs "OperationAbortedException"
 
 -- | The service cannot complete the request.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasCode "ServiceUnavailableException"
+    _MatchServiceError cloudWatchLogs "ServiceUnavailableException"
 
 -- | The event was already logged.
 --
 --
 _DataAlreadyAcceptedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DataAlreadyAcceptedException =
-    _ServiceError . hasCode "DataAlreadyAcceptedException"
+    _MatchServiceError cloudWatchLogs "DataAlreadyAcceptedException"
 
 -- | The operation is not valid on the specified resource.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
-    _ServiceError . hasCode "InvalidOperationException"
+    _MatchServiceError cloudWatchLogs "InvalidOperationException"
 
 -- | The specified resource does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError cloudWatchLogs "ResourceNotFoundException"
 
 -- | You have reached the maximum number of resources that can be created.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError cloudWatchLogs "LimitExceededException"

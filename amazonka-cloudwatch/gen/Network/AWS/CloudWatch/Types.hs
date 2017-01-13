@@ -169,50 +169,54 @@ cloudWatch =
 --
 --
 _LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault = _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
+_LimitExceededFault =
+    _MatchServiceError cloudWatch "LimitExceeded" . hasStatus 400
 
 -- | The next token specified is invalid.
 --
 --
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
+_InvalidNextToken =
+    _MatchServiceError cloudWatch "InvalidNextToken" . hasStatus 400
 
 -- | Request processing has failed due to some unknown error, exception, or failure.
 --
 --
 _InternalServiceFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServiceFault =
-    _ServiceError . hasStatus 500 . hasCode "InternalServiceError"
+    _MatchServiceError cloudWatch "InternalServiceError" . hasStatus 500
 
 -- | The value of an input parameter is bad or out-of-range.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
+    _MatchServiceError cloudWatch "InvalidParameterValue" . hasStatus 400
 
 -- | Data was not syntactically valid JSON.
 --
 --
 _InvalidFormatFault :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidFormatFault = _ServiceError . hasStatus 400 . hasCode "InvalidFormat"
+_InvalidFormatFault =
+    _MatchServiceError cloudWatch "InvalidFormat" . hasStatus 400
 
 -- | An input parameter that is required is missing.
 --
 --
 _MissingRequiredParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingRequiredParameterException =
-    _ServiceError . hasStatus 400 . hasCode "MissingParameter"
+    _MatchServiceError cloudWatch "MissingParameter" . hasStatus 400
 
 -- | Parameters that cannot be used together were used together.
 --
 --
 _InvalidParameterCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterCombinationException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterCombination"
+    _MatchServiceError cloudWatch "InvalidParameterCombination" . hasStatus 400
 
 -- | The named resource does not exist.
 --
 --
 _ResourceNotFound :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFound = _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
+_ResourceNotFound =
+    _MatchServiceError cloudWatch "ResourceNotFound" . hasStatus 404

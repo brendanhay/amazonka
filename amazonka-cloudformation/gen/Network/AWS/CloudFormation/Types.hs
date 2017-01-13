@@ -300,32 +300,33 @@ cloudFormation =
 --
 _ChangeSetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ChangeSetNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ChangeSetNotFound"
+    _MatchServiceError cloudFormation "ChangeSetNotFound" . hasStatus 404
 
 -- | The specified change set cannot be used to update the stack. For example, the change set status might be @CREATE_IN_PROGRESS@ or the stack status might be @UPDATE_IN_PROGRESS@ .
 --
 --
 _InvalidChangeSetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidChangeSetStatusException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidChangeSetStatus"
+    _MatchServiceError cloudFormation "InvalidChangeSetStatus" . hasStatus 400
 
 -- | The template contains resources with capabilities that were not specified in the Capabilities parameter.
 --
 --
 _InsufficientCapabilitiesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapabilitiesException =
-    _ServiceError . hasStatus 400 . hasCode "InsufficientCapabilitiesException"
+    _MatchServiceError cloudFormation "InsufficientCapabilitiesException" .
+    hasStatus 400
 
 -- | Resource with the name requested already exists.
 --
 --
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "AlreadyExistsException"
+    _MatchServiceError cloudFormation "AlreadyExistsException" . hasStatus 400
 
 -- | Quota for the resource has already been reached.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
+    _MatchServiceError cloudFormation "LimitExceededException" . hasStatus 400

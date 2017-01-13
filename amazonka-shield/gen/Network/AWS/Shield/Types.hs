@@ -147,57 +147,58 @@ shield =
 --
 --
 _InvalidResourceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceException = _ServiceError . hasCode "InvalidResourceException"
+_InvalidResourceException =
+    _MatchServiceError shield "InvalidResourceException"
 
 -- | Exception that indicates that the parameters passed to the API are invalid.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+    _MatchServiceError shield "InvalidParameterException"
 
 -- | Exception that indicates that the operation would exceed a limit.
 --
 --
 _LimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitsExceededException = _ServiceError . hasCode "LimitsExceededException"
+_LimitsExceededException = _MatchServiceError shield "LimitsExceededException"
 
 -- | Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
 --
 --
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException = _ServiceError . hasCode "InternalErrorException"
+_InternalErrorException = _MatchServiceError shield "InternalErrorException"
 
 -- | Exception indicating the specified resource already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError shield "ResourceAlreadyExistsException"
 
 -- | Exception that indicates that the protection state has been modified by another client. You can retry the request.
 --
 --
 _OptimisticLockException :: AsError a => Getting (First ServiceError) a ServiceError
-_OptimisticLockException = _ServiceError . hasCode "OptimisticLockException"
+_OptimisticLockException = _MatchServiceError shield "OptimisticLockException"
 
 -- | Exception that indicates that the operation would not cause any change to occur.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
-    _ServiceError . hasCode "InvalidOperationException"
+    _MatchServiceError shield "InvalidOperationException"
 
 -- | Exception that indicates that the subscription has been modified by another client. You can retry the request.
 --
 --
 _LockedSubscriptionException :: AsError a => Getting (First ServiceError) a ServiceError
 _LockedSubscriptionException =
-    _ServiceError . hasCode "LockedSubscriptionException"
+    _MatchServiceError shield "LockedSubscriptionException"
 
 -- | Exception indicating the specified resource does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError shield "ResourceNotFoundException"

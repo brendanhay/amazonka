@@ -83,50 +83,50 @@ sts =
 --
 _MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyDocumentException =
-    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
+    _MatchServiceError sts "MalformedPolicyDocument" . hasStatus 400
 
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@ was invalid. This can happen if the token contains invalid characters, such as linebreaks.
 --
 --
 _InvalidAuthorizationMessageException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAuthorizationMessageException =
-    _ServiceError .
-    hasStatus 400 . hasCode "InvalidAuthorizationMessageException"
+    _MatchServiceError sts "InvalidAuthorizationMessageException" .
+    hasStatus 400
 
 -- | The request was rejected because the policy document was too large. The error message describes how big the policy document is, in packed form, as a percentage of what the API allows.
 --
 --
 _PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 _PackedPolicyTooLargeException =
-    _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
+    _MatchServiceError sts "PackedPolicyTooLarge" . hasStatus 400
 
 -- | STS is not activated in the requested region for the account that is being asked to generate credentials. The account administrator must use the IAM console to activate STS in that region. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating AWS STS in an AWS Region> in the /IAM User Guide/ .
 --
 --
 _RegionDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _RegionDisabledException =
-    _ServiceError . hasStatus 403 . hasCode "RegionDisabledException"
+    _MatchServiceError sts "RegionDisabledException" . hasStatus 403
 
 -- | The request could not be fulfilled because the non-AWS identity provider (IDP) that was asked to verify the incoming identity token could not be reached. This is often a transient error caused by network conditions. Retry the request a limited number of times so that you don't exceed the request rate. If the error persists, the non-AWS identity provider might be down or not responding.
 --
 --
 _IdPCommunicationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdPCommunicationErrorException =
-    _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
+    _MatchServiceError sts "IDPCommunicationError" . hasStatus 400
 
 -- | The web identity token that was passed could not be validated by AWS. Get a new identity token from the identity provider and then retry the request.
 --
 --
 _InvalidIdentityTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIdentityTokenException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken"
+    _MatchServiceError sts "InvalidIdentityToken" . hasStatus 400
 
 -- | The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.
 --
 --
 _ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ExpiredTokenException =
-    _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
+    _MatchServiceError sts "ExpiredTokenException" . hasStatus 400
 
 -- | The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.
 --
@@ -135,4 +135,4 @@ _ExpiredTokenException =
 --
 _IdPRejectedClaimException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdPRejectedClaimException =
-    _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim"
+    _MatchServiceError sts "IDPRejectedClaim" . hasStatus 403

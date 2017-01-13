@@ -97,91 +97,100 @@ importExport =
 
 -- | The JOBID was missing, not found, or not associated with the AWS account.
 _InvalidJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidJobIdException = _ServiceError . hasCode "InvalidJobIdException"
+_InvalidJobIdException =
+    _MatchServiceError importExport "InvalidJobIdException"
 
 -- | One or more parameters had an invalid value.
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+    _MatchServiceError importExport "InvalidParameterException"
 
 -- | Indicates that the specified job has expired out of the system.
 _ExpiredJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredJobIdException = _ServiceError . hasCode "ExpiredJobIdException"
+_ExpiredJobIdException =
+    _MatchServiceError importExport "ExpiredJobIdException"
 
 -- | File system specified in export manifest is invalid.
 _InvalidFileSystemException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFileSystemException =
-    _ServiceError . hasCode "InvalidFileSystemException"
+    _MatchServiceError importExport "InvalidFileSystemException"
 
 -- | The AWS Access Key ID specified in the request did not match the manifest's accessKeyId value. The manifest and the request authentication must use the same AWS Access Key ID.
 _InvalidAccessKeyIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAccessKeyIdException =
-    _ServiceError . hasCode "InvalidAccessKeyIdException"
+    _MatchServiceError importExport "InvalidAccessKeyIdException"
 
 -- | AWS Import/Export cannot update the job
 _UnableToUpdateJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToUpdateJobIdException =
-    _ServiceError . hasCode "UnableToUpdateJobIdException"
+    _MatchServiceError importExport "UnableToUpdateJobIdException"
 
 -- | AWS Import/Export cannot cancel the job
 _UnableToCancelJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnableToCancelJobIdException =
-    _ServiceError . hasCode "UnableToCancelJobIdException"
+    _MatchServiceError importExport "UnableToCancelJobIdException"
 
 -- | Your manifest file contained buckets from multiple regions. A job is restricted to buckets from one region. Please correct and resubmit.
 _MultipleRegionsException :: AsError a => Getting (First ServiceError) a ServiceError
-_MultipleRegionsException = _ServiceError . hasCode "MultipleRegionsException"
+_MultipleRegionsException =
+    _MatchServiceError importExport "MultipleRegionsException"
 
 -- | The client tool version is invalid.
 _InvalidVersionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidVersionException = _ServiceError . hasCode "InvalidVersionException"
+_InvalidVersionException =
+    _MatchServiceError importExport "InvalidVersionException"
 
 -- | Your manifest is not well-formed.
 _MalformedManifestException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedManifestException =
-    _ServiceError . hasCode "MalformedManifestException"
+    _MatchServiceError importExport "MalformedManifestException"
 
 -- | One or more required parameters was missing from the request.
 _MissingParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingParameterException =
-    _ServiceError . hasCode "MissingParameterException"
+    _MatchServiceError importExport "MissingParameterException"
 
 -- | The specified job ID has been canceled and is no longer valid.
 _CanceledJobIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_CanceledJobIdException = _ServiceError . hasCode "CanceledJobIdException"
+_CanceledJobIdException =
+    _MatchServiceError importExport "CanceledJobIdException"
 
 -- | The account specified does not have the appropriate bucket permissions.
 _BucketPermissionException :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketPermissionException =
-    _ServiceError . hasCode "BucketPermissionException"
+    _MatchServiceError importExport "BucketPermissionException"
 
 -- | The specified bucket does not exist. Create the specified bucket or change the manifest's bucket, exportBucket, or logBucket field to a bucket that the account, as specified by the manifest's Access Key ID, has write permissions to.
 _NoSuchBucketException :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchBucketException = _ServiceError . hasCode "NoSuchBucketException"
+_NoSuchBucketException =
+    _MatchServiceError importExport "NoSuchBucketException"
 
 -- | The address specified in the manifest is invalid.
 _InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"
+_InvalidAddressException =
+    _MatchServiceError importExport "InvalidAddressException"
 
 -- | One or more required customs parameters was missing from the manifest.
 _MissingCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingCustomsException = _ServiceError . hasCode "MissingCustomsException"
+_MissingCustomsException =
+    _MatchServiceError importExport "MissingCustomsException"
 
 -- | One or more manifest fields was invalid. Please correct and resubmit.
 _InvalidManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidManifestFieldException =
-    _ServiceError . hasCode "InvalidManifestFieldException"
+    _MatchServiceError importExport "InvalidManifestFieldException"
 
 -- | One or more customs parameters was invalid. Please correct and resubmit.
 _InvalidCustomsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidCustomsException = _ServiceError . hasCode "InvalidCustomsException"
+_InvalidCustomsException =
+    _MatchServiceError importExport "InvalidCustomsException"
 
 -- | One or more required fields were missing from the manifest file. Please correct and resubmit.
 _MissingManifestFieldException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingManifestFieldException =
-    _ServiceError . hasCode "MissingManifestFieldException"
+    _MatchServiceError importExport "MissingManifestFieldException"
 
 -- | Each account can create only a certain number of jobs per day. If you need to create more than this, please contact awsimportexport@amazon.com to explain your particular use case.
 _CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreateJobQuotaExceededException =
-    _ServiceError . hasCode "CreateJobQuotaExceededException"
+    _MatchServiceError importExport "CreateJobQuotaExceededException"

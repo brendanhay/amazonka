@@ -156,13 +156,14 @@ dynamoDBStreams =
 --
 --
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredIteratorException = _ServiceError . hasCode "ExpiredIteratorException"
+_ExpiredIteratorException =
+    _MatchServiceError dynamoDBStreams "ExpiredIteratorException"
 
 -- | An error occurred on the server side.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError"
+_InternalServerError = _MatchServiceError dynamoDBStreams "InternalServerError"
 
 -- | The operation attempted to read past the oldest stream record in a shard.
 --
@@ -177,17 +178,18 @@ _InternalServerError = _ServiceError . hasCode "InternalServerError"
 --
 _TrimmedDataAccessException :: AsError a => Getting (First ServiceError) a ServiceError
 _TrimmedDataAccessException =
-    _ServiceError . hasCode "TrimmedDataAccessException"
+    _MatchServiceError dynamoDBStreams "TrimmedDataAccessException"
 
 -- | The operation tried to access a nonexistent stream.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError dynamoDBStreams "ResourceNotFoundException"
 
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff> in the /Amazon DynamoDB Developer Guide/ .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError dynamoDBStreams "LimitExceededException"

@@ -332,74 +332,77 @@ gameLift =
 --
 _InvalidFleetStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFleetStatusException =
-    _ServiceError . hasCode "InvalidFleetStatusException"
+    _MatchServiceError gameLift "InvalidFleetStatusException"
 
 -- | One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
+_InvalidRequestException =
+    _MatchServiceError gameLift "InvalidRequestException"
 
 -- | The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
 --
 --
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConflictException = _ServiceError . hasCode "ConflictException"
+_ConflictException = _MatchServiceError gameLift "ConflictException"
 
 -- | The service is unable to resolve the routing for a particular alias because it has a terminal 'RoutingStrategy' associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
 --
 --
 _TerminalRoutingStrategyException :: AsError a => Getting (First ServiceError) a ServiceError
 _TerminalRoutingStrategyException =
-    _ServiceError . hasCode "TerminalRoutingStrategyException"
+    _MatchServiceError gameLift "TerminalRoutingStrategyException"
 
 -- | A service resource associated with the request could not be found. Clients should not retry such requests.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError gameLift "NotFoundException"
 
 -- | The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _GameSessionFullException :: AsError a => Getting (First ServiceError) a ServiceError
-_GameSessionFullException = _ServiceError . hasCode "GameSessionFullException"
+_GameSessionFullException =
+    _MatchServiceError gameLift "GameSessionFullException"
 
 -- | The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
 --
 --
 _InvalidGameSessionStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGameSessionStatusException =
-    _ServiceError . hasCode "InvalidGameSessionStatusException"
+    _MatchServiceError gameLift "InvalidGameSessionStatusException"
 
 -- | The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceException = _ServiceError . hasCode "InternalServiceException"
+_InternalServiceException =
+    _MatchServiceError gameLift "InternalServiceException"
 
 -- | A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.
 --
 --
 _IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 _IdempotentParameterMismatchException =
-    _ServiceError . hasCode "IdempotentParameterMismatchException"
+    _MatchServiceError gameLift "IdempotentParameterMismatchException"
 
 -- | The client failed authentication. Clients should not retry such requests.
 --
 --
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnauthorizedException = _ServiceError . hasCode "UnauthorizedException"
+_UnauthorizedException = _MatchServiceError gameLift "UnauthorizedException"
 
 -- | The specified fleet has no available instances to fulfill a @CreateGameSession@ request. Clients can retry such requests immediately or after a waiting period.
 --
 --
 _FleetCapacityExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _FleetCapacityExceededException =
-    _ServiceError . hasCode "FleetCapacityExceededException"
+    _MatchServiceError gameLift "FleetCapacityExceededException"
 
 -- | The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError gameLift "LimitExceededException"

@@ -234,24 +234,24 @@ codeBuild =
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError codeBuild "ResourceAlreadyExistsException"
 
 -- | An AWS service limit was exceeded for the calling AWS account.
 --
 --
 _AccountLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccountLimitExceededException =
-    _ServiceError . hasCode "AccountLimitExceededException"
+    _MatchServiceError codeBuild "AccountLimitExceededException"
 
 -- | The input value that was provided is not valid.
 --
 --
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasCode "InvalidInputException"
+_InvalidInputException = _MatchServiceError codeBuild "InvalidInputException"
 
 -- | The specified AWS resource cannot be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError codeBuild "ResourceNotFoundException"

@@ -331,38 +331,39 @@ cloudSearch =
 --
 --
 _BaseException :: AsError a => Getting (First ServiceError) a ServiceError
-_BaseException = _ServiceError . hasCode "BaseException"
+_BaseException = _MatchServiceError cloudSearch "BaseException"
 
 -- | The request was rejected because it attempted an operation which is not enabled.
 --
 --
 _DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _DisabledOperationException =
-    _ServiceError . hasStatus 409 . hasCode "DisabledAction"
+    _MatchServiceError cloudSearch "DisabledAction" . hasStatus 409
 
 -- | An internal error occurred while processing the request. If this problem persists, report an issue from the <http://status.aws.amazon.com/ Service Health Dashboard> .
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalException =
-    _ServiceError . hasStatus 500 . hasCode "InternalException"
+    _MatchServiceError cloudSearch "InternalException" . hasStatus 500
 
 -- | The request was rejected because it specified an invalid type definition.
 --
 --
 _InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTypeException = _ServiceError . hasStatus 409 . hasCode "InvalidType"
+_InvalidTypeException =
+    _MatchServiceError cloudSearch "InvalidType" . hasStatus 409
 
 -- | The request was rejected because it attempted to reference a resource that does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 409 . hasCode "ResourceNotFound"
+    _MatchServiceError cloudSearch "ResourceNotFound" . hasStatus 409
 
 -- | The request was rejected because a resource limit has already been met.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 409 . hasCode "LimitExceeded"
+    _MatchServiceError cloudSearch "LimitExceeded" . hasStatus 409

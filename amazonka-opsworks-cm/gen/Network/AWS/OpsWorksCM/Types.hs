@@ -157,37 +157,38 @@ opsWorksCM =
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException"
+_ValidationException = _MatchServiceError opsWorksCM "ValidationException"
 
 -- | The requested resource cannot be created because it already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError opsWorksCM "ResourceAlreadyExistsException"
 
 -- | This occurs when the provided nextToken is not valid.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
-    _ServiceError . hasCode "InvalidNextTokenException"
+    _MatchServiceError opsWorksCM "InvalidNextTokenException"
 
 -- | The requested resource does not exist, or access was denied.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError opsWorksCM "ResourceNotFoundException"
 
 -- | The resource is in a state that does not allow you to perform a specified action.
 --
 --
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStateException = _ServiceError . hasCode "InvalidStateException"
+_InvalidStateException = _MatchServiceError opsWorksCM "InvalidStateException"
 
 -- | The limit of servers or backups has been reached.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError opsWorksCM "LimitExceededException"

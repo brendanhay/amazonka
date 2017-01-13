@@ -121,78 +121,78 @@ polly =
 --
 _UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedPlsLanguageException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedPlsLanguageException"
+    _MatchServiceError polly "UnsupportedPlsLanguageException" . hasStatus 400
 
 -- | The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
 --
 --
 _InvalidSsmlException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSsmlException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSsmlException"
+    _MatchServiceError polly "InvalidSsmlException" . hasStatus 400
 
 -- | The specified sample rate is not valid.
 --
 --
 _InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSampleRateException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSampleRateException"
+    _MatchServiceError polly "InvalidSampleRateException" . hasStatus 400
 
 -- | The maximum number of lexicons would be exceeded by this operation.
 --
 --
 _MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxLexiconsNumberExceededException =
-    _ServiceError .
-    hasStatus 400 . hasCode "MaxLexiconsNumberExceededException"
+    _MatchServiceError polly "MaxLexiconsNumberExceededException" .
+    hasStatus 400
 
 -- | The value of the "Text" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.
 --
 --
 _TextLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TextLengthExceededException =
-    _ServiceError . hasStatus 400 . hasCode "TextLengthExceededException"
+    _MatchServiceError polly "TextLengthExceededException" . hasStatus 400
 
 -- | The maximum size of the lexeme would be exceeded by this operation.
 --
 --
 _MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaxLexemeLengthExceededException =
-    _ServiceError . hasStatus 400 . hasCode "MaxLexemeLengthExceededException"
+    _MatchServiceError polly "MaxLexemeLengthExceededException" . hasStatus 400
 
 -- | Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.
 --
 --
 _InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLexiconException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidLexiconException"
+    _MatchServiceError polly "InvalidLexiconException" . hasStatus 400
 
 -- | An unknown condition has caused a service failure.
 --
 --
 _ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceFailureException =
-    _ServiceError . hasStatus 500 . hasCode "ServiceFailureException"
+    _MatchServiceError polly "ServiceFailureException" . hasStatus 500
 
 -- | The alphabet specified by the lexicon is not a supported alphabet. Valid values are @x-sampa@ and @ipa@ .
 --
 --
 _UnsupportedPlsAlphabetException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedPlsAlphabetException =
-    _ServiceError . hasStatus 400 . hasCode "UnsupportedPlsAlphabetException"
+    _MatchServiceError polly "UnsupportedPlsAlphabetException" . hasStatus 400
 
 -- | The NextToken is invalid. Verify that it's spelled correctly, and then try again.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidNextTokenException"
+    _MatchServiceError polly "InvalidNextTokenException" . hasStatus 400
 
 -- | The maximum size of the specified lexicon would be exceeded by this operation.
 --
 --
 _LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LexiconSizeExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LexiconSizeExceededException"
+    _MatchServiceError polly "LexiconSizeExceededException" . hasStatus 400
 
 -- | Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.
 --
@@ -201,4 +201,4 @@ _LexiconSizeExceededException =
 --
 _LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _LexiconNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "LexiconNotFoundException"
+    _MatchServiceError polly "LexiconNotFoundException" . hasStatus 404

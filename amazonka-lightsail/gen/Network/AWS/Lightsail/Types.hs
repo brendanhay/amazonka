@@ -343,42 +343,43 @@ lightsail =
 --
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
+_AccessDeniedException = _MatchServiceError lightsail "AccessDeniedException"
 
 -- | Lightsail throws this exception when an account is still in the setup in progress state.
 --
 --
 _AccountSetupInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccountSetupInProgressException =
-    _ServiceError . hasCode "AccountSetupInProgressException"
+    _MatchServiceError lightsail "AccountSetupInProgressException"
 
 -- | Lightsail throws this exception when it cannot find a resource.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError lightsail "NotFoundException"
 
 -- | Lightsail throws this exception when an operation fails to execute.
 --
 --
 _OperationFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationFailureException =
-    _ServiceError . hasCode "OperationFailureException"
+    _MatchServiceError lightsail "OperationFailureException"
 
 -- | A general service exception.
 --
 --
 _ServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceException = _ServiceError . hasCode "ServiceException"
+_ServiceException = _MatchServiceError lightsail "ServiceException"
 
 -- | Lightsail throws this exception when the user has not been authenticated.
 --
 --
 _UnauthenticatedException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnauthenticatedException = _ServiceError . hasCode "UnauthenticatedException"
+_UnauthenticatedException =
+    _MatchServiceError lightsail "UnauthenticatedException"
 
 -- | Lightsail throws this exception when user input does not conform to the validation rules of an input field.
 --
 --
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasCode "InvalidInputException"
+_InvalidInputException = _MatchServiceError lightsail "InvalidInputException"

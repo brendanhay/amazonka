@@ -425,34 +425,36 @@ deviceFarm =
 --
 --
 _NotEligibleException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotEligibleException = _ServiceError . hasCode "NotEligibleException"
+_NotEligibleException = _MatchServiceError deviceFarm "NotEligibleException"
 
 -- | An entity with the same name already exists.
 --
 --
 _IdempotencyException :: AsError a => Getting (First ServiceError) a ServiceError
-_IdempotencyException = _ServiceError . hasCode "IdempotencyException"
+_IdempotencyException = _MatchServiceError deviceFarm "IdempotencyException"
 
 -- | An invalid argument was specified.
 --
 --
 _ArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_ArgumentException = _ServiceError . hasCode "ArgumentException"
+_ArgumentException = _MatchServiceError deviceFarm "ArgumentException"
 
 -- | The specified entity was not found.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasCode "NotFoundException"
+_NotFoundException = _MatchServiceError deviceFarm "NotFoundException"
 
 -- | There was a problem with the service account.
 --
 --
 _ServiceAccountException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceAccountException = _ServiceError . hasCode "ServiceAccountException"
+_ServiceAccountException =
+    _MatchServiceError deviceFarm "ServiceAccountException"
 
 -- | A limit was exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError deviceFarm "LimitExceededException"

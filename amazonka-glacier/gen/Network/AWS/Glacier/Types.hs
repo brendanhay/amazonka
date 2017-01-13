@@ -194,53 +194,53 @@ glacier =
 --
 _PolicyEnforcedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PolicyEnforcedException =
-    _ServiceError . hasStatus 400 . hasCode "PolicyEnforcedException"
+    _MatchServiceError glacier "PolicyEnforcedException" . hasStatus 400
 
 -- | Returned if a parameter of the request is incorrectly specified.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValueException"
+    _MatchServiceError glacier "InvalidParameterValueException" . hasStatus 400
 
 -- | Returned if, when uploading an archive, Amazon Glacier times out while receiving the upload.
 --
 --
 _RequestTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
 _RequestTimeoutException =
-    _ServiceError . hasStatus 408 . hasCode "RequestTimeoutException"
+    _MatchServiceError glacier "RequestTimeoutException" . hasStatus 408
 
 -- | Returned if the service cannot complete the request.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 500 . hasCode "ServiceUnavailableException"
+    _MatchServiceError glacier "ServiceUnavailableException" . hasStatus 500
 
 -- | Returned if there is insufficient capacity to process this expedited request. This error only applies to expedited retrievals and not to standard or bulk retrievals.
 --
 --
 _InsufficientCapacityException :: AsError a => Getting (First ServiceError) a ServiceError
 _InsufficientCapacityException =
-    _ServiceError . hasStatus 400 . hasCode "InsufficientCapacityException"
+    _MatchServiceError glacier "InsufficientCapacityException" . hasStatus 400
 
 -- | Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
+    _MatchServiceError glacier "ResourceNotFoundException" . hasStatus 404
 
 -- | Returned if the request results in a vault or account limit being exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceededException"
+    _MatchServiceError glacier "LimitExceededException" . hasStatus 400
 
 -- | Returned if a required header or parameter is missing from the request.
 --
 --
 _MissingParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _MissingParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "MissingParameterValueException"
+    _MatchServiceError glacier "MissingParameterValueException" . hasStatus 400

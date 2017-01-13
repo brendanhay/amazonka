@@ -291,30 +291,32 @@ serviceCatalog =
 --
 _InvalidParametersException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParametersException =
-    _ServiceError . hasCode "InvalidParametersException"
+    _MatchServiceError serviceCatalog "InvalidParametersException"
 
 -- | The specified resource is a duplicate.
 --
 --
 _DuplicateResourceException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateResourceException =
-    _ServiceError . hasCode "DuplicateResourceException"
+    _MatchServiceError serviceCatalog "DuplicateResourceException"
 
 -- | The specified resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError serviceCatalog "ResourceNotFoundException"
 
 -- | The current limits of the service would have been exceeded by this operation. Reduce the resource use or increase the service limits and retry the operation.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException =
+    _MatchServiceError serviceCatalog "LimitExceededException"
 
 -- | The operation was requested against a resource that is currently in use. Free the resource from use and retry the operation.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException =
+    _MatchServiceError serviceCatalog "ResourceInUseException"

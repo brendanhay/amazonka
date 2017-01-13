@@ -246,70 +246,72 @@ rekognition =
 --
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
+_AccessDeniedException = _MatchServiceError rekognition "AccessDeniedException"
 
 -- | Input parameter violated a constraint. Validate your parameter before calling the API again.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasCode "InvalidParameterException"
+    _MatchServiceError rekognition "InvalidParameterException"
 
 -- | The provided image format is not supported.
 --
 --
 _InvalidImageFormatException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidImageFormatException =
-    _ServiceError . hasCode "InvalidImageFormatException"
+    _MatchServiceError rekognition "InvalidImageFormatException"
 
 -- | The collection with specific ID already exist.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError rekognition "ResourceAlreadyExistsException"
 
 -- | Amazon Rekognition is unable to access the S3 object specified in the request.
 --
 --
 _InvalidS3ObjectException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidS3ObjectException = _ServiceError . hasCode "InvalidS3ObjectException"
+_InvalidS3ObjectException =
+    _MatchServiceError rekognition "InvalidS3ObjectException"
 
 -- | The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
 --
 --
 _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ProvisionedThroughputExceededException =
-    _ServiceError . hasCode "ProvisionedThroughputExceededException"
+    _MatchServiceError rekognition "ProvisionedThroughputExceededException"
 
 -- | The input image size exceeds the allowed limit. For more information, see 'limits' .
 --
 --
 _ImageTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
-_ImageTooLargeException = _ServiceError . hasCode "ImageTooLargeException"
+_ImageTooLargeException =
+    _MatchServiceError rekognition "ImageTooLargeException"
 
 -- | Amazon Rekognition is temporarily unable to process the request. Try your call again.
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottlingException = _ServiceError . hasCode "ThrottlingException"
+_ThrottlingException = _MatchServiceError rekognition "ThrottlingException"
 
 -- | Amazon Rekognition experienced a service issue. Try your call again.
 --
 --
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _ServiceError . hasCode "InternalServerError"
+_InternalServerError = _MatchServiceError rekognition "InternalServerError"
 
 -- | Collection specified in the request is not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError rekognition "ResourceNotFoundException"
 
 -- | Pagination token in the request is not valid.
 --
 --
 _InvalidPaginationTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPaginationTokenException =
-    _ServiceError . hasCode "InvalidPaginationTokenException"
+    _MatchServiceError rekognition "InvalidPaginationTokenException"

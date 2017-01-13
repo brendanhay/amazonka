@@ -241,24 +241,24 @@ directConnect =
 --
 _DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectClientException =
-    _ServiceError . hasCode "DirectConnectClientException"
+    _MatchServiceError directConnect "DirectConnectClientException"
 
 -- | A tag key was specified more than once.
 --
 --
 _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateTagKeysException =
-    _ServiceError . hasCode "DuplicateTagKeysException"
+    _MatchServiceError directConnect "DuplicateTagKeysException"
 
 -- | You have reached the limit on the number of tags that can be assigned to a Direct Connect resource.
 --
 --
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = _ServiceError . hasCode "TooManyTagsException"
+_TooManyTagsException = _MatchServiceError directConnect "TooManyTagsException"
 
 -- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
 --
 --
 _DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DirectConnectServerException =
-    _ServiceError . hasCode "DirectConnectServerException"
+    _MatchServiceError directConnect "DirectConnectServerException"

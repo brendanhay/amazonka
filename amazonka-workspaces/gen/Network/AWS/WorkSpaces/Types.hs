@@ -220,53 +220,53 @@ workSpaces =
 
 -- | Prism for AccessDeniedException' errors.
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
+_AccessDeniedException = _MatchServiceError workSpaces "AccessDeniedException"
 
 -- | The specified resource is not available.
 --
 --
 _ResourceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceUnavailableException =
-    _ServiceError . hasCode "ResourceUnavailableException"
+    _MatchServiceError workSpaces "ResourceUnavailableException"
 
 -- | One or more parameter values are not valid.
 --
 --
 _InvalidParameterValuesException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValuesException =
-    _ServiceError . hasCode "InvalidParameterValuesException"
+    _MatchServiceError workSpaces "InvalidParameterValuesException"
 
 -- | The properties of this WorkSpace are currently being modified. Try again in a moment.
 --
 --
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
-    _ServiceError . hasCode "OperationInProgressException"
+    _MatchServiceError workSpaces "OperationInProgressException"
 
 -- | Your resource limits have been exceeded.
 --
 --
 _ResourceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceLimitExceededException =
-    _ServiceError . hasCode "ResourceLimitExceededException"
+    _MatchServiceError workSpaces "ResourceLimitExceededException"
 
 -- | The specified WorkSpace has an invalid state for this operation.
 --
 --
 _InvalidResourceStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidResourceStateException =
-    _ServiceError . hasCode "InvalidResourceStateException"
+    _MatchServiceError workSpaces "InvalidResourceStateException"
 
 -- | The WorkSpace does not have the supported configuration for this operation. For more information, see the <http://docs.aws.amazon.com/workspaces/latest/adminguide Amazon WorkSpaces Administration Guide> .
 --
 --
 _UnsupportedWorkspaceConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedWorkspaceConfigurationException =
-    _ServiceError . hasCode "UnsupportedWorkspaceConfigurationException"
+    _MatchServiceError workSpaces "UnsupportedWorkspaceConfigurationException"
 
 -- | The resource could not be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError workSpaces "ResourceNotFoundException"

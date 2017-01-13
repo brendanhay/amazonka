@@ -360,34 +360,34 @@ apiGateway =
 -- | Prism for ConflictException' errors.
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
-    _ServiceError . hasStatus 409 . hasCode "ConflictException"
+    _MatchServiceError apiGateway "ConflictException" . hasStatus 409
 
 -- | Prism for NotFoundException' errors.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "NotFoundException"
+    _MatchServiceError apiGateway "NotFoundException" . hasStatus 404
 
 -- | Prism for TooManyRequestsException' errors.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
-    _ServiceError . hasStatus 429 . hasCode "TooManyRequestsException"
+    _MatchServiceError apiGateway "TooManyRequestsException" . hasStatus 429
 
 -- | Prism for ServiceUnavailableException' errors.
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
+    _MatchServiceError apiGateway "ServiceUnavailableException" . hasStatus 503
 
 -- | Prism for UnauthorizedException' errors.
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
-    _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
+    _MatchServiceError apiGateway "UnauthorizedException" . hasStatus 401
 
 -- | Prism for BadRequestException' errors.
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
-    _ServiceError . hasStatus 400 . hasCode "BadRequestException"
+    _MatchServiceError apiGateway "BadRequestException" . hasStatus 400
 
 -- | Prism for LimitExceededException' errors.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 429 . hasCode "LimitExceededException"
+    _MatchServiceError apiGateway "LimitExceededException" . hasStatus 429

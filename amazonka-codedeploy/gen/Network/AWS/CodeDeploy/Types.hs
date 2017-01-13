@@ -392,20 +392,20 @@ codeDeploy =
 --
 _LifecycleHookLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LifecycleHookLimitExceededException =
-    _ServiceError . hasCode "LifecycleHookLimitExceededException"
+    _MatchServiceError codeDeploy "LifecycleHookLimitExceededException"
 
 -- | The specified time range was specified in an invalid format.
 --
 --
 _InvalidTimeRangeException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTimeRangeException =
-    _ServiceError . hasCode "InvalidTimeRangeException"
+    _MatchServiceError codeDeploy "InvalidTimeRangeException"
 
 -- | The specified tag was specified in an invalid format.
 --
 --
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTagException = _ServiceError . hasCode "InvalidTagException"
+_InvalidTagException = _MatchServiceError codeDeploy "InvalidTagException"
 
 -- | The format of the alarm configuration is invalid. Possible causes include:
 --
@@ -424,418 +424,421 @@ _InvalidTagException = _ServiceError . hasCode "InvalidTagException"
 --
 _InvalidAlarmConfigException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAlarmConfigException =
-    _ServiceError . hasCode "InvalidAlarmConfigException"
+    _MatchServiceError codeDeploy "InvalidAlarmConfigException"
 
 -- | The specified on-premises instance name is already registered.
 --
 --
 _InstanceNameAlreadyRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceNameAlreadyRegisteredException =
-    _ServiceError . hasCode "InstanceNameAlreadyRegisteredException"
+    _MatchServiceError codeDeploy "InstanceNameAlreadyRegisteredException"
 
 -- | An IAM user ARN was not specified.
 --
 --
 _IAMUserARNRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _IAMUserARNRequiredException =
-    _ServiceError . hasCode "IamUserArnRequiredException"
+    _MatchServiceError codeDeploy "IamUserArnRequiredException"
 
 -- | The deployment group name was specified in an invalid format.
 --
 --
 _InvalidDeploymentGroupNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeploymentGroupNameException =
-    _ServiceError . hasCode "InvalidDeploymentGroupNameException"
+    _MatchServiceError codeDeploy "InvalidDeploymentGroupNameException"
 
 -- | The description is too long.
 --
 --
 _DescriptionTooLongException :: AsError a => Getting (First ServiceError) a ServiceError
 _DescriptionTooLongException =
-    _ServiceError . hasCode "DescriptionTooLongException"
+    _MatchServiceError codeDeploy "DescriptionTooLongException"
 
 -- | The IAM user ARN was specified in an invalid format.
 --
 --
 _InvalidIAMUserARNException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidIAMUserARNException =
-    _ServiceError . hasCode "InvalidIamUserArnException"
+    _MatchServiceError codeDeploy "InvalidIamUserArnException"
 
 -- | The specified deployment has not started.
 --
 --
 _DeploymentNotStartedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentNotStartedException =
-    _ServiceError . hasCode "DeploymentNotStartedException"
+    _MatchServiceError codeDeploy "DeploymentNotStartedException"
 
 -- | The deployment configurations limit was exceeded.
 --
 --
 _DeploymentConfigLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigLimitExceededException =
-    _ServiceError . hasCode "DeploymentConfigLimitExceededException"
+    _MatchServiceError codeDeploy "DeploymentConfigLimitExceededException"
 
 -- | The role ID was not specified.
 --
 --
 _RoleRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_RoleRequiredException = _ServiceError . hasCode "RoleRequiredException"
+_RoleRequiredException = _MatchServiceError codeDeploy "RoleRequiredException"
 
 -- | The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Auto Scaling.
 --
 --
 _InvalidRoleException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRoleException = _ServiceError . hasCode "InvalidRoleException"
+_InvalidRoleException = _MatchServiceError codeDeploy "InvalidRoleException"
 
 -- | A deployment configuration with the specified name already exists with the applicable IAM user or AWS account.
 --
 --
 _DeploymentConfigAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigAlreadyExistsException =
-    _ServiceError . hasCode "DeploymentConfigAlreadyExistsException"
+    _MatchServiceError codeDeploy "DeploymentConfigAlreadyExistsException"
 
 -- | The number of allowed deployments was exceeded.
 --
 --
 _DeploymentLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentLimitExceededException =
-    _ServiceError . hasCode "DeploymentLimitExceededException"
+    _MatchServiceError codeDeploy "DeploymentLimitExceededException"
 
 -- | The specified IAM user ARN is already registered with an on-premises instance.
 --
 --
 _IAMUserARNAlreadyRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
 _IAMUserARNAlreadyRegisteredException =
-    _ServiceError . hasCode "IamUserArnAlreadyRegisteredException"
+    _MatchServiceError codeDeploy "IamUserArnAlreadyRegisteredException"
 
 -- | The maximum number of allowed on-premises instances in a single call was exceeded.
 --
 --
 _InstanceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceLimitExceededException =
-    _ServiceError . hasCode "InstanceLimitExceededException"
+    _MatchServiceError codeDeploy "InstanceLimitExceededException"
 
 -- | The deployed state filter was specified in an invalid format.
 --
 --
 _InvalidDeployedStateFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeployedStateFilterException =
-    _ServiceError . hasCode "InvalidDeployedStateFilterException"
+    _MatchServiceError codeDeploy "InvalidDeployedStateFilterException"
 
 -- | The Auto Scaling group was specified in an invalid format or does not exist.
 --
 --
 _InvalidAutoScalingGroupException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAutoScalingGroupException =
-    _ServiceError . hasCode "InvalidAutoScalingGroupException"
+    _MatchServiceError codeDeploy "InvalidAutoScalingGroupException"
 
 -- | The application name was specified in an invalid format.
 --
 --
 _InvalidApplicationNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidApplicationNameException =
-    _ServiceError . hasCode "InvalidApplicationNameException"
+    _MatchServiceError codeDeploy "InvalidApplicationNameException"
 
 -- | The application does not exist with the applicable IAM user or AWS account.
 --
 --
 _ApplicationDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApplicationDoesNotExistException =
-    _ServiceError . hasCode "ApplicationDoesNotExistException"
+    _MatchServiceError codeDeploy "ApplicationDoesNotExistException"
 
 -- | The minimum healthy instance value was specified in an invalid format.
 --
 --
 _InvalidMinimumHealthyHostValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumHealthyHostValueException =
-    _ServiceError . hasCode "InvalidMinimumHealthyHostValueException"
+    _MatchServiceError codeDeploy "InvalidMinimumHealthyHostValueException"
 
 -- | The maximum number of alarms for a deployment group (10) was exceeded.
 --
 --
 _AlarmsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlarmsLimitExceededException =
-    _ServiceError . hasCode "AlarmsLimitExceededException"
+    _MatchServiceError codeDeploy "AlarmsLimitExceededException"
 
 -- | The specified tag filter was specified in an invalid format.
 --
 --
 _InvalidTagFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTagFilterException =
-    _ServiceError . hasCode "InvalidTagFilterException"
+    _MatchServiceError codeDeploy "InvalidTagFilterException"
 
 -- | The trigger was specified in an invalid format.
 --
 --
 _InvalidTriggerConfigException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidTriggerConfigException =
-    _ServiceError . hasCode "InvalidTriggerConfigException"
+    _MatchServiceError codeDeploy "InvalidTriggerConfigException"
 
 -- | A tag was not specified.
 --
 --
 _TagRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
-_TagRequiredException = _ServiceError . hasCode "TagRequiredException"
+_TagRequiredException = _MatchServiceError codeDeploy "TagRequiredException"
 
 -- | The deployment group name was not specified.
 --
 --
 _DeploymentGroupNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentGroupNameRequiredException =
-    _ServiceError . hasCode "DeploymentGroupNameRequiredException"
+    _MatchServiceError codeDeploy "DeploymentGroupNameRequiredException"
 
 -- | A bucket name is required, but was not provided.
 --
 --
 _BucketNameFilterRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _BucketNameFilterRequiredException =
-    _ServiceError . hasCode "BucketNameFilterRequiredException"
+    _MatchServiceError codeDeploy "BucketNameFilterRequiredException"
 
 -- | The deployment configuration does not exist with the applicable IAM user or AWS account.
 --
 --
 _DeploymentConfigDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigDoesNotExistException =
-    _ServiceError . hasCode "DeploymentConfigDoesNotExistException"
+    _MatchServiceError codeDeploy "DeploymentConfigDoesNotExistException"
 
 -- | The bucket name either doesn't exist or was specified in an invalid format.
 --
 --
 _InvalidBucketNameFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidBucketNameFilterException =
-    _ServiceError . hasCode "InvalidBucketNameFilterException"
+    _MatchServiceError codeDeploy "InvalidBucketNameFilterException"
 
 -- | A deployment group with the specified name already exists with the applicable IAM user or AWS account.
 --
 --
 _DeploymentGroupAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentGroupAlreadyExistsException =
-    _ServiceError . hasCode "DeploymentGroupAlreadyExistsException"
+    _MatchServiceError codeDeploy "DeploymentGroupAlreadyExistsException"
 
 -- | The column name to sort by is either not present or was specified in an invalid format.
 --
 --
 _InvalidSortByException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSortByException = _ServiceError . hasCode "InvalidSortByException"
+_InvalidSortByException =
+    _MatchServiceError codeDeploy "InvalidSortByException"
 
 -- | The named revision does not exist with the applicable IAM user or AWS account.
 --
 --
 _RevisionDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RevisionDoesNotExistException =
-    _ServiceError . hasCode "RevisionDoesNotExistException"
+    _MatchServiceError codeDeploy "RevisionDoesNotExistException"
 
 -- | The deployment groups limit was exceeded.
 --
 --
 _DeploymentGroupLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentGroupLimitExceededException =
-    _ServiceError . hasCode "DeploymentGroupLimitExceededException"
+    _MatchServiceError codeDeploy "DeploymentGroupLimitExceededException"
 
 -- | The named deployment group does not exist with the applicable IAM user or AWS account.
 --
 --
 _DeploymentGroupDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentGroupDoesNotExistException =
-    _ServiceError . hasCode "DeploymentGroupDoesNotExistException"
+    _MatchServiceError codeDeploy "DeploymentGroupDoesNotExistException"
 
 -- | The deployment configuration name was specified in an invalid format.
 --
 --
 _InvalidDeploymentConfigNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeploymentConfigNameException =
-    _ServiceError . hasCode "InvalidDeploymentConfigNameException"
+    _MatchServiceError codeDeploy "InvalidDeploymentConfigNameException"
 
 -- | The deployment configuration name was not specified.
 --
 --
 _DeploymentConfigNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigNameRequiredException =
-    _ServiceError . hasCode "DeploymentConfigNameRequiredException"
+    _MatchServiceError codeDeploy "DeploymentConfigNameRequiredException"
 
 -- | At least one deployment ID must be specified.
 --
 --
 _DeploymentIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentIdRequiredException =
-    _ServiceError . hasCode "DeploymentIdRequiredException"
+    _MatchServiceError codeDeploy "DeploymentIdRequiredException"
 
 -- | The next token was specified in an invalid format.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
-    _ServiceError . hasCode "InvalidNextTokenException"
+    _MatchServiceError codeDeploy "InvalidNextTokenException"
 
 -- | The instance ID was not specified.
 --
 --
 _InstanceIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceIdRequiredException =
-    _ServiceError . hasCode "InstanceIdRequiredException"
+    _MatchServiceError codeDeploy "InstanceIdRequiredException"
 
 -- | At least one of the deployment IDs was specified in an invalid format.
 --
 --
 _InvalidDeploymentIdException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeploymentIdException =
-    _ServiceError . hasCode "InvalidDeploymentIdException"
+    _MatchServiceError codeDeploy "InvalidDeploymentIdException"
 
 -- | The sort order was specified in an invalid format.
 --
 --
 _InvalidSortOrderException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSortOrderException =
-    _ServiceError . hasCode "InvalidSortOrderException"
+    _MatchServiceError codeDeploy "InvalidSortOrderException"
 
 -- | The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled but an invalid triggering event type or no event types were listed.
 --
 --
 _InvalidAutoRollbackConfigException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidAutoRollbackConfigException =
-    _ServiceError . hasCode "InvalidAutoRollbackConfigException"
+    _MatchServiceError codeDeploy "InvalidAutoRollbackConfigException"
 
 -- | The deployment is already complete.
 --
 --
 _DeploymentAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentAlreadyCompletedException =
-    _ServiceError . hasCode "DeploymentAlreadyCompletedException"
+    _MatchServiceError codeDeploy "DeploymentAlreadyCompletedException"
 
 -- | The deployment does not exist with the applicable IAM user or AWS account.
 --
 --
 _DeploymentDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentDoesNotExistException =
-    _ServiceError . hasCode "DeploymentDoesNotExistException"
+    _MatchServiceError codeDeploy "DeploymentDoesNotExistException"
 
 -- | The maximum number of names or IDs allowed for this request (100) was exceeded.
 --
 --
 _BatchLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _BatchLimitExceededException =
-    _ServiceError . hasCode "BatchLimitExceededException"
+    _MatchServiceError codeDeploy "BatchLimitExceededException"
 
 -- | The revision was specified in an invalid format.
 --
 --
 _InvalidRevisionException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRevisionException = _ServiceError . hasCode "InvalidRevisionException"
+_InvalidRevisionException =
+    _MatchServiceError codeDeploy "InvalidRevisionException"
 
 -- | The revision ID was not specified.
 --
 --
 _RevisionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RevisionRequiredException =
-    _ServiceError . hasCode "RevisionRequiredException"
+    _MatchServiceError codeDeploy "RevisionRequiredException"
 
 -- | The specified instance does not exist in the deployment group.
 --
 --
 _InstanceDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceDoesNotExistException =
-    _ServiceError . hasCode "InstanceDoesNotExistException"
+    _MatchServiceError codeDeploy "InstanceDoesNotExistException"
 
 -- | The deployment configuration is still in use.
 --
 --
 _DeploymentConfigInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigInUseException =
-    _ServiceError . hasCode "DeploymentConfigInUseException"
+    _MatchServiceError codeDeploy "DeploymentConfigInUseException"
 
 -- | The tag was specified in an invalid format.
 --
 --
 _InvalidEC2TagException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidEC2TagException = _ServiceError . hasCode "InvalidEC2TagException"
+_InvalidEC2TagException =
+    _MatchServiceError codeDeploy "InvalidEC2TagException"
 
 -- | The specified on-premises instance name was specified in an invalid format.
 --
 --
 _InvalidInstanceNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceNameException =
-    _ServiceError . hasCode "InvalidInstanceNameException"
+    _MatchServiceError codeDeploy "InvalidInstanceNameException"
 
 -- | An on-premises instance name was not specified.
 --
 --
 _InstanceNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceNameRequiredException =
-    _ServiceError . hasCode "InstanceNameRequiredException"
+    _MatchServiceError codeDeploy "InstanceNameRequiredException"
 
 -- | The maximum allowed number of triggers was exceeded.
 --
 --
 _TriggerTargetsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TriggerTargetsLimitExceededException =
-    _ServiceError . hasCode "TriggerTargetsLimitExceededException"
+    _MatchServiceError codeDeploy "TriggerTargetsLimitExceededException"
 
 -- | The specified deployment status doesn't exist or cannot be determined.
 --
 --
 _InvalidDeploymentStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDeploymentStatusException =
-    _ServiceError . hasCode "InvalidDeploymentStatusException"
+    _MatchServiceError codeDeploy "InvalidDeploymentStatusException"
 
 -- | The registration status was specified in an invalid format.
 --
 --
 _InvalidRegistrationStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRegistrationStatusException =
-    _ServiceError . hasCode "InvalidRegistrationStatusException"
+    _MatchServiceError codeDeploy "InvalidRegistrationStatusException"
 
 -- | The minimum number of required application names was not specified.
 --
 --
 _ApplicationNameRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApplicationNameRequiredException =
-    _ServiceError . hasCode "ApplicationNameRequiredException"
+    _MatchServiceError codeDeploy "ApplicationNameRequiredException"
 
 -- | The specified on-premises instance is not registered.
 --
 --
 _InstanceNotRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceNotRegisteredException =
-    _ServiceError . hasCode "InstanceNotRegisteredException"
+    _MatchServiceError codeDeploy "InstanceNotRegisteredException"
 
 -- | An application with the specified name already exists with the applicable IAM user or AWS account.
 --
 --
 _ApplicationAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApplicationAlreadyExistsException =
-    _ServiceError . hasCode "ApplicationAlreadyExistsException"
+    _MatchServiceError codeDeploy "ApplicationAlreadyExistsException"
 
 -- | The specified instance status does not exist.
 --
 --
 _InvalidInstanceStatusException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInstanceStatusException =
-    _ServiceError . hasCode "InvalidInstanceStatusException"
+    _MatchServiceError codeDeploy "InvalidInstanceStatusException"
 
 -- | The maximum allowed number of tags was exceeded.
 --
 --
 _TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TagLimitExceededException =
-    _ServiceError . hasCode "TagLimitExceededException"
+    _MatchServiceError codeDeploy "TagLimitExceededException"
 
 -- | More applications were attempted to be created than are allowed.
 --
 --
 _ApplicationLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ApplicationLimitExceededException =
-    _ServiceError . hasCode "ApplicationLimitExceededException"
+    _MatchServiceError codeDeploy "ApplicationLimitExceededException"
 
 -- | An invalid operation was detected.
 --
 --
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
-    _ServiceError . hasCode "InvalidOperationException"
+    _MatchServiceError codeDeploy "InvalidOperationException"
 
 -- | The specified key prefix filter was specified in an invalid format.
 --
 --
 _InvalidKeyPrefixFilterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidKeyPrefixFilterException =
-    _ServiceError . hasCode "InvalidKeyPrefixFilterException"
+    _MatchServiceError codeDeploy "InvalidKeyPrefixFilterException"

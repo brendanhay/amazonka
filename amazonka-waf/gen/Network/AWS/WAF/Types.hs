@@ -326,7 +326,7 @@ waf =
 --
 _WAFInvalidAccountException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidAccountException =
-    _ServiceError . hasCode "WAFInvalidAccountException"
+    _MatchServiceError waf "WAFInvalidAccountException"
 
 -- | The operation failed because you tried to delete an object that is still in use. For example:
 --
@@ -339,7 +339,7 @@ _WAFInvalidAccountException =
 --
 _WAFReferencedItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFReferencedItemException =
-    _ServiceError . hasCode "WAFReferencedItemException"
+    _MatchServiceError waf "WAFReferencedItemException"
 
 -- | The operation failed because there was nothing to do. For example:
 --
@@ -360,14 +360,14 @@ _WAFReferencedItemException =
 --
 _WAFInvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidOperationException =
-    _ServiceError . hasCode "WAFInvalidOperationException"
+    _MatchServiceError waf "WAFInvalidOperationException"
 
 -- | The operation failed because the referenced object doesn't exist.
 --
 --
 _WAFNonexistentItemException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentItemException =
-    _ServiceError . hasCode "WAFNonexistentItemException"
+    _MatchServiceError waf "WAFNonexistentItemException"
 
 -- | The operation failed because AWS WAF didn't recognize a parameter in the request. For example:
 --
@@ -390,27 +390,26 @@ _WAFNonexistentItemException =
 --
 _WAFInvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFInvalidParameterException =
-    _ServiceError . hasCode "WAFInvalidParameterException"
+    _MatchServiceError waf "WAFInvalidParameterException"
 
 -- | The operation exceeds a resource limit, for example, the maximum number of @WebACL@ objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits> in the /AWS WAF Developer Guide/ .
 --
 --
 _WAFLimitsExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFLimitsExceededException =
-    _ServiceError . hasCode "WAFLimitsExceededException"
+    _MatchServiceError waf "WAFLimitsExceededException"
 
 -- | The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
 --
 --
 _WAFStaleDataException :: AsError a => Getting (First ServiceError) a ServiceError
-_WAFStaleDataException = _ServiceError . hasCode "WAFStaleDataException"
+_WAFStaleDataException = _MatchServiceError waf "WAFStaleDataException"
 
 -- | The operation failed because of a system problem, even though the request was valid. Retry your request.
 --
 --
 _WAFInternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_WAFInternalErrorException =
-    _ServiceError . hasCode "WAFInternalErrorException"
+_WAFInternalErrorException = _MatchServiceError waf "WAFInternalErrorException"
 
 -- | The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:
 --
@@ -427,14 +426,14 @@ _WAFInternalErrorException =
 --
 _WAFNonexistentContainerException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonexistentContainerException =
-    _ServiceError . hasCode "WAFNonexistentContainerException"
+    _MatchServiceError waf "WAFNonexistentContainerException"
 
 -- | The name specified is invalid.
 --
 --
 _WAFDisallowedNameException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFDisallowedNameException =
-    _ServiceError . hasCode "WAFDisallowedNameException"
+    _MatchServiceError waf "WAFDisallowedNameException"
 
 -- | The operation failed because you tried to delete an object that isn't empty. For example:
 --
@@ -451,4 +450,4 @@ _WAFDisallowedNameException =
 --
 _WAFNonEmptyEntityException :: AsError a => Getting (First ServiceError) a ServiceError
 _WAFNonEmptyEntityException =
-    _ServiceError . hasCode "WAFNonEmptyEntityException"
+    _MatchServiceError waf "WAFNonEmptyEntityException"

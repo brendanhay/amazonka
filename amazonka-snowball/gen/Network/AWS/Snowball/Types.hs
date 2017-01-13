@@ -223,44 +223,47 @@ snowball =
 --
 --
 _InvalidResourceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidResourceException = _ServiceError . hasCode "InvalidResourceException"
+_InvalidResourceException =
+    _MatchServiceError snowball "InvalidResourceException"
 
 -- | The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact AWS Support.
 --
 --
 _UnsupportedAddressException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedAddressException =
-    _ServiceError . hasCode "UnsupportedAddressException"
+    _MatchServiceError snowball "UnsupportedAddressException"
 
 -- | The provided AWS Key Management Service key lacks the permissions to perform the specified 'CreateJob' or 'UpdateJob' action.
 --
 --
 _KMSRequestFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSRequestFailedException =
-    _ServiceError . hasCode "KMSRequestFailedException"
+    _MatchServiceError snowball "KMSRequestFailedException"
 
 -- | The action can't be performed because the job's current state doesn't allow that action to be performed.
 --
 --
 _InvalidJobStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidJobStateException = _ServiceError . hasCode "InvalidJobStateException"
+_InvalidJobStateException =
+    _MatchServiceError snowball "InvalidJobStateException"
 
 -- | Job or cluster creation failed. One ore more inputs were invalid. Confirm that the 'CreateClusterRequest$SnowballType' value supports your 'CreateJobRequest$JobType' , and try again.
 --
 --
 _InvalidInputCombinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidInputCombinationException =
-    _ServiceError . hasCode "InvalidInputCombinationException"
+    _MatchServiceError snowball "InvalidInputCombinationException"
 
 -- | The address provided was invalid. Check the address with your region's carrier, and try again.
 --
 --
 _InvalidAddressException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidAddressException = _ServiceError . hasCode "InvalidAddressException"
+_InvalidAddressException =
+    _MatchServiceError snowball "InvalidAddressException"
 
 -- | Job creation failed. Currently, clusters support five nodes. If you have less than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five notes.
 --
 --
 _ClusterLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _ClusterLimitExceededException =
-    _ServiceError . hasCode "ClusterLimitExceededException"
+    _MatchServiceError snowball "ClusterLimitExceededException"

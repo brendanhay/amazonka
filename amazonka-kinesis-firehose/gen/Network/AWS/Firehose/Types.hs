@@ -271,37 +271,38 @@ firehose =
 --
 --
 _InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgumentException = _ServiceError . hasCode "InvalidArgumentException"
+_InvalidArgumentException =
+    _MatchServiceError firehose "InvalidArgumentException"
 
 -- | Another modification has already happened. Fetch __VersionId__ again and use it to update the destination.
 --
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
-    _ServiceError . hasCode "ConcurrentModificationException"
+    _MatchServiceError firehose "ConcurrentModificationException"
 
 -- | The service is unavailable, back off and retry the operation. If you continue to see the exception, throughput limits for the delivery stream may have been exceeded. For more information about limits and how to request an increase, see <http://docs.aws.amazon.com/firehose/latest/dev/limits.html Amazon Kinesis Firehose Limits> .
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasCode "ServiceUnavailableException"
+    _MatchServiceError firehose "ServiceUnavailableException"
 
 -- | The specified resource could not be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError firehose "ResourceNotFoundException"
 
 -- | You have already reached the limit for a requested resource.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError firehose "LimitExceededException"
 
 -- | The resource is already in use and not available for this operation.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
+_ResourceInUseException = _MatchServiceError firehose "ResourceInUseException"

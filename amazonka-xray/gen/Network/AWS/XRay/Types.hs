@@ -225,11 +225,11 @@ xRay =
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
+_InvalidRequestException = _MatchServiceError xRay "InvalidRequestException"
 
 -- | The request exceeds the maximum number of requests per second.
 --
 --
 _ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottledException =
-    _ServiceError . hasStatus 429 . hasCode "ThrottledException"
+    _MatchServiceError xRay "ThrottledException" . hasStatus 429

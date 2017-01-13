@@ -169,29 +169,32 @@ dataPipeline =
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
+_InvalidRequestException =
+    _MatchServiceError dataPipeline "InvalidRequestException"
 
 -- | An internal service error occurred.
 --
 --
 _InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceError = _ServiceError . hasCode "InternalServiceError"
+_InternalServiceError = _MatchServiceError dataPipeline "InternalServiceError"
 
 -- | The specified pipeline has been deleted.
 --
 --
 _PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineDeletedException = _ServiceError . hasCode "PipelineDeletedException"
+_PipelineDeletedException =
+    _MatchServiceError dataPipeline "PipelineDeletedException"
 
 -- | The specified pipeline was not found. Verify that you used the correct user and account identifiers.
 --
 --
 _PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _PipelineNotFoundException =
-    _ServiceError . hasCode "PipelineNotFoundException"
+    _MatchServiceError dataPipeline "PipelineNotFoundException"
 
 -- | The specified task was not found.
 --
 --
 _TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException"
+_TaskNotFoundException =
+    _MatchServiceError dataPipeline "TaskNotFoundException"

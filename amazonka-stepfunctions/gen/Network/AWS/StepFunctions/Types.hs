@@ -253,105 +253,111 @@ stepFunctions =
 --
 --
 _ExecutionLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_ExecutionLimitExceeded = _ServiceError . hasCode "ExecutionLimitExceeded"
+_ExecutionLimitExceeded =
+    _MatchServiceError stepFunctions "ExecutionLimitExceeded"
 
 -- | The provided Amazon States Language definition is invalid.
 --
 --
 _InvalidDefinition :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDefinition = _ServiceError . hasCode "InvalidDefinition"
+_InvalidDefinition = _MatchServiceError stepFunctions "InvalidDefinition"
 
 -- | The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.
 --
 --
 _StateMachineLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _StateMachineLimitExceeded =
-    _ServiceError . hasCode "StateMachineLimitExceeded"
+    _MatchServiceError stepFunctions "StateMachineLimitExceeded"
 
 -- | An execution with the same name already exists.
 --
 --
 _ExecutionAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
-_ExecutionAlreadyExists = _ServiceError . hasCode "ExecutionAlreadyExists"
+_ExecutionAlreadyExists =
+    _MatchServiceError stepFunctions "ExecutionAlreadyExists"
 
 -- | A state machine with the same name but a different definition or role ARN already exists.
 --
 --
 _StateMachineAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _StateMachineAlreadyExists =
-    _ServiceError . hasCode "StateMachineAlreadyExists"
+    _MatchServiceError stepFunctions "StateMachineAlreadyExists"
 
 -- | Prism for TaskTimedOut' errors.
 _TaskTimedOut :: AsError a => Getting (First ServiceError) a ServiceError
-_TaskTimedOut = _ServiceError . hasCode "TaskTimedOut"
+_TaskTimedOut = _MatchServiceError stepFunctions "TaskTimedOut"
 
 -- | The provided JSON input data is invalid.
 --
 --
 _InvalidExecutionInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidExecutionInput = _ServiceError . hasCode "InvalidExecutionInput"
+_InvalidExecutionInput =
+    _MatchServiceError stepFunctions "InvalidExecutionInput"
 
 -- | The provided JSON output data is invalid.
 --
 --
 _InvalidOutput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOutput = _ServiceError . hasCode "InvalidOutput"
+_InvalidOutput = _MatchServiceError stepFunctions "InvalidOutput"
 
 -- | The provided name is invalid.
 --
 --
 _InvalidName :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidName = _ServiceError . hasCode "InvalidName"
+_InvalidName = _MatchServiceError stepFunctions "InvalidName"
 
 -- | Prism for TaskDoesNotExist' errors.
 _TaskDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_TaskDoesNotExist = _ServiceError . hasCode "TaskDoesNotExist"
+_TaskDoesNotExist = _MatchServiceError stepFunctions "TaskDoesNotExist"
 
 -- | The specified activity does not exist.
 --
 --
 _ActivityDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_ActivityDoesNotExist = _ServiceError . hasCode "ActivityDoesNotExist"
+_ActivityDoesNotExist = _MatchServiceError stepFunctions "ActivityDoesNotExist"
 
 -- | The specified state machine is being deleted.
 --
 --
 _StateMachineDeleting :: AsError a => Getting (First ServiceError) a ServiceError
-_StateMachineDeleting = _ServiceError . hasCode "StateMachineDeleting"
+_StateMachineDeleting = _MatchServiceError stepFunctions "StateMachineDeleting"
 
 -- | The provided Amazon Resource Name (ARN) is invalid.
 --
 --
 _InvalidARN :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidARN = _ServiceError . hasCode "InvalidArn"
+_InvalidARN = _MatchServiceError stepFunctions "InvalidArn"
 
 -- | The provided token is invalid.
 --
 --
 _InvalidToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidToken = _ServiceError . hasCode "InvalidToken"
+_InvalidToken = _MatchServiceError stepFunctions "InvalidToken"
 
 -- | The maximum number of workers concurrently polling for activity tasks has been reached.
 --
 --
 _ActivityWorkerLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _ActivityWorkerLimitExceeded =
-    _ServiceError . hasCode "ActivityWorkerLimitExceeded"
+    _MatchServiceError stepFunctions "ActivityWorkerLimitExceeded"
 
 -- | The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.
 --
 --
 _ActivityLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_ActivityLimitExceeded = _ServiceError . hasCode "ActivityLimitExceeded"
+_ActivityLimitExceeded =
+    _MatchServiceError stepFunctions "ActivityLimitExceeded"
 
 -- | The specified execution does not exist.
 --
 --
 _ExecutionDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_ExecutionDoesNotExist = _ServiceError . hasCode "ExecutionDoesNotExist"
+_ExecutionDoesNotExist =
+    _MatchServiceError stepFunctions "ExecutionDoesNotExist"
 
 -- | The specified state machine does not exist.
 --
 --
 _StateMachineDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_StateMachineDoesNotExist = _ServiceError . hasCode "StateMachineDoesNotExist"
+_StateMachineDoesNotExist =
+    _MatchServiceError stepFunctions "StateMachineDoesNotExist"

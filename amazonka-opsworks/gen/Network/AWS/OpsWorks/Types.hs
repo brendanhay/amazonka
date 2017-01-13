@@ -548,11 +548,11 @@ opsWorks =
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = _ServiceError . hasCode "ValidationException"
+_ValidationException = _MatchServiceError opsWorks "ValidationException"
 
 -- | Indicates that a resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasCode "ResourceNotFoundException"
+    _MatchServiceError opsWorks "ResourceNotFoundException"

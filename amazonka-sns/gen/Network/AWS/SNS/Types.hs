@@ -106,65 +106,65 @@ sns =
 --
 _EndpointDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EndpointDisabledException =
-    _ServiceError . hasStatus 400 . hasCode "EndpointDisabled"
+    _MatchServiceError sns "EndpointDisabled" . hasStatus 400
 
 -- | Indicates that the user has been denied access to the requested resource.
 --
 --
 _AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _AuthorizationErrorException =
-    _ServiceError . hasStatus 403 . hasCode "AuthorizationError"
+    _MatchServiceError sns "AuthorizationError" . hasStatus 403
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
+    _MatchServiceError sns "InvalidParameter" . hasStatus 400
 
 -- | Indicates that the customer already owns the maximum allowed number of subscriptions.
 --
 --
 _SubscriptionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _SubscriptionLimitExceededException =
-    _ServiceError . hasStatus 403 . hasCode "SubscriptionLimitExceeded"
+    _MatchServiceError sns "SubscriptionLimitExceeded" . hasStatus 403
 
 -- | Exception error indicating platform application disabled.
 --
 --
 _PlatformApplicationDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _PlatformApplicationDisabledException =
-    _ServiceError . hasStatus 400 . hasCode "PlatformApplicationDisabled"
+    _MatchServiceError sns "PlatformApplicationDisabled" . hasStatus 400
 
 -- | Indicates an internal service error.
 --
 --
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException =
-    _ServiceError . hasStatus 500 . hasCode "InternalError"
+    _MatchServiceError sns "InternalError" . hasStatus 500
 
 -- | Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.
 --
 --
 _ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottledException = _ServiceError . hasStatus 429 . hasCode "Throttled"
+_ThrottledException = _MatchServiceError sns "Throttled" . hasStatus 429
 
 -- | Indicates that a request parameter does not comply with the associated constraints.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =
-    _ServiceError . hasStatus 400 . hasCode "ParameterValueInvalid"
+    _MatchServiceError sns "ParameterValueInvalid" . hasStatus 400
 
 -- | Indicates that the requested resource does not exist.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
+_NotFoundException = _MatchServiceError sns "NotFound" . hasStatus 404
 
 -- | Indicates that the customer already owns the maximum allowed number of topics.
 --
 --
 _TopicLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _TopicLimitExceededException =
-    _ServiceError . hasStatus 403 . hasCode "TopicLimitExceeded"
+    _MatchServiceError sns "TopicLimitExceeded" . hasStatus 403

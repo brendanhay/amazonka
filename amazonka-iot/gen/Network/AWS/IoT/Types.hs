@@ -367,138 +367,136 @@ ioT =
 --
 _CertificateConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateConflictException =
-    _ServiceError . hasStatus 409 . hasCode "CertificateConflictException"
+    _MatchServiceError ioT "CertificateConflictException" . hasStatus 409
 
 -- | The Rule-SQL expression can't be parsed correctly.
 --
 --
 _SqlParseException :: AsError a => Getting (First ServiceError) a ServiceError
-_SqlParseException =
-    _ServiceError . hasStatus 400 . hasCode "SqlParseException"
+_SqlParseException = _MatchServiceError ioT "SqlParseException" . hasStatus 400
 
 -- | The request is not valid.
 --
 --
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidRequestException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
+    _MatchServiceError ioT "InvalidRequestException" . hasStatus 400
 
 -- | You can't transfer the certificate because authorization policies are still attached.
 --
 --
 _TransferConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferConflictException =
-    _ServiceError . hasStatus 409 . hasCode "TransferConflictException"
+    _MatchServiceError ioT "TransferConflictException" . hasStatus 409
 
 -- | The certificate operation is not allowed.
 --
 --
 _CertificateStateException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateStateException =
-    _ServiceError . hasStatus 406 . hasCode "CertificateStateException"
+    _MatchServiceError ioT "CertificateStateException" . hasStatus 406
 
 -- | The registration code is invalid.
 --
 --
 _RegistrationCodeValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _RegistrationCodeValidationException =
-    _ServiceError .
-    hasStatus 400 . hasCode "RegistrationCodeValidationException"
+    _MatchServiceError ioT "RegistrationCodeValidationException" .
+    hasStatus 400
 
 -- | The policy documentation is not valid.
 --
 --
 _MalformedPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _MalformedPolicyException =
-    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyException"
+    _MatchServiceError ioT "MalformedPolicyException" . hasStatus 400
 
 -- | You can't delete the resource because it is attached to one or more resources.
 --
 --
 _DeleteConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeleteConflictException =
-    _ServiceError . hasStatus 409 . hasCode "DeleteConflictException"
+    _MatchServiceError ioT "DeleteConflictException" . hasStatus 409
 
 -- | The resource already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceAlreadyExistsException =
-    _ServiceError . hasStatus 409 . hasCode "ResourceAlreadyExistsException"
+    _MatchServiceError ioT "ResourceAlreadyExistsException" . hasStatus 409
 
 -- | The certificate is invalid.
 --
 --
 _CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _CertificateValidationException =
-    _ServiceError . hasStatus 400 . hasCode "CertificateValidationException"
+    _MatchServiceError ioT "CertificateValidationException" . hasStatus 400
 
 -- | You can't revert the certificate transfer because the transfer is already complete.
 --
 --
 _TransferAlreadyCompletedException :: AsError a => Getting (First ServiceError) a ServiceError
 _TransferAlreadyCompletedException =
-    _ServiceError . hasStatus 410 . hasCode "TransferAlreadyCompletedException"
+    _MatchServiceError ioT "TransferAlreadyCompletedException" . hasStatus 410
 
 -- | The rate exceeds the limit.
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
 _ThrottlingException =
-    _ServiceError . hasStatus 429 . hasCode "ThrottlingException"
+    _MatchServiceError ioT "ThrottlingException" . hasStatus 429
 
 -- | An unexpected error has occurred.
 --
 --
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalFailureException =
-    _ServiceError . hasStatus 500 . hasCode "InternalFailureException"
+    _MatchServiceError ioT "InternalFailureException" . hasStatus 500
 
 -- | The number of policy versions exceeds the limit.
 --
 --
 _VersionsLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _VersionsLimitExceededException =
-    _ServiceError . hasStatus 409 . hasCode "VersionsLimitExceededException"
+    _MatchServiceError ioT "VersionsLimitExceededException" . hasStatus 409
 
 -- | The service is temporarily unavailable.
 --
 --
 _ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 _ServiceUnavailableException =
-    _ServiceError . hasStatus 503 . hasCode "ServiceUnavailableException"
+    _MatchServiceError ioT "ServiceUnavailableException" . hasStatus 503
 
 -- | An unexpected error has occurred.
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException =
-    _ServiceError . hasStatus 500 . hasCode "InternalException"
+_InternalException = _MatchServiceError ioT "InternalException" . hasStatus 500
 
 -- | An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter.
 --
 --
 _VersionConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _VersionConflictException =
-    _ServiceError . hasStatus 409 . hasCode "VersionConflictException"
+    _MatchServiceError ioT "VersionConflictException" . hasStatus 409
 
 -- | You are not authorized to perform this operation.
 --
 --
 _UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnauthorizedException =
-    _ServiceError . hasStatus 401 . hasCode "UnauthorizedException"
+    _MatchServiceError ioT "UnauthorizedException" . hasStatus 401
 
 -- | The specified resource does not exist.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
-    _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
+    _MatchServiceError ioT "ResourceNotFoundException" . hasStatus 404
 
 -- | The number of attached entities exceeds the limit.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 410 . hasCode "LimitExceededException"
+    _MatchServiceError ioT "LimitExceededException" . hasStatus 410

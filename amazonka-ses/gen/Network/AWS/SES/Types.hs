@@ -353,122 +353,121 @@ ses =
 --
 _InvalidConfigurationSetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationSetException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidConfigurationSet"
+    _MatchServiceError ses "InvalidConfigurationSet" . hasStatus 400
 
 -- | Indicates that the delete operation could not be completed.
 --
 --
 _CannotDeleteException :: AsError a => Getting (First ServiceError) a ServiceError
-_CannotDeleteException = _ServiceError . hasStatus 400 . hasCode "CannotDelete"
+_CannotDeleteException = _MatchServiceError ses "CannotDelete" . hasStatus 400
 
 -- | Indicates that the provided receipt rule does not exist.
 --
 --
 _RuleDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RuleDoesNotExistException =
-    _ServiceError . hasStatus 400 . hasCode "RuleDoesNotExist"
+    _MatchServiceError ses "RuleDoesNotExist" . hasStatus 400
 
 -- | Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
 --
 --
 _MessageRejected :: AsError a => Getting (First ServiceError) a ServiceError
-_MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
+_MessageRejected = _MatchServiceError ses "MessageRejected" . hasStatus 400
 
 -- | Indicates that the provided receipt rule set does not exist.
 --
 --
 _RuleSetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _RuleSetDoesNotExistException =
-    _ServiceError . hasStatus 400 . hasCode "RuleSetDoesNotExist"
+    _MatchServiceError ses "RuleSetDoesNotExist" . hasStatus 400
 
 -- | Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html Amazon SES Developer Guide> .
 --
 --
 _MailFromDomainNotVerifiedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MailFromDomainNotVerifiedException =
-    _ServiceError .
-    hasStatus 400 . hasCode "MailFromDomainNotVerifiedException"
+    _MatchServiceError ses "MailFromDomainNotVerifiedException" . hasStatus 400
 
 -- | Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.
 --
 --
 _InvalidFirehoseDestinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFirehoseDestinationException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidFirehoseDestination"
+    _MatchServiceError ses "InvalidFirehoseDestination" . hasStatus 400
 
 -- | Indicates that the configuration set could not be created because of a naming conflict.
 --
 --
 _ConfigurationSetAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConfigurationSetAlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "ConfigurationSetAlreadyExists"
+    _MatchServiceError ses "ConfigurationSetAlreadyExists" . hasStatus 400
 
 -- | Indicates that the event destination does not exist.
 --
 --
 _EventDestinationDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _EventDestinationDoesNotExistException =
-    _ServiceError . hasStatus 400 . hasCode "EventDestinationDoesNotExist"
+    _MatchServiceError ses "EventDestinationDoesNotExist" . hasStatus 400
 
 -- | Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.
 --
 --
 _InvalidCloudWatchDestinationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCloudWatchDestinationException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidCloudWatchDestination"
+    _MatchServiceError ses "InvalidCloudWatchDestination" . hasStatus 400
 
 -- | Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could not execute the provided function, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
 --
 _InvalidLambdaFunctionException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidLambdaFunctionException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunction"
+    _MatchServiceError ses "InvalidLambdaFunction" . hasStatus 400
 
 -- | Indicates that the configuration set does not exist.
 --
 --
 _ConfigurationSetDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConfigurationSetDoesNotExistException =
-    _ServiceError . hasStatus 400 . hasCode "ConfigurationSetDoesNotExist"
+    _MatchServiceError ses "ConfigurationSetDoesNotExist" . hasStatus 400
 
 -- | Indicates that the provided policy is invalid. Check the error stack for more information about what caused the error.
 --
 --
 _InvalidPolicyException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidPolicyException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidPolicy"
+    _MatchServiceError ses "InvalidPolicy" . hasStatus 400
 
 -- | Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or that Amazon SES could not publish to the bucket, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
 --
 _InvalidS3ConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidS3ConfigurationException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidS3Configuration"
+    _MatchServiceError ses "InvalidS3Configuration" . hasStatus 400
 
 -- | Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not publish to the topic, possibly due to permissions issues. For information about giving permissions, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide> .
 --
 --
 _InvalidSNSTopicException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidSNSTopicException =
-    _ServiceError . hasStatus 400 . hasCode "InvalidSnsTopic"
+    _MatchServiceError ses "InvalidSnsTopic" . hasStatus 400
 
 -- | Indicates that the event destination could not be created because of a naming conflict.
 --
 --
 _EventDestinationAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _EventDestinationAlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "EventDestinationAlreadyExists"
+    _MatchServiceError ses "EventDestinationAlreadyExists" . hasStatus 400
 
 -- | Indicates that a resource could not be created because of a naming conflict.
 --
 --
 _AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AlreadyExistsException =
-    _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
+    _MatchServiceError ses "AlreadyExists" . hasStatus 400
 
 -- | Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide> .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
-    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
+    _MatchServiceError ses "LimitExceeded" . hasStatus 400

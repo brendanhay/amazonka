@@ -320,49 +320,49 @@ inspector =
 --
 --
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-_AccessDeniedException = _ServiceError . hasCode "AccessDeniedException"
+_AccessDeniedException = _MatchServiceError inspector "AccessDeniedException"
 
 -- | You cannot perform a specified action if an assessment run is currently in progress.
 --
 --
 _AssessmentRunInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _AssessmentRunInProgressException =
-    _ServiceError . hasCode "AssessmentRunInProgressException"
+    _MatchServiceError inspector "AssessmentRunInProgressException"
 
 -- | The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
 --
 --
 _NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchEntityException = _ServiceError . hasCode "NoSuchEntityException"
+_NoSuchEntityException = _MatchServiceError inspector "NoSuchEntityException"
 
 -- | You started an assessment run, but one of the instances is already participating in another assessment run.
 --
 --
 _AgentsAlreadyRunningAssessmentException :: AsError a => Getting (First ServiceError) a ServiceError
 _AgentsAlreadyRunningAssessmentException =
-    _ServiceError . hasCode "AgentsAlreadyRunningAssessmentException"
+    _MatchServiceError inspector "AgentsAlreadyRunningAssessmentException"
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
 --
 --
 _InvalidCrossAccountRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCrossAccountRoleException =
-    _ServiceError . hasCode "InvalidCrossAccountRoleException"
+    _MatchServiceError inspector "InvalidCrossAccountRoleException"
 
 -- | The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
 --
 --
 _InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _ServiceError . hasCode "InvalidInputException"
+_InvalidInputException = _MatchServiceError inspector "InvalidInputException"
 
 -- | Internal server error.
 --
 --
 _InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException = _ServiceError . hasCode "InternalException"
+_InternalException = _MatchServiceError inspector "InternalException"
 
 -- | The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _ServiceError . hasCode "LimitExceededException"
+_LimitExceededException = _MatchServiceError inspector "LimitExceededException"

@@ -14,10 +14,12 @@ module Network.AWS.Error where
 
 import Control.Applicative
 import Control.Monad
+
 import Data.Aeson
-import Data.Aeson.Types            (parseEither)
+import Data.Aeson.Types (parseEither)
 import Data.Maybe
 import Data.Monoid
+
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Text
@@ -28,6 +30,33 @@ import Network.HTTP.Conduit
 import Network.HTTP.Types.Status   (Status (..))
 
 import qualified Data.ByteString.Lazy as LBS
+
+-- | Provides a generalised prism for catching a specific service error
+-- identified by the opaque service abbreviation and error code.
+--
+-- This can be used if the generated error prisms provided by
+-- @Network.AWS.<ServiceName>.Types@ do not cover all the thrown error codes.
+-- For example to define a new error prism:
+--
+-- @
+-- {-# LANGUAGE OverloadedStrings #-}
+--
+-- import Network.AWS.S3 (ServiceError, s3)
+--
+-- _NoSuchBucketPolicy :: AsError a => Getting (First ServiceError) a ServiceError
+-- _NoSuchBucketPolicy = _MatchServiceError s3 "NoSuchBucketPolicy"
+-- @
+--
+-- With example usage being:
+--
+-- >>> import Control.Exception.Lens (trying)
+-- >>> :t trying _NoSuchBucketPolicy
+-- MonadCatch m => m a -> m (Either ServiceError a)
+_MatchServiceError :: AsError a
+                  => Service
+                  -> ErrorCode
+                  -> Getting (First ServiceError) a ServiceError
+_MatchServiceError s c = _ServiceError . hasService s . hasCode c
 
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300
@@ -49,6 +78,11 @@ httpStatus = _Error . f
         ServiceError e
             -> (\x -> ServiceError (e { _serviceStatus = x }))
                <$> g (_serviceStatus e)
+
+hasService :: (Applicative f, Choice p)
+           => Service
+           -> Optic' p f ServiceError ServiceError
+hasService s = filtered ((_svcAbbrev s ==) . _serviceAbbrev)
 
 hasStatus :: (Applicative f, Choice p)
           => Int

@@ -95,7 +95,7 @@ shapeData :: HasMetadata a Identity
           -> Shape Solved
           -> Either Error (Maybe SData)
 shapeData m (a :< s) = case s of
-    _ | s ^. infoException -> Just <$> errorData a (s ^. info)
+    _ | s ^. infoException -> Just <$> errorData m a (s ^. info)
     Enum   i vs            -> Just <$> sumData p a i vs
     Struct st              -> do
         (d, fs) <- prodData m a st
@@ -112,12 +112,16 @@ addInstances s = f isHashable IsHashable . f isNFData IsNFData
     f g x | g s       = (x :)
           | otherwise = id
 
-errorData :: Solved -> Info -> Either Error SData
-errorData s i = Fun <$> mk
+errorData :: HasMetadata a Identity
+          => a
+          -> Solved
+          -> Info
+          -> Either Error SData
+errorData m s i = Fun <$> mk
   where
     mk = Fun' p h
         <$> pp None   (errorS p)
-        <*> pp Indent (errorD p status code)
+        <*> pp Indent (errorD m p status code)
 
     h = flip fromMaybe (i ^. infoDocumentation)
         . fromString

@@ -137,14 +137,13 @@ errorS n = TypeSig noLoc [ident n] $
                      (tyvar "a"))
               (tycon "ServiceError")
 
-errorD :: Text -> Maybe Int -> Text -> Decl
-errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
+errorD :: HasMetadata a Identity => a -> Text -> Maybe Int -> Text -> Decl
+errorD m n s c =
+    sfun noLoc (ident n) [] (UnGuardedRhs (maybe rhs status s)) noBinds
   where
-    rhs = foldl' (\l r -> infixApp l "." r) (var "_ServiceError") $
-        catMaybes [status <$> s, Just code]
+    status i = infixApp rhs "." (var "hasStatus" `app` intE (fromIntegral i))
 
-    status i = app (var "hasStatus") (intE (fromIntegral i))
-    code     = app (var "hasCode")   (str c)
+    rhs = appFun (var "_MatchServiceError") [var (m ^. serviceConfig), str c]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
 dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds

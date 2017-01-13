@@ -123,6 +123,12 @@ module Network.AWS
     , AWST.trying
     , AWST.catching
 
+    -- ** Building Error Prisms
+    , AWST._MatchServiceError
+    , AWST.hasService
+    , AWST.hasStatus
+    , AWST.hasCode
+
     -- * Logging
     -- $logging
 
@@ -146,38 +152,41 @@ module Network.AWS
     , RsBody
     ) where
 
-import           Control.Applicative
-import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.IO.Class       (MonadIO)
-import           Control.Monad.Morph          (hoist)
-import qualified Control.Monad.RWS.Lazy       as LRW
-import qualified Control.Monad.RWS.Strict     as RW
-import qualified Control.Monad.State.Lazy     as LS
-import qualified Control.Monad.State.Strict   as S
-import           Control.Monad.Trans.AWS      (AWST)
-import qualified Control.Monad.Trans.AWS      as AWST
-import           Control.Monad.Trans.Class    (lift)
-import           Control.Monad.Trans.Except   (ExceptT)
-import           Control.Monad.Trans.Identity (IdentityT)
-import           Control.Monad.Trans.List     (ListT)
-import           Control.Monad.Trans.Maybe    (MaybeT)
-import           Control.Monad.Trans.Reader   (ReaderT)
-import           Control.Monad.Trans.Resource
-import qualified Control.Monad.Writer.Lazy    as LW
-import qualified Control.Monad.Writer.Strict  as W
-import           Data.Conduit                 (Source)
-import           Data.Monoid
-import           Network.AWS.Auth
-import qualified Network.AWS.EC2.Metadata     as EC2
-import           Network.AWS.Env              (Env, HasEnv (..), newEnv)
-import qualified Network.AWS.Env              as Env
-import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Logger
-import           Network.AWS.Lens             ((^.))
-import           Network.AWS.Pager            (AWSPager)
-import           Network.AWS.Prelude
-import           Network.AWS.Types            hiding (LogLevel (..))
-import           Network.AWS.Waiter           (Wait)
+import Control.Applicative
+import Control.Monad.Catch          (MonadCatch)
+import Control.Monad.IO.Class       (MonadIO)
+import Control.Monad.Morph          (hoist)
+import Control.Monad.Trans.AWS      (AWST)
+import Control.Monad.Trans.Class    (lift)
+import Control.Monad.Trans.Except   (ExceptT)
+import Control.Monad.Trans.Identity (IdentityT)
+import Control.Monad.Trans.List     (ListT)
+import Control.Monad.Trans.Maybe    (MaybeT)
+import Control.Monad.Trans.Reader   (ReaderT)
+import Control.Monad.Trans.Resource
+
+import Data.Conduit (Source)
+import Data.Monoid
+
+import Network.AWS.Auth
+import Network.AWS.Env             (Env, HasEnv (..), newEnv)
+import Network.AWS.Internal.Body
+import Network.AWS.Internal.Logger
+import Network.AWS.Lens            ((^.))
+import Network.AWS.Pager           (AWSPager)
+import Network.AWS.Prelude
+import Network.AWS.Types           hiding (LogLevel (..))
+import Network.AWS.Waiter          (Wait)
+
+import qualified Control.Monad.RWS.Lazy      as LRW
+import qualified Control.Monad.RWS.Strict    as RW
+import qualified Control.Monad.State.Lazy    as LS
+import qualified Control.Monad.State.Strict  as S
+import qualified Control.Monad.Trans.AWS     as AWST
+import qualified Control.Monad.Writer.Lazy   as LW
+import qualified Control.Monad.Writer.Strict as W
+import qualified Network.AWS.EC2.Metadata    as EC2
+import qualified Network.AWS.Env             as Env
 
 -- | A specialisation of the 'AWST' transformer.
 type AWS = AWST (ResourceT IO)

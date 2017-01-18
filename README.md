@@ -64,8 +64,8 @@ an additional library, for example providing S3 encryption via a package such
 as `amazonka-s3-encryption`.
 
 I ask that authors of these packages carefully consider package naming
-and preferrably do not prefix the package with `amazonka-*` to avoid potential
-collesions with generated package names.
+and preferably do not prefix the package with `amazonka-*` to avoid potential
+collisions with generated package names.
 
 
 ## Licence

@@ -340,8 +340,10 @@ example = do
     -- as default environment variables, or an instance's IAM Profile and identity document:
     env  <- newEnv Discover
 
-    -- The payload (and hash) for the S3 object is retrieved from a 'FilePath':
-    body <- sourceFileIO "local\/path\/to\/object-payload"
+    -- The payload (and hash) for the S3 object is retrieved from a 'FilePath',
+    -- either 'hashedFile' or 'chunkedFile' can be used, with the latter ensuring
+    -- the contents of the file is enumerated exactly once, during send:
+    body <- chunkedFile defaultChunkSize "local\/path\/to\/object-payload"
 
     -- We now run the 'AWS' computation with the overriden logger, performing the
     -- 'PutObject' request. 'envRegion' or 'within' can be used to set the

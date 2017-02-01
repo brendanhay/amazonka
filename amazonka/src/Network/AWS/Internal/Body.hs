@@ -79,8 +79,9 @@ chunkedFile c f = do
 chunkedFileOffsetLength :: MonadIO m => ChunkSize -> FilePath -> Integer -> Integer -> m RqBody
 chunkedFileOffsetLength c f o l = do
     n <- getFileSize f
-    if min (n - o) l > toInteger c
-        then return $ unsafeChunkedBody c n (sourceFileOffsetLengthChunks c f o l)
+    let n1 = min (n - o) l
+    if  n1 > toInteger c
+        then return $ unsafeChunkedBody c n1 (sourceFileOffsetLengthChunks c f o l)
         else Hashed `liftM` hashedFileOffsetLength f o l
 
 -- | Something something.

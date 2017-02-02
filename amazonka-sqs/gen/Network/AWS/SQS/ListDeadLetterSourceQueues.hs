@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your queues that have the RedrivePolicy queue attribute configured with a dead letter queue.
+-- Returns a list of your queues that have the @RedrivePolicy@ queue attribute configured with a dead letter queue.
 --
 --
--- For more information about using dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/ .
+-- For more information about using dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead Letter Queues> in the /Amazon SQS Developer Guide/ .
 --
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
@@ -59,7 +59,7 @@ newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldlsqQueueURL' - The queue URL of a dead letter queue. Queue URLs are case-sensitive.
+-- * 'ldlsqQueueURL' - The URL of a dead letter queue. Queue URLs are case-sensitive.
 listDeadLetterSourceQueues
     :: Text -- ^ 'ldlsqQueueURL'
     -> ListDeadLetterSourceQueues
@@ -68,7 +68,7 @@ listDeadLetterSourceQueues pQueueURL_ =
     { _ldlsqQueueURL = pQueueURL_
     }
 
--- | The queue URL of a dead letter queue. Queue URLs are case-sensitive.
+-- | The URL of a dead letter queue. Queue URLs are case-sensitive.
 ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 
@@ -117,7 +117,7 @@ data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
 --
 -- * 'ldlsqrsResponseStatus' - -- | The response status code.
 --
--- * 'ldlsqrsQueueURLs' - A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.
+-- * 'ldlsqrsQueueURLs' - A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead letter queue.
 listDeadLetterSourceQueuesResponse
     :: Int -- ^ 'ldlsqrsResponseStatus'
     -> ListDeadLetterSourceQueuesResponse
@@ -131,7 +131,7 @@ listDeadLetterSourceQueuesResponse pResponseStatus_ =
 ldlsqrsResponseStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
 ldlsqrsResponseStatus = lens _ldlsqrsResponseStatus (\ s a -> s{_ldlsqrsResponseStatus = a});
 
--- | A list of source queue URLs that have the RedrivePolicy queue attribute configured with a dead letter queue.
+-- | A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead letter queue.
 ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a}) . _Coerce;
 

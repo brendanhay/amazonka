@@ -21,7 +21,7 @@
 -- Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue.
 --
 --
--- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see 'AddPermission' or see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
+-- To access a queue that belongs to another AWS account, use the @QueueOwnerAWSAccountId@ parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see @'AddPermission' @ or see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
 --
 module Network.AWS.SQS.GetQueueURL
     (
@@ -63,7 +63,7 @@ data GetQueueURL = GetQueueURL'
 --
 -- * 'gquQueueOwnerAWSAccountId' - The AWS account ID of the account that created the queue.
 --
--- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed. Queue names are case-sensitive.
+-- * 'gquQueueName' - The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
 getQueueURL
     :: Text -- ^ 'gquQueueName'
     -> GetQueueURL
@@ -77,7 +77,7 @@ getQueueURL pQueueName_ =
 gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
 gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
--- | The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed. Queue names are case-sensitive.
+-- | The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ). Queue names are case-sensitive.
 gquQueueName :: Lens' GetQueueURL Text
 gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
@@ -125,7 +125,7 @@ data GetQueueURLResponse = GetQueueURLResponse'
 --
 -- * 'gqursResponseStatus' - -- | The response status code.
 --
--- * 'gqursQueueURL' - The URL for the queue.
+-- * 'gqursQueueURL' - The URL of the queue.
 getQueueURLResponse
     :: Int -- ^ 'gqursResponseStatus'
     -> Text -- ^ 'gqursQueueURL'
@@ -140,7 +140,7 @@ getQueueURLResponse pResponseStatus_ pQueueURL_ =
 gqursResponseStatus :: Lens' GetQueueURLResponse Int
 gqursResponseStatus = lens _gqursResponseStatus (\ s a -> s{_gqursResponseStatus = a});
 
--- | The URL for the queue.
+-- | The URL of the queue.
 gqursQueueURL :: Lens' GetQueueURLResponse Text
 gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});
 

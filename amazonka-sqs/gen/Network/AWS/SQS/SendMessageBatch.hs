@@ -21,21 +21,29 @@
 -- Delivers up to ten messages to the specified queue. This is a batch version of @'SendMessage' @ . For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.
 --
 --
--- The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
+-- The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
 -- The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes).
 --
 -- /Important:/ The following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification:
 --
--- @#x9@ | @#xA@ | @#xD@ | [@#x20@ to @#xD7FF@ ] | [@#xE000@ to @#xFFFD@ ] | [@#x10000@ to @#x10FFFF@ ]
+--     * @#x9@
 --
--- For more information, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> . If you send any characters that aren't included in this list, your request will be rejected.
+--     * @#xA@
 --
--- If you don't specify the @DelaySeconds@ parameter for an entry, Amazon SQS uses the default for the queue.
+--     * @#xD@
 --
--- @&amp;Attribute.1=this@
+--     * @#x20@ to @#xD7FF@
 --
--- @&amp;Attribute.2=that@
+--     * @#xE000@ to @#xFFFD@
+--
+--     * @#x10000@ to @#x10FFFF@
+--
+--
+--
+-- For more information, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> . If you send any characters that aren't included in this list, your request is rejected.
+--
+-- If you don't specify the @DelaySeconds@ parameter for an entry, Amazon SQS uses the default value for the queue.
 --
 module Network.AWS.SQS.SendMessageBatch
     (
@@ -76,9 +84,9 @@ data SendMessageBatch = SendMessageBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smbQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- * 'smbQueueURL' - The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
 --
--- * 'smbEntries' - A list of 'SendMessageBatchRequestEntry' items.
+-- * 'smbEntries' - A list of @'SendMessageBatchRequestEntry' @ items.
 sendMessageBatch
     :: Text -- ^ 'smbQueueURL'
     -> SendMessageBatch
@@ -88,11 +96,11 @@ sendMessageBatch pQueueURL_ =
     , _smbEntries = mempty
     }
 
--- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue to which batched messages are sent. Queue URLs are case-sensitive.
 smbQueueURL :: Lens' SendMessageBatch Text
 smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 
--- | A list of 'SendMessageBatchRequestEntry' items.
+-- | A list of @'SendMessageBatchRequestEntry' @ items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a}) . _Coerce;
 
@@ -126,7 +134,7 @@ instance ToQuery SendMessageBatch where
                toQueryList "SendMessageBatchRequestEntry"
                  _smbEntries]
 
--- | For each message in the batch, the response contains a 'SendMessageBatchResultEntry' tag if the message succeeds or a 'BatchResultErrorEntry' tag if the message fails.
+-- | For each message in the batch, the response contains a @'SendMessageBatchResultEntry' @ tag if the message succeeds or a @'BatchResultErrorEntry' @ tag if the message fails.
 --
 --
 --
@@ -143,9 +151,9 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
 --
 -- * 'smbrsResponseStatus' - -- | The response status code.
 --
--- * 'smbrsSuccessful' - A list of 'SendMessageBatchResultEntry' items.
+-- * 'smbrsSuccessful' - A list of @'SendMessageBatchResultEntry' @ items.
 --
--- * 'smbrsFailed' - A list of 'BatchResultErrorEntry' items with the error detail about each message that could not be enqueued.
+-- * 'smbrsFailed' - A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
 sendMessageBatchResponse
     :: Int -- ^ 'smbrsResponseStatus'
     -> SendMessageBatchResponse
@@ -160,11 +168,11 @@ sendMessageBatchResponse pResponseStatus_ =
 smbrsResponseStatus :: Lens' SendMessageBatchResponse Int
 smbrsResponseStatus = lens _smbrsResponseStatus (\ s a -> s{_smbrsResponseStatus = a});
 
--- | A list of 'SendMessageBatchResultEntry' items.
+-- | A list of @'SendMessageBatchResultEntry' @ items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce;
 
--- | A list of 'BatchResultErrorEntry' items with the error detail about each message that could not be enqueued.
+-- | A list of @'BatchResultErrorEntry' @ items with error details about each message that can't be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;
 

@@ -39,9 +39,9 @@ data BatchResultErrorEntry = BatchResultErrorEntry'
 --
 -- * 'breeMessage' - A message explaining why the action failed on this entry.
 --
--- * 'breeId' - The id of an entry in a batch request.
+-- * 'breeId' - The @Id@ of an entry in a batch request.
 --
--- * 'breeSenderFault' - Whether the error happened due to the sender's fault.
+-- * 'breeSenderFault' - Specifies whether the error happened due to the sender's fault.
 --
 -- * 'breeCode' - An error code representing why the action failed on this entry.
 batchResultErrorEntry
@@ -61,11 +61,11 @@ batchResultErrorEntry pId_ pSenderFault_ pCode_ =
 breeMessage :: Lens' BatchResultErrorEntry (Maybe Text)
 breeMessage = lens _breeMessage (\ s a -> s{_breeMessage = a});
 
--- | The id of an entry in a batch request.
+-- | The @Id@ of an entry in a batch request.
 breeId :: Lens' BatchResultErrorEntry Text
 breeId = lens _breeId (\ s a -> s{_breeId = a});
 
--- | Whether the error happened due to the sender's fault.
+-- | Specifies whether the error happened due to the sender's fault.
 breeSenderFault :: Lens' BatchResultErrorEntry Bool
 breeSenderFault = lens _breeSenderFault (\ s a -> s{_breeSenderFault = a});
 
@@ -84,10 +84,10 @@ instance Hashable BatchResultErrorEntry
 
 instance NFData BatchResultErrorEntry
 
--- | Encloses a receipt handle and an entry id for each message in 'ChangeMessageVisibilityBatch' .
+-- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' @ .
 --
 --
--- /Important:/ All of the following parameters are list parameters that must be prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@ , where @n@ is an integer value starting with 1. For example, a parameter list for this action might look like this:
+-- /Important:/ All of the following list parameters must be prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@ , where @n@ is an integer value starting with @1@ . For example, a parameter list for this action might look like this:
 --
 -- @&amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2@
 --
@@ -109,7 +109,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 --
 -- * 'cVisibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
 --
--- * 'cId' - An identifier for this particular receipt handle. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- * 'cId' - An identifier for this particular receipt handle used to communicate the result.
 --
 -- * 'cReceiptHandle' - A receipt handle.
 changeMessageVisibilityBatchRequestEntry
@@ -127,7 +127,7 @@ changeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
 cVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
 cVisibilityTimeout = lens _cVisibilityTimeout (\ s a -> s{_cVisibilityTimeout = a});
 
--- | An identifier for this particular receipt handle. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- | An identifier for this particular receipt handle used to communicate the result.
 cId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cId = lens _cId (\ s a -> s{_cId = a});
 
@@ -148,7 +148,7 @@ instance ToQuery
               ["VisibilityTimeout" =: _cVisibilityTimeout,
                "Id" =: _cId, "ReceiptHandle" =: _cReceiptHandle]
 
--- | Encloses the id of an entry in 'ChangeMessageVisibilityBatch' .
+-- | Encloses the @Id@ of an entry in @'ChangeMessageVisibilityBatch' @ .
 --
 --
 --
@@ -200,7 +200,7 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmbreId' - An identifier for this particular receipt handle. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- * 'dmbreId' - An identifier for this particular receipt handle. This is used to communicate the result.
 --
 -- * 'dmbreReceiptHandle' - A receipt handle.
 deleteMessageBatchRequestEntry
@@ -213,7 +213,7 @@ deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
     , _dmbreReceiptHandle = pReceiptHandle_
     }
 
--- | An identifier for this particular receipt handle. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- | An identifier for this particular receipt handle. This is used to communicate the result.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\ s a -> s{_dmbreId = a});
 
@@ -231,7 +231,7 @@ instance ToQuery DeleteMessageBatchRequestEntry where
               ["Id" =: _dmbreId,
                "ReceiptHandle" =: _dmbreReceiptHandle]
 
--- | Encloses the id an entry in 'DeleteMessageBatch' .
+-- | Encloses the @Id@ of an entry in @'DeleteMessageBatch' @ .
 --
 --
 --
@@ -284,7 +284,7 @@ data Message = Message'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mMessageAttributes' - Each message attribute consists of a Name, Type, and Value. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items> in the /Amazon SQS Developer Guide/ .
+-- * 'mMessageAttributes' - Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 --
 -- * 'mMD5OfBody' - An MD5 digest of the non-URL-encoded message body string.
 --
@@ -294,9 +294,9 @@ data Message = Message'
 --
 -- * 'mReceiptHandle' - An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.
 --
--- * 'mMessageId' - A unique identifier for the message. Message IDs are considered unique across all AWS accounts for an extended period of time.
+-- * 'mMessageId' - A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
 --
--- * 'mMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'mMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 message
     :: Message
 message =
@@ -310,7 +310,7 @@ message =
     , _mMD5OfMessageAttributes = Nothing
     }
 
--- | Each message attribute consists of a Name, Type, and Value. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items> in the /Amazon SQS Developer Guide/ .
+-- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mMessageAttributes = lens _mMessageAttributes (\ s a -> s{_mMessageAttributes = a}) . _Default . _Map;
 
@@ -330,11 +330,11 @@ mAttributes = lens _mAttributes (\ s a -> s{_mAttributes = a}) . _Default . _Map
 mReceiptHandle :: Lens' Message (Maybe Text)
 mReceiptHandle = lens _mReceiptHandle (\ s a -> s{_mReceiptHandle = a});
 
--- | A unique identifier for the message. Message IDs are considered unique across all AWS accounts for an extended period of time.
+-- | A unique identifier for the message. A @MessageId@ is considered unique across all AWS accounts for an extended period of time.
 mMessageId :: Lens' Message (Maybe Text)
 mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 
--- | An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
 mMD5OfMessageAttributes = lens _mMD5OfMessageAttributes (\ s a -> s{_mMD5OfMessageAttributes = a});
 
@@ -354,10 +354,10 @@ instance Hashable Message
 
 instance NFData Message
 
--- | The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see 'SendMessage' .
+-- | The user-specified message attribute value. For string data types, the @Value@ attribute has the same restrictions on the content as the message body. For more information, see @'SendMessage' @ .
 --
 --
--- Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes).
+-- @Name@ , @type@ , @value@ and the message body must not be empty or null. All parts of the message attribute, including @Name@ , @Type@ , and @Value@ , are part of the message size restriction (256 KB or 262,144 bytes).
 --
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
@@ -373,15 +373,15 @@ data MessageAttributeValue = MessageAttributeValue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mavBinaryValue' - Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'mavBinaryValue' - Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'mavStringListValues' - Not implemented. Reserved for future use.
 --
--- * 'mavStringValue' - Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
+-- * 'mavStringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
 --
 -- * 'mavBinaryListValues' - Not implemented. Reserved for future use.
 --
--- * 'mavDataType' - Amazon SQS supports the following logical data types: String, Number, and Binary. For the Number data type, you must use StringValue. You can also append custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types> in the /Amazon SQS Developer Guide/ .
+-- * 'mavDataType' - Amazon SQS supports the following logical data types: @String@ , @Number@ , and @Binary@ . For the @Number@ data type, you must use @StringValue@ . You can also append custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-data-types-validation Message Attribute Data Types and Validation> in the /Amazon SQS Developer Guide/ .
 messageAttributeValue
     :: Text -- ^ 'mavDataType'
     -> MessageAttributeValue
@@ -394,7 +394,7 @@ messageAttributeValue pDataType_ =
     , _mavDataType = pDataType_
     }
 
--- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
 
@@ -402,7 +402,7 @@ mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mappin
 mavStringListValues :: Lens' MessageAttributeValue [Text]
 mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a}) . _Default . _Coerce;
 
--- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
+-- | Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
 mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 
@@ -410,7 +410,7 @@ mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 mavBinaryListValues :: Lens' MessageAttributeValue [ByteString]
 mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a}) . _Default . _Coerce;
 
--- | Amazon SQS supports the following logical data types: String, Number, and Binary. For the Number data type, you must use StringValue. You can also append custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributes.DataTypes Message Attribute Data Types> in the /Amazon SQS Developer Guide/ .
+-- | Amazon SQS supports the following logical data types: @String@ , @Number@ , and @Binary@ . For the @Number@ data type, you must use @StringValue@ . You can also append custom labels. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-data-types-validation Message Attribute Data Types and Validation> in the /Amazon SQS Developer Guide/ .
 mavDataType :: Lens' MessageAttributeValue Text
 mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 
@@ -445,7 +445,7 @@ instance ToQuery MessageAttributeValue where
                       _mavBinaryListValues),
                "DataType" =: _mavDataType]
 
--- | Contains the details of a single Amazon SQS message along with a @Id@ .
+-- | Contains the details of a single Amazon SQS message along with an @Id@ .
 --
 --
 --
@@ -463,17 +463,17 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sMessageAttributes' - Each message attribute consists of a Name, Type, and Value. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items> in the /Amazon SQS Developer Guide/ .
+-- * 'sMessageAttributes' - Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 --
--- * 'sDelaySeconds' - The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages with a positive @DelaySeconds@ value become available for processing after the delay time is finished. If you don't specify a value, the default value for the queue applies.
+-- * 'sDelaySeconds' - The number of seconds for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
 --
 -- * 'sMessageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular @MessageDeduplicationId@ is sent successfully, subsequent messages with the same @MessageDeduplicationId@ are accepted successfully but aren't delivered. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing Exactly-Once Processing> in the /Amazon SQS Developer Guide/ .     * Every message must have a unique @MessageDeduplicationId@ ,     * You may provide a @MessageDeduplicationId@ explicitly.     * If you aren't able to provide a @MessageDeduplicationId@ and you enable @ContentBasedDeduplication@ for your queue, Amazon SQS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).      * If you don't provide a @MessageDeduplicationId@ and the queue doesn't have @ContentBasedDeduplication@ set, the action fails with an error.     * If the queue has @ContentBasedDeduplication@ set, your @MessageDeduplicationId@ overrides the generated one.     * When @ContentBasedDeduplication@ is in effect, messages with identical content sent within the deduplication interval are treated as duplicates and only one copy of the message is delivered.     * You can also use @ContentBasedDeduplication@ for messages with identical content to be treated as duplicates.     * If you send one message with @ContentBasedDeduplication@ enabled and then another message with a @MessageDeduplicationId@ that is the same as the one generated for the first @MessageDeduplicationId@ , the two messages are treated as duplicates and only one copy of the message is delivered.  The length of @MessageDeduplicationId@ is 128 characters. @MessageDeduplicationId@ can contain alphanumeric characters (@a-z@ , @A-Z@ , @0-9@ ) and punctuation (@!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~@ ). For best practices of using @MessageDeduplicationId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagededuplicationid-property Using the MessageDeduplicationId Property> in the /Amazon Simple Queue Service Developer Guide/ .
 --
 -- * 'sMessageGroupId' - This parameter applies only to FIFO (first-in-first-out) queues. The tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order). To interleave multiple ordered streams within a single queue, use @MessageGroupId@ values (for example, session data for multiple users). In this scenario, multiple readers can process the queue, but the session data of each user is processed in a FIFO fashion.     * You must associate a non-empty @MessageGroupId@ with a message. If you don't provide a @MessageGroupId@ , the action fails.     * @ReceiveMessage@ might return messages with multiple @MessageGroupId@ values. For each @MessageGroupId@ , the messages are sorted by time sent. The caller can't specify a @MessageGroupId@ . The length of @MessageGroupId@ is 128 characters. Valid values are alphanumeric characters and punctuation @(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)@ . For best practices of using @MessageGroupId@ , see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-messagegroupid-property Using the MessageGroupId Property> in the /Amazon Simple Queue Service Developer Guide/ .
 --
--- * 'sId' - An identifier for the message in this batch. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- * 'sId' - An identifier for a message in this batch used to communicate the result.
 --
--- * 'sMessageBody' - Body of the message.
+-- * 'sMessageBody' - The body of the message.
 sendMessageBatchRequestEntry
     :: Text -- ^ 'sId'
     -> Text -- ^ 'sMessageBody'
@@ -488,11 +488,11 @@ sendMessageBatchRequestEntry pId_ pMessageBody_ =
     , _sMessageBody = pMessageBody_
     }
 
--- | Each message attribute consists of a Name, Type, and Value. For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items> in the /Amazon SQS Developer Guide/ .
+-- | Each message attribute consists of a @Name@ , @Type@ , and @Value@ . For more information, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation Message Attribute Items and Validation> in the /Amazon SQS Developer Guide/ .
 sMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 sMessageAttributes = lens _sMessageAttributes (\ s a -> s{_sMessageAttributes = a}) . _Default . _Map;
 
--- | The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages with a positive @DelaySeconds@ value become available for processing after the delay time is finished. If you don't specify a value, the default value for the queue applies.
+-- | The number of seconds for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive @DelaySeconds@ value become available for processing after the delay period is finished. If you don't specify a value, the default value for the queue is applied.
 sDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
 sDelaySeconds = lens _sDelaySeconds (\ s a -> s{_sDelaySeconds = a});
 
@@ -504,11 +504,11 @@ sMessageDeduplicationId = lens _sMessageDeduplicationId (\ s a -> s{_sMessageDed
 sMessageGroupId :: Lens' SendMessageBatchRequestEntry (Maybe Text)
 sMessageGroupId = lens _sMessageGroupId (\ s a -> s{_sMessageGroupId = a});
 
--- | An identifier for the message in this batch. This is used to communicate the result. Note that the @Id@ s of a batch request need to be unique within the request.
+-- | An identifier for a message in this batch used to communicate the result.
 sId :: Lens' SendMessageBatchRequestEntry Text
 sId = lens _sId (\ s a -> s{_sId = a});
 
--- | Body of the message.
+-- | The body of the message.
 sMessageBody :: Lens' SendMessageBatchRequestEntry Text
 sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
 
@@ -527,7 +527,7 @@ instance ToQuery SendMessageBatchRequestEntry where
                "MessageGroupId" =: _sMessageGroupId, "Id" =: _sId,
                "MessageBody" =: _sMessageBody]
 
--- | Encloses a message ID for successfully enqueued message of a 'SendMessageBatch' .
+-- | Encloses a @MessageId@ for a successfully-enqueued message in a @'SendMessageBatch' @ .
 --
 --
 --
@@ -544,15 +544,15 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'smbreSequenceNumber' - /This element applies only to FIFO (first-in-first-out) queues./  A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+-- * 'smbreSequenceNumber' - This parameter applies only to FIFO (first-in-first-out) queues. A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 --
--- * 'smbreMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message batch correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'smbreMD5OfMessageAttributes' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 --
 -- * 'smbreId' - An identifier for the message in this batch.
 --
 -- * 'smbreMessageId' - An identifier for the message.
 --
--- * 'smbreMD5OfMessageBody' - An MD5 digest of the non-URL-encoded message body string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- * 'smbreMD5OfMessageBody' - An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 sendMessageBatchResultEntry
     :: Text -- ^ 'smbreId'
     -> Text -- ^ 'smbreMessageId'
@@ -567,11 +567,11 @@ sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
     , _smbreMD5OfMessageBody = pMD5OfMessageBody_
     }
 
--- | /This element applies only to FIFO (first-in-first-out) queues./  A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
+-- | This parameter applies only to FIFO (first-in-first-out) queues. A large, non-consecutive number that Amazon SQS assigns to each message. The length of @SequenceNumber@ is 128 bits. As @SequenceNumber@ continues to increase for a particular @MessageGroupId@ .
 smbreSequenceNumber :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbreSequenceNumber = lens _smbreSequenceNumber (\ s a -> s{_smbreSequenceNumber = a});
 
--- | An MD5 digest of the non-URL-encoded message attribute string. This can be used to verify that Amazon SQS received the message batch correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 smbreMD5OfMessageAttributes :: Lens' SendMessageBatchResultEntry (Maybe Text)
 smbreMD5OfMessageAttributes = lens _smbreMD5OfMessageAttributes (\ s a -> s{_smbreMD5OfMessageAttributes = a});
 
@@ -583,7 +583,7 @@ smbreId = lens _smbreId (\ s a -> s{_smbreId = a});
 smbreMessageId :: Lens' SendMessageBatchResultEntry Text
 smbreMessageId = lens _smbreMessageId (\ s a -> s{_smbreMessageId = a});
 
--- | An MD5 digest of the non-URL-encoded message body string. This can be used to verify that Amazon SQS received the message correctly. Amazon SQS first URL decodes the message before creating the MD5 digest. For information about MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
+-- | An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information on MD5, see <https://www.ietf.org/rfc/rfc1321.txt RFC1321> .
 smbreMD5OfMessageBody :: Lens' SendMessageBatchResultEntry Text
 smbreMD5OfMessageBody = lens _smbreMD5OfMessageBody (\ s a -> s{_smbreMD5OfMessageBody = a});
 

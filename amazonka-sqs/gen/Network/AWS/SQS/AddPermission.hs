@@ -18,14 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a permission to a queue for a specific <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> . This allows for sharing access to the queue.
+-- Adds a permission to a queue for a specific <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> . This allows sharing access to the queue.
 --
 --
--- When you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant or deny permissions to the queue. For more information about these permissions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
---
--- @&amp;Attribute.1=this@
---
--- @&amp;Attribute.2=that@
+-- When you create a queue, you have full control access rights for the queue. Only you, the owner of the queue, can grant or deny permissions to the queue. For more information about these permissions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues> in the /Amazon SQS Developer Guide/ .
 --
 module Network.AWS.SQS.AddPermission
     (
@@ -66,13 +62,13 @@ data AddPermission = AddPermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- * 'apQueueURL' - The URL of the Amazon SQS queue to which permissions are added. Queue URLs are case-sensitive.
 --
--- * 'apLabel' - The unique identification of the permission you're setting (e.g., @AliceSendMessage@ ). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+-- * 'apLabel' - The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
 --
--- * 'apAWSAccountIds' - The AWS account number of the <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who will be given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon SQS Developer Guide/ .
+-- * 'apAWSAccountIds' - The AWS account number of the <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon SQS Developer Guide/ .
 --
--- * 'apActions' - The action the client wants to allow for the specified principal. The following are valid values: @* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl@ . For more information about these actions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions> in the /Amazon SQS Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for the @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
+-- * 'apActions' - The action the client wants to allow for the specified principal. The following values are valid:     * @*@      * @ChangeMessageVisibility@      * @DeleteMessage@      * @GetQueueAttributes@      * @GetQueueUrl@      * @ReceiveMessage@      * @SendMessage@  For more information about these actions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions> in the /Amazon SQS Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
 addPermission
     :: Text -- ^ 'apQueueURL'
     -> Text -- ^ 'apLabel'
@@ -85,19 +81,19 @@ addPermission pQueueURL_ pLabel_ =
     , _apActions = mempty
     }
 
--- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue to which permissions are added. Queue URLs are case-sensitive.
 apQueueURL :: Lens' AddPermission Text
 apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a});
 
--- | The unique identification of the permission you're setting (e.g., @AliceSendMessage@ ). Constraints: Maximum 80 characters; alphanumeric characters, hyphens (-), and underscores (_) are allowed.
+-- | The unique identification of the permission you're setting (for example, @AliceSendMessage@ ). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (@-@ ), and underscores (@_@ ).
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 
--- | The AWS account number of the <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who will be given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon SQS Developer Guide/ .
+-- | The AWS account number of the <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS account identification, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers> in the /Amazon SQS Developer Guide/ .
 apAWSAccountIds :: Lens' AddPermission [Text]
 apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a}) . _Coerce;
 
--- | The action the client wants to allow for the specified principal. The following are valid values: @* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl@ . For more information about these actions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions> in the /Amazon SQS Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for the @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
+-- | The action the client wants to allow for the specified principal. The following values are valid:     * @*@      * @ChangeMessageVisibility@      * @DeleteMessage@      * @GetQueueAttributes@      * @GetQueueUrl@      * @ReceiveMessage@      * @SendMessage@  For more information about these actions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions> in the /Amazon SQS Developer Guide/ . Specifying @SendMessage@ , @DeleteMessage@ , or @ChangeMessageVisibility@ for @ActionName.n@ also grants permissions for the corresponding batch versions of those actions: @SendMessageBatch@ , @DeleteMessageBatch@ , and @ChangeMessageVisibilityBatch@ .
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
 

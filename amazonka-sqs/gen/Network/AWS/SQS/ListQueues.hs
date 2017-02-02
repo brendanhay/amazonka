@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional @QueueNamePrefix@ parameter, only queues with a name beginning with the specified value are returned.
+-- Returns a list of your queues. The maximum number of queues that can be returned is 1,000. If you specify a value for the optional @QueueNamePrefix@ parameter, only queues with a name that begins with the specified value are returned.
 --
 --
 module Network.AWS.SQS.ListQueues
@@ -110,7 +110,7 @@ data ListQueuesResponse = ListQueuesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lqrsQueueURLs' - A list of queue URLs, up to 1000 entries.
+-- * 'lqrsQueueURLs' - A list of queue URLs, up to 1,000 entries.
 --
 -- * 'lqrsResponseStatus' - -- | The response status code.
 listQueuesResponse
@@ -122,7 +122,7 @@ listQueuesResponse pResponseStatus_ =
     , _lqrsResponseStatus = pResponseStatus_
     }
 
--- | A list of queue URLs, up to 1000 entries.
+-- | A list of queue URLs, up to 1,000 entries.
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 

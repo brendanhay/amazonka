@@ -21,6 +21,10 @@
 -- Deletes a list of specified images within a specified repository. Images are specified with either @imageTag@ or @imageDigest@ .
 --
 --
+-- You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.
+--
+-- You can completely delete an image (and all of its tags) by specifying the image's digest in your request.
+--
 module Network.AWS.ECR.BatchDeleteImage
     (
     -- * Creating a Request

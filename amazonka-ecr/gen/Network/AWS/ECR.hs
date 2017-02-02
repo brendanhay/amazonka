@@ -190,6 +190,7 @@ module Network.AWS.ECR
     -- ** Layer
     , Layer
     , layer
+    , lMediaType
     , lLayerDigest
     , lLayerSize
     , lLayerAvailability

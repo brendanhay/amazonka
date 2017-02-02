@@ -361,7 +361,8 @@ instance ToJSON ImageIdentifier where
 --
 -- /See:/ 'layer' smart constructor.
 data Layer = Layer'
-    { _lLayerDigest       :: !(Maybe Text)
+    { _lMediaType         :: !(Maybe Text)
+    , _lLayerDigest       :: !(Maybe Text)
     , _lLayerSize         :: !(Maybe Integer)
     , _lLayerAvailability :: !(Maybe LayerAvailability)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -370,19 +371,26 @@ data Layer = Layer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'lMediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+--
 -- * 'lLayerDigest' - The @sha256@ digest of the image layer.
 --
 -- * 'lLayerSize' - The size, in bytes, of the image layer.
 --
--- * 'lLayerAvailability' - The availability status of the image layer. Valid values are @AVAILABLE@ and @UNAVAILABLE@ .
+-- * 'lLayerAvailability' - The availability status of the image layer.
 layer
     :: Layer
 layer =
     Layer'
-    { _lLayerDigest = Nothing
+    { _lMediaType = Nothing
+    , _lLayerDigest = Nothing
     , _lLayerSize = Nothing
     , _lLayerAvailability = Nothing
     }
+
+-- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+lMediaType :: Lens' Layer (Maybe Text)
+lMediaType = lens _lMediaType (\ s a -> s{_lMediaType = a});
 
 -- | The @sha256@ digest of the image layer.
 lLayerDigest :: Lens' Layer (Maybe Text)
@@ -392,7 +400,7 @@ lLayerDigest = lens _lLayerDigest (\ s a -> s{_lLayerDigest = a});
 lLayerSize :: Lens' Layer (Maybe Integer)
 lLayerSize = lens _lLayerSize (\ s a -> s{_lLayerSize = a});
 
--- | The availability status of the image layer. Valid values are @AVAILABLE@ and @UNAVAILABLE@ .
+-- | The availability status of the image layer.
 lLayerAvailability :: Lens' Layer (Maybe LayerAvailability)
 lLayerAvailability = lens _lLayerAvailability (\ s a -> s{_lLayerAvailability = a});
 
@@ -401,8 +409,9 @@ instance FromJSON Layer where
           = withObject "Layer"
               (\ x ->
                  Layer' <$>
-                   (x .:? "layerDigest") <*> (x .:? "layerSize") <*>
-                     (x .:? "layerAvailability"))
+                   (x .:? "mediaType") <*> (x .:? "layerDigest") <*>
+                     (x .:? "layerSize")
+                     <*> (x .:? "layerAvailability"))
 
 instance Hashable Layer
 

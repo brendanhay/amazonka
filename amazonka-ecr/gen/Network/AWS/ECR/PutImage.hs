@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates the image manifest associated with an image.
+-- Creates or updates the image manifest and tags associated with an image.
 --
 --
 module Network.AWS.ECR.PutImage
@@ -28,6 +28,7 @@ module Network.AWS.ECR.PutImage
     , PutImage
     -- * Request Lenses
     , piRegistryId
+    , piImageTag
     , piRepositoryName
     , piImageManifest
 
@@ -49,6 +50,7 @@ import           Network.AWS.Response
 -- | /See:/ 'putImage' smart constructor.
 data PutImage = PutImage'
     { _piRegistryId     :: !(Maybe Text)
+    , _piImageTag       :: !(Maybe Text)
     , _piRepositoryName :: !Text
     , _piImageManifest  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -58,6 +60,8 @@ data PutImage = PutImage'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'piRegistryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
+--
+-- * 'piImageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or OCI formats.
 --
 -- * 'piRepositoryName' - The name of the repository in which to put the image.
 --
@@ -69,6 +73,7 @@ putImage
 putImage pRepositoryName_ pImageManifest_ =
     PutImage'
     { _piRegistryId = Nothing
+    , _piImageTag = Nothing
     , _piRepositoryName = pRepositoryName_
     , _piImageManifest = pImageManifest_
     }
@@ -76,6 +81,10 @@ putImage pRepositoryName_ pImageManifest_ =
 -- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
 piRegistryId :: Lens' PutImage (Maybe Text)
 piRegistryId = lens _piRegistryId (\ s a -> s{_piRegistryId = a});
+
+-- | The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or OCI formats.
+piImageTag :: Lens' PutImage (Maybe Text)
+piImageTag = lens _piImageTag (\ s a -> s{_piImageTag = a});
 
 -- | The name of the repository in which to put the image.
 piRepositoryName :: Lens' PutImage Text
@@ -113,6 +122,7 @@ instance ToJSON PutImage where
           = object
               (catMaybes
                  [("registryId" .=) <$> _piRegistryId,
+                  ("imageTag" .=) <$> _piImageTag,
                   Just ("repositoryName" .= _piRepositoryName),
                   Just ("imageManifest" .= _piImageManifest)])
 

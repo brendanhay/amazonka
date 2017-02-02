@@ -55,7 +55,7 @@ data StartAssessmentRun = StartAssessmentRun'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sarAssessmentRunName' - You can specify the name for the assessment run, or you can use the auto-generated name that is based on the assessment template name. The name must be unique for the assessment template.
+-- * 'sarAssessmentRunName' - You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
 --
 -- * 'sarAssessmentTemplateARN' - The ARN of the assessment template of the assessment run that you want to start.
 startAssessmentRun
@@ -67,7 +67,7 @@ startAssessmentRun pAssessmentTemplateARN_ =
     , _sarAssessmentTemplateARN = pAssessmentTemplateARN_
     }
 
--- | You can specify the name for the assessment run, or you can use the auto-generated name that is based on the assessment template name. The name must be unique for the assessment template.
+-- | You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run.
 sarAssessmentRunName :: Lens' StartAssessmentRun (Maybe Text)
 sarAssessmentRunName = lens _sarAssessmentRunName (\ s a -> s{_sarAssessmentRunName = a});
 

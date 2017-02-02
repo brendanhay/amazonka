@@ -25,6 +25,8 @@
 --
 -- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @NextToken@ response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspaces
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -118,6 +121,13 @@ dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a});
 -- | The maximum number of items to return.
 dwLimit :: Lens' DescribeWorkspaces (Maybe Natural)
 dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . mapping _Nat;
+
+instance AWSPager DescribeWorkspaces where
+        page rq rs
+          | stop (rs ^. dwrsNextToken) = Nothing
+          | stop (rs ^. dwrsWorkspaces) = Nothing
+          | otherwise =
+            Just $ rq & dwNextToken .~ rs ^. dwrsNextToken
 
 instance AWSRequest DescribeWorkspaces where
         type Rs DescribeWorkspaces =

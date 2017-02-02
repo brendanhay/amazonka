@@ -59,10 +59,10 @@ module Network.AWS.WorkSpaces
     -- ** DescribeTags
     , module Network.AWS.WorkSpaces.DescribeTags
 
-    -- ** DescribeWorkspaceDirectories
+    -- ** DescribeWorkspaceDirectories (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 
-    -- ** DescribeWorkspaceBundles
+    -- ** DescribeWorkspaceBundles (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 
     -- ** RebuildWorkspaces
@@ -89,7 +89,7 @@ module Network.AWS.WorkSpaces
     -- ** CreateWorkspaces
     , module Network.AWS.WorkSpaces.CreateWorkspaces
 
-    -- ** DescribeWorkspaces
+    -- ** DescribeWorkspaces (Paginated)
     , module Network.AWS.WorkSpaces.DescribeWorkspaces
 
     -- ** StartWorkspaces

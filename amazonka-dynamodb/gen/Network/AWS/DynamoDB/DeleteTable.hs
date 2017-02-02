@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The /DeleteTable/ operation deletes a table and all of its items. After a /DeleteTable/ request, the specified table is in the @DELETING@ state until DynamoDB completes the deletion. If the table is in the @ACTIVE@ state, you can delete it. If a table is in @CREATING@ or @UPDATING@ states, then DynamoDB returns a /ResourceInUseException/ . If the specified table does not exist, DynamoDB returns a /ResourceNotFoundException/ . If table is already in the @DELETING@ state, no error is returned.
+-- The @DeleteTable@ operation deletes a table and all of its items. After a @DeleteTable@ request, the specified table is in the @DELETING@ state until DynamoDB completes the deletion. If the table is in the @ACTIVE@ state, you can delete it. If a table is in @CREATING@ or @UPDATING@ states, then DynamoDB returns a @ResourceInUseException@ . If the specified table does not exist, DynamoDB returns a @ResourceNotFoundException@ . If table is already in the @DELETING@ state, no error is returned.
 --
 --
 -- When you delete a table, any indexes on that table are also deleted.
 --
 -- If you have DynamoDB Streams enabled on the table, then the corresponding stream on that table goes into the @DISABLED@ state, and the stream is automatically deleted after 24 hours.
 --
--- Use the /DescribeTable/ API to check the status of the table.
+-- Use the @DescribeTable@ action to check the status of the table.
 --
 module Network.AWS.DynamoDB.DeleteTable
     (
@@ -50,7 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DeleteTable/ operation.
+-- | Represents the input of a @DeleteTable@ operation.
 --
 --
 --
@@ -109,7 +109,7 @@ instance ToPath DeleteTable where
 instance ToQuery DeleteTable where
         toQuery = const mempty
 
--- | Represents the output of a /DeleteTable/ operation.
+-- | Represents the output of a @DeleteTable@ operation.
 --
 --
 --
@@ -123,7 +123,7 @@ data DeleteTableResponse = DeleteTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtrsTableDescription' - Undocumented member.
+-- * 'dtrsTableDescription' - Represents the properties of a table.
 --
 -- * 'dtrsResponseStatus' - -- | The response status code.
 deleteTableResponse
@@ -135,7 +135,7 @@ deleteTableResponse pResponseStatus_ =
     , _dtrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Represents the properties of a table.
 dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
 dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a});
 

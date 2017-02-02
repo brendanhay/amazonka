@@ -44,7 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeTable/ operation.
+-- | Represents the input of a @DescribeTable@ operation.
 --
 --
 --
@@ -103,7 +103,7 @@ instance ToPath DescribeTable where
 instance ToQuery DescribeTable where
         toQuery = const mempty
 
--- | Represents the output of a /DescribeTable/ operation.
+-- | Represents the output of a @DescribeTable@ operation.
 --
 --
 --
@@ -117,7 +117,7 @@ data DescribeTableResponse = DescribeTableResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsTable' - Undocumented member.
+-- * 'drsTable' - The properties of the table.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 describeTableResponse
@@ -129,7 +129,7 @@ describeTableResponse pResponseStatus_ =
     , _drsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The properties of the table.
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 

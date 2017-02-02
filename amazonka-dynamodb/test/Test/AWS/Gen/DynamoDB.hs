@@ -46,6 +46,9 @@ import Test.AWS.DynamoDB.Internal
 --         , requestBatchGetItem $
 --             batchGetItem
 --
+--         , requestListTagsOfResource $
+--             listTagsOfResource
+--
 --         , requestDescribeTable $
 --             describeTable
 --
@@ -70,6 +73,12 @@ import Test.AWS.DynamoDB.Internal
 --         , requestCreateTable $
 --             createTable
 --
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestUntagResource $
+--             untagResource
+--
 --           ]
 
 --     , testGroup "response"
@@ -90,6 +99,9 @@ import Test.AWS.DynamoDB.Internal
 --
 --         , responseBatchGetItem $
 --             batchGetItemResponse
+--
+--         , responseListTagsOfResource $
+--             listTagsOfResourceResponse
 --
 --         , responseDescribeTable $
 --             describeTableResponse
@@ -114,6 +126,12 @@ import Test.AWS.DynamoDB.Internal
 --
 --         , responseCreateTable $
 --             createTableResponse
+--
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --           ]
 --     ]
@@ -149,6 +167,11 @@ requestBatchGetItem :: BatchGetItem -> TestTree
 requestBatchGetItem = req
     "BatchGetItem"
     "fixture/BatchGetItem.yaml"
+
+requestListTagsOfResource :: ListTagsOfResource -> TestTree
+requestListTagsOfResource = req
+    "ListTagsOfResource"
+    "fixture/ListTagsOfResource.yaml"
 
 requestDescribeTable :: DescribeTable -> TestTree
 requestDescribeTable = req
@@ -189,6 +212,16 @@ requestCreateTable :: CreateTable -> TestTree
 requestCreateTable = req
     "CreateTable"
     "fixture/CreateTable.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 -- Responses
 
@@ -233,6 +266,13 @@ responseBatchGetItem = res
     "fixture/BatchGetItemResponse.proto"
     dynamoDB
     (Proxy :: Proxy BatchGetItem)
+
+responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
+responseListTagsOfResource = res
+    "ListTagsOfResourceResponse"
+    "fixture/ListTagsOfResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy ListTagsOfResource)
 
 responseDescribeTable :: DescribeTableResponse -> TestTree
 responseDescribeTable = res
@@ -289,3 +329,17 @@ responseCreateTable = res
     "fixture/CreateTableResponse.proto"
     dynamoDB
     (Proxy :: Proxy CreateTable)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy UntagResource)

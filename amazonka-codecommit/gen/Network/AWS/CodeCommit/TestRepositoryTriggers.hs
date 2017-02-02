@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.TestRepositoryTriggers
       testRepositoryTriggers
     , TestRepositoryTriggers
     -- * Request Lenses
-    , trtTriggers
     , trtRepositoryName
+    , trtTriggers
 
     -- * Destructuring the Response
     , testRepositoryTriggersResponse
@@ -52,32 +52,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'testRepositoryTriggers' smart constructor.
 data TestRepositoryTriggers = TestRepositoryTriggers'
-    { _trtTriggers       :: !(Maybe [RepositoryTrigger])
-    , _trtRepositoryName :: !(Maybe Text)
+    { _trtRepositoryName :: !Text
+    , _trtTriggers       :: ![RepositoryTrigger]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TestRepositoryTriggers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'trtTriggers' - The list of triggers to test.
---
 -- * 'trtRepositoryName' - The name of the repository in which to test the triggers.
+--
+-- * 'trtTriggers' - The list of triggers to test.
 testRepositoryTriggers
-    :: TestRepositoryTriggers
-testRepositoryTriggers =
+    :: Text -- ^ 'trtRepositoryName'
+    -> TestRepositoryTriggers
+testRepositoryTriggers pRepositoryName_ =
     TestRepositoryTriggers'
-    { _trtTriggers = Nothing
-    , _trtRepositoryName = Nothing
+    { _trtRepositoryName = pRepositoryName_
+    , _trtTriggers = mempty
     }
+
+-- | The name of the repository in which to test the triggers.
+trtRepositoryName :: Lens' TestRepositoryTriggers Text
+trtRepositoryName = lens _trtRepositoryName (\ s a -> s{_trtRepositoryName = a});
 
 -- | The list of triggers to test.
 trtTriggers :: Lens' TestRepositoryTriggers [RepositoryTrigger]
-trtTriggers = lens _trtTriggers (\ s a -> s{_trtTriggers = a}) . _Default . _Coerce;
-
--- | The name of the repository in which to test the triggers.
-trtRepositoryName :: Lens' TestRepositoryTriggers (Maybe Text)
-trtRepositoryName = lens _trtRepositoryName (\ s a -> s{_trtRepositoryName = a});
+trtTriggers = lens _trtTriggers (\ s a -> s{_trtTriggers = a}) . _Coerce;
 
 instance AWSRequest TestRepositoryTriggers where
         type Rs TestRepositoryTriggers =
@@ -109,8 +110,8 @@ instance ToJSON TestRepositoryTriggers where
         toJSON TestRepositoryTriggers'{..}
           = object
               (catMaybes
-                 [("triggers" .=) <$> _trtTriggers,
-                  ("repositoryName" .=) <$> _trtRepositoryName])
+                 [Just ("repositoryName" .= _trtRepositoryName),
+                  Just ("triggers" .= _trtTriggers)])
 
 instance ToPath TestRepositoryTriggers where
         toPath = const "/"

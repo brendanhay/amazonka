@@ -21,6 +21,7 @@ module Network.AWS.CodeCommit.Types
     , _EncryptionKeyNotFoundException
     , _InvalidRepositoryTriggerBranchNameException
     , _InvalidRepositoryTriggerCustomDataException
+    , _BlobIdDoesNotExistException
     , _MaximumRepositoryNamesExceededException
     , _InvalidRepositoryDescriptionException
     , _RepositoryNameExistsException
@@ -30,29 +31,40 @@ module Network.AWS.CodeCommit.Types
     , _RepositoryTriggersListRequiredException
     , _EncryptionKeyUnavailableException
     , _InvalidRepositoryTriggerDestinationARNException
+    , _BlobIdRequiredException
     , _RepositoryNamesRequiredException
+    , _InvalidBlobIdException
     , _InvalidOrderException
     , _BranchDoesNotExistException
+    , _InvalidPathException
     , _RepositoryTriggerNameRequiredException
     , _RepositoryDoesNotExistException
     , _MaximumBranchesExceededException
+    , _PathDoesNotExistException
     , _EncryptionIntegrityChecksFailedException
     , _RepositoryTriggerEventsListRequiredException
     , _EncryptionKeyAccessDeniedException
     , _BranchNameExistsException
+    , _InvalidCommitException
     , _InvalidSortByException
     , _EncryptionKeyDisabledException
+    , _CommitRequiredException
     , _CommitIdRequiredException
     , _InvalidCommitIdException
     , _RepositoryTriggerDestinationARNRequiredException
     , _CommitDoesNotExistException
     , _RepositoryTriggerBranchNameListRequiredException
+    , _InvalidMaxResultsException
+    , _FileTooLargeException
     , _CommitIdDoesNotExistException
     , _InvalidRepositoryTriggerNameException
     , _RepositoryNameRequiredException
     , _RepositoryLimitExceededException
     , _InvalidRepositoryTriggerEventsException
     , _InvalidRepositoryNameException
+
+    -- * ChangeTypeEnum
+    , ChangeTypeEnum (..)
 
     -- * OrderEnum
     , OrderEnum (..)
@@ -62,6 +74,13 @@ module Network.AWS.CodeCommit.Types
 
     -- * SortByEnum
     , SortByEnum (..)
+
+    -- * BlobMetadata
+    , BlobMetadata
+    , blobMetadata
+    , bmPath
+    , bmMode
+    , bmBlobId
 
     -- * BranchInfo
     , BranchInfo
@@ -78,6 +97,13 @@ module Network.AWS.CodeCommit.Types
     , cParents
     , cAuthor
     , cMessage
+
+    -- * Difference
+    , Difference
+    , difference
+    , dAfterBlob
+    , dBeforeBlob
+    , dChangeType
 
     -- * RepositoryMetadata
     , RepositoryMetadata
@@ -104,8 +130,8 @@ module Network.AWS.CodeCommit.Types
     , repositoryTrigger
     , rtBranches
     , rtCustomData
-    , rtDestinationARN
     , rtName
+    , rtDestinationARN
     , rtEvents
 
     -- * RepositoryTriggerExecutionFailure
@@ -197,6 +223,13 @@ _InvalidRepositoryTriggerCustomDataException :: AsError a => Getting (First Serv
 _InvalidRepositoryTriggerCustomDataException =
     _MatchServiceError codeCommit "InvalidRepositoryTriggerCustomDataException"
 
+-- | The specified blob does not exist.
+--
+--
+_BlobIdDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_BlobIdDoesNotExistException =
+    _MatchServiceError codeCommit "BlobIdDoesNotExistException"
+
 -- | The maximum number of allowed repository names was exceeded. Currently, this number is 25.
 --
 --
@@ -262,12 +295,26 @@ _InvalidRepositoryTriggerDestinationARNException =
         codeCommit
         "InvalidRepositoryTriggerDestinationArnException"
 
+-- | A blob ID is required but was not specified.
+--
+--
+_BlobIdRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_BlobIdRequiredException =
+    _MatchServiceError codeCommit "BlobIdRequiredException"
+
 -- | A repository names object is required but was not specified.
 --
 --
 _RepositoryNamesRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RepositoryNamesRequiredException =
     _MatchServiceError codeCommit "RepositoryNamesRequiredException"
+
+-- | The specified blob is not valid.
+--
+--
+_InvalidBlobIdException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidBlobIdException =
+    _MatchServiceError codeCommit "InvalidBlobIdException"
 
 -- | The specified sort order is not valid.
 --
@@ -281,6 +328,12 @@ _InvalidOrderException = _MatchServiceError codeCommit "InvalidOrderException"
 _BranchDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
 _BranchDoesNotExistException =
     _MatchServiceError codeCommit "BranchDoesNotExistException"
+
+-- | The specified path is not valid.
+--
+--
+_InvalidPathException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidPathException = _MatchServiceError codeCommit "InvalidPathException"
 
 -- | A name for the trigger is required but was not specified.
 --
@@ -302,6 +355,13 @@ _RepositoryDoesNotExistException =
 _MaximumBranchesExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _MaximumBranchesExceededException =
     _MatchServiceError codeCommit "MaximumBranchesExceededException"
+
+-- | The specified path does not exist.
+--
+--
+_PathDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_PathDoesNotExistException =
+    _MatchServiceError codeCommit "PathDoesNotExistException"
 
 -- | An encryption integrity check failed.
 --
@@ -333,6 +393,13 @@ _BranchNameExistsException :: AsError a => Getting (First ServiceError) a Servic
 _BranchNameExistsException =
     _MatchServiceError codeCommit "BranchNameExistsException"
 
+-- | The specified commit is not valid.
+--
+--
+_InvalidCommitException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidCommitException =
+    _MatchServiceError codeCommit "InvalidCommitException"
+
 -- | The specified sort by value is not valid.
 --
 --
@@ -346,6 +413,13 @@ _InvalidSortByException =
 _EncryptionKeyDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EncryptionKeyDisabledException =
     _MatchServiceError codeCommit "EncryptionKeyDisabledException"
+
+-- | A commit was not specified.
+--
+--
+_CommitRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_CommitRequiredException =
+    _MatchServiceError codeCommit "CommitRequiredException"
 
 -- | A commit ID was not specified.
 --
@@ -385,6 +459,19 @@ _RepositoryTriggerBranchNameListRequiredException =
     _MatchServiceError
         codeCommit
         "RepositoryTriggerBranchNameListRequiredException"
+
+-- | The specified number of maximum results is not valid.
+--
+--
+_InvalidMaxResultsException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidMaxResultsException =
+    _MatchServiceError codeCommit "InvalidMaxResultsException"
+
+-- | The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see <http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html AWS CodeCommit User Guide> .
+--
+--
+_FileTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+_FileTooLargeException = _MatchServiceError codeCommit "FileTooLargeException"
 
 -- | The specified commit ID does not exist.
 --

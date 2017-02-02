@@ -19,6 +19,35 @@ module Network.AWS.CodeCommit.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data ChangeTypeEnum
+    = A
+    | D
+    | M
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ChangeTypeEnum where
+    parser = takeLowerText >>= \case
+        "a" -> pure A
+        "d" -> pure D
+        "m" -> pure M
+        e -> fromTextError $ "Failure parsing ChangeTypeEnum from value: '" <> e
+           <> "'. Accepted values: a, d, m"
+
+instance ToText ChangeTypeEnum where
+    toText = \case
+        A -> "A"
+        D -> "D"
+        M -> "M"
+
+instance Hashable     ChangeTypeEnum
+instance NFData       ChangeTypeEnum
+instance ToByteString ChangeTypeEnum
+instance ToQuery      ChangeTypeEnum
+instance ToHeader     ChangeTypeEnum
+
+instance FromJSON ChangeTypeEnum where
+    parseJSON = parseJSONText "ChangeTypeEnum"
+
 data OrderEnum
     = Ascending
     | Descending

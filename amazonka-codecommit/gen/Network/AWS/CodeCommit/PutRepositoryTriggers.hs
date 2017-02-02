@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
       putRepositoryTriggers
     , PutRepositoryTriggers
     -- * Request Lenses
-    , prtTriggers
     , prtRepositoryName
+    , prtTriggers
 
     -- * Destructuring the Response
     , putRepositoryTriggersResponse
@@ -51,32 +51,33 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-    { _prtTriggers       :: !(Maybe [RepositoryTrigger])
-    , _prtRepositoryName :: !(Maybe Text)
+    { _prtRepositoryName :: !Text
+    , _prtTriggers       :: ![RepositoryTrigger]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutRepositoryTriggers' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prtTriggers' - The JSON block of configuration information for each trigger.
---
 -- * 'prtRepositoryName' - The name of the repository where you want to create or update the trigger.
+--
+-- * 'prtTriggers' - The JSON block of configuration information for each trigger.
 putRepositoryTriggers
-    :: PutRepositoryTriggers
-putRepositoryTriggers =
+    :: Text -- ^ 'prtRepositoryName'
+    -> PutRepositoryTriggers
+putRepositoryTriggers pRepositoryName_ =
     PutRepositoryTriggers'
-    { _prtTriggers = Nothing
-    , _prtRepositoryName = Nothing
+    { _prtRepositoryName = pRepositoryName_
+    , _prtTriggers = mempty
     }
+
+-- | The name of the repository where you want to create or update the trigger.
+prtRepositoryName :: Lens' PutRepositoryTriggers Text
+prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
 
 -- | The JSON block of configuration information for each trigger.
 prtTriggers :: Lens' PutRepositoryTriggers [RepositoryTrigger]
-prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Default . _Coerce;
-
--- | The name of the repository where you want to create or update the trigger.
-prtRepositoryName :: Lens' PutRepositoryTriggers (Maybe Text)
-prtRepositoryName = lens _prtRepositoryName (\ s a -> s{_prtRepositoryName = a});
+prtTriggers = lens _prtTriggers (\ s a -> s{_prtTriggers = a}) . _Coerce;
 
 instance AWSRequest PutRepositoryTriggers where
         type Rs PutRepositoryTriggers =
@@ -106,8 +107,8 @@ instance ToJSON PutRepositoryTriggers where
         toJSON PutRepositoryTriggers'{..}
           = object
               (catMaybes
-                 [("triggers" .=) <$> _prtTriggers,
-                  ("repositoryName" .=) <$> _prtRepositoryName])
+                 [Just ("repositoryName" .= _prtRepositoryName),
+                  Just ("triggers" .= _prtTriggers)])
 
 instance ToPath PutRepositoryTriggers where
         toPath = const "/"

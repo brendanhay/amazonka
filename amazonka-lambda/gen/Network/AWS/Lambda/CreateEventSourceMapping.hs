@@ -23,7 +23,7 @@
 --
 -- This association between a stream source and a Lambda function is called the event source mapping.
 --
--- /Important:/ This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/ .
+-- /Important:/ This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the /AWS Lambda Developer Guide/ .
 --
 -- You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.
 --
@@ -95,7 +95,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 -- * 'cesmFunctionName' - The Lambda function to invoke when AWS Lambda detects an event on the stream. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ).  If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases>  AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ).  Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
 --
--- * 'cesmStartingPosition' - The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
+-- * 'cesmStartingPosition' - The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
 createEventSourceMapping
     :: Text -- ^ 'cesmEventSourceARN'
     -> Text -- ^ 'cesmFunctionName'
@@ -131,7 +131,7 @@ cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = 
 cesmFunctionName :: Lens' CreateEventSourceMapping Text
 cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 
--- | The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, go to <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
+-- | The position in the stream where AWS Lambda should start reading. Valid only for Kinesis streams. For more information, see <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType> in the /Amazon Kinesis API Reference/ .
 cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 

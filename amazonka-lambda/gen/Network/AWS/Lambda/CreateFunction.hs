@@ -105,7 +105,7 @@ data CreateFunction = CreateFunction'
 --
 -- * 'cfEnvironment' - Undocumented member.
 --
--- * 'cfDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'cfDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
@@ -115,7 +115,7 @@ data CreateFunction = CreateFunction'
 --
 -- * 'cfPublish' - This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
 --
--- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda APIs, such as 'Invoke' .
+-- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' .
 --
 -- * 'cfRuntime' - The runtime environment for the Lambda function you are uploading. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
 --
@@ -160,7 +160,7 @@ cfKMSKeyARN = lens _cfKMSKeyARN (\ s a -> s{_cfKMSKeyARN = a});
 cfEnvironment :: Lens' CreateFunction (Maybe Environment)
 cfEnvironment = lens _cfEnvironment (\ s a -> s{_cfEnvironment = a});
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 cfDeadLetterConfig :: Lens' CreateFunction (Maybe DeadLetterConfig)
 cfDeadLetterConfig = lens _cfDeadLetterConfig (\ s a -> s{_cfDeadLetterConfig = a});
 
@@ -180,7 +180,7 @@ cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 cfPublish :: Lens' CreateFunction (Maybe Bool)
 cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
--- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda APIs, such as 'Invoke' .
+-- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' .
 cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 

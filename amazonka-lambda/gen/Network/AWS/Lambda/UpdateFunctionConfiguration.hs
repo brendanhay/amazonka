@@ -103,7 +103,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- * 'ufcEnvironment' - The parent object that contains your environment's configuration settings.
 --
--- * 'ufcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'ufcDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 --
@@ -150,7 +150,7 @@ ufcKMSKeyARN = lens _ufcKMSKeyARN (\ s a -> s{_ufcKMSKeyARN = a});
 ufcEnvironment :: Lens' UpdateFunctionConfiguration (Maybe Environment)
 ufcEnvironment = lens _ufcEnvironment (\ s a -> s{_ufcEnvironment = a});
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 ufcDeadLetterConfig :: Lens' UpdateFunctionConfiguration (Maybe DeadLetterConfig)
 ufcDeadLetterConfig = lens _ufcDeadLetterConfig (\ s a -> s{_ufcDeadLetterConfig = a});
 

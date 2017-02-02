@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configurations items according to the criteria you specify in a filter. The filter criteria identify relationship requirements.
+-- Retrieves a list of configuration items according to criteria you specify in a filter. The filter criteria identify relationship requirements.
 --
 --
 module Network.AWS.Discovery.ListConfigurations
@@ -27,6 +27,7 @@ module Network.AWS.Discovery.ListConfigurations
       listConfigurations
     , ListConfigurations
     -- * Request Lenses
+    , lcOrderBy
     , lcFilters
     , lcNextToken
     , lcMaxResults
@@ -50,7 +51,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-    { _lcFilters           :: !(Maybe [Filter])
+    { _lcOrderBy           :: !(Maybe [OrderByElement])
+    , _lcFilters           :: !(Maybe [Filter])
     , _lcNextToken         :: !(Maybe Text)
     , _lcMaxResults        :: !(Maybe Int)
     , _lcConfigurationType :: !ConfigurationItemType
@@ -60,9 +62,11 @@ data ListConfigurations = ListConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcFilters' - You can filter the list using a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  You can separate these items by using logical operators.
+-- * 'lcOrderBy' - Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations Querying Discovered Configuration Items> .
 --
--- * 'lcNextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'lcFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations Querying Discovered Configuration Items> .
+--
+-- * 'lcNextToken' - Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
 --
 -- * 'lcMaxResults' - The total number of items to return. The maximum value is 100.
 --
@@ -72,17 +76,22 @@ listConfigurations
     -> ListConfigurations
 listConfigurations pConfigurationType_ =
     ListConfigurations'
-    { _lcFilters = Nothing
+    { _lcOrderBy = Nothing
+    , _lcFilters = Nothing
     , _lcNextToken = Nothing
     , _lcMaxResults = Nothing
     , _lcConfigurationType = pConfigurationType_
     }
 
--- | You can filter the list using a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  You can separate these items by using logical operators.
+-- | Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations Querying Discovered Configuration Items> .
+lcOrderBy :: Lens' ListConfigurations [OrderByElement]
+lcOrderBy = lens _lcOrderBy (\ s a -> s{_lcOrderBy = a}) . _Default . _Coerce;
+
+-- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#ListConfigurations Querying Discovered Configuration Items> .
 lcFilters :: Lens' ListConfigurations [Filter]
 lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . _Default . _Coerce;
 
--- | A token to start the list. Use this token to get the next set of results.
+-- | Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
 lcNextToken :: Lens' ListConfigurations (Maybe Text)
 lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
@@ -124,7 +133,8 @@ instance ToJSON ListConfigurations where
         toJSON ListConfigurations'{..}
           = object
               (catMaybes
-                 [("filters" .=) <$> _lcFilters,
+                 [("orderBy" .=) <$> _lcOrderBy,
+                  ("filters" .=) <$> _lcFilters,
                   ("nextToken" .=) <$> _lcNextToken,
                   ("maxResults" .=) <$> _lcMaxResults,
                   Just ("configurationType" .= _lcConfigurationType)])
@@ -148,7 +158,7 @@ data ListConfigurationsResponse = ListConfigurationsResponse'
 --
 -- * 'lcrsConfigurations' - Returns configuration details, including the configuration ID, attribute names, and attribute values.
 --
--- * 'lcrsNextToken' - The call returns a token. Use this token to get the next set of results.
+-- * 'lcrsNextToken' - Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 --
 -- * 'lcrsResponseStatus' - -- | The response status code.
 listConfigurationsResponse
@@ -165,7 +175,7 @@ listConfigurationsResponse pResponseStatus_ =
 lcrsConfigurations :: Lens' ListConfigurationsResponse [HashMap Text Text]
 lcrsConfigurations = lens _lcrsConfigurations (\ s a -> s{_lcrsConfigurations = a}) . _Default . _Coerce;
 
--- | The call returns a token. Use this token to get the next set of results.
+-- | Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 lcrsNextToken :: Lens' ListConfigurationsResponse (Maybe Text)
 lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 

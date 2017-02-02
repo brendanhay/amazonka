@@ -58,21 +58,24 @@ instance FromJSON AgentStatus where
     parseJSON = parseJSONText "AgentStatus"
 
 data ConfigurationItemType
-    = Connection
+    = Application
+    | Connection
     | Process
     | Server
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemType where
     parser = takeLowerText >>= \case
+        "application" -> pure Application
         "connection" -> pure Connection
         "process" -> pure Process
         "server" -> pure Server
         e -> fromTextError $ "Failure parsing ConfigurationItemType from value: '" <> e
-           <> "'. Accepted values: connection, process, server"
+           <> "'. Accepted values: application, connection, process, server"
 
 instance ToText ConfigurationItemType where
     toText = \case
+        Application -> "APPLICATION"
         Connection -> "CONNECTION"
         Process -> "PROCESS"
         Server -> "SERVER"
@@ -117,3 +120,29 @@ instance ToHeader     ExportStatus
 
 instance FromJSON ExportStatus where
     parseJSON = parseJSONText "ExportStatus"
+
+data OrderString
+    = Asc
+    | Desc
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OrderString where
+    parser = takeLowerText >>= \case
+        "asc" -> pure Asc
+        "desc" -> pure Desc
+        e -> fromTextError $ "Failure parsing OrderString from value: '" <> e
+           <> "'. Accepted values: asc, desc"
+
+instance ToText OrderString where
+    toText = \case
+        Asc -> "ASC"
+        Desc -> "DESC"
+
+instance Hashable     OrderString
+instance NFData       OrderString
+instance ToByteString OrderString
+instance ToQuery      OrderString
+instance ToHeader     OrderString
+
+instance ToJSON OrderString where
+    toJSON = toJSONText

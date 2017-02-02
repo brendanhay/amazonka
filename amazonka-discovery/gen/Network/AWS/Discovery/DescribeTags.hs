@@ -58,11 +58,11 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
+-- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
 --
 -- * 'dtNextToken' - A token to start the list. Use this token to get the next set of results.
 --
--- * 'dtMaxResults' - The total number of items to return. The maximum value is 100.
+-- * 'dtMaxResults' - The total number of items to return in a single page of output. The maximum value is 100.
 describeTags
     :: DescribeTags
 describeTags =
@@ -72,7 +72,7 @@ describeTags =
     , _dtMaxResults = Nothing
     }
 
--- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
+-- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
 dtFilters :: Lens' DescribeTags [TagFilter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
@@ -80,7 +80,7 @@ dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
--- | The total number of items to return. The maximum value is 100.
+-- | The total number of items to return in a single page of output. The maximum value is 100.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 

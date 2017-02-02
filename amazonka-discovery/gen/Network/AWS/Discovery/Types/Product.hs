@@ -21,7 +21,7 @@ import           Network.AWS.Discovery.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Information about agents that were instructed to start collecting data. Information includes the agent ID, a description of the operation, and whether or not the agent configuration was updated.
+-- | Information about agents or Connectors that were instructed to start collecting data. Information includes the agent/Connector ID, a description of the operation, and whether or not the agent/Connector configuration was updated.
 --
 --
 --
@@ -36,9 +36,9 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acsAgentId' - The agent ID.
+-- * 'acsAgentId' - The agent/Connector ID.
 --
--- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
+-- * 'acsOperationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/Connector receives this command the next time it polls for a new command.
 --
 -- * 'acsDescription' - A description of the operation performed.
 agentConfigurationStatus
@@ -50,11 +50,11 @@ agentConfigurationStatus =
     , _acsDescription = Nothing
     }
 
--- | The agent ID.
+-- | The agent/Connector ID.
 acsAgentId :: Lens' AgentConfigurationStatus (Maybe Text)
 acsAgentId = lens _acsAgentId (\ s a -> s{_acsAgentId = a});
 
--- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent receives this command the next time it polls for a new command.
+-- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/Connector receives this command the next time it polls for a new command.
 acsOperationSucceeded :: Lens' AgentConfigurationStatus (Maybe Bool)
 acsOperationSucceeded = lens _acsOperationSucceeded (\ s a -> s{_acsOperationSucceeded = a});
 
@@ -74,88 +74,123 @@ instance Hashable AgentConfigurationStatus
 
 instance NFData AgentConfigurationStatus
 
--- | Information about agents associated with the user’s AWS account. Information includes agent IDs, IP addresses, media access control (MAC) addresses, agent health, hostname where the agent resides, and agent version for each agent.
+-- | Information about agents or connectors associated with the user’s AWS account. Information includes agent or connector IDs, IP addresses, media access control (MAC) addresses, agent or connector health, hostname where the agent or connector resides, and agent version for each agent.
 --
 --
 --
 -- /See:/ 'agentInfo' smart constructor.
 data AgentInfo = AgentInfo'
     { _aiHostName             :: !(Maybe Text)
+    , _aiLastHealthPingTime   :: !(Maybe Text)
     , _aiAgentNetworkInfoList :: !(Maybe [AgentNetworkInfo])
     , _aiConnectorId          :: !(Maybe Text)
     , _aiHealth               :: !(Maybe AgentStatus)
     , _aiAgentId              :: !(Maybe Text)
     , _aiVersion              :: !(Maybe Text)
+    , _aiCollectionStatus     :: !(Maybe Text)
+    , _aiRegisteredTime       :: !(Maybe Text)
+    , _aiAgentType            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AgentInfo' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aiHostName' - The name of the host where the agent resides. The host can be a server or virtual machine.
+-- * 'aiHostName' - The name of the host where the agent or connector resides. The host can be a server or virtual machine.
 --
--- * 'aiAgentNetworkInfoList' - Network details about the host where the agent resides.
+-- * 'aiLastHealthPingTime' - Time since agent or connector health was reported.
 --
--- * 'aiConnectorId' - This data type is currently not valid.
+-- * 'aiAgentNetworkInfoList' - Network details about the host where the agent or connector resides.
 --
--- * 'aiHealth' - The health of the agent.
+-- * 'aiConnectorId' - The ID of the connector.
 --
--- * 'aiAgentId' - The agent ID.
+-- * 'aiHealth' - The health of the agent or connector.
 --
--- * 'aiVersion' - The agent version.
+-- * 'aiAgentId' - The agent or connector ID.
+--
+-- * 'aiVersion' - The agent or connector version.
+--
+-- * 'aiCollectionStatus' - Status of the collection process for an agent or connector.
+--
+-- * 'aiRegisteredTime' - Agent's first registration time stamp in UTC.
+--
+-- * 'aiAgentType' - Type of agent.
 agentInfo
     :: AgentInfo
 agentInfo =
     AgentInfo'
     { _aiHostName = Nothing
+    , _aiLastHealthPingTime = Nothing
     , _aiAgentNetworkInfoList = Nothing
     , _aiConnectorId = Nothing
     , _aiHealth = Nothing
     , _aiAgentId = Nothing
     , _aiVersion = Nothing
+    , _aiCollectionStatus = Nothing
+    , _aiRegisteredTime = Nothing
+    , _aiAgentType = Nothing
     }
 
--- | The name of the host where the agent resides. The host can be a server or virtual machine.
+-- | The name of the host where the agent or connector resides. The host can be a server or virtual machine.
 aiHostName :: Lens' AgentInfo (Maybe Text)
 aiHostName = lens _aiHostName (\ s a -> s{_aiHostName = a});
 
--- | Network details about the host where the agent resides.
+-- | Time since agent or connector health was reported.
+aiLastHealthPingTime :: Lens' AgentInfo (Maybe Text)
+aiLastHealthPingTime = lens _aiLastHealthPingTime (\ s a -> s{_aiLastHealthPingTime = a});
+
+-- | Network details about the host where the agent or connector resides.
 aiAgentNetworkInfoList :: Lens' AgentInfo [AgentNetworkInfo]
 aiAgentNetworkInfoList = lens _aiAgentNetworkInfoList (\ s a -> s{_aiAgentNetworkInfoList = a}) . _Default . _Coerce;
 
--- | This data type is currently not valid.
+-- | The ID of the connector.
 aiConnectorId :: Lens' AgentInfo (Maybe Text)
 aiConnectorId = lens _aiConnectorId (\ s a -> s{_aiConnectorId = a});
 
--- | The health of the agent.
+-- | The health of the agent or connector.
 aiHealth :: Lens' AgentInfo (Maybe AgentStatus)
 aiHealth = lens _aiHealth (\ s a -> s{_aiHealth = a});
 
--- | The agent ID.
+-- | The agent or connector ID.
 aiAgentId :: Lens' AgentInfo (Maybe Text)
 aiAgentId = lens _aiAgentId (\ s a -> s{_aiAgentId = a});
 
--- | The agent version.
+-- | The agent or connector version.
 aiVersion :: Lens' AgentInfo (Maybe Text)
 aiVersion = lens _aiVersion (\ s a -> s{_aiVersion = a});
+
+-- | Status of the collection process for an agent or connector.
+aiCollectionStatus :: Lens' AgentInfo (Maybe Text)
+aiCollectionStatus = lens _aiCollectionStatus (\ s a -> s{_aiCollectionStatus = a});
+
+-- | Agent's first registration time stamp in UTC.
+aiRegisteredTime :: Lens' AgentInfo (Maybe Text)
+aiRegisteredTime = lens _aiRegisteredTime (\ s a -> s{_aiRegisteredTime = a});
+
+-- | Type of agent.
+aiAgentType :: Lens' AgentInfo (Maybe Text)
+aiAgentType = lens _aiAgentType (\ s a -> s{_aiAgentType = a});
 
 instance FromJSON AgentInfo where
         parseJSON
           = withObject "AgentInfo"
               (\ x ->
                  AgentInfo' <$>
-                   (x .:? "hostName") <*>
-                     (x .:? "agentNetworkInfoList" .!= mempty)
+                   (x .:? "hostName") <*> (x .:? "lastHealthPingTime")
+                     <*> (x .:? "agentNetworkInfoList" .!= mempty)
                      <*> (x .:? "connectorId")
                      <*> (x .:? "health")
                      <*> (x .:? "agentId")
-                     <*> (x .:? "version"))
+                     <*> (x .:? "version")
+                     <*> (x .:? "collectionStatus")
+                     <*> (x .:? "registeredTime")
+                     <*> (x .:? "agentType"))
 
 instance Hashable AgentInfo
 
 instance NFData AgentInfo
 
--- | Network details about the host where the agent resides.
+-- | Network details about the host where the agent/Connector resides.
 --
 --
 --
@@ -169,9 +204,9 @@ data AgentNetworkInfo = AgentNetworkInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aniIpAddress' - The IP address for the host where the agent resides.
+-- * 'aniIpAddress' - The IP address for the host where the agent/Connector resides.
 --
--- * 'aniMacAddress' - The MAC address for the host where the agent resides.
+-- * 'aniMacAddress' - The MAC address for the host where the agent/Connector resides.
 agentNetworkInfo
     :: AgentNetworkInfo
 agentNetworkInfo =
@@ -180,11 +215,11 @@ agentNetworkInfo =
     , _aniMacAddress = Nothing
     }
 
--- | The IP address for the host where the agent resides.
+-- | The IP address for the host where the agent/Connector resides.
 aniIpAddress :: Lens' AgentNetworkInfo (Maybe Text)
 aniIpAddress = lens _aniIpAddress (\ s a -> s{_aniIpAddress = a});
 
--- | The MAC address for the host where the agent resides.
+-- | The MAC address for the host where the agent/Connector resides.
 aniMacAddress :: Lens' AgentNetworkInfo (Maybe Text)
 aniMacAddress = lens _aniMacAddress (\ s a -> s{_aniMacAddress = a});
 
@@ -271,6 +306,199 @@ instance Hashable ConfigurationTag
 
 instance NFData ConfigurationTag
 
+-- | Inventory data for installed discovery agents.
+--
+--
+--
+-- /See:/ 'customerAgentInfo' smart constructor.
+data CustomerAgentInfo = CustomerAgentInfo'
+    { _caiActiveAgents      :: !Int
+    , _caiHealthyAgents     :: !Int
+    , _caiBlackListedAgents :: !Int
+    , _caiShutdownAgents    :: !Int
+    , _caiUnhealthyAgents   :: !Int
+    , _caiTotalAgents       :: !Int
+    , _caiUnknownAgents     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomerAgentInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caiActiveAgents' - Number of active discovery agents.
+--
+-- * 'caiHealthyAgents' - Number of healthy discovery agents
+--
+-- * 'caiBlackListedAgents' - Number of blacklisted discovery agents.
+--
+-- * 'caiShutdownAgents' - Number of discovery agents with status SHUTDOWN.
+--
+-- * 'caiUnhealthyAgents' - Number of unhealthy discovery agents.
+--
+-- * 'caiTotalAgents' - Total number of discovery agents.
+--
+-- * 'caiUnknownAgents' - Number of unknown discovery agents.
+customerAgentInfo
+    :: Int -- ^ 'caiActiveAgents'
+    -> Int -- ^ 'caiHealthyAgents'
+    -> Int -- ^ 'caiBlackListedAgents'
+    -> Int -- ^ 'caiShutdownAgents'
+    -> Int -- ^ 'caiUnhealthyAgents'
+    -> Int -- ^ 'caiTotalAgents'
+    -> Int -- ^ 'caiUnknownAgents'
+    -> CustomerAgentInfo
+customerAgentInfo pActiveAgents_ pHealthyAgents_ pBlackListedAgents_ pShutdownAgents_ pUnhealthyAgents_ pTotalAgents_ pUnknownAgents_ =
+    CustomerAgentInfo'
+    { _caiActiveAgents = pActiveAgents_
+    , _caiHealthyAgents = pHealthyAgents_
+    , _caiBlackListedAgents = pBlackListedAgents_
+    , _caiShutdownAgents = pShutdownAgents_
+    , _caiUnhealthyAgents = pUnhealthyAgents_
+    , _caiTotalAgents = pTotalAgents_
+    , _caiUnknownAgents = pUnknownAgents_
+    }
+
+-- | Number of active discovery agents.
+caiActiveAgents :: Lens' CustomerAgentInfo Int
+caiActiveAgents = lens _caiActiveAgents (\ s a -> s{_caiActiveAgents = a});
+
+-- | Number of healthy discovery agents
+caiHealthyAgents :: Lens' CustomerAgentInfo Int
+caiHealthyAgents = lens _caiHealthyAgents (\ s a -> s{_caiHealthyAgents = a});
+
+-- | Number of blacklisted discovery agents.
+caiBlackListedAgents :: Lens' CustomerAgentInfo Int
+caiBlackListedAgents = lens _caiBlackListedAgents (\ s a -> s{_caiBlackListedAgents = a});
+
+-- | Number of discovery agents with status SHUTDOWN.
+caiShutdownAgents :: Lens' CustomerAgentInfo Int
+caiShutdownAgents = lens _caiShutdownAgents (\ s a -> s{_caiShutdownAgents = a});
+
+-- | Number of unhealthy discovery agents.
+caiUnhealthyAgents :: Lens' CustomerAgentInfo Int
+caiUnhealthyAgents = lens _caiUnhealthyAgents (\ s a -> s{_caiUnhealthyAgents = a});
+
+-- | Total number of discovery agents.
+caiTotalAgents :: Lens' CustomerAgentInfo Int
+caiTotalAgents = lens _caiTotalAgents (\ s a -> s{_caiTotalAgents = a});
+
+-- | Number of unknown discovery agents.
+caiUnknownAgents :: Lens' CustomerAgentInfo Int
+caiUnknownAgents = lens _caiUnknownAgents (\ s a -> s{_caiUnknownAgents = a});
+
+instance FromJSON CustomerAgentInfo where
+        parseJSON
+          = withObject "CustomerAgentInfo"
+              (\ x ->
+                 CustomerAgentInfo' <$>
+                   (x .: "activeAgents") <*> (x .: "healthyAgents") <*>
+                     (x .: "blackListedAgents")
+                     <*> (x .: "shutdownAgents")
+                     <*> (x .: "unhealthyAgents")
+                     <*> (x .: "totalAgents")
+                     <*> (x .: "unknownAgents"))
+
+instance Hashable CustomerAgentInfo
+
+instance NFData CustomerAgentInfo
+
+-- | Inventory data for installed discovery connectors.
+--
+--
+--
+-- /See:/ 'customerConnectorInfo' smart constructor.
+data CustomerConnectorInfo = CustomerConnectorInfo'
+    { _cciActiveConnectors      :: !Int
+    , _cciHealthyConnectors     :: !Int
+    , _cciBlackListedConnectors :: !Int
+    , _cciShutdownConnectors    :: !Int
+    , _cciUnhealthyConnectors   :: !Int
+    , _cciTotalConnectors       :: !Int
+    , _cciUnknownConnectors     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomerConnectorInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cciActiveConnectors' - Number of active discovery connectors.
+--
+-- * 'cciHealthyConnectors' - Number of healthy discovery connectors.
+--
+-- * 'cciBlackListedConnectors' - Number of blacklisted discovery connectors.
+--
+-- * 'cciShutdownConnectors' - Number of discovery connectors with status SHUTDOWN,
+--
+-- * 'cciUnhealthyConnectors' - Number of unhealthy discovery connectors.
+--
+-- * 'cciTotalConnectors' - Total number of discovery connectors.
+--
+-- * 'cciUnknownConnectors' - Number of unknown discovery connectors.
+customerConnectorInfo
+    :: Int -- ^ 'cciActiveConnectors'
+    -> Int -- ^ 'cciHealthyConnectors'
+    -> Int -- ^ 'cciBlackListedConnectors'
+    -> Int -- ^ 'cciShutdownConnectors'
+    -> Int -- ^ 'cciUnhealthyConnectors'
+    -> Int -- ^ 'cciTotalConnectors'
+    -> Int -- ^ 'cciUnknownConnectors'
+    -> CustomerConnectorInfo
+customerConnectorInfo pActiveConnectors_ pHealthyConnectors_ pBlackListedConnectors_ pShutdownConnectors_ pUnhealthyConnectors_ pTotalConnectors_ pUnknownConnectors_ =
+    CustomerConnectorInfo'
+    { _cciActiveConnectors = pActiveConnectors_
+    , _cciHealthyConnectors = pHealthyConnectors_
+    , _cciBlackListedConnectors = pBlackListedConnectors_
+    , _cciShutdownConnectors = pShutdownConnectors_
+    , _cciUnhealthyConnectors = pUnhealthyConnectors_
+    , _cciTotalConnectors = pTotalConnectors_
+    , _cciUnknownConnectors = pUnknownConnectors_
+    }
+
+-- | Number of active discovery connectors.
+cciActiveConnectors :: Lens' CustomerConnectorInfo Int
+cciActiveConnectors = lens _cciActiveConnectors (\ s a -> s{_cciActiveConnectors = a});
+
+-- | Number of healthy discovery connectors.
+cciHealthyConnectors :: Lens' CustomerConnectorInfo Int
+cciHealthyConnectors = lens _cciHealthyConnectors (\ s a -> s{_cciHealthyConnectors = a});
+
+-- | Number of blacklisted discovery connectors.
+cciBlackListedConnectors :: Lens' CustomerConnectorInfo Int
+cciBlackListedConnectors = lens _cciBlackListedConnectors (\ s a -> s{_cciBlackListedConnectors = a});
+
+-- | Number of discovery connectors with status SHUTDOWN,
+cciShutdownConnectors :: Lens' CustomerConnectorInfo Int
+cciShutdownConnectors = lens _cciShutdownConnectors (\ s a -> s{_cciShutdownConnectors = a});
+
+-- | Number of unhealthy discovery connectors.
+cciUnhealthyConnectors :: Lens' CustomerConnectorInfo Int
+cciUnhealthyConnectors = lens _cciUnhealthyConnectors (\ s a -> s{_cciUnhealthyConnectors = a});
+
+-- | Total number of discovery connectors.
+cciTotalConnectors :: Lens' CustomerConnectorInfo Int
+cciTotalConnectors = lens _cciTotalConnectors (\ s a -> s{_cciTotalConnectors = a});
+
+-- | Number of unknown discovery connectors.
+cciUnknownConnectors :: Lens' CustomerConnectorInfo Int
+cciUnknownConnectors = lens _cciUnknownConnectors (\ s a -> s{_cciUnknownConnectors = a});
+
+instance FromJSON CustomerConnectorInfo where
+        parseJSON
+          = withObject "CustomerConnectorInfo"
+              (\ x ->
+                 CustomerConnectorInfo' <$>
+                   (x .: "activeConnectors") <*>
+                     (x .: "healthyConnectors")
+                     <*> (x .: "blackListedConnectors")
+                     <*> (x .: "shutdownConnectors")
+                     <*> (x .: "unhealthyConnectors")
+                     <*> (x .: "totalConnectors")
+                     <*> (x .: "unknownConnectors"))
+
+instance Hashable CustomerConnectorInfo
+
+instance NFData CustomerConnectorInfo
+
 -- | Information regarding the export status of the discovered data. The value is an array of objects.
 --
 --
@@ -350,6 +578,8 @@ instance NFData ExportInfo
 -- | A filter that can use conditional operators.
 --
 --
+-- for a complete list of filters and guidance for using them with the Application Discovery Service, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html Querying Discovered Configuration Items> .
+--
 --
 -- /See:/ 'filter'' smart constructor.
 data Filter = Filter'
@@ -362,7 +592,7 @@ data Filter = Filter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fName' - The name of the filter. The following filter names are allowed for @SERVER@ configuration items. __Server__      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.configurationid@      * @server.agentid@  The name of the filter. The following filter names are allowed for @PROCESS@ configuration items. __Process__      * @process.configurationid@      * @process.name@      * @process.commandLine@      * @server.configurationid@      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.agentId@  The name of the filter. The following filter names are allowed for @CONNECTION@ configuration items. __Connection__      * @connection.sourceIp@      * @connection.destinationIp@      * @connection.destinationPort@      * @sourceProcess.configurationId@      * @sourceProcess.name@      * @sourceProcess.commandLine@      * @destinationProcess.configurationId@      * @destinationProcess.name@      * @destinationProcess.commandLine@      * @sourceServer.configurationId@      * @sourceServer.hostName@      * @sourceServer.osName@      * @sourceServer.osVersion@      * @sourceServer.agentId@      * @destinationServer.configurationId@      * @destinationServer.hostName@      * @destinationServer.osName@      * @destinationServer.osVersion@      * @destinationServer.agentId@
+-- * 'fName' - The name of the filter.
 --
 -- * 'fValues' - A string value that you want to filter on. For example, if you choose the @destinationServer.osVersion@ filter name, you could specify @Ubuntu@ for the value.
 --
@@ -378,7 +608,7 @@ filter' pName_ pCondition_ =
     , _fCondition = pCondition_
     }
 
--- | The name of the filter. The following filter names are allowed for @SERVER@ configuration items. __Server__      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.configurationid@      * @server.agentid@  The name of the filter. The following filter names are allowed for @PROCESS@ configuration items. __Process__      * @process.configurationid@      * @process.name@      * @process.commandLine@      * @server.configurationid@      * @server.hostName@      * @server.osName@      * @server.osVersion@      * @server.agentId@  The name of the filter. The following filter names are allowed for @CONNECTION@ configuration items. __Connection__      * @connection.sourceIp@      * @connection.destinationIp@      * @connection.destinationPort@      * @sourceProcess.configurationId@      * @sourceProcess.name@      * @sourceProcess.commandLine@      * @destinationProcess.configurationId@      * @destinationProcess.name@      * @destinationProcess.commandLine@      * @sourceServer.configurationId@      * @sourceServer.hostName@      * @sourceServer.osName@      * @sourceServer.osVersion@      * @sourceServer.agentId@      * @destinationServer.configurationId@      * @destinationServer.hostName@      * @destinationServer.osName@      * @destinationServer.osVersion@      * @destinationServer.agentId@
+-- | The name of the filter.
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
@@ -401,6 +631,126 @@ instance ToJSON Filter where
                  [Just ("name" .= _fName),
                   Just ("values" .= _fValues),
                   Just ("condition" .= _fCondition)])
+
+-- | Details about neighboring servers.
+--
+--
+--
+-- /See:/ 'neighborConnectionDetail' smart constructor.
+data NeighborConnectionDetail = NeighborConnectionDetail'
+    { _ncdTransportProtocol   :: !(Maybe Text)
+    , _ncdDestinationPort     :: !(Maybe Int)
+    , _ncdSourceServerId      :: !Text
+    , _ncdDestinationServerId :: !Text
+    , _ncdConnectionsCount    :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NeighborConnectionDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncdTransportProtocol' - Network protocol used for the connection.
+--
+-- * 'ncdDestinationPort' - Destination network port for the connection.
+--
+-- * 'ncdSourceServerId' - ID of server that opened the network connection.
+--
+-- * 'ncdDestinationServerId' - ID of the server that accepted the networker connection.
+--
+-- * 'ncdConnectionsCount' - Number of open network connections with the neighboring server.
+neighborConnectionDetail
+    :: Text -- ^ 'ncdSourceServerId'
+    -> Text -- ^ 'ncdDestinationServerId'
+    -> Integer -- ^ 'ncdConnectionsCount'
+    -> NeighborConnectionDetail
+neighborConnectionDetail pSourceServerId_ pDestinationServerId_ pConnectionsCount_ =
+    NeighborConnectionDetail'
+    { _ncdTransportProtocol = Nothing
+    , _ncdDestinationPort = Nothing
+    , _ncdSourceServerId = pSourceServerId_
+    , _ncdDestinationServerId = pDestinationServerId_
+    , _ncdConnectionsCount = pConnectionsCount_
+    }
+
+-- | Network protocol used for the connection.
+ncdTransportProtocol :: Lens' NeighborConnectionDetail (Maybe Text)
+ncdTransportProtocol = lens _ncdTransportProtocol (\ s a -> s{_ncdTransportProtocol = a});
+
+-- | Destination network port for the connection.
+ncdDestinationPort :: Lens' NeighborConnectionDetail (Maybe Int)
+ncdDestinationPort = lens _ncdDestinationPort (\ s a -> s{_ncdDestinationPort = a});
+
+-- | ID of server that opened the network connection.
+ncdSourceServerId :: Lens' NeighborConnectionDetail Text
+ncdSourceServerId = lens _ncdSourceServerId (\ s a -> s{_ncdSourceServerId = a});
+
+-- | ID of the server that accepted the networker connection.
+ncdDestinationServerId :: Lens' NeighborConnectionDetail Text
+ncdDestinationServerId = lens _ncdDestinationServerId (\ s a -> s{_ncdDestinationServerId = a});
+
+-- | Number of open network connections with the neighboring server.
+ncdConnectionsCount :: Lens' NeighborConnectionDetail Integer
+ncdConnectionsCount = lens _ncdConnectionsCount (\ s a -> s{_ncdConnectionsCount = a});
+
+instance FromJSON NeighborConnectionDetail where
+        parseJSON
+          = withObject "NeighborConnectionDetail"
+              (\ x ->
+                 NeighborConnectionDetail' <$>
+                   (x .:? "transportProtocol") <*>
+                     (x .:? "destinationPort")
+                     <*> (x .: "sourceServerId")
+                     <*> (x .: "destinationServerId")
+                     <*> (x .: "connectionsCount"))
+
+instance Hashable NeighborConnectionDetail
+
+instance NFData NeighborConnectionDetail
+
+-- | Field and direction for ordered output.
+--
+--
+--
+-- /See:/ 'orderByElement' smart constructor.
+data OrderByElement = OrderByElement'
+    { _obeSortOrder :: !(Maybe OrderString)
+    , _obeFieldName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OrderByElement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'obeSortOrder' - Ordering direction.
+--
+-- * 'obeFieldName' - Field to order on.
+orderByElement
+    :: Text -- ^ 'obeFieldName'
+    -> OrderByElement
+orderByElement pFieldName_ =
+    OrderByElement'
+    { _obeSortOrder = Nothing
+    , _obeFieldName = pFieldName_
+    }
+
+-- | Ordering direction.
+obeSortOrder :: Lens' OrderByElement (Maybe OrderString)
+obeSortOrder = lens _obeSortOrder (\ s a -> s{_obeSortOrder = a});
+
+-- | Field to order on.
+obeFieldName :: Lens' OrderByElement Text
+obeFieldName = lens _obeFieldName (\ s a -> s{_obeFieldName = a});
+
+instance Hashable OrderByElement
+
+instance NFData OrderByElement
+
+instance ToJSON OrderByElement where
+        toJSON OrderByElement'{..}
+          = object
+              (catMaybes
+                 [("sortOrder" .=) <$> _obeSortOrder,
+                  Just ("fieldName" .= _obeFieldName)])
 
 -- | Metadata that help you categorize IT assets.
 --

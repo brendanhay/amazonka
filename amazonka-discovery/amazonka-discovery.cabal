@@ -40,17 +40,24 @@ library
 
     exposed-modules:
           Network.AWS.Discovery
+        , Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+        , Network.AWS.Discovery.CreateApplication
         , Network.AWS.Discovery.CreateTags
+        , Network.AWS.Discovery.DeleteApplications
         , Network.AWS.Discovery.DeleteTags
         , Network.AWS.Discovery.DescribeAgents
         , Network.AWS.Discovery.DescribeConfigurations
         , Network.AWS.Discovery.DescribeExportConfigurations
         , Network.AWS.Discovery.DescribeTags
+        , Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
         , Network.AWS.Discovery.ExportConfigurations
+        , Network.AWS.Discovery.GetDiscoverySummary
         , Network.AWS.Discovery.ListConfigurations
+        , Network.AWS.Discovery.ListServerNeighbors
         , Network.AWS.Discovery.StartDataCollectionByAgentIds
         , Network.AWS.Discovery.StopDataCollectionByAgentIds
         , Network.AWS.Discovery.Types
+        , Network.AWS.Discovery.UpdateApplication
         , Network.AWS.Discovery.Waiters
 
     other-modules:

@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of attributes for a specific configuration ID. For example, the output for a /server/ configuration item includes a list of attributes about the server, including host name, operating system, number of network cards, etc.
+-- Retrieves attributes for a list of configuration item IDs. All of the supplied IDs must be for the same asset type (server, application, process, or connection). Output fields are specific to the asset type selected. For example, the output for a /server/ configuration item includes a list of attributes about the server, such as host name, operating system, and number of network cards.
 --
+--
+-- For a complete list of outputs for each asset type, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/querying-configuration-items.html#DescribeConfigurations Querying Discovered Configuration Items> .
 --
 module Network.AWS.Discovery.DescribeConfigurations
     (

@@ -50,7 +50,7 @@ newtype DisableKey = DisableKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkKeyId' - A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- * 'dkKeyId' - A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 disableKey
     :: Text -- ^ 'dkKeyId'
     -> DisableKey
@@ -59,7 +59,7 @@ disableKey pKeyId_ =
     { _dkKeyId = pKeyId_
     }
 
--- | A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- | A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 dkKeyId :: Lens' DisableKey Text
 dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 

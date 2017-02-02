@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Encrypts data on the server side with a new customer master key without exposing the plaintext of the data on the client side. The data is first decrypted and then encrypted. This operation can also be used to change the encryption context of a ciphertext.
+-- Encrypts data on the server side with a new customer master key (CMK) without exposing the plaintext of the data on the client side. The data is first decrypted and then reencrypted. You can also use this operation to change the encryption context of a ciphertext.
 --
 --
--- Unlike other actions, @ReEncrypt@ is authorized twice - once as @ReEncryptFrom@ on the source key and once as @ReEncryptTo@ on the destination key. We therefore recommend that you include the @"action":"kms:ReEncrypt*"@ statement in your key policies to permit re-encryption from or to the key. The statement is included automatically when you authorize use of the key through the console but must be included manually when you set a policy by using the 'PutKeyPolicy' function.
+-- Unlike other operations, @ReEncrypt@ is authorized twice, once as @ReEncryptFrom@ on the source CMK and once as @ReEncryptTo@ on the destination CMK. We recommend that you include the @"kms:ReEncrypt*"@ permission in your <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html key policies> to permit reencryption from or to the CMK. This permission is automatically included in the key policy when you create a CMK through the console, but you must include it manually when you create a CMK programmatically or when you set a key policy with the 'PutKeyPolicy' operation.
 --
 module Network.AWS.KMS.ReEncrypt
     (
@@ -65,15 +65,15 @@ data ReEncrypt = ReEncrypt'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reDestinationEncryptionContext' - Encryption context to be used when the data is re-encrypted.
+-- * 'reDestinationEncryptionContext' - Encryption context to use when the data is reencrypted.
 --
 -- * 'reSourceEncryptionContext' - Encryption context used to encrypt and decrypt the data specified in the @CiphertextBlob@ parameter.
 --
 -- * 'reGrantTokens' - A list of grant tokens. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
--- * 'reCiphertextBlob' - Ciphertext of the data to re-encrypt.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'reCiphertextBlob' - Ciphertext of the data to reencrypt.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'reDestinationKeyId' - A unique identifier for the customer master key used to re-encrypt the data. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- * 'reDestinationKeyId' - A unique identifier for the CMK to use to reencrypt the data. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 reEncrypt
     :: ByteString -- ^ 'reCiphertextBlob'
     -> Text -- ^ 'reDestinationKeyId'
@@ -87,7 +87,7 @@ reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     , _reDestinationKeyId = pDestinationKeyId_
     }
 
--- | Encryption context to be used when the data is re-encrypted.
+-- | Encryption context to use when the data is reencrypted.
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
@@ -99,11 +99,11 @@ reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourc
 reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 
--- | Ciphertext of the data to re-encrypt.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | Ciphertext of the data to reencrypt.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 reCiphertextBlob :: Lens' ReEncrypt ByteString
 reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64;
 
--- | A unique identifier for the customer master key used to re-encrypt the data. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- | A unique identifier for the CMK to use to reencrypt the data. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 
@@ -161,11 +161,11 @@ data ReEncryptResponse = ReEncryptResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rersSourceKeyId' - Unique identifier of the key used to originally encrypt the data.
+-- * 'rersSourceKeyId' - Unique identifier of the CMK used to originally encrypt the data.
 --
--- * 'rersKeyId' - Unique identifier of the key used to re-encrypt the data.
+-- * 'rersKeyId' - Unique identifier of the CMK used to reencrypt the data.
 --
--- * 'rersCiphertextBlob' - The re-encrypted data. If you are using the CLI, the value is Base64 encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'rersCiphertextBlob' - The reencrypted data.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'rersResponseStatus' - -- | The response status code.
 reEncryptResponse
@@ -179,15 +179,15 @@ reEncryptResponse pResponseStatus_ =
     , _rersResponseStatus = pResponseStatus_
     }
 
--- | Unique identifier of the key used to originally encrypt the data.
+-- | Unique identifier of the CMK used to originally encrypt the data.
 rersSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rersSourceKeyId = lens _rersSourceKeyId (\ s a -> s{_rersSourceKeyId = a});
 
--- | Unique identifier of the key used to re-encrypt the data.
+-- | Unique identifier of the CMK used to reencrypt the data.
 rersKeyId :: Lens' ReEncryptResponse (Maybe Text)
 rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
 
--- | The re-encrypted data. If you are using the CLI, the value is Base64 encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The reencrypted data.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 

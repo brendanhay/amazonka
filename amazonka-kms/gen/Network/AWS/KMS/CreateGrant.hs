@@ -76,7 +76,7 @@ data CreateGrant = CreateGrant'
 --
 -- * 'cgName' - A friendly name for identifying the grant. Use this value to prevent unintended creation of duplicate grants when retrying this request. When this value is absent, all @CreateGrant@ requests result in a new grant with a unique @GrantId@ even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the @CreateGrant@ request. When this value is present, you can retry a @CreateGrant@ request with identical parameters; if the grant already exists, the original @GrantId@ is returned without creating a new grant. Note that the returned grant token is unique with every @CreateGrant@ request, even when a duplicate @GrantId@ is returned. All grant tokens obtained in this way can be used interchangeably.
 --
--- * 'cgOperations' - A list of operations that the grant permits. The list can contain any combination of one or more of the following values:     * 'Decrypt'      * 'Encrypt'      * 'GenerateDataKey'      * 'GenerateDataKeyWithoutPlaintext'      * <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptFrom>      * <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptTo>      * 'CreateGrant'      * 'RetireGrant'      * 'DescribeKey'
+-- * 'cgOperations' - A list of operations that the grant permits.
 --
 -- * 'cgKeyId' - The unique identifier for the customer master key (CMK) that the grant applies to. To specify this value, use the globally unique key ID or the Amazon Resource Name (ARN) of the key. Examples:     * Globally unique key ID: 12345678-1234-1234-1234-123456789012     * Key ARN: arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012
 --
@@ -112,7 +112,7 @@ cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 cgName :: Lens' CreateGrant (Maybe Text)
 cgName = lens _cgName (\ s a -> s{_cgName = a});
 
--- | A list of operations that the grant permits. The list can contain any combination of one or more of the following values:     * 'Decrypt'      * 'Encrypt'      * 'GenerateDataKey'      * 'GenerateDataKeyWithoutPlaintext'      * <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptFrom>      * <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html ReEncryptTo>      * 'CreateGrant'      * 'RetireGrant'      * 'DescribeKey'
+-- | A list of operations that the grant permits.
 cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default . _Coerce;
 

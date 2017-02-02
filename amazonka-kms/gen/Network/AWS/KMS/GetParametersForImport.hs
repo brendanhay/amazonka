@@ -64,7 +64,7 @@ data GetParametersForImport = GetParametersForImport'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpfiKeyId' - The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- * 'gpfiKeyId' - The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- * 'gpfiWrappingAlgorithm' - The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -81,7 +81,7 @@ getParametersForImport pKeyId_ pWrappingAlgorithm_ pWrappingKeySpec_ =
     , _gpfiWrappingKeySpec = pWrappingKeySpec_
     }
 
--- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+-- | The identifier of the CMK into which you will import key material. The CMK's @Origin@ must be @EXTERNAL@ . A valid identifier is the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 gpfiKeyId :: Lens' GetParametersForImport Text
 gpfiKeyId = lens _gpfiKeyId (\ s a -> s{_gpfiKeyId = a});
 

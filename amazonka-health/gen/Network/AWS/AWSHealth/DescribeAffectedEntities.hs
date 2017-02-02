@@ -23,6 +23,8 @@
 --
 -- At least one event ARN is required. Results are sorted by the @lastUpdatedTime@ of the entity, starting with the most recent.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeAffectedEntities
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.AWSHealth.DescribeAffectedEntities
 import           Network.AWS.AWSHealth.Types
 import           Network.AWS.AWSHealth.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -62,11 +65,11 @@ data DescribeAffectedEntities = DescribeAffectedEntities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daeLocale' - The locale (language) to return information in. The default is English.
+-- * 'daeLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 --
 -- * 'daeNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
--- * 'daeMaxResults' - The maximum number of items to return in one batch.
+-- * 'daeMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 --
 -- * 'daeFilter' - Values to narrow the results returned. At least one event ARN is required.
 describeAffectedEntities
@@ -80,7 +83,7 @@ describeAffectedEntities pFilter_ =
     , _daeFilter = pFilter_
     }
 
--- | The locale (language) to return information in. The default is English.
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 daeLocale :: Lens' DescribeAffectedEntities (Maybe Text)
 daeLocale = lens _daeLocale (\ s a -> s{_daeLocale = a});
 
@@ -88,13 +91,20 @@ daeLocale = lens _daeLocale (\ s a -> s{_daeLocale = a});
 daeNextToken :: Lens' DescribeAffectedEntities (Maybe Text)
 daeNextToken = lens _daeNextToken (\ s a -> s{_daeNextToken = a});
 
--- | The maximum number of items to return in one batch.
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 daeMaxResults :: Lens' DescribeAffectedEntities (Maybe Natural)
 daeMaxResults = lens _daeMaxResults (\ s a -> s{_daeMaxResults = a}) . mapping _Nat;
 
 -- | Values to narrow the results returned. At least one event ARN is required.
 daeFilter :: Lens' DescribeAffectedEntities EntityFilter
 daeFilter = lens _daeFilter (\ s a -> s{_daeFilter = a});
+
+instance AWSPager DescribeAffectedEntities where
+        page rq rs
+          | stop (rs ^. daersNextToken) = Nothing
+          | stop (rs ^. daersEntities) = Nothing
+          | otherwise =
+            Just $ rq & daeNextToken .~ rs ^. daersNextToken
 
 instance AWSRequest DescribeAffectedEntities where
         type Rs DescribeAffectedEntities =

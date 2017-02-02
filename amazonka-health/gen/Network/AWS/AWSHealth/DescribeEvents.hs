@@ -23,6 +23,8 @@
 --
 -- If no filter criteria are specified, all events are returned. Results are sorted by @lastModifiedTime@ , starting with the most recent.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEvents
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.AWSHealth.DescribeEvents
 import           Network.AWS.AWSHealth.Types
 import           Network.AWS.AWSHealth.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -62,13 +65,13 @@ data DescribeEvents = DescribeEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deLocale' - The locale (language) to return information in. The default is English.
+-- * 'deLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 --
 -- * 'deNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
 -- * 'deFilter' - Values to narrow the results returned.
 --
--- * 'deMaxResults' - The maximum number of items to return in one batch.
+-- * 'deMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 describeEvents
     :: DescribeEvents
 describeEvents =
@@ -79,7 +82,7 @@ describeEvents =
     , _deMaxResults = Nothing
     }
 
--- | The locale (language) to return information in. The default is English.
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 deLocale :: Lens' DescribeEvents (Maybe Text)
 deLocale = lens _deLocale (\ s a -> s{_deLocale = a});
 
@@ -91,9 +94,16 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 deFilter :: Lens' DescribeEvents (Maybe EventFilter)
 deFilter = lens _deFilter (\ s a -> s{_deFilter = a});
 
--- | The maximum number of items to return in one batch.
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 deMaxResults :: Lens' DescribeEvents (Maybe Natural)
 deMaxResults = lens _deMaxResults (\ s a -> s{_deMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeEvents where
+        page rq rs
+          | stop (rs ^. dersNextToken) = Nothing
+          | stop (rs ^. dersEvents) = Nothing
+          | otherwise =
+            Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvents where
         type Rs DescribeEvents = DescribeEventsResponse

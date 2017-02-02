@@ -58,7 +58,7 @@ data DescribeEventDetails = DescribeEventDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dedLocale' - The locale (language) to return information in. The default is English.
+-- * 'dedLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 --
 -- * 'dedEventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/AWS_EC2_MAINTENANCE_5331", "arn:aws:health:us-west-1::event/AWS_EBS_LOST_VOLUME_xyz"@
 describeEventDetails
@@ -70,7 +70,7 @@ describeEventDetails pEventARNs_ =
     , _dedEventARNs = _List1 # pEventARNs_
     }
 
--- | The locale (language) to return information in. The default is English.
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 dedLocale :: Lens' DescribeEventDetails (Maybe Text)
 dedLocale = lens _dedLocale (\ s a -> s{_dedLocale = a});
 

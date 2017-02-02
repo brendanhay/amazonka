@@ -21,6 +21,8 @@
 -- Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEventAggregates
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.AWSHealth.DescribeEventAggregates
 import           Network.AWS.AWSHealth.Types
 import           Network.AWS.AWSHealth.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -64,7 +67,7 @@ data DescribeEventAggregates = DescribeEventAggregates'
 --
 -- * 'deaFilter' - Values to narrow the results returned.
 --
--- * 'deaMaxResults' - The maximum number of items to return in one batch.
+-- * 'deaMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 --
 -- * 'deaAggregateField' - The only currently supported value is @eventTypeCategory@ .
 describeEventAggregates
@@ -86,13 +89,20 @@ deaNextToken = lens _deaNextToken (\ s a -> s{_deaNextToken = a});
 deaFilter :: Lens' DescribeEventAggregates (Maybe EventFilter)
 deaFilter = lens _deaFilter (\ s a -> s{_deaFilter = a});
 
--- | The maximum number of items to return in one batch.
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 deaMaxResults :: Lens' DescribeEventAggregates (Maybe Natural)
 deaMaxResults = lens _deaMaxResults (\ s a -> s{_deaMaxResults = a}) . mapping _Nat;
 
 -- | The only currently supported value is @eventTypeCategory@ .
 deaAggregateField :: Lens' DescribeEventAggregates EventAggregateField
 deaAggregateField = lens _deaAggregateField (\ s a -> s{_deaAggregateField = a});
+
+instance AWSPager DescribeEventAggregates where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsEventAggregates) = Nothing
+          | otherwise =
+            Just $ rq & deaNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeEventAggregates where
         type Rs DescribeEventAggregates =

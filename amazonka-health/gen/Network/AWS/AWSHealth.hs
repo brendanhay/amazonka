@@ -13,7 +13,7 @@
 --
 -- __AWS Health__
 --
--- The AWS Health API provides programmatic access to the AWS Health information that is presented in the AWS Personal Health Dashboard. You can get information about events that affect your AWS resources:
+-- The AWS Health API provides programmatic access to the AWS Health information that is presented in the <https://phd.aws.amazon.com/phd/home#/ AWS Personal Health Dashboard> . You can get information about events that affect your AWS resources:
 --
 --     * 'DescribeEvents' : Summary information about events.
 --
@@ -70,19 +70,19 @@ module Network.AWS.AWSHealth
     -- ** DescribeEntityAggregates
     , module Network.AWS.AWSHealth.DescribeEntityAggregates
 
-    -- ** DescribeEvents
+    -- ** DescribeEvents (Paginated)
     , module Network.AWS.AWSHealth.DescribeEvents
 
     -- ** DescribeEventDetails
     , module Network.AWS.AWSHealth.DescribeEventDetails
 
-    -- ** DescribeEventAggregates
+    -- ** DescribeEventAggregates (Paginated)
     , module Network.AWS.AWSHealth.DescribeEventAggregates
 
-    -- ** DescribeAffectedEntities
+    -- ** DescribeAffectedEntities (Paginated)
     , module Network.AWS.AWSHealth.DescribeAffectedEntities
 
-    -- ** DescribeEventTypes
+    -- ** DescribeEventTypes (Paginated)
     , module Network.AWS.AWSHealth.DescribeEventTypes
 
     -- * Types

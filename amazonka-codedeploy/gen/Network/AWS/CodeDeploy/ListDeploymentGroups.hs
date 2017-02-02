@@ -21,6 +21,8 @@
 -- Lists the deployment groups for an application registered with the applicable IAM user or AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -80,6 +83,13 @@ ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
+
+instance AWSPager ListDeploymentGroups where
+        page rq rs
+          | stop (rs ^. ldgrsNextToken) = Nothing
+          | stop (rs ^. ldgrsDeploymentGroups) = Nothing
+          | otherwise =
+            Just $ rq & ldgNextToken .~ rs ^. ldgrsNextToken
 
 instance AWSRequest ListDeploymentGroups where
         type Rs ListDeploymentGroups =

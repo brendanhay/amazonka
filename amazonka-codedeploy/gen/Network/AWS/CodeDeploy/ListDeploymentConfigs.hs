@@ -21,6 +21,8 @@
 -- Lists the deployment configurations with the applicable IAM user or AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -69,6 +72,13 @@ listDeploymentConfigs =
 -- | An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
 ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
+
+instance AWSPager ListDeploymentConfigs where
+        page rq rs
+          | stop (rs ^. ldcrsNextToken) = Nothing
+          | stop (rs ^. ldcrsDeploymentConfigsList) = Nothing
+          | otherwise =
+            Just $ rq & ldcNextToken .~ rs ^. ldcrsNextToken
 
 instance AWSRequest ListDeploymentConfigs where
         type Rs ListDeploymentConfigs =

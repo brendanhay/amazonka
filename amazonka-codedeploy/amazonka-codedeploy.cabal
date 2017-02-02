@@ -47,6 +47,7 @@ library
         , Network.AWS.CodeDeploy.BatchGetDeploymentInstances
         , Network.AWS.CodeDeploy.BatchGetDeployments
         , Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
+        , Network.AWS.CodeDeploy.ContinueDeployment
         , Network.AWS.CodeDeploy.CreateApplication
         , Network.AWS.CodeDeploy.CreateDeployment
         , Network.AWS.CodeDeploy.CreateDeploymentConfig
@@ -72,6 +73,7 @@ library
         , Network.AWS.CodeDeploy.RegisterApplicationRevision
         , Network.AWS.CodeDeploy.RegisterOnPremisesInstance
         , Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
+        , Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
         , Network.AWS.CodeDeploy.StopDeployment
         , Network.AWS.CodeDeploy.Types
         , Network.AWS.CodeDeploy.UpdateApplication

@@ -23,21 +23,29 @@ module Network.AWS.CodeDeploy.Types
     , _InstanceNameAlreadyRegisteredException
     , _IAMUserARNRequiredException
     , _InvalidDeploymentGroupNameException
+    , _InvalidInstanceTypeException
+    , _IAMSessionARNAlreadyRegisteredException
     , _DescriptionTooLongException
     , _InvalidIAMUserARNException
     , _DeploymentNotStartedException
     , _DeploymentConfigLimitExceededException
     , _RoleRequiredException
+    , _InvalidLoadBalancerInfoException
+    , _InvalidBlueGreenDeploymentConfigurationException
     , _InvalidRoleException
     , _DeploymentConfigAlreadyExistsException
+    , _InvalidTargetInstancesException
     , _DeploymentLimitExceededException
     , _IAMUserARNAlreadyRegisteredException
+    , _InvalidIAMSessionARNException
     , _InstanceLimitExceededException
+    , _InvalidDeploymentStyleException
     , _InvalidDeployedStateFilterException
     , _InvalidAutoScalingGroupException
     , _InvalidApplicationNameException
     , _ApplicationDoesNotExistException
     , _InvalidMinimumHealthyHostValueException
+    , _UnsupportedActionForDeploymentTypeException
     , _AlarmsLimitExceededException
     , _InvalidTagFilterException
     , _InvalidTriggerConfigException
@@ -54,6 +62,7 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidDeploymentConfigNameException
     , _DeploymentConfigNameRequiredException
     , _DeploymentIdRequiredException
+    , _DeploymentIsNotInReadyStateException
     , _InvalidNextTokenException
     , _InstanceIdRequiredException
     , _InvalidDeploymentIdException
@@ -69,6 +78,7 @@ module Network.AWS.CodeDeploy.Types
     , _InvalidEC2TagException
     , _InvalidInstanceNameException
     , _InstanceNameRequiredException
+    , _MultipleIAMARNsProvidedException
     , _TriggerTargetsLimitExceededException
     , _InvalidDeploymentStatusException
     , _InvalidRegistrationStatusException
@@ -79,6 +89,7 @@ module Network.AWS.CodeDeploy.Types
     , _TagLimitExceededException
     , _ApplicationLimitExceededException
     , _InvalidOperationException
+    , _IAMARNRequiredException
     , _InvalidKeyPrefixFilterException
 
     -- * ApplicationRevisionSortBy
@@ -96,14 +107,32 @@ module Network.AWS.CodeDeploy.Types
     -- * DeploymentCreator
     , DeploymentCreator (..)
 
+    -- * DeploymentOption
+    , DeploymentOption (..)
+
+    -- * DeploymentReadyAction
+    , DeploymentReadyAction (..)
+
     -- * DeploymentStatus
     , DeploymentStatus (..)
+
+    -- * DeploymentType
+    , DeploymentType (..)
 
     -- * EC2TagFilterType
     , EC2TagFilterType (..)
 
+    -- * GreenFleetProvisioningAction
+    , GreenFleetProvisioningAction (..)
+
+    -- * InstanceAction
+    , InstanceAction (..)
+
     -- * InstanceStatus
     , InstanceStatus (..)
+
+    -- * InstanceType
+    , InstanceType (..)
 
     -- * LifecycleErrorCode
     , LifecycleErrorCode (..)
@@ -167,6 +196,19 @@ module Network.AWS.CodeDeploy.Types
     , asgHook
     , asgName
 
+    -- * BlueGreenDeploymentConfiguration
+    , BlueGreenDeploymentConfiguration
+    , blueGreenDeploymentConfiguration
+    , bgdcDeploymentReadyOption
+    , bgdcGreenFleetProvisioningOption
+    , bgdcTerminateBlueInstancesOnDeploymentSuccess
+
+    -- * BlueInstanceTerminationOption
+    , BlueInstanceTerminationOption
+    , blueInstanceTerminationOption
+    , bitoAction
+    , bitoTerminationWaitTimeInMinutes
+
     -- * DeploymentConfigInfo
     , DeploymentConfigInfo
     , deploymentConfigInfo
@@ -182,12 +224,15 @@ module Network.AWS.CodeDeploy.Types
     , dgiDeploymentConfigName
     , dgiTargetRevision
     , dgiEc2TagFilters
+    , dgiBlueGreenDeploymentConfiguration
+    , dgiLoadBalancerInfo
     , dgiOnPremisesInstanceTagFilters
     , dgiApplicationName
     , dgiAlarmConfiguration
     , dgiTriggerConfigurations
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
+    , dgiDeploymentStyle
     , dgiAutoRollbackConfiguration
     , dgiDeploymentGroupName
 
@@ -198,14 +243,20 @@ module Network.AWS.CodeDeploy.Types
     , diStatus
     , diDeploymentId
     , diDeploymentConfigName
+    , diInstanceTerminationWaitTimeStarted
     , diStartTime
     , diCompleteTime
+    , diBlueGreenDeploymentConfiguration
     , diErrorInformation
+    , diLoadBalancerInfo
+    , diAdditionalDeploymentStatusInfo
     , diDeploymentOverview
     , diApplicationName
     , diRollbackInfo
+    , diTargetInstances
     , diRevision
     , diDescription
+    , diDeploymentStyle
     , diCreateTime
     , diAutoRollbackConfiguration
     , diUpdateOutdatedInstancesOnly
@@ -219,7 +270,20 @@ module Network.AWS.CodeDeploy.Types
     , doSkipped
     , doInProgress
     , doSucceeded
+    , doReady
     , doFailed
+
+    -- * DeploymentReadyOption
+    , DeploymentReadyOption
+    , deploymentReadyOption
+    , droActionOnTimeout
+    , droWaitTimeInMinutes
+
+    -- * DeploymentStyle
+    , DeploymentStyle
+    , deploymentStyle
+    , dsDeploymentOption
+    , dsDeploymentType
 
     -- * Diagnostics
     , Diagnostics
@@ -235,6 +299,11 @@ module Network.AWS.CodeDeploy.Types
     , etfValue
     , etfKey
     , etfType
+
+    -- * ELBInfo
+    , ELBInfo
+    , eLBInfo
+    , elbiName
 
     -- * ErrorInformation
     , ErrorInformation
@@ -257,6 +326,11 @@ module Network.AWS.CodeDeploy.Types
     , ghlCommitId
     , ghlRepository
 
+    -- * GreenFleetProvisioningOption
+    , GreenFleetProvisioningOption
+    , greenFleetProvisioningOption
+    , gfpoAction
+
     -- * InstanceInfo
     , InstanceInfo
     , instanceInfo
@@ -265,6 +339,7 @@ module Network.AWS.CodeDeploy.Types
     , iiDeregisterTime
     , iiIamUserARN
     , iiInstanceName
+    , iiIamSessionARN
     , iiTags
 
     -- * InstanceSummary
@@ -275,6 +350,7 @@ module Network.AWS.CodeDeploy.Types
     , isDeploymentId
     , isLastUpdatedAt
     , isLifecycleEvents
+    , isInstanceType
 
     -- * LifecycleEvent
     , LifecycleEvent
@@ -284,6 +360,11 @@ module Network.AWS.CodeDeploy.Types
     , leStartTime
     , leDiagnostics
     , leEndTime
+
+    -- * LoadBalancerInfo
+    , LoadBalancerInfo
+    , loadBalancerInfo
+    , lbiElbInfoList
 
     -- * MinimumHealthyHosts
     , MinimumHealthyHosts
@@ -332,6 +413,12 @@ module Network.AWS.CodeDeploy.Types
     , tfValue
     , tfKey
     , tfType
+
+    -- * TargetInstances
+    , TargetInstances
+    , targetInstances
+    , tiTagFilters
+    , tiAutoScalingGroups
 
     -- * TimeRange
     , TimeRange
@@ -447,6 +534,20 @@ _InvalidDeploymentGroupNameException :: AsError a => Getting (First ServiceError
 _InvalidDeploymentGroupNameException =
     _MatchServiceError codeDeploy "InvalidDeploymentGroupNameException"
 
+-- | An invalid instance type was specified for instances in a blue/green deployment. Valid values include "Blue" for an original environment and "Green" for a replacement environment.
+--
+--
+_InvalidInstanceTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidInstanceTypeException =
+    _MatchServiceError codeDeploy "InvalidInstanceTypeException"
+
+-- | The request included an IAM session ARN that has already been used to register a different instance.
+--
+--
+_IAMSessionARNAlreadyRegisteredException :: AsError a => Getting (First ServiceError) a ServiceError
+_IAMSessionARNAlreadyRegisteredException =
+    _MatchServiceError codeDeploy "IamSessionArnAlreadyRegisteredException"
+
 -- | The description is too long.
 --
 --
@@ -481,6 +582,22 @@ _DeploymentConfigLimitExceededException =
 _RoleRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _RoleRequiredException = _MatchServiceError codeDeploy "RoleRequiredException"
 
+-- | An invalid load balancer name, or no load balancer name, was specified.
+--
+--
+_InvalidLoadBalancerInfoException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLoadBalancerInfoException =
+    _MatchServiceError codeDeploy "InvalidLoadBalancerInfoException"
+
+-- | The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see 'CreateDeploymentConfig' .
+--
+--
+_InvalidBlueGreenDeploymentConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidBlueGreenDeploymentConfigurationException =
+    _MatchServiceError
+        codeDeploy
+        "InvalidBlueGreenDeploymentConfigurationException"
+
 -- | The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Auto Scaling.
 --
 --
@@ -493,6 +610,23 @@ _InvalidRoleException = _MatchServiceError codeDeploy "InvalidRoleException"
 _DeploymentConfigAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _DeploymentConfigAlreadyExistsException =
     _MatchServiceError codeDeploy "DeploymentConfigAlreadyExistsException"
+
+-- | The target instance configuration is invalid. Possible causes include:
+--
+--
+--     * Configuration data for target instances was entered for an in-place deployment.
+--
+--     * The limit of 10 tags for a tag type was exceeded.
+--
+--     * The combined length of the tag names exceeded the limit.
+--
+--     * A specified tag is not currently applied to any instances.
+--
+--
+--
+_InvalidTargetInstancesException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidTargetInstancesException =
+    _MatchServiceError codeDeploy "InvalidTargetInstancesException"
 
 -- | The number of allowed deployments was exceeded.
 --
@@ -508,12 +642,26 @@ _IAMUserARNAlreadyRegisteredException :: AsError a => Getting (First ServiceErro
 _IAMUserARNAlreadyRegisteredException =
     _MatchServiceError codeDeploy "IamUserArnAlreadyRegisteredException"
 
+-- | The IAM session ARN was specified in an invalid format.
+--
+--
+_InvalidIAMSessionARNException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidIAMSessionARNException =
+    _MatchServiceError codeDeploy "InvalidIamSessionArnException"
+
 -- | The maximum number of allowed on-premises instances in a single call was exceeded.
 --
 --
 _InstanceLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _InstanceLimitExceededException =
     _MatchServiceError codeDeploy "InstanceLimitExceededException"
+
+-- | An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN". Valid deployment options for blue/green deployments include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL".
+--
+--
+_InvalidDeploymentStyleException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidDeploymentStyleException =
+    _MatchServiceError codeDeploy "InvalidDeploymentStyleException"
 
 -- | The deployed state filter was specified in an invalid format.
 --
@@ -549,6 +697,13 @@ _ApplicationDoesNotExistException =
 _InvalidMinimumHealthyHostValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidMinimumHealthyHostValueException =
     _MatchServiceError codeDeploy "InvalidMinimumHealthyHostValueException"
+
+-- | A call was submitted that is not supported for the specified deployment type.
+--
+--
+_UnsupportedActionForDeploymentTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedActionForDeploymentTypeException =
+    _MatchServiceError codeDeploy "UnsupportedActionForDeploymentTypeException"
 
 -- | The maximum number of alarms for a deployment group (10) was exceeded.
 --
@@ -661,6 +816,13 @@ _DeploymentIdRequiredException :: AsError a => Getting (First ServiceError) a Se
 _DeploymentIdRequiredException =
     _MatchServiceError codeDeploy "DeploymentIdRequiredException"
 
+-- | The deployment does not have a status of Ready and can't continue yet.
+--
+--
+_DeploymentIsNotInReadyStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_DeploymentIsNotInReadyStateException =
+    _MatchServiceError codeDeploy "DeploymentIsNotInReadyStateException"
+
 -- | The next token was specified in an invalid format.
 --
 --
@@ -766,6 +928,13 @@ _InstanceNameRequiredException :: AsError a => Getting (First ServiceError) a Se
 _InstanceNameRequiredException =
     _MatchServiceError codeDeploy "InstanceNameRequiredException"
 
+-- | Both an IAM user ARN and an IAM session ARN were included in the request. Use only one ARN type.
+--
+--
+_MultipleIAMARNsProvidedException :: AsError a => Getting (First ServiceError) a ServiceError
+_MultipleIAMARNsProvidedException =
+    _MatchServiceError codeDeploy "MultipleIamArnsProvidedException"
+
 -- | The maximum allowed number of triggers was exceeded.
 --
 --
@@ -835,6 +1004,13 @@ _ApplicationLimitExceededException =
 _InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidOperationException =
     _MatchServiceError codeDeploy "InvalidOperationException"
+
+-- | No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.
+--
+--
+_IAMARNRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
+_IAMARNRequiredException =
+    _MatchServiceError codeDeploy "IamArnRequiredException"
 
 -- | The specified key prefix filter was specified in an invalid format.
 --

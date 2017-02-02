@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get information about one or more deployment groups.
+-- Gets information about one or more deployment groups.
 --
 --
 module Network.AWS.CodeDeploy.BatchGetDeploymentGroups

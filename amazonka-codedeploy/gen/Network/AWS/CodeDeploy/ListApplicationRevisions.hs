@@ -21,6 +21,8 @@
 -- Lists information about revisions for an application.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -124,6 +127,13 @@ larSortBy = lens _larSortBy (\ s a -> s{_larSortBy = a});
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 larApplicationName :: Lens' ListApplicationRevisions Text
 larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a});
+
+instance AWSPager ListApplicationRevisions where
+        page rq rs
+          | stop (rs ^. larrsNextToken) = Nothing
+          | stop (rs ^. larrsRevisions) = Nothing
+          | otherwise =
+            Just $ rq & larNextToken .~ rs ^. larrsNextToken
 
 instance AWSRequest ListApplicationRevisions where
         type Rs ListApplicationRevisions =

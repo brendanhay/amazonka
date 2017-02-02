@@ -76,6 +76,12 @@ module Network.AWS.CodeDeploy
     -- ** InvalidDeploymentGroupNameException
     , _InvalidDeploymentGroupNameException
 
+    -- ** InvalidInstanceTypeException
+    , _InvalidInstanceTypeException
+
+    -- ** IAMSessionARNAlreadyRegisteredException
+    , _IAMSessionARNAlreadyRegisteredException
+
     -- ** DescriptionTooLongException
     , _DescriptionTooLongException
 
@@ -91,11 +97,20 @@ module Network.AWS.CodeDeploy
     -- ** RoleRequiredException
     , _RoleRequiredException
 
+    -- ** InvalidLoadBalancerInfoException
+    , _InvalidLoadBalancerInfoException
+
+    -- ** InvalidBlueGreenDeploymentConfigurationException
+    , _InvalidBlueGreenDeploymentConfigurationException
+
     -- ** InvalidRoleException
     , _InvalidRoleException
 
     -- ** DeploymentConfigAlreadyExistsException
     , _DeploymentConfigAlreadyExistsException
+
+    -- ** InvalidTargetInstancesException
+    , _InvalidTargetInstancesException
 
     -- ** DeploymentLimitExceededException
     , _DeploymentLimitExceededException
@@ -103,8 +118,14 @@ module Network.AWS.CodeDeploy
     -- ** IAMUserARNAlreadyRegisteredException
     , _IAMUserARNAlreadyRegisteredException
 
+    -- ** InvalidIAMSessionARNException
+    , _InvalidIAMSessionARNException
+
     -- ** InstanceLimitExceededException
     , _InstanceLimitExceededException
+
+    -- ** InvalidDeploymentStyleException
+    , _InvalidDeploymentStyleException
 
     -- ** InvalidDeployedStateFilterException
     , _InvalidDeployedStateFilterException
@@ -120,6 +141,9 @@ module Network.AWS.CodeDeploy
 
     -- ** InvalidMinimumHealthyHostValueException
     , _InvalidMinimumHealthyHostValueException
+
+    -- ** UnsupportedActionForDeploymentTypeException
+    , _UnsupportedActionForDeploymentTypeException
 
     -- ** AlarmsLimitExceededException
     , _AlarmsLimitExceededException
@@ -169,6 +193,9 @@ module Network.AWS.CodeDeploy
     -- ** DeploymentIdRequiredException
     , _DeploymentIdRequiredException
 
+    -- ** DeploymentIsNotInReadyStateException
+    , _DeploymentIsNotInReadyStateException
+
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
 
@@ -214,6 +241,9 @@ module Network.AWS.CodeDeploy
     -- ** InstanceNameRequiredException
     , _InstanceNameRequiredException
 
+    -- ** MultipleIAMARNsProvidedException
+    , _MultipleIAMARNsProvidedException
+
     -- ** TriggerTargetsLimitExceededException
     , _TriggerTargetsLimitExceededException
 
@@ -243,6 +273,9 @@ module Network.AWS.CodeDeploy
 
     -- ** InvalidOperationException
     , _InvalidOperationException
+
+    -- ** IAMARNRequiredException
+    , _IAMARNRequiredException
 
     -- ** InvalidKeyPrefixFilterException
     , _InvalidKeyPrefixFilterException
@@ -301,6 +334,9 @@ module Network.AWS.CodeDeploy
     -- ** RegisterApplicationRevision
     , module Network.AWS.CodeDeploy.RegisterApplicationRevision
 
+    -- ** ContinueDeployment
+    , module Network.AWS.CodeDeploy.ContinueDeployment
+
     -- ** BatchGetApplications
     , module Network.AWS.CodeDeploy.BatchGetApplications
 
@@ -325,10 +361,13 @@ module Network.AWS.CodeDeploy
     -- ** BatchGetDeploymentInstances
     , module Network.AWS.CodeDeploy.BatchGetDeploymentInstances
 
+    -- ** SkipWaitTimeForInstanceTermination
+    , module Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
+
     -- ** GetApplication
     , module Network.AWS.CodeDeploy.GetApplication
 
-    -- ** ListDeploymentGroups
+    -- ** ListDeploymentGroups (Paginated)
     , module Network.AWS.CodeDeploy.ListDeploymentGroups
 
     -- ** BatchGetOnPremisesInstances
@@ -340,25 +379,25 @@ module Network.AWS.CodeDeploy
     -- ** CreateDeploymentGroup
     , module Network.AWS.CodeDeploy.CreateDeploymentGroup
 
-    -- ** ListDeploymentConfigs
+    -- ** ListDeploymentConfigs (Paginated)
     , module Network.AWS.CodeDeploy.ListDeploymentConfigs
 
     -- ** GetDeploymentGroup
     , module Network.AWS.CodeDeploy.GetDeploymentGroup
 
-    -- ** ListDeployments
+    -- ** ListDeployments (Paginated)
     , module Network.AWS.CodeDeploy.ListDeployments
 
-    -- ** ListApplicationRevisions
+    -- ** ListApplicationRevisions (Paginated)
     , module Network.AWS.CodeDeploy.ListApplicationRevisions
 
-    -- ** ListApplications
+    -- ** ListApplications (Paginated)
     , module Network.AWS.CodeDeploy.ListApplications
 
     -- ** AddTagsToOnPremisesInstances
     , module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
 
-    -- ** ListDeploymentInstances
+    -- ** ListDeploymentInstances (Paginated)
     , module Network.AWS.CodeDeploy.ListDeploymentInstances
 
     -- * Types
@@ -378,14 +417,32 @@ module Network.AWS.CodeDeploy
     -- ** DeploymentCreator
     , DeploymentCreator (..)
 
+    -- ** DeploymentOption
+    , DeploymentOption (..)
+
+    -- ** DeploymentReadyAction
+    , DeploymentReadyAction (..)
+
     -- ** DeploymentStatus
     , DeploymentStatus (..)
+
+    -- ** DeploymentType
+    , DeploymentType (..)
 
     -- ** EC2TagFilterType
     , EC2TagFilterType (..)
 
+    -- ** GreenFleetProvisioningAction
+    , GreenFleetProvisioningAction (..)
+
+    -- ** InstanceAction
+    , InstanceAction (..)
+
     -- ** InstanceStatus
     , InstanceStatus (..)
+
+    -- ** InstanceType
+    , InstanceType (..)
 
     -- ** LifecycleErrorCode
     , LifecycleErrorCode (..)
@@ -449,6 +506,19 @@ module Network.AWS.CodeDeploy
     , asgHook
     , asgName
 
+    -- ** BlueGreenDeploymentConfiguration
+    , BlueGreenDeploymentConfiguration
+    , blueGreenDeploymentConfiguration
+    , bgdcDeploymentReadyOption
+    , bgdcGreenFleetProvisioningOption
+    , bgdcTerminateBlueInstancesOnDeploymentSuccess
+
+    -- ** BlueInstanceTerminationOption
+    , BlueInstanceTerminationOption
+    , blueInstanceTerminationOption
+    , bitoAction
+    , bitoTerminationWaitTimeInMinutes
+
     -- ** DeploymentConfigInfo
     , DeploymentConfigInfo
     , deploymentConfigInfo
@@ -464,12 +534,15 @@ module Network.AWS.CodeDeploy
     , dgiDeploymentConfigName
     , dgiTargetRevision
     , dgiEc2TagFilters
+    , dgiBlueGreenDeploymentConfiguration
+    , dgiLoadBalancerInfo
     , dgiOnPremisesInstanceTagFilters
     , dgiApplicationName
     , dgiAlarmConfiguration
     , dgiTriggerConfigurations
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
+    , dgiDeploymentStyle
     , dgiAutoRollbackConfiguration
     , dgiDeploymentGroupName
 
@@ -480,14 +553,20 @@ module Network.AWS.CodeDeploy
     , diStatus
     , diDeploymentId
     , diDeploymentConfigName
+    , diInstanceTerminationWaitTimeStarted
     , diStartTime
     , diCompleteTime
+    , diBlueGreenDeploymentConfiguration
     , diErrorInformation
+    , diLoadBalancerInfo
+    , diAdditionalDeploymentStatusInfo
     , diDeploymentOverview
     , diApplicationName
     , diRollbackInfo
+    , diTargetInstances
     , diRevision
     , diDescription
+    , diDeploymentStyle
     , diCreateTime
     , diAutoRollbackConfiguration
     , diUpdateOutdatedInstancesOnly
@@ -501,7 +580,20 @@ module Network.AWS.CodeDeploy
     , doSkipped
     , doInProgress
     , doSucceeded
+    , doReady
     , doFailed
+
+    -- ** DeploymentReadyOption
+    , DeploymentReadyOption
+    , deploymentReadyOption
+    , droActionOnTimeout
+    , droWaitTimeInMinutes
+
+    -- ** DeploymentStyle
+    , DeploymentStyle
+    , deploymentStyle
+    , dsDeploymentOption
+    , dsDeploymentType
 
     -- ** Diagnostics
     , Diagnostics
@@ -517,6 +609,11 @@ module Network.AWS.CodeDeploy
     , etfValue
     , etfKey
     , etfType
+
+    -- ** ELBInfo
+    , ELBInfo
+    , eLBInfo
+    , elbiName
 
     -- ** ErrorInformation
     , ErrorInformation
@@ -539,6 +636,11 @@ module Network.AWS.CodeDeploy
     , ghlCommitId
     , ghlRepository
 
+    -- ** GreenFleetProvisioningOption
+    , GreenFleetProvisioningOption
+    , greenFleetProvisioningOption
+    , gfpoAction
+
     -- ** InstanceInfo
     , InstanceInfo
     , instanceInfo
@@ -547,6 +649,7 @@ module Network.AWS.CodeDeploy
     , iiDeregisterTime
     , iiIamUserARN
     , iiInstanceName
+    , iiIamSessionARN
     , iiTags
 
     -- ** InstanceSummary
@@ -557,6 +660,7 @@ module Network.AWS.CodeDeploy
     , isDeploymentId
     , isLastUpdatedAt
     , isLifecycleEvents
+    , isInstanceType
 
     -- ** LifecycleEvent
     , LifecycleEvent
@@ -566,6 +670,11 @@ module Network.AWS.CodeDeploy
     , leStartTime
     , leDiagnostics
     , leEndTime
+
+    -- ** LoadBalancerInfo
+    , LoadBalancerInfo
+    , loadBalancerInfo
+    , lbiElbInfoList
 
     -- ** MinimumHealthyHosts
     , MinimumHealthyHosts
@@ -615,6 +724,12 @@ module Network.AWS.CodeDeploy
     , tfKey
     , tfType
 
+    -- ** TargetInstances
+    , TargetInstances
+    , targetInstances
+    , tiTagFilters
+    , tiAutoScalingGroups
+
     -- ** TimeRange
     , TimeRange
     , timeRange
@@ -636,6 +751,7 @@ import           Network.AWS.CodeDeploy.BatchGetDeploymentGroups
 import           Network.AWS.CodeDeploy.BatchGetDeploymentInstances
 import           Network.AWS.CodeDeploy.BatchGetDeployments
 import           Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
+import           Network.AWS.CodeDeploy.ContinueDeployment
 import           Network.AWS.CodeDeploy.CreateApplication
 import           Network.AWS.CodeDeploy.CreateDeployment
 import           Network.AWS.CodeDeploy.CreateDeploymentConfig
@@ -661,6 +777,7 @@ import           Network.AWS.CodeDeploy.ListOnPremisesInstances
 import           Network.AWS.CodeDeploy.RegisterApplicationRevision
 import           Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 import           Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
+import           Network.AWS.CodeDeploy.SkipWaitTimeForInstanceTermination
 import           Network.AWS.CodeDeploy.StopDeployment
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.UpdateApplication

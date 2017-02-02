@@ -21,6 +21,8 @@
 -- Lists the applications registered with the applicable IAM user or AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.CodeDeploy.ListApplications
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -69,6 +72,13 @@ listApplications =
 -- | An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list.
 laNextToken :: Lens' ListApplications (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+
+instance AWSPager ListApplications where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsApplications) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListApplications where
         type Rs ListApplications = ListApplicationsResponse

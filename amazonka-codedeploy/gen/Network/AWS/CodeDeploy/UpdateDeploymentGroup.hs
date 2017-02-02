@@ -31,10 +31,13 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgDeploymentConfigName
     , udgNewDeploymentGroupName
     , udgEc2TagFilters
+    , udgBlueGreenDeploymentConfiguration
+    , udgLoadBalancerInfo
     , udgOnPremisesInstanceTagFilters
     , udgAlarmConfiguration
     , udgTriggerConfigurations
     , udgAutoScalingGroups
+    , udgDeploymentStyle
     , udgAutoRollbackConfiguration
     , udgApplicationName
     , udgCurrentDeploymentGroupName
@@ -60,17 +63,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN               :: !(Maybe Text)
-    , _udgDeploymentConfigName         :: !(Maybe Text)
-    , _udgNewDeploymentGroupName       :: !(Maybe Text)
-    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _udgAlarmConfiguration           :: !(Maybe AlarmConfiguration)
-    , _udgTriggerConfigurations        :: !(Maybe [TriggerConfig])
-    , _udgAutoScalingGroups            :: !(Maybe [Text])
-    , _udgAutoRollbackConfiguration    :: !(Maybe AutoRollbackConfiguration)
-    , _udgApplicationName              :: !Text
-    , _udgCurrentDeploymentGroupName   :: !Text
+    { _udgServiceRoleARN                   :: !(Maybe Text)
+    , _udgDeploymentConfigName             :: !(Maybe Text)
+    , _udgNewDeploymentGroupName           :: !(Maybe Text)
+    , _udgEc2TagFilters                    :: !(Maybe [EC2TagFilter])
+    , _udgBlueGreenDeploymentConfiguration :: !(Maybe BlueGreenDeploymentConfiguration)
+    , _udgLoadBalancerInfo                 :: !(Maybe LoadBalancerInfo)
+    , _udgOnPremisesInstanceTagFilters     :: !(Maybe [TagFilter])
+    , _udgAlarmConfiguration               :: !(Maybe AlarmConfiguration)
+    , _udgTriggerConfigurations            :: !(Maybe [TriggerConfig])
+    , _udgAutoScalingGroups                :: !(Maybe [Text])
+    , _udgDeploymentStyle                  :: !(Maybe DeploymentStyle)
+    , _udgAutoRollbackConfiguration        :: !(Maybe AutoRollbackConfiguration)
+    , _udgApplicationName                  :: !Text
+    , _udgCurrentDeploymentGroupName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeploymentGroup' with the minimum fields required to make a request.
@@ -85,6 +91,10 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 --
 -- * 'udgEc2TagFilters' - The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
+-- * 'udgBlueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
+--
+-- * 'udgLoadBalancerInfo' - Information about the load balancer used in a blue/green deployment.
+--
 -- * 'udgOnPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 --
 -- * 'udgAlarmConfiguration' - Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
@@ -92,6 +102,8 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 -- * 'udgTriggerConfigurations' - Information about triggers to change when the deployment group is updated. For examples, see <http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Modify Triggers in an AWS CodeDeploy Deployment Group> in the AWS CodeDeploy User Guide.
 --
 -- * 'udgAutoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
+--
+-- * 'udgDeploymentStyle' - Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
 --
 -- * 'udgAutoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 --
@@ -108,10 +120,13 @@ updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     , _udgDeploymentConfigName = Nothing
     , _udgNewDeploymentGroupName = Nothing
     , _udgEc2TagFilters = Nothing
+    , _udgBlueGreenDeploymentConfiguration = Nothing
+    , _udgLoadBalancerInfo = Nothing
     , _udgOnPremisesInstanceTagFilters = Nothing
     , _udgAlarmConfiguration = Nothing
     , _udgTriggerConfigurations = Nothing
     , _udgAutoScalingGroups = Nothing
+    , _udgDeploymentStyle = Nothing
     , _udgAutoRollbackConfiguration = Nothing
     , _udgApplicationName = pApplicationName_
     , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
@@ -133,6 +148,14 @@ udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewD
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
 udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
 
+-- | Information about blue/green deployment options for a deployment group.
+udgBlueGreenDeploymentConfiguration :: Lens' UpdateDeploymentGroup (Maybe BlueGreenDeploymentConfiguration)
+udgBlueGreenDeploymentConfiguration = lens _udgBlueGreenDeploymentConfiguration (\ s a -> s{_udgBlueGreenDeploymentConfiguration = a});
+
+-- | Information about the load balancer used in a blue/green deployment.
+udgLoadBalancerInfo :: Lens' UpdateDeploymentGroup (Maybe LoadBalancerInfo)
+udgLoadBalancerInfo = lens _udgLoadBalancerInfo (\ s a -> s{_udgLoadBalancerInfo = a});
+
 -- | The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
 udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
 udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
@@ -148,6 +171,10 @@ udgTriggerConfigurations = lens _udgTriggerConfigurations (\ s a -> s{_udgTrigge
 -- | The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
 udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
+
+-- | Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+udgDeploymentStyle :: Lens' UpdateDeploymentGroup (Maybe DeploymentStyle)
+udgDeploymentStyle = lens _udgDeploymentStyle (\ s a -> s{_udgDeploymentStyle = a});
 
 -- | Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 udgAutoRollbackConfiguration :: Lens' UpdateDeploymentGroup (Maybe AutoRollbackConfiguration)
@@ -196,12 +223,16 @@ instance ToJSON UpdateDeploymentGroup where
                   ("newDeploymentGroupName" .=) <$>
                     _udgNewDeploymentGroupName,
                   ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
+                  ("blueGreenDeploymentConfiguration" .=) <$>
+                    _udgBlueGreenDeploymentConfiguration,
+                  ("loadBalancerInfo" .=) <$> _udgLoadBalancerInfo,
                   ("onPremisesInstanceTagFilters" .=) <$>
                     _udgOnPremisesInstanceTagFilters,
                   ("alarmConfiguration" .=) <$> _udgAlarmConfiguration,
                   ("triggerConfigurations" .=) <$>
                     _udgTriggerConfigurations,
                   ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,
+                  ("deploymentStyle" .=) <$> _udgDeploymentStyle,
                   ("autoRollbackConfiguration" .=) <$>
                     _udgAutoRollbackConfiguration,
                   Just ("applicationName" .= _udgApplicationName),

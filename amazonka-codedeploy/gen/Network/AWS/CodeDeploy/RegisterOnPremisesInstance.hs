@@ -27,8 +27,9 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
       registerOnPremisesInstance
     , RegisterOnPremisesInstance
     -- * Request Lenses
-    , ropiInstanceName
     , ropiIamUserARN
+    , ropiIamSessionARN
+    , ropiInstanceName
 
     -- * Destructuring the Response
     , registerOnPremisesInstanceResponse
@@ -48,34 +49,41 @@ import           Network.AWS.Response
 --
 -- /See:/ 'registerOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-    { _ropiInstanceName :: !Text
-    , _ropiIamUserARN   :: !Text
+    { _ropiIamUserARN    :: !(Maybe Text)
+    , _ropiIamSessionARN :: !(Maybe Text)
+    , _ropiInstanceName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ropiInstanceName' - The name of the on-premises instance to register.
---
 -- * 'ropiIamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
+--
+-- * 'ropiIamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
+--
+-- * 'ropiInstanceName' - The name of the on-premises instance to register.
 registerOnPremisesInstance
     :: Text -- ^ 'ropiInstanceName'
-    -> Text -- ^ 'ropiIamUserARN'
     -> RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName_ pIamUserARN_ =
+registerOnPremisesInstance pInstanceName_ =
     RegisterOnPremisesInstance'
-    { _ropiInstanceName = pInstanceName_
-    , _ropiIamUserARN = pIamUserARN_
+    { _ropiIamUserARN = Nothing
+    , _ropiIamSessionARN = Nothing
+    , _ropiInstanceName = pInstanceName_
     }
+
+-- | The ARN of the IAM user to associate with the on-premises instance.
+ropiIamUserARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
+ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
+
+-- | The ARN of the IAM session to associate with the on-premises instance.
+ropiIamSessionARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
+ropiIamSessionARN = lens _ropiIamSessionARN (\ s a -> s{_ropiIamSessionARN = a});
 
 -- | The name of the on-premises instance to register.
 ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
 ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a});
-
--- | The ARN of the IAM user to associate with the on-premises instance.
-ropiIamUserARN :: Lens' RegisterOnPremisesInstance Text
-ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
 
 instance AWSRequest RegisterOnPremisesInstance where
         type Rs RegisterOnPremisesInstance =
@@ -102,8 +110,9 @@ instance ToJSON RegisterOnPremisesInstance where
         toJSON RegisterOnPremisesInstance'{..}
           = object
               (catMaybes
-                 [Just ("instanceName" .= _ropiInstanceName),
-                  Just ("iamUserArn" .= _ropiIamUserARN)])
+                 [("iamUserArn" .=) <$> _ropiIamUserARN,
+                  ("iamSessionArn" .=) <$> _ropiIamSessionARN,
+                  Just ("instanceName" .= _ropiInstanceName)])
 
 instance ToPath RegisterOnPremisesInstance where
         toPath = const "/"

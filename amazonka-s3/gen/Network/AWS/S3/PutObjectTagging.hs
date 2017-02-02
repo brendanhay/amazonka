@@ -25,11 +25,11 @@ module Network.AWS.S3.PutObjectTagging
       putObjectTagging
     , PutObjectTagging
     -- * Request Lenses
+    , potVersionId
     , potContentMD5
     , potBucket
     , potKey
     , potTagging
-    , potVersionId
 
     -- * Destructuring the Response
     , putObjectTaggingResponse
@@ -48,16 +48,18 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-    { _potContentMD5 :: !(Maybe Text)
+    { _potVersionId  :: !(Maybe ObjectVersionId)
+    , _potContentMD5 :: !(Maybe Text)
     , _potBucket     :: !BucketName
     , _potKey        :: !ObjectKey
     , _potTagging    :: !Tagging
-    , _potVersionId  :: !ObjectVersionId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutObjectTagging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'potVersionId' - Undocumented member.
 --
 -- * 'potContentMD5' - Undocumented member.
 --
@@ -66,22 +68,23 @@ data PutObjectTagging = PutObjectTagging'
 -- * 'potKey' - Undocumented member.
 --
 -- * 'potTagging' - Undocumented member.
---
--- * 'potVersionId' - Undocumented member.
 putObjectTagging
     :: BucketName -- ^ 'potBucket'
     -> ObjectKey -- ^ 'potKey'
     -> Tagging -- ^ 'potTagging'
-    -> ObjectVersionId -- ^ 'potVersionId'
     -> PutObjectTagging
-putObjectTagging pBucket_ pKey_ pTagging_ pVersionId_ =
+putObjectTagging pBucket_ pKey_ pTagging_ =
     PutObjectTagging'
-    { _potContentMD5 = Nothing
+    { _potVersionId = Nothing
+    , _potContentMD5 = Nothing
     , _potBucket = pBucket_
     , _potKey = pKey_
     , _potTagging = pTagging_
-    , _potVersionId = pVersionId_
     }
+
+-- | Undocumented member.
+potVersionId :: Lens' PutObjectTagging (Maybe ObjectVersionId)
+potVersionId = lens _potVersionId (\ s a -> s{_potVersionId = a});
 
 -- | Undocumented member.
 potContentMD5 :: Lens' PutObjectTagging (Maybe Text)
@@ -98,10 +101,6 @@ potKey = lens _potKey (\ s a -> s{_potKey = a});
 -- | Undocumented member.
 potTagging :: Lens' PutObjectTagging Tagging
 potTagging = lens _potTagging (\ s a -> s{_potTagging = a});
-
--- | Undocumented member.
-potVersionId :: Lens' PutObjectTagging ObjectVersionId
-potVersionId = lens _potVersionId (\ s a -> s{_potVersionId = a});
 
 instance AWSRequest PutObjectTagging where
         type Rs PutObjectTagging = PutObjectTaggingResponse
@@ -132,7 +131,8 @@ instance ToPath PutObjectTagging where
           = mconcat ["/", toBS _potBucket, "/", toBS _potKey]
 
 instance ToQuery PutObjectTagging where
-        toQuery = const (mconcat ["tagging"])
+        toQuery PutObjectTagging'{..}
+          = mconcat ["versionId" =: _potVersionId, "tagging"]
 
 -- | /See:/ 'putObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'

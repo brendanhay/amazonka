@@ -21,6 +21,8 @@
 -- Returns a list of all domains in the user's account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetDomains
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetDomains
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getDomains =
 -- | A token used for advancing to the next page of results from your get domains request.
 gdPageToken :: Lens' GetDomains (Maybe Text)
 gdPageToken = lens _gdPageToken (\ s a -> s{_gdPageToken = a});
+
+instance AWSPager GetDomains where
+        page rq rs
+          | stop (rs ^. gdsrsNextPageToken) = Nothing
+          | stop (rs ^. gdsrsDomains) = Nothing
+          | otherwise =
+            Just $ rq & gdPageToken .~ rs ^. gdsrsNextPageToken
 
 instance AWSRequest GetDomains where
         type Rs GetDomains = GetDomainsResponse

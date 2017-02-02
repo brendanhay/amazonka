@@ -21,6 +21,8 @@
 -- Returns information about all key pairs in the user's account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetKeyPairs
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetKeyPairs
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getKeyPairs =
 -- | A token used for advancing to the next page of results from your get key pairs request.
 gkpPageToken :: Lens' GetKeyPairs (Maybe Text)
 gkpPageToken = lens _gkpPageToken (\ s a -> s{_gkpPageToken = a});
+
+instance AWSPager GetKeyPairs where
+        page rq rs
+          | stop (rs ^. gkpsrsNextPageToken) = Nothing
+          | stop (rs ^. gkpsrsKeyPairs) = Nothing
+          | otherwise =
+            Just $ rq & gkpPageToken .~ rs ^. gkpsrsNextPageToken
 
 instance AWSRequest GetKeyPairs where
         type Rs GetKeyPairs = GetKeyPairsResponse

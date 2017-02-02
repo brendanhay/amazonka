@@ -21,6 +21,8 @@
 -- Returns the names of all active (not deleted) resources.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetActiveNames
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetActiveNames
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getActiveNames =
 -- | A token used for paginating results from your get active names request.
 ganPageToken :: Lens' GetActiveNames (Maybe Text)
 ganPageToken = lens _ganPageToken (\ s a -> s{_ganPageToken = a});
+
+instance AWSPager GetActiveNames where
+        page rq rs
+          | stop (rs ^. ganrsNextPageToken) = Nothing
+          | stop (rs ^. ganrsActiveNames) = Nothing
+          | otherwise =
+            Just $ rq & ganPageToken .~ rs ^. ganrsNextPageToken
 
 instance AWSRequest GetActiveNames where
         type Rs GetActiveNames = GetActiveNamesResponse

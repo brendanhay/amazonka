@@ -69,23 +69,23 @@ data CreateProject = CreateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- * 'cpEncryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 --
--- * 'cpDescription' - A meaningful description of the build project.
+-- * 'cpDescription' - A description that makes the build project easy to identify.
 --
--- * 'cpServiceRole' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- * 'cpServiceRole' - The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 --
 -- * 'cpTags' - A set of tags for this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
 --
--- * 'cpTimeoutInMinutes' - How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+-- * 'cpTimeoutInMinutes' - How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any build that has not been marked as completed. The default is 60 minutes.
 --
--- * 'cpName' - The build project's name.
+-- * 'cpName' - The name of the build project.
 --
--- * 'cpSource' - Information about the build project's build input source code.
+-- * 'cpSource' - Information about the build input source code for the build project.
 --
--- * 'cpArtifacts' - Information about the build project's build output artifacts.
+-- * 'cpArtifacts' - Information about the build output artifacts for the build project.
 --
--- * 'cpEnvironment' - Information about the build project's build environment.
+-- * 'cpEnvironment' - Information about the build environment for the build project.
 createProject
     :: Text -- ^ 'cpName'
     -> ProjectSource -- ^ 'cpSource'
@@ -105,15 +105,15 @@ createProject pName_ pSource_ pArtifacts_ pEnvironment_ =
     , _cpEnvironment = pEnvironment_
     }
 
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 cpEncryptionKey :: Lens' CreateProject (Maybe Text)
 cpEncryptionKey = lens _cpEncryptionKey (\ s a -> s{_cpEncryptionKey = a});
 
--- | A meaningful description of the build project.
+-- | A description that makes the build project easy to identify.
 cpDescription :: Lens' CreateProject (Maybe Text)
 cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- | The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 cpServiceRole :: Lens' CreateProject (Maybe Text)
 cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a});
 
@@ -121,23 +121,23 @@ cpServiceRole = lens _cpServiceRole (\ s a -> s{_cpServiceRole = a});
 cpTags :: Lens' CreateProject [Tag]
 cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default . _Coerce;
 
--- | How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+-- | How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any build that has not been marked as completed. The default is 60 minutes.
 cpTimeoutInMinutes :: Lens' CreateProject (Maybe Natural)
 cpTimeoutInMinutes = lens _cpTimeoutInMinutes (\ s a -> s{_cpTimeoutInMinutes = a}) . mapping _Nat;
 
--- | The build project's name.
+-- | The name of the build project.
 cpName :: Lens' CreateProject Text
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
--- | Information about the build project's build input source code.
+-- | Information about the build input source code for the build project.
 cpSource :: Lens' CreateProject ProjectSource
 cpSource = lens _cpSource (\ s a -> s{_cpSource = a});
 
--- | Information about the build project's build output artifacts.
+-- | Information about the build output artifacts for the build project.
 cpArtifacts :: Lens' CreateProject ProjectArtifacts
 cpArtifacts = lens _cpArtifacts (\ s a -> s{_cpArtifacts = a});
 
--- | Information about the build project's build environment.
+-- | Information about the build environment for the build project.
 cpEnvironment :: Lens' CreateProject ProjectEnvironment
 cpEnvironment = lens _cpEnvironment (\ s a -> s{_cpEnvironment = a});
 

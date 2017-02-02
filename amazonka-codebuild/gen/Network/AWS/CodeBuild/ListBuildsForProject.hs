@@ -62,7 +62,7 @@ data ListBuildsForProject = ListBuildsForProject'
 --
 -- * 'lbfpNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 --
--- * 'lbfpProjectName' - The name of the build project to get a list of build IDs for.
+-- * 'lbfpProjectName' - The name of the build project.
 listBuildsForProject
     :: Text -- ^ 'lbfpProjectName'
     -> ListBuildsForProject
@@ -81,7 +81,7 @@ lbfpSortOrder = lens _lbfpSortOrder (\ s a -> s{_lbfpSortOrder = a});
 lbfpNextToken :: Lens' ListBuildsForProject (Maybe Text)
 lbfpNextToken = lens _lbfpNextToken (\ s a -> s{_lbfpNextToken = a});
 
--- | The name of the build project to get a list of build IDs for.
+-- | The name of the build project.
 lbfpProjectName :: Lens' ListBuildsForProject Text
 lbfpProjectName = lens _lbfpProjectName (\ s a -> s{_lbfpProjectName = a});
 

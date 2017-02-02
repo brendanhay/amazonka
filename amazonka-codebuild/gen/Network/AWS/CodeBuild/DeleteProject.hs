@@ -52,7 +52,7 @@ newtype DeleteProject = DeleteProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpName' - The name of the build project to delete.
+-- * 'dpName' - The name of the build project.
 deleteProject
     :: Text -- ^ 'dpName'
     -> DeleteProject
@@ -61,7 +61,7 @@ deleteProject pName_ =
     { _dpName = pName_
     }
 
--- | The name of the build project to delete.
+-- | The name of the build project.
 dpName :: Lens' DeleteProject Text
 dpName = lens _dpName (\ s a -> s{_dpName = a});
 

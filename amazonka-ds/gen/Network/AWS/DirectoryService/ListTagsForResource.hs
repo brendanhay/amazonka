@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags on an Amazon Directory Services directory.
+-- Lists all tags on a directory.
 --
 --
 module Network.AWS.DirectoryService.ListTagsForResource

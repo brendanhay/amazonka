@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon Directory Services directory.
+-- Removes tags from a directory.
 --
 --
 module Network.AWS.DirectoryService.RemoveTagsFromResource

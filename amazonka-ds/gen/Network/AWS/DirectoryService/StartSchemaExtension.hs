@@ -63,7 +63,7 @@ data StartSchemaExtension = StartSchemaExtension'
 --
 -- * 'sseCreateSnapshotBeforeSchemaExtension' - If true, creates a snapshot of the directory before applying the schema extension.
 --
--- * 'sseLdifContent' - The LDIF file represented as a string. The file size can be no larger than 1MB.
+-- * 'sseLdifContent' - The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
 --
 -- * 'sseDescription' - A description of the schema extension.
 startSchemaExtension
@@ -88,7 +88,7 @@ sseDirectoryId = lens _sseDirectoryId (\ s a -> s{_sseDirectoryId = a});
 sseCreateSnapshotBeforeSchemaExtension :: Lens' StartSchemaExtension Bool
 sseCreateSnapshotBeforeSchemaExtension = lens _sseCreateSnapshotBeforeSchemaExtension (\ s a -> s{_sseCreateSnapshotBeforeSchemaExtension = a});
 
--- | The LDIF file represented as a string. The file size can be no larger than 1MB.
+-- | The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
 sseLdifContent :: Lens' StartSchemaExtension Text
 sseLdifContent = lens _sseLdifContent (\ s a -> s{_sseLdifContent = a});
 

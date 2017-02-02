@@ -13,7 +13,7 @@
 --
 -- __AWS Directory Service__
 --
--- This is the /AWS Directory Service API Reference/ . This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors.
+-- AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
 --
 module Network.AWS.DirectoryService
     (

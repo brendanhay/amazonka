@@ -18,8 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an application version for the specified application.
+-- Creates an application version for the specified application. You can create an application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the output of an AWS CodeBuild build as follows:
 --
+--
+-- Specify a commit in an AWS CodeCommit repository with @SourceBuildInformation@ .
+--
+-- Specify a build in an AWS CodeBuild with @SourceBuildInformation@ and @BuildConfiguration@ .
+--
+-- Specify a source bundle in S3 with @SourceBundle@
+--
+-- Omit both @SourceBuildInformation@ and @SourceBundle@ to use the default sample application.
 --
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
@@ -76,11 +84,11 @@ data CreateApplicationVersion = CreateApplicationVersion'
 --
 -- * 'cavAutoCreateApplication' - Set to @true@ to create an application with the specified name if it doesn't already exist.
 --
--- * 'cavSourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version. Specify a commit in an AWS CodeCommit repository or a source bundle in S3 (with @SourceBundle@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
+-- * 'cavSourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
 --
 -- * 'cavDescription' - Describes this version.
 --
--- * 'cavBuildConfiguration' - Undocumented member.
+-- * 'cavBuildConfiguration' - Settings for an AWS CodeBuild build.
 --
 -- * 'cavApplicationName' - The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
 --
@@ -113,7 +121,7 @@ cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
 cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
 cavAutoCreateApplication = lens _cavAutoCreateApplication (\ s a -> s{_cavAutoCreateApplication = a});
 
--- | Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version. Specify a commit in an AWS CodeCommit repository or a source bundle in S3 (with @SourceBundle@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
+-- | Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
 cavSourceBuildInformation :: Lens' CreateApplicationVersion (Maybe SourceBuildInformation)
 cavSourceBuildInformation = lens _cavSourceBuildInformation (\ s a -> s{_cavSourceBuildInformation = a});
 
@@ -121,7 +129,7 @@ cavSourceBuildInformation = lens _cavSourceBuildInformation (\ s a -> s{_cavSour
 cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
 cavDescription = lens _cavDescription (\ s a -> s{_cavDescription = a});
 
--- | Undocumented member.
+-- | Settings for an AWS CodeBuild build.
 cavBuildConfiguration :: Lens' CreateApplicationVersion (Maybe BuildConfiguration)
 cavBuildConfiguration = lens _cavBuildConfiguration (\ s a -> s{_cavBuildConfiguration = a});
 

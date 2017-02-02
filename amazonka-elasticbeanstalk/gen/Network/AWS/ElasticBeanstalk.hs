@@ -146,6 +146,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** DeleteEnvironmentConfiguration
     , module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 
+    -- ** UpdateApplicationResourceLifecycle
+    , module Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
+
     -- ** SwapEnvironmentCNAMEs
     , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 
@@ -249,6 +252,7 @@ module Network.AWS.ElasticBeanstalk
     , adDateCreated
     , adApplicationName
     , adConfigurationTemplates
+    , adResourceLifecycleConfig
     , adDescription
 
     -- ** ApplicationDescriptionMessage
@@ -263,6 +267,12 @@ module Network.AWS.ElasticBeanstalk
     , amLatency
     , amStatusCodes
     , amDuration
+
+    -- ** ApplicationResourceLifecycleConfig
+    , ApplicationResourceLifecycleConfig
+    , applicationResourceLifecycleConfig
+    , arlcVersionLifecycleConfig
+    , arlcServiceRole
 
     -- ** ApplicationVersionDescription
     , ApplicationVersionDescription
@@ -281,6 +291,12 @@ module Network.AWS.ElasticBeanstalk
     , ApplicationVersionDescriptionMessage
     , applicationVersionDescriptionMessage
     , avdmApplicationVersion
+
+    -- ** ApplicationVersionLifecycleConfig
+    , ApplicationVersionLifecycleConfig
+    , applicationVersionLifecycleConfig
+    , avlcMaxAgeRule
+    , avlcMaxCountRule
 
     -- ** AutoScalingGroup
     , AutoScalingGroup
@@ -500,6 +516,20 @@ module Network.AWS.ElasticBeanstalk
     , mahiExecutedTime
     , mahiActionType
 
+    -- ** MaxAgeRule
+    , MaxAgeRule
+    , maxAgeRule
+    , marDeleteSourceFromS3
+    , marMaxAgeInDays
+    , marEnabled
+
+    -- ** MaxCountRule
+    , MaxCountRule
+    , maxCountRule
+    , mcrMaxCount
+    , mcrDeleteSourceFromS3
+    , mcrEnabled
+
     -- ** OptionRestrictionRegex
     , OptionRestrictionRegex
     , optionRestrictionRegex
@@ -625,6 +655,7 @@ import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 import           Network.AWS.ElasticBeanstalk.TerminateEnvironment
 import           Network.AWS.ElasticBeanstalk.Types
 import           Network.AWS.ElasticBeanstalk.UpdateApplication
+import           Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
 import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 import           Network.AWS.ElasticBeanstalk.UpdateEnvironment

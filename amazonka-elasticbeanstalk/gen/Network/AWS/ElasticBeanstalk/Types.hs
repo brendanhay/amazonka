@@ -93,6 +93,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , adDateCreated
     , adApplicationName
     , adConfigurationTemplates
+    , adResourceLifecycleConfig
     , adDescription
 
     -- * ApplicationDescriptionMessage
@@ -107,6 +108,12 @@ module Network.AWS.ElasticBeanstalk.Types
     , amLatency
     , amStatusCodes
     , amDuration
+
+    -- * ApplicationResourceLifecycleConfig
+    , ApplicationResourceLifecycleConfig
+    , applicationResourceLifecycleConfig
+    , arlcVersionLifecycleConfig
+    , arlcServiceRole
 
     -- * ApplicationVersionDescription
     , ApplicationVersionDescription
@@ -125,6 +132,12 @@ module Network.AWS.ElasticBeanstalk.Types
     , ApplicationVersionDescriptionMessage
     , applicationVersionDescriptionMessage
     , avdmApplicationVersion
+
+    -- * ApplicationVersionLifecycleConfig
+    , ApplicationVersionLifecycleConfig
+    , applicationVersionLifecycleConfig
+    , avlcMaxAgeRule
+    , avlcMaxCountRule
 
     -- * AutoScalingGroup
     , AutoScalingGroup
@@ -343,6 +356,20 @@ module Network.AWS.ElasticBeanstalk.Types
     , mahiActionDescription
     , mahiExecutedTime
     , mahiActionType
+
+    -- * MaxAgeRule
+    , MaxAgeRule
+    , maxAgeRule
+    , marDeleteSourceFromS3
+    , marMaxAgeInDays
+    , marEnabled
+
+    -- * MaxCountRule
+    , MaxCountRule
+    , maxCountRule
+    , mcrMaxCount
+    , mcrDeleteSourceFromS3
+    , mcrEnabled
 
     -- * OptionRestrictionRegex
     , OptionRestrictionRegex
@@ -564,7 +591,15 @@ _SourceBundleDeletionException =
     _MatchServiceError elasticBeanstalk "SourceBundleDeletionFailure" .
     hasStatus 400
 
--- | The specified S3 bucket does not belong to the S3 region in which the service is running.
+-- | The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:
+--
+--
+--     * IAD/us-east-1
+--
+--     * PDX/us-west-2
+--
+--     * DUB/eu-west-1
+--
 --
 --
 _S3LocationNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -572,7 +607,7 @@ _S3LocationNotInServiceRegionException =
     _MatchServiceError elasticBeanstalk "S3LocationNotInServiceRegionException" .
     hasStatus 400
 
--- | The CodeBuild service is not supported in this region.
+-- | AWS CodeBuild is not available in the specified region.
 --
 --
 _CodeBuildNotInServiceRegionException :: AsError a => Getting (First ServiceError) a ServiceError

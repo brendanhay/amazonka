@@ -27,12 +27,13 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'applicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
-    { _adVersions               :: !(Maybe [Text])
-    , _adDateUpdated            :: !(Maybe ISO8601)
-    , _adDateCreated            :: !(Maybe ISO8601)
-    , _adApplicationName        :: !(Maybe Text)
-    , _adConfigurationTemplates :: !(Maybe [Text])
-    , _adDescription            :: !(Maybe Text)
+    { _adVersions                :: !(Maybe [Text])
+    , _adDateUpdated             :: !(Maybe ISO8601)
+    , _adDateCreated             :: !(Maybe ISO8601)
+    , _adApplicationName         :: !(Maybe Text)
+    , _adConfigurationTemplates  :: !(Maybe [Text])
+    , _adResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
+    , _adDescription             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
@@ -49,6 +50,8 @@ data ApplicationDescription = ApplicationDescription'
 --
 -- * 'adConfigurationTemplates' - The names of the configuration templates associated with this application.
 --
+-- * 'adResourceLifecycleConfig' - The lifecycle settings for the application.
+--
 -- * 'adDescription' - User-defined description of the application.
 applicationDescription
     :: ApplicationDescription
@@ -59,6 +62,7 @@ applicationDescription =
     , _adDateCreated = Nothing
     , _adApplicationName = Nothing
     , _adConfigurationTemplates = Nothing
+    , _adResourceLifecycleConfig = Nothing
     , _adDescription = Nothing
     }
 
@@ -82,6 +86,10 @@ adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a})
 adConfigurationTemplates :: Lens' ApplicationDescription [Text]
 adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default . _Coerce;
 
+-- | The lifecycle settings for the application.
+adResourceLifecycleConfig :: Lens' ApplicationDescription (Maybe ApplicationResourceLifecycleConfig)
+adResourceLifecycleConfig = lens _adResourceLifecycleConfig (\ s a -> s{_adResourceLifecycleConfig = a});
+
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
 adDescription = lens _adDescription (\ s a -> s{_adDescription = a});
@@ -97,6 +105,7 @@ instance FromXML ApplicationDescription where
                 <*>
                 (x .@? "ConfigurationTemplates" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "ResourceLifecycleConfig")
                 <*> (x .@? "Description")
 
 instance Hashable ApplicationDescription
@@ -197,6 +206,58 @@ instance Hashable ApplicationMetrics
 
 instance NFData ApplicationMetrics
 
+-- | The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.
+--
+--
+--
+-- /See:/ 'applicationResourceLifecycleConfig' smart constructor.
+data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
+    { _arlcVersionLifecycleConfig :: !(Maybe ApplicationVersionLifecycleConfig)
+    , _arlcServiceRole            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationResourceLifecycleConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arlcVersionLifecycleConfig' - The application version lifecycle configuration.
+--
+-- * 'arlcServiceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
+applicationResourceLifecycleConfig
+    :: ApplicationResourceLifecycleConfig
+applicationResourceLifecycleConfig =
+    ApplicationResourceLifecycleConfig'
+    { _arlcVersionLifecycleConfig = Nothing
+    , _arlcServiceRole = Nothing
+    }
+
+-- | The application version lifecycle configuration.
+arlcVersionLifecycleConfig :: Lens' ApplicationResourceLifecycleConfig (Maybe ApplicationVersionLifecycleConfig)
+arlcVersionLifecycleConfig = lens _arlcVersionLifecycleConfig (\ s a -> s{_arlcVersionLifecycleConfig = a});
+
+-- | The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
+arlcServiceRole :: Lens' ApplicationResourceLifecycleConfig (Maybe Text)
+arlcServiceRole = lens _arlcServiceRole (\ s a -> s{_arlcServiceRole = a});
+
+instance FromXML ApplicationResourceLifecycleConfig
+         where
+        parseXML x
+          = ApplicationResourceLifecycleConfig' <$>
+              (x .@? "VersionLifecycleConfig") <*>
+                (x .@? "ServiceRole")
+
+instance Hashable ApplicationResourceLifecycleConfig
+
+instance NFData ApplicationResourceLifecycleConfig
+
+instance ToQuery ApplicationResourceLifecycleConfig
+         where
+        toQuery ApplicationResourceLifecycleConfig'{..}
+          = mconcat
+              ["VersionLifecycleConfig" =:
+                 _arlcVersionLifecycleConfig,
+               "ServiceRole" =: _arlcServiceRole]
+
 -- | Describes the properties of an application version.
 --
 --
@@ -232,7 +293,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --
 -- * 'avdApplicationName' - The name of the application to which the application version belongs.
 --
--- * 'avdBuildARN' - Undocumented member.
+-- * 'avdBuildARN' - Reference to the artifact from the AWS CodeBuild build.
 --
 -- * 'avdDescription' - The description of the application version.
 applicationVersionDescription
@@ -278,7 +339,7 @@ avdSourceBuildInformation = lens _avdSourceBuildInformation (\ s a -> s{_avdSour
 avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
 avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
 
--- | Undocumented member.
+-- | Reference to the artifact from the AWS CodeBuild build.
 avdBuildARN :: Lens' ApplicationVersionDescription (Maybe Text)
 avdBuildARN = lens _avdBuildARN (\ s a -> s{_avdBuildARN = a});
 
@@ -338,6 +399,58 @@ instance Hashable
 
 instance NFData ApplicationVersionDescriptionMessage
 
+-- | The application version lifecycle settings for an application. Defines the rules that Elastic Beanstalk applies to an application's versions in order to avoid hitting the per-region limit for application versions.
+--
+--
+-- When Elastic Beanstalk deletes an application version from its database, you can no longer deploy that version to an environment. The source bundle remains in S3 unless you configure the rule to delete it.
+--
+--
+-- /See:/ 'applicationVersionLifecycleConfig' smart constructor.
+data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
+    { _avlcMaxAgeRule   :: !(Maybe MaxAgeRule)
+    , _avlcMaxCountRule :: !(Maybe MaxCountRule)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationVersionLifecycleConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avlcMaxAgeRule' - Specify a max age rule to restrict the length of time that application versions are retained for an application.
+--
+-- * 'avlcMaxCountRule' - Specify a max count rule to restrict the number of application versions that are retained for an application.
+applicationVersionLifecycleConfig
+    :: ApplicationVersionLifecycleConfig
+applicationVersionLifecycleConfig =
+    ApplicationVersionLifecycleConfig'
+    { _avlcMaxAgeRule = Nothing
+    , _avlcMaxCountRule = Nothing
+    }
+
+-- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
+avlcMaxAgeRule :: Lens' ApplicationVersionLifecycleConfig (Maybe MaxAgeRule)
+avlcMaxAgeRule = lens _avlcMaxAgeRule (\ s a -> s{_avlcMaxAgeRule = a});
+
+-- | Specify a max count rule to restrict the number of application versions that are retained for an application.
+avlcMaxCountRule :: Lens' ApplicationVersionLifecycleConfig (Maybe MaxCountRule)
+avlcMaxCountRule = lens _avlcMaxCountRule (\ s a -> s{_avlcMaxCountRule = a});
+
+instance FromXML ApplicationVersionLifecycleConfig
+         where
+        parseXML x
+          = ApplicationVersionLifecycleConfig' <$>
+              (x .@? "MaxAgeRule") <*> (x .@? "MaxCountRule")
+
+instance Hashable ApplicationVersionLifecycleConfig
+
+instance NFData ApplicationVersionLifecycleConfig
+
+instance ToQuery ApplicationVersionLifecycleConfig
+         where
+        toQuery ApplicationVersionLifecycleConfig'{..}
+          = mconcat
+              ["MaxAgeRule" =: _avlcMaxAgeRule,
+               "MaxCountRule" =: _avlcMaxCountRule]
+
 -- | Describes an Auto Scaling launch configuration.
 --
 --
@@ -370,7 +483,11 @@ instance Hashable AutoScalingGroup
 
 instance NFData AutoScalingGroup
 
--- | /See:/ 'buildConfiguration' smart constructor.
+-- | Settings for an AWS CodeBuild build.
+--
+--
+--
+-- /See:/ 'buildConfiguration' smart constructor.
 data BuildConfiguration = BuildConfiguration'
     { _bcArtifactName         :: !(Maybe Text)
     , _bcComputeType          :: !(Maybe ComputeType)
@@ -383,15 +500,15 @@ data BuildConfiguration = BuildConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bcArtifactName' - Undocumented member.
+-- * 'bcArtifactName' - The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ -/artifact-name/ .zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ .zip.
 --
--- * 'bcComputeType' - Undocumented member.
+-- * 'bcComputeType' - Information about the compute resources the build project will use.     * @BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds@      * @BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds@      * @BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds@
 --
--- * 'bcTimeoutInMinutes' - Undocumented member.
+-- * 'bcTimeoutInMinutes' - How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 --
--- * 'bcCodeBuildServiceRole' - Undocumented member.
+-- * 'bcCodeBuildServiceRole' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 --
--- * 'bcImage' - Undocumented member.
+-- * 'bcImage' - The ID of the Docker image to use for this build project.
 buildConfiguration
     :: Text -- ^ 'bcCodeBuildServiceRole'
     -> Text -- ^ 'bcImage'
@@ -405,23 +522,23 @@ buildConfiguration pCodeBuildServiceRole_ pImage_ =
     , _bcImage = pImage_
     }
 
--- | Undocumented member.
+-- | The name of the artifact of the CodeBuild build. If provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ -/artifact-name/ .zip. If not provided, Elastic Beanstalk stores the build artifact in the S3 location /S3-bucket/ /resources//application-name/ /codebuild/codebuild-/version-label/ .zip.
 bcArtifactName :: Lens' BuildConfiguration (Maybe Text)
 bcArtifactName = lens _bcArtifactName (\ s a -> s{_bcArtifactName = a});
 
--- | Undocumented member.
+-- | Information about the compute resources the build project will use.     * @BUILD_GENERAL1_SMALL: Use up to 3 GB memory and 2 vCPUs for builds@      * @BUILD_GENERAL1_MEDIUM: Use up to 7 GB memory and 4 vCPUs for builds@      * @BUILD_GENERAL1_LARGE: Use up to 15 GB memory and 8 vCPUs for builds@
 bcComputeType :: Lens' BuildConfiguration (Maybe ComputeType)
 bcComputeType = lens _bcComputeType (\ s a -> s{_bcComputeType = a});
 
--- | Undocumented member.
+-- | How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
 bcTimeoutInMinutes :: Lens' BuildConfiguration (Maybe Int)
 bcTimeoutInMinutes = lens _bcTimeoutInMinutes (\ s a -> s{_bcTimeoutInMinutes = a});
 
--- | Undocumented member.
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 bcCodeBuildServiceRole :: Lens' BuildConfiguration Text
 bcCodeBuildServiceRole = lens _bcCodeBuildServiceRole (\ s a -> s{_bcCodeBuildServiceRole = a});
 
--- | Undocumented member.
+-- | The ID of the Docker image to use for this build project.
 bcImage :: Lens' BuildConfiguration Text
 bcImage = lens _bcImage (\ s a -> s{_bcImage = a});
 
@@ -2042,6 +2159,125 @@ instance Hashable ManagedActionHistoryItem
 
 instance NFData ManagedActionHistoryItem
 
+-- | A lifecycle rule that deletes application versions after the specified number of days.
+--
+--
+--
+-- /See:/ 'maxAgeRule' smart constructor.
+data MaxAgeRule = MaxAgeRule'
+    { _marDeleteSourceFromS3 :: !(Maybe Bool)
+    , _marMaxAgeInDays       :: !(Maybe Int)
+    , _marEnabled            :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaxAgeRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'marDeleteSourceFromS3' - Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+--
+-- * 'marMaxAgeInDays' - Specify the number of days to retain an application versions.
+--
+-- * 'marEnabled' - Specify @true@ to apply the rule, or @false@ to disable it.
+maxAgeRule
+    :: Bool -- ^ 'marEnabled'
+    -> MaxAgeRule
+maxAgeRule pEnabled_ =
+    MaxAgeRule'
+    { _marDeleteSourceFromS3 = Nothing
+    , _marMaxAgeInDays = Nothing
+    , _marEnabled = pEnabled_
+    }
+
+-- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+marDeleteSourceFromS3 :: Lens' MaxAgeRule (Maybe Bool)
+marDeleteSourceFromS3 = lens _marDeleteSourceFromS3 (\ s a -> s{_marDeleteSourceFromS3 = a});
+
+-- | Specify the number of days to retain an application versions.
+marMaxAgeInDays :: Lens' MaxAgeRule (Maybe Int)
+marMaxAgeInDays = lens _marMaxAgeInDays (\ s a -> s{_marMaxAgeInDays = a});
+
+-- | Specify @true@ to apply the rule, or @false@ to disable it.
+marEnabled :: Lens' MaxAgeRule Bool
+marEnabled = lens _marEnabled (\ s a -> s{_marEnabled = a});
+
+instance FromXML MaxAgeRule where
+        parseXML x
+          = MaxAgeRule' <$>
+              (x .@? "DeleteSourceFromS3") <*>
+                (x .@? "MaxAgeInDays")
+                <*> (x .@ "Enabled")
+
+instance Hashable MaxAgeRule
+
+instance NFData MaxAgeRule
+
+instance ToQuery MaxAgeRule where
+        toQuery MaxAgeRule'{..}
+          = mconcat
+              ["DeleteSourceFromS3" =: _marDeleteSourceFromS3,
+               "MaxAgeInDays" =: _marMaxAgeInDays,
+               "Enabled" =: _marEnabled]
+
+-- | A lifecycle rule that deletes the oldest application version when the maximum count is exceeded.
+--
+--
+--
+-- /See:/ 'maxCountRule' smart constructor.
+data MaxCountRule = MaxCountRule'
+    { _mcrMaxCount           :: !(Maybe Int)
+    , _mcrDeleteSourceFromS3 :: !(Maybe Bool)
+    , _mcrEnabled            :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MaxCountRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcrMaxCount' - Specify the maximum number of application versions to retain.
+--
+-- * 'mcrDeleteSourceFromS3' - Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+--
+-- * 'mcrEnabled' - Specify @true@ to apply the rule, or @false@ to disable it.
+maxCountRule
+    :: Bool -- ^ 'mcrEnabled'
+    -> MaxCountRule
+maxCountRule pEnabled_ =
+    MaxCountRule'
+    { _mcrMaxCount = Nothing
+    , _mcrDeleteSourceFromS3 = Nothing
+    , _mcrEnabled = pEnabled_
+    }
+
+-- | Specify the maximum number of application versions to retain.
+mcrMaxCount :: Lens' MaxCountRule (Maybe Int)
+mcrMaxCount = lens _mcrMaxCount (\ s a -> s{_mcrMaxCount = a});
+
+-- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+mcrDeleteSourceFromS3 :: Lens' MaxCountRule (Maybe Bool)
+mcrDeleteSourceFromS3 = lens _mcrDeleteSourceFromS3 (\ s a -> s{_mcrDeleteSourceFromS3 = a});
+
+-- | Specify @true@ to apply the rule, or @false@ to disable it.
+mcrEnabled :: Lens' MaxCountRule Bool
+mcrEnabled = lens _mcrEnabled (\ s a -> s{_mcrEnabled = a});
+
+instance FromXML MaxCountRule where
+        parseXML x
+          = MaxCountRule' <$>
+              (x .@? "MaxCount") <*> (x .@? "DeleteSourceFromS3")
+                <*> (x .@ "Enabled")
+
+instance Hashable MaxCountRule
+
+instance NFData MaxCountRule
+
+instance ToQuery MaxCountRule where
+        toQuery MaxCountRule'{..}
+          = mconcat
+              ["MaxCount" =: _mcrMaxCount,
+               "DeleteSourceFromS3" =: _mcrDeleteSourceFromS3,
+               "Enabled" =: _mcrEnabled]
+
 -- | A regular expression representing a restriction on a string configuration option value.
 --
 --
@@ -2399,11 +2635,11 @@ data SourceBuildInformation = SourceBuildInformation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbiSourceType' - The type of repository, such as @Git@ .
+-- * 'sbiSourceType' - The type of repository.     * @Git@      * @Zip@
 --
--- * 'sbiSourceRepository' - Location where the repository is stored, such as @CodeCommit@ .
+-- * 'sbiSourceRepository' - Location where the repository is stored.     * @CodeCommit@      * @S3@
 --
--- * 'sbiSourceLocation' - The repository name and commit ID, separated by a forward slash. For example, @my-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
+-- * 'sbiSourceLocation' - The location of the source code, as a formatted string, depending on the value of @SourceRepository@      * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
 sourceBuildInformation
     :: SourceType -- ^ 'sbiSourceType'
     -> SourceRepository -- ^ 'sbiSourceRepository'
@@ -2416,15 +2652,15 @@ sourceBuildInformation pSourceType_ pSourceRepository_ pSourceLocation_ =
     , _sbiSourceLocation = pSourceLocation_
     }
 
--- | The type of repository, such as @Git@ .
+-- | The type of repository.     * @Git@      * @Zip@
 sbiSourceType :: Lens' SourceBuildInformation SourceType
 sbiSourceType = lens _sbiSourceType (\ s a -> s{_sbiSourceType = a});
 
--- | Location where the repository is stored, such as @CodeCommit@ .
+-- | Location where the repository is stored.     * @CodeCommit@      * @S3@
 sbiSourceRepository :: Lens' SourceBuildInformation SourceRepository
 sbiSourceRepository = lens _sbiSourceRepository (\ s a -> s{_sbiSourceRepository = a});
 
--- | The repository name and commit ID, separated by a forward slash. For example, @my-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .
+-- | The location of the source code, as a formatted string, depending on the value of @SourceRepository@      * For @CodeCommit@ , the format is the repository name and commit ID, separated by a forward slash. For example, @my-git-repo/265cfa0cf6af46153527f55d6503ec030551f57a@ .     * For @S3@ , the format is the S3 bucket name and object key, separated by a forward slash. For example, @my-s3-bucket/Folders/my-source-file@ .
 sbiSourceLocation :: Lens' SourceBuildInformation Text
 sbiSourceLocation = lens _sbiSourceLocation (\ s a -> s{_sbiSourceLocation = a});
 

@@ -63,9 +63,9 @@ data RequestCertificate = RequestCertificate'
 --
 -- * 'rcSubjectAlternativeNames' - Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name.
 --
--- * 'rcDomainValidationOptions' - The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @test.example.com@ and specify __DomainValidationOptions__ of @example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:     * admin@example.com     * administrator@example.com     * hostmaster@example.com     * postmaster@example.com     * webmaster@example.com
+-- * 'rcDomainValidationOptions' - The domain name that you want ACM to use to send you emails to validate your ownership of the domain.
 --
--- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, of the site you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
+-- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
 requestCertificate
     :: Text -- ^ 'rcDomainName'
     -> RequestCertificate
@@ -85,11 +85,11 @@ rcIdempotencyToken = lens _rcIdempotencyToken (\ s a -> s{_rcIdempotencyToken = 
 rcSubjectAlternativeNames :: Lens' RequestCertificate (Maybe (NonEmpty Text))
 rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubjectAlternativeNames = a}) . mapping _List1;
 
--- | The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @test.example.com@ and specify __DomainValidationOptions__ of @example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:     * admin@example.com     * administrator@example.com     * hostmaster@example.com     * postmaster@example.com     * webmaster@example.com
+-- | The domain name that you want ACM to use to send you emails to validate your ownership of the domain.
 rcDomainValidationOptions :: Lens' RequestCertificate (Maybe (NonEmpty DomainValidationOption))
 rcDomainValidationOptions = lens _rcDomainValidationOptions (\ s a -> s{_rcDomainValidationOptions = a}) . mapping _List1;
 
--- | Fully qualified domain name (FQDN), such as www.example.com, of the site you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
+-- | Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
 rcDomainName :: Lens' RequestCertificate Text
 rcDomainName = lens _rcDomainName (\ s a -> s{_rcDomainName = a});
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags that have been applied to the ACM Certificate. Use the certificate ARN to specify the certificate. To add a tag to an ACM Certificate, use the 'AddTagsToCertificate' action. To delete a tag, use the 'RemoveTagsFromCertificate' action.
+-- Lists the tags that have been applied to the ACM Certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM Certificate, use the 'AddTagsToCertificate' action. To delete a tag, use the 'RemoveTagsFromCertificate' action.
 --
 --
 module Network.AWS.CertificateManager.ListTagsForCertificate
@@ -53,7 +53,7 @@ newtype ListTagsForCertificate = ListTagsForCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfcCertificateARN' - String that contains the ARN of the ACM Certificate for which you want to list the tags. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'ltfcCertificateARN' - String that contains the ARN of the ACM Certificate for which you want to list the tags. This has the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 listTagsForCertificate
     :: Text -- ^ 'ltfcCertificateARN'
     -> ListTagsForCertificate
@@ -62,7 +62,7 @@ listTagsForCertificate pCertificateARN_ =
     { _ltfcCertificateARN = pCertificateARN_
     }
 
--- | String that contains the ARN of the ACM Certificate for which you want to list the tags. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | String that contains the ARN of the ACM Certificate for which you want to list the tags. This has the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 ltfcCertificateARN :: Lens' ListTagsForCertificate Text
 ltfcCertificateARN = lens _ltfcCertificateARN (\ s a -> s{_ltfcCertificateARN = a});
 

@@ -32,11 +32,17 @@ module Network.AWS.CertificateManager.Types
     -- * CertificateType
     , CertificateType (..)
 
+    -- * DomainStatus
+    , DomainStatus (..)
+
     -- * FailureReason
     , FailureReason (..)
 
     -- * KeyAlgorithm
     , KeyAlgorithm (..)
+
+    -- * RenewalStatus
+    , RenewalStatus (..)
 
     -- * RevocationReason
     , RevocationReason (..)
@@ -57,6 +63,7 @@ module Network.AWS.CertificateManager.Types
     , cdNotBefore
     , cdRevocationReason
     , cdDomainName
+    , cdRenewalSummary
     , cdKeyAlgorithm
     , cdType
     , cdIssuedAt
@@ -75,6 +82,7 @@ module Network.AWS.CertificateManager.Types
     , DomainValidation
     , domainValidation
     , dvValidationEmails
+    , dvValidationStatus
     , dvValidationDomain
     , dvDomainName
 
@@ -83,6 +91,12 @@ module Network.AWS.CertificateManager.Types
     , domainValidationOption
     , dvoDomainName
     , dvoValidationDomain
+
+    -- * RenewalSummary
+    , RenewalSummary
+    , renewalSummary
+    , rsRenewalStatus
+    , rsDomainValidationOptions
 
     -- * Tag
     , Tag

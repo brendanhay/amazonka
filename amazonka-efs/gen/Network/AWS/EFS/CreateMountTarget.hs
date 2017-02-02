@@ -61,7 +61,7 @@
 --
 --
 --
--- Each Amazon EFS mount target has one corresponding requestor-managed EC2 network interface. After the network interface is created, Amazon EFS sets the @NetworkInterfaceId@ field in the mount target's description to the network interface ID, and the @IpAddress@ field to its address. If network interface creation fails, the entire @CreateMountTarget@ operation fails.
+-- Each Amazon EFS mount target has one corresponding requester-managed EC2 network interface. After the network interface is created, Amazon EFS sets the @NetworkInterfaceId@ field in the mount target's description to the network interface ID, and the @IpAddress@ field to its address. If network interface creation fails, the entire @CreateMountTarget@ operation fails.
 --
 --
 --

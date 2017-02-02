@@ -146,7 +146,9 @@ _MountTargetConflict :: AsError a => Getting (First ServiceError) a ServiceError
 _MountTargetConflict =
     _MatchServiceError efs "MountTargetConflict" . hasStatus 409
 
--- | Prism for UnsupportedAvailabilityZone' errors.
+-- |
+--
+--
 _UnsupportedAvailabilityZone :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedAvailabilityZone =
     _MatchServiceError efs "UnsupportedAvailabilityZone" . hasStatus 400

@@ -67,7 +67,7 @@ data GetSampledRequests = GetSampledRequests'
 --
 -- * 'gsrRuleId' - @RuleId@ is one of two values:     * The @RuleId@ of the @Rule@ for which you want @GetSampledRequests@ to return a sample of requests.     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
 --
--- * 'gsrTimeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in Unix time format (in seconds). You can specify any time range in the previous three hours.
+-- * 'gsrTimeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
 -- * 'gsrMaxItems' - The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
 getSampledRequests
@@ -92,7 +92,7 @@ gsrWebACLId = lens _gsrWebACLId (\ s a -> s{_gsrWebACLId = a});
 gsrRuleId :: Lens' GetSampledRequests Text
 gsrRuleId = lens _gsrRuleId (\ s a -> s{_gsrRuleId = a});
 
--- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in Unix time format (in seconds). You can specify any time range in the previous three hours.
+-- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 gsrTimeWindow :: Lens' GetSampledRequests TimeWindow
 gsrTimeWindow = lens _gsrTimeWindow (\ s a -> s{_gsrTimeWindow = a});
 

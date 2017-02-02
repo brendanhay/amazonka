@@ -63,7 +63,7 @@ data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
 --
 -- * 'atpjJobId' - The unique system-generated ID of the job.
 --
--- * 'atpjNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- * 'atpjNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
 --
 -- * 'atpjClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 acknowledgeThirdPartyJob
@@ -82,7 +82,7 @@ acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
 atpjJobId :: Lens' AcknowledgeThirdPartyJob Text
 atpjJobId = lens _atpjJobId (\ s a -> s{_atpjJobId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
 atpjNonce :: Lens' AcknowledgeThirdPartyJob Text
 atpjNonce = lens _atpjNonce (\ s a -> s{_atpjNonce = a});
 

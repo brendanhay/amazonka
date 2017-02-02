@@ -1544,7 +1544,7 @@ data Job = Job'
 --
 -- * 'jId' - The unique system-generated ID of the job.
 --
--- * 'jNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- * 'jNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 job
     :: Job
 job =
@@ -1567,7 +1567,7 @@ jAccountId = lens _jAccountId (\ s a -> s{_jAccountId = a});
 jId :: Lens' Job (Maybe Text)
 jId = lens _jId (\ s a -> s{_jId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeJob' request.
 jNonce :: Lens' Job (Maybe Text)
 jNonce = lens _jNonce (\ s a -> s{_jNonce = a});
 
@@ -2458,7 +2458,7 @@ data ThirdPartyJobDetails = ThirdPartyJobDetails'
 --
 -- * 'tpjdId' - The identifier used to identify the job details in AWS CodePipeline.
 --
--- * 'tpjdNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- * 'tpjdNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
 thirdPartyJobDetails
     :: ThirdPartyJobDetails
 thirdPartyJobDetails =
@@ -2476,7 +2476,7 @@ tpjdData = lens _tpjdData (\ s a -> s{_tpjdData = a});
 tpjdId :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdId = lens _tpjdId (\ s a -> s{_tpjdId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
 tpjdNonce :: Lens' ThirdPartyJobDetails (Maybe Text)
 tpjdNonce = lens _tpjdNonce (\ s a -> s{_tpjdNonce = a});
 

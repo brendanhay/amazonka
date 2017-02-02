@@ -61,7 +61,7 @@ data AcknowledgeJob = AcknowledgeJob'
 --
 -- * 'ajJobId' - The unique system-generated ID of the job for which you want to confirm receipt.
 --
--- * 'ajNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- * 'ajNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
 acknowledgeJob
     :: Text -- ^ 'ajJobId'
     -> Text -- ^ 'ajNonce'
@@ -76,7 +76,7 @@ acknowledgeJob pJobId_ pNonce_ =
 ajJobId :: Lens' AcknowledgeJob Text
 ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a});
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. This number must be returned in the response.
+-- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
 ajNonce :: Lens' AcknowledgeJob Text
 ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
 

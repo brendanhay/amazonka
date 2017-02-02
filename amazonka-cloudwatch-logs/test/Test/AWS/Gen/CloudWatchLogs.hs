@@ -31,6 +31,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         [ requestDescribeDestinations $
 --             describeDestinations
 --
+--         , requestUntagLogGroup $
+--             untagLogGroup
+--
 --         , requestCreateExportTask $
 --             createExportTask
 --
@@ -51,6 +54,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --
 --         , requestFilterLogEvents $
 --             filterLogEvents
+--
+--         , requestTagLogGroup $
+--             tagLogGroup
 --
 --         , requestDeleteLogStream $
 --             deleteLogStream
@@ -100,6 +106,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , requestPutRetentionPolicy $
 --             putRetentionPolicy
 --
+--         , requestListTagsLogGroup $
+--             listTagsLogGroup
+--
 --         , requestDescribeLogStreams $
 --             describeLogStreams
 --
@@ -108,6 +117,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --     , testGroup "response"
 --         [ responseDescribeDestinations $
 --             describeDestinationsResponse
+--
+--         , responseUntagLogGroup $
+--             untagLogGroupResponse
 --
 --         , responseCreateExportTask $
 --             createExportTaskResponse
@@ -129,6 +141,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --
 --         , responseFilterLogEvents $
 --             filterLogEventsResponse
+--
+--         , responseTagLogGroup $
+--             tagLogGroupResponse
 --
 --         , responseDeleteLogStream $
 --             deleteLogStreamResponse
@@ -178,6 +193,9 @@ import Test.AWS.CloudWatchLogs.Internal
 --         , responsePutRetentionPolicy $
 --             putRetentionPolicyResponse
 --
+--         , responseListTagsLogGroup $
+--             listTagsLogGroupResponse
+--
 --         , responseDescribeLogStreams $
 --             describeLogStreamsResponse
 --
@@ -190,6 +208,11 @@ requestDescribeDestinations :: DescribeDestinations -> TestTree
 requestDescribeDestinations = req
     "DescribeDestinations"
     "fixture/DescribeDestinations.yaml"
+
+requestUntagLogGroup :: UntagLogGroup -> TestTree
+requestUntagLogGroup = req
+    "UntagLogGroup"
+    "fixture/UntagLogGroup.yaml"
 
 requestCreateExportTask :: CreateExportTask -> TestTree
 requestCreateExportTask = req
@@ -225,6 +248,11 @@ requestFilterLogEvents :: FilterLogEvents -> TestTree
 requestFilterLogEvents = req
     "FilterLogEvents"
     "fixture/FilterLogEvents.yaml"
+
+requestTagLogGroup :: TagLogGroup -> TestTree
+requestTagLogGroup = req
+    "TagLogGroup"
+    "fixture/TagLogGroup.yaml"
 
 requestDeleteLogStream :: DeleteLogStream -> TestTree
 requestDeleteLogStream = req
@@ -306,6 +334,11 @@ requestPutRetentionPolicy = req
     "PutRetentionPolicy"
     "fixture/PutRetentionPolicy.yaml"
 
+requestListTagsLogGroup :: ListTagsLogGroup -> TestTree
+requestListTagsLogGroup = req
+    "ListTagsLogGroup"
+    "fixture/ListTagsLogGroup.yaml"
+
 requestDescribeLogStreams :: DescribeLogStreams -> TestTree
 requestDescribeLogStreams = req
     "DescribeLogStreams"
@@ -319,6 +352,13 @@ responseDescribeDestinations = res
     "fixture/DescribeDestinationsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy DescribeDestinations)
+
+responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
+responseUntagLogGroup = res
+    "UntagLogGroupResponse"
+    "fixture/UntagLogGroupResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy UntagLogGroup)
 
 responseCreateExportTask :: CreateExportTaskResponse -> TestTree
 responseCreateExportTask = res
@@ -368,6 +408,13 @@ responseFilterLogEvents = res
     "fixture/FilterLogEventsResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy FilterLogEvents)
+
+responseTagLogGroup :: TagLogGroupResponse -> TestTree
+responseTagLogGroup = res
+    "TagLogGroupResponse"
+    "fixture/TagLogGroupResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy TagLogGroup)
 
 responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
 responseDeleteLogStream = res
@@ -480,6 +527,13 @@ responsePutRetentionPolicy = res
     "fixture/PutRetentionPolicyResponse.proto"
     cloudWatchLogs
     (Proxy :: Proxy PutRetentionPolicy)
+
+responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
+responseListTagsLogGroup = res
+    "ListTagsLogGroupResponse"
+    "fixture/ListTagsLogGroupResponse.proto"
+    cloudWatchLogs
+    (Proxy :: Proxy ListTagsLogGroup)
 
 responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
 responseDescribeLogStreams = res

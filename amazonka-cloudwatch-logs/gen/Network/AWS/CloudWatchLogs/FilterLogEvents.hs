@@ -74,13 +74,13 @@ data FilterLogEvents = FilterLogEvents'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fleStartTime' - The start of the time range. Events with a timestamp prior to this time are not returned.
+-- * 'fleStartTime' - The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.
 --
 -- * 'fleNextToken' - The token for the next set of events to return. (You received this token from a previous call.)
 --
 -- * 'fleLogStreamNames' - Optional list of log stream names.
 --
--- * 'fleEndTime' - The end of the time range. Events with a timestamp later than this time are not returned.
+-- * 'fleEndTime' - The end of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 --
 -- * 'fleLimit' - The maximum number of events to return. The default is 10,000 events.
 --
@@ -104,7 +104,7 @@ filterLogEvents pLogGroupName_ =
     , _fleLogGroupName = pLogGroupName_
     }
 
--- | The start of the time range. Events with a timestamp prior to this time are not returned.
+-- | The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
 fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat;
 
@@ -116,7 +116,7 @@ fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
 fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
 fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1;
 
--- | The end of the time range. Events with a timestamp later than this time are not returned.
+-- | The end of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.
 fleEndTime :: Lens' FilterLogEvents (Maybe Natural)
 fleEndTime = lens _fleEndTime (\ s a -> s{_fleEndTime = a}) . mapping _Nat;
 

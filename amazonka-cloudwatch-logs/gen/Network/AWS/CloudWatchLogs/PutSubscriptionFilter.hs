@@ -39,6 +39,7 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
       putSubscriptionFilter
     , PutSubscriptionFilter
     -- * Request Lenses
+    , psfDistribution
     , psfRoleARN
     , psfLogGroupName
     , psfFilterName
@@ -59,7 +60,8 @@ import           Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfRoleARN        :: !(Maybe Text)
+    { _psfDistribution   :: !(Maybe Distribution)
+    , _psfRoleARN        :: !(Maybe Text)
     , _psfLogGroupName   :: !Text
     , _psfFilterName     :: !Text
     , _psfFilterPattern  :: !Text
@@ -69,6 +71,8 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 -- | Creates a value of 'PutSubscriptionFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psfDistribution' - The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream. By default, log data is grouped by log stream. For a more even distribution, you can group log data randomly.
 --
 -- * 'psfRoleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 --
@@ -87,12 +91,17 @@ putSubscriptionFilter
     -> PutSubscriptionFilter
 putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
     PutSubscriptionFilter'
-    { _psfRoleARN = Nothing
+    { _psfDistribution = Nothing
+    , _psfRoleARN = Nothing
     , _psfLogGroupName = pLogGroupName_
     , _psfFilterName = pFilterName_
     , _psfFilterPattern = pFilterPattern_
     , _psfDestinationARN = pDestinationARN_
     }
+
+-- | The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream. By default, log data is grouped by log stream. For a more even distribution, you can group log data randomly.
+psfDistribution :: Lens' PutSubscriptionFilter (Maybe Distribution)
+psfDistribution = lens _psfDistribution (\ s a -> s{_psfDistribution = a});
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 psfRoleARN :: Lens' PutSubscriptionFilter (Maybe Text)
@@ -138,7 +147,8 @@ instance ToJSON PutSubscriptionFilter where
         toJSON PutSubscriptionFilter'{..}
           = object
               (catMaybes
-                 [("roleArn" .=) <$> _psfRoleARN,
+                 [("distribution" .=) <$> _psfDistribution,
+                  ("roleArn" .=) <$> _psfRoleARN,
                   Just ("logGroupName" .= _psfLogGroupName),
                   Just ("filterName" .= _psfFilterName),
                   Just ("filterPattern" .= _psfFilterPattern),

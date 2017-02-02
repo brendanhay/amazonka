@@ -132,9 +132,9 @@ data ExportTask = ExportTask'
 --
 -- * 'etTaskId' - The ID of the export task.
 --
--- * 'etTo' - The end time. Events with a timestamp later than this time are not exported.
+-- * 'etTo' - The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 --
--- * 'etFrom' - The start time. Events with a timestamp prior to this time are not exported.
+-- * 'etFrom' - The start time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
 --
 -- * 'etLogGroupName' - The name of the log group from which logs data was exported.
 --
@@ -174,11 +174,11 @@ etTaskName = lens _etTaskName (\ s a -> s{_etTaskName = a});
 etTaskId :: Lens' ExportTask (Maybe Text)
 etTaskId = lens _etTaskId (\ s a -> s{_etTaskId = a});
 
--- | The end time. Events with a timestamp later than this time are not exported.
+-- | The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 etTo :: Lens' ExportTask (Maybe Natural)
 etTo = lens _etTo (\ s a -> s{_etTo = a}) . mapping _Nat;
 
--- | The start time. Events with a timestamp prior to this time are not exported.
+-- | The start time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.
 etFrom :: Lens' ExportTask (Maybe Natural)
 etFrom = lens _etFrom (\ s a -> s{_etFrom = a}) . mapping _Nat;
 
@@ -319,7 +319,7 @@ data FilteredLogEvent = FilteredLogEvent'
 --
 -- * 'fleMessage' - The data contained in the log event.
 --
--- * 'fleTimestamp' - The time the event occurred.
+-- * 'fleTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'fleEventId' - The ID of the event.
 filteredLogEvent
@@ -345,7 +345,7 @@ fleLogStreamName = lens _fleLogStreamName (\ s a -> s{_fleLogStreamName = a});
 fleMessage :: Lens' FilteredLogEvent (Maybe Text)
 fleMessage = lens _fleMessage (\ s a -> s{_fleMessage = a});
 
--- | The time the event occurred.
+-- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
 fleTimestamp = lens _fleTimestamp (\ s a -> s{_fleTimestamp = a}) . mapping _Nat;
 
@@ -381,7 +381,7 @@ data InputLogEvent = InputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ileTimestamp' - The time the event occurred.
+-- * 'ileTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'ileMessage' - The raw event message.
 inputLogEvent
@@ -394,7 +394,7 @@ inputLogEvent pTimestamp_ pMessage_ =
     , _ileMessage = pMessage_
     }
 
--- | The time the event occurred.
+-- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 ileTimestamp :: Lens' InputLogEvent Natural
 ileTimestamp = lens _ileTimestamp (\ s a -> s{_ileTimestamp = a}) . _Nat;
 
@@ -520,7 +520,7 @@ data LogStream = LogStream'
 --
 -- * 'lsArn' - The Amazon Resource Name (ARN) of the log stream.
 --
--- * 'lsFirstEventTimestamp' - The time of the first event.
+-- * 'lsFirstEventTimestamp' - The time of the first event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lsLogStreamName' - The name of the log stream.
 --
@@ -528,7 +528,7 @@ data LogStream = LogStream'
 --
 -- * 'lsLastIngestionTime' - The ingestion time.
 --
--- * 'lsLastEventTimestamp' - The time of the last event.
+-- * 'lsLastEventTimestamp' - The time of the last event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 logStream
     :: LogStream
 logStream =
@@ -555,7 +555,7 @@ lsUploadSequenceToken = lens _lsUploadSequenceToken (\ s a -> s{_lsUploadSequenc
 lsArn :: Lens' LogStream (Maybe Text)
 lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
--- | The time of the first event.
+-- | The time of the first event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lsFirstEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsFirstEventTimestamp = lens _lsFirstEventTimestamp (\ s a -> s{_lsFirstEventTimestamp = a}) . mapping _Nat;
 
@@ -571,7 +571,7 @@ lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
 
--- | The time of the last event.
+-- | The time of the last event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
 
@@ -811,7 +811,7 @@ data OutputLogEvent = OutputLogEvent'
 --
 -- * 'oleMessage' - The data contained in the log event.
 --
--- * 'oleTimestamp' - The time the event occurred.
+-- * 'oleTimestamp' - The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 outputLogEvent
     :: OutputLogEvent
 outputLogEvent =
@@ -829,7 +829,7 @@ oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . 
 oleMessage :: Lens' OutputLogEvent (Maybe Text)
 oleMessage = lens _oleMessage (\ s a -> s{_oleMessage = a});
 
--- | The time the event occurred.
+-- | The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
 oleTimestamp = lens _oleTimestamp (\ s a -> s{_oleTimestamp = a}) . mapping _Nat;
 
@@ -952,6 +952,7 @@ instance NFData SearchedLogStream
 data SubscriptionFilter = SubscriptionFilter'
     { _sfCreationTime   :: !(Maybe Nat)
     , _sfFilterName     :: !(Maybe Text)
+    , _sfDistribution   :: !(Maybe Distribution)
     , _sfDestinationARN :: !(Maybe Text)
     , _sfLogGroupName   :: !(Maybe Text)
     , _sfFilterPattern  :: !(Maybe Text)
@@ -966,6 +967,8 @@ data SubscriptionFilter = SubscriptionFilter'
 --
 -- * 'sfFilterName' - The name of the subscription filter.
 --
+-- * 'sfDistribution' - The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream.
+--
 -- * 'sfDestinationARN' - The Amazon Resource Name (ARN) of the destination.
 --
 -- * 'sfLogGroupName' - The name of the log group.
@@ -979,6 +982,7 @@ subscriptionFilter =
     SubscriptionFilter'
     { _sfCreationTime = Nothing
     , _sfFilterName = Nothing
+    , _sfDistribution = Nothing
     , _sfDestinationARN = Nothing
     , _sfLogGroupName = Nothing
     , _sfFilterPattern = Nothing
@@ -992,6 +996,10 @@ sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mappin
 -- | The name of the subscription filter.
 sfFilterName :: Lens' SubscriptionFilter (Maybe Text)
 sfFilterName = lens _sfFilterName (\ s a -> s{_sfFilterName = a});
+
+-- | The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream.
+sfDistribution :: Lens' SubscriptionFilter (Maybe Distribution)
+sfDistribution = lens _sfDistribution (\ s a -> s{_sfDistribution = a});
 
 -- | The Amazon Resource Name (ARN) of the destination.
 sfDestinationARN :: Lens' SubscriptionFilter (Maybe Text)
@@ -1015,7 +1023,8 @@ instance FromJSON SubscriptionFilter where
               (\ x ->
                  SubscriptionFilter' <$>
                    (x .:? "creationTime") <*> (x .:? "filterName") <*>
-                     (x .:? "destinationArn")
+                     (x .:? "distribution")
+                     <*> (x .:? "destinationArn")
                      <*> (x .:? "logGroupName")
                      <*> (x .:? "filterPattern")
                      <*> (x .:? "roleArn"))

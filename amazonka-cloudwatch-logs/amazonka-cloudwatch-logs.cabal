@@ -58,14 +58,17 @@ library
         , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
         , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.ListTagsLogGroup
         , Network.AWS.CloudWatchLogs.PutDestination
         , Network.AWS.CloudWatchLogs.PutDestinationPolicy
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter
         , Network.AWS.CloudWatchLogs.PutRetentionPolicy
         , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.TagLogGroup
         , Network.AWS.CloudWatchLogs.TestMetricFilter
         , Network.AWS.CloudWatchLogs.Types
+        , Network.AWS.CloudWatchLogs.UntagLogGroup
         , Network.AWS.CloudWatchLogs.Waiters
 
     other-modules:

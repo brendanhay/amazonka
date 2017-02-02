@@ -31,11 +31,11 @@
 --
 --     * None of the log events in the batch can be older than 14 days or the retention period of the log group.
 --
---     * The log events in the batch must be in chronological ordered by their timestamp.
+--     * The log events in the batch must be in chronological ordered by their timestamp (the time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC).
 --
 --     * The maximum number of log events in a batch is 10,000.
 --
---     * A batch of log events in a single PutLogEvents request cannot span more than 24 hours. Otherwise, the PutLogEvents operation will fail.
+--     * A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.
 --
 --
 --

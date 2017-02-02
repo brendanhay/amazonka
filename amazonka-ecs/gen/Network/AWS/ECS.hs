@@ -54,6 +54,12 @@ module Network.AWS.ECS
     -- ** UpdateInProgressException
     , _UpdateInProgressException
 
+    -- ** TargetNotFoundException
+    , _TargetNotFoundException
+
+    -- ** AttributeLimitExceededException
+    , _AttributeLimitExceededException
+
     -- ** ClientException
     , _ClientException
 
@@ -102,6 +108,9 @@ module Network.AWS.ECS
     -- ** DescribeContainerInstances
     , module Network.AWS.ECS.DescribeContainerInstances
 
+    -- ** UpdateContainerInstancesState
+    , module Network.AWS.ECS.UpdateContainerInstancesState
+
     -- ** DeleteCluster
     , module Network.AWS.ECS.DeleteCluster
 
@@ -132,6 +141,9 @@ module Network.AWS.ECS
     -- ** StartTask
     , module Network.AWS.ECS.StartTask
 
+    -- ** ListAttributes
+    , module Network.AWS.ECS.ListAttributes
+
     -- ** DeregisterTaskDefinition
     , module Network.AWS.ECS.DeregisterTaskDefinition
 
@@ -147,6 +159,12 @@ module Network.AWS.ECS
     -- ** DeregisterContainerInstance
     , module Network.AWS.ECS.DeregisterContainerInstance
 
+    -- ** DeleteAttributes
+    , module Network.AWS.ECS.DeleteAttributes
+
+    -- ** PutAttributes
+    , module Network.AWS.ECS.PutAttributes
+
     -- ** RegisterTaskDefinition
     , module Network.AWS.ECS.RegisterTaskDefinition
 
@@ -158,6 +176,9 @@ module Network.AWS.ECS
     -- ** AgentUpdateStatus
     , AgentUpdateStatus (..)
 
+    -- ** ContainerInstanceStatus
+    , ContainerInstanceStatus (..)
+
     -- ** DesiredStatus
     , DesiredStatus (..)
 
@@ -167,11 +188,23 @@ module Network.AWS.ECS
     -- ** NetworkMode
     , NetworkMode (..)
 
+    -- ** PlacementConstraintType
+    , PlacementConstraintType (..)
+
+    -- ** PlacementStrategyType
+    , PlacementStrategyType (..)
+
     -- ** SortOrder
     , SortOrder (..)
 
+    -- ** TargetType
+    , TargetType (..)
+
     -- ** TaskDefinitionFamilyStatus
     , TaskDefinitionFamilyStatus (..)
+
+    -- ** TaskDefinitionPlacementConstraintType
+    , TaskDefinitionPlacementConstraintType (..)
 
     -- ** TaskDefinitionStatus
     , TaskDefinitionStatus (..)
@@ -185,7 +218,9 @@ module Network.AWS.ECS
     -- ** Attribute
     , Attribute
     , attribute
+    , aTargetId
     , aValue
+    , aTargetType
     , aName
 
     -- ** Cluster
@@ -273,7 +308,9 @@ module Network.AWS.ECS
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
+    , csPlacementConstraints
     , csEvents
+    , csPlacementStrategy
     , csDeployments
     , csServiceName
     , csServiceARN
@@ -351,6 +388,18 @@ module Network.AWS.ECS
     , nbHostPort
     , nbContainerPort
 
+    -- ** PlacementConstraint
+    , PlacementConstraint
+    , placementConstraint
+    , pcExpression
+    , pcType
+
+    -- ** PlacementStrategy
+    , PlacementStrategy
+    , placementStrategy
+    , psField
+    , psType
+
     -- ** PortMapping
     , PortMapping
     , portMapping
@@ -382,6 +431,7 @@ module Network.AWS.ECS
     , tDesiredStatus
     , tOverrides
     , tClusterARN
+    , tGroup
     , tCreatedAt
     , tTaskARN
     , tContainerInstanceARN
@@ -400,11 +450,18 @@ module Network.AWS.ECS
     , tdFamily
     , tdContainerDefinitions
     , tdTaskRoleARN
+    , tdPlacementConstraints
     , tdNetworkMode
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
     , tdRequiresAttributes
+
+    -- ** TaskDefinitionPlacementConstraint
+    , TaskDefinitionPlacementConstraint
+    , taskDefinitionPlacementConstraint
+    , tdpcExpression
+    , tdpcType
 
     -- ** TaskOverride
     , TaskOverride
@@ -441,6 +498,7 @@ module Network.AWS.ECS
 
 import           Network.AWS.ECS.CreateCluster
 import           Network.AWS.ECS.CreateService
+import           Network.AWS.ECS.DeleteAttributes
 import           Network.AWS.ECS.DeleteCluster
 import           Network.AWS.ECS.DeleteService
 import           Network.AWS.ECS.DeregisterContainerInstance
@@ -451,12 +509,14 @@ import           Network.AWS.ECS.DescribeServices
 import           Network.AWS.ECS.DescribeTaskDefinition
 import           Network.AWS.ECS.DescribeTasks
 import           Network.AWS.ECS.DiscoverPollEndpoint
+import           Network.AWS.ECS.ListAttributes
 import           Network.AWS.ECS.ListClusters
 import           Network.AWS.ECS.ListContainerInstances
 import           Network.AWS.ECS.ListServices
 import           Network.AWS.ECS.ListTaskDefinitionFamilies
 import           Network.AWS.ECS.ListTaskDefinitions
 import           Network.AWS.ECS.ListTasks
+import           Network.AWS.ECS.PutAttributes
 import           Network.AWS.ECS.RegisterContainerInstance
 import           Network.AWS.ECS.RegisterTaskDefinition
 import           Network.AWS.ECS.RunTask
@@ -466,6 +526,7 @@ import           Network.AWS.ECS.SubmitContainerStateChange
 import           Network.AWS.ECS.SubmitTaskStateChange
 import           Network.AWS.ECS.Types
 import           Network.AWS.ECS.UpdateContainerAgent
+import           Network.AWS.ECS.UpdateContainerInstancesState
 import           Network.AWS.ECS.UpdateService
 import           Network.AWS.ECS.Waiters
 

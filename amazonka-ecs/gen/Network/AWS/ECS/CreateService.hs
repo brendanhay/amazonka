@@ -25,17 +25,21 @@
 --
 -- You can optionally specify a deployment configuration for your service. During a deployment (which is triggered by changing the task definition or the desired count of a service with an 'UpdateService' operation), the service scheduler uses the @minimumHealthyPercent@ and @maximumPercent@ parameters to determine the deployment strategy.
 --
--- The @minimumHealthyPercent@ represents a lower limit on the number of your service's tasks that must remain in the @RUNNING@ state during a deployment, as a percentage of the @desiredCount@ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if your service has a @desiredCount@ of four tasks and a @minimumHealthyPercent@ of 50%, the scheduler may stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that /do not/ use a load balancer are considered healthy if they are in the @RUNNING@ state; tasks for services that /do/ use a load balancer are considered healthy if they are in the @RUNNING@ state and the container instance it is hosted on is reported as healthy by the load balancer. The default value for @minimumHealthyPercent@ is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
+-- The @minimumHealthyPercent@ represents a lower limit on the number of your service's tasks that must remain in the @RUNNING@ state during a deployment, as a percentage of the @desiredCount@ (rounded up to the nearest integer). This parameter enables you to deploy without using additional cluster capacity. For example, if @desiredCount@ is four tasks and the minimum is 50%, the scheduler can stop two existing tasks to free up cluster capacity before starting two new tasks. Tasks for services that do not use a load balancer are considered healthy if they are in the @RUNNING@ state. Tasks for services that use a load balancer are considered healthy if they are in the @RUNNING@ state and the container instance they are hosted on is reported as healthy by the load balancer. The default value is 50% in the console and 100% for the AWS CLI, the AWS SDKs, and the APIs.
 --
--- The @maximumPercent@ parameter represents an upper limit on the number of your service's tasks that are allowed in the @RUNNING@ or @PENDING@ state during a deployment, as a percentage of the @desiredCount@ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service has a @desiredCount@ of four tasks and a @maximumPercent@ value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value for @maximumPercent@ is 200%.
+-- The @maximumPercent@ parameter represents an upper limit on the number of your service's tasks that are allowed in the @RUNNING@ or @PENDING@ state during a deployment, as a percentage of the @desiredCount@ (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if @desiredCount@ is four tasks and the maximum is 200%, the scheduler can start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default value is 200%.
 --
--- When the service scheduler launches new tasks, it attempts to balance them across the Availability Zones in your cluster with the following logic:
+-- When the service scheduler launches new tasks, it determines task placement in your cluster using the following logic:
 --
 --     * Determine which of the container instances in your cluster can support your service's task definition (for example, they have the required CPU, memory, ports, and container instance attributes).
+--
+--     * By default, the service scheduler attempts to balance tasks across Availability Zones in this manner (although you can choose a different placement strategy):
 --
 --     * Sort the valid container instances by the fewest number of running tasks for this service in the same Availability Zone as the instance. For example, if zone A has one running service task and zones B and C each have zero, valid container instances in either zone B or C are considered optimal for placement.
 --
 --     * Place the new service task on a valid container instance in an optimal Availability Zone (based on the previous steps), favoring container instances with the fewest number of running tasks for this service.
+--
+--
 --
 --
 --
@@ -49,6 +53,8 @@ module Network.AWS.ECS.CreateService
     , cClientToken
     , cLoadBalancers
     , cRole
+    , cPlacementConstraints
+    , cPlacementStrategy
     , cDeploymentConfiguration
     , cServiceName
     , cTaskDefinition
@@ -75,6 +81,8 @@ data CreateService = CreateService'
     , _cClientToken             :: !(Maybe Text)
     , _cLoadBalancers           :: !(Maybe [LoadBalancer])
     , _cRole                    :: !(Maybe Text)
+    , _cPlacementConstraints    :: !(Maybe [PlacementConstraint])
+    , _cPlacementStrategy       :: !(Maybe [PlacementStrategy])
     , _cDeploymentConfiguration :: !(Maybe DeploymentConfiguration)
     , _cServiceName             :: !Text
     , _cTaskDefinition          :: !Text
@@ -89,9 +97,13 @@ data CreateService = CreateService'
 --
 -- * 'cClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
 --
--- * 'cLoadBalancers' - A load balancer object representing the load balancer to use with your service. Currently, you are limited to one load balancer per service. After you create a service, the load balancer name, container name, and container port specified in the service definition are immutable. For Elastic Load Balancing Classic load balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here. For Elastic Load Balancing Application load balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
+-- * 'cLoadBalancers' - A load balancer object representing the load balancer to use with your service. Currently, you are limited to one load balancer or target group per service. After you create a service, the load balancer name or target group ARN, container name, and container port specified in the service definition are immutable. For Elastic Load Balancing Classic load balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here. For Elastic Load Balancing Application load balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
 --
 -- * 'cRole' - The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service. If you specify the @role@ parameter, you must also specify a load balancer object with the @loadBalancers@ parameter. If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name @bar@ has a path of @/foo/@ then you would specify @/foo/bar@ as the role name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/ .
+--
+-- * 'cPlacementConstraints' - An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at run time).
+--
+-- * 'cPlacementStrategy' - The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules per service.
 --
 -- * 'cDeploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
@@ -111,6 +123,8 @@ createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     , _cClientToken = Nothing
     , _cLoadBalancers = Nothing
     , _cRole = Nothing
+    , _cPlacementConstraints = Nothing
+    , _cPlacementStrategy = Nothing
     , _cDeploymentConfiguration = Nothing
     , _cServiceName = pServiceName_
     , _cTaskDefinition = pTaskDefinition_
@@ -125,13 +139,21 @@ cCluster = lens _cCluster (\ s a -> s{_cCluster = a});
 cClientToken :: Lens' CreateService (Maybe Text)
 cClientToken = lens _cClientToken (\ s a -> s{_cClientToken = a});
 
--- | A load balancer object representing the load balancer to use with your service. Currently, you are limited to one load balancer per service. After you create a service, the load balancer name, container name, and container port specified in the service definition are immutable. For Elastic Load Balancing Classic load balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here. For Elastic Load Balancing Application load balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
+-- | A load balancer object representing the load balancer to use with your service. Currently, you are limited to one load balancer or target group per service. After you create a service, the load balancer name or target group ARN, container name, and container port specified in the service definition are immutable. For Elastic Load Balancing Classic load balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here. For Elastic Load Balancing Application load balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
 cLoadBalancers :: Lens' CreateService [LoadBalancer]
 cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Default . _Coerce;
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service. If you specify the @role@ parameter, you must also specify a load balancer object with the @loadBalancers@ parameter. If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name @bar@ has a path of @/foo/@ then you would specify @/foo/bar@ as the role name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/ .
 cRole :: Lens' CreateService (Maybe Text)
 cRole = lens _cRole (\ s a -> s{_cRole = a});
+
+-- | An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at run time).
+cPlacementConstraints :: Lens' CreateService [PlacementConstraint]
+cPlacementConstraints = lens _cPlacementConstraints (\ s a -> s{_cPlacementConstraints = a}) . _Default . _Coerce;
+
+-- | The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules per service.
+cPlacementStrategy :: Lens' CreateService [PlacementStrategy]
+cPlacementStrategy = lens _cPlacementStrategy (\ s a -> s{_cPlacementStrategy = a}) . _Default . _Coerce;
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 cDeploymentConfiguration :: Lens' CreateService (Maybe DeploymentConfiguration)
@@ -180,6 +202,9 @@ instance ToJSON CreateService where
                   ("clientToken" .=) <$> _cClientToken,
                   ("loadBalancers" .=) <$> _cLoadBalancers,
                   ("role" .=) <$> _cRole,
+                  ("placementConstraints" .=) <$>
+                    _cPlacementConstraints,
+                  ("placementStrategy" .=) <$> _cPlacementStrategy,
                   ("deploymentConfiguration" .=) <$>
                     _cDeploymentConfiguration,
                   Just ("serviceName" .= _cServiceName),

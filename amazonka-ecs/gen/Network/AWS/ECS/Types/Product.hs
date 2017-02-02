@@ -21,37 +21,53 @@ import           Network.AWS.ECS.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The attributes applicable to a container instance when it is registered.
+-- | An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon EC2 Container Service Developer Guide/ .
 --
 --
 --
 -- /See:/ 'attribute' smart constructor.
 data Attribute = Attribute'
-    { _aValue :: !(Maybe Text)
-    , _aName  :: !Text
+    { _aTargetId   :: !(Maybe Text)
+    , _aValue      :: !(Maybe Text)
+    , _aTargetType :: !(Maybe TargetType)
+    , _aName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aValue' - The value of the container instance attribute (at this time, the value here is @Null@ , but this could change in future revisions for expandability).
+-- * 'aTargetId' - The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
 --
--- * 'aName' - The name of the container instance attribute.
+-- * 'aValue' - The value of the attribute. Up to 128 letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, colons, and spaces are allowed.
+--
+-- * 'aTargetType' - The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full Amazon Resource Name (ARN).
+--
+-- * 'aName' - The name of the attribute. Up to 128 letters (uppercase and lowercase), numbers, hyphens, underscores, and periods are allowed.
 attribute
     :: Text -- ^ 'aName'
     -> Attribute
 attribute pName_ =
     Attribute'
-    { _aValue = Nothing
+    { _aTargetId = Nothing
+    , _aValue = Nothing
+    , _aTargetType = Nothing
     , _aName = pName_
     }
 
--- | The value of the container instance attribute (at this time, the value here is @Null@ , but this could change in future revisions for expandability).
+-- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
+aTargetId :: Lens' Attribute (Maybe Text)
+aTargetId = lens _aTargetId (\ s a -> s{_aTargetId = a});
+
+-- | The value of the attribute. Up to 128 letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, colons, and spaces are allowed.
 aValue :: Lens' Attribute (Maybe Text)
 aValue = lens _aValue (\ s a -> s{_aValue = a});
 
--- | The name of the container instance attribute.
+-- | The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full Amazon Resource Name (ARN).
+aTargetType :: Lens' Attribute (Maybe TargetType)
+aTargetType = lens _aTargetType (\ s a -> s{_aTargetType = a});
+
+-- | The name of the attribute. Up to 128 letters (uppercase and lowercase), numbers, hyphens, underscores, and periods are allowed.
 aName :: Lens' Attribute Text
 aName = lens _aName (\ s a -> s{_aName = a});
 
@@ -59,7 +75,10 @@ instance FromJSON Attribute where
         parseJSON
           = withObject "Attribute"
               (\ x ->
-                 Attribute' <$> (x .:? "value") <*> (x .: "name"))
+                 Attribute' <$>
+                   (x .:? "targetId") <*> (x .:? "value") <*>
+                     (x .:? "targetType")
+                     <*> (x .: "name"))
 
 instance Hashable Attribute
 
@@ -69,7 +88,10 @@ instance ToJSON Attribute where
         toJSON Attribute'{..}
           = object
               (catMaybes
-                 [("value" .=) <$> _aValue, Just ("name" .= _aName)])
+                 [("targetId" .=) <$> _aTargetId,
+                  ("value" .=) <$> _aValue,
+                  ("targetType" .=) <$> _aTargetType,
+                  Just ("name" .= _aName)])
 
 -- | A regional grouping of one or more container instances on which you can run task requests. Each account receives a default cluster the first time you use the Amazon ECS service, but you may also create other clusters. Clusters may contain more than one instance type simultaneously.
 --
@@ -187,7 +209,7 @@ data Container = Container'
 --
 -- * 'cLastStatus' - The last known status of the container.
 --
--- * 'cReason' - A short (255 max characters) human-readable string to provide additional detail about a running or stopped container.
+-- * 'cReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
 --
 -- * 'cName' - The name of the container.
 --
@@ -221,7 +243,7 @@ cTaskARN = lens _cTaskARN (\ s a -> s{_cTaskARN = a});
 cLastStatus :: Lens' Container (Maybe Text)
 cLastStatus = lens _cLastStatus (\ s a -> s{_cLastStatus = a});
 
--- | A short (255 max characters) human-readable string to provide additional detail about a running or stopped container.
+-- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
 cReason :: Lens' Container (Maybe Text)
 cReason = lens _cReason (\ s a -> s{_cReason = a});
 
@@ -288,7 +310,7 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdImage' - The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
+-- * 'cdImage' - The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in Amazon ECR repositories use the full registry and repository URI (for example, @012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@ ).      * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
 --
 -- * 'cdCommand' - The command that is passed to the container. This parameter maps to @Cmd@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @COMMAND@ parameter to <https://docs.docker.com/engine/reference/run/ docker run> . For more information, see <https://docs.docker.com/engine/reference/builder/#cmd https://docs.docker.com/engine/reference/builder/#cmd> .
 --
@@ -371,7 +393,7 @@ containerDefinition =
     , _cdMemoryReservation = Nothing
     }
 
--- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
+-- | The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with @/repository-url/ //image/ :/tag/ @ . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to @Image@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container Create a container> section of the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/ Docker Remote API> and the @IMAGE@ parameter of <https://docs.docker.com/engine/reference/run/ docker run> .     * Images in Amazon ECR repositories use the full registry and repository URI (for example, @012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>@ ).      * Images in official repositories on Docker Hub use a single name (for example, @ubuntu@ or @mongo@ ).     * Images in other repositories on Docker Hub are qualified with an organization name (for example, @amazon/amazon-ecs-agent@ ).     * Images in other online repositories are qualified further by a domain name (for example, @quay.io/assemblyline/ubuntu@ ).
 cdImage :: Lens' ContainerDefinition (Maybe Text)
 cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 
@@ -582,7 +604,7 @@ data ContainerInstance = ContainerInstance'
 --
 -- * 'ciAgentUpdateStatus' - The status of the most recent agent update. If an update has never been requested, this value is @NULL@ .
 --
--- * 'ciAttributes' - The attributes set for the container instance by the Amazon ECS container agent at instance registration.
+-- * 'ciAttributes' - The attributes set for the container instance, either by the Amazon ECS container agent at instance registration or manually with the 'PutAttributes' operation.
 --
 -- * 'ciVersion' - The version counter for the container instance. Every time a container instance experiences a change that triggers a CloudWatch event, the version counter is incremented. If you are replicating your Amazon ECS container instance state with CloudWatch events, you can compare the version of a container instance reported by the Amazon ECS APIs with the version reported in CloudWatch events for the container instance (inside the @detail@ object) to verify that the version in your event stream is current.
 --
@@ -639,7 +661,7 @@ ciVersionInfo = lens _ciVersionInfo (\ s a -> s{_ciVersionInfo = a});
 ciAgentUpdateStatus :: Lens' ContainerInstance (Maybe AgentUpdateStatus)
 ciAgentUpdateStatus = lens _ciAgentUpdateStatus (\ s a -> s{_ciAgentUpdateStatus = a});
 
--- | The attributes set for the container instance by the Amazon ECS container agent at instance registration.
+-- | The attributes set for the container instance, either by the Amazon ECS container agent at instance registration or manually with the 'PutAttributes' operation.
 ciAttributes :: Lens' ContainerInstance [Attribute]
 ciAttributes = lens _ciAttributes (\ s a -> s{_ciAttributes = a}) . _Default . _Coerce;
 
@@ -751,7 +773,9 @@ data ContainerService = ContainerService'
     , _csDesiredCount            :: !(Maybe Int)
     , _csLoadBalancers           :: !(Maybe [LoadBalancer])
     , _csPendingCount            :: !(Maybe Int)
+    , _csPlacementConstraints    :: !(Maybe [PlacementConstraint])
     , _csEvents                  :: !(Maybe [ServiceEvent])
+    , _csPlacementStrategy       :: !(Maybe [PlacementStrategy])
     , _csDeployments             :: !(Maybe [Deployment])
     , _csServiceName             :: !(Maybe Text)
     , _csServiceARN              :: !(Maybe Text)
@@ -778,7 +802,11 @@ data ContainerService = ContainerService'
 --
 -- * 'csPendingCount' - The number of tasks in the cluster that are in the @PENDING@ state.
 --
+-- * 'csPlacementConstraints' - The placement constraints for the tasks in the service.
+--
 -- * 'csEvents' - The event stream for your service. A maximum of 100 of the latest events are displayed.
+--
+-- * 'csPlacementStrategy' - The placement strategy that determines how tasks for the service are placed.
 --
 -- * 'csDeployments' - The current state of deployments for the service.
 --
@@ -802,7 +830,9 @@ containerService =
     , _csDesiredCount = Nothing
     , _csLoadBalancers = Nothing
     , _csPendingCount = Nothing
+    , _csPlacementConstraints = Nothing
     , _csEvents = Nothing
+    , _csPlacementStrategy = Nothing
     , _csDeployments = Nothing
     , _csServiceName = Nothing
     , _csServiceARN = Nothing
@@ -839,9 +869,17 @@ csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _De
 csPendingCount :: Lens' ContainerService (Maybe Int)
 csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 
+-- | The placement constraints for the tasks in the service.
+csPlacementConstraints :: Lens' ContainerService [PlacementConstraint]
+csPlacementConstraints = lens _csPlacementConstraints (\ s a -> s{_csPlacementConstraints = a}) . _Default . _Coerce;
+
 -- | The event stream for your service. A maximum of 100 of the latest events are displayed.
 csEvents :: Lens' ContainerService [ServiceEvent]
 csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default . _Coerce;
+
+-- | The placement strategy that determines how tasks for the service are placed.
+csPlacementStrategy :: Lens' ContainerService [PlacementStrategy]
+csPlacementStrategy = lens _csPlacementStrategy (\ s a -> s{_csPlacementStrategy = a}) . _Default . _Coerce;
 
 -- | The current state of deployments for the service.
 csDeployments :: Lens' ContainerService [Deployment]
@@ -878,7 +916,9 @@ instance FromJSON ContainerService where
                      <*> (x .:? "desiredCount")
                      <*> (x .:? "loadBalancers" .!= mempty)
                      <*> (x .:? "pendingCount")
+                     <*> (x .:? "placementConstraints" .!= mempty)
                      <*> (x .:? "events" .!= mempty)
+                     <*> (x .:? "placementStrategy" .!= mempty)
                      <*> (x .:? "deployments" .!= mempty)
                      <*> (x .:? "serviceName")
                      <*> (x .:? "serviceArn")
@@ -1002,9 +1042,9 @@ data DeploymentConfiguration = DeploymentConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcMinimumHealthyPercent' - The lower limit (as a percentage of the service's @desiredCount@ ) of the number of running tasks that must remain in the @RUNNING@ state in a service during a deployment. The minimum healthy tasks during a deployment is the @desiredCount@ multiplied by the @minimumHealthyPercent@ /100, rounded up to the nearest integer value.
+-- * 'dcMinimumHealthyPercent' - The lower limit (as a percentage of the service's @desiredCount@ ) of the number of running tasks that must remain in the @RUNNING@ state in a service during a deployment. The minimum healthy tasks during a deployment is the @desiredCount@ multiplied by @minimumHealthyPercent@ /100, rounded up to the nearest integer value.
 --
--- * 'dcMaximumPercent' - The upper limit (as a percentage of the service's @desiredCount@ ) of the number of tasks that are allowed in the @RUNNING@ or @PENDING@ state in a service during a deployment. The maximum number of tasks during a deployment is the @desiredCount@ multiplied by the @maximumPercent@ /100, rounded down to the nearest integer value.
+-- * 'dcMaximumPercent' - The upper limit (as a percentage of the service's @desiredCount@ ) of the number of tasks that are allowed in the @RUNNING@ or @PENDING@ state in a service during a deployment. The maximum number of tasks during a deployment is the @desiredCount@ multiplied by @maximumPercent@ /100, rounded down to the nearest integer value.
 deploymentConfiguration
     :: DeploymentConfiguration
 deploymentConfiguration =
@@ -1013,11 +1053,11 @@ deploymentConfiguration =
     , _dcMaximumPercent = Nothing
     }
 
--- | The lower limit (as a percentage of the service's @desiredCount@ ) of the number of running tasks that must remain in the @RUNNING@ state in a service during a deployment. The minimum healthy tasks during a deployment is the @desiredCount@ multiplied by the @minimumHealthyPercent@ /100, rounded up to the nearest integer value.
+-- | The lower limit (as a percentage of the service's @desiredCount@ ) of the number of running tasks that must remain in the @RUNNING@ state in a service during a deployment. The minimum healthy tasks during a deployment is the @desiredCount@ multiplied by @minimumHealthyPercent@ /100, rounded up to the nearest integer value.
 dcMinimumHealthyPercent :: Lens' DeploymentConfiguration (Maybe Int)
 dcMinimumHealthyPercent = lens _dcMinimumHealthyPercent (\ s a -> s{_dcMinimumHealthyPercent = a});
 
--- | The upper limit (as a percentage of the service's @desiredCount@ ) of the number of tasks that are allowed in the @RUNNING@ or @PENDING@ state in a service during a deployment. The maximum number of tasks during a deployment is the @desiredCount@ multiplied by the @maximumPercent@ /100, rounded down to the nearest integer value.
+-- | The upper limit (as a percentage of the service's @desiredCount@ ) of the number of tasks that are allowed in the @RUNNING@ or @PENDING@ state in a service during a deployment. The maximum number of tasks during a deployment is the @desiredCount@ multiplied by @maximumPercent@ /100, rounded down to the nearest integer value.
 dcMaximumPercent :: Lens' DeploymentConfiguration (Maybe Int)
 dcMaximumPercent = lens _dcMaximumPercent (\ s a -> s{_dcMaximumPercent = a});
 
@@ -1483,6 +1523,107 @@ instance ToJSON NetworkBinding where
                   ("hostPort" .=) <$> _nbHostPort,
                   ("containerPort" .=) <$> _nbContainerPort])
 
+-- | An object representing a constraint on task placement. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints> in the /Amazon EC2 Container Service Developer Guide/ .
+--
+--
+--
+-- /See:/ 'placementConstraint' smart constructor.
+data PlacementConstraint = PlacementConstraint'
+    { _pcExpression :: !(Maybe Text)
+    , _pcType       :: !(Maybe PlacementConstraintType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlacementConstraint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcExpression' - A cluster query language expression to apply to the constraint. Note you cannot specify an expression if the constraint type is @distinctInstance@ . For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
+--
+-- * 'pcType' - The type of constraint. Use @distinctInstance@ to ensure that each task in a particular group is running on a different container instance. Use @memberOf@ to restrict selection to a group of valid candidates. Note that @distinctInstance@ is not supported in task definitions.
+placementConstraint
+    :: PlacementConstraint
+placementConstraint =
+    PlacementConstraint'
+    { _pcExpression = Nothing
+    , _pcType = Nothing
+    }
+
+-- | A cluster query language expression to apply to the constraint. Note you cannot specify an expression if the constraint type is @distinctInstance@ . For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
+pcExpression :: Lens' PlacementConstraint (Maybe Text)
+pcExpression = lens _pcExpression (\ s a -> s{_pcExpression = a});
+
+-- | The type of constraint. Use @distinctInstance@ to ensure that each task in a particular group is running on a different container instance. Use @memberOf@ to restrict selection to a group of valid candidates. Note that @distinctInstance@ is not supported in task definitions.
+pcType :: Lens' PlacementConstraint (Maybe PlacementConstraintType)
+pcType = lens _pcType (\ s a -> s{_pcType = a});
+
+instance FromJSON PlacementConstraint where
+        parseJSON
+          = withObject "PlacementConstraint"
+              (\ x ->
+                 PlacementConstraint' <$>
+                   (x .:? "expression") <*> (x .:? "type"))
+
+instance Hashable PlacementConstraint
+
+instance NFData PlacementConstraint
+
+instance ToJSON PlacementConstraint where
+        toJSON PlacementConstraint'{..}
+          = object
+              (catMaybes
+                 [("expression" .=) <$> _pcExpression,
+                  ("type" .=) <$> _pcType])
+
+-- | The task placement strategy for a task or service. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html Task Placement Strategies> in the /Amazon EC2 Container Service Developer Guide/ .
+--
+--
+--
+-- /See:/ 'placementStrategy' smart constructor.
+data PlacementStrategy = PlacementStrategy'
+    { _psField :: !(Maybe Text)
+    , _psType  :: !(Maybe PlacementStrategyType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlacementStrategy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psField' - The field to apply the placement strategy against. For the @spread@ placement strategy, valid values are @instanceId@ (or @host@ , which has the same effect), or any platform or custom attribute that is applied to a container instance, such as @attribute:ecs.availability-zone@ . For the @binpack@ placement strategy, valid values are @cpu@ and @memory@ . For the @random@ placement strategy, this field is not used.
+--
+-- * 'psType' - The type of placement strategy. The @random@ placement strategy randomly places tasks on available candidates. The @spread@ placement strategy spreads placement across available candidates evenly based on the @field@ parameter. The @binpack@ strategy places tasks on available candidates that have the least available amount of the resource that is specified with the @field@ parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+placementStrategy
+    :: PlacementStrategy
+placementStrategy =
+    PlacementStrategy'
+    { _psField = Nothing
+    , _psType = Nothing
+    }
+
+-- | The field to apply the placement strategy against. For the @spread@ placement strategy, valid values are @instanceId@ (or @host@ , which has the same effect), or any platform or custom attribute that is applied to a container instance, such as @attribute:ecs.availability-zone@ . For the @binpack@ placement strategy, valid values are @cpu@ and @memory@ . For the @random@ placement strategy, this field is not used.
+psField :: Lens' PlacementStrategy (Maybe Text)
+psField = lens _psField (\ s a -> s{_psField = a});
+
+-- | The type of placement strategy. The @random@ placement strategy randomly places tasks on available candidates. The @spread@ placement strategy spreads placement across available candidates evenly based on the @field@ parameter. The @binpack@ strategy places tasks on available candidates that have the least available amount of the resource that is specified with the @field@ parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).
+psType :: Lens' PlacementStrategy (Maybe PlacementStrategyType)
+psType = lens _psType (\ s a -> s{_psType = a});
+
+instance FromJSON PlacementStrategy where
+        parseJSON
+          = withObject "PlacementStrategy"
+              (\ x ->
+                 PlacementStrategy' <$>
+                   (x .:? "field") <*> (x .:? "type"))
+
+instance Hashable PlacementStrategy
+
+instance NFData PlacementStrategy
+
+instance ToJSON PlacementStrategy where
+        toJSON PlacementStrategy'{..}
+          = object
+              (catMaybes
+                 [("field" .=) <$> _psField, ("type" .=) <$> _psType])
+
 -- | Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition. After a task reaches the @RUNNING@ status, manual and automatic host and container port assignments are visible in the @networkBindings@ section of 'DescribeTasks' API responses.
 --
 --
@@ -1570,7 +1711,7 @@ data Resource = Resource'
 --
 -- * 'rLongValue' - When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
 --
--- * 'rName' - The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , or a user-defined resource.
+-- * 'rName' - The name of the resource, such as @cpu@ , @memory@ , @ports@ , or a user-defined resource.
 --
 -- * 'rType' - The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
 resource
@@ -1601,7 +1742,7 @@ rDoubleValue = lens _rDoubleValue (\ s a -> s{_rDoubleValue = a});
 rLongValue :: Lens' Resource (Maybe Integer)
 rLongValue = lens _rLongValue (\ s a -> s{_rLongValue = a});
 
--- | The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , or a user-defined resource.
+-- | The name of the resource, such as @cpu@ , @memory@ , @ports@ , or a user-defined resource.
 rName :: Lens' Resource (Maybe Text)
 rName = lens _rName (\ s a -> s{_rName = a});
 
@@ -1698,6 +1839,7 @@ data Task = Task'
     , _tDesiredStatus        :: !(Maybe Text)
     , _tOverrides            :: !(Maybe TaskOverride)
     , _tClusterARN           :: !(Maybe Text)
+    , _tGroup                :: !(Maybe Text)
     , _tCreatedAt            :: !(Maybe POSIX)
     , _tTaskARN              :: !(Maybe Text)
     , _tContainerInstanceARN :: !(Maybe Text)
@@ -1721,6 +1863,8 @@ data Task = Task'
 -- * 'tOverrides' - One or more container overrides.
 --
 -- * 'tClusterARN' - The Amazon Resource Name (ARN) of the cluster that hosts the task.
+--
+-- * 'tGroup' - The name of the task group associated with the task.
 --
 -- * 'tCreatedAt' - The Unix timestamp for when the task was created (the task entered the @PENDING@ state).
 --
@@ -1749,6 +1893,7 @@ task =
     , _tDesiredStatus = Nothing
     , _tOverrides = Nothing
     , _tClusterARN = Nothing
+    , _tGroup = Nothing
     , _tCreatedAt = Nothing
     , _tTaskARN = Nothing
     , _tContainerInstanceARN = Nothing
@@ -1776,6 +1921,10 @@ tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
 -- | The Amazon Resource Name (ARN) of the cluster that hosts the task.
 tClusterARN :: Lens' Task (Maybe Text)
 tClusterARN = lens _tClusterARN (\ s a -> s{_tClusterARN = a});
+
+-- | The name of the task group associated with the task.
+tGroup :: Lens' Task (Maybe Text)
+tGroup = lens _tGroup (\ s a -> s{_tGroup = a});
 
 -- | The Unix timestamp for when the task was created (the task entered the @PENDING@ state).
 tCreatedAt :: Lens' Task (Maybe UTCTime)
@@ -1825,6 +1974,7 @@ instance FromJSON Task where
                    (x .:? "stoppedAt") <*> (x .:? "desiredStatus") <*>
                      (x .:? "overrides")
                      <*> (x .:? "clusterArn")
+                     <*> (x .:? "group")
                      <*> (x .:? "createdAt")
                      <*> (x .:? "taskArn")
                      <*> (x .:? "containerInstanceArn")
@@ -1850,6 +2000,7 @@ data TaskDefinition = TaskDefinition'
     , _tdFamily               :: !(Maybe Text)
     , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
     , _tdTaskRoleARN          :: !(Maybe Text)
+    , _tdPlacementConstraints :: !(Maybe [TaskDefinitionPlacementConstraint])
     , _tdNetworkMode          :: !(Maybe NetworkMode)
     , _tdTaskDefinitionARN    :: !(Maybe Text)
     , _tdRevision             :: !(Maybe Int)
@@ -1869,6 +2020,8 @@ data TaskDefinition = TaskDefinition'
 --
 -- * 'tdTaskRoleARN' - The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 --
+-- * 'tdPlacementConstraints' - An array of placement constraint objects to use for tasks.
+--
 -- * 'tdNetworkMode' - The Docker networking mode to use for the containers in the task. The valid values are @none@ , @bridge@ , and @host@ .  If the network mode is @none@ , the containers do not have external connectivity. The default Docker network mode is @bridge@ . The @host@ network mode offers the highest networking performance for containers because it uses the host network stack instead of the virtualized network stack provided by the @bridge@ mode. For more information, see <https://docs.docker.com/engine/reference/run/#network-settings Network settings> in the /Docker run reference/ .
 --
 -- * 'tdTaskDefinitionARN' - The full Amazon Resource Name (ARN) of the task definition.
@@ -1886,6 +2039,7 @@ taskDefinition =
     , _tdFamily = Nothing
     , _tdContainerDefinitions = Nothing
     , _tdTaskRoleARN = Nothing
+    , _tdPlacementConstraints = Nothing
     , _tdNetworkMode = Nothing
     , _tdTaskDefinitionARN = Nothing
     , _tdRevision = Nothing
@@ -1908,6 +2062,10 @@ tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDe
 -- | The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 tdTaskRoleARN :: Lens' TaskDefinition (Maybe Text)
 tdTaskRoleARN = lens _tdTaskRoleARN (\ s a -> s{_tdTaskRoleARN = a});
+
+-- | An array of placement constraint objects to use for tasks.
+tdPlacementConstraints :: Lens' TaskDefinition [TaskDefinitionPlacementConstraint]
+tdPlacementConstraints = lens _tdPlacementConstraints (\ s a -> s{_tdPlacementConstraints = a}) . _Default . _Coerce;
 
 -- | The Docker networking mode to use for the containers in the task. The valid values are @none@ , @bridge@ , and @host@ .  If the network mode is @none@ , the containers do not have external connectivity. The default Docker network mode is @bridge@ . The @host@ network mode offers the highest networking performance for containers because it uses the host network stack instead of the virtualized network stack provided by the @bridge@ mode. For more information, see <https://docs.docker.com/engine/reference/run/#network-settings Network settings> in the /Docker run reference/ .
 tdNetworkMode :: Lens' TaskDefinition (Maybe NetworkMode)
@@ -1937,6 +2095,7 @@ instance FromJSON TaskDefinition where
                    (x .:? "status") <*> (x .:? "family") <*>
                      (x .:? "containerDefinitions" .!= mempty)
                      <*> (x .:? "taskRoleArn")
+                     <*> (x .:? "placementConstraints" .!= mempty)
                      <*> (x .:? "networkMode")
                      <*> (x .:? "taskDefinitionArn")
                      <*> (x .:? "revision")
@@ -1946,6 +2105,59 @@ instance FromJSON TaskDefinition where
 instance Hashable TaskDefinition
 
 instance NFData TaskDefinition
+
+-- | An object representing a constraint on task placement in the task definition. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints> in the /Amazon EC2 Container Service Developer Guide/ .
+--
+--
+--
+-- /See:/ 'taskDefinitionPlacementConstraint' smart constructor.
+data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
+    { _tdpcExpression :: !(Maybe Text)
+    , _tdpcType       :: !(Maybe TaskDefinitionPlacementConstraintType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TaskDefinitionPlacementConstraint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tdpcExpression' - A cluster query language expression to apply to the constraint. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
+--
+-- * 'tdpcType' - The type of constraint. The @DistinctInstance@ constraint ensures that each task in a particular group is running on a different container instance. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
+taskDefinitionPlacementConstraint
+    :: TaskDefinitionPlacementConstraint
+taskDefinitionPlacementConstraint =
+    TaskDefinitionPlacementConstraint'
+    { _tdpcExpression = Nothing
+    , _tdpcType = Nothing
+    }
+
+-- | A cluster query language expression to apply to the constraint. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
+tdpcExpression :: Lens' TaskDefinitionPlacementConstraint (Maybe Text)
+tdpcExpression = lens _tdpcExpression (\ s a -> s{_tdpcExpression = a});
+
+-- | The type of constraint. The @DistinctInstance@ constraint ensures that each task in a particular group is running on a different container instance. The @MemberOf@ constraint restricts selection to be from a group of valid candidates.
+tdpcType :: Lens' TaskDefinitionPlacementConstraint (Maybe TaskDefinitionPlacementConstraintType)
+tdpcType = lens _tdpcType (\ s a -> s{_tdpcType = a});
+
+instance FromJSON TaskDefinitionPlacementConstraint
+         where
+        parseJSON
+          = withObject "TaskDefinitionPlacementConstraint"
+              (\ x ->
+                 TaskDefinitionPlacementConstraint' <$>
+                   (x .:? "expression") <*> (x .:? "type"))
+
+instance Hashable TaskDefinitionPlacementConstraint
+
+instance NFData TaskDefinitionPlacementConstraint
+
+instance ToJSON TaskDefinitionPlacementConstraint
+         where
+        toJSON TaskDefinitionPlacementConstraint'{..}
+          = object
+              (catMaybes
+                 [("expression" .=) <$> _tdpcExpression,
+                  ("type" .=) <$> _tdpcType])
 
 -- | The overrides associated with a task.
 --

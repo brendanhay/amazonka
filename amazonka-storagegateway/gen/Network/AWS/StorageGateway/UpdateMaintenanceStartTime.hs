@@ -77,7 +77,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
 --
 -- * 'umstMinuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 --
--- * 'umstDayOfWeek' - The maintenance start time day of the week.
+-- * 'umstDayOfWeek' - The maintenance start time day of the week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
 updateMaintenanceStartTime
     :: Text -- ^ 'umstGatewayARN'
     -> Natural -- ^ 'umstHourOfDay'
@@ -104,7 +104,7 @@ umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
 umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
 umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
 
--- | The maintenance start time day of the week.
+-- | The maintenance start time day of the week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
 umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
 umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
 

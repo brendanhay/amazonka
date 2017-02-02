@@ -48,6 +48,7 @@ library
         , Network.AWS.StorageGateway.CancelArchival
         , Network.AWS.StorageGateway.CancelRetrieval
         , Network.AWS.StorageGateway.CreateCachediSCSIVolume
+        , Network.AWS.StorageGateway.CreateNFSFileShare
         , Network.AWS.StorageGateway.CreateSnapshot
         , Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
         , Network.AWS.StorageGateway.CreateStorediSCSIVolume
@@ -55,6 +56,7 @@ library
         , Network.AWS.StorageGateway.CreateTapes
         , Network.AWS.StorageGateway.DeleteBandwidthRateLimit
         , Network.AWS.StorageGateway.DeleteChapCredentials
+        , Network.AWS.StorageGateway.DeleteFileShare
         , Network.AWS.StorageGateway.DeleteGateway
         , Network.AWS.StorageGateway.DeleteSnapshotSchedule
         , Network.AWS.StorageGateway.DeleteTape
@@ -66,6 +68,7 @@ library
         , Network.AWS.StorageGateway.DescribeChapCredentials
         , Network.AWS.StorageGateway.DescribeGatewayInformation
         , Network.AWS.StorageGateway.DescribeMaintenanceStartTime
+        , Network.AWS.StorageGateway.DescribeNFSFileShares
         , Network.AWS.StorageGateway.DescribeSnapshotSchedule
         , Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
         , Network.AWS.StorageGateway.DescribeTapeArchives
@@ -75,6 +78,7 @@ library
         , Network.AWS.StorageGateway.DescribeVTLDevices
         , Network.AWS.StorageGateway.DescribeWorkingStorage
         , Network.AWS.StorageGateway.DisableGateway
+        , Network.AWS.StorageGateway.ListFileShares
         , Network.AWS.StorageGateway.ListGateways
         , Network.AWS.StorageGateway.ListLocalDisks
         , Network.AWS.StorageGateway.ListTagsForResource
@@ -95,6 +99,7 @@ library
         , Network.AWS.StorageGateway.UpdateGatewayInformation
         , Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
         , Network.AWS.StorageGateway.UpdateMaintenanceStartTime
+        , Network.AWS.StorageGateway.UpdateNFSFileShare
         , Network.AWS.StorageGateway.UpdateSnapshotSchedule
         , Network.AWS.StorageGateway.UpdateVTLDeviceType
         , Network.AWS.StorageGateway.Waiters

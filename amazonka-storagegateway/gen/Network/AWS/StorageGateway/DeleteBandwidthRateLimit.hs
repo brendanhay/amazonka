@@ -45,7 +45,15 @@ import           Network.AWS.Response
 import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
--- | /See:/ 'deleteBandwidthRateLimit' smart constructor.
+-- | A JSON object containing the following fields:
+--
+--
+--     * 'DeleteBandwidthRateLimitInput$BandwidthType'
+--
+--
+--
+--
+-- /See:/ 'deleteBandwidthRateLimit' smart constructor.
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
     { _dbrlbGatewayARN    :: !Text
     , _dbrlbBandwidthType :: !Text
@@ -57,7 +65,7 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
 --
 -- * 'dbrlbGatewayARN' - Undocumented member.
 --
--- * 'dbrlbBandwidthType' - Undocumented member.
+-- * 'dbrlbBandwidthType' - One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete. Valid Values: @Upload@ , @Download@ , @All@ .
 deleteBandwidthRateLimit
     :: Text -- ^ 'dbrlbGatewayARN'
     -> Text -- ^ 'dbrlbBandwidthType'
@@ -72,7 +80,7 @@ deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
 dbrlbGatewayARN :: Lens' DeleteBandwidthRateLimit Text
 dbrlbGatewayARN = lens _dbrlbGatewayARN (\ s a -> s{_dbrlbGatewayARN = a});
 
--- | Undocumented member.
+-- | One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete. Valid Values: @Upload@ , @Download@ , @All@ .
 dbrlbBandwidthType :: Lens' DeleteBandwidthRateLimit Text
 dbrlbBandwidthType = lens _dbrlbBandwidthType (\ s a -> s{_dbrlbBandwidthType = a});
 

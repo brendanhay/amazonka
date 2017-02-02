@@ -21,7 +21,9 @@
 -- Creates a cached volume on a specified cached gateway. This operation is supported only for the gateway-cached volume architecture.
 --
 --
--- In the request, you must specify the gateway, size of the volume in bytes, the iSCSI target name, an IP address on which to expose the target, and a unique client token. In response, AWS Storage Gateway creates the volume and returns information about it such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
+-- In the request, you must specify the gateway, size of the volume in bytes, the iSCSI target name, an IP address on which to expose the target, and a unique client token. In response, AWS Storage Gateway creates the volume and returns information about it. This information includes the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
+--
+-- Optionally, you can provide the ARN for an existing volume as the @SourceVolumeARN@ for this cached volume, which creates an exact copy of the existing volume’s latest recovery point. The @VolumeSizeInBytes@ value must be equal to or larger than the size of the copied volume, in bytes.
 --
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
@@ -29,6 +31,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
       createCachediSCSIVolume
     , CreateCachediSCSIVolume
     -- * Request Lenses
+    , ccscsivSourceVolumeARN
     , ccscsivSnapshotId
     , ccscsivGatewayARN
     , ccscsivVolumeSizeInBytes
@@ -54,7 +57,8 @@ import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'createCachediSCSIVolume' smart constructor.
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-    { _ccscsivSnapshotId         :: !(Maybe Text)
+    { _ccscsivSourceVolumeARN    :: !(Maybe Text)
+    , _ccscsivSnapshotId         :: !(Maybe Text)
     , _ccscsivGatewayARN         :: !Text
     , _ccscsivVolumeSizeInBytes  :: !Integer
     , _ccscsivTargetName         :: !Text
@@ -65,6 +69,8 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 -- | Creates a value of 'CreateCachediSCSIVolume' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccscsivSourceVolumeARN' - The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 --
 -- * 'ccscsivSnapshotId' - Undocumented member.
 --
@@ -86,13 +92,18 @@ createCachediSCSIVolume
     -> CreateCachediSCSIVolume
 createCachediSCSIVolume pGatewayARN_ pVolumeSizeInBytes_ pTargetName_ pNetworkInterfaceId_ pClientToken_ =
     CreateCachediSCSIVolume'
-    { _ccscsivSnapshotId = Nothing
+    { _ccscsivSourceVolumeARN = Nothing
+    , _ccscsivSnapshotId = Nothing
     , _ccscsivGatewayARN = pGatewayARN_
     , _ccscsivVolumeSizeInBytes = pVolumeSizeInBytes_
     , _ccscsivTargetName = pTargetName_
     , _ccscsivNetworkInterfaceId = pNetworkInterfaceId_
     , _ccscsivClientToken = pClientToken_
     }
+
+-- | The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The @VolumeSizeInBytes@ value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+ccscsivSourceVolumeARN :: Lens' CreateCachediSCSIVolume (Maybe Text)
+ccscsivSourceVolumeARN = lens _ccscsivSourceVolumeARN (\ s a -> s{_ccscsivSourceVolumeARN = a});
 
 -- | Undocumented member.
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
@@ -147,7 +158,8 @@ instance ToJSON CreateCachediSCSIVolume where
         toJSON CreateCachediSCSIVolume'{..}
           = object
               (catMaybes
-                 [("SnapshotId" .=) <$> _ccscsivSnapshotId,
+                 [("SourceVolumeARN" .=) <$> _ccscsivSourceVolumeARN,
+                  ("SnapshotId" .=) <$> _ccscsivSnapshotId,
                   Just ("GatewayARN" .= _ccscsivGatewayARN),
                   Just
                     ("VolumeSizeInBytes" .= _ccscsivVolumeSizeInBytes),

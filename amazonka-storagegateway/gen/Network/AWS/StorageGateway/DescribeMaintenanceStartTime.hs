@@ -114,7 +114,21 @@ instance ToPath DescribeMaintenanceStartTime where
 instance ToQuery DescribeMaintenanceStartTime where
         toQuery = const mempty
 
--- | /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
+-- | A JSON object containing the following fields:
+--
+--
+--     * 'DescribeMaintenanceStartTimeOutput$DayOfWeek'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$HourOfDay'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$MinuteOfHour'
+--
+--     * 'DescribeMaintenanceStartTimeOutput$Timezone'
+--
+--
+--
+--
+-- /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
     { _dmstrsGatewayARN     :: !(Maybe Text)
     , _dmstrsMinuteOfHour   :: !(Maybe Nat)
@@ -130,13 +144,13 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 --
 -- * 'dmstrsGatewayARN' - Undocumented member.
 --
--- * 'dmstrsMinuteOfHour' - Undocumented member.
+-- * 'dmstrsMinuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
 --
--- * 'dmstrsHourOfDay' - Undocumented member.
+-- * 'dmstrsHourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 --
 -- * 'dmstrsTimezone' - Undocumented member.
 --
--- * 'dmstrsDayOfWeek' - Undocumented member.
+-- * 'dmstrsDayOfWeek' - An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 --
 -- * 'dmstrsResponseStatus' - -- | The response status code.
 describeMaintenanceStartTimeResponse
@@ -156,11 +170,11 @@ describeMaintenanceStartTimeResponse pResponseStatus_ =
 dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
 dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat;
 
@@ -168,7 +182,7 @@ dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . map
 dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
 dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
 
--- | Undocumented member.
+-- | An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 

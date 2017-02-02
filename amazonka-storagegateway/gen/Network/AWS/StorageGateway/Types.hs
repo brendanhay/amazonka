@@ -17,6 +17,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * Errors
     , _InvalidGatewayRequestException
+    , _ServiceUnavailableError
     , _InternalServerError
 
     -- * CachediSCSIVolume
@@ -28,6 +29,7 @@ module Network.AWS.StorageGateway.Types
     , cscsivVolumeARN
     , cscsivVolumeProgress
     , cscsivVolumeSizeInBytes
+    , cscsivCreatedDate
     , cscsivVolumeId
     , cscsivVolumeType
 
@@ -58,6 +60,14 @@ module Network.AWS.StorageGateway.Types
     , dDiskStatus
     , dDiskId
 
+    -- * FileShareInfo
+    , FileShareInfo
+    , fileShareInfo
+    , fsiFileShareStatus
+    , fsiGatewayARN
+    , fsiFileShareId
+    , fsiFileShareARN
+
     -- * GatewayInfo
     , GatewayInfo
     , gatewayInfo
@@ -66,6 +76,29 @@ module Network.AWS.StorageGateway.Types
     , giGatewayName
     , giGatewayId
     , giGatewayType
+
+    -- * NFSFileShareDefaults
+    , NFSFileShareDefaults
+    , nFSFileShareDefaults
+    , nfsfsdFileMode
+    , nfsfsdOwnerId
+    , nfsfsdDirectoryMode
+    , nfsfsdGroupId
+
+    -- * NFSFileShareInfo
+    , NFSFileShareInfo
+    , nFSFileShareInfo
+    , nfsfsiFileShareStatus
+    , nfsfsiKMSKey
+    , nfsfsiGatewayARN
+    , nfsfsiPath
+    , nfsfsiKMSEncrypted
+    , nfsfsiFileShareId
+    , nfsfsiFileShareARN
+    , nfsfsiDefaultStorageClass
+    , nfsfsiRole
+    , nfsfsiNFSFileShareDefaults
+    , nfsfsiLocationARN
 
     -- * NetworkInterface
     , NetworkInterface
@@ -84,6 +117,7 @@ module Network.AWS.StorageGateway.Types
     , sscsivVolumeARN
     , sscsivVolumeProgress
     , sscsivVolumeSizeInBytes
+    , sscsivCreatedDate
     , sscsivVolumeId
     , sscsivVolumeDiskId
     , sscsivVolumeType
@@ -103,6 +137,7 @@ module Network.AWS.StorageGateway.Types
     , tProgress
     , tTapeSizeInBytes
     , tVTLDevice
+    , tTapeCreatedDate
 
     -- * TapeArchive
     , TapeArchive
@@ -112,6 +147,7 @@ module Network.AWS.StorageGateway.Types
     , taTapeARN
     , taTapeSizeInBytes
     , taCompletionTime
+    , taTapeCreatedDate
     , taRetrievedTo
 
     -- * TapeInfo
@@ -214,6 +250,13 @@ storageGateway =
 _InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidGatewayRequestException =
     _MatchServiceError storageGateway "InvalidGatewayRequestException"
+
+-- | An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.
+--
+--
+_ServiceUnavailableError :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceUnavailableError =
+    _MatchServiceError storageGateway "ServiceUnavailableError"
 
 -- | An internal server error has occurred during the request. For more information, see the error and message fields.
 --

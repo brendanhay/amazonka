@@ -111,7 +111,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- * 'rdifdsDomain' - Specify the Active Directory Domain to restore the instance in.
 --
--- * 'rdifdsEngine' - The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
+-- * 'rdifdsEngine' - The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source. You can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot. Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
 --
 -- * 'rdifdsTDECredentialPassword' - The password for the given ARN from the Key Store in order to access the device.
 --
@@ -191,7 +191,7 @@ rdifdsIOPS = lens _rdifdsIOPS (\ s a -> s{_rdifdsIOPS = a});
 rdifdsDomain :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDomain = lens _rdifdsDomain (\ s a -> s{_rdifdsDomain = a});
 
--- | The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
+-- | The database engine to use for the new instance. Default: The same as source Constraint: Must be compatible with the engine of the source. You can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot. Valid Values: @MySQL@ | @mariadb@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ | @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ | @postgres@ | @aurora@
 rdifdsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsEngine = lens _rdifdsEngine (\ s a -> s{_rdifdsEngine = a});
 

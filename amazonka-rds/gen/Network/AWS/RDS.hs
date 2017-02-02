@@ -463,6 +463,9 @@ module Network.AWS.RDS
     -- ** DescribeDBClusterSnapshotAttributes
     , module Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
 
+    -- ** ModifyDBSnapshot
+    , module Network.AWS.RDS.ModifyDBSnapshot
+
     -- ** DescribePendingMaintenanceActions
     , module Network.AWS.RDS.DescribePendingMaintenanceActions
 
@@ -614,7 +617,9 @@ module Network.AWS.RDS
     , dcBackupRetentionPeriod
     , dcDBSubnetGroup
     , dcDatabaseName
+    , dcMultiAZ
     , dcAllocatedStorage
+    , dcClusterCreateTime
     , dcEndpoint
     , dcPercentProgress
     , dcReaderEndpoint
@@ -747,6 +752,7 @@ module Network.AWS.RDS
     , diDBInstanceStatus
     , diDBInstancePort
     , diPendingModifiedValues
+    , diReadReplicaDBClusterIdentifiers
     , diStorageType
     , diStatusInfos
     , diDomainMemberships
@@ -1223,6 +1229,7 @@ import           Network.AWS.RDS.ModifyDBClusterParameterGroup
 import           Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
 import           Network.AWS.RDS.ModifyDBInstance
 import           Network.AWS.RDS.ModifyDBParameterGroup
+import           Network.AWS.RDS.ModifyDBSnapshot
 import           Network.AWS.RDS.ModifyDBSnapshotAttribute
 import           Network.AWS.RDS.ModifyDBSubnetGroup
 import           Network.AWS.RDS.ModifyEventSubscription

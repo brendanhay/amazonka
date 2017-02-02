@@ -199,6 +199,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeDBClusterSnapshotAttributes $
 --             describeDBClusterSnapshotAttributes
 --
+--         , requestModifyDBSnapshot $
+--             modifyDBSnapshot
+--
 --         , requestDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActions
 --
@@ -459,6 +462,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseDescribeDBClusterSnapshotAttributes $
 --             describeDBClusterSnapshotAttributesResponse
+--
+--         , responseModifyDBSnapshot $
+--             modifyDBSnapshotResponse
 --
 --         , responseDescribePendingMaintenanceActions $
 --             describePendingMaintenanceActionsResponse
@@ -836,6 +842,11 @@ requestDescribeDBClusterSnapshotAttributes :: DescribeDBClusterSnapshotAttribute
 requestDescribeDBClusterSnapshotAttributes = req
     "DescribeDBClusterSnapshotAttributes"
     "fixture/DescribeDBClusterSnapshotAttributes.yaml"
+
+requestModifyDBSnapshot :: ModifyDBSnapshot -> TestTree
+requestModifyDBSnapshot = req
+    "ModifyDBSnapshot"
+    "fixture/ModifyDBSnapshot.yaml"
 
 requestDescribePendingMaintenanceActions :: DescribePendingMaintenanceActions -> TestTree
 requestDescribePendingMaintenanceActions = req
@@ -1382,6 +1393,13 @@ responseDescribeDBClusterSnapshotAttributes = res
     "fixture/DescribeDBClusterSnapshotAttributesResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBClusterSnapshotAttributes)
+
+responseModifyDBSnapshot :: ModifyDBSnapshotResponse -> TestTree
+responseModifyDBSnapshot = res
+    "ModifyDBSnapshotResponse"
+    "fixture/ModifyDBSnapshotResponse.proto"
+    rds
+    (Proxy :: Proxy ModifyDBSnapshot)
 
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
 responseDescribePendingMaintenanceActions = res

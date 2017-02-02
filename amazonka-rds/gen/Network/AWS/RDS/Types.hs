@@ -155,7 +155,9 @@ module Network.AWS.RDS.Types
     , dcBackupRetentionPeriod
     , dcDBSubnetGroup
     , dcDatabaseName
+    , dcMultiAZ
     , dcAllocatedStorage
+    , dcClusterCreateTime
     , dcEndpoint
     , dcPercentProgress
     , dcReaderEndpoint
@@ -288,6 +290,7 @@ module Network.AWS.RDS.Types
     , diDBInstanceStatus
     , diDBInstancePort
     , diPendingModifiedValues
+    , diReadReplicaDBClusterIdentifiers
     , diStorageType
     , diStatusInfos
     , diDomainMemberships

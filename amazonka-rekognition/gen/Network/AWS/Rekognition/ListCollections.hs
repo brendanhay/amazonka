@@ -25,6 +25,8 @@
 --
 -- This operation requires permissions to perform the @rekognition:ListCollections@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Rekognition.ListCollections
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Rekognition.ListCollections
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Rekognition.Types
 import           Network.AWS.Rekognition.Types.Product
@@ -78,6 +81,13 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 -- | Maximum number of collection IDs to return.
 lcMaxResults :: Lens' ListCollections (Maybe Natural)
 lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListCollections where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsCollectionIds) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListCollections where
         type Rs ListCollections = ListCollectionsResponse

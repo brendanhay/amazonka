@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For a given input face ID, searches the specified collection for matching faces. You get a face ID when you add a face to the collection using the 'IndexFaces' operation. The operation compares the features of the input face with faces in the specified collection.
+-- For a given input face ID, searches for matching faces in the collection the face belongs to. You get a face ID when you add a face to the collection using the 'IndexFaces' operation. The operation compares the features of the input face with faces in the specified collection.
 --
 --
 -- The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a @confidence@ value for each face match, indicating the confidence that the specific face matches the input face.
@@ -68,9 +68,9 @@ data SearchFaces = SearchFaces'
 --
 -- * 'sfFaceMatchThreshold' - Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.
 --
--- * 'sfMaxFaces' - Maximum number of faces to return. The API will return the maximum number of faces with the highest confidence in the match.
+-- * 'sfMaxFaces' - Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
 --
--- * 'sfCollectionId' - ID of the collection to search.
+-- * 'sfCollectionId' - ID of the collection the face belongs to.
 --
 -- * 'sfFaceId' - ID of a face to find matches for in the collection.
 searchFaces
@@ -89,11 +89,11 @@ searchFaces pCollectionId_ pFaceId_ =
 sfFaceMatchThreshold :: Lens' SearchFaces (Maybe Double)
 sfFaceMatchThreshold = lens _sfFaceMatchThreshold (\ s a -> s{_sfFaceMatchThreshold = a});
 
--- | Maximum number of faces to return. The API will return the maximum number of faces with the highest confidence in the match.
+-- | Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.
 sfMaxFaces :: Lens' SearchFaces (Maybe Natural)
 sfMaxFaces = lens _sfMaxFaces (\ s a -> s{_sfMaxFaces = a}) . mapping _Nat;
 
--- | ID of the collection to search.
+-- | ID of the collection the face belongs to.
 sfCollectionId :: Lens' SearchFaces Text
 sfCollectionId = lens _sfCollectionId (\ s a -> s{_sfCollectionId = a});
 

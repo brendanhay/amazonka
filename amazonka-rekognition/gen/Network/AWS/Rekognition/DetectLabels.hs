@@ -160,7 +160,7 @@ data DetectLabelsResponse = DetectLabelsResponse'
 --
 -- * 'dlrsLabels' - An array of labels for the real-world objects detected.
 --
--- * 'dlrsOrientationCorrection' - Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
+-- * 'dlrsOrientationCorrection' - Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
 --
 -- * 'dlrsResponseStatus' - -- | The response status code.
 detectLabelsResponse
@@ -177,7 +177,7 @@ detectLabelsResponse pResponseStatus_ =
 dlrsLabels :: Lens' DetectLabelsResponse [Label]
 dlrsLabels = lens _dlrsLabels (\ s a -> s{_dlrsLabels = a}) . _Default . _Coerce;
 
--- | Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
+-- | Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels.
 dlrsOrientationCorrection :: Lens' DetectLabelsResponse (Maybe OrientationCorrection)
 dlrsOrientationCorrection = lens _dlrsOrientationCorrection (\ s a -> s{_dlrsOrientationCorrection = a});
 

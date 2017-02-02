@@ -69,7 +69,7 @@ data UpdateUserPoolClient = UpdateUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uupcRefreshTokenValidity' - The validity of the refresh token.
+-- * 'uupcRefreshTokenValidity' - The validity of the refresh token, in days.
 --
 -- * 'uupcExplicitAuthFlows' - Explicit authentication flows.
 --
@@ -97,7 +97,7 @@ updateUserPoolClient pUserPoolId_ pClientId_ =
     , _uupcClientId = _Sensitive # pClientId_
     }
 
--- | The validity of the refresh token.
+-- | The validity of the refresh token, in days.
 uupcRefreshTokenValidity :: Lens' UpdateUserPoolClient (Maybe Natural)
 uupcRefreshTokenValidity = lens _uupcRefreshTokenValidity (\ s a -> s{_uupcRefreshTokenValidity = a}) . mapping _Nat;
 

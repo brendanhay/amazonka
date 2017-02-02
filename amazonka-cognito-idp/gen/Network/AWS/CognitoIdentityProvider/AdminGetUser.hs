@@ -21,6 +21,8 @@
 -- Gets the specified user by user name in a user pool as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminGetUser
     (
     -- * Creating a Request

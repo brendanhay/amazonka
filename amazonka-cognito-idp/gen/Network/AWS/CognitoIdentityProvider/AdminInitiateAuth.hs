@@ -21,6 +21,8 @@
 -- Initiates the authentication flow, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
     (
     -- * Creating a Request

@@ -21,6 +21,8 @@
 -- Responds to an authentication challenge, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     (
     -- * Creating a Request

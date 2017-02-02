@@ -30,6 +30,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _CodeMismatchException
     , _UserImportInProgressException
     , _InvalidSmsRoleTrustRelationshipException
+    , _UserPoolTaggingException
     , _TooManyRequestsException
     , _ConcurrentModificationException
     , _UserLambdaValidationException
@@ -37,6 +38,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _ExpiredCodeException
     , _TooManyFailedAttemptsException
     , _UserNotConfirmedException
+    , _GroupExistsException
     , _CodeDeliveryFailureException
     , _ResourceNotFoundException
     , _MFAMethodNotFoundException
@@ -140,6 +142,17 @@ module Network.AWS.CognitoIdentityProvider.Types
     , emailConfigurationType
     , ectSourceARN
     , ectReplyToEmailAddress
+
+    -- * GroupType
+    , GroupType
+    , groupType
+    , gtLastModifiedDate
+    , gtUserPoolId
+    , gtCreationDate
+    , gtPrecedence
+    , gtGroupName
+    , gtDescription
+    , gtRoleARN
 
     -- * LambdaConfigType
     , LambdaConfigType
@@ -267,6 +280,7 @@ module Network.AWS.CognitoIdentityProvider.Types
     , UserPoolType
     , userPoolType
     , uptStatus
+    , uptUserPoolTags
     , uptEmailConfigurationFailure
     , uptLastModifiedDate
     , uptEstimatedNumberOfUsers
@@ -447,6 +461,13 @@ _InvalidSmsRoleTrustRelationshipException =
         cognitoIdentityProvider
         "InvalidSmsRoleTrustRelationshipException"
 
+-- | This exception gets thrown when a user pool tag cannot be set or updated.
+--
+--
+_UserPoolTaggingException :: AsError a => Getting (First ServiceError) a ServiceError
+_UserPoolTaggingException =
+    _MatchServiceError cognitoIdentityProvider "UserPoolTaggingException"
+
 -- | This exception gets thrown when the user has made too many requests for a given operation.
 --
 --
@@ -497,6 +518,13 @@ _TooManyFailedAttemptsException =
 _UserNotConfirmedException :: AsError a => Getting (First ServiceError) a ServiceError
 _UserNotConfirmedException =
     _MatchServiceError cognitoIdentityProvider "UserNotConfirmedException"
+
+-- | This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.
+--
+--
+_GroupExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_GroupExistsException =
+    _MatchServiceError cognitoIdentityProvider "GroupExistsException"
 
 -- | This exception is thrown when a verification code fails to deliver successfully.
 --

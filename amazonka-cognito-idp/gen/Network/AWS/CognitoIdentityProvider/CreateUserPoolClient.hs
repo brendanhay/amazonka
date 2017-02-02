@@ -69,7 +69,7 @@ data CreateUserPoolClient = CreateUserPoolClient'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cupcRefreshTokenValidity' - Refreshes the token validity.
+-- * 'cupcRefreshTokenValidity' - The validity of the refresh token, in days.
 --
 -- * 'cupcExplicitAuthFlows' - The explicit authentication flows.
 --
@@ -97,7 +97,7 @@ createUserPoolClient pUserPoolId_ pClientName_ =
     , _cupcClientName = pClientName_
     }
 
--- | Refreshes the token validity.
+-- | The validity of the refresh token, in days.
 cupcRefreshTokenValidity :: Lens' CreateUserPoolClient (Maybe Natural)
 cupcRefreshTokenValidity = lens _cupcRefreshTokenValidity (\ s a -> s{_cupcRefreshTokenValidity = a}) . mapping _Nat;
 

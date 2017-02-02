@@ -21,6 +21,8 @@
 -- Sets all the user settings for a specified user name. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
     (
     -- * Creating a Request

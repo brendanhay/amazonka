@@ -21,6 +21,8 @@
 -- Updates the device status as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
     (
     -- * Creating a Request

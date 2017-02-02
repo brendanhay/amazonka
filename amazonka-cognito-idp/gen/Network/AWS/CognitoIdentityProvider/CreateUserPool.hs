@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
       createUserPool
     , CreateUserPool
     -- * Request Lenses
+    , cupUserPoolTags
     , cupEmailVerificationMessage
     , cupSmsAuthenticationMessage
     , cupEmailVerificationSubject
@@ -64,7 +65,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-    { _cupEmailVerificationMessage :: !(Maybe Text)
+    { _cupUserPoolTags             :: !(Maybe (Map Text Text))
+    , _cupEmailVerificationMessage :: !(Maybe Text)
     , _cupSmsAuthenticationMessage :: !(Maybe Text)
     , _cupEmailVerificationSubject :: !(Maybe Text)
     , _cupAliasAttributes          :: !(Maybe [AliasAttributeType])
@@ -84,6 +86,8 @@ data CreateUserPool = CreateUserPool'
 -- | Creates a value of 'CreateUserPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 --
 -- * 'cupEmailVerificationMessage' - A string representing the email verification message.
 --
@@ -119,7 +123,8 @@ createUserPool
     -> CreateUserPool
 createUserPool pPoolName_ =
     CreateUserPool'
-    { _cupEmailVerificationMessage = Nothing
+    { _cupUserPoolTags = Nothing
+    , _cupEmailVerificationMessage = Nothing
     , _cupSmsAuthenticationMessage = Nothing
     , _cupEmailVerificationSubject = Nothing
     , _cupAliasAttributes = Nothing
@@ -135,6 +140,10 @@ createUserPool pPoolName_ =
     , _cupPolicies = Nothing
     , _cupPoolName = pPoolName_
     }
+
+-- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+cupUserPoolTags :: Lens' CreateUserPool (HashMap Text Text)
+cupUserPoolTags = lens _cupUserPoolTags (\ s a -> s{_cupUserPoolTags = a}) . _Default . _Map;
 
 -- | A string representing the email verification message.
 cupEmailVerificationMessage :: Lens' CreateUserPool (Maybe Text)
@@ -223,7 +232,8 @@ instance ToJSON CreateUserPool where
         toJSON CreateUserPool'{..}
           = object
               (catMaybes
-                 [("EmailVerificationMessage" .=) <$>
+                 [("UserPoolTags" .=) <$> _cupUserPoolTags,
+                  ("EmailVerificationMessage" .=) <$>
                     _cupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>
                     _cupSmsAuthenticationMessage,

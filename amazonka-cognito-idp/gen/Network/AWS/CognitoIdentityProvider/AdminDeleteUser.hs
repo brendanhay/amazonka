@@ -21,6 +21,8 @@
 -- Deletes a user as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
     (
     -- * Creating a Request

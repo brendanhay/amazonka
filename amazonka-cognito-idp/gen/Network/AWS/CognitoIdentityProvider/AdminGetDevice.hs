@@ -21,6 +21,8 @@
 -- Gets the device, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminGetDevice
     (
     -- * Creating a Request

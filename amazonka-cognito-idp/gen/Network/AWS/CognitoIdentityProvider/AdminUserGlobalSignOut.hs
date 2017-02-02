@@ -21,6 +21,8 @@
 -- Signs out users from all devices, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
     (
     -- * Creating a Request

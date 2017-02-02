@@ -27,6 +27,7 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPool
       updateUserPool
     , UpdateUserPool
     -- * Request Lenses
+    , uupUserPoolTags
     , uupEmailVerificationMessage
     , uupSmsAuthenticationMessage
     , uupEmailVerificationSubject
@@ -61,7 +62,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'updateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-    { _uupEmailVerificationMessage :: !(Maybe Text)
+    { _uupUserPoolTags             :: !(Maybe (Map Text Text))
+    , _uupEmailVerificationMessage :: !(Maybe Text)
     , _uupSmsAuthenticationMessage :: !(Maybe Text)
     , _uupEmailVerificationSubject :: !(Maybe Text)
     , _uupEmailConfiguration       :: !(Maybe EmailConfigurationType)
@@ -79,6 +81,8 @@ data UpdateUserPool = UpdateUserPool'
 -- | Creates a value of 'UpdateUserPool' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 --
 -- * 'uupEmailVerificationMessage' - The contents of the email verification message.
 --
@@ -110,7 +114,8 @@ updateUserPool
     -> UpdateUserPool
 updateUserPool pUserPoolId_ =
     UpdateUserPool'
-    { _uupEmailVerificationMessage = Nothing
+    { _uupUserPoolTags = Nothing
+    , _uupEmailVerificationMessage = Nothing
     , _uupSmsAuthenticationMessage = Nothing
     , _uupEmailVerificationSubject = Nothing
     , _uupEmailConfiguration = Nothing
@@ -124,6 +129,10 @@ updateUserPool pUserPoolId_ =
     , _uupPolicies = Nothing
     , _uupUserPoolId = pUserPoolId_
     }
+
+-- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+uupUserPoolTags :: Lens' UpdateUserPool (HashMap Text Text)
+uupUserPoolTags = lens _uupUserPoolTags (\ s a -> s{_uupUserPoolTags = a}) . _Default . _Map;
 
 -- | The contents of the email verification message.
 uupEmailVerificationMessage :: Lens' UpdateUserPool (Maybe Text)
@@ -203,7 +212,8 @@ instance ToJSON UpdateUserPool where
         toJSON UpdateUserPool'{..}
           = object
               (catMaybes
-                 [("EmailVerificationMessage" .=) <$>
+                 [("UserPoolTags" .=) <$> _uupUserPoolTags,
+                  ("EmailVerificationMessage" .=) <$>
                     _uupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>
                     _uupSmsAuthenticationMessage,

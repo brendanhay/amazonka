@@ -79,6 +79,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestAdminUserGlobalSignOut $
 --             adminUserGlobalSignOut
 --
+--         , requestListUsersInGroup $
+--             listUsersInGroup
+--
 --         , requestForgotPassword $
 --             forgotPassword
 --
@@ -87,6 +90,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestInitiateAuth $
 --             initiateAuth
+--
+--         , requestAdminListGroupsForUser $
+--             adminListGroupsForUser
 --
 --         , requestAdminConfirmSignUp $
 --             adminConfirmSignUp
@@ -111,6 +117,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestAdminGetDevice $
 --             adminGetDevice
+--
+--         , requestAdminRemoveUserFromGroup $
+--             adminRemoveUserFromGroup
 --
 --         , requestConfirmSignUp $
 --             confirmSignUp
@@ -166,14 +175,29 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , requestCreateUserPoolClient $
 --             createUserPoolClient
 --
+--         , requestCreateGroup $
+--             createGroup
+--
+--         , requestAdminAddUserToGroup $
+--             adminAddUserToGroup
+--
 --         , requestStopUserImportJob $
 --             stopUserImportJob
 --
 --         , requestDescribeUserImportJob $
 --             describeUserImportJob
 --
+--         , requestDeleteGroup $
+--             deleteGroup
+--
+--         , requestUpdateGroup $
+--             updateGroup
+--
 --         , requestGlobalSignOut $
 --             globalSignOut
+--
+--         , requestListGroups $
+--             listGroups
 --
 --         , requestAdminRespondToAuthChallenge $
 --             adminRespondToAuthChallenge
@@ -189,6 +213,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , requestResendConfirmationCode $
 --             resendConfirmationCode
+--
+--         , requestGetGroup $
+--             getGroup
 --
 --         , requestAdminSetUserSettings $
 --             adminSetUserSettings
@@ -250,6 +277,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseAdminUserGlobalSignOut $
 --             adminUserGlobalSignOutResponse
 --
+--         , responseListUsersInGroup $
+--             listUsersInGroupResponse
+--
 --         , responseForgotPassword $
 --             forgotPasswordResponse
 --
@@ -258,6 +288,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseInitiateAuth $
 --             initiateAuthResponse
+--
+--         , responseAdminListGroupsForUser $
+--             adminListGroupsForUserResponse
 --
 --         , responseAdminConfirmSignUp $
 --             adminConfirmSignUpResponse
@@ -282,6 +315,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseAdminGetDevice $
 --             adminGetDeviceResponse
+--
+--         , responseAdminRemoveUserFromGroup $
+--             adminRemoveUserFromGroupResponse
 --
 --         , responseConfirmSignUp $
 --             confirmSignUpResponse
@@ -337,14 +373,29 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --         , responseCreateUserPoolClient $
 --             createUserPoolClientResponse
 --
+--         , responseCreateGroup $
+--             createGroupResponse
+--
+--         , responseAdminAddUserToGroup $
+--             adminAddUserToGroupResponse
+--
 --         , responseStopUserImportJob $
 --             stopUserImportJobResponse
 --
 --         , responseDescribeUserImportJob $
 --             describeUserImportJobResponse
 --
+--         , responseDeleteGroup $
+--             deleteGroupResponse
+--
+--         , responseUpdateGroup $
+--             updateGroupResponse
+--
 --         , responseGlobalSignOut $
 --             globalSignOutResponse
+--
+--         , responseListGroups $
+--             listGroupsResponse
 --
 --         , responseAdminRespondToAuthChallenge $
 --             adminRespondToAuthChallengeResponse
@@ -360,6 +411,9 @@ import Test.AWS.CognitoIdentityProvider.Internal
 --
 --         , responseResendConfirmationCode $
 --             resendConfirmationCodeResponse
+--
+--         , responseGetGroup $
+--             getGroupResponse
 --
 --         , responseAdminSetUserSettings $
 --             adminSetUserSettingsResponse
@@ -457,6 +511,11 @@ requestAdminUserGlobalSignOut = req
     "AdminUserGlobalSignOut"
     "fixture/AdminUserGlobalSignOut.yaml"
 
+requestListUsersInGroup :: ListUsersInGroup -> TestTree
+requestListUsersInGroup = req
+    "ListUsersInGroup"
+    "fixture/ListUsersInGroup.yaml"
+
 requestForgotPassword :: ForgotPassword -> TestTree
 requestForgotPassword = req
     "ForgotPassword"
@@ -471,6 +530,11 @@ requestInitiateAuth :: InitiateAuth -> TestTree
 requestInitiateAuth = req
     "InitiateAuth"
     "fixture/InitiateAuth.yaml"
+
+requestAdminListGroupsForUser :: AdminListGroupsForUser -> TestTree
+requestAdminListGroupsForUser = req
+    "AdminListGroupsForUser"
+    "fixture/AdminListGroupsForUser.yaml"
 
 requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
 requestAdminConfirmSignUp = req
@@ -511,6 +575,11 @@ requestAdminGetDevice :: AdminGetDevice -> TestTree
 requestAdminGetDevice = req
     "AdminGetDevice"
     "fixture/AdminGetDevice.yaml"
+
+requestAdminRemoveUserFromGroup :: AdminRemoveUserFromGroup -> TestTree
+requestAdminRemoveUserFromGroup = req
+    "AdminRemoveUserFromGroup"
+    "fixture/AdminRemoveUserFromGroup.yaml"
 
 requestConfirmSignUp :: ConfirmSignUp -> TestTree
 requestConfirmSignUp = req
@@ -602,6 +671,16 @@ requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
+requestCreateGroup :: CreateGroup -> TestTree
+requestCreateGroup = req
+    "CreateGroup"
+    "fixture/CreateGroup.yaml"
+
+requestAdminAddUserToGroup :: AdminAddUserToGroup -> TestTree
+requestAdminAddUserToGroup = req
+    "AdminAddUserToGroup"
+    "fixture/AdminAddUserToGroup.yaml"
+
 requestStopUserImportJob :: StopUserImportJob -> TestTree
 requestStopUserImportJob = req
     "StopUserImportJob"
@@ -612,10 +691,25 @@ requestDescribeUserImportJob = req
     "DescribeUserImportJob"
     "fixture/DescribeUserImportJob.yaml"
 
+requestDeleteGroup :: DeleteGroup -> TestTree
+requestDeleteGroup = req
+    "DeleteGroup"
+    "fixture/DeleteGroup.yaml"
+
+requestUpdateGroup :: UpdateGroup -> TestTree
+requestUpdateGroup = req
+    "UpdateGroup"
+    "fixture/UpdateGroup.yaml"
+
 requestGlobalSignOut :: GlobalSignOut -> TestTree
 requestGlobalSignOut = req
     "GlobalSignOut"
     "fixture/GlobalSignOut.yaml"
+
+requestListGroups :: ListGroups -> TestTree
+requestListGroups = req
+    "ListGroups"
+    "fixture/ListGroups.yaml"
 
 requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
 requestAdminRespondToAuthChallenge = req
@@ -641,6 +735,11 @@ requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
 requestResendConfirmationCode = req
     "ResendConfirmationCode"
     "fixture/ResendConfirmationCode.yaml"
+
+requestGetGroup :: GetGroup -> TestTree
+requestGetGroup = req
+    "GetGroup"
+    "fixture/GetGroup.yaml"
 
 requestAdminSetUserSettings :: AdminSetUserSettings -> TestTree
 requestAdminSetUserSettings = req
@@ -773,6 +872,13 @@ responseAdminUserGlobalSignOut = res
     cognitoIdentityProvider
     (Proxy :: Proxy AdminUserGlobalSignOut)
 
+responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
+responseListUsersInGroup = res
+    "ListUsersInGroupResponse"
+    "fixture/ListUsersInGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListUsersInGroup)
+
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
 responseForgotPassword = res
     "ForgotPasswordResponse"
@@ -793,6 +899,13 @@ responseInitiateAuth = res
     "fixture/InitiateAuthResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy InitiateAuth)
+
+responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
+responseAdminListGroupsForUser = res
+    "AdminListGroupsForUserResponse"
+    "fixture/AdminListGroupsForUserResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminListGroupsForUser)
 
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
 responseAdminConfirmSignUp = res
@@ -849,6 +962,13 @@ responseAdminGetDevice = res
     "fixture/AdminGetDeviceResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy AdminGetDevice)
+
+responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
+responseAdminRemoveUserFromGroup = res
+    "AdminRemoveUserFromGroupResponse"
+    "fixture/AdminRemoveUserFromGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminRemoveUserFromGroup)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
 responseConfirmSignUp = res
@@ -976,6 +1096,20 @@ responseCreateUserPoolClient = res
     cognitoIdentityProvider
     (Proxy :: Proxy CreateUserPoolClient)
 
+responseCreateGroup :: CreateGroupResponse -> TestTree
+responseCreateGroup = res
+    "CreateGroupResponse"
+    "fixture/CreateGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy CreateGroup)
+
+responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
+responseAdminAddUserToGroup = res
+    "AdminAddUserToGroupResponse"
+    "fixture/AdminAddUserToGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy AdminAddUserToGroup)
+
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
 responseStopUserImportJob = res
     "StopUserImportJobResponse"
@@ -990,12 +1124,33 @@ responseDescribeUserImportJob = res
     cognitoIdentityProvider
     (Proxy :: Proxy DescribeUserImportJob)
 
+responseDeleteGroup :: DeleteGroupResponse -> TestTree
+responseDeleteGroup = res
+    "DeleteGroupResponse"
+    "fixture/DeleteGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy DeleteGroup)
+
+responseUpdateGroup :: UpdateGroupResponse -> TestTree
+responseUpdateGroup = res
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy UpdateGroup)
+
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
 responseGlobalSignOut = res
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy GlobalSignOut)
+
+responseListGroups :: ListGroupsResponse -> TestTree
+responseListGroups = res
+    "ListGroupsResponse"
+    "fixture/ListGroupsResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy ListGroups)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
 responseAdminRespondToAuthChallenge = res
@@ -1031,6 +1186,13 @@ responseResendConfirmationCode = res
     "fixture/ResendConfirmationCodeResponse.proto"
     cognitoIdentityProvider
     (Proxy :: Proxy ResendConfirmationCode)
+
+responseGetGroup :: GetGroupResponse -> TestTree
+responseGetGroup = res
+    "GetGroupResponse"
+    "fixture/GetGroupResponse.proto"
+    cognitoIdentityProvider
+    (Proxy :: Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
 responseAdminSetUserSettings = res

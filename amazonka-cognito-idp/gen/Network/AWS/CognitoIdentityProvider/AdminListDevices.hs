@@ -21,6 +21,8 @@
 -- Lists devices, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminListDevices
     (
     -- * Creating a Request

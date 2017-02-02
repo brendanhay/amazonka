@@ -38,7 +38,7 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 --
 -- * 'acuctAllowAdminCreateUserOnly' - Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
 --
--- * 'acuctUnusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.
+-- * 'acuctUnusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter. The default value for this paameter is 7.
 --
 -- * 'acuctInviteMessageTemplate' - The message template to be used for the welcome message to new users.
 adminCreateUserConfigType
@@ -54,7 +54,7 @@ adminCreateUserConfigType =
 acuctAllowAdminCreateUserOnly :: Lens' AdminCreateUserConfigType (Maybe Bool)
 acuctAllowAdminCreateUserOnly = lens _acuctAllowAdminCreateUserOnly (\ s a -> s{_acuctAllowAdminCreateUserOnly = a});
 
--- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter.
+-- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call AdminCreateUser again, specifying "RESEND" for the MessageAction parameter. The default value for this paameter is 7.
 acuctUnusedAccountValidityDays :: Lens' AdminCreateUserConfigType (Maybe Natural)
 acuctUnusedAccountValidityDays = lens _acuctUnusedAccountValidityDays (\ s a -> s{_acuctUnusedAccountValidityDays = a}) . mapping _Nat;
 
@@ -492,6 +492,95 @@ instance ToJSON EmailConfigurationType where
                  [("SourceArn" .=) <$> _ectSourceARN,
                   ("ReplyToEmailAddress" .=) <$>
                     _ectReplyToEmailAddress])
+
+-- | The group type.
+--
+--
+--
+-- /See:/ 'groupType' smart constructor.
+data GroupType = GroupType'
+    { _gtLastModifiedDate :: !(Maybe POSIX)
+    , _gtUserPoolId       :: !(Maybe Text)
+    , _gtCreationDate     :: !(Maybe POSIX)
+    , _gtPrecedence       :: !(Maybe Nat)
+    , _gtGroupName        :: !(Maybe Text)
+    , _gtDescription      :: !(Maybe Text)
+    , _gtRoleARN          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GroupType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtLastModifiedDate' - The date the group was last modified.
+--
+-- * 'gtUserPoolId' - The user pool ID for the user pool.
+--
+-- * 'gtCreationDate' - The date the group was created.
+--
+-- * 'gtPrecedence' - A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens. Groups with higher @Precedence@ values take precedence over groups with lower @Precedence@ values or with null @Precedence@ values. Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens. The default @Precedence@ value is null.
+--
+-- * 'gtGroupName' - The name of the group.
+--
+-- * 'gtDescription' - A string containing the description of the group.
+--
+-- * 'gtRoleARN' - The role ARN for the group.
+groupType
+    :: GroupType
+groupType =
+    GroupType'
+    { _gtLastModifiedDate = Nothing
+    , _gtUserPoolId = Nothing
+    , _gtCreationDate = Nothing
+    , _gtPrecedence = Nothing
+    , _gtGroupName = Nothing
+    , _gtDescription = Nothing
+    , _gtRoleARN = Nothing
+    }
+
+-- | The date the group was last modified.
+gtLastModifiedDate :: Lens' GroupType (Maybe UTCTime)
+gtLastModifiedDate = lens _gtLastModifiedDate (\ s a -> s{_gtLastModifiedDate = a}) . mapping _Time;
+
+-- | The user pool ID for the user pool.
+gtUserPoolId :: Lens' GroupType (Maybe Text)
+gtUserPoolId = lens _gtUserPoolId (\ s a -> s{_gtUserPoolId = a});
+
+-- | The date the group was created.
+gtCreationDate :: Lens' GroupType (Maybe UTCTime)
+gtCreationDate = lens _gtCreationDate (\ s a -> s{_gtCreationDate = a}) . mapping _Time;
+
+-- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. If a user belongs to two or more groups, it is the group with the highest precedence whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens. Groups with higher @Precedence@ values take precedence over groups with lower @Precedence@ values or with null @Precedence@ values. Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens. The default @Precedence@ value is null.
+gtPrecedence :: Lens' GroupType (Maybe Natural)
+gtPrecedence = lens _gtPrecedence (\ s a -> s{_gtPrecedence = a}) . mapping _Nat;
+
+-- | The name of the group.
+gtGroupName :: Lens' GroupType (Maybe Text)
+gtGroupName = lens _gtGroupName (\ s a -> s{_gtGroupName = a});
+
+-- | A string containing the description of the group.
+gtDescription :: Lens' GroupType (Maybe Text)
+gtDescription = lens _gtDescription (\ s a -> s{_gtDescription = a});
+
+-- | The role ARN for the group.
+gtRoleARN :: Lens' GroupType (Maybe Text)
+gtRoleARN = lens _gtRoleARN (\ s a -> s{_gtRoleARN = a});
+
+instance FromJSON GroupType where
+        parseJSON
+          = withObject "GroupType"
+              (\ x ->
+                 GroupType' <$>
+                   (x .:? "LastModifiedDate") <*> (x .:? "UserPoolId")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "Precedence")
+                     <*> (x .:? "GroupName")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "RoleArn"))
+
+instance Hashable GroupType
+
+instance NFData GroupType
 
 -- | Specifies the type of configuration for AWS Lambda triggers.
 --
@@ -1250,7 +1339,7 @@ instance Hashable UserImportJobType
 
 instance NFData UserImportJobType
 
--- | The description of the user poool client.
+-- | The description of the user pool client.
 --
 --
 --
@@ -1325,7 +1414,7 @@ data UserPoolClientType = UserPoolClientType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upctRefreshTokenValidity' - The validity of the refresh token.
+-- * 'upctRefreshTokenValidity' - The validity of the refresh token, in days.
 --
 -- * 'upctClientId' - The ID of the client associated with the user pool.
 --
@@ -1360,7 +1449,7 @@ userPoolClientType =
     , _upctClientName = Nothing
     }
 
--- | The validity of the refresh token.
+-- | The validity of the refresh token, in days.
 upctRefreshTokenValidity :: Lens' UserPoolClientType (Maybe Natural)
 upctRefreshTokenValidity = lens _upctRefreshTokenValidity (\ s a -> s{_upctRefreshTokenValidity = a}) . mapping _Nat;
 
@@ -1547,6 +1636,7 @@ instance ToJSON UserPoolPolicyType where
 -- /See:/ 'userPoolType' smart constructor.
 data UserPoolType = UserPoolType'
     { _uptStatus                    :: !(Maybe StatusType)
+    , _uptUserPoolTags              :: !(Maybe (Map Text Text))
     , _uptEmailConfigurationFailure :: !(Maybe Text)
     , _uptLastModifiedDate          :: !(Maybe POSIX)
     , _uptEstimatedNumberOfUsers    :: !(Maybe Int)
@@ -1575,6 +1665,8 @@ data UserPoolType = UserPoolType'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uptStatus' - The status of a user pool.
+--
+-- * 'uptUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 --
 -- * 'uptEmailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
 --
@@ -1622,6 +1714,7 @@ userPoolType
 userPoolType =
     UserPoolType'
     { _uptStatus = Nothing
+    , _uptUserPoolTags = Nothing
     , _uptEmailConfigurationFailure = Nothing
     , _uptLastModifiedDate = Nothing
     , _uptEstimatedNumberOfUsers = Nothing
@@ -1648,6 +1741,10 @@ userPoolType =
 -- | The status of a user pool.
 uptStatus :: Lens' UserPoolType (Maybe StatusType)
 uptStatus = lens _uptStatus (\ s a -> s{_uptStatus = a});
+
+-- | The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
+uptUserPoolTags :: Lens' UserPoolType (HashMap Text Text)
+uptUserPoolTags = lens _uptUserPoolTags (\ s a -> s{_uptUserPoolTags = a}) . _Default . _Map;
 
 -- | The reason why the email configuration cannot send the messages to your users.
 uptEmailConfigurationFailure :: Lens' UserPoolType (Maybe Text)
@@ -1739,7 +1836,8 @@ instance FromJSON UserPoolType where
               (\ x ->
                  UserPoolType' <$>
                    (x .:? "Status") <*>
-                     (x .:? "EmailConfigurationFailure")
+                     (x .:? "UserPoolTags" .!= mempty)
+                     <*> (x .:? "EmailConfigurationFailure")
                      <*> (x .:? "LastModifiedDate")
                      <*> (x .:? "EstimatedNumberOfUsers")
                      <*> (x .:? "EmailVerificationMessage")

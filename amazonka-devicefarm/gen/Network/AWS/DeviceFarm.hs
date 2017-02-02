@@ -91,7 +91,7 @@ module Network.AWS.DeviceFarm
     -- ** GetUpload
     , module Network.AWS.DeviceFarm.GetUpload
 
-    -- ** ListOfferingTransactions
+    -- ** ListOfferingTransactions (Paginated)
     , module Network.AWS.DeviceFarm.ListOfferingTransactions
 
     -- ** CreateDevicePool
@@ -142,7 +142,7 @@ module Network.AWS.DeviceFarm
     -- ** CreateRemoteAccessSession
     , module Network.AWS.DeviceFarm.CreateRemoteAccessSession
 
-    -- ** GetOfferingStatus
+    -- ** GetOfferingStatus (Paginated)
     , module Network.AWS.DeviceFarm.GetOfferingStatus
 
     -- ** ListUploads (Paginated)
@@ -172,7 +172,7 @@ module Network.AWS.DeviceFarm
     -- ** CreateProject
     , module Network.AWS.DeviceFarm.CreateProject
 
-    -- ** ListOfferings
+    -- ** ListOfferings (Paginated)
     , module Network.AWS.DeviceFarm.ListOfferings
 
     -- * Types

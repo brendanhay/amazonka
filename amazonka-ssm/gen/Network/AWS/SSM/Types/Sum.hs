@@ -265,36 +265,36 @@ instance FromJSON CommandPluginStatus where
     parseJSON = parseJSONText "CommandPluginStatus"
 
 data CommandStatus
-    = Cancelled
-    | Cancelling
-    | Failed
-    | InProgress
-    | Pending
-    | Success
-    | TimedOut
+    = CSCancelled
+    | CSCancelling
+    | CSFailed
+    | CSInProgress
+    | CSPending
+    | CSSuccess
+    | CSTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CommandStatus where
     parser = takeLowerText >>= \case
-        "cancelled" -> pure Cancelled
-        "cancelling" -> pure Cancelling
-        "failed" -> pure Failed
-        "inprogress" -> pure InProgress
-        "pending" -> pure Pending
-        "success" -> pure Success
-        "timedout" -> pure TimedOut
+        "cancelled" -> pure CSCancelled
+        "cancelling" -> pure CSCancelling
+        "failed" -> pure CSFailed
+        "inprogress" -> pure CSInProgress
+        "pending" -> pure CSPending
+        "success" -> pure CSSuccess
+        "timedout" -> pure CSTimedOut
         e -> fromTextError $ "Failure parsing CommandStatus from value: '" <> e
            <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, success, timedout"
 
 instance ToText CommandStatus where
     toText = \case
-        Cancelled -> "Cancelled"
-        Cancelling -> "Cancelling"
-        Failed -> "Failed"
-        InProgress -> "InProgress"
-        Pending -> "Pending"
-        Success -> "Success"
-        TimedOut -> "TimedOut"
+        CSCancelled -> "Cancelled"
+        CSCancelling -> "Cancelling"
+        CSFailed -> "Failed"
+        CSInProgress -> "InProgress"
+        CSPending -> "Pending"
+        CSSuccess -> "Success"
+        CSTimedOut -> "TimedOut"
 
 instance Hashable     CommandStatus
 instance NFData       CommandStatus
@@ -579,6 +579,38 @@ instance ToQuery      InstanceInformationFilterKey
 instance ToHeader     InstanceInformationFilterKey
 
 instance ToJSON InstanceInformationFilterKey where
+    toJSON = toJSONText
+
+data InstancePatchStateOperatorType
+    = IPSOTEqual
+    | IPSOTGreaterThan
+    | IPSOTLessThan
+    | IPSOTNotEqual
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstancePatchStateOperatorType where
+    parser = takeLowerText >>= \case
+        "equal" -> pure IPSOTEqual
+        "greaterthan" -> pure IPSOTGreaterThan
+        "lessthan" -> pure IPSOTLessThan
+        "notequal" -> pure IPSOTNotEqual
+        e -> fromTextError $ "Failure parsing InstancePatchStateOperatorType from value: '" <> e
+           <> "'. Accepted values: equal, greaterthan, lessthan, notequal"
+
+instance ToText InstancePatchStateOperatorType where
+    toText = \case
+        IPSOTEqual -> "Equal"
+        IPSOTGreaterThan -> "GreaterThan"
+        IPSOTLessThan -> "LessThan"
+        IPSOTNotEqual -> "NotEqual"
+
+instance Hashable     InstancePatchStateOperatorType
+instance NFData       InstancePatchStateOperatorType
+instance ToByteString InstancePatchStateOperatorType
+instance ToQuery      InstancePatchStateOperatorType
+instance ToHeader     InstancePatchStateOperatorType
+
+instance ToJSON InstancePatchStateOperatorType where
     toJSON = toJSONText
 
 data InventoryAttributeDataType
@@ -868,6 +900,134 @@ instance ToHeader     ParametersFilterKey
 
 instance ToJSON ParametersFilterKey where
     toJSON = toJSONText
+
+data PatchComplianceDataState
+    = Failed
+    | Installed
+    | InstalledOther
+    | Missing
+    | NotApplicable
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PatchComplianceDataState where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "installed" -> pure Installed
+        "installed_other" -> pure InstalledOther
+        "missing" -> pure Missing
+        "not_applicable" -> pure NotApplicable
+        e -> fromTextError $ "Failure parsing PatchComplianceDataState from value: '" <> e
+           <> "'. Accepted values: failed, installed, installed_other, missing, not_applicable"
+
+instance ToText PatchComplianceDataState where
+    toText = \case
+        Failed -> "FAILED"
+        Installed -> "INSTALLED"
+        InstalledOther -> "INSTALLED_OTHER"
+        Missing -> "MISSING"
+        NotApplicable -> "NOT_APPLICABLE"
+
+instance Hashable     PatchComplianceDataState
+instance NFData       PatchComplianceDataState
+instance ToByteString PatchComplianceDataState
+instance ToQuery      PatchComplianceDataState
+instance ToHeader     PatchComplianceDataState
+
+instance FromJSON PatchComplianceDataState where
+    parseJSON = parseJSONText "PatchComplianceDataState"
+
+data PatchDeploymentStatus
+    = Approved
+    | ExplicitApproved
+    | ExplicitRejected
+    | PendingApproval
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PatchDeploymentStatus where
+    parser = takeLowerText >>= \case
+        "approved" -> pure Approved
+        "explicit_approved" -> pure ExplicitApproved
+        "explicit_rejected" -> pure ExplicitRejected
+        "pending_approval" -> pure PendingApproval
+        e -> fromTextError $ "Failure parsing PatchDeploymentStatus from value: '" <> e
+           <> "'. Accepted values: approved, explicit_approved, explicit_rejected, pending_approval"
+
+instance ToText PatchDeploymentStatus where
+    toText = \case
+        Approved -> "APPROVED"
+        ExplicitApproved -> "EXPLICIT_APPROVED"
+        ExplicitRejected -> "EXPLICIT_REJECTED"
+        PendingApproval -> "PENDING_APPROVAL"
+
+instance Hashable     PatchDeploymentStatus
+instance NFData       PatchDeploymentStatus
+instance ToByteString PatchDeploymentStatus
+instance ToQuery      PatchDeploymentStatus
+instance ToHeader     PatchDeploymentStatus
+
+instance FromJSON PatchDeploymentStatus where
+    parseJSON = parseJSONText "PatchDeploymentStatus"
+
+data PatchFilterKey
+    = Classification
+    | MsrcSeverity
+    | PatchId
+    | Product
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PatchFilterKey where
+    parser = takeLowerText >>= \case
+        "classification" -> pure Classification
+        "msrc_severity" -> pure MsrcSeverity
+        "patch_id" -> pure PatchId
+        "product" -> pure Product
+        e -> fromTextError $ "Failure parsing PatchFilterKey from value: '" <> e
+           <> "'. Accepted values: classification, msrc_severity, patch_id, product"
+
+instance ToText PatchFilterKey where
+    toText = \case
+        Classification -> "CLASSIFICATION"
+        MsrcSeverity -> "MSRC_SEVERITY"
+        PatchId -> "PATCH_ID"
+        Product -> "PRODUCT"
+
+instance Hashable     PatchFilterKey
+instance NFData       PatchFilterKey
+instance ToByteString PatchFilterKey
+instance ToQuery      PatchFilterKey
+instance ToHeader     PatchFilterKey
+
+instance ToJSON PatchFilterKey where
+    toJSON = toJSONText
+
+instance FromJSON PatchFilterKey where
+    parseJSON = parseJSONText "PatchFilterKey"
+
+data PatchOperationType
+    = Install
+    | Scan
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PatchOperationType where
+    parser = takeLowerText >>= \case
+        "install" -> pure Install
+        "scan" -> pure Scan
+        e -> fromTextError $ "Failure parsing PatchOperationType from value: '" <> e
+           <> "'. Accepted values: install, scan"
+
+instance ToText PatchOperationType where
+    toText = \case
+        Install -> "Install"
+        Scan -> "Scan"
+
+instance Hashable     PatchOperationType
+instance NFData       PatchOperationType
+instance ToByteString PatchOperationType
+instance ToQuery      PatchOperationType
+instance ToHeader     PatchOperationType
+
+instance FromJSON PatchOperationType where
+    parseJSON = parseJSONText "PatchOperationType"
 
 data PingStatus
     = ConnectionLost

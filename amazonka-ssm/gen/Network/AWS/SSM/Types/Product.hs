@@ -1960,6 +1960,50 @@ instance Hashable DocumentVersionInfo
 
 instance NFData DocumentVersionInfo
 
+-- | The EffectivePatch structure defines metadata about a patch along with the approval state of the patch in a particular patch baseline. The approval state includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
+--
+--
+--
+-- /See:/ 'effectivePatch' smart constructor.
+data EffectivePatch = EffectivePatch'
+    { _epPatch       :: !(Maybe Patch)
+    , _epPatchStatus :: !(Maybe PatchStatus)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EffectivePatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'epPatch' - Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
+--
+-- * 'epPatchStatus' - The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
+effectivePatch
+    :: EffectivePatch
+effectivePatch =
+    EffectivePatch'
+    { _epPatch = Nothing
+    , _epPatchStatus = Nothing
+    }
+
+-- | Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
+epPatch :: Lens' EffectivePatch (Maybe Patch)
+epPatch = lens _epPatch (\ s a -> s{_epPatch = a});
+
+-- | The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
+epPatchStatus :: Lens' EffectivePatch (Maybe PatchStatus)
+epPatchStatus = lens _epPatchStatus (\ s a -> s{_epPatchStatus = a});
+
+instance FromJSON EffectivePatch where
+        parseJSON
+          = withObject "EffectivePatch"
+              (\ x ->
+                 EffectivePatch' <$>
+                   (x .:? "Patch") <*> (x .:? "PatchStatus"))
+
+instance Hashable EffectivePatch
+
+instance NFData EffectivePatch
+
 -- | Describes a failed association.
 --
 --
@@ -2597,6 +2641,211 @@ instance ToJSON InstanceInformationStringFilter where
               (catMaybes
                  [Just ("Key" .= _iisfKey),
                   Just ("Values" .= _iisfValues)])
+
+-- | Defines the high-level patch compliance state for a managed instance, providing information about the number of installed, missing, not applicable, and failed patches along with metadata about the operation when this information was gathered for the instance.
+--
+--
+--
+-- /See:/ 'instancePatchState' smart constructor.
+data InstancePatchState = InstancePatchState'
+    { _ipsOwnerInformation    :: !(Maybe (Sensitive Text))
+    , _ipsFailedCount         :: !(Maybe Int)
+    , _ipsInstalledOtherCount :: !(Maybe Int)
+    , _ipsMissingCount        :: !(Maybe Int)
+    , _ipsNotApplicableCount  :: !(Maybe Int)
+    , _ipsInstalledCount      :: !(Maybe Int)
+    , _ipsSnapshotId          :: !(Maybe Text)
+    , _ipsInstanceId          :: !Text
+    , _ipsPatchGroup          :: !Text
+    , _ipsBaselineId          :: !Text
+    , _ipsOperationStartTime  :: !POSIX
+    , _ipsOperationEndTime    :: !POSIX
+    , _ipsOperation           :: !PatchOperationType
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstancePatchState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipsOwnerInformation' - Placeholder information, this field will always be empty in the current release of the service.
+--
+-- * 'ipsFailedCount' - The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
+--
+-- * 'ipsInstalledOtherCount' - The number of patches not specified in the patch baseline that are installed on the instance.
+--
+-- * 'ipsMissingCount' - The number of patches from the patch baseline that are applicable for the instance but aren’t currently installed.
+--
+-- * 'ipsNotApplicableCount' - The number of patches from the patch baseline that aren’t applicable for the instance and hence aren’t installed on the instance.
+--
+-- * 'ipsInstalledCount' - The number of patches from the patch baseline that are installed on the instance.
+--
+-- * 'ipsSnapshotId' - The ID of the patch baseline snapshot used during the patching operation when this compliance data was collected.
+--
+-- * 'ipsInstanceId' - The ID of the managed instance the high-level patch compliance information was collected for.
+--
+-- * 'ipsPatchGroup' - The name of the patch group the managed instance belongs to.
+--
+-- * 'ipsBaselineId' - The ID of the patch baseline used to patch the instance.
+--
+-- * 'ipsOperationStartTime' - The time the most recent patching operation was started on the instance.
+--
+-- * 'ipsOperationEndTime' - The time the most recent patching operation completed on the instance.
+--
+-- * 'ipsOperation' - The type of patching operation that was performed: SCAN (assess patch compliance state) or INSTALL (install missing patches).
+instancePatchState
+    :: Text -- ^ 'ipsInstanceId'
+    -> Text -- ^ 'ipsPatchGroup'
+    -> Text -- ^ 'ipsBaselineId'
+    -> UTCTime -- ^ 'ipsOperationStartTime'
+    -> UTCTime -- ^ 'ipsOperationEndTime'
+    -> PatchOperationType -- ^ 'ipsOperation'
+    -> InstancePatchState
+instancePatchState pInstanceId_ pPatchGroup_ pBaselineId_ pOperationStartTime_ pOperationEndTime_ pOperation_ =
+    InstancePatchState'
+    { _ipsOwnerInformation = Nothing
+    , _ipsFailedCount = Nothing
+    , _ipsInstalledOtherCount = Nothing
+    , _ipsMissingCount = Nothing
+    , _ipsNotApplicableCount = Nothing
+    , _ipsInstalledCount = Nothing
+    , _ipsSnapshotId = Nothing
+    , _ipsInstanceId = pInstanceId_
+    , _ipsPatchGroup = pPatchGroup_
+    , _ipsBaselineId = pBaselineId_
+    , _ipsOperationStartTime = _Time # pOperationStartTime_
+    , _ipsOperationEndTime = _Time # pOperationEndTime_
+    , _ipsOperation = pOperation_
+    }
+
+-- | Placeholder information, this field will always be empty in the current release of the service.
+ipsOwnerInformation :: Lens' InstancePatchState (Maybe Text)
+ipsOwnerInformation = lens _ipsOwnerInformation (\ s a -> s{_ipsOwnerInformation = a}) . mapping _Sensitive;
+
+-- | The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
+ipsFailedCount :: Lens' InstancePatchState (Maybe Int)
+ipsFailedCount = lens _ipsFailedCount (\ s a -> s{_ipsFailedCount = a});
+
+-- | The number of patches not specified in the patch baseline that are installed on the instance.
+ipsInstalledOtherCount :: Lens' InstancePatchState (Maybe Int)
+ipsInstalledOtherCount = lens _ipsInstalledOtherCount (\ s a -> s{_ipsInstalledOtherCount = a});
+
+-- | The number of patches from the patch baseline that are applicable for the instance but aren’t currently installed.
+ipsMissingCount :: Lens' InstancePatchState (Maybe Int)
+ipsMissingCount = lens _ipsMissingCount (\ s a -> s{_ipsMissingCount = a});
+
+-- | The number of patches from the patch baseline that aren’t applicable for the instance and hence aren’t installed on the instance.
+ipsNotApplicableCount :: Lens' InstancePatchState (Maybe Int)
+ipsNotApplicableCount = lens _ipsNotApplicableCount (\ s a -> s{_ipsNotApplicableCount = a});
+
+-- | The number of patches from the patch baseline that are installed on the instance.
+ipsInstalledCount :: Lens' InstancePatchState (Maybe Int)
+ipsInstalledCount = lens _ipsInstalledCount (\ s a -> s{_ipsInstalledCount = a});
+
+-- | The ID of the patch baseline snapshot used during the patching operation when this compliance data was collected.
+ipsSnapshotId :: Lens' InstancePatchState (Maybe Text)
+ipsSnapshotId = lens _ipsSnapshotId (\ s a -> s{_ipsSnapshotId = a});
+
+-- | The ID of the managed instance the high-level patch compliance information was collected for.
+ipsInstanceId :: Lens' InstancePatchState Text
+ipsInstanceId = lens _ipsInstanceId (\ s a -> s{_ipsInstanceId = a});
+
+-- | The name of the patch group the managed instance belongs to.
+ipsPatchGroup :: Lens' InstancePatchState Text
+ipsPatchGroup = lens _ipsPatchGroup (\ s a -> s{_ipsPatchGroup = a});
+
+-- | The ID of the patch baseline used to patch the instance.
+ipsBaselineId :: Lens' InstancePatchState Text
+ipsBaselineId = lens _ipsBaselineId (\ s a -> s{_ipsBaselineId = a});
+
+-- | The time the most recent patching operation was started on the instance.
+ipsOperationStartTime :: Lens' InstancePatchState UTCTime
+ipsOperationStartTime = lens _ipsOperationStartTime (\ s a -> s{_ipsOperationStartTime = a}) . _Time;
+
+-- | The time the most recent patching operation completed on the instance.
+ipsOperationEndTime :: Lens' InstancePatchState UTCTime
+ipsOperationEndTime = lens _ipsOperationEndTime (\ s a -> s{_ipsOperationEndTime = a}) . _Time;
+
+-- | The type of patching operation that was performed: SCAN (assess patch compliance state) or INSTALL (install missing patches).
+ipsOperation :: Lens' InstancePatchState PatchOperationType
+ipsOperation = lens _ipsOperation (\ s a -> s{_ipsOperation = a});
+
+instance FromJSON InstancePatchState where
+        parseJSON
+          = withObject "InstancePatchState"
+              (\ x ->
+                 InstancePatchState' <$>
+                   (x .:? "OwnerInformation") <*> (x .:? "FailedCount")
+                     <*> (x .:? "InstalledOtherCount")
+                     <*> (x .:? "MissingCount")
+                     <*> (x .:? "NotApplicableCount")
+                     <*> (x .:? "InstalledCount")
+                     <*> (x .:? "SnapshotId")
+                     <*> (x .: "InstanceId")
+                     <*> (x .: "PatchGroup")
+                     <*> (x .: "BaselineId")
+                     <*> (x .: "OperationStartTime")
+                     <*> (x .: "OperationEndTime")
+                     <*> (x .: "Operation"))
+
+instance Hashable InstancePatchState
+
+instance NFData InstancePatchState
+
+-- | Defines a filter used in DescribeInstancePatchStatesForPatchGroup used to scope down the information returned by the API.
+--
+--
+--
+-- /See:/ 'instancePatchStateFilter' smart constructor.
+data InstancePatchStateFilter = InstancePatchStateFilter'
+    { _ipsfKey    :: !Text
+    , _ipsfValues :: !(List1 Text)
+    , _ipsfType   :: !InstancePatchStateOperatorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstancePatchStateFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipsfKey' - The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
+--
+-- * 'ipsfValues' - The value for the filter, must be an integer greater than or equal to 0.
+--
+-- * 'ipsfType' - The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
+instancePatchStateFilter
+    :: Text -- ^ 'ipsfKey'
+    -> NonEmpty Text -- ^ 'ipsfValues'
+    -> InstancePatchStateOperatorType -- ^ 'ipsfType'
+    -> InstancePatchStateFilter
+instancePatchStateFilter pKey_ pValues_ pType_ =
+    InstancePatchStateFilter'
+    { _ipsfKey = pKey_
+    , _ipsfValues = _List1 # pValues_
+    , _ipsfType = pType_
+    }
+
+-- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
+ipsfKey :: Lens' InstancePatchStateFilter Text
+ipsfKey = lens _ipsfKey (\ s a -> s{_ipsfKey = a});
+
+-- | The value for the filter, must be an integer greater than or equal to 0.
+ipsfValues :: Lens' InstancePatchStateFilter (NonEmpty Text)
+ipsfValues = lens _ipsfValues (\ s a -> s{_ipsfValues = a}) . _List1;
+
+-- | The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
+ipsfType :: Lens' InstancePatchStateFilter InstancePatchStateOperatorType
+ipsfType = lens _ipsfType (\ s a -> s{_ipsfType = a});
+
+instance Hashable InstancePatchStateFilter
+
+instance NFData InstancePatchStateFilter
+
+instance ToJSON InstancePatchStateFilter where
+        toJSON InstancePatchStateFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _ipsfKey),
+                  Just ("Values" .= _ipsfValues),
+                  Just ("Type" .= _ipsfType)])
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
@@ -3966,33 +4215,33 @@ instance NFData ParameterMetadata
 --
 -- /See:/ 'parametersFilter' smart constructor.
 data ParametersFilter = ParametersFilter'
-    { _pfKey    :: !(Maybe ParametersFilterKey)
-    , _pfValues :: !(List1 Text)
+    { _pKey    :: !(Maybe ParametersFilterKey)
+    , _pValues :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ParametersFilter' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pfKey' - The name of the filter.
+-- * 'pKey' - The name of the filter.
 --
--- * 'pfValues' - The filter values.
+-- * 'pValues' - The filter values.
 parametersFilter
-    :: NonEmpty Text -- ^ 'pfValues'
+    :: NonEmpty Text -- ^ 'pValues'
     -> ParametersFilter
 parametersFilter pValues_ =
     ParametersFilter'
-    { _pfKey = Nothing
-    , _pfValues = _List1 # pValues_
+    { _pKey = Nothing
+    , _pValues = _List1 # pValues_
     }
 
 -- | The name of the filter.
-pfKey :: Lens' ParametersFilter (Maybe ParametersFilterKey)
-pfKey = lens _pfKey (\ s a -> s{_pfKey = a});
+pKey :: Lens' ParametersFilter (Maybe ParametersFilterKey)
+pKey = lens _pKey (\ s a -> s{_pKey = a});
 
 -- | The filter values.
-pfValues :: Lens' ParametersFilter (NonEmpty Text)
-pfValues = lens _pfValues (\ s a -> s{_pfValues = a}) . _List1;
+pValues :: Lens' ParametersFilter (NonEmpty Text)
+pValues = lens _pValues (\ s a -> s{_pValues = a}) . _List1;
 
 instance Hashable ParametersFilter
 
@@ -4002,8 +4251,621 @@ instance ToJSON ParametersFilter where
         toJSON ParametersFilter'{..}
           = object
               (catMaybes
-                 [("Key" .=) <$> _pfKey,
+                 [("Key" .=) <$> _pKey, Just ("Values" .= _pValues)])
+
+-- | Represents metadata about a patch.
+--
+--
+--
+-- /See:/ 'patch' smart constructor.
+data Patch = Patch'
+    { _pVendor         :: !(Maybe Text)
+    , _pMsrcSeverity   :: !(Maybe Text)
+    , _pProductFamily  :: !(Maybe Text)
+    , _pClassification :: !(Maybe Text)
+    , _pMsrcNumber     :: !(Maybe Text)
+    , _pLanguage       :: !(Maybe Text)
+    , _pKbNumber       :: !(Maybe Text)
+    , _pContentURL     :: !(Maybe Text)
+    , _pId             :: !(Maybe Text)
+    , _pReleaseDate    :: !(Maybe POSIX)
+    , _pTitle          :: !(Maybe Text)
+    , _pProduct        :: !(Maybe Text)
+    , _pDescription    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Patch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pVendor' - The name of the vendor providing the patch.
+--
+-- * 'pMsrcSeverity' - The severity of the patch (for example Critical, Important, Moderate).
+--
+-- * 'pProductFamily' - The product family the patch is applicable for (for example, Windows).
+--
+-- * 'pClassification' - The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
+--
+-- * 'pMsrcNumber' - The ID of the MSRC bulletin the patch is related to.
+--
+-- * 'pLanguage' - The language of the patch if it’s language-specific.
+--
+-- * 'pKbNumber' - The Microsoft Knowledge Base ID of the patch.
+--
+-- * 'pContentURL' - The URL where more information can be obtained about the patch.
+--
+-- * 'pId' - The ID of the patch (this is different than the Microsoft Knowledge Base ID).
+--
+-- * 'pReleaseDate' - The date the patch was released.
+--
+-- * 'pTitle' - The title of the patch.
+--
+-- * 'pProduct' - The specific product the patch is applicable for (for example, WindowsServer2016).
+--
+-- * 'pDescription' - The description of the patch.
+patch
+    :: Patch
+patch =
+    Patch'
+    { _pVendor = Nothing
+    , _pMsrcSeverity = Nothing
+    , _pProductFamily = Nothing
+    , _pClassification = Nothing
+    , _pMsrcNumber = Nothing
+    , _pLanguage = Nothing
+    , _pKbNumber = Nothing
+    , _pContentURL = Nothing
+    , _pId = Nothing
+    , _pReleaseDate = Nothing
+    , _pTitle = Nothing
+    , _pProduct = Nothing
+    , _pDescription = Nothing
+    }
+
+-- | The name of the vendor providing the patch.
+pVendor :: Lens' Patch (Maybe Text)
+pVendor = lens _pVendor (\ s a -> s{_pVendor = a});
+
+-- | The severity of the patch (for example Critical, Important, Moderate).
+pMsrcSeverity :: Lens' Patch (Maybe Text)
+pMsrcSeverity = lens _pMsrcSeverity (\ s a -> s{_pMsrcSeverity = a});
+
+-- | The product family the patch is applicable for (for example, Windows).
+pProductFamily :: Lens' Patch (Maybe Text)
+pProductFamily = lens _pProductFamily (\ s a -> s{_pProductFamily = a});
+
+-- | The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
+pClassification :: Lens' Patch (Maybe Text)
+pClassification = lens _pClassification (\ s a -> s{_pClassification = a});
+
+-- | The ID of the MSRC bulletin the patch is related to.
+pMsrcNumber :: Lens' Patch (Maybe Text)
+pMsrcNumber = lens _pMsrcNumber (\ s a -> s{_pMsrcNumber = a});
+
+-- | The language of the patch if it’s language-specific.
+pLanguage :: Lens' Patch (Maybe Text)
+pLanguage = lens _pLanguage (\ s a -> s{_pLanguage = a});
+
+-- | The Microsoft Knowledge Base ID of the patch.
+pKbNumber :: Lens' Patch (Maybe Text)
+pKbNumber = lens _pKbNumber (\ s a -> s{_pKbNumber = a});
+
+-- | The URL where more information can be obtained about the patch.
+pContentURL :: Lens' Patch (Maybe Text)
+pContentURL = lens _pContentURL (\ s a -> s{_pContentURL = a});
+
+-- | The ID of the patch (this is different than the Microsoft Knowledge Base ID).
+pId :: Lens' Patch (Maybe Text)
+pId = lens _pId (\ s a -> s{_pId = a});
+
+-- | The date the patch was released.
+pReleaseDate :: Lens' Patch (Maybe UTCTime)
+pReleaseDate = lens _pReleaseDate (\ s a -> s{_pReleaseDate = a}) . mapping _Time;
+
+-- | The title of the patch.
+pTitle :: Lens' Patch (Maybe Text)
+pTitle = lens _pTitle (\ s a -> s{_pTitle = a});
+
+-- | The specific product the patch is applicable for (for example, WindowsServer2016).
+pProduct :: Lens' Patch (Maybe Text)
+pProduct = lens _pProduct (\ s a -> s{_pProduct = a});
+
+-- | The description of the patch.
+pDescription :: Lens' Patch (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
+
+instance FromJSON Patch where
+        parseJSON
+          = withObject "Patch"
+              (\ x ->
+                 Patch' <$>
+                   (x .:? "Vendor") <*> (x .:? "MsrcSeverity") <*>
+                     (x .:? "ProductFamily")
+                     <*> (x .:? "Classification")
+                     <*> (x .:? "MsrcNumber")
+                     <*> (x .:? "Language")
+                     <*> (x .:? "KbNumber")
+                     <*> (x .:? "ContentUrl")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "ReleaseDate")
+                     <*> (x .:? "Title")
+                     <*> (x .:? "Product")
+                     <*> (x .:? "Description"))
+
+instance Hashable Patch
+
+instance NFData Patch
+
+-- | Defines the basic information about a patch baseline.
+--
+--
+--
+-- /See:/ 'patchBaselineIdentity' smart constructor.
+data PatchBaselineIdentity = PatchBaselineIdentity'
+    { _pbiBaselineName        :: !(Maybe Text)
+    , _pbiBaselineDescription :: !(Maybe Text)
+    , _pbiDefaultBaseline     :: !(Maybe Bool)
+    , _pbiBaselineId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchBaselineIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbiBaselineName' - The name of the patch baseline.
+--
+-- * 'pbiBaselineDescription' - The description of the patch baseline.
+--
+-- * 'pbiDefaultBaseline' - Whether this is the default baseline.
+--
+-- * 'pbiBaselineId' - The ID of the patch baseline.
+patchBaselineIdentity
+    :: PatchBaselineIdentity
+patchBaselineIdentity =
+    PatchBaselineIdentity'
+    { _pbiBaselineName = Nothing
+    , _pbiBaselineDescription = Nothing
+    , _pbiDefaultBaseline = Nothing
+    , _pbiBaselineId = Nothing
+    }
+
+-- | The name of the patch baseline.
+pbiBaselineName :: Lens' PatchBaselineIdentity (Maybe Text)
+pbiBaselineName = lens _pbiBaselineName (\ s a -> s{_pbiBaselineName = a});
+
+-- | The description of the patch baseline.
+pbiBaselineDescription :: Lens' PatchBaselineIdentity (Maybe Text)
+pbiBaselineDescription = lens _pbiBaselineDescription (\ s a -> s{_pbiBaselineDescription = a});
+
+-- | Whether this is the default baseline.
+pbiDefaultBaseline :: Lens' PatchBaselineIdentity (Maybe Bool)
+pbiDefaultBaseline = lens _pbiDefaultBaseline (\ s a -> s{_pbiDefaultBaseline = a});
+
+-- | The ID of the patch baseline.
+pbiBaselineId :: Lens' PatchBaselineIdentity (Maybe Text)
+pbiBaselineId = lens _pbiBaselineId (\ s a -> s{_pbiBaselineId = a});
+
+instance FromJSON PatchBaselineIdentity where
+        parseJSON
+          = withObject "PatchBaselineIdentity"
+              (\ x ->
+                 PatchBaselineIdentity' <$>
+                   (x .:? "BaselineName") <*>
+                     (x .:? "BaselineDescription")
+                     <*> (x .:? "DefaultBaseline")
+                     <*> (x .:? "BaselineId"))
+
+instance Hashable PatchBaselineIdentity
+
+instance NFData PatchBaselineIdentity
+
+-- | Information about the state of a patch on a particular instance as it relates to the patch baseline used to patch the instance.
+--
+--
+--
+-- /See:/ 'patchComplianceData' smart constructor.
+data PatchComplianceData = PatchComplianceData'
+    { _pcdTitle          :: !Text
+    , _pcdKBId           :: !Text
+    , _pcdClassification :: !Text
+    , _pcdSeverity       :: !Text
+    , _pcdState          :: !PatchComplianceDataState
+    , _pcdInstalledTime  :: !POSIX
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchComplianceData' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcdTitle' - The title of the patch.
+--
+-- * 'pcdKBId' - The Microsoft Knowledge Base ID of the patch.
+--
+-- * 'pcdClassification' - The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
+--
+-- * 'pcdSeverity' - The severity of the patch (for example, Critical, Important, Moderate).
+--
+-- * 'pcdState' - The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE or FAILED).
+--
+-- * 'pcdInstalledTime' - The date/time the patch was installed on the instance.
+patchComplianceData
+    :: Text -- ^ 'pcdTitle'
+    -> Text -- ^ 'pcdKBId'
+    -> Text -- ^ 'pcdClassification'
+    -> Text -- ^ 'pcdSeverity'
+    -> PatchComplianceDataState -- ^ 'pcdState'
+    -> UTCTime -- ^ 'pcdInstalledTime'
+    -> PatchComplianceData
+patchComplianceData pTitle_ pKBId_ pClassification_ pSeverity_ pState_ pInstalledTime_ =
+    PatchComplianceData'
+    { _pcdTitle = pTitle_
+    , _pcdKBId = pKBId_
+    , _pcdClassification = pClassification_
+    , _pcdSeverity = pSeverity_
+    , _pcdState = pState_
+    , _pcdInstalledTime = _Time # pInstalledTime_
+    }
+
+-- | The title of the patch.
+pcdTitle :: Lens' PatchComplianceData Text
+pcdTitle = lens _pcdTitle (\ s a -> s{_pcdTitle = a});
+
+-- | The Microsoft Knowledge Base ID of the patch.
+pcdKBId :: Lens' PatchComplianceData Text
+pcdKBId = lens _pcdKBId (\ s a -> s{_pcdKBId = a});
+
+-- | The classification of the patch (for example, SecurityUpdates, Updates, CriticalUpdates).
+pcdClassification :: Lens' PatchComplianceData Text
+pcdClassification = lens _pcdClassification (\ s a -> s{_pcdClassification = a});
+
+-- | The severity of the patch (for example, Critical, Important, Moderate).
+pcdSeverity :: Lens' PatchComplianceData Text
+pcdSeverity = lens _pcdSeverity (\ s a -> s{_pcdSeverity = a});
+
+-- | The state of the patch on the instance (INSTALLED, INSTALLED_OTHER, MISSING, NOT_APPLICABLE or FAILED).
+pcdState :: Lens' PatchComplianceData PatchComplianceDataState
+pcdState = lens _pcdState (\ s a -> s{_pcdState = a});
+
+-- | The date/time the patch was installed on the instance.
+pcdInstalledTime :: Lens' PatchComplianceData UTCTime
+pcdInstalledTime = lens _pcdInstalledTime (\ s a -> s{_pcdInstalledTime = a}) . _Time;
+
+instance FromJSON PatchComplianceData where
+        parseJSON
+          = withObject "PatchComplianceData"
+              (\ x ->
+                 PatchComplianceData' <$>
+                   (x .: "Title") <*> (x .: "KBId") <*>
+                     (x .: "Classification")
+                     <*> (x .: "Severity")
+                     <*> (x .: "State")
+                     <*> (x .: "InstalledTime"))
+
+instance Hashable PatchComplianceData
+
+instance NFData PatchComplianceData
+
+-- | Defines a patch filter.
+--
+--
+--
+-- /See:/ 'patchFilter' smart constructor.
+data PatchFilter = PatchFilter'
+    { _pfKey    :: !PatchFilterKey
+    , _pfValues :: !(List1 Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfKey' - The key for the filter (PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID)
+--
+-- * 'pfValues' - The value for the filter key.
+patchFilter
+    :: PatchFilterKey -- ^ 'pfKey'
+    -> NonEmpty Text -- ^ 'pfValues'
+    -> PatchFilter
+patchFilter pKey_ pValues_ =
+    PatchFilter'
+    { _pfKey = pKey_
+    , _pfValues = _List1 # pValues_
+    }
+
+-- | The key for the filter (PRODUCT, CLASSIFICATION, MSRC_SEVERITY, PATCH_ID)
+pfKey :: Lens' PatchFilter PatchFilterKey
+pfKey = lens _pfKey (\ s a -> s{_pfKey = a});
+
+-- | The value for the filter key.
+pfValues :: Lens' PatchFilter (NonEmpty Text)
+pfValues = lens _pfValues (\ s a -> s{_pfValues = a}) . _List1;
+
+instance FromJSON PatchFilter where
+        parseJSON
+          = withObject "PatchFilter"
+              (\ x ->
+                 PatchFilter' <$> (x .: "Key") <*> (x .: "Values"))
+
+instance Hashable PatchFilter
+
+instance NFData PatchFilter
+
+instance ToJSON PatchFilter where
+        toJSON PatchFilter'{..}
+          = object
+              (catMaybes
+                 [Just ("Key" .= _pfKey),
                   Just ("Values" .= _pfValues)])
+
+-- | A set of patch filters, typically used for approval rules.
+--
+--
+--
+-- /See:/ 'patchFilterGroup' smart constructor.
+newtype PatchFilterGroup = PatchFilterGroup'
+    { _pfgPatchFilters :: [PatchFilter]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchFilterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfgPatchFilters' - The set of patch filters that make up the group.
+patchFilterGroup
+    :: PatchFilterGroup
+patchFilterGroup =
+    PatchFilterGroup'
+    { _pfgPatchFilters = mempty
+    }
+
+-- | The set of patch filters that make up the group.
+pfgPatchFilters :: Lens' PatchFilterGroup [PatchFilter]
+pfgPatchFilters = lens _pfgPatchFilters (\ s a -> s{_pfgPatchFilters = a}) . _Coerce;
+
+instance FromJSON PatchFilterGroup where
+        parseJSON
+          = withObject "PatchFilterGroup"
+              (\ x ->
+                 PatchFilterGroup' <$>
+                   (x .:? "PatchFilters" .!= mempty))
+
+instance Hashable PatchFilterGroup
+
+instance NFData PatchFilterGroup
+
+instance ToJSON PatchFilterGroup where
+        toJSON PatchFilterGroup'{..}
+          = object
+              (catMaybes
+                 [Just ("PatchFilters" .= _pfgPatchFilters)])
+
+-- | The mapping between a patch group and the patch baseline the patch group is registered with.
+--
+--
+--
+-- /See:/ 'patchGroupPatchBaselineMapping' smart constructor.
+data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
+    { _pgpbmBaselineIdentity :: !(Maybe PatchBaselineIdentity)
+    , _pgpbmPatchGroup       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchGroupPatchBaselineMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pgpbmBaselineIdentity' - The patch baseline the patch group is registered with.
+--
+-- * 'pgpbmPatchGroup' - The name of the patch group registered with the patch baseline.
+patchGroupPatchBaselineMapping
+    :: PatchGroupPatchBaselineMapping
+patchGroupPatchBaselineMapping =
+    PatchGroupPatchBaselineMapping'
+    { _pgpbmBaselineIdentity = Nothing
+    , _pgpbmPatchGroup = Nothing
+    }
+
+-- | The patch baseline the patch group is registered with.
+pgpbmBaselineIdentity :: Lens' PatchGroupPatchBaselineMapping (Maybe PatchBaselineIdentity)
+pgpbmBaselineIdentity = lens _pgpbmBaselineIdentity (\ s a -> s{_pgpbmBaselineIdentity = a});
+
+-- | The name of the patch group registered with the patch baseline.
+pgpbmPatchGroup :: Lens' PatchGroupPatchBaselineMapping (Maybe Text)
+pgpbmPatchGroup = lens _pgpbmPatchGroup (\ s a -> s{_pgpbmPatchGroup = a});
+
+instance FromJSON PatchGroupPatchBaselineMapping
+         where
+        parseJSON
+          = withObject "PatchGroupPatchBaselineMapping"
+              (\ x ->
+                 PatchGroupPatchBaselineMapping' <$>
+                   (x .:? "BaselineIdentity") <*> (x .:? "PatchGroup"))
+
+instance Hashable PatchGroupPatchBaselineMapping
+
+instance NFData PatchGroupPatchBaselineMapping
+
+-- | Defines a filter used in Patch Manager APIs.
+--
+--
+--
+-- /See:/ 'patchOrchestratorFilter' smart constructor.
+data PatchOrchestratorFilter = PatchOrchestratorFilter'
+    { _pofValues :: !(Maybe [Text])
+    , _pofKey    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchOrchestratorFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pofValues' - The value for the filter.
+--
+-- * 'pofKey' - The key for the filter.
+patchOrchestratorFilter
+    :: PatchOrchestratorFilter
+patchOrchestratorFilter =
+    PatchOrchestratorFilter'
+    { _pofValues = Nothing
+    , _pofKey = Nothing
+    }
+
+-- | The value for the filter.
+pofValues :: Lens' PatchOrchestratorFilter [Text]
+pofValues = lens _pofValues (\ s a -> s{_pofValues = a}) . _Default . _Coerce;
+
+-- | The key for the filter.
+pofKey :: Lens' PatchOrchestratorFilter (Maybe Text)
+pofKey = lens _pofKey (\ s a -> s{_pofKey = a});
+
+instance Hashable PatchOrchestratorFilter
+
+instance NFData PatchOrchestratorFilter
+
+instance ToJSON PatchOrchestratorFilter where
+        toJSON PatchOrchestratorFilter'{..}
+          = object
+              (catMaybes
+                 [("Values" .=) <$> _pofValues,
+                  ("Key" .=) <$> _pofKey])
+
+-- | Defines an approval rule for a patch baseline.
+--
+--
+--
+-- /See:/ 'patchRule' smart constructor.
+data PatchRule = PatchRule'
+    { _prPatchFilterGroup :: !PatchFilterGroup
+    , _prApproveAfterDays :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prPatchFilterGroup' - The patch filter group that defines the criteria for the rule.
+--
+-- * 'prApproveAfterDays' - The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+patchRule
+    :: PatchFilterGroup -- ^ 'prPatchFilterGroup'
+    -> Natural -- ^ 'prApproveAfterDays'
+    -> PatchRule
+patchRule pPatchFilterGroup_ pApproveAfterDays_ =
+    PatchRule'
+    { _prPatchFilterGroup = pPatchFilterGroup_
+    , _prApproveAfterDays = _Nat # pApproveAfterDays_
+    }
+
+-- | The patch filter group that defines the criteria for the rule.
+prPatchFilterGroup :: Lens' PatchRule PatchFilterGroup
+prPatchFilterGroup = lens _prPatchFilterGroup (\ s a -> s{_prPatchFilterGroup = a});
+
+-- | The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+prApproveAfterDays :: Lens' PatchRule Natural
+prApproveAfterDays = lens _prApproveAfterDays (\ s a -> s{_prApproveAfterDays = a}) . _Nat;
+
+instance FromJSON PatchRule where
+        parseJSON
+          = withObject "PatchRule"
+              (\ x ->
+                 PatchRule' <$>
+                   (x .: "PatchFilterGroup") <*>
+                     (x .: "ApproveAfterDays"))
+
+instance Hashable PatchRule
+
+instance NFData PatchRule
+
+instance ToJSON PatchRule where
+        toJSON PatchRule'{..}
+          = object
+              (catMaybes
+                 [Just ("PatchFilterGroup" .= _prPatchFilterGroup),
+                  Just ("ApproveAfterDays" .= _prApproveAfterDays)])
+
+-- | A set of rules defining the approval rules for a patch baseline.
+--
+--
+--
+-- /See:/ 'patchRuleGroup' smart constructor.
+newtype PatchRuleGroup = PatchRuleGroup'
+    { _prgPatchRules :: [PatchRule]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchRuleGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prgPatchRules' - The rules that make up the rule group.
+patchRuleGroup
+    :: PatchRuleGroup
+patchRuleGroup =
+    PatchRuleGroup'
+    { _prgPatchRules = mempty
+    }
+
+-- | The rules that make up the rule group.
+prgPatchRules :: Lens' PatchRuleGroup [PatchRule]
+prgPatchRules = lens _prgPatchRules (\ s a -> s{_prgPatchRules = a}) . _Coerce;
+
+instance FromJSON PatchRuleGroup where
+        parseJSON
+          = withObject "PatchRuleGroup"
+              (\ x ->
+                 PatchRuleGroup' <$> (x .:? "PatchRules" .!= mempty))
+
+instance Hashable PatchRuleGroup
+
+instance NFData PatchRuleGroup
+
+instance ToJSON PatchRuleGroup where
+        toJSON PatchRuleGroup'{..}
+          = object
+              (catMaybes [Just ("PatchRules" .= _prgPatchRules)])
+
+-- | Information about the approval status of a patch.
+--
+--
+--
+-- /See:/ 'patchStatus' smart constructor.
+data PatchStatus = PatchStatus'
+    { _psApprovalDate     :: !(Maybe POSIX)
+    , _psDeploymentStatus :: !(Maybe PatchDeploymentStatus)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PatchStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psApprovalDate' - The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
+--
+-- * 'psDeploymentStatus' - The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+patchStatus
+    :: PatchStatus
+patchStatus =
+    PatchStatus'
+    { _psApprovalDate = Nothing
+    , _psDeploymentStatus = Nothing
+    }
+
+-- | The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
+psApprovalDate :: Lens' PatchStatus (Maybe UTCTime)
+psApprovalDate = lens _psApprovalDate (\ s a -> s{_psApprovalDate = a}) . mapping _Time;
+
+-- | The approval status of a patch (APPROVED, PENDING_APPROVAL, EXPLICIT_APPROVED, EXPLICIT_REJECTED).
+psDeploymentStatus :: Lens' PatchStatus (Maybe PatchDeploymentStatus)
+psDeploymentStatus = lens _psDeploymentStatus (\ s a -> s{_psDeploymentStatus = a});
+
+instance FromJSON PatchStatus where
+        parseJSON
+          = withObject "PatchStatus"
+              (\ x ->
+                 PatchStatus' <$>
+                   (x .:? "ApprovalDate") <*>
+                     (x .:? "DeploymentStatus"))
+
+instance Hashable PatchStatus
+
+instance NFData PatchStatus
 
 -- | The inventory item result attribute.
 --

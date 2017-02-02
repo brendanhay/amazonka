@@ -47,22 +47,30 @@ library
         , Network.AWS.SSM.CreateAssociationBatch
         , Network.AWS.SSM.CreateDocument
         , Network.AWS.SSM.CreateMaintenanceWindow
+        , Network.AWS.SSM.CreatePatchBaseline
         , Network.AWS.SSM.DeleteActivation
         , Network.AWS.SSM.DeleteAssociation
         , Network.AWS.SSM.DeleteDocument
         , Network.AWS.SSM.DeleteMaintenanceWindow
         , Network.AWS.SSM.DeleteParameter
+        , Network.AWS.SSM.DeletePatchBaseline
         , Network.AWS.SSM.DeregisterManagedInstance
+        , Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
         , Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
         , Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
         , Network.AWS.SSM.DescribeActivations
         , Network.AWS.SSM.DescribeAssociation
         , Network.AWS.SSM.DescribeAutomationExecutions
+        , Network.AWS.SSM.DescribeAvailablePatches
         , Network.AWS.SSM.DescribeDocument
         , Network.AWS.SSM.DescribeDocumentPermission
         , Network.AWS.SSM.DescribeEffectiveInstanceAssociations
+        , Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
         , Network.AWS.SSM.DescribeInstanceAssociationsStatus
         , Network.AWS.SSM.DescribeInstanceInformation
+        , Network.AWS.SSM.DescribeInstancePatchStates
+        , Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
+        , Network.AWS.SSM.DescribeInstancePatches
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
         , Network.AWS.SSM.DescribeMaintenanceWindowExecutions
@@ -70,8 +78,13 @@ library
         , Network.AWS.SSM.DescribeMaintenanceWindowTasks
         , Network.AWS.SSM.DescribeMaintenanceWindows
         , Network.AWS.SSM.DescribeParameters
+        , Network.AWS.SSM.DescribePatchBaselines
+        , Network.AWS.SSM.DescribePatchGroupState
+        , Network.AWS.SSM.DescribePatchGroups
         , Network.AWS.SSM.GetAutomationExecution
         , Network.AWS.SSM.GetCommandInvocation
+        , Network.AWS.SSM.GetDefaultPatchBaseline
+        , Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
         , Network.AWS.SSM.GetDocument
         , Network.AWS.SSM.GetInventory
         , Network.AWS.SSM.GetInventorySchema
@@ -80,6 +93,8 @@ library
         , Network.AWS.SSM.GetMaintenanceWindowExecutionTask
         , Network.AWS.SSM.GetParameterHistory
         , Network.AWS.SSM.GetParameters
+        , Network.AWS.SSM.GetPatchBaseline
+        , Network.AWS.SSM.GetPatchBaselineForPatchGroup
         , Network.AWS.SSM.ListAssociations
         , Network.AWS.SSM.ListCommandInvocations
         , Network.AWS.SSM.ListCommands
@@ -90,6 +105,8 @@ library
         , Network.AWS.SSM.ModifyDocumentPermission
         , Network.AWS.SSM.PutInventory
         , Network.AWS.SSM.PutParameter
+        , Network.AWS.SSM.RegisterDefaultPatchBaseline
+        , Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
         , Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
         , Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
         , Network.AWS.SSM.RemoveTagsFromResource
@@ -103,6 +120,7 @@ library
         , Network.AWS.SSM.UpdateDocumentDefaultVersion
         , Network.AWS.SSM.UpdateMaintenanceWindow
         , Network.AWS.SSM.UpdateManagedInstanceRole
+        , Network.AWS.SSM.UpdatePatchBaseline
         , Network.AWS.SSM.Waiters
 
     other-modules:

@@ -79,7 +79,9 @@ module Network.AWS.SSM.Types
     , _DuplicateDocumentContent
     , _DocumentAlreadyExists
     , _DocumentLimitExceeded
+    , _AlreadyExistsException
     , _InvalidFilter
+    , _ResourceInUseException
 
     -- * AssociationFilterKey
     , AssociationFilterKey (..)
@@ -132,6 +134,9 @@ module Network.AWS.SSM.Types
     -- * InstanceInformationFilterKey
     , InstanceInformationFilterKey (..)
 
+    -- * InstancePatchStateOperatorType
+    , InstancePatchStateOperatorType (..)
+
     -- * InventoryAttributeDataType
     , InventoryAttributeDataType (..)
 
@@ -158,6 +163,18 @@ module Network.AWS.SSM.Types
 
     -- * ParametersFilterKey
     , ParametersFilterKey (..)
+
+    -- * PatchComplianceDataState
+    , PatchComplianceDataState (..)
+
+    -- * PatchDeploymentStatus
+    , PatchDeploymentStatus (..)
+
+    -- * PatchFilterKey
+    , PatchFilterKey (..)
+
+    -- * PatchOperationType
+    , PatchOperationType (..)
 
     -- * PingStatus
     , PingStatus (..)
@@ -406,6 +423,12 @@ module Network.AWS.SSM.Types
     , dviDocumentVersion
     , dviIsDefaultVersion
 
+    -- * EffectivePatch
+    , EffectivePatch
+    , effectivePatch
+    , epPatch
+    , epPatchStatus
+
     -- * FailedCreateAssociation
     , FailedCreateAssociation
     , failedCreateAssociation
@@ -484,6 +507,30 @@ module Network.AWS.SSM.Types
     , instanceInformationStringFilter
     , iisfKey
     , iisfValues
+
+    -- * InstancePatchState
+    , InstancePatchState
+    , instancePatchState
+    , ipsOwnerInformation
+    , ipsFailedCount
+    , ipsInstalledOtherCount
+    , ipsMissingCount
+    , ipsNotApplicableCount
+    , ipsInstalledCount
+    , ipsSnapshotId
+    , ipsInstanceId
+    , ipsPatchGroup
+    , ipsBaselineId
+    , ipsOperationStartTime
+    , ipsOperationEndTime
+    , ipsOperation
+
+    -- * InstancePatchStateFilter
+    , InstancePatchStateFilter
+    , instancePatchStateFilter
+    , ipsfKey
+    , ipsfValues
+    , ipsfType
 
     -- * InventoryFilter
     , InventoryFilter
@@ -655,8 +702,83 @@ module Network.AWS.SSM.Types
     -- * ParametersFilter
     , ParametersFilter
     , parametersFilter
+    , pKey
+    , pValues
+
+    -- * Patch
+    , Patch
+    , patch
+    , pVendor
+    , pMsrcSeverity
+    , pProductFamily
+    , pClassification
+    , pMsrcNumber
+    , pLanguage
+    , pKbNumber
+    , pContentURL
+    , pId
+    , pReleaseDate
+    , pTitle
+    , pProduct
+    , pDescription
+
+    -- * PatchBaselineIdentity
+    , PatchBaselineIdentity
+    , patchBaselineIdentity
+    , pbiBaselineName
+    , pbiBaselineDescription
+    , pbiDefaultBaseline
+    , pbiBaselineId
+
+    -- * PatchComplianceData
+    , PatchComplianceData
+    , patchComplianceData
+    , pcdTitle
+    , pcdKBId
+    , pcdClassification
+    , pcdSeverity
+    , pcdState
+    , pcdInstalledTime
+
+    -- * PatchFilter
+    , PatchFilter
+    , patchFilter
     , pfKey
     , pfValues
+
+    -- * PatchFilterGroup
+    , PatchFilterGroup
+    , patchFilterGroup
+    , pfgPatchFilters
+
+    -- * PatchGroupPatchBaselineMapping
+    , PatchGroupPatchBaselineMapping
+    , patchGroupPatchBaselineMapping
+    , pgpbmBaselineIdentity
+    , pgpbmPatchGroup
+
+    -- * PatchOrchestratorFilter
+    , PatchOrchestratorFilter
+    , patchOrchestratorFilter
+    , pofValues
+    , pofKey
+
+    -- * PatchRule
+    , PatchRule
+    , patchRule
+    , prPatchFilterGroup
+    , prApproveAfterDays
+
+    -- * PatchRuleGroup
+    , PatchRuleGroup
+    , patchRuleGroup
+    , prgPatchRules
+
+    -- * PatchStatus
+    , PatchStatus
+    , patchStatus
+    , psApprovalDate
+    , psDeploymentStatus
 
     -- * ResultAttribute
     , ResultAttribute
@@ -1143,8 +1265,20 @@ _DocumentAlreadyExists = _MatchServiceError ssm "DocumentAlreadyExists"
 _DocumentLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _DocumentLimitExceeded = _MatchServiceError ssm "DocumentLimitExceeded"
 
+-- | Error returned if an attempt is made to register a patch group with a patch baseline that is already registered with a different patch baseline.
+--
+--
+_AlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException = _MatchServiceError ssm "AlreadyExistsException"
+
 -- | The filter name is not valid. Verify the you entered the correct name and try again.
 --
 --
 _InvalidFilter :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidFilter = _MatchServiceError ssm "InvalidFilter"
+
+-- | Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.
+--
+--
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException = _MatchServiceError ssm "ResourceInUseException"

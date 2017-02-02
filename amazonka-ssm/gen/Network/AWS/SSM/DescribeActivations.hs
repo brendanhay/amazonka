@@ -21,6 +21,8 @@
 -- Details about the activation, including: the date and time the activation was created, the expiration date, the IAM role assigned to the instances in the activation, and the number of instances activated by this registration.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeActivations
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.SSM.DescribeActivations
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -83,6 +86,13 @@ daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 daMaxResults :: Lens' DescribeActivations (Maybe Natural)
 daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeActivations where
+        page rq rs
+          | stop (rs ^. darsNextToken) = Nothing
+          | stop (rs ^. darsActivationList) = Nothing
+          | otherwise =
+            Just $ rq & daNextToken .~ rs ^. darsNextToken
 
 instance AWSRequest DescribeActivations where
         type Rs DescribeActivations =

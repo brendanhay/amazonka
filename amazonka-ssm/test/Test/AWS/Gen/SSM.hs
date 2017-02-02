@@ -28,14 +28,26 @@ import Test.AWS.SSM.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetInventory $
+--         [ requestDescribeInstancePatches $
+--             describeInstancePatches
+--
+--         , requestGetInventory $
 --             getInventory
 --
 --         , requestGetParameters $
 --             getParameters
 --
+--         , requestDeletePatchBaseline $
+--             deletePatchBaseline
+--
+--         , requestUpdatePatchBaseline $
+--             updatePatchBaseline
+--
 --         , requestUpdateDocumentDefaultVersion $
 --             updateDocumentDefaultVersion
+--
+--         , requestGetDeployablePatchSnapshotForInstance $
+--             getDeployablePatchSnapshotForInstance
 --
 --         , requestDescribeParameters $
 --             describeParameters
@@ -76,6 +88,9 @@ import Test.AWS.SSM.Internal
 --         , requestDescribeMaintenanceWindowExecutionTasks $
 --             describeMaintenanceWindowExecutionTasks
 --
+--         , requestGetDefaultPatchBaseline $
+--             getDefaultPatchBaseline
+--
 --         , requestGetMaintenanceWindowExecutionTask $
 --             getMaintenanceWindowExecutionTask
 --
@@ -85,17 +100,32 @@ import Test.AWS.SSM.Internal
 --         , requestRemoveTagsFromResource $
 --             removeTagsFromResource
 --
+--         , requestDescribePatchGroupState $
+--             describePatchGroupState
+--
 --         , requestListCommandInvocations $
 --             listCommandInvocations
 --
 --         , requestDeregisterTargetFromMaintenanceWindow $
 --             deregisterTargetFromMaintenanceWindow
 --
+--         , requestDescribeEffectivePatchesForPatchBaseline $
+--             describeEffectivePatchesForPatchBaseline
+--
 --         , requestDescribeMaintenanceWindowTargets $
 --             describeMaintenanceWindowTargets
 --
+--         , requestRegisterPatchBaselineForPatchGroup $
+--             registerPatchBaselineForPatchGroup
+--
 --         , requestListDocuments $
 --             listDocuments
+--
+--         , requestDescribeInstancePatchStates $
+--             describeInstancePatchStates
+--
+--         , requestGetPatchBaselineForPatchGroup $
+--             getPatchBaselineForPatchGroup
 --
 --         , requestUpdateManagedInstanceRole $
 --             updateManagedInstanceRole
@@ -112,6 +142,9 @@ import Test.AWS.SSM.Internal
 --         , requestGetCommandInvocation $
 --             getCommandInvocation
 --
+--         , requestDescribeInstancePatchStatesForPatchGroup $
+--             describeInstancePatchStatesForPatchGroup
+--
 --         , requestDeregisterManagedInstance $
 --             deregisterManagedInstance
 --
@@ -124,8 +157,17 @@ import Test.AWS.SSM.Internal
 --         , requestUpdateAssociationStatus $
 --             updateAssociationStatus
 --
+--         , requestDescribeAvailablePatches $
+--             describeAvailablePatches
+--
 --         , requestListDocumentVersions $
 --             listDocumentVersions
+--
+--         , requestDeregisterPatchBaselineForPatchGroup $
+--             deregisterPatchBaselineForPatchGroup
+--
+--         , requestDescribePatchGroups $
+--             describePatchGroups
 --
 --         , requestGetMaintenanceWindow $
 --             getMaintenanceWindow
@@ -135,6 +177,9 @@ import Test.AWS.SSM.Internal
 --
 --         , requestRegisterTaskWithMaintenanceWindow $
 --             registerTaskWithMaintenanceWindow
+--
+--         , requestRegisterDefaultPatchBaseline $
+--             registerDefaultPatchBaseline
 --
 --         , requestDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasks
@@ -196,6 +241,12 @@ import Test.AWS.SSM.Internal
 --         , requestSendCommand $
 --             sendCommand
 --
+--         , requestDescribePatchBaselines $
+--             describePatchBaselines
+--
+--         , requestGetPatchBaseline $
+--             getPatchBaseline
+--
 --         , requestRegisterTargetWithMaintenanceWindow $
 --             registerTargetWithMaintenanceWindow
 --
@@ -214,17 +265,32 @@ import Test.AWS.SSM.Internal
 --         , requestCreateAssociationBatch $
 --             createAssociationBatch
 --
+--         , requestCreatePatchBaseline $
+--             createPatchBaseline
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseGetInventory $
+--         [ responseDescribeInstancePatches $
+--             describeInstancePatchesResponse
+--
+--         , responseGetInventory $
 --             getInventoryResponse
 --
 --         , responseGetParameters $
 --             getParametersResponse
 --
+--         , responseDeletePatchBaseline $
+--             deletePatchBaselineResponse
+--
+--         , responseUpdatePatchBaseline $
+--             updatePatchBaselineResponse
+--
 --         , responseUpdateDocumentDefaultVersion $
 --             updateDocumentDefaultVersionResponse
+--
+--         , responseGetDeployablePatchSnapshotForInstance $
+--             getDeployablePatchSnapshotForInstanceResponse
 --
 --         , responseDescribeParameters $
 --             describeParametersResponse
@@ -265,6 +331,9 @@ import Test.AWS.SSM.Internal
 --         , responseDescribeMaintenanceWindowExecutionTasks $
 --             describeMaintenanceWindowExecutionTasksResponse
 --
+--         , responseGetDefaultPatchBaseline $
+--             getDefaultPatchBaselineResponse
+--
 --         , responseGetMaintenanceWindowExecutionTask $
 --             getMaintenanceWindowExecutionTaskResponse
 --
@@ -274,17 +343,32 @@ import Test.AWS.SSM.Internal
 --         , responseRemoveTagsFromResource $
 --             removeTagsFromResourceResponse
 --
+--         , responseDescribePatchGroupState $
+--             describePatchGroupStateResponse
+--
 --         , responseListCommandInvocations $
 --             listCommandInvocationsResponse
 --
 --         , responseDeregisterTargetFromMaintenanceWindow $
 --             deregisterTargetFromMaintenanceWindowResponse
 --
+--         , responseDescribeEffectivePatchesForPatchBaseline $
+--             describeEffectivePatchesForPatchBaselineResponse
+--
 --         , responseDescribeMaintenanceWindowTargets $
 --             describeMaintenanceWindowTargetsResponse
 --
+--         , responseRegisterPatchBaselineForPatchGroup $
+--             registerPatchBaselineForPatchGroupResponse
+--
 --         , responseListDocuments $
 --             listDocumentsResponse
+--
+--         , responseDescribeInstancePatchStates $
+--             describeInstancePatchStatesResponse
+--
+--         , responseGetPatchBaselineForPatchGroup $
+--             getPatchBaselineForPatchGroupResponse
 --
 --         , responseUpdateManagedInstanceRole $
 --             updateManagedInstanceRoleResponse
@@ -301,6 +385,9 @@ import Test.AWS.SSM.Internal
 --         , responseGetCommandInvocation $
 --             getCommandInvocationResponse
 --
+--         , responseDescribeInstancePatchStatesForPatchGroup $
+--             describeInstancePatchStatesForPatchGroupResponse
+--
 --         , responseDeregisterManagedInstance $
 --             deregisterManagedInstanceResponse
 --
@@ -313,8 +400,17 @@ import Test.AWS.SSM.Internal
 --         , responseUpdateAssociationStatus $
 --             updateAssociationStatusResponse
 --
+--         , responseDescribeAvailablePatches $
+--             describeAvailablePatchesResponse
+--
 --         , responseListDocumentVersions $
 --             listDocumentVersionsResponse
+--
+--         , responseDeregisterPatchBaselineForPatchGroup $
+--             deregisterPatchBaselineForPatchGroupResponse
+--
+--         , responseDescribePatchGroups $
+--             describePatchGroupsResponse
 --
 --         , responseGetMaintenanceWindow $
 --             getMaintenanceWindowResponse
@@ -324,6 +420,9 @@ import Test.AWS.SSM.Internal
 --
 --         , responseRegisterTaskWithMaintenanceWindow $
 --             registerTaskWithMaintenanceWindowResponse
+--
+--         , responseRegisterDefaultPatchBaseline $
+--             registerDefaultPatchBaselineResponse
 --
 --         , responseDescribeMaintenanceWindowTasks $
 --             describeMaintenanceWindowTasksResponse
@@ -385,6 +484,12 @@ import Test.AWS.SSM.Internal
 --         , responseSendCommand $
 --             sendCommandResponse
 --
+--         , responseDescribePatchBaselines $
+--             describePatchBaselinesResponse
+--
+--         , responseGetPatchBaseline $
+--             getPatchBaselineResponse
+--
 --         , responseRegisterTargetWithMaintenanceWindow $
 --             registerTargetWithMaintenanceWindowResponse
 --
@@ -403,10 +508,18 @@ import Test.AWS.SSM.Internal
 --         , responseCreateAssociationBatch $
 --             createAssociationBatchResponse
 --
+--         , responseCreatePatchBaseline $
+--             createPatchBaselineResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestDescribeInstancePatches :: DescribeInstancePatches -> TestTree
+requestDescribeInstancePatches = req
+    "DescribeInstancePatches"
+    "fixture/DescribeInstancePatches.yaml"
 
 requestGetInventory :: GetInventory -> TestTree
 requestGetInventory = req
@@ -418,10 +531,25 @@ requestGetParameters = req
     "GetParameters"
     "fixture/GetParameters.yaml"
 
+requestDeletePatchBaseline :: DeletePatchBaseline -> TestTree
+requestDeletePatchBaseline = req
+    "DeletePatchBaseline"
+    "fixture/DeletePatchBaseline.yaml"
+
+requestUpdatePatchBaseline :: UpdatePatchBaseline -> TestTree
+requestUpdatePatchBaseline = req
+    "UpdatePatchBaseline"
+    "fixture/UpdatePatchBaseline.yaml"
+
 requestUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersion -> TestTree
 requestUpdateDocumentDefaultVersion = req
     "UpdateDocumentDefaultVersion"
     "fixture/UpdateDocumentDefaultVersion.yaml"
+
+requestGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstance -> TestTree
+requestGetDeployablePatchSnapshotForInstance = req
+    "GetDeployablePatchSnapshotForInstance"
+    "fixture/GetDeployablePatchSnapshotForInstance.yaml"
 
 requestDescribeParameters :: DescribeParameters -> TestTree
 requestDescribeParameters = req
@@ -488,6 +616,11 @@ requestDescribeMaintenanceWindowExecutionTasks = req
     "DescribeMaintenanceWindowExecutionTasks"
     "fixture/DescribeMaintenanceWindowExecutionTasks.yaml"
 
+requestGetDefaultPatchBaseline :: GetDefaultPatchBaseline -> TestTree
+requestGetDefaultPatchBaseline = req
+    "GetDefaultPatchBaseline"
+    "fixture/GetDefaultPatchBaseline.yaml"
+
 requestGetMaintenanceWindowExecutionTask :: GetMaintenanceWindowExecutionTask -> TestTree
 requestGetMaintenanceWindowExecutionTask = req
     "GetMaintenanceWindowExecutionTask"
@@ -503,6 +636,11 @@ requestRemoveTagsFromResource = req
     "RemoveTagsFromResource"
     "fixture/RemoveTagsFromResource.yaml"
 
+requestDescribePatchGroupState :: DescribePatchGroupState -> TestTree
+requestDescribePatchGroupState = req
+    "DescribePatchGroupState"
+    "fixture/DescribePatchGroupState.yaml"
+
 requestListCommandInvocations :: ListCommandInvocations -> TestTree
 requestListCommandInvocations = req
     "ListCommandInvocations"
@@ -513,15 +651,35 @@ requestDeregisterTargetFromMaintenanceWindow = req
     "DeregisterTargetFromMaintenanceWindow"
     "fixture/DeregisterTargetFromMaintenanceWindow.yaml"
 
+requestDescribeEffectivePatchesForPatchBaseline :: DescribeEffectivePatchesForPatchBaseline -> TestTree
+requestDescribeEffectivePatchesForPatchBaseline = req
+    "DescribeEffectivePatchesForPatchBaseline"
+    "fixture/DescribeEffectivePatchesForPatchBaseline.yaml"
+
 requestDescribeMaintenanceWindowTargets :: DescribeMaintenanceWindowTargets -> TestTree
 requestDescribeMaintenanceWindowTargets = req
     "DescribeMaintenanceWindowTargets"
     "fixture/DescribeMaintenanceWindowTargets.yaml"
 
+requestRegisterPatchBaselineForPatchGroup :: RegisterPatchBaselineForPatchGroup -> TestTree
+requestRegisterPatchBaselineForPatchGroup = req
+    "RegisterPatchBaselineForPatchGroup"
+    "fixture/RegisterPatchBaselineForPatchGroup.yaml"
+
 requestListDocuments :: ListDocuments -> TestTree
 requestListDocuments = req
     "ListDocuments"
     "fixture/ListDocuments.yaml"
+
+requestDescribeInstancePatchStates :: DescribeInstancePatchStates -> TestTree
+requestDescribeInstancePatchStates = req
+    "DescribeInstancePatchStates"
+    "fixture/DescribeInstancePatchStates.yaml"
+
+requestGetPatchBaselineForPatchGroup :: GetPatchBaselineForPatchGroup -> TestTree
+requestGetPatchBaselineForPatchGroup = req
+    "GetPatchBaselineForPatchGroup"
+    "fixture/GetPatchBaselineForPatchGroup.yaml"
 
 requestUpdateManagedInstanceRole :: UpdateManagedInstanceRole -> TestTree
 requestUpdateManagedInstanceRole = req
@@ -548,6 +706,11 @@ requestGetCommandInvocation = req
     "GetCommandInvocation"
     "fixture/GetCommandInvocation.yaml"
 
+requestDescribeInstancePatchStatesForPatchGroup :: DescribeInstancePatchStatesForPatchGroup -> TestTree
+requestDescribeInstancePatchStatesForPatchGroup = req
+    "DescribeInstancePatchStatesForPatchGroup"
+    "fixture/DescribeInstancePatchStatesForPatchGroup.yaml"
+
 requestDeregisterManagedInstance :: DeregisterManagedInstance -> TestTree
 requestDeregisterManagedInstance = req
     "DeregisterManagedInstance"
@@ -568,10 +731,25 @@ requestUpdateAssociationStatus = req
     "UpdateAssociationStatus"
     "fixture/UpdateAssociationStatus.yaml"
 
+requestDescribeAvailablePatches :: DescribeAvailablePatches -> TestTree
+requestDescribeAvailablePatches = req
+    "DescribeAvailablePatches"
+    "fixture/DescribeAvailablePatches.yaml"
+
 requestListDocumentVersions :: ListDocumentVersions -> TestTree
 requestListDocumentVersions = req
     "ListDocumentVersions"
     "fixture/ListDocumentVersions.yaml"
+
+requestDeregisterPatchBaselineForPatchGroup :: DeregisterPatchBaselineForPatchGroup -> TestTree
+requestDeregisterPatchBaselineForPatchGroup = req
+    "DeregisterPatchBaselineForPatchGroup"
+    "fixture/DeregisterPatchBaselineForPatchGroup.yaml"
+
+requestDescribePatchGroups :: DescribePatchGroups -> TestTree
+requestDescribePatchGroups = req
+    "DescribePatchGroups"
+    "fixture/DescribePatchGroups.yaml"
 
 requestGetMaintenanceWindow :: GetMaintenanceWindow -> TestTree
 requestGetMaintenanceWindow = req
@@ -587,6 +765,11 @@ requestRegisterTaskWithMaintenanceWindow :: RegisterTaskWithMaintenanceWindow ->
 requestRegisterTaskWithMaintenanceWindow = req
     "RegisterTaskWithMaintenanceWindow"
     "fixture/RegisterTaskWithMaintenanceWindow.yaml"
+
+requestRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaseline -> TestTree
+requestRegisterDefaultPatchBaseline = req
+    "RegisterDefaultPatchBaseline"
+    "fixture/RegisterDefaultPatchBaseline.yaml"
 
 requestDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasks -> TestTree
 requestDescribeMaintenanceWindowTasks = req
@@ -688,6 +871,16 @@ requestSendCommand = req
     "SendCommand"
     "fixture/SendCommand.yaml"
 
+requestDescribePatchBaselines :: DescribePatchBaselines -> TestTree
+requestDescribePatchBaselines = req
+    "DescribePatchBaselines"
+    "fixture/DescribePatchBaselines.yaml"
+
+requestGetPatchBaseline :: GetPatchBaseline -> TestTree
+requestGetPatchBaseline = req
+    "GetPatchBaseline"
+    "fixture/GetPatchBaseline.yaml"
+
 requestRegisterTargetWithMaintenanceWindow :: RegisterTargetWithMaintenanceWindow -> TestTree
 requestRegisterTargetWithMaintenanceWindow = req
     "RegisterTargetWithMaintenanceWindow"
@@ -718,7 +911,19 @@ requestCreateAssociationBatch = req
     "CreateAssociationBatch"
     "fixture/CreateAssociationBatch.yaml"
 
+requestCreatePatchBaseline :: CreatePatchBaseline -> TestTree
+requestCreatePatchBaseline = req
+    "CreatePatchBaseline"
+    "fixture/CreatePatchBaseline.yaml"
+
 -- Responses
+
+responseDescribeInstancePatches :: DescribeInstancePatchesResponse -> TestTree
+responseDescribeInstancePatches = res
+    "DescribeInstancePatchesResponse"
+    "fixture/DescribeInstancePatchesResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeInstancePatches)
 
 responseGetInventory :: GetInventoryResponse -> TestTree
 responseGetInventory = res
@@ -734,12 +939,33 @@ responseGetParameters = res
     ssm
     (Proxy :: Proxy GetParameters)
 
+responseDeletePatchBaseline :: DeletePatchBaselineResponse -> TestTree
+responseDeletePatchBaseline = res
+    "DeletePatchBaselineResponse"
+    "fixture/DeletePatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy DeletePatchBaseline)
+
+responseUpdatePatchBaseline :: UpdatePatchBaselineResponse -> TestTree
+responseUpdatePatchBaseline = res
+    "UpdatePatchBaselineResponse"
+    "fixture/UpdatePatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy UpdatePatchBaseline)
+
 responseUpdateDocumentDefaultVersion :: UpdateDocumentDefaultVersionResponse -> TestTree
 responseUpdateDocumentDefaultVersion = res
     "UpdateDocumentDefaultVersionResponse"
     "fixture/UpdateDocumentDefaultVersionResponse.proto"
     ssm
     (Proxy :: Proxy UpdateDocumentDefaultVersion)
+
+responseGetDeployablePatchSnapshotForInstance :: GetDeployablePatchSnapshotForInstanceResponse -> TestTree
+responseGetDeployablePatchSnapshotForInstance = res
+    "GetDeployablePatchSnapshotForInstanceResponse"
+    "fixture/GetDeployablePatchSnapshotForInstanceResponse.proto"
+    ssm
+    (Proxy :: Proxy GetDeployablePatchSnapshotForInstance)
 
 responseDescribeParameters :: DescribeParametersResponse -> TestTree
 responseDescribeParameters = res
@@ -832,6 +1058,13 @@ responseDescribeMaintenanceWindowExecutionTasks = res
     ssm
     (Proxy :: Proxy DescribeMaintenanceWindowExecutionTasks)
 
+responseGetDefaultPatchBaseline :: GetDefaultPatchBaselineResponse -> TestTree
+responseGetDefaultPatchBaseline = res
+    "GetDefaultPatchBaselineResponse"
+    "fixture/GetDefaultPatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy GetDefaultPatchBaseline)
+
 responseGetMaintenanceWindowExecutionTask :: GetMaintenanceWindowExecutionTaskResponse -> TestTree
 responseGetMaintenanceWindowExecutionTask = res
     "GetMaintenanceWindowExecutionTaskResponse"
@@ -853,6 +1086,13 @@ responseRemoveTagsFromResource = res
     ssm
     (Proxy :: Proxy RemoveTagsFromResource)
 
+responseDescribePatchGroupState :: DescribePatchGroupStateResponse -> TestTree
+responseDescribePatchGroupState = res
+    "DescribePatchGroupStateResponse"
+    "fixture/DescribePatchGroupStateResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribePatchGroupState)
+
 responseListCommandInvocations :: ListCommandInvocationsResponse -> TestTree
 responseListCommandInvocations = res
     "ListCommandInvocationsResponse"
@@ -867,6 +1107,13 @@ responseDeregisterTargetFromMaintenanceWindow = res
     ssm
     (Proxy :: Proxy DeregisterTargetFromMaintenanceWindow)
 
+responseDescribeEffectivePatchesForPatchBaseline :: DescribeEffectivePatchesForPatchBaselineResponse -> TestTree
+responseDescribeEffectivePatchesForPatchBaseline = res
+    "DescribeEffectivePatchesForPatchBaselineResponse"
+    "fixture/DescribeEffectivePatchesForPatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeEffectivePatchesForPatchBaseline)
+
 responseDescribeMaintenanceWindowTargets :: DescribeMaintenanceWindowTargetsResponse -> TestTree
 responseDescribeMaintenanceWindowTargets = res
     "DescribeMaintenanceWindowTargetsResponse"
@@ -874,12 +1121,33 @@ responseDescribeMaintenanceWindowTargets = res
     ssm
     (Proxy :: Proxy DescribeMaintenanceWindowTargets)
 
+responseRegisterPatchBaselineForPatchGroup :: RegisterPatchBaselineForPatchGroupResponse -> TestTree
+responseRegisterPatchBaselineForPatchGroup = res
+    "RegisterPatchBaselineForPatchGroupResponse"
+    "fixture/RegisterPatchBaselineForPatchGroupResponse.proto"
+    ssm
+    (Proxy :: Proxy RegisterPatchBaselineForPatchGroup)
+
 responseListDocuments :: ListDocumentsResponse -> TestTree
 responseListDocuments = res
     "ListDocumentsResponse"
     "fixture/ListDocumentsResponse.proto"
     ssm
     (Proxy :: Proxy ListDocuments)
+
+responseDescribeInstancePatchStates :: DescribeInstancePatchStatesResponse -> TestTree
+responseDescribeInstancePatchStates = res
+    "DescribeInstancePatchStatesResponse"
+    "fixture/DescribeInstancePatchStatesResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeInstancePatchStates)
+
+responseGetPatchBaselineForPatchGroup :: GetPatchBaselineForPatchGroupResponse -> TestTree
+responseGetPatchBaselineForPatchGroup = res
+    "GetPatchBaselineForPatchGroupResponse"
+    "fixture/GetPatchBaselineForPatchGroupResponse.proto"
+    ssm
+    (Proxy :: Proxy GetPatchBaselineForPatchGroup)
 
 responseUpdateManagedInstanceRole :: UpdateManagedInstanceRoleResponse -> TestTree
 responseUpdateManagedInstanceRole = res
@@ -916,6 +1184,13 @@ responseGetCommandInvocation = res
     ssm
     (Proxy :: Proxy GetCommandInvocation)
 
+responseDescribeInstancePatchStatesForPatchGroup :: DescribeInstancePatchStatesForPatchGroupResponse -> TestTree
+responseDescribeInstancePatchStatesForPatchGroup = res
+    "DescribeInstancePatchStatesForPatchGroupResponse"
+    "fixture/DescribeInstancePatchStatesForPatchGroupResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeInstancePatchStatesForPatchGroup)
+
 responseDeregisterManagedInstance :: DeregisterManagedInstanceResponse -> TestTree
 responseDeregisterManagedInstance = res
     "DeregisterManagedInstanceResponse"
@@ -944,12 +1219,33 @@ responseUpdateAssociationStatus = res
     ssm
     (Proxy :: Proxy UpdateAssociationStatus)
 
+responseDescribeAvailablePatches :: DescribeAvailablePatchesResponse -> TestTree
+responseDescribeAvailablePatches = res
+    "DescribeAvailablePatchesResponse"
+    "fixture/DescribeAvailablePatchesResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribeAvailablePatches)
+
 responseListDocumentVersions :: ListDocumentVersionsResponse -> TestTree
 responseListDocumentVersions = res
     "ListDocumentVersionsResponse"
     "fixture/ListDocumentVersionsResponse.proto"
     ssm
     (Proxy :: Proxy ListDocumentVersions)
+
+responseDeregisterPatchBaselineForPatchGroup :: DeregisterPatchBaselineForPatchGroupResponse -> TestTree
+responseDeregisterPatchBaselineForPatchGroup = res
+    "DeregisterPatchBaselineForPatchGroupResponse"
+    "fixture/DeregisterPatchBaselineForPatchGroupResponse.proto"
+    ssm
+    (Proxy :: Proxy DeregisterPatchBaselineForPatchGroup)
+
+responseDescribePatchGroups :: DescribePatchGroupsResponse -> TestTree
+responseDescribePatchGroups = res
+    "DescribePatchGroupsResponse"
+    "fixture/DescribePatchGroupsResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribePatchGroups)
 
 responseGetMaintenanceWindow :: GetMaintenanceWindowResponse -> TestTree
 responseGetMaintenanceWindow = res
@@ -971,6 +1267,13 @@ responseRegisterTaskWithMaintenanceWindow = res
     "fixture/RegisterTaskWithMaintenanceWindowResponse.proto"
     ssm
     (Proxy :: Proxy RegisterTaskWithMaintenanceWindow)
+
+responseRegisterDefaultPatchBaseline :: RegisterDefaultPatchBaselineResponse -> TestTree
+responseRegisterDefaultPatchBaseline = res
+    "RegisterDefaultPatchBaselineResponse"
+    "fixture/RegisterDefaultPatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy RegisterDefaultPatchBaseline)
 
 responseDescribeMaintenanceWindowTasks :: DescribeMaintenanceWindowTasksResponse -> TestTree
 responseDescribeMaintenanceWindowTasks = res
@@ -1112,6 +1415,20 @@ responseSendCommand = res
     ssm
     (Proxy :: Proxy SendCommand)
 
+responseDescribePatchBaselines :: DescribePatchBaselinesResponse -> TestTree
+responseDescribePatchBaselines = res
+    "DescribePatchBaselinesResponse"
+    "fixture/DescribePatchBaselinesResponse.proto"
+    ssm
+    (Proxy :: Proxy DescribePatchBaselines)
+
+responseGetPatchBaseline :: GetPatchBaselineResponse -> TestTree
+responseGetPatchBaseline = res
+    "GetPatchBaselineResponse"
+    "fixture/GetPatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy GetPatchBaseline)
+
 responseRegisterTargetWithMaintenanceWindow :: RegisterTargetWithMaintenanceWindowResponse -> TestTree
 responseRegisterTargetWithMaintenanceWindow = res
     "RegisterTargetWithMaintenanceWindowResponse"
@@ -1153,3 +1470,10 @@ responseCreateAssociationBatch = res
     "fixture/CreateAssociationBatchResponse.proto"
     ssm
     (Proxy :: Proxy CreateAssociationBatch)
+
+responseCreatePatchBaseline :: CreatePatchBaselineResponse -> TestTree
+responseCreatePatchBaseline = res
+    "CreatePatchBaselineResponse"
+    "fixture/CreatePatchBaselineResponse.proto"
+    ssm
+    (Proxy :: Proxy CreatePatchBaseline)

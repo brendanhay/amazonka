@@ -131,7 +131,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- * 'crgSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
 --
--- * 'crgAuthToken' - The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
+-- * 'crgAuthToken' - __Reserved parameter.__ The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
 --
 -- * 'crgPrimaryClusterId' - The identifier of the cache cluster that serves as the primary for this replication group. This cache cluster must already exist and have a status of @available@ . This parameter is not required if @NumCacheClusters@ , @NumNodeGroups@ , or @ReplicasPerNodeGroup@ is specified.
 --
@@ -234,7 +234,7 @@ crgCacheParameterGroupName = lens _crgCacheParameterGroupName (\ s a -> s{_crgCa
 crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow = lens _crgSnapshotWindow (\ s a -> s{_crgSnapshotWindow = a});
 
--- | The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
+-- | __Reserved parameter.__ The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
 crgAuthToken :: Lens' CreateReplicationGroup (Maybe Text)
 crgAuthToken = lens _crgAuthToken (\ s a -> s{_crgAuthToken = a});
 

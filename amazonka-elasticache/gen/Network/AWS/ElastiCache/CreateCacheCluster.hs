@@ -117,7 +117,7 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- * 'cccSnapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard). Example: @05:00-09:00@  If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range. __Note:__ This parameter is only valid if the @Engine@ parameter is @redis@ .
 --
--- * 'cccAuthToken' - The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
+-- * 'cccAuthToken' - __Reserved parameter.__ The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
 --
 -- * 'cccEngine' - The name of the cache engine to be used for this cache cluster. Valid values for this parameter are: @memcached@ | @redis@
 --
@@ -206,7 +206,7 @@ cccCacheParameterGroupName = lens _cccCacheParameterGroupName (\ s a -> s{_cccCa
 cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow = lens _cccSnapshotWindow (\ s a -> s{_cccSnapshotWindow = a});
 
--- | The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
+-- | __Reserved parameter.__ The password used to access a password protected server. Password constraints:     * Must be only printable ASCII characters.     * Must be at least 16 characters and no more than 128 characters in length.     * Cannot contain any of the following characters: '/', '"', or "@".  For more information, see <http://redis.io/commands/AUTH AUTH password> at Redis.
 cccAuthToken :: Lens' CreateCacheCluster (Maybe Text)
 cccAuthToken = lens _cccAuthToken (\ s a -> s{_cccAuthToken = a});
 

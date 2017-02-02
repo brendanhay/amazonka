@@ -97,10 +97,10 @@ module Network.AWS.StepFunctions
     -- ** DescribeActivity
     , module Network.AWS.StepFunctions.DescribeActivity
 
-    -- ** ListStateMachines
+    -- ** ListStateMachines (Paginated)
     , module Network.AWS.StepFunctions.ListStateMachines
 
-    -- ** ListExecutions
+    -- ** ListExecutions (Paginated)
     , module Network.AWS.StepFunctions.ListExecutions
 
     -- ** DeleteStateMachine
@@ -112,7 +112,7 @@ module Network.AWS.StepFunctions
     -- ** CreateActivity
     , module Network.AWS.StepFunctions.CreateActivity
 
-    -- ** ListActivities
+    -- ** ListActivities (Paginated)
     , module Network.AWS.StepFunctions.ListActivities
 
     -- ** SendTaskHeartbeat
@@ -130,7 +130,7 @@ module Network.AWS.StepFunctions
     -- ** StartExecution
     , module Network.AWS.StepFunctions.StartExecution
 
-    -- ** GetExecutionHistory
+    -- ** GetExecutionHistory (Paginated)
     , module Network.AWS.StepFunctions.GetExecutionHistory
 
     -- ** CreateStateMachine

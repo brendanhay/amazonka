@@ -21,6 +21,8 @@
 -- Lists the existing activities. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.StepFunctions.ListActivities
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.StepFunctions.ListActivities
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 -- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 laMaxResults :: Lens' ListActivities (Maybe Natural)
 laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListActivities where
+        page rq rs
+          | stop (rs ^. larsNextToken) = Nothing
+          | stop (rs ^. larsActivities) = Nothing
+          | otherwise =
+            Just $ rq & laNextToken .~ rs ^. larsNextToken
 
 instance AWSRequest ListActivities where
         type Rs ListActivities = ListActivitiesResponse

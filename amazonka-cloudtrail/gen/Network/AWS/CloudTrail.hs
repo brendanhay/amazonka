@@ -144,7 +144,7 @@ module Network.AWS.CloudTrail
     -- ** RemoveTags
     , module Network.AWS.CloudTrail.RemoveTags
 
-    -- ** LookupEvents
+    -- ** LookupEvents (Paginated)
     , module Network.AWS.CloudTrail.LookupEvents
 
     -- ** StopLogging

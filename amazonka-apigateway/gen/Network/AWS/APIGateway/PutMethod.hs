@@ -30,6 +30,7 @@ module Network.AWS.APIGateway.PutMethod
     , putRequestModels
     , putRequestParameters
     , putAuthorizerId
+    , putOperationName
     , putApiKeyRequired
     , putRestAPIId
     , putResourceId
@@ -45,6 +46,7 @@ module Network.AWS.APIGateway.PutMethod
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -66,6 +68,7 @@ data PutMethod = PutMethod'
     { _putRequestModels     :: !(Maybe (Map Text Text))
     , _putRequestParameters :: !(Maybe (Map Text Bool))
     , _putAuthorizerId      :: !(Maybe Text)
+    , _putOperationName     :: !(Maybe Text)
     , _putApiKeyRequired    :: !(Maybe Bool)
     , _putRestAPIId         :: !Text
     , _putResourceId        :: !Text
@@ -82,6 +85,8 @@ data PutMethod = PutMethod'
 -- * 'putRequestParameters' - A key-value map defining required or optional method request parameters that can be accepted by Amazon API Gateway. A key defines a method request parameter name matching the pattern of @method.request.{location}.{name}@ , where @location@ is @querystring@ , @path@ , or @header@ and @name@ is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (@true@ ) or optional (@false@ ). The method request parameter names defined here are available in 'Integration' to be mapped to integration request parameters or body-mapping templates.
 --
 -- * 'putAuthorizerId' - Specifies the identifier of an 'Authorizer' to use on this Method, if the type is CUSTOM.
+--
+-- * 'putOperationName' - A human-friendly operation identifier for the method. For example, you can assign the @operationName@ of @ListPets@ for the @GET /pets@ method in <http://petstore-demo-endpoint.execute-api.com/petstore/pets PetStore> example.
 --
 -- * 'putApiKeyRequired' - Specifies whether the method required a valid 'ApiKey' .
 --
@@ -103,6 +108,7 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     { _putRequestModels = Nothing
     , _putRequestParameters = Nothing
     , _putAuthorizerId = Nothing
+    , _putOperationName = Nothing
     , _putApiKeyRequired = Nothing
     , _putRestAPIId = pRestAPIId_
     , _putResourceId = pResourceId_
@@ -121,6 +127,10 @@ putRequestParameters = lens _putRequestParameters (\ s a -> s{_putRequestParamet
 -- | Specifies the identifier of an 'Authorizer' to use on this Method, if the type is CUSTOM.
 putAuthorizerId :: Lens' PutMethod (Maybe Text)
 putAuthorizerId = lens _putAuthorizerId (\ s a -> s{_putAuthorizerId = a});
+
+-- | A human-friendly operation identifier for the method. For example, you can assign the @operationName@ of @ListPets@ for the @GET /pets@ method in <http://petstore-demo-endpoint.execute-api.com/petstore/pets PetStore> example.
+putOperationName :: Lens' PutMethod (Maybe Text)
+putOperationName = lens _putOperationName (\ s a -> s{_putOperationName = a});
 
 -- | Specifies whether the method required a valid 'ApiKey' .
 putApiKeyRequired :: Lens' PutMethod (Maybe Bool)
@@ -164,6 +174,7 @@ instance ToJSON PutMethod where
                  [("requestModels" .=) <$> _putRequestModels,
                   ("requestParameters" .=) <$> _putRequestParameters,
                   ("authorizerId" .=) <$> _putAuthorizerId,
+                  ("operationName" .=) <$> _putOperationName,
                   ("apiKeyRequired" .=) <$> _putApiKeyRequired,
                   Just ("authorizationType" .= _putAuthorizationType)])
 

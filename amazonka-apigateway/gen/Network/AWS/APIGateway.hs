@@ -68,6 +68,9 @@ module Network.AWS.APIGateway
     -- ** GetClientCertificate
     , module Network.AWS.APIGateway.GetClientCertificate
 
+    -- ** GetSDKType
+    , module Network.AWS.APIGateway.GetSDKType
+
     -- ** GetMethodResponse
     , module Network.AWS.APIGateway.GetMethodResponse
 
@@ -137,7 +140,7 @@ module Network.AWS.APIGateway
     -- ** ImportDocumentationParts
     , module Network.AWS.APIGateway.ImportDocumentationParts
 
-    -- ** GetUsage
+    -- ** GetUsage (Paginated)
     , module Network.AWS.APIGateway.GetUsage
 
     -- ** CreateModel
@@ -215,7 +218,7 @@ module Network.AWS.APIGateway
     -- ** PutIntegrationResponse
     , module Network.AWS.APIGateway.PutIntegrationResponse
 
-    -- ** GetUsagePlanKeys
+    -- ** GetUsagePlanKeys (Paginated)
     , module Network.AWS.APIGateway.GetUsagePlanKeys
 
     -- ** FlushStageCache
@@ -311,7 +314,7 @@ module Network.AWS.APIGateway
     -- ** CreateAPIKey
     , module Network.AWS.APIGateway.CreateAPIKey
 
-    -- ** GetUsagePlans
+    -- ** GetUsagePlans (Paginated)
     , module Network.AWS.APIGateway.GetUsagePlans
 
     -- ** PutMethod
@@ -331,6 +334,9 @@ module Network.AWS.APIGateway
 
     -- ** UpdateMethod
     , module Network.AWS.APIGateway.UpdateMethod
+
+    -- ** GetSDKTypes
+    , module Network.AWS.APIGateway.GetSDKTypes
 
     -- ** GetClientCertificates (Paginated)
     , module Network.AWS.APIGateway.GetClientCertificates
@@ -513,6 +519,7 @@ module Network.AWS.APIGateway
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -587,6 +594,23 @@ module Network.AWS.APIGateway
     , raVersion
     , raId
     , raDescription
+
+    -- ** SDKConfigurationProperty
+    , SDKConfigurationProperty
+    , sdkConfigurationProperty
+    , scpFriendlyName
+    , scpRequired
+    , scpName
+    , scpDefaultValue
+    , scpDescription
+
+    -- ** SDKType
+    , SDKType
+    , sdkType
+    , stFriendlyName
+    , stConfigurationProperties
+    , stId
+    , stDescription
 
     -- ** Stage
     , Stage
@@ -709,6 +733,8 @@ import           Network.AWS.APIGateway.GetResources
 import           Network.AWS.APIGateway.GetRestAPI
 import           Network.AWS.APIGateway.GetRestAPIs
 import           Network.AWS.APIGateway.GetSDK
+import           Network.AWS.APIGateway.GetSDKType
+import           Network.AWS.APIGateway.GetSDKTypes
 import           Network.AWS.APIGateway.GetStage
 import           Network.AWS.APIGateway.GetStages
 import           Network.AWS.APIGateway.GetUsage

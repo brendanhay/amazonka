@@ -46,6 +46,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetClientCertificate $
 --             getClientCertificate
 --
+--         , requestGetSDKType $
+--             getSDKType
+--
 --         , requestGetMethodResponse $
 --             getMethodResponse
 --
@@ -310,6 +313,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateMethod $
 --             updateMethod
 --
+--         , requestGetSDKTypes $
+--             getSDKTypes
+--
 --         , requestGetClientCertificates $
 --             getClientCertificates
 --
@@ -348,6 +354,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetClientCertificate $
 --             clientCertificate
+--
+--         , responseGetSDKType $
+--             sdkType
 --
 --         , responseGetMethodResponse $
 --             methodResponse
@@ -613,6 +622,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateMethod $
 --             method
 --
+--         , responseGetSDKTypes $
+--             getSDKTypesResponse
+--
 --         , responseGetClientCertificates $
 --             getClientCertificatesResponse
 --
@@ -665,6 +677,11 @@ requestGetClientCertificate :: GetClientCertificate -> TestTree
 requestGetClientCertificate = req
     "GetClientCertificate"
     "fixture/GetClientCertificate.yaml"
+
+requestGetSDKType :: GetSDKType -> TestTree
+requestGetSDKType = req
+    "GetSDKType"
+    "fixture/GetSDKType.yaml"
 
 requestGetMethodResponse :: GetMethodResponse -> TestTree
 requestGetMethodResponse = req
@@ -1106,6 +1123,11 @@ requestUpdateMethod = req
     "UpdateMethod"
     "fixture/UpdateMethod.yaml"
 
+requestGetSDKTypes :: GetSDKTypes -> TestTree
+requestGetSDKTypes = req
+    "GetSDKTypes"
+    "fixture/GetSDKTypes.yaml"
+
 requestGetClientCertificates :: GetClientCertificates -> TestTree
 requestGetClientCertificates = req
     "GetClientCertificates"
@@ -1179,6 +1201,13 @@ responseGetClientCertificate = res
     "fixture/GetClientCertificateResponse.proto"
     apiGateway
     (Proxy :: Proxy GetClientCertificate)
+
+responseGetSDKType :: SDKType -> TestTree
+responseGetSDKType = res
+    "GetSDKTypeResponse"
+    "fixture/GetSDKTypeResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetSDKType)
 
 responseGetMethodResponse :: MethodResponse -> TestTree
 responseGetMethodResponse = res
@@ -1795,6 +1824,13 @@ responseUpdateMethod = res
     "fixture/UpdateMethodResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateMethod)
+
+responseGetSDKTypes :: GetSDKTypesResponse -> TestTree
+responseGetSDKTypes = res
+    "GetSDKTypesResponse"
+    "fixture/GetSDKTypesResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetSDKTypes)
 
 responseGetClientCertificates :: GetClientCertificatesResponse -> TestTree
 responseGetClientCertificates = res

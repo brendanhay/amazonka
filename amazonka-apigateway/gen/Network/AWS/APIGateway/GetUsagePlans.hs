@@ -21,6 +21,8 @@
 -- Gets all the usage plans of the caller's account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsagePlans
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.APIGateway.GetUsagePlans
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ gupLimit = lens _gupLimit (\ s a -> s{_gupLimit = a});
 -- | The zero-based array index specifying the position of the to-be-retrieved 'UsagePlan' resource.
 gupPosition :: Lens' GetUsagePlans (Maybe Text)
 gupPosition = lens _gupPosition (\ s a -> s{_gupPosition = a});
+
+instance AWSPager GetUsagePlans where
+        page rq rs
+          | stop (rs ^. guprsPosition) = Nothing
+          | stop (rs ^. guprsItems) = Nothing
+          | otherwise =
+            Just $ rq & gupPosition .~ rs ^. guprsPosition
 
 instance AWSRequest GetUsagePlans where
         type Rs GetUsagePlans = GetUsagePlansResponse

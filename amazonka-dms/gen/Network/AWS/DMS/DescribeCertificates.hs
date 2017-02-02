@@ -135,7 +135,7 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsCertificates' - The SSL certificates associated with the replication instance.
+-- * 'dcrsCertificates' - The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 --
 -- * 'dcrsMarker' - The pagination token.
 --
@@ -150,7 +150,7 @@ describeCertificatesResponse pResponseStatus_ =
     , _dcrsResponseStatus = pResponseStatus_
     }
 
--- | The SSL certificates associated with the replication instance.
+-- | The Secure Sockets Layer (SSL) certificates associated with the replication instance.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
 dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
 

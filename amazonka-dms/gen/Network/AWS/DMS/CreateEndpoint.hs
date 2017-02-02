@@ -27,19 +27,19 @@ module Network.AWS.DMS.CreateEndpoint
       createEndpoint
     , CreateEndpoint
     -- * Request Lenses
+    , ceServerName
     , ceCertificateARN
     , ceExtraConnectionAttributes
+    , ceUsername
     , ceKMSKeyId
     , ceSSLMode
+    , cePassword
     , ceDatabaseName
     , ceTags
+    , cePort
     , ceEndpointIdentifier
     , ceEndpointType
     , ceEngineName
-    , ceUsername
-    , cePassword
-    , ceServerName
-    , cePort
 
     -- * Destructuring the Response
     , createEndpointResponse
@@ -62,75 +62,75 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-    { _ceCertificateARN            :: !(Maybe Text)
+    { _ceServerName                :: !(Maybe Text)
+    , _ceCertificateARN            :: !(Maybe Text)
     , _ceExtraConnectionAttributes :: !(Maybe Text)
+    , _ceUsername                  :: !(Maybe Text)
     , _ceKMSKeyId                  :: !(Maybe Text)
     , _ceSSLMode                   :: !(Maybe DmsSSLModeValue)
+    , _cePassword                  :: !(Maybe (Sensitive Text))
     , _ceDatabaseName              :: !(Maybe Text)
     , _ceTags                      :: !(Maybe [Tag])
+    , _cePort                      :: !(Maybe Int)
     , _ceEndpointIdentifier        :: !Text
     , _ceEndpointType              :: !ReplicationEndpointTypeValue
     , _ceEngineName                :: !Text
-    , _ceUsername                  :: !Text
-    , _cePassword                  :: !(Sensitive Text)
-    , _ceServerName                :: !Text
-    , _cePort                      :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateEndpoint' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ceServerName' - The name of the server where the endpoint database resides.
+--
 -- * 'ceCertificateARN' - The Amazon Resource Number (ARN) for the certificate.
 --
 -- * 'ceExtraConnectionAttributes' - Additional attributes associated with the connection.
+--
+-- * 'ceUsername' - The user name to be used to login to the endpoint database.
 --
 -- * 'ceKMSKeyId' - The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
 -- * 'ceSSLMode' - The SSL mode to use for the SSL connection. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
+-- * 'cePassword' - The password to be used to login to the endpoint database.
+--
 -- * 'ceDatabaseName' - The name of the endpoint database.
 --
 -- * 'ceTags' - Tags to be added to the endpoint.
+--
+-- * 'cePort' - The port used by the endpoint database.
 --
 -- * 'ceEndpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 --
 -- * 'ceEndpointType' - The type of endpoint.
 --
--- * 'ceEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
---
--- * 'ceUsername' - The user name to be used to login to the endpoint database.
---
--- * 'cePassword' - The password to be used to login to the endpoint database.
---
--- * 'ceServerName' - The name of the server where the endpoint database resides.
---
--- * 'cePort' - The port used by the endpoint database.
+-- * 'ceEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 createEndpoint
     :: Text -- ^ 'ceEndpointIdentifier'
     -> ReplicationEndpointTypeValue -- ^ 'ceEndpointType'
     -> Text -- ^ 'ceEngineName'
-    -> Text -- ^ 'ceUsername'
-    -> Text -- ^ 'cePassword'
-    -> Text -- ^ 'ceServerName'
-    -> Int -- ^ 'cePort'
     -> CreateEndpoint
-createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ pUsername_ pPassword_ pServerName_ pPort_ =
+createEndpoint pEndpointIdentifier_ pEndpointType_ pEngineName_ =
     CreateEndpoint'
-    { _ceCertificateARN = Nothing
+    { _ceServerName = Nothing
+    , _ceCertificateARN = Nothing
     , _ceExtraConnectionAttributes = Nothing
+    , _ceUsername = Nothing
     , _ceKMSKeyId = Nothing
     , _ceSSLMode = Nothing
+    , _cePassword = Nothing
     , _ceDatabaseName = Nothing
     , _ceTags = Nothing
+    , _cePort = Nothing
     , _ceEndpointIdentifier = pEndpointIdentifier_
     , _ceEndpointType = pEndpointType_
     , _ceEngineName = pEngineName_
-    , _ceUsername = pUsername_
-    , _cePassword = _Sensitive # pPassword_
-    , _ceServerName = pServerName_
-    , _cePort = pPort_
     }
+
+-- | The name of the server where the endpoint database resides.
+ceServerName :: Lens' CreateEndpoint (Maybe Text)
+ceServerName = lens _ceServerName (\ s a -> s{_ceServerName = a});
 
 -- | The Amazon Resource Number (ARN) for the certificate.
 ceCertificateARN :: Lens' CreateEndpoint (Maybe Text)
@@ -140,6 +140,10 @@ ceCertificateARN = lens _ceCertificateARN (\ s a -> s{_ceCertificateARN = a});
 ceExtraConnectionAttributes :: Lens' CreateEndpoint (Maybe Text)
 ceExtraConnectionAttributes = lens _ceExtraConnectionAttributes (\ s a -> s{_ceExtraConnectionAttributes = a});
 
+-- | The user name to be used to login to the endpoint database.
+ceUsername :: Lens' CreateEndpoint (Maybe Text)
+ceUsername = lens _ceUsername (\ s a -> s{_ceUsername = a});
+
 -- | The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 ceKMSKeyId :: Lens' CreateEndpoint (Maybe Text)
 ceKMSKeyId = lens _ceKMSKeyId (\ s a -> s{_ceKMSKeyId = a});
@@ -147,6 +151,10 @@ ceKMSKeyId = lens _ceKMSKeyId (\ s a -> s{_ceKMSKeyId = a});
 -- | The SSL mode to use for the SSL connection. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 ceSSLMode :: Lens' CreateEndpoint (Maybe DmsSSLModeValue)
 ceSSLMode = lens _ceSSLMode (\ s a -> s{_ceSSLMode = a});
+
+-- | The password to be used to login to the endpoint database.
+cePassword :: Lens' CreateEndpoint (Maybe Text)
+cePassword = lens _cePassword (\ s a -> s{_cePassword = a}) . mapping _Sensitive;
 
 -- | The name of the endpoint database.
 ceDatabaseName :: Lens' CreateEndpoint (Maybe Text)
@@ -156,6 +164,10 @@ ceDatabaseName = lens _ceDatabaseName (\ s a -> s{_ceDatabaseName = a});
 ceTags :: Lens' CreateEndpoint [Tag]
 ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default . _Coerce;
 
+-- | The port used by the endpoint database.
+cePort :: Lens' CreateEndpoint (Maybe Int)
+cePort = lens _cePort (\ s a -> s{_cePort = a});
+
 -- | The database endpoint identifier. Identifiers must begin with a letter; must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain two consecutive hyphens.
 ceEndpointIdentifier :: Lens' CreateEndpoint Text
 ceEndpointIdentifier = lens _ceEndpointIdentifier (\ s a -> s{_ceEndpointIdentifier = a});
@@ -164,25 +176,9 @@ ceEndpointIdentifier = lens _ceEndpointIdentifier (\ s a -> s{_ceEndpointIdentif
 ceEndpointType :: Lens' CreateEndpoint ReplicationEndpointTypeValue
 ceEndpointType = lens _ceEndpointType (\ s a -> s{_ceEndpointType = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 ceEngineName :: Lens' CreateEndpoint Text
 ceEngineName = lens _ceEngineName (\ s a -> s{_ceEngineName = a});
-
--- | The user name to be used to login to the endpoint database.
-ceUsername :: Lens' CreateEndpoint Text
-ceUsername = lens _ceUsername (\ s a -> s{_ceUsername = a});
-
--- | The password to be used to login to the endpoint database.
-cePassword :: Lens' CreateEndpoint Text
-cePassword = lens _cePassword (\ s a -> s{_cePassword = a}) . _Sensitive;
-
--- | The name of the server where the endpoint database resides.
-ceServerName :: Lens' CreateEndpoint Text
-ceServerName = lens _ceServerName (\ s a -> s{_ceServerName = a});
-
--- | The port used by the endpoint database.
-cePort :: Lens' CreateEndpoint Int
-cePort = lens _cePort (\ s a -> s{_cePort = a});
 
 instance AWSRequest CreateEndpoint where
         type Rs CreateEndpoint = CreateEndpointResponse
@@ -210,20 +206,19 @@ instance ToJSON CreateEndpoint where
         toJSON CreateEndpoint'{..}
           = object
               (catMaybes
-                 [("CertificateArn" .=) <$> _ceCertificateARN,
+                 [("ServerName" .=) <$> _ceServerName,
+                  ("CertificateArn" .=) <$> _ceCertificateARN,
                   ("ExtraConnectionAttributes" .=) <$>
                     _ceExtraConnectionAttributes,
+                  ("Username" .=) <$> _ceUsername,
                   ("KmsKeyId" .=) <$> _ceKMSKeyId,
                   ("SslMode" .=) <$> _ceSSLMode,
+                  ("Password" .=) <$> _cePassword,
                   ("DatabaseName" .=) <$> _ceDatabaseName,
-                  ("Tags" .=) <$> _ceTags,
+                  ("Tags" .=) <$> _ceTags, ("Port" .=) <$> _cePort,
                   Just ("EndpointIdentifier" .= _ceEndpointIdentifier),
                   Just ("EndpointType" .= _ceEndpointType),
-                  Just ("EngineName" .= _ceEngineName),
-                  Just ("Username" .= _ceUsername),
-                  Just ("Password" .= _cePassword),
-                  Just ("ServerName" .= _ceServerName),
-                  Just ("Port" .= _cePort)])
+                  Just ("EngineName" .= _ceEngineName)])
 
 instance ToPath CreateEndpoint where
         toPath = const "/"

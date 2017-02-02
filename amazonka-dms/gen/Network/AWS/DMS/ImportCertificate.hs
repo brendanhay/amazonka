@@ -28,6 +28,7 @@ module Network.AWS.DMS.ImportCertificate
     , ImportCertificate
     -- * Request Lenses
     , icCertificatePem
+    , icCertificateWallet
     , icCertificateIdentifier
 
     -- * Destructuring the Response
@@ -48,6 +49,7 @@ import           Network.AWS.Response
 -- | /See:/ 'importCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
     { _icCertificatePem        :: !(Maybe Text)
+    , _icCertificateWallet     :: !(Maybe Base64)
     , _icCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -55,23 +57,30 @@ data ImportCertificate = ImportCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'icCertificatePem' - The contents of the .pem X.509 certificate file.
+-- * 'icCertificatePem' - The contents of the .pem X.509 certificate file for the certificate.
 --
--- * 'icCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
+-- * 'icCertificateWallet' - The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+--
+-- * 'icCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
 importCertificate
     :: Text -- ^ 'icCertificateIdentifier'
     -> ImportCertificate
 importCertificate pCertificateIdentifier_ =
     ImportCertificate'
     { _icCertificatePem = Nothing
+    , _icCertificateWallet = Nothing
     , _icCertificateIdentifier = pCertificateIdentifier_
     }
 
--- | The contents of the .pem X.509 certificate file.
+-- | The contents of the .pem X.509 certificate file for the certificate.
 icCertificatePem :: Lens' ImportCertificate (Maybe Text)
 icCertificatePem = lens _icCertificatePem (\ s a -> s{_icCertificatePem = a});
 
--- | The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
+-- | The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+icCertificateWallet :: Lens' ImportCertificate (Maybe ByteString)
+icCertificateWallet = lens _icCertificateWallet (\ s a -> s{_icCertificateWallet = a}) . mapping _Base64;
+
+-- | The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
 icCertificateIdentifier :: Lens' ImportCertificate Text
 icCertificateIdentifier = lens _icCertificateIdentifier (\ s a -> s{_icCertificateIdentifier = a});
 
@@ -103,6 +112,7 @@ instance ToJSON ImportCertificate where
           = object
               (catMaybes
                  [("CertificatePem" .=) <$> _icCertificatePem,
+                  ("CertificateWallet" .=) <$> _icCertificateWallet,
                   Just
                     ("CertificateIdentifier" .=
                        _icCertificateIdentifier)])

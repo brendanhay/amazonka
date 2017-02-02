@@ -67,6 +67,7 @@ library
         , Network.AWS.DMS.ModifyEndpoint
         , Network.AWS.DMS.ModifyReplicationInstance
         , Network.AWS.DMS.ModifyReplicationSubnetGroup
+        , Network.AWS.DMS.ModifyReplicationTask
         , Network.AWS.DMS.RefreshSchemas
         , Network.AWS.DMS.RemoveTagsFromResource
         , Network.AWS.DMS.StartReplicationTask

@@ -67,6 +67,7 @@ module Network.AWS.DMS.Types
     , cCertificateARN
     , cCertificateCreationDate
     , cCertificateIdentifier
+    , cCertificateWallet
     , cKeyLength
     , cValidToDate
 
@@ -140,6 +141,7 @@ module Network.AWS.DMS.Types
     , riAvailabilityZone
     , riVPCSecurityGroups
     , riMultiAZ
+    , riSecondaryAvailabilityZone
     , riReplicationInstanceARN
     , riAllocatedStorage
     , riReplicationInstancePublicIPAddress
@@ -169,6 +171,7 @@ module Network.AWS.DMS.Types
     , replicationTask
     , rtReplicationTaskSettings
     , rtStatus
+    , rtStopReason
     , rtTargetEndpointARN
     , rtReplicationTaskIdentifier
     , rtReplicationTaskStartDate

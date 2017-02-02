@@ -53,6 +53,8 @@ import           Network.AWS.Response
 
 -- | Input to the ListIdentities action.
 --
+--
+--
 -- /See:/ 'listIdentities' smart constructor.
 data ListIdentities = ListIdentities'
     { _liHideDisabled   :: !(Maybe Bool)
@@ -141,6 +143,8 @@ instance ToQuery ListIdentities where
         toQuery = const mempty
 
 -- | The response to a ListIdentities request.
+--
+--
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'

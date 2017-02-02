@@ -50,6 +50,8 @@ import           Network.AWS.Response
 
 -- | Input to the ListIdentityPools action.
 --
+--
+--
 -- /See:/ 'listIdentityPools' smart constructor.
 data ListIdentityPools = ListIdentityPools'
     { _lipNextToken  :: !(Maybe Text)
@@ -119,6 +121,8 @@ instance ToQuery ListIdentityPools where
         toQuery = const mempty
 
 -- | The result of a successful ListIdentityPools action.
+--
+--
 --
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'

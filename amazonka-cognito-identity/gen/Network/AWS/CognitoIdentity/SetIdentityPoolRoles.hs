@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the roles for an identity pool. These roles are used when making calls to @GetCredentialsForIdentity@ action.
+-- Sets the roles for an identity pool. These roles are used when making calls to 'GetCredentialsForIdentity' action.
 --
 --
 -- You must use AWS Developer credentials to call this API.
@@ -29,6 +29,7 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
       setIdentityPoolRoles
     , SetIdentityPoolRoles
     -- * Request Lenses
+    , siprRoleMappings
     , siprIdentityPoolId
     , siprRoles
 
@@ -50,13 +51,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'setIdentityPoolRoles' smart constructor.
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
-    { _siprIdentityPoolId :: !Text
+    { _siprRoleMappings   :: !(Maybe (Map Text RoleMapping))
+    , _siprIdentityPoolId :: !Text
     , _siprRoles          :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SetIdentityPoolRoles' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siprRoleMappings' - How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Up to 25 rules can be specified per identity provider.
 --
 -- * 'siprIdentityPoolId' - An identity pool ID in the format REGION:GUID.
 --
@@ -66,9 +70,14 @@ setIdentityPoolRoles
     -> SetIdentityPoolRoles
 setIdentityPoolRoles pIdentityPoolId_ =
     SetIdentityPoolRoles'
-    { _siprIdentityPoolId = pIdentityPoolId_
+    { _siprRoleMappings = Nothing
+    , _siprIdentityPoolId = pIdentityPoolId_
     , _siprRoles = mempty
     }
+
+-- | How users for a specific identity provider are to mapped to roles. This is a string to 'RoleMapping' object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Up to 25 rules can be specified per identity provider.
+siprRoleMappings :: Lens' SetIdentityPoolRoles (HashMap Text RoleMapping)
+siprRoleMappings = lens _siprRoleMappings (\ s a -> s{_siprRoleMappings = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
 siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
@@ -102,7 +111,8 @@ instance ToJSON SetIdentityPoolRoles where
         toJSON SetIdentityPoolRoles'{..}
           = object
               (catMaybes
-                 [Just ("IdentityPoolId" .= _siprIdentityPoolId),
+                 [("RoleMappings" .=) <$> _siprRoleMappings,
+                  Just ("IdentityPoolId" .= _siprIdentityPoolId),
                   Just ("Roles" .= _siprRoles)])
 
 instance ToPath SetIdentityPoolRoles where

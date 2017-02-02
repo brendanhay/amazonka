@@ -54,6 +54,8 @@ import           Network.AWS.Response
 
 -- | Input to the DescribeIdentityPool action.
 --
+--
+--
 -- /See:/ 'describeIdentityPool' smart constructor.
 newtype DescribeIdentityPool = DescribeIdentityPool'
     { _dipIdentityPoolId :: Text

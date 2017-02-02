@@ -59,7 +59,9 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | An object representing a Cognito identity pool.
+-- | An object representing an Amazon Cognito identity pool.
+--
+--
 --
 -- /See:/ 'updateIdentityPool' smart constructor.
 data UpdateIdentityPool = UpdateIdentityPool'

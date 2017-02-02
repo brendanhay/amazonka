@@ -126,8 +126,17 @@ module Network.AWS.CognitoIdentity
 
     -- * Types
 
+    -- ** AmbiguousRoleResolutionType
+    , AmbiguousRoleResolutionType (..)
+
     -- ** CognitoErrorCode
     , CognitoErrorCode (..)
+
+    -- ** MappingRuleMatchType
+    , MappingRuleMatchType (..)
+
+    -- ** RoleMappingType
+    , RoleMappingType (..)
 
     -- ** CognitoIdentityProvider
     , CognitoIdentityProvider
@@ -168,6 +177,26 @@ module Network.AWS.CognitoIdentity
     , identityPoolShortDescription
     , ipsdIdentityPoolId
     , ipsdIdentityPoolName
+
+    -- ** MappingRule
+    , MappingRule
+    , mappingRule
+    , mrClaim
+    , mrMatchType
+    , mrValue
+    , mrRoleARN
+
+    -- ** RoleMapping
+    , RoleMapping
+    , roleMapping
+    , rmRulesConfiguration
+    , rmAmbiguousRoleResolution
+    , rmType
+
+    -- ** RulesConfigurationType
+    , RulesConfigurationType
+    , rulesConfigurationType
+    , rctRules
 
     -- ** UnprocessedIdentityId
     , UnprocessedIdentityId

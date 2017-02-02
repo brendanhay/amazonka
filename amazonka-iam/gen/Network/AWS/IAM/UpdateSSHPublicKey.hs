@@ -56,9 +56,9 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uspkUserName' - The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uspkUserName' - The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uspkSSHPublicKeyId' - The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'uspkSSHPublicKeyId' - The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- * 'uspkStatus' - The status to assign to the SSH public key. @Active@ means the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means the key cannot be used.
 updateSSHPublicKey
@@ -73,11 +73,11 @@ updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     , _uspkStatus = pStatus_
     }
 
--- | The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uspkUserName :: Lens' UpdateSSHPublicKey Text
 uspkUserName = lens _uspkUserName (\ s a -> s{_uspkUserName = a});
 
--- | The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uspkSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
 uspkSSHPublicKeyId = lens _uspkSSHPublicKeyId (\ s a -> s{_uspkSSHPublicKeyId = a});
 

@@ -65,7 +65,7 @@ data CreatePolicyVersion = CreatePolicyVersion'
 --
 -- * 'cpvPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- * 'cpvPolicyDocument' - The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'cpvPolicyDocument' - The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 createPolicyVersion
     :: Text -- ^ 'cpvPolicyARN'
     -> Text -- ^ 'cpvPolicyDocument'
@@ -85,7 +85,7 @@ cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 cpvPolicyARN :: Lens' CreatePolicyVersion Text
 cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 
--- | The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | The JSON policy document that you want to use as the content for this new version of the policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 

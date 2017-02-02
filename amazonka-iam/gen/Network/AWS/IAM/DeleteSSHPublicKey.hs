@@ -54,9 +54,9 @@ data DeleteSSHPublicKey = DeleteSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspkUserName' - The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dspkUserName' - The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dspkSSHPublicKeyId' - The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'dspkSSHPublicKeyId' - The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 deleteSSHPublicKey
     :: Text -- ^ 'dspkUserName'
     -> Text -- ^ 'dspkSSHPublicKeyId'
@@ -67,11 +67,11 @@ deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
     , _dspkSSHPublicKeyId = pSSHPublicKeyId_
     }
 
--- | The name of the IAM user associated with the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dspkUserName :: Lens' DeleteSSHPublicKey Text
 dspkUserName = lens _dspkUserName (\ s a -> s{_dspkUserName = a});
 
--- | The unique identifier for the SSH public key. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 dspkSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
 dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\ s a -> s{_dspkSSHPublicKeyId = a});
 

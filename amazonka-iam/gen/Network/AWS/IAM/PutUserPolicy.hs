@@ -58,11 +58,11 @@ data PutUserPolicy = PutUserPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pupUserName' - The name of the user to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'pupUserName' - The name of the user to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pupPolicyName' - The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'pupPolicyName' - The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'pupPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'pupPolicyDocument' - The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 putUserPolicy
     :: Text -- ^ 'pupUserName'
     -> Text -- ^ 'pupPolicyName'
@@ -75,15 +75,15 @@ putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
     , _pupPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the user to associate the policy with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user to associate the policy with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\ s a -> s{_pupUserName = a});
 
--- | The name of the policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the policy document. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 pupPolicyName :: Lens' PutUserPolicy Text
 pupPolicyName = lens _pupPolicyName (\ s a -> s{_pupPolicyName = a});
 
--- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | The policy document. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 pupPolicyDocument :: Lens' PutUserPolicy Text
 pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a});
 

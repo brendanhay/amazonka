@@ -59,9 +59,9 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvmdPath' - The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'cvmdPath' - The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'cvmdVirtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'cvmdVirtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createVirtualMFADevice
     :: Text -- ^ 'cvmdVirtualMFADeviceName'
     -> CreateVirtualMFADevice
@@ -71,11 +71,11 @@ createVirtualMFADevice pVirtualMFADeviceName_ =
     , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
     }
 
--- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
 cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
 
--- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
 

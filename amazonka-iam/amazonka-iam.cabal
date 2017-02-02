@@ -57,6 +57,7 @@ library
         , Network.AWS.IAM.CreatePolicyVersion
         , Network.AWS.IAM.CreateRole
         , Network.AWS.IAM.CreateSAMLProvider
+        , Network.AWS.IAM.CreateServiceSpecificCredential
         , Network.AWS.IAM.CreateUser
         , Network.AWS.IAM.CreateVirtualMFADevice
         , Network.AWS.IAM.DeactivateMFADevice
@@ -75,6 +76,7 @@ library
         , Network.AWS.IAM.DeleteSAMLProvider
         , Network.AWS.IAM.DeleteSSHPublicKey
         , Network.AWS.IAM.DeleteServerCertificate
+        , Network.AWS.IAM.DeleteServiceSpecificCredential
         , Network.AWS.IAM.DeleteSigningCertificate
         , Network.AWS.IAM.DeleteUser
         , Network.AWS.IAM.DeleteUserPolicy
@@ -125,6 +127,7 @@ library
         , Network.AWS.IAM.ListSAMLProviders
         , Network.AWS.IAM.ListSSHPublicKeys
         , Network.AWS.IAM.ListServerCertificates
+        , Network.AWS.IAM.ListServiceSpecificCredentials
         , Network.AWS.IAM.ListSigningCertificates
         , Network.AWS.IAM.ListUserPolicies
         , Network.AWS.IAM.ListUsers
@@ -135,6 +138,7 @@ library
         , Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
         , Network.AWS.IAM.RemoveUserFromGroup
+        , Network.AWS.IAM.ResetServiceSpecificCredential
         , Network.AWS.IAM.ResyncMFADevice
         , Network.AWS.IAM.SetDefaultPolicyVersion
         , Network.AWS.IAM.SimulateCustomPolicy
@@ -149,6 +153,7 @@ library
         , Network.AWS.IAM.UpdateSAMLProvider
         , Network.AWS.IAM.UpdateSSHPublicKey
         , Network.AWS.IAM.UpdateServerCertificate
+        , Network.AWS.IAM.UpdateServiceSpecificCredential
         , Network.AWS.IAM.UpdateSigningCertificate
         , Network.AWS.IAM.UpdateUser
         , Network.AWS.IAM.UploadSSHPublicKey

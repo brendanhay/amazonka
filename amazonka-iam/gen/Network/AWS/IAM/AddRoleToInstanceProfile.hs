@@ -54,9 +54,9 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artipInstanceProfileName' - The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'artipInstanceProfileName' - The name of the instance profile to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'artipRoleName' - The name of the role to add. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'artipRoleName' - The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 addRoleToInstanceProfile
     :: Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
@@ -67,11 +67,11 @@ addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
     , _artipRoleName = pRoleName_
     }
 
--- | The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the instance profile to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName = lens _artipInstanceProfileName (\ s a -> s{_artipInstanceProfileName = a});
 
--- | The name of the role to add. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\ s a -> s{_artipRoleName = a});
 

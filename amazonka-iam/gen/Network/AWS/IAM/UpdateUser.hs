@@ -56,11 +56,11 @@ data UpdateUser = UpdateUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uuNewUserName' - New name for the user. Include this parameter only if you're changing the user's name. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uuNewUserName' - New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uuNewPath' - New path for the IAM user. Include this parameter only if you're changing the user's path. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'uuNewPath' - New path for the IAM user. Include this parameter only if you're changing the user's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'uuUserName' - Name of the user to update. If you're changing the name of the user, this is the original user name. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uuUserName' - Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 updateUser
     :: Text -- ^ 'uuUserName'
     -> UpdateUser
@@ -71,15 +71,15 @@ updateUser pUserName_ =
     , _uuUserName = pUserName_
     }
 
--- | New name for the user. Include this parameter only if you're changing the user's name. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | New name for the user. Include this parameter only if you're changing the user's name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uuNewUserName :: Lens' UpdateUser (Maybe Text)
 uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a});
 
--- | New path for the IAM user. Include this parameter only if you're changing the user's path. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | New path for the IAM user. Include this parameter only if you're changing the user's path. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 uuNewPath :: Lens' UpdateUser (Maybe Text)
 uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 
--- | Name of the user to update. If you're changing the name of the user, this is the original user name. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | Name of the user to update. If you're changing the name of the user, this is the original user name. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 

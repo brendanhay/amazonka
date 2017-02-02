@@ -56,7 +56,7 @@ data AttachGroupPolicy = AttachGroupPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'agpGroupName' - The name (friendly name, not ARN) of the group to attach the policy to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'agpGroupName' - The name (friendly name, not ARN) of the group to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- * 'agpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 attachGroupPolicy
@@ -69,7 +69,7 @@ attachGroupPolicy pGroupName_ pPolicyARN_ =
     , _agpPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the group to attach the policy to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the group to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 agpGroupName :: Lens' AttachGroupPolicy Text
 agpGroupName = lens _agpGroupName (\ s a -> s{_agpGroupName = a});
 

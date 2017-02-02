@@ -59,9 +59,9 @@ data CreateLoginProfile = CreateLoginProfile'
 --
 -- * 'clpPasswordResetRequired' - Specifies whether the user is required to set a new password on next sign-in.
 --
--- * 'clpUserName' - The name of the IAM user to create a password for. The user must already exist. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'clpUserName' - The name of the IAM user to create a password for. The user must already exist. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'clpPassword' - The new password for the user. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Although any of these characters are valid in a password, note that many tools, such as the AWS Management Console, might restrict the ability to enter certain characters because they have special meaning within that tool.
+-- * 'clpPassword' - The new password for the user. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Although any of these characters are valid in a password, note that many tools, such as the AWS Management Console, might restrict the ability to enter certain characters because they have special meaning within that tool.
 createLoginProfile
     :: Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
@@ -77,11 +77,11 @@ createLoginProfile pUserName_ pPassword_ =
 clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
 clpPasswordResetRequired = lens _clpPasswordResetRequired (\ s a -> s{_clpPasswordResetRequired = a});
 
--- | The name of the IAM user to create a password for. The user must already exist. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user to create a password for. The user must already exist. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\ s a -> s{_clpUserName = a});
 
--- | The new password for the user. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Although any of these characters are valid in a password, note that many tools, such as the AWS Management Console, might restrict the ability to enter certain characters because they have special meaning within that tool.
+-- | The new password for the user. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of almost any printable ASCII character from the space (\u0020) through the end of the ASCII character range (\u00FF). You can also include the tab (\u0009), line feed (\u000A), and carriage return (\u000D) characters. Although any of these characters are valid in a password, note that many tools, such as the AWS Management Console, might restrict the ability to enter certain characters because they have special meaning within that tool.
 clpPassword :: Lens' CreateLoginProfile Text
 clpPassword = lens _clpPassword (\ s a -> s{_clpPassword = a}) . _Sensitive;
 

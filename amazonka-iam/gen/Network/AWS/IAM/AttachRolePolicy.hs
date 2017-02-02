@@ -56,7 +56,7 @@ data AttachRolePolicy = AttachRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'arpRoleName' - The name (friendly name, not ARN) of the role to attach the policy to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'arpRoleName' - The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- * 'arpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 attachRolePolicy
@@ -69,7 +69,7 @@ attachRolePolicy pRoleName_ pPolicyARN_ =
     , _arpPolicyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the role to attach the policy to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the role to attach the policy to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 arpRoleName :: Lens' AttachRolePolicy Text
 arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
 

@@ -59,7 +59,7 @@ newtype CreateAccessKey = CreateAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cakUserName' - The name of the IAM user that the new key will belong to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'cakUserName' - The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 createAccessKey
     :: CreateAccessKey
 createAccessKey =
@@ -67,7 +67,7 @@ createAccessKey =
     { _cakUserName = Nothing
     }
 
--- | The name of the IAM user that the new key will belong to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user that the new key will belong to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 

@@ -58,9 +58,9 @@ data UpdateAccessKey = UpdateAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uakUserName' - The name of the user whose key you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uakUserName' - The name of the user whose key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uakAccessKeyId' - The access key ID of the secret access key you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'uakAccessKeyId' - The access key ID of the secret access key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- * 'uakStatus' - The status you want to assign to the secret access key. @Active@ means the key can be used for API calls to AWS, while @Inactive@ means the key cannot be used.
 updateAccessKey
@@ -74,11 +74,11 @@ updateAccessKey pAccessKeyId_ pStatus_ =
     , _uakStatus = pStatus_
     }
 
--- | The name of the user whose key you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
--- | The access key ID of the secret access key you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The access key ID of the secret access key you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uakAccessKeyId :: Lens' UpdateAccessKey AccessKey
 uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 

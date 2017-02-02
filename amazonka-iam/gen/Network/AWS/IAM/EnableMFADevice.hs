@@ -56,9 +56,9 @@ data EnableMFADevice = EnableMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'emdUserName' - The name of the IAM user for whom you want to enable the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'emdUserName' - The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'emdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- * 'emdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
 --
 -- * 'emdAuthenticationCode1' - An authentication code emitted by the device. The format for this parameter is a string of 6 digits.
 --
@@ -77,11 +77,11 @@ enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationC
     , _emdAuthenticationCode2 = pAuthenticationCode2_
     }
 
--- | The name of the IAM user for whom you want to enable the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user for whom you want to enable the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 emdUserName :: Lens' EnableMFADevice Text
 emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a});
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
 emdSerialNumber :: Lens' EnableMFADevice Text
 emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a});
 

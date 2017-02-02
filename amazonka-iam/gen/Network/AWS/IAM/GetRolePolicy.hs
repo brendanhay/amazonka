@@ -63,9 +63,9 @@ data GetRolePolicy = GetRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grpRoleName' - The name of the role associated with the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'grpRoleName' - The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'grpPolicyName' - The name of the policy document to get. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'grpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getRolePolicy
     :: Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
@@ -76,11 +76,11 @@ getRolePolicy pRoleName_ pPolicyName_ =
     , _grpPolicyName = pPolicyName_
     }
 
--- | The name of the role associated with the policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
 
--- | The name of the policy document to get. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 grpPolicyName :: Lens' GetRolePolicy Text
 grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
 

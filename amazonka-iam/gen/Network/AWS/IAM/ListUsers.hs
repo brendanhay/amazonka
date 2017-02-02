@@ -64,11 +64,11 @@ data ListUsers = ListUsers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'luPathPrefix' - The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'luPathPrefix' - The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- * 'luMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'luMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'luMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 listUsers
     :: ListUsers
 listUsers =
@@ -78,7 +78,7 @@ listUsers =
     , _luMaxItems = Nothing
     }
 
--- | The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 
@@ -86,7 +86,7 @@ luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 luMarker :: Lens' ListUsers (Maybe Text)
 luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 luMaxItems :: Lens' ListUsers (Maybe Natural)
 luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
 

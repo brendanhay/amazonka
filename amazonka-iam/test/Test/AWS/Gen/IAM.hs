@@ -73,6 +73,12 @@ import Test.AWS.IAM.Internal
 --         , requestGetUserPolicy $
 --             getUserPolicy
 --
+--         , requestUpdateServiceSpecificCredential $
+--             updateServiceSpecificCredential
+--
+--         , requestDeleteServiceSpecificCredential $
+--             deleteServiceSpecificCredential
+--
 --         , requestListAttachedRolePolicies $
 --             listAttachedRolePolicies
 --
@@ -126,6 +132,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestCreateRole $
 --             createRole
+--
+--         , requestResetServiceSpecificCredential $
+--             resetServiceSpecificCredential
 --
 --         , requestGetCredentialReport $
 --             getCredentialReport
@@ -220,6 +229,9 @@ import Test.AWS.IAM.Internal
 --         , requestGetPolicyVersion $
 --             getPolicyVersion
 --
+--         , requestListServiceSpecificCredentials $
+--             listServiceSpecificCredentials
+--
 --         , requestDeleteOpenIdConnectProvider $
 --             deleteOpenIdConnectProvider
 --
@@ -243,6 +255,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestAttachUserPolicy $
 --             attachUserPolicy
+--
+--         , requestCreateServiceSpecificCredential $
+--             createServiceSpecificCredential
 --
 --         , requestListVirtualMFADevices $
 --             listVirtualMFADevices
@@ -415,6 +430,12 @@ import Test.AWS.IAM.Internal
 --         , responseGetUserPolicy $
 --             getUserPolicyResponse
 --
+--         , responseUpdateServiceSpecificCredential $
+--             updateServiceSpecificCredentialResponse
+--
+--         , responseDeleteServiceSpecificCredential $
+--             deleteServiceSpecificCredentialResponse
+--
 --         , responseListAttachedRolePolicies $
 --             listAttachedRolePoliciesResponse
 --
@@ -468,6 +489,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseCreateRole $
 --             createRoleResponse
+--
+--         , responseResetServiceSpecificCredential $
+--             resetServiceSpecificCredentialResponse
 --
 --         , responseGetCredentialReport $
 --             getCredentialReportResponse
@@ -562,6 +586,9 @@ import Test.AWS.IAM.Internal
 --         , responseGetPolicyVersion $
 --             getPolicyVersionResponse
 --
+--         , responseListServiceSpecificCredentials $
+--             listServiceSpecificCredentialsResponse
+--
 --         , responseDeleteOpenIdConnectProvider $
 --             deleteOpenIdConnectProviderResponse
 --
@@ -585,6 +612,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseAttachUserPolicy $
 --             attachUserPolicyResponse
+--
+--         , responseCreateServiceSpecificCredential $
+--             createServiceSpecificCredentialResponse
 --
 --         , responseListVirtualMFADevices $
 --             listVirtualMFADevicesResponse
@@ -789,6 +819,16 @@ requestGetUserPolicy = req
     "GetUserPolicy"
     "fixture/GetUserPolicy.yaml"
 
+requestUpdateServiceSpecificCredential :: UpdateServiceSpecificCredential -> TestTree
+requestUpdateServiceSpecificCredential = req
+    "UpdateServiceSpecificCredential"
+    "fixture/UpdateServiceSpecificCredential.yaml"
+
+requestDeleteServiceSpecificCredential :: DeleteServiceSpecificCredential -> TestTree
+requestDeleteServiceSpecificCredential = req
+    "DeleteServiceSpecificCredential"
+    "fixture/DeleteServiceSpecificCredential.yaml"
+
 requestListAttachedRolePolicies :: ListAttachedRolePolicies -> TestTree
 requestListAttachedRolePolicies = req
     "ListAttachedRolePolicies"
@@ -878,6 +918,11 @@ requestCreateRole :: CreateRole -> TestTree
 requestCreateRole = req
     "CreateRole"
     "fixture/CreateRole.yaml"
+
+requestResetServiceSpecificCredential :: ResetServiceSpecificCredential -> TestTree
+requestResetServiceSpecificCredential = req
+    "ResetServiceSpecificCredential"
+    "fixture/ResetServiceSpecificCredential.yaml"
 
 requestGetCredentialReport :: GetCredentialReport -> TestTree
 requestGetCredentialReport = req
@@ -1034,6 +1079,11 @@ requestGetPolicyVersion = req
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
+requestListServiceSpecificCredentials :: ListServiceSpecificCredentials -> TestTree
+requestListServiceSpecificCredentials = req
+    "ListServiceSpecificCredentials"
+    "fixture/ListServiceSpecificCredentials.yaml"
+
 requestDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProvider -> TestTree
 requestDeleteOpenIdConnectProvider = req
     "DeleteOpenIdConnectProvider"
@@ -1073,6 +1123,11 @@ requestAttachUserPolicy :: AttachUserPolicy -> TestTree
 requestAttachUserPolicy = req
     "AttachUserPolicy"
     "fixture/AttachUserPolicy.yaml"
+
+requestCreateServiceSpecificCredential :: CreateServiceSpecificCredential -> TestTree
+requestCreateServiceSpecificCredential = req
+    "CreateServiceSpecificCredential"
+    "fixture/CreateServiceSpecificCredential.yaml"
 
 requestListVirtualMFADevices :: ListVirtualMFADevices -> TestTree
 requestListVirtualMFADevices = req
@@ -1386,6 +1441,20 @@ responseGetUserPolicy = res
     iam
     (Proxy :: Proxy GetUserPolicy)
 
+responseUpdateServiceSpecificCredential :: UpdateServiceSpecificCredentialResponse -> TestTree
+responseUpdateServiceSpecificCredential = res
+    "UpdateServiceSpecificCredentialResponse"
+    "fixture/UpdateServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy UpdateServiceSpecificCredential)
+
+responseDeleteServiceSpecificCredential :: DeleteServiceSpecificCredentialResponse -> TestTree
+responseDeleteServiceSpecificCredential = res
+    "DeleteServiceSpecificCredentialResponse"
+    "fixture/DeleteServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy DeleteServiceSpecificCredential)
+
 responseListAttachedRolePolicies :: ListAttachedRolePoliciesResponse -> TestTree
 responseListAttachedRolePolicies = res
     "ListAttachedRolePoliciesResponse"
@@ -1511,6 +1580,13 @@ responseCreateRole = res
     "fixture/CreateRoleResponse.proto"
     iam
     (Proxy :: Proxy CreateRole)
+
+responseResetServiceSpecificCredential :: ResetServiceSpecificCredentialResponse -> TestTree
+responseResetServiceSpecificCredential = res
+    "ResetServiceSpecificCredentialResponse"
+    "fixture/ResetServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy ResetServiceSpecificCredential)
 
 responseGetCredentialReport :: GetCredentialReportResponse -> TestTree
 responseGetCredentialReport = res
@@ -1729,6 +1805,13 @@ responseGetPolicyVersion = res
     iam
     (Proxy :: Proxy GetPolicyVersion)
 
+responseListServiceSpecificCredentials :: ListServiceSpecificCredentialsResponse -> TestTree
+responseListServiceSpecificCredentials = res
+    "ListServiceSpecificCredentialsResponse"
+    "fixture/ListServiceSpecificCredentialsResponse.proto"
+    iam
+    (Proxy :: Proxy ListServiceSpecificCredentials)
+
 responseDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProviderResponse -> TestTree
 responseDeleteOpenIdConnectProvider = res
     "DeleteOpenIdConnectProviderResponse"
@@ -1784,6 +1867,13 @@ responseAttachUserPolicy = res
     "fixture/AttachUserPolicyResponse.proto"
     iam
     (Proxy :: Proxy AttachUserPolicy)
+
+responseCreateServiceSpecificCredential :: CreateServiceSpecificCredentialResponse -> TestTree
+responseCreateServiceSpecificCredential = res
+    "CreateServiceSpecificCredentialResponse"
+    "fixture/CreateServiceSpecificCredentialResponse.proto"
+    iam
+    (Proxy :: Proxy CreateServiceSpecificCredential)
 
 responseListVirtualMFADevices :: ListVirtualMFADevicesResponse -> TestTree
 responseListVirtualMFADevices = res

@@ -66,11 +66,11 @@ data ListServerCertificates = ListServerCertificates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lscPathPrefix' - The path prefix for filtering the results. For example: @/company/servercerts@ would get all server certificates for which the path starts with @/company/servercerts@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'lscPathPrefix' - The path prefix for filtering the results. For example: @/company/servercerts@ would get all server certificates for which the path starts with @/company/servercerts@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
 -- * 'lscMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
--- * 'lscMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'lscMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 listServerCertificates
     :: ListServerCertificates
 listServerCertificates =
@@ -80,7 +80,7 @@ listServerCertificates =
     , _lscMaxItems = Nothing
     }
 
--- | The path prefix for filtering the results. For example: @/company/servercerts@ would get all server certificates for which the path starts with @/company/servercerts@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- | The path prefix for filtering the results. For example: @/company/servercerts@ would get all server certificates for which the path starts with @/company/servercerts@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all server certificates. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 
@@ -88,7 +88,7 @@ lscPathPrefix = lens _lscPathPrefix (\ s a -> s{_lscPathPrefix = a});
 lscMarker :: Lens' ListServerCertificates (Maybe Text)
 lscMarker = lens _lscMarker (\ s a -> s{_lscMarker = a});
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . This parameter is optional. If you do not include it, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\ s a -> s{_lscMaxItems = a}) . mapping _Nat;
 

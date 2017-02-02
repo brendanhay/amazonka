@@ -54,7 +54,7 @@ data DeleteSigningCertificate = DeleteSigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscUserName' - The name of the user the signing certificate belongs to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dscUserName' - The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- * 'dscCertificateId' - The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
 deleteSigningCertificate
@@ -66,7 +66,7 @@ deleteSigningCertificate pCertificateId_ =
     , _dscCertificateId = pCertificateId_
     }
 
--- | The name of the user the signing certificate belongs to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
 

@@ -25,7 +25,7 @@
 --
 -- By default, each instance you launch in the VPC has the default DHCP options, which includes only a default DNS server that we provide (AmazonProvidedDNS). For more information about DHCP options, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets> in the /Amazon Virtual Private Cloud User Guide/ .
 --
--- You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html.html Dedicated Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html Dedicated Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateVPC
     (

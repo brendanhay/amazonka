@@ -21,7 +21,7 @@
 -- Creates a VPC endpoint for a specified AWS service. An endpoint enables you to create a private connection between your VPC and another AWS service in your account. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.
 --
 --
--- Currently, only endpoints to Amazon S3 are supported.
+-- Use 'DescribeVpcEndpointServices' to get a list of supported AWS services.
 --
 module Network.AWS.EC2.CreateVPCEndpoint
     (

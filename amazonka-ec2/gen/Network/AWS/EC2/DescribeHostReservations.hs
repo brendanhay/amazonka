@@ -64,7 +64,7 @@ data DescribeHostReservations = DescribeHostReservations'
 --
 -- * 'dhrHostReservationIdSet' - One or more host reservation IDs.
 --
--- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+-- * 'dhrFilter' - One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 --
 -- * 'dhrMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 describeHostReservations
@@ -85,7 +85,7 @@ dhrNextToken = lens _dhrNextToken (\ s a -> s{_dhrNextToken = a});
 dhrHostReservationIdSet :: Lens' DescribeHostReservations [Text]
 dhrHostReservationIdSet = lens _dhrHostReservationIdSet (\ s a -> s{_dhrHostReservationIdSet = a}) . _Default . _Coerce;
 
--- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
+-- | One or more filters.     * @instance-family@ - The instance family (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).     * @state@ - The state of the reservation (@payment-pending@ | @payment-failed@ | @active@ | @retired@ ).
 dhrFilter :: Lens' DescribeHostReservations [Filter]
 dhrFilter = lens _dhrFilter (\ s a -> s{_dhrFilter = a}) . _Default . _Coerce;
 

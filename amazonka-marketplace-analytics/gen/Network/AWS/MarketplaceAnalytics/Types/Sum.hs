@@ -34,10 +34,12 @@ data DataSetType
     | DisbursedAmountByAgeOfDisbursedFunds
     | DisbursedAmountByAgeOfUncollectedFunds
     | DisbursedAmountByCustomerGeo
+    | DisbursedAmountByInstanceHours
     | DisbursedAmountByProduct
     | DisbursedAmountByProductWithUncollectedFunds
     | MonthlyRevenueAnnualSubscriptions
     | MonthlyRevenueBillingAndRevenueData
+    | SalesCompensationBilledRevenue
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DataSetType where
@@ -56,12 +58,14 @@ instance FromText DataSetType where
         "disbursed_amount_by_age_of_disbursed_funds" -> pure DisbursedAmountByAgeOfDisbursedFunds
         "disbursed_amount_by_age_of_uncollected_funds" -> pure DisbursedAmountByAgeOfUncollectedFunds
         "disbursed_amount_by_customer_geo" -> pure DisbursedAmountByCustomerGeo
+        "disbursed_amount_by_instance_hours" -> pure DisbursedAmountByInstanceHours
         "disbursed_amount_by_product" -> pure DisbursedAmountByProduct
         "disbursed_amount_by_product_with_uncollected_funds" -> pure DisbursedAmountByProductWithUncollectedFunds
         "monthly_revenue_annual_subscriptions" -> pure MonthlyRevenueAnnualSubscriptions
         "monthly_revenue_billing_and_revenue_data" -> pure MonthlyRevenueBillingAndRevenueData
+        "sales_compensation_billed_revenue" -> pure SalesCompensationBilledRevenue
         e -> fromTextError $ "Failure parsing DataSetType from value: '" <> e
-           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data"
+           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_instance_hours, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data, sales_compensation_billed_revenue"
 
 instance ToText DataSetType where
     toText = \case
@@ -79,10 +83,12 @@ instance ToText DataSetType where
         DisbursedAmountByAgeOfDisbursedFunds -> "disbursed_amount_by_age_of_disbursed_funds"
         DisbursedAmountByAgeOfUncollectedFunds -> "disbursed_amount_by_age_of_uncollected_funds"
         DisbursedAmountByCustomerGeo -> "disbursed_amount_by_customer_geo"
+        DisbursedAmountByInstanceHours -> "disbursed_amount_by_instance_hours"
         DisbursedAmountByProduct -> "disbursed_amount_by_product"
         DisbursedAmountByProductWithUncollectedFunds -> "disbursed_amount_by_product_with_uncollected_funds"
         MonthlyRevenueAnnualSubscriptions -> "monthly_revenue_annual_subscriptions"
         MonthlyRevenueBillingAndRevenueData -> "monthly_revenue_billing_and_revenue_data"
+        SalesCompensationBilledRevenue -> "sales_compensation_billed_revenue"
 
 instance Hashable     DataSetType
 instance NFData       DataSetType

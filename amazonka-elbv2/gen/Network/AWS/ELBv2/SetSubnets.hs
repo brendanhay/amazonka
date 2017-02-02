@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for SetSubnets.
---
---
---
--- /See:/ 'setSubnets' smart constructor.
+-- | /See:/ 'setSubnets' smart constructor.
 data SetSubnets = SetSubnets'
     { _ssLoadBalancerARN :: !Text
     , _ssSubnets         :: ![Text]
@@ -108,11 +104,7 @@ instance ToQuery SetSubnets where
                "LoadBalancerArn" =: _ssLoadBalancerARN,
                "Subnets" =: toQueryList "member" _ssSubnets]
 
--- | Contains the output of SetSubnets.
---
---
---
--- /See:/ 'setSubnetsResponse' smart constructor.
+-- | /See:/ 'setSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
     { _ssrsAvailabilityZones :: !(Maybe [AvailabilityZone])
     , _ssrsResponseStatus    :: !Int

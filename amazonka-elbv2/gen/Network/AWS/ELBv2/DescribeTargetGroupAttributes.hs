@@ -44,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeTargetGroupAttributes.
---
---
---
--- /See:/ 'describeTargetGroupAttributes' smart constructor.
+-- | /See:/ 'describeTargetGroupAttributes' smart constructor.
 newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
     { _dtgaTargetGroupARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -103,11 +99,7 @@ instance ToQuery DescribeTargetGroupAttributes where
                "Version" =: ("2015-12-01" :: ByteString),
                "TargetGroupArn" =: _dtgaTargetGroupARN]
 
--- | Contains the output of DescribeTargetGroupAttributes.
---
---
---
--- /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
+-- | /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
     { _dtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
     , _dtgarsResponseStatus :: !Int

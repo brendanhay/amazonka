@@ -49,11 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeSSLPolicies.
---
---
---
--- /See:/ 'describeSSLPolicies' smart constructor.
+-- | /See:/ 'describeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
     { _dspNames    :: !(Maybe [Text])
     , _dspMarker   :: !(Maybe Text)
@@ -122,11 +118,7 @@ instance ToQuery DescribeSSLPolicies where
                  toQuery (toQueryList "member" <$> _dspNames),
                "Marker" =: _dspMarker, "PageSize" =: _dspPageSize]
 
--- | Contains the output of DescribeSSLPolicies.
---
---
---
--- /See:/ 'describeSSLPoliciesResponse' smart constructor.
+-- | /See:/ 'describeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
     { _dsprsSSLPolicies    :: !(Maybe [SSLPolicy])
     , _dsprsNextMarker     :: !(Maybe Text)

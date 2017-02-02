@@ -47,11 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ModifyLoadBalancerAttributes.
---
---
---
--- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
+-- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerARN :: !Text
     , _mlbaAttributes      :: ![LoadBalancerAttribute]
@@ -114,11 +110,7 @@ instance ToQuery ModifyLoadBalancerAttributes where
                "LoadBalancerArn" =: _mlbaLoadBalancerARN,
                "Attributes" =: toQueryList "member" _mlbaAttributes]
 
--- | Contains the output of ModifyLoadBalancerAttributes.
---
---
---
--- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
+-- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
     , _mlbarsResponseStatus :: !Int

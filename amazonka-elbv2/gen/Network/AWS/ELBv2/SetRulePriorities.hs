@@ -46,11 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for SetRulePriorities.
---
---
---
--- /See:/ 'setRulePriorities' smart constructor.
+-- | /See:/ 'setRulePriorities' smart constructor.
 newtype SetRulePriorities = SetRulePriorities'
     { _srpRulePriorities :: [RulePriorityPair]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -100,11 +96,7 @@ instance ToQuery SetRulePriorities where
                "RulePriorities" =:
                  toQueryList "member" _srpRulePriorities]
 
--- | Contains the output of SetRulePriorities.
---
---
---
--- /See:/ 'setRulePrioritiesResponse' smart constructor.
+-- | /See:/ 'setRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
     { _srprsRules          :: !(Maybe [Rule])
     , _srprsResponseStatus :: !Int

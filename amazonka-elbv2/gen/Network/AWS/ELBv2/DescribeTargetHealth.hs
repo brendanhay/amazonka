@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeTargetHealth.
---
---
---
--- /See:/ 'describeTargetHealth' smart constructor.
+-- | /See:/ 'describeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
     { _dthTargets        :: !(Maybe [TargetDescription])
     , _dthTargetGroupARN :: !Text
@@ -110,11 +106,7 @@ instance ToQuery DescribeTargetHealth where
                  toQuery (toQueryList "member" <$> _dthTargets),
                "TargetGroupArn" =: _dthTargetGroupARN]
 
--- | Contains the output of DescribeTargetHealth.
---
---
---
--- /See:/ 'describeTargetHealthResponse' smart constructor.
+-- | /See:/ 'describeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
     { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
     , _dthrsResponseStatus           :: !Int

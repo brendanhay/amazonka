@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeRules.
---
---
---
--- /See:/ 'describeRules' smart constructor.
+-- | /See:/ 'describeRules' smart constructor.
 data DescribeRules = DescribeRules'
     { _drListenerARN :: !(Maybe Text)
     , _drRuleARNs    :: !(Maybe [Text])
@@ -108,11 +104,7 @@ instance ToQuery DescribeRules where
                "RuleArns" =:
                  toQuery (toQueryList "member" <$> _drRuleARNs)]
 
--- | Contains the output of DescribeRules.
---
---
---
--- /See:/ 'describeRulesResponse' smart constructor.
+-- | /See:/ 'describeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
     { _drsrsRules          :: !(Maybe [Rule])
     , _drsrsResponseStatus :: !Int

@@ -44,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeTags.
---
---
---
--- /See:/ 'describeTags' smart constructor.
+-- | /See:/ 'describeTags' smart constructor.
 newtype DescribeTags = DescribeTags'
     { _dtResourceARNs :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -98,11 +94,7 @@ instance ToQuery DescribeTags where
                "ResourceArns" =:
                  toQueryList "member" _dtResourceARNs]
 
--- | Contains the output of DescribeTags.
---
---
---
--- /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'describeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
     , _dtrsResponseStatus  :: !Int

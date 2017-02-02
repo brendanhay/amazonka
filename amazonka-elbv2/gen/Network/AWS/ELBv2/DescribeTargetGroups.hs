@@ -54,11 +54,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeTargetGroups.
---
---
---
--- /See:/ 'describeTargetGroups' smart constructor.
+-- | /See:/ 'describeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
     { _dtgTargetGroupARNs :: !(Maybe [Text])
     , _dtgNames           :: !(Maybe [Text])
@@ -154,11 +150,7 @@ instance ToQuery DescribeTargetGroups where
                "LoadBalancerArn" =: _dtgLoadBalancerARN,
                "Marker" =: _dtgMarker, "PageSize" =: _dtgPageSize]
 
--- | Contains the output of DescribeTargetGroups.
---
---
---
--- /See:/ 'describeTargetGroupsResponse' smart constructor.
+-- | /See:/ 'describeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
     { _dtgsrsNextMarker     :: !(Maybe Text)
     , _dtgsrsTargetGroups   :: !(Maybe [TargetGroup])

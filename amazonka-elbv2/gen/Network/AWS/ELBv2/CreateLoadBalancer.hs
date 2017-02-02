@@ -21,9 +21,9 @@
 -- Creates an Application Load Balancer.
 --
 --
--- To create listeners for your load balancer, use 'CreateListener' . You can add security groups, subnets, and tags when you create your load balancer, or you can add them later using 'SetSecurityGroups' , 'SetSubnets' , and 'AddTags' .
+-- When you create a load balancer, you can specify security groups, subnets, IP address type, and tags. Otherwise, you could do so later using 'SetSecurityGroups' , 'SetSubnets' , 'SetIpAddressType' , and 'AddTags' .
 --
--- To describe your current load balancers, see 'DescribeLoadBalancers' . When you are finished with a load balancer, you can delete it using 'DeleteLoadBalancer' .
+-- To create listeners for your load balancer, use 'CreateListener' . To describe your current load balancers, see 'DescribeLoadBalancers' . When you are finished with a load balancer, you can delete it using 'DeleteLoadBalancer' .
 --
 -- You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Limits for Your Application Load Balancer> in the /Application Load Balancers Guide/ .
 --
@@ -36,6 +36,7 @@ module Network.AWS.ELBv2.CreateLoadBalancer
     , CreateLoadBalancer
     -- * Request Lenses
     , clbSecurityGroups
+    , clbIPAddressType
     , clbScheme
     , clbTags
     , clbName
@@ -56,13 +57,10 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for CreateLoadBalancer.
---
---
---
--- /See:/ 'createLoadBalancer' smart constructor.
+-- | /See:/ 'createLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
     { _clbSecurityGroups :: !(Maybe [Text])
+    , _clbIPAddressType  :: !(Maybe IPAddressType)
     , _clbScheme         :: !(Maybe LoadBalancerSchemeEnum)
     , _clbTags           :: !(Maybe (List1 Tag))
     , _clbName           :: !Text
@@ -74,6 +72,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'clbSecurityGroups' - The IDs of the security groups to assign to the load balancer.
+--
+-- * 'clbIPAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
 --
 -- * 'clbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 --
@@ -88,6 +88,7 @@ createLoadBalancer
 createLoadBalancer pName_ =
     CreateLoadBalancer'
     { _clbSecurityGroups = Nothing
+    , _clbIPAddressType = Nothing
     , _clbScheme = Nothing
     , _clbTags = Nothing
     , _clbName = pName_
@@ -97,6 +98,10 @@ createLoadBalancer pName_ =
 -- | The IDs of the security groups to assign to the load balancer.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default . _Coerce;
+
+-- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
+clbIPAddressType :: Lens' CreateLoadBalancer (Maybe IPAddressType)
+clbIPAddressType = lens _clbIPAddressType (\ s a -> s{_clbIPAddressType = a});
 
 -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. The default is an Internet-facing load balancer.
 clbScheme :: Lens' CreateLoadBalancer (Maybe LoadBalancerSchemeEnum)
@@ -144,17 +149,14 @@ instance ToQuery CreateLoadBalancer where
                "SecurityGroups" =:
                  toQuery
                    (toQueryList "member" <$> _clbSecurityGroups),
+               "IpAddressType" =: _clbIPAddressType,
                "Scheme" =: _clbScheme,
                "Tags" =:
                  toQuery (toQueryList "member" <$> _clbTags),
                "Name" =: _clbName,
                "Subnets" =: toQueryList "member" _clbSubnets]
 
--- | Contains the output of CreateLoadBalancer.
---
---
---
--- /See:/ 'createLoadBalancerResponse' smart constructor.
+-- | /See:/ 'createLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrsLoadBalancers  :: !(Maybe [LoadBalancer])
     , _clbrsResponseStatus :: !Int

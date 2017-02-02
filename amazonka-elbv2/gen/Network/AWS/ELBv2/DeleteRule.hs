@@ -43,11 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteRule.
---
---
---
--- /See:/ 'deleteRule' smart constructor.
+-- | /See:/ 'deleteRule' smart constructor.
 newtype DeleteRule = DeleteRule'
     { _drRuleARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -94,11 +90,7 @@ instance ToQuery DeleteRule where
                "Version" =: ("2015-12-01" :: ByteString),
                "RuleArn" =: _drRuleARN]
 
--- | Contains the output of DeleteRule.
---
---
---
--- /See:/ 'deleteRuleResponse' smart constructor.
+-- | /See:/ 'deleteRuleResponse' smart constructor.
 newtype DeleteRuleResponse = DeleteRuleResponse'
     { _drrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

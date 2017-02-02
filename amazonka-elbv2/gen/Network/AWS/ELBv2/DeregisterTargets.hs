@@ -44,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeregisterTargets.
---
---
---
--- /See:/ 'deregisterTargets' smart constructor.
+-- | /See:/ 'deregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
     { _dtTargetGroupARN :: !Text
     , _dtTargets        :: ![TargetDescription]
@@ -104,11 +100,7 @@ instance ToQuery DeregisterTargets where
                "TargetGroupArn" =: _dtTargetGroupARN,
                "Targets" =: toQueryList "member" _dtTargets]
 
--- | Contains the output of DeregisterTargets.
---
---
---
--- /See:/ 'deregisterTargetsResponse' smart constructor.
+-- | /See:/ 'deregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
     { _dtsrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

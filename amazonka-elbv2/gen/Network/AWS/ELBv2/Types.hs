@@ -51,6 +51,9 @@ module Network.AWS.ELBv2.Types
     -- * ActionTypeEnum
     , ActionTypeEnum (..)
 
+    -- * IPAddressType
+    , IPAddressType (..)
+
     -- * LoadBalancerSchemeEnum
     , LoadBalancerSchemeEnum (..)
 
@@ -114,6 +117,7 @@ module Network.AWS.ELBv2.Types
     , lbCanonicalHostedZoneId
     , lbAvailabilityZones
     , lbLoadBalancerARN
+    , lbIPAddressType
     , lbScheme
     , lbType
     , lbDNSName

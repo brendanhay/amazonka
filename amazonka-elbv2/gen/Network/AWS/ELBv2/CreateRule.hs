@@ -51,11 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for CreateRule.
---
---
---
--- /See:/ 'createRule' smart constructor.
+-- | /See:/ 'createRule' smart constructor.
 data CreateRule = CreateRule'
     { _crListenerARN :: !Text
     , _crConditions  :: ![RuleCondition]
@@ -69,7 +65,7 @@ data CreateRule = CreateRule'
 --
 -- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'crConditions' - A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'crConditions' - A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 --
 -- * 'crPriority' - The priority for the rule. A listener can't have multiple rules with the same priority.
 --
@@ -90,7 +86,7 @@ createRule pListenerARN_ pPriority_ =
 crListenerARN :: Lens' CreateRule Text
 crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a});
 
--- | A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 crConditions :: Lens' CreateRule [RuleCondition]
 crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
 
@@ -133,11 +129,7 @@ instance ToQuery CreateRule where
                "Priority" =: _crPriority,
                "Actions" =: toQueryList "member" _crActions]
 
--- | Contains the output of CreateRule.
---
---
---
--- /See:/ 'createRuleResponse' smart constructor.
+-- | /See:/ 'createRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
     { _crrsRules          :: !(Maybe [Rule])
     , _crrsResponseStatus :: !Int

@@ -63,11 +63,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for CreateTargetGroup.
---
---
---
--- /See:/ 'createTargetGroup' smart constructor.
+-- | /See:/ 'createTargetGroup' smart constructor.
 data CreateTargetGroup = CreateTargetGroup'
     { _ctgMatcher                    :: !(Maybe Matcher)
     , _ctgHealthCheckPath            :: !(Maybe Text)
@@ -220,11 +216,7 @@ instance ToQuery CreateTargetGroup where
                "Name" =: _ctgName, "Protocol" =: _ctgProtocol,
                "Port" =: _ctgPort, "VpcId" =: _ctgVPCId]
 
--- | Contains the output of CreateTargetGroup.
---
---
---
--- /See:/ 'createTargetGroupResponse' smart constructor.
+-- | /See:/ 'createTargetGroupResponse' smart constructor.
 data CreateTargetGroupResponse = CreateTargetGroupResponse'
     { _ctgrsTargetGroups   :: !(Maybe [TargetGroup])
     , _ctgrsResponseStatus :: !Int

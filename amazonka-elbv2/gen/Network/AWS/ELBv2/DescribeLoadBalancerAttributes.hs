@@ -44,11 +44,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeLoadBalancerAttributes.
---
---
---
--- /See:/ 'describeLoadBalancerAttributes' smart constructor.
+-- | /See:/ 'describeLoadBalancerAttributes' smart constructor.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -103,11 +99,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
                "Version" =: ("2015-12-01" :: ByteString),
                "LoadBalancerArn" =: _dlbaLoadBalancerARN]
 
--- | Contains the output of DescribeLoadBalancerAttributes.
---
---
---
--- /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
+-- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarsAttributes     :: !(Maybe [LoadBalancerAttribute])
     , _dlbarsResponseStatus :: !Int

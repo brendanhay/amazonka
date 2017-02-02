@@ -18,10 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Evaluates your resources against the specified Config rules. You can specify up to 25 Config rules per request.
+-- Runs an on-demand evaluation for the specified Config rules against the last known configuration state of the resources. Use @StartConfigRulesEvaluation@ when you want to test a rule that you updated is working as expected. @StartConfigRulesEvaluation@ does not re-record the latest configuration state for your resources; it re-runs an evaluation against the last known state of your resources.
 --
 --
--- An existing 'StartConfigRulesEvaluation' call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a @ConfigRuleEvaluationStarted@ notification when the evaluation starts.
+-- You can specify up to 25 Config rules per request.
+--
+-- An existing @StartConfigRulesEvaluation@ call must complete for the specified rules before you can call the API again. If you chose to have AWS Config stream to an Amazon SNS topic, you will receive a @ConfigRuleEvaluationStarted@ notification when the evaluation starts.
 --
 -- The @StartConfigRulesEvaluation@ API is useful if you want to run on-demand evaluations, such as the following example:
 --

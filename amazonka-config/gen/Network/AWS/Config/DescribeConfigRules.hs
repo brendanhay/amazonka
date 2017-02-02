@@ -21,6 +21,8 @@
 -- Returns details about your AWS Config rules.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConfigRules
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Config.DescribeConfigRules
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -62,7 +65,7 @@ data DescribeConfigRules = DescribeConfigRules'
 --
 -- * 'dcrConfigRuleNames' - The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
 --
--- * 'dcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'dcrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 describeConfigRules
     :: DescribeConfigRules
 describeConfigRules =
@@ -75,9 +78,16 @@ describeConfigRules =
 dcrConfigRuleNames :: Lens' DescribeConfigRules [Text]
 dcrConfigRuleNames = lens _dcrConfigRuleNames (\ s a -> s{_dcrConfigRuleNames = a}) . _Default . _Coerce;
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcrNextToken :: Lens' DescribeConfigRules (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
+
+instance AWSPager DescribeConfigRules where
+        page rq rs
+          | stop (rs ^. dcrrsNextToken) = Nothing
+          | stop (rs ^. dcrrsConfigRules) = Nothing
+          | otherwise =
+            Just $ rq & dcrNextToken .~ rs ^. dcrrsNextToken
 
 instance AWSRequest DescribeConfigRules where
         type Rs DescribeConfigRules =

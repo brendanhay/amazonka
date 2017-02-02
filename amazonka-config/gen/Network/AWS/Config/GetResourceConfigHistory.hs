@@ -23,6 +23,8 @@
 --
 -- The response is paginated, and by default, AWS Config returns a limit of 10 configuration items per page. You can customize this number with the @limit@ parameter. The response includes a @nextToken@ string, and to get the next page of results, run the request again and enter this string for the @nextToken@ parameter.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetResourceConfigHistory
     (
     -- * Creating a Request
@@ -49,6 +51,7 @@ module Network.AWS.Config.GetResourceConfigHistory
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -127,6 +130,13 @@ grchResourceType = lens _grchResourceType (\ s a -> s{_grchResourceType = a});
 -- | The ID of the resource (for example., @sg-xxxxxx@ ).
 grchResourceId :: Lens' GetResourceConfigHistory Text
 grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
+
+instance AWSPager GetResourceConfigHistory where
+        page rq rs
+          | stop (rs ^. grchrsNextToken) = Nothing
+          | stop (rs ^. grchrsConfigurationItems) = Nothing
+          | otherwise =
+            Just $ rq & grchNextToken .~ rs ^. grchrsNextToken
 
 instance AWSRequest GetResourceConfigHistory where
         type Rs GetResourceConfigHistory =

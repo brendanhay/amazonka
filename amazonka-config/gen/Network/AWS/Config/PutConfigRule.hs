@@ -31,7 +31,9 @@
 --
 -- If you are updating a rule that you added previously, you can specify the rule by @ConfigRuleName@ , @ConfigRuleId@ , or @ConfigRuleArn@ in the @ConfigRule@ data type that you use in this request.
 --
--- The maximum number of rules that AWS Config supports is 25.
+-- The maximum number of rules that AWS Config supports is 50.
+--
+-- For more information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
 --
 -- For more information about developing and using AWS Config rules, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating AWS Resource Configurations with AWS Config> in the /AWS Config Developer Guide/ .
 --

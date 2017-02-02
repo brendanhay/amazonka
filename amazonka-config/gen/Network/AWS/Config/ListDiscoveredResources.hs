@@ -23,6 +23,8 @@
 --
 -- The response is paginated, and by default AWS Config lists 100 resource identifiers on each page. You can customize this number with the @limit@ parameter. The response includes a @nextToken@ string, and to get the next page of results, run the request again and enter this string for the @nextToken@ parameter.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.ListDiscoveredResources
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.Config.ListDiscoveredResources
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -117,6 +120,13 @@ ldrLimit = lens _ldrLimit (\ s a -> s{_ldrLimit = a}) . mapping _Nat;
 -- | The type of resources that you want AWS Config to list in the response.
 ldrResourceType :: Lens' ListDiscoveredResources ResourceType
 ldrResourceType = lens _ldrResourceType (\ s a -> s{_ldrResourceType = a});
+
+instance AWSPager ListDiscoveredResources where
+        page rq rs
+          | stop (rs ^. ldrrsNextToken) = Nothing
+          | stop (rs ^. ldrrsResourceIdentifiers) = Nothing
+          | otherwise =
+            Just $ rq & ldrNextToken .~ rs ^. ldrrsNextToken
 
 instance AWSRequest ListDiscoveredResources where
         type Rs ListDiscoveredResources =

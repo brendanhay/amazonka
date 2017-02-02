@@ -243,6 +243,7 @@ instance FromJSON MaximumExecutionFrequency where
 data MessageType
     = ConfigurationItemChangeNotification
     | ConfigurationSnapshotDeliveryCompleted
+    | OversizedConfigurationItemChangeNotification
     | ScheduledNotification
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -250,14 +251,16 @@ instance FromText MessageType where
     parser = takeLowerText >>= \case
         "configurationitemchangenotification" -> pure ConfigurationItemChangeNotification
         "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
+        "oversizedconfigurationitemchangenotification" -> pure OversizedConfigurationItemChangeNotification
         "schedulednotification" -> pure ScheduledNotification
         e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
-           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, schedulednotification"
+           <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, oversizedconfigurationitemchangenotification, schedulednotification"
 
 instance ToText MessageType where
     toText = \case
         ConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
         ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
+        OversizedConfigurationItemChangeNotification -> "OversizedConfigurationItemChangeNotification"
         ScheduledNotification -> "ScheduledNotification"
 
 instance Hashable     MessageType
@@ -357,7 +360,14 @@ data ResourceType
     | AWSRDSDBSnapshot
     | AWSRDSDBSubnetGroup
     | AWSRDSEventSubscription
+    | AWSRedshiftCluster
+    | AWSRedshiftClusterParameterGroup
+    | AWSRedshiftClusterSecurityGroup
+    | AWSRedshiftClusterSnapshot
+    | AWSRedshiftClusterSubnetGroup
+    | AWSRedshiftEventSubscription
     | AWSS3Bucket
+    | AWSSsmManagedInstanceInventory
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ResourceType where
@@ -388,9 +398,16 @@ instance FromText ResourceType where
         "aws::rds::dbsnapshot" -> pure AWSRDSDBSnapshot
         "aws::rds::dbsubnetgroup" -> pure AWSRDSDBSubnetGroup
         "aws::rds::eventsubscription" -> pure AWSRDSEventSubscription
+        "aws::redshift::cluster" -> pure AWSRedshiftCluster
+        "aws::redshift::clusterparametergroup" -> pure AWSRedshiftClusterParameterGroup
+        "aws::redshift::clustersecuritygroup" -> pure AWSRedshiftClusterSecurityGroup
+        "aws::redshift::clustersnapshot" -> pure AWSRedshiftClusterSnapshot
+        "aws::redshift::clustersubnetgroup" -> pure AWSRedshiftClusterSubnetGroup
+        "aws::redshift::eventsubscription" -> pure AWSRedshiftEventSubscription
         "aws::s3::bucket" -> pure AWSS3Bucket
+        "aws::ssm::managedinstanceinventory" -> pure AWSSsmManagedInstanceInventory
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::acm::certificate, aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::s3::bucket"
+           <> "'. Accepted values: aws::acm::certificate, aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::host, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume, aws::elasticloadbalancingv2::loadbalancer, aws::iam::group, aws::iam::policy, aws::iam::role, aws::iam::user, aws::rds::dbinstance, aws::rds::dbsecuritygroup, aws::rds::dbsnapshot, aws::rds::dbsubnetgroup, aws::rds::eventsubscription, aws::redshift::cluster, aws::redshift::clusterparametergroup, aws::redshift::clustersecuritygroup, aws::redshift::clustersnapshot, aws::redshift::clustersubnetgroup, aws::redshift::eventsubscription, aws::s3::bucket, aws::ssm::managedinstanceinventory"
 
 instance ToText ResourceType where
     toText = \case
@@ -420,7 +437,14 @@ instance ToText ResourceType where
         AWSRDSDBSnapshot -> "AWS::RDS::DBSnapshot"
         AWSRDSDBSubnetGroup -> "AWS::RDS::DBSubnetGroup"
         AWSRDSEventSubscription -> "AWS::RDS::EventSubscription"
+        AWSRedshiftCluster -> "AWS::Redshift::Cluster"
+        AWSRedshiftClusterParameterGroup -> "AWS::Redshift::ClusterParameterGroup"
+        AWSRedshiftClusterSecurityGroup -> "AWS::Redshift::ClusterSecurityGroup"
+        AWSRedshiftClusterSnapshot -> "AWS::Redshift::ClusterSnapshot"
+        AWSRedshiftClusterSubnetGroup -> "AWS::Redshift::ClusterSubnetGroup"
+        AWSRedshiftEventSubscription -> "AWS::Redshift::EventSubscription"
         AWSS3Bucket -> "AWS::S3::Bucket"
+        AWSSsmManagedInstanceInventory -> "AWS::SSM::ManagedInstanceInventory"
 
 instance Hashable     ResourceType
 instance NFData       ResourceType

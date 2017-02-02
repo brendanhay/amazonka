@@ -33,6 +33,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByResource
     (
     -- * Creating a Request
@@ -57,6 +59,7 @@ module Network.AWS.Config.DescribeComplianceByResource
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -84,7 +87,7 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 --
 -- * 'dcbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 --
--- * 'dcbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'dcbrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- * 'dcbrLimit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
 describeComplianceByResource
@@ -110,13 +113,20 @@ dcbrResourceType = lens _dcbrResourceType (\ s a -> s{_dcbrResourceType = a});
 dcbrComplianceTypes :: Lens' DescribeComplianceByResource [ComplianceType]
 dcbrComplianceTypes = lens _dcbrComplianceTypes (\ s a -> s{_dcbrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbrNextToken :: Lens' DescribeComplianceByResource (Maybe Text)
 dcbrNextToken = lens _dcbrNextToken (\ s a -> s{_dcbrNextToken = a});
 
 -- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the default.
 dcbrLimit :: Lens' DescribeComplianceByResource (Maybe Natural)
 dcbrLimit = lens _dcbrLimit (\ s a -> s{_dcbrLimit = a}) . mapping _Nat;
+
+instance AWSPager DescribeComplianceByResource where
+        page rq rs
+          | stop (rs ^. dcbrrsNextToken) = Nothing
+          | stop (rs ^. dcbrrsComplianceByResources) = Nothing
+          | otherwise =
+            Just $ rq & dcbrNextToken .~ rs ^. dcbrrsNextToken
 
 instance AWSRequest DescribeComplianceByResource
          where

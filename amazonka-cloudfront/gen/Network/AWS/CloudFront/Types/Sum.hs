@@ -51,6 +51,41 @@ instance FromXML CertificateSource where
 instance ToXML CertificateSource where
     toXML = toXMLText
 
+data EventType
+    = OriginRequest
+    | OriginResponse
+    | ViewerRequest
+    | ViewerResponse
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "origin-request" -> pure OriginRequest
+        "origin-response" -> pure OriginResponse
+        "viewer-request" -> pure ViewerRequest
+        "viewer-response" -> pure ViewerResponse
+        e -> fromTextError $ "Failure parsing EventType from value: '" <> e
+           <> "'. Accepted values: origin-request, origin-response, viewer-request, viewer-response"
+
+instance ToText EventType where
+    toText = \case
+        OriginRequest -> "origin-request"
+        OriginResponse -> "origin-response"
+        ViewerRequest -> "viewer-request"
+        ViewerResponse -> "viewer-response"
+
+instance Hashable     EventType
+instance NFData       EventType
+instance ToByteString EventType
+instance ToQuery      EventType
+instance ToHeader     EventType
+
+instance FromXML EventType where
+    parseXML = parseXMLText "EventType"
+
+instance ToXML EventType where
+    toXML = toXMLText
+
 data GeoRestrictionType
     = Blacklist
     | None

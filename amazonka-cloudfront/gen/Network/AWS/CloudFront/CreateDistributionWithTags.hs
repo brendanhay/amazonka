@@ -91,7 +91,7 @@ instance NFData CreateDistributionWithTags
 instance ToElement CreateDistributionWithTags where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-09-29/}DistributionConfigWithTags"
+              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}DistributionConfigWithTags"
               .
               _cdwtDistributionConfigWithTags
 
@@ -99,7 +99,7 @@ instance ToHeaders CreateDistributionWithTags where
         toHeaders = const mempty
 
 instance ToPath CreateDistributionWithTags where
-        toPath = const "/2016-09-29/distribution"
+        toPath = const "/2016-11-25/distribution"
 
 instance ToQuery CreateDistributionWithTags where
         toQuery = const (mconcat ["WithTags"])

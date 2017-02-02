@@ -108,7 +108,7 @@ instance ToHeaders ListDistributionsByWebACLId where
 instance ToPath ListDistributionsByWebACLId where
         toPath ListDistributionsByWebACLId'{..}
           = mconcat
-              ["/2016-09-29/distributionsByWebACLId/",
+              ["/2016-11-25/distributionsByWebACLId/",
                toBS _ldbwaiWebACLId]
 
 instance ToQuery ListDistributionsByWebACLId where

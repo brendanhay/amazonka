@@ -218,17 +218,18 @@ instance ToXML AllowedMethods where
 --
 -- /See:/ 'cacheBehavior' smart constructor.
 data CacheBehavior = CacheBehavior'
-    { _cbAllowedMethods       :: !(Maybe AllowedMethods)
-    , _cbMaxTTL               :: !(Maybe Integer)
-    , _cbCompress             :: !(Maybe Bool)
-    , _cbSmoothStreaming      :: !(Maybe Bool)
-    , _cbDefaultTTL           :: !(Maybe Integer)
-    , _cbPathPattern          :: !Text
-    , _cbTargetOriginId       :: !Text
-    , _cbForwardedValues      :: !ForwardedValues
-    , _cbTrustedSigners       :: !TrustedSigners
-    , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _cbMinTTL               :: !Integer
+    { _cbAllowedMethods             :: !(Maybe AllowedMethods)
+    , _cbLambdaFunctionAssociations :: !(Maybe LambdaFunctionAssociations)
+    , _cbMaxTTL                     :: !(Maybe Integer)
+    , _cbCompress                   :: !(Maybe Bool)
+    , _cbSmoothStreaming            :: !(Maybe Bool)
+    , _cbDefaultTTL                 :: !(Maybe Integer)
+    , _cbPathPattern                :: !Text
+    , _cbTargetOriginId             :: !Text
+    , _cbForwardedValues            :: !ForwardedValues
+    , _cbTrustedSigners             :: !TrustedSigners
+    , _cbViewerProtocolPolicy       :: !ViewerProtocolPolicy
+    , _cbMinTTL                     :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CacheBehavior' with the minimum fields required to make a request.
@@ -236,6 +237,8 @@ data CacheBehavior = CacheBehavior'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cbAllowedMethods' - Undocumented member.
+--
+-- * 'cbLambdaFunctionAssociations' - A complex type that contains zero or more Lambda function associations for a cache behavior.
 --
 -- * 'cbMaxTTL' - The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 --
@@ -267,6 +270,7 @@ cacheBehavior
 cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     CacheBehavior'
     { _cbAllowedMethods = Nothing
+    , _cbLambdaFunctionAssociations = Nothing
     , _cbMaxTTL = Nothing
     , _cbCompress = Nothing
     , _cbSmoothStreaming = Nothing
@@ -282,6 +286,10 @@ cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ 
 -- | Undocumented member.
 cbAllowedMethods :: Lens' CacheBehavior (Maybe AllowedMethods)
 cbAllowedMethods = lens _cbAllowedMethods (\ s a -> s{_cbAllowedMethods = a});
+
+-- | A complex type that contains zero or more Lambda function associations for a cache behavior.
+cbLambdaFunctionAssociations :: Lens' CacheBehavior (Maybe LambdaFunctionAssociations)
+cbLambdaFunctionAssociations = lens _cbLambdaFunctionAssociations (\ s a -> s{_cbLambdaFunctionAssociations = a});
 
 -- | The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects. For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html Specifying How Long Objects and Errors Stay in a CloudFront Edge Cache (Expiration)> in the /Amazon CloudFront Developer Guide/ .
 cbMaxTTL :: Lens' CacheBehavior (Maybe Integer)
@@ -326,8 +334,10 @@ cbMinTTL = lens _cbMinTTL (\ s a -> s{_cbMinTTL = a});
 instance FromXML CacheBehavior where
         parseXML x
           = CacheBehavior' <$>
-              (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
-                (x .@? "Compress")
+              (x .@? "AllowedMethods") <*>
+                (x .@? "LambdaFunctionAssociations")
+                <*> (x .@? "MaxTTL")
+                <*> (x .@? "Compress")
                 <*> (x .@? "SmoothStreaming")
                 <*> (x .@? "DefaultTTL")
                 <*> (x .@ "PathPattern")
@@ -345,6 +355,8 @@ instance ToXML CacheBehavior where
         toXML CacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _cbAllowedMethods,
+               "LambdaFunctionAssociations" @=
+                 _cbLambdaFunctionAssociations,
                "MaxTTL" @= _cbMaxTTL, "Compress" @= _cbCompress,
                "SmoothStreaming" @= _cbSmoothStreaming,
                "DefaultTTL" @= _cbDefaultTTL,
@@ -1082,16 +1094,17 @@ instance ToXML CustomOriginConfig where
 --
 -- /See:/ 'defaultCacheBehavior' smart constructor.
 data DefaultCacheBehavior = DefaultCacheBehavior'
-    { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
-    , _dcbMaxTTL               :: !(Maybe Integer)
-    , _dcbCompress             :: !(Maybe Bool)
-    , _dcbSmoothStreaming      :: !(Maybe Bool)
-    , _dcbDefaultTTL           :: !(Maybe Integer)
-    , _dcbTargetOriginId       :: !Text
-    , _dcbForwardedValues      :: !ForwardedValues
-    , _dcbTrustedSigners       :: !TrustedSigners
-    , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _dcbMinTTL               :: !Integer
+    { _dcbAllowedMethods             :: !(Maybe AllowedMethods)
+    , _dcbLambdaFunctionAssociations :: !(Maybe LambdaFunctionAssociations)
+    , _dcbMaxTTL                     :: !(Maybe Integer)
+    , _dcbCompress                   :: !(Maybe Bool)
+    , _dcbSmoothStreaming            :: !(Maybe Bool)
+    , _dcbDefaultTTL                 :: !(Maybe Integer)
+    , _dcbTargetOriginId             :: !Text
+    , _dcbForwardedValues            :: !ForwardedValues
+    , _dcbTrustedSigners             :: !TrustedSigners
+    , _dcbViewerProtocolPolicy       :: !ViewerProtocolPolicy
+    , _dcbMinTTL                     :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DefaultCacheBehavior' with the minimum fields required to make a request.
@@ -1099,6 +1112,8 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcbAllowedMethods' - Undocumented member.
+--
+-- * 'dcbLambdaFunctionAssociations' - A complex type that contains zero or more Lambda function associations for a cache behavior.
 --
 -- * 'dcbMaxTTL' - Undocumented member.
 --
@@ -1127,6 +1142,7 @@ defaultCacheBehavior
 defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
+    , _dcbLambdaFunctionAssociations = Nothing
     , _dcbMaxTTL = Nothing
     , _dcbCompress = Nothing
     , _dcbSmoothStreaming = Nothing
@@ -1141,6 +1157,10 @@ defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewer
 -- | Undocumented member.
 dcbAllowedMethods :: Lens' DefaultCacheBehavior (Maybe AllowedMethods)
 dcbAllowedMethods = lens _dcbAllowedMethods (\ s a -> s{_dcbAllowedMethods = a});
+
+-- | A complex type that contains zero or more Lambda function associations for a cache behavior.
+dcbLambdaFunctionAssociations :: Lens' DefaultCacheBehavior (Maybe LambdaFunctionAssociations)
+dcbLambdaFunctionAssociations = lens _dcbLambdaFunctionAssociations (\ s a -> s{_dcbLambdaFunctionAssociations = a});
 
 -- | Undocumented member.
 dcbMaxTTL :: Lens' DefaultCacheBehavior (Maybe Integer)
@@ -1181,8 +1201,10 @@ dcbMinTTL = lens _dcbMinTTL (\ s a -> s{_dcbMinTTL = a});
 instance FromXML DefaultCacheBehavior where
         parseXML x
           = DefaultCacheBehavior' <$>
-              (x .@? "AllowedMethods") <*> (x .@? "MaxTTL") <*>
-                (x .@? "Compress")
+              (x .@? "AllowedMethods") <*>
+                (x .@? "LambdaFunctionAssociations")
+                <*> (x .@? "MaxTTL")
+                <*> (x .@? "Compress")
                 <*> (x .@? "SmoothStreaming")
                 <*> (x .@? "DefaultTTL")
                 <*> (x .@ "TargetOriginId")
@@ -1199,6 +1221,8 @@ instance ToXML DefaultCacheBehavior where
         toXML DefaultCacheBehavior'{..}
           = mconcat
               ["AllowedMethods" @= _dcbAllowedMethods,
+               "LambdaFunctionAssociations" @=
+                 _dcbLambdaFunctionAssociations,
                "MaxTTL" @= _dcbMaxTTL, "Compress" @= _dcbCompress,
                "SmoothStreaming" @= _dcbSmoothStreaming,
                "DefaultTTL" @= _dcbDefaultTTL,
@@ -2319,6 +2343,112 @@ instance FromXML KeyPairIds where
 instance Hashable KeyPairIds
 
 instance NFData KeyPairIds
+
+-- | A complex type that contains a Lambda function association.
+--
+--
+--
+-- /See:/ 'lambdaFunctionAssociation' smart constructor.
+data LambdaFunctionAssociation = LambdaFunctionAssociation'
+    { _lfaLambdaFunctionARN :: !(Maybe Text)
+    , _lfaEventType         :: !(Maybe EventType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LambdaFunctionAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lfaLambdaFunctionARN' - The ARN of the Lambda function.
+--
+-- * 'lfaEventType' - Specifies the event type that triggers a Lambda function invocation. Valid values are:     * @viewer-request@      * @origin-request@      * @viewer-response@      * @origin-response@
+lambdaFunctionAssociation
+    :: LambdaFunctionAssociation
+lambdaFunctionAssociation =
+    LambdaFunctionAssociation'
+    { _lfaLambdaFunctionARN = Nothing
+    , _lfaEventType = Nothing
+    }
+
+-- | The ARN of the Lambda function.
+lfaLambdaFunctionARN :: Lens' LambdaFunctionAssociation (Maybe Text)
+lfaLambdaFunctionARN = lens _lfaLambdaFunctionARN (\ s a -> s{_lfaLambdaFunctionARN = a});
+
+-- | Specifies the event type that triggers a Lambda function invocation. Valid values are:     * @viewer-request@      * @origin-request@      * @viewer-response@      * @origin-response@
+lfaEventType :: Lens' LambdaFunctionAssociation (Maybe EventType)
+lfaEventType = lens _lfaEventType (\ s a -> s{_lfaEventType = a});
+
+instance FromXML LambdaFunctionAssociation where
+        parseXML x
+          = LambdaFunctionAssociation' <$>
+              (x .@? "LambdaFunctionARN") <*> (x .@? "EventType")
+
+instance Hashable LambdaFunctionAssociation
+
+instance NFData LambdaFunctionAssociation
+
+instance ToXML LambdaFunctionAssociation where
+        toXML LambdaFunctionAssociation'{..}
+          = mconcat
+              ["LambdaFunctionARN" @= _lfaLambdaFunctionARN,
+               "EventType" @= _lfaEventType]
+
+-- | A complex type that specifies a list of Lambda functions associations for a cache behavior.
+--
+--
+-- If you want to invoke one or more Lambda functions triggered by requests that match the @PathPattern@ of the cache behavior, specify the applicable values for @Quantity@ and @Items@ . Note that there can be up to 4 @LambdaFunctionAssociation@ items in this list (one for each possible value of @EventType@ ) and each @EventType@ can be associated with the Lambda function only once.
+--
+-- If you don't want to invoke any Lambda functions for the requests that match @PathPattern@ , specify @0@ for @Quantity@ and omit @Items@ .
+--
+--
+-- /See:/ 'lambdaFunctionAssociations' smart constructor.
+data LambdaFunctionAssociations = LambdaFunctionAssociations'
+    { _lfaItems    :: !(Maybe [LambdaFunctionAssociation])
+    , _lfaQuantity :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LambdaFunctionAssociations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lfaItems' - __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
+--
+-- * 'lfaQuantity' - The number of Lambda function associations for this cache behavior.
+lambdaFunctionAssociations
+    :: Int -- ^ 'lfaQuantity'
+    -> LambdaFunctionAssociations
+lambdaFunctionAssociations pQuantity_ =
+    LambdaFunctionAssociations'
+    { _lfaItems = Nothing
+    , _lfaQuantity = pQuantity_
+    }
+
+-- | __Optional__ : A complex type that contains @LambdaFunctionAssociation@ items for this cache behavior. If @Quantity@ is @0@ , you can omit @Items@ .
+lfaItems :: Lens' LambdaFunctionAssociations [LambdaFunctionAssociation]
+lfaItems = lens _lfaItems (\ s a -> s{_lfaItems = a}) . _Default . _Coerce;
+
+-- | The number of Lambda function associations for this cache behavior.
+lfaQuantity :: Lens' LambdaFunctionAssociations Int
+lfaQuantity = lens _lfaQuantity (\ s a -> s{_lfaQuantity = a});
+
+instance FromXML LambdaFunctionAssociations where
+        parseXML x
+          = LambdaFunctionAssociations' <$>
+              (x .@? "Items" .!@ mempty >>=
+                 may (parseXMLList "LambdaFunctionAssociation"))
+                <*> (x .@ "Quantity")
+
+instance Hashable LambdaFunctionAssociations
+
+instance NFData LambdaFunctionAssociations
+
+instance ToXML LambdaFunctionAssociations where
+        toXML LambdaFunctionAssociations'{..}
+          = mconcat
+              ["Items" @=
+                 toXML
+                   (toXMLList "LambdaFunctionAssociation" <$>
+                      _lfaItems),
+               "Quantity" @= _lfaQuantity]
 
 -- | A complex type that controls whether access logs are written for the distribution.
 --
@@ -3652,7 +3782,7 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- * 'vcSSLSupportMethod' - If you specify a value for @ACMCertificateArn@ or for @IAMCertificateId@ , you must also specify how you want CloudFront to serve HTTPS requests: using a method that works for all clients or one that works for most clients:     * @vip@ : CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges.     * @sni-only@ : CloudFront can respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. If some of your users' browsers don't support SNI, we recommend that you do one of the following:     * Use the @vip@ option (dedicated IP addresses) instead of @sni-only@ .     * Use the CloudFront SSL/TLS certificate instead of a custom certificate. This requires that you use the CloudFront domain name of your distribution in the URLs for your objects, for example, @https://d111111abcdef8.cloudfront.net/logo.png@ .     * If you can control which browser your users use, upgrade the browser to one that supports SNI.     * Use HTTP instead of HTTPS. Do not specify a value for @SSLSupportMethod@ if you specified @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS.html Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'vcACMCertificateARN' - If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, @https://example.com/logo.jpg)@ , specify the ACM certificate ARN of the custom viewer certificate for this distribution. Specify either this value, @IAMCertificateId@ , or @CloudFrontDefaultCertificate@ .
+-- * 'vcACMCertificateARN' - Undocumented member.
 --
 -- * 'vcCertificateSource' -
 --
@@ -3660,9 +3790,9 @@ data ViewerCertificate = ViewerCertificate'
 --
 -- * 'vcCertificate' - Include one of these values to specify the following:     * Whether you want viewers to use HTTP or HTTPS to request your objects.     * If you want viewers to use HTTPS, whether you're using an alternate domain name such as example.com or the CloudFront domain name for your distribution, such as @d111111abcdef8.cloudfront.net@ .     * If you're using an alternate domain name, whether AWS Certificate Manager (ACM) provided the certificate, or you purchased a certificate from a third-party certificate authority and imported it into ACM or uploaded it to the IAM certificate store. You must specify one (and only one) of the three values. Do not specify @false@ for @CloudFrontDefaultCertificate@ . __If you want viewers to use HTTP to request your objects__ : Specify the following value: @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate>@  In addition, specify @allow-all@ for @ViewerProtocolPolicy@ for all of your cache behaviors. __If you want viewers to use HTTPS to request your objects__ : Choose the type of certificate that you want to use based on whether you're using an alternate domain name for your objects or the CloudFront domain name:     * __If you're using an alternate domain name, such as example.com__ : Specify one of the following values, depending on whether ACM provided your certificate or you purchased your certificate from third-party certificate authority:     * @<ACMCertificateArn>ARN for ACM SSL/TLS certificate<ACMCertificateArn>@ where ARN for ACM SSL/TLS certificate is the ARN for the ACM SSL/TLS certificate that you want to use for this distribution.     * @<IAMCertificateId>IAM certificate ID<IAMCertificateId>@ where IAM certificate ID is the ID that IAM returned when you added the certificate to the IAM certificate store. If you specify @ACMCertificateArn@ or @IAMCertificateId@ , you must also specify a value for @SSLSupportMethod@ . If you choose to use an ACM certificate or a certificate in the IAM certificate store, we recommend that you use only an alternate domain name in your object URLs (@https://example.com/logo.jpg@ ). If you use the domain name that is associated with your CloudFront distribution (@https://d111111abcdef8.cloudfront.net/logo.jpg@ ) and the viewer supports @SNI@ , then CloudFront behaves normally. However, if the browser does not support SNI, the user's experience depends on the value that you choose for @SSLSupportMethod@ :     * @vip@ : The viewer displays a warning because there is a mismatch between the CloudFront domain name and the domain name in your SSL/TLS certificate.     * @sni-only@ : CloudFront drops the connection with the browser without returning the object.     * __If you're using the CloudFront domain name for your distribution, such as @d111111abcdef8.cloudfront.net@ __ : Specify the following value: @<CloudFrontDefaultCertificate>true<CloudFrontDefaultCertificate> @  If you want viewers to use HTTPS, you must also specify one of the following values in your cache behaviors:     * @<ViewerProtocolPolicy>https-only<ViewerProtocolPolicy> @      * @<ViewerProtocolPolicy>redirect-to-https<ViewerProtocolPolicy> @  You can also optionally require that CloudFront use HTTPS to communicate with your origin by specifying one of the following values for the applicable origins:     * @<OriginProtocolPolicy>https-only<OriginProtocolPolicy> @      * @<OriginProtocolPolicy>match-viewer<OriginProtocolPolicy> @  For more information, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html#CNAMEsAndHTTPS Using Alternate Domain Names and HTTPS> in the /Amazon CloudFront Developer Guide/ .
 --
--- * 'vcIAMCertificateId' - If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, @https://example.com/logo.jpg)@ , specify the IAM certificate identifier of the custom viewer certificate for this distribution. Specify either this value, @ACMCertificateArn@ , or @CloudFrontDefaultCertificate@ .
+-- * 'vcIAMCertificateId' - Undocumented member.
 --
--- * 'vcCloudFrontDefaultCertificate' - If you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name of your distribution in your object URLs (for example, @https://d111111abcdef8.cloudfront.net/logo.jpg@ ), set to @true@ . Omit this value if you are setting an @ACMCertificateArn@ or @IAMCertificateId@ .
+-- * 'vcCloudFrontDefaultCertificate' - Undocumented member.
 viewerCertificate
     :: ViewerCertificate
 viewerCertificate =
@@ -3680,7 +3810,7 @@ viewerCertificate =
 vcSSLSupportMethod :: Lens' ViewerCertificate (Maybe SSLSupportMethod)
 vcSSLSupportMethod = lens _vcSSLSupportMethod (\ s a -> s{_vcSSLSupportMethod = a});
 
--- | If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, @https://example.com/logo.jpg)@ , specify the ACM certificate ARN of the custom viewer certificate for this distribution. Specify either this value, @IAMCertificateId@ , or @CloudFrontDefaultCertificate@ .
+-- | Undocumented member.
 vcACMCertificateARN :: Lens' ViewerCertificate (Maybe Text)
 vcACMCertificateARN = lens _vcACMCertificateARN (\ s a -> s{_vcACMCertificateARN = a});
 
@@ -3696,11 +3826,11 @@ vcMinimumProtocolVersion = lens _vcMinimumProtocolVersion (\ s a -> s{_vcMinimum
 vcCertificate :: Lens' ViewerCertificate (Maybe Text)
 vcCertificate = lens _vcCertificate (\ s a -> s{_vcCertificate = a});
 
--- | If you want viewers to use HTTPS to request your objects and you're using an alternate domain name in your object URLs (for example, @https://example.com/logo.jpg)@ , specify the IAM certificate identifier of the custom viewer certificate for this distribution. Specify either this value, @ACMCertificateArn@ , or @CloudFrontDefaultCertificate@ .
+-- | Undocumented member.
 vcIAMCertificateId :: Lens' ViewerCertificate (Maybe Text)
 vcIAMCertificateId = lens _vcIAMCertificateId (\ s a -> s{_vcIAMCertificateId = a});
 
--- | If you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name of your distribution in your object URLs (for example, @https://d111111abcdef8.cloudfront.net/logo.jpg@ ), set to @true@ . Omit this value if you are setting an @ACMCertificateArn@ or @IAMCertificateId@ .
+-- | Undocumented member.
 vcCloudFrontDefaultCertificate :: Lens' ViewerCertificate (Maybe Bool)
 vcCloudFrontDefaultCertificate = lens _vcCloudFrontDefaultCertificate (\ s a -> s{_vcCloudFrontDefaultCertificate = a});
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 docs=( documentation )
 core=( amazonka-core amazonka )

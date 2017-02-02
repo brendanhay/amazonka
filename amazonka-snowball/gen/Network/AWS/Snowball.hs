@@ -61,7 +61,7 @@ module Network.AWS.Snowball
     -- ** GetSnowballUsage
     , module Network.AWS.Snowball.GetSnowballUsage
 
-    -- ** DescribeAddresses
+    -- ** DescribeAddresses (Paginated)
     , module Network.AWS.Snowball.DescribeAddresses
 
     -- ** UpdateCluster
@@ -76,7 +76,7 @@ module Network.AWS.Snowball
     -- ** CreateCluster
     , module Network.AWS.Snowball.CreateCluster
 
-    -- ** ListJobs
+    -- ** ListJobs (Paginated)
     , module Network.AWS.Snowball.ListJobs
 
     -- ** UpdateJob

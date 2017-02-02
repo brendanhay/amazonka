@@ -23,6 +23,8 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permission. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.OpsWorks.DescribeEcsClusters
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.OpsWorks.DescribeEcsClusters
 import           Network.AWS.Lens
 import           Network.AWS.OpsWorks.Types
 import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,6 +97,13 @@ decMaxResults = lens _decMaxResults (\ s a -> s{_decMaxResults = a});
 -- | A list of ARNs, one for each cluster to be described.
 decEcsClusterARNs :: Lens' DescribeEcsClusters [Text]
 decEcsClusterARNs = lens _decEcsClusterARNs (\ s a -> s{_decEcsClusterARNs = a}) . _Default . _Coerce;
+
+instance AWSPager DescribeEcsClusters where
+        page rq rs
+          | stop (rs ^. decrsNextToken) = Nothing
+          | stop (rs ^. decrsEcsClusters) = Nothing
+          | otherwise =
+            Just $ rq & decNextToken .~ rs ^. decrsNextToken
 
 instance AWSRequest DescribeEcsClusters where
         type Rs DescribeEcsClusters =

@@ -305,7 +305,7 @@ module Network.AWS.OpsWorks
     -- ** DeregisterInstance
     , module Network.AWS.OpsWorks.DeregisterInstance
 
-    -- ** DescribeEcsClusters
+    -- ** DescribeEcsClusters (Paginated)
     , module Network.AWS.OpsWorks.DescribeEcsClusters
 
     -- ** DescribeRAIdArrays

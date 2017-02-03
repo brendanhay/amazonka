@@ -25,6 +25,8 @@
 --
 -- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @NextToken@ response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -91,6 +94,13 @@ dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 -- | The @NextToken@ value from a previous call to this operation. Pass null if this is the first call.
 dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
+
+instance AWSPager DescribeWorkspaceBundles where
+        page rq rs
+          | stop (rs ^. dwbrsNextToken) = Nothing
+          | stop (rs ^. dwbrsBundles) = Nothing
+          | otherwise =
+            Just $ rq & dwbNextToken .~ rs ^. dwbrsNextToken
 
 instance AWSRequest DescribeWorkspaceBundles where
         type Rs DescribeWorkspaceBundles =

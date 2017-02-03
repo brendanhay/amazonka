@@ -121,16 +121,16 @@ module Network.AWS.Config
     -- * Operations
     -- $operations
 
-    -- ** GetResourceConfigHistory
+    -- ** GetResourceConfigHistory (Paginated)
     , module Network.AWS.Config.GetResourceConfigHistory
 
-    -- ** DescribeComplianceByConfigRule
+    -- ** DescribeComplianceByConfigRule (Paginated)
     , module Network.AWS.Config.DescribeComplianceByConfigRule
 
     -- ** StopConfigurationRecorder
     , module Network.AWS.Config.StopConfigurationRecorder
 
-    -- ** DescribeConfigRules
+    -- ** DescribeConfigRules (Paginated)
     , module Network.AWS.Config.DescribeConfigRules
 
     -- ** DeleteEvaluationResults
@@ -142,7 +142,7 @@ module Network.AWS.Config
     -- ** DeleteConfigRule
     , module Network.AWS.Config.DeleteConfigRule
 
-    -- ** GetComplianceDetailsByResource
+    -- ** GetComplianceDetailsByResource (Paginated)
     , module Network.AWS.Config.GetComplianceDetailsByResource
 
     -- ** DeliverConfigSnapshot
@@ -154,7 +154,7 @@ module Network.AWS.Config
     -- ** StartConfigRulesEvaluation
     , module Network.AWS.Config.StartConfigRulesEvaluation
 
-    -- ** DescribeComplianceByResource
+    -- ** DescribeComplianceByResource (Paginated)
     , module Network.AWS.Config.DescribeComplianceByResource
 
     -- ** PutEvaluations
@@ -187,13 +187,13 @@ module Network.AWS.Config
     -- ** PutDeliveryChannel
     , module Network.AWS.Config.PutDeliveryChannel
 
-    -- ** GetComplianceDetailsByConfigRule
+    -- ** GetComplianceDetailsByConfigRule (Paginated)
     , module Network.AWS.Config.GetComplianceDetailsByConfigRule
 
     -- ** DeleteDeliveryChannel
     , module Network.AWS.Config.DeleteDeliveryChannel
 
-    -- ** ListDiscoveredResources
+    -- ** ListDiscoveredResources (Paginated)
     , module Network.AWS.Config.ListDiscoveredResources
 
     -- ** DescribeDeliveryChannels
@@ -447,9 +447,9 @@ module Network.AWS.Config
     -- ** Source
     , Source
     , source
-    , sSourceIdentifier
-    , sOwner
     , sSourceDetails
+    , sOwner
+    , sSourceIdentifier
 
     -- ** SourceDetail
     , SourceDetail

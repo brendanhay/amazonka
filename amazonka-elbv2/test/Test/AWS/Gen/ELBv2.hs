@@ -97,6 +97,9 @@ import Test.AWS.ELBv2.Internal
 --         , requestModifyLoadBalancerAttributes $
 --             modifyLoadBalancerAttributes
 --
+--         , requestSetIPAddressType $
+--             setIPAddressType
+--
 --         , requestAddTags $
 --             addTags
 --
@@ -186,6 +189,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , responseModifyLoadBalancerAttributes $
 --             modifyLoadBalancerAttributesResponse
+--
+--         , responseSetIPAddressType $
+--             setIPAddressTypeResponse
 --
 --         , responseAddTags $
 --             addTagsResponse
@@ -324,6 +330,11 @@ requestModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributes -> TestTree
 requestModifyLoadBalancerAttributes = req
     "ModifyLoadBalancerAttributes"
     "fixture/ModifyLoadBalancerAttributes.yaml"
+
+requestSetIPAddressType :: SetIPAddressType -> TestTree
+requestSetIPAddressType = req
+    "SetIPAddressType"
+    "fixture/SetIPAddressType.yaml"
 
 requestAddTags :: AddTags -> TestTree
 requestAddTags = req
@@ -517,6 +528,13 @@ responseModifyLoadBalancerAttributes = res
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     eLBv2
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
+
+responseSetIPAddressType :: SetIPAddressTypeResponse -> TestTree
+responseSetIPAddressType = res
+    "SetIPAddressTypeResponse"
+    "fixture/SetIPAddressTypeResponse.proto"
+    eLBv2
+    (Proxy :: Proxy SetIPAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
 responseAddTags = res

@@ -50,7 +50,7 @@ newtype CreateAccountAlias = CreateAccountAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caaAccountAlias' - The account alias to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- * 'caaAccountAlias' - The account alias to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 createAccountAlias
     :: Text -- ^ 'caaAccountAlias'
     -> CreateAccountAlias
@@ -59,7 +59,7 @@ createAccountAlias pAccountAlias_ =
     { _caaAccountAlias = pAccountAlias_
     }
 
--- | The account alias to create. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
+-- | The account alias to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
 

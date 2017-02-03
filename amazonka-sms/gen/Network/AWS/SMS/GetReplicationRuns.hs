@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The GetReplicationRuns API will return all ReplicationRuns for a given ReplicationJob. This API returns a paginated list, that may be consecutively called with nextToken to retrieve all ReplicationRuns for a ReplicationJob.
+--
+-- This operation returns paginated results.
 module Network.AWS.SMS.GetReplicationRuns
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.SMS.GetReplicationRuns
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -83,6 +86,13 @@ grrMaxResults = lens _grrMaxResults (\ s a -> s{_grrMaxResults = a});
 -- | Undocumented member.
 grrReplicationJobId :: Lens' GetReplicationRuns Text
 grrReplicationJobId = lens _grrReplicationJobId (\ s a -> s{_grrReplicationJobId = a});
+
+instance AWSPager GetReplicationRuns where
+        page rq rs
+          | stop (rs ^. grrrsNextToken) = Nothing
+          | stop (rs ^. grrrsReplicationRunList) = Nothing
+          | otherwise =
+            Just $ rq & grrNextToken .~ rs ^. grrrsNextToken
 
 instance AWSRequest GetReplicationRuns where
         type Rs GetReplicationRuns =

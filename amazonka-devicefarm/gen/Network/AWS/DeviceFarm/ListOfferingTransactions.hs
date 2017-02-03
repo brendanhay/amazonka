@@ -21,6 +21,8 @@
 -- Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS account. The list is paginated and ordered by a descending timestamp (most recent transactions are first). The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListOfferingTransactions
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.DeviceFarm.ListOfferingTransactions
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -69,6 +72,13 @@ listOfferingTransactions =
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 lotNextToken :: Lens' ListOfferingTransactions (Maybe Text)
 lotNextToken = lens _lotNextToken (\ s a -> s{_lotNextToken = a});
+
+instance AWSPager ListOfferingTransactions where
+        page rq rs
+          | stop (rs ^. lotrsNextToken) = Nothing
+          | stop (rs ^. lotrsOfferingTransactions) = Nothing
+          | otherwise =
+            Just $ rq & lotNextToken .~ rs ^. lotrsNextToken
 
 instance AWSRequest ListOfferingTransactions where
         type Rs ListOfferingTransactions =

@@ -25,9 +25,9 @@ module Network.AWS.S3.GetObjectTagging
       getObjectTagging
     , GetObjectTagging
     -- * Request Lenses
+    , gotoVersionId
     , gotoBucket
     , gotoKey
-    , gotoVersionId
 
     -- * Destructuring the Response
     , getObjectTaggingResponse
@@ -47,31 +47,34 @@ import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTagging' smart constructor.
 data GetObjectTagging = GetObjectTagging'
-    { _gotoBucket    :: !BucketName
+    { _gotoVersionId :: !(Maybe ObjectVersionId)
+    , _gotoBucket    :: !BucketName
     , _gotoKey       :: !ObjectKey
-    , _gotoVersionId :: !ObjectVersionId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetObjectTagging' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gotoVersionId' - Undocumented member.
+--
 -- * 'gotoBucket' - Undocumented member.
 --
 -- * 'gotoKey' - Undocumented member.
---
--- * 'gotoVersionId' - Undocumented member.
 getObjectTagging
     :: BucketName -- ^ 'gotoBucket'
     -> ObjectKey -- ^ 'gotoKey'
-    -> ObjectVersionId -- ^ 'gotoVersionId'
     -> GetObjectTagging
-getObjectTagging pBucket_ pKey_ pVersionId_ =
+getObjectTagging pBucket_ pKey_ =
     GetObjectTagging'
-    { _gotoBucket = pBucket_
+    { _gotoVersionId = Nothing
+    , _gotoBucket = pBucket_
     , _gotoKey = pKey_
-    , _gotoVersionId = pVersionId_
     }
+
+-- | Undocumented member.
+gotoVersionId :: Lens' GetObjectTagging (Maybe ObjectVersionId)
+gotoVersionId = lens _gotoVersionId (\ s a -> s{_gotoVersionId = a});
 
 -- | Undocumented member.
 gotoBucket :: Lens' GetObjectTagging BucketName
@@ -80,10 +83,6 @@ gotoBucket = lens _gotoBucket (\ s a -> s{_gotoBucket = a});
 -- | Undocumented member.
 gotoKey :: Lens' GetObjectTagging ObjectKey
 gotoKey = lens _gotoKey (\ s a -> s{_gotoKey = a});
-
--- | Undocumented member.
-gotoVersionId :: Lens' GetObjectTagging ObjectVersionId
-gotoVersionId = lens _gotoVersionId (\ s a -> s{_gotoVersionId = a});
 
 instance AWSRequest GetObjectTagging where
         type Rs GetObjectTagging = GetObjectTaggingResponse
@@ -108,7 +107,8 @@ instance ToPath GetObjectTagging where
           = mconcat ["/", toBS _gotoBucket, "/", toBS _gotoKey]
 
 instance ToQuery GetObjectTagging where
-        toQuery = const (mconcat ["tagging"])
+        toQuery GetObjectTagging'{..}
+          = mconcat ["versionId" =: _gotoVersionId, "tagging"]
 
 -- | /See:/ 'getObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'

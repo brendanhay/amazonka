@@ -41,6 +41,7 @@ module Network.AWS.APIGateway.UpdateMethod
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration

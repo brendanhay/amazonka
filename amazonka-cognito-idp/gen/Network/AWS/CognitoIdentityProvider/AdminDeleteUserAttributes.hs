@@ -21,6 +21,8 @@
 -- Deletes the user attributes in a user pool as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUserAttributes
     (
     -- * Creating a Request

@@ -125,6 +125,9 @@ module Network.AWS.EC2.Types
     -- * InstanceAttributeName
     , InstanceAttributeName (..)
 
+    -- * InstanceHealthStatus
+    , InstanceHealthStatus (..)
+
     -- * InstanceLifecycleType
     , InstanceLifecycleType (..)
 
@@ -317,6 +320,7 @@ module Network.AWS.EC2.Types
     , ActiveInstance
     , activeInstance
     , aiInstanceId
+    , aiInstanceHealth
     , aiInstanceType
     , aiSpotInstanceRequestId
 
@@ -1768,6 +1772,7 @@ module Network.AWS.EC2.Types
     , sfrcdFulfilledCapacity
     , sfrcdType
     , sfrcdValidFrom
+    , sfrcdReplaceUnhealthyInstances
     , sfrcdAllocationStrategy
     , sfrcdSpotPrice
     , sfrcdTargetCapacity
@@ -1813,6 +1818,7 @@ module Network.AWS.EC2.Types
     , SpotPlacement
     , spotPlacement
     , spAvailabilityZone
+    , spTenancy
     , spGroupName
 
     -- * SpotPrice

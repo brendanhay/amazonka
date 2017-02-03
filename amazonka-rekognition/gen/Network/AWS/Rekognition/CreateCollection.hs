@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a collection in an AWS region. You can add faces to the collection using the operation.
+-- Creates a collection in an AWS Region. You can add faces to the collection using the operation.
 --
 --
 -- For example, you might create collections, one for each of your application users. A user can then index faces using the @IndexFaces@ operation and persist results in a specific collection. Then, a user can search the collection for faces in the user-specific container.

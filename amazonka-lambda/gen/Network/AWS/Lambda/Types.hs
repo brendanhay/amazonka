@@ -195,7 +195,7 @@ lambda =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for Decrypt. Please check the function's KMS key settings.
+-- | Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for Decrypt. Check the function's KMS key settings.
 --
 --
 _KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -244,7 +244,7 @@ _InvalidRequestContentException :: AsError a => Getting (First ServiceError) a S
 _InvalidRequestContentException =
     _MatchServiceError lambda "InvalidRequestContentException" . hasStatus 400
 
--- | Lambda was unable to decrypt the environment variables because the KMS key was not found. Please check the function's KMS key settings.
+-- | Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.
 --
 --
 _KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -286,7 +286,7 @@ _InvalidSecurityGroupIdException :: AsError a => Getting (First ServiceError) a 
 _InvalidSecurityGroupIdException =
     _MatchServiceError lambda "InvalidSecurityGroupIDException" . hasStatus 502
 
--- | Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Please check the Lambda function's KMS key settings.
+-- | Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.
 --
 --
 _KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -343,7 +343,7 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _MatchServiceError lambda "ResourceNotFoundException" . hasStatus 404
 
--- | Lambda was unable to decrypt the environment variables because KMS access was denied. Please check the Lambda function's KMS permissions.
+-- | Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.
 --
 --
 _KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError

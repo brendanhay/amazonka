@@ -21,6 +21,8 @@
 -- Returns the history of the specified execution as a list of events. By default, the results are returned in ascending order of the @timeStamp@ of the events. Use the @reverseOrder@ parameter to get the latest events first. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.StepFunctions.GetExecutionHistory
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.StepFunctions.GetExecutionHistory
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -93,6 +96,13 @@ gehMaxResults = lens _gehMaxResults (\ s a -> s{_gehMaxResults = a}) . mapping _
 -- | The Amazon Resource Name (ARN) of the execution.
 gehExecutionARN :: Lens' GetExecutionHistory Text
 gehExecutionARN = lens _gehExecutionARN (\ s a -> s{_gehExecutionARN = a});
+
+instance AWSPager GetExecutionHistory where
+        page rq rs
+          | stop (rs ^. gehrsNextToken) = Nothing
+          | stop (rs ^. gehrsEvents) = Nothing
+          | otherwise =
+            Just $ rq & gehNextToken .~ rs ^. gehrsNextToken
 
 instance AWSRequest GetExecutionHistory where
         type Rs GetExecutionHistory =

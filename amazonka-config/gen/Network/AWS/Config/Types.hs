@@ -291,9 +291,9 @@ module Network.AWS.Config.Types
     -- * Source
     , Source
     , source
-    , sSourceIdentifier
-    , sOwner
     , sSourceDetails
+    , sOwner
+    , sSourceIdentifier
 
     -- * SourceDetail
     , SourceDetail
@@ -403,7 +403,7 @@ _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a S
 _InvalidParameterValueException =
     _MatchServiceError config "InvalidParameterValueException"
 
--- | The result token is invalid.
+-- | The speNexcified token is invalid.
 --
 --
 _InvalidResultTokenException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -444,14 +444,14 @@ _ResourceNotDiscoveredException :: AsError a => Getting (First ServiceError) a S
 _ResourceNotDiscoveredException =
     _MatchServiceError config "ResourceNotDiscoveredException"
 
--- | The specified next token is invalid. Specify the @nextToken@ string that was returned in the previous response to get the next page of results.
+-- | The specified next token is invalid. Specify the @NextToken@ string that was returned in the previous response to get the next page of results.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _MatchServiceError config "InvalidNextTokenException"
 
--- | Failed to add the AWS Config rule because the account already contains the maximum number of 25 rules. Consider deleting any deactivated rules before adding new rules.
+-- | Failed to add the AWS Config rule because the account already contains the maximum number of 50 rules. Consider deleting any deactivated rules before adding new rules.
 --
 --
 _MaxNumberOfConfigRulesExceededException :: AsError a => Getting (First ServiceError) a ServiceError

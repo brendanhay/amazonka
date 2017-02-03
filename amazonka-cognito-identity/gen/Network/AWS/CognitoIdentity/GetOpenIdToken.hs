@@ -52,6 +52,8 @@ import           Network.AWS.Response
 
 -- | Input to the GetOpenIdToken action.
 --
+--
+--
 -- /See:/ 'getOpenIdToken' smart constructor.
 data GetOpenIdToken = GetOpenIdToken'
     { _goitLogins     :: !(Maybe (Map Text Text))
@@ -62,7 +64,7 @@ data GetOpenIdToken = GetOpenIdToken'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goitLogins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
+-- * 'goitLogins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
 --
 -- * 'goitIdentityId' - A unique identifier in the format REGION:GUID.
 getOpenIdToken
@@ -74,7 +76,7 @@ getOpenIdToken pIdentityId_ =
     , _goitIdentityId = pIdentityId_
     }
 
--- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com or any other OpenId Connect provider, always include the id_token.
+-- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
 goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
@@ -120,6 +122,8 @@ instance ToQuery GetOpenIdToken where
         toQuery = const mempty
 
 -- | Returned in response to a successful GetOpenIdToken request.
+--
+--
 --
 -- /See:/ 'getOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'

@@ -42,6 +42,32 @@ instance ToHeader     ActionTypeEnum
 instance FromXML ActionTypeEnum where
     parseXML = parseXMLText "ActionTypeEnum"
 
+data IPAddressType
+    = Dualstack
+    | IPV4
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText IPAddressType where
+    parser = takeLowerText >>= \case
+        "dualstack" -> pure Dualstack
+        "ipv4" -> pure IPV4
+        e -> fromTextError $ "Failure parsing IPAddressType from value: '" <> e
+           <> "'. Accepted values: dualstack, ipv4"
+
+instance ToText IPAddressType where
+    toText = \case
+        Dualstack -> "dualstack"
+        IPV4 -> "ipv4"
+
+instance Hashable     IPAddressType
+instance NFData       IPAddressType
+instance ToByteString IPAddressType
+instance ToQuery      IPAddressType
+instance ToHeader     IPAddressType
+
+instance FromXML IPAddressType where
+    parseXML = parseXMLText "IPAddressType"
+
 data LoadBalancerSchemeEnum
     = Internal
     | InternetFacing

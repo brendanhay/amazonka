@@ -21,6 +21,8 @@
 -- Lists the instance for a deployment associated with the applicable IAM user or AWS account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Creating a Request
@@ -29,6 +31,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- * Request Lenses
     , ldiInstanceStatusFilter
     , ldiNextToken
+    , ldiInstanceTypeFilter
     , ldiDeploymentId
 
     -- * Destructuring the Response
@@ -43,6 +46,7 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
 import           Network.AWS.CodeDeploy.Types
 import           Network.AWS.CodeDeploy.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -55,6 +59,7 @@ import           Network.AWS.Response
 data ListDeploymentInstances = ListDeploymentInstances'
     { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
     , _ldiNextToken            :: !(Maybe Text)
+    , _ldiInstanceTypeFilter   :: !(Maybe [InstanceType])
     , _ldiDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -66,6 +71,8 @@ data ListDeploymentInstances = ListDeploymentInstances'
 --
 -- * 'ldiNextToken' - An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list.
 --
+-- * 'ldiInstanceTypeFilter' - The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
+--
 -- * 'ldiDeploymentId' - The unique ID of a deployment.
 listDeploymentInstances
     :: Text -- ^ 'ldiDeploymentId'
@@ -74,6 +81,7 @@ listDeploymentInstances pDeploymentId_ =
     ListDeploymentInstances'
     { _ldiInstanceStatusFilter = Nothing
     , _ldiNextToken = Nothing
+    , _ldiInstanceTypeFilter = Nothing
     , _ldiDeploymentId = pDeploymentId_
     }
 
@@ -85,9 +93,20 @@ ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstance
 ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
+-- | The set of instances in a blue/green deployment, either those in the original environment ("BLUE") or those in the replacement environment ("GREEN"), for which you want to view instance information.
+ldiInstanceTypeFilter :: Lens' ListDeploymentInstances [InstanceType]
+ldiInstanceTypeFilter = lens _ldiInstanceTypeFilter (\ s a -> s{_ldiInstanceTypeFilter = a}) . _Default . _Coerce;
+
 -- | The unique ID of a deployment.
 ldiDeploymentId :: Lens' ListDeploymentInstances Text
 ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
+
+instance AWSPager ListDeploymentInstances where
+        page rq rs
+          | stop (rs ^. ldirsNextToken) = Nothing
+          | stop (rs ^. ldirsInstancesList) = Nothing
+          | otherwise =
+            Just $ rq & ldiNextToken .~ rs ^. ldirsNextToken
 
 instance AWSRequest ListDeploymentInstances where
         type Rs ListDeploymentInstances =
@@ -122,6 +141,7 @@ instance ToJSON ListDeploymentInstances where
                  [("instanceStatusFilter" .=) <$>
                     _ldiInstanceStatusFilter,
                   ("nextToken" .=) <$> _ldiNextToken,
+                  ("instanceTypeFilter" .=) <$> _ldiInstanceTypeFilter,
                   Just ("deploymentId" .= _ldiDeploymentId)])
 
 instance ToPath ListDeploymentInstances where

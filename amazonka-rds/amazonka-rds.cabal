@@ -107,6 +107,7 @@ library
         , Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
         , Network.AWS.RDS.ModifyDBInstance
         , Network.AWS.RDS.ModifyDBParameterGroup
+        , Network.AWS.RDS.ModifyDBSnapshot
         , Network.AWS.RDS.ModifyDBSnapshotAttribute
         , Network.AWS.RDS.ModifyDBSubnetGroup
         , Network.AWS.RDS.ModifyEventSubscription

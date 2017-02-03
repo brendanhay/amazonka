@@ -60,7 +60,7 @@ data PutKeyPolicy = PutKeyPolicy'
 --
 -- * 'pkpBypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check. /Important:/ Setting this value to true increases the likelihood that the CMK becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /AWS Key Management Service Developer Guide/ . Use this parameter only when you intend to prevent the principal making the request from making a subsequent @PutKeyPolicy@ request on the CMK. The default value is false.
 --
--- * 'pkpKeyId' - A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- * 'pkpKeyId' - A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 --
 -- * 'pkpPolicyName' - The name of the key policy. This value must be @default@ .
 --
@@ -82,7 +82,7 @@ putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
 pkpBypassPolicyLockoutSafetyCheck :: Lens' PutKeyPolicy (Maybe Bool)
 pkpBypassPolicyLockoutSafetyCheck = lens _pkpBypassPolicyLockoutSafetyCheck (\ s a -> s{_pkpBypassPolicyLockoutSafetyCheck = a});
 
--- | A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+-- | A unique identifier for the CMK. Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:     * Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 pkpKeyId :: Lens' PutKeyPolicy Text
 pkpKeyId = lens _pkpKeyId (\ s a -> s{_pkpKeyId = a});
 

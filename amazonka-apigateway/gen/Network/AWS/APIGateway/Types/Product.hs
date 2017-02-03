@@ -829,7 +829,7 @@ instance NFData DomainName
 -- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.
 --
 --
--- In the API Gateway console, the built-in Lambda integration is an AWS integration.<http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API> , <http://docs.aws.amazon.com/apigateway/latest/developerguide/.html >
+-- In the API Gateway console, the built-in Lambda integration is an AWS integration.<http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 --
 -- /See:/ 'integration' smart constructor.
 data Integration = Integration'
@@ -862,7 +862,7 @@ data Integration = Integration'
 --
 -- * 'iPassthroughBehavior' - Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in @requestTemplates@ . There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request.     * @WHEN_NO_TEMPLATES@ passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP @415 Unsupported Media Type@ response.     * @NEVER@ rejects the method request with an HTTP @415 Unsupported Media Type@ response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 --
--- * 'iUri' - Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
+-- * 'iUri' - Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
 --
 -- * 'iIntegrationResponses' - Specifies the integration's responses. __Example: Get integration responses of a method__  __Request__  @@GET /restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200 HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com X-Amz-Date: 20160607T191449Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160607/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash} @ @ __Response__  The successful response returns @200 OK@ status and a payload as follows: @@{ "_links": { "curies": { "href": "http://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }@ @  <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
 --
@@ -912,7 +912,7 @@ iContentHandling = lens _iContentHandling (\ s a -> s{_iContentHandling = a});
 iPassthroughBehavior :: Lens' Integration (Maybe Text)
 iPassthroughBehavior = lens _iPassthroughBehavior (\ s a -> s{_iPassthroughBehavior = a});
 
--- | Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://www.ietf.org/rfc/rfc3986.txt RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
+-- | Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
 iUri :: Lens' Integration (Maybe Text)
 iUri = lens _iUri (\ s a -> s{_iUri = a});
 
@@ -1049,6 +1049,7 @@ data Method = Method'
     , _mRequestModels     :: !(Maybe (Map Text Text))
     , _mRequestParameters :: !(Maybe (Map Text Bool))
     , _mAuthorizerId      :: !(Maybe Text)
+    , _mOperationName     :: !(Maybe Text)
     , _mAuthorizationType :: !(Maybe Text)
     , _mApiKeyRequired    :: !(Maybe Bool)
     , _mMethodIntegration :: !(Maybe Integration)
@@ -1068,6 +1069,8 @@ data Method = Method'
 --
 -- * 'mAuthorizerId' - The identifier of an 'Authorizer' to use on this method. The @authorizationType@ must be @CUSTOM@ .
 --
+-- * 'mOperationName' - A human-friendly operation identifier for the method. For example, you can assign the @operationName@ of @ListPets@ for the @GET /pets@ method in <http://petstore-demo-endpoint.execute-api.com/petstore/pets PetStore> example.
+--
 -- * 'mAuthorizationType' - The method's authorization type.
 --
 -- * 'mApiKeyRequired' - A boolean flag specifying whether a valid 'ApiKey' is required to invoke this method.
@@ -1082,6 +1085,7 @@ method =
     , _mRequestModels = Nothing
     , _mRequestParameters = Nothing
     , _mAuthorizerId = Nothing
+    , _mOperationName = Nothing
     , _mAuthorizationType = Nothing
     , _mApiKeyRequired = Nothing
     , _mMethodIntegration = Nothing
@@ -1107,6 +1111,10 @@ mRequestParameters = lens _mRequestParameters (\ s a -> s{_mRequestParameters = 
 mAuthorizerId :: Lens' Method (Maybe Text)
 mAuthorizerId = lens _mAuthorizerId (\ s a -> s{_mAuthorizerId = a});
 
+-- | A human-friendly operation identifier for the method. For example, you can assign the @operationName@ of @ListPets@ for the @GET /pets@ method in <http://petstore-demo-endpoint.execute-api.com/petstore/pets PetStore> example.
+mOperationName :: Lens' Method (Maybe Text)
+mOperationName = lens _mOperationName (\ s a -> s{_mOperationName = a});
+
 -- | The method's authorization type.
 mAuthorizationType :: Lens' Method (Maybe Text)
 mAuthorizationType = lens _mAuthorizationType (\ s a -> s{_mAuthorizationType = a});
@@ -1129,6 +1137,7 @@ instance FromJSON Method where
                      <*> (x .:? "requestModels" .!= mempty)
                      <*> (x .:? "requestParameters" .!= mempty)
                      <*> (x .:? "authorizerId")
+                     <*> (x .:? "operationName")
                      <*> (x .:? "authorizationType")
                      <*> (x .:? "apiKeyRequired")
                      <*> (x .:? "methodIntegration"))
@@ -1721,6 +1730,140 @@ instance FromJSON RestAPI where
 instance Hashable RestAPI
 
 instance NFData RestAPI
+
+-- | A configuration property of an SDK type.
+--
+--
+--
+-- /See:/ 'sdkConfigurationProperty' smart constructor.
+data SDKConfigurationProperty = SDKConfigurationProperty'
+    { _scpFriendlyName :: !(Maybe Text)
+    , _scpRequired     :: !(Maybe Bool)
+    , _scpName         :: !(Maybe Text)
+    , _scpDefaultValue :: !(Maybe Text)
+    , _scpDescription  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SDKConfigurationProperty' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scpFriendlyName' - The user-friendly name of an 'SdkType' configuration property.
+--
+-- * 'scpRequired' - A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
+--
+-- * 'scpName' - The name of a an 'SdkType' configuration property.
+--
+-- * 'scpDefaultValue' - The default value of an 'SdkType' configuration property.
+--
+-- * 'scpDescription' - The description of an 'SdkType' configuration property.
+sdkConfigurationProperty
+    :: SDKConfigurationProperty
+sdkConfigurationProperty =
+    SDKConfigurationProperty'
+    { _scpFriendlyName = Nothing
+    , _scpRequired = Nothing
+    , _scpName = Nothing
+    , _scpDefaultValue = Nothing
+    , _scpDescription = Nothing
+    }
+
+-- | The user-friendly name of an 'SdkType' configuration property.
+scpFriendlyName :: Lens' SDKConfigurationProperty (Maybe Text)
+scpFriendlyName = lens _scpFriendlyName (\ s a -> s{_scpFriendlyName = a});
+
+-- | A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
+scpRequired :: Lens' SDKConfigurationProperty (Maybe Bool)
+scpRequired = lens _scpRequired (\ s a -> s{_scpRequired = a});
+
+-- | The name of a an 'SdkType' configuration property.
+scpName :: Lens' SDKConfigurationProperty (Maybe Text)
+scpName = lens _scpName (\ s a -> s{_scpName = a});
+
+-- | The default value of an 'SdkType' configuration property.
+scpDefaultValue :: Lens' SDKConfigurationProperty (Maybe Text)
+scpDefaultValue = lens _scpDefaultValue (\ s a -> s{_scpDefaultValue = a});
+
+-- | The description of an 'SdkType' configuration property.
+scpDescription :: Lens' SDKConfigurationProperty (Maybe Text)
+scpDescription = lens _scpDescription (\ s a -> s{_scpDescription = a});
+
+instance FromJSON SDKConfigurationProperty where
+        parseJSON
+          = withObject "SDKConfigurationProperty"
+              (\ x ->
+                 SDKConfigurationProperty' <$>
+                   (x .:? "friendlyName") <*> (x .:? "required") <*>
+                     (x .:? "name")
+                     <*> (x .:? "defaultValue")
+                     <*> (x .:? "description"))
+
+instance Hashable SDKConfigurationProperty
+
+instance NFData SDKConfigurationProperty
+
+-- | A type of SDK that API Gateway can generate.
+--
+--
+--
+-- /See:/ 'sdkType' smart constructor.
+data SDKType = SDKType'
+    { _stFriendlyName            :: !(Maybe Text)
+    , _stConfigurationProperties :: !(Maybe [SDKConfigurationProperty])
+    , _stId                      :: !(Maybe Text)
+    , _stDescription             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SDKType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stFriendlyName' - The user-friendly name of an 'SdkType' instance.
+--
+-- * 'stConfigurationProperties' - A list of configuration properties of an 'SdkType' .
+--
+-- * 'stId' - The identifier of an 'SdkType' instance.
+--
+-- * 'stDescription' - The description of an 'SdkType' .
+sdkType
+    :: SDKType
+sdkType =
+    SDKType'
+    { _stFriendlyName = Nothing
+    , _stConfigurationProperties = Nothing
+    , _stId = Nothing
+    , _stDescription = Nothing
+    }
+
+-- | The user-friendly name of an 'SdkType' instance.
+stFriendlyName :: Lens' SDKType (Maybe Text)
+stFriendlyName = lens _stFriendlyName (\ s a -> s{_stFriendlyName = a});
+
+-- | A list of configuration properties of an 'SdkType' .
+stConfigurationProperties :: Lens' SDKType [SDKConfigurationProperty]
+stConfigurationProperties = lens _stConfigurationProperties (\ s a -> s{_stConfigurationProperties = a}) . _Default . _Coerce;
+
+-- | The identifier of an 'SdkType' instance.
+stId :: Lens' SDKType (Maybe Text)
+stId = lens _stId (\ s a -> s{_stId = a});
+
+-- | The description of an 'SdkType' .
+stDescription :: Lens' SDKType (Maybe Text)
+stDescription = lens _stDescription (\ s a -> s{_stDescription = a});
+
+instance FromJSON SDKType where
+        parseJSON
+          = withObject "SDKType"
+              (\ x ->
+                 SDKType' <$>
+                   (x .:? "friendlyName") <*>
+                     (x .:? "configurationProperties" .!= mempty)
+                     <*> (x .:? "id")
+                     <*> (x .:? "description"))
+
+instance Hashable SDKType
+
+instance NFData SDKType
 
 -- | Represents a unique identifier for a version of a deployed 'RestApi' that is callable by users.
 --

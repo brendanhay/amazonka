@@ -48,11 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for AddTags.
---
---
---
--- /See:/ 'addTags' smart constructor.
+-- | /See:/ 'addTags' smart constructor.
 data AddTags = AddTags'
     { _atResourceARNs :: ![Text]
     , _atTags         :: !(List1 Tag)
@@ -108,11 +104,7 @@ instance ToQuery AddTags where
                  toQueryList "member" _atResourceARNs,
                "Tags" =: toQueryList "member" _atTags]
 
--- | Contains the output of AddTags.
---
---
---
--- /See:/ 'addTagsResponse' smart constructor.
+-- | /See:/ 'addTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

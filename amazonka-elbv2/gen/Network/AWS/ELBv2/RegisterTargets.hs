@@ -23,7 +23,7 @@
 --
 -- By default, the load balancer routes requests to registered targets using the protocol and port number for the target group. Alternatively, you can override the port for a target when you register it.
 --
--- The target must be in the virtual private cloud (VPC) that you specified for the target group. If the target is an EC2 instance, it can't be in the @stopped@ or @running@ state when you register it.
+-- The target must be in the virtual private cloud (VPC) that you specified for the target group. If the target is an EC2 instance, it must be in the @running@ state when you register it.
 --
 -- To remove a target from a target group, use 'DeregisterTargets' .
 --
@@ -50,11 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for RegisterTargets.
---
---
---
--- /See:/ 'registerTargets' smart constructor.
+-- | /See:/ 'registerTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
     { _rtTargetGroupARN :: !Text
     , _rtTargets        :: ![TargetDescription]
@@ -110,11 +106,7 @@ instance ToQuery RegisterTargets where
                "TargetGroupArn" =: _rtTargetGroupARN,
                "Targets" =: toQueryList "member" _rtTargets]
 
--- | Contains the output of RegisterTargets.
---
---
---
--- /See:/ 'registerTargetsResponse' smart constructor.
+-- | /See:/ 'registerTargetsResponse' smart constructor.
 newtype RegisterTargetsResponse = RegisterTargetsResponse'
     { _rrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

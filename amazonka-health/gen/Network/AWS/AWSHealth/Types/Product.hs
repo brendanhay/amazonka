@@ -723,7 +723,7 @@ instance ToJSON EventFilter where
                   ("tags" .=) <$> _efTags,
                   ("lastUpdatedTimes" .=) <$> _efLastUpdatedTimes])
 
--- | Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, @issue@ , the service (for example, @EC2@ ), and the event type code (for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
+-- | Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, @issue@ ), the service (for example, @EC2@ ), and the event type code (for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
 --
 --
 --

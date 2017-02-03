@@ -21,6 +21,8 @@
 -- Lists the executions of a state machine that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.StepFunctions.ListExecutions
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.StepFunctions.ListExecutions
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -93,6 +96,13 @@ leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat
 -- | The Amazon Resource Name (ARN) of the state machine whose executions will be listed.
 leStateMachineARN :: Lens' ListExecutions Text
 leStateMachineARN = lens _leStateMachineARN (\ s a -> s{_leStateMachineARN = a});
+
+instance AWSPager ListExecutions where
+        page rq rs
+          | stop (rs ^. lersNextToken) = Nothing
+          | stop (rs ^. lersExecutions) = Nothing
+          | otherwise =
+            Just $ rq & leNextToken .~ rs ^. lersNextToken
 
 instance AWSRequest ListExecutions where
         type Rs ListExecutions = ListExecutionsResponse

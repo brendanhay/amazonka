@@ -58,7 +58,7 @@ data DescribeExportConfigurations = DescribeExportConfigurations'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- * 'decNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeExportConfigurationsRequest$exportIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 --
 -- * 'decExportIds' - A unique identifier that you can use to query the export status.
 --
@@ -72,7 +72,7 @@ describeExportConfigurations =
     , _decMaxResults = Nothing
     }
 
--- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeExportConfigurationsRequest$exportIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decNextToken :: Lens' DescribeExportConfigurations (Maybe Text)
 decNextToken = lens _decNextToken (\ s a -> s{_decNextToken = a});
 
@@ -136,7 +136,7 @@ data DescribeExportConfigurationsResponse = DescribeExportConfigurationsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decrsNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- * 'decrsNextToken' - A token to get the next set of results. For example, if you specified 100 IDs for @DescribeExportConfigurationsRequest$exportIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 --
 -- * 'decrsExportsInfo' - Returns export details. When the status is complete, the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 --
@@ -151,7 +151,7 @@ describeExportConfigurationsResponse pResponseStatus_ =
     , _decrsResponseStatus = pResponseStatus_
     }
 
--- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeConfigurationsRequest$configurationIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
+-- | A token to get the next set of results. For example, if you specified 100 IDs for @DescribeExportConfigurationsRequest$exportIds@ but set @DescribeExportConfigurationsRequest$maxResults@ to 10, you will get results in a set of 10. Use the token in the query to get the next set of 10.
 decrsNextToken :: Lens' DescribeExportConfigurationsResponse (Maybe Text)
 decrsNextToken = lens _decrsNextToken (\ s a -> s{_decrsNextToken = a});
 

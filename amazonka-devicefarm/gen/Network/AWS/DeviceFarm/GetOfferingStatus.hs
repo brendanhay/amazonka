@@ -21,6 +21,8 @@
 -- Gets the current status and future status of all offerings purchased by an AWS account. The response indicates how many offerings are currently available and the offerings that will be available in the next period. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. Please contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you believe that you should be able to invoke this operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.GetOfferingStatus
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.DeviceFarm.GetOfferingStatus
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -70,6 +73,14 @@ getOfferingStatus =
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 gosNextToken :: Lens' GetOfferingStatus (Maybe Text)
 gosNextToken = lens _gosNextToken (\ s a -> s{_gosNextToken = a});
+
+instance AWSPager GetOfferingStatus where
+        page rq rs
+          | stop (rs ^. gosrsNextToken) = Nothing
+          | stop (rs ^. gosrsCurrent) = Nothing
+          | stop (rs ^. gosrsNextPeriod) = Nothing
+          | otherwise =
+            Just $ rq & gosNextToken .~ rs ^. gosrsNextToken
 
 instance AWSRequest GetOfferingStatus where
         type Rs GetOfferingStatus = GetOfferingStatusResponse

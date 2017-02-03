@@ -49,10 +49,13 @@ library
         , Network.AWS.DynamoDB.DescribeTable
         , Network.AWS.DynamoDB.GetItem
         , Network.AWS.DynamoDB.ListTables
+        , Network.AWS.DynamoDB.ListTagsOfResource
         , Network.AWS.DynamoDB.PutItem
         , Network.AWS.DynamoDB.Query
         , Network.AWS.DynamoDB.Scan
+        , Network.AWS.DynamoDB.TagResource
         , Network.AWS.DynamoDB.Types
+        , Network.AWS.DynamoDB.UntagResource
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
         , Network.AWS.DynamoDB.Waiters

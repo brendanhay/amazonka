@@ -19,7 +19,7 @@
 --
 -- For more information about AWS CloudFormation, see the <http://aws.amazon.com/cloudformation/ AWS CloudFormation Product Page> .
 --
--- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <http://docs.aws.amazon.com/http:/docs.aws.amazon.com/ http://docs.aws.amazon.com/> .
+-- Amazon CloudFormation makes use of other AWS products. For additional technical information about a specific AWS product, see its <http://docs.aws.amazon.com/ technical documentation> .
 --
 module Network.AWS.CloudFormation
     (

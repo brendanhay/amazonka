@@ -21,6 +21,8 @@
 -- Gets the usage data of a usage plan in a specified time interval.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsage
     (
     -- * Creating a Request
@@ -48,6 +50,7 @@ module Network.AWS.APIGateway.GetUsage
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -119,6 +122,13 @@ guStartDate = lens _guStartDate (\ s a -> s{_guStartDate = a});
 -- | The ending date (e.g., 2016-12-31) of the usage data.
 guEndDate :: Lens' GetUsage Text
 guEndDate = lens _guEndDate (\ s a -> s{_guEndDate = a});
+
+instance AWSPager GetUsage where
+        page rq rs
+          | stop (rs ^. uPosition) = Nothing
+          | stop (rs ^. uItems) = Nothing
+          | otherwise =
+            Just $ rq & guPosition .~ rs ^. uPosition
 
 instance AWSRequest GetUsage where
         type Rs GetUsage = Usage

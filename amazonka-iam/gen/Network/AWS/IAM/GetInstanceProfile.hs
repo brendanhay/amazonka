@@ -53,7 +53,7 @@ newtype GetInstanceProfile = GetInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gipInstanceProfileName' - The name of the instance profile to get information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'gipInstanceProfileName' - The name of the instance profile to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getInstanceProfile
     :: Text -- ^ 'gipInstanceProfileName'
     -> GetInstanceProfile
@@ -62,7 +62,7 @@ getInstanceProfile pInstanceProfileName_ =
     { _gipInstanceProfileName = pInstanceProfileName_
     }
 
--- | The name of the instance profile to get information about. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the instance profile to get information about. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 

@@ -33,6 +33,8 @@
 --
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByConfigRule
     (
     -- * Creating a Request
@@ -55,6 +57,7 @@ module Network.AWS.Config.DescribeComplianceByConfigRule
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -78,7 +81,7 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 --
 -- * 'dcbcrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
 --
--- * 'dcbcrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'dcbcrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 describeComplianceByConfigRule
     :: DescribeComplianceByConfigRule
 describeComplianceByConfigRule =
@@ -96,9 +99,18 @@ dcbcrConfigRuleNames = lens _dcbcrConfigRuleNames (\ s a -> s{_dcbcrConfigRuleNa
 dcbcrComplianceTypes :: Lens' DescribeComplianceByConfigRule [ComplianceType]
 dcbcrComplianceTypes = lens _dcbcrComplianceTypes (\ s a -> s{_dcbcrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 dcbcrNextToken :: Lens' DescribeComplianceByConfigRule (Maybe Text)
 dcbcrNextToken = lens _dcbcrNextToken (\ s a -> s{_dcbcrNextToken = a});
+
+instance AWSPager DescribeComplianceByConfigRule
+         where
+        page rq rs
+          | stop (rs ^. dcbcrrsNextToken) = Nothing
+          | stop (rs ^. dcbcrrsComplianceByConfigRules) =
+            Nothing
+          | otherwise =
+            Just $ rq & dcbcrNextToken .~ rs ^. dcbcrrsNextToken
 
 instance AWSRequest DescribeComplianceByConfigRule
          where

@@ -41,6 +41,7 @@ library
     exposed-modules:
           Network.AWS.CognitoIdentityProvider
         , Network.AWS.CognitoIdentityProvider.AddCustomAttributes
+        , Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
         , Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
         , Network.AWS.CognitoIdentityProvider.AdminCreateUser
         , Network.AWS.CognitoIdentityProvider.AdminDeleteUser
@@ -52,6 +53,8 @@ library
         , Network.AWS.CognitoIdentityProvider.AdminGetUser
         , Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
         , Network.AWS.CognitoIdentityProvider.AdminListDevices
+        , Network.AWS.CognitoIdentityProvider.AdminListGroupsForUser
+        , Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
         , Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
         , Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
         , Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
@@ -62,9 +65,11 @@ library
         , Network.AWS.CognitoIdentityProvider.ConfirmDevice
         , Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
         , Network.AWS.CognitoIdentityProvider.ConfirmSignUp
+        , Network.AWS.CognitoIdentityProvider.CreateGroup
         , Network.AWS.CognitoIdentityProvider.CreateUserImportJob
         , Network.AWS.CognitoIdentityProvider.CreateUserPool
         , Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
+        , Network.AWS.CognitoIdentityProvider.DeleteGroup
         , Network.AWS.CognitoIdentityProvider.DeleteUser
         , Network.AWS.CognitoIdentityProvider.DeleteUserAttributes
         , Network.AWS.CognitoIdentityProvider.DeleteUserPool
@@ -76,15 +81,18 @@ library
         , Network.AWS.CognitoIdentityProvider.ForgotPassword
         , Network.AWS.CognitoIdentityProvider.GetCSVHeader
         , Network.AWS.CognitoIdentityProvider.GetDevice
+        , Network.AWS.CognitoIdentityProvider.GetGroup
         , Network.AWS.CognitoIdentityProvider.GetUser
         , Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
         , Network.AWS.CognitoIdentityProvider.GlobalSignOut
         , Network.AWS.CognitoIdentityProvider.InitiateAuth
         , Network.AWS.CognitoIdentityProvider.ListDevices
+        , Network.AWS.CognitoIdentityProvider.ListGroups
         , Network.AWS.CognitoIdentityProvider.ListUserImportJobs
         , Network.AWS.CognitoIdentityProvider.ListUserPoolClients
         , Network.AWS.CognitoIdentityProvider.ListUserPools
         , Network.AWS.CognitoIdentityProvider.ListUsers
+        , Network.AWS.CognitoIdentityProvider.ListUsersInGroup
         , Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
         , Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
         , Network.AWS.CognitoIdentityProvider.SetUserSettings
@@ -93,6 +101,7 @@ library
         , Network.AWS.CognitoIdentityProvider.StopUserImportJob
         , Network.AWS.CognitoIdentityProvider.Types
         , Network.AWS.CognitoIdentityProvider.UpdateDeviceStatus
+        , Network.AWS.CognitoIdentityProvider.UpdateGroup
         , Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
         , Network.AWS.CognitoIdentityProvider.UpdateUserPool
         , Network.AWS.CognitoIdentityProvider.UpdateUserPoolClient

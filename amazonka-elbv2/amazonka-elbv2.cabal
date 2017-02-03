@@ -66,6 +66,7 @@ library
         , Network.AWS.ELBv2.ModifyTargetGroupAttributes
         , Network.AWS.ELBv2.RegisterTargets
         , Network.AWS.ELBv2.RemoveTags
+        , Network.AWS.ELBv2.SetIPAddressType
         , Network.AWS.ELBv2.SetRulePriorities
         , Network.AWS.ELBv2.SetSecurityGroups
         , Network.AWS.ELBv2.SetSubnets

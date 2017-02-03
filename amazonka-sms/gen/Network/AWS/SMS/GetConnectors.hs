@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The GetConnectors API returns a list of connectors that are registered with the Server Migration Service.
+--
+-- This operation returns paginated results.
 module Network.AWS.SMS.GetConnectors
     (
     -- * Creating a Request
@@ -38,6 +40,7 @@ module Network.AWS.SMS.GetConnectors
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -72,6 +75,13 @@ gcNextToken = lens _gcNextToken (\ s a -> s{_gcNextToken = a});
 -- | Undocumented member.
 gcMaxResults :: Lens' GetConnectors (Maybe Int)
 gcMaxResults = lens _gcMaxResults (\ s a -> s{_gcMaxResults = a});
+
+instance AWSPager GetConnectors where
+        page rq rs
+          | stop (rs ^. gcrsNextToken) = Nothing
+          | stop (rs ^. gcrsConnectorList) = Nothing
+          | otherwise =
+            Just $ rq & gcNextToken .~ rs ^. gcrsNextToken
 
 instance AWSRequest GetConnectors where
         type Rs GetConnectors = GetConnectorsResponse

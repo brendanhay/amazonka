@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the messages in a queue specified by the __queue URL__ .
+-- Deletes the messages in a queue specified by the @QueueURL@ parameter.
 --
 --
--- /Important:/ When you use the @PurgeQueue@ API, the deleted messages in the queue can't be retrieved.
+-- /Important:/ When you use the @PurgeQueue@ action, you can't retrieve a message deleted from a queue.
 --
--- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling @PurgeQueue@ will be deleted; messages sent to the queue while it is being purged might be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ was called might be received, but will be deleted within the next minute.
+-- When you purge a queue, the message deletion process takes up to 60 seconds. All messages sent to the queue before calling the @PurgeQueue@ action are deleted. Messages sent to the queue while it is being purged might be deleted. While the queue is being purged, messages sent to the queue before @PurgeQueue@ is called might be received, but are deleted within the next minute.
 --
 module Network.AWS.SQS.PurgeQueue
     (
@@ -58,7 +58,7 @@ newtype PurgeQueue = PurgeQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pqQueueURL' - The queue URL of the queue to delete the messages from when using the @PurgeQueue@ API. Queue URLs are case-sensitive.
+-- * 'pqQueueURL' - The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 purgeQueue
     :: Text -- ^ 'pqQueueURL'
     -> PurgeQueue
@@ -67,7 +67,7 @@ purgeQueue pQueueURL_ =
     { _pqQueueURL = pQueueURL_
     }
 
--- | The queue URL of the queue to delete the messages from when using the @PurgeQueue@ API. Queue URLs are case-sensitive.
+-- | The URL of the queue from which the @PurgeQueue@ action deletes messages. Queue URLs are case-sensitive.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 

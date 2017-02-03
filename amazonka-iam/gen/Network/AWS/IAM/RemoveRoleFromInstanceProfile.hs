@@ -56,9 +56,9 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrfipInstanceProfileName' - The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rrfipInstanceProfileName' - The name of the instance profile to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rrfipRoleName' - The name of the role to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rrfipRoleName' - The name of the role to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 removeRoleFromInstanceProfile
     :: Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
@@ -69,11 +69,11 @@ removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
     , _rrfipRoleName = pRoleName_
     }
 
--- | The name of the instance profile to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the instance profile to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipInstanceProfileName = lens _rrfipInstanceProfileName (\ s a -> s{_rrfipInstanceProfileName = a});
 
--- | The name of the role to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
 

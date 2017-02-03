@@ -215,8 +215,14 @@ module Network.AWS.SSM
     -- ** DocumentLimitExceeded
     , _DocumentLimitExceeded
 
+    -- ** AlreadyExistsException
+    , _AlreadyExistsException
+
     -- ** InvalidFilter
     , _InvalidFilter
+
+    -- ** ResourceInUseException
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -224,19 +230,31 @@ module Network.AWS.SSM
     -- * Operations
     -- $operations
 
+    -- ** DescribeInstancePatches
+    , module Network.AWS.SSM.DescribeInstancePatches
+
     -- ** GetInventory
     , module Network.AWS.SSM.GetInventory
 
     -- ** GetParameters
     , module Network.AWS.SSM.GetParameters
 
+    -- ** DeletePatchBaseline
+    , module Network.AWS.SSM.DeletePatchBaseline
+
+    -- ** UpdatePatchBaseline
+    , module Network.AWS.SSM.UpdatePatchBaseline
+
     -- ** UpdateDocumentDefaultVersion
     , module Network.AWS.SSM.UpdateDocumentDefaultVersion
+
+    -- ** GetDeployablePatchSnapshotForInstance
+    , module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
 
     -- ** DescribeParameters
     , module Network.AWS.SSM.DescribeParameters
 
-    -- ** DescribeActivations
+    -- ** DescribeActivations (Paginated)
     , module Network.AWS.SSM.DescribeActivations
 
     -- ** ListTagsForResource
@@ -272,6 +290,9 @@ module Network.AWS.SSM
     -- ** DescribeMaintenanceWindowExecutionTasks
     , module Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
 
+    -- ** GetDefaultPatchBaseline
+    , module Network.AWS.SSM.GetDefaultPatchBaseline
+
     -- ** GetMaintenanceWindowExecutionTask
     , module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
 
@@ -281,17 +302,32 @@ module Network.AWS.SSM
     -- ** RemoveTagsFromResource
     , module Network.AWS.SSM.RemoveTagsFromResource
 
+    -- ** DescribePatchGroupState
+    , module Network.AWS.SSM.DescribePatchGroupState
+
     -- ** ListCommandInvocations (Paginated)
     , module Network.AWS.SSM.ListCommandInvocations
 
     -- ** DeregisterTargetFromMaintenanceWindow
     , module Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
 
+    -- ** DescribeEffectivePatchesForPatchBaseline
+    , module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
+
     -- ** DescribeMaintenanceWindowTargets
     , module Network.AWS.SSM.DescribeMaintenanceWindowTargets
 
+    -- ** RegisterPatchBaselineForPatchGroup
+    , module Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
+
     -- ** ListDocuments (Paginated)
     , module Network.AWS.SSM.ListDocuments
+
+    -- ** DescribeInstancePatchStates
+    , module Network.AWS.SSM.DescribeInstancePatchStates
+
+    -- ** GetPatchBaselineForPatchGroup
+    , module Network.AWS.SSM.GetPatchBaselineForPatchGroup
 
     -- ** UpdateManagedInstanceRole
     , module Network.AWS.SSM.UpdateManagedInstanceRole
@@ -308,6 +344,9 @@ module Network.AWS.SSM
     -- ** GetCommandInvocation
     , module Network.AWS.SSM.GetCommandInvocation
 
+    -- ** DescribeInstancePatchStatesForPatchGroup
+    , module Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
+
     -- ** DeregisterManagedInstance
     , module Network.AWS.SSM.DeregisterManagedInstance
 
@@ -320,8 +359,17 @@ module Network.AWS.SSM
     -- ** UpdateAssociationStatus
     , module Network.AWS.SSM.UpdateAssociationStatus
 
+    -- ** DescribeAvailablePatches
+    , module Network.AWS.SSM.DescribeAvailablePatches
+
     -- ** ListDocumentVersions
     , module Network.AWS.SSM.ListDocumentVersions
+
+    -- ** DeregisterPatchBaselineForPatchGroup
+    , module Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
+
+    -- ** DescribePatchGroups
+    , module Network.AWS.SSM.DescribePatchGroups
 
     -- ** GetMaintenanceWindow
     , module Network.AWS.SSM.GetMaintenanceWindow
@@ -331,6 +379,9 @@ module Network.AWS.SSM
 
     -- ** RegisterTaskWithMaintenanceWindow
     , module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
+
+    -- ** RegisterDefaultPatchBaseline
+    , module Network.AWS.SSM.RegisterDefaultPatchBaseline
 
     -- ** DescribeMaintenanceWindowTasks
     , module Network.AWS.SSM.DescribeMaintenanceWindowTasks
@@ -365,7 +416,7 @@ module Network.AWS.SSM
     -- ** DeleteParameter
     , module Network.AWS.SSM.DeleteParameter
 
-    -- ** DescribeInstanceInformation
+    -- ** DescribeInstanceInformation (Paginated)
     , module Network.AWS.SSM.DescribeInstanceInformation
 
     -- ** ListAssociations (Paginated)
@@ -392,6 +443,12 @@ module Network.AWS.SSM
     -- ** SendCommand
     , module Network.AWS.SSM.SendCommand
 
+    -- ** DescribePatchBaselines
+    , module Network.AWS.SSM.DescribePatchBaselines
+
+    -- ** GetPatchBaseline
+    , module Network.AWS.SSM.GetPatchBaseline
+
     -- ** RegisterTargetWithMaintenanceWindow
     , module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
 
@@ -409,6 +466,9 @@ module Network.AWS.SSM
 
     -- ** CreateAssociationBatch
     , module Network.AWS.SSM.CreateAssociationBatch
+
+    -- ** CreatePatchBaseline
+    , module Network.AWS.SSM.CreatePatchBaseline
 
     -- * Types
 
@@ -463,6 +523,9 @@ module Network.AWS.SSM
     -- ** InstanceInformationFilterKey
     , InstanceInformationFilterKey (..)
 
+    -- ** InstancePatchStateOperatorType
+    , InstancePatchStateOperatorType (..)
+
     -- ** InventoryAttributeDataType
     , InventoryAttributeDataType (..)
 
@@ -489,6 +552,18 @@ module Network.AWS.SSM
 
     -- ** ParametersFilterKey
     , ParametersFilterKey (..)
+
+    -- ** PatchComplianceDataState
+    , PatchComplianceDataState (..)
+
+    -- ** PatchDeploymentStatus
+    , PatchDeploymentStatus (..)
+
+    -- ** PatchFilterKey
+    , PatchFilterKey (..)
+
+    -- ** PatchOperationType
+    , PatchOperationType (..)
 
     -- ** PingStatus
     , PingStatus (..)
@@ -737,6 +812,12 @@ module Network.AWS.SSM
     , dviDocumentVersion
     , dviIsDefaultVersion
 
+    -- ** EffectivePatch
+    , EffectivePatch
+    , effectivePatch
+    , epPatch
+    , epPatchStatus
+
     -- ** FailedCreateAssociation
     , FailedCreateAssociation
     , failedCreateAssociation
@@ -815,6 +896,30 @@ module Network.AWS.SSM
     , instanceInformationStringFilter
     , iisfKey
     , iisfValues
+
+    -- ** InstancePatchState
+    , InstancePatchState
+    , instancePatchState
+    , ipsOwnerInformation
+    , ipsFailedCount
+    , ipsInstalledOtherCount
+    , ipsMissingCount
+    , ipsNotApplicableCount
+    , ipsInstalledCount
+    , ipsSnapshotId
+    , ipsInstanceId
+    , ipsPatchGroup
+    , ipsBaselineId
+    , ipsOperationStartTime
+    , ipsOperationEndTime
+    , ipsOperation
+
+    -- ** InstancePatchStateFilter
+    , InstancePatchStateFilter
+    , instancePatchStateFilter
+    , ipsfKey
+    , ipsfValues
+    , ipsfType
 
     -- ** InventoryFilter
     , InventoryFilter
@@ -986,8 +1091,83 @@ module Network.AWS.SSM
     -- ** ParametersFilter
     , ParametersFilter
     , parametersFilter
+    , pKey
+    , pValues
+
+    -- ** Patch
+    , Patch
+    , patch
+    , pVendor
+    , pMsrcSeverity
+    , pProductFamily
+    , pClassification
+    , pMsrcNumber
+    , pLanguage
+    , pKbNumber
+    , pContentURL
+    , pId
+    , pReleaseDate
+    , pTitle
+    , pProduct
+    , pDescription
+
+    -- ** PatchBaselineIdentity
+    , PatchBaselineIdentity
+    , patchBaselineIdentity
+    , pbiBaselineName
+    , pbiBaselineDescription
+    , pbiDefaultBaseline
+    , pbiBaselineId
+
+    -- ** PatchComplianceData
+    , PatchComplianceData
+    , patchComplianceData
+    , pcdTitle
+    , pcdKBId
+    , pcdClassification
+    , pcdSeverity
+    , pcdState
+    , pcdInstalledTime
+
+    -- ** PatchFilter
+    , PatchFilter
+    , patchFilter
     , pfKey
     , pfValues
+
+    -- ** PatchFilterGroup
+    , PatchFilterGroup
+    , patchFilterGroup
+    , pfgPatchFilters
+
+    -- ** PatchGroupPatchBaselineMapping
+    , PatchGroupPatchBaselineMapping
+    , patchGroupPatchBaselineMapping
+    , pgpbmBaselineIdentity
+    , pgpbmPatchGroup
+
+    -- ** PatchOrchestratorFilter
+    , PatchOrchestratorFilter
+    , patchOrchestratorFilter
+    , pofValues
+    , pofKey
+
+    -- ** PatchRule
+    , PatchRule
+    , patchRule
+    , prPatchFilterGroup
+    , prApproveAfterDays
+
+    -- ** PatchRuleGroup
+    , PatchRuleGroup
+    , patchRuleGroup
+    , prgPatchRules
+
+    -- ** PatchStatus
+    , PatchStatus
+    , patchStatus
+    , psApprovalDate
+    , psDeploymentStatus
 
     -- ** ResultAttribute
     , ResultAttribute
@@ -1040,22 +1220,30 @@ import           Network.AWS.SSM.CreateAssociation
 import           Network.AWS.SSM.CreateAssociationBatch
 import           Network.AWS.SSM.CreateDocument
 import           Network.AWS.SSM.CreateMaintenanceWindow
+import           Network.AWS.SSM.CreatePatchBaseline
 import           Network.AWS.SSM.DeleteActivation
 import           Network.AWS.SSM.DeleteAssociation
 import           Network.AWS.SSM.DeleteDocument
 import           Network.AWS.SSM.DeleteMaintenanceWindow
 import           Network.AWS.SSM.DeleteParameter
+import           Network.AWS.SSM.DeletePatchBaseline
 import           Network.AWS.SSM.DeregisterManagedInstance
+import           Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
 import           Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
 import           Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
 import           Network.AWS.SSM.DescribeActivations
 import           Network.AWS.SSM.DescribeAssociation
 import           Network.AWS.SSM.DescribeAutomationExecutions
+import           Network.AWS.SSM.DescribeAvailablePatches
 import           Network.AWS.SSM.DescribeDocument
 import           Network.AWS.SSM.DescribeDocumentPermission
 import           Network.AWS.SSM.DescribeEffectiveInstanceAssociations
+import           Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
 import           Network.AWS.SSM.DescribeInstanceAssociationsStatus
 import           Network.AWS.SSM.DescribeInstanceInformation
+import           Network.AWS.SSM.DescribeInstancePatches
+import           Network.AWS.SSM.DescribeInstancePatchStates
+import           Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
 import           Network.AWS.SSM.DescribeMaintenanceWindowExecutions
 import           Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
 import           Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
@@ -1063,8 +1251,13 @@ import           Network.AWS.SSM.DescribeMaintenanceWindows
 import           Network.AWS.SSM.DescribeMaintenanceWindowTargets
 import           Network.AWS.SSM.DescribeMaintenanceWindowTasks
 import           Network.AWS.SSM.DescribeParameters
+import           Network.AWS.SSM.DescribePatchBaselines
+import           Network.AWS.SSM.DescribePatchGroups
+import           Network.AWS.SSM.DescribePatchGroupState
 import           Network.AWS.SSM.GetAutomationExecution
 import           Network.AWS.SSM.GetCommandInvocation
+import           Network.AWS.SSM.GetDefaultPatchBaseline
+import           Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
 import           Network.AWS.SSM.GetDocument
 import           Network.AWS.SSM.GetInventory
 import           Network.AWS.SSM.GetInventorySchema
@@ -1073,6 +1266,8 @@ import           Network.AWS.SSM.GetMaintenanceWindowExecution
 import           Network.AWS.SSM.GetMaintenanceWindowExecutionTask
 import           Network.AWS.SSM.GetParameterHistory
 import           Network.AWS.SSM.GetParameters
+import           Network.AWS.SSM.GetPatchBaseline
+import           Network.AWS.SSM.GetPatchBaselineForPatchGroup
 import           Network.AWS.SSM.ListAssociations
 import           Network.AWS.SSM.ListCommandInvocations
 import           Network.AWS.SSM.ListCommands
@@ -1083,6 +1278,8 @@ import           Network.AWS.SSM.ListTagsForResource
 import           Network.AWS.SSM.ModifyDocumentPermission
 import           Network.AWS.SSM.PutInventory
 import           Network.AWS.SSM.PutParameter
+import           Network.AWS.SSM.RegisterDefaultPatchBaseline
+import           Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
 import           Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
 import           Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
 import           Network.AWS.SSM.RemoveTagsFromResource
@@ -1096,6 +1293,7 @@ import           Network.AWS.SSM.UpdateDocument
 import           Network.AWS.SSM.UpdateDocumentDefaultVersion
 import           Network.AWS.SSM.UpdateMaintenanceWindow
 import           Network.AWS.SSM.UpdateManagedInstanceRole
+import           Network.AWS.SSM.UpdatePatchBaseline
 import           Network.AWS.SSM.Waiters
 
 {- $errors

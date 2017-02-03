@@ -65,7 +65,7 @@ module Network.AWS.Lightsail
     -- ** DeleteInstanceSnapshot
     , module Network.AWS.Lightsail.DeleteInstanceSnapshot
 
-    -- ** GetInstances
+    -- ** GetInstances (Paginated)
     , module Network.AWS.Lightsail.GetInstances
 
     -- ** GetInstance
@@ -77,7 +77,7 @@ module Network.AWS.Lightsail
     -- ** DownloadDefaultKeyPair
     , module Network.AWS.Lightsail.DownloadDefaultKeyPair
 
-    -- ** GetDomains
+    -- ** GetDomains (Paginated)
     , module Network.AWS.Lightsail.GetDomains
 
     -- ** CreateDomainEntry
@@ -86,7 +86,7 @@ module Network.AWS.Lightsail
     -- ** ImportKeyPair
     , module Network.AWS.Lightsail.ImportKeyPair
 
-    -- ** GetInstanceSnapshots
+    -- ** GetInstanceSnapshots (Paginated)
     , module Network.AWS.Lightsail.GetInstanceSnapshots
 
     -- ** ReleaseStaticIP
@@ -104,7 +104,7 @@ module Network.AWS.Lightsail
     -- ** GetDomain
     , module Network.AWS.Lightsail.GetDomain
 
-    -- ** GetActiveNames
+    -- ** GetActiveNames (Paginated)
     , module Network.AWS.Lightsail.GetActiveNames
 
     -- ** GetInstanceAccessDetails
@@ -119,7 +119,7 @@ module Network.AWS.Lightsail
     -- ** IsVPCPeered
     , module Network.AWS.Lightsail.IsVPCPeered
 
-    -- ** GetStaticIPs
+    -- ** GetStaticIPs (Paginated)
     , module Network.AWS.Lightsail.GetStaticIPs
 
     -- ** UnpeerVPC
@@ -137,7 +137,7 @@ module Network.AWS.Lightsail
     -- ** GetStaticIP
     , module Network.AWS.Lightsail.GetStaticIP
 
-    -- ** GetBlueprints
+    -- ** GetBlueprints (Paginated)
     , module Network.AWS.Lightsail.GetBlueprints
 
     -- ** GetInstancePortStates
@@ -155,10 +155,10 @@ module Network.AWS.Lightsail
     -- ** GetInstanceState
     , module Network.AWS.Lightsail.GetInstanceState
 
-    -- ** GetKeyPairs
+    -- ** GetKeyPairs (Paginated)
     , module Network.AWS.Lightsail.GetKeyPairs
 
-    -- ** GetOperations
+    -- ** GetOperations (Paginated)
     , module Network.AWS.Lightsail.GetOperations
 
     -- ** GetOperation
@@ -179,7 +179,7 @@ module Network.AWS.Lightsail
     -- ** OpenInstancePublicPorts
     , module Network.AWS.Lightsail.OpenInstancePublicPorts
 
-    -- ** GetBundles
+    -- ** GetBundles (Paginated)
     , module Network.AWS.Lightsail.GetBundles
 
     -- ** DeleteDomain

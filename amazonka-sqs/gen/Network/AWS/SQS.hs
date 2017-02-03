@@ -11,48 +11,42 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Welcome to the /Amazon Simple Queue Service API Reference/ . This section describes who should read this guide, how the guide is organized, and other resources related to the Amazon Simple Queue Service (Amazon SQS).
+-- Welcome to the /Amazon Simple Queue Service API Reference/ .
 --
 --
--- Amazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.
+-- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.
 --
--- __Topics__
+-- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:
 --
---     *
+--     * Cryptographically sign your service requests
 --
---     *
+--     * Retry requests
 --
---     * 'CommonParameters'
---
---     * 'CommonErrors'
+--     * Handle error responses
 --
 --
 --
--- __Helpful Links__
+-- __Additional Information__
+--
+--     * <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
+--
+--     * /Amazon SQS Developer Guide/
 --
 --     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
 --
---     * <http://aws.amazon.com/sqs/ Amazon SQS product page>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Using Amazon SQS Message Attributes>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html Using Amazon SQS Message Attributes>
+--     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead Letter Queues>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
+--
+--
+--     * /Amazon Web Services General Reference/
 --
 --     * <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 --
 --
 --
--- We also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:
 --
---     * Cryptographically signing your service requests
---
---     * Retrying requests
---
---     * Handling error responses
---
---
---
--- For a list of available SDKs, see <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
 --
 module Network.AWS.SQS
     (

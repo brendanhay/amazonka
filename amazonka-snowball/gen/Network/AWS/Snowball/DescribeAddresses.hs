@@ -21,6 +21,8 @@
 -- Returns a specified number of @ADDRESS@ objects. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Snowball.DescribeAddresses
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Snowball.DescribeAddresses
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 -- | The number of @ADDRESS@ objects to return.
 daMaxResults :: Lens' DescribeAddresses (Maybe Natural)
 daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeAddresses where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsAddresses) = Nothing
+          | otherwise =
+            Just $ rq & daNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeAddresses where
         type Rs DescribeAddresses = DescribeAddressesResponse

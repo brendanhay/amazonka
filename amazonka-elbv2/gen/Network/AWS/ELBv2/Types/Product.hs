@@ -296,6 +296,7 @@ data LoadBalancer = LoadBalancer'
     , _lbCanonicalHostedZoneId :: !(Maybe Text)
     , _lbAvailabilityZones     :: !(Maybe [AvailabilityZone])
     , _lbLoadBalancerARN       :: !(Maybe Text)
+    , _lbIPAddressType         :: !(Maybe IPAddressType)
     , _lbScheme                :: !(Maybe LoadBalancerSchemeEnum)
     , _lbType                  :: !(Maybe LoadBalancerTypeEnum)
     , _lbDNSName               :: !(Maybe Text)
@@ -321,6 +322,8 @@ data LoadBalancer = LoadBalancer'
 --
 -- * 'lbLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 --
+-- * 'lbIPAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
+--
 -- * 'lbScheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
 --
 -- * 'lbType' - The type of load balancer.
@@ -338,6 +341,7 @@ loadBalancer =
     , _lbCanonicalHostedZoneId = Nothing
     , _lbAvailabilityZones = Nothing
     , _lbLoadBalancerARN = Nothing
+    , _lbIPAddressType = Nothing
     , _lbScheme = Nothing
     , _lbType = Nothing
     , _lbDNSName = Nothing
@@ -375,6 +379,10 @@ lbAvailabilityZones = lens _lbAvailabilityZones (\ s a -> s{_lbAvailabilityZones
 lbLoadBalancerARN :: Lens' LoadBalancer (Maybe Text)
 lbLoadBalancerARN = lens _lbLoadBalancerARN (\ s a -> s{_lbLoadBalancerARN = a});
 
+-- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
+lbIPAddressType :: Lens' LoadBalancer (Maybe IPAddressType)
+lbIPAddressType = lens _lbIPAddressType (\ s a -> s{_lbIPAddressType = a});
+
 -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the Internet. The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer.
 lbScheme :: Lens' LoadBalancer (Maybe LoadBalancerSchemeEnum)
 lbScheme = lens _lbScheme (\ s a -> s{_lbScheme = a});
@@ -401,6 +409,7 @@ instance FromXML LoadBalancer where
                 (x .@? "AvailabilityZones" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@? "LoadBalancerArn")
+                <*> (x .@? "IpAddressType")
                 <*> (x .@? "Scheme")
                 <*> (x .@? "Type")
                 <*> (x .@? "DNSName")
@@ -623,7 +632,7 @@ data RuleCondition = RuleCondition'
 --
 -- * 'rcField' - The only possible value is @path-pattern@ .
 --
--- * 'rcValues' - The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'rcValues' - The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 ruleCondition
     :: RuleCondition
 ruleCondition =
@@ -636,7 +645,7 @@ ruleCondition =
 rcField :: Lens' RuleCondition (Maybe Text)
 rcField = lens _rcField (\ s a -> s{_rcField = a});
 
--- | The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 255 characters in length, and can contain any of the following characters:     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 rcValues :: Lens' RuleCondition [Text]
 rcValues = lens _rcValues (\ s a -> s{_rcValues = a}) . _Default . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more builds.
+-- Gets information about builds.
 --
 --
 module Network.AWS.CodeBuild.BatchGetBuilds
@@ -54,7 +54,7 @@ newtype BatchGetBuilds = BatchGetBuilds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgbIds' - The IDs of the builds to get information about.
+-- * 'bgbIds' - The IDs of the builds.
 batchGetBuilds
     :: NonEmpty Text -- ^ 'bgbIds'
     -> BatchGetBuilds
@@ -63,7 +63,7 @@ batchGetBuilds pIds_ =
     { _bgbIds = _List1 # pIds_
     }
 
--- | The IDs of the builds to get information about.
+-- | The IDs of the builds.
 bgbIds :: Lens' BatchGetBuilds (NonEmpty Text)
 bgbIds = lens _bgbIds (\ s a -> s{_bgbIds = a}) . _List1;
 

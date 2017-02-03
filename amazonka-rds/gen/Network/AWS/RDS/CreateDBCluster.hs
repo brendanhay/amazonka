@@ -21,7 +21,7 @@
 -- Creates a new Amazon Aurora DB cluster.
 --
 --
--- You can use the @ReplicationSourceIdentifier@ parameter to create the DB cluster as a Read Replica of another DB cluster.
+-- You can use the @ReplicationSourceIdentifier@ parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 --
@@ -105,7 +105,7 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- * 'cdcMasterUserPassword' - The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@". Constraints: Must contain from 8 to 41 characters.
 --
--- * 'cdcReplicationSourceIdentifier' - The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created as a Read Replica.
+-- * 'cdcReplicationSourceIdentifier' - The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 --
 -- * 'cdcMasterUsername' - The name of the master user for the DB cluster. Constraints:     * Must be 1 to 16 alphanumeric characters.     * First character must be a letter.     * Cannot be a reserved word for the chosen database engine.
 --
@@ -178,7 +178,7 @@ cdcStorageEncrypted = lens _cdcStorageEncrypted (\ s a -> s{_cdcStorageEncrypted
 cdcMasterUserPassword :: Lens' CreateDBCluster (Maybe Text)
 cdcMasterUserPassword = lens _cdcMasterUserPassword (\ s a -> s{_cdcMasterUserPassword = a});
 
--- | The Amazon Resource Name (ARN) of the source DB cluster if this DB cluster is created as a Read Replica.
+-- | The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
 cdcReplicationSourceIdentifier :: Lens' CreateDBCluster (Maybe Text)
 cdcReplicationSourceIdentifier = lens _cdcReplicationSourceIdentifier (\ s a -> s{_cdcReplicationSourceIdentifier = a});
 

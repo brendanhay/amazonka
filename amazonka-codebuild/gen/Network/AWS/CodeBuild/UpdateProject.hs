@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the settings of an existing build project.
+-- Changes the settings of a build project.
 --
 --
 module Network.AWS.CodeBuild.UpdateProject
@@ -69,23 +69,23 @@ data UpdateProject = UpdateProject'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'upArtifacts' - Information to be changed about the build project's build output artifacts.
+-- * 'upArtifacts' - Information to be changed about the build output artifacts for the build project.
 --
--- * 'upEnvironment' - Information to be changed about the build project's build environment.
+-- * 'upEnvironment' - Information to be changed about the build environment for the build project.
 --
--- * 'upSource' - Information to be changed about the build project's build input source code.
+-- * 'upSource' - Information to be changed about the build input source code for the build project.
 --
--- * 'upEncryptionKey' - The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- * 'upEncryptionKey' - The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 --
 -- * 'upDescription' - A new or replacement description of the build project.
 --
--- * 'upServiceRole' - The replacement Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- * 'upServiceRole' - The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 --
 -- * 'upTags' - The replacement set of tags for this build project. These tags are available for use by AWS services that support AWS CodeBuild build project tags.
 --
--- * 'upTimeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait to timeout any related build that did not get marked as completed.
+-- * 'upTimeoutInMinutes' - The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
 --
--- * 'upName' - The name of the existing build project to change settings.
+-- * 'upName' - The name of the build project.
 updateProject
     :: Text -- ^ 'upName'
     -> UpdateProject
@@ -102,19 +102,19 @@ updateProject pName_ =
     , _upName = pName_
     }
 
--- | Information to be changed about the build project's build output artifacts.
+-- | Information to be changed about the build output artifacts for the build project.
 upArtifacts :: Lens' UpdateProject (Maybe ProjectArtifacts)
 upArtifacts = lens _upArtifacts (\ s a -> s{_upArtifacts = a});
 
--- | Information to be changed about the build project's build environment.
+-- | Information to be changed about the build environment for the build project.
 upEnvironment :: Lens' UpdateProject (Maybe ProjectEnvironment)
 upEnvironment = lens _upEnvironment (\ s a -> s{_upEnvironment = a});
 
--- | Information to be changed about the build project's build input source code.
+-- | Information to be changed about the build input source code for the build project.
 upSource :: Lens' UpdateProject (Maybe ProjectSource)
 upSource = lens _upSource (\ s a -> s{_upSource = a});
 
--- | The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
+-- | The replacement AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts. You can specify either the CMK's Amazon Resource Name (ARN) or, if available, the CMK's alias (using the format @alias//alias-name/ @ ).
 upEncryptionKey :: Lens' UpdateProject (Maybe Text)
 upEncryptionKey = lens _upEncryptionKey (\ s a -> s{_upEncryptionKey = a});
 
@@ -122,7 +122,7 @@ upEncryptionKey = lens _upEncryptionKey (\ s a -> s{_upEncryptionKey = a});
 upDescription :: Lens' UpdateProject (Maybe Text)
 upDescription = lens _upDescription (\ s a -> s{_upDescription = a});
 
--- | The replacement Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+-- | The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 upServiceRole :: Lens' UpdateProject (Maybe Text)
 upServiceRole = lens _upServiceRole (\ s a -> s{_upServiceRole = a});
 
@@ -130,11 +130,11 @@ upServiceRole = lens _upServiceRole (\ s a -> s{_upServiceRole = a});
 upTags :: Lens' UpdateProject [Tag]
 upTags = lens _upTags (\ s a -> s{_upTags = a}) . _Default . _Coerce;
 
--- | The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait to timeout any related build that did not get marked as completed.
+-- | The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any related build that did not get marked as completed.
 upTimeoutInMinutes :: Lens' UpdateProject (Maybe Natural)
 upTimeoutInMinutes = lens _upTimeoutInMinutes (\ s a -> s{_upTimeoutInMinutes = a}) . mapping _Nat;
 
--- | The name of the existing build project to change settings.
+-- | The name of the build project.
 upName :: Lens' UpdateProject Text
 upName = lens _upName (\ s a -> s{_upName = a});
 

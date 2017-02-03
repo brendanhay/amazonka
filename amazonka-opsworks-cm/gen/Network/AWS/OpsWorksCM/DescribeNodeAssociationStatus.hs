@@ -32,8 +32,8 @@ module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
     , describeNodeAssociationStatusResponse
     , DescribeNodeAssociationStatusResponse
     -- * Response Lenses
-    , dnasrsNodeAssociationStatus
     , dnasrsResponseStatus
+    , dnasrsNodeAssociationStatus
     ) where
 
 import           Network.AWS.Lens
@@ -83,8 +83,8 @@ instance AWSRequest DescribeNodeAssociationStatus
           = receiveJSON
               (\ s h x ->
                  DescribeNodeAssociationStatusResponse' <$>
-                   (x .?> "NodeAssociationStatus") <*>
-                     (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*>
+                     (x .:> "NodeAssociationStatus"))
 
 instance Hashable DescribeNodeAssociationStatus
 
@@ -118,32 +118,33 @@ instance ToQuery DescribeNodeAssociationStatus where
 
 -- | /See:/ 'describeNodeAssociationStatusResponse' smart constructor.
 data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse'
-    { _dnasrsNodeAssociationStatus :: !(Maybe NodeAssociationStatus)
-    , _dnasrsResponseStatus        :: !Int
+    { _dnasrsResponseStatus        :: !Int
+    , _dnasrsNodeAssociationStatus :: !NodeAssociationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeNodeAssociationStatusResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnasrsNodeAssociationStatus' - Undocumented member.
---
 -- * 'dnasrsResponseStatus' - -- | The response status code.
+--
+-- * 'dnasrsNodeAssociationStatus' - Undocumented member.
 describeNodeAssociationStatusResponse
     :: Int -- ^ 'dnasrsResponseStatus'
+    -> NodeAssociationStatus -- ^ 'dnasrsNodeAssociationStatus'
     -> DescribeNodeAssociationStatusResponse
-describeNodeAssociationStatusResponse pResponseStatus_ =
+describeNodeAssociationStatusResponse pResponseStatus_ pNodeAssociationStatus_ =
     DescribeNodeAssociationStatusResponse'
-    { _dnasrsNodeAssociationStatus = Nothing
-    , _dnasrsResponseStatus = pResponseStatus_
+    { _dnasrsResponseStatus = pResponseStatus_
+    , _dnasrsNodeAssociationStatus = pNodeAssociationStatus_
     }
-
--- | Undocumented member.
-dnasrsNodeAssociationStatus :: Lens' DescribeNodeAssociationStatusResponse (Maybe NodeAssociationStatus)
-dnasrsNodeAssociationStatus = lens _dnasrsNodeAssociationStatus (\ s a -> s{_dnasrsNodeAssociationStatus = a});
 
 -- | -- | The response status code.
 dnasrsResponseStatus :: Lens' DescribeNodeAssociationStatusResponse Int
 dnasrsResponseStatus = lens _dnasrsResponseStatus (\ s a -> s{_dnasrsResponseStatus = a});
+
+-- | Undocumented member.
+dnasrsNodeAssociationStatus :: Lens' DescribeNodeAssociationStatusResponse NodeAssociationStatus
+dnasrsNodeAssociationStatus = lens _dnasrsNodeAssociationStatus (\ s a -> s{_dnasrsNodeAssociationStatus = a});
 
 instance NFData DescribeNodeAssociationStatusResponse

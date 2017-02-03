@@ -39,6 +39,8 @@
 --
 -- /Important:/ Events that occurred during the selected time range will not be available for lookup if CloudTrail logging was not enabled when the events occurred.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudTrail.LookupEvents
     (
     -- * Creating a Request
@@ -63,6 +65,7 @@ module Network.AWS.CloudTrail.LookupEvents
 import           Network.AWS.CloudTrail.Types
 import           Network.AWS.CloudTrail.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -123,6 +126,13 @@ leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time;
 -- | The number of events to return. Possible values are 1 through 50. The default is 10.
 leMaxResults :: Lens' LookupEvents (Maybe Natural)
 leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
+
+instance AWSPager LookupEvents where
+        page rq rs
+          | stop (rs ^. lersNextToken) = Nothing
+          | stop (rs ^. lersEvents) = Nothing
+          | otherwise =
+            Just $ rq & leNextToken .~ rs ^. lersNextToken
 
 instance AWSRequest LookupEvents where
         type Rs LookupEvents = LookupEventsResponse

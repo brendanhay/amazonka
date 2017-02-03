@@ -21,6 +21,8 @@
 -- Describes one or more of your instances. You can use this to get information about instances like the operating system platform, the SSM agent version (Linux), status etc. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstanceInformation
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.SSM.DescribeInstanceInformation
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -92,6 +95,13 @@ diiNextToken = lens _diiNextToken (\ s a -> s{_diiNextToken = a});
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 diiMaxResults :: Lens' DescribeInstanceInformation (Maybe Natural)
 diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeInstanceInformation where
+        page rq rs
+          | stop (rs ^. diirsNextToken) = Nothing
+          | stop (rs ^. diirsInstanceInformationList) = Nothing
+          | otherwise =
+            Just $ rq & diiNextToken .~ rs ^. diirsNextToken
 
 instance AWSRequest DescribeInstanceInformation where
         type Rs DescribeInstanceInformation =

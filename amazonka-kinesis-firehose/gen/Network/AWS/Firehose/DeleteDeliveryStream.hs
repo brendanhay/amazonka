@@ -49,11 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for 'DeleteDeliveryStream' .
---
---
---
--- /See:/ 'deleteDeliveryStream' smart constructor.
+-- | /See:/ 'deleteDeliveryStream' smart constructor.
 newtype DeleteDeliveryStream = DeleteDeliveryStream'
     { _dDeliveryStreamName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -112,11 +108,7 @@ instance ToPath DeleteDeliveryStream where
 instance ToQuery DeleteDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of 'DeleteDeliveryStream' .
---
---
---
--- /See:/ 'deleteDeliveryStreamResponse' smart constructor.
+-- | /See:/ 'deleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
     { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

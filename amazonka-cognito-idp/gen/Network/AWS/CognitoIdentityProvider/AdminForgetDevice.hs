@@ -21,6 +21,8 @@
 -- Forgets the device, as an administrator.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
     (
     -- * Creating a Request

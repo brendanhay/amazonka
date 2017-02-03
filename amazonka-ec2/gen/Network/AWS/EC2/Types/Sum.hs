@@ -1086,6 +1086,32 @@ instance ToByteString InstanceAttributeName
 instance ToQuery      InstanceAttributeName
 instance ToHeader     InstanceAttributeName
 
+data InstanceHealthStatus
+    = Healthy
+    | Unhealthy
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceHealthStatus where
+    parser = takeLowerText >>= \case
+        "healthy" -> pure Healthy
+        "unhealthy" -> pure Unhealthy
+        e -> fromTextError $ "Failure parsing InstanceHealthStatus from value: '" <> e
+           <> "'. Accepted values: healthy, unhealthy"
+
+instance ToText InstanceHealthStatus where
+    toText = \case
+        Healthy -> "healthy"
+        Unhealthy -> "unhealthy"
+
+instance Hashable     InstanceHealthStatus
+instance NFData       InstanceHealthStatus
+instance ToByteString InstanceHealthStatus
+instance ToQuery      InstanceHealthStatus
+instance ToHeader     InstanceHealthStatus
+
+instance FromXML InstanceHealthStatus where
+    parseXML = parseXMLText "InstanceHealthStatus"
+
 data InstanceLifecycleType
     = Scheduled
     | Spot
@@ -1206,12 +1232,20 @@ data InstanceType
     | R3_8XLarge
     | R3_Large
     | R3_XLarge
+    | R4_16XLarge
+    | R4_2XLarge
+    | R4_4XLarge
+    | R4_8XLarge
+    | R4_Large
+    | R4_XLarge
     | T1_Micro
+    | T2_2XLarge
     | T2_Large
     | T2_Medium
     | T2_Micro
     | T2_Nano
     | T2_Small
+    | T2_XLarge
     | X1_16XLarge
     | X1_32XLarge
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -1273,16 +1307,24 @@ instance FromText InstanceType where
         "r3.8xlarge" -> pure R3_8XLarge
         "r3.large" -> pure R3_Large
         "r3.xlarge" -> pure R3_XLarge
+        "r4.16xlarge" -> pure R4_16XLarge
+        "r4.2xlarge" -> pure R4_2XLarge
+        "r4.4xlarge" -> pure R4_4XLarge
+        "r4.8xlarge" -> pure R4_8XLarge
+        "r4.large" -> pure R4_Large
+        "r4.xlarge" -> pure R4_XLarge
         "t1.micro" -> pure T1_Micro
+        "t2.2xlarge" -> pure T2_2XLarge
         "t2.large" -> pure T2_Large
         "t2.medium" -> pure T2_Medium
         "t2.micro" -> pure T2_Micro
         "t2.nano" -> pure T2_Nano
         "t2.small" -> pure T2_Small
+        "t2.xlarge" -> pure T2_XLarge
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.nano, t2.small, x1.16xlarge, x1.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1341,12 +1383,20 @@ instance ToText InstanceType where
         R3_8XLarge -> "r3.8xlarge"
         R3_Large -> "r3.large"
         R3_XLarge -> "r3.xlarge"
+        R4_16XLarge -> "r4.16xlarge"
+        R4_2XLarge -> "r4.2xlarge"
+        R4_4XLarge -> "r4.4xlarge"
+        R4_8XLarge -> "r4.8xlarge"
+        R4_Large -> "r4.large"
+        R4_XLarge -> "r4.xlarge"
         T1_Micro -> "t1.micro"
+        T2_2XLarge -> "t2.2xlarge"
         T2_Large -> "t2.large"
         T2_Medium -> "t2.medium"
         T2_Micro -> "t2.micro"
         T2_Nano -> "t2.nano"
         T2_Small -> "t2.small"
+        T2_XLarge -> "t2.xlarge"
         X1_16XLarge -> "x1.16xlarge"
         X1_32XLarge -> "x1.32xlarge"
 

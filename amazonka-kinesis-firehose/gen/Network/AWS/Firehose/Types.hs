@@ -38,6 +38,18 @@ module Network.AWS.Firehose.Types
     -- * NoEncryptionConfig
     , NoEncryptionConfig (..)
 
+    -- * ProcessorParameterName
+    , ProcessorParameterName (..)
+
+    -- * ProcessorType
+    , ProcessorType (..)
+
+    -- * RedshiftS3BackupMode
+    , RedshiftS3BackupMode (..)
+
+    -- * S3BackupMode
+    , S3BackupMode (..)
+
     -- * BufferingHints
     , BufferingHints
     , bufferingHints
@@ -74,6 +86,7 @@ module Network.AWS.Firehose.Types
     , DestinationDescription
     , destinationDescription
     , ddS3DestinationDescription
+    , ddExtendedS3DestinationDescription
     , ddElasticsearchDestinationDescription
     , ddRedshiftDestinationDescription
     , ddDestinationId
@@ -92,6 +105,7 @@ module Network.AWS.Firehose.Types
     , edcCloudWatchLoggingOptions
     , edcBufferingHints
     , edcRetryOptions
+    , edcProcessingConfiguration
     , edcRoleARN
     , edcDomainARN
     , edcIndexName
@@ -109,6 +123,7 @@ module Network.AWS.Firehose.Types
     , eddS3DestinationDescription
     , eddBufferingHints
     , eddRetryOptions
+    , eddProcessingConfiguration
     , eddRoleARN
     , eddIndexName
 
@@ -122,6 +137,7 @@ module Network.AWS.Firehose.Types
     , eduS3Update
     , eduBufferingHints
     , eduRetryOptions
+    , eduProcessingConfiguration
     , eduRoleARN
     , eduIndexName
 
@@ -136,10 +152,70 @@ module Network.AWS.Firehose.Types
     , ecNoEncryptionConfig
     , ecKMSEncryptionConfig
 
+    -- * ExtendedS3DestinationConfiguration
+    , ExtendedS3DestinationConfiguration
+    , extendedS3DestinationConfiguration
+    , esdcS3BackupMode
+    , esdcPrefix
+    , esdcCloudWatchLoggingOptions
+    , esdcS3BackupConfiguration
+    , esdcEncryptionConfiguration
+    , esdcCompressionFormat
+    , esdcBufferingHints
+    , esdcProcessingConfiguration
+    , esdcRoleARN
+    , esdcBucketARN
+
+    -- * ExtendedS3DestinationDescription
+    , ExtendedS3DestinationDescription
+    , extendedS3DestinationDescription
+    , esddS3BackupMode
+    , esddS3BackupDescription
+    , esddPrefix
+    , esddCloudWatchLoggingOptions
+    , esddProcessingConfiguration
+    , esddRoleARN
+    , esddBucketARN
+    , esddBufferingHints
+    , esddCompressionFormat
+    , esddEncryptionConfiguration
+
+    -- * ExtendedS3DestinationUpdate
+    , ExtendedS3DestinationUpdate
+    , extendedS3DestinationUpdate
+    , esduS3BackupMode
+    , esduPrefix
+    , esduCloudWatchLoggingOptions
+    , esduS3BackupUpdate
+    , esduEncryptionConfiguration
+    , esduCompressionFormat
+    , esduBufferingHints
+    , esduBucketARN
+    , esduProcessingConfiguration
+    , esduRoleARN
+
     -- * KMSEncryptionConfig
     , KMSEncryptionConfig
     , kmsEncryptionConfig
     , kecAWSKMSKeyARN
+
+    -- * ProcessingConfiguration
+    , ProcessingConfiguration
+    , processingConfiguration
+    , pcEnabled
+    , pcProcessors
+
+    -- * Processor
+    , Processor
+    , processor
+    , pParameters
+    , pType
+
+    -- * ProcessorParameter
+    , ProcessorParameter
+    , processorParameter
+    , ppParameterName
+    , ppParameterValue
 
     -- * PutRecordBatchResponseEntry
     , PutRecordBatchResponseEntry
@@ -156,8 +232,11 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationConfiguration
     , RedshiftDestinationConfiguration
     , redshiftDestinationConfiguration
+    , rdcS3BackupMode
     , rdcCloudWatchLoggingOptions
+    , rdcS3BackupConfiguration
     , rdcRetryOptions
+    , rdcProcessingConfiguration
     , rdcRoleARN
     , rdcClusterJDBCURL
     , rdcCopyCommand
@@ -168,8 +247,11 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationDescription
     , RedshiftDestinationDescription
     , redshiftDestinationDescription
+    , rddS3BackupMode
+    , rddS3BackupDescription
     , rddCloudWatchLoggingOptions
     , rddRetryOptions
+    , rddProcessingConfiguration
     , rddRoleARN
     , rddClusterJDBCURL
     , rddCopyCommand
@@ -179,12 +261,15 @@ module Network.AWS.Firehose.Types
     -- * RedshiftDestinationUpdate
     , RedshiftDestinationUpdate
     , redshiftDestinationUpdate
+    , rduS3BackupMode
     , rduCloudWatchLoggingOptions
     , rduUsername
     , rduS3Update
     , rduPassword
+    , rduS3BackupUpdate
     , rduCopyCommand
     , rduRetryOptions
+    , rduProcessingConfiguration
     , rduClusterJDBCURL
     , rduRoleARN
 

@@ -53,7 +53,7 @@ newtype DeleteCertificate = DeleteCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcCertificateARN' - the Amazon Resource Name (ARN) of the deleted certificate.
+-- * 'dcCertificateARN' - The Amazon Resource Name (ARN) of the deleted certificate.
 deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
@@ -62,7 +62,7 @@ deleteCertificate pCertificateARN_ =
     { _dcCertificateARN = pCertificateARN_
     }
 
--- | the Amazon Resource Name (ARN) of the deleted certificate.
+-- | The Amazon Resource Name (ARN) of the deleted certificate.
 dcCertificateARN :: Lens' DeleteCertificate Text
 dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a});
 
@@ -111,7 +111,7 @@ data DeleteCertificateResponse = DeleteCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccrsCertificate' - The SSL certificate.
+-- * 'dccrsCertificate' - The Secure Sockets Layer (SSL) certificate.
 --
 -- * 'dccrsResponseStatus' - -- | The response status code.
 deleteCertificateResponse
@@ -123,7 +123,7 @@ deleteCertificateResponse pResponseStatus_ =
     , _dccrsResponseStatus = pResponseStatus_
     }
 
--- | The SSL certificate.
+-- | The Secure Sockets Layer (SSL) certificate.
 dccrsCertificate :: Lens' DeleteCertificateResponse (Maybe Certificate)
 dccrsCertificate = lens _dccrsCertificate (\ s a -> s{_dccrsCertificate = a});
 

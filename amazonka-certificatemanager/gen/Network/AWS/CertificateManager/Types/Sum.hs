@@ -20,36 +20,36 @@ module Network.AWS.CertificateManager.Types.Sum where
 import           Network.AWS.Prelude
 
 data CertificateStatus
-    = Expired
-    | Failed
-    | Inactive
-    | Issued
-    | PendingValidation
-    | Revoked
-    | ValidationTimedOut
+    = CSExpired
+    | CSFailed
+    | CSInactive
+    | CSIssued
+    | CSPendingValidation
+    | CSRevoked
+    | CSValidationTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CertificateStatus where
     parser = takeLowerText >>= \case
-        "expired" -> pure Expired
-        "failed" -> pure Failed
-        "inactive" -> pure Inactive
-        "issued" -> pure Issued
-        "pending_validation" -> pure PendingValidation
-        "revoked" -> pure Revoked
-        "validation_timed_out" -> pure ValidationTimedOut
+        "expired" -> pure CSExpired
+        "failed" -> pure CSFailed
+        "inactive" -> pure CSInactive
+        "issued" -> pure CSIssued
+        "pending_validation" -> pure CSPendingValidation
+        "revoked" -> pure CSRevoked
+        "validation_timed_out" -> pure CSValidationTimedOut
         e -> fromTextError $ "Failure parsing CertificateStatus from value: '" <> e
            <> "'. Accepted values: expired, failed, inactive, issued, pending_validation, revoked, validation_timed_out"
 
 instance ToText CertificateStatus where
     toText = \case
-        Expired -> "EXPIRED"
-        Failed -> "FAILED"
-        Inactive -> "INACTIVE"
-        Issued -> "ISSUED"
-        PendingValidation -> "PENDING_VALIDATION"
-        Revoked -> "REVOKED"
-        ValidationTimedOut -> "VALIDATION_TIMED_OUT"
+        CSExpired -> "EXPIRED"
+        CSFailed -> "FAILED"
+        CSInactive -> "INACTIVE"
+        CSIssued -> "ISSUED"
+        CSPendingValidation -> "PENDING_VALIDATION"
+        CSRevoked -> "REVOKED"
+        CSValidationTimedOut -> "VALIDATION_TIMED_OUT"
 
 instance Hashable     CertificateStatus
 instance NFData       CertificateStatus
@@ -88,6 +88,35 @@ instance ToHeader     CertificateType
 
 instance FromJSON CertificateType where
     parseJSON = parseJSONText "CertificateType"
+
+data DomainStatus
+    = Failed
+    | PendingValidation
+    | Success
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DomainStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure Failed
+        "pending_validation" -> pure PendingValidation
+        "success" -> pure Success
+        e -> fromTextError $ "Failure parsing DomainStatus from value: '" <> e
+           <> "'. Accepted values: failed, pending_validation, success"
+
+instance ToText DomainStatus where
+    toText = \case
+        Failed -> "FAILED"
+        PendingValidation -> "PENDING_VALIDATION"
+        Success -> "SUCCESS"
+
+instance Hashable     DomainStatus
+instance NFData       DomainStatus
+instance ToByteString DomainStatus
+instance ToQuery      DomainStatus
+instance ToHeader     DomainStatus
+
+instance FromJSON DomainStatus where
+    parseJSON = parseJSONText "DomainStatus"
 
 data FailureReason
     = AdditionalVerificationRequired
@@ -152,6 +181,38 @@ instance ToHeader     KeyAlgorithm
 
 instance FromJSON KeyAlgorithm where
     parseJSON = parseJSONText "KeyAlgorithm"
+
+data RenewalStatus
+    = RSFailed
+    | RSPendingAutoRenewal
+    | RSPendingValidation
+    | RSSuccess
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RenewalStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure RSFailed
+        "pending_auto_renewal" -> pure RSPendingAutoRenewal
+        "pending_validation" -> pure RSPendingValidation
+        "success" -> pure RSSuccess
+        e -> fromTextError $ "Failure parsing RenewalStatus from value: '" <> e
+           <> "'. Accepted values: failed, pending_auto_renewal, pending_validation, success"
+
+instance ToText RenewalStatus where
+    toText = \case
+        RSFailed -> "FAILED"
+        RSPendingAutoRenewal -> "PENDING_AUTO_RENEWAL"
+        RSPendingValidation -> "PENDING_VALIDATION"
+        RSSuccess -> "SUCCESS"
+
+instance Hashable     RenewalStatus
+instance NFData       RenewalStatus
+instance ToByteString RenewalStatus
+instance ToQuery      RenewalStatus
+instance ToHeader     RenewalStatus
+
+instance FromJSON RenewalStatus where
+    parseJSON = parseJSONText "RenewalStatus"
 
 data RevocationReason
     = AACompromise

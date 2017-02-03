@@ -23,6 +23,8 @@
 --
 -- This operation supports pagination with the use of the @NextToken@ request and response parameters. If more results are available, the @NextToken@ response member contains a token that you pass in the next call to this operation to retrieve the next set of items.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -80,6 +83,13 @@ dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
 -- | An array of strings that contains the directory identifiers to retrieve information for. If this member is null, all directories are retrieved.
 dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
 dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1;
+
+instance AWSPager DescribeWorkspaceDirectories where
+        page rq rs
+          | stop (rs ^. dwdrsNextToken) = Nothing
+          | stop (rs ^. dwdrsDirectories) = Nothing
+          | otherwise =
+            Just $ rq & dwdNextToken .~ rs ^. dwdrsNextToken
 
 instance AWSRequest DescribeWorkspaceDirectories
          where

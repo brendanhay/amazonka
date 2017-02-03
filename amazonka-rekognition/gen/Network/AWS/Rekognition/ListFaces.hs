@@ -23,6 +23,8 @@
 --
 -- This operation requires permissions to perform the @rekognition:ListFaces@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Rekognition.ListFaces
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Rekognition.ListFaces
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Rekognition.Types
 import           Network.AWS.Rekognition.Types.Product
@@ -86,6 +89,13 @@ lfMaxResults = lens _lfMaxResults (\ s a -> s{_lfMaxResults = a}) . mapping _Nat
 -- | ID of the collection from which to list the faces.
 lfCollectionId :: Lens' ListFaces Text
 lfCollectionId = lens _lfCollectionId (\ s a -> s{_lfCollectionId = a});
+
+instance AWSPager ListFaces where
+        page rq rs
+          | stop (rs ^. lfrsNextToken) = Nothing
+          | stop (rs ^. lfrsFaces) = Nothing
+          | otherwise =
+            Just $ rq & lfNextToken .~ rs ^. lfrsNextToken
 
 instance AWSRequest ListFaces where
         type Rs ListFaces = ListFacesResponse

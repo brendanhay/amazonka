@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the fields contained in the specified ACM Certificate. For example, this action returns the certificate status, a flag that indicates whether the certificate is associated with any other AWS service, and the date at which the certificate request was created. You specify the ACM Certificate on input by its Amazon Resource Name (ARN).
+-- Returns detailed metadata about the specified ACM Certificate.
 --
 --
 module Network.AWS.CertificateManager.DescribeCertificate
@@ -53,7 +53,7 @@ newtype DescribeCertificate = DescribeCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCertificateARN' - String that contains an ACM Certificate ARN. The ARN must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'dCertificateARN' - The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 describeCertificate
     :: Text -- ^ 'dCertificateARN'
     -> DescribeCertificate
@@ -62,7 +62,7 @@ describeCertificate pCertificateARN_ =
     { _dCertificateARN = pCertificateARN_
     }
 
--- | String that contains an ACM Certificate ARN. The ARN must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 dCertificateARN :: Lens' DescribeCertificate Text
 dCertificateARN = lens _dCertificateARN (\ s a -> s{_dCertificateARN = a});
 
@@ -112,7 +112,7 @@ data DescribeCertificateResponse = DescribeCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcrsCertificate' - Contains a 'CertificateDetail' structure that lists the fields of an ACM Certificate.
+-- * 'dcrsCertificate' - Metadata about an ACM certificate.
 --
 -- * 'dcrsResponseStatus' - -- | The response status code.
 describeCertificateResponse
@@ -124,7 +124,7 @@ describeCertificateResponse pResponseStatus_ =
     , _dcrsResponseStatus = pResponseStatus_
     }
 
--- | Contains a 'CertificateDetail' structure that lists the fields of an ACM Certificate.
+-- | Metadata about an ACM certificate.
 dcrsCertificate :: Lens' DescribeCertificateResponse (Maybe CertificateDetail)
 dcrsCertificate = lens _dcrsCertificate (\ s a -> s{_dcrsCertificate = a});
 

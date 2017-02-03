@@ -74,7 +74,7 @@ data DescribeHostReservationOfferings = DescribeHostReservationOfferings'
 --
 -- * 'dhroOfferingId' - The ID of the reservation offering.
 --
--- * 'dhroFilter' - One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).
+-- * 'dhroFilter' - One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 --
 -- * 'dhroMaxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500; if @maxResults@ is given a larger value than 500, you will receive an error.
 describeHostReservationOfferings
@@ -105,7 +105,7 @@ dhroMinDuration = lens _dhroMinDuration (\ s a -> s{_dhroMinDuration = a});
 dhroOfferingId :: Lens' DescribeHostReservationOfferings (Maybe Text)
 dhroOfferingId = lens _dhroOfferingId (\ s a -> s{_dhroOfferingId = a});
 
--- | One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@No Upfront@ | @Partial Upfront@ | @All Upfront@ ).
+-- | One or more filters.     * @instance-family@ - The instance family of the offering (e.g., @m4@ ).     * @payment-option@ - The payment option (@NoUpfront@ | @PartialUpfront@ | @AllUpfront@ ).
 dhroFilter :: Lens' DescribeHostReservationOfferings [Filter]
 dhroFilter = lens _dhroFilter (\ s a -> s{_dhroFilter = a}) . _Default . _Coerce;
 

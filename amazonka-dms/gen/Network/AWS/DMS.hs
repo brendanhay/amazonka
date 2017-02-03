@@ -13,7 +13,7 @@
 --
 -- __AWS Database Migration Service__
 --
--- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, and MySQL. The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
+-- AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL Server, Amazon Redshift, MariaDB, Amazon Aurora, MySQL, and SAP Adaptive Server Enterprise (ASE). The service supports homogeneous migrations such as Oracle to Oracle, as well as heterogeneous migrations between different database platforms, such as Oracle to MySQL or SQL Server to PostgreSQL.
 --
 module Network.AWS.DMS
     (
@@ -158,6 +158,9 @@ module Network.AWS.DMS
     -- ** StopReplicationTask
     , module Network.AWS.DMS.StopReplicationTask
 
+    -- ** ModifyReplicationTask
+    , module Network.AWS.DMS.ModifyReplicationTask
+
     -- ** CreateReplicationInstance
     , module Network.AWS.DMS.CreateReplicationInstance
 
@@ -203,6 +206,7 @@ module Network.AWS.DMS
     , cCertificateARN
     , cCertificateCreationDate
     , cCertificateIdentifier
+    , cCertificateWallet
     , cKeyLength
     , cValidToDate
 
@@ -276,6 +280,7 @@ module Network.AWS.DMS
     , riAvailabilityZone
     , riVPCSecurityGroups
     , riMultiAZ
+    , riSecondaryAvailabilityZone
     , riReplicationInstanceARN
     , riAllocatedStorage
     , riReplicationInstancePublicIPAddress
@@ -305,6 +310,7 @@ module Network.AWS.DMS
     , replicationTask
     , rtReplicationTaskSettings
     , rtStatus
+    , rtStopReason
     , rtTargetEndpointARN
     , rtReplicationTaskIdentifier
     , rtReplicationTaskStartDate
@@ -394,6 +400,7 @@ import           Network.AWS.DMS.ListTagsForResource
 import           Network.AWS.DMS.ModifyEndpoint
 import           Network.AWS.DMS.ModifyReplicationInstance
 import           Network.AWS.DMS.ModifyReplicationSubnetGroup
+import           Network.AWS.DMS.ModifyReplicationTask
 import           Network.AWS.DMS.RefreshSchemas
 import           Network.AWS.DMS.RemoveTagsFromResource
 import           Network.AWS.DMS.StartReplicationTask

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the /GetExportStatus/ API. The system imposes a limit of two configuration exports in six hours.
+-- Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID which you can query using the /DescribeExportConfigurations/ API. The system imposes a limit of two configuration exports in six hours.
 --
 --
 module Network.AWS.Discovery.ExportConfigurations

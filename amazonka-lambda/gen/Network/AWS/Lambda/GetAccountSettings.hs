@@ -21,7 +21,7 @@
 -- Returns a customer's account settings.
 --
 --
--- You can use this operation to retrieve Lambda limit information such as code size and concurrency limits. For more information on limits, see <http://docs.aws.amazon.com/lambda/latest/dg/limits.html AWS Lambda Limits> . You can also retrieve resource usage statistics such as code storage usage and function count.
+-- You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see <http://docs.aws.amazon.com/lambda/latest/dg/limits.html AWS Lambda Limits> . You can also retrieve resource usage statistics, such as code storage usage and function count.
 --
 module Network.AWS.Lambda.GetAccountSettings
     (

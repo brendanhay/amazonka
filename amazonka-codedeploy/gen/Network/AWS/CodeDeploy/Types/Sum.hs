@@ -215,11 +215,70 @@ instance ToHeader     DeploymentCreator
 instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
+data DeploymentOption
+    = WithTrafficControl
+    | WithoutTrafficControl
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DeploymentOption where
+    parser = takeLowerText >>= \case
+        "with_traffic_control" -> pure WithTrafficControl
+        "without_traffic_control" -> pure WithoutTrafficControl
+        e -> fromTextError $ "Failure parsing DeploymentOption from value: '" <> e
+           <> "'. Accepted values: with_traffic_control, without_traffic_control"
+
+instance ToText DeploymentOption where
+    toText = \case
+        WithTrafficControl -> "WITH_TRAFFIC_CONTROL"
+        WithoutTrafficControl -> "WITHOUT_TRAFFIC_CONTROL"
+
+instance Hashable     DeploymentOption
+instance NFData       DeploymentOption
+instance ToByteString DeploymentOption
+instance ToQuery      DeploymentOption
+instance ToHeader     DeploymentOption
+
+instance ToJSON DeploymentOption where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentOption where
+    parseJSON = parseJSONText "DeploymentOption"
+
+data DeploymentReadyAction
+    = ContinueDeployment
+    | StopDeployment
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DeploymentReadyAction where
+    parser = takeLowerText >>= \case
+        "continue_deployment" -> pure ContinueDeployment
+        "stop_deployment" -> pure StopDeployment
+        e -> fromTextError $ "Failure parsing DeploymentReadyAction from value: '" <> e
+           <> "'. Accepted values: continue_deployment, stop_deployment"
+
+instance ToText DeploymentReadyAction where
+    toText = \case
+        ContinueDeployment -> "CONTINUE_DEPLOYMENT"
+        StopDeployment -> "STOP_DEPLOYMENT"
+
+instance Hashable     DeploymentReadyAction
+instance NFData       DeploymentReadyAction
+instance ToByteString DeploymentReadyAction
+instance ToQuery      DeploymentReadyAction
+instance ToHeader     DeploymentReadyAction
+
+instance ToJSON DeploymentReadyAction where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentReadyAction where
+    parseJSON = parseJSONText "DeploymentReadyAction"
+
 data DeploymentStatus
     = Created
     | Failed
     | InProgress
     | Queued
+    | Ready
     | Stopped
     | Succeeded
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -230,10 +289,11 @@ instance FromText DeploymentStatus where
         "failed" -> pure Failed
         "inprogress" -> pure InProgress
         "queued" -> pure Queued
+        "ready" -> pure Ready
         "stopped" -> pure Stopped
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing DeploymentStatus from value: '" <> e
-           <> "'. Accepted values: created, failed, inprogress, queued, stopped, succeeded"
+           <> "'. Accepted values: created, failed, inprogress, queued, ready, stopped, succeeded"
 
 instance ToText DeploymentStatus where
     toText = \case
@@ -241,6 +301,7 @@ instance ToText DeploymentStatus where
         Failed -> "Failed"
         InProgress -> "InProgress"
         Queued -> "Queued"
+        Ready -> "Ready"
         Stopped -> "Stopped"
         Succeeded -> "Succeeded"
 
@@ -255,6 +316,35 @@ instance ToJSON DeploymentStatus where
 
 instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
+
+data DeploymentType
+    = BlueGreen
+    | InPlace
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DeploymentType where
+    parser = takeLowerText >>= \case
+        "blue_green" -> pure BlueGreen
+        "in_place" -> pure InPlace
+        e -> fromTextError $ "Failure parsing DeploymentType from value: '" <> e
+           <> "'. Accepted values: blue_green, in_place"
+
+instance ToText DeploymentType where
+    toText = \case
+        BlueGreen -> "BLUE_GREEN"
+        InPlace -> "IN_PLACE"
+
+instance Hashable     DeploymentType
+instance NFData       DeploymentType
+instance ToByteString DeploymentType
+instance ToQuery      DeploymentType
+instance ToHeader     DeploymentType
+
+instance ToJSON DeploymentType where
+    toJSON = toJSONText
+
+instance FromJSON DeploymentType where
+    parseJSON = parseJSONText "DeploymentType"
 
 data EC2TagFilterType
     = KeyAndValue
@@ -288,10 +378,69 @@ instance ToJSON EC2TagFilterType where
 instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
+data GreenFleetProvisioningAction
+    = CopyAutoScalingGroup
+    | DiscoverExisting
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText GreenFleetProvisioningAction where
+    parser = takeLowerText >>= \case
+        "copy_auto_scaling_group" -> pure CopyAutoScalingGroup
+        "discover_existing" -> pure DiscoverExisting
+        e -> fromTextError $ "Failure parsing GreenFleetProvisioningAction from value: '" <> e
+           <> "'. Accepted values: copy_auto_scaling_group, discover_existing"
+
+instance ToText GreenFleetProvisioningAction where
+    toText = \case
+        CopyAutoScalingGroup -> "COPY_AUTO_SCALING_GROUP"
+        DiscoverExisting -> "DISCOVER_EXISTING"
+
+instance Hashable     GreenFleetProvisioningAction
+instance NFData       GreenFleetProvisioningAction
+instance ToByteString GreenFleetProvisioningAction
+instance ToQuery      GreenFleetProvisioningAction
+instance ToHeader     GreenFleetProvisioningAction
+
+instance ToJSON GreenFleetProvisioningAction where
+    toJSON = toJSONText
+
+instance FromJSON GreenFleetProvisioningAction where
+    parseJSON = parseJSONText "GreenFleetProvisioningAction"
+
+data InstanceAction
+    = KeepAlive
+    | Terminate
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceAction where
+    parser = takeLowerText >>= \case
+        "keep_alive" -> pure KeepAlive
+        "terminate" -> pure Terminate
+        e -> fromTextError $ "Failure parsing InstanceAction from value: '" <> e
+           <> "'. Accepted values: keep_alive, terminate"
+
+instance ToText InstanceAction where
+    toText = \case
+        KeepAlive -> "KEEP_ALIVE"
+        Terminate -> "TERMINATE"
+
+instance Hashable     InstanceAction
+instance NFData       InstanceAction
+instance ToByteString InstanceAction
+instance ToQuery      InstanceAction
+instance ToHeader     InstanceAction
+
+instance ToJSON InstanceAction where
+    toJSON = toJSONText
+
+instance FromJSON InstanceAction where
+    parseJSON = parseJSONText "InstanceAction"
+
 data InstanceStatus
     = ISFailed
     | ISInProgress
     | ISPending
+    | ISReady
     | ISSkipped
     | ISSucceeded
     | ISUnknown
@@ -302,17 +451,19 @@ instance FromText InstanceStatus where
         "failed" -> pure ISFailed
         "inprogress" -> pure ISInProgress
         "pending" -> pure ISPending
+        "ready" -> pure ISReady
         "skipped" -> pure ISSkipped
         "succeeded" -> pure ISSucceeded
         "unknown" -> pure ISUnknown
         e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
+           <> "'. Accepted values: failed, inprogress, pending, ready, skipped, succeeded, unknown"
 
 instance ToText InstanceStatus where
     toText = \case
         ISFailed -> "Failed"
         ISInProgress -> "InProgress"
         ISPending -> "Pending"
+        ISReady -> "Ready"
         ISSkipped -> "Skipped"
         ISSucceeded -> "Succeeded"
         ISUnknown -> "Unknown"
@@ -328,6 +479,35 @@ instance ToJSON InstanceStatus where
 
 instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
+
+data InstanceType
+    = Blue
+    | Green
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceType where
+    parser = takeLowerText >>= \case
+        "blue" -> pure Blue
+        "green" -> pure Green
+        e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
+           <> "'. Accepted values: blue, green"
+
+instance ToText InstanceType where
+    toText = \case
+        Blue -> "Blue"
+        Green -> "Green"
+
+instance Hashable     InstanceType
+instance NFData       InstanceType
+instance ToByteString InstanceType
+instance ToQuery      InstanceType
+instance ToHeader     InstanceType
+
+instance ToJSON InstanceType where
+    toJSON = toJSONText
+
+instance FromJSON InstanceType where
+    parseJSON = parseJSONText "InstanceType"
 
 data LifecycleErrorCode
     = ScriptFailed
@@ -604,11 +784,13 @@ instance FromJSON TagFilterType where
 
 data TriggerEventType
     = DeploymentFailure
+    | DeploymentReady
     | DeploymentRollback
     | DeploymentStart
     | DeploymentStop
     | DeploymentSuccess
     | InstanceFailure
+    | InstanceReady
     | InstanceStart
     | InstanceSuccess
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -616,24 +798,28 @@ data TriggerEventType
 instance FromText TriggerEventType where
     parser = takeLowerText >>= \case
         "deploymentfailure" -> pure DeploymentFailure
+        "deploymentready" -> pure DeploymentReady
         "deploymentrollback" -> pure DeploymentRollback
         "deploymentstart" -> pure DeploymentStart
         "deploymentstop" -> pure DeploymentStop
         "deploymentsuccess" -> pure DeploymentSuccess
         "instancefailure" -> pure InstanceFailure
+        "instanceready" -> pure InstanceReady
         "instancestart" -> pure InstanceStart
         "instancesuccess" -> pure InstanceSuccess
         e -> fromTextError $ "Failure parsing TriggerEventType from value: '" <> e
-           <> "'. Accepted values: deploymentfailure, deploymentrollback, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instancestart, instancesuccess"
+           <> "'. Accepted values: deploymentfailure, deploymentready, deploymentrollback, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instanceready, instancestart, instancesuccess"
 
 instance ToText TriggerEventType where
     toText = \case
         DeploymentFailure -> "DeploymentFailure"
+        DeploymentReady -> "DeploymentReady"
         DeploymentRollback -> "DeploymentRollback"
         DeploymentStart -> "DeploymentStart"
         DeploymentStop -> "DeploymentStop"
         DeploymentSuccess -> "DeploymentSuccess"
         InstanceFailure -> "InstanceFailure"
+        InstanceReady -> "InstanceReady"
         InstanceStart -> "InstanceStart"
         InstanceSuccess -> "InstanceSuccess"
 

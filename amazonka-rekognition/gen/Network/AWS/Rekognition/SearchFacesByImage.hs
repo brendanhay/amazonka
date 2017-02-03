@@ -21,7 +21,7 @@
 -- For a given input image, first detects the largest face in the image, and then searches the specified collection for matching faces. The operation compares the features of the input face with faces in the specified collection.
 --
 --
--- The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a @similarity@ indicating how similar the face is to the input face. In the response, the API also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Rekognition used for the input image.
+-- The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a @similarity@ indicating how similar the face is to the input face. In the response, the operation also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition used for the input image.
 --
 -- For an example, see 'example3' .
 --
@@ -159,7 +159,7 @@ data SearchFacesByImageResponse = SearchFacesByImageResponse'
 --
 -- * 'sfbirsFaceMatches' - An array of faces that match the input face, along with the confidence in the match.
 --
--- * 'sfbirsSearchedFaceBoundingBox' - The bounding box around the face in the input image that Rekognition used for the search.
+-- * 'sfbirsSearchedFaceBoundingBox' - The bounding box around the face in the input image that Amazon Rekognition used for the search.
 --
 -- * 'sfbirsSearchedFaceConfidence' - The level of confidence that the @searchedFaceBoundingBox@ , contains a face.
 --
@@ -179,7 +179,7 @@ searchFacesByImageResponse pResponseStatus_ =
 sfbirsFaceMatches :: Lens' SearchFacesByImageResponse [FaceMatch]
 sfbirsFaceMatches = lens _sfbirsFaceMatches (\ s a -> s{_sfbirsFaceMatches = a}) . _Default . _Coerce;
 
--- | The bounding box around the face in the input image that Rekognition used for the search.
+-- | The bounding box around the face in the input image that Amazon Rekognition used for the search.
 sfbirsSearchedFaceBoundingBox :: Lens' SearchFacesByImageResponse (Maybe BoundingBox)
 sfbirsSearchedFaceBoundingBox = lens _sfbirsSearchedFaceBoundingBox (\ s a -> s{_sfbirsSearchedFaceBoundingBox = a});
 

@@ -52,7 +52,7 @@ newtype DeleteLoginProfile = DeleteLoginProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlpUserName' - The name of the user whose password you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dlpUserName' - The name of the user whose password you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteLoginProfile
     :: Text -- ^ 'dlpUserName'
     -> DeleteLoginProfile
@@ -61,7 +61,7 @@ deleteLoginProfile pUserName_ =
     { _dlpUserName = pUserName_
     }
 
--- | The name of the user whose password you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose password you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\ s a -> s{_dlpUserName = a});
 

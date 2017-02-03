@@ -17,14 +17,15 @@ packages:
   - test
   - examples
   - amazonka
-
-  # ./script/stack-packages >> stack-7.8.4.yaml
+# GENERATED
   - amazonka-apigateway
   - amazonka-application-autoscaling
   - amazonka-appstream
   - amazonka-autoscaling
+  - amazonka-batch
   - amazonka-budgets
   - amazonka-certificatemanager
+  - amazonka-clouddirectory
   - amazonka-cloudformation
   - amazonka-cloudfront
   - amazonka-cloudhsm
@@ -42,6 +43,7 @@ packages:
   - amazonka-cognito-idp
   - amazonka-cognito-sync
   - amazonka-config
+  - amazonka-cur
   - amazonka-datapipeline
   - amazonka-devicefarm
   - amazonka-directconnect
@@ -104,5 +106,7 @@ packages:
   - amazonka-support
   - amazonka-swf
   - amazonka-waf
+  - amazonka-waf-regional
   - amazonka-workspaces
   - amazonka-xray
+# END GENERATED

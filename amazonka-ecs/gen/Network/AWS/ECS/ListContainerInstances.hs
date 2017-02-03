@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of container instances in a specified cluster.
+-- Returns a list of container instances in a specified cluster. You can filter the results of a @ListContainerInstances@ operation with cluster query language statements inside the @filter@ parameter. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
 --
 --
 --
@@ -29,8 +29,10 @@ module Network.AWS.ECS.ListContainerInstances
       listContainerInstances
     , ListContainerInstances
     -- * Request Lenses
+    , lciStatus
     , lciCluster
     , lciNextToken
+    , lciFilter
     , lciMaxResults
 
     -- * Destructuring the Response
@@ -52,8 +54,10 @@ import           Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
 data ListContainerInstances = ListContainerInstances'
-    { _lciCluster    :: !(Maybe Text)
+    { _lciStatus     :: !(Maybe ContainerInstanceStatus)
+    , _lciCluster    :: !(Maybe Text)
     , _lciNextToken  :: !(Maybe Text)
+    , _lciFilter     :: !(Maybe Text)
     , _lciMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,19 +65,29 @@ data ListContainerInstances = ListContainerInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'lciStatus' - The container instance status with which to filter the @ListContainerInstances@ results. Specifying a container instance status of @DRAINING@ limits the results to container instances that have been set to drain with the 'UpdateContainerInstancesState' operation.
+--
 -- * 'lciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'lciNextToken' - The @nextToken@ value returned from a previous paginated @ListContainerInstances@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+--
+-- * 'lciFilter' - You can filter the results of a @ListContainerInstances@ operation with cluster query language statements. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
 --
 -- * 'lciMaxResults' - The maximum number of container instance results returned by @ListContainerInstances@ in paginated output. When this parameter is used, @ListContainerInstances@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListContainerInstances@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListContainerInstances@ returns up to 100 results and a @nextToken@ value if applicable.
 listContainerInstances
     :: ListContainerInstances
 listContainerInstances =
     ListContainerInstances'
-    { _lciCluster = Nothing
+    { _lciStatus = Nothing
+    , _lciCluster = Nothing
     , _lciNextToken = Nothing
+    , _lciFilter = Nothing
     , _lciMaxResults = Nothing
     }
+
+-- | The container instance status with which to filter the @ListContainerInstances@ results. Specifying a container instance status of @DRAINING@ limits the results to container instances that have been set to drain with the 'UpdateContainerInstancesState' operation.
+lciStatus :: Lens' ListContainerInstances (Maybe ContainerInstanceStatus)
+lciStatus = lens _lciStatus (\ s a -> s{_lciStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.
 lciCluster :: Lens' ListContainerInstances (Maybe Text)
@@ -82,6 +96,10 @@ lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
 -- | The @nextToken@ value returned from a previous paginated @ListContainerInstances@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 lciNextToken :: Lens' ListContainerInstances (Maybe Text)
 lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
+
+-- | You can filter the results of a @ListContainerInstances@ operation with cluster query language statements. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language> in the /Amazon EC2 Container Service Developer Guide/ .
+lciFilter :: Lens' ListContainerInstances (Maybe Text)
+lciFilter = lens _lciFilter (\ s a -> s{_lciFilter = a});
 
 -- | The maximum number of container instance results returned by @ListContainerInstances@ in paginated output. When this parameter is used, @ListContainerInstances@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListContainerInstances@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListContainerInstances@ returns up to 100 results and a @nextToken@ value if applicable.
 lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
@@ -124,8 +142,10 @@ instance ToJSON ListContainerInstances where
         toJSON ListContainerInstances'{..}
           = object
               (catMaybes
-                 [("cluster" .=) <$> _lciCluster,
+                 [("status" .=) <$> _lciStatus,
+                  ("cluster" .=) <$> _lciCluster,
                   ("nextToken" .=) <$> _lciNextToken,
+                  ("filter" .=) <$> _lciFilter,
                   ("maxResults" .=) <$> _lciMaxResults])
 
 instance ToPath ListContainerInstances where

@@ -44,8 +44,10 @@ library
         , Network.AWS.CodeCommit.CreateBranch
         , Network.AWS.CodeCommit.CreateRepository
         , Network.AWS.CodeCommit.DeleteRepository
+        , Network.AWS.CodeCommit.GetBlob
         , Network.AWS.CodeCommit.GetBranch
         , Network.AWS.CodeCommit.GetCommit
+        , Network.AWS.CodeCommit.GetDifferences
         , Network.AWS.CodeCommit.GetRepository
         , Network.AWS.CodeCommit.GetRepositoryTriggers
         , Network.AWS.CodeCommit.ListBranches

@@ -68,7 +68,7 @@ data DescribeDBClusters = DescribeDBClusters'
 --
 -- * 'ddcDBClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
 --
--- * 'ddcFilters' - This parameter is not currently supported.
+-- * 'ddcFilters' - A filter that specifies one or more DB clusters to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
 --
 -- * 'ddcMarker' - An optional pagination token provided by a previous 'DescribeDBClusters' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -87,7 +87,7 @@ describeDBClusters =
 ddcDBClusterIdentifier :: Lens' DescribeDBClusters (Maybe Text)
 ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\ s a -> s{_ddcDBClusterIdentifier = a});
 
--- | This parameter is not currently supported.
+-- | A filter that specifies one or more DB clusters to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
 ddcFilters :: Lens' DescribeDBClusters [Filter]
 ddcFilters = lens _ddcFilters (\ s a -> s{_ddcFilters = a}) . _Default . _Coerce;
 

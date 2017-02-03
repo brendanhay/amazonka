@@ -18,14 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the visibility timeout of multiple messages. This is a batch version of 'ChangeMessageVisibility' . The result of the action on each message is reported individually in the response. You can send up to 10 'ChangeMessageVisibility' requests with each @ChangeMessageVisibilityBatch@ action.
+-- Changes the visibility timeout of multiple messages. This is a batch version of @'ChangeMessageVisibility' @ . The result of the action on each message is reported individually in the response. You can send up to 10 @'ChangeMessageVisibility' @ requests with each @ChangeMessageVisibilityBatch@ action.
 --
 --
--- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
---
--- @&amp;Attribute.1=this@
---
--- @&amp;Attribute.2=that@
+-- /Important:/ Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of @200@ .
 --
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
@@ -66,7 +62,7 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cmvbQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- * 'cmvbQueueURL' - The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
 --
 -- * 'cmvbEntries' - A list of receipt handles of the messages for which the visibility timeout must be changed.
 changeMessageVisibilityBatch
@@ -78,7 +74,7 @@ changeMessageVisibilityBatch pQueueURL_ =
     , _cmvbEntries = mempty
     }
 
--- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue whose messages' visibility is changed. Queue URLs are case-sensitive.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
 
@@ -123,7 +119,7 @@ instance ToQuery ChangeMessageVisibilityBatch where
                  "ChangeMessageVisibilityBatchRequestEntry"
                  _cmvbEntries]
 
--- | For each message in the batch, the response contains a 'ChangeMessageVisibilityBatchResultEntry' tag if the message succeeds or a 'BatchResultErrorEntry' tag if the message fails.
+-- | For each message in the batch, the response contains a @'ChangeMessageVisibilityBatchResultEntry' @ tag if the message succeeds or a @'BatchResultErrorEntry' @ tag if the message fails.
 --
 --
 --
@@ -140,9 +136,9 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 --
 -- * 'cmvbrsResponseStatus' - -- | The response status code.
 --
--- * 'cmvbrsSuccessful' - A list of 'ChangeMessageVisibilityBatchResultEntry' items.
+-- * 'cmvbrsSuccessful' - A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 --
--- * 'cmvbrsFailed' - A list of 'BatchResultErrorEntry' items.
+-- * 'cmvbrsFailed' - A list of @'BatchResultErrorEntry' @ items.
 changeMessageVisibilityBatchResponse
     :: Int -- ^ 'cmvbrsResponseStatus'
     -> ChangeMessageVisibilityBatchResponse
@@ -157,11 +153,11 @@ changeMessageVisibilityBatchResponse pResponseStatus_ =
 cmvbrsResponseStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
 cmvbrsResponseStatus = lens _cmvbrsResponseStatus (\ s a -> s{_cmvbrsResponseStatus = a});
 
--- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.
+-- | A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrsSuccessful = lens _cmvbrsSuccessful (\ s a -> s{_cmvbrsSuccessful = a}) . _Coerce;
 
--- | A list of 'BatchResultErrorEntry' items.
+-- | A list of @'BatchResultErrorEntry' @ items.
 cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a}) . _Coerce;
 

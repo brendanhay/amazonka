@@ -47,11 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteLoadBalancer.
---
---
---
--- /See:/ 'deleteLoadBalancer' smart constructor.
+-- | /See:/ 'deleteLoadBalancer' smart constructor.
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
     { _dlbLoadBalancerARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -99,11 +95,7 @@ instance ToQuery DeleteLoadBalancer where
                "Version" =: ("2015-12-01" :: ByteString),
                "LoadBalancerArn" =: _dlbLoadBalancerARN]
 
--- | Contains the output of DeleteLoadBalancer.
---
---
---
--- /See:/ 'deleteLoadBalancerResponse' smart constructor.
+-- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
     { _drsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

@@ -248,7 +248,7 @@ rekognition =
 _AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 _AccessDeniedException = _MatchServiceError rekognition "AccessDeniedException"
 
--- | Input parameter violated a constraint. Validate your parameter before calling the API again.
+-- | Input parameter violated a constraint. Validate your parameter before calling the API operation again.
 --
 --
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -262,7 +262,7 @@ _InvalidImageFormatException :: AsError a => Getting (First ServiceError) a Serv
 _InvalidImageFormatException =
     _MatchServiceError rekognition "InvalidImageFormatException"
 
--- | The collection with specific ID already exist.
+-- | A collection with the specified ID already exists.
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -37,7 +37,7 @@
 --
 -- For more information about how to use web identity federation and the @AssumeRoleWithWebIdentity@ API, see the following resources:
 --
---     * <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual Using Web Identity Federation APIs for Mobile Apps> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider> .
+--     * <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_manual.html Using Web Identity Federation APIs for Mobile Apps> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider> .
 --
 --     * <https://web-identity-federation-playground.s3.amazonaws.com/index.html Web Identity Federation Playground> . This interactive website lets you walk through the process of authenticating via Login with Amazon, Facebook, or Google, getting temporary security credentials, and then using those credentials to make a request to AWS.
 --
@@ -102,7 +102,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
 --
 -- * 'arwwiRoleARN' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
 --
--- * 'arwwiRoleSessionName' - An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element. The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
+-- * 'arwwiRoleSessionName' - An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element. The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
 --
 -- * 'arwwiWebIdentityToken' - The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider. Your application must get this token by authenticating the user who is using your application with a web identity provider before the application makes an @AssumeRoleWithWebIdentity@ call.
 assumeRoleWithWebIdentity
@@ -136,7 +136,7 @@ arwwiPolicy = lens _arwwiPolicy (\ s a -> s{_arwwiPolicy = a});
 arwwiRoleARN :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
 
--- | An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element. The format for this parameter, as described by its regex pattern, is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
+-- | An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your application. That way, the temporary security credentials that your application will use are associated with that user. This session name is included as part of the ARN and assumed role ID in the @AssumedRoleUser@ response element. The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
 arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionName = a});
 

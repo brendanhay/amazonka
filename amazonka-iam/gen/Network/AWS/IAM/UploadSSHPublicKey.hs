@@ -57,9 +57,9 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usshpkUserName' - The name of the IAM user to associate the SSH public key with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'usshpkUserName' - The name of the IAM user to associate the SSH public key with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'usshpkSSHPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'usshpkSSHPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 uploadSSHPublicKey
     :: Text -- ^ 'usshpkUserName'
     -> Text -- ^ 'usshpkSSHPublicKeyBody'
@@ -70,11 +70,11 @@ uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
     , _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
     }
 
--- | The name of the IAM user to associate the SSH public key with. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user to associate the SSH public key with. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 usshpkUserName :: Lens' UploadSSHPublicKey Text
 usshpkUserName = lens _usshpkUserName (\ s a -> s{_usshpkUserName = a});
 
--- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
 usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPublicKeyBody = a});
 

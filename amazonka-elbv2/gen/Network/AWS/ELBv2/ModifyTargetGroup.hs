@@ -54,11 +54,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ModifyTargetGroup.
---
---
---
--- /See:/ 'modifyTargetGroup' smart constructor.
+-- | /See:/ 'modifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
     { _mtgMatcher                    :: !(Maybe Matcher)
     , _mtgHealthCheckPath            :: !(Maybe Text)
@@ -183,11 +179,7 @@ instance ToQuery ModifyTargetGroup where
                "HealthCheckPort" =: _mtgHealthCheckPort,
                "TargetGroupArn" =: _mtgTargetGroupARN]
 
--- | Contains the output of ModifyTargetGroup.
---
---
---
--- /See:/ 'modifyTargetGroupResponse' smart constructor.
+-- | /See:/ 'modifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
     { _mtgrsTargetGroups   :: !(Maybe [TargetGroup])
     , _mtgrsResponseStatus :: !Int

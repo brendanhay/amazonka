@@ -165,7 +165,7 @@ data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
 --
 -- * 'ssrsRequestCharacters' - Number of characters synthesized.
 --
--- * 'ssrsContentType' - Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm.
+-- * 'ssrsContentType' - Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
 --
 -- * 'ssrsResponseStatus' - -- | The response status code.
 --
@@ -186,7 +186,7 @@ synthesizeSpeechResponse pResponseStatus_ pAudioStream_ =
 ssrsRequestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
 ssrsRequestCharacters = lens _ssrsRequestCharacters (\ s a -> s{_ssrsRequestCharacters = a});
 
--- | Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm.
+-- | Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
 ssrsContentType :: Lens' SynthesizeSpeechResponse (Maybe Text)
 ssrsContentType = lens _ssrsContentType (\ s a -> s{_ssrsContentType = a});
 

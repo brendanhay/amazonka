@@ -21,6 +21,8 @@
 -- Returns the event types that meet the specified filter criteria. If no filter criteria are specified, all event types are returned, in no particular order.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEventTypes
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.AWSHealth.DescribeEventTypes
 import           Network.AWS.AWSHealth.Types
 import           Network.AWS.AWSHealth.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -60,13 +63,13 @@ data DescribeEventTypes = DescribeEventTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detLocale' - The locale (language) to return information in. The default is English.
+-- * 'detLocale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 --
 -- * 'detNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
 -- * 'detFilter' - Values to narrow the results returned.
 --
--- * 'detMaxResults' - The maximum number of items to return in one batch.
+-- * 'detMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 describeEventTypes
     :: DescribeEventTypes
 describeEventTypes =
@@ -77,7 +80,7 @@ describeEventTypes =
     , _detMaxResults = Nothing
     }
 
--- | The locale (language) to return information in. The default is English.
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
 detLocale :: Lens' DescribeEventTypes (Maybe Text)
 detLocale = lens _detLocale (\ s a -> s{_detLocale = a});
 
@@ -89,9 +92,16 @@ detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a});
 detFilter :: Lens' DescribeEventTypes (Maybe EventTypeFilter)
 detFilter = lens _detFilter (\ s a -> s{_detFilter = a});
 
--- | The maximum number of items to return in one batch.
+-- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
 detMaxResults :: Lens' DescribeEventTypes (Maybe Natural)
 detMaxResults = lens _detMaxResults (\ s a -> s{_detMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeEventTypes where
+        page rq rs
+          | stop (rs ^. detrsNextToken) = Nothing
+          | stop (rs ^. detrsEventTypes) = Nothing
+          | otherwise =
+            Just $ rq & detNextToken .~ rs ^. detrsNextToken
 
 instance AWSRequest DescribeEventTypes where
         type Rs DescribeEventTypes =
@@ -145,7 +155,7 @@ data DescribeEventTypesResponse = DescribeEventTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detrsEventTypes' - List of event types to be matched with.
+-- * 'detrsEventTypes' - A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
 --
 -- * 'detrsNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
@@ -160,7 +170,7 @@ describeEventTypesResponse pResponseStatus_ =
     , _detrsResponseStatus = pResponseStatus_
     }
 
--- | List of event types to be matched with.
+-- | A list of event types that match the filter criteria. Event types have a category (@issue@ , @accountNotification@ , or @scheduledChange@ ), a service (for example, @EC2@ , @RDS@ , @DATAPIPELINE@ , @BILLING@ ), and a code (in the format @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
 detrsEventTypes :: Lens' DescribeEventTypesResponse [EventType]
 detrsEventTypes = lens _detrsEventTypes (\ s a -> s{_detrsEventTypes = a}) . _Default . _Coerce;
 

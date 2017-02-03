@@ -47,6 +47,8 @@ import           Network.AWS.Response
 
 -- | Input to the UnlinkIdentity action.
 --
+--
+--
 -- /See:/ 'unlinkIdentity' smart constructor.
 data UnlinkIdentity = UnlinkIdentity'
     { _uiIdentityId     :: !Text

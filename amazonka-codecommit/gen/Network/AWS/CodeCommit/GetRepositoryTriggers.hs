@@ -51,7 +51,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getRepositoryTriggers' smart constructor.
 newtype GetRepositoryTriggers = GetRepositoryTriggers'
-    { _grtRepositoryName :: Maybe Text
+    { _grtRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetRepositoryTriggers' with the minimum fields required to make a request.
@@ -60,14 +60,15 @@ newtype GetRepositoryTriggers = GetRepositoryTriggers'
 --
 -- * 'grtRepositoryName' - The name of the repository for which the trigger is configured.
 getRepositoryTriggers
-    :: GetRepositoryTriggers
-getRepositoryTriggers =
+    :: Text -- ^ 'grtRepositoryName'
+    -> GetRepositoryTriggers
+getRepositoryTriggers pRepositoryName_ =
     GetRepositoryTriggers'
-    { _grtRepositoryName = Nothing
+    { _grtRepositoryName = pRepositoryName_
     }
 
 -- | The name of the repository for which the trigger is configured.
-grtRepositoryName :: Lens' GetRepositoryTriggers (Maybe Text)
+grtRepositoryName :: Lens' GetRepositoryTriggers Text
 grtRepositoryName = lens _grtRepositoryName (\ s a -> s{_grtRepositoryName = a});
 
 instance AWSRequest GetRepositoryTriggers where
@@ -100,7 +101,7 @@ instance ToJSON GetRepositoryTriggers where
         toJSON GetRepositoryTriggers'{..}
           = object
               (catMaybes
-                 [("repositoryName" .=) <$> _grtRepositoryName])
+                 [Just ("repositoryName" .= _grtRepositoryName)])
 
 instance ToPath GetRepositoryTriggers where
         toPath = const "/"

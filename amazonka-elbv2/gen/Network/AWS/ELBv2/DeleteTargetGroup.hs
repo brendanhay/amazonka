@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteTargetGroup.
---
---
---
--- /See:/ 'deleteTargetGroup' smart constructor.
+-- | /See:/ 'deleteTargetGroup' smart constructor.
 newtype DeleteTargetGroup = DeleteTargetGroup'
     { _dtgTargetGroupARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -96,11 +92,7 @@ instance ToQuery DeleteTargetGroup where
                "Version" =: ("2015-12-01" :: ByteString),
                "TargetGroupArn" =: _dtgTargetGroupARN]
 
--- | Contains the output of DeleteTargetGroup.
---
---
---
--- /See:/ 'deleteTargetGroupResponse' smart constructor.
+-- | /See:/ 'deleteTargetGroupResponse' smart constructor.
 newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
     { _dtgrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

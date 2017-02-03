@@ -57,6 +57,32 @@ instance ToHeader     AgentUpdateStatus
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
 
+data ContainerInstanceStatus
+    = Active
+    | Draining
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ContainerInstanceStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "draining" -> pure Draining
+        e -> fromTextError $ "Failure parsing ContainerInstanceStatus from value: '" <> e
+           <> "'. Accepted values: active, draining"
+
+instance ToText ContainerInstanceStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Draining -> "DRAINING"
+
+instance Hashable     ContainerInstanceStatus
+instance NFData       ContainerInstanceStatus
+instance ToByteString ContainerInstanceStatus
+instance ToQuery      ContainerInstanceStatus
+instance ToHeader     ContainerInstanceStatus
+
+instance ToJSON ContainerInstanceStatus where
+    toJSON = toJSONText
+
 data DesiredStatus
     = Pending
     | Running
@@ -162,6 +188,67 @@ instance ToJSON NetworkMode where
 instance FromJSON NetworkMode where
     parseJSON = parseJSONText "NetworkMode"
 
+data PlacementConstraintType
+    = PCTDistinctInstance
+    | PCTMemberOf
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PlacementConstraintType where
+    parser = takeLowerText >>= \case
+        "distinctinstance" -> pure PCTDistinctInstance
+        "memberof" -> pure PCTMemberOf
+        e -> fromTextError $ "Failure parsing PlacementConstraintType from value: '" <> e
+           <> "'. Accepted values: distinctinstance, memberof"
+
+instance ToText PlacementConstraintType where
+    toText = \case
+        PCTDistinctInstance -> "distinctInstance"
+        PCTMemberOf -> "memberOf"
+
+instance Hashable     PlacementConstraintType
+instance NFData       PlacementConstraintType
+instance ToByteString PlacementConstraintType
+instance ToQuery      PlacementConstraintType
+instance ToHeader     PlacementConstraintType
+
+instance ToJSON PlacementConstraintType where
+    toJSON = toJSONText
+
+instance FromJSON PlacementConstraintType where
+    parseJSON = parseJSONText "PlacementConstraintType"
+
+data PlacementStrategyType
+    = Binpack
+    | Random
+    | Spread
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PlacementStrategyType where
+    parser = takeLowerText >>= \case
+        "binpack" -> pure Binpack
+        "random" -> pure Random
+        "spread" -> pure Spread
+        e -> fromTextError $ "Failure parsing PlacementStrategyType from value: '" <> e
+           <> "'. Accepted values: binpack, random, spread"
+
+instance ToText PlacementStrategyType where
+    toText = \case
+        Binpack -> "binpack"
+        Random -> "random"
+        Spread -> "spread"
+
+instance Hashable     PlacementStrategyType
+instance NFData       PlacementStrategyType
+instance ToByteString PlacementStrategyType
+instance ToQuery      PlacementStrategyType
+instance ToHeader     PlacementStrategyType
+
+instance ToJSON PlacementStrategyType where
+    toJSON = toJSONText
+
+instance FromJSON PlacementStrategyType where
+    parseJSON = parseJSONText "PlacementStrategyType"
+
 data SortOrder
     = Asc
     | Desc
@@ -188,25 +275,51 @@ instance ToHeader     SortOrder
 instance ToJSON SortOrder where
     toJSON = toJSONText
 
+data TargetType =
+    ContainerInstance
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TargetType where
+    parser = takeLowerText >>= \case
+        "container-instance" -> pure ContainerInstance
+        e -> fromTextError $ "Failure parsing TargetType from value: '" <> e
+           <> "'. Accepted values: container-instance"
+
+instance ToText TargetType where
+    toText = \case
+        ContainerInstance -> "container-instance"
+
+instance Hashable     TargetType
+instance NFData       TargetType
+instance ToByteString TargetType
+instance ToQuery      TargetType
+instance ToHeader     TargetType
+
+instance ToJSON TargetType where
+    toJSON = toJSONText
+
+instance FromJSON TargetType where
+    parseJSON = parseJSONText "TargetType"
+
 data TaskDefinitionFamilyStatus
-    = Active
-    | All
-    | Inactive
+    = TDFSActive
+    | TDFSAll
+    | TDFSInactive
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionFamilyStatus where
     parser = takeLowerText >>= \case
-        "active" -> pure Active
-        "all" -> pure All
-        "inactive" -> pure Inactive
+        "active" -> pure TDFSActive
+        "all" -> pure TDFSAll
+        "inactive" -> pure TDFSInactive
         e -> fromTextError $ "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
            <> "'. Accepted values: active, all, inactive"
 
 instance ToText TaskDefinitionFamilyStatus where
     toText = \case
-        Active -> "ACTIVE"
-        All -> "ALL"
-        Inactive -> "INACTIVE"
+        TDFSActive -> "ACTIVE"
+        TDFSAll -> "ALL"
+        TDFSInactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionFamilyStatus
 instance NFData       TaskDefinitionFamilyStatus
@@ -216,6 +329,32 @@ instance ToHeader     TaskDefinitionFamilyStatus
 
 instance ToJSON TaskDefinitionFamilyStatus where
     toJSON = toJSONText
+
+data TaskDefinitionPlacementConstraintType =
+    MemberOf
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TaskDefinitionPlacementConstraintType where
+    parser = takeLowerText >>= \case
+        "memberof" -> pure MemberOf
+        e -> fromTextError $ "Failure parsing TaskDefinitionPlacementConstraintType from value: '" <> e
+           <> "'. Accepted values: memberof"
+
+instance ToText TaskDefinitionPlacementConstraintType where
+    toText = \case
+        MemberOf -> "memberOf"
+
+instance Hashable     TaskDefinitionPlacementConstraintType
+instance NFData       TaskDefinitionPlacementConstraintType
+instance ToByteString TaskDefinitionPlacementConstraintType
+instance ToQuery      TaskDefinitionPlacementConstraintType
+instance ToHeader     TaskDefinitionPlacementConstraintType
+
+instance ToJSON TaskDefinitionPlacementConstraintType where
+    toJSON = toJSONText
+
+instance FromJSON TaskDefinitionPlacementConstraintType where
+    parseJSON = parseJSONText "TaskDefinitionPlacementConstraintType"
 
 data TaskDefinitionStatus
     = TDSActive

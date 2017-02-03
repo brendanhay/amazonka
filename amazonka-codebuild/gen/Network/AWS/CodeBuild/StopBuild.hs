@@ -53,7 +53,7 @@ newtype StopBuild = StopBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbId' - The ID of the build to attempt to stop running.
+-- * 'sbId' - The ID of the build.
 stopBuild
     :: Text -- ^ 'sbId'
     -> StopBuild
@@ -62,7 +62,7 @@ stopBuild pId_ =
     { _sbId = pId_
     }
 
--- | The ID of the build to attempt to stop running.
+-- | The ID of the build.
 sbId :: Lens' StopBuild Text
 sbId = lens _sbId (\ s a -> s{_sbId = a});
 
@@ -108,7 +108,7 @@ data StopBuildResponse = StopBuildResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbrsBuild' - Information about the build that was attempted to be stopped.
+-- * 'sbrsBuild' - Information about the build.
 --
 -- * 'sbrsResponseStatus' - -- | The response status code.
 stopBuildResponse
@@ -120,7 +120,7 @@ stopBuildResponse pResponseStatus_ =
     , _sbrsResponseStatus = pResponseStatus_
     }
 
--- | Information about the build that was attempted to be stopped.
+-- | Information about the build.
 sbrsBuild :: Lens' StopBuildResponse (Maybe Build)
 sbrsBuild = lens _sbrsBuild (\ s a -> s{_sbrsBuild = a});
 

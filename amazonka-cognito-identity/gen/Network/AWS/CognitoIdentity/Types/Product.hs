@@ -136,6 +136,8 @@ instance NFData Credentials
 
 -- | A description of the identity.
 --
+--
+--
 -- /See:/ 'identityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
     { _idLastModifiedDate :: !(Maybe POSIX)
@@ -194,7 +196,9 @@ instance Hashable IdentityDescription
 
 instance NFData IdentityDescription
 
--- | An object representing a Cognito identity pool.
+-- | An object representing an Amazon Cognito identity pool.
+--
+--
 --
 -- /See:/ 'identityPool' smart constructor.
 data IdentityPool = IdentityPool'
@@ -315,6 +319,8 @@ instance ToJSON IdentityPool where
 
 -- | A description of the identity pool.
 --
+--
+--
 -- /See:/ 'identityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
     { _ipsdIdentityPoolId   :: !(Maybe Text)
@@ -355,6 +361,184 @@ instance FromJSON IdentityPoolShortDescription where
 instance Hashable IdentityPoolShortDescription
 
 instance NFData IdentityPoolShortDescription
+
+-- | A rule that maps a claim name, a claim value, and a match type to a role ARN.
+--
+--
+--
+-- /See:/ 'mappingRule' smart constructor.
+data MappingRule = MappingRule'
+    { _mrClaim     :: !Text
+    , _mrMatchType :: !MappingRuleMatchType
+    , _mrValue     :: !Text
+    , _mrRoleARN   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MappingRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrClaim' - The claim name that must be present in the token, for example, "isAdmin" or "paid".
+--
+-- * 'mrMatchType' - The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
+--
+-- * 'mrValue' - A brief string that the claim must match, for example, "paid" or "yes".
+--
+-- * 'mrRoleARN' - The role ARN.
+mappingRule
+    :: Text -- ^ 'mrClaim'
+    -> MappingRuleMatchType -- ^ 'mrMatchType'
+    -> Text -- ^ 'mrValue'
+    -> Text -- ^ 'mrRoleARN'
+    -> MappingRule
+mappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
+    MappingRule'
+    { _mrClaim = pClaim_
+    , _mrMatchType = pMatchType_
+    , _mrValue = pValue_
+    , _mrRoleARN = pRoleARN_
+    }
+
+-- | The claim name that must be present in the token, for example, "isAdmin" or "paid".
+mrClaim :: Lens' MappingRule Text
+mrClaim = lens _mrClaim (\ s a -> s{_mrClaim = a});
+
+-- | The match condition that specifies how closely the claim value in the IdP token must match @Value@ .
+mrMatchType :: Lens' MappingRule MappingRuleMatchType
+mrMatchType = lens _mrMatchType (\ s a -> s{_mrMatchType = a});
+
+-- | A brief string that the claim must match, for example, "paid" or "yes".
+mrValue :: Lens' MappingRule Text
+mrValue = lens _mrValue (\ s a -> s{_mrValue = a});
+
+-- | The role ARN.
+mrRoleARN :: Lens' MappingRule Text
+mrRoleARN = lens _mrRoleARN (\ s a -> s{_mrRoleARN = a});
+
+instance FromJSON MappingRule where
+        parseJSON
+          = withObject "MappingRule"
+              (\ x ->
+                 MappingRule' <$>
+                   (x .: "Claim") <*> (x .: "MatchType") <*>
+                     (x .: "Value")
+                     <*> (x .: "RoleARN"))
+
+instance Hashable MappingRule
+
+instance NFData MappingRule
+
+instance ToJSON MappingRule where
+        toJSON MappingRule'{..}
+          = object
+              (catMaybes
+                 [Just ("Claim" .= _mrClaim),
+                  Just ("MatchType" .= _mrMatchType),
+                  Just ("Value" .= _mrValue),
+                  Just ("RoleARN" .= _mrRoleARN)])
+
+-- | A role mapping.
+--
+--
+--
+-- /See:/ 'roleMapping' smart constructor.
+data RoleMapping = RoleMapping'
+    { _rmRulesConfiguration      :: !(Maybe RulesConfigurationType)
+    , _rmAmbiguousRoleResolution :: !(Maybe AmbiguousRoleResolutionType)
+    , _rmType                    :: !RoleMappingType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RoleMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmRulesConfiguration' - The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
+--
+-- * 'rmAmbiguousRoleResolution' - If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required. Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
+--
+-- * 'rmType' - The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
+roleMapping
+    :: RoleMappingType -- ^ 'rmType'
+    -> RoleMapping
+roleMapping pType_ =
+    RoleMapping'
+    { _rmRulesConfiguration = Nothing
+    , _rmAmbiguousRoleResolution = Nothing
+    , _rmType = pType_
+    }
+
+-- | The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
+rmRulesConfiguration :: Lens' RoleMapping (Maybe RulesConfigurationType)
+rmRulesConfiguration = lens _rmRulesConfiguration (\ s a -> s{_rmRulesConfiguration = a});
+
+-- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required. Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
+rmAmbiguousRoleResolution :: Lens' RoleMapping (Maybe AmbiguousRoleResolutionType)
+rmAmbiguousRoleResolution = lens _rmAmbiguousRoleResolution (\ s a -> s{_rmAmbiguousRoleResolution = a});
+
+-- | The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
+rmType :: Lens' RoleMapping RoleMappingType
+rmType = lens _rmType (\ s a -> s{_rmType = a});
+
+instance FromJSON RoleMapping where
+        parseJSON
+          = withObject "RoleMapping"
+              (\ x ->
+                 RoleMapping' <$>
+                   (x .:? "RulesConfiguration") <*>
+                     (x .:? "AmbiguousRoleResolution")
+                     <*> (x .: "Type"))
+
+instance Hashable RoleMapping
+
+instance NFData RoleMapping
+
+instance ToJSON RoleMapping where
+        toJSON RoleMapping'{..}
+          = object
+              (catMaybes
+                 [("RulesConfiguration" .=) <$> _rmRulesConfiguration,
+                  ("AmbiguousRoleResolution" .=) <$>
+                    _rmAmbiguousRoleResolution,
+                  Just ("Type" .= _rmType)])
+
+-- | A container for rules.
+--
+--
+--
+-- /See:/ 'rulesConfigurationType' smart constructor.
+newtype RulesConfigurationType = RulesConfigurationType'
+    { _rctRules :: List1 MappingRule
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RulesConfigurationType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rctRules' - An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+rulesConfigurationType
+    :: NonEmpty MappingRule -- ^ 'rctRules'
+    -> RulesConfigurationType
+rulesConfigurationType pRules_ =
+    RulesConfigurationType'
+    { _rctRules = _List1 # pRules_
+    }
+
+-- | An array of rules. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+rctRules :: Lens' RulesConfigurationType (NonEmpty MappingRule)
+rctRules = lens _rctRules (\ s a -> s{_rctRules = a}) . _List1;
+
+instance FromJSON RulesConfigurationType where
+        parseJSON
+          = withObject "RulesConfigurationType"
+              (\ x -> RulesConfigurationType' <$> (x .: "Rules"))
+
+instance Hashable RulesConfigurationType
+
+instance NFData RulesConfigurationType
+
+instance ToJSON RulesConfigurationType where
+        toJSON RulesConfigurationType'{..}
+          = object (catMaybes [Just ("Rules" .= _rctRules)])
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 --

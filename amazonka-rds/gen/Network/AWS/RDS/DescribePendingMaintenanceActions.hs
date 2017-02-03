@@ -64,7 +64,7 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpmaFilters' - A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:     * @db-instance-id@ - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
+-- * 'dpmaFilters' - A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB clusters identified by these ARNs.     * @db-instance-id@ - Accepts DB instance identifiers and DB instance ARNs. The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
 --
 -- * 'dpmaMarker' - An optional pagination token provided by a previous @DescribePendingMaintenanceActions@ request. If this parameter is specified, the response includes only records beyond the marker, up to a number of records specified by @MaxRecords@ .
 --
@@ -81,7 +81,7 @@ describePendingMaintenanceActions =
     , _dpmaResourceIdentifier = Nothing
     }
 
--- | A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:     * @db-instance-id@ - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
+-- | A filter that specifies one or more resources to return pending maintenance actions for. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance actions for the DB clusters identified by these ARNs.     * @db-instance-id@ - Accepts DB instance identifiers and DB instance ARNs. The results list will only include pending maintenance actions for the DB instances identified by these ARNs.
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 

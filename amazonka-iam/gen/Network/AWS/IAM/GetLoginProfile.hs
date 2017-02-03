@@ -53,7 +53,7 @@ newtype GetLoginProfile = GetLoginProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'glpUserName' - The name of the user whose login profile you want to retrieve. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'glpUserName' - The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getLoginProfile
     :: Text -- ^ 'glpUserName'
     -> GetLoginProfile
@@ -62,7 +62,7 @@ getLoginProfile pUserName_ =
     { _glpUserName = pUserName_
     }
 
--- | The name of the user whose login profile you want to retrieve. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose login profile you want to retrieve. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 

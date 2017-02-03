@@ -21,6 +21,8 @@
 -- Disables the specified user as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminDisableUser
     (
     -- * Creating a Request

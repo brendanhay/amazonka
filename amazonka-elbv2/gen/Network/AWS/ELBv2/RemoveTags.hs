@@ -46,11 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for RemoveTags.
---
---
---
--- /See:/ 'removeTags' smart constructor.
+-- | /See:/ 'removeTags' smart constructor.
 data RemoveTags = RemoveTags'
     { _rtResourceARNs :: ![Text]
     , _rtTagKeys      :: ![Text]
@@ -106,11 +102,7 @@ instance ToQuery RemoveTags where
                  toQueryList "member" _rtResourceARNs,
                "TagKeys" =: toQueryList "member" _rtTagKeys]
 
--- | Contains the output of RemoveTags.
---
---
---
--- /See:/ 'removeTagsResponse' smart constructor.
+-- | /See:/ 'removeTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

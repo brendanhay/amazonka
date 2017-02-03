@@ -279,7 +279,9 @@ data DBCluster = DBCluster'
     , _dcBackupRetentionPeriod           :: !(Maybe Int)
     , _dcDBSubnetGroup                   :: !(Maybe Text)
     , _dcDatabaseName                    :: !(Maybe Text)
+    , _dcMultiAZ                         :: !(Maybe Bool)
     , _dcAllocatedStorage                :: !(Maybe Int)
+    , _dcClusterCreateTime               :: !(Maybe ISO8601)
     , _dcEndpoint                        :: !(Maybe Text)
     , _dcPercentProgress                 :: !(Maybe Text)
     , _dcReaderEndpoint                  :: !(Maybe Text)
@@ -341,7 +343,11 @@ data DBCluster = DBCluster'
 --
 -- * 'dcDatabaseName' - Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.
 --
+-- * 'dcMultiAZ' - Specifies whether the DB cluster has instances in multiple Availability Zones.
+--
 -- * 'dcAllocatedStorage' - Specifies the allocated storage size in gigabytes (GB).
+--
+-- * 'dcClusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
 --
 -- * 'dcEndpoint' - Specifies the connection endpoint for the primary instance of the DB cluster.
 --
@@ -381,7 +387,9 @@ dbCluster =
     , _dcBackupRetentionPeriod = Nothing
     , _dcDBSubnetGroup = Nothing
     , _dcDatabaseName = Nothing
+    , _dcMultiAZ = Nothing
     , _dcAllocatedStorage = Nothing
+    , _dcClusterCreateTime = Nothing
     , _dcEndpoint = Nothing
     , _dcPercentProgress = Nothing
     , _dcReaderEndpoint = Nothing
@@ -489,9 +497,17 @@ dcDBSubnetGroup = lens _dcDBSubnetGroup (\ s a -> s{_dcDBSubnetGroup = a});
 dcDatabaseName :: Lens' DBCluster (Maybe Text)
 dcDatabaseName = lens _dcDatabaseName (\ s a -> s{_dcDatabaseName = a});
 
+-- | Specifies whether the DB cluster has instances in multiple Availability Zones.
+dcMultiAZ :: Lens' DBCluster (Maybe Bool)
+dcMultiAZ = lens _dcMultiAZ (\ s a -> s{_dcMultiAZ = a});
+
 -- | Specifies the allocated storage size in gigabytes (GB).
 dcAllocatedStorage :: Lens' DBCluster (Maybe Int)
 dcAllocatedStorage = lens _dcAllocatedStorage (\ s a -> s{_dcAllocatedStorage = a});
+
+-- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
+dcClusterCreateTime :: Lens' DBCluster (Maybe UTCTime)
+dcClusterCreateTime = lens _dcClusterCreateTime (\ s a -> s{_dcClusterCreateTime = a}) . mapping _Time;
 
 -- | Specifies the connection endpoint for the primary instance of the DB cluster.
 dcEndpoint :: Lens' DBCluster (Maybe Text)
@@ -550,7 +566,9 @@ instance FromXML DBCluster where
                 <*> (x .@? "BackupRetentionPeriod")
                 <*> (x .@? "DBSubnetGroup")
                 <*> (x .@? "DatabaseName")
+                <*> (x .@? "MultiAZ")
                 <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "ClusterCreateTime")
                 <*> (x .@? "Endpoint")
                 <*> (x .@? "PercentProgress")
                 <*> (x .@? "ReaderEndpoint")
@@ -1267,6 +1285,7 @@ data DBInstance = DBInstance'
     , _diDBInstanceStatus                      :: !(Maybe Text)
     , _diDBInstancePort                        :: !(Maybe Int)
     , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
+    , _diReadReplicaDBClusterIdentifiers       :: !(Maybe [Text])
     , _diStorageType                           :: !(Maybe Text)
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
     , _diDomainMemberships                     :: !(Maybe [DomainMembership])
@@ -1363,6 +1382,8 @@ data DBInstance = DBInstance'
 --
 -- * 'diPendingModifiedValues' - Specifies that changes to the DB instance are pending. This element is only included when changes are pending. Specific changes are identified by subelements.
 --
+-- * 'diReadReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters that are Read Replicas of this DB instance.
+--
 -- * 'diStorageType' - Specifies the storage type associated with DB instance.
 --
 -- * 'diStatusInfos' - The status of a Read Replica. If the instance is not a Read Replica, this will be blank.
@@ -1417,6 +1438,7 @@ dbInstance =
     , _diDBInstanceStatus = Nothing
     , _diDBInstancePort = Nothing
     , _diPendingModifiedValues = Nothing
+    , _diReadReplicaDBClusterIdentifiers = Nothing
     , _diStorageType = Nothing
     , _diStatusInfos = Nothing
     , _diDomainMemberships = Nothing
@@ -1595,6 +1617,10 @@ diDBInstancePort = lens _diDBInstancePort (\ s a -> s{_diDBInstancePort = a});
 diPendingModifiedValues :: Lens' DBInstance (Maybe PendingModifiedValues)
 diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingModifiedValues = a});
 
+-- | Contains one or more identifiers of Aurora DB clusters that are Read Replicas of this DB instance.
+diReadReplicaDBClusterIdentifiers :: Lens' DBInstance [Text]
+diReadReplicaDBClusterIdentifiers = lens _diReadReplicaDBClusterIdentifiers (\ s a -> s{_diReadReplicaDBClusterIdentifiers = a}) . _Default . _Coerce;
+
 -- | Specifies the storage type associated with DB instance.
 diStorageType :: Lens' DBInstance (Maybe Text)
 diStorageType = lens _diStorageType (\ s a -> s{_diStorageType = a});
@@ -1667,6 +1693,10 @@ instance FromXML DBInstance where
                 <*> (x .@? "DBInstanceStatus")
                 <*> (x .@? "DbInstancePort")
                 <*> (x .@? "PendingModifiedValues")
+                <*>
+                (x .@? "ReadReplicaDBClusterIdentifiers" .!@ mempty
+                   >>=
+                   may (parseXMLList "ReadReplicaDBClusterIdentifier"))
                 <*> (x .@? "StorageType")
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=

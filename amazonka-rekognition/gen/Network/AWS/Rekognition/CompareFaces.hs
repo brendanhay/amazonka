@@ -68,9 +68,9 @@ data CompareFaces = CompareFaces'
 --
 -- * 'cfSimilarityThreshold' - The minimum level of confidence in the match you want included in the result.
 --
--- * 'cfSourceImage' - Source image either as bytes or an Amazon S3 object
+-- * 'cfSourceImage' - Source image either as bytes or an S3 object
 --
--- * 'cfTargetImage' - Target image either as bytes or an Amazon S3 object
+-- * 'cfTargetImage' - Target image either as bytes or an S3 object
 compareFaces
     :: Image -- ^ 'cfSourceImage'
     -> Image -- ^ 'cfTargetImage'
@@ -86,11 +86,11 @@ compareFaces pSourceImage_ pTargetImage_ =
 cfSimilarityThreshold :: Lens' CompareFaces (Maybe Double)
 cfSimilarityThreshold = lens _cfSimilarityThreshold (\ s a -> s{_cfSimilarityThreshold = a});
 
--- | Source image either as bytes or an Amazon S3 object
+-- | Source image either as bytes or an S3 object
 cfSourceImage :: Lens' CompareFaces Image
 cfSourceImage = lens _cfSourceImage (\ s a -> s{_cfSourceImage = a});
 
--- | Target image either as bytes or an Amazon S3 object
+-- | Target image either as bytes or an S3 object
 cfTargetImage :: Lens' CompareFaces Image
 cfTargetImage = lens _cfTargetImage (\ s a -> s{_cfTargetImage = a});
 
@@ -144,7 +144,7 @@ data CompareFacesResponse = CompareFacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfrsFaceMatches' - Provides an array of @CompareFacesMatch @ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- * 'cfrsFaceMatches' - Provides an array of @CompareFacesMatch@ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
 --
 -- * 'cfrsSourceImageFace' - The face from the source image that was used for comparison.
 --
@@ -159,7 +159,7 @@ compareFacesResponse pResponseStatus_ =
     , _cfrsResponseStatus = pResponseStatus_
     }
 
--- | Provides an array of @CompareFacesMatch @ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- | Provides an array of @CompareFacesMatch@ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
 cfrsFaceMatches :: Lens' CompareFacesResponse [CompareFacesMatch]
 cfrsFaceMatches = lens _cfrsFaceMatches (\ s a -> s{_cfrsFaceMatches = a}) . _Default . _Coerce;
 

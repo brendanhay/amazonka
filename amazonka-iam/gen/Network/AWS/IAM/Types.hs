@@ -26,6 +26,7 @@ module Network.AWS.IAM.Types
     , _DeleteConflictException
     , _NoSuchEntityException
     , _InvalidCertificateException
+    , _ServiceNotSupportedException
     , _UnrecognizedPublicKeyEncodingException
     , _InvalidUserTypeException
     , _ServiceFailureException
@@ -329,6 +330,27 @@ module Network.AWS.IAM.Types
     , scmServerCertificateId
     , scmARN
 
+    -- * ServiceSpecificCredential
+    , ServiceSpecificCredential
+    , serviceSpecificCredential
+    , sscCreateDate
+    , sscServiceName
+    , sscServiceUserName
+    , sscServicePassword
+    , sscServiceSpecificCredentialId
+    , sscUserName
+    , sscStatus
+
+    -- * ServiceSpecificCredentialMetadata
+    , ServiceSpecificCredentialMetadata
+    , serviceSpecificCredentialMetadata
+    , sscmUserName
+    , sscmStatus
+    , sscmServiceUserName
+    , sscmCreateDate
+    , sscmServiceSpecificCredentialId
+    , sscmServiceName
+
     -- * SigningCertificate
     , SigningCertificate
     , signingCertificate
@@ -493,6 +515,13 @@ _NoSuchEntityException = _MatchServiceError iam "NoSuchEntity" . hasStatus 404
 _InvalidCertificateException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidCertificateException =
     _MatchServiceError iam "InvalidCertificate" . hasStatus 400
+
+-- | The specified service does not support service-specific credentials.
+--
+--
+_ServiceNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceNotSupportedException =
+    _MatchServiceError iam "NotSupportedService" . hasStatus 404
 
 -- | The request was rejected because the public key encoding format is unsupported or unrecognized.
 --

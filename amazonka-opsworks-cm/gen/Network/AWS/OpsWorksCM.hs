@@ -62,6 +62,9 @@ module Network.AWS.OpsWorksCM
     -- * Waiters
     -- $waiters
 
+    -- ** NodeAssociated
+    , nodeAssociated
+
     -- * Operations
     -- $operations
 

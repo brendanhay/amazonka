@@ -99,7 +99,7 @@ instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
-              ["/2016-09-29/origin-access-identity/cloudfront/",
+              ["/2016-11-25/origin-access-identity/cloudfront/",
                toBS _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity

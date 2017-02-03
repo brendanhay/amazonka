@@ -21,6 +21,8 @@
 -- Gets all the usage plan keys representing the API keys added to a specified usage plan.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsagePlanKeys
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
 import           Network.AWS.APIGateway.Types
 import           Network.AWS.APIGateway.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -97,6 +100,13 @@ gupkPosition = lens _gupkPosition (\ s a -> s{_gupkPosition = a});
 -- | The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 gupkUsagePlanId :: Lens' GetUsagePlanKeys Text
 gupkUsagePlanId = lens _gupkUsagePlanId (\ s a -> s{_gupkUsagePlanId = a});
+
+instance AWSPager GetUsagePlanKeys where
+        page rq rs
+          | stop (rs ^. gupkrsPosition) = Nothing
+          | stop (rs ^. gupkrsItems) = Nothing
+          | otherwise =
+            Just $ rq & gupkPosition .~ rs ^. gupkrsPosition
 
 instance AWSRequest GetUsagePlanKeys where
         type Rs GetUsagePlanKeys = GetUsagePlanKeysResponse

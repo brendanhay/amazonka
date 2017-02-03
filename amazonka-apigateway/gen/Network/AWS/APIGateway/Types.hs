@@ -185,6 +185,7 @@ module Network.AWS.APIGateway.Types
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration
@@ -259,6 +260,23 @@ module Network.AWS.APIGateway.Types
     , raVersion
     , raId
     , raDescription
+
+    -- * SDKConfigurationProperty
+    , SDKConfigurationProperty
+    , sdkConfigurationProperty
+    , scpFriendlyName
+    , scpRequired
+    , scpName
+    , scpDefaultValue
+    , scpDescription
+
+    -- * SDKType
+    , SDKType
+    , sdkType
+    , stFriendlyName
+    , stConfigurationProperties
+    , stId
+    , stDescription
 
     -- * Stage
     , Stage

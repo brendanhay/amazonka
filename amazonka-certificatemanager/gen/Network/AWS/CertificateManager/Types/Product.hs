@@ -21,7 +21,7 @@ import           Network.AWS.CertificateManager.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | Contains detailed metadata about an ACM Certificate. This structure is returned in the response to a 'DescribeCertificate' request.
+-- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request.
 --
 --
 --
@@ -40,6 +40,7 @@ data CertificateDetail = CertificateDetail'
     , _cdNotBefore               :: !(Maybe POSIX)
     , _cdRevocationReason        :: !(Maybe RevocationReason)
     , _cdDomainName              :: !(Maybe Text)
+    , _cdRenewalSummary          :: !(Maybe RenewalSummary)
     , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
     , _cdType                    :: !(Maybe CertificateType)
     , _cdIssuedAt                :: !(Maybe POSIX)
@@ -79,6 +80,8 @@ data CertificateDetail = CertificateDetail'
 --
 -- * 'cdDomainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
 --
+-- * 'cdRenewalSummary' - Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+--
 -- * 'cdKeyAlgorithm' - The algorithm that was used to generate the key pair (the public and private key).
 --
 -- * 'cdType' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
@@ -87,7 +90,7 @@ data CertificateDetail = CertificateDetail'
 --
 -- * 'cdSignatureAlgorithm' - The algorithm that was used to sign the certificate.
 --
--- * 'cdDomainValidationOptions' - Contains information about the email address or addresses used for domain validation. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'cdDomainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 --
 -- * 'cdIssuer' - The name of the certificate authority that issued and signed the certificate.
 --
@@ -109,6 +112,7 @@ certificateDetail =
     , _cdNotBefore = Nothing
     , _cdRevocationReason = Nothing
     , _cdDomainName = Nothing
+    , _cdRenewalSummary = Nothing
     , _cdKeyAlgorithm = Nothing
     , _cdType = Nothing
     , _cdIssuedAt = Nothing
@@ -170,6 +174,10 @@ cdRevocationReason = lens _cdRevocationReason (\ s a -> s{_cdRevocationReason = 
 cdDomainName :: Lens' CertificateDetail (Maybe Text)
 cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
+-- | Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+cdRenewalSummary :: Lens' CertificateDetail (Maybe RenewalSummary)
+cdRenewalSummary = lens _cdRenewalSummary (\ s a -> s{_cdRenewalSummary = a});
+
 -- | The algorithm that was used to generate the key pair (the public and private key).
 cdKeyAlgorithm :: Lens' CertificateDetail (Maybe KeyAlgorithm)
 cdKeyAlgorithm = lens _cdKeyAlgorithm (\ s a -> s{_cdKeyAlgorithm = a});
@@ -186,7 +194,7 @@ cdIssuedAt = lens _cdIssuedAt (\ s a -> s{_cdIssuedAt = a}) . mapping _Time;
 cdSignatureAlgorithm :: Lens' CertificateDetail (Maybe Text)
 cdSignatureAlgorithm = lens _cdSignatureAlgorithm (\ s a -> s{_cdSignatureAlgorithm = a});
 
--- | Contains information about the email address or addresses used for domain validation. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- | Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 cdDomainValidationOptions :: Lens' CertificateDetail (Maybe (NonEmpty DomainValidation))
 cdDomainValidationOptions = lens _cdDomainValidationOptions (\ s a -> s{_cdDomainValidationOptions = a}) . mapping _List1;
 
@@ -215,6 +223,7 @@ instance FromJSON CertificateDetail where
                      <*> (x .:? "NotBefore")
                      <*> (x .:? "RevocationReason")
                      <*> (x .:? "DomainName")
+                     <*> (x .:? "RenewalSummary")
                      <*> (x .:? "KeyAlgorithm")
                      <*> (x .:? "Type")
                      <*> (x .:? "IssuedAt")
@@ -271,13 +280,14 @@ instance Hashable CertificateSummary
 
 instance NFData CertificateSummary
 
--- | Structure that contains the domain name, the base validation domain to which validation email is sent, and the email addresses used to validate the domain identity.
+-- | Contains information about the validation of each domain name in the certificate.
 --
 --
 --
 -- /See:/ 'domainValidation' smart constructor.
 data DomainValidation = DomainValidation'
     { _dvValidationEmails :: !(Maybe [Text])
+    , _dvValidationStatus :: !(Maybe DomainStatus)
     , _dvValidationDomain :: !(Maybe Text)
     , _dvDomainName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -286,30 +296,37 @@ data DomainValidation = DomainValidation'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvValidationEmails' - A list of contact address for the domain registrant.
+-- * 'dvValidationEmails' - A list of email addresses that ACM used to send domain validation emails.
 --
--- * 'dvValidationDomain' - The base validation domain that acts as the suffix of the email addresses that are used to send the emails.
+-- * 'dvValidationStatus' - The validation status of the domain name.
 --
--- * 'dvDomainName' - Fully Qualified Domain Name (FQDN) of the form @www.example.com or @ @example.com@ .
+-- * 'dvValidationDomain' - The domain name that ACM used to send domain validation emails.
+--
+-- * 'dvDomainName' - A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
 domainValidation
     :: Text -- ^ 'dvDomainName'
     -> DomainValidation
 domainValidation pDomainName_ =
     DomainValidation'
     { _dvValidationEmails = Nothing
+    , _dvValidationStatus = Nothing
     , _dvValidationDomain = Nothing
     , _dvDomainName = pDomainName_
     }
 
--- | A list of contact address for the domain registrant.
+-- | A list of email addresses that ACM used to send domain validation emails.
 dvValidationEmails :: Lens' DomainValidation [Text]
 dvValidationEmails = lens _dvValidationEmails (\ s a -> s{_dvValidationEmails = a}) . _Default . _Coerce;
 
--- | The base validation domain that acts as the suffix of the email addresses that are used to send the emails.
+-- | The validation status of the domain name.
+dvValidationStatus :: Lens' DomainValidation (Maybe DomainStatus)
+dvValidationStatus = lens _dvValidationStatus (\ s a -> s{_dvValidationStatus = a});
+
+-- | The domain name that ACM used to send domain validation emails.
 dvValidationDomain :: Lens' DomainValidation (Maybe Text)
 dvValidationDomain = lens _dvValidationDomain (\ s a -> s{_dvValidationDomain = a});
 
--- | Fully Qualified Domain Name (FQDN) of the form @www.example.com or @ @example.com@ .
+-- | A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
 dvDomainName :: Lens' DomainValidation Text
 dvDomainName = lens _dvDomainName (\ s a -> s{_dvDomainName = a});
 
@@ -319,14 +336,15 @@ instance FromJSON DomainValidation where
               (\ x ->
                  DomainValidation' <$>
                    (x .:? "ValidationEmails" .!= mempty) <*>
-                     (x .:? "ValidationDomain")
+                     (x .:? "ValidationStatus")
+                     <*> (x .:? "ValidationDomain")
                      <*> (x .: "DomainName"))
 
 instance Hashable DomainValidation
 
 instance NFData DomainValidation
 
--- | This structure is used in the request object of the 'RequestCertificate' action.
+-- | Contains information about the domain names that you want ACM to use to send you emails to validate your ownership of the domain.
 --
 --
 --
@@ -340,9 +358,9 @@ data DomainValidationOption = DomainValidationOption'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvoDomainName' - Fully Qualified Domain Name (FQDN) of the certificate being requested.
+-- * 'dvoDomainName' - A fully qualified domain name (FQDN) in the certificate request.
 --
--- * 'dvoValidationDomain' - The domain to which validation email is sent. This is the base validation domain that will act as the suffix of the email addresses. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS for the base domain and the following five addresses:     * admin@subdomain.example.com     * administrator@subdomain.example.com     * hostmaster@subdomain.example.com     * postmaster@subdomain.example.com     * webmaster@subdomain.example.com
+-- * 'dvoValidationDomain' - The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you request a certificate for @testing.example.com@ , you can specify @example.com@ for this value. In that case, ACM sends domain validation emails to the following five addresses:     * admin@example.com     * administrator@example.com     * hostmaster@example.com     * postmaster@example.com     * webmaster@example.com
 domainValidationOption
     :: Text -- ^ 'dvoDomainName'
     -> Text -- ^ 'dvoValidationDomain'
@@ -353,11 +371,11 @@ domainValidationOption pDomainName_ pValidationDomain_ =
     , _dvoValidationDomain = pValidationDomain_
     }
 
--- | Fully Qualified Domain Name (FQDN) of the certificate being requested.
+-- | A fully qualified domain name (FQDN) in the certificate request.
 dvoDomainName :: Lens' DomainValidationOption Text
 dvoDomainName = lens _dvoDomainName (\ s a -> s{_dvoDomainName = a});
 
--- | The domain to which validation email is sent. This is the base validation domain that will act as the suffix of the email addresses. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS for the base domain and the following five addresses:     * admin@subdomain.example.com     * administrator@subdomain.example.com     * hostmaster@subdomain.example.com     * postmaster@subdomain.example.com     * webmaster@subdomain.example.com
+-- | The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you request a certificate for @testing.example.com@ , you can specify @example.com@ for this value. In that case, ACM sends domain validation emails to the following five addresses:     * admin@example.com     * administrator@example.com     * hostmaster@example.com     * postmaster@example.com     * webmaster@example.com
 dvoValidationDomain :: Lens' DomainValidationOption Text
 dvoValidationDomain = lens _dvoValidationDomain (\ s a -> s{_dvoValidationDomain = a});
 
@@ -371,6 +389,53 @@ instance ToJSON DomainValidationOption where
               (catMaybes
                  [Just ("DomainName" .= _dvoDomainName),
                   Just ("ValidationDomain" .= _dvoValidationDomain)])
+
+-- | Contains information about the status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This structure exists only when the certificate type is @AMAZON_ISSUED@ .
+--
+--
+--
+-- /See:/ 'renewalSummary' smart constructor.
+data RenewalSummary = RenewalSummary'
+    { _rsRenewalStatus           :: !RenewalStatus
+    , _rsDomainValidationOptions :: !(List1 DomainValidation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RenewalSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsRenewalStatus' - The status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
+--
+-- * 'rsDomainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+renewalSummary
+    :: RenewalStatus -- ^ 'rsRenewalStatus'
+    -> NonEmpty DomainValidation -- ^ 'rsDomainValidationOptions'
+    -> RenewalSummary
+renewalSummary pRenewalStatus_ pDomainValidationOptions_ =
+    RenewalSummary'
+    { _rsRenewalStatus = pRenewalStatus_
+    , _rsDomainValidationOptions = _List1 # pDomainValidationOptions_
+    }
+
+-- | The status of ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
+rsRenewalStatus :: Lens' RenewalSummary RenewalStatus
+rsRenewalStatus = lens _rsRenewalStatus (\ s a -> s{_rsRenewalStatus = a});
+
+-- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <http://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+rsDomainValidationOptions :: Lens' RenewalSummary (NonEmpty DomainValidation)
+rsDomainValidationOptions = lens _rsDomainValidationOptions (\ s a -> s{_rsDomainValidationOptions = a}) . _List1;
+
+instance FromJSON RenewalSummary where
+        parseJSON
+          = withObject "RenewalSummary"
+              (\ x ->
+                 RenewalSummary' <$>
+                   (x .: "RenewalStatus") <*>
+                     (x .: "DomainValidationOptions"))
+
+instance Hashable RenewalSummary
+
+instance NFData RenewalSummary
 
 -- | A key-value pair that identifies or specifies metadata about an ACM resource.
 --

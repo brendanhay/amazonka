@@ -89,7 +89,7 @@ data UpdateWebACL = UpdateWebACL'
 --
 -- * 'uwaUpdates' - An array of updates to make to the 'WebACL' . An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@      * 'ActivatedRule' : Contains @Action@ , @Priority@ , and @RuleId@      * 'WafAction' : Contains @Type@
 --
--- * 'uwaDefaultAction' - Undocumented member.
+-- * 'uwaDefaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 --
 -- * 'uwaWebACLId' - The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 --
@@ -110,7 +110,7 @@ updateWebACL pWebACLId_ pChangeToken_ =
 uwaUpdates :: Lens' UpdateWebACL [WebACLUpdate]
 uwaUpdates = lens _uwaUpdates (\ s a -> s{_uwaUpdates = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
 uwaDefaultAction :: Lens' UpdateWebACL (Maybe WafAction)
 uwaDefaultAction = lens _uwaDefaultAction (\ s a -> s{_uwaDefaultAction = a});
 

@@ -28,8 +28,17 @@ module Network.AWS.CognitoIdentity.Types
     , _ResourceNotFoundException
     , _LimitExceededException
 
+    -- * AmbiguousRoleResolutionType
+    , AmbiguousRoleResolutionType (..)
+
     -- * CognitoErrorCode
     , CognitoErrorCode (..)
+
+    -- * MappingRuleMatchType
+    , MappingRuleMatchType (..)
+
+    -- * RoleMappingType
+    , RoleMappingType (..)
 
     -- * CognitoIdentityProvider
     , CognitoIdentityProvider
@@ -70,6 +79,26 @@ module Network.AWS.CognitoIdentity.Types
     , identityPoolShortDescription
     , ipsdIdentityPoolId
     , ipsdIdentityPoolName
+
+    -- * MappingRule
+    , MappingRule
+    , mappingRule
+    , mrClaim
+    , mrMatchType
+    , mrValue
+    , mrRoleARN
+
+    -- * RoleMapping
+    , RoleMapping
+    , roleMapping
+    , rmRulesConfiguration
+    , rmAmbiguousRoleResolution
+    , rmType
+
+    -- * RulesConfigurationType
+    , RulesConfigurationType
+    , rulesConfigurationType
+    , rctRules
 
     -- * UnprocessedIdentityId
     , UnprocessedIdentityId
@@ -128,16 +157,22 @@ _InvalidIdentityPoolConfigurationException =
         "InvalidIdentityPoolConfigurationException"
 
 -- | Thrown for missing or bad input parameter(s).
+--
+--
 _InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterException =
     _MatchServiceError cognitoIdentity "InvalidParameterException"
 
 -- | Thrown when a user is not authorized to access the requested resource.
+--
+--
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotAuthorizedException =
     _MatchServiceError cognitoIdentity "NotAuthorizedException"
 
 -- | Thrown when the service encounters an error during processing the request.
+--
+--
 _InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalErrorException =
     _MatchServiceError cognitoIdentity "InternalErrorException"
@@ -150,6 +185,8 @@ _ExternalServiceException =
     _MatchServiceError cognitoIdentity "ExternalServiceException"
 
 -- | Thrown when a request is throttled.
+--
+--
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _MatchServiceError cognitoIdentity "TooManyRequestsException"
@@ -162,6 +199,8 @@ _ConcurrentModificationException =
     _MatchServiceError cognitoIdentity "ConcurrentModificationException"
 
 -- | Thrown when a user tries to use a login which is already linked to another account.
+--
+--
 _ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceConflictException =
     _MatchServiceError cognitoIdentity "ResourceConflictException"
@@ -176,11 +215,15 @@ _DeveloperUserAlreadyRegisteredException =
         "DeveloperUserAlreadyRegisteredException"
 
 -- | Thrown when the requested resource (for example, a dataset or record) does not exist.
+--
+--
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _MatchServiceError cognitoIdentity "ResourceNotFoundException"
 
 -- | Thrown when the total number of user pools has exceeded a preset limit.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _MatchServiceError cognitoIdentity "LimitExceededException"

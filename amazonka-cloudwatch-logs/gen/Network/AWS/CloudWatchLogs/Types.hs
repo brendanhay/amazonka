@@ -26,6 +26,9 @@ module Network.AWS.CloudWatchLogs.Types
     , _ResourceNotFoundException
     , _LimitExceededException
 
+    -- * Distribution
+    , Distribution (..)
+
     -- * ExportTaskStatusCode
     , ExportTaskStatusCode (..)
 
@@ -153,6 +156,7 @@ module Network.AWS.CloudWatchLogs.Types
     , subscriptionFilter
     , sfCreationTime
     , sfFilterName
+    , sfDistribution
     , sfDestinationARN
     , sfLogGroupName
     , sfFilterPattern

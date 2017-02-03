@@ -21,6 +21,8 @@
 -- Returns information about all static IPs in the user's account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetStaticIPs
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetStaticIPs
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getStaticIPs =
 -- | A token used for advancing to the next page of results from your get static IPs request.
 gsiPageToken :: Lens' GetStaticIPs (Maybe Text)
 gsiPageToken = lens _gsiPageToken (\ s a -> s{_gsiPageToken = a});
+
+instance AWSPager GetStaticIPs where
+        page rq rs
+          | stop (rs ^. gsiprsNextPageToken) = Nothing
+          | stop (rs ^. gsiprsStaticIPs) = Nothing
+          | otherwise =
+            Just $ rq & gsiPageToken .~ rs ^. gsiprsNextPageToken
 
 instance AWSRequest GetStaticIPs where
         type Rs GetStaticIPs = GetStaticIPsResponse

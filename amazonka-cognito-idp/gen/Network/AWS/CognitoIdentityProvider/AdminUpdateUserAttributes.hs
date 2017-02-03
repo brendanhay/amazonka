@@ -21,6 +21,8 @@
 -- Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminUpdateUserAttributes
     (
     -- * Creating a Request

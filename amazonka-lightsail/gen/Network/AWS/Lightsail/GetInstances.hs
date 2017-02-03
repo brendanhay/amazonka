@@ -21,6 +21,8 @@
 -- Returns information about all Amazon Lightsail virtual private servers, or /instances/ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetInstances
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetInstances
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getInstances =
 -- | A token used for advancing to the next page of results from your get instances request.
 giPageToken :: Lens' GetInstances (Maybe Text)
 giPageToken = lens _giPageToken (\ s a -> s{_giPageToken = a});
+
+instance AWSPager GetInstances where
+        page rq rs
+          | stop (rs ^. grsNextPageToken) = Nothing
+          | stop (rs ^. grsInstances) = Nothing
+          | otherwise =
+            Just $ rq & giPageToken .~ rs ^. grsNextPageToken
 
 instance AWSRequest GetInstances where
         type Rs GetInstances = GetInstancesResponse

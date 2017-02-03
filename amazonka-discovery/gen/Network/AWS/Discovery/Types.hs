@@ -32,6 +32,9 @@ module Network.AWS.Discovery.Types
     -- * ExportStatus
     , ExportStatus (..)
 
+    -- * OrderString
+    , OrderString (..)
+
     -- * AgentConfigurationStatus
     , AgentConfigurationStatus
     , agentConfigurationStatus
@@ -43,11 +46,15 @@ module Network.AWS.Discovery.Types
     , AgentInfo
     , agentInfo
     , aiHostName
+    , aiLastHealthPingTime
     , aiAgentNetworkInfoList
     , aiConnectorId
     , aiHealth
     , aiAgentId
     , aiVersion
+    , aiCollectionStatus
+    , aiRegisteredTime
+    , aiAgentType
 
     -- * AgentNetworkInfo
     , AgentNetworkInfo
@@ -64,6 +71,28 @@ module Network.AWS.Discovery.Types
     , ctValue
     , ctKey
 
+    -- * CustomerAgentInfo
+    , CustomerAgentInfo
+    , customerAgentInfo
+    , caiActiveAgents
+    , caiHealthyAgents
+    , caiBlackListedAgents
+    , caiShutdownAgents
+    , caiUnhealthyAgents
+    , caiTotalAgents
+    , caiUnknownAgents
+
+    -- * CustomerConnectorInfo
+    , CustomerConnectorInfo
+    , customerConnectorInfo
+    , cciActiveConnectors
+    , cciHealthyConnectors
+    , cciBlackListedConnectors
+    , cciShutdownConnectors
+    , cciUnhealthyConnectors
+    , cciTotalConnectors
+    , cciUnknownConnectors
+
     -- * ExportInfo
     , ExportInfo
     , exportInfo
@@ -79,6 +108,21 @@ module Network.AWS.Discovery.Types
     , fName
     , fValues
     , fCondition
+
+    -- * NeighborConnectionDetail
+    , NeighborConnectionDetail
+    , neighborConnectionDetail
+    , ncdTransportProtocol
+    , ncdDestinationPort
+    , ncdSourceServerId
+    , ncdDestinationServerId
+    , ncdConnectionsCount
+
+    -- * OrderByElement
+    , OrderByElement
+    , orderByElement
+    , obeSortOrder
+    , obeFieldName
 
     -- * Tag
     , Tag

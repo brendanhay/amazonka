@@ -23,27 +23,27 @@
 --
 -- When you establish an AWS account, the account has initial limits on the maximum read capacity units and write capacity units that you can provision across all of your DynamoDB tables in a given region. Also, there are per-table limits that apply when you create a table there. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits> page in the /Amazon DynamoDB Developer Guide/ .
 --
--- Although you can increase these limits by filing a case at <https://console.aws.amazon.com/support/home#/ AWS Support Center> , obtaining the increase is not instantaneous. The /DescribeLimits/ API lets you write code to compare the capacity you are currently using to those limits imposed by your account so that you have enough time to apply for an increase before you hit a limit.
+-- Although you can increase these limits by filing a case at <https://console.aws.amazon.com/support/home#/ AWS Support Center> , obtaining the increase is not instantaneous. The @DescribeLimits@ action lets you write code to compare the capacity you are currently using to those limits imposed by your account so that you have enough time to apply for an increase before you hit a limit.
 --
 -- For example, you could use one of the AWS SDKs to do the following:
 --
---     * Call /DescribeLimits/ for a particular region to obtain your current account limits on provisioned capacity there.
+--     * Call @DescribeLimits@ for a particular region to obtain your current account limits on provisioned capacity there.
 --
 --     * Create a variable to hold the aggregate read capacity units provisioned for all your tables in that region, and one to hold the aggregate write capacity units. Zero them both.
 --
---     * Call /ListTables/ to obtain a list of all your DynamoDB tables.
+--     * Call @ListTables@ to obtain a list of all your DynamoDB tables.
 --
---     * For each table name listed by /ListTables/ , do the following:
+--     * For each table name listed by @ListTables@ , do the following:
 --
---     * Call /DescribeTable/ with the table name.
+--     * Call @DescribeTable@ with the table name.
 --
---     * Use the data returned by /DescribeTable/ to add the read capacity units and write capacity units provisioned for the table itself to your variables.
+--     * Use the data returned by @DescribeTable@ to add the read capacity units and write capacity units provisioned for the table itself to your variables.
 --
 --     * If the table has one or more global secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity values to your variables as well.
 --
 --
 --
---     * Report the account limits for that region returned by /DescribeLimits/ , along with the total current provisioned capacity levels you have calculated.
+--     * Report the account limits for that region returned by @DescribeLimits@ , along with the total current provisioned capacity levels you have calculated.
 --
 --
 --
@@ -53,7 +53,7 @@
 --
 -- For existing tables and their GSIs, DynamoDB will not let you increase provisioned capacity extremely rapidly, but the only upper limit that applies is that the aggregate provisioned capacity over all your tables and GSIs cannot exceed either of the per-account limits.
 --
--- The /DescribeLimits/ Request element has no content.
+-- The @DescribeLimits@ Request element has no content.
 --
 module Network.AWS.DynamoDB.DescribeLimits
     (
@@ -79,7 +79,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeLimits/ operation. Has no content.
+-- | Represents the input of a @DescribeLimits@ operation. Has no content.
 --
 --
 --
@@ -129,7 +129,7 @@ instance ToPath DescribeLimits where
 instance ToQuery DescribeLimits where
         toQuery = const mempty
 
--- | Represents the output of a /DescribeLimits/ operation.
+-- | Represents the output of a @DescribeLimits@ operation.
 --
 --
 --

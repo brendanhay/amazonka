@@ -54,7 +54,7 @@ newtype DeleteInstanceProfile = DeleteInstanceProfile'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipInstanceProfileName' - The name of the instance profile to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dipInstanceProfileName' - The name of the instance profile to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 deleteInstanceProfile
     :: Text -- ^ 'dipInstanceProfileName'
     -> DeleteInstanceProfile
@@ -63,7 +63,7 @@ deleteInstanceProfile pInstanceProfileName_ =
     { _dipInstanceProfileName = pInstanceProfileName_
     }
 
--- | The name of the instance profile to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the instance profile to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a});
 

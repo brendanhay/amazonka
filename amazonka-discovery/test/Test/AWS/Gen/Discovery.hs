@@ -43,8 +43,17 @@ import Test.AWS.Discovery.Internal
 --         , requestDeleteTags $
 --             deleteTags
 --
+--         , requestDeleteApplications $
+--             deleteApplications
+--
+--         , requestUpdateApplication $
+--             updateApplication
+--
 --         , requestDescribeConfigurations $
 --             describeConfigurations
+--
+--         , requestCreateApplication $
+--             createApplication
 --
 --         , requestListConfigurations $
 --             listConfigurations
@@ -57,6 +66,18 @@ import Test.AWS.Discovery.Internal
 --
 --         , requestStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIds
+--
+--         , requestGetDiscoverySummary $
+--             getDiscoverySummary
+--
+--         , requestDisassociateConfigurationItemsFromApplication $
+--             disassociateConfigurationItemsFromApplication
+--
+--         , requestAssociateConfigurationItemsToApplication $
+--             associateConfigurationItemsToApplication
+--
+--         , requestListServerNeighbors $
+--             listServerNeighbors
 --
 --           ]
 
@@ -76,8 +97,17 @@ import Test.AWS.Discovery.Internal
 --         , responseDeleteTags $
 --             deleteTagsResponse
 --
+--         , responseDeleteApplications $
+--             deleteApplicationsResponse
+--
+--         , responseUpdateApplication $
+--             updateApplicationResponse
+--
 --         , responseDescribeConfigurations $
 --             describeConfigurationsResponse
+--
+--         , responseCreateApplication $
+--             createApplicationResponse
 --
 --         , responseListConfigurations $
 --             listConfigurationsResponse
@@ -90,6 +120,18 @@ import Test.AWS.Discovery.Internal
 --
 --         , responseStartDataCollectionByAgentIds $
 --             startDataCollectionByAgentIdsResponse
+--
+--         , responseGetDiscoverySummary $
+--             getDiscoverySummaryResponse
+--
+--         , responseDisassociateConfigurationItemsFromApplication $
+--             disassociateConfigurationItemsFromApplicationResponse
+--
+--         , responseAssociateConfigurationItemsToApplication $
+--             associateConfigurationItemsToApplicationResponse
+--
+--         , responseListServerNeighbors $
+--             listServerNeighborsResponse
 --
 --           ]
 --     ]
@@ -121,10 +163,25 @@ requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
+requestDeleteApplications :: DeleteApplications -> TestTree
+requestDeleteApplications = req
+    "DeleteApplications"
+    "fixture/DeleteApplications.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication = req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
 requestDescribeConfigurations :: DescribeConfigurations -> TestTree
 requestDescribeConfigurations = req
     "DescribeConfigurations"
     "fixture/DescribeConfigurations.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication = req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
 
 requestListConfigurations :: ListConfigurations -> TestTree
 requestListConfigurations = req
@@ -145,6 +202,26 @@ requestStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTre
 requestStartDataCollectionByAgentIds = req
     "StartDataCollectionByAgentIds"
     "fixture/StartDataCollectionByAgentIds.yaml"
+
+requestGetDiscoverySummary :: GetDiscoverySummary -> TestTree
+requestGetDiscoverySummary = req
+    "GetDiscoverySummary"
+    "fixture/GetDiscoverySummary.yaml"
+
+requestDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplication -> TestTree
+requestDisassociateConfigurationItemsFromApplication = req
+    "DisassociateConfigurationItemsFromApplication"
+    "fixture/DisassociateConfigurationItemsFromApplication.yaml"
+
+requestAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplication -> TestTree
+requestAssociateConfigurationItemsToApplication = req
+    "AssociateConfigurationItemsToApplication"
+    "fixture/AssociateConfigurationItemsToApplication.yaml"
+
+requestListServerNeighbors :: ListServerNeighbors -> TestTree
+requestListServerNeighbors = req
+    "ListServerNeighbors"
+    "fixture/ListServerNeighbors.yaml"
 
 -- Responses
 
@@ -183,12 +260,33 @@ responseDeleteTags = res
     discovery
     (Proxy :: Proxy DeleteTags)
 
+responseDeleteApplications :: DeleteApplicationsResponse -> TestTree
+responseDeleteApplications = res
+    "DeleteApplicationsResponse"
+    "fixture/DeleteApplicationsResponse.proto"
+    discovery
+    (Proxy :: Proxy DeleteApplications)
+
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication = res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy UpdateApplication)
+
 responseDescribeConfigurations :: DescribeConfigurationsResponse -> TestTree
 responseDescribeConfigurations = res
     "DescribeConfigurationsResponse"
     "fixture/DescribeConfigurationsResponse.proto"
     discovery
     (Proxy :: Proxy DescribeConfigurations)
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication = res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy CreateApplication)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
 responseListConfigurations = res
@@ -217,3 +315,31 @@ responseStartDataCollectionByAgentIds = res
     "fixture/StartDataCollectionByAgentIdsResponse.proto"
     discovery
     (Proxy :: Proxy StartDataCollectionByAgentIds)
+
+responseGetDiscoverySummary :: GetDiscoverySummaryResponse -> TestTree
+responseGetDiscoverySummary = res
+    "GetDiscoverySummaryResponse"
+    "fixture/GetDiscoverySummaryResponse.proto"
+    discovery
+    (Proxy :: Proxy GetDiscoverySummary)
+
+responseDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplicationResponse -> TestTree
+responseDisassociateConfigurationItemsFromApplication = res
+    "DisassociateConfigurationItemsFromApplicationResponse"
+    "fixture/DisassociateConfigurationItemsFromApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy DisassociateConfigurationItemsFromApplication)
+
+responseAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplicationResponse -> TestTree
+responseAssociateConfigurationItemsToApplication = res
+    "AssociateConfigurationItemsToApplicationResponse"
+    "fixture/AssociateConfigurationItemsToApplicationResponse.proto"
+    discovery
+    (Proxy :: Proxy AssociateConfigurationItemsToApplication)
+
+responseListServerNeighbors :: ListServerNeighborsResponse -> TestTree
+responseListServerNeighbors = res
+    "ListServerNeighborsResponse"
+    "fixture/ListServerNeighborsResponse.proto"
+    discovery
+    (Proxy :: Proxy ListServerNeighbors)

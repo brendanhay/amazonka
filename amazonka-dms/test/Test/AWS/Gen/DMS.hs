@@ -118,6 +118,9 @@ import Test.AWS.DMS.Internal
 --         , requestStopReplicationTask $
 --             stopReplicationTask
 --
+--         , requestModifyReplicationTask $
+--             modifyReplicationTask
+--
 --         , requestCreateReplicationInstance $
 --             createReplicationInstance
 --
@@ -216,6 +219,9 @@ import Test.AWS.DMS.Internal
 --
 --         , responseStopReplicationTask $
 --             stopReplicationTaskResponse
+--
+--         , responseModifyReplicationTask $
+--             modifyReplicationTaskResponse
 --
 --         , responseCreateReplicationInstance $
 --             createReplicationInstanceResponse
@@ -377,6 +383,11 @@ requestStopReplicationTask :: StopReplicationTask -> TestTree
 requestStopReplicationTask = req
     "StopReplicationTask"
     "fixture/StopReplicationTask.yaml"
+
+requestModifyReplicationTask :: ModifyReplicationTask -> TestTree
+requestModifyReplicationTask = req
+    "ModifyReplicationTask"
+    "fixture/ModifyReplicationTask.yaml"
 
 requestCreateReplicationInstance :: CreateReplicationInstance -> TestTree
 requestCreateReplicationInstance = req
@@ -599,6 +610,13 @@ responseStopReplicationTask = res
     "fixture/StopReplicationTaskResponse.proto"
     dms
     (Proxy :: Proxy StopReplicationTask)
+
+responseModifyReplicationTask :: ModifyReplicationTaskResponse -> TestTree
+responseModifyReplicationTask = res
+    "ModifyReplicationTaskResponse"
+    "fixture/ModifyReplicationTaskResponse.proto"
+    dms
+    (Proxy :: Proxy ModifyReplicationTask)
 
 responseCreateReplicationInstance :: CreateReplicationInstanceResponse -> TestTree
 responseCreateReplicationInstance = res

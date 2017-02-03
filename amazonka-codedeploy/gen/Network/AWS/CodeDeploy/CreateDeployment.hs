@@ -28,6 +28,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , CreateDeployment
     -- * Request Lenses
     , cdDeploymentConfigName
+    , cdTargetInstances
     , cdRevision
     , cdDescription
     , cdAutoRollbackConfiguration
@@ -58,6 +59,7 @@ import           Network.AWS.Response
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
     { _cdDeploymentConfigName          :: !(Maybe Text)
+    , _cdTargetInstances               :: !(Maybe TargetInstances)
     , _cdRevision                      :: !(Maybe RevisionLocation)
     , _cdDescription                   :: !(Maybe Text)
     , _cdAutoRollbackConfiguration     :: !(Maybe AutoRollbackConfiguration)
@@ -72,6 +74,8 @@ data CreateDeployment = CreateDeployment'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
+--
+-- * 'cdTargetInstances' - Information about the instances that will belong to the replacement environment in a blue/green deployment.
 --
 -- * 'cdRevision' - The type and location of the revision to deploy.
 --
@@ -92,6 +96,7 @@ createDeployment
 createDeployment pApplicationName_ =
     CreateDeployment'
     { _cdDeploymentConfigName = Nothing
+    , _cdTargetInstances = Nothing
     , _cdRevision = Nothing
     , _cdDescription = Nothing
     , _cdAutoRollbackConfiguration = Nothing
@@ -104,6 +109,10 @@ createDeployment pApplicationName_ =
 -- | The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
 cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
 cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
+
+-- | Information about the instances that will belong to the replacement environment in a blue/green deployment.
+cdTargetInstances :: Lens' CreateDeployment (Maybe TargetInstances)
+cdTargetInstances = lens _cdTargetInstances (\ s a -> s{_cdTargetInstances = a});
 
 -- | The type and location of the revision to deploy.
 cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
@@ -162,6 +171,7 @@ instance ToJSON CreateDeployment where
               (catMaybes
                  [("deploymentConfigName" .=) <$>
                     _cdDeploymentConfigName,
+                  ("targetInstances" .=) <$> _cdTargetInstances,
                   ("revision" .=) <$> _cdRevision,
                   ("description" .=) <$> _cdDescription,
                   ("autoRollbackConfiguration" .=) <$>

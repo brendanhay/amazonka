@@ -46,11 +46,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for 'DescribeDeliveryStream' .
---
---
---
--- /See:/ 'describeDeliveryStream' smart constructor.
+-- | /See:/ 'describeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
     { _ddsExclusiveStartDestinationId :: !(Maybe Text)
     , _ddsLimit                       :: !(Maybe Nat)
@@ -61,7 +57,7 @@ data DescribeDeliveryStream = DescribeDeliveryStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddsExclusiveStartDestinationId' - Specifies the destination ID to start returning the destination information. Currently Firehose supports one destination per delivery stream.
+-- * 'ddsExclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream.
 --
 -- * 'ddsLimit' - The limit on the number of destinations to return. Currently, you can have one destination per delivery stream.
 --
@@ -76,7 +72,7 @@ describeDeliveryStream pDeliveryStreamName_ =
     , _ddsDeliveryStreamName = pDeliveryStreamName_
     }
 
--- | Specifies the destination ID to start returning the destination information. Currently Firehose supports one destination per delivery stream.
+-- | The ID of the destination to start returning the destination information. Currently Firehose supports one destination per delivery stream.
 ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
 ddsExclusiveStartDestinationId = lens _ddsExclusiveStartDestinationId (\ s a -> s{_ddsExclusiveStartDestinationId = a});
 
@@ -129,11 +125,7 @@ instance ToPath DescribeDeliveryStream where
 instance ToQuery DescribeDeliveryStream where
         toQuery = const mempty
 
--- | Contains the output of 'DescribeDeliveryStream' .
---
---
---
--- /See:/ 'describeDeliveryStreamResponse' smart constructor.
+-- | /See:/ 'describeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
     { _ddsrsResponseStatus            :: !Int
     , _ddsrsDeliveryStreamDescription :: !DeliveryStreamDescription

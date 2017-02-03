@@ -21,6 +21,8 @@
 -- Returns an array of @JobListEntry@ objects of the specified length. Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Snowball.ListJobs
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.Snowball.ListJobs
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
 -- | The number of @JobListEntry@ objects to return.
 ljMaxResults :: Lens' ListJobs (Maybe Natural)
 ljMaxResults = lens _ljMaxResults (\ s a -> s{_ljMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListJobs where
+        page rq rs
+          | stop (rs ^. ljrsNextToken) = Nothing
+          | stop (rs ^. ljrsJobListEntries) = Nothing
+          | otherwise =
+            Just $ rq & ljNextToken .~ rs ^. ljrsNextToken
 
 instance AWSRequest ListJobs where
         type Rs ListJobs = ListJobsResponse

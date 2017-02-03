@@ -68,6 +68,9 @@ module Network.AWS.CloudWatchLogs
     -- ** DescribeDestinations (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeDestinations
 
+    -- ** UntagLogGroup
+    , module Network.AWS.CloudWatchLogs.UntagLogGroup
+
     -- ** CreateExportTask
     , module Network.AWS.CloudWatchLogs.CreateExportTask
 
@@ -88,6 +91,9 @@ module Network.AWS.CloudWatchLogs
 
     -- ** FilterLogEvents (Paginated)
     , module Network.AWS.CloudWatchLogs.FilterLogEvents
+
+    -- ** TagLogGroup
+    , module Network.AWS.CloudWatchLogs.TagLogGroup
 
     -- ** DeleteLogStream
     , module Network.AWS.CloudWatchLogs.DeleteLogStream
@@ -137,10 +143,16 @@ module Network.AWS.CloudWatchLogs
     -- ** PutRetentionPolicy
     , module Network.AWS.CloudWatchLogs.PutRetentionPolicy
 
+    -- ** ListTagsLogGroup
+    , module Network.AWS.CloudWatchLogs.ListTagsLogGroup
+
     -- ** DescribeLogStreams (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeLogStreams
 
     -- * Types
+
+    -- ** Distribution
+    , Distribution (..)
 
     -- ** ExportTaskStatusCode
     , ExportTaskStatusCode (..)
@@ -269,6 +281,7 @@ module Network.AWS.CloudWatchLogs
     , subscriptionFilter
     , sfCreationTime
     , sfFilterName
+    , sfDistribution
     , sfDestinationARN
     , sfLogGroupName
     , sfFilterPattern
@@ -293,14 +306,17 @@ import           Network.AWS.CloudWatchLogs.DescribeMetricFilters
 import           Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 import           Network.AWS.CloudWatchLogs.FilterLogEvents
 import           Network.AWS.CloudWatchLogs.GetLogEvents
+import           Network.AWS.CloudWatchLogs.ListTagsLogGroup
 import           Network.AWS.CloudWatchLogs.PutDestination
 import           Network.AWS.CloudWatchLogs.PutDestinationPolicy
 import           Network.AWS.CloudWatchLogs.PutLogEvents
 import           Network.AWS.CloudWatchLogs.PutMetricFilter
 import           Network.AWS.CloudWatchLogs.PutRetentionPolicy
 import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+import           Network.AWS.CloudWatchLogs.TagLogGroup
 import           Network.AWS.CloudWatchLogs.TestMetricFilter
 import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.UntagLogGroup
 import           Network.AWS.CloudWatchLogs.Waiters
 
 {- $errors

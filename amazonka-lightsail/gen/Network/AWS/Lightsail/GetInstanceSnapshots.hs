@@ -21,6 +21,8 @@
 -- Returns all instance snapshots for the user's account.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetInstanceSnapshots
     (
     -- * Creating a Request
@@ -41,6 +43,7 @@ module Network.AWS.Lightsail.GetInstanceSnapshots
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -65,6 +68,13 @@ getInstanceSnapshots =
 -- | A token used for advancing to the next page of results from your get instance snapshots request.
 gisPageToken :: Lens' GetInstanceSnapshots (Maybe Text)
 gisPageToken = lens _gisPageToken (\ s a -> s{_gisPageToken = a});
+
+instance AWSPager GetInstanceSnapshots where
+        page rq rs
+          | stop (rs ^. gissrsNextPageToken) = Nothing
+          | stop (rs ^. gissrsInstanceSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & gisPageToken .~ rs ^. gissrsNextPageToken
 
 instance AWSRequest GetInstanceSnapshots where
         type Rs GetInstanceSnapshots =

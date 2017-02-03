@@ -121,6 +121,7 @@ data Certificate = Certificate'
     , _cCertificateARN          :: !(Maybe Text)
     , _cCertificateCreationDate :: !(Maybe POSIX)
     , _cCertificateIdentifier   :: !(Maybe Text)
+    , _cCertificateWallet       :: !(Maybe Base64)
     , _cKeyLength               :: !(Maybe Int)
     , _cValidToDate             :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -133,19 +134,21 @@ data Certificate = Certificate'
 --
 -- * 'cSigningAlgorithm' - The signing algorithm for the certificate.
 --
--- * 'cValidFromDate' - The beginning date the certificate is valid.
+-- * 'cValidFromDate' - The beginning date that the certificate is valid.
 --
--- * 'cCertificatePem' - The contents of the .pem X.509 certificate file.
+-- * 'cCertificatePem' - The contents of the .pem X.509 certificate file for the certificate.
 --
 -- * 'cCertificateARN' - The Amazon Resource Name (ARN) for the certificate.
 --
--- * 'cCertificateCreationDate' - the date the certificate was created.
+-- * 'cCertificateCreationDate' - The date that the certificate was created.
 --
--- * 'cCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
+-- * 'cCertificateIdentifier' - The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
+--
+-- * 'cCertificateWallet' - The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'cKeyLength' - The key length of the cryptographic algorithm being used.
 --
--- * 'cValidToDate' - the final date the certificate is valid.
+-- * 'cValidToDate' - The final date that the certificate is valid.
 certificate
     :: Certificate
 certificate =
@@ -157,6 +160,7 @@ certificate =
     , _cCertificateARN = Nothing
     , _cCertificateCreationDate = Nothing
     , _cCertificateIdentifier = Nothing
+    , _cCertificateWallet = Nothing
     , _cKeyLength = Nothing
     , _cValidToDate = Nothing
     }
@@ -169,11 +173,11 @@ cCertificateOwner = lens _cCertificateOwner (\ s a -> s{_cCertificateOwner = a})
 cSigningAlgorithm :: Lens' Certificate (Maybe Text)
 cSigningAlgorithm = lens _cSigningAlgorithm (\ s a -> s{_cSigningAlgorithm = a});
 
--- | The beginning date the certificate is valid.
+-- | The beginning date that the certificate is valid.
 cValidFromDate :: Lens' Certificate (Maybe UTCTime)
 cValidFromDate = lens _cValidFromDate (\ s a -> s{_cValidFromDate = a}) . mapping _Time;
 
--- | The contents of the .pem X.509 certificate file.
+-- | The contents of the .pem X.509 certificate file for the certificate.
 cCertificatePem :: Lens' Certificate (Maybe Text)
 cCertificatePem = lens _cCertificatePem (\ s a -> s{_cCertificatePem = a});
 
@@ -181,19 +185,23 @@ cCertificatePem = lens _cCertificatePem (\ s a -> s{_cCertificatePem = a});
 cCertificateARN :: Lens' Certificate (Maybe Text)
 cCertificateARN = lens _cCertificateARN (\ s a -> s{_cCertificateARN = a});
 
--- | the date the certificate was created.
+-- | The date that the certificate was created.
 cCertificateCreationDate :: Lens' Certificate (Maybe UTCTime)
 cCertificateCreationDate = lens _cCertificateCreationDate (\ s a -> s{_cCertificateCreationDate = a}) . mapping _Time;
 
--- | The customer-assigned name of the certificate. Valid characters are [A-z_0-9].
+-- | The customer-assigned name of the certificate. Valid characters are A-z and 0-9.
 cCertificateIdentifier :: Lens' Certificate (Maybe Text)
 cCertificateIdentifier = lens _cCertificateIdentifier (\ s a -> s{_cCertificateIdentifier = a});
+
+-- | The location of the imported Oracle Wallet certificate for use with SSL.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+cCertificateWallet :: Lens' Certificate (Maybe ByteString)
+cCertificateWallet = lens _cCertificateWallet (\ s a -> s{_cCertificateWallet = a}) . mapping _Base64;
 
 -- | The key length of the cryptographic algorithm being used.
 cKeyLength :: Lens' Certificate (Maybe Int)
 cKeyLength = lens _cKeyLength (\ s a -> s{_cKeyLength = a});
 
--- | the final date the certificate is valid.
+-- | The final date that the certificate is valid.
 cValidToDate :: Lens' Certificate (Maybe UTCTime)
 cValidToDate = lens _cValidToDate (\ s a -> s{_cValidToDate = a}) . mapping _Time;
 
@@ -209,6 +217,7 @@ instance FromJSON Certificate where
                      <*> (x .:? "CertificateArn")
                      <*> (x .:? "CertificateCreationDate")
                      <*> (x .:? "CertificateIdentifier")
+                     <*> (x .:? "CertificateWallet")
                      <*> (x .:? "KeyLength")
                      <*> (x .:? "ValidToDate"))
 
@@ -333,7 +342,7 @@ data Endpoint = Endpoint'
 --
 -- * 'eUsername' - The user name used to connect to the endpoint.
 --
--- * 'eEngineName' - The database engine name.
+-- * 'eEngineName' - The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 --
 -- * 'eKMSKeyId' - The KMS key identifier that will be used to encrypt the connection parameters. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
 --
@@ -389,7 +398,7 @@ eEndpointType = lens _eEndpointType (\ s a -> s{_eEndpointType = a});
 eUsername :: Lens' Endpoint (Maybe Text)
 eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
 
--- | The database engine name.
+-- | The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 eEngineName :: Lens' Endpoint (Maybe Text)
 eEngineName = lens _eEngineName (\ s a -> s{_eEngineName = a});
 
@@ -665,6 +674,7 @@ data ReplicationInstance = ReplicationInstance'
     , _riAvailabilityZone                      :: !(Maybe Text)
     , _riVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
     , _riMultiAZ                               :: !(Maybe Bool)
+    , _riSecondaryAvailabilityZone             :: !(Maybe Text)
     , _riReplicationInstanceARN                :: !(Maybe Text)
     , _riAllocatedStorage                      :: !(Maybe Int)
     , _riReplicationInstancePublicIPAddress    :: !(Maybe Text)
@@ -705,6 +715,8 @@ data ReplicationInstance = ReplicationInstance'
 --
 -- * 'riMultiAZ' - Specifies if the replication instance is a Multi-AZ deployment. You cannot set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 --
+-- * 'riSecondaryAvailabilityZone' - The availability zone of the standby replication instance in a Multi-AZ deployment.
+--
 -- * 'riReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
 --
 -- * 'riAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
@@ -734,6 +746,7 @@ replicationInstance =
     , _riAvailabilityZone = Nothing
     , _riVPCSecurityGroups = Nothing
     , _riMultiAZ = Nothing
+    , _riSecondaryAvailabilityZone = Nothing
     , _riReplicationInstanceARN = Nothing
     , _riAllocatedStorage = Nothing
     , _riReplicationInstancePublicIPAddress = Nothing
@@ -798,6 +811,10 @@ riVPCSecurityGroups = lens _riVPCSecurityGroups (\ s a -> s{_riVPCSecurityGroups
 riMultiAZ :: Lens' ReplicationInstance (Maybe Bool)
 riMultiAZ = lens _riMultiAZ (\ s a -> s{_riMultiAZ = a});
 
+-- | The availability zone of the standby replication instance in a Multi-AZ deployment.
+riSecondaryAvailabilityZone :: Lens' ReplicationInstance (Maybe Text)
+riSecondaryAvailabilityZone = lens _riSecondaryAvailabilityZone (\ s a -> s{_riSecondaryAvailabilityZone = a});
+
 -- | The Amazon Resource Name (ARN) of the replication instance.
 riReplicationInstanceARN :: Lens' ReplicationInstance (Maybe Text)
 riReplicationInstanceARN = lens _riReplicationInstanceARN (\ s a -> s{_riReplicationInstanceARN = a});
@@ -845,6 +862,7 @@ instance FromJSON ReplicationInstance where
                      <*> (x .:? "AvailabilityZone")
                      <*> (x .:? "VpcSecurityGroups" .!= mempty)
                      <*> (x .:? "MultiAZ")
+                     <*> (x .:? "SecondaryAvailabilityZone")
                      <*> (x .:? "ReplicationInstanceArn")
                      <*> (x .:? "AllocatedStorage")
                      <*> (x .:? "ReplicationInstancePublicIpAddress")
@@ -998,6 +1016,7 @@ instance NFData ReplicationSubnetGroup
 data ReplicationTask = ReplicationTask'
     { _rtReplicationTaskSettings     :: !(Maybe Text)
     , _rtStatus                      :: !(Maybe Text)
+    , _rtStopReason                  :: !(Maybe Text)
     , _rtTargetEndpointARN           :: !(Maybe Text)
     , _rtReplicationTaskIdentifier   :: !(Maybe Text)
     , _rtReplicationTaskStartDate    :: !(Maybe POSIX)
@@ -1018,6 +1037,8 @@ data ReplicationTask = ReplicationTask'
 -- * 'rtReplicationTaskSettings' - The settings for the replication task.
 --
 -- * 'rtStatus' - The status of the replication task.
+--
+-- * 'rtStopReason' - The reason the replication task was stopped.
 --
 -- * 'rtTargetEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
@@ -1046,6 +1067,7 @@ replicationTask =
     ReplicationTask'
     { _rtReplicationTaskSettings = Nothing
     , _rtStatus = Nothing
+    , _rtStopReason = Nothing
     , _rtTargetEndpointARN = Nothing
     , _rtReplicationTaskIdentifier = Nothing
     , _rtReplicationTaskStartDate = Nothing
@@ -1066,6 +1088,10 @@ rtReplicationTaskSettings = lens _rtReplicationTaskSettings (\ s a -> s{_rtRepli
 -- | The status of the replication task.
 rtStatus :: Lens' ReplicationTask (Maybe Text)
 rtStatus = lens _rtStatus (\ s a -> s{_rtStatus = a});
+
+-- | The reason the replication task was stopped.
+rtStopReason :: Lens' ReplicationTask (Maybe Text)
+rtStopReason = lens _rtStopReason (\ s a -> s{_rtStopReason = a});
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 rtTargetEndpointARN :: Lens' ReplicationTask (Maybe Text)
@@ -1118,6 +1144,7 @@ instance FromJSON ReplicationTask where
                  ReplicationTask' <$>
                    (x .:? "ReplicationTaskSettings") <*>
                      (x .:? "Status")
+                     <*> (x .:? "StopReason")
                      <*> (x .:? "TargetEndpointArn")
                      <*> (x .:? "ReplicationTaskIdentifier")
                      <*> (x .:? "ReplicationTaskStartDate")
@@ -1285,7 +1312,7 @@ data SupportedEndpointType = SupportedEndpointType'
 --
 -- * 'setEndpointType' - The type of endpoint.
 --
--- * 'setEngineName' - The database engine name.
+-- * 'setEngineName' - The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 --
 -- * 'setSupportsCDC' - Indicates if Change Data Capture (CDC) is supported.
 supportedEndpointType
@@ -1301,7 +1328,7 @@ supportedEndpointType =
 setEndpointType :: Lens' SupportedEndpointType (Maybe ReplicationEndpointTypeValue)
 setEndpointType = lens _setEndpointType (\ s a -> s{_setEndpointType = a});
 
--- | The database engine name.
+-- | The database engine name. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 setEngineName :: Lens' SupportedEndpointType (Maybe Text)
 setEngineName = lens _setEngineName (\ s a -> s{_setEngineName = a});
 

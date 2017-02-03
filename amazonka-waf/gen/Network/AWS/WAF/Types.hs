@@ -386,6 +386,8 @@ _WAFNonexistentItemException =
 --
 --     * You tried to update a @ByteMatchSet@ with a @Field@ of @HEADER@ but no value for @Data@ .
 --
+--     * Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL cannot be associated.
+--
 --
 --
 _WAFInvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError

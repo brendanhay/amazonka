@@ -58,9 +58,9 @@ data ResyncMFADevice = ResyncMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmdUserName' - The name of the user whose MFA device you want to resynchronize. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rmdUserName' - The name of the user whose MFA device you want to resynchronize. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rmdSerialNumber' - Serial number that uniquely identifies the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rmdSerialNumber' - Serial number that uniquely identifies the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- * 'rmdAuthenticationCode1' - An authentication code emitted by the device. The format for this parameter is a sequence of six digits.
 --
@@ -79,11 +79,11 @@ resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationC
     , _rmdAuthenticationCode2 = pAuthenticationCode2_
     }
 
--- | The name of the user whose MFA device you want to resynchronize. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose MFA device you want to resynchronize. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rmdUserName :: Lens' ResyncMFADevice Text
 rmdUserName = lens _rmdUserName (\ s a -> s{_rmdUserName = a});
 
--- | Serial number that uniquely identifies the MFA device. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | Serial number that uniquely identifies the MFA device. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rmdSerialNumber :: Lens' ResyncMFADevice Text
 rmdSerialNumber = lens _rmdSerialNumber (\ s a -> s{_rmdSerialNumber = a});
 

@@ -25,6 +25,34 @@
 --
 -- /Important:/ The source DB instance must have backup retention enabled.
 --
+-- You can create an encrypted Read Replica in a different AWS Region than the source DB instance. In that case, the region where you call the @CreateDBInstanceReadReplica@ action is the destination region of the encrypted Read Replica. The source DB instance must be encrypted.
+--
+-- To create an encrypted Read Replica in another AWS Region, you must provide the following values:
+--
+--     * @KmsKeyId@ - The AWS Key Management System (KMS) key identifier for the key to use to encrypt the Read Replica in the destination region.
+--
+--     * @PreSignedUrl@ - A URL that contains a Signature Version 4 signed request for the @CreateDBInstanceReadReplica@ API action in the AWS region that contains the source DB instance. The @PreSignedUrl@ parameter must be used when encrypting a Read Replica from another AWS region.
+--
+-- The presigned URL must be a valid request for the @CreateDBInstanceReadReplica@ API action that can be executed in the source region that contains the encrypted DB instance. The presigned URL request must contain the following parameter values:
+--
+--     * @DestinationRegion@ - The AWS Region that the Read Replica is created in. This region is the same one where the @CreateDBInstanceReadReplica@ action is called that contains this presigned URL.
+--
+-- For example, if you create an encrypted Read Replica in the us-east-1 region, and the source DB instance is in the west-2 region, then you call the @CreateDBInstanceReadReplica@ action in the us-east-1 region and provide a presigned URL that contains a call to the @CreateDBInstanceReadReplica@ action in the us-west-2 region. For this example, the @DestinationRegion@ in the presigned URL must be set to the us-east-1 region.
+--
+--     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the Read Replica in the destination region. This is the same identifier for both the @CreateDBInstanceReadReplica@ action that is called in the destination region, and the action contained in the presigned URL.
+--
+--     * @SourceDBInstanceIdentifier@ - The DB instance identifier for the encrypted Read Replica to be created. This identifier must be in the Amazon Resource Name (ARN) format for the source region. For example, if you create an encrypted Read Replica from a DB instance in the us-west-2 region, then your @SourceDBInstanceIdentifier@ would look like this example: @arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-instance-20161115@ .
+--
+--
+--
+-- To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+--
+--     * @DBInstanceIdentifier@ - The identifier for the encrypted Read Replica in the destination region.
+--
+--     * @SourceDBInstanceIdentifier@ - The DB instance identifier for the encrypted Read Replica. This identifier must be in the ARN format for the source region and is the same value as the @SourceDBInstanceIdentifier@ in the presigned URL.
+--
+--
+--
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Creating a Request
@@ -37,7 +65,9 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrMonitoringRoleARN
     , cdirrIOPS
     , cdirrMonitoringInterval
+    , cdirrPreSignedURL
     , cdirrDBInstanceClass
+    , cdirrKMSKeyId
     , cdirrAvailabilityZone
     , cdirrOptionGroupName
     , cdirrCopyTagsToSnapshot
@@ -70,7 +100,9 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     , _cdirrMonitoringRoleARN          :: !(Maybe Text)
     , _cdirrIOPS                       :: !(Maybe Int)
     , _cdirrMonitoringInterval         :: !(Maybe Int)
+    , _cdirrPreSignedURL               :: !(Maybe Text)
     , _cdirrDBInstanceClass            :: !(Maybe Text)
+    , _cdirrKMSKeyId                   :: !(Maybe Text)
     , _cdirrAvailabilityZone           :: !(Maybe Text)
     , _cdirrOptionGroupName            :: !(Maybe Text)
     , _cdirrCopyTagsToSnapshot         :: !(Maybe Bool)
@@ -97,7 +129,11 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- * 'cdirrMonitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
 --
--- * 'cdirrDBInstanceClass' - The compute and memory capacity of the Read Replica. Valid Values: @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: Inherits from the source DB instance.
+-- * 'cdirrPreSignedURL' - The URL that contains a Signature Version 4 signed request for the @CreateDBInstanceReadReplica@ API action in the AWS region that contains the source DB instance. The @PreSignedUrl@ parameter must be used when encrypting a Read Replica from another AWS region. The presigned URL must be a valid request for the @CreateDBInstanceReadReplica@ API action that can be executed in the source region that contains the encrypted DB instance. The presigned URL request must contain the following parameter values:     * @DestinationRegion@ - The AWS Region that the Read Replica is created in. This region is the same one where the @CreateDBInstanceReadReplica@ action is called that contains this presigned URL.  For example, if you create an encrypted Read Replica in the us-east-1 region, and the source DB instance is in the west-2 region, then you call the @CreateDBInstanceReadReplica@ action in the us-east-1 region and provide a presigned URL that contains a call to the @CreateDBInstanceReadReplica@ action in the us-west-2 region. For this example, the @DestinationRegion@ in the presigned URL must be set to the us-east-1 region.     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the Read Replica in the destination region. This is the same identifier for both the @CreateDBInstanceReadReplica@ action that is called in the destination region, and the action contained in the presigned URL.     * @SourceDBInstanceIdentifier@ - The DB instance identifier for the encrypted Read Replica to be created. This identifier must be in the Amazon Resource Name (ARN) format for the source region. For example, if you create an encrypted Read Replica from a DB instance in the us-west-2 region, then your @SourceDBInstanceIdentifier@ would look like this example: @arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-instance-20161115@ . To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+--
+-- * 'cdirrDBInstanceClass' - The compute and memory capacity of the Read Replica. Note that not all instance classes are available in all regions for all DB engines. Valid Values: @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: Inherits from the source DB instance.
+--
+-- * 'cdirrKMSKeyId' - The AWS KMS key ID for an encrypted Read Replica. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.  If you create an unencrypted Read Replica and specify a value for the @KmsKeyId@ parameter, Amazon RDS encrypts the target Read Replica using the specified KMS encryption key.  If you create an encrypted Read Replica from your AWS account, you can specify a value for @KmsKeyId@ to encrypt the Read Replica with a new KMS encryption key. If you don't specify a value for @KmsKeyId@ , then the Read Replica is encrypted with the same KMS key as the source DB instance.  If you create an encrypted Read Replica in a different AWS region, then you must specify a KMS key for the destination AWS region. KMS encryption keys are specific to the region that they are created in, and you cannot use encryption keys from one region in another region.
 --
 -- * 'cdirrAvailabilityZone' - The Amazon EC2 Availability Zone that the Read Replica will be created in. Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@
 --
@@ -113,7 +149,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- * 'cdirrDBInstanceIdentifier' - The DB instance identifier of the Read Replica. This identifier is the unique key that identifies a DB instance. This parameter is stored as a lowercase string.
 --
--- * 'cdirrSourceDBInstanceIdentifier' - The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas. Constraints:     * Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.     * Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.     * Can specify a DB instance that is a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5.     * The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.     * If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.     * If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)> .
+-- * 'cdirrSourceDBInstanceIdentifier' - The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas. Constraints:     * Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.     * Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.     * Can specify a DB instance that is a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or later.     * The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.     * If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.     * If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)> .
 createDBInstanceReadReplica
     :: Text -- ^ 'cdirrDBInstanceIdentifier'
     -> Text -- ^ 'cdirrSourceDBInstanceIdentifier'
@@ -126,7 +162,9 @@ createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ 
     , _cdirrMonitoringRoleARN = Nothing
     , _cdirrIOPS = Nothing
     , _cdirrMonitoringInterval = Nothing
+    , _cdirrPreSignedURL = Nothing
     , _cdirrDBInstanceClass = Nothing
+    , _cdirrKMSKeyId = Nothing
     , _cdirrAvailabilityZone = Nothing
     , _cdirrOptionGroupName = Nothing
     , _cdirrCopyTagsToSnapshot = Nothing
@@ -161,9 +199,17 @@ cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 cdirrMonitoringInterval :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdirrMonitoringInterval = lens _cdirrMonitoringInterval (\ s a -> s{_cdirrMonitoringInterval = a});
 
--- | The compute and memory capacity of the Read Replica. Valid Values: @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: Inherits from the source DB instance.
+-- | The URL that contains a Signature Version 4 signed request for the @CreateDBInstanceReadReplica@ API action in the AWS region that contains the source DB instance. The @PreSignedUrl@ parameter must be used when encrypting a Read Replica from another AWS region. The presigned URL must be a valid request for the @CreateDBInstanceReadReplica@ API action that can be executed in the source region that contains the encrypted DB instance. The presigned URL request must contain the following parameter values:     * @DestinationRegion@ - The AWS Region that the Read Replica is created in. This region is the same one where the @CreateDBInstanceReadReplica@ action is called that contains this presigned URL.  For example, if you create an encrypted Read Replica in the us-east-1 region, and the source DB instance is in the west-2 region, then you call the @CreateDBInstanceReadReplica@ action in the us-east-1 region and provide a presigned URL that contains a call to the @CreateDBInstanceReadReplica@ action in the us-west-2 region. For this example, the @DestinationRegion@ in the presigned URL must be set to the us-east-1 region.     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the Read Replica in the destination region. This is the same identifier for both the @CreateDBInstanceReadReplica@ action that is called in the destination region, and the action contained in the presigned URL.     * @SourceDBInstanceIdentifier@ - The DB instance identifier for the encrypted Read Replica to be created. This identifier must be in the Amazon Resource Name (ARN) format for the source region. For example, if you create an encrypted Read Replica from a DB instance in the us-west-2 region, then your @SourceDBInstanceIdentifier@ would look like this example: @arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-instance-20161115@ . To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+cdirrPreSignedURL :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrPreSignedURL = lens _cdirrPreSignedURL (\ s a -> s{_cdirrPreSignedURL = a});
+
+-- | The compute and memory capacity of the Read Replica. Note that not all instance classes are available in all regions for all DB engines. Valid Values: @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large@  Default: Inherits from the source DB instance.
 cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceClass = a});
+
+-- | The AWS KMS key ID for an encrypted Read Replica. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.  If you create an unencrypted Read Replica and specify a value for the @KmsKeyId@ parameter, Amazon RDS encrypts the target Read Replica using the specified KMS encryption key.  If you create an encrypted Read Replica from your AWS account, you can specify a value for @KmsKeyId@ to encrypt the Read Replica with a new KMS encryption key. If you don't specify a value for @KmsKeyId@ , then the Read Replica is encrypted with the same KMS key as the source DB instance.  If you create an encrypted Read Replica in a different AWS region, then you must specify a KMS key for the destination AWS region. KMS encryption keys are specific to the region that they are created in, and you cannot use encryption keys from one region in another region.
+cdirrKMSKeyId :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrKMSKeyId = lens _cdirrKMSKeyId (\ s a -> s{_cdirrKMSKeyId = a});
 
 -- | The Amazon EC2 Availability Zone that the Read Replica will be created in. Default: A random, system-chosen Availability Zone in the endpoint's region. Example: @us-east-1d@
 cdirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
@@ -193,7 +239,7 @@ cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
 cdirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDBInstanceIdentifier = a});
 
--- | The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas. Constraints:     * Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.     * Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.     * Can specify a DB instance that is a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5.     * The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.     * If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.     * If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)> .
+-- | The identifier of the DB instance that will act as the source for the Read Replica. Each DB instance can have up to five Read Replicas. Constraints:     * Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.     * Can specify a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.     * Can specify a DB instance that is a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5 or later.     * The specified DB instance must have automatic backups enabled, its backup retention period must be greater than 0.     * If the source DB instance is in the same region as the Read Replica, specify a valid DB instance identifier.     * If the source DB instance is in a different region than the Read Replica, specify a valid DB instance ARN. For more information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing a Amazon RDS Amazon Resource Name (ARN)> .
 cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
 cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 
@@ -231,7 +277,9 @@ instance ToQuery CreateDBInstanceReadReplica where
                "MonitoringRoleArn" =: _cdirrMonitoringRoleARN,
                "Iops" =: _cdirrIOPS,
                "MonitoringInterval" =: _cdirrMonitoringInterval,
+               "PreSignedUrl" =: _cdirrPreSignedURL,
                "DBInstanceClass" =: _cdirrDBInstanceClass,
+               "KmsKeyId" =: _cdirrKMSKeyId,
                "AvailabilityZone" =: _cdirrAvailabilityZone,
                "OptionGroupName" =: _cdirrOptionGroupName,
                "CopyTagsToSnapshot" =: _cdirrCopyTagsToSnapshot,

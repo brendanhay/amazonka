@@ -207,7 +207,7 @@ instance Hashable ComplianceContributorCount
 
 instance NFData ComplianceContributorCount
 
--- | The number of AWS Config rules or AWS resources that are compliant and noncompliant, up to a maximum.
+-- | The number of AWS Config rules or AWS resources that are compliant and noncompliant.
 --
 --
 --
@@ -1292,7 +1292,7 @@ data Evaluation = Evaluation'
 --
 -- * 'eComplianceType' - Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against. For the @Evaluation@ data type, AWS Config supports only the @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ values. AWS Config does not support the @INSUFFICIENT_DATA@ value for this data type. Similarly, AWS Config does not accept @INSUFFICIENT_DATA@ as the value for @ComplianceType@ from a @PutEvaluations@ request. For example, an AWS Lambda function for a custom Config rule cannot pass an @INSUFFICIENT_DATA@ value to AWS Config.
 --
--- * 'eOrderingTimestamp' - The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config delivered the configuration snapshot that triggered the evaluation.
+-- * 'eOrderingTimestamp' - The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
 evaluation
     :: Text -- ^ 'eComplianceResourceType'
     -> Text -- ^ 'eComplianceResourceId'
@@ -1324,7 +1324,7 @@ eComplianceResourceId = lens _eComplianceResourceId (\ s a -> s{_eComplianceReso
 eComplianceType :: Lens' Evaluation ComplianceType
 eComplianceType = lens _eComplianceType (\ s a -> s{_eComplianceType = a});
 
--- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config delivered the configuration snapshot that triggered the evaluation.
+-- | The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours).
 eOrderingTimestamp :: Lens' Evaluation UTCTime
 eOrderingTimestamp = lens _eOrderingTimestamp (\ s a -> s{_eOrderingTimestamp = a}) . _Time;
 
@@ -1816,48 +1816,50 @@ instance ToJSON Scope where
 --
 -- /See:/ 'source' smart constructor.
 data Source = Source'
-    { _sSourceIdentifier :: !(Maybe Text)
-    , _sOwner            :: !(Maybe Owner)
-    , _sSourceDetails    :: !(Maybe [SourceDetail])
+    { _sSourceDetails    :: !(Maybe [SourceDetail])
+    , _sOwner            :: !Owner
+    , _sSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
+-- * 'sSourceDetails' - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 --
 -- * 'sOwner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
 --
--- * 'sSourceDetails' - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
+-- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
 source
-    :: Source
-source =
+    :: Owner -- ^ 'sOwner'
+    -> Text -- ^ 'sSourceIdentifier'
+    -> Source
+source pOwner_ pSourceIdentifier_ =
     Source'
-    { _sSourceIdentifier = Nothing
-    , _sOwner = Nothing
-    , _sSourceDetails = Nothing
+    { _sSourceDetails = Nothing
+    , _sOwner = pOwner_
+    , _sSourceIdentifier = pSourceIdentifier_
     }
-
--- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
-sSourceIdentifier :: Lens' Source (Maybe Text)
-sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
-
--- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
-sOwner :: Lens' Source (Maybe Owner)
-sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
 
 -- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 sSourceDetails :: Lens' Source [SourceDetail]
 sSourceDetails = lens _sSourceDetails (\ s a -> s{_sSourceDetails = a}) . _Default . _Coerce;
+
+-- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
+sOwner :: Lens' Source Owner
+sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
+
+-- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
+sSourceIdentifier :: Lens' Source Text
+sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
 
 instance FromJSON Source where
         parseJSON
           = withObject "Source"
               (\ x ->
                  Source' <$>
-                   (x .:? "SourceIdentifier") <*> (x .:? "Owner") <*>
-                     (x .:? "SourceDetails" .!= mempty))
+                   (x .:? "SourceDetails" .!= mempty) <*> (x .: "Owner")
+                     <*> (x .: "SourceIdentifier"))
 
 instance Hashable Source
 
@@ -1867,9 +1869,9 @@ instance ToJSON Source where
         toJSON Source'{..}
           = object
               (catMaybes
-                 [("SourceIdentifier" .=) <$> _sSourceIdentifier,
-                  ("Owner" .=) <$> _sOwner,
-                  ("SourceDetails" .=) <$> _sSourceDetails])
+                 [("SourceDetails" .=) <$> _sSourceDetails,
+                  Just ("Owner" .= _sOwner),
+                  Just ("SourceIdentifier" .= _sSourceIdentifier)])
 
 -- | Provides the source and the message types that trigger AWS Config to evaluate your AWS resources against a rule. It also provides the frequency with which you want AWS Config to run evaluations for the rule if the trigger type is periodic. You can specify the parameter values for @SourceDetail@ only for custom rules.
 --
@@ -1886,7 +1888,7 @@ data SourceDetail = SourceDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdMessageType' - The type of notification that triggers AWS Config to run an evaluation. You can specify the following notification types: @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item change notification. @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ . @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
+-- * 'sdMessageType' - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .     * @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot. If you want your custom rule to be triggered by configuration changes, specify both @ConfigurationItemChangeNotification@ and @OversizedConfigurationItemChangeNotification@ .
 --
 -- * 'sdMaximumExecutionFrequency' - The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
 --
@@ -1900,7 +1902,7 @@ sourceDetail =
     , _sdEventSource = Nothing
     }
 
--- | The type of notification that triggers AWS Config to run an evaluation. You can specify the following notification types: @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item change notification. @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ . @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
+-- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .     * @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot. If you want your custom rule to be triggered by configuration changes, specify both @ConfigurationItemChangeNotification@ and @OversizedConfigurationItemChangeNotification@ .
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
 sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
 

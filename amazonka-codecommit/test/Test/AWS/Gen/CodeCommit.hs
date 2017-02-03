@@ -37,6 +37,9 @@ import Test.AWS.CodeCommit.Internal
 --         , requestGetBranch $
 --             getBranch
 --
+--         , requestGetDifferences $
+--             getDifferences
+--
 --         , requestUpdateRepositoryDescription $
 --             updateRepositoryDescription
 --
@@ -64,6 +67,9 @@ import Test.AWS.CodeCommit.Internal
 --         , requestTestRepositoryTriggers $
 --             testRepositoryTriggers
 --
+--         , requestGetBlob $
+--             getBlob
+--
 --         , requestPutRepositoryTriggers $
 --             putRepositoryTriggers
 --
@@ -84,6 +90,9 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , responseGetBranch $
 --             getBranchResponse
+--
+--         , responseGetDifferences $
+--             getDifferencesResponse
 --
 --         , responseUpdateRepositoryDescription $
 --             updateRepositoryDescriptionResponse
@@ -111,6 +120,9 @@ import Test.AWS.CodeCommit.Internal
 --
 --         , responseTestRepositoryTriggers $
 --             testRepositoryTriggersResponse
+--
+--         , responseGetBlob $
+--             getBlobResponse
 --
 --         , responsePutRepositoryTriggers $
 --             putRepositoryTriggersResponse
@@ -140,6 +152,11 @@ requestGetBranch :: GetBranch -> TestTree
 requestGetBranch = req
     "GetBranch"
     "fixture/GetBranch.yaml"
+
+requestGetDifferences :: GetDifferences -> TestTree
+requestGetDifferences = req
+    "GetDifferences"
+    "fixture/GetDifferences.yaml"
 
 requestUpdateRepositoryDescription :: UpdateRepositoryDescription -> TestTree
 requestUpdateRepositoryDescription = req
@@ -186,6 +203,11 @@ requestTestRepositoryTriggers = req
     "TestRepositoryTriggers"
     "fixture/TestRepositoryTriggers.yaml"
 
+requestGetBlob :: GetBlob -> TestTree
+requestGetBlob = req
+    "GetBlob"
+    "fixture/GetBlob.yaml"
+
 requestPutRepositoryTriggers :: PutRepositoryTriggers -> TestTree
 requestPutRepositoryTriggers = req
     "PutRepositoryTriggers"
@@ -223,6 +245,13 @@ responseGetBranch = res
     "fixture/GetBranchResponse.proto"
     codeCommit
     (Proxy :: Proxy GetBranch)
+
+responseGetDifferences :: GetDifferencesResponse -> TestTree
+responseGetDifferences = res
+    "GetDifferencesResponse"
+    "fixture/GetDifferencesResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetDifferences)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
 responseUpdateRepositoryDescription = res
@@ -286,6 +315,13 @@ responseTestRepositoryTriggers = res
     "fixture/TestRepositoryTriggersResponse.proto"
     codeCommit
     (Proxy :: Proxy TestRepositoryTriggers)
+
+responseGetBlob :: GetBlobResponse -> TestTree
+responseGetBlob = res
+    "GetBlobResponse"
+    "fixture/GetBlobResponse.proto"
+    codeCommit
+    (Proxy :: Proxy GetBlob)
 
 responsePutRepositoryTriggers :: PutRepositoryTriggersResponse -> TestTree
 responsePutRepositoryTriggers = res

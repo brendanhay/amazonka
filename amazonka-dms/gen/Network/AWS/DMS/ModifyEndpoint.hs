@@ -89,7 +89,7 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- * 'meUsername' - The user name to be used to login to the endpoint database.
 --
--- * 'meEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
+-- * 'meEngineName' - The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 --
 -- * 'meSSLMode' - The SSL mode to be used. SSL mode can be one of four values: none, require, verify-ca, verify-full.  The default value is none.
 --
@@ -141,7 +141,7 @@ meEndpointType = lens _meEndpointType (\ s a -> s{_meEndpointType = a});
 meUsername :: Lens' ModifyEndpoint (Maybe Text)
 meUsername = lens _meUsername (\ s a -> s{_meUsername = a});
 
--- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, and SQLSERVER.
+-- | The type of engine for the endpoint. Valid values include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, SYBASE, and SQLSERVER.
 meEngineName :: Lens' ModifyEndpoint (Maybe Text)
 meEngineName = lens _meEngineName (\ s a -> s{_meEngineName = a});
 

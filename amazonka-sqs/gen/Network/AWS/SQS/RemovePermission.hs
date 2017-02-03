@@ -56,9 +56,9 @@ data RemovePermission = RemovePermission'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpQueueURL' - The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- * 'rpQueueURL' - The URL of the Amazon SQS queue from which permissions are removed. Queue URLs are case-sensitive.
 --
--- * 'rpLabel' - The identification of the permission to remove. This is the label added with the 'AddPermission' action.
+-- * 'rpLabel' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 removePermission
     :: Text -- ^ 'rpQueueURL'
     -> Text -- ^ 'rpLabel'
@@ -69,11 +69,11 @@ removePermission pQueueURL_ pLabel_ =
     , _rpLabel = pLabel_
     }
 
--- | The URL of the Amazon SQS queue to take action on. Queue URLs are case-sensitive.
+-- | The URL of the Amazon SQS queue from which permissions are removed. Queue URLs are case-sensitive.
 rpQueueURL :: Lens' RemovePermission Text
 rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 
--- | The identification of the permission to remove. This is the label added with the 'AddPermission' action.
+-- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 rpLabel :: Lens' RemovePermission Text
 rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 

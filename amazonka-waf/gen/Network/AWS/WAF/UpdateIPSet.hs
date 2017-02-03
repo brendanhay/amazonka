@@ -23,13 +23,25 @@
 --
 --     * Whether to insert or delete the object from the array. If you want to change an @IPSetDescriptor@ object, you delete the existing object and add a new one.
 --
---     * The IP address version, @IPv4@ .
+--     * The IP address version, @IPv4@ or @IPv6@ .
 --
 --     * The IP address in CIDR notation, for example, @192.0.2.0/24@ (for the range of IP addresses from @192.0.2.0@ to @192.0.2.255@ ) or @192.0.2.44/32@ (for the individual IP address @192.0.2.44@ ).
 --
 --
 --
--- AWS WAF supports /8, /16, /24, and /32 IP address ranges. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+-- AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+--
+-- IPv6 addresses can be represented using any of the following formats:
+--
+--     * 1111:0000:0000:0000:0000:0000:0000:0111/128
+--
+--     * 1111:0:0:0:0:0:0:0111/128
+--
+--     * 1111::0111/128
+--
+--     * 1111::111/128
+--
+--
 --
 -- You use an @IPSet@ to specify which web requests you want to allow or block based on the IP addresses that the requests originated from. For example, if you're receiving a lot of requests from one or a small number of IP addresses and you want to block the requests, you can create an @IPSet@ that specifies those IP addresses, and then configure AWS WAF to block the requests.
 --

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about one or more build projects.
+-- Gets information about build projects.
 --
 --
 module Network.AWS.CodeBuild.BatchGetProjects
@@ -54,7 +54,7 @@ newtype BatchGetProjects = BatchGetProjects'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bgpNames' - The names of the build projects to get information about.
+-- * 'bgpNames' - The names of the build projects.
 batchGetProjects
     :: NonEmpty Text -- ^ 'bgpNames'
     -> BatchGetProjects
@@ -63,7 +63,7 @@ batchGetProjects pNames_ =
     { _bgpNames = _List1 # pNames_
     }
 
--- | The names of the build projects to get information about.
+-- | The names of the build projects.
 bgpNames :: Lens' BatchGetProjects (NonEmpty Text)
 bgpNames = lens _bgpNames (\ s a -> s{_bgpNames = a}) . _List1;
 

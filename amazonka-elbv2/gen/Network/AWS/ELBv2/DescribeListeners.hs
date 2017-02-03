@@ -51,11 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DescribeListeners.
---
---
---
--- /See:/ 'describeListeners' smart constructor.
+-- | /See:/ 'describeListeners' smart constructor.
 data DescribeListeners = DescribeListeners'
     { _dlListenerARNs    :: !(Maybe [Text])
     , _dlLoadBalancerARN :: !(Maybe Text)
@@ -139,11 +135,7 @@ instance ToQuery DescribeListeners where
                "LoadBalancerArn" =: _dlLoadBalancerARN,
                "Marker" =: _dlMarker, "PageSize" =: _dlPageSize]
 
--- | Contains the output of DescribeListeners.
---
---
---
--- /See:/ 'describeListenersResponse' smart constructor.
+-- | /See:/ 'describeListenersResponse' smart constructor.
 data DescribeListenersResponse = DescribeListenersResponse'
     { _dlsrsNextMarker     :: !(Maybe Text)
     , _dlsrsListeners      :: !(Maybe [Listener])

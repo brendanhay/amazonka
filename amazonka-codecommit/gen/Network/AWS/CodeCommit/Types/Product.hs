@@ -21,6 +21,59 @@ import           Network.AWS.CodeCommit.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | Returns information about a specific Git blob object.
+--
+--
+--
+-- /See:/ 'blobMetadata' smart constructor.
+data BlobMetadata = BlobMetadata'
+    { _bmPath   :: !(Maybe Text)
+    , _bmMode   :: !(Maybe Text)
+    , _bmBlobId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BlobMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bmPath' - The path to the blob and any associated file name, if any.
+--
+-- * 'bmMode' - The file mode permissions of the blob. File mode permission codes include:     * @100644@ indicates read/write     * @100755@ indicates read/write/execute     * @160000@ indicates a submodule     * @120000@ indicates a symlink
+--
+-- * 'bmBlobId' - The full ID of the blob.
+blobMetadata
+    :: BlobMetadata
+blobMetadata =
+    BlobMetadata'
+    { _bmPath = Nothing
+    , _bmMode = Nothing
+    , _bmBlobId = Nothing
+    }
+
+-- | The path to the blob and any associated file name, if any.
+bmPath :: Lens' BlobMetadata (Maybe Text)
+bmPath = lens _bmPath (\ s a -> s{_bmPath = a});
+
+-- | The file mode permissions of the blob. File mode permission codes include:     * @100644@ indicates read/write     * @100755@ indicates read/write/execute     * @160000@ indicates a submodule     * @120000@ indicates a symlink
+bmMode :: Lens' BlobMetadata (Maybe Text)
+bmMode = lens _bmMode (\ s a -> s{_bmMode = a});
+
+-- | The full ID of the blob.
+bmBlobId :: Lens' BlobMetadata (Maybe Text)
+bmBlobId = lens _bmBlobId (\ s a -> s{_bmBlobId = a});
+
+instance FromJSON BlobMetadata where
+        parseJSON
+          = withObject "BlobMetadata"
+              (\ x ->
+                 BlobMetadata' <$>
+                   (x .:? "path") <*> (x .:? "mode") <*>
+                     (x .:? "blobId"))
+
+instance Hashable BlobMetadata
+
+instance NFData BlobMetadata
+
 -- | Returns information about a branch.
 --
 --
@@ -83,7 +136,7 @@ data Commit = Commit'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cCommitter' - Information about the person who committed the specified commit, also known as the committer. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
+-- * 'cCommitter' - Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 --
 -- * 'cTreeId' - Tree information for the specified commit.
 --
@@ -91,9 +144,9 @@ data Commit = Commit'
 --
 -- * 'cParents' - The parent list for the specified commit.
 --
--- * 'cAuthor' - Information about the author of the specified commit.
+-- * 'cAuthor' - Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git.
 --
--- * 'cMessage' - The message associated with the specified commit.
+-- * 'cMessage' - The commit message associated with the specified commit.
 commit
     :: Commit
 commit =
@@ -106,7 +159,7 @@ commit =
     , _cMessage = Nothing
     }
 
--- | Information about the person who committed the specified commit, also known as the committer. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
+-- | Information about the person who committed the specified commit, also known as the committer. Information includes the date in timestamp format with GMT offset, the name of the committer, and the email address for the committer, as configured in Git. For more information about the difference between an author and a committer in Git, see <http://git-scm.com/book/ch2-3.html Viewing the Commit History> in Pro Git by Scott Chacon and Ben Straub.
 cCommitter :: Lens' Commit (Maybe UserInfo)
 cCommitter = lens _cCommitter (\ s a -> s{_cCommitter = a});
 
@@ -122,11 +175,11 @@ cAdditionalData = lens _cAdditionalData (\ s a -> s{_cAdditionalData = a});
 cParents :: Lens' Commit [Text]
 cParents = lens _cParents (\ s a -> s{_cParents = a}) . _Default . _Coerce;
 
--- | Information about the author of the specified commit.
+-- | Information about the author of the specified commit. Information includes the date in timestamp format with GMT offset, the name of the author, and the email address for the author, as configured in Git.
 cAuthor :: Lens' Commit (Maybe UserInfo)
 cAuthor = lens _cAuthor (\ s a -> s{_cAuthor = a});
 
--- | The message associated with the specified commit.
+-- | The commit message associated with the specified commit.
 cMessage :: Lens' Commit (Maybe Text)
 cMessage = lens _cMessage (\ s a -> s{_cMessage = a});
 
@@ -144,6 +197,59 @@ instance FromJSON Commit where
 instance Hashable Commit
 
 instance NFData Commit
+
+-- | Returns information about a set of differences for a commit specifier.
+--
+--
+--
+-- /See:/ 'difference' smart constructor.
+data Difference = Difference'
+    { _dAfterBlob  :: !(Maybe BlobMetadata)
+    , _dBeforeBlob :: !(Maybe BlobMetadata)
+    , _dChangeType :: !(Maybe ChangeTypeEnum)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Difference' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dAfterBlob' - Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
+--
+-- * 'dBeforeBlob' - Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
+--
+-- * 'dChangeType' - Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
+difference
+    :: Difference
+difference =
+    Difference'
+    { _dAfterBlob = Nothing
+    , _dBeforeBlob = Nothing
+    , _dChangeType = Nothing
+    }
+
+-- | Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
+dAfterBlob :: Lens' Difference (Maybe BlobMetadata)
+dAfterBlob = lens _dAfterBlob (\ s a -> s{_dAfterBlob = a});
+
+-- | Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
+dBeforeBlob :: Lens' Difference (Maybe BlobMetadata)
+dBeforeBlob = lens _dBeforeBlob (\ s a -> s{_dBeforeBlob = a});
+
+-- | Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
+dChangeType :: Lens' Difference (Maybe ChangeTypeEnum)
+dChangeType = lens _dChangeType (\ s a -> s{_dChangeType = a});
+
+instance FromJSON Difference where
+        parseJSON
+          = withObject "Difference"
+              (\ x ->
+                 Difference' <$>
+                   (x .:? "afterBlob") <*> (x .:? "beforeBlob") <*>
+                     (x .:? "changeType"))
+
+instance Hashable Difference
+
+instance NFData Difference
 
 -- | Information about a repository.
 --
@@ -314,9 +420,9 @@ instance NFData RepositoryNameIdPair
 data RepositoryTrigger = RepositoryTrigger'
     { _rtBranches       :: !(Maybe [Text])
     , _rtCustomData     :: !(Maybe Text)
-    , _rtDestinationARN :: !(Maybe Text)
-    , _rtName           :: !(Maybe Text)
-    , _rtEvents         :: !(Maybe [RepositoryTriggerEventEnum])
+    , _rtName           :: !Text
+    , _rtDestinationARN :: !Text
+    , _rtEvents         :: ![RepositoryTriggerEventEnum]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RepositoryTrigger' with the minimum fields required to make a request.
@@ -327,20 +433,22 @@ data RepositoryTrigger = RepositoryTrigger'
 --
 -- * 'rtCustomData' - Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
 --
--- * 'rtDestinationARN' - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
---
 -- * 'rtName' - The name of the trigger.
 --
--- * 'rtEvents' - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events.
+-- * 'rtDestinationARN' - The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+--
+-- * 'rtEvents' - The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS).
 repositoryTrigger
-    :: RepositoryTrigger
-repositoryTrigger =
+    :: Text -- ^ 'rtName'
+    -> Text -- ^ 'rtDestinationARN'
+    -> RepositoryTrigger
+repositoryTrigger pName_ pDestinationARN_ =
     RepositoryTrigger'
     { _rtBranches = Nothing
     , _rtCustomData = Nothing
-    , _rtDestinationARN = Nothing
-    , _rtName = Nothing
-    , _rtEvents = Nothing
+    , _rtName = pName_
+    , _rtDestinationARN = pDestinationARN_
+    , _rtEvents = mempty
     }
 
 -- | The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
@@ -351,17 +459,17 @@ rtBranches = lens _rtBranches (\ s a -> s{_rtBranches = a}) . _Default . _Coerce
 rtCustomData :: Lens' RepositoryTrigger (Maybe Text)
 rtCustomData = lens _rtCustomData (\ s a -> s{_rtCustomData = a});
 
--- | The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-rtDestinationARN :: Lens' RepositoryTrigger (Maybe Text)
-rtDestinationARN = lens _rtDestinationARN (\ s a -> s{_rtDestinationARN = a});
-
 -- | The name of the trigger.
-rtName :: Lens' RepositoryTrigger (Maybe Text)
+rtName :: Lens' RepositoryTrigger Text
 rtName = lens _rtName (\ s a -> s{_rtName = a});
 
--- | The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events.
+-- | The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+rtDestinationARN :: Lens' RepositoryTrigger Text
+rtDestinationARN = lens _rtDestinationARN (\ s a -> s{_rtDestinationARN = a});
+
+-- | The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS).
 rtEvents :: Lens' RepositoryTrigger [RepositoryTriggerEventEnum]
-rtEvents = lens _rtEvents (\ s a -> s{_rtEvents = a}) . _Default . _Coerce;
+rtEvents = lens _rtEvents (\ s a -> s{_rtEvents = a}) . _Coerce;
 
 instance FromJSON RepositoryTrigger where
         parseJSON
@@ -370,8 +478,8 @@ instance FromJSON RepositoryTrigger where
                  RepositoryTrigger' <$>
                    (x .:? "branches" .!= mempty) <*>
                      (x .:? "customData")
-                     <*> (x .:? "destinationArn")
-                     <*> (x .:? "name")
+                     <*> (x .: "name")
+                     <*> (x .: "destinationArn")
                      <*> (x .:? "events" .!= mempty))
 
 instance Hashable RepositoryTrigger
@@ -384,9 +492,9 @@ instance ToJSON RepositoryTrigger where
               (catMaybes
                  [("branches" .=) <$> _rtBranches,
                   ("customData" .=) <$> _rtCustomData,
-                  ("destinationArn" .=) <$> _rtDestinationARN,
-                  ("name" .=) <$> _rtName,
-                  ("events" .=) <$> _rtEvents])
+                  Just ("name" .= _rtName),
+                  Just ("destinationArn" .= _rtDestinationARN),
+                  Just ("events" .= _rtEvents)])
 
 -- | A trigger failed to run.
 --

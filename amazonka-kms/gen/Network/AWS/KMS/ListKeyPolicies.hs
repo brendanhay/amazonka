@@ -66,7 +66,7 @@ data ListKeyPolicies = ListKeyPolicies'
 --
 -- * 'lkpLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 --
--- * 'lkpKeyId' - A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- * 'lkpKeyId' - A unique identifier for the customer master key (CMK). You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 listKeyPolicies
     :: Text -- ^ 'lkpKeyId'
     -> ListKeyPolicies
@@ -85,7 +85,7 @@ lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 
--- | A unique identifier for the customer master key. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012     * Alias Name Example - alias/MyAliasName
+-- | A unique identifier for the customer master key (CMK). You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
 

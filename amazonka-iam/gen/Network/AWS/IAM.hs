@@ -73,6 +73,9 @@ module Network.AWS.IAM
     -- ** InvalidCertificateException
     , _InvalidCertificateException
 
+    -- ** ServiceNotSupportedException
+    , _ServiceNotSupportedException
+
     -- ** UnrecognizedPublicKeyEncodingException
     , _UnrecognizedPublicKeyEncodingException
 
@@ -166,6 +169,12 @@ module Network.AWS.IAM
     -- ** GetUserPolicy
     , module Network.AWS.IAM.GetUserPolicy
 
+    -- ** UpdateServiceSpecificCredential
+    , module Network.AWS.IAM.UpdateServiceSpecificCredential
+
+    -- ** DeleteServiceSpecificCredential
+    , module Network.AWS.IAM.DeleteServiceSpecificCredential
+
     -- ** ListAttachedRolePolicies (Paginated)
     , module Network.AWS.IAM.ListAttachedRolePolicies
 
@@ -219,6 +228,9 @@ module Network.AWS.IAM
 
     -- ** CreateRole
     , module Network.AWS.IAM.CreateRole
+
+    -- ** ResetServiceSpecificCredential
+    , module Network.AWS.IAM.ResetServiceSpecificCredential
 
     -- ** GetCredentialReport
     , module Network.AWS.IAM.GetCredentialReport
@@ -313,6 +325,9 @@ module Network.AWS.IAM
     -- ** GetPolicyVersion
     , module Network.AWS.IAM.GetPolicyVersion
 
+    -- ** ListServiceSpecificCredentials
+    , module Network.AWS.IAM.ListServiceSpecificCredentials
+
     -- ** DeleteOpenIdConnectProvider
     , module Network.AWS.IAM.DeleteOpenIdConnectProvider
 
@@ -336,6 +351,9 @@ module Network.AWS.IAM
 
     -- ** AttachUserPolicy
     , module Network.AWS.IAM.AttachUserPolicy
+
+    -- ** CreateServiceSpecificCredential
+    , module Network.AWS.IAM.CreateServiceSpecificCredential
 
     -- ** ListVirtualMFADevices (Paginated)
     , module Network.AWS.IAM.ListVirtualMFADevices
@@ -752,6 +770,27 @@ module Network.AWS.IAM
     , scmServerCertificateId
     , scmARN
 
+    -- ** ServiceSpecificCredential
+    , ServiceSpecificCredential
+    , serviceSpecificCredential
+    , sscCreateDate
+    , sscServiceName
+    , sscServiceUserName
+    , sscServicePassword
+    , sscServiceSpecificCredentialId
+    , sscUserName
+    , sscStatus
+
+    -- ** ServiceSpecificCredentialMetadata
+    , ServiceSpecificCredentialMetadata
+    , serviceSpecificCredentialMetadata
+    , sscmUserName
+    , sscmStatus
+    , sscmServiceUserName
+    , sscmCreateDate
+    , sscmServiceSpecificCredentialId
+    , sscmServiceName
+
     -- ** SigningCertificate
     , SigningCertificate
     , signingCertificate
@@ -825,6 +864,7 @@ import           Network.AWS.IAM.CreatePolicy
 import           Network.AWS.IAM.CreatePolicyVersion
 import           Network.AWS.IAM.CreateRole
 import           Network.AWS.IAM.CreateSAMLProvider
+import           Network.AWS.IAM.CreateServiceSpecificCredential
 import           Network.AWS.IAM.CreateUser
 import           Network.AWS.IAM.CreateVirtualMFADevice
 import           Network.AWS.IAM.DeactivateMFADevice
@@ -842,6 +882,7 @@ import           Network.AWS.IAM.DeleteRole
 import           Network.AWS.IAM.DeleteRolePolicy
 import           Network.AWS.IAM.DeleteSAMLProvider
 import           Network.AWS.IAM.DeleteServerCertificate
+import           Network.AWS.IAM.DeleteServiceSpecificCredential
 import           Network.AWS.IAM.DeleteSigningCertificate
 import           Network.AWS.IAM.DeleteSSHPublicKey
 import           Network.AWS.IAM.DeleteUser
@@ -892,6 +933,7 @@ import           Network.AWS.IAM.ListRolePolicies
 import           Network.AWS.IAM.ListRoles
 import           Network.AWS.IAM.ListSAMLProviders
 import           Network.AWS.IAM.ListServerCertificates
+import           Network.AWS.IAM.ListServiceSpecificCredentials
 import           Network.AWS.IAM.ListSigningCertificates
 import           Network.AWS.IAM.ListSSHPublicKeys
 import           Network.AWS.IAM.ListUserPolicies
@@ -903,6 +945,7 @@ import           Network.AWS.IAM.PutUserPolicy
 import           Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
 import           Network.AWS.IAM.RemoveRoleFromInstanceProfile
 import           Network.AWS.IAM.RemoveUserFromGroup
+import           Network.AWS.IAM.ResetServiceSpecificCredential
 import           Network.AWS.IAM.ResyncMFADevice
 import           Network.AWS.IAM.SetDefaultPolicyVersion
 import           Network.AWS.IAM.SimulateCustomPolicy
@@ -916,6 +959,7 @@ import           Network.AWS.IAM.UpdateLoginProfile
 import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
 import           Network.AWS.IAM.UpdateSAMLProvider
 import           Network.AWS.IAM.UpdateServerCertificate
+import           Network.AWS.IAM.UpdateServiceSpecificCredential
 import           Network.AWS.IAM.UpdateSigningCertificate
 import           Network.AWS.IAM.UpdateSSHPublicKey
 import           Network.AWS.IAM.UpdateUser

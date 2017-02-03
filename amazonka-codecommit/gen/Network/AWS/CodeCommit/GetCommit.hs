@@ -131,7 +131,7 @@ data GetCommitResponse = GetCommitResponse'
 --
 -- * 'gcrsResponseStatus' - -- | The response status code.
 --
--- * 'gcrsCommit' - Information about the specified commit.
+-- * 'gcrsCommit' - A commit data type object that contains information about the specified commit.
 getCommitResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> Commit -- ^ 'gcrsCommit'
@@ -146,7 +146,7 @@ getCommitResponse pResponseStatus_ pCommit_ =
 gcrsResponseStatus :: Lens' GetCommitResponse Int
 gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a});
 
--- | Information about the specified commit.
+-- | A commit data type object that contains information about the specified commit.
 gcrsCommit :: Lens' GetCommitResponse Commit
 gcrsCommit = lens _gcrsCommit (\ s a -> s{_gcrsCommit = a});
 

@@ -56,9 +56,9 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uscUserName' - The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uscCertificateId' - The ID of the signing certificate you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'uscCertificateId' - The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 --
 -- * 'uscStatus' - The status you want to assign to the certificate. @Active@ means the certificate can be used for API calls to AWS, while @Inactive@ means the certificate cannot be used.
 updateSigningCertificate
@@ -72,11 +72,11 @@ updateSigningCertificate pCertificateId_ pStatus_ =
     , _uscStatus = pStatus_
     }
 
--- | The name of the IAM user the signing certificate belongs to. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the IAM user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 
--- | The ID of the signing certificate you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The ID of the signing certificate you want to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 

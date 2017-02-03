@@ -21,6 +21,8 @@
 -- Returns the list of bundles that are available for purchase. A bundle describes the specs for your virtual private server (or /instance/ ).
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetBundles
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Lightsail.GetBundles
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ gIncludeInactive = lens _gIncludeInactive (\ s a -> s{_gIncludeInactive = a});
 -- | A token used for advancing to the next page of results from your get bundles request.
 gPageToken :: Lens' GetBundles (Maybe Text)
 gPageToken = lens _gPageToken (\ s a -> s{_gPageToken = a});
+
+instance AWSPager GetBundles where
+        page rq rs
+          | stop (rs ^. gbrsNextPageToken) = Nothing
+          | stop (rs ^. gbrsBundles) = Nothing
+          | otherwise =
+            Just $ rq & gPageToken .~ rs ^. gbrsNextPageToken
 
 instance AWSRequest GetBundles where
         type Rs GetBundles = GetBundlesResponse

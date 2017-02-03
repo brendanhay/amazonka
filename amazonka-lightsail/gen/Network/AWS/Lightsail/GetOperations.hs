@@ -23,6 +23,8 @@
 --
 -- Results are returned from oldest to newest, up to a maximum of 200. Results can be paged by making each subsequent call to @GetOperations@ use the maximum (last) @statusChangedAt@ value from the previous request.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetOperations
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Lightsail.GetOperations
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -67,6 +70,13 @@ getOperations =
 -- | A token used for advancing to the next page of results from your get operations request.
 goPageToken :: Lens' GetOperations (Maybe Text)
 goPageToken = lens _goPageToken (\ s a -> s{_goPageToken = a});
+
+instance AWSPager GetOperations where
+        page rq rs
+          | stop (rs ^. gosrsNextPageToken) = Nothing
+          | stop (rs ^. gosrsOperations) = Nothing
+          | otherwise =
+            Just $ rq & goPageToken .~ rs ^. gosrsNextPageToken
 
 instance AWSRequest GetOperations where
         type Rs GetOperations = GetOperationsResponse

@@ -43,7 +43,7 @@ data AccountLimit = AccountLimit'
 --
 -- * 'alCodeSizeUnzipped' - Size, in bytes, of code/dependencies that you can zip into a deployment package (uncompressed zip/jar size) for uploading. The default limit is 250 MB.
 --
--- * 'alCodeSizeZipped' - Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger files. Default limit is 50 MB.
+-- * 'alCodeSizeZipped' - Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
 accountLimit
     :: AccountLimit
 accountLimit =
@@ -66,7 +66,7 @@ alTotalCodeSize = lens _alTotalCodeSize (\ s a -> s{_alTotalCodeSize = a});
 alCodeSizeUnzipped :: Lens' AccountLimit (Maybe Integer)
 alCodeSizeUnzipped = lens _alCodeSizeUnzipped (\ s a -> s{_alCodeSizeUnzipped = a});
 
--- | Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using AWS S3 for uploading larger files. Default limit is 50 MB.
+-- | Size, in bytes, of a single zipped code/dependencies package you can upload for your Lambda function(.zip/.jar file). Try using Amazon S3 for uploading larger files. Default limit is 50 MB.
 alCodeSizeZipped :: Lens' AccountLimit (Maybe Integer)
 alCodeSizeZipped = lens _alCodeSizeZipped (\ s a -> s{_alCodeSizeZipped = a});
 
@@ -98,7 +98,7 @@ data AccountUsage = AccountUsage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'auTotalCodeSize' - Total size, in megabytes, of the account's deployment packages per region.
+-- * 'auTotalCodeSize' - Total size, in bytes, of the account's deployment packages per region.
 --
 -- * 'auFunctionCount' - The number of your account's existing functions per region.
 accountUsage
@@ -109,7 +109,7 @@ accountUsage =
     , _auFunctionCount = Nothing
     }
 
--- | Total size, in megabytes, of the account's deployment packages per region.
+-- | Total size, in bytes, of the account's deployment packages per region.
 auTotalCodeSize :: Lens' AccountUsage (Maybe Integer)
 auTotalCodeSize = lens _auTotalCodeSize (\ s a -> s{_auTotalCodeSize = a});
 
@@ -190,7 +190,7 @@ instance Hashable AliasConfiguration
 
 instance NFData AliasConfiguration
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 --
 --
 --
@@ -203,7 +203,7 @@ newtype DeadLetterConfig = DeadLetterConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlcTargetARN' - The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
+-- * 'dlcTargetARN' - The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
 deadLetterConfig
     :: DeadLetterConfig
 deadLetterConfig =
@@ -211,7 +211,7 @@ deadLetterConfig =
     { _dlcTargetARN = Nothing
     }
 
--- | The ARN (Amazon Resource Value) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
+-- | The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ).
 dlcTargetARN :: Lens' DeadLetterConfig (Maybe Text)
 dlcTargetARN = lens _dlcTargetARN (\ s a -> s{_dlcTargetARN = a});
 
@@ -470,7 +470,7 @@ data FunctionCode = FunctionCode'
 --
 -- * 'fcS3Key' - The Amazon S3 object (the deployment package) key name you want to upload.
 --
--- * 'fcZipFile' - The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'fcZipFile' - The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'fcS3Bucket' - Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.
 functionCode
@@ -491,7 +491,7 @@ fcS3ObjectVersion = lens _fcS3ObjectVersion (\ s a -> s{_fcS3ObjectVersion = a})
 fcS3Key :: Lens' FunctionCode (Maybe Text)
 fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 
--- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/ . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 fcZipFile :: Lens' FunctionCode (Maybe ByteString)
 fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping (_Sensitive . _Base64);
 
@@ -594,7 +594,7 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- * 'fcEnvironment' - The parent object that contains your environment's configuration settings.
 --
--- * 'fcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'fcDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'fcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.
 --
@@ -657,7 +657,7 @@ fcKMSKeyARN = lens _fcKMSKeyARN (\ s a -> s{_fcKMSKeyARN = a});
 fcEnvironment :: Lens' FunctionConfiguration (Maybe EnvironmentResponse)
 fcEnvironment = lens _fcEnvironment (\ s a -> s{_fcEnvironment = a});
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
 fcDeadLetterConfig :: Lens' FunctionConfiguration (Maybe DeadLetterConfig)
 fcDeadLetterConfig = lens _fcDeadLetterConfig (\ s a -> s{_fcDeadLetterConfig = a});
 

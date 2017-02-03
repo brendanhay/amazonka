@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ModifyTargetGroupAttributes.
---
---
---
--- /See:/ 'modifyTargetGroupAttributes' smart constructor.
+-- | /See:/ 'modifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
     { _mtgaTargetGroupARN :: !Text
     , _mtgaAttributes     :: ![TargetGroupAttribute]
@@ -111,11 +107,7 @@ instance ToQuery ModifyTargetGroupAttributes where
                "TargetGroupArn" =: _mtgaTargetGroupARN,
                "Attributes" =: toQueryList "member" _mtgaAttributes]
 
--- | Contains the output of ModifyTargetGroupAttributes.
---
---
---
--- /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
+-- | /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
     { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
     , _mtgarsResponseStatus :: !Int

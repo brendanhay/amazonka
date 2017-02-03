@@ -106,6 +106,7 @@ instance NFData AccountAttributeValue
 -- /See:/ 'activeInstance' smart constructor.
 data ActiveInstance = ActiveInstance'
     { _aiInstanceId            :: !(Maybe Text)
+    , _aiInstanceHealth        :: !(Maybe InstanceHealthStatus)
     , _aiInstanceType          :: !(Maybe Text)
     , _aiSpotInstanceRequestId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -116,6 +117,8 @@ data ActiveInstance = ActiveInstance'
 --
 -- * 'aiInstanceId' - The ID of the instance.
 --
+-- * 'aiInstanceHealth' - The health status of the instance. If the status of both the instance status check and the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
+--
 -- * 'aiInstanceType' - The instance type.
 --
 -- * 'aiSpotInstanceRequestId' - The ID of the Spot instance request.
@@ -124,6 +127,7 @@ activeInstance
 activeInstance =
     ActiveInstance'
     { _aiInstanceId = Nothing
+    , _aiInstanceHealth = Nothing
     , _aiInstanceType = Nothing
     , _aiSpotInstanceRequestId = Nothing
     }
@@ -131,6 +135,10 @@ activeInstance =
 -- | The ID of the instance.
 aiInstanceId :: Lens' ActiveInstance (Maybe Text)
 aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
+
+-- | The health status of the instance. If the status of both the instance status check and the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
+aiInstanceHealth :: Lens' ActiveInstance (Maybe InstanceHealthStatus)
+aiInstanceHealth = lens _aiInstanceHealth (\ s a -> s{_aiInstanceHealth = a});
 
 -- | The instance type.
 aiInstanceType :: Lens' ActiveInstance (Maybe Text)
@@ -143,8 +151,9 @@ aiSpotInstanceRequestId = lens _aiSpotInstanceRequestId (\ s a -> s{_aiSpotInsta
 instance FromXML ActiveInstance where
         parseXML x
           = ActiveInstance' <$>
-              (x .@? "instanceId") <*> (x .@? "instanceType") <*>
-                (x .@? "spotInstanceRequestId")
+              (x .@? "instanceId") <*> (x .@? "instanceHealth") <*>
+                (x .@? "instanceType")
+                <*> (x .@? "spotInstanceRequestId")
 
 instance Hashable ActiveInstance
 
@@ -7175,7 +7184,7 @@ data Placement = Placement'
 --
 -- * 'pAffinity' - The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the 'ImportInstance' command.
 --
--- * 'pHostId' - The ID of the Dedicted host on which the instance resides. This parameter is not support for the 'ImportInstance' command.
+-- * 'pHostId' - The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
 --
 -- * 'pAvailabilityZone' - The Availability Zone of the instance.
 --
@@ -7197,7 +7206,7 @@ placement =
 pAffinity :: Lens' Placement (Maybe Text)
 pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
 
--- | The ID of the Dedicted host on which the instance resides. This parameter is not support for the 'ImportInstance' command.
+-- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
 pHostId :: Lens' Placement (Maybe Text)
 pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
 
@@ -11689,6 +11698,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdFulfilledCapacity                :: !(Maybe Double)
     , _sfrcdType                             :: !(Maybe FleetType)
     , _sfrcdValidFrom                        :: !(Maybe ISO8601)
+    , _sfrcdReplaceUnhealthyInstances        :: !(Maybe Bool)
     , _sfrcdAllocationStrategy               :: !(Maybe AllocationStrategy)
     , _sfrcdSpotPrice                        :: !Text
     , _sfrcdTargetCapacity                   :: !Int
@@ -11714,6 +11724,8 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 --
 -- * 'sfrcdValidFrom' - The start date and time of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The default is to start fulfilling the request immediately.
 --
+-- * 'sfrcdReplaceUnhealthyInstances' - Indicates whether Spot fleet should replace unhealthy instances.
+--
 -- * 'sfrcdAllocationStrategy' - Indicates how to allocate the target capacity across the Spot pools specified by the Spot fleet request. The default is @lowestPrice@ .
 --
 -- * 'sfrcdSpotPrice' - The bid price per unit hour.
@@ -11738,6 +11750,7 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
     , _sfrcdFulfilledCapacity = Nothing
     , _sfrcdType = Nothing
     , _sfrcdValidFrom = Nothing
+    , _sfrcdReplaceUnhealthyInstances = Nothing
     , _sfrcdAllocationStrategy = Nothing
     , _sfrcdSpotPrice = pSpotPrice_
     , _sfrcdTargetCapacity = pTargetCapacity_
@@ -11773,6 +11786,10 @@ sfrcdType = lens _sfrcdType (\ s a -> s{_sfrcdType = a});
 sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
 sfrcdValidFrom = lens _sfrcdValidFrom (\ s a -> s{_sfrcdValidFrom = a}) . mapping _Time;
 
+-- | Indicates whether Spot fleet should replace unhealthy instances.
+sfrcdReplaceUnhealthyInstances :: Lens' SpotFleetRequestConfigData (Maybe Bool)
+sfrcdReplaceUnhealthyInstances = lens _sfrcdReplaceUnhealthyInstances (\ s a -> s{_sfrcdReplaceUnhealthyInstances = a});
+
 -- | Indicates how to allocate the target capacity across the Spot pools specified by the Spot fleet request. The default is @lowestPrice@ .
 sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
 sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAllocationStrategy = a});
@@ -11803,6 +11820,7 @@ instance FromXML SpotFleetRequestConfigData where
                 <*> (x .@? "fulfilledCapacity")
                 <*> (x .@? "type")
                 <*> (x .@? "validFrom")
+                <*> (x .@? "replaceUnhealthyInstances")
                 <*> (x .@? "allocationStrategy")
                 <*> (x .@ "spotPrice")
                 <*> (x .@ "targetCapacity")
@@ -11826,6 +11844,8 @@ instance ToQuery SpotFleetRequestConfigData where
                  _sfrcdTerminateInstancesWithExpiration,
                "FulfilledCapacity" =: _sfrcdFulfilledCapacity,
                "Type" =: _sfrcdType, "ValidFrom" =: _sfrcdValidFrom,
+               "ReplaceUnhealthyInstances" =:
+                 _sfrcdReplaceUnhealthyInstances,
                "AllocationStrategy" =: _sfrcdAllocationStrategy,
                "SpotPrice" =: _sfrcdSpotPrice,
                "TargetCapacity" =: _sfrcdTargetCapacity,
@@ -12121,6 +12141,7 @@ instance NFData SpotInstanceStatus
 -- /See:/ 'spotPlacement' smart constructor.
 data SpotPlacement = SpotPlacement'
     { _spAvailabilityZone :: !(Maybe Text)
+    , _spTenancy          :: !(Maybe Tenancy)
     , _spGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -12130,18 +12151,25 @@ data SpotPlacement = SpotPlacement'
 --
 -- * 'spAvailabilityZone' - The Availability Zone. [Spot fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 --
+-- * 'spTenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot instances.
+--
 -- * 'spGroupName' - The name of the placement group (for cluster instances).
 spotPlacement
     :: SpotPlacement
 spotPlacement =
     SpotPlacement'
     { _spAvailabilityZone = Nothing
+    , _spTenancy = Nothing
     , _spGroupName = Nothing
     }
 
 -- | The Availability Zone. [Spot fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 spAvailabilityZone :: Lens' SpotPlacement (Maybe Text)
 spAvailabilityZone = lens _spAvailabilityZone (\ s a -> s{_spAvailabilityZone = a});
+
+-- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for Spot instances.
+spTenancy :: Lens' SpotPlacement (Maybe Tenancy)
+spTenancy = lens _spTenancy (\ s a -> s{_spTenancy = a});
 
 -- | The name of the placement group (for cluster instances).
 spGroupName :: Lens' SpotPlacement (Maybe Text)
@@ -12150,7 +12178,8 @@ spGroupName = lens _spGroupName (\ s a -> s{_spGroupName = a});
 instance FromXML SpotPlacement where
         parseXML x
           = SpotPlacement' <$>
-              (x .@? "availabilityZone") <*> (x .@? "groupName")
+              (x .@? "availabilityZone") <*> (x .@? "tenancy") <*>
+                (x .@? "groupName")
 
 instance Hashable SpotPlacement
 
@@ -12160,7 +12189,7 @@ instance ToQuery SpotPlacement where
         toQuery SpotPlacement'{..}
           = mconcat
               ["AvailabilityZone" =: _spAvailabilityZone,
-               "GroupName" =: _spGroupName]
+               "Tenancy" =: _spTenancy, "GroupName" =: _spGroupName]
 
 -- | Describes the maximum hourly price (bid) for any Spot instance launched to fulfill the request.
 --

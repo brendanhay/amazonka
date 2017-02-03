@@ -1259,7 +1259,7 @@ instance Hashable SnapshotLimits
 
 instance NFData SnapshotLimits
 
--- | Metadata assigned to an Amazon Directory Services directory consisting of a key-value pair.
+-- | Metadata assigned to a directory consisting of a key-value pair.
 --
 --
 --

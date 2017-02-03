@@ -130,7 +130,7 @@ instance Hashable BoundingBox
 
 instance NFData BoundingBox
 
--- | Provide the bounding box, confidence that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- | For the provided the bounding box, confidence level that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.
 --
 --
 --
@@ -234,7 +234,7 @@ data ComparedSourceImageFace = ComparedSourceImageFace'
 --
 -- * 'csifBoundingBox' - Undocumented member.
 --
--- * 'csifConfidence' - Confidence that the selected bounding box contains a face.
+-- * 'csifConfidence' - Confidence level that the selected bounding box contains a face.
 comparedSourceImageFace
     :: ComparedSourceImageFace
 comparedSourceImageFace =
@@ -247,7 +247,7 @@ comparedSourceImageFace =
 csifBoundingBox :: Lens' ComparedSourceImageFace (Maybe BoundingBox)
 csifBoundingBox = lens _csifBoundingBox (\ s a -> s{_csifBoundingBox = a});
 
--- | Confidence that the selected bounding box contains a face.
+-- | Confidence level that the selected bounding box contains a face.
 csifConfidence :: Lens' ComparedSourceImageFace (Maybe Double)
 csifConfidence = lens _csifConfidence (\ s a -> s{_csifConfidence = a});
 
@@ -750,6 +750,14 @@ instance NFData Gender
 -- | Provides the source image either as bytes or an S3 object.
 --
 --
+-- The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.
+--
+-- You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see 'example4' .
+--
+-- If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.
+--
+-- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see 'manage-access-resource-policies' .
+--
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
@@ -835,7 +843,7 @@ instance Hashable ImageQuality
 
 instance NFData ImageQuality
 
--- | Structure containing details about the detected label, including bounding box, name, and level of confidence.
+-- | Structure containing details about the detected label, including name, and level of confidence.
 --
 --
 --
@@ -895,9 +903,9 @@ data Landmark = Landmark'
 --
 -- * 'lType' - Type of the landmark.
 --
--- * 'lX' - x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, then this value is 0.5.
+-- * 'lX' - x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
 --
--- * 'lY' - y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, then this value is 0.5.
+-- * 'lY' - y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
 landmark
     :: Landmark
 landmark =
@@ -911,11 +919,11 @@ landmark =
 lType :: Lens' Landmark (Maybe LandmarkType)
 lType = lens _lType (\ s a -> s{_lType = a});
 
--- | x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, then this value is 0.5.
+-- | x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
 lX :: Lens' Landmark (Maybe Double)
 lX = lens _lX (\ s a -> s{_lX = a});
 
--- | y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, then this value is 0.5.
+-- | y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.
 lY :: Lens' Landmark (Maybe Double)
 lY = lens _lY (\ s a -> s{_lY = a});
 
@@ -1072,6 +1080,10 @@ instance NFData Pose
 
 -- | Provides the S3 bucket name and object name.
 --
+--
+-- The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.
+--
+-- For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see 'manage-access-resource-policies' .
 --
 --
 -- /See:/ 's3Object' smart constructor.

@@ -487,8 +487,10 @@ instance Hashable HTTPRequest
 
 instance NFData HTTPRequest
 
--- | Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. To specify an individual IP address, you specify the four-part IP address followed by a @/32@ , for example, 192.0.2.0/31. To block a range of IP addresses, you can specify a @/24@ , a @/16@ , or a @/8@ CIDR. For more information about CIDR notation, perform an Internet search on @cidr notation@ .
+-- | Contains one or more IP addresses or blocks of IP addresses specified in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6.
 --
+--
+-- To specify an individual IP address, you specify the four-part IP address followed by a @/32@ , for example, 192.0.2.0/31. To block a range of IP addresses, you can specify a @/128@ , @/64@ , @/56@ , @/48@ , @/32@ , @/24@ , @/16@ , or @/8@ CIDR. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
 --
 --
 -- /See:/ 'ipSet' smart constructor.
@@ -506,7 +508,7 @@ data IPSet = IPSet'
 --
 -- * 'isIPSetId' - The @IPSetId@ for an @IPSet@ . You use @IPSetId@ to get information about an @IPSet@ (see 'GetIPSet' ), update an @IPSet@ (see 'UpdateIPSet' ), insert an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @IPSet@ from AWS WAF (see 'DeleteIPSet' ). @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 --
--- * 'isIPSetDescriptors' - The IP address type (@IPV4@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
+-- * 'isIPSetDescriptors' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
 ipSet
     :: Text -- ^ 'isIPSetId'
     -> IPSet
@@ -525,7 +527,7 @@ isName = lens _isName (\ s a -> s{_isName = a});
 isIPSetId :: Lens' IPSet Text
 isIPSetId = lens _isIPSetId (\ s a -> s{_isIPSetId = a});
 
--- | The IP address type (@IPV4@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
+-- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
 isIPSetDescriptors :: Lens' IPSet [IPSetDescriptor]
 isIPSetDescriptors = lens _isIPSetDescriptors (\ s a -> s{_isIPSetDescriptors = a}) . _Coerce;
 
@@ -541,7 +543,7 @@ instance Hashable IPSet
 
 instance NFData IPSet
 
--- | Specifies the IP address type (@IPV4@ ) and the IP address range (in CIDR format) that web requests originate from.
+-- | Specifies the IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR format) that web requests originate from.
 --
 --
 --
@@ -555,9 +557,9 @@ data IPSetDescriptor = IPSetDescriptor'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isdType' - Specify @IPV4@ .
+-- * 'isdType' - Specify @IPV4@ or @IPV6@ .
 --
--- * 'isdValue' - Specify an IPv4 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify @192.0.2.44/32@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify @192.0.2.0/24@ . AWS WAF supports only /8, /16, /24, and /32 IP addresses. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+-- * 'isdValue' - Specify an IPv4 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify @192.0.2.44/32@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify @192.0.2.0/24@ . For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> . Specify an IPv6 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify @1111:0000:0000:0000:0000:0000:0000:0111/128@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify @1111:0000:0000:0000:0000:0000:0000:0000/64@ .
 ipSetDescriptor
     :: IPSetDescriptorType -- ^ 'isdType'
     -> Text -- ^ 'isdValue'
@@ -568,11 +570,11 @@ ipSetDescriptor pType_ pValue_ =
     , _isdValue = pValue_
     }
 
--- | Specify @IPV4@ .
+-- | Specify @IPV4@ or @IPV6@ .
 isdType :: Lens' IPSetDescriptor IPSetDescriptorType
 isdType = lens _isdType (\ s a -> s{_isdType = a});
 
--- | Specify an IPv4 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify @192.0.2.44/32@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify @192.0.2.0/24@ . AWS WAF supports only /8, /16, /24, and /32 IP addresses. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+-- | Specify an IPv4 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify @192.0.2.44/32@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses from 192.0.2.0 to 192.0.2.255, specify @192.0.2.0/24@ . For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> . Specify an IPv6 address by using CIDR notation. For example:     * To configure AWS WAF to allow, block, or count requests that originated from the IP address 1111:0000:0000:0000:0000:0000:0000:0111, specify @1111:0000:0000:0000:0000:0000:0000:0111/128@ .     * To configure AWS WAF to allow, block, or count requests that originated from IP addresses 1111:0000:0000:0000:0000:0000:0000:0000 to 1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify @1111:0000:0000:0000:0000:0000:0000:0000/64@ .
 isdValue :: Lens' IPSetDescriptor Text
 isdValue = lens _isdValue (\ s a -> s{_isdValue = a});
 
@@ -655,7 +657,7 @@ data IPSetUpdate = IPSetUpdate'
 --
 -- * 'isuAction' - Specifies whether to insert or delete an IP address with 'UpdateIPSet' .
 --
--- * 'isuIPSetDescriptor' - The IP address type (@IPV4@ ) and the IP address range (in CIDR notation) that web requests originate from.
+-- * 'isuIPSetDescriptor' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
 ipSetUpdate
     :: ChangeAction -- ^ 'isuAction'
     -> IPSetDescriptor -- ^ 'isuIPSetDescriptor'
@@ -670,7 +672,7 @@ ipSetUpdate pAction_ pIPSetDescriptor_ =
 isuAction :: Lens' IPSetUpdate ChangeAction
 isuAction = lens _isuAction (\ s a -> s{_isuAction = a});
 
--- | The IP address type (@IPV4@ ) and the IP address range (in CIDR notation) that web requests originate from.
+-- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from.
 isuIPSetDescriptor :: Lens' IPSetUpdate IPSetDescriptor
 isuIPSetDescriptor = lens _isuIPSetDescriptor (\ s a -> s{_isuIPSetDescriptor = a});
 
@@ -773,7 +775,7 @@ data Rule = Rule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rMetricName' - Undocumented member.
+-- * 'rMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @Rule@ .
 --
 -- * 'rName' - The friendly name or description for the @Rule@ . You can't change the name of a @Rule@ after you create it.
 --
@@ -791,7 +793,7 @@ rule pRuleId_ =
     , _rPredicates = mempty
     }
 
--- | Undocumented member.
+-- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @Rule@ .
 rMetricName :: Lens' Rule (Maybe Text)
 rMetricName = lens _rMetricName (\ s a -> s{_rMetricName = a});
 
@@ -991,7 +993,7 @@ data SizeConstraint = SizeConstraint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scFieldToMatch' - Undocumented member.
+-- * 'scFieldToMatch' - Specifies where in a web request to look for the size constraint.
 --
 -- * 'scTextTransformation' - Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @FieldToMatch@ before inspecting a request for a match. Note that if you choose @BODY@ for the value of @Type@ , you must choose @NONE@ for @TextTransformation@ because CloudFront forwards only the first 8192 bytes for inspection.  __NONE__  Specify @NONE@ if you don't want to perform any text transformations. __CMD_LINE__  When you're concerned that attackers are injecting an operating system command line command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:     * Delete the following characters: \ " ' ^     * Delete spaces before the following characters: / (     * Replace the following characters with a space: , ;     * Replace multiple spaces with one space     * Convert uppercase letters (A-Z) to lowercase (a-z) __COMPRESS_WHITE_SPACE__  Use this option to replace the following characters with a space character (decimal 32):     * \f, formfeed, decimal 12     * \t, tab, decimal 9     * \n, newline, decimal 10     * \r, carriage return, decimal 13     * \v, vertical tab, decimal 11     * non-breaking space, decimal 160 @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space. __HTML_ENTITY_DECODE__  Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:     * Replaces @(ampersand)quot;@ with @"@      * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160     * Replaces @(ampersand)lt;@ with a "less than" symbol     * Replaces @(ampersand)gt;@ with @>@      * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters __LOWERCASE__  Use this option to convert uppercase letters (A-Z) to lowercase (a-z). __URL_DECODE__  Use this option to decode a URL-encoded value.
 --
@@ -1012,7 +1014,7 @@ sizeConstraint pFieldToMatch_ pTextTransformation_ pComparisonOperator_ pSize_ =
     , _scSize = _Nat # pSize_
     }
 
--- | Undocumented member.
+-- | Specifies where in a web request to look for the size constraint.
 scFieldToMatch :: Lens' SizeConstraint FieldToMatch
 scFieldToMatch = lens _scFieldToMatch (\ s a -> s{_scFieldToMatch = a});
 
@@ -1358,7 +1360,7 @@ data SqlInjectionMatchTuple = SqlInjectionMatchTuple'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'simtFieldToMatch' - Undocumented member.
+-- * 'simtFieldToMatch' - Specifies where in a web request to look for snippets of malicious SQL code.
 --
 -- * 'simtTextTransformation' - Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @FieldToMatch@ before inspecting a request for a match. __CMD_LINE__  When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:     * Delete the following characters: \ " ' ^     * Delete spaces before the following characters: / (     * Replace the following characters with a space: , ;     * Replace multiple spaces with one space     * Convert uppercase letters (A-Z) to lowercase (a-z) __COMPRESS_WHITE_SPACE__  Use this option to replace the following characters with a space character (decimal 32):     * \f, formfeed, decimal 12     * \t, tab, decimal 9     * \n, newline, decimal 10     * \r, carriage return, decimal 13     * \v, vertical tab, decimal 11     * non-breaking space, decimal 160 @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space. __HTML_ENTITY_DECODE__  Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:     * Replaces @(ampersand)quot;@ with @"@      * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160     * Replaces @(ampersand)lt;@ with a "less than" symbol     * Replaces @(ampersand)gt;@ with @>@      * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters __LOWERCASE__  Use this option to convert uppercase letters (A-Z) to lowercase (a-z). __URL_DECODE__  Use this option to decode a URL-encoded value. __NONE__  Specify @NONE@ if you don't want to perform any text transformations.
 sqlInjectionMatchTuple
@@ -1371,7 +1373,7 @@ sqlInjectionMatchTuple pFieldToMatch_ pTextTransformation_ =
     , _simtTextTransformation = pTextTransformation_
     }
 
--- | Undocumented member.
+-- | Specifies where in a web request to look for snippets of malicious SQL code.
 simtFieldToMatch :: Lens' SqlInjectionMatchTuple FieldToMatch
 simtFieldToMatch = lens _simtFieldToMatch (\ s a -> s{_simtFieldToMatch = a});
 
@@ -1415,9 +1417,9 @@ data TimeWindow = TimeWindow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'twStartTime' - The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You can specify any time range in the previous three hours.
+-- * 'twStartTime' - The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
--- * 'twEndTime' - The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You can specify any time range in the previous three hours.
+-- * 'twEndTime' - The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 timeWindow
     :: UTCTime -- ^ 'twStartTime'
     -> UTCTime -- ^ 'twEndTime'
@@ -1428,11 +1430,11 @@ timeWindow pStartTime_ pEndTime_ =
     , _twEndTime = _Time # pEndTime_
     }
 
--- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You can specify any time range in the previous three hours.
+-- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 twStartTime :: Lens' TimeWindow UTCTime
 twStartTime = lens _twStartTime (\ s a -> s{_twStartTime = a}) . _Time;
 
--- | The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You can specify any time range in the previous three hours.
+-- | The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. Specify the date and time in the following format: @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 twEndTime :: Lens' TimeWindow UTCTime
 twEndTime = lens _twEndTime (\ s a -> s{_twEndTime = a}) . _Time;
 
@@ -1510,7 +1512,7 @@ data WebACL = WebACL'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'waMetricName' - Undocumented member.
+-- * 'waMetricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 --
 -- * 'waName' - A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
 --
@@ -1532,7 +1534,7 @@ webACL pWebACLId_ pDefaultAction_ =
     , _waRules = mempty
     }
 
--- | Undocumented member.
+-- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace. You can't change @MetricName@ after you create the @WebACL@ .
 waMetricName :: Lens' WebACL (Maybe Text)
 waMetricName = lens _waMetricName (\ s a -> s{_waMetricName = a});
 
@@ -1628,7 +1630,7 @@ data WebACLUpdate = WebACLUpdate'
 --
 -- * 'wauAction' - Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
 --
--- * 'wauActivatedRule' - Undocumented member.
+-- * 'wauActivatedRule' - The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
 webACLUpdate
     :: ChangeAction -- ^ 'wauAction'
     -> ActivatedRule -- ^ 'wauActivatedRule'
@@ -1643,7 +1645,7 @@ webACLUpdate pAction_ pActivatedRule_ =
 wauAction :: Lens' WebACLUpdate ChangeAction
 wauAction = lens _wauAction (\ s a -> s{_wauAction = a});
 
--- | Undocumented member.
+-- | The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
 wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
 wauActivatedRule = lens _wauActivatedRule (\ s a -> s{_wauActivatedRule = a});
 
@@ -1818,7 +1820,7 @@ data XSSMatchTuple = XSSMatchTuple'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'xmtFieldToMatch' - Undocumented member.
+-- * 'xmtFieldToMatch' - Specifies where in a web request to look for cross-site scripting attacks.
 --
 -- * 'xmtTextTransformation' - Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass AWS WAF. If you specify a transformation, AWS WAF performs the transformation on @FieldToMatch@ before inspecting a request for a match. __CMD_LINE__  When you're concerned that attackers are injecting an operating system commandline command and using unusual formatting to disguise some or all of the command, use this option to perform the following transformations:     * Delete the following characters: \ " ' ^     * Delete spaces before the following characters: / (     * Replace the following characters with a space: , ;     * Replace multiple spaces with one space     * Convert uppercase letters (A-Z) to lowercase (a-z) __COMPRESS_WHITE_SPACE__  Use this option to replace the following characters with a space character (decimal 32):     * \f, formfeed, decimal 12     * \t, tab, decimal 9     * \n, newline, decimal 10     * \r, carriage return, decimal 13     * \v, vertical tab, decimal 11     * non-breaking space, decimal 160 @COMPRESS_WHITE_SPACE@ also replaces multiple spaces with one space. __HTML_ENTITY_DECODE__  Use this option to replace HTML-encoded characters with unencoded characters. @HTML_ENTITY_DECODE@ performs the following operations:     * Replaces @(ampersand)quot;@ with @"@      * Replaces @(ampersand)nbsp;@ with a non-breaking space, decimal 160     * Replaces @(ampersand)lt;@ with a "less than" symbol     * Replaces @(ampersand)gt;@ with @>@      * Replaces characters that are represented in hexadecimal format, @(ampersand)#xhhhh;@ , with the corresponding characters     * Replaces characters that are represented in decimal format, @(ampersand)#nnnn;@ , with the corresponding characters __LOWERCASE__  Use this option to convert uppercase letters (A-Z) to lowercase (a-z). __URL_DECODE__  Use this option to decode a URL-encoded value. __NONE__  Specify @NONE@ if you don't want to perform any text transformations.
 xssMatchTuple
@@ -1831,7 +1833,7 @@ xssMatchTuple pFieldToMatch_ pTextTransformation_ =
     , _xmtTextTransformation = pTextTransformation_
     }
 
--- | Undocumented member.
+-- | Specifies where in a web request to look for cross-site scripting attacks.
 xmtFieldToMatch :: Lens' XSSMatchTuple FieldToMatch
 xmtFieldToMatch = lens _xmtFieldToMatch (\ s a -> s{_xmtFieldToMatch = a});
 

@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This is Amazon Rekognition API guide.
+-- This is the Amazon Rekognition API reference.
 --
 --
 module Network.AWS.Rekognition
@@ -61,7 +61,7 @@ module Network.AWS.Rekognition
     -- * Operations
     -- $operations
 
-    -- ** ListCollections
+    -- ** ListCollections (Paginated)
     , module Network.AWS.Rekognition.ListCollections
 
     -- ** DeleteCollection
@@ -88,7 +88,7 @@ module Network.AWS.Rekognition
     -- ** DetectFaces
     , module Network.AWS.Rekognition.DetectFaces
 
-    -- ** ListFaces
+    -- ** ListFaces (Paginated)
     , module Network.AWS.Rekognition.ListFaces
 
     -- ** DeleteFaces

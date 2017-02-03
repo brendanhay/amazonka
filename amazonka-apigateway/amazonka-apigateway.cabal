@@ -104,6 +104,8 @@ library
         , Network.AWS.APIGateway.GetRestAPI
         , Network.AWS.APIGateway.GetRestAPIs
         , Network.AWS.APIGateway.GetSDK
+        , Network.AWS.APIGateway.GetSDKType
+        , Network.AWS.APIGateway.GetSDKTypes
         , Network.AWS.APIGateway.GetStage
         , Network.AWS.APIGateway.GetStages
         , Network.AWS.APIGateway.GetUsage

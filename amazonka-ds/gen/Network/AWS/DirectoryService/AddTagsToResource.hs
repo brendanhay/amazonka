@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified Amazon Directory Services directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
+-- Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
 --
 --
 module Network.AWS.DirectoryService.AddTagsToResource
@@ -56,7 +56,7 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- * 'attrResourceId' - Identifier (ID) for the directory to which to add the tag.
 --
--- * 'attrTags' - The tags to be assigned to the Amazon Directory Services directory.
+-- * 'attrTags' - The tags to be assigned to the directory.
 addTagsToResource
     :: Text -- ^ 'attrResourceId'
     -> AddTagsToResource
@@ -70,7 +70,7 @@ addTagsToResource pResourceId_ =
 attrResourceId :: Lens' AddTagsToResource Text
 attrResourceId = lens _attrResourceId (\ s a -> s{_attrResourceId = a});
 
--- | The tags to be assigned to the Amazon Directory Services directory.
+-- | The tags to be assigned to the directory.
 attrTags :: Lens' AddTagsToResource [Tag]
 attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 

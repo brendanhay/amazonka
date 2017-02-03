@@ -55,7 +55,7 @@ newtype CancelKeyDeletion = CancelKeyDeletion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ckdKeyId' - The unique identifier for the customer master key (CMK) for which to cancel deletion. To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab To obtain the unique key ID and key ARN for a given CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'ckdKeyId' - The unique identifier for the customer master key (CMK) for which to cancel deletion. To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab To obtain the unique key ID and key ARN for a given CMK, use 'ListKeys' or 'DescribeKey' .
 cancelKeyDeletion
     :: Text -- ^ 'ckdKeyId'
     -> CancelKeyDeletion
@@ -64,7 +64,7 @@ cancelKeyDeletion pKeyId_ =
     { _ckdKeyId = pKeyId_
     }
 
--- | The unique identifier for the customer master key (CMK) for which to cancel deletion. To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab To obtain the unique key ID and key ARN for a given CMK, use 'ListKeys' or 'DescribeKey' .
+-- | The unique identifier for the customer master key (CMK) for which to cancel deletion. To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab     * Key ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab To obtain the unique key ID and key ARN for a given CMK, use 'ListKeys' or 'DescribeKey' .
 ckdKeyId :: Lens' CancelKeyDeletion Text
 ckdKeyId = lens _ckdKeyId (\ s a -> s{_ckdKeyId = a});
 

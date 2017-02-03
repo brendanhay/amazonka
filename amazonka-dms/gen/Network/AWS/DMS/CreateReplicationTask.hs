@@ -73,7 +73,7 @@ data CreateReplicationTask = CreateReplicationTask'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtReplicationTaskSettings' - Settings for the task, such as target metadata settings.
+-- * 'crtReplicationTaskSettings' - Settings for the task, such as target metadata settings. For a complete list of task settings, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Task Settings for AWS Database Migration Service Tasks> .
 --
 -- * 'crtTags' - Tags to be added to the replication instance.
 --
@@ -111,7 +111,7 @@ createReplicationTask pReplicationTaskIdentifier_ pSourceEndpointARN_ pTargetEnd
     , _crtTableMappings = pTableMappings_
     }
 
--- | Settings for the task, such as target metadata settings.
+-- | Settings for the task, such as target metadata settings. For a complete list of task settings, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Task Settings for AWS Database Migration Service Tasks> .
 crtReplicationTaskSettings :: Lens' CreateReplicationTask (Maybe Text)
 crtReplicationTaskSettings = lens _crtReplicationTaskSettings (\ s a -> s{_crtReplicationTaskSettings = a});
 

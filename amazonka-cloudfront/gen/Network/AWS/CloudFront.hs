@@ -77,6 +77,9 @@ module Network.AWS.CloudFront
     -- ** TooManyCookieNamesInWhiteList
     , _TooManyCookieNamesInWhiteList
 
+    -- ** InvalidLambdaFunctionAssociation
+    , _InvalidLambdaFunctionAssociation
+
     -- ** InvalidForwardCookies
     , _InvalidForwardCookies
 
@@ -149,6 +152,9 @@ module Network.AWS.CloudFront
     -- ** InvalidProtocolSettings
     , _InvalidProtocolSettings
 
+    -- ** TooManyLambdaFunctionAssociations
+    , _TooManyLambdaFunctionAssociations
+
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
     , _CloudFrontOriginAccessIdentityAlreadyExists
 
@@ -175,6 +181,9 @@ module Network.AWS.CloudFront
 
     -- ** InvalidDefaultRootObject
     , _InvalidDefaultRootObject
+
+    -- ** TooManyDistributionsWithLambdaAssociations
+    , _TooManyDistributionsWithLambdaAssociations
 
     -- ** InvalidGeoRestrictionParameter
     , _InvalidGeoRestrictionParameter
@@ -283,6 +292,9 @@ module Network.AWS.CloudFront
     -- ** CertificateSource
     , CertificateSource (..)
 
+    -- ** EventType
+    , EventType (..)
+
     -- ** GeoRestrictionType
     , GeoRestrictionType (..)
 
@@ -337,6 +349,7 @@ module Network.AWS.CloudFront
     , CacheBehavior
     , cacheBehavior
     , cbAllowedMethods
+    , cbLambdaFunctionAssociations
     , cbMaxTTL
     , cbCompress
     , cbSmoothStreaming
@@ -434,6 +447,7 @@ module Network.AWS.CloudFront
     , DefaultCacheBehavior
     , defaultCacheBehavior
     , dcbAllowedMethods
+    , dcbLambdaFunctionAssociations
     , dcbMaxTTL
     , dcbCompress
     , dcbSmoothStreaming
@@ -571,6 +585,18 @@ module Network.AWS.CloudFront
     , keyPairIds
     , kpiItems
     , kpiQuantity
+
+    -- ** LambdaFunctionAssociation
+    , LambdaFunctionAssociation
+    , lambdaFunctionAssociation
+    , lfaLambdaFunctionARN
+    , lfaEventType
+
+    -- ** LambdaFunctionAssociations
+    , LambdaFunctionAssociations
+    , lambdaFunctionAssociations
+    , lfaItems
+    , lfaQuantity
 
     -- ** LoggingConfig
     , LoggingConfig

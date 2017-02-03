@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for SetSecurityGroups.
---
---
---
--- /See:/ 'setSecurityGroups' smart constructor.
+-- | /See:/ 'setSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
     { _ssgLoadBalancerARN :: !Text
     , _ssgSecurityGroups  :: ![Text]
@@ -109,11 +105,7 @@ instance ToQuery SetSecurityGroups where
                "SecurityGroups" =:
                  toQueryList "member" _ssgSecurityGroups]
 
--- | Contains the output of SetSecurityGroups.
---
---
---
--- /See:/ 'setSecurityGroupsResponse' smart constructor.
+-- | /See:/ 'setSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
     { _ssgrsSecurityGroupIds :: !(Maybe [Text])
     , _ssgrsResponseStatus   :: !Int

@@ -175,3 +175,116 @@ instance ToJSON NoEncryptionConfig where
 
 instance FromJSON NoEncryptionConfig where
     parseJSON = parseJSONText "NoEncryptionConfig"
+
+data ProcessorParameterName
+    = LambdaARN
+    | NumberOfRetries
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProcessorParameterName where
+    parser = takeLowerText >>= \case
+        "lambdaarn" -> pure LambdaARN
+        "numberofretries" -> pure NumberOfRetries
+        e -> fromTextError $ "Failure parsing ProcessorParameterName from value: '" <> e
+           <> "'. Accepted values: lambdaarn, numberofretries"
+
+instance ToText ProcessorParameterName where
+    toText = \case
+        LambdaARN -> "LambdaArn"
+        NumberOfRetries -> "NumberOfRetries"
+
+instance Hashable     ProcessorParameterName
+instance NFData       ProcessorParameterName
+instance ToByteString ProcessorParameterName
+instance ToQuery      ProcessorParameterName
+instance ToHeader     ProcessorParameterName
+
+instance ToJSON ProcessorParameterName where
+    toJSON = toJSONText
+
+instance FromJSON ProcessorParameterName where
+    parseJSON = parseJSONText "ProcessorParameterName"
+
+data ProcessorType =
+    Lambda
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ProcessorType where
+    parser = takeLowerText >>= \case
+        "lambda" -> pure Lambda
+        e -> fromTextError $ "Failure parsing ProcessorType from value: '" <> e
+           <> "'. Accepted values: lambda"
+
+instance ToText ProcessorType where
+    toText = \case
+        Lambda -> "Lambda"
+
+instance Hashable     ProcessorType
+instance NFData       ProcessorType
+instance ToByteString ProcessorType
+instance ToQuery      ProcessorType
+instance ToHeader     ProcessorType
+
+instance ToJSON ProcessorType where
+    toJSON = toJSONText
+
+instance FromJSON ProcessorType where
+    parseJSON = parseJSONText "ProcessorType"
+
+data RedshiftS3BackupMode
+    = Disabled
+    | Enabled
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RedshiftS3BackupMode where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled" -> pure Enabled
+        e -> fromTextError $ "Failure parsing RedshiftS3BackupMode from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText RedshiftS3BackupMode where
+    toText = \case
+        Disabled -> "Disabled"
+        Enabled -> "Enabled"
+
+instance Hashable     RedshiftS3BackupMode
+instance NFData       RedshiftS3BackupMode
+instance ToByteString RedshiftS3BackupMode
+instance ToQuery      RedshiftS3BackupMode
+instance ToHeader     RedshiftS3BackupMode
+
+instance ToJSON RedshiftS3BackupMode where
+    toJSON = toJSONText
+
+instance FromJSON RedshiftS3BackupMode where
+    parseJSON = parseJSONText "RedshiftS3BackupMode"
+
+data S3BackupMode
+    = SBMDisabled
+    | SBMEnabled
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText S3BackupMode where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure SBMDisabled
+        "enabled" -> pure SBMEnabled
+        e -> fromTextError $ "Failure parsing S3BackupMode from value: '" <> e
+           <> "'. Accepted values: disabled, enabled"
+
+instance ToText S3BackupMode where
+    toText = \case
+        SBMDisabled -> "Disabled"
+        SBMEnabled -> "Enabled"
+
+instance Hashable     S3BackupMode
+instance NFData       S3BackupMode
+instance ToByteString S3BackupMode
+instance ToQuery      S3BackupMode
+instance ToHeader     S3BackupMode
+
+instance ToJSON S3BackupMode where
+    toJSON = toJSONText
+
+instance FromJSON S3BackupMode where
+    parseJSON = parseJSONText "S3BackupMode"

@@ -52,9 +52,9 @@ data RemoveUserFromGroup = RemoveUserFromGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rufgGroupName' - The name of the group to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rufgGroupName' - The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'rufgUserName' - The name of the user to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'rufgUserName' - The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 removeUserFromGroup
     :: Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
@@ -65,11 +65,11 @@ removeUserFromGroup pGroupName_ pUserName_ =
     , _rufgUserName = pUserName_
     }
 
--- | The name of the group to update. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the group to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rufgGroupName :: Lens' RemoveUserFromGroup Text
 rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a});
 
--- | The name of the user to remove. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user to remove. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
 

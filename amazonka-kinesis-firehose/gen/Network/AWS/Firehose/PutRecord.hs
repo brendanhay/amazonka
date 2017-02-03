@@ -57,11 +57,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for 'PutRecord' .
---
---
---
--- /See:/ 'putRecord' smart constructor.
+-- | /See:/ 'putRecord' smart constructor.
 data PutRecord = PutRecord'
     { _prDeliveryStreamName :: !Text
     , _prRecord             :: !Record
@@ -128,11 +124,7 @@ instance ToPath PutRecord where
 instance ToQuery PutRecord where
         toQuery = const mempty
 
--- | Contains the output of 'PutRecord' .
---
---
---
--- /See:/ 'putRecordResponse' smart constructor.
+-- | /See:/ 'putRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
     { _prrsResponseStatus :: !Int
     , _prrsRecordId       :: !Text

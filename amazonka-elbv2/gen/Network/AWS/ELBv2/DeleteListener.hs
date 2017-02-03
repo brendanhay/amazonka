@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for DeleteListener.
---
---
---
--- /See:/ 'deleteListener' smart constructor.
+-- | /See:/ 'deleteListener' smart constructor.
 newtype DeleteListener = DeleteListener'
     { _dlListenerARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -96,11 +92,7 @@ instance ToQuery DeleteListener where
                "Version" =: ("2015-12-01" :: ByteString),
                "ListenerArn" =: _dlListenerARN]
 
--- | Contains the output of DeleteListener.
---
---
---
--- /See:/ 'deleteListenerResponse' smart constructor.
+-- | /See:/ 'deleteListenerResponse' smart constructor.
 newtype DeleteListenerResponse = DeleteListenerResponse'
     { _dlrsResponseStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)

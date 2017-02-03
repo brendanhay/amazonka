@@ -54,9 +54,9 @@ data DeleteAccessKey = DeleteAccessKey'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dakUserName' - The name of the user whose access key pair you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'dakUserName' - The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'dakAccessKeyId' - The access key ID for the access key ID and secret access key you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'dakAccessKeyId' - The access key ID for the access key ID and secret access key you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 deleteAccessKey
     :: AccessKey -- ^ 'dakAccessKeyId'
     -> DeleteAccessKey
@@ -66,11 +66,11 @@ deleteAccessKey pAccessKeyId_ =
     , _dakAccessKeyId = pAccessKeyId_
     }
 
--- | The name of the user whose access key pair you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user whose access key pair you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
 
--- | The access key ID for the access key ID and secret access key you want to delete. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that can consist of any upper or lowercased letter or digit.
+-- | The access key ID for the access key ID and secret access key you want to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 dakAccessKeyId :: Lens' DeleteAccessKey AccessKey
 dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
 

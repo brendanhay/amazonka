@@ -35,6 +35,7 @@ module Network.AWS.CloudFront.Types
     , _TooManyStreamingDistributions
     , _BatchTooLarge
     , _TooManyCookieNamesInWhiteList
+    , _InvalidLambdaFunctionAssociation
     , _InvalidForwardCookies
     , _TooManyTrustedSigners
     , _InvalidOrigin
@@ -59,6 +60,7 @@ module Network.AWS.CloudFront.Types
     , _CNAMEAlreadyExists
     , _TrustedSignerDoesNotExist
     , _InvalidProtocolSettings
+    , _TooManyLambdaFunctionAssociations
     , _CloudFrontOriginAccessIdentityAlreadyExists
     , _TooManyOrigins
     , _InvalidRelativePath
@@ -68,11 +70,15 @@ module Network.AWS.CloudFront.Types
     , _InvalidViewerCertificate
     , _NoSuchDistribution
     , _InvalidDefaultRootObject
+    , _TooManyDistributionsWithLambdaAssociations
     , _InvalidGeoRestrictionParameter
     , _InvalidLocationCode
 
     -- * CertificateSource
     , CertificateSource (..)
+
+    -- * EventType
+    , EventType (..)
 
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
@@ -128,6 +134,7 @@ module Network.AWS.CloudFront.Types
     , CacheBehavior
     , cacheBehavior
     , cbAllowedMethods
+    , cbLambdaFunctionAssociations
     , cbMaxTTL
     , cbCompress
     , cbSmoothStreaming
@@ -225,6 +232,7 @@ module Network.AWS.CloudFront.Types
     , DefaultCacheBehavior
     , defaultCacheBehavior
     , dcbAllowedMethods
+    , dcbLambdaFunctionAssociations
     , dcbMaxTTL
     , dcbCompress
     , dcbSmoothStreaming
@@ -362,6 +370,18 @@ module Network.AWS.CloudFront.Types
     , keyPairIds
     , kpiItems
     , kpiQuantity
+
+    -- * LambdaFunctionAssociation
+    , LambdaFunctionAssociation
+    , lambdaFunctionAssociation
+    , lfaLambdaFunctionARN
+    , lfaEventType
+
+    -- * LambdaFunctionAssociations
+    , LambdaFunctionAssociations
+    , lambdaFunctionAssociations
+    , lfaItems
+    , lfaQuantity
 
     -- * LoggingConfig
     , LoggingConfig
@@ -535,14 +555,14 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
 
--- | API version @2016-09-29@ of the Amazon CloudFront SDK configuration.
+-- | API version @2016-11-25@ of the Amazon CloudFront SDK configuration.
 cloudFront :: Service
 cloudFront =
     Service
     { _svcAbbrev = "CloudFront"
     , _svcSigner = v4
     , _svcPrefix = "cloudfront"
-    , _svcVersion = "2016-09-29"
+    , _svcVersion = "2016-11-25"
     , _svcEndpoint = defaultEndpoint cloudFront
     , _svcTimeout = Just 70
     , _svcCheck = statusSuccess
@@ -690,6 +710,14 @@ _BatchTooLarge = _MatchServiceError cloudFront "BatchTooLarge" . hasStatus 413
 _TooManyCookieNamesInWhiteList :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyCookieNamesInWhiteList =
     _MatchServiceError cloudFront "TooManyCookieNamesInWhiteList" .
+    hasStatus 400
+
+-- | The specified Lambda function association is invalid.
+--
+--
+_InvalidLambdaFunctionAssociation :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionAssociation =
+    _MatchServiceError cloudFront "InvalidLambdaFunctionAssociation" .
     hasStatus 400
 
 -- | Your request contains forward cookies option which doesn't match with the expectation for the @whitelisted@ list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
@@ -842,6 +870,14 @@ _InvalidProtocolSettings :: AsError a => Getting (First ServiceError) a ServiceE
 _InvalidProtocolSettings =
     _MatchServiceError cloudFront "InvalidProtocolSettings" . hasStatus 400
 
+-- | Your request contains more Lambda function associations than are allowed per distribution.
+--
+--
+_TooManyLambdaFunctionAssociations :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyLambdaFunctionAssociations =
+    _MatchServiceError cloudFront "TooManyLambdaFunctionAssociations" .
+    hasStatus 400
+
 -- | If the @CallerReference@ is a value you already sent in a previous request to create an identity but the content of the @CloudFrontOriginAccessIdentityConfig@ is different from the original request, CloudFront returns a @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 --
 --
@@ -900,6 +936,14 @@ _NoSuchDistribution =
 _InvalidDefaultRootObject :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidDefaultRootObject =
     _MatchServiceError cloudFront "InvalidDefaultRootObject" . hasStatus 400
+
+-- | Processing your request would cause the maximum number of distributions with Lambda function associations per owner to be exceeded.
+--
+--
+_TooManyDistributionsWithLambdaAssociations :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyDistributionsWithLambdaAssociations =
+    _MatchServiceError cloudFront "TooManyDistributionsWithLambdaAssociations" .
+    hasStatus 400
 
 -- | Prism for InvalidGeoRestrictionParameter' errors.
 _InvalidGeoRestrictionParameter :: AsError a => Getting (First ServiceError) a ServiceError

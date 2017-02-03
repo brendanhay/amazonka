@@ -52,9 +52,9 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarpRoleName' - The name of the role to update with the new policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'uarpRoleName' - The name of the role to update with the new policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'uarpPolicyDocument' - The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'uarpPolicyDocument' - The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 updateAssumeRolePolicy
     :: Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
@@ -65,11 +65,11 @@ updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
     , _uarpPolicyDocument = pPolicyDocument_
     }
 
--- | The name of the role to update with the new policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role to update with the new policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\ s a -> s{_uarpRoleName = a});
 
--- | The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | The policy that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
 uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = a});
 

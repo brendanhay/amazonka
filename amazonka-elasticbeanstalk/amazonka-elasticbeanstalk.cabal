@@ -73,6 +73,7 @@ library
         , Network.AWS.ElasticBeanstalk.TerminateEnvironment
         , Network.AWS.ElasticBeanstalk.Types
         , Network.AWS.ElasticBeanstalk.UpdateApplication
+        , Network.AWS.ElasticBeanstalk.UpdateApplicationResourceLifecycle
         , Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
         , Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
         , Network.AWS.ElasticBeanstalk.UpdateEnvironment

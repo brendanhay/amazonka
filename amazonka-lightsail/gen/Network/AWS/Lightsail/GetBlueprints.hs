@@ -21,6 +21,8 @@
 -- Returns the list of available instance images, or /blueprints/ . You can use a blueprint to create a new virtual private server already running a specific operating system, as well as a preinstalled app or development stack. The software each instance is running depends on the blueprint image you choose.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Lightsail.GetBlueprints
     (
     -- * Creating a Request
@@ -42,6 +44,7 @@ module Network.AWS.Lightsail.GetBlueprints
 import           Network.AWS.Lens
 import           Network.AWS.Lightsail.Types
 import           Network.AWS.Lightsail.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ gbIncludeInactive = lens _gbIncludeInactive (\ s a -> s{_gbIncludeInactive = a})
 -- | A token used for advancing to the next page of results from your get blueprints request.
 gbPageToken :: Lens' GetBlueprints (Maybe Text)
 gbPageToken = lens _gbPageToken (\ s a -> s{_gbPageToken = a});
+
+instance AWSPager GetBlueprints where
+        page rq rs
+          | stop (rs ^. gbsrsNextPageToken) = Nothing
+          | stop (rs ^. gbsrsBlueprints) = Nothing
+          | otherwise =
+            Just $ rq & gbPageToken .~ rs ^. gbsrsNextPageToken
 
 instance AWSRequest GetBlueprints where
         type Rs GetBlueprints = GetBlueprintsResponse

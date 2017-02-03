@@ -28,6 +28,7 @@ module Network.AWS.ECR.BatchGetImage
     , BatchGetImage
     -- * Request Lenses
     , bgiRegistryId
+    , bgiAcceptedMediaTypes
     , bgiRepositoryName
     , bgiImageIds
 
@@ -49,9 +50,10 @@ import           Network.AWS.Response
 
 -- | /See:/ 'batchGetImage' smart constructor.
 data BatchGetImage = BatchGetImage'
-    { _bgiRegistryId     :: !(Maybe Text)
-    , _bgiRepositoryName :: !Text
-    , _bgiImageIds       :: ![ImageIdentifier]
+    { _bgiRegistryId         :: !(Maybe Text)
+    , _bgiAcceptedMediaTypes :: !(Maybe (List1 Text))
+    , _bgiRepositoryName     :: !Text
+    , _bgiImageIds           :: ![ImageIdentifier]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'BatchGetImage' with the minimum fields required to make a request.
@@ -59,6 +61,8 @@ data BatchGetImage = BatchGetImage'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bgiRegistryId' - The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
+--
+-- * 'bgiAcceptedMediaTypes' - The accepted media types for the request. Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
 --
 -- * 'bgiRepositoryName' - The repository that contains the images to describe.
 --
@@ -69,6 +73,7 @@ batchGetImage
 batchGetImage pRepositoryName_ =
     BatchGetImage'
     { _bgiRegistryId = Nothing
+    , _bgiAcceptedMediaTypes = Nothing
     , _bgiRepositoryName = pRepositoryName_
     , _bgiImageIds = mempty
     }
@@ -76,6 +81,10 @@ batchGetImage pRepositoryName_ =
 -- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
 bgiRegistryId :: Lens' BatchGetImage (Maybe Text)
 bgiRegistryId = lens _bgiRegistryId (\ s a -> s{_bgiRegistryId = a});
+
+-- | The accepted media types for the request. Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
+bgiAcceptedMediaTypes :: Lens' BatchGetImage (Maybe (NonEmpty Text))
+bgiAcceptedMediaTypes = lens _bgiAcceptedMediaTypes (\ s a -> s{_bgiAcceptedMediaTypes = a}) . mapping _List1;
 
 -- | The repository that contains the images to describe.
 bgiRepositoryName :: Lens' BatchGetImage Text
@@ -115,6 +124,7 @@ instance ToJSON BatchGetImage where
           = object
               (catMaybes
                  [("registryId" .=) <$> _bgiRegistryId,
+                  ("acceptedMediaTypes" .=) <$> _bgiAcceptedMediaTypes,
                   Just ("repositoryName" .= _bgiRepositoryName),
                   Just ("imageIds" .= _bgiImageIds)])
 

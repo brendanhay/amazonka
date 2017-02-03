@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The GetReplicationJobs API will return all of your ReplicationJobs and their details. This API returns a paginated list, that may be consecutively called with nextToken to retrieve all ReplicationJobs.
+--
+-- This operation returns paginated results.
 module Network.AWS.SMS.GetReplicationJobs
     (
     -- * Creating a Request
@@ -39,6 +41,7 @@ module Network.AWS.SMS.GetReplicationJobs
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -81,6 +84,13 @@ grjNextToken = lens _grjNextToken (\ s a -> s{_grjNextToken = a});
 -- | Undocumented member.
 grjMaxResults :: Lens' GetReplicationJobs (Maybe Int)
 grjMaxResults = lens _grjMaxResults (\ s a -> s{_grjMaxResults = a});
+
+instance AWSPager GetReplicationJobs where
+        page rq rs
+          | stop (rs ^. grjrsNextToken) = Nothing
+          | stop (rs ^. grjrsReplicationJobList) = Nothing
+          | otherwise =
+            Just $ rq & grjNextToken .~ rs ^. grjrsNextToken
 
 instance AWSRequest GetReplicationJobs where
         type Rs GetReplicationJobs =

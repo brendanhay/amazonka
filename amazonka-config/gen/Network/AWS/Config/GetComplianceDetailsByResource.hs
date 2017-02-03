@@ -21,6 +21,8 @@
 -- Returns the evaluation results for the specified AWS resource. The results indicate which AWS Config rules were used to evaluate the resource, when each rule was last used, and whether the resource complies with each rule.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetComplianceDetailsByResource
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.Config.GetComplianceDetailsByResource
 import           Network.AWS.Config.Types
 import           Network.AWS.Config.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -66,7 +69,7 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 --
 -- * 'gcdbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
 --
--- * 'gcdbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'gcdbrNextToken' - The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- * 'gcdbrResourceType' - The type of the AWS resource for which you want compliance information.
 --
@@ -87,7 +90,7 @@ getComplianceDetailsByResource pResourceType_ pResourceId_ =
 gcdbrComplianceTypes :: Lens' GetComplianceDetailsByResource [ComplianceType]
 gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\ s a -> s{_gcdbrComplianceTypes = a}) . _Default . _Coerce;
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @NextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 gcdbrNextToken :: Lens' GetComplianceDetailsByResource (Maybe Text)
 gcdbrNextToken = lens _gcdbrNextToken (\ s a -> s{_gcdbrNextToken = a});
 
@@ -98,6 +101,14 @@ gcdbrResourceType = lens _gcdbrResourceType (\ s a -> s{_gcdbrResourceType = a})
 -- | The ID of the AWS resource for which you want compliance information.
 gcdbrResourceId :: Lens' GetComplianceDetailsByResource Text
 gcdbrResourceId = lens _gcdbrResourceId (\ s a -> s{_gcdbrResourceId = a});
+
+instance AWSPager GetComplianceDetailsByResource
+         where
+        page rq rs
+          | stop (rs ^. gcdbrrsNextToken) = Nothing
+          | stop (rs ^. gcdbrrsEvaluationResults) = Nothing
+          | otherwise =
+            Just $ rq & gcdbrNextToken .~ rs ^. gcdbrrsNextToken
 
 instance AWSRequest GetComplianceDetailsByResource
          where

@@ -48,11 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for 'ListDeliveryStreams' .
---
---
---
--- /See:/ 'listDeliveryStreams' smart constructor.
+-- | /See:/ 'listDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
     { _ldsLimit                            :: !(Maybe Nat)
     , _ldsExclusiveStartDeliveryStreamName :: !(Maybe Text)
@@ -121,11 +117,7 @@ instance ToPath ListDeliveryStreams where
 instance ToQuery ListDeliveryStreams where
         toQuery = const mempty
 
--- | Contains the output of 'ListDeliveryStreams' .
---
---
---
--- /See:/ 'listDeliveryStreamsResponse' smart constructor.
+-- | /See:/ 'listDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
     { _ldsrsResponseStatus         :: !Int
     , _ldsrsDeliveryStreamNames    :: ![Text]

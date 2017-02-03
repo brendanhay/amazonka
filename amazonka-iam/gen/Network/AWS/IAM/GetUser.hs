@@ -55,7 +55,7 @@ newtype GetUser = GetUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'guUserName' - The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getUser
     :: GetUser
 getUser =
@@ -63,7 +63,7 @@ getUser =
     { _guUserName = Nothing
     }
 
--- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the user to get information about. This parameter is optional. If it is not included, it defaults to the user making the request. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 

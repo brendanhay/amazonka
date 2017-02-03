@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The GetServers API returns a list of all servers in your server catalog. For this call to succeed, you must previously have called ImportServerCatalog.
+--
+-- This operation returns paginated results.
 module Network.AWS.SMS.GetServers
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.SMS.GetServers
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ gsNextToken = lens _gsNextToken (\ s a -> s{_gsNextToken = a});
 -- | Undocumented member.
 gsMaxResults :: Lens' GetServers (Maybe Int)
 gsMaxResults = lens _gsMaxResults (\ s a -> s{_gsMaxResults = a});
+
+instance AWSPager GetServers where
+        page rq rs
+          | stop (rs ^. gsrsNextToken) = Nothing
+          | stop (rs ^. gsrsServerList) = Nothing
+          | otherwise =
+            Just $ rq & gsNextToken .~ rs ^. gsrsNextToken
 
 instance AWSRequest GetServers where
         type Rs GetServers = GetServersResponse

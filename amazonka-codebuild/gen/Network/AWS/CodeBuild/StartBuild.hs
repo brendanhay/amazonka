@@ -63,15 +63,15 @@ data StartBuild = StartBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sbEnvironmentVariablesOverride' - A set of environment variables that overrides, for this build only, the latest ones already defined in the corresponding build project.
+-- * 'sbEnvironmentVariablesOverride' - A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
 --
--- * 'sbTimeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours) that overrides, for this build only, the latest setting already defined in the corresponding build project.
+-- * 'sbTimeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
 --
 -- * 'sbSourceVersion' - A version of the build input to be built, for this build only. If not specified, the latest version will be used. If specified, must be one of:     * For AWS CodeCommit or GitHub: the commit ID to use.     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing the build input ZIP file to use.
 --
--- * 'sbBuildspecOverride' - A build spec declaration that overrides, for this build only, the latest one already defined in the corresponding build project.
+-- * 'sbBuildspecOverride' - A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
 --
--- * 'sbArtifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the corresponding build project.
+-- * 'sbArtifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
 --
 -- * 'sbProjectName' - The name of the build project to start running a build.
 startBuild
@@ -87,11 +87,11 @@ startBuild pProjectName_ =
     , _sbProjectName = pProjectName_
     }
 
--- | A set of environment variables that overrides, for this build only, the latest ones already defined in the corresponding build project.
+-- | A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
 sbEnvironmentVariablesOverride :: Lens' StartBuild [EnvironmentVariable]
 sbEnvironmentVariablesOverride = lens _sbEnvironmentVariablesOverride (\ s a -> s{_sbEnvironmentVariablesOverride = a}) . _Default . _Coerce;
 
--- | The number of build timeout minutes, from 5 to 480 (8 hours) that overrides, for this build only, the latest setting already defined in the corresponding build project.
+-- | The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
 sbTimeoutInMinutesOverride :: Lens' StartBuild (Maybe Natural)
 sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\ s a -> s{_sbTimeoutInMinutesOverride = a}) . mapping _Nat;
 
@@ -99,11 +99,11 @@ sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\ s a -> s{_sbTim
 sbSourceVersion :: Lens' StartBuild (Maybe Text)
 sbSourceVersion = lens _sbSourceVersion (\ s a -> s{_sbSourceVersion = a});
 
--- | A build spec declaration that overrides, for this build only, the latest one already defined in the corresponding build project.
+-- | A build spec declaration that overrides, for this build only, the latest one already defined in the build project.
 sbBuildspecOverride :: Lens' StartBuild (Maybe Text)
 sbBuildspecOverride = lens _sbBuildspecOverride (\ s a -> s{_sbBuildspecOverride = a});
 
--- | Build output artifact settings that override, for this build only, the latest ones already defined in the corresponding build project.
+-- | Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
 sbArtifactsOverride :: Lens' StartBuild (Maybe ProjectArtifacts)
 sbArtifactsOverride = lens _sbArtifactsOverride (\ s a -> s{_sbArtifactsOverride = a});
 

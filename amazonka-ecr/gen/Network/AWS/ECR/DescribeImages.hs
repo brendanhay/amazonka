@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata about the images in a repository, including image size and creation date.
+-- Returns metadata about the images in a repository, including image size, image tags, and creation date.
 --
 --
 --
@@ -67,7 +67,7 @@ data DescribeImages = DescribeImages'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diRegistryId' - The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
+-- * 'diRegistryId' - The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
 --
 -- * 'diImageIds' - The list of image IDs for the requested repository.
 --
@@ -91,7 +91,7 @@ describeImages pRepositoryName_ =
     , _diRepositoryName = pRepositoryName_
     }
 
--- | The AWS account ID associated with the registry that contains the repository in which to list images. If you do not specify a registry, the default registry is assumed.
+-- | The AWS account ID associated with the registry that contains the repository in which to describe images. If you do not specify a registry, the default registry is assumed.
 diRegistryId :: Lens' DescribeImages (Maybe Text)
 diRegistryId = lens _diRegistryId (\ s a -> s{_diRegistryId = a});
 

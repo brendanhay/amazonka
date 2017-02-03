@@ -21,6 +21,8 @@
 -- Enables the specified user as an administrator. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminEnableUser
     (
     -- * Creating a Request

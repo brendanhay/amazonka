@@ -54,7 +54,7 @@ newtype DescribeAssessmentTemplates = DescribeAssessmentTemplates'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'datAssessmentTemplateARNs' - The ARN that specifiesthe assessment templates that you want to describe.
+-- * 'datAssessmentTemplateARNs' - Undocumented member.
 describeAssessmentTemplates
     :: NonEmpty Text -- ^ 'datAssessmentTemplateARNs'
     -> DescribeAssessmentTemplates
@@ -63,7 +63,7 @@ describeAssessmentTemplates pAssessmentTemplateARNs_ =
     { _datAssessmentTemplateARNs = _List1 # pAssessmentTemplateARNs_
     }
 
--- | The ARN that specifiesthe assessment templates that you want to describe.
+-- | Undocumented member.
 datAssessmentTemplateARNs :: Lens' DescribeAssessmentTemplates (NonEmpty Text)
 datAssessmentTemplateARNs = lens _datAssessmentTemplateARNs (\ s a -> s{_datAssessmentTemplateARNs = a}) . _List1;
 

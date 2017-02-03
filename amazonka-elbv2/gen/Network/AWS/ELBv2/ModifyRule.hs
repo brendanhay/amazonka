@@ -50,11 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ModifyRules.
---
---
---
--- /See:/ 'modifyRule' smart constructor.
+-- | /See:/ 'modifyRule' smart constructor.
 data ModifyRule = ModifyRule'
     { _mrActions    :: !(Maybe [Action])
     , _mrConditions :: !(Maybe [RuleCondition])
@@ -124,11 +120,7 @@ instance ToQuery ModifyRule where
                  toQuery (toQueryList "member" <$> _mrConditions),
                "RuleArn" =: _mrRuleARN]
 
--- | Contains the output of ModifyRules.
---
---
---
--- /See:/ 'modifyRuleResponse' smart constructor.
+-- | /See:/ 'modifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
     { _mrrsRules          :: !(Maybe [Rule])
     , _mrrsResponseStatus :: !Int

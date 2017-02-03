@@ -27,6 +27,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
       createApplication
     , CreateApplication
     -- * Request Lenses
+    , caResourceLifecycleConfig
     , caDescription
     , caApplicationName
 
@@ -50,13 +51,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-    { _caDescription     :: !(Maybe Text)
-    , _caApplicationName :: !Text
+    { _caResourceLifecycleConfig :: !(Maybe ApplicationResourceLifecycleConfig)
+    , _caDescription             :: !(Maybe Text)
+    , _caApplicationName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caResourceLifecycleConfig' - Specify an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 --
 -- * 'caDescription' - Describes the application.
 --
@@ -66,9 +70,14 @@ createApplication
     -> CreateApplication
 createApplication pApplicationName_ =
     CreateApplication'
-    { _caDescription = Nothing
+    { _caResourceLifecycleConfig = Nothing
+    , _caDescription = Nothing
     , _caApplicationName = pApplicationName_
     }
+
+-- | Specify an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+caResourceLifecycleConfig :: Lens' CreateApplication (Maybe ApplicationResourceLifecycleConfig)
+caResourceLifecycleConfig = lens _caResourceLifecycleConfig (\ s a -> s{_caResourceLifecycleConfig = a});
 
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)
@@ -101,5 +110,7 @@ instance ToQuery CreateApplication where
           = mconcat
               ["Action" =: ("CreateApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
+               "ResourceLifecycleConfig" =:
+                 _caResourceLifecycleConfig,
                "Description" =: _caDescription,
                "ApplicationName" =: _caApplicationName]

@@ -19,6 +19,35 @@ module Network.AWS.CloudWatchLogs.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data Distribution
+    = ByLogStream
+    | Random
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText Distribution where
+    parser = takeLowerText >>= \case
+        "bylogstream" -> pure ByLogStream
+        "random" -> pure Random
+        e -> fromTextError $ "Failure parsing Distribution from value: '" <> e
+           <> "'. Accepted values: bylogstream, random"
+
+instance ToText Distribution where
+    toText = \case
+        ByLogStream -> "ByLogStream"
+        Random -> "Random"
+
+instance Hashable     Distribution
+instance NFData       Distribution
+instance ToByteString Distribution
+instance ToQuery      Distribution
+instance ToHeader     Distribution
+
+instance ToJSON Distribution where
+    toJSON = toJSONText
+
+instance FromJSON Distribution where
+    parseJSON = parseJSONText "Distribution"
+
 data ExportTaskStatusCode
     = Cancelled
     | Completed

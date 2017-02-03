@@ -39,6 +39,7 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
       createLogGroup
     , CreateLogGroup
     -- * Request Lenses
+    , clgTags
     , clgLogGroupName
 
     -- * Destructuring the Response
@@ -54,13 +55,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
-newtype CreateLogGroup = CreateLogGroup'
-    { _clgLogGroupName :: Text
+data CreateLogGroup = CreateLogGroup'
+    { _clgTags         :: !(Maybe (Map Text Text))
+    , _clgLogGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateLogGroup' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clgTags' - The key-value pairs to use for the tags.
 --
 -- * 'clgLogGroupName' - The name of the log group.
 createLogGroup
@@ -68,8 +72,13 @@ createLogGroup
     -> CreateLogGroup
 createLogGroup pLogGroupName_ =
     CreateLogGroup'
-    { _clgLogGroupName = pLogGroupName_
+    { _clgTags = Nothing
+    , _clgLogGroupName = pLogGroupName_
     }
+
+-- | The key-value pairs to use for the tags.
+clgTags :: Lens' CreateLogGroup (HashMap Text Text)
+clgTags = lens _clgTags (\ s a -> s{_clgTags = a}) . _Default . _Map;
 
 -- | The name of the log group.
 clgLogGroupName :: Lens' CreateLogGroup Text
@@ -97,7 +106,8 @@ instance ToJSON CreateLogGroup where
         toJSON CreateLogGroup'{..}
           = object
               (catMaybes
-                 [Just ("logGroupName" .= _clgLogGroupName)])
+                 [("tags" .=) <$> _clgTags,
+                  Just ("logGroupName" .= _clgLogGroupName)])
 
 instance ToPath CreateLogGroup where
         toPath = const "/"

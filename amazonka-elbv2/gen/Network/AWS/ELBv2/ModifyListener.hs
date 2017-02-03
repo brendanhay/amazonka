@@ -51,11 +51,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for ModifyListener.
---
---
---
--- /See:/ 'modifyListener' smart constructor.
+-- | /See:/ 'modifyListener' smart constructor.
 data ModifyListener = ModifyListener'
     { _mlSSLPolicy      :: !(Maybe Text)
     , _mlProtocol       :: !(Maybe ProtocolEnum)
@@ -151,11 +147,7 @@ instance ToQuery ModifyListener where
                  toQuery (toQueryList "member" <$> _mlCertificates),
                "Port" =: _mlPort, "ListenerArn" =: _mlListenerARN]
 
--- | Contains the output of ModifyListener.
---
---
---
--- /See:/ 'modifyListenerResponse' smart constructor.
+-- | /See:/ 'modifyListenerResponse' smart constructor.
 data ModifyListenerResponse = ModifyListenerResponse'
     { _mlrsListeners      :: !(Maybe [Listener])
     , _mlrsResponseStatus :: !Int

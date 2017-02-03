@@ -55,11 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the parameters for CreateListener.
---
---
---
--- /See:/ 'createListener' smart constructor.
+-- | /See:/ 'createListener' smart constructor.
 data CreateListener = CreateListener'
     { _clSSLPolicy       :: !(Maybe Text)
     , _clCertificates    :: !(Maybe [Certificate])
@@ -157,11 +153,7 @@ instance ToQuery CreateListener where
                "DefaultActions" =:
                  toQueryList "member" _clDefaultActions]
 
--- | Contains the output of CreateListener.
---
---
---
--- /See:/ 'createListenerResponse' smart constructor.
+-- | /See:/ 'createListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
     { _clrsListeners      :: !(Maybe [Listener])
     , _clrsResponseStatus :: !Int

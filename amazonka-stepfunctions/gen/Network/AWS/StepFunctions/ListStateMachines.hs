@@ -21,6 +21,8 @@
 -- Lists the existing state machines. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the @nextToken@ returned by the previous call.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.StepFunctions.ListStateMachines
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.StepFunctions.ListStateMachines
     ) where
 
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ lsmNextToken = lens _lsmNextToken (\ s a -> s{_lsmNextToken = a});
 -- | The maximum number of results that will be returned per call. @nextToken@ can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 lsmMaxResults :: Lens' ListStateMachines (Maybe Natural)
 lsmMaxResults = lens _lsmMaxResults (\ s a -> s{_lsmMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListStateMachines where
+        page rq rs
+          | stop (rs ^. lsmrsNextToken) = Nothing
+          | stop (rs ^. lsmrsStateMachines) = Nothing
+          | otherwise =
+            Just $ rq & lsmNextToken .~ rs ^. lsmrsNextToken
 
 instance AWSRequest ListStateMachines where
         type Rs ListStateMachines = ListStateMachinesResponse

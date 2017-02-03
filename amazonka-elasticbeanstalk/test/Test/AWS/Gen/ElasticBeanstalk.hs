@@ -97,6 +97,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestDeleteEnvironmentConfiguration $
 --             deleteEnvironmentConfiguration
 --
+--         , requestUpdateApplicationResourceLifecycle $
+--             updateApplicationResourceLifecycle
+--
 --         , requestSwapEnvironmentCNAMEs $
 --             swapEnvironmentCNAMEs
 --
@@ -207,6 +210,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , responseDeleteEnvironmentConfiguration $
 --             deleteEnvironmentConfigurationResponse
+--
+--         , responseUpdateApplicationResourceLifecycle $
+--             updateApplicationResourceLifecycleResponse
 --
 --         , responseSwapEnvironmentCNAMEs $
 --             swapEnvironmentCNAMEsResponse
@@ -366,6 +372,11 @@ requestDeleteEnvironmentConfiguration :: DeleteEnvironmentConfiguration -> TestT
 requestDeleteEnvironmentConfiguration = req
     "DeleteEnvironmentConfiguration"
     "fixture/DeleteEnvironmentConfiguration.yaml"
+
+requestUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycle -> TestTree
+requestUpdateApplicationResourceLifecycle = req
+    "UpdateApplicationResourceLifecycle"
+    "fixture/UpdateApplicationResourceLifecycle.yaml"
 
 requestSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
 requestSwapEnvironmentCNAMEs = req
@@ -594,6 +605,13 @@ responseDeleteEnvironmentConfiguration = res
     "fixture/DeleteEnvironmentConfigurationResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
+
+responseUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycleResponse -> TestTree
+responseUpdateApplicationResourceLifecycle = res
+    "UpdateApplicationResourceLifecycleResponse"
+    "fixture/UpdateApplicationResourceLifecycleResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy UpdateApplicationResourceLifecycle)
 
 responseSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsResponse -> TestTree
 responseSwapEnvironmentCNAMEs = res

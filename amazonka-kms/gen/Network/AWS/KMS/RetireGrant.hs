@@ -18,18 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retires a grant. You can retire a grant when you're done using it to clean up. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:
+-- Retires a grant. To clean up, you can retire a grant when you're done using it. You should revoke a grant when you intend to actively deny operations that depend on it. The following are permitted to call this API:
 --
 --
---     * The account that created the grant
+--     * The AWS account (root user) under which the grant was created
 --
---     * The @RetiringPrincipal@ , if present
+--     * The @RetiringPrincipal@ , if present in the grant
 --
---     * The @GranteePrincipal@ , if @RetireGrant@ is a grantee operation
+--     * The @GranteePrincipal@ , if @RetireGrant@ is an operation specified in the grant
 --
 --
 --
--- The grant to retire must be identified by its grant token or by a combination of the key ARN and the grant ID. A grant token is a unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier of a grant. Both are returned by the @CreateGrant@ function.
+-- You must identify the grant to retire by its grant token or by a combination of the grant ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier of a grant. The 'CreateGrant' operation returns both.
 --
 module Network.AWS.KMS.RetireGrant
     (
@@ -64,9 +64,9 @@ data RetireGrant = RetireGrant'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rgKeyId' - A unique identifier for the customer master key associated with the grant. This value can be a globally unique identifier or a fully specified ARN of the key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- * 'rgKeyId' - The Amazon Resource Name of the CMK associated with the grant. Example:     * arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab
 --
--- * 'rgGrantId' - Unique identifier of the grant to be retired. The grant ID is returned by the @CreateGrant@ function.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
+-- * 'rgGrantId' - Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
 --
 -- * 'rgGrantToken' - Token that identifies the grant to be retired.
 retireGrant
@@ -78,11 +78,11 @@ retireGrant =
     , _rgGrantToken = Nothing
     }
 
--- | A unique identifier for the customer master key associated with the grant. This value can be a globally unique identifier or a fully specified ARN of the key.     * Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012     * Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | The Amazon Resource Name of the CMK associated with the grant. Example:     * arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab
 rgKeyId :: Lens' RetireGrant (Maybe Text)
 rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
 
--- | Unique identifier of the grant to be retired. The grant ID is returned by the @CreateGrant@ function.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
+-- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
 rgGrantId :: Lens' RetireGrant (Maybe Text)
 rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a});
 

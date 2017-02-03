@@ -36,7 +36,7 @@ data AliasListEntry = AliasListEntry'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aleTargetKeyId' - String that contains the key identifier pointed to by the alias.
+-- * 'aleTargetKeyId' - String that contains the key identifier referred to by the alias.
 --
 -- * 'aleAliasName' - String that contains the alias.
 --
@@ -50,7 +50,7 @@ aliasListEntry =
     , _aleAliasARN = Nothing
     }
 
--- | String that contains the key identifier pointed to by the alias.
+-- | String that contains the key identifier referred to by the alias.
 aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\ s a -> s{_aleTargetKeyId = a});
 

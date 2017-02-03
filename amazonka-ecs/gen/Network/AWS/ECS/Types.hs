@@ -26,10 +26,15 @@ module Network.AWS.ECS.Types
     , _ServiceNotFoundException
     , _MissingVersionException
     , _UpdateInProgressException
+    , _TargetNotFoundException
+    , _AttributeLimitExceededException
     , _ClientException
 
     -- * AgentUpdateStatus
     , AgentUpdateStatus (..)
+
+    -- * ContainerInstanceStatus
+    , ContainerInstanceStatus (..)
 
     -- * DesiredStatus
     , DesiredStatus (..)
@@ -40,11 +45,23 @@ module Network.AWS.ECS.Types
     -- * NetworkMode
     , NetworkMode (..)
 
+    -- * PlacementConstraintType
+    , PlacementConstraintType (..)
+
+    -- * PlacementStrategyType
+    , PlacementStrategyType (..)
+
     -- * SortOrder
     , SortOrder (..)
 
+    -- * TargetType
+    , TargetType (..)
+
     -- * TaskDefinitionFamilyStatus
     , TaskDefinitionFamilyStatus (..)
+
+    -- * TaskDefinitionPlacementConstraintType
+    , TaskDefinitionPlacementConstraintType (..)
 
     -- * TaskDefinitionStatus
     , TaskDefinitionStatus (..)
@@ -58,7 +75,9 @@ module Network.AWS.ECS.Types
     -- * Attribute
     , Attribute
     , attribute
+    , aTargetId
     , aValue
+    , aTargetType
     , aName
 
     -- * Cluster
@@ -146,7 +165,9 @@ module Network.AWS.ECS.Types
     , csDesiredCount
     , csLoadBalancers
     , csPendingCount
+    , csPlacementConstraints
     , csEvents
+    , csPlacementStrategy
     , csDeployments
     , csServiceName
     , csServiceARN
@@ -224,6 +245,18 @@ module Network.AWS.ECS.Types
     , nbHostPort
     , nbContainerPort
 
+    -- * PlacementConstraint
+    , PlacementConstraint
+    , placementConstraint
+    , pcExpression
+    , pcType
+
+    -- * PlacementStrategy
+    , PlacementStrategy
+    , placementStrategy
+    , psField
+    , psType
+
     -- * PortMapping
     , PortMapping
     , portMapping
@@ -255,6 +288,7 @@ module Network.AWS.ECS.Types
     , tDesiredStatus
     , tOverrides
     , tClusterARN
+    , tGroup
     , tCreatedAt
     , tTaskARN
     , tContainerInstanceARN
@@ -273,11 +307,18 @@ module Network.AWS.ECS.Types
     , tdFamily
     , tdContainerDefinitions
     , tdTaskRoleARN
+    , tdPlacementConstraints
     , tdNetworkMode
     , tdTaskDefinitionARN
     , tdRevision
     , tdVolumes
     , tdRequiresAttributes
+
+    -- * TaskDefinitionPlacementConstraint
+    , TaskDefinitionPlacementConstraint
+    , taskDefinitionPlacementConstraint
+    , tdpcExpression
+    , tdpcType
 
     -- * TaskOverride
     , TaskOverride
@@ -414,6 +455,19 @@ _MissingVersionException = _MatchServiceError ecs "MissingVersionException"
 --
 _UpdateInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _UpdateInProgressException = _MatchServiceError ecs "UpdateInProgressException"
+
+-- | The specified target could not be found. You can view your available container instances with 'ListContainerInstances' . Amazon ECS container instances are cluster-specific and region-specific.
+--
+--
+_TargetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_TargetNotFoundException = _MatchServiceError ecs "TargetNotFoundException"
+
+-- | You can apply up to 10 custom attributes per resource. You can view the attributes of a resource with 'ListAttributes' . You can remove existing attributes on a resource with 'DeleteAttributes' .
+--
+--
+_AttributeLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_AttributeLimitExceededException =
+    _MatchServiceError ecs "AttributeLimitExceededException"
 
 -- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permission to use the action or resource, or specifying an identifier that is not valid.
 --

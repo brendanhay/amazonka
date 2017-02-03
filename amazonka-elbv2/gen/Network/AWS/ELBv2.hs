@@ -219,6 +219,9 @@ module Network.AWS.ELBv2
     -- ** ModifyLoadBalancerAttributes
     , module Network.AWS.ELBv2.ModifyLoadBalancerAttributes
 
+    -- ** SetIPAddressType
+    , module Network.AWS.ELBv2.SetIPAddressType
+
     -- ** AddTags
     , module Network.AWS.ELBv2.AddTags
 
@@ -241,6 +244,9 @@ module Network.AWS.ELBv2
 
     -- ** ActionTypeEnum
     , ActionTypeEnum (..)
+
+    -- ** IPAddressType
+    , IPAddressType (..)
 
     -- ** LoadBalancerSchemeEnum
     , LoadBalancerSchemeEnum (..)
@@ -305,6 +311,7 @@ module Network.AWS.ELBv2
     , lbCanonicalHostedZoneId
     , lbAvailabilityZones
     , lbLoadBalancerARN
+    , lbIPAddressType
     , lbScheme
     , lbType
     , lbDNSName
@@ -437,6 +444,7 @@ import           Network.AWS.ELBv2.ModifyTargetGroup
 import           Network.AWS.ELBv2.ModifyTargetGroupAttributes
 import           Network.AWS.ELBv2.RegisterTargets
 import           Network.AWS.ELBv2.RemoveTags
+import           Network.AWS.ELBv2.SetIPAddressType
 import           Network.AWS.ELBv2.SetRulePriorities
 import           Network.AWS.ELBv2.SetSecurityGroups
 import           Network.AWS.ELBv2.SetSubnets

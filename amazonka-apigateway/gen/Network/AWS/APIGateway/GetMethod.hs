@@ -40,6 +40,7 @@ module Network.AWS.APIGateway.GetMethod
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
+    , mOperationName
     , mAuthorizationType
     , mApiKeyRequired
     , mMethodIntegration

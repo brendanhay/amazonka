@@ -21,6 +21,8 @@
 -- Confirms user registration as an admin without using a confirmation code. Works on any user.
 --
 --
+-- Requires developer credentials.
+--
 module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
     (
     -- * Creating a Request

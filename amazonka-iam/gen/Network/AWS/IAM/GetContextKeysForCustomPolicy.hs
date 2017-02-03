@@ -54,7 +54,7 @@ newtype GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gckfcpPolicyInputList' - A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- * 'gckfcpPolicyInputList' - A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 getContextKeysForCustomPolicy
     :: GetContextKeysForCustomPolicy
 getContextKeysForCustomPolicy =
@@ -62,7 +62,7 @@ getContextKeysForCustomPolicy =
     { _gckfcpPolicyInputList = mempty
     }
 
--- | A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range (\u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
+-- | A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 gckfcpPolicyInputList :: Lens' GetContextKeysForCustomPolicy [Text]
 gckfcpPolicyInputList = lens _gckfcpPolicyInputList (\ s a -> s{_gckfcpPolicyInputList = a}) . _Coerce;
 

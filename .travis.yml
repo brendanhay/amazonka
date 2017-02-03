@@ -29,7 +29,7 @@ script:
 matrix:
   fast_finish: true
   include:
-    # ./script/travis-matrix >> .travis.yml
+# GENERATED
 
     # Documentation
     - env: GHCVER=7.10.3 LIBRARY=documentation
@@ -98,9 +98,13 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-appstream
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-batch
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-budgets
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-certificatemanager
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-clouddirectory
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-cloudformation
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
@@ -135,6 +139,8 @@ matrix:
     - env: GHCVER=8.0.1 LIBRARY=amazonka-cognito-sync
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-config
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-cur
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-datapipeline
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
@@ -250,6 +256,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-waf
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.1 LIBRARY=amazonka-waf-regional
+      addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-workspaces
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.1 LIBRARY=amazonka-xray
@@ -258,3 +266,4 @@ matrix:
     # Examples
     - env: GHCVER=8.0.1 LIBRARY=amazonka-examples
       addons: { apt: { packages: [ghc-8.0.1], sources: [hvr-ghc] } }
+# END GENERATED

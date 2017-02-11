@@ -73,7 +73,7 @@ executable amazonka-gen
         , formatting
         , free
         , hashable
-        , haskell-src-exts
+        , haskell-src-exts     == 1.17.1
         , hindent
         , html-conduit
         , lens

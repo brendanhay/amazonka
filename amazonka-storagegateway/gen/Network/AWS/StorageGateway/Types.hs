@@ -99,6 +99,7 @@ module Network.AWS.StorageGateway.Types
     , nfsfsiRole
     , nfsfsiNFSFileShareDefaults
     , nfsfsiLocationARN
+    , nfsfsiClientList
 
     -- * NetworkInterface
     , NetworkInterface

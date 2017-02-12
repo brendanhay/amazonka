@@ -113,6 +113,9 @@ module Network.AWS.EC2.Types
     -- * HypervisorType
     , HypervisorType (..)
 
+    -- * IAMInstanceProfileAssociationState
+    , IAMInstanceProfileAssociationState (..)
+
     -- * ImageAttributeName
     , ImageAttributeName (..)
 
@@ -672,6 +675,15 @@ module Network.AWS.EC2.Types
     , iamInstanceProfile
     , iapARN
     , iapId
+
+    -- * IAMInstanceProfileAssociation
+    , IAMInstanceProfileAssociation
+    , iamInstanceProfileAssociation
+    , iapaAssociationId
+    , iapaInstanceId
+    , iapaState
+    , iapaIAMInstanceProfile
+    , iapaTimestamp
 
     -- * IAMInstanceProfileSpecification
     , IAMInstanceProfileSpecification

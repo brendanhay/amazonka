@@ -31,7 +31,7 @@
 --
 --     * [EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.
 --
---     * Not all instance types support IPv6 addresses. For more information, see <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> .
+--     * Not all instance types support IPv6 addresses. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> .
 --
 --     * If you don't specify a security group ID, we use the default security group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups> .
 --

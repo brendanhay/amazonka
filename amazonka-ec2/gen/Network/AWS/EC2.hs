@@ -539,6 +539,9 @@ module Network.AWS.EC2
     -- ** DescribeNetworkInterfaceAttribute
     , module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 
+    -- ** ReplaceIAMInstanceProfileAssociation
+    , module Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
+
     -- ** ReleaseHosts
     , module Network.AWS.EC2.ReleaseHosts
 
@@ -605,6 +608,9 @@ module Network.AWS.EC2
     -- ** DeleteCustomerGateway
     , module Network.AWS.EC2.DeleteCustomerGateway
 
+    -- ** DisassociateIAMInstanceProfile
+    , module Network.AWS.EC2.DisassociateIAMInstanceProfile
+
     -- ** DisassociateRouteTable
     , module Network.AWS.EC2.DisassociateRouteTable
 
@@ -638,6 +644,9 @@ module Network.AWS.EC2
     -- ** ModifySnapshotAttribute
     , module Network.AWS.EC2.ModifySnapshotAttribute
 
+    -- ** DescribeIAMInstanceProfileAssociations
+    , module Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
+
     -- ** CreateSnapshot
     , module Network.AWS.EC2.CreateSnapshot
 
@@ -664,6 +673,9 @@ module Network.AWS.EC2
 
     -- ** UnassignIPv6Addresses
     , module Network.AWS.EC2.UnassignIPv6Addresses
+
+    -- ** AssociateIAMInstanceProfile
+    , module Network.AWS.EC2.AssociateIAMInstanceProfile
 
     -- ** DeleteEgressOnlyInternetGateway
     , module Network.AWS.EC2.DeleteEgressOnlyInternetGateway
@@ -873,6 +885,9 @@ module Network.AWS.EC2
 
     -- ** HypervisorType
     , HypervisorType (..)
+
+    -- ** IAMInstanceProfileAssociationState
+    , IAMInstanceProfileAssociationState (..)
 
     -- ** ImageAttributeName
     , ImageAttributeName (..)
@@ -1433,6 +1448,15 @@ module Network.AWS.EC2
     , iamInstanceProfile
     , iapARN
     , iapId
+
+    -- ** IAMInstanceProfileAssociation
+    , IAMInstanceProfileAssociation
+    , iamInstanceProfileAssociation
+    , iapaAssociationId
+    , iapaInstanceId
+    , iapaState
+    , iapaIAMInstanceProfile
+    , iapaTimestamp
 
     -- ** IAMInstanceProfileSpecification
     , IAMInstanceProfileSpecification
@@ -2930,6 +2954,7 @@ import           Network.AWS.EC2.AssignIPv6Addresses
 import           Network.AWS.EC2.AssignPrivateIPAddresses
 import           Network.AWS.EC2.AssociateAddress
 import           Network.AWS.EC2.AssociateDHCPOptions
+import           Network.AWS.EC2.AssociateIAMInstanceProfile
 import           Network.AWS.EC2.AssociateRouteTable
 import           Network.AWS.EC2.AssociateSubnetCidrBlock
 import           Network.AWS.EC2.AssociateVPCCidrBlock
@@ -3019,6 +3044,7 @@ import           Network.AWS.EC2.DescribeFlowLogs
 import           Network.AWS.EC2.DescribeHostReservationOfferings
 import           Network.AWS.EC2.DescribeHostReservations
 import           Network.AWS.EC2.DescribeHosts
+import           Network.AWS.EC2.DescribeIAMInstanceProfileAssociations
 import           Network.AWS.EC2.DescribeIdentityIdFormat
 import           Network.AWS.EC2.DescribeIdFormat
 import           Network.AWS.EC2.DescribeImageAttribute
@@ -3079,6 +3105,7 @@ import           Network.AWS.EC2.DisableVGWRoutePropagation
 import           Network.AWS.EC2.DisableVPCClassicLink
 import           Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
 import           Network.AWS.EC2.DisassociateAddress
+import           Network.AWS.EC2.DisassociateIAMInstanceProfile
 import           Network.AWS.EC2.DisassociateRouteTable
 import           Network.AWS.EC2.DisassociateSubnetCidrBlock
 import           Network.AWS.EC2.DisassociateVPCCidrBlock
@@ -3122,6 +3149,7 @@ import           Network.AWS.EC2.RegisterImage
 import           Network.AWS.EC2.RejectVPCPeeringConnection
 import           Network.AWS.EC2.ReleaseAddress
 import           Network.AWS.EC2.ReleaseHosts
+import           Network.AWS.EC2.ReplaceIAMInstanceProfileAssociation
 import           Network.AWS.EC2.ReplaceNetworkACLAssociation
 import           Network.AWS.EC2.ReplaceNetworkACLEntry
 import           Network.AWS.EC2.ReplaceRoute

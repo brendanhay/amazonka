@@ -78,7 +78,7 @@ module Network.AWS
     -- *** Request Bodies
     , ToHashedBody (..)
     , hashedFile
-    , hashedFileOffsetLength
+    , hashedFileRange
     , hashedBody
 
     -- *** Chunked Request Bodies
@@ -86,7 +86,7 @@ module Network.AWS
     , ChunkSize    (..)
     , defaultChunkSize
     , chunkedFile
-    , chunkedFileOffsetLength
+    , chunkedFileRange
     , unsafeChunkedBody
 
     -- *** Response Bodies

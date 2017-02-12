@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 -- |
 -- Module      : Network.AWS.Internal.Body
@@ -23,11 +24,11 @@ import           System.IO
 
 -- | Convenience function for obtaining the size of a file.
 getFileSize :: MonadIO m => FilePath -> m Integer
-getFileSize f = liftIO (withBinaryFile f ReadMode hFileSize)
+getFileSize path = liftIO (withBinaryFile path ReadMode hFileSize)
 
 -- | Connect a 'Sink' to a response stream.
 sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-sinkBody (RsBody s) sink = hoist liftResourceT s $$+- sink
+sinkBody (RsBody body) sink = hoist liftResourceT body $$+- sink
 
 -- | Construct a 'HashedBody' from a 'FilePath', calculating the 'SHA256' hash
 -- and file size.
@@ -37,28 +38,36 @@ sinkBody (RsBody s) sink = hoist liftResourceT s $$+- sink
 -- lastly to stream the contents to the socket during sending.
 --
 -- /See:/ 'ToHashedBody'.
-hashedFile :: MonadIO m => FilePath -> m HashedBody
-hashedFile f = liftIO $ HashedStream
-    <$> runResourceT (Conduit.sourceFile f $$ sinkSHA256)
-    <*> getFileSize f
-    <*> pure (Conduit.sourceFile f)
+hashedFile :: MonadIO m
+           => FilePath -- ^ The file path to read.
+           -> m HashedBody
+hashedFile path =
+    liftIO $ HashedStream
+        <$> runResourceT (Conduit.sourceFile path $$ sinkSHA256)
+        <*> getFileSize path
+        <*> pure (Conduit.sourceFile path)
 
 -- | Same as `hashedFile` but from a part of a file.
-hashedFileOffsetLength :: MonadIO m => FilePath -> Integer -> Integer -> m HashedBody
-hashedFileOffsetLength f o l = liftIO $ HashedStream
-    <$> runResourceT (Conduit.sourceFileRange f (Just o) (Just l) $$ sinkSHA256)
-    <*> getFileSize f
-    <*> pure (Conduit.sourceFileRange f (Just o) (Just l) )
+hashedFileRange :: MonadIO m
+                => FilePath -- ^ The file path to read.
+                -> Integer  -- ^ The byte offset at which to start reading.
+                -> Integer  -- ^ The maximum number of bytes to read.
+                -> m HashedBody
+hashedFileRange path (Just -> offset) (Just -> len) =
+    liftIO $ HashedStream
+        <$> runResourceT (Conduit.sourceFileRange path offset len $$ sinkSHA256)
+        <*> getFileSize path
+        <*> pure (Conduit.sourceFileRange path offset len)
 
 -- | Construct a 'HashedBody' from a source, manually specifying the
 -- 'SHA256' hash and file size.
 --
 -- /See:/ 'ToHashedBody'.
-hashedBody :: Digest SHA256
-           -> Integer
+hashedBody :: Digest SHA256 -- ^ A SHA256 hash of the file contents.
+           -> Integer       -- ^ The size of the stream in bytes.
            -> Source (ResourceT IO) ByteString
            -> HashedBody
-hashedBody h n = HashedStream h n
+hashedBody = HashedStream
 
 -- | Something something.
 --
@@ -69,20 +78,29 @@ hashedBody h n = HashedStream h n
 --
 -- /See:/ 'ToBody'.
 chunkedFile :: MonadIO m => ChunkSize -> FilePath -> m RqBody
-chunkedFile c f = do
-    n <- getFileSize f
-    if n > toInteger c
-        then return $ unsafeChunkedBody c n (sourceFileChunks c f)
-        else Hashed `liftM` hashedFile f
+chunkedFile chunk path = do
+    size <- getFileSize path
+    if size > toInteger chunk
+        then return $ unsafeChunkedBody chunk size (sourceFileChunks chunk path)
+        else Hashed `liftM` hashedFile path
 
 -- | Same as `chunkedFile` but for a apart of a file
-chunkedFileOffsetLength :: MonadIO m => ChunkSize -> FilePath -> Integer -> Integer -> m RqBody
-chunkedFileOffsetLength c f o l = do
-    n <- getFileSize f
-    let n1 = min (n - o) l
-    if  n1 > toInteger c
-        then return $ unsafeChunkedBody c n1 (sourceFileOffsetLengthChunks c f o l)
-        else Hashed `liftM` hashedFileOffsetLength f o l
+chunkedFileRange :: MonadIO m
+                 => ChunkSize
+                    -- ^ The idealized size of chunks that will be yielded downstream.
+                 -> FilePath
+                    -- ^ The file path to read.
+                 -> Integer
+                    -- ^ The byte offset at which to start reading.
+                 -> Integer
+                    -- ^ The maximum number of bytes to read.
+                 -> m RqBody
+chunkedFileRange chunk path offset len = do
+    size <- getFileSize path
+    let n = min (size - offset) len
+    if  n > toInteger chunk
+        then return $ unsafeChunkedBody chunk n (sourceFileRangeChunks chunk path offset len)
+        else Hashed `liftM` hashedFileRange path offset len
 
 -- | Something something.
 --
@@ -97,43 +115,54 @@ chunkedFileOffsetLength c f o l = do
 --
 -- /See:/ 'ToBody'.
 unsafeChunkedBody :: ChunkSize
+                     -- ^ The idealized size of chunks that will be yielded downstream.
                   -> Integer
+                     -- ^ The size of the stream in bytes.
                   -> Source (ResourceT IO) ByteString
                   -> RqBody
-unsafeChunkedBody c n = Chunked . ChunkedBody c n
+unsafeChunkedBody chunk size = Chunked . ChunkedBody chunk size
 
--- Uses hGet with a specific buffer size, instead of hGetSome.
 sourceFileChunks :: MonadResource m
                  => ChunkSize
                  -> FilePath
                  -> Source m ByteString
-sourceFileChunks (ChunkSize sz) f =
-    bracketP (openBinaryFile f ReadMode) hClose go
+sourceFileChunks (ChunkSize chunk) path =
+    bracketP (openBinaryFile path ReadMode) hClose go
   where
-    go h = do
-        bs <- liftIO (BS.hGet h sz)
+    -- Uses hGet with a specific buffer size, instead of hGetSome.
+    go hd = do
+        bs <- liftIO (BS.hGet hd chunk)
         unless (BS.null bs) $ do
             yield bs
-            go h
+            go hd
 
-sourceFileOffsetLengthChunks :: MonadResource m
-                 => ChunkSize
-                 -> FilePath
-                 -> Integer -- ^ offset
-                 -> Integer -- ^ length
-                 -> Source m ByteString
-sourceFileOffsetLengthChunks (ChunkSize sz) f offset len =
-    bracketP (openBinaryFile f ReadMode) hClose (\h -> liftIO (hSeek h AbsoluteSeek offset) >> go len h)
+sourceFileRangeChunks :: MonadResource m
+                      => ChunkSize
+                         -- ^ The idealized size of chunks that will be yielded downstream.
+                      -> FilePath
+                         -- ^ The file path to read.
+                      -> Integer
+                         -- ^ The byte offset at which to start reading.
+                      -> Integer
+                         -- ^ The maximum number of bytes to read.
+                      -> Source m ByteString
+sourceFileRangeChunks (ChunkSize chunk) path offset len =
+    bracketP acquire hClose seek
   where
-    go r h
-      | r <= fromIntegral sz = do
-          bs <- liftIO (BS.hGet h (fromIntegral r))
-          unless (BS.null bs) $ yield bs
-      | otherwise = do
-        bs <- liftIO (BS.hGet h sz)
-        unless (BS.null bs) $ do
-            yield bs
-            go (r - fromIntegral sz) h
+    acquire = openBinaryFile path ReadMode
+    seek hd = liftIO (hSeek hd AbsoluteSeek offset) >> go (fromIntegral len) hd
+
+    go remainder hd
+        | remainder <= chunk = do
+            bs <- liftIO (BS.hGet hd remainder)
+            unless (BS.null bs) $
+                yield bs
+
+        | otherwise          = do
+            bs <- liftIO (BS.hGet hd chunk)
+            unless (BS.null bs) $ do
+                yield bs
+                go (remainder - chunk) hd
 
 -- | Incrementally calculate a 'MD5' 'Digest'.
 sinkMD5 :: Monad m => Consumer ByteString m (Digest MD5)
@@ -148,7 +177,7 @@ sinkHash :: (Monad m, HashAlgorithm a) => Consumer ByteString m (Digest a)
 sinkHash = sink hashInit
   where
     sink ctx = do
-        b <- await
-        case b of
+        mbs <- await
+        case mbs of
             Nothing -> return $! hashFinalize ctx
             Just bs -> sink $! hashUpdate ctx bs

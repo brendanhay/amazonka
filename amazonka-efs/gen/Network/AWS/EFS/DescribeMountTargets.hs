@@ -23,6 +23,8 @@
 --
 -- This operation requires permissions for the @elasticfilesystem:DescribeMountTargets@ action, on either the file system ID that you specify in @FileSystemId@ , or on the file system of the mount target that you specify in @MountTargetId@ .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EFS.DescribeMountTargets
     (
     -- * Creating a Request
@@ -47,6 +49,7 @@ module Network.AWS.EFS.DescribeMountTargets
 import           Network.AWS.EFS.Types
 import           Network.AWS.EFS.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -99,6 +102,13 @@ dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 -- | (Optional) ID of the mount target that you want to have described (String). It must be included in your request if @FileSystemId@ is not included.
 dmtMountTargetId :: Lens' DescribeMountTargets (Maybe Text)
 dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
+
+instance AWSPager DescribeMountTargets where
+        page rq rs
+          | stop (rs ^. dmtrsNextMarker) = Nothing
+          | stop (rs ^. dmtrsMountTargets) = Nothing
+          | otherwise =
+            Just $ rq & dmtMarker .~ rs ^. dmtrsNextMarker
 
 instance AWSRequest DescribeMountTargets where
         type Rs DescribeMountTargets =

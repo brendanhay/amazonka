@@ -83,13 +83,13 @@ module Network.AWS.EFS
     -- * Operations
     -- $operations
 
-    -- ** DescribeTags
+    -- ** DescribeTags (Paginated)
     , module Network.AWS.EFS.DescribeTags
 
-    -- ** DescribeMountTargets
+    -- ** DescribeMountTargets (Paginated)
     , module Network.AWS.EFS.DescribeMountTargets
 
-    -- ** DescribeFileSystems
+    -- ** DescribeFileSystems (Paginated)
     , module Network.AWS.EFS.DescribeFileSystems
 
     -- ** DeleteMountTarget

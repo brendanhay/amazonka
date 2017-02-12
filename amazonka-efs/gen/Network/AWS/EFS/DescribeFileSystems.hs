@@ -31,6 +31,8 @@
 --
 -- This operation requires permissions for the @elasticfilesystem:DescribeFileSystems@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EFS.DescribeFileSystems
     (
     -- * Creating a Request
@@ -55,6 +57,7 @@ module Network.AWS.EFS.DescribeFileSystems
 import           Network.AWS.EFS.Types
 import           Network.AWS.EFS.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -107,6 +110,13 @@ dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 -- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the @MaxItems@ parameter specified in the request and the service's internal maximum number of items per page.
 dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
 dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat;
+
+instance AWSPager DescribeFileSystems where
+        page rq rs
+          | stop (rs ^. dfsrsNextMarker) = Nothing
+          | stop (rs ^. dfsrsFileSystems) = Nothing
+          | otherwise =
+            Just $ rq & dfsMarker .~ rs ^. dfsrsNextMarker
 
 instance AWSRequest DescribeFileSystems where
         type Rs DescribeFileSystems =

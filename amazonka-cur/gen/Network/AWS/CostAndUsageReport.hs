@@ -44,7 +44,7 @@ module Network.AWS.CostAndUsageReport
     -- ** DeleteReportDefinition
     , module Network.AWS.CostAndUsageReport.DeleteReportDefinition
 
-    -- ** DescribeReportDefinitions
+    -- ** DescribeReportDefinitions (Paginated)
     , module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
 
     -- * Types

@@ -21,6 +21,51 @@ import           Network.AWS.Lens
 import           Network.AWS.Prelude
 import           Network.AWS.Rekognition.Types.Sum
 
+-- | Structure containing the estimated age range, in years, for a face.
+--
+--
+-- Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.
+--
+--
+-- /See:/ 'ageRange' smart constructor.
+data AgeRange = AgeRange'
+    { _arLow  :: !(Maybe Nat)
+    , _arHigh :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AgeRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arLow' - The lowest estimated age.
+--
+-- * 'arHigh' - The highest estimated age.
+ageRange
+    :: AgeRange
+ageRange =
+    AgeRange'
+    { _arLow = Nothing
+    , _arHigh = Nothing
+    }
+
+-- | The lowest estimated age.
+arLow :: Lens' AgeRange (Maybe Natural)
+arLow = lens _arLow (\ s a -> s{_arLow = a}) . mapping _Nat;
+
+-- | The highest estimated age.
+arHigh :: Lens' AgeRange (Maybe Natural)
+arHigh = lens _arHigh (\ s a -> s{_arHigh = a}) . mapping _Nat;
+
+instance FromJSON AgeRange where
+        parseJSON
+          = withObject "AgeRange"
+              (\ x ->
+                 AgeRange' <$> (x .:? "Low") <*> (x .:? "High"))
+
+instance Hashable AgeRange
+
+instance NFData AgeRange
+
 -- | Indicates whether or not the face has a beard, and the confidence level in the determination.
 --
 --
@@ -470,7 +515,8 @@ instance NFData Face
 --
 -- /See:/ 'faceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-    { _fdSunglasses  :: !(Maybe Sunglasses)
+    { _fdAgeRange    :: !(Maybe AgeRange)
+    , _fdSunglasses  :: !(Maybe Sunglasses)
     , _fdMouthOpen   :: !(Maybe MouthOpen)
     , _fdBoundingBox :: !(Maybe BoundingBox)
     , _fdEmotions    :: !(Maybe [Emotion])
@@ -489,6 +535,8 @@ data FaceDetail = FaceDetail'
 -- | Creates a value of 'FaceDetail' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdAgeRange' - The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
 --
 -- * 'fdSunglasses' - Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
 --
@@ -521,7 +569,8 @@ faceDetail
     :: FaceDetail
 faceDetail =
     FaceDetail'
-    { _fdSunglasses = Nothing
+    { _fdAgeRange = Nothing
+    , _fdSunglasses = Nothing
     , _fdMouthOpen = Nothing
     , _fdBoundingBox = Nothing
     , _fdEmotions = Nothing
@@ -536,6 +585,10 @@ faceDetail =
     , _fdSmile = Nothing
     , _fdLandmarks = Nothing
     }
+
+-- | The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
+fdAgeRange :: Lens' FaceDetail (Maybe AgeRange)
+fdAgeRange = lens _fdAgeRange (\ s a -> s{_fdAgeRange = a});
 
 -- | Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
 fdSunglasses :: Lens' FaceDetail (Maybe Sunglasses)
@@ -598,8 +651,9 @@ instance FromJSON FaceDetail where
           = withObject "FaceDetail"
               (\ x ->
                  FaceDetail' <$>
-                   (x .:? "Sunglasses") <*> (x .:? "MouthOpen") <*>
-                     (x .:? "BoundingBox")
+                   (x .:? "AgeRange") <*> (x .:? "Sunglasses") <*>
+                     (x .:? "MouthOpen")
+                     <*> (x .:? "BoundingBox")
                      <*> (x .:? "Emotions" .!= mempty)
                      <*> (x .:? "EyesOpen")
                      <*> (x .:? "Pose")

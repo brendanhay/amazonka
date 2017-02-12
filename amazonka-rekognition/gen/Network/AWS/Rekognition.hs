@@ -111,6 +111,12 @@ module Network.AWS.Rekognition
     -- ** OrientationCorrection
     , OrientationCorrection (..)
 
+    -- ** AgeRange
+    , AgeRange
+    , ageRange
+    , arLow
+    , arHigh
+
     -- ** Beard
     , Beard
     , beard
@@ -173,6 +179,7 @@ module Network.AWS.Rekognition
     -- ** FaceDetail
     , FaceDetail
     , faceDetail
+    , fdAgeRange
     , fdSunglasses
     , fdMouthOpen
     , fdBoundingBox

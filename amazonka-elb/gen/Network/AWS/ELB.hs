@@ -97,6 +97,12 @@ module Network.AWS.ELB
     -- * Waiters
     -- $waiters
 
+    -- ** AnyInstanceInService
+    , anyInstanceInService
+
+    -- ** InstanceInService
+    , instanceInService
+
     -- * Operations
     -- $operations
 

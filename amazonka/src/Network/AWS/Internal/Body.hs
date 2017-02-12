@@ -43,6 +43,13 @@ hashedFile f = liftIO $ HashedStream
     <*> getFileSize f
     <*> pure (Conduit.sourceFile f)
 
+-- | Same as `hashedFile` but from a part of a file.
+hashedFileOffsetLength :: MonadIO m => FilePath -> Integer -> Integer -> m HashedBody
+hashedFileOffsetLength f o l = liftIO $ HashedStream
+    <$> runResourceT (Conduit.sourceFileRange f (Just o) (Just l) $$ sinkSHA256)
+    <*> getFileSize f
+    <*> pure (Conduit.sourceFileRange f (Just o) (Just l) )
+
 -- | Construct a 'HashedBody' from a source, manually specifying the
 -- 'SHA256' hash and file size.
 --
@@ -67,6 +74,15 @@ chunkedFile c f = do
     if n > toInteger c
         then return $ unsafeChunkedBody c n (sourceFileChunks c f)
         else Hashed `liftM` hashedFile f
+
+-- | Same as `chunkedFile` but for a apart of a file
+chunkedFileOffsetLength :: MonadIO m => ChunkSize -> FilePath -> Integer -> Integer -> m RqBody
+chunkedFileOffsetLength c f o l = do
+    n <- getFileSize f
+    let n1 = min (n - o) l
+    if  n1 > toInteger c
+        then return $ unsafeChunkedBody c n1 (sourceFileOffsetLengthChunks c f o l)
+        else Hashed `liftM` hashedFileOffsetLength f o l
 
 -- | Something something.
 --
@@ -99,6 +115,25 @@ sourceFileChunks (ChunkSize sz) f =
         unless (BS.null bs) $ do
             yield bs
             go h
+
+sourceFileOffsetLengthChunks :: MonadResource m
+                 => ChunkSize
+                 -> FilePath
+                 -> Integer -- ^ offset
+                 -> Integer -- ^ length
+                 -> Source m ByteString
+sourceFileOffsetLengthChunks (ChunkSize sz) f offset len =
+    bracketP (openBinaryFile f ReadMode) hClose (\h -> liftIO (hSeek h AbsoluteSeek offset) >> go len h)
+  where
+    go r h
+      | r <= fromIntegral sz = do
+          bs <- liftIO (BS.hGet h (fromIntegral r))
+          unless (BS.null bs) $ yield bs
+      | otherwise = do
+        bs <- liftIO (BS.hGet h sz)
+        unless (BS.null bs) $ do
+            yield bs
+            go (r - fromIntegral sz) h
 
 -- | Incrementally calculate a 'MD5' 'Digest'.
 sinkMD5 :: Monad m => Consumer ByteString m (Digest MD5)

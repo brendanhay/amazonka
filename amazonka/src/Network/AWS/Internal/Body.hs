@@ -47,7 +47,11 @@ hashedFile path =
         <*> getFileSize path
         <*> pure (Conduit.sourceFile path)
 
--- | Same as `hashedFile` but from a part of a file.
+-- | Construct a 'HashedBody' from a 'FilePath', specifying the range of bytes
+-- to read. This can be useful for constructing multiple requests from a single
+-- file, say for S3 multipart uploads.
+--
+-- /See:/ 'hashedFile', 'Conduit.sourceFileRange'.
 hashedFileRange :: MonadIO m
                 => FilePath -- ^ The file path to read.
                 -> Integer  -- ^ The byte offset at which to start reading.
@@ -59,8 +63,9 @@ hashedFileRange path (Just -> offset) (Just -> len) =
         <*> getFileSize path
         <*> pure (Conduit.sourceFileRange path offset len)
 
--- | Construct a 'HashedBody' from a source, manually specifying the
--- 'SHA256' hash and file size.
+-- | Construct a 'HashedBody' from a 'Source', manually specifying the 'SHA256'
+-- hash and file size. It's left up to the caller to calculate these correctly,
+-- otherwise AWS will return signing errors.
 --
 -- /See:/ 'ToHashedBody'.
 hashedBody :: Digest SHA256 -- ^ A SHA256 hash of the file contents.
@@ -69,12 +74,11 @@ hashedBody :: Digest SHA256 -- ^ A SHA256 hash of the file contents.
            -> HashedBody
 hashedBody = HashedStream
 
--- | Something something.
+-- | Construct a 'ChunkedBody' from a 'FilePath', where the contents will be
+-- read and signed incrementally in chunks if the target service supports it.
 --
 -- Will intelligently revert to 'HashedBody' if the file is smaller than the
 -- specified 'ChunkSize'.
---
--- Add note about how it selects chunk size.
 --
 -- /See:/ 'ToBody'.
 chunkedFile :: MonadIO m => ChunkSize -> FilePath -> m RqBody
@@ -84,7 +88,11 @@ chunkedFile chunk path = do
         then return $ unsafeChunkedBody chunk size (sourceFileChunks chunk path)
         else Hashed `liftM` hashedFile path
 
--- | Same as `chunkedFile` but for a apart of a file
+-- | Construct a 'ChunkedBody' from a 'FilePath', specifying the range of bytes
+-- to read. This can be useful for constructing multiple requests from a single
+-- file, say for S3 multipart uploads.
+--
+-- /See:/ 'chunkedFile'.
 chunkedFileRange :: MonadIO m
                  => ChunkSize
                     -- ^ The idealized size of chunks that will be yielded downstream.
@@ -102,9 +110,9 @@ chunkedFileRange chunk path offset len = do
         then return $ unsafeChunkedBody chunk n (sourceFileRangeChunks chunk path offset len)
         else Hashed `liftM` hashedFileRange path offset len
 
--- | Something something.
+-- | Unsafely construct a 'ChunkedBody'.
 --
--- Marked as unsafe because it does nothing to enforce the chunk size.
+-- This function is marked unsafe because it does nothing to enforce the chunk size.
 -- Typically for conduit 'IO' functions, it's whatever ByteString's
 -- 'defaultBufferSize' is, around 32 KB. If the chunk size is less than 8 KB,
 -- the request will error. 64 KB or higher chunk size is recommended for

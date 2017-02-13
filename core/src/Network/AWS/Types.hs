@@ -660,6 +660,7 @@ data Region
     | Ohio            -- ^ US East ('us-east-2').
     | NorthCalifornia -- ^ US West ('us-west-1').
     | Oregon          -- ^ US West ('us-west-2').
+    | Montreal        -- ^ Canada ('ca-central-1').
     | Tokyo           -- ^ Asia Pacific ('ap-northeast-1').
     | Seoul           -- ^ Asia Pacific ('ap-northeast-2').
     | Mumbai          -- ^ Asia Pacific ('ap-south-1').
@@ -667,6 +668,7 @@ data Region
     | Sydney          -- ^ Asia Pacific ('ap-southeast-2').
     | SaoPaulo        -- ^ South America ('sa-east-1').
     | Ireland         -- ^ EU ('eu-west-1').
+    | London          -- ^ EU ('eu-west-2').
     | Frankfurt       -- ^ EU ('eu-central-1').
     | GovCloud        -- ^ US GovCloud ('us-gov-west-1').
     | GovCloudFIPS    -- ^ US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
@@ -682,6 +684,7 @@ instance FromText Region where
         "us-east-2"          -> pure Ohio
         "us-west-1"          -> pure NorthCalifornia
         "us-west-2"          -> pure Oregon
+        "ca-central-1"       -> pure Montreal
         "ap-northeast-1"     -> pure Tokyo
         "ap-northeast-2"     -> pure Seoul
         "ap-south-1"         -> pure Mumbai
@@ -689,6 +692,7 @@ instance FromText Region where
         "ap-southeast-2"     -> pure Sydney
         "sa-east-1"          -> pure SaoPaulo
         "eu-west-1"          -> pure Ireland
+        "eu-west-2"          -> pure London
         "eu-central-1"       -> pure Frankfurt
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
@@ -702,6 +706,7 @@ instance ToText Region where
         Ohio            -> "us-east-2"
         NorthCalifornia -> "us-west-1"
         Oregon          -> "us-west-2"
+        Montreal        -> "ca-central-1"
         Tokyo           -> "ap-northeast-1"
         Seoul           -> "ap-northeast-2"
         Mumbai          -> "ap-south-1"
@@ -709,6 +714,7 @@ instance ToText Region where
         Sydney          -> "ap-southeast-2"
         SaoPaulo        -> "sa-east-1"
         Ireland         -> "eu-west-1"
+        London          -> "eu-west-2"
         Frankfurt       -> "eu-central-1"
         GovCloud        -> "us-gov-west-1"
         GovCloudFIPS    -> "fips-us-gov-west-1"

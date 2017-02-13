@@ -27,6 +27,7 @@ getAccountId = \case
     Ohio            -> Just "391106570357"
     NorthCalifornia -> Just "262260360010"
     Oregon          -> Just "902366379725"
+    Montreal        -> Just "907379612154"
     Tokyo           -> Just "404641285394"
     Seoul           -> Just "760740231472"
     Mumbai          -> Just "865932855811"
@@ -35,6 +36,7 @@ getAccountId = \case
     SaoPaulo        -> Just "075028567923"
     Frankfurt       -> Just "053454850223"
     Ireland         -> Just "210876761215"
+    London          -> Just "307160386991"
     GovCloud        -> Nothing
     GovCloudFIPS    -> Nothing
     Beijing         -> Nothing

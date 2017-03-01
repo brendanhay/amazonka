@@ -575,7 +575,7 @@ data Region
     | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
     | SaoPaulo        -- ^ South America / sa-east-1
-      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
+      deriving (Eq, Ord, Read, Enum, Bounded, Show, Data, Typeable, Generic)
 
 instance Hashable Region
 instance NFData   Region

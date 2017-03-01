@@ -673,7 +673,7 @@ data Region
     | GovCloud        -- ^ US GovCloud ('us-gov-west-1').
     | GovCloudFIPS    -- ^ US GovCloud FIPS (S3 Only, 'fips-us-gov-west-1').
     | Beijing         -- ^ China ('cn-north-1').
-      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
+      deriving (Eq, Ord, Read, Enum, Bounded, Show, Data, Typeable, Generic)
 
 instance Hashable Region
 instance NFData   Region

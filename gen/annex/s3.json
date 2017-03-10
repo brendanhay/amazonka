@@ -23,6 +23,14 @@
                 "LocationConstraint"
             ],
             "payload": "LocationConstraint"
+        },
+        "ReplicationStatus": {
+            "enum": [
+                "COMPLETED",
+                "PENDING",
+                "FAILED",
+                "REPLICA"
+            ]
         }
     }
 }

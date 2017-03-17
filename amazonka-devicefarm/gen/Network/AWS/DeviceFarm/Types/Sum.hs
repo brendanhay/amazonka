@@ -286,21 +286,21 @@ instance FromJSON DevicePlatform where
     parseJSON = parseJSONText "DevicePlatform"
 
 data DevicePoolType
-    = Curated
-    | Private
+    = DPTCurated
+    | DPTPrivate
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DevicePoolType where
     parser = takeLowerText >>= \case
-        "curated" -> pure Curated
-        "private" -> pure Private
+        "curated" -> pure DPTCurated
+        "private" -> pure DPTPrivate
         e -> fromTextError $ "Failure parsing DevicePoolType from value: '" <> e
            <> "'. Accepted values: curated, private"
 
 instance ToText DevicePoolType where
     toText = \case
-        Curated -> "CURATED"
-        Private -> "PRIVATE"
+        DPTCurated -> "CURATED"
+        DPTPrivate -> "PRIVATE"
 
 instance Hashable     DevicePoolType
 instance NFData       DevicePoolType
@@ -401,6 +401,35 @@ instance ToHeader     ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
+
+data NetworkProfileType
+    = Curated
+    | Private
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText NetworkProfileType where
+    parser = takeLowerText >>= \case
+        "curated" -> pure Curated
+        "private" -> pure Private
+        e -> fromTextError $ "Failure parsing NetworkProfileType from value: '" <> e
+           <> "'. Accepted values: curated, private"
+
+instance ToText NetworkProfileType where
+    toText = \case
+        Curated -> "CURATED"
+        Private -> "PRIVATE"
+
+instance Hashable     NetworkProfileType
+instance NFData       NetworkProfileType
+instance ToByteString NetworkProfileType
+instance ToQuery      NetworkProfileType
+instance ToHeader     NetworkProfileType
+
+instance ToJSON NetworkProfileType where
+    toJSON = toJSONText
+
+instance FromJSON NetworkProfileType where
+    parseJSON = parseJSONText "NetworkProfileType"
 
 data OfferingTransactionType
     = Purchase

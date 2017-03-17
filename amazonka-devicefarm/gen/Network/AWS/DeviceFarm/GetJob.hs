@@ -116,7 +116,7 @@ data GetJobResponse = GetJobResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gjrsJob' - Undocumented member.
+-- * 'gjrsJob' - An object containing information about the requested job.
 --
 -- * 'gjrsResponseStatus' - -- | The response status code.
 getJobResponse
@@ -128,7 +128,7 @@ getJobResponse pResponseStatus_ =
     , _gjrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | An object containing information about the requested job.
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
 gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 

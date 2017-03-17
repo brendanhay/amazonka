@@ -27,6 +27,7 @@ module Network.AWS.DeviceFarm.ScheduleRun
       scheduleRun
     , ScheduleRun
     -- * Request Lenses
+    , srExecutionConfiguration
     , srAppARN
     , srName
     , srConfiguration
@@ -55,17 +56,20 @@ import           Network.AWS.Response
 --
 -- /See:/ 'scheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-    { _srAppARN        :: !(Maybe Text)
-    , _srName          :: !(Maybe Text)
-    , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
-    , _srProjectARN    :: !Text
-    , _srDevicePoolARN :: !Text
-    , _srTest          :: !ScheduleRunTest
+    { _srExecutionConfiguration :: !(Maybe ExecutionConfiguration)
+    , _srAppARN                 :: !(Maybe Text)
+    , _srName                   :: !(Maybe Text)
+    , _srConfiguration          :: !(Maybe ScheduleRunConfiguration)
+    , _srProjectARN             :: !Text
+    , _srDevicePoolARN          :: !Text
+    , _srTest                   :: !ScheduleRunTest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScheduleRun' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srExecutionConfiguration' - Specifies configuration information about a test run, such as the execution timeout (in minutes).
 --
 -- * 'srAppARN' - The ARN of the app to schedule a run.
 --
@@ -85,13 +89,18 @@ scheduleRun
     -> ScheduleRun
 scheduleRun pProjectARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
-    { _srAppARN = Nothing
+    { _srExecutionConfiguration = Nothing
+    , _srAppARN = Nothing
     , _srName = Nothing
     , _srConfiguration = Nothing
     , _srProjectARN = pProjectARN_
     , _srDevicePoolARN = pDevicePoolARN_
     , _srTest = pTest_
     }
+
+-- | Specifies configuration information about a test run, such as the execution timeout (in minutes).
+srExecutionConfiguration :: Lens' ScheduleRun (Maybe ExecutionConfiguration)
+srExecutionConfiguration = lens _srExecutionConfiguration (\ s a -> s{_srExecutionConfiguration = a});
 
 -- | The ARN of the app to schedule a run.
 srAppARN :: Lens' ScheduleRun (Maybe Text)
@@ -143,8 +152,9 @@ instance ToJSON ScheduleRun where
         toJSON ScheduleRun'{..}
           = object
               (catMaybes
-                 [("appArn" .=) <$> _srAppARN,
-                  ("name" .=) <$> _srName,
+                 [("executionConfiguration" .=) <$>
+                    _srExecutionConfiguration,
+                  ("appArn" .=) <$> _srAppARN, ("name" .=) <$> _srName,
                   ("configuration" .=) <$> _srConfiguration,
                   Just ("projectArn" .= _srProjectARN),
                   Just ("devicePoolArn" .= _srDevicePoolARN),

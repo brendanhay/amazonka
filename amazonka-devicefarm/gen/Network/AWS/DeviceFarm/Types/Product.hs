@@ -28,8 +28,10 @@ import           Network.AWS.Prelude
 -- /See:/ 'accountSettings' smart constructor.
 data AccountSettings = AccountSettings'
     { _asAwsAccountNumber             :: !(Maybe Text)
+    , _asMaxJobTimeoutMinutes         :: !(Maybe Int)
     , _asUnmeteredDevices             :: !(Maybe (Map DevicePlatform Int))
     , _asUnmeteredRemoteAccessDevices :: !(Maybe (Map DevicePlatform Int))
+    , _asDefaultJobTimeoutMinutes     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AccountSettings' with the minimum fields required to make a request.
@@ -38,21 +40,31 @@ data AccountSettings = AccountSettings'
 --
 -- * 'asAwsAccountNumber' - The AWS account number specified in the @AccountSettings@ container.
 --
+-- * 'asMaxJobTimeoutMinutes' - The maximum number of minutes a test run will execute before it times out.
+--
 -- * 'asUnmeteredDevices' - Returns the unmetered devices you have purchased or want to purchase.
 --
 -- * 'asUnmeteredRemoteAccessDevices' - Returns the unmetered remote access devices you have purchased or want to purchase.
+--
+-- * 'asDefaultJobTimeoutMinutes' - The default number of minutes (at the account level) a test run will execute before it times out. Default value is 60 minutes.
 accountSettings
     :: AccountSettings
 accountSettings =
     AccountSettings'
     { _asAwsAccountNumber = Nothing
+    , _asMaxJobTimeoutMinutes = Nothing
     , _asUnmeteredDevices = Nothing
     , _asUnmeteredRemoteAccessDevices = Nothing
+    , _asDefaultJobTimeoutMinutes = Nothing
     }
 
 -- | The AWS account number specified in the @AccountSettings@ container.
 asAwsAccountNumber :: Lens' AccountSettings (Maybe Text)
 asAwsAccountNumber = lens _asAwsAccountNumber (\ s a -> s{_asAwsAccountNumber = a});
+
+-- | The maximum number of minutes a test run will execute before it times out.
+asMaxJobTimeoutMinutes :: Lens' AccountSettings (Maybe Int)
+asMaxJobTimeoutMinutes = lens _asMaxJobTimeoutMinutes (\ s a -> s{_asMaxJobTimeoutMinutes = a});
 
 -- | Returns the unmetered devices you have purchased or want to purchase.
 asUnmeteredDevices :: Lens' AccountSettings (HashMap DevicePlatform Int)
@@ -62,15 +74,20 @@ asUnmeteredDevices = lens _asUnmeteredDevices (\ s a -> s{_asUnmeteredDevices = 
 asUnmeteredRemoteAccessDevices :: Lens' AccountSettings (HashMap DevicePlatform Int)
 asUnmeteredRemoteAccessDevices = lens _asUnmeteredRemoteAccessDevices (\ s a -> s{_asUnmeteredRemoteAccessDevices = a}) . _Default . _Map;
 
+-- | The default number of minutes (at the account level) a test run will execute before it times out. Default value is 60 minutes.
+asDefaultJobTimeoutMinutes :: Lens' AccountSettings (Maybe Int)
+asDefaultJobTimeoutMinutes = lens _asDefaultJobTimeoutMinutes (\ s a -> s{_asDefaultJobTimeoutMinutes = a});
+
 instance FromJSON AccountSettings where
         parseJSON
           = withObject "AccountSettings"
               (\ x ->
                  AccountSettings' <$>
                    (x .:? "awsAccountNumber") <*>
-                     (x .:? "unmeteredDevices" .!= mempty)
-                     <*>
-                     (x .:? "unmeteredRemoteAccessDevices" .!= mempty))
+                     (x .:? "maxJobTimeoutMinutes")
+                     <*> (x .:? "unmeteredDevices" .!= mempty)
+                     <*> (x .:? "unmeteredRemoteAccessDevices" .!= mempty)
+                     <*> (x .:? "defaultJobTimeoutMinutes"))
 
 instance Hashable AccountSettings
 
@@ -374,7 +391,7 @@ data Device = Device'
 --
 -- * 'devFleetType' - The type of fleet to which this device belongs. Possible values for fleet type are PRIVATE and PUBLIC.
 --
--- * 'devResolution' - Undocumented member.
+-- * 'devResolution' - The resolution of the device.
 --
 -- * 'devMemory' - The device's total memory size, expressed in bytes.
 --
@@ -446,7 +463,7 @@ devFormFactor = lens _devFormFactor (\ s a -> s{_devFormFactor = a});
 devFleetType :: Lens' Device (Maybe Text)
 devFleetType = lens _devFleetType (\ s a -> s{_devFleetType = a});
 
--- | Undocumented member.
+-- | The resolution of the device.
 devResolution :: Lens' Device (Maybe Resolution)
 devResolution = lens _devResolution (\ s a -> s{_devResolution = a});
 
@@ -647,7 +664,7 @@ data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpcrDevice' - Undocumented member.
+-- * 'dpcrDevice' - The device (phone or tablet) that you wish to return information about.
 --
 -- * 'dpcrCompatible' - Whether the result was compatible with the device pool.
 --
@@ -661,7 +678,7 @@ devicePoolCompatibilityResult =
     , _dpcrIncompatibilityMessages = Nothing
     }
 
--- | Undocumented member.
+-- | The device (phone or tablet) that you wish to return information about.
 dpcrDevice :: Lens' DevicePoolCompatibilityResult (Maybe Device)
 dpcrDevice = lens _dpcrDevice (\ s a -> s{_dpcrDevice = a});
 
@@ -684,6 +701,41 @@ instance FromJSON DevicePoolCompatibilityResult where
 instance Hashable DevicePoolCompatibilityResult
 
 instance NFData DevicePoolCompatibilityResult
+
+-- | Represents configuration information about a test run, such as the execution timeout (in minutes).
+--
+--
+--
+-- /See:/ 'executionConfiguration' smart constructor.
+newtype ExecutionConfiguration = ExecutionConfiguration'
+    { _ecJobTimeoutMinutes :: Maybe Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExecutionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecJobTimeoutMinutes' - The number of minutes a test run will execute before it times out.
+executionConfiguration
+    :: ExecutionConfiguration
+executionConfiguration =
+    ExecutionConfiguration'
+    { _ecJobTimeoutMinutes = Nothing
+    }
+
+-- | The number of minutes a test run will execute before it times out.
+ecJobTimeoutMinutes :: Lens' ExecutionConfiguration (Maybe Int)
+ecJobTimeoutMinutes = lens _ecJobTimeoutMinutes (\ s a -> s{_ecJobTimeoutMinutes = a});
+
+instance Hashable ExecutionConfiguration
+
+instance NFData ExecutionConfiguration
+
+instance ToJSON ExecutionConfiguration where
+        toJSON ExecutionConfiguration'{..}
+          = object
+              (catMaybes
+                 [("jobTimeoutMinutes" .=) <$> _ecJobTimeoutMinutes])
 
 -- | Represents information about incompatibility.
 --
@@ -761,7 +813,7 @@ data Job = Job'
 --
 -- * 'jobCreated' - When the job was created.
 --
--- * 'jobDevice' - Undocumented member.
+-- * 'jobDevice' - The device (phone or tablet).
 --
 -- * 'jobStopped' - The job's stop time.
 --
@@ -810,7 +862,7 @@ jobArn = lens _jobArn (\ s a -> s{_jobArn = a});
 jobCreated :: Lens' Job (Maybe UTCTime)
 jobCreated = lens _jobCreated (\ s a -> s{_jobCreated = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The device (phone or tablet).
 jobDevice :: Lens' Job (Maybe Device)
 jobDevice = lens _jobDevice (\ s a -> s{_jobDevice = a});
 
@@ -954,6 +1006,140 @@ instance FromJSON MonetaryAmount where
 instance Hashable MonetaryAmount
 
 instance NFData MonetaryAmount
+
+-- | An array of settings that describes characteristics of a network profile.
+--
+--
+--
+-- /See:/ 'networkProfile' smart constructor.
+data NetworkProfile = NetworkProfile'
+    { _npUplinkJitterMs        :: !(Maybe Integer)
+    , _npArn                   :: !(Maybe Text)
+    , _npUplinkLossPercent     :: !(Maybe Nat)
+    , _npDownlinkJitterMs      :: !(Maybe Integer)
+    , _npName                  :: !(Maybe Text)
+    , _npDownlinkLossPercent   :: !(Maybe Nat)
+    , _npType                  :: !(Maybe NetworkProfileType)
+    , _npUplinkDelayMs         :: !(Maybe Integer)
+    , _npUplinkBandwidthBits   :: !(Maybe Integer)
+    , _npDescription           :: !(Maybe Text)
+    , _npDownlinkDelayMs       :: !(Maybe Integer)
+    , _npDownlinkBandwidthBits :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'npUplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+--
+-- * 'npArn' - The Amazon Resource Name (ARN) of the network profile.
+--
+-- * 'npUplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+--
+-- * 'npDownlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+--
+-- * 'npName' - The name of the network profile.
+--
+-- * 'npDownlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+--
+-- * 'npType' - The type of network profile. Valid values are listed below.
+--
+-- * 'npUplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+--
+-- * 'npUplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+--
+-- * 'npDescription' - The description of the network profile.
+--
+-- * 'npDownlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+--
+-- * 'npDownlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+networkProfile
+    :: NetworkProfile
+networkProfile =
+    NetworkProfile'
+    { _npUplinkJitterMs = Nothing
+    , _npArn = Nothing
+    , _npUplinkLossPercent = Nothing
+    , _npDownlinkJitterMs = Nothing
+    , _npName = Nothing
+    , _npDownlinkLossPercent = Nothing
+    , _npType = Nothing
+    , _npUplinkDelayMs = Nothing
+    , _npUplinkBandwidthBits = Nothing
+    , _npDescription = Nothing
+    , _npDownlinkDelayMs = Nothing
+    , _npDownlinkBandwidthBits = Nothing
+    }
+
+-- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+npUplinkJitterMs :: Lens' NetworkProfile (Maybe Integer)
+npUplinkJitterMs = lens _npUplinkJitterMs (\ s a -> s{_npUplinkJitterMs = a});
+
+-- | The Amazon Resource Name (ARN) of the network profile.
+npArn :: Lens' NetworkProfile (Maybe Text)
+npArn = lens _npArn (\ s a -> s{_npArn = a});
+
+-- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+npUplinkLossPercent :: Lens' NetworkProfile (Maybe Natural)
+npUplinkLossPercent = lens _npUplinkLossPercent (\ s a -> s{_npUplinkLossPercent = a}) . mapping _Nat;
+
+-- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+npDownlinkJitterMs :: Lens' NetworkProfile (Maybe Integer)
+npDownlinkJitterMs = lens _npDownlinkJitterMs (\ s a -> s{_npDownlinkJitterMs = a});
+
+-- | The name of the network profile.
+npName :: Lens' NetworkProfile (Maybe Text)
+npName = lens _npName (\ s a -> s{_npName = a});
+
+-- | Proportion of received packets that fail to arrive from 0 to 100 percent.
+npDownlinkLossPercent :: Lens' NetworkProfile (Maybe Natural)
+npDownlinkLossPercent = lens _npDownlinkLossPercent (\ s a -> s{_npDownlinkLossPercent = a}) . mapping _Nat;
+
+-- | The type of network profile. Valid values are listed below.
+npType :: Lens' NetworkProfile (Maybe NetworkProfileType)
+npType = lens _npType (\ s a -> s{_npType = a});
+
+-- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+npUplinkDelayMs :: Lens' NetworkProfile (Maybe Integer)
+npUplinkDelayMs = lens _npUplinkDelayMs (\ s a -> s{_npUplinkDelayMs = a});
+
+-- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
+npUplinkBandwidthBits :: Lens' NetworkProfile (Maybe Integer)
+npUplinkBandwidthBits = lens _npUplinkBandwidthBits (\ s a -> s{_npUplinkBandwidthBits = a});
+
+-- | The description of the network profile.
+npDescription :: Lens' NetworkProfile (Maybe Text)
+npDescription = lens _npDescription (\ s a -> s{_npDescription = a});
+
+-- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+npDownlinkDelayMs :: Lens' NetworkProfile (Maybe Integer)
+npDownlinkDelayMs = lens _npDownlinkDelayMs (\ s a -> s{_npDownlinkDelayMs = a});
+
+-- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
+npDownlinkBandwidthBits :: Lens' NetworkProfile (Maybe Integer)
+npDownlinkBandwidthBits = lens _npDownlinkBandwidthBits (\ s a -> s{_npDownlinkBandwidthBits = a});
+
+instance FromJSON NetworkProfile where
+        parseJSON
+          = withObject "NetworkProfile"
+              (\ x ->
+                 NetworkProfile' <$>
+                   (x .:? "uplinkJitterMs") <*> (x .:? "arn") <*>
+                     (x .:? "uplinkLossPercent")
+                     <*> (x .:? "downlinkJitterMs")
+                     <*> (x .:? "name")
+                     <*> (x .:? "downlinkLossPercent")
+                     <*> (x .:? "type")
+                     <*> (x .:? "uplinkDelayMs")
+                     <*> (x .:? "uplinkBandwidthBits")
+                     <*> (x .:? "description")
+                     <*> (x .:? "downlinkDelayMs")
+                     <*> (x .:? "downlinkBandwidthBits"))
+
+instance Hashable NetworkProfile
+
+instance NFData NetworkProfile
 
 -- | Represents the metadata of a device offering.
 --
@@ -1288,9 +1474,10 @@ instance NFData ProblemDetail
 --
 -- /See:/ 'project' smart constructor.
 data Project = Project'
-    { _pArn     :: !(Maybe Text)
-    , _pCreated :: !(Maybe POSIX)
-    , _pName    :: !(Maybe Text)
+    { _pArn                      :: !(Maybe Text)
+    , _pCreated                  :: !(Maybe POSIX)
+    , _pName                     :: !(Maybe Text)
+    , _pDefaultJobTimeoutMinutes :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Project' with the minimum fields required to make a request.
@@ -1302,6 +1489,8 @@ data Project = Project'
 -- * 'pCreated' - When the project was created.
 --
 -- * 'pName' - The project's name.
+--
+-- * 'pDefaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run will execute before it times out. Default value is 60 minutes.
 project
     :: Project
 project =
@@ -1309,6 +1498,7 @@ project =
     { _pArn = Nothing
     , _pCreated = Nothing
     , _pName = Nothing
+    , _pDefaultJobTimeoutMinutes = Nothing
     }
 
 -- | The project's ARN.
@@ -1323,13 +1513,18 @@ pCreated = lens _pCreated (\ s a -> s{_pCreated = a}) . mapping _Time;
 pName :: Lens' Project (Maybe Text)
 pName = lens _pName (\ s a -> s{_pName = a});
 
+-- | The default number of minutes (at the project level) a test run will execute before it times out. Default value is 60 minutes.
+pDefaultJobTimeoutMinutes :: Lens' Project (Maybe Int)
+pDefaultJobTimeoutMinutes = lens _pDefaultJobTimeoutMinutes (\ s a -> s{_pDefaultJobTimeoutMinutes = a});
+
 instance FromJSON Project where
         parseJSON
           = withObject "Project"
               (\ x ->
                  Project' <$>
                    (x .:? "arn") <*> (x .:? "created") <*>
-                     (x .:? "name"))
+                     (x .:? "name")
+                     <*> (x .:? "defaultJobTimeoutMinutes"))
 
 instance Hashable Project
 
@@ -1472,7 +1667,7 @@ data RemoteAccessSession = RemoteAccessSession'
 --
 -- * 'rasCreated' - The date and time the remote access session was created.
 --
--- * 'rasDevice' - Undocumented member.
+-- * 'rasDevice' - The device (phone or tablet) used in the remote access session.
 --
 -- * 'rasStopped' - The date and time the remote access session was stopped.
 --
@@ -1480,7 +1675,7 @@ data RemoteAccessSession = RemoteAccessSession'
 --
 -- * 'rasName' - The name of the remote access session.
 --
--- * 'rasDeviceMinutes' - Undocumented member.
+-- * 'rasDeviceMinutes' - The number of minutes a device is used in a remote access sesssion (including setup and teardown minutes).
 --
 -- * 'rasEndpoint' - The endpoint for the remote access sesssion.
 --
@@ -1521,7 +1716,7 @@ rasArn = lens _rasArn (\ s a -> s{_rasArn = a});
 rasCreated :: Lens' RemoteAccessSession (Maybe UTCTime)
 rasCreated = lens _rasCreated (\ s a -> s{_rasCreated = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The device (phone or tablet) used in the remote access session.
 rasDevice :: Lens' RemoteAccessSession (Maybe Device)
 rasDevice = lens _rasDevice (\ s a -> s{_rasDevice = a});
 
@@ -1537,7 +1732,7 @@ rasResult = lens _rasResult (\ s a -> s{_rasResult = a});
 rasName :: Lens' RemoteAccessSession (Maybe Text)
 rasName = lens _rasName (\ s a -> s{_rasName = a});
 
--- | Undocumented member.
+-- | The number of minutes a device is used in a remote access sesssion (including setup and teardown minutes).
 rasDeviceMinutes :: Lens' RemoteAccessSession (Maybe DeviceMinutes)
 rasDeviceMinutes = lens _rasDeviceMinutes (\ s a -> s{_rasDeviceMinutes = a});
 
@@ -1684,21 +1879,22 @@ instance ToJSON Rule where
 --
 -- /See:/ 'run' smart constructor.
 data Run = Run'
-    { _runBillingMethod :: !(Maybe BillingMethod)
-    , _runStatus        :: !(Maybe ExecutionStatus)
-    , _runCounters      :: !(Maybe Counters)
-    , _runPlatform      :: !(Maybe DevicePlatform)
-    , _runArn           :: !(Maybe Text)
-    , _runCreated       :: !(Maybe POSIX)
-    , _runStopped       :: !(Maybe POSIX)
-    , _runResult        :: !(Maybe ExecutionResult)
-    , _runCompletedJobs :: !(Maybe Int)
-    , _runName          :: !(Maybe Text)
-    , _runDeviceMinutes :: !(Maybe DeviceMinutes)
-    , _runType          :: !(Maybe TestType)
-    , _runMessage       :: !(Maybe Text)
-    , _runTotalJobs     :: !(Maybe Int)
-    , _runStarted       :: !(Maybe POSIX)
+    { _runBillingMethod  :: !(Maybe BillingMethod)
+    , _runStatus         :: !(Maybe ExecutionStatus)
+    , _runCounters       :: !(Maybe Counters)
+    , _runPlatform       :: !(Maybe DevicePlatform)
+    , _runArn            :: !(Maybe Text)
+    , _runCreated        :: !(Maybe POSIX)
+    , _runStopped        :: !(Maybe POSIX)
+    , _runResult         :: !(Maybe ExecutionResult)
+    , _runCompletedJobs  :: !(Maybe Int)
+    , _runName           :: !(Maybe Text)
+    , _runNetworkProfile :: !(Maybe NetworkProfile)
+    , _runDeviceMinutes  :: !(Maybe DeviceMinutes)
+    , _runType           :: !(Maybe TestType)
+    , _runMessage        :: !(Maybe Text)
+    , _runTotalJobs      :: !(Maybe Int)
+    , _runStarted        :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Run' with the minimum fields required to make a request.
@@ -1725,6 +1921,8 @@ data Run = Run'
 --
 -- * 'runName' - The run's name.
 --
+-- * 'runNetworkProfile' - The network profile being used for a test run.
+--
 -- * 'runDeviceMinutes' - Represents the total (metered or unmetered) minutes used by the test run.
 --
 -- * 'runType' - The run's type. Must be one of the following values:     * BUILTIN_FUZZ: The built-in fuzz type.     * BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app, interacting with it and capturing screenshots at the same time.     * APPIUM_JAVA_JUNIT: The Appium Java JUnit type.     * APPIUM_JAVA_TESTNG: The Appium Java TestNG type.     * APPIUM_PYTHON: The Appium Python type.     * APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.     * APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.     * APPIUM_WEB_PYTHON: The Appium Python type for Web apps.     * CALABASH: The Calabash type.     * INSTRUMENTATION: The Instrumentation type.     * UIAUTOMATION: The uiautomation type.     * UIAUTOMATOR: The uiautomator type.     * XCTEST: The XCode test type.     * XCTEST_UI: The XCode UI test type.
@@ -1748,6 +1946,7 @@ run =
     , _runResult = Nothing
     , _runCompletedJobs = Nothing
     , _runName = Nothing
+    , _runNetworkProfile = Nothing
     , _runDeviceMinutes = Nothing
     , _runType = Nothing
     , _runMessage = Nothing
@@ -1795,6 +1994,10 @@ runCompletedJobs = lens _runCompletedJobs (\ s a -> s{_runCompletedJobs = a});
 runName :: Lens' Run (Maybe Text)
 runName = lens _runName (\ s a -> s{_runName = a});
 
+-- | The network profile being used for a test run.
+runNetworkProfile :: Lens' Run (Maybe NetworkProfile)
+runNetworkProfile = lens _runNetworkProfile (\ s a -> s{_runNetworkProfile = a});
+
 -- | Represents the total (metered or unmetered) minutes used by the test run.
 runDeviceMinutes :: Lens' Run (Maybe DeviceMinutes)
 runDeviceMinutes = lens _runDeviceMinutes (\ s a -> s{_runDeviceMinutes = a});
@@ -1829,6 +2032,7 @@ instance FromJSON Run where
                      <*> (x .:? "result")
                      <*> (x .:? "completedJobs")
                      <*> (x .:? "name")
+                     <*> (x .:? "networkProfile")
                      <*> (x .:? "deviceMinutes")
                      <*> (x .:? "type")
                      <*> (x .:? "message")

@@ -116,7 +116,7 @@ data GetTestResponse = GetTestResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtrsTest' - Undocumented member.
+-- * 'gtrsTest' - A test condition that is evaluated.
 --
 -- * 'gtrsResponseStatus' - -- | The response status code.
 getTestResponse
@@ -128,7 +128,7 @@ getTestResponse pResponseStatus_ =
     , _gtrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | A test condition that is evaluated.
 gtrsTest :: Lens' GetTestResponse (Maybe Test)
 gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 

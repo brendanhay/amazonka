@@ -116,7 +116,7 @@ data GetDevicePoolResponse = GetDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdprsDevicePool' - Undocumented member.
+-- * 'gdprsDevicePool' - An object containing information about the requested device pool.
 --
 -- * 'gdprsResponseStatus' - -- | The response status code.
 getDevicePoolResponse
@@ -128,7 +128,7 @@ getDevicePoolResponse pResponseStatus_ =
     , _gdprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | An object containing information about the requested device pool.
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 

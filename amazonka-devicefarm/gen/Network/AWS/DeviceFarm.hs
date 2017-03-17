@@ -55,6 +55,12 @@ module Network.AWS.DeviceFarm
     -- ** UpdateProject
     , module Network.AWS.DeviceFarm.UpdateProject
 
+    -- ** UpdateNetworkProfile
+    , module Network.AWS.DeviceFarm.UpdateNetworkProfile
+
+    -- ** DeleteNetworkProfile
+    , module Network.AWS.DeviceFarm.DeleteNetworkProfile
+
     -- ** GetDevicePoolCompatibility
     , module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 
@@ -106,6 +112,9 @@ module Network.AWS.DeviceFarm
     -- ** GetTest
     , module Network.AWS.DeviceFarm.GetTest
 
+    -- ** GetNetworkProfile
+    , module Network.AWS.DeviceFarm.GetNetworkProfile
+
     -- ** RenewOffering
     , module Network.AWS.DeviceFarm.RenewOffering
 
@@ -118,8 +127,14 @@ module Network.AWS.DeviceFarm
     -- ** StopRemoteAccessSession
     , module Network.AWS.DeviceFarm.StopRemoteAccessSession
 
+    -- ** CreateNetworkProfile
+    , module Network.AWS.DeviceFarm.CreateNetworkProfile
+
     -- ** GetJob
     , module Network.AWS.DeviceFarm.GetJob
+
+    -- ** ListNetworkProfiles
+    , module Network.AWS.DeviceFarm.ListNetworkProfiles
 
     -- ** ScheduleRun
     , module Network.AWS.DeviceFarm.ScheduleRun
@@ -207,6 +222,9 @@ module Network.AWS.DeviceFarm
     -- ** ExecutionStatus
     , ExecutionStatus (..)
 
+    -- ** NetworkProfileType
+    , NetworkProfileType (..)
+
     -- ** OfferingTransactionType
     , OfferingTransactionType (..)
 
@@ -235,8 +253,10 @@ module Network.AWS.DeviceFarm
     , AccountSettings
     , accountSettings
     , asAwsAccountNumber
+    , asMaxJobTimeoutMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
+    , asDefaultJobTimeoutMinutes
 
     -- ** Artifact
     , Artifact
@@ -314,6 +334,11 @@ module Network.AWS.DeviceFarm
     , dpcrCompatible
     , dpcrIncompatibilityMessages
 
+    -- ** ExecutionConfiguration
+    , ExecutionConfiguration
+    , executionConfiguration
+    , ecJobTimeoutMinutes
+
     -- ** IncompatibilityMessage
     , IncompatibilityMessage
     , incompatibilityMessage
@@ -347,6 +372,22 @@ module Network.AWS.DeviceFarm
     , monetaryAmount
     , maAmount
     , maCurrencyCode
+
+    -- ** NetworkProfile
+    , NetworkProfile
+    , networkProfile
+    , npUplinkJitterMs
+    , npArn
+    , npUplinkLossPercent
+    , npDownlinkJitterMs
+    , npName
+    , npDownlinkLossPercent
+    , npType
+    , npUplinkDelayMs
+    , npUplinkBandwidthBits
+    , npDescription
+    , npDownlinkDelayMs
+    , npDownlinkBandwidthBits
 
     -- ** Offering
     , Offering
@@ -396,6 +437,7 @@ module Network.AWS.DeviceFarm
     , pArn
     , pCreated
     , pName
+    , pDefaultJobTimeoutMinutes
 
     -- ** Radios
     , Radios
@@ -453,6 +495,7 @@ module Network.AWS.DeviceFarm
     , runResult
     , runCompletedJobs
     , runName
+    , runNetworkProfile
     , runDeviceMinutes
     , runType
     , runMessage
@@ -536,10 +579,12 @@ module Network.AWS.DeviceFarm
     ) where
 
 import           Network.AWS.DeviceFarm.CreateDevicePool
+import           Network.AWS.DeviceFarm.CreateNetworkProfile
 import           Network.AWS.DeviceFarm.CreateProject
 import           Network.AWS.DeviceFarm.CreateRemoteAccessSession
 import           Network.AWS.DeviceFarm.CreateUpload
 import           Network.AWS.DeviceFarm.DeleteDevicePool
+import           Network.AWS.DeviceFarm.DeleteNetworkProfile
 import           Network.AWS.DeviceFarm.DeleteProject
 import           Network.AWS.DeviceFarm.DeleteRemoteAccessSession
 import           Network.AWS.DeviceFarm.DeleteRun
@@ -549,6 +594,7 @@ import           Network.AWS.DeviceFarm.GetDevice
 import           Network.AWS.DeviceFarm.GetDevicePool
 import           Network.AWS.DeviceFarm.GetDevicePoolCompatibility
 import           Network.AWS.DeviceFarm.GetJob
+import           Network.AWS.DeviceFarm.GetNetworkProfile
 import           Network.AWS.DeviceFarm.GetOfferingStatus
 import           Network.AWS.DeviceFarm.GetProject
 import           Network.AWS.DeviceFarm.GetRemoteAccessSession
@@ -561,6 +607,7 @@ import           Network.AWS.DeviceFarm.ListArtifacts
 import           Network.AWS.DeviceFarm.ListDevicePools
 import           Network.AWS.DeviceFarm.ListDevices
 import           Network.AWS.DeviceFarm.ListJobs
+import           Network.AWS.DeviceFarm.ListNetworkProfiles
 import           Network.AWS.DeviceFarm.ListOfferings
 import           Network.AWS.DeviceFarm.ListOfferingTransactions
 import           Network.AWS.DeviceFarm.ListProjects
@@ -578,6 +625,7 @@ import           Network.AWS.DeviceFarm.StopRemoteAccessSession
 import           Network.AWS.DeviceFarm.StopRun
 import           Network.AWS.DeviceFarm.Types
 import           Network.AWS.DeviceFarm.UpdateDevicePool
+import           Network.AWS.DeviceFarm.UpdateNetworkProfile
 import           Network.AWS.DeviceFarm.UpdateProject
 import           Network.AWS.DeviceFarm.Waiters
 

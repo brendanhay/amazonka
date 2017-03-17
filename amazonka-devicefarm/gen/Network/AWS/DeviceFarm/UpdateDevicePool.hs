@@ -149,7 +149,7 @@ data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udprsDevicePool' - Undocumented member.
+-- * 'udprsDevicePool' - The device pool you just updated.
 --
 -- * 'udprsResponseStatus' - -- | The response status code.
 updateDevicePoolResponse
@@ -161,7 +161,7 @@ updateDevicePoolResponse pResponseStatus_ =
     , _udprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The device pool you just updated.
 udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
 udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
 

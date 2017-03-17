@@ -116,7 +116,7 @@ data GetRunResponse = GetRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsRun' - Undocumented member.
+-- * 'grrsRun' - The run you wish to get results from.
 --
 -- * 'grrsResponseStatus' - -- | The response status code.
 getRunResponse
@@ -128,7 +128,7 @@ getRunResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The run you wish to get results from.
 grrsRun :: Lens' GetRunResponse (Maybe Run)
 grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 

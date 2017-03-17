@@ -41,10 +41,12 @@ library
     exposed-modules:
           Network.AWS.DeviceFarm
         , Network.AWS.DeviceFarm.CreateDevicePool
+        , Network.AWS.DeviceFarm.CreateNetworkProfile
         , Network.AWS.DeviceFarm.CreateProject
         , Network.AWS.DeviceFarm.CreateRemoteAccessSession
         , Network.AWS.DeviceFarm.CreateUpload
         , Network.AWS.DeviceFarm.DeleteDevicePool
+        , Network.AWS.DeviceFarm.DeleteNetworkProfile
         , Network.AWS.DeviceFarm.DeleteProject
         , Network.AWS.DeviceFarm.DeleteRemoteAccessSession
         , Network.AWS.DeviceFarm.DeleteRun
@@ -54,6 +56,7 @@ library
         , Network.AWS.DeviceFarm.GetDevicePool
         , Network.AWS.DeviceFarm.GetDevicePoolCompatibility
         , Network.AWS.DeviceFarm.GetJob
+        , Network.AWS.DeviceFarm.GetNetworkProfile
         , Network.AWS.DeviceFarm.GetOfferingStatus
         , Network.AWS.DeviceFarm.GetProject
         , Network.AWS.DeviceFarm.GetRemoteAccessSession
@@ -66,6 +69,7 @@ library
         , Network.AWS.DeviceFarm.ListDevicePools
         , Network.AWS.DeviceFarm.ListDevices
         , Network.AWS.DeviceFarm.ListJobs
+        , Network.AWS.DeviceFarm.ListNetworkProfiles
         , Network.AWS.DeviceFarm.ListOfferingTransactions
         , Network.AWS.DeviceFarm.ListOfferings
         , Network.AWS.DeviceFarm.ListProjects
@@ -83,6 +87,7 @@ library
         , Network.AWS.DeviceFarm.StopRun
         , Network.AWS.DeviceFarm.Types
         , Network.AWS.DeviceFarm.UpdateDevicePool
+        , Network.AWS.DeviceFarm.UpdateNetworkProfile
         , Network.AWS.DeviceFarm.UpdateProject
         , Network.AWS.DeviceFarm.Waiters
 

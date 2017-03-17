@@ -134,7 +134,7 @@ data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'itrasrsAppUpload' - Undocumented member.
+-- * 'itrasrsAppUpload' - An app to upload or that has been uploaded.
 --
 -- * 'itrasrsResponseStatus' - -- | The response status code.
 installToRemoteAccessSessionResponse
@@ -146,7 +146,7 @@ installToRemoteAccessSessionResponse pResponseStatus_ =
     , _itrasrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | An app to upload or that has been uploaded.
 itrasrsAppUpload :: Lens' InstallToRemoteAccessSessionResponse (Maybe Upload)
 itrasrsAppUpload = lens _itrasrsAppUpload (\ s a -> s{_itrasrsAppUpload = a});
 

@@ -64,7 +64,7 @@ data ListBuilds = ListBuilds'
 --
 -- * 'lbStatus' - Build status to filter results by. To retrieve all builds, leave this parameter empty. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 --
--- * 'lbNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'lbNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'lbLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listBuilds
@@ -80,7 +80,7 @@ listBuilds =
 lbStatus :: Lens' ListBuilds (Maybe BuildStatus)
 lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a});
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 lbNextToken :: Lens' ListBuilds (Maybe Text)
 lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
 
@@ -142,7 +142,7 @@ data ListBuildsResponse = ListBuildsResponse'
 --
 -- * 'lbrsBuilds' - Collection of build records that match the request.
 --
--- * 'lbrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'lbrsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'lbrsResponseStatus' - -- | The response status code.
 listBuildsResponse
@@ -159,7 +159,7 @@ listBuildsResponse pResponseStatus_ =
 lbrsBuilds :: Lens' ListBuildsResponse [Build]
 lbrsBuilds = lens _lbrsBuilds (\ s a -> s{_lbrsBuilds = a}) . _Default . _Coerce;
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 lbrsNextToken :: Lens' ListBuildsResponse (Maybe Text)
 lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 

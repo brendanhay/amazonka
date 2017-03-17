@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the current runtime configuration for the specified fleet. The runtime configuration tells GameLift how to launch server processes on instances in the fleet.
+-- Retrieves the current runtime configuration for the specified fleet. The runtime configuration tells Amazon GameLift how to launch server processes on instances in the fleet.
 --
 --
 module Network.AWS.GameLift.DescribeRuntimeConfiguration
@@ -57,7 +57,7 @@ newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drcFleetId' - Unique identifier of the fleet to get the runtime configuration for.
+-- * 'drcFleetId' - Unique identifier for a fleet to get the runtime configuration for.
 describeRuntimeConfiguration
     :: Text -- ^ 'drcFleetId'
     -> DescribeRuntimeConfiguration
@@ -66,7 +66,7 @@ describeRuntimeConfiguration pFleetId_ =
     { _drcFleetId = pFleetId_
     }
 
--- | Unique identifier of the fleet to get the runtime configuration for.
+-- | Unique identifier for a fleet to get the runtime configuration for.
 drcFleetId :: Lens' DescribeRuntimeConfiguration Text
 drcFleetId = lens _drcFleetId (\ s a -> s{_drcFleetId = a});
 

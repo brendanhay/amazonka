@@ -68,13 +68,13 @@ data DescribeFleetEvents = DescribeFleetEvents'
 --
 -- * 'dfeStartTime' - Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 --
--- * 'dfeNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dfeNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'dfeEndTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 --
 -- * 'dfeLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'dfeFleetId' - Unique identifier for the fleet to get event logs for.
+-- * 'dfeFleetId' - Unique identifier for a fleet to get event logs for.
 describeFleetEvents
     :: Text -- ^ 'dfeFleetId'
     -> DescribeFleetEvents
@@ -91,7 +91,7 @@ describeFleetEvents pFleetId_ =
 dfeStartTime :: Lens' DescribeFleetEvents (Maybe UTCTime)
 dfeStartTime = lens _dfeStartTime (\ s a -> s{_dfeStartTime = a}) . mapping _Time;
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 dfeNextToken :: Lens' DescribeFleetEvents (Maybe Text)
 dfeNextToken = lens _dfeNextToken (\ s a -> s{_dfeNextToken = a});
 
@@ -103,7 +103,7 @@ dfeEndTime = lens _dfeEndTime (\ s a -> s{_dfeEndTime = a}) . mapping _Time;
 dfeLimit :: Lens' DescribeFleetEvents (Maybe Natural)
 dfeLimit = lens _dfeLimit (\ s a -> s{_dfeLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet to get event logs for.
+-- | Unique identifier for a fleet to get event logs for.
 dfeFleetId :: Lens' DescribeFleetEvents Text
 dfeFleetId = lens _dfeFleetId (\ s a -> s{_dfeFleetId = a});
 
@@ -162,7 +162,7 @@ data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfersNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dfersNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'dfersEvents' - Collection of objects containing event log entries for the specified fleet.
 --
@@ -177,7 +177,7 @@ describeFleetEventsResponse pResponseStatus_ =
     , _dfersResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfersNextToken :: Lens' DescribeFleetEventsResponse (Maybe Text)
 dfersNextToken = lens _dfersNextToken (\ s a -> s{_dfersNextToken = a});
 

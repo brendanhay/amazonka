@@ -21,7 +21,7 @@
 -- Requests remote access to a fleet instance. Remote access is useful for debugging, gathering benchmarking data, or watching activity in real time.
 --
 --
--- Access requires credentials that match the operating system of the instance. For a Windows instance, GameLift returns a username and password as strings for use with a Windows Remote Desktop client. For a Linux instance, GameLift returns a username and RSA private key, also as strings, for use with an SSH client. The private key must be saved in the proper format to a .pem file before using. If you're making this request using the AWS CLI, saving the secret can be handled as part of the GetInstanceAccess request (see the example later in this topic). For more information on remote access, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-remote-access.html Remotely Accessing an Instance> .
+-- Access requires credentials that match the operating system of the instance. For a Windows instance, Amazon GameLift returns a user name and password as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift returns a user name and RSA private key, also as strings, for use with an SSH client. The private key must be saved in the proper format to a @.pem@ file before using. If you're making this request using the AWS CLI, saving the secret can be handled as part of the GetInstanceAccess request. (See the example later in this topic). For more information on remote access, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html Remotely Accessing an Instance> .
 --
 -- To request access to a specific instance, specify the IDs of the instance and the fleet it belongs to. If successful, an 'InstanceAccess' object is returned containing the instance's IP address and a set of credentials.
 --
@@ -59,9 +59,9 @@ data GetInstanceAccess = GetInstanceAccess'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giaFleetId' - Unique identifier for a fleet. Specify the fleet that contain the instance you want access to. The fleet can be in any of the following statuses: ACTIVATING, ACTIVE, or ERROR. Fleets with an ERROR status can be accessed for a few hours before being deleted.
+-- * 'giaFleetId' - Unique identifier for a fleet that contains the instance you want access to. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 --
--- * 'giaInstanceId' - Unique identifier for an instance. Specify the instance you want to get access to. You can access an instance in any status.
+-- * 'giaInstanceId' - Unique identifier for an instance you want to get access to. You can access an instance in any status.
 getInstanceAccess
     :: Text -- ^ 'giaFleetId'
     -> Text -- ^ 'giaInstanceId'
@@ -72,11 +72,11 @@ getInstanceAccess pFleetId_ pInstanceId_ =
     , _giaInstanceId = pInstanceId_
     }
 
--- | Unique identifier for a fleet. Specify the fleet that contain the instance you want access to. The fleet can be in any of the following statuses: ACTIVATING, ACTIVE, or ERROR. Fleets with an ERROR status can be accessed for a few hours before being deleted.
+-- | Unique identifier for a fleet that contains the instance you want access to. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 giaFleetId :: Lens' GetInstanceAccess Text
 giaFleetId = lens _giaFleetId (\ s a -> s{_giaFleetId = a});
 
--- | Unique identifier for an instance. Specify the instance you want to get access to. You can access an instance in any status.
+-- | Unique identifier for an instance you want to get access to. You can access an instance in any status.
 giaInstanceId :: Lens' GetInstanceAccess Text
 giaInstanceId = lens _giaInstanceId (\ s a -> s{_giaInstanceId = a});
 
@@ -125,7 +125,7 @@ data GetInstanceAccessResponse = GetInstanceAccessResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giarsInstanceAccess' - Object containing connection information for a fleet instance, including IP address and access credentials.
+-- * 'giarsInstanceAccess' - Object that contains connection information for a fleet instance, including IP address and access credentials.
 --
 -- * 'giarsResponseStatus' - -- | The response status code.
 getInstanceAccessResponse
@@ -137,7 +137,7 @@ getInstanceAccessResponse pResponseStatus_ =
     , _giarsResponseStatus = pResponseStatus_
     }
 
--- | Object containing connection information for a fleet instance, including IP address and access credentials.
+-- | Object that contains connection information for a fleet instance, including IP address and access credentials.
 giarsInstanceAccess :: Lens' GetInstanceAccessResponse (Maybe InstanceAccess)
 giarsInstanceAccess = lens _giarsInstanceAccess (\ s a -> s{_giarsInstanceAccess = a});
 

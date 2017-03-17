@@ -66,9 +66,9 @@ data ListAliases = ListAliases'
 --
 -- * 'laRoutingStrategyType' - Type of routing to filter results on. Use this parameter to retrieve only aliases of a certain type. To retrieve all aliases, leave this parameter empty. Possible routing types include the following:     * __SIMPLE__ – The alias resolves to one specific fleet. Use this type when routing to active fleets.     * __TERMINAL__ – The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
 --
--- * 'laNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'laNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
--- * 'laName' - Descriptive label associated with an alias. Alias names do not need to be unique.
+-- * 'laName' - Descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
 -- * 'laLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listAliases
@@ -85,11 +85,11 @@ listAliases =
 laRoutingStrategyType :: Lens' ListAliases (Maybe RoutingStrategyType)
 laRoutingStrategyType = lens _laRoutingStrategyType (\ s a -> s{_laRoutingStrategyType = a});
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 laNextToken :: Lens' ListAliases (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
--- | Descriptive label associated with an alias. Alias names do not need to be unique.
+-- | Descriptive label that is associated with an alias. Alias names do not need to be unique.
 laName :: Lens' ListAliases (Maybe Text)
 laName = lens _laName (\ s a -> s{_laName = a});
 
@@ -152,7 +152,7 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- * 'larsAliases' - Collection of alias records that match the list request.
 --
--- * 'larsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'larsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'larsResponseStatus' - -- | The response status code.
 listAliasesResponse
@@ -169,7 +169,7 @@ listAliasesResponse pResponseStatus_ =
 larsAliases :: Lens' ListAliasesResponse [Alias]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 larsNextToken :: Lens' ListAliasesResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 

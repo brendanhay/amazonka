@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a set of game sessions that match a set of search criteria and sorts them in a specified order. Currently a game session search is limited to a single fleet. Search results include only game sessions that are in ACTIVE status. If you need to retrieve game sessions with a status other than active, use 'DescribeGameSessions' . If you need to retrieve the protection policy for each game session, use 'DescribeGameSessionDetails' .
+-- Retrieves a set of game sessions that match a set of search criteria and sorts them in a specified order. Currently a game session search is limited to a single fleet. Search results include only game sessions that are in @ACTIVE@ status. If you need to retrieve game sessions with a status other than active, use 'DescribeGameSessions' . If you need to retrieve the protection policy for each game session, use 'DescribeGameSessionDetails' .
 --
 --
 -- You can search or sort by the following game session attributes:
@@ -86,17 +86,17 @@ data SearchGameSessions = SearchGameSessions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgsFilterExpression' - String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in ACTIVE status. A filter expression can contain one or multiple conditions. Each condition consists of the following:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .      * __Value__ -- Value to be searched for. Values can be numbers, boolean values (true/false) or strings. String values are case sensitive, enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .  To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ . Session search evaluates conditions from left to right using the following precedence rules:     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@      * Parentheses     * NOT     * AND     * OR For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
+-- * 'sgsFilterExpression' - String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in @ACTIVE@ status. A filter expression can contain one or multiple conditions. Each condition consists of the following:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .      * __Value__ -- Value to be searched for. Values can be numbers, boolean values (true/false) or strings. String values are case sensitive, enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .  To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ . Session search evaluates conditions from left to right using the following precedence rules:     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@      * Parentheses     * NOT     * AND     * OR For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
 --
 -- * 'sgsSortExpression' - Instructions on how to sort the search results. If no sort expression is included, the request returns results in random order. A sort expression consists of the following elements:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Order__ -- Valid sort orders are @ASC@ (ascending) and @DESC@ (descending). For example, this sort expression returns the oldest active sessions first: @"SortExpression": "creationTimeMillis ASC"@ . Results with a null value for the sort operand are returned at the end of the list.
 --
--- * 'sgsAliasId' - Unique identifier for a fleet alias. Each request must reference either a fleet ID or alias ID, but not both.
+-- * 'sgsAliasId' - Unique identifier for an alias associated with the fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 --
--- * 'sgsNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'sgsNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'sgsLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20.
 --
--- * 'sgsFleetId' - Unique identifier for a fleet. Each request must reference either a fleet ID or alias ID, but not both.
+-- * 'sgsFleetId' - Unique identifier for a fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 searchGameSessions
     :: SearchGameSessions
 searchGameSessions =
@@ -109,7 +109,7 @@ searchGameSessions =
     , _sgsFleetId = Nothing
     }
 
--- | String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in ACTIVE status. A filter expression can contain one or multiple conditions. Each condition consists of the following:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .      * __Value__ -- Value to be searched for. Values can be numbers, boolean values (true/false) or strings. String values are case sensitive, enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .  To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ . Session search evaluates conditions from left to right using the following precedence rules:     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@      * Parentheses     * NOT     * AND     * OR For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
+-- | String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in @ACTIVE@ status. A filter expression can contain one or multiple conditions. Each condition consists of the following:     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @creationTimeMillis@ , @playerSessionCount@ , @maximumSessions@ , @hasAvailablePlayerSessions@ .     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .      * __Value__ -- Value to be searched for. Values can be numbers, boolean values (true/false) or strings. String values are case sensitive, enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .  To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ . Session search evaluates conditions from left to right using the following precedence rules:     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@      * Parentheses     * NOT     * AND     * OR For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
 sgsFilterExpression :: Lens' SearchGameSessions (Maybe Text)
 sgsFilterExpression = lens _sgsFilterExpression (\ s a -> s{_sgsFilterExpression = a});
 
@@ -117,11 +117,11 @@ sgsFilterExpression = lens _sgsFilterExpression (\ s a -> s{_sgsFilterExpression
 sgsSortExpression :: Lens' SearchGameSessions (Maybe Text)
 sgsSortExpression = lens _sgsSortExpression (\ s a -> s{_sgsSortExpression = a});
 
--- | Unique identifier for a fleet alias. Each request must reference either a fleet ID or alias ID, but not both.
+-- | Unique identifier for an alias associated with the fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 sgsAliasId :: Lens' SearchGameSessions (Maybe Text)
 sgsAliasId = lens _sgsAliasId (\ s a -> s{_sgsAliasId = a});
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 sgsNextToken :: Lens' SearchGameSessions (Maybe Text)
 sgsNextToken = lens _sgsNextToken (\ s a -> s{_sgsNextToken = a});
 
@@ -129,7 +129,7 @@ sgsNextToken = lens _sgsNextToken (\ s a -> s{_sgsNextToken = a});
 sgsLimit :: Lens' SearchGameSessions (Maybe Natural)
 sgsLimit = lens _sgsLimit (\ s a -> s{_sgsLimit = a}) . mapping _Nat;
 
--- | Unique identifier for a fleet. Each request must reference either a fleet ID or alias ID, but not both.
+-- | Unique identifier for a fleet to search for active game sessions. Each request must reference either a fleet ID or alias ID, but not both.
 sgsFleetId :: Lens' SearchGameSessions (Maybe Text)
 sgsFleetId = lens _sgsFleetId (\ s a -> s{_sgsFleetId = a});
 
@@ -192,7 +192,7 @@ data SearchGameSessionsResponse = SearchGameSessionsResponse'
 --
 -- * 'sgsrsGameSessions' - Collection of objects containing game session properties for each session matching the request.
 --
--- * 'sgsrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'sgsrsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'sgsrsResponseStatus' - -- | The response status code.
 searchGameSessionsResponse
@@ -209,7 +209,7 @@ searchGameSessionsResponse pResponseStatus_ =
 sgsrsGameSessions :: Lens' SearchGameSessionsResponse [GameSession]
 sgsrsGameSessions = lens _sgsrsGameSessions (\ s a -> s{_sgsrsGameSessions = a}) . _Default . _Coerce;
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 sgsrsNextToken :: Lens' SearchGameSessionsResponse (Maybe Text)
 sgsrsNextToken = lens _sgsrsNextToken (\ s a -> s{_sgsrsNextToken = a});
 

@@ -44,6 +44,9 @@ module Network.AWS.GameLift.Types
     -- * FleetStatus
     , FleetStatus (..)
 
+    -- * GameSessionPlacementState
+    , GameSessionPlacementState (..)
+
     -- * GameSessionStatus
     , GameSessionStatus (..)
 
@@ -92,6 +95,7 @@ module Network.AWS.GameLift.Types
     , aAliasId
     , aRoutingStrategy
     , aName
+    , aAliasARN
     , aDescription
 
     -- * Build
@@ -104,6 +108,12 @@ module Network.AWS.GameLift.Types
     , bName
     , bVersion
     , bSizeOnDisk
+
+    -- * DesiredPlayerSession
+    , DesiredPlayerSession
+    , desiredPlayerSession
+    , dpsPlayerData
+    , dpsPlayerId
 
     -- * EC2InstanceCounts
     , EC2InstanceCounts
@@ -141,6 +151,7 @@ module Network.AWS.GameLift.Types
     , faLogPaths
     , faOperatingSystem
     , faBuildId
+    , faFleetARN
     , faTerminationTime
     , faNewGameSessionProtectionPolicy
     , faName
@@ -194,6 +205,33 @@ module Network.AWS.GameLift.Types
     , gsdGameSession
     , gsdProtectionPolicy
 
+    -- * GameSessionPlacement
+    , GameSessionPlacement
+    , gameSessionPlacement
+    , gspStatus
+    , gspPlacementId
+    , gspGameProperties
+    , gspGameSessionName
+    , gspStartTime
+    , gspGameSessionRegion
+    , gspMaximumPlayerSessionCount
+    , gspEndTime
+    , gspGameSessionARN
+    , gspPlayerLatencies
+    , gspGameSessionQueueName
+
+    -- * GameSessionQueue
+    , GameSessionQueue
+    , gameSessionQueue
+    , gsqTimeoutInSeconds
+    , gsqDestinations
+    , gsqName
+
+    -- * GameSessionQueueDestination
+    , GameSessionQueueDestination
+    , gameSessionQueueDestination
+    , gsqdDestinationARN
+
     -- * IPPermission
     , IPPermission
     , ipPermission
@@ -228,6 +266,13 @@ module Network.AWS.GameLift.Types
     , icUserName
     , icSecret
 
+    -- * PlayerLatency
+    , PlayerLatency
+    , playerLatency
+    , plLatencyInMilliseconds
+    , plRegionIdentifier
+    , plPlayerId
+
     -- * PlayerSession
     , PlayerSession
     , playerSession
@@ -238,6 +283,7 @@ module Network.AWS.GameLift.Types
     , psTerminationTime
     , psPlayerSessionId
     , psFleetId
+    , psPlayerData
     , psPlayerId
     , psPort
 

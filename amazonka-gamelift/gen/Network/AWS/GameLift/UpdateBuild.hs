@@ -61,11 +61,11 @@ data UpdateBuild = UpdateBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubName' - Descriptive label associated with a build. Build names do not need to be unique.
+-- * 'ubName' - Descriptive label that is associated with a build. Build names do not need to be unique.
 --
--- * 'ubVersion' - Version associated with this build. Version strings do not need to be unique to a build.
+-- * 'ubVersion' - Version that is associated with this build. Version strings do not need to be unique.
 --
--- * 'ubBuildId' - Unique identifier of the build you want to update.
+-- * 'ubBuildId' - Unique identifier for a build to update.
 updateBuild
     :: Text -- ^ 'ubBuildId'
     -> UpdateBuild
@@ -76,15 +76,15 @@ updateBuild pBuildId_ =
     , _ubBuildId = pBuildId_
     }
 
--- | Descriptive label associated with a build. Build names do not need to be unique.
+-- | Descriptive label that is associated with a build. Build names do not need to be unique.
 ubName :: Lens' UpdateBuild (Maybe Text)
 ubName = lens _ubName (\ s a -> s{_ubName = a});
 
--- | Version associated with this build. Version strings do not need to be unique to a build.
+-- | Version that is associated with this build. Version strings do not need to be unique.
 ubVersion :: Lens' UpdateBuild (Maybe Text)
 ubVersion = lens _ubVersion (\ s a -> s{_ubVersion = a});
 
--- | Unique identifier of the build you want to update.
+-- | Unique identifier for a build to update.
 ubBuildId :: Lens' UpdateBuild Text
 ubBuildId = lens _ubBuildId (\ s a -> s{_ubBuildId = a});
 
@@ -138,7 +138,7 @@ data UpdateBuildResponse = UpdateBuildResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubrsBuild' - Object containing the updated build record.
+-- * 'ubrsBuild' - Object that contains the updated build record.
 --
 -- * 'ubrsResponseStatus' - -- | The response status code.
 updateBuildResponse
@@ -150,7 +150,7 @@ updateBuildResponse pResponseStatus_ =
     , _ubrsResponseStatus = pResponseStatus_
     }
 
--- | Object containing the updated build record.
+-- | Object that contains the updated build record.
 ubrsBuild :: Lens' UpdateBuildResponse (Maybe Build)
 ubrsBuild = lens _ubrsBuild (\ s a -> s{_ubrsBuild = a});
 

@@ -62,9 +62,9 @@ data ListFleets = ListFleets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfBuildId' - Unique identifier of the build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
+-- * 'lfBuildId' - Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
 --
--- * 'lfNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'lfNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'lfLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listFleets
@@ -76,11 +76,11 @@ listFleets =
     , _lfLimit = Nothing
     }
 
--- | Unique identifier of the build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
+-- | Unique identifier for a build to return fleets for. Use this parameter to return only fleets using the specified build. To retrieve all fleets, leave this parameter empty.
 lfBuildId :: Lens' ListFleets (Maybe Text)
 lfBuildId = lens _lfBuildId (\ s a -> s{_lfBuildId = a});
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 lfNextToken :: Lens' ListFleets (Maybe Text)
 lfNextToken = lens _lfNextToken (\ s a -> s{_lfNextToken = a});
 
@@ -140,9 +140,9 @@ data ListFleetsResponse = ListFleetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lfrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'lfrsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
--- * 'lfrsFleetIds' - Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , and 'DescribeFleetUtilization' .
+-- * 'lfrsFleetIds' - Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , or 'DescribeFleetUtilization' .
 --
 -- * 'lfrsResponseStatus' - -- | The response status code.
 listFleetsResponse
@@ -155,11 +155,11 @@ listFleetsResponse pResponseStatus_ =
     , _lfrsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 lfrsNextToken :: Lens' ListFleetsResponse (Maybe Text)
 lfrsNextToken = lens _lfrsNextToken (\ s a -> s{_lfrsNextToken = a});
 
--- | Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , and 'DescribeFleetUtilization' .
+-- | Set of fleet IDs matching the list request. You can retrieve additional information about all returned fleets by passing this result set to a call to 'DescribeFleetAttributes' , 'DescribeFleetCapacity' , or 'DescribeFleetUtilization' .
 lfrsFleetIds :: Lens' ListFleetsResponse (Maybe (NonEmpty Text))
 lfrsFleetIds = lens _lfrsFleetIds (\ s a -> s{_lfrsFleetIds = a}) . mapping _List1;
 

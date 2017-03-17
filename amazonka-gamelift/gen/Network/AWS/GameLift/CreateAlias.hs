@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for a fleet. You can use an alias to anonymize your fleet by referencing an alias instead of a specific fleet when you create game sessions. Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. Use a simple alias to point to an active fleet. Use a terminal alias to display a message to incoming traffic instead of routing players to an active fleet. This option is useful when a game server is no longer supported but you want to provide better messaging than a standard 404 error.
+-- Creates an alias and sets a target fleet. A fleet alias can be used in place of a fleet ID, such as when calling @CreateGameSession@ from a game client or game service or adding destinations to a game session queue. By changing an alias's target fleet, you can switch your players to the new fleet without changing any other component. In production, this feature is particularly useful to redirect your player base seamlessly to the latest game server update.
 --
+--
+-- Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. Use a simple alias to point to an active fleet. Use a terminal alias to display a message to incoming traffic instead of routing players to an active fleet. This option is useful when a game server is no longer supported but you want to provide better messaging than a standard 404 error.
 --
 -- To create a fleet alias, specify an alias name, routing strategy, and optional description. If successful, a new alias record is returned, including an alias ID, which you can reference when creating a game session. To reassign the alias to another fleet ID, call 'UpdateAlias' .
 --
@@ -65,9 +67,9 @@ data CreateAlias = CreateAlias'
 --
 -- * 'caDescription' - Human-readable description of an alias.
 --
--- * 'caName' - Descriptive label associated with an alias. Alias names do not need to be unique.
+-- * 'caName' - Descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
--- * 'caRoutingStrategy' - Object specifying the fleet and routing type to use for the alias.
+-- * 'caRoutingStrategy' - Object that specifies the fleet and routing type to use for the alias.
 createAlias
     :: Text -- ^ 'caName'
     -> RoutingStrategy -- ^ 'caRoutingStrategy'
@@ -83,11 +85,11 @@ createAlias pName_ pRoutingStrategy_ =
 caDescription :: Lens' CreateAlias (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
--- | Descriptive label associated with an alias. Alias names do not need to be unique.
+-- | Descriptive label that is associated with an alias. Alias names do not need to be unique.
 caName :: Lens' CreateAlias Text
 caName = lens _caName (\ s a -> s{_caName = a});
 
--- | Object specifying the fleet and routing type to use for the alias.
+-- | Object that specifies the fleet and routing type to use for the alias.
 caRoutingStrategy :: Lens' CreateAlias RoutingStrategy
 caRoutingStrategy = lens _caRoutingStrategy (\ s a -> s{_caRoutingStrategy = a});
 
@@ -141,7 +143,7 @@ data CreateAliasResponse = CreateAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'carsAlias' - Object containing the newly created alias record.
+-- * 'carsAlias' - Object that describes the newly created alias record.
 --
 -- * 'carsResponseStatus' - -- | The response status code.
 createAliasResponse
@@ -153,7 +155,7 @@ createAliasResponse pResponseStatus_ =
     , _carsResponseStatus = pResponseStatus_
     }
 
--- | Object containing the newly created alias record.
+-- | Object that describes the newly created alias record.
 carsAlias :: Lens' CreateAliasResponse (Maybe Alias)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 

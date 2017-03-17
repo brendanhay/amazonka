@@ -116,7 +116,7 @@ data ResolveAliasResponse = ResolveAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarsFleetId' - Fleet ID associated with the requested alias.
+-- * 'rarsFleetId' - Fleet identifier that is associated with the requested alias.
 --
 -- * 'rarsResponseStatus' - -- | The response status code.
 resolveAliasResponse
@@ -128,7 +128,7 @@ resolveAliasResponse pResponseStatus_ =
     , _rarsResponseStatus = pResponseStatus_
     }
 
--- | Fleet ID associated with the requested alias.
+-- | Fleet identifier that is associated with the requested alias.
 rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
 rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
 

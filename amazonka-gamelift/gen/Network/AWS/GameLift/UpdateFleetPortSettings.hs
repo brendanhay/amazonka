@@ -65,7 +65,7 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 --
 -- * 'ufpsInboundPermissionAuthorizations' - Collection of port settings to be added to the fleet record.
 --
--- * 'ufpsFleetId' - Unique identifier for the fleet you want to update port settings for.
+-- * 'ufpsFleetId' - Unique identifier for a fleet to update port settings for.
 updateFleetPortSettings
     :: Text -- ^ 'ufpsFleetId'
     -> UpdateFleetPortSettings
@@ -84,7 +84,7 @@ ufpsInboundPermissionRevocations = lens _ufpsInboundPermissionRevocations (\ s a
 ufpsInboundPermissionAuthorizations :: Lens' UpdateFleetPortSettings [IPPermission]
 ufpsInboundPermissionAuthorizations = lens _ufpsInboundPermissionAuthorizations (\ s a -> s{_ufpsInboundPermissionAuthorizations = a}) . _Default . _Coerce;
 
--- | Unique identifier for the fleet you want to update port settings for.
+-- | Unique identifier for a fleet to update port settings for.
 ufpsFleetId :: Lens' UpdateFleetPortSettings Text
 ufpsFleetId = lens _ufpsFleetId (\ s a -> s{_ufpsFleetId = a});
 
@@ -141,7 +141,7 @@ data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufpsrsFleetId' - Unique identifier for the updated fleet.
+-- * 'ufpsrsFleetId' - Unique identifier for a fleet that was updated.
 --
 -- * 'ufpsrsResponseStatus' - -- | The response status code.
 updateFleetPortSettingsResponse
@@ -153,7 +153,7 @@ updateFleetPortSettingsResponse pResponseStatus_ =
     , _ufpsrsResponseStatus = pResponseStatus_
     }
 
--- | Unique identifier for the updated fleet.
+-- | Unique identifier for a fleet that was updated.
 ufpsrsFleetId :: Lens' UpdateFleetPortSettingsResponse (Maybe Text)
 ufpsrsFleetId = lens _ufpsrsFleetId (\ s a -> s{_ufpsrsFleetId = a});
 

@@ -211,6 +211,7 @@ data EventCode
     | FleetValidationExecutableRuntimeFailure
     | FleetValidationLaunchPathNotFound
     | FleetValidationTimedOut
+    | GameSessionActivationTimeout
     | GenericEvent
     | ServerProcessCrashed
     | ServerProcessForceTerminated
@@ -240,6 +241,7 @@ instance FromText EventCode where
         "fleet_validation_executable_runtime_failure" -> pure FleetValidationExecutableRuntimeFailure
         "fleet_validation_launch_path_not_found" -> pure FleetValidationLaunchPathNotFound
         "fleet_validation_timed_out" -> pure FleetValidationTimedOut
+        "game_session_activation_timeout" -> pure GameSessionActivationTimeout
         "generic_event" -> pure GenericEvent
         "server_process_crashed" -> pure ServerProcessCrashed
         "server_process_force_terminated" -> pure ServerProcessForceTerminated
@@ -249,7 +251,7 @@ instance FromText EventCode where
         "server_process_sdk_initialization_timeout" -> pure ServerProcessSDKInitializationTimeout
         "server_process_terminated_unhealthy" -> pure ServerProcessTerminatedUnhealthy
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
 
 instance ToText EventCode where
     toText = \case
@@ -270,6 +272,7 @@ instance ToText EventCode where
         FleetValidationExecutableRuntimeFailure -> "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE"
         FleetValidationLaunchPathNotFound -> "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND"
         FleetValidationTimedOut -> "FLEET_VALIDATION_TIMED_OUT"
+        GameSessionActivationTimeout -> "GAME_SESSION_ACTIVATION_TIMEOUT"
         GenericEvent -> "GENERIC_EVENT"
         ServerProcessCrashed -> "SERVER_PROCESS_CRASHED"
         ServerProcessForceTerminated -> "SERVER_PROCESS_FORCE_TERMINATED"
@@ -334,6 +337,38 @@ instance ToHeader     FleetStatus
 
 instance FromJSON FleetStatus where
     parseJSON = parseJSONText "FleetStatus"
+
+data GameSessionPlacementState
+    = Cancelled
+    | Fulfilled
+    | Pending
+    | TimedOut
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText GameSessionPlacementState where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure Cancelled
+        "fulfilled" -> pure Fulfilled
+        "pending" -> pure Pending
+        "timed_out" -> pure TimedOut
+        e -> fromTextError $ "Failure parsing GameSessionPlacementState from value: '" <> e
+           <> "'. Accepted values: cancelled, fulfilled, pending, timed_out"
+
+instance ToText GameSessionPlacementState where
+    toText = \case
+        Cancelled -> "CANCELLED"
+        Fulfilled -> "FULFILLED"
+        Pending -> "PENDING"
+        TimedOut -> "TIMED_OUT"
+
+instance Hashable     GameSessionPlacementState
+instance NFData       GameSessionPlacementState
+instance ToByteString GameSessionPlacementState
+instance ToQuery      GameSessionPlacementState
+instance ToHeader     GameSessionPlacementState
+
+instance FromJSON GameSessionPlacementState where
+    parseJSON = parseJSONText "GameSessionPlacementState"
 
 data GameSessionStatus
     = GSSActivating
@@ -435,6 +470,8 @@ data MetricName
     | AvailablePlayerSessions
     | CurrentPlayerSessions
     | IdleInstances
+    | QueueDepth
+    | WaitTime
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MetricName where
@@ -445,8 +482,10 @@ instance FromText MetricName where
         "availableplayersessions" -> pure AvailablePlayerSessions
         "currentplayersessions" -> pure CurrentPlayerSessions
         "idleinstances" -> pure IdleInstances
+        "queuedepth" -> pure QueueDepth
+        "waittime" -> pure WaitTime
         e -> fromTextError $ "Failure parsing MetricName from value: '" <> e
-           <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availableplayersessions, currentplayersessions, idleinstances"
+           <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availableplayersessions, currentplayersessions, idleinstances, queuedepth, waittime"
 
 instance ToText MetricName where
     toText = \case
@@ -456,6 +495,8 @@ instance ToText MetricName where
         AvailablePlayerSessions -> "AvailablePlayerSessions"
         CurrentPlayerSessions -> "CurrentPlayerSessions"
         IdleInstances -> "IdleInstances"
+        QueueDepth -> "QueueDepth"
+        WaitTime -> "WaitTime"
 
 instance Hashable     MetricName
 instance NFData       MetricName

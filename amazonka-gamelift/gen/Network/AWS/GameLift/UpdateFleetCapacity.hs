@@ -73,7 +73,7 @@ data UpdateFleetCapacity = UpdateFleetCapacity'
 --
 -- * 'ufcDesiredInstances' - Number of EC2 instances you want this fleet to host.
 --
--- * 'ufcFleetId' - Unique identifier for the fleet you want to update capacity for.
+-- * 'ufcFleetId' - Unique identifier for a fleet to update capacity for.
 updateFleetCapacity
     :: Text -- ^ 'ufcFleetId'
     -> UpdateFleetCapacity
@@ -97,7 +97,7 @@ ufcMinSize = lens _ufcMinSize (\ s a -> s{_ufcMinSize = a}) . mapping _Nat;
 ufcDesiredInstances :: Lens' UpdateFleetCapacity (Maybe Natural)
 ufcDesiredInstances = lens _ufcDesiredInstances (\ s a -> s{_ufcDesiredInstances = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet you want to update capacity for.
+-- | Unique identifier for a fleet to update capacity for.
 ufcFleetId :: Lens' UpdateFleetCapacity Text
 ufcFleetId = lens _ufcFleetId (\ s a -> s{_ufcFleetId = a});
 
@@ -153,7 +153,7 @@ data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufcrsFleetId' - Unique identifier for the updated fleet.
+-- * 'ufcrsFleetId' - Unique identifier for a fleet that was updated.
 --
 -- * 'ufcrsResponseStatus' - -- | The response status code.
 updateFleetCapacityResponse
@@ -165,7 +165,7 @@ updateFleetCapacityResponse pResponseStatus_ =
     , _ufcrsResponseStatus = pResponseStatus_
     }
 
--- | Unique identifier for the updated fleet.
+-- | Unique identifier for a fleet that was updated.
 ufcrsFleetId :: Lens' UpdateFleetCapacityResponse (Maybe Text)
 ufcrsFleetId = lens _ufcrsFleetId (\ s a -> s{_ufcrsFleetId = a});
 

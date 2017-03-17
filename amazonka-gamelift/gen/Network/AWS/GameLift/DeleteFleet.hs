@@ -56,7 +56,7 @@ newtype DeleteFleet = DeleteFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfFleetId' - Unique identifier for the fleet you want to delete.
+-- * 'dfFleetId' - Unique identifier for a fleet to be deleted.
 deleteFleet
     :: Text -- ^ 'dfFleetId'
     -> DeleteFleet
@@ -65,7 +65,7 @@ deleteFleet pFleetId_ =
     { _dfFleetId = pFleetId_
     }
 
--- | Unique identifier for the fleet you want to delete.
+-- | Unique identifier for a fleet to be deleted.
 dfFleetId :: Lens' DeleteFleet Text
 dfFleetId = lens _dfFleetId (\ s a -> s{_dfFleetId = a});
 

@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the current runtime configuration for the specified fleet, which tells GameLift how to launch server processes on instances in the fleet. You can update a fleet's runtime configuration at any time after the fleet is created; it does not need to be in an @ACTIVE@ status.
+-- Updates the current runtime configuration for the specified fleet, which tells Amazon GameLift how to launch server processes on instances in the fleet. You can update a fleet's runtime configuration at any time after the fleet is created; it does not need to be in an @ACTIVE@ status.
 --
 --
 -- To update runtime configuration, specify the fleet ID and provide a @RuntimeConfiguration@ object with the updated collection of server process configurations.
 --
--- Each instance in a GameLift fleet checks regularly for an updated runtime configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; they continue to run until they end, while GameLift simply adds new server processes to fit the current runtime configuration. As a result, the runtime configuration changes are applied gradually as existing processes shut down and new processes are launched in GameLift's normal process recycling activity.
+-- Each instance in a Amazon GameLift fleet checks regularly for an updated runtime configuration and changes how it launches server processes to comply with the latest version. Existing server processes are not affected by the update; they continue to run until they end, while Amazon GameLift simply adds new server processes to fit the current runtime configuration. As a result, the runtime configuration changes are applied gradually as existing processes shut down and new processes are launched in Amazon GameLift's normal process recycling activity.
 --
 module Network.AWS.GameLift.UpdateRuntimeConfiguration
     (
@@ -63,7 +63,7 @@ data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'urcFleetId' - Unique identifier of the fleet to update runtime configuration for.
+-- * 'urcFleetId' - Unique identifier for a fleet to update runtime configuration for.
 --
 -- * 'urcRuntimeConfiguration' - Instructions for launching server processes on each instance in the fleet. The runtime configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance.
 updateRuntimeConfiguration
@@ -76,7 +76,7 @@ updateRuntimeConfiguration pFleetId_ pRuntimeConfiguration_ =
     , _urcRuntimeConfiguration = pRuntimeConfiguration_
     }
 
--- | Unique identifier of the fleet to update runtime configuration for.
+-- | Unique identifier for a fleet to update runtime configuration for.
 urcFleetId :: Lens' UpdateRuntimeConfiguration Text
 urcFleetId = lens _urcFleetId (\ s a -> s{_urcFleetId = a});
 

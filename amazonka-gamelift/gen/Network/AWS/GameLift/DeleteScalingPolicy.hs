@@ -56,9 +56,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dspName' - Descriptive label associated with a scaling policy. Policy names do not need to be unique.
+-- * 'dspName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
--- * 'dspFleetId' - Unique identifier for a fleet.
+-- * 'dspFleetId' - Unique identifier for a fleet to be deleted.
 deleteScalingPolicy
     :: Text -- ^ 'dspName'
     -> Text -- ^ 'dspFleetId'
@@ -69,11 +69,11 @@ deleteScalingPolicy pName_ pFleetId_ =
     , _dspFleetId = pFleetId_
     }
 
--- | Descriptive label associated with a scaling policy. Policy names do not need to be unique.
+-- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 dspName :: Lens' DeleteScalingPolicy Text
 dspName = lens _dspName (\ s a -> s{_dspName = a});
 
--- | Unique identifier for a fleet.
+-- | Unique identifier for a fleet to be deleted.
 dspFleetId :: Lens' DeleteScalingPolicy Text
 dspFleetId = lens _dspFleetId (\ s a -> s{_dspFleetId = a});
 

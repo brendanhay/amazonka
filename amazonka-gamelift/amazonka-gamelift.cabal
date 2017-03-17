@@ -44,11 +44,13 @@ library
         , Network.AWS.GameLift.CreateBuild
         , Network.AWS.GameLift.CreateFleet
         , Network.AWS.GameLift.CreateGameSession
+        , Network.AWS.GameLift.CreateGameSessionQueue
         , Network.AWS.GameLift.CreatePlayerSession
         , Network.AWS.GameLift.CreatePlayerSessions
         , Network.AWS.GameLift.DeleteAlias
         , Network.AWS.GameLift.DeleteBuild
         , Network.AWS.GameLift.DeleteFleet
+        , Network.AWS.GameLift.DeleteGameSessionQueue
         , Network.AWS.GameLift.DeleteScalingPolicy
         , Network.AWS.GameLift.DescribeAlias
         , Network.AWS.GameLift.DescribeBuild
@@ -59,6 +61,8 @@ library
         , Network.AWS.GameLift.DescribeFleetPortSettings
         , Network.AWS.GameLift.DescribeFleetUtilization
         , Network.AWS.GameLift.DescribeGameSessionDetails
+        , Network.AWS.GameLift.DescribeGameSessionPlacement
+        , Network.AWS.GameLift.DescribeGameSessionQueues
         , Network.AWS.GameLift.DescribeGameSessions
         , Network.AWS.GameLift.DescribeInstances
         , Network.AWS.GameLift.DescribePlayerSessions
@@ -73,6 +77,8 @@ library
         , Network.AWS.GameLift.RequestUploadCredentials
         , Network.AWS.GameLift.ResolveAlias
         , Network.AWS.GameLift.SearchGameSessions
+        , Network.AWS.GameLift.StartGameSessionPlacement
+        , Network.AWS.GameLift.StopGameSessionPlacement
         , Network.AWS.GameLift.Types
         , Network.AWS.GameLift.UpdateAlias
         , Network.AWS.GameLift.UpdateBuild
@@ -80,6 +86,7 @@ library
         , Network.AWS.GameLift.UpdateFleetCapacity
         , Network.AWS.GameLift.UpdateFleetPortSettings
         , Network.AWS.GameLift.UpdateGameSession
+        , Network.AWS.GameLift.UpdateGameSessionQueue
         , Network.AWS.GameLift.UpdateRuntimeConfiguration
         , Network.AWS.GameLift.Waiters
 

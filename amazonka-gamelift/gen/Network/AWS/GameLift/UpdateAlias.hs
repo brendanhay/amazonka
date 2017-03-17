@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates properties for an alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
+-- Updates properties for a fleet alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
 --
 --
 module Network.AWS.GameLift.UpdateAlias
@@ -63,9 +63,9 @@ data UpdateAlias = UpdateAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uaRoutingStrategy' - Object specifying the fleet and routing type to use for the alias.
+-- * 'uaRoutingStrategy' - Object that specifies the fleet and routing type to use for the alias.
 --
--- * 'uaName' - Descriptive label associated with an alias. Alias names do not need to be unique.
+-- * 'uaName' - Descriptive label that is associated with an alias. Alias names do not need to be unique.
 --
 -- * 'uaDescription' - Human-readable description of an alias.
 --
@@ -81,11 +81,11 @@ updateAlias pAliasId_ =
     , _uaAliasId = pAliasId_
     }
 
--- | Object specifying the fleet and routing type to use for the alias.
+-- | Object that specifies the fleet and routing type to use for the alias.
 uaRoutingStrategy :: Lens' UpdateAlias (Maybe RoutingStrategy)
 uaRoutingStrategy = lens _uaRoutingStrategy (\ s a -> s{_uaRoutingStrategy = a});
 
--- | Descriptive label associated with an alias. Alias names do not need to be unique.
+-- | Descriptive label that is associated with an alias. Alias names do not need to be unique.
 uaName :: Lens' UpdateAlias (Maybe Text)
 uaName = lens _uaName (\ s a -> s{_uaName = a});
 
@@ -148,7 +148,7 @@ data UpdateAliasResponse = UpdateAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarsAlias' - Object containing the updated alias configuration.
+-- * 'uarsAlias' - Object that contains the updated alias configuration.
 --
 -- * 'uarsResponseStatus' - -- | The response status code.
 updateAliasResponse
@@ -160,7 +160,7 @@ updateAliasResponse pResponseStatus_ =
     , _uarsResponseStatus = pResponseStatus_
     }
 
--- | Object containing the updated alias configuration.
+-- | Object that contains the updated alias configuration.
 uarsAlias :: Lens' UpdateAliasResponse (Maybe Alias)
 uarsAlias = lens _uarsAlias (\ s a -> s{_uarsAlias = a});
 

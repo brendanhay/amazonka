@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initializes a new build record and generates information required to upload a game build to Amazon GameLift. Once the build record has been created and its status is @INITIALIZED@ , you can upload your game build.
+-- Creates a new Amazon GameLift build from a set of game server binary files stored in an Amazon Simple Storage Service (Amazon S3) location. When using this API call, you must create a @.zip@ file containing all of the build files and store it in an Amazon S3 bucket under your AWS account. For help on packaging your build files and creating a build, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Uploading Your Game to Amazon GameLift> .
 --
 --
--- /Important:/ Do not use this API action unless you are using your own Amazon Simple Storage Service (Amazon S3) client and need to manually upload your build files. Instead, to create a build, use the CLI command @upload-build@ , which creates a new build record and uploads the build files in one step. (See the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Amazon GameLift Developer Guide> help on packaging and uploading your build.)
+-- /Important:/ Use this API action ONLY if you are storing your game build files in an Amazon S3 bucket in your AWS account. To create a build using files stored in a directory, use the CLI command <http://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html @upload-build@ > , which uploads the build files from a file location you specify and creates a build.
 --
--- To create a new build, identify the operating system of the game server binaries. All game servers in a build must use the same operating system. Optionally, specify a build name and version; this metadata is stored with other properties in the build record and is displayed in the GameLift console (it is not visible to players). If successful, this action returns the newly created build record along with the Amazon S3 storage location and AWS account credentials. Use the location and credentials to upload your game build.
+-- To create a new build using @CreateBuild@ , identify the storage location and operating system of your game build. You also have the option of specifying a build name and version. If successful, this action creates a new build record with an unique build ID and in @INITIALIZED@ status. Use the API call 'DescribeBuild' to check the status of your build. A build must be in @READY@ status before it can be used to create fleets to host your game.
 --
 module Network.AWS.GameLift.CreateBuild
     (
@@ -69,13 +69,13 @@ data CreateBuild = CreateBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbStorageLocation' - Undocumented member.
+-- * 'cbStorageLocation' - Amazon S3 location of the game build files to be uploaded. The S3 bucket must be owned by the same AWS account that you're using to manage Amazon GameLift. It also must in the same region that you want to create a new build in. Before calling @CreateBuild@ with this location, you must allow Amazon GameLift to access your Amazon S3 bucket (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build Create a Build with Files in Amazon S3> ).
 --
--- * 'cbOperatingSystem' - Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
+-- * 'cbOperatingSystem' - Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system.
 --
--- * 'cbName' - Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using@'UpdateBuild' @ .
+-- * 'cbName' - Descriptive label that is associated with a build. Build names do not need to be unique. You can use 'UpdateBuild' to change this value later.
 --
--- * 'cbVersion' - Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using@'UpdateBuild' @ .
+-- * 'cbVersion' - Version that is associated with this build. Version strings do not need to be unique. You can use 'UpdateBuild' to change this value later.
 createBuild
     :: CreateBuild
 createBuild =
@@ -86,19 +86,19 @@ createBuild =
     , _cbVersion = Nothing
     }
 
--- | Undocumented member.
+-- | Amazon S3 location of the game build files to be uploaded. The S3 bucket must be owned by the same AWS account that you're using to manage Amazon GameLift. It also must in the same region that you want to create a new build in. Before calling @CreateBuild@ with this location, you must allow Amazon GameLift to access your Amazon S3 bucket (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build Create a Build with Files in Amazon S3> ).
 cbStorageLocation :: Lens' CreateBuild (Maybe S3Location)
 cbStorageLocation = lens _cbStorageLocation (\ s a -> s{_cbStorageLocation = a});
 
--- | Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build.
+-- | Operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system.
 cbOperatingSystem :: Lens' CreateBuild (Maybe OperatingSystem)
 cbOperatingSystem = lens _cbOperatingSystem (\ s a -> s{_cbOperatingSystem = a});
 
--- | Descriptive label associated with a build. Build names do not need to be unique. A build name can be changed later using@'UpdateBuild' @ .
+-- | Descriptive label that is associated with a build. Build names do not need to be unique. You can use 'UpdateBuild' to change this value later.
 cbName :: Lens' CreateBuild (Maybe Text)
 cbName = lens _cbName (\ s a -> s{_cbName = a});
 
--- | Version associated with this build. Version strings do not need to be unique to a build. A build version can be changed later using@'UpdateBuild' @ .
+-- | Version that is associated with this build. Version strings do not need to be unique. You can use 'UpdateBuild' to change this value later.
 cbVersion :: Lens' CreateBuild (Maybe Text)
 cbVersion = lens _cbVersion (\ s a -> s{_cbVersion = a});
 
@@ -158,11 +158,11 @@ data CreateBuildResponse = CreateBuildResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbrsStorageLocation' - Amazon S3 path and key, identifying where the game build files are stored.
+-- * 'cbrsStorageLocation' - Amazon S3 location specified in the request.
 --
--- * 'cbrsUploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call@'RequestUploadCredentials' @ .
+-- * 'cbrsUploadCredentials' - This element is not currently in use.
 --
--- * 'cbrsBuild' - Set of properties for the newly created build.
+-- * 'cbrsBuild' - The newly created build record, including a unique build ID and status.
 --
 -- * 'cbrsResponseStatus' - -- | The response status code.
 createBuildResponse
@@ -176,15 +176,15 @@ createBuildResponse pResponseStatus_ =
     , _cbrsResponseStatus = pResponseStatus_
     }
 
--- | Amazon S3 path and key, identifying where the game build files are stored.
+-- | Amazon S3 location specified in the request.
 cbrsStorageLocation :: Lens' CreateBuildResponse (Maybe S3Location)
 cbrsStorageLocation = lens _cbrsStorageLocation (\ s a -> s{_cbrsStorageLocation = a});
 
--- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for. If you need to get fresh credentials, call@'RequestUploadCredentials' @ .
+-- | This element is not currently in use.
 cbrsUploadCredentials :: Lens' CreateBuildResponse (Maybe AWSCredentials)
 cbrsUploadCredentials = lens _cbrsUploadCredentials (\ s a -> s{_cbrsUploadCredentials = a}) . mapping _Sensitive;
 
--- | Set of properties for the newly created build.
+-- | The newly created build record, including a unique build ID and status.
 cbrsBuild :: Lens' CreateBuildResponse (Maybe Build)
 cbrsBuild = lens _cbrsBuild (\ s a -> s{_cbrsBuild = a});
 

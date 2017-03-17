@@ -61,8 +61,17 @@ import Test.AWS.GameLift.Internal
 --         , requestUpdateRuntimeConfiguration $
 --             updateRuntimeConfiguration
 --
+--         , requestCreateGameSessionQueue $
+--             createGameSessionQueue
+--
 --         , requestSearchGameSessions $
 --             searchGameSessions
+--
+--         , requestUpdateGameSessionQueue $
+--             updateGameSessionQueue
+--
+--         , requestDeleteGameSessionQueue $
+--             deleteGameSessionQueue
 --
 --         , requestGetInstanceAccess $
 --             getInstanceAccess
@@ -72,6 +81,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestDescribeGameSessions $
 --             describeGameSessions
+--
+--         , requestStartGameSessionPlacement $
+--             startGameSessionPlacement
 --
 --         , requestDescribeFleetUtilization $
 --             describeFleetUtilization
@@ -84,6 +96,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestDescribeFleetAttributes $
 --             describeFleetAttributes
+--
+--         , requestDescribeGameSessionPlacement $
+--             describeGameSessionPlacement
 --
 --         , requestDescribeFleetEvents $
 --             describeFleetEvents
@@ -115,6 +130,9 @@ import Test.AWS.GameLift.Internal
 --         , requestDescribeFleetPortSettings $
 --             describeFleetPortSettings
 --
+--         , requestDescribeGameSessionQueues $
+--             describeGameSessionQueues
+--
 --         , requestCreatePlayerSessions $
 --             createPlayerSessions
 --
@@ -141,6 +159,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimits
+--
+--         , requestStopGameSessionPlacement $
+--             stopGameSessionPlacement
 --
 --         , requestUpdateGameSession $
 --             updateGameSession
@@ -184,8 +205,17 @@ import Test.AWS.GameLift.Internal
 --         , responseUpdateRuntimeConfiguration $
 --             updateRuntimeConfigurationResponse
 --
+--         , responseCreateGameSessionQueue $
+--             createGameSessionQueueResponse
+--
 --         , responseSearchGameSessions $
 --             searchGameSessionsResponse
+--
+--         , responseUpdateGameSessionQueue $
+--             updateGameSessionQueueResponse
+--
+--         , responseDeleteGameSessionQueue $
+--             deleteGameSessionQueueResponse
 --
 --         , responseGetInstanceAccess $
 --             getInstanceAccessResponse
@@ -195,6 +225,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseDescribeGameSessions $
 --             describeGameSessionsResponse
+--
+--         , responseStartGameSessionPlacement $
+--             startGameSessionPlacementResponse
 --
 --         , responseDescribeFleetUtilization $
 --             describeFleetUtilizationResponse
@@ -207,6 +240,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseDescribeFleetAttributes $
 --             describeFleetAttributesResponse
+--
+--         , responseDescribeGameSessionPlacement $
+--             describeGameSessionPlacementResponse
 --
 --         , responseDescribeFleetEvents $
 --             describeFleetEventsResponse
@@ -238,6 +274,9 @@ import Test.AWS.GameLift.Internal
 --         , responseDescribeFleetPortSettings $
 --             describeFleetPortSettingsResponse
 --
+--         , responseDescribeGameSessionQueues $
+--             describeGameSessionQueuesResponse
+--
 --         , responseCreatePlayerSessions $
 --             createPlayerSessionsResponse
 --
@@ -264,6 +303,9 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimitsResponse
+--
+--         , responseStopGameSessionPlacement $
+--             stopGameSessionPlacementResponse
 --
 --         , responseUpdateGameSession $
 --             updateGameSessionResponse
@@ -331,10 +373,25 @@ requestUpdateRuntimeConfiguration = req
     "UpdateRuntimeConfiguration"
     "fixture/UpdateRuntimeConfiguration.yaml"
 
+requestCreateGameSessionQueue :: CreateGameSessionQueue -> TestTree
+requestCreateGameSessionQueue = req
+    "CreateGameSessionQueue"
+    "fixture/CreateGameSessionQueue.yaml"
+
 requestSearchGameSessions :: SearchGameSessions -> TestTree
 requestSearchGameSessions = req
     "SearchGameSessions"
     "fixture/SearchGameSessions.yaml"
+
+requestUpdateGameSessionQueue :: UpdateGameSessionQueue -> TestTree
+requestUpdateGameSessionQueue = req
+    "UpdateGameSessionQueue"
+    "fixture/UpdateGameSessionQueue.yaml"
+
+requestDeleteGameSessionQueue :: DeleteGameSessionQueue -> TestTree
+requestDeleteGameSessionQueue = req
+    "DeleteGameSessionQueue"
+    "fixture/DeleteGameSessionQueue.yaml"
 
 requestGetInstanceAccess :: GetInstanceAccess -> TestTree
 requestGetInstanceAccess = req
@@ -350,6 +407,11 @@ requestDescribeGameSessions :: DescribeGameSessions -> TestTree
 requestDescribeGameSessions = req
     "DescribeGameSessions"
     "fixture/DescribeGameSessions.yaml"
+
+requestStartGameSessionPlacement :: StartGameSessionPlacement -> TestTree
+requestStartGameSessionPlacement = req
+    "StartGameSessionPlacement"
+    "fixture/StartGameSessionPlacement.yaml"
 
 requestDescribeFleetUtilization :: DescribeFleetUtilization -> TestTree
 requestDescribeFleetUtilization = req
@@ -370,6 +432,11 @@ requestDescribeFleetAttributes :: DescribeFleetAttributes -> TestTree
 requestDescribeFleetAttributes = req
     "DescribeFleetAttributes"
     "fixture/DescribeFleetAttributes.yaml"
+
+requestDescribeGameSessionPlacement :: DescribeGameSessionPlacement -> TestTree
+requestDescribeGameSessionPlacement = req
+    "DescribeGameSessionPlacement"
+    "fixture/DescribeGameSessionPlacement.yaml"
 
 requestDescribeFleetEvents :: DescribeFleetEvents -> TestTree
 requestDescribeFleetEvents = req
@@ -421,6 +488,11 @@ requestDescribeFleetPortSettings = req
     "DescribeFleetPortSettings"
     "fixture/DescribeFleetPortSettings.yaml"
 
+requestDescribeGameSessionQueues :: DescribeGameSessionQueues -> TestTree
+requestDescribeGameSessionQueues = req
+    "DescribeGameSessionQueues"
+    "fixture/DescribeGameSessionQueues.yaml"
+
 requestCreatePlayerSessions :: CreatePlayerSessions -> TestTree
 requestCreatePlayerSessions = req
     "CreatePlayerSessions"
@@ -465,6 +537,11 @@ requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
 requestDescribeEC2InstanceLimits = req
     "DescribeEC2InstanceLimits"
     "fixture/DescribeEC2InstanceLimits.yaml"
+
+requestStopGameSessionPlacement :: StopGameSessionPlacement -> TestTree
+requestStopGameSessionPlacement = req
+    "StopGameSessionPlacement"
+    "fixture/StopGameSessionPlacement.yaml"
 
 requestUpdateGameSession :: UpdateGameSession -> TestTree
 requestUpdateGameSession = req
@@ -555,12 +632,33 @@ responseUpdateRuntimeConfiguration = res
     gameLift
     (Proxy :: Proxy UpdateRuntimeConfiguration)
 
+responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
+responseCreateGameSessionQueue = res
+    "CreateGameSessionQueueResponse"
+    "fixture/CreateGameSessionQueueResponse.proto"
+    gameLift
+    (Proxy :: Proxy CreateGameSessionQueue)
+
 responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
 responseSearchGameSessions = res
     "SearchGameSessionsResponse"
     "fixture/SearchGameSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy SearchGameSessions)
+
+responseUpdateGameSessionQueue :: UpdateGameSessionQueueResponse -> TestTree
+responseUpdateGameSessionQueue = res
+    "UpdateGameSessionQueueResponse"
+    "fixture/UpdateGameSessionQueueResponse.proto"
+    gameLift
+    (Proxy :: Proxy UpdateGameSessionQueue)
+
+responseDeleteGameSessionQueue :: DeleteGameSessionQueueResponse -> TestTree
+responseDeleteGameSessionQueue = res
+    "DeleteGameSessionQueueResponse"
+    "fixture/DeleteGameSessionQueueResponse.proto"
+    gameLift
+    (Proxy :: Proxy DeleteGameSessionQueue)
 
 responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
 responseGetInstanceAccess = res
@@ -582,6 +680,13 @@ responseDescribeGameSessions = res
     "fixture/DescribeGameSessionsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeGameSessions)
+
+responseStartGameSessionPlacement :: StartGameSessionPlacementResponse -> TestTree
+responseStartGameSessionPlacement = res
+    "StartGameSessionPlacementResponse"
+    "fixture/StartGameSessionPlacementResponse.proto"
+    gameLift
+    (Proxy :: Proxy StartGameSessionPlacement)
 
 responseDescribeFleetUtilization :: DescribeFleetUtilizationResponse -> TestTree
 responseDescribeFleetUtilization = res
@@ -610,6 +715,13 @@ responseDescribeFleetAttributes = res
     "fixture/DescribeFleetAttributesResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetAttributes)
+
+responseDescribeGameSessionPlacement :: DescribeGameSessionPlacementResponse -> TestTree
+responseDescribeGameSessionPlacement = res
+    "DescribeGameSessionPlacementResponse"
+    "fixture/DescribeGameSessionPlacementResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeGameSessionPlacement)
 
 responseDescribeFleetEvents :: DescribeFleetEventsResponse -> TestTree
 responseDescribeFleetEvents = res
@@ -681,6 +793,13 @@ responseDescribeFleetPortSettings = res
     gameLift
     (Proxy :: Proxy DescribeFleetPortSettings)
 
+responseDescribeGameSessionQueues :: DescribeGameSessionQueuesResponse -> TestTree
+responseDescribeGameSessionQueues = res
+    "DescribeGameSessionQueuesResponse"
+    "fixture/DescribeGameSessionQueuesResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeGameSessionQueues)
+
 responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
 responseCreatePlayerSessions = res
     "CreatePlayerSessionsResponse"
@@ -743,6 +862,13 @@ responseDescribeEC2InstanceLimits = res
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeEC2InstanceLimits)
+
+responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
+responseStopGameSessionPlacement = res
+    "StopGameSessionPlacementResponse"
+    "fixture/StopGameSessionPlacementResponse.proto"
+    gameLift
+    (Proxy :: Proxy StopGameSessionPlacement)
 
 responseUpdateGameSession :: UpdateGameSessionResponse -> TestTree
 responseUpdateGameSession = res

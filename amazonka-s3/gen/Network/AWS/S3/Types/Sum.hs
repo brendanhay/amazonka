@@ -729,7 +729,7 @@ instance ToXML ReplicationRuleStatus where
     toXML = toXMLText
 
 data ReplicationStatus
-    = Complete
+    = Completed
     | Failed
     | Pending
     | Replica
@@ -737,16 +737,16 @@ data ReplicationStatus
 
 instance FromText ReplicationStatus where
     parser = takeLowerText >>= \case
-        "complete" -> pure Complete
+        "completed" -> pure Completed
         "failed" -> pure Failed
         "pending" -> pure Pending
         "replica" -> pure Replica
         e -> fromTextError $ "Failure parsing ReplicationStatus from value: '" <> e
-           <> "'. Accepted values: complete, failed, pending, replica"
+           <> "'. Accepted values: completed, failed, pending, replica"
 
 instance ToText ReplicationStatus where
     toText = \case
-        Complete -> "COMPLETE"
+        Completed -> "COMPLETED"
         Failed -> "FAILED"
         Pending -> "PENDING"
         Replica -> "REPLICA"

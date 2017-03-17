@@ -67,6 +67,51 @@ instance Hashable AccessPoliciesStatus
 
 instance NFData AccessPoliciesStatus
 
+-- | List of limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
+--
+--
+--
+-- /See:/ 'additionalLimit' smart constructor.
+data AdditionalLimit = AdditionalLimit'
+    { _alLimitName   :: !(Maybe Text)
+    , _alLimitValues :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AdditionalLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'alLimitName' - Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+--
+-- * 'alLimitValues' - Value for given @'AdditionalLimit$LimitName' @ .
+additionalLimit
+    :: AdditionalLimit
+additionalLimit =
+    AdditionalLimit'
+    { _alLimitName = Nothing
+    , _alLimitValues = Nothing
+    }
+
+-- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.  Attributes and their details:      * MaximumNumberOfDataNodesSupportedThis attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.     * MaximumNumberOfDataNodesWithoutMasterNodeThis attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+alLimitName :: Lens' AdditionalLimit (Maybe Text)
+alLimitName = lens _alLimitName (\ s a -> s{_alLimitName = a});
+
+-- | Value for given @'AdditionalLimit$LimitName' @ .
+alLimitValues :: Lens' AdditionalLimit [Text]
+alLimitValues = lens _alLimitValues (\ s a -> s{_alLimitValues = a}) . _Default . _Coerce;
+
+instance FromJSON AdditionalLimit where
+        parseJSON
+          = withObject "AdditionalLimit"
+              (\ x ->
+                 AdditionalLimit' <$>
+                   (x .:? "LimitName") <*>
+                     (x .:? "LimitValues" .!= mempty))
+
+instance Hashable AdditionalLimit
+
+instance NFData AdditionalLimit
+
 -- | Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:
 --
 --
@@ -679,6 +724,141 @@ instance Hashable ElasticsearchVersionStatus
 
 instance NFData ElasticsearchVersionStatus
 
+-- | InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType.
+--
+--
+--
+-- /See:/ 'instanceCountLimits' smart constructor.
+data InstanceCountLimits = InstanceCountLimits'
+    { _iclMaximumInstanceCount :: !(Maybe Int)
+    , _iclMinimumInstanceCount :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceCountLimits' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iclMaximumInstanceCount' - Undocumented member.
+--
+-- * 'iclMinimumInstanceCount' - Undocumented member.
+instanceCountLimits
+    :: InstanceCountLimits
+instanceCountLimits =
+    InstanceCountLimits'
+    { _iclMaximumInstanceCount = Nothing
+    , _iclMinimumInstanceCount = Nothing
+    }
+
+-- | Undocumented member.
+iclMaximumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
+iclMaximumInstanceCount = lens _iclMaximumInstanceCount (\ s a -> s{_iclMaximumInstanceCount = a});
+
+-- | Undocumented member.
+iclMinimumInstanceCount :: Lens' InstanceCountLimits (Maybe Int)
+iclMinimumInstanceCount = lens _iclMinimumInstanceCount (\ s a -> s{_iclMinimumInstanceCount = a});
+
+instance FromJSON InstanceCountLimits where
+        parseJSON
+          = withObject "InstanceCountLimits"
+              (\ x ->
+                 InstanceCountLimits' <$>
+                   (x .:? "MaximumInstanceCount") <*>
+                     (x .:? "MinimumInstanceCount"))
+
+instance Hashable InstanceCountLimits
+
+instance NFData InstanceCountLimits
+
+-- | InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
+--
+--
+--
+-- /See:/ 'instanceLimits' smart constructor.
+newtype InstanceLimits = InstanceLimits'
+    { _ilInstanceCountLimits :: Maybe InstanceCountLimits
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceLimits' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ilInstanceCountLimits' - Undocumented member.
+instanceLimits
+    :: InstanceLimits
+instanceLimits =
+    InstanceLimits'
+    { _ilInstanceCountLimits = Nothing
+    }
+
+-- | Undocumented member.
+ilInstanceCountLimits :: Lens' InstanceLimits (Maybe InstanceCountLimits)
+ilInstanceCountLimits = lens _ilInstanceCountLimits (\ s a -> s{_ilInstanceCountLimits = a});
+
+instance FromJSON InstanceLimits where
+        parseJSON
+          = withObject "InstanceLimits"
+              (\ x ->
+                 InstanceLimits' <$> (x .:? "InstanceCountLimits"))
+
+instance Hashable InstanceLimits
+
+instance NFData InstanceLimits
+
+-- | Limits for given InstanceType and for each of it's role.
+--
+-- Limits contains following @'StorageTypes,' @ @'InstanceLimits' @ and @'AdditionalLimits' @
+--
+--
+-- /See:/ 'limits' smart constructor.
+data Limits = Limits'
+    { _lInstanceLimits   :: !(Maybe InstanceLimits)
+    , _lAdditionalLimits :: !(Maybe [AdditionalLimit])
+    , _lStorageTypes     :: !(Maybe [StorageType])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Limits' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lInstanceLimits' - Undocumented member.
+--
+-- * 'lAdditionalLimits' - List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
+--
+-- * 'lStorageTypes' - StorageType represents the list of storage related types and attributes that are available for given InstanceType.
+limits
+    :: Limits
+limits =
+    Limits'
+    { _lInstanceLimits = Nothing
+    , _lAdditionalLimits = Nothing
+    , _lStorageTypes = Nothing
+    }
+
+-- | Undocumented member.
+lInstanceLimits :: Lens' Limits (Maybe InstanceLimits)
+lInstanceLimits = lens _lInstanceLimits (\ s a -> s{_lInstanceLimits = a});
+
+-- | List of additional limits that are specific to a given InstanceType and for each of it's @'InstanceRole' @ .
+lAdditionalLimits :: Lens' Limits [AdditionalLimit]
+lAdditionalLimits = lens _lAdditionalLimits (\ s a -> s{_lAdditionalLimits = a}) . _Default . _Coerce;
+
+-- | StorageType represents the list of storage related types and attributes that are available for given InstanceType.
+lStorageTypes :: Lens' Limits [StorageType]
+lStorageTypes = lens _lStorageTypes (\ s a -> s{_lStorageTypes = a}) . _Default . _Coerce;
+
+instance FromJSON Limits where
+        parseJSON
+          = withObject "Limits"
+              (\ x ->
+                 Limits' <$>
+                   (x .:? "InstanceLimits") <*>
+                     (x .:? "AdditionalLimits" .!= mempty)
+                     <*> (x .:? "StorageTypes" .!= mempty))
+
+instance Hashable Limits
+
+instance NFData Limits
+
 -- | Provides the current status of the entity.
 --
 --
@@ -841,6 +1021,105 @@ instance FromJSON SnapshotOptionsStatus where
 instance Hashable SnapshotOptionsStatus
 
 instance NFData SnapshotOptionsStatus
+
+-- | StorageTypes represents the list of storage related types and their attributes that are available for given InstanceType.
+--
+--
+--
+-- /See:/ 'storageType' smart constructor.
+data StorageType = StorageType'
+    { _stStorageTypeLimits  :: !(Maybe [StorageTypeLimit])
+    , _stStorageSubTypeName :: !(Maybe Text)
+    , _stStorageTypeName    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stStorageTypeLimits' - List of limits that are applicable for given storage type.
+--
+-- * 'stStorageSubTypeName' - Undocumented member.
+--
+-- * 'stStorageTypeName' - Undocumented member.
+storageType
+    :: StorageType
+storageType =
+    StorageType'
+    { _stStorageTypeLimits = Nothing
+    , _stStorageSubTypeName = Nothing
+    , _stStorageTypeName = Nothing
+    }
+
+-- | List of limits that are applicable for given storage type.
+stStorageTypeLimits :: Lens' StorageType [StorageTypeLimit]
+stStorageTypeLimits = lens _stStorageTypeLimits (\ s a -> s{_stStorageTypeLimits = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+stStorageSubTypeName :: Lens' StorageType (Maybe Text)
+stStorageSubTypeName = lens _stStorageSubTypeName (\ s a -> s{_stStorageSubTypeName = a});
+
+-- | Undocumented member.
+stStorageTypeName :: Lens' StorageType (Maybe Text)
+stStorageTypeName = lens _stStorageTypeName (\ s a -> s{_stStorageTypeName = a});
+
+instance FromJSON StorageType where
+        parseJSON
+          = withObject "StorageType"
+              (\ x ->
+                 StorageType' <$>
+                   (x .:? "StorageTypeLimits" .!= mempty) <*>
+                     (x .:? "StorageSubTypeName")
+                     <*> (x .:? "StorageTypeName"))
+
+instance Hashable StorageType
+
+instance NFData StorageType
+
+-- | Limits that are applicable for given storage type.
+--
+--
+--
+-- /See:/ 'storageTypeLimit' smart constructor.
+data StorageTypeLimit = StorageTypeLimit'
+    { _stlLimitName   :: !(Maybe Text)
+    , _stlLimitValues :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageTypeLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stlLimitName' - Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+--
+-- * 'stlLimitValues' - Values for the @'StorageTypeLimit$LimitName' @ .
+storageTypeLimit
+    :: StorageTypeLimit
+storageTypeLimit =
+    StorageTypeLimit'
+    { _stlLimitName = Nothing
+    , _stlLimitValues = Nothing
+    }
+
+-- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+stlLimitName :: Lens' StorageTypeLimit (Maybe Text)
+stlLimitName = lens _stlLimitName (\ s a -> s{_stlLimitName = a});
+
+-- | Values for the @'StorageTypeLimit$LimitName' @ .
+stlLimitValues :: Lens' StorageTypeLimit [Text]
+stlLimitValues = lens _stlLimitValues (\ s a -> s{_stlLimitValues = a}) . _Default . _Coerce;
+
+instance FromJSON StorageTypeLimit where
+        parseJSON
+          = withObject "StorageTypeLimit"
+              (\ x ->
+                 StorageTypeLimit' <$>
+                   (x .:? "LimitName") <*>
+                     (x .:? "LimitValues" .!= mempty))
+
+instance Hashable StorageTypeLimit
+
+instance NFData StorageTypeLimit
 
 -- | Specifies a key value pair for a resource tag.
 --

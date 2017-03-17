@@ -46,7 +46,10 @@ library
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomain
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
         , Network.AWS.ElasticSearch.DescribeElasticsearchDomains
+        , Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
         , Network.AWS.ElasticSearch.ListDomainNames
+        , Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+        , Network.AWS.ElasticSearch.ListElasticsearchVersions
         , Network.AWS.ElasticSearch.ListTags
         , Network.AWS.ElasticSearch.RemoveTags
         , Network.AWS.ElasticSearch.Types

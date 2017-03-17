@@ -40,6 +40,12 @@ module Network.AWS.ElasticSearch.Types
     , apsOptions
     , apsStatus
 
+    -- * AdditionalLimit
+    , AdditionalLimit
+    , additionalLimit
+    , alLimitName
+    , alLimitValues
+
     -- * AdvancedOptionsStatus
     , AdvancedOptionsStatus
     , advancedOptionsStatus
@@ -114,6 +120,24 @@ module Network.AWS.ElasticSearch.Types
     , evsOptions
     , evsStatus
 
+    -- * InstanceCountLimits
+    , InstanceCountLimits
+    , instanceCountLimits
+    , iclMaximumInstanceCount
+    , iclMinimumInstanceCount
+
+    -- * InstanceLimits
+    , InstanceLimits
+    , instanceLimits
+    , ilInstanceCountLimits
+
+    -- * Limits
+    , Limits
+    , limits
+    , lInstanceLimits
+    , lAdditionalLimits
+    , lStorageTypes
+
     -- * OptionStatus
     , OptionStatus
     , optionStatus
@@ -133,6 +157,19 @@ module Network.AWS.ElasticSearch.Types
     , snapshotOptionsStatus
     , sosOptions
     , sosStatus
+
+    -- * StorageType
+    , StorageType
+    , storageType
+    , stStorageTypeLimits
+    , stStorageSubTypeName
+    , stStorageTypeName
+
+    -- * StorageTypeLimit
+    , StorageTypeLimit
+    , storageTypeLimit
+    , stlLimitName
+    , stlLimitValues
 
     -- * Tag
     , Tag

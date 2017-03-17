@@ -21,14 +21,14 @@ import           Network.AWS.EMR.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop> . Currently supported values are:
+-- | An application is any Amazon or third-party software that you can add to the cluster. This structure contains a list of strings that indicates the software to use with the cluster and accepts a user argument list. Amazon EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action argument. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-mapr.html Using the MapR Distribution for Hadoop> . Currently supported values are:
 --
 --
---     * "mapr-m3" - launch the job flow using MapR M3 Edition.
+--     * "mapr-m3" - launch the cluster using MapR M3 Edition.
 --
---     * "mapr-m5" - launch the job flow using MapR M5 Edition.
+--     * "mapr-m5" - launch the cluster using MapR M5 Edition.
 --
---     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition, respectively.
+--     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the cluster using MapR M3 or M5 Edition, respectively.
 --
 --
 --
@@ -213,7 +213,7 @@ data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aspscrCode' - The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates something unclean happened.-->
+-- * 'aspscrCode' - The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
 --
 -- * 'aspscrMessage' - A friendly, more verbose message that accompanies an automatic scaling policy state change.
 autoScalingPolicyStateChangeReason
@@ -224,7 +224,7 @@ autoScalingPolicyStateChangeReason =
     , _aspscrMessage = Nothing
     }
 
--- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates something unclean happened.-->
+-- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
 aspscrCode :: Lens' AutoScalingPolicyStateChangeReason (Maybe AutoScalingPolicyStateChangeReasonCode)
 aspscrCode = lens _aspscrCode (\ s a -> s{_aspscrCode = a});
 
@@ -258,7 +258,7 @@ data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aspsState' -
+-- * 'aspsState' - Indicates the status of the automatic scaling policy.
 --
 -- * 'aspsStateChangeReason' - The reason for a change in status.
 autoScalingPolicyStatus
@@ -269,7 +269,7 @@ autoScalingPolicyStatus =
     , _aspsStateChangeReason = Nothing
     }
 
--- |
+-- | Indicates the status of the automatic scaling policy.
 aspsState :: Lens' AutoScalingPolicyStatus (Maybe AutoScalingPolicyState)
 aspsState = lens _aspsState (\ s a -> s{_aspsState = a});
 
@@ -336,7 +336,11 @@ instance ToJSON BootstrapActionConfig where
                     ("ScriptBootstrapAction" .=
                        _bacScriptBootstrapAction)])
 
--- | /See:/ 'cancelStepsInfo' smart constructor.
+-- | Specification of the status of a CancelSteps request. Available only in Amazon EMR version 4.8.0 and later, excluding version 5.0.0.
+--
+--
+--
+-- /See:/ 'cancelStepsInfo' smart constructor.
 data CancelStepsInfo = CancelStepsInfo'
     { _csiStatus :: !(Maybe CancelStepsRequestStatus)
     , _csiStepId :: !(Maybe Text)
@@ -347,11 +351,11 @@ data CancelStepsInfo = CancelStepsInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csiStatus' - Undocumented member.
+-- * 'csiStatus' - The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
 --
--- * 'csiStepId' - Undocumented member.
+-- * 'csiStepId' - The encrypted StepId of a step.
 --
--- * 'csiReason' - Undocumented member.
+-- * 'csiReason' - The reason for the failure if the CancelSteps request fails.
 cancelStepsInfo
     :: CancelStepsInfo
 cancelStepsInfo =
@@ -361,15 +365,15 @@ cancelStepsInfo =
     , _csiReason = Nothing
     }
 
--- | Undocumented member.
+-- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
 csiStatus :: Lens' CancelStepsInfo (Maybe CancelStepsRequestStatus)
 csiStatus = lens _csiStatus (\ s a -> s{_csiStatus = a});
 
--- | Undocumented member.
+-- | The encrypted StepId of a step.
 csiStepId :: Lens' CancelStepsInfo (Maybe Text)
 csiStepId = lens _csiStepId (\ s a -> s{_csiStepId = a});
 
--- | Undocumented member.
+-- | The reason for the failure if the CancelSteps request fails.
 csiReason :: Lens' CancelStepsInfo (Maybe Text)
 csiReason = lens _csiReason (\ s a -> s{_csiReason = a});
 
@@ -524,6 +528,7 @@ data Cluster = Cluster'
     , _cluAutoScalingRole         :: !(Maybe Text)
     , _cluSecurityConfiguration   :: !(Maybe Text)
     , _cluScaleDownBehavior       :: !(Maybe ScaleDownBehavior)
+    , _cluInstanceCollectionType  :: !(Maybe InstanceCollectionType)
     , _cluReleaseLabel            :: !(Maybe Text)
     , _cluLogURI                  :: !(Maybe Text)
     , _cluRunningAMIVersion       :: !(Maybe Text)
@@ -547,7 +552,7 @@ data Cluster = Cluster'
 --
 -- * 'cluEC2InstanceAttributes' - Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 --
--- * 'cluNormalizedInstanceHours' - An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- * 'cluNormalizedInstanceHours' - An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
 -- * 'cluConfigurations' - The list of Configurations supplied to the EMR cluster.
 --
@@ -556,6 +561,8 @@ data Cluster = Cluster'
 -- * 'cluSecurityConfiguration' - The name of the security configuration applied to the cluster.
 --
 -- * 'cluScaleDownBehavior' - The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+--
+-- * 'cluInstanceCollectionType' - The instance group configuration of the cluster. A value of @INSTANCE_GROUP@ indicates a uniform instance group configuration. A value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
 --
 -- * 'cluReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 --
@@ -567,7 +574,7 @@ data Cluster = Cluster'
 --
 -- * 'cluTerminationProtected' - Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances from being terminated by an API call or user intervention, or in the event of a cluster error.
 --
--- * 'cluVisibleToAllUsers' - Indicates whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and manage the job flow if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
+-- * 'cluVisibleToAllUsers' - Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If this value is set to @true@ , all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
 --
 -- * 'cluAutoTerminate' - Specifies whether the cluster should terminate after completing all steps.
 --
@@ -596,6 +603,7 @@ cluster pId_ pName_ pStatus_ =
     , _cluAutoScalingRole = Nothing
     , _cluSecurityConfiguration = Nothing
     , _cluScaleDownBehavior = Nothing
+    , _cluInstanceCollectionType = Nothing
     , _cluReleaseLabel = Nothing
     , _cluLogURI = Nothing
     , _cluRunningAMIVersion = Nothing
@@ -619,7 +627,7 @@ cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedA
 cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
 cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
 
--- | An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- | An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 cluNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
 cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNormalizedInstanceHours = a});
 
@@ -638,6 +646,10 @@ cluSecurityConfiguration = lens _cluSecurityConfiguration (\ s a -> s{_cluSecuri
 -- | The way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR blacklists and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
 cluScaleDownBehavior :: Lens' Cluster (Maybe ScaleDownBehavior)
 cluScaleDownBehavior = lens _cluScaleDownBehavior (\ s a -> s{_cluScaleDownBehavior = a});
+
+-- | The instance group configuration of the cluster. A value of @INSTANCE_GROUP@ indicates a uniform instance group configuration. A value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
+cluInstanceCollectionType :: Lens' Cluster (Maybe InstanceCollectionType)
+cluInstanceCollectionType = lens _cluInstanceCollectionType (\ s a -> s{_cluInstanceCollectionType = a});
 
 -- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
 cluReleaseLabel :: Lens' Cluster (Maybe Text)
@@ -659,7 +671,7 @@ cluMasterPublicDNSName = lens _cluMasterPublicDNSName (\ s a -> s{_cluMasterPubl
 cluTerminationProtected :: Lens' Cluster (Maybe Bool)
 cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminationProtected = a});
 
--- | Indicates whether the job flow is visible to all IAM users of the AWS account associated with the job flow. If this value is set to @true@ , all IAM users of that AWS account can view and manage the job flow if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
+-- | Indicates whether the cluster is visible to all IAM users of the AWS account associated with the cluster. If this value is set to @true@ , all IAM users of that AWS account can view and manage the cluster if they have the proper policy permissions set. If this value is @false@ , only the IAM user that created the cluster can view and manage it. This value can be changed using the 'SetVisibleToAllUsers' action.
 cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
@@ -703,6 +715,7 @@ instance FromJSON Cluster where
                      <*> (x .:? "AutoScalingRole")
                      <*> (x .:? "SecurityConfiguration")
                      <*> (x .:? "ScaleDownBehavior")
+                     <*> (x .:? "InstanceCollectionType")
                      <*> (x .:? "ReleaseLabel")
                      <*> (x .:? "LogUri")
                      <*> (x .:? "RunningAmiVersion")
@@ -836,7 +849,7 @@ data ClusterSummary = ClusterSummary'
 --
 -- * 'csStatus' - The details about the current status of the cluster.
 --
--- * 'csNormalizedInstanceHours' - An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- * 'csNormalizedInstanceHours' - An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
 -- * 'csName' - The name of the cluster.
 --
@@ -855,7 +868,7 @@ clusterSummary =
 csStatus :: Lens' ClusterSummary (Maybe ClusterStatus)
 csStatus = lens _csStatus (\ s a -> s{_csStatus = a});
 
--- | An approximation of the cost of the job flow, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
+-- | An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 csNormalizedInstanceHours :: Lens' ClusterSummary (Maybe Int)
 csNormalizedInstanceHours = lens _csNormalizedInstanceHours (\ s a -> s{_csNormalizedInstanceHours = a});
 
@@ -988,7 +1001,7 @@ instance Hashable Command
 
 instance NFData Command
 
--- | Specifies a hardware and software configuration of the EMR cluster. This includes configurations for applications and software bundled with Amazon EMR. The Configuration object is a JSON object which is defined by a classification and a set of properties. Configurations can be nested, so a configuration may have its own Configuration objects listed.
+-- | An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications> .
 --
 --
 --
@@ -1003,11 +1016,11 @@ data Configuration = Configuration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cConfigurations' - A list of configurations you apply to this configuration object.
+-- * 'cConfigurations' - A list of additional configurations to apply within a configuration object.
 --
--- * 'cClassification' - The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations> .
+-- * 'cClassification' - The classification within a configuration.
 --
--- * 'cProperties' - A set of properties supplied to the Configuration object.
+-- * 'cProperties' - A set of properties specified within a configuration classification.
 configuration
     :: Configuration
 configuration =
@@ -1017,15 +1030,15 @@ configuration =
     , _cProperties = Nothing
     }
 
--- | A list of configurations you apply to this configuration object.
+-- | A list of additional configurations to apply within a configuration object.
 cConfigurations :: Lens' Configuration [Configuration]
 cConfigurations = lens _cConfigurations (\ s a -> s{_cConfigurations = a}) . _Default . _Coerce;
 
--- | The classification of a configuration. For more information see, <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations> .
+-- | The classification within a configuration.
 cClassification :: Lens' Configuration (Maybe Text)
 cClassification = lens _cClassification (\ s a -> s{_cClassification = a});
 
--- | A set of properties supplied to the Configuration object.
+-- | A set of properties specified within a configuration classification.
 cProperties :: Lens' Configuration (HashMap Text Text)
 cProperties = lens _cProperties (\ s a -> s{_cProperties = a}) . _Default . _Map;
 
@@ -1239,10 +1252,12 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
     { _eiaEC2KeyName                     :: !(Maybe Text)
     , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
     , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+    , _eiaRequestedEC2SubnetIds          :: !(Maybe [Text])
     , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
     , _eiaIAMInstanceProfile             :: !(Maybe Text)
     , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
     , _eiaEC2SubnetId                    :: !(Maybe Text)
+    , _eiaRequestedEC2AvailabilityZones  :: !(Maybe [Text])
     , _eiaServiceAccessSecurityGroup     :: !(Maybe Text)
     , _eiaEC2AvailabilityZone            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1257,13 +1272,17 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- * 'eiaAdditionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the slave nodes.
 --
+-- * 'eiaRequestedEC2SubnetIds' - Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Amazon EMR chooses the EC2 subnet with the best performance and cost characteristics from among the list of RequestedEc2SubnetIds and launches all cluster instances within that subnet. If this value is not specified, and the account supports EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses Requested
+--
 -- * 'eiaAdditionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
 --
--- * 'eiaIAMInstanceProfile' - The IAM role that was specified when the job flow was launched. The EC2 instances of the job flow assume this role.
+-- * 'eiaIAMInstanceProfile' - The IAM role that was specified when the cluster was launched. The EC2 instances of the cluster assume this role.
 --
 -- * 'eiaEmrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
 --
--- * 'eiaEC2SubnetId' - To launch the job flow in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
+-- * 'eiaEC2SubnetId' - To launch the cluster in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, the cluster is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a cluster launched in a VPC.
+--
+-- * 'eiaRequestedEC2AvailabilityZones' - Applies to clusters configured with the The list of availability zones to choose from. The service will choose the availability zone with the best mix of available capacity and lowest cost to launch the cluster. If you do not specify this value, the cluster is launched in any availability zone that the customer account has access to.
 --
 -- * 'eiaServiceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 --
@@ -1275,10 +1294,12 @@ ec2InstanceAttributes =
     { _eiaEC2KeyName = Nothing
     , _eiaEmrManagedSlaveSecurityGroup = Nothing
     , _eiaAdditionalSlaveSecurityGroups = Nothing
+    , _eiaRequestedEC2SubnetIds = Nothing
     , _eiaAdditionalMasterSecurityGroups = Nothing
     , _eiaIAMInstanceProfile = Nothing
     , _eiaEmrManagedMasterSecurityGroup = Nothing
     , _eiaEC2SubnetId = Nothing
+    , _eiaRequestedEC2AvailabilityZones = Nothing
     , _eiaServiceAccessSecurityGroup = Nothing
     , _eiaEC2AvailabilityZone = Nothing
     }
@@ -1295,11 +1316,15 @@ eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -
 eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
 eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
+-- | Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Amazon EMR chooses the EC2 subnet with the best performance and cost characteristics from among the list of RequestedEc2SubnetIds and launches all cluster instances within that subnet. If this value is not specified, and the account supports EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses Requested
+eiaRequestedEC2SubnetIds :: Lens' EC2InstanceAttributes [Text]
+eiaRequestedEC2SubnetIds = lens _eiaRequestedEC2SubnetIds (\ s a -> s{_eiaRequestedEC2SubnetIds = a}) . _Default . _Coerce;
+
 -- | A list of additional Amazon EC2 security group IDs for the master node.
 eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
 eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
 
--- | The IAM role that was specified when the job flow was launched. The EC2 instances of the job flow assume this role.
+-- | The IAM role that was specified when the cluster was launched. The EC2 instances of the cluster assume this role.
 eiaIAMInstanceProfile :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceProfile = a});
 
@@ -1307,9 +1332,13 @@ eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceP
 eiaEmrManagedMasterSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedMasterSecurityGroup = lens _eiaEmrManagedMasterSecurityGroup (\ s a -> s{_eiaEmrManagedMasterSecurityGroup = a});
 
--- | To launch the job flow in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a VPC.
+-- | To launch the cluster in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, the cluster is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a cluster launched in a VPC.
 eiaEC2SubnetId :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2SubnetId = lens _eiaEC2SubnetId (\ s a -> s{_eiaEC2SubnetId = a});
+
+-- | Applies to clusters configured with the The list of availability zones to choose from. The service will choose the availability zone with the best mix of available capacity and lowest cost to launch the cluster. If you do not specify this value, the cluster is launched in any availability zone that the customer account has access to.
+eiaRequestedEC2AvailabilityZones :: Lens' EC2InstanceAttributes [Text]
+eiaRequestedEC2AvailabilityZones = lens _eiaRequestedEC2AvailabilityZones (\ s a -> s{_eiaRequestedEC2AvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 eiaServiceAccessSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
@@ -1328,11 +1357,14 @@ instance FromJSON EC2InstanceAttributes where
                      (x .:? "EmrManagedSlaveSecurityGroup")
                      <*>
                      (x .:? "AdditionalSlaveSecurityGroups" .!= mempty)
+                     <*> (x .:? "RequestedEc2SubnetIds" .!= mempty)
                      <*>
                      (x .:? "AdditionalMasterSecurityGroups" .!= mempty)
                      <*> (x .:? "IamInstanceProfile")
                      <*> (x .:? "EmrManagedMasterSecurityGroup")
                      <*> (x .:? "Ec2SubnetId")
+                     <*>
+                     (x .:? "RequestedEc2AvailabilityZones" .!= mempty)
                      <*> (x .:? "ServiceAccessSecurityGroup")
                      <*> (x .:? "Ec2AvailabilityZone"))
 
@@ -1528,7 +1560,10 @@ data Instance = Instance'
     , _iPublicDNSName    :: !(Maybe Text)
     , _iEBSVolumes       :: !(Maybe [EBSVolume])
     , _iEC2InstanceId    :: !(Maybe Text)
+    , _iInstanceType     :: !(Maybe Text)
+    , _iMarket           :: !(Maybe MarketType)
     , _iPrivateIPAddress :: !(Maybe Text)
+    , _iInstanceFleetId  :: !(Maybe Text)
     , _iId               :: !(Maybe Text)
     , _iInstanceGroupId  :: !(Maybe Text)
     , _iPrivateDNSName   :: !(Maybe Text)
@@ -1547,7 +1582,13 @@ data Instance = Instance'
 --
 -- * 'iEC2InstanceId' - The unique identifier of the instance in Amazon EC2.
 --
+-- * 'iInstanceType' - The EC2 instance type, for example @m3.xlarge@ .
+--
+-- * 'iMarket' - The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
+--
 -- * 'iPrivateIPAddress' - The private IP address of the instance.
+--
+-- * 'iInstanceFleetId' - The unique identifier of the instance fleet to which an EC2 instance belongs.
 --
 -- * 'iId' - The unique identifier for the instance in Amazon EMR.
 --
@@ -1564,7 +1605,10 @@ instance' =
     , _iPublicDNSName = Nothing
     , _iEBSVolumes = Nothing
     , _iEC2InstanceId = Nothing
+    , _iInstanceType = Nothing
+    , _iMarket = Nothing
     , _iPrivateIPAddress = Nothing
+    , _iInstanceFleetId = Nothing
     , _iId = Nothing
     , _iInstanceGroupId = Nothing
     , _iPrivateDNSName = Nothing
@@ -1587,9 +1631,21 @@ iEBSVolumes = lens _iEBSVolumes (\ s a -> s{_iEBSVolumes = a}) . _Default . _Coe
 iEC2InstanceId :: Lens' Instance (Maybe Text)
 iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
 
+-- | The EC2 instance type, for example @m3.xlarge@ .
+iInstanceType :: Lens' Instance (Maybe Text)
+iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
+
+-- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@ .
+iMarket :: Lens' Instance (Maybe MarketType)
+iMarket = lens _iMarket (\ s a -> s{_iMarket = a});
+
 -- | The private IP address of the instance.
 iPrivateIPAddress :: Lens' Instance (Maybe Text)
 iPrivateIPAddress = lens _iPrivateIPAddress (\ s a -> s{_iPrivateIPAddress = a});
+
+-- | The unique identifier of the instance fleet to which an EC2 instance belongs.
+iInstanceFleetId :: Lens' Instance (Maybe Text)
+iInstanceFleetId = lens _iInstanceFleetId (\ s a -> s{_iInstanceFleetId = a});
 
 -- | The unique identifier for the instance in Amazon EMR.
 iId :: Lens' Instance (Maybe Text)
@@ -1615,7 +1671,10 @@ instance FromJSON Instance where
                    (x .:? "Status") <*> (x .:? "PublicDnsName") <*>
                      (x .:? "EbsVolumes" .!= mempty)
                      <*> (x .:? "Ec2InstanceId")
+                     <*> (x .:? "InstanceType")
+                     <*> (x .:? "Market")
                      <*> (x .:? "PrivateIpAddress")
+                     <*> (x .:? "InstanceFleetId")
                      <*> (x .:? "Id")
                      <*> (x .:? "InstanceGroupId")
                      <*> (x .:? "PrivateDnsName")
@@ -1624,6 +1683,464 @@ instance FromJSON Instance where
 instance Hashable Instance
 
 instance NFData Instance
+
+-- | Describes an instance fleet, which is a group of EC2 instances that host a particular node type (master, core, or task) in an Amazon EMR cluster. Instance fleets can consist of a mix of instance types and On-Demand and Spot instances, which are provisioned to meet a defined target capacity.
+--
+--
+--
+-- /See:/ 'instanceFleet' smart constructor.
+data InstanceFleet = InstanceFleet'
+    { _ifProvisionedSpotCapacity     :: !(Maybe Nat)
+    , _ifStatus                      :: !(Maybe InstanceFleetStatus)
+    , _ifTargetOnDemandCapacity      :: !(Maybe Nat)
+    , _ifInstanceFleetType           :: !(Maybe InstanceFleetType)
+    , _ifInstanceTypeSpecifications  :: !(Maybe [InstanceTypeSpecification])
+    , _ifName                        :: !(Maybe Text)
+    , _ifProvisionedOnDemandCapacity :: !(Maybe Nat)
+    , _ifTargetSpotCapacity          :: !(Maybe Nat)
+    , _ifId                          :: !(Maybe Text)
+    , _ifLaunchSpecifications        :: !(Maybe InstanceFleetProvisioningSpecifications)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifProvisionedSpotCapacity' - The number of Spot units that have been provisioned for this instance fleet to fulfill @TargetSpotCapacity@ . This provisioned capacity might be less than or greater than @TargetSpotCapacity@ .
+--
+-- * 'ifStatus' - The current status of the instance fleet.
+--
+-- * 'ifTargetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When an On-Demand instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use 'InstanceFleet$ProvisionedOnDemandCapacity' to determine the Spot capacity units that have been provisioned for the instance fleet.
+--
+-- * 'ifInstanceFleetType' - The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
+--
+-- * 'ifInstanceTypeSpecifications' - The specification for the instance types that comprise an instance fleet. Up to five unique instance specifications may be defined for each instance fleet.
+--
+-- * 'ifName' - A friendly name for the instance fleet.
+--
+-- * 'ifProvisionedOnDemandCapacity' - The number of On-Demand units that have been provisioned for the instance fleet to fulfill @TargetOnDemandCapacity@ . This provisioned capacity might be less than or greater than @TargetOnDemandCapacity@ .
+--
+-- * 'ifTargetSpotCapacity' - The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When a Spot instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use 'InstanceFleet$ProvisionedSpotCapacity' to determine the Spot capacity units that have been provisioned for the instance fleet.
+--
+-- * 'ifId' - The unique identifier of the instance fleet.
+--
+-- * 'ifLaunchSpecifications' - Describes the launch specification for an instance fleet.
+instanceFleet
+    :: InstanceFleet
+instanceFleet =
+    InstanceFleet'
+    { _ifProvisionedSpotCapacity = Nothing
+    , _ifStatus = Nothing
+    , _ifTargetOnDemandCapacity = Nothing
+    , _ifInstanceFleetType = Nothing
+    , _ifInstanceTypeSpecifications = Nothing
+    , _ifName = Nothing
+    , _ifProvisionedOnDemandCapacity = Nothing
+    , _ifTargetSpotCapacity = Nothing
+    , _ifId = Nothing
+    , _ifLaunchSpecifications = Nothing
+    }
+
+-- | The number of Spot units that have been provisioned for this instance fleet to fulfill @TargetSpotCapacity@ . This provisioned capacity might be less than or greater than @TargetSpotCapacity@ .
+ifProvisionedSpotCapacity :: Lens' InstanceFleet (Maybe Natural)
+ifProvisionedSpotCapacity = lens _ifProvisionedSpotCapacity (\ s a -> s{_ifProvisionedSpotCapacity = a}) . mapping _Nat;
+
+-- | The current status of the instance fleet.
+ifStatus :: Lens' InstanceFleet (Maybe InstanceFleetStatus)
+ifStatus = lens _ifStatus (\ s a -> s{_ifStatus = a});
+
+-- | The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When an On-Demand instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use 'InstanceFleet$ProvisionedOnDemandCapacity' to determine the Spot capacity units that have been provisioned for the instance fleet.
+ifTargetOnDemandCapacity :: Lens' InstanceFleet (Maybe Natural)
+ifTargetOnDemandCapacity = lens _ifTargetOnDemandCapacity (\ s a -> s{_ifTargetOnDemandCapacity = a}) . mapping _Nat;
+
+-- | The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
+ifInstanceFleetType :: Lens' InstanceFleet (Maybe InstanceFleetType)
+ifInstanceFleetType = lens _ifInstanceFleetType (\ s a -> s{_ifInstanceFleetType = a});
+
+-- | The specification for the instance types that comprise an instance fleet. Up to five unique instance specifications may be defined for each instance fleet.
+ifInstanceTypeSpecifications :: Lens' InstanceFleet [InstanceTypeSpecification]
+ifInstanceTypeSpecifications = lens _ifInstanceTypeSpecifications (\ s a -> s{_ifInstanceTypeSpecifications = a}) . _Default . _Coerce;
+
+-- | A friendly name for the instance fleet.
+ifName :: Lens' InstanceFleet (Maybe Text)
+ifName = lens _ifName (\ s a -> s{_ifName = a});
+
+-- | The number of On-Demand units that have been provisioned for the instance fleet to fulfill @TargetOnDemandCapacity@ . This provisioned capacity might be less than or greater than @TargetOnDemandCapacity@ .
+ifProvisionedOnDemandCapacity :: Lens' InstanceFleet (Maybe Natural)
+ifProvisionedOnDemandCapacity = lens _ifProvisionedOnDemandCapacity (\ s a -> s{_ifProvisionedOnDemandCapacity = a}) . mapping _Nat;
+
+-- | The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When a Spot instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units. You can use 'InstanceFleet$ProvisionedSpotCapacity' to determine the Spot capacity units that have been provisioned for the instance fleet.
+ifTargetSpotCapacity :: Lens' InstanceFleet (Maybe Natural)
+ifTargetSpotCapacity = lens _ifTargetSpotCapacity (\ s a -> s{_ifTargetSpotCapacity = a}) . mapping _Nat;
+
+-- | The unique identifier of the instance fleet.
+ifId :: Lens' InstanceFleet (Maybe Text)
+ifId = lens _ifId (\ s a -> s{_ifId = a});
+
+-- | Describes the launch specification for an instance fleet.
+ifLaunchSpecifications :: Lens' InstanceFleet (Maybe InstanceFleetProvisioningSpecifications)
+ifLaunchSpecifications = lens _ifLaunchSpecifications (\ s a -> s{_ifLaunchSpecifications = a});
+
+instance FromJSON InstanceFleet where
+        parseJSON
+          = withObject "InstanceFleet"
+              (\ x ->
+                 InstanceFleet' <$>
+                   (x .:? "ProvisionedSpotCapacity") <*>
+                     (x .:? "Status")
+                     <*> (x .:? "TargetOnDemandCapacity")
+                     <*> (x .:? "InstanceFleetType")
+                     <*> (x .:? "InstanceTypeSpecifications" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "ProvisionedOnDemandCapacity")
+                     <*> (x .:? "TargetSpotCapacity")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "LaunchSpecifications"))
+
+instance Hashable InstanceFleet
+
+instance NFData InstanceFleet
+
+-- | The configuration that defines an instance fleet.
+--
+--
+--
+-- /See:/ 'instanceFleetConfig' smart constructor.
+data InstanceFleetConfig = InstanceFleetConfig'
+    { _ifcInstanceTypeConfigs    :: !(Maybe [InstanceTypeConfig])
+    , _ifcTargetOnDemandCapacity :: !(Maybe Nat)
+    , _ifcName                   :: !(Maybe Text)
+    , _ifcTargetSpotCapacity     :: !(Maybe Nat)
+    , _ifcLaunchSpecifications   :: !(Maybe InstanceFleetProvisioningSpecifications)
+    , _ifcInstanceFleetType      :: !InstanceFleetType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifcInstanceTypeConfigs' - The instance type configurations that define the EC2 instances in the instance fleet.
+--
+-- * 'ifcTargetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When an On-Demand instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+--
+-- * 'ifcName' - The friendly name of the instance fleet.
+--
+-- * 'ifcTargetSpotCapacity' - The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When a Spot instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+--
+-- * 'ifcLaunchSpecifications' - The launch specification for the instance fleet.
+--
+-- * 'ifcInstanceFleetType' - The node type that the instance fleet hosts. Valid values are MASTER,CORE,and TASK.
+instanceFleetConfig
+    :: InstanceFleetType -- ^ 'ifcInstanceFleetType'
+    -> InstanceFleetConfig
+instanceFleetConfig pInstanceFleetType_ =
+    InstanceFleetConfig'
+    { _ifcInstanceTypeConfigs = Nothing
+    , _ifcTargetOnDemandCapacity = Nothing
+    , _ifcName = Nothing
+    , _ifcTargetSpotCapacity = Nothing
+    , _ifcLaunchSpecifications = Nothing
+    , _ifcInstanceFleetType = pInstanceFleetType_
+    }
+
+-- | The instance type configurations that define the EC2 instances in the instance fleet.
+ifcInstanceTypeConfigs :: Lens' InstanceFleetConfig [InstanceTypeConfig]
+ifcInstanceTypeConfigs = lens _ifcInstanceTypeConfigs (\ s a -> s{_ifcInstanceTypeConfigs = a}) . _Default . _Coerce;
+
+-- | The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision. When the instance fleet launches, Amazon EMR tries to provision On-Demand instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When an On-Demand instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+ifcTargetOnDemandCapacity :: Lens' InstanceFleetConfig (Maybe Natural)
+ifcTargetOnDemandCapacity = lens _ifcTargetOnDemandCapacity (\ s a -> s{_ifcTargetOnDemandCapacity = a}) . mapping _Nat;
+
+-- | The friendly name of the instance fleet.
+ifcName :: Lens' InstanceFleetConfig (Maybe Text)
+ifcName = lens _ifcName (\ s a -> s{_ifcName = a});
+
+-- | The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision. When the instance fleet launches, Amazon EMR tries to provision Spot instances as specified by 'InstanceTypeConfig' . Each instance configuration has a specified @WeightedCapacity@ . When a Spot instance is provisioned, the @WeightedCapacity@ units count toward the target capacity. Amazon EMR provisions instances until the target capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EMR can only provision an instance with a @WeightedCapacity@ of 5 units, the instance is provisioned, and the target capacity is exceeded by 3 units.
+ifcTargetSpotCapacity :: Lens' InstanceFleetConfig (Maybe Natural)
+ifcTargetSpotCapacity = lens _ifcTargetSpotCapacity (\ s a -> s{_ifcTargetSpotCapacity = a}) . mapping _Nat;
+
+-- | The launch specification for the instance fleet.
+ifcLaunchSpecifications :: Lens' InstanceFleetConfig (Maybe InstanceFleetProvisioningSpecifications)
+ifcLaunchSpecifications = lens _ifcLaunchSpecifications (\ s a -> s{_ifcLaunchSpecifications = a});
+
+-- | The node type that the instance fleet hosts. Valid values are MASTER,CORE,and TASK.
+ifcInstanceFleetType :: Lens' InstanceFleetConfig InstanceFleetType
+ifcInstanceFleetType = lens _ifcInstanceFleetType (\ s a -> s{_ifcInstanceFleetType = a});
+
+instance Hashable InstanceFleetConfig
+
+instance NFData InstanceFleetConfig
+
+instance ToJSON InstanceFleetConfig where
+        toJSON InstanceFleetConfig'{..}
+          = object
+              (catMaybes
+                 [("InstanceTypeConfigs" .=) <$>
+                    _ifcInstanceTypeConfigs,
+                  ("TargetOnDemandCapacity" .=) <$>
+                    _ifcTargetOnDemandCapacity,
+                  ("Name" .=) <$> _ifcName,
+                  ("TargetSpotCapacity" .=) <$> _ifcTargetSpotCapacity,
+                  ("LaunchSpecifications" .=) <$>
+                    _ifcLaunchSpecifications,
+                  Just ("InstanceFleetType" .= _ifcInstanceFleetType)])
+
+-- | Configuration parameters for an instance fleet modification request.
+--
+--
+--
+-- /See:/ 'instanceFleetModifyConfig' smart constructor.
+data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
+    { _ifmcTargetOnDemandCapacity :: !(Maybe Nat)
+    , _ifmcTargetSpotCapacity     :: !(Maybe Nat)
+    , _ifmcInstanceFleetId        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetModifyConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifmcTargetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
+--
+-- * 'ifmcTargetSpotCapacity' - The target capacity of Spot units for the instance fleet. For more information, see 'InstanceFleetConfig$TargetSpotCapacity' .
+--
+-- * 'ifmcInstanceFleetId' - A unique identifier for the instance fleet.
+instanceFleetModifyConfig
+    :: Text -- ^ 'ifmcInstanceFleetId'
+    -> InstanceFleetModifyConfig
+instanceFleetModifyConfig pInstanceFleetId_ =
+    InstanceFleetModifyConfig'
+    { _ifmcTargetOnDemandCapacity = Nothing
+    , _ifmcTargetSpotCapacity = Nothing
+    , _ifmcInstanceFleetId = pInstanceFleetId_
+    }
+
+-- | The target capacity of On-Demand units for the instance fleet. For more information see 'InstanceFleetConfig$TargetOnDemandCapacity' .
+ifmcTargetOnDemandCapacity :: Lens' InstanceFleetModifyConfig (Maybe Natural)
+ifmcTargetOnDemandCapacity = lens _ifmcTargetOnDemandCapacity (\ s a -> s{_ifmcTargetOnDemandCapacity = a}) . mapping _Nat;
+
+-- | The target capacity of Spot units for the instance fleet. For more information, see 'InstanceFleetConfig$TargetSpotCapacity' .
+ifmcTargetSpotCapacity :: Lens' InstanceFleetModifyConfig (Maybe Natural)
+ifmcTargetSpotCapacity = lens _ifmcTargetSpotCapacity (\ s a -> s{_ifmcTargetSpotCapacity = a}) . mapping _Nat;
+
+-- | A unique identifier for the instance fleet.
+ifmcInstanceFleetId :: Lens' InstanceFleetModifyConfig Text
+ifmcInstanceFleetId = lens _ifmcInstanceFleetId (\ s a -> s{_ifmcInstanceFleetId = a});
+
+instance Hashable InstanceFleetModifyConfig
+
+instance NFData InstanceFleetModifyConfig
+
+instance ToJSON InstanceFleetModifyConfig where
+        toJSON InstanceFleetModifyConfig'{..}
+          = object
+              (catMaybes
+                 [("TargetOnDemandCapacity" .=) <$>
+                    _ifmcTargetOnDemandCapacity,
+                  ("TargetSpotCapacity" .=) <$>
+                    _ifmcTargetSpotCapacity,
+                  Just ("InstanceFleetId" .= _ifmcInstanceFleetId)])
+
+-- | The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+--
+--
+--
+-- /See:/ 'instanceFleetProvisioningSpecifications' smart constructor.
+newtype InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecifications'
+    { _ifpsSpotSpecification :: SpotProvisioningSpecification
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetProvisioningSpecifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifpsSpotSpecification' - The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+instanceFleetProvisioningSpecifications
+    :: SpotProvisioningSpecification -- ^ 'ifpsSpotSpecification'
+    -> InstanceFleetProvisioningSpecifications
+instanceFleetProvisioningSpecifications pSpotSpecification_ =
+    InstanceFleetProvisioningSpecifications'
+    { _ifpsSpotSpecification = pSpotSpecification_
+    }
+
+-- | The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+ifpsSpotSpecification :: Lens' InstanceFleetProvisioningSpecifications SpotProvisioningSpecification
+ifpsSpotSpecification = lens _ifpsSpotSpecification (\ s a -> s{_ifpsSpotSpecification = a});
+
+instance FromJSON
+         InstanceFleetProvisioningSpecifications where
+        parseJSON
+          = withObject
+              "InstanceFleetProvisioningSpecifications"
+              (\ x ->
+                 InstanceFleetProvisioningSpecifications' <$>
+                   (x .: "SpotSpecification"))
+
+instance Hashable
+         InstanceFleetProvisioningSpecifications
+
+instance NFData
+         InstanceFleetProvisioningSpecifications
+
+instance ToJSON
+         InstanceFleetProvisioningSpecifications where
+        toJSON InstanceFleetProvisioningSpecifications'{..}
+          = object
+              (catMaybes
+                 [Just
+                    ("SpotSpecification" .= _ifpsSpotSpecification)])
+
+-- | Provides status change reason details for the instance fleet.
+--
+--
+--
+-- /See:/ 'instanceFleetStateChangeReason' smart constructor.
+data InstanceFleetStateChangeReason = InstanceFleetStateChangeReason'
+    { _ifscrCode    :: !(Maybe InstanceFleetStateChangeReasonCode)
+    , _ifscrMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifscrCode' - A code corresponding to the reason the state change occurred.
+--
+-- * 'ifscrMessage' - An explanatory message.
+instanceFleetStateChangeReason
+    :: InstanceFleetStateChangeReason
+instanceFleetStateChangeReason =
+    InstanceFleetStateChangeReason'
+    { _ifscrCode = Nothing
+    , _ifscrMessage = Nothing
+    }
+
+-- | A code corresponding to the reason the state change occurred.
+ifscrCode :: Lens' InstanceFleetStateChangeReason (Maybe InstanceFleetStateChangeReasonCode)
+ifscrCode = lens _ifscrCode (\ s a -> s{_ifscrCode = a});
+
+-- | An explanatory message.
+ifscrMessage :: Lens' InstanceFleetStateChangeReason (Maybe Text)
+ifscrMessage = lens _ifscrMessage (\ s a -> s{_ifscrMessage = a});
+
+instance FromJSON InstanceFleetStateChangeReason
+         where
+        parseJSON
+          = withObject "InstanceFleetStateChangeReason"
+              (\ x ->
+                 InstanceFleetStateChangeReason' <$>
+                   (x .:? "Code") <*> (x .:? "Message"))
+
+instance Hashable InstanceFleetStateChangeReason
+
+instance NFData InstanceFleetStateChangeReason
+
+-- | The status of the instance fleet.
+--
+--
+--
+-- /See:/ 'instanceFleetStatus' smart constructor.
+data InstanceFleetStatus = InstanceFleetStatus'
+    { _ifsState             :: !(Maybe InstanceFleetState)
+    , _ifsStateChangeReason :: !(Maybe InstanceFleetStateChangeReason)
+    , _ifsTimeline          :: !(Maybe InstanceFleetTimeline)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ifsState' - A code representing the instance fleet status.
+--
+-- * 'ifsStateChangeReason' - Provides status change reason details for the instance fleet.
+--
+-- * 'ifsTimeline' - Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+instanceFleetStatus
+    :: InstanceFleetStatus
+instanceFleetStatus =
+    InstanceFleetStatus'
+    { _ifsState = Nothing
+    , _ifsStateChangeReason = Nothing
+    , _ifsTimeline = Nothing
+    }
+
+-- | A code representing the instance fleet status.
+ifsState :: Lens' InstanceFleetStatus (Maybe InstanceFleetState)
+ifsState = lens _ifsState (\ s a -> s{_ifsState = a});
+
+-- | Provides status change reason details for the instance fleet.
+ifsStateChangeReason :: Lens' InstanceFleetStatus (Maybe InstanceFleetStateChangeReason)
+ifsStateChangeReason = lens _ifsStateChangeReason (\ s a -> s{_ifsStateChangeReason = a});
+
+-- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+ifsTimeline :: Lens' InstanceFleetStatus (Maybe InstanceFleetTimeline)
+ifsTimeline = lens _ifsTimeline (\ s a -> s{_ifsTimeline = a});
+
+instance FromJSON InstanceFleetStatus where
+        parseJSON
+          = withObject "InstanceFleetStatus"
+              (\ x ->
+                 InstanceFleetStatus' <$>
+                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
+                     (x .:? "Timeline"))
+
+instance Hashable InstanceFleetStatus
+
+instance NFData InstanceFleetStatus
+
+-- | Provides historical timestamps for the instance fleet, including the time of creation, the time it became ready to run jobs, and the time of termination.
+--
+--
+--
+-- /See:/ 'instanceFleetTimeline' smart constructor.
+data InstanceFleetTimeline = InstanceFleetTimeline'
+    { _iftReadyDateTime    :: !(Maybe POSIX)
+    , _iftCreationDateTime :: !(Maybe POSIX)
+    , _iftEndDateTime      :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceFleetTimeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iftReadyDateTime' - The time and date the instance fleet was ready to run jobs.
+--
+-- * 'iftCreationDateTime' - The time and date the instance fleet was created.
+--
+-- * 'iftEndDateTime' - The time and date the instance fleet terminated.
+instanceFleetTimeline
+    :: InstanceFleetTimeline
+instanceFleetTimeline =
+    InstanceFleetTimeline'
+    { _iftReadyDateTime = Nothing
+    , _iftCreationDateTime = Nothing
+    , _iftEndDateTime = Nothing
+    }
+
+-- | The time and date the instance fleet was ready to run jobs.
+iftReadyDateTime :: Lens' InstanceFleetTimeline (Maybe UTCTime)
+iftReadyDateTime = lens _iftReadyDateTime (\ s a -> s{_iftReadyDateTime = a}) . mapping _Time;
+
+-- | The time and date the instance fleet was created.
+iftCreationDateTime :: Lens' InstanceFleetTimeline (Maybe UTCTime)
+iftCreationDateTime = lens _iftCreationDateTime (\ s a -> s{_iftCreationDateTime = a}) . mapping _Time;
+
+-- | The time and date the instance fleet terminated.
+iftEndDateTime :: Lens' InstanceFleetTimeline (Maybe UTCTime)
+iftEndDateTime = lens _iftEndDateTime (\ s a -> s{_iftEndDateTime = a}) . mapping _Time;
+
+instance FromJSON InstanceFleetTimeline where
+        parseJSON
+          = withObject "InstanceFleetTimeline"
+              (\ x ->
+                 InstanceFleetTimeline' <$>
+                   (x .:? "ReadyDateTime") <*>
+                     (x .:? "CreationDateTime")
+                     <*> (x .:? "EndDateTime"))
+
+instance Hashable InstanceFleetTimeline
+
+instance NFData InstanceFleetTimeline
 
 -- | This entity represents an instance group, which is a group of instances that have common purpose. For example, CORE instance group is used for HDFS.
 --
@@ -2319,17 +2836,190 @@ instance Hashable InstanceTimeline
 
 instance NFData InstanceTimeline
 
--- | A description of the Amazon EC2 instance running the job flow. A valid JobFlowInstancesConfig must contain at least InstanceGroups, which is the recommended configuration. However, a valid alternative is to have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present).
+-- | An instance type configuration for each instance type in an instance fleet, which determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities. There can be a maximum of 5 instance type configurations in a fleet.
+--
+--
+--
+-- /See:/ 'instanceTypeConfig' smart constructor.
+data InstanceTypeConfig = InstanceTypeConfig'
+    { _itcEBSConfiguration                    :: !(Maybe EBSConfiguration)
+    , _itcBidPrice                            :: !(Maybe Text)
+    , _itcWeightedCapacity                    :: !(Maybe Nat)
+    , _itcConfigurations                      :: !(Maybe [Configuration])
+    , _itcBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
+    , _itcInstanceType                        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceTypeConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'itcEBSConfiguration' - The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by @InstanceType@ .
+--
+-- * 'itcBidPrice' - The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+--
+-- * 'itcWeightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be greater than 0 for core and task instance fleets.
+--
+-- * 'itcConfigurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+--
+-- * 'itcBidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number between 0 and 1000 (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+--
+-- * 'itcInstanceType' - An EC2 instance type, such as @m3.xlarge@ .
+instanceTypeConfig
+    :: Text -- ^ 'itcInstanceType'
+    -> InstanceTypeConfig
+instanceTypeConfig pInstanceType_ =
+    InstanceTypeConfig'
+    { _itcEBSConfiguration = Nothing
+    , _itcBidPrice = Nothing
+    , _itcWeightedCapacity = Nothing
+    , _itcConfigurations = Nothing
+    , _itcBidPriceAsPercentageOfOnDemandPrice = Nothing
+    , _itcInstanceType = pInstanceType_
+    }
+
+-- | The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by @InstanceType@ .
+itcEBSConfiguration :: Lens' InstanceTypeConfig (Maybe EBSConfiguration)
+itcEBSConfiguration = lens _itcEBSConfiguration (\ s a -> s{_itcEBSConfiguration = a});
+
+-- | The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+itcBidPrice :: Lens' InstanceTypeConfig (Maybe Text)
+itcBidPrice = lens _itcBidPrice (\ s a -> s{_itcBidPrice = a});
+
+-- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be greater than 0 for core and task instance fleets.
+itcWeightedCapacity :: Lens' InstanceTypeConfig (Maybe Natural)
+itcWeightedCapacity = lens _itcWeightedCapacity (\ s a -> s{_itcWeightedCapacity = a}) . mapping _Nat;
+
+-- | A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+itcConfigurations :: Lens' InstanceTypeConfig [Configuration]
+itcConfigurations = lens _itcConfigurations (\ s a -> s{_itcConfigurations = a}) . _Default . _Coerce;
+
+-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number between 0 and 1000 (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+itcBidPriceAsPercentageOfOnDemandPrice :: Lens' InstanceTypeConfig (Maybe Double)
+itcBidPriceAsPercentageOfOnDemandPrice = lens _itcBidPriceAsPercentageOfOnDemandPrice (\ s a -> s{_itcBidPriceAsPercentageOfOnDemandPrice = a});
+
+-- | An EC2 instance type, such as @m3.xlarge@ .
+itcInstanceType :: Lens' InstanceTypeConfig Text
+itcInstanceType = lens _itcInstanceType (\ s a -> s{_itcInstanceType = a});
+
+instance Hashable InstanceTypeConfig
+
+instance NFData InstanceTypeConfig
+
+instance ToJSON InstanceTypeConfig where
+        toJSON InstanceTypeConfig'{..}
+          = object
+              (catMaybes
+                 [("EbsConfiguration" .=) <$> _itcEBSConfiguration,
+                  ("BidPrice" .=) <$> _itcBidPrice,
+                  ("WeightedCapacity" .=) <$> _itcWeightedCapacity,
+                  ("Configurations" .=) <$> _itcConfigurations,
+                  ("BidPriceAsPercentageOfOnDemandPrice" .=) <$>
+                    _itcBidPriceAsPercentageOfOnDemandPrice,
+                  Just ("InstanceType" .= _itcInstanceType)])
+
+-- | The configuration specification for each instance type in an instance fleet.
+--
+--
+--
+-- /See:/ 'instanceTypeSpecification' smart constructor.
+data InstanceTypeSpecification = InstanceTypeSpecification'
+    { _itsBidPrice                            :: !(Maybe Text)
+    , _itsWeightedCapacity                    :: !(Maybe Nat)
+    , _itsConfigurations                      :: !(Maybe [Configuration])
+    , _itsEBSBlockDevices                     :: !(Maybe [EBSBlockDevice])
+    , _itsInstanceType                        :: !(Maybe Text)
+    , _itsEBSOptimized                        :: !(Maybe Bool)
+    , _itsBidPriceAsPercentageOfOnDemandPrice :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceTypeSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'itsBidPrice' - The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD.
+--
+-- * 'itsWeightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
+--
+-- * 'itsConfigurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+--
+-- * 'itsEBSBlockDevices' - The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by @InstanceType@ .
+--
+-- * 'itsInstanceType' - The EC2 instance type, for example @m3.xlarge@ .
+--
+-- * 'itsEBSOptimized' - Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
+--
+-- * 'itsBidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%).
+instanceTypeSpecification
+    :: InstanceTypeSpecification
+instanceTypeSpecification =
+    InstanceTypeSpecification'
+    { _itsBidPrice = Nothing
+    , _itsWeightedCapacity = Nothing
+    , _itsConfigurations = Nothing
+    , _itsEBSBlockDevices = Nothing
+    , _itsInstanceType = Nothing
+    , _itsEBSOptimized = Nothing
+    , _itsBidPriceAsPercentageOfOnDemandPrice = Nothing
+    }
+
+-- | The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD.
+itsBidPrice :: Lens' InstanceTypeSpecification (Maybe Text)
+itsBidPrice = lens _itsBidPrice (\ s a -> s{_itsBidPrice = a});
+
+-- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . Capacity values represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the default value is 1.
+itsWeightedCapacity :: Lens' InstanceTypeSpecification (Maybe Natural)
+itsWeightedCapacity = lens _itsWeightedCapacity (\ s a -> s{_itsWeightedCapacity = a}) . mapping _Nat;
+
+-- | A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
+itsConfigurations :: Lens' InstanceTypeSpecification [Configuration]
+itsConfigurations = lens _itsConfigurations (\ s a -> s{_itsConfigurations = a}) . _Default . _Coerce;
+
+-- | The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by @InstanceType@ .
+itsEBSBlockDevices :: Lens' InstanceTypeSpecification [EBSBlockDevice]
+itsEBSBlockDevices = lens _itsEBSBlockDevices (\ s a -> s{_itsEBSBlockDevices = a}) . _Default . _Coerce;
+
+-- | The EC2 instance type, for example @m3.xlarge@ .
+itsInstanceType :: Lens' InstanceTypeSpecification (Maybe Text)
+itsInstanceType = lens _itsInstanceType (\ s a -> s{_itsInstanceType = a});
+
+-- | Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
+itsEBSOptimized :: Lens' InstanceTypeSpecification (Maybe Bool)
+itsEBSOptimized = lens _itsEBSOptimized (\ s a -> s{_itsEBSOptimized = a});
+
+-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%).
+itsBidPriceAsPercentageOfOnDemandPrice :: Lens' InstanceTypeSpecification (Maybe Double)
+itsBidPriceAsPercentageOfOnDemandPrice = lens _itsBidPriceAsPercentageOfOnDemandPrice (\ s a -> s{_itsBidPriceAsPercentageOfOnDemandPrice = a});
+
+instance FromJSON InstanceTypeSpecification where
+        parseJSON
+          = withObject "InstanceTypeSpecification"
+              (\ x ->
+                 InstanceTypeSpecification' <$>
+                   (x .:? "BidPrice") <*> (x .:? "WeightedCapacity") <*>
+                     (x .:? "Configurations" .!= mempty)
+                     <*> (x .:? "EbsBlockDevices" .!= mempty)
+                     <*> (x .:? "InstanceType")
+                     <*> (x .:? "EbsOptimized")
+                     <*> (x .:? "BidPriceAsPercentageOfOnDemandPrice"))
+
+instance Hashable InstanceTypeSpecification
+
+instance NFData InstanceTypeSpecification
+
+-- | A description of the Amazon EC2 instance on which the cluster (job flow) runs. A valid JobFlowInstancesConfig must contain either InstanceGroups or InstanceFleets, which is the recommended configuration. They cannot be used together. You may also have MasterInstanceType, SlaveInstanceType, and InstanceCount (all three must be present), but we don't recommend this configuration.
 --
 --
 --
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-    { _jficEC2KeyName                     :: !(Maybe Text)
+    { _jficInstanceFleets                 :: !(Maybe [InstanceFleetConfig])
+    , _jficEC2KeyName                     :: !(Maybe Text)
     , _jficSlaveInstanceType              :: !(Maybe Text)
     , _jficInstanceCount                  :: !(Maybe Int)
     , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
     , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+    , _jficEC2SubnetIds                   :: !(Maybe [Text])
     , _jficHadoopVersion                  :: !(Maybe Text)
     , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
     , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
@@ -2346,44 +3036,50 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'jficInstanceFleets' - Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
+--
 -- * 'jficEC2KeyName' - The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 --
 -- * 'jficSlaveInstanceType' - The EC2 instance type of the slave nodes.
 --
--- * 'jficInstanceCount' - The number of EC2 instances used to execute the job flow.
+-- * 'jficInstanceCount' - The number of EC2 instances in the cluster.
 --
 -- * 'jficEmrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the slave nodes.
 --
 -- * 'jficAdditionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the slave nodes.
 --
--- * 'jficHadoopVersion' - The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+-- * 'jficEC2SubnetIds' - Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+--
+-- * 'jficHadoopVersion' - The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
 --
 -- * 'jficAdditionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
 --
 -- * 'jficEmrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
 --
--- * 'jficEC2SubnetId' - To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal Amazon Web Services cloud, outside of an Amazon VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a Amazon VPC.
+-- * 'jficEC2SubnetId' - Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, the cluster launches in the normal Amazon Web Services cloud, outside of an Amazon VPC, if the account launching the cluster supports EC2 Classic networks in the region where the cluster launches. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for clusters launched in an Amazon VPC.
 --
 -- * 'jficMasterInstanceType' - The EC2 instance type of the master node.
 --
--- * 'jficInstanceGroups' - Configuration for the job flow's instance groups.
+-- * 'jficInstanceGroups' - Configuration for the instance groups in a cluster.
 --
--- * 'jficKeepJobFlowAliveWhenNoSteps' - Specifies whether the job flow should be kept alive after completing all steps.
+-- * 'jficKeepJobFlowAliveWhenNoSteps' - Specifies whether the cluster should remain available after completing all steps.
 --
 -- * 'jficServiceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 --
--- * 'jficTerminationProtected' - Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job flow error.
+-- * 'jficTerminationProtected' - Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
 --
--- * 'jficPlacement' - The Availability Zone the job flow will run in.
+-- * 'jficPlacement' - The Availability Zone in which the cluster runs.
 jobFlowInstancesConfig
     :: JobFlowInstancesConfig
 jobFlowInstancesConfig =
     JobFlowInstancesConfig'
-    { _jficEC2KeyName = Nothing
+    { _jficInstanceFleets = Nothing
+    , _jficEC2KeyName = Nothing
     , _jficSlaveInstanceType = Nothing
     , _jficInstanceCount = Nothing
     , _jficEmrManagedSlaveSecurityGroup = Nothing
     , _jficAdditionalSlaveSecurityGroups = Nothing
+    , _jficEC2SubnetIds = Nothing
     , _jficHadoopVersion = Nothing
     , _jficAdditionalMasterSecurityGroups = Nothing
     , _jficEmrManagedMasterSecurityGroup = Nothing
@@ -2396,6 +3092,10 @@ jobFlowInstancesConfig =
     , _jficPlacement = Nothing
     }
 
+-- | Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
+jficInstanceFleets :: Lens' JobFlowInstancesConfig [InstanceFleetConfig]
+jficInstanceFleets = lens _jficInstanceFleets (\ s a -> s{_jficInstanceFleets = a}) . _Default . _Coerce;
+
 -- | The name of the EC2 key pair that can be used to ssh to the master node as the user called "hadoop."
 jficEC2KeyName :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
@@ -2404,7 +3104,7 @@ jficEC2KeyName = lens _jficEC2KeyName (\ s a -> s{_jficEC2KeyName = a});
 jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
 
--- | The number of EC2 instances used to execute the job flow.
+-- | The number of EC2 instances in the cluster.
 jficInstanceCount :: Lens' JobFlowInstancesConfig (Maybe Int)
 jficInstanceCount = lens _jficInstanceCount (\ s a -> s{_jficInstanceCount = a});
 
@@ -2416,7 +3116,11 @@ jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a
 jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
 jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
--- | The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+-- | Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+jficEC2SubnetIds :: Lens' JobFlowInstancesConfig [Text]
+jficEC2SubnetIds = lens _jficEC2SubnetIds (\ s a -> s{_jficEC2SubnetIds = a}) . _Default . _Coerce;
+
+-- | The Hadoop version for the cluster. Valid inputs are "0.18" (deprecated), "0.20" (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
 jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a});
 
@@ -2428,7 +3132,7 @@ jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\
 jficEmrManagedMasterSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedMasterSecurityGroup = lens _jficEmrManagedMasterSecurityGroup (\ s a -> s{_jficEmrManagedMasterSecurityGroup = a});
 
--- | To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the job flow to launch. If you do not specify this value, the job flow is launched in the normal Amazon Web Services cloud, outside of an Amazon VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for nodes of a job flow launched in a Amazon VPC.
+-- | Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, the cluster launches in the normal Amazon Web Services cloud, outside of an Amazon VPC, if the account launching the cluster supports EC2 Classic networks in the region where the cluster launches. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus you cannot specify the cc1.4xlarge instance type for clusters launched in an Amazon VPC.
 jficEC2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2SubnetId = lens _jficEC2SubnetId (\ s a -> s{_jficEC2SubnetId = a});
 
@@ -2436,11 +3140,11 @@ jficEC2SubnetId = lens _jficEC2SubnetId (\ s a -> s{_jficEC2SubnetId = a});
 jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterInstanceType = a});
 
--- | Configuration for the job flow's instance groups.
+-- | Configuration for the instance groups in a cluster.
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
 jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default . _Coerce;
 
--- | Specifies whether the job flow should be kept alive after completing all steps.
+-- | Specifies whether the cluster should remain available after completing all steps.
 jficKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficKeepJobFlowAliveWhenNoSteps = lens _jficKeepJobFlowAliveWhenNoSteps (\ s a -> s{_jficKeepJobFlowAliveWhenNoSteps = a});
 
@@ -2448,11 +3152,11 @@ jficKeepJobFlowAliveWhenNoSteps = lens _jficKeepJobFlowAliveWhenNoSteps (\ s a -
 jficServiceAccessSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficServiceAccessSecurityGroup = lens _jficServiceAccessSecurityGroup (\ s a -> s{_jficServiceAccessSecurityGroup = a});
 
--- | Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job flow error.
+-- | Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
 jficTerminationProtected :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficTerminationProtected = lens _jficTerminationProtected (\ s a -> s{_jficTerminationProtected = a});
 
--- | The Availability Zone the job flow will run in.
+-- | The Availability Zone in which the cluster runs.
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
@@ -2464,13 +3168,15 @@ instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
               (catMaybes
-                 [("Ec2KeyName" .=) <$> _jficEC2KeyName,
+                 [("InstanceFleets" .=) <$> _jficInstanceFleets,
+                  ("Ec2KeyName" .=) <$> _jficEC2KeyName,
                   ("SlaveInstanceType" .=) <$> _jficSlaveInstanceType,
                   ("InstanceCount" .=) <$> _jficInstanceCount,
                   ("EmrManagedSlaveSecurityGroup" .=) <$>
                     _jficEmrManagedSlaveSecurityGroup,
                   ("AdditionalSlaveSecurityGroups" .=) <$>
                     _jficAdditionalSlaveSecurityGroups,
+                  ("Ec2SubnetIds" .=) <$> _jficEC2SubnetIds,
                   ("HadoopVersion" .=) <$> _jficHadoopVersion,
                   ("AdditionalMasterSecurityGroups" .=) <$>
                     _jficAdditionalMasterSecurityGroups,
@@ -2531,7 +3237,7 @@ instance ToJSON KeyValue where
               (catMaybes
                  [("Value" .=) <$> _kvValue, ("Key" .=) <$> _kvKey])
 
--- | A CloudWatch dimension, which is specified using a @Key@ (known as a @Name@ in CloudWatch), Value pair. By default, Amazon EMR uses one dimension whose @Key@ is @JobFlowID@ and @Value@ is a variable representing the cluster ID, which is @> {emr:cluster_id}@ . This enables the rule to bootstrap when the cluster ID becomes available, and also enables a single automatic scaling policy to be reused for multiple clusters and instance groups.
+-- | A CloudWatch dimension, which is specified using a @Key@ (known as a @Name@ in CloudWatch), @Value@ pair. By default, Amazon EMR uses one dimension whose @Key@ is @JobFlowID@ and @Value@ is a variable representing the cluster ID, which is @> {emr.clusterId}@ . This enables the rule to bootstrap when the cluster ID becomes available.
 --
 --
 --
@@ -2581,30 +3287,37 @@ instance ToJSON MetricDimension where
               (catMaybes
                  [("Value" .=) <$> _mdValue, ("Key" .=) <$> _mdKey])
 
--- | The Amazon EC2 location for the job flow.
+-- | The Amazon EC2 Availability Zone configuration of the cluster (job flow).
 --
 --
 --
 -- /See:/ 'placementType' smart constructor.
-newtype PlacementType = PlacementType'
-    { _ptAvailabilityZone :: Text
+data PlacementType = PlacementType'
+    { _ptAvailabilityZones :: !(Maybe [Text])
+    , _ptAvailabilityZone  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PlacementType' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptAvailabilityZone' - The Amazon EC2 Availability Zone for the job flow.
+-- * 'ptAvailabilityZones' - When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
+--
+-- * 'ptAvailabilityZone' - The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
 placementType
-    :: Text -- ^ 'ptAvailabilityZone'
-    -> PlacementType
-placementType pAvailabilityZone_ =
+    :: PlacementType
+placementType =
     PlacementType'
-    { _ptAvailabilityZone = pAvailabilityZone_
+    { _ptAvailabilityZones = Nothing
+    , _ptAvailabilityZone = Nothing
     }
 
--- | The Amazon EC2 Availability Zone for the job flow.
-ptAvailabilityZone :: Lens' PlacementType Text
+-- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
+ptAvailabilityZones :: Lens' PlacementType [Text]
+ptAvailabilityZones = lens _ptAvailabilityZones (\ s a -> s{_ptAvailabilityZones = a}) . _Default . _Coerce;
+
+-- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
+ptAvailabilityZone :: Lens' PlacementType (Maybe Text)
 ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = a});
 
 instance Hashable PlacementType
@@ -2615,7 +3328,8 @@ instance ToJSON PlacementType where
         toJSON PlacementType'{..}
           = object
               (catMaybes
-                 [Just ("AvailabilityZone" .= _ptAvailabilityZone)])
+                 [("AvailabilityZones" .=) <$> _ptAvailabilityZones,
+                  ("AvailabilityZone" .=) <$> _ptAvailabilityZone])
 
 -- | The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
 --
@@ -3002,7 +3716,7 @@ data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sspcAdjustmentType' - The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal, for example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
+-- * 'sspcAdjustmentType' - The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal. For example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
 --
 -- * 'sspcCoolDown' - The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
 --
@@ -3017,7 +3731,7 @@ simpleScalingPolicyConfiguration pScalingAdjustment_ =
     , _sspcScalingAdjustment = pScalingAdjustment_
     }
 
--- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal, for example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
+-- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a positive number) or terminated (if @ScalingAdjustment@ is a negative number) each time the scaling activity is triggered. @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that the EC2 instance count increments or decrements by @ScalingAdjustment@ , which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or decrements by the percentage specified by @ScalingAdjustment@ , which should be expressed as a decimal. For example, 0.20 indicates an increase in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity results in an instance group with the number of EC2 instances specified by @ScalingAdjustment@ , which should be expressed as a positive integer.
 sspcAdjustmentType :: Lens' SimpleScalingPolicyConfiguration (Maybe AdjustmentType)
 sspcAdjustmentType = lens _sspcAdjustmentType (\ s a -> s{_sspcAdjustmentType = a});
 
@@ -3051,6 +3765,73 @@ instance ToJSON SimpleScalingPolicyConfiguration
                   ("CoolDown" .=) <$> _sspcCoolDown,
                   Just
                     ("ScalingAdjustment" .= _sspcScalingAdjustment)])
+
+-- | The launch specification for Spot instances in the instance fleet, which determines the defined duration and provisioning timeout behavior.
+--
+--
+--
+-- /See:/ 'spotProvisioningSpecification' smart constructor.
+data SpotProvisioningSpecification = SpotProvisioningSpecification'
+    { _spsBlockDurationMinutes   :: !(Maybe Nat)
+    , _spsTimeoutDurationMinutes :: !Nat
+    , _spsTimeoutAction          :: !SpotProvisioningTimeoutAction
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotProvisioningSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spsBlockDurationMinutes' - The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+--
+-- * 'spsTimeoutDurationMinutes' - The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the @TimeOutAction@ is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+--
+-- * 'spsTimeoutAction' - The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ to fulfill the remaining capacity.
+spotProvisioningSpecification
+    :: Natural -- ^ 'spsTimeoutDurationMinutes'
+    -> SpotProvisioningTimeoutAction -- ^ 'spsTimeoutAction'
+    -> SpotProvisioningSpecification
+spotProvisioningSpecification pTimeoutDurationMinutes_ pTimeoutAction_ =
+    SpotProvisioningSpecification'
+    { _spsBlockDurationMinutes = Nothing
+    , _spsTimeoutDurationMinutes = _Nat # pTimeoutDurationMinutes_
+    , _spsTimeoutAction = pTimeoutAction_
+    }
+
+-- | The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+spsBlockDurationMinutes :: Lens' SpotProvisioningSpecification (Maybe Natural)
+spsBlockDurationMinutes = lens _spsBlockDurationMinutes (\ s a -> s{_spsBlockDurationMinutes = a}) . mapping _Nat;
+
+-- | The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the @TimeOutAction@ is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+spsTimeoutDurationMinutes :: Lens' SpotProvisioningSpecification Natural
+spsTimeoutDurationMinutes = lens _spsTimeoutDurationMinutes (\ s a -> s{_spsTimeoutDurationMinutes = a}) . _Nat;
+
+-- | The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ to fulfill the remaining capacity.
+spsTimeoutAction :: Lens' SpotProvisioningSpecification SpotProvisioningTimeoutAction
+spsTimeoutAction = lens _spsTimeoutAction (\ s a -> s{_spsTimeoutAction = a});
+
+instance FromJSON SpotProvisioningSpecification where
+        parseJSON
+          = withObject "SpotProvisioningSpecification"
+              (\ x ->
+                 SpotProvisioningSpecification' <$>
+                   (x .:? "BlockDurationMinutes") <*>
+                     (x .: "TimeoutDurationMinutes")
+                     <*> (x .: "TimeoutAction"))
+
+instance Hashable SpotProvisioningSpecification
+
+instance NFData SpotProvisioningSpecification
+
+instance ToJSON SpotProvisioningSpecification where
+        toJSON SpotProvisioningSpecification'{..}
+          = object
+              (catMaybes
+                 [("BlockDurationMinutes" .=) <$>
+                    _spsBlockDurationMinutes,
+                  Just
+                    ("TimeoutDurationMinutes" .=
+                       _spsTimeoutDurationMinutes),
+                  Just ("TimeoutAction" .= _spsTimeoutAction)])
 
 -- | This represents a step in a cluster.
 --
@@ -3123,7 +3904,7 @@ instance Hashable Step
 
 instance NFData Step
 
--- | Specification of a job flow step.
+-- | Specification of a cluster (job flow) step.
 --
 --
 --
@@ -3138,11 +3919,11 @@ data StepConfig = StepConfig'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scActionOnFailure' - The action to take if the job flow step fails.
+-- * 'scActionOnFailure' - The action to take if the step fails.
 --
--- * 'scName' - The name of the job flow step.
+-- * 'scName' - The name of the step.
 --
--- * 'scHadoopJARStep' - The JAR file used for the job flow step.
+-- * 'scHadoopJARStep' - The JAR file used for the step.
 stepConfig
     :: Text -- ^ 'scName'
     -> HadoopJARStepConfig -- ^ 'scHadoopJARStep'
@@ -3154,15 +3935,15 @@ stepConfig pName_ pHadoopJARStep_ =
     , _scHadoopJARStep = pHadoopJARStep_
     }
 
--- | The action to take if the job flow step fails.
+-- | The action to take if the step fails.
 scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
 scActionOnFailure = lens _scActionOnFailure (\ s a -> s{_scActionOnFailure = a});
 
--- | The name of the job flow step.
+-- | The name of the step.
 scName :: Lens' StepConfig Text
 scName = lens _scName (\ s a -> s{_scName = a});
 
--- | The JAR file used for the job flow step.
+-- | The JAR file used for the step.
 scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
 scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
 

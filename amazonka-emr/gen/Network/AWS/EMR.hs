@@ -85,11 +85,17 @@ module Network.AWS.EMR
     -- ** ListSteps (Paginated)
     , module Network.AWS.EMR.ListSteps
 
+    -- ** AddInstanceFleet
+    , module Network.AWS.EMR.AddInstanceFleet
+
     -- ** AddInstanceGroups
     , module Network.AWS.EMR.AddInstanceGroups
 
     -- ** DeleteSecurityConfiguration
     , module Network.AWS.EMR.DeleteSecurityConfiguration
+
+    -- ** ModifyInstanceFleet
+    , module Network.AWS.EMR.ModifyInstanceFleet
 
     -- ** ListInstanceGroups (Paginated)
     , module Network.AWS.EMR.ListInstanceGroups
@@ -111,6 +117,9 @@ module Network.AWS.EMR
 
     -- ** DescribeSecurityConfiguration
     , module Network.AWS.EMR.DescribeSecurityConfiguration
+
+    -- ** ListInstanceFleets (Paginated)
+    , module Network.AWS.EMR.ListInstanceFleets
 
     -- * Types
 
@@ -138,6 +147,18 @@ module Network.AWS.EMR
     -- ** ComparisonOperator
     , ComparisonOperator (..)
 
+    -- ** InstanceCollectionType
+    , InstanceCollectionType (..)
+
+    -- ** InstanceFleetState
+    , InstanceFleetState (..)
+
+    -- ** InstanceFleetStateChangeReasonCode
+    , InstanceFleetStateChangeReasonCode (..)
+
+    -- ** InstanceFleetType
+    , InstanceFleetType (..)
+
     -- ** InstanceGroupState
     , InstanceGroupState (..)
 
@@ -161,6 +182,9 @@ module Network.AWS.EMR
 
     -- ** ScaleDownBehavior
     , ScaleDownBehavior (..)
+
+    -- ** SpotProvisioningTimeoutAction
+    , SpotProvisioningTimeoutAction (..)
 
     -- ** Statistic
     , Statistic (..)
@@ -243,6 +267,7 @@ module Network.AWS.EMR
     , cluAutoScalingRole
     , cluSecurityConfiguration
     , cluScaleDownBehavior
+    , cluInstanceCollectionType
     , cluReleaseLabel
     , cluLogURI
     , cluRunningAMIVersion
@@ -329,10 +354,12 @@ module Network.AWS.EMR
     , eiaEC2KeyName
     , eiaEmrManagedSlaveSecurityGroup
     , eiaAdditionalSlaveSecurityGroups
+    , eiaRequestedEC2SubnetIds
     , eiaAdditionalMasterSecurityGroups
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaRequestedEC2AvailabilityZones
     , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
@@ -366,11 +393,70 @@ module Network.AWS.EMR
     , iPublicDNSName
     , iEBSVolumes
     , iEC2InstanceId
+    , iInstanceType
+    , iMarket
     , iPrivateIPAddress
+    , iInstanceFleetId
     , iId
     , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
+
+    -- ** InstanceFleet
+    , InstanceFleet
+    , instanceFleet
+    , ifProvisionedSpotCapacity
+    , ifStatus
+    , ifTargetOnDemandCapacity
+    , ifInstanceFleetType
+    , ifInstanceTypeSpecifications
+    , ifName
+    , ifProvisionedOnDemandCapacity
+    , ifTargetSpotCapacity
+    , ifId
+    , ifLaunchSpecifications
+
+    -- ** InstanceFleetConfig
+    , InstanceFleetConfig
+    , instanceFleetConfig
+    , ifcInstanceTypeConfigs
+    , ifcTargetOnDemandCapacity
+    , ifcName
+    , ifcTargetSpotCapacity
+    , ifcLaunchSpecifications
+    , ifcInstanceFleetType
+
+    -- ** InstanceFleetModifyConfig
+    , InstanceFleetModifyConfig
+    , instanceFleetModifyConfig
+    , ifmcTargetOnDemandCapacity
+    , ifmcTargetSpotCapacity
+    , ifmcInstanceFleetId
+
+    -- ** InstanceFleetProvisioningSpecifications
+    , InstanceFleetProvisioningSpecifications
+    , instanceFleetProvisioningSpecifications
+    , ifpsSpotSpecification
+
+    -- ** InstanceFleetStateChangeReason
+    , InstanceFleetStateChangeReason
+    , instanceFleetStateChangeReason
+    , ifscrCode
+    , ifscrMessage
+
+    -- ** InstanceFleetStatus
+    , InstanceFleetStatus
+    , instanceFleetStatus
+    , ifsState
+    , ifsStateChangeReason
+    , ifsTimeline
+
+    -- ** InstanceFleetTimeline
+    , InstanceFleetTimeline
+    , instanceFleetTimeline
+    , iftReadyDateTime
+    , iftCreationDateTime
+    , iftEndDateTime
 
     -- ** InstanceGroup
     , InstanceGroup
@@ -458,14 +544,37 @@ module Network.AWS.EMR
     , itCreationDateTime
     , itEndDateTime
 
+    -- ** InstanceTypeConfig
+    , InstanceTypeConfig
+    , instanceTypeConfig
+    , itcEBSConfiguration
+    , itcBidPrice
+    , itcWeightedCapacity
+    , itcConfigurations
+    , itcBidPriceAsPercentageOfOnDemandPrice
+    , itcInstanceType
+
+    -- ** InstanceTypeSpecification
+    , InstanceTypeSpecification
+    , instanceTypeSpecification
+    , itsBidPrice
+    , itsWeightedCapacity
+    , itsConfigurations
+    , itsEBSBlockDevices
+    , itsInstanceType
+    , itsEBSOptimized
+    , itsBidPriceAsPercentageOfOnDemandPrice
+
     -- ** JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
+    , jficInstanceFleets
     , jficEC2KeyName
     , jficSlaveInstanceType
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
     , jficAdditionalSlaveSecurityGroups
+    , jficEC2SubnetIds
     , jficHadoopVersion
     , jficAdditionalMasterSecurityGroups
     , jficEmrManagedMasterSecurityGroup
@@ -492,6 +601,7 @@ module Network.AWS.EMR
     -- ** PlacementType
     , PlacementType
     , placementType
+    , ptAvailabilityZones
     , ptAvailabilityZone
 
     -- ** ScalingAction
@@ -543,6 +653,13 @@ module Network.AWS.EMR
     , sspcAdjustmentType
     , sspcCoolDown
     , sspcScalingAdjustment
+
+    -- ** SpotProvisioningSpecification
+    , SpotProvisioningSpecification
+    , spotProvisioningSpecification
+    , spsBlockDurationMinutes
+    , spsTimeoutDurationMinutes
+    , spsTimeoutAction
 
     -- ** Step
     , Step
@@ -610,6 +727,7 @@ module Network.AWS.EMR
     , vsSizeInGB
     ) where
 
+import           Network.AWS.EMR.AddInstanceFleet
 import           Network.AWS.EMR.AddInstanceGroups
 import           Network.AWS.EMR.AddJobFlowSteps
 import           Network.AWS.EMR.AddTags
@@ -621,10 +739,12 @@ import           Network.AWS.EMR.DescribeSecurityConfiguration
 import           Network.AWS.EMR.DescribeStep
 import           Network.AWS.EMR.ListBootstrapActions
 import           Network.AWS.EMR.ListClusters
+import           Network.AWS.EMR.ListInstanceFleets
 import           Network.AWS.EMR.ListInstanceGroups
 import           Network.AWS.EMR.ListInstances
 import           Network.AWS.EMR.ListSecurityConfigurations
 import           Network.AWS.EMR.ListSteps
+import           Network.AWS.EMR.ModifyInstanceFleet
 import           Network.AWS.EMR.ModifyInstanceGroups
 import           Network.AWS.EMR.PutAutoScalingPolicy
 import           Network.AWS.EMR.RemoveAutoScalingPolicy

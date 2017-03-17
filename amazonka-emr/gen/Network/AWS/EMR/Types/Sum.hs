@@ -299,6 +299,137 @@ instance ToJSON ComparisonOperator where
 instance FromJSON ComparisonOperator where
     parseJSON = parseJSONText "ComparisonOperator"
 
+data InstanceCollectionType
+    = InstanceFleet
+    | InstanceGroup
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceCollectionType where
+    parser = takeLowerText >>= \case
+        "instance_fleet" -> pure InstanceFleet
+        "instance_group" -> pure InstanceGroup
+        e -> fromTextError $ "Failure parsing InstanceCollectionType from value: '" <> e
+           <> "'. Accepted values: instance_fleet, instance_group"
+
+instance ToText InstanceCollectionType where
+    toText = \case
+        InstanceFleet -> "INSTANCE_FLEET"
+        InstanceGroup -> "INSTANCE_GROUP"
+
+instance Hashable     InstanceCollectionType
+instance NFData       InstanceCollectionType
+instance ToByteString InstanceCollectionType
+instance ToQuery      InstanceCollectionType
+instance ToHeader     InstanceCollectionType
+
+instance FromJSON InstanceCollectionType where
+    parseJSON = parseJSONText "InstanceCollectionType"
+
+data InstanceFleetState
+    = IFSBootstrapping
+    | IFSProvisioning
+    | IFSResizing
+    | IFSRunning
+    | IFSSuspended
+    | IFSTerminated
+    | IFSTerminating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceFleetState where
+    parser = takeLowerText >>= \case
+        "bootstrapping" -> pure IFSBootstrapping
+        "provisioning" -> pure IFSProvisioning
+        "resizing" -> pure IFSResizing
+        "running" -> pure IFSRunning
+        "suspended" -> pure IFSSuspended
+        "terminated" -> pure IFSTerminated
+        "terminating" -> pure IFSTerminating
+        e -> fromTextError $ "Failure parsing InstanceFleetState from value: '" <> e
+           <> "'. Accepted values: bootstrapping, provisioning, resizing, running, suspended, terminated, terminating"
+
+instance ToText InstanceFleetState where
+    toText = \case
+        IFSBootstrapping -> "BOOTSTRAPPING"
+        IFSProvisioning -> "PROVISIONING"
+        IFSResizing -> "RESIZING"
+        IFSRunning -> "RUNNING"
+        IFSSuspended -> "SUSPENDED"
+        IFSTerminated -> "TERMINATED"
+        IFSTerminating -> "TERMINATING"
+
+instance Hashable     InstanceFleetState
+instance NFData       InstanceFleetState
+instance ToByteString InstanceFleetState
+instance ToQuery      InstanceFleetState
+instance ToHeader     InstanceFleetState
+
+instance FromJSON InstanceFleetState where
+    parseJSON = parseJSONText "InstanceFleetState"
+
+data InstanceFleetStateChangeReasonCode
+    = IFSCRCClusterTerminated
+    | IFSCRCInstanceFailure
+    | IFSCRCInternalError
+    | IFSCRCValidationError
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceFleetStateChangeReasonCode where
+    parser = takeLowerText >>= \case
+        "cluster_terminated" -> pure IFSCRCClusterTerminated
+        "instance_failure" -> pure IFSCRCInstanceFailure
+        "internal_error" -> pure IFSCRCInternalError
+        "validation_error" -> pure IFSCRCValidationError
+        e -> fromTextError $ "Failure parsing InstanceFleetStateChangeReasonCode from value: '" <> e
+           <> "'. Accepted values: cluster_terminated, instance_failure, internal_error, validation_error"
+
+instance ToText InstanceFleetStateChangeReasonCode where
+    toText = \case
+        IFSCRCClusterTerminated -> "CLUSTER_TERMINATED"
+        IFSCRCInstanceFailure -> "INSTANCE_FAILURE"
+        IFSCRCInternalError -> "INTERNAL_ERROR"
+        IFSCRCValidationError -> "VALIDATION_ERROR"
+
+instance Hashable     InstanceFleetStateChangeReasonCode
+instance NFData       InstanceFleetStateChangeReasonCode
+instance ToByteString InstanceFleetStateChangeReasonCode
+instance ToQuery      InstanceFleetStateChangeReasonCode
+instance ToHeader     InstanceFleetStateChangeReasonCode
+
+instance FromJSON InstanceFleetStateChangeReasonCode where
+    parseJSON = parseJSONText "InstanceFleetStateChangeReasonCode"
+
+data InstanceFleetType
+    = IFTCore
+    | IFTMaster
+    | IFTTask
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText InstanceFleetType where
+    parser = takeLowerText >>= \case
+        "core" -> pure IFTCore
+        "master" -> pure IFTMaster
+        "task" -> pure IFTTask
+        e -> fromTextError $ "Failure parsing InstanceFleetType from value: '" <> e
+           <> "'. Accepted values: core, master, task"
+
+instance ToText InstanceFleetType where
+    toText = \case
+        IFTCore -> "CORE"
+        IFTMaster -> "MASTER"
+        IFTTask -> "TASK"
+
+instance Hashable     InstanceFleetType
+instance NFData       InstanceFleetType
+instance ToByteString InstanceFleetType
+instance ToQuery      InstanceFleetType
+instance ToHeader     InstanceFleetType
+
+instance ToJSON InstanceFleetType where
+    toJSON = toJSONText
+
+instance FromJSON InstanceFleetType where
+    parseJSON = parseJSONText "InstanceFleetType"
+
 data InstanceGroupState
     = Arrested
     | Bootstrapping
@@ -572,6 +703,35 @@ instance ToJSON ScaleDownBehavior where
 
 instance FromJSON ScaleDownBehavior where
     parseJSON = parseJSONText "ScaleDownBehavior"
+
+data SpotProvisioningTimeoutAction
+    = SPTASwitchToOnDemand
+    | SPTATerminateCluster
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SpotProvisioningTimeoutAction where
+    parser = takeLowerText >>= \case
+        "switch_to_on_demand" -> pure SPTASwitchToOnDemand
+        "terminate_cluster" -> pure SPTATerminateCluster
+        e -> fromTextError $ "Failure parsing SpotProvisioningTimeoutAction from value: '" <> e
+           <> "'. Accepted values: switch_to_on_demand, terminate_cluster"
+
+instance ToText SpotProvisioningTimeoutAction where
+    toText = \case
+        SPTASwitchToOnDemand -> "SWITCH_TO_ON_DEMAND"
+        SPTATerminateCluster -> "TERMINATE_CLUSTER"
+
+instance Hashable     SpotProvisioningTimeoutAction
+instance NFData       SpotProvisioningTimeoutAction
+instance ToByteString SpotProvisioningTimeoutAction
+instance ToQuery      SpotProvisioningTimeoutAction
+instance ToHeader     SpotProvisioningTimeoutAction
+
+instance ToJSON SpotProvisioningTimeoutAction where
+    toJSON = toJSONText
+
+instance FromJSON SpotProvisioningTimeoutAction where
+    parseJSON = parseJSONText "SpotProvisioningTimeoutAction"
 
 data Statistic
     = Average

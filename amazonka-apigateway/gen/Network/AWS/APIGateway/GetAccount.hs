@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetAccount
     , aThrottleSettings
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about the current 'Account' resource.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAccount' smart constructor.
 data GetAccount =
-    GetAccount' 
+    GetAccount'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAccount' with the minimum fields required to make a request.

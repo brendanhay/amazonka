@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.UpdateIntegrationResponse
     , intResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents an update integration response request.
 --
@@ -58,10 +58,10 @@ import Network.AWS.Response
 -- /See:/ 'updateIntegrationResponse' smart constructor.
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
     { _uiPatchOperations :: !(Maybe [PatchOperation])
-    , _uiRestAPIId :: !Text
-    , _uiResourceId :: !Text
-    , _uiHttpMethod :: !Text
-    , _uiStatusCode :: !Text
+    , _uiRestAPIId       :: !Text
+    , _uiResourceId      :: !Text
+    , _uiHttpMethod      :: !Text
+    , _uiStatusCode      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateIntegrationResponse' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ updateIntegrationResponse
     -> Text -- ^ 'uiHttpMethod'
     -> Text -- ^ 'uiStatusCode'
     -> UpdateIntegrationResponse
-updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     UpdateIntegrationResponse'
     { _uiPatchOperations = Nothing
     , _uiRestAPIId = pRestAPIId_

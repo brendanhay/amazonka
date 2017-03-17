@@ -48,21 +48,21 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
     , dstsrsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
-    { _dstResourceIds :: !(Maybe [Text])
+    { _dstResourceIds       :: !(Maybe [Text])
     , _dstScalableDimension :: !(Maybe ScalableDimension)
-    , _dstNextToken :: !(Maybe Text)
-    , _dstMaxResults :: !(Maybe Int)
-    , _dstServiceNamespace :: !ServiceNamespace
+    , _dstNextToken         :: !(Maybe Text)
+    , _dstMaxResults        :: !(Maybe Int)
+    , _dstServiceNamespace  :: !ServiceNamespace
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalableTargets' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
 describeScalableTargets
     :: ServiceNamespace -- ^ 'dstServiceNamespace'
     -> DescribeScalableTargets
-describeScalableTargets pServiceNamespace_ = 
+describeScalableTargets pServiceNamespace_ =
     DescribeScalableTargets'
     { _dstResourceIds = Nothing
     , _dstScalableDimension = Nothing
@@ -161,9 +161,9 @@ instance ToQuery DescribeScalableTargets where
 
 -- | /See:/ 'describeScalableTargetsResponse' smart constructor.
 data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
-    { _dstsrsNextToken :: !(Maybe Text)
+    { _dstsrsNextToken       :: !(Maybe Text)
     , _dstsrsScalableTargets :: !(Maybe [ScalableTarget])
-    , _dstsrsResponseStatus :: !Int
+    , _dstsrsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalableTargetsResponse' with the minimum fields required to make a request.
@@ -178,7 +178,7 @@ data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
 describeScalableTargetsResponse
     :: Int -- ^ 'dstsrsResponseStatus'
     -> DescribeScalableTargetsResponse
-describeScalableTargetsResponse pResponseStatus_ = 
+describeScalableTargetsResponse pResponseStatus_ =
     DescribeScalableTargetsResponse'
     { _dstsrsNextToken = Nothing
     , _dstsrsScalableTargets = Nothing

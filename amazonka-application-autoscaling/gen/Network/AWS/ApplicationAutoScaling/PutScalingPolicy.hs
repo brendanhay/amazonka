@@ -48,21 +48,21 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     , psprsPolicyARN
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspPolicyType :: !(Maybe PolicyType)
+    { _pspPolicyType                     :: !(Maybe PolicyType)
     , _pspStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
-    , _pspPolicyName :: !Text
-    , _pspServiceNamespace :: !ServiceNamespace
-    , _pspResourceId :: !Text
-    , _pspScalableDimension :: !ScalableDimension
+    , _pspPolicyName                     :: !Text
+    , _pspServiceNamespace               :: !ServiceNamespace
+    , _pspResourceId                     :: !Text
+    , _pspScalableDimension              :: !ScalableDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
@@ -86,7 +86,7 @@ putScalingPolicy
     -> Text -- ^ 'pspResourceId'
     -> ScalableDimension -- ^ 'pspScalableDimension'
     -> PutScalingPolicy
-putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ = 
+putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ =
     PutScalingPolicy'
     { _pspPolicyType = Nothing
     , _pspStepScalingPolicyConfiguration = Nothing
@@ -164,7 +164,7 @@ instance ToQuery PutScalingPolicy where
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprsResponseStatus :: !Int
-    , _psprsPolicyARN :: !Text
+    , _psprsPolicyARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
@@ -178,7 +178,7 @@ putScalingPolicyResponse
     :: Int -- ^ 'psprsResponseStatus'
     -> Text -- ^ 'psprsPolicyARN'
     -> PutScalingPolicyResponse
-putScalingPolicyResponse pResponseStatus_ pPolicyARN_ = 
+putScalingPolicyResponse pResponseStatus_ pPolicyARN_ =
     PutScalingPolicyResponse'
     { _psprsResponseStatus = pResponseStatus_
     , _psprsPolicyARN = pPolicyARN_

@@ -39,17 +39,17 @@ module Network.AWS.CertificateManager.AddTagsToCertificate
     , AddTagsToCertificateResponse
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'addTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
     { _attcCertificateARN :: !Text
-    , _attcTags :: !(List1 Tag)
+    , _attcTags           :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddTagsToCertificate' with the minimum fields required to make a request.
@@ -63,7 +63,7 @@ addTagsToCertificate
     :: Text -- ^ 'attcCertificateARN'
     -> NonEmpty Tag -- ^ 'attcTags'
     -> AddTagsToCertificate
-addTagsToCertificate pCertificateARN_ pTags_ = 
+addTagsToCertificate pCertificateARN_ pTags_ =
     AddTagsToCertificate'
     { _attcCertificateARN = pCertificateARN_
     , _attcTags = _List1 # pTags_
@@ -112,7 +112,7 @@ instance ToQuery AddTagsToCertificate where
 
 -- | /See:/ 'addTagsToCertificateResponse' smart constructor.
 data AddTagsToCertificateResponse =
-    AddTagsToCertificateResponse' 
+    AddTagsToCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AddTagsToCertificateResponse' with the minimum fields required to make a request.

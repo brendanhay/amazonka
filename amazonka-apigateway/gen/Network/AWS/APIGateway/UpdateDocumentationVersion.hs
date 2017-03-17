@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.UpdateDocumentationVersion
     , dvDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Updates an existing documentation version of an API.
 --
@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDocumentationVersion' smart constructor.
 data UpdateDocumentationVersion = UpdateDocumentationVersion'
-    { _udvPatchOperations :: !(Maybe [PatchOperation])
-    , _udvRestAPIId :: !Text
+    { _udvPatchOperations      :: !(Maybe [PatchOperation])
+    , _udvRestAPIId            :: !Text
     , _udvDocumentationVersion :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ updateDocumentationVersion
     :: Text -- ^ 'udvRestAPIId'
     -> Text -- ^ 'udvDocumentationVersion'
     -> UpdateDocumentationVersion
-updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ = 
+updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     UpdateDocumentationVersion'
     { _udvPatchOperations = Nothing
     , _udvRestAPIId = pRestAPIId_

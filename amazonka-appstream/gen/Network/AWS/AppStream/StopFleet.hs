@@ -36,12 +36,12 @@ module Network.AWS.AppStream.StopFleet
     , srsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'stopFleet' smart constructor.
 newtype StopFleet = StopFleet'
@@ -56,7 +56,7 @@ newtype StopFleet = StopFleet'
 stopFleet
     :: Text -- ^ 'sfName'
     -> StopFleet
-stopFleet pName_ = 
+stopFleet pName_ =
     StopFleet'
     { _sfName = pName_
     }
@@ -109,7 +109,7 @@ newtype StopFleetResponse = StopFleetResponse'
 stopFleetResponse
     :: Int -- ^ 'srsResponseStatus'
     -> StopFleetResponse
-stopFleetResponse pResponseStatus_ = 
+stopFleetResponse pResponseStatus_ =
     StopFleetResponse'
     { _srsResponseStatus = pResponseStatus_
     }

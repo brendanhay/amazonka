@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.GetStage
     , sDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about a 'Stage' resource.
 --
@@ -76,7 +76,7 @@ getStage
     :: Text -- ^ 'gssRestAPIId'
     -> Text -- ^ 'gssStageName'
     -> GetStage
-getStage pRestAPIId_ pStageName_ = 
+getStage pRestAPIId_ pStageName_ =
     GetStage'
     { _gssRestAPIId = pRestAPIId_
     , _gssStageName = pStageName_

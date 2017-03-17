@@ -43,13 +43,13 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
     , gupkrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.
 --
@@ -57,9 +57,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'getUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-    { _gupkNameQuery :: !(Maybe Text)
-    , _gupkLimit :: !(Maybe Int)
-    , _gupkPosition :: !(Maybe Text)
+    { _gupkNameQuery   :: !(Maybe Text)
+    , _gupkLimit       :: !(Maybe Int)
+    , _gupkPosition    :: !(Maybe Text)
     , _gupkUsagePlanId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -77,7 +77,7 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 getUsagePlanKeys
     :: Text -- ^ 'gupkUsagePlanId'
     -> GetUsagePlanKeys
-getUsagePlanKeys pUsagePlanId_ = 
+getUsagePlanKeys pUsagePlanId_ =
     GetUsagePlanKeys'
     { _gupkNameQuery = Nothing
     , _gupkLimit = Nothing
@@ -142,12 +142,12 @@ instance ToQuery GetUsagePlanKeys where
 -- | Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'getUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
-    { _gupkrsItems :: !(Maybe [UsagePlanKey])
-    , _gupkrsPosition :: !(Maybe Text)
+    { _gupkrsItems          :: !(Maybe [UsagePlanKey])
+    , _gupkrsPosition       :: !(Maybe Text)
     , _gupkrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -163,7 +163,7 @@ data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
 getUsagePlanKeysResponse
     :: Int -- ^ 'gupkrsResponseStatus'
     -> GetUsagePlanKeysResponse
-getUsagePlanKeysResponse pResponseStatus_ = 
+getUsagePlanKeysResponse pResponseStatus_ =
     GetUsagePlanKeysResponse'
     { _gupkrsItems = Nothing
     , _gupkrsPosition = Nothing

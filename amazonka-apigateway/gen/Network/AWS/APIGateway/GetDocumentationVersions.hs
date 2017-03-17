@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetDocumentationVersions
     , gdvrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Gets the documentation versions of an API.
 --
@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-    { _gdvLimit :: !(Maybe Int)
-    , _gdvPosition :: !(Maybe Text)
+    { _gdvLimit     :: !(Maybe Int)
+    , _gdvPosition  :: !(Maybe Text)
     , _gdvRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data GetDocumentationVersions = GetDocumentationVersions'
 getDocumentationVersions
     :: Text -- ^ 'gdvRestAPIId'
     -> GetDocumentationVersions
-getDocumentationVersions pRestAPIId_ = 
+getDocumentationVersions pRestAPIId_ =
     GetDocumentationVersions'
     { _gdvLimit = Nothing
     , _gdvPosition = Nothing
@@ -119,17 +119,17 @@ instance ToQuery GetDocumentationVersions where
           = mconcat
               ["limit" =: _gdvLimit, "position" =: _gdvPosition]
 
--- | The collection of documentation snapshots of an API. 
+-- | The collection of documentation snapshots of an API.
 --
 --
 -- Use the 'DocumentationVersions' to manage documentation snapshots associated with various API stages.
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' , 'DocumentationVersion' 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' , 'DocumentationVersion'
 --
 -- /See:/ 'getDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-    { _gdvrsItems :: !(Maybe [DocumentationVersion])
-    , _gdvrsPosition :: !(Maybe Text)
+    { _gdvrsItems          :: !(Maybe [DocumentationVersion])
+    , _gdvrsPosition       :: !(Maybe Text)
     , _gdvrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -145,7 +145,7 @@ data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
 getDocumentationVersionsResponse
     :: Int -- ^ 'gdvrsResponseStatus'
     -> GetDocumentationVersionsResponse
-getDocumentationVersionsResponse pResponseStatus_ = 
+getDocumentationVersionsResponse pResponseStatus_ =
     GetDocumentationVersionsResponse'
     { _gdvrsItems = Nothing
     , _gdvrsPosition = Nothing

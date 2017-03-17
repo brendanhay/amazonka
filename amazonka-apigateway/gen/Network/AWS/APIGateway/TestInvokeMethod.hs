@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.TestInvokeMethod
     , timrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Make a request to simulate the execution of a 'Method' .
 --
@@ -62,13 +62,13 @@ import Network.AWS.Response
 -- /See:/ 'testInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
     { _timPathWithQueryString :: !(Maybe Text)
-    , _timBody :: !(Maybe Text)
+    , _timBody                :: !(Maybe Text)
     , _timClientCertificateId :: !(Maybe Text)
-    , _timStageVariables :: !(Maybe (Map Text Text))
-    , _timHeaders :: !(Maybe (Map Text Text))
-    , _timRestAPIId :: !Text
-    , _timResourceId :: !Text
-    , _timHttpMethod :: !Text
+    , _timStageVariables      :: !(Maybe (Map Text Text))
+    , _timHeaders             :: !(Maybe (Map Text Text))
+    , _timRestAPIId           :: !Text
+    , _timResourceId          :: !Text
+    , _timHttpMethod          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'TestInvokeMethod' with the minimum fields required to make a request.
@@ -95,7 +95,7 @@ testInvokeMethod
     -> Text -- ^ 'timResourceId'
     -> Text -- ^ 'timHttpMethod'
     -> TestInvokeMethod
-testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ = 
+testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     TestInvokeMethod'
     { _timPathWithQueryString = Nothing
     , _timBody = Nothing
@@ -186,15 +186,15 @@ instance ToQuery TestInvokeMethod where
 -- | Represents the response of the test invoke request in the HTTP method.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
 --
 -- /See:/ 'testInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
-    { _timrsLog :: !(Maybe Text)
-    , _timrsStatus :: !(Maybe Int)
-    , _timrsBody :: !(Maybe Text)
-    , _timrsLatency :: !(Maybe Integer)
-    , _timrsHeaders :: !(Maybe (Map Text Text))
+    { _timrsLog            :: !(Maybe Text)
+    , _timrsStatus         :: !(Maybe Int)
+    , _timrsBody           :: !(Maybe Text)
+    , _timrsLatency        :: !(Maybe Integer)
+    , _timrsHeaders        :: !(Maybe (Map Text Text))
     , _timrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -216,7 +216,7 @@ data TestInvokeMethodResponse = TestInvokeMethodResponse'
 testInvokeMethodResponse
     :: Int -- ^ 'timrsResponseStatus'
     -> TestInvokeMethodResponse
-testInvokeMethodResponse pResponseStatus_ = 
+testInvokeMethodResponse pResponseStatus_ =
     TestInvokeMethodResponse'
     { _timrsLog = Nothing
     , _timrsStatus = Nothing

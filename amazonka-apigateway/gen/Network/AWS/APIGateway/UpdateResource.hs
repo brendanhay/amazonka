@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateResource
     , rParentId
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to change information about a 'Resource' resource.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 -- /See:/ 'updateResource' smart constructor.
 data UpdateResource = UpdateResource'
     { _urPatchOperations :: !(Maybe [PatchOperation])
-    , _urRestAPIId :: !Text
-    , _urResourceId :: !Text
+    , _urRestAPIId       :: !Text
+    , _urResourceId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ updateResource
     :: Text -- ^ 'urRestAPIId'
     -> Text -- ^ 'urResourceId'
     -> UpdateResource
-updateResource pRestAPIId_ pResourceId_ = 
+updateResource pRestAPIId_ pResourceId_ =
     UpdateResource'
     { _urPatchOperations = Nothing
     , _urRestAPIId = pRestAPIId_

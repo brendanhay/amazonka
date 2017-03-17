@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetDocumentationParts
     , gdprsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Gets the documentation parts of an API. The result may be filtered by the type, name, or path of API entities (targets).
 --
@@ -54,11 +54,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-    { _gdpPath :: !(Maybe Text)
+    { _gdpPath      :: !(Maybe Text)
     , _gdpNameQuery :: !(Maybe Text)
-    , _gdpLimit :: !(Maybe Int)
-    , _gdpType :: !(Maybe DocumentationPartType)
-    , _gdpPosition :: !(Maybe Text)
+    , _gdpLimit     :: !(Maybe Int)
+    , _gdpType      :: !(Maybe DocumentationPartType)
+    , _gdpPosition  :: !(Maybe Text)
     , _gdpRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ data GetDocumentationParts = GetDocumentationParts'
 --
 -- * 'gdpLimit' - The size of the paged results.
 --
--- * 'gdpType' - The type of API entities of the to-be-retrieved documentation parts. 
+-- * 'gdpType' - The type of API entities of the to-be-retrieved documentation parts.
 --
 -- * 'gdpPosition' - The position of the to-be-retrieved documentation part in the 'DocumentationParts' collection.
 --
@@ -80,7 +80,7 @@ data GetDocumentationParts = GetDocumentationParts'
 getDocumentationParts
     :: Text -- ^ 'gdpRestAPIId'
     -> GetDocumentationParts
-getDocumentationParts pRestAPIId_ = 
+getDocumentationParts pRestAPIId_ =
     GetDocumentationParts'
     { _gdpPath = Nothing
     , _gdpNameQuery = Nothing
@@ -102,7 +102,7 @@ gdpNameQuery = lens _gdpNameQuery (\ s a -> s{_gdpNameQuery = a});
 gdpLimit :: Lens' GetDocumentationParts (Maybe Int)
 gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a});
 
--- | The type of API entities of the to-be-retrieved documentation parts. 
+-- | The type of API entities of the to-be-retrieved documentation parts.
 gdpType :: Lens' GetDocumentationParts (Maybe DocumentationPartType)
 gdpType = lens _gdpType (\ s a -> s{_gdpType = a});
 
@@ -151,12 +151,12 @@ instance ToQuery GetDocumentationParts where
 -- | The collection of documentation parts of an API.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart'
 --
 -- /See:/ 'getDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
-    { _gdprsItems :: !(Maybe [DocumentationPart])
-    , _gdprsPosition :: !(Maybe Text)
+    { _gdprsItems          :: !(Maybe [DocumentationPart])
+    , _gdprsPosition       :: !(Maybe Text)
     , _gdprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -172,7 +172,7 @@ data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
 getDocumentationPartsResponse
     :: Int -- ^ 'gdprsResponseStatus'
     -> GetDocumentationPartsResponse
-getDocumentationPartsResponse pResponseStatus_ = 
+getDocumentationPartsResponse pResponseStatus_ =
     GetDocumentationPartsResponse'
     { _gdprsItems = Nothing
     , _gdprsPosition = Nothing

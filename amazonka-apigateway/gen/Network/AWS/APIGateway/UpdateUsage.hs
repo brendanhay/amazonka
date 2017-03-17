@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateUsage
     , uPosition
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The PATCH request to grant a temporary extension to the reamining quota of a usage plan associated with a specified API key.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 -- /See:/ 'updateUsage' smart constructor.
 data UpdateUsage = UpdateUsage'
     { _uuPatchOperations :: !(Maybe [PatchOperation])
-    , _uuUsagePlanId :: !Text
-    , _uuKeyId :: !Text
+    , _uuUsagePlanId     :: !Text
+    , _uuKeyId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUsage' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ updateUsage
     :: Text -- ^ 'uuUsagePlanId'
     -> Text -- ^ 'uuKeyId'
     -> UpdateUsage
-updateUsage pUsagePlanId_ pKeyId_ = 
+updateUsage pUsagePlanId_ pKeyId_ =
     UpdateUsage'
     { _uuPatchOperations = Nothing
     , _uuUsagePlanId = pUsagePlanId_

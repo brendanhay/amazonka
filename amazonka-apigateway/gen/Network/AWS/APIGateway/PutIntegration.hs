@@ -58,12 +58,12 @@ module Network.AWS.APIGateway.PutIntegration
     , iCacheKeyParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a put integration request.
 --
@@ -71,19 +71,19 @@ import Network.AWS.Response
 --
 -- /See:/ 'putIntegration' smart constructor.
 data PutIntegration = PutIntegration'
-    { _pRequestTemplates :: !(Maybe (Map Text Text))
-    , _pCredentials :: !(Maybe Text)
-    , _pRequestParameters :: !(Maybe (Map Text Text))
-    , _pContentHandling :: !(Maybe ContentHandlingStrategy)
-    , _pPassthroughBehavior :: !(Maybe Text)
-    , _pUri :: !(Maybe Text)
-    , _pCacheNamespace :: !(Maybe Text)
+    { _pRequestTemplates      :: !(Maybe (Map Text Text))
+    , _pCredentials           :: !(Maybe Text)
+    , _pRequestParameters     :: !(Maybe (Map Text Text))
+    , _pContentHandling       :: !(Maybe ContentHandlingStrategy)
+    , _pPassthroughBehavior   :: !(Maybe Text)
+    , _pUri                   :: !(Maybe Text)
+    , _pCacheNamespace        :: !(Maybe Text)
     , _pIntegrationHTTPMethod :: !(Maybe Text)
-    , _pCacheKeyParameters :: !(Maybe [Text])
-    , _pRestAPIId :: !Text
-    , _pResourceId :: !Text
-    , _pHttpMethod :: !Text
-    , _pType :: !IntegrationType
+    , _pCacheKeyParameters    :: !(Maybe [Text])
+    , _pRestAPIId             :: !Text
+    , _pResourceId            :: !Text
+    , _pHttpMethod            :: !Text
+    , _pType                  :: !IntegrationType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutIntegration' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ putIntegration
     -> Text -- ^ 'pHttpMethod'
     -> IntegrationType -- ^ 'pType'
     -> PutIntegration
-putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ = 
+putIntegration pRestAPIId_ pResourceId_ pHttpMethod_ pType_ =
     PutIntegration'
     { _pRequestTemplates = Nothing
     , _pCredentials = Nothing

@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create an 'ApiKey' resource. 
+-- Create an 'ApiKey' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI> 
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Network.AWS.APIGateway.CreateAPIKey
     (
     -- * Creating a Request
@@ -51,12 +51,12 @@ module Network.AWS.APIGateway.CreateAPIKey
     , akDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to create an 'ApiKey' resource.
 --
@@ -64,13 +64,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-    { _cakEnabled :: !(Maybe Bool)
-    , _cakValue :: !(Maybe Text)
-    , _cakCustomerId :: !(Maybe Text)
+    { _cakEnabled            :: !(Maybe Bool)
+    , _cakValue              :: !(Maybe Text)
+    , _cakCustomerId         :: !(Maybe Text)
     , _cakGenerateDistinctId :: !(Maybe Bool)
-    , _cakName :: !(Maybe Text)
-    , _cakStageKeys :: !(Maybe [StageKey])
-    , _cakDescription :: !(Maybe Text)
+    , _cakName               :: !(Maybe Text)
+    , _cakStageKeys          :: !(Maybe [StageKey])
+    , _cakDescription        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
@@ -92,7 +92,7 @@ data CreateAPIKey = CreateAPIKey'
 -- * 'cakDescription' - The description of the 'ApiKey' .
 createAPIKey
     :: CreateAPIKey
-createAPIKey = 
+createAPIKey =
     CreateAPIKey'
     { _cakEnabled = Nothing
     , _cakValue = Nothing

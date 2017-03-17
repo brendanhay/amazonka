@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.CreateBasePathMapping
     , bpmRestAPIId
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a new 'BasePathMapping' resource.
 --
@@ -54,10 +54,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
-    { _cbpmStage :: !(Maybe Text)
-    , _cbpmBasePath :: !(Maybe Text)
+    { _cbpmStage      :: !(Maybe Text)
+    , _cbpmBasePath   :: !(Maybe Text)
     , _cbpmDomainName :: !Text
-    , _cbpmRestAPIId :: !Text
+    , _cbpmRestAPIId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateBasePathMapping' with the minimum fields required to make a request.
@@ -75,7 +75,7 @@ createBasePathMapping
     :: Text -- ^ 'cbpmDomainName'
     -> Text -- ^ 'cbpmRestAPIId'
     -> CreateBasePathMapping
-createBasePathMapping pDomainName_ pRestAPIId_ = 
+createBasePathMapping pDomainName_ pRestAPIId_ =
     CreateBasePathMapping'
     { _cbpmStage = Nothing
     , _cbpmBasePath = Nothing

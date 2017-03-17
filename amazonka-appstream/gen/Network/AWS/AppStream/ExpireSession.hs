@@ -36,12 +36,12 @@ module Network.AWS.AppStream.ExpireSession
     , esrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'expireSession' smart constructor.
 newtype ExpireSession = ExpireSession'
@@ -56,7 +56,7 @@ newtype ExpireSession = ExpireSession'
 expireSession
     :: Text -- ^ 'esSessionId'
     -> ExpireSession
-expireSession pSessionId_ = 
+expireSession pSessionId_ =
     ExpireSession'
     { _esSessionId = pSessionId_
     }
@@ -111,7 +111,7 @@ newtype ExpireSessionResponse = ExpireSessionResponse'
 expireSessionResponse
     :: Int -- ^ 'esrsResponseStatus'
     -> ExpireSessionResponse
-expireSessionResponse pResponseStatus_ = 
+expireSessionResponse pResponseStatus_ =
     ExpireSessionResponse'
     { _esrsResponseStatus = pResponseStatus_
     }

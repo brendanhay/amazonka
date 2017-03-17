@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteUsagePlan
     , DeleteUsagePlanResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The DELETE request to delete a uasge plan of a given plan Id.
 --
@@ -58,7 +58,7 @@ newtype DeleteUsagePlan = DeleteUsagePlan'
 deleteUsagePlan
     :: Text -- ^ 'dupUsagePlanId'
     -> DeleteUsagePlan
-deleteUsagePlan pUsagePlanId_ = 
+deleteUsagePlan pUsagePlanId_ =
     DeleteUsagePlan'
     { _dupUsagePlanId = pUsagePlanId_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteUsagePlan where
 
 -- | /See:/ 'deleteUsagePlanResponse' smart constructor.
 data DeleteUsagePlanResponse =
-    DeleteUsagePlanResponse' 
+    DeleteUsagePlanResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUsagePlanResponse' with the minimum fields required to make a request.

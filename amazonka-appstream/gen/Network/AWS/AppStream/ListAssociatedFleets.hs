@@ -39,12 +39,12 @@ module Network.AWS.AppStream.ListAssociatedFleets
     , lafrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listAssociatedFleets' smart constructor.
 data ListAssociatedFleets = ListAssociatedFleets'
@@ -62,7 +62,7 @@ data ListAssociatedFleets = ListAssociatedFleets'
 listAssociatedFleets
     :: Text -- ^ 'lafStackName'
     -> ListAssociatedFleets
-listAssociatedFleets pStackName_ = 
+listAssociatedFleets pStackName_ =
     ListAssociatedFleets'
     { _lafNextToken = Nothing
     , _lafStackName = pStackName_
@@ -120,8 +120,8 @@ instance ToQuery ListAssociatedFleets where
 --
 -- /See:/ 'listAssociatedFleetsResponse' smart constructor.
 data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
-    { _lafrsNextToken :: !(Maybe Text)
-    , _lafrsNames :: !(Maybe [Text])
+    { _lafrsNextToken      :: !(Maybe Text)
+    , _lafrsNames          :: !(Maybe [Text])
     , _lafrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -137,7 +137,7 @@ data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
 listAssociatedFleetsResponse
     :: Int -- ^ 'lafrsResponseStatus'
     -> ListAssociatedFleetsResponse
-listAssociatedFleetsResponse pResponseStatus_ = 
+listAssociatedFleetsResponse pResponseStatus_ =
     ListAssociatedFleetsResponse'
     { _lafrsNextToken = Nothing
     , _lafrsNames = Nothing

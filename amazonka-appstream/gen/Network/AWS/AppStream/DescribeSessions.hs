@@ -42,18 +42,18 @@ module Network.AWS.AppStream.DescribeSessions
     , dssrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-    { _dsUserId :: !(Maybe Text)
+    { _dsUserId    :: !(Maybe Text)
     , _dsNextToken :: !(Maybe Text)
-    , _dsLimit :: !(Maybe Int)
+    , _dsLimit     :: !(Maybe Int)
     , _dsStackName :: !Text
     , _dsFleetName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -75,7 +75,7 @@ describeSessions
     :: Text -- ^ 'dsStackName'
     -> Text -- ^ 'dsFleetName'
     -> DescribeSessions
-describeSessions pStackName_ pFleetName_ = 
+describeSessions pStackName_ pFleetName_ =
     DescribeSessions'
     { _dsUserId = Nothing
     , _dsNextToken = Nothing
@@ -146,8 +146,8 @@ instance ToQuery DescribeSessions where
 
 -- | /See:/ 'describeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-    { _dssrsNextToken :: !(Maybe Text)
-    , _dssrsSessions :: !(Maybe [Session])
+    { _dssrsNextToken      :: !(Maybe Text)
+    , _dssrsSessions       :: !(Maybe [Session])
     , _dssrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -163,7 +163,7 @@ data DescribeSessionsResponse = DescribeSessionsResponse'
 describeSessionsResponse
     :: Int -- ^ 'dssrsResponseStatus'
     -> DescribeSessionsResponse
-describeSessionsResponse pResponseStatus_ = 
+describeSessionsResponse pResponseStatus_ =
     DescribeSessionsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSessions = Nothing

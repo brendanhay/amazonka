@@ -42,14 +42,14 @@ module Network.AWS.APIGateway.GetRestAPI
     , raDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | The GET request to list an existing 'RestApi' defined for your collection. 
+-- | The GET request to list an existing 'RestApi' defined for your collection.
 --
 --
 --
@@ -66,7 +66,7 @@ newtype GetRestAPI = GetRestAPI'
 getRestAPI
     :: Text -- ^ 'graRestAPIId'
     -> GetRestAPI
-getRestAPI pRestAPIId_ = 
+getRestAPI pRestAPIId_ =
     GetRestAPI'
     { _graRestAPIId = pRestAPIId_
     }

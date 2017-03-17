@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.GetMethod
     , mMethodIntegration
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to describe an existing 'Method' resource.
 --
@@ -59,7 +59,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getMethod' smart constructor.
 data GetMethod = GetMethod'
-    { _gmmRestAPIId :: !Text
+    { _gmmRestAPIId  :: !Text
     , _gmmResourceId :: !Text
     , _gmmHttpMethod :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -78,7 +78,7 @@ getMethod
     -> Text -- ^ 'gmmResourceId'
     -> Text -- ^ 'gmmHttpMethod'
     -> GetMethod
-getMethod pRestAPIId_ pResourceId_ pHttpMethod_ = 
+getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     GetMethod'
     { _gmmRestAPIId = pRestAPIId_
     , _gmmResourceId = pResourceId_

@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -137,15 +137,15 @@ module Network.AWS.AppStream.Types
     , vcSubnetIds
     ) where
 
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.AppStream.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.AppStream.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | API version @2016-12-01@ of the Amazon AppStream SDK configuration.
 appStream :: Service
-appStream = 
+appStream =
     Service
     { _svcAbbrev = "AppStream"
     , _svcSigner = v4
@@ -158,7 +158,7 @@ appStream =
     , _svcRetry = retry
     }
   where
-    retry = 
+    retry =
         Exponential
         { _retryBase = 5.0e-2
         , _retryGrowth = 2
@@ -167,7 +167,7 @@ appStream =
         }
     check e
       | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
@@ -187,28 +187,28 @@ _InvalidRoleException = _MatchServiceError appStream "InvalidRoleException"
 --
 --
 _ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceAlreadyExistsException = 
+_ResourceAlreadyExistsException =
     _MatchServiceError appStream "ResourceAlreadyExistsException"
 
 -- | The attempted operation is not permitted.
 --
 --
 _OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationNotPermittedException = 
+_OperationNotPermittedException =
     _MatchServiceError appStream "OperationNotPermittedException"
 
 -- | The specified resource was not found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = 
+_ResourceNotFoundException =
     _MatchServiceError appStream "ResourceNotFoundException"
 
 -- | The specified resource exists and is not in use, but isn't available.
 --
 --
 _ResourceNotAvailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotAvailableException = 
+_ResourceNotAvailableException =
     _MatchServiceError appStream "ResourceNotAvailableException"
 
 -- | The requested limit exceeds the permitted limit for an account.

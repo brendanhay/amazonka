@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.CreateRestAPI
     , raDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The POST Request to add a new 'RestApi' resource to your collection.
 --
@@ -60,10 +60,10 @@ import Network.AWS.Response
 -- /See:/ 'createRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
     { _craBinaryMediaTypes :: !(Maybe [Text])
-    , _craVersion :: !(Maybe Text)
-    , _craCloneFrom :: !(Maybe Text)
-    , _craDescription :: !(Maybe Text)
-    , _craName :: !Text
+    , _craVersion          :: !(Maybe Text)
+    , _craCloneFrom        :: !(Maybe Text)
+    , _craDescription      :: !(Maybe Text)
+    , _craName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateRestAPI' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ data CreateRestAPI = CreateRestAPI'
 createRestAPI
     :: Text -- ^ 'craName'
     -> CreateRestAPI
-createRestAPI pName_ = 
+createRestAPI pName_ =
     CreateRestAPI'
     { _craBinaryMediaTypes = Nothing
     , _craVersion = Nothing

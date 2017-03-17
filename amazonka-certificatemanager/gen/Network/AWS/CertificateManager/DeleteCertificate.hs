@@ -34,12 +34,12 @@ module Network.AWS.CertificateManager.DeleteCertificate
     , DeleteCertificateResponse
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
@@ -54,7 +54,7 @@ newtype DeleteCertificate = DeleteCertificate'
 deleteCertificate
     :: Text -- ^ 'dcCertificateARN'
     -> DeleteCertificate
-deleteCertificate pCertificateARN_ = 
+deleteCertificate pCertificateARN_ =
     DeleteCertificate'
     { _dcCertificateARN = pCertificateARN_
     }
@@ -96,7 +96,7 @@ instance ToQuery DeleteCertificate where
 
 -- | /See:/ 'deleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse =
-    DeleteCertificateResponse' 
+    DeleteCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.

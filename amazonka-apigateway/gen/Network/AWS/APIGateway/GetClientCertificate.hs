@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetClientCertificate
     , ccDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to get information about the current 'ClientCertificate' resource.
 --
@@ -64,7 +64,7 @@ newtype GetClientCertificate = GetClientCertificate'
 getClientCertificate
     :: Text -- ^ 'gccClientCertificateId'
     -> GetClientCertificate
-getClientCertificate pClientCertificateId_ = 
+getClientCertificate pClientCertificateId_ =
     GetClientCertificate'
     { _gccClientCertificateId = pClientCertificateId_
     }

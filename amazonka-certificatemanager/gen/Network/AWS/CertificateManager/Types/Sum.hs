@@ -17,16 +17,16 @@
 --
 module Network.AWS.CertificateManager.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data CertificateStatus
-    = CSExpired 
-    | CSFailed 
-    | CSInactive 
-    | CSIssued 
-    | CSPendingValidation 
-    | CSRevoked 
-    | CSValidationTimedOut 
+    = CSExpired
+    | CSFailed
+    | CSInactive
+    | CSIssued
+    | CSPendingValidation
+    | CSRevoked
+    | CSValidationTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CertificateStatus where
@@ -64,8 +64,8 @@ instance FromJSON CertificateStatus where
     parseJSON = parseJSONText "CertificateStatus"
 
 data CertificateType
-    = AmazonIssued 
-    | Imported 
+    = AmazonIssued
+    | Imported
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CertificateType where
@@ -90,9 +90,9 @@ instance FromJSON CertificateType where
     parseJSON = parseJSONText "CertificateType"
 
 data DomainStatus
-    = Failed 
-    | PendingValidation 
-    | Success 
+    = Failed
+    | PendingValidation
+    | Success
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DomainStatus where
@@ -119,11 +119,11 @@ instance FromJSON DomainStatus where
     parseJSON = parseJSONText "DomainStatus"
 
 data FailureReason
-    = AdditionalVerificationRequired 
-    | DomainNotAllowed 
-    | InvalidPublicDomain 
-    | NoAvailableContacts 
-    | Other 
+    = AdditionalVerificationRequired
+    | DomainNotAllowed
+    | InvalidPublicDomain
+    | NoAvailableContacts
+    | Other
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FailureReason where
@@ -154,9 +154,9 @@ instance FromJSON FailureReason where
     parseJSON = parseJSONText "FailureReason"
 
 data KeyAlgorithm
-    = EcPRIME256V1 
-    | Rsa1024 
-    | Rsa2048 
+    = EcPRIME256V1
+    | Rsa1024
+    | Rsa2048
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText KeyAlgorithm where
@@ -183,10 +183,10 @@ instance FromJSON KeyAlgorithm where
     parseJSON = parseJSONText "KeyAlgorithm"
 
 data RenewalStatus
-    = RSFailed 
-    | RSPendingAutoRenewal 
-    | RSPendingValidation 
-    | RSSuccess 
+    = RSFailed
+    | RSPendingAutoRenewal
+    | RSPendingValidation
+    | RSSuccess
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RenewalStatus where
@@ -215,16 +215,16 @@ instance FromJSON RenewalStatus where
     parseJSON = parseJSONText "RenewalStatus"
 
 data RevocationReason
-    = AACompromise 
-    | AffiliationChanged 
-    | CaCompromise 
-    | CertificateHold 
-    | CessationOfOperation 
-    | KeyCompromise 
-    | PrivilegeWithdrawn 
-    | RemoveFromCrl 
-    | Superceded 
-    | Unspecified 
+    = AACompromise
+    | AffiliationChanged
+    | CaCompromise
+    | CertificateHold
+    | CessationOfOperation
+    | KeyCompromise
+    | PrivilegeWithdrawn
+    | RemoveFromCrl
+    | Superceded
+    | Unspecified
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText RevocationReason where

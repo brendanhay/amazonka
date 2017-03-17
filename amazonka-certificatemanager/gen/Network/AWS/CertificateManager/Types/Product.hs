@@ -17,9 +17,9 @@
 --
 module Network.AWS.CertificateManager.Types.Product where
 
-import Network.AWS.CertificateManager.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import           Network.AWS.CertificateManager.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
 
 -- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request.
 --
@@ -27,27 +27,27 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'certificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-    { _cdSubject :: !(Maybe Text)
-    , _cdStatus :: !(Maybe CertificateStatus)
-    , _cdFailureReason :: !(Maybe FailureReason)
+    { _cdSubject                 :: !(Maybe Text)
+    , _cdStatus                  :: !(Maybe CertificateStatus)
+    , _cdFailureReason           :: !(Maybe FailureReason)
     , _cdSubjectAlternativeNames :: !(Maybe (List1 Text))
-    , _cdInUseBy :: !(Maybe [Text])
-    , _cdCreatedAt :: !(Maybe POSIX)
-    , _cdCertificateARN :: !(Maybe Text)
-    , _cdSerial :: !(Maybe Text)
-    , _cdImportedAt :: !(Maybe POSIX)
-    , _cdRevokedAt :: !(Maybe POSIX)
-    , _cdNotBefore :: !(Maybe POSIX)
-    , _cdRevocationReason :: !(Maybe RevocationReason)
-    , _cdDomainName :: !(Maybe Text)
-    , _cdRenewalSummary :: !(Maybe RenewalSummary)
-    , _cdKeyAlgorithm :: !(Maybe KeyAlgorithm)
-    , _cdType :: !(Maybe CertificateType)
-    , _cdIssuedAt :: !(Maybe POSIX)
-    , _cdSignatureAlgorithm :: !(Maybe Text)
+    , _cdInUseBy                 :: !(Maybe [Text])
+    , _cdCreatedAt               :: !(Maybe POSIX)
+    , _cdCertificateARN          :: !(Maybe Text)
+    , _cdSerial                  :: !(Maybe Text)
+    , _cdImportedAt              :: !(Maybe POSIX)
+    , _cdRevokedAt               :: !(Maybe POSIX)
+    , _cdNotBefore               :: !(Maybe POSIX)
+    , _cdRevocationReason        :: !(Maybe RevocationReason)
+    , _cdDomainName              :: !(Maybe Text)
+    , _cdRenewalSummary          :: !(Maybe RenewalSummary)
+    , _cdKeyAlgorithm            :: !(Maybe KeyAlgorithm)
+    , _cdType                    :: !(Maybe CertificateType)
+    , _cdIssuedAt                :: !(Maybe POSIX)
+    , _cdSignatureAlgorithm      :: !(Maybe Text)
     , _cdDomainValidationOptions :: !(Maybe (List1 DomainValidation))
-    , _cdIssuer :: !(Maybe Text)
-    , _cdNotAfter :: !(Maybe POSIX)
+    , _cdIssuer                  :: !(Maybe Text)
+    , _cdNotAfter                :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CertificateDetail' with the minimum fields required to make a request.
@@ -97,7 +97,7 @@ data CertificateDetail = CertificateDetail'
 -- * 'cdNotAfter' - The time after which the certificate is not valid.
 certificateDetail
     :: CertificateDetail
-certificateDetail = 
+certificateDetail =
     CertificateDetail'
     { _cdSubject = Nothing
     , _cdStatus = Nothing
@@ -243,7 +243,7 @@ instance NFData CertificateDetail
 -- /See:/ 'certificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
     { _csCertificateARN :: !(Maybe Text)
-    , _csDomainName :: !(Maybe Text)
+    , _csDomainName     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CertificateSummary' with the minimum fields required to make a request.
@@ -255,7 +255,7 @@ data CertificateSummary = CertificateSummary'
 -- * 'csDomainName' - Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
 certificateSummary
     :: CertificateSummary
-certificateSummary = 
+certificateSummary =
     CertificateSummary'
     { _csCertificateARN = Nothing
     , _csDomainName = Nothing
@@ -289,7 +289,7 @@ data DomainValidation = DomainValidation'
     { _dvValidationEmails :: !(Maybe [Text])
     , _dvValidationStatus :: !(Maybe DomainStatus)
     , _dvValidationDomain :: !(Maybe Text)
-    , _dvDomainName :: !Text
+    , _dvDomainName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DomainValidation' with the minimum fields required to make a request.
@@ -306,7 +306,7 @@ data DomainValidation = DomainValidation'
 domainValidation
     :: Text -- ^ 'dvDomainName'
     -> DomainValidation
-domainValidation pDomainName_ = 
+domainValidation pDomainName_ =
     DomainValidation'
     { _dvValidationEmails = Nothing
     , _dvValidationStatus = Nothing
@@ -350,7 +350,7 @@ instance NFData DomainValidation
 --
 -- /See:/ 'domainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
-    { _dvoDomainName :: !Text
+    { _dvoDomainName       :: !Text
     , _dvoValidationDomain :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -365,7 +365,7 @@ domainValidationOption
     :: Text -- ^ 'dvoDomainName'
     -> Text -- ^ 'dvoValidationDomain'
     -> DomainValidationOption
-domainValidationOption pDomainName_ pValidationDomain_ = 
+domainValidationOption pDomainName_ pValidationDomain_ =
     DomainValidationOption'
     { _dvoDomainName = pDomainName_
     , _dvoValidationDomain = pValidationDomain_
@@ -396,7 +396,7 @@ instance ToJSON DomainValidationOption where
 --
 -- /See:/ 'renewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-    { _rsRenewalStatus :: !RenewalStatus
+    { _rsRenewalStatus           :: !RenewalStatus
     , _rsDomainValidationOptions :: !(List1 DomainValidation)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -411,7 +411,7 @@ renewalSummary
     :: RenewalStatus -- ^ 'rsRenewalStatus'
     -> NonEmpty DomainValidation -- ^ 'rsDomainValidationOptions'
     -> RenewalSummary
-renewalSummary pRenewalStatus_ pDomainValidationOptions_ = 
+renewalSummary pRenewalStatus_ pDomainValidationOptions_ =
     RenewalSummary'
     { _rsRenewalStatus = pRenewalStatus_
     , _rsDomainValidationOptions = _List1 # pDomainValidationOptions_
@@ -444,7 +444,7 @@ instance NFData RenewalSummary
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
-    , _tagKey :: !Text
+    , _tagKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
@@ -457,7 +457,7 @@ data Tag = Tag'
 tag
     :: Text -- ^ 'tagKey'
     -> Tag
-tag pKey_ = 
+tag pKey_ =
     Tag'
     { _tagValue = Nothing
     , _tagKey = pKey_

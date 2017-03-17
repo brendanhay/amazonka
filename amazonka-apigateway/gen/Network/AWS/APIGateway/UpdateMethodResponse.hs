@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.UpdateMethodResponse
     , mResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to update an existing 'MethodResponse' resource.
 --
@@ -56,10 +56,10 @@ import Network.AWS.Response
 -- /See:/ 'updateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
     { _umPatchOperations :: !(Maybe [PatchOperation])
-    , _umRestAPIId :: !Text
-    , _umResourceId :: !Text
-    , _umHttpMethod :: !Text
-    , _umStatusCode :: !Text
+    , _umRestAPIId       :: !Text
+    , _umResourceId      :: !Text
+    , _umHttpMethod      :: !Text
+    , _umStatusCode      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMethodResponse' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ updateMethodResponse
     -> Text -- ^ 'umHttpMethod'
     -> Text -- ^ 'umStatusCode'
     -> UpdateMethodResponse
-updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     UpdateMethodResponse'
     { _umPatchOperations = Nothing
     , _umRestAPIId = pRestAPIId_

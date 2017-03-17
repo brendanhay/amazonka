@@ -47,13 +47,13 @@ module Network.AWS.APIGateway.GetUsage
     , uPosition
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to get the usage data of a usage plan in a specified time interval.
 --
@@ -61,12 +61,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'getUsage' smart constructor.
 data GetUsage = GetUsage'
-    { _guKeyId :: !(Maybe Text)
-    , _guLimit :: !(Maybe Int)
-    , _guPosition :: !(Maybe Text)
+    { _guKeyId       :: !(Maybe Text)
+    , _guLimit       :: !(Maybe Int)
+    , _guPosition    :: !(Maybe Text)
     , _guUsagePlanId :: !Text
-    , _guStartDate :: !Text
-    , _guEndDate :: !Text
+    , _guStartDate   :: !Text
+    , _guEndDate     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUsage' with the minimum fields required to make a request.
@@ -89,7 +89,7 @@ getUsage
     -> Text -- ^ 'guStartDate'
     -> Text -- ^ 'guEndDate'
     -> GetUsage
-getUsage pUsagePlanId_ pStartDate_ pEndDate_ = 
+getUsage pUsagePlanId_ pStartDate_ pEndDate_ =
     GetUsage'
     { _guKeyId = Nothing
     , _guLimit = Nothing

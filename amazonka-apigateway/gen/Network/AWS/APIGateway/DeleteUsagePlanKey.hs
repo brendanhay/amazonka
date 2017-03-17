@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteUsagePlanKey
     , DeleteUsagePlanKeyResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.
 --
@@ -49,7 +49,7 @@ import Network.AWS.Response
 -- /See:/ 'deleteUsagePlanKey' smart constructor.
 data DeleteUsagePlanKey = DeleteUsagePlanKey'
     { _dupkUsagePlanId :: !Text
-    , _dupkKeyId :: !Text
+    , _dupkKeyId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUsagePlanKey' with the minimum fields required to make a request.
@@ -63,7 +63,7 @@ deleteUsagePlanKey
     :: Text -- ^ 'dupkUsagePlanId'
     -> Text -- ^ 'dupkKeyId'
     -> DeleteUsagePlanKey
-deleteUsagePlanKey pUsagePlanId_ pKeyId_ = 
+deleteUsagePlanKey pUsagePlanId_ pKeyId_ =
     DeleteUsagePlanKey'
     { _dupkUsagePlanId = pUsagePlanId_
     , _dupkKeyId = pKeyId_
@@ -104,7 +104,7 @@ instance ToQuery DeleteUsagePlanKey where
 
 -- | /See:/ 'deleteUsagePlanKeyResponse' smart constructor.
 data DeleteUsagePlanKeyResponse =
-    DeleteUsagePlanKeyResponse' 
+    DeleteUsagePlanKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUsagePlanKeyResponse' with the minimum fields required to make a request.

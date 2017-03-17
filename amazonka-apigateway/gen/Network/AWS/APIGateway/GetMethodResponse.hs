@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetMethodResponse
     , mResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to describe a 'MethodResponse' resource.
 --
@@ -54,7 +54,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-    { _gmRestAPIId :: !Text
+    { _gmRestAPIId  :: !Text
     , _gmResourceId :: !Text
     , _gmHttpMethod :: !Text
     , _gmStatusCode :: !Text
@@ -77,7 +77,7 @@ getMethodResponse
     -> Text -- ^ 'gmHttpMethod'
     -> Text -- ^ 'gmStatusCode'
     -> GetMethodResponse
-getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     GetMethodResponse'
     { _gmRestAPIId = pRestAPIId_
     , _gmResourceId = pResourceId_

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new 'Stage' resource that references a pre-existing 'Deployment' for the API. 
+-- Creates a new 'Stage' resource that references a pre-existing 'Deployment' for the API.
 --
 --
 module Network.AWS.APIGateway.CreateStage
@@ -54,12 +54,12 @@ module Network.AWS.APIGateway.CreateStage
     , sDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Stage' resource.
 --
@@ -67,14 +67,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'createStage' smart constructor.
 data CreateStage = CreateStage'
-    { _csVariables :: !(Maybe (Map Text Text))
+    { _csVariables            :: !(Maybe (Map Text Text))
     , _csDocumentationVersion :: !(Maybe Text)
-    , _csCacheClusterSize :: !(Maybe CacheClusterSize)
-    , _csCacheClusterEnabled :: !(Maybe Bool)
-    , _csDescription :: !(Maybe Text)
-    , _csRestAPIId :: !Text
-    , _csStageName :: !Text
-    , _csDeploymentId :: !Text
+    , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
+    , _csCacheClusterEnabled  :: !(Maybe Bool)
+    , _csDescription          :: !(Maybe Text)
+    , _csRestAPIId            :: !Text
+    , _csStageName            :: !Text
+    , _csDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
@@ -101,7 +101,7 @@ createStage
     -> Text -- ^ 'csStageName'
     -> Text -- ^ 'csDeploymentId'
     -> CreateStage
-createStage pRestAPIId_ pStageName_ pDeploymentId_ = 
+createStage pRestAPIId_ pStageName_ pDeploymentId_ =
     CreateStage'
     { _csVariables = Nothing
     , _csDocumentationVersion = Nothing

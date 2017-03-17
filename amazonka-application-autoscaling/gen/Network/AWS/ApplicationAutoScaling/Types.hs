@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -104,15 +104,15 @@ module Network.AWS.ApplicationAutoScaling.Types
     , sspcMinAdjustmentMagnitude
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.ApplicationAutoScaling.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.ApplicationAutoScaling.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | API version @2016-02-06@ of the Amazon Application Auto Scaling SDK configuration.
 applicationAutoScaling :: Service
-applicationAutoScaling = 
+applicationAutoScaling =
     Service
     { _svcAbbrev = "ApplicationAutoScaling"
     , _svcSigner = v4
@@ -125,7 +125,7 @@ applicationAutoScaling =
     , _svcRetry = retry
     }
   where
-    retry = 
+    retry =
         Exponential
         { _retryBase = 5.0e-2
         , _retryGrowth = 2
@@ -134,7 +134,7 @@ applicationAutoScaling =
         }
     check e
       | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
@@ -148,47 +148,47 @@ applicationAutoScaling =
 --
 --
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException = 
+_ValidationException =
     _MatchServiceError applicationAutoScaling "ValidationException"
 
 -- | Failed access to resources caused an exception. This exception currently only applies to 'DescribeScalingPolicies' . It is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have the proper permissions to call the CloudWatch <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms> API operation on behalf of your account.
 --
 --
 _FailedResourceAccessException :: AsError a => Getting (First ServiceError) a ServiceError
-_FailedResourceAccessException = 
+_FailedResourceAccessException =
     _MatchServiceError applicationAutoScaling "FailedResourceAccessException"
 
 -- | The next token supplied was invalid.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException = 
+_InvalidNextTokenException =
     _MatchServiceError applicationAutoScaling "InvalidNextTokenException"
 
 -- | Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
 --
 --
 _ConcurrentUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
-_ConcurrentUpdateException = 
+_ConcurrentUpdateException =
     _MatchServiceError applicationAutoScaling "ConcurrentUpdateException"
 
 -- | The service encountered an internal error.
 --
 --
 _InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceException = 
+_InternalServiceException =
     _MatchServiceError applicationAutoScaling "InternalServiceException"
 
 -- | The specified object could not be found. For any @Put@ or @Register@ API operation, which depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any @Delete@ or @Deregister@ API operation, this exception is thrown if the resource that is to be deleted or deregistered cannot be found.
 --
 --
 _ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ObjectNotFoundException = 
+_ObjectNotFoundException =
     _MatchServiceError applicationAutoScaling "ObjectNotFoundException"
 
 -- | Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_as-app Application Auto Scaling Limits> .
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = 
+_LimitExceededException =
     _MatchServiceError applicationAutoScaling "LimitExceededException"

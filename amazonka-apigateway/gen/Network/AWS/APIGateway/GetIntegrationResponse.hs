@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.GetIntegrationResponse
     , intResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a get integration response request.
 --
@@ -56,7 +56,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-    { _giiRestAPIId :: !Text
+    { _giiRestAPIId  :: !Text
     , _giiResourceId :: !Text
     , _giiHttpMethod :: !Text
     , _giiStatusCode :: !Text
@@ -79,7 +79,7 @@ getIntegrationResponse
     -> Text -- ^ 'giiHttpMethod'
     -> Text -- ^ 'giiStatusCode'
     -> GetIntegrationResponse
-getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     GetIntegrationResponse'
     { _giiRestAPIId = pRestAPIId_
     , _giiResourceId = pResourceId_

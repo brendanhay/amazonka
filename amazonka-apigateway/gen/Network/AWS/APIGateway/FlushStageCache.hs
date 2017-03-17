@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.FlushStageCache
     , FlushStageCacheResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to flush a stage's cache.
 --
@@ -63,7 +63,7 @@ flushStageCache
     :: Text -- ^ 'fscRestAPIId'
     -> Text -- ^ 'fscStageName'
     -> FlushStageCache
-flushStageCache pRestAPIId_ pStageName_ = 
+flushStageCache pRestAPIId_ pStageName_ =
     FlushStageCache'
     { _fscRestAPIId = pRestAPIId_
     , _fscStageName = pStageName_
@@ -103,7 +103,7 @@ instance ToQuery FlushStageCache where
 
 -- | /See:/ 'flushStageCacheResponse' smart constructor.
 data FlushStageCacheResponse =
-    FlushStageCacheResponse' 
+    FlushStageCacheResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'FlushStageCacheResponse' with the minimum fields required to make a request.

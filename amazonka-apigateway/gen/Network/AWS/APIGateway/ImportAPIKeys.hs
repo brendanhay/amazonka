@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.ImportAPIKeys
     , iakrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The POST request to import API keys from an external source, such as a CSV-formatted file.
 --
@@ -54,8 +54,8 @@ import Network.AWS.Response
 -- /See:/ 'importAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
     { _iakFailOnWarnings :: !(Maybe Bool)
-    , _iakBody :: !(HashMap Text Value)
-    , _iakFormat :: !APIKeysFormat
+    , _iakBody           :: !(HashMap Text Value)
+    , _iakFormat         :: !APIKeysFormat
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportAPIKeys' with the minimum fields required to make a request.
@@ -71,7 +71,7 @@ importAPIKeys
     :: HashMap Text Value -- ^ 'iakBody'
     -> APIKeysFormat -- ^ 'iakFormat'
     -> ImportAPIKeys
-importAPIKeys pBody_ pFormat_ = 
+importAPIKeys pBody_ pFormat_ =
     ImportAPIKeys'
     { _iakFailOnWarnings = Nothing
     , _iakBody = pBody_
@@ -129,8 +129,8 @@ instance ToQuery ImportAPIKeys where
 --
 -- /See:/ 'importAPIKeysResponse' smart constructor.
 data ImportAPIKeysResponse = ImportAPIKeysResponse'
-    { _iakrsIds :: !(Maybe [Text])
-    , _iakrsWarnings :: !(Maybe [Text])
+    { _iakrsIds            :: !(Maybe [Text])
+    , _iakrsWarnings       :: !(Maybe [Text])
     , _iakrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -146,7 +146,7 @@ data ImportAPIKeysResponse = ImportAPIKeysResponse'
 importAPIKeysResponse
     :: Int -- ^ 'iakrsResponseStatus'
     -> ImportAPIKeysResponse
-importAPIKeysResponse pResponseStatus_ = 
+importAPIKeysResponse pResponseStatus_ =
     ImportAPIKeysResponse'
     { _iakrsIds = Nothing
     , _iakrsWarnings = Nothing

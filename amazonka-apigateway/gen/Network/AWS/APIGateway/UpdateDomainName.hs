@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.UpdateDomainName
     , dnDistributionDomainName
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to change information about the 'DomainName' resource.
 --
@@ -54,7 +54,7 @@ import Network.AWS.Response
 -- /See:/ 'updateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
     { _udnPatchOperations :: !(Maybe [PatchOperation])
-    , _udnDomainName :: !Text
+    , _udnDomainName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDomainName' with the minimum fields required to make a request.
@@ -67,7 +67,7 @@ data UpdateDomainName = UpdateDomainName'
 updateDomainName
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainName
-updateDomainName pDomainName_ = 
+updateDomainName pDomainName_ =
     UpdateDomainName'
     { _udnPatchOperations = Nothing
     , _udnDomainName = pDomainName_

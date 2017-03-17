@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.ImportRestAPI
     , raDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A POST request to import an API to Amazon API Gateway using an input of an API definition file.
 --
@@ -58,8 +58,8 @@ import Network.AWS.Response
 -- /See:/ 'importRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
     { _iraFailOnWarnings :: !(Maybe Bool)
-    , _iraParameters :: !(Maybe (Map Text Text))
-    , _iraBody :: !(HashMap Text Value)
+    , _iraParameters     :: !(Maybe (Map Text Text))
+    , _iraBody           :: !(HashMap Text Value)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportRestAPI' with the minimum fields required to make a request.
@@ -74,7 +74,7 @@ data ImportRestAPI = ImportRestAPI'
 importRestAPI
     :: HashMap Text Value -- ^ 'iraBody'
     -> ImportRestAPI
-importRestAPI pBody_ = 
+importRestAPI pBody_ =
     ImportRestAPI'
     { _iraFailOnWarnings = Nothing
     , _iraParameters = Nothing

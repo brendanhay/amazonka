@@ -36,12 +36,12 @@ module Network.AWS.AppStream.DeleteStack
     , dsrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteStack' smart constructor.
 newtype DeleteStack = DeleteStack'
@@ -56,7 +56,7 @@ newtype DeleteStack = DeleteStack'
 deleteStack
     :: Text -- ^ 'dsName'
     -> DeleteStack
-deleteStack pName_ = 
+deleteStack pName_ =
     DeleteStack'
     { _dsName = pName_
     }
@@ -110,7 +110,7 @@ newtype DeleteStackResponse = DeleteStackResponse'
 deleteStackResponse
     :: Int -- ^ 'dsrsResponseStatus'
     -> DeleteStackResponse
-deleteStackResponse pResponseStatus_ = 
+deleteStackResponse pResponseStatus_ =
     DeleteStackResponse'
     { _dsrsResponseStatus = pResponseStatus_
     }

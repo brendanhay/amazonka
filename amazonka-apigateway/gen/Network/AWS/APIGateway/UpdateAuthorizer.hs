@@ -21,7 +21,7 @@
 -- Updates an existing 'Authorizer' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI> 
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
     (
     -- * Creating a Request
@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     , aAuthorizerCredentials
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to update an existing 'Authorizer' resource.
 --
@@ -62,8 +62,8 @@ import Network.AWS.Response
 -- /See:/ 'updateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
     { _uaaPatchOperations :: !(Maybe [PatchOperation])
-    , _uaaRestAPIId :: !Text
-    , _uaaAuthorizerId :: !Text
+    , _uaaRestAPIId       :: !Text
+    , _uaaAuthorizerId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
@@ -79,7 +79,7 @@ updateAuthorizer
     :: Text -- ^ 'uaaRestAPIId'
     -> Text -- ^ 'uaaAuthorizerId'
     -> UpdateAuthorizer
-updateAuthorizer pRestAPIId_ pAuthorizerId_ = 
+updateAuthorizer pRestAPIId_ pAuthorizerId_ =
     UpdateAuthorizer'
     { _uaaPatchOperations = Nothing
     , _uaaRestAPIId = pRestAPIId_

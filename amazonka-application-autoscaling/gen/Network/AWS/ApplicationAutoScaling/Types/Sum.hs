@@ -17,12 +17,12 @@
 --
 module Network.AWS.ApplicationAutoScaling.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data AdjustmentType
-    = ChangeInCapacity 
-    | ExactCapacity 
-    | PercentChangeInCapacity 
+    = ChangeInCapacity
+    | ExactCapacity
+    | PercentChangeInCapacity
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AdjustmentType where
@@ -52,9 +52,9 @@ instance FromJSON AdjustmentType where
     parseJSON = parseJSONText "AdjustmentType"
 
 data MetricAggregationType
-    = Average 
-    | Maximum 
-    | Minimum 
+    = Average
+    | Maximum
+    | Minimum
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MetricAggregationType where
@@ -84,7 +84,7 @@ instance FromJSON MetricAggregationType where
     parseJSON = parseJSONText "MetricAggregationType"
 
 data PolicyType =
-    StepScaling 
+    StepScaling
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PolicyType where
@@ -110,9 +110,9 @@ instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
 
 data ScalableDimension
-    = EC2SpotFleetRequestTargetCapacity 
-    | EcsServiceDesiredCount 
-    | ElasticmapreduceInstancegroupInstanceCount 
+    = EC2SpotFleetRequestTargetCapacity
+    | EcsServiceDesiredCount
+    | ElasticmapreduceInstancegroupInstanceCount
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalableDimension where
@@ -142,12 +142,12 @@ instance FromJSON ScalableDimension where
     parseJSON = parseJSONText "ScalableDimension"
 
 data ScalingActivityStatusCode
-    = Failed 
-    | InProgress 
-    | Overridden 
-    | Pending 
-    | Successful 
-    | Unfulfilled 
+    = Failed
+    | InProgress
+    | Overridden
+    | Pending
+    | Successful
+    | Unfulfilled
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalingActivityStatusCode where
@@ -180,9 +180,9 @@ instance FromJSON ScalingActivityStatusCode where
     parseJSON = parseJSONText "ScalingActivityStatusCode"
 
 data ServiceNamespace
-    = EC2 
-    | Ecs 
-    | Elasticmapreduce 
+    = EC2
+    | Ecs
+    | Elasticmapreduce
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ServiceNamespace where

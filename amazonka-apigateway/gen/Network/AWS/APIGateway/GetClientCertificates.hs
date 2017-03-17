@@ -41,13 +41,13 @@ module Network.AWS.APIGateway.GetClientCertificates
     , gccrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to get information about a collection of 'ClientCertificate' resources.
 --
@@ -55,7 +55,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
-    { _gccLimit :: !(Maybe Int)
+    { _gccLimit    :: !(Maybe Int)
     , _gccPosition :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data GetClientCertificates = GetClientCertificates'
 -- * 'gccPosition' - The position of the current 'ClientCertificate' resource in the collection to get information about.
 getClientCertificates
     :: GetClientCertificates
-getClientCertificates = 
+getClientCertificates =
     GetClientCertificates'
     { _gccLimit = Nothing
     , _gccPosition = Nothing
@@ -121,12 +121,12 @@ instance ToQuery GetClientCertificates where
 -- | Represents a collection of 'ClientCertificate' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
 -- /See:/ 'getClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
-    { _gccrsItems :: !(Maybe [ClientCertificate])
-    , _gccrsPosition :: !(Maybe Text)
+    { _gccrsItems          :: !(Maybe [ClientCertificate])
+    , _gccrsPosition       :: !(Maybe Text)
     , _gccrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -142,7 +142,7 @@ data GetClientCertificatesResponse = GetClientCertificatesResponse'
 getClientCertificatesResponse
     :: Int -- ^ 'gccrsResponseStatus'
     -> GetClientCertificatesResponse
-getClientCertificatesResponse pResponseStatus_ = 
+getClientCertificatesResponse pResponseStatus_ =
     GetClientCertificatesResponse'
     { _gccrsItems = Nothing
     , _gccrsPosition = Nothing

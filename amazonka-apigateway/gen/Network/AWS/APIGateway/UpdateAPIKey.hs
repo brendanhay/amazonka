@@ -45,12 +45,12 @@ module Network.AWS.APIGateway.UpdateAPIKey
     , akDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to change information about an 'ApiKey' resource.
 --
@@ -59,7 +59,7 @@ import Network.AWS.Response
 -- /See:/ 'updateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
     { _uakPatchOperations :: !(Maybe [PatchOperation])
-    , _uakApiKey :: !Text
+    , _uakApiKey          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data UpdateAPIKey = UpdateAPIKey'
 updateAPIKey
     :: Text -- ^ 'uakApiKey'
     -> UpdateAPIKey
-updateAPIKey pApiKey_ = 
+updateAPIKey pApiKey_ =
     UpdateAPIKey'
     { _uakPatchOperations = Nothing
     , _uakApiKey = pApiKey_

@@ -39,18 +39,18 @@ module Network.AWS.AppStream.UpdateStack
     , usrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
 data UpdateStack = UpdateStack'
     { _usDisplayName :: !(Maybe Text)
     , _usDescription :: !(Maybe Text)
-    , _usName :: !Text
+    , _usName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
@@ -65,7 +65,7 @@ data UpdateStack = UpdateStack'
 updateStack
     :: Text -- ^ 'usName'
     -> UpdateStack
-updateStack pName_ = 
+updateStack pName_ =
     UpdateStack'
     { _usDisplayName = Nothing
     , _usDescription = Nothing
@@ -123,7 +123,7 @@ instance ToQuery UpdateStack where
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
-    { _usrsStack :: !(Maybe Stack)
+    { _usrsStack          :: !(Maybe Stack)
     , _usrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -137,7 +137,7 @@ data UpdateStackResponse = UpdateStackResponse'
 updateStackResponse
     :: Int -- ^ 'usrsResponseStatus'
     -> UpdateStackResponse
-updateStackResponse pResponseStatus_ = 
+updateStackResponse pResponseStatus_ =
     UpdateStackResponse'
     { _usrsStack = Nothing
     , _usrsResponseStatus = pResponseStatus_

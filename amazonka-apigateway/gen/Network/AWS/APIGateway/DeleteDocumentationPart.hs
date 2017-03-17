@@ -33,12 +33,12 @@ module Network.AWS.APIGateway.DeleteDocumentationPart
     , DeleteDocumentationPartResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Deletes an existing documentation part of an API.
 --
@@ -46,7 +46,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
-    { _ddpRestAPIId :: !Text
+    { _ddpRestAPIId           :: !Text
     , _ddpDocumentationPartId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,7 +61,7 @@ deleteDocumentationPart
     :: Text -- ^ 'ddpRestAPIId'
     -> Text -- ^ 'ddpDocumentationPartId'
     -> DeleteDocumentationPart
-deleteDocumentationPart pRestAPIId_ pDocumentationPartId_ = 
+deleteDocumentationPart pRestAPIId_ pDocumentationPartId_ =
     DeleteDocumentationPart'
     { _ddpRestAPIId = pRestAPIId_
     , _ddpDocumentationPartId = pDocumentationPartId_
@@ -104,7 +104,7 @@ instance ToQuery DeleteDocumentationPart where
 
 -- | /See:/ 'deleteDocumentationPartResponse' smart constructor.
 data DeleteDocumentationPartResponse =
-    DeleteDocumentationPartResponse' 
+    DeleteDocumentationPartResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDocumentationPartResponse' with the minimum fields required to make a request.

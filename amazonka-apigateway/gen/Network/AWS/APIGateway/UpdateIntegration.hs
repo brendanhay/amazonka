@@ -49,12 +49,12 @@ module Network.AWS.APIGateway.UpdateIntegration
     , iCacheKeyParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents an update integration request.
 --
@@ -63,9 +63,9 @@ import Network.AWS.Response
 -- /See:/ 'updateIntegration' smart constructor.
 data UpdateIntegration = UpdateIntegration'
     { _updPatchOperations :: !(Maybe [PatchOperation])
-    , _updRestAPIId :: !Text
-    , _updResourceId :: !Text
-    , _updHttpMethod :: !Text
+    , _updRestAPIId       :: !Text
+    , _updResourceId      :: !Text
+    , _updHttpMethod      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateIntegration' with the minimum fields required to make a request.
@@ -84,7 +84,7 @@ updateIntegration
     -> Text -- ^ 'updResourceId'
     -> Text -- ^ 'updHttpMethod'
     -> UpdateIntegration
-updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ = 
+updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     UpdateIntegration'
     { _updPatchOperations = Nothing
     , _updRestAPIId = pRestAPIId_

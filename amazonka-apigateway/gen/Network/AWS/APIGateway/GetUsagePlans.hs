@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetUsagePlans
     , guprsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to get all the usage plans of the caller's account.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
-    { _gupKeyId :: !(Maybe Text)
-    , _gupLimit :: !(Maybe Int)
+    { _gupKeyId    :: !(Maybe Text)
+    , _gupLimit    :: !(Maybe Int)
     , _gupPosition :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -72,7 +72,7 @@ data GetUsagePlans = GetUsagePlans'
 -- * 'gupPosition' - The zero-based array index specifying the position of the to-be-retrieved 'UsagePlan' resource.
 getUsagePlans
     :: GetUsagePlans
-getUsagePlans = 
+getUsagePlans =
     GetUsagePlans'
     { _gupKeyId = Nothing
     , _gupLimit = Nothing
@@ -130,12 +130,12 @@ instance ToQuery GetUsagePlans where
 -- | Represents a collection of usage plans for an AWS account.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'getUsagePlansResponse' smart constructor.
 data GetUsagePlansResponse = GetUsagePlansResponse'
-    { _guprsItems :: !(Maybe [UsagePlan])
-    , _guprsPosition :: !(Maybe Text)
+    { _guprsItems          :: !(Maybe [UsagePlan])
+    , _guprsPosition       :: !(Maybe Text)
     , _guprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -151,7 +151,7 @@ data GetUsagePlansResponse = GetUsagePlansResponse'
 getUsagePlansResponse
     :: Int -- ^ 'guprsResponseStatus'
     -> GetUsagePlansResponse
-getUsagePlansResponse pResponseStatus_ = 
+getUsagePlansResponse pResponseStatus_ =
     GetUsagePlansResponse'
     { _guprsItems = Nothing
     , _guprsPosition = Nothing

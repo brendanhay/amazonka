@@ -40,19 +40,19 @@ module Network.AWS.CertificateManager.RequestCertificate
     , rcrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'requestCertificate' smart constructor.
 data RequestCertificate = RequestCertificate'
-    { _rcIdempotencyToken :: !(Maybe Text)
+    { _rcIdempotencyToken        :: !(Maybe Text)
     , _rcSubjectAlternativeNames :: !(Maybe (List1 Text))
     , _rcDomainValidationOptions :: !(Maybe (List1 DomainValidationOption))
-    , _rcDomainName :: !Text
+    , _rcDomainName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RequestCertificate' with the minimum fields required to make a request.
@@ -69,7 +69,7 @@ data RequestCertificate = RequestCertificate'
 requestCertificate
     :: Text -- ^ 'rcDomainName'
     -> RequestCertificate
-requestCertificate pDomainName_ = 
+requestCertificate pDomainName_ =
     RequestCertificate'
     { _rcIdempotencyToken = Nothing
     , _rcSubjectAlternativeNames = Nothing
@@ -144,19 +144,19 @@ data RequestCertificateResponse = RequestCertificateResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcrsCertificateARN' - String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@ 
+-- * 'rcrsCertificateARN' - String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 --
 -- * 'rcrsResponseStatus' - -- | The response status code.
 requestCertificateResponse
     :: Int -- ^ 'rcrsResponseStatus'
     -> RequestCertificateResponse
-requestCertificateResponse pResponseStatus_ = 
+requestCertificateResponse pResponseStatus_ =
     RequestCertificateResponse'
     { _rcrsCertificateARN = Nothing
     , _rcrsResponseStatus = pResponseStatus_
     }
 
--- | String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@ 
+-- | String that contains the ARN of the issued certificate. This must be of the form: @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 rcrsCertificateARN :: Lens' RequestCertificateResponse (Maybe Text)
 rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a});
 

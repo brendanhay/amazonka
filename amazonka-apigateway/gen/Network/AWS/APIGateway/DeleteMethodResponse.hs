@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.DeleteMethodResponse
     , DeleteMethodResponseResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to delete an existing 'MethodResponse' resource.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteMethodResponse' smart constructor.
 data DeleteMethodResponse = DeleteMethodResponse'
-    { _dmRestAPIId :: !Text
+    { _dmRestAPIId  :: !Text
     , _dmResourceId :: !Text
     , _dmHttpMethod :: !Text
     , _dmStatusCode :: !Text
@@ -73,7 +73,7 @@ deleteMethodResponse
     -> Text -- ^ 'dmHttpMethod'
     -> Text -- ^ 'dmStatusCode'
     -> DeleteMethodResponse
-deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     DeleteMethodResponse'
     { _dmRestAPIId = pRestAPIId_
     , _dmResourceId = pResourceId_
@@ -125,7 +125,7 @@ instance ToQuery DeleteMethodResponse where
 
 -- | /See:/ 'deleteMethodResponseResponse' smart constructor.
 data DeleteMethodResponseResponse =
-    DeleteMethodResponseResponse' 
+    DeleteMethodResponseResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteMethodResponseResponse' with the minimum fields required to make a request.

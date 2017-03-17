@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetModels
     , gmrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to list existing 'Models' defined for a 'RestApi' resource.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getModels' smart constructor.
 data GetModels = GetModels'
-    { _gmsLimit :: !(Maybe Int)
-    , _gmsPosition :: !(Maybe Text)
+    { _gmsLimit     :: !(Maybe Int)
+    , _gmsPosition  :: !(Maybe Text)
     , _gmsRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ data GetModels = GetModels'
 getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
-getModels pRestAPIId_ = 
+getModels pRestAPIId_ =
     GetModels'
     { _gmsLimit = Nothing
     , _gmsPosition = Nothing
@@ -132,12 +132,12 @@ instance ToQuery GetModels where
 -- | Represents a collection of 'Model' resources.
 --
 --
--- 'Method' , 'MethodResponse' , <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings> 
+-- 'Method' , 'MethodResponse' , <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html Models and Mappings>
 --
 -- /See:/ 'getModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-    { _gmrsItems :: !(Maybe [Model])
-    , _gmrsPosition :: !(Maybe Text)
+    { _gmrsItems          :: !(Maybe [Model])
+    , _gmrsPosition       :: !(Maybe Text)
     , _gmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -153,7 +153,7 @@ data GetModelsResponse = GetModelsResponse'
 getModelsResponse
     :: Int -- ^ 'gmrsResponseStatus'
     -> GetModelsResponse
-getModelsResponse pResponseStatus_ = 
+getModelsResponse pResponseStatus_ =
     GetModelsResponse'
     { _gmrsItems = Nothing
     , _gmrsPosition = Nothing

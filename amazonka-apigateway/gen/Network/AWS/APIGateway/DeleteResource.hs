@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteResource
     , DeleteResourceResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to delete a 'Resource' .
 --
@@ -48,7 +48,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-    { _drRestAPIId :: !Text
+    { _drRestAPIId  :: !Text
     , _drResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,7 +63,7 @@ deleteResource
     :: Text -- ^ 'drRestAPIId'
     -> Text -- ^ 'drResourceId'
     -> DeleteResource
-deleteResource pRestAPIId_ pResourceId_ = 
+deleteResource pRestAPIId_ pResourceId_ =
     DeleteResource'
     { _drRestAPIId = pRestAPIId_
     , _drResourceId = pResourceId_
@@ -103,7 +103,7 @@ instance ToQuery DeleteResource where
 
 -- | /See:/ 'deleteResourceResponse' smart constructor.
 data DeleteResourceResponse =
-    DeleteResourceResponse' 
+    DeleteResourceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteResourceResponse' with the minimum fields required to make a request.

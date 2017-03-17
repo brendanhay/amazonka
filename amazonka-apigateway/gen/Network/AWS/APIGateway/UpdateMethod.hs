@@ -47,12 +47,12 @@ module Network.AWS.APIGateway.UpdateMethod
     , mMethodIntegration
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to update an existing 'Method' resource.
 --
@@ -61,9 +61,9 @@ import Network.AWS.Response
 -- /See:/ 'updateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
     { _ummPatchOperations :: !(Maybe [PatchOperation])
-    , _ummRestAPIId :: !Text
-    , _ummResourceId :: !Text
-    , _ummHttpMethod :: !Text
+    , _ummRestAPIId       :: !Text
+    , _ummResourceId      :: !Text
+    , _ummHttpMethod      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateMethod' with the minimum fields required to make a request.
@@ -82,7 +82,7 @@ updateMethod
     -> Text -- ^ 'ummResourceId'
     -> Text -- ^ 'ummHttpMethod'
     -> UpdateMethod
-updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ = 
+updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     UpdateMethod'
     { _ummPatchOperations = Nothing
     , _ummRestAPIId = pRestAPIId_

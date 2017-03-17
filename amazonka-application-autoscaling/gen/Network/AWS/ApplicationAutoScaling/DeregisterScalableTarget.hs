@@ -42,17 +42,17 @@ module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
     , dstrsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deregisterScalableTarget' smart constructor.
 data DeregisterScalableTarget = DeregisterScalableTarget'
-    { _derServiceNamespace :: !ServiceNamespace
-    , _derResourceId :: !Text
+    { _derServiceNamespace  :: !ServiceNamespace
+    , _derResourceId        :: !Text
     , _derScalableDimension :: !ScalableDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ deregisterScalableTarget
     -> Text -- ^ 'derResourceId'
     -> ScalableDimension -- ^ 'derScalableDimension'
     -> DeregisterScalableTarget
-deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ = 
+deregisterScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
     DeregisterScalableTarget'
     { _derServiceNamespace = pServiceNamespace_
     , _derResourceId = pResourceId_
@@ -140,7 +140,7 @@ newtype DeregisterScalableTargetResponse = DeregisterScalableTargetResponse'
 deregisterScalableTargetResponse
     :: Int -- ^ 'dstrsResponseStatus'
     -> DeregisterScalableTargetResponse
-deregisterScalableTargetResponse pResponseStatus_ = 
+deregisterScalableTargetResponse pResponseStatus_ =
     DeregisterScalableTargetResponse'
     { _dstrsResponseStatus = pResponseStatus_
     }

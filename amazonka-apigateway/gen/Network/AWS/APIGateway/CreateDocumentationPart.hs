@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.CreateDocumentationPart
     , dpProperties
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Creates a new documentation part of a given API.
 --
@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
-    { _cdpRestAPIId :: !Text
-    , _cdpLocation :: !DocumentationPartLocation
+    { _cdpRestAPIId  :: !Text
+    , _cdpLocation   :: !DocumentationPartLocation
     , _cdpProperties :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -70,7 +70,7 @@ createDocumentationPart
     -> DocumentationPartLocation -- ^ 'cdpLocation'
     -> Text -- ^ 'cdpProperties'
     -> CreateDocumentationPart
-createDocumentationPart pRestAPIId_ pLocation_ pProperties_ = 
+createDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
     CreateDocumentationPart'
     { _cdpRestAPIId = pRestAPIId_
     , _cdpLocation = pLocation_

@@ -47,12 +47,12 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     , intResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a put integration response request.
 --
@@ -60,14 +60,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'putIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-    { _piContentHandling :: !(Maybe ContentHandlingStrategy)
-    , _piResponseTemplates :: !(Maybe (Map Text Text))
-    , _piSelectionPattern :: !(Maybe Text)
+    { _piContentHandling    :: !(Maybe ContentHandlingStrategy)
+    , _piResponseTemplates  :: !(Maybe (Map Text Text))
+    , _piSelectionPattern   :: !(Maybe Text)
     , _piResponseParameters :: !(Maybe (Map Text Text))
-    , _piRestAPIId :: !Text
-    , _piResourceId :: !Text
-    , _piHttpMethod :: !Text
-    , _piStatusCode :: !Text
+    , _piRestAPIId          :: !Text
+    , _piResourceId         :: !Text
+    , _piHttpMethod         :: !Text
+    , _piStatusCode         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutIntegrationResponse' with the minimum fields required to make a request.
@@ -95,7 +95,7 @@ putIntegrationResponse
     -> Text -- ^ 'piHttpMethod'
     -> Text -- ^ 'piStatusCode'
     -> PutIntegrationResponse
-putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+putIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     PutIntegrationResponse'
     { _piContentHandling = Nothing
     , _piResponseTemplates = Nothing

@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.UpdateAccount
     , aThrottleSettings
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about the current 'Account' resource.
 --
@@ -62,7 +62,7 @@ newtype UpdateAccount = UpdateAccount'
 -- * 'uaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 updateAccount
     :: UpdateAccount
-updateAccount = 
+updateAccount =
     UpdateAccount'
     { _uaPatchOperations = Nothing
     }

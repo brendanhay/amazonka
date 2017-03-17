@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetStages
     , gsrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about one or more 'Stage' resources.
 --
@@ -52,7 +52,7 @@ import Network.AWS.Response
 -- /See:/ 'getStages' smart constructor.
 data GetStages = GetStages'
     { _gsDeploymentId :: !(Maybe Text)
-    , _gsRestAPIId :: !Text
+    , _gsRestAPIId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetStages' with the minimum fields required to make a request.
@@ -65,7 +65,7 @@ data GetStages = GetStages'
 getStages
     :: Text -- ^ 'gsRestAPIId'
     -> GetStages
-getStages pRestAPIId_ = 
+getStages pRestAPIId_ =
     GetStages'
     { _gsDeploymentId = Nothing
     , _gsRestAPIId = pRestAPIId_
@@ -110,11 +110,11 @@ instance ToQuery GetStages where
 -- | A list of 'Stage' resources that are associated with the 'ApiKey' resource.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
 --
 -- /See:/ 'getStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'
-    { _gsrsItem :: !(Maybe [Stage])
+    { _gsrsItem           :: !(Maybe [Stage])
     , _gsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -128,7 +128,7 @@ data GetStagesResponse = GetStagesResponse'
 getStagesResponse
     :: Int -- ^ 'gsrsResponseStatus'
     -> GetStagesResponse
-getStagesResponse pResponseStatus_ = 
+getStagesResponse pResponseStatus_ =
     GetStagesResponse'
     { _gsrsItem = Nothing
     , _gsrsResponseStatus = pResponseStatus_

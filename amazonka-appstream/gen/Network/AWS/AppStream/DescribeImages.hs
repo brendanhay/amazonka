@@ -37,12 +37,12 @@ module Network.AWS.AppStream.DescribeImages
     , dirsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeImages' smart constructor.
 newtype DescribeImages = DescribeImages'
@@ -56,7 +56,7 @@ newtype DescribeImages = DescribeImages'
 -- * 'diNames' - A specific list of images to describe.
 describeImages
     :: DescribeImages
-describeImages = 
+describeImages =
     DescribeImages'
     { _diNames = Nothing
     }
@@ -100,7 +100,7 @@ instance ToQuery DescribeImages where
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _dirsImages :: !(Maybe [Image])
+    { _dirsImages         :: !(Maybe [Image])
     , _dirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -114,7 +114,7 @@ data DescribeImagesResponse = DescribeImagesResponse'
 describeImagesResponse
     :: Int -- ^ 'dirsResponseStatus'
     -> DescribeImagesResponse
-describeImagesResponse pResponseStatus_ = 
+describeImagesResponse pResponseStatus_ =
     DescribeImagesResponse'
     { _dirsImages = Nothing
     , _dirsResponseStatus = pResponseStatus_

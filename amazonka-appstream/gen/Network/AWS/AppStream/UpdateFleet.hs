@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing fleet. All the attributes except the fleet name can be updated in the __STOPPED__ state. Only __ComputeCapacity__ and __ImageName__ can be updated in any other state. 
+-- Updates an existing fleet. All the attributes except the fleet name can be updated in the __STOPPED__ state. Only __ComputeCapacity__ and __ImageName__ can be updated in any other state.
 --
 --
 module Network.AWS.AppStream.UpdateFleet
@@ -46,25 +46,25 @@ module Network.AWS.AppStream.UpdateFleet
     , ufrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'updateFleet' smart constructor.
 data UpdateFleet = UpdateFleet'
     { _ufDisconnectTimeoutInSeconds :: !(Maybe Int)
-    , _ufMaxUserDurationInSeconds :: !(Maybe Int)
-    , _ufDeleteVPCConfig :: !(Maybe Bool)
-    , _ufInstanceType :: !(Maybe Text)
-    , _ufVPCConfig :: !(Maybe VPCConfig)
-    , _ufDisplayName :: !(Maybe Text)
-    , _ufImageName :: !(Maybe Text)
-    , _ufDescription :: !(Maybe Text)
-    , _ufComputeCapacity :: !(Maybe ComputeCapacity)
-    , _ufName :: !Text
+    , _ufMaxUserDurationInSeconds   :: !(Maybe Int)
+    , _ufDeleteVPCConfig            :: !(Maybe Bool)
+    , _ufInstanceType               :: !(Maybe Text)
+    , _ufVPCConfig                  :: !(Maybe VPCConfig)
+    , _ufDisplayName                :: !(Maybe Text)
+    , _ufImageName                  :: !(Maybe Text)
+    , _ufDescription                :: !(Maybe Text)
+    , _ufComputeCapacity            :: !(Maybe ComputeCapacity)
+    , _ufName                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateFleet' with the minimum fields required to make a request.
@@ -87,13 +87,13 @@ data UpdateFleet = UpdateFleet'
 --
 -- * 'ufDescription' - The description displayed to end users on the AppStream 2.0 portal.
 --
--- * 'ufComputeCapacity' - The parameters for the capacity allocated to the fleet. 
+-- * 'ufComputeCapacity' - The parameters for the capacity allocated to the fleet.
 --
 -- * 'ufName' - The name of the fleet.
 updateFleet
     :: Text -- ^ 'ufName'
     -> UpdateFleet
-updateFleet pName_ = 
+updateFleet pName_ =
     UpdateFleet'
     { _ufDisconnectTimeoutInSeconds = Nothing
     , _ufMaxUserDurationInSeconds = Nothing
@@ -139,7 +139,7 @@ ufImageName = lens _ufImageName (\ s a -> s{_ufImageName = a});
 ufDescription :: Lens' UpdateFleet (Maybe Text)
 ufDescription = lens _ufDescription (\ s a -> s{_ufDescription = a});
 
--- | The parameters for the capacity allocated to the fleet. 
+-- | The parameters for the capacity allocated to the fleet.
 ufComputeCapacity :: Lens' UpdateFleet (Maybe ComputeCapacity)
 ufComputeCapacity = lens _ufComputeCapacity (\ s a -> s{_ufComputeCapacity = a});
 
@@ -195,7 +195,7 @@ instance ToQuery UpdateFleet where
 
 -- | /See:/ 'updateFleetResponse' smart constructor.
 data UpdateFleetResponse = UpdateFleetResponse'
-    { _ufrsFleet :: !(Maybe Fleet)
+    { _ufrsFleet          :: !(Maybe Fleet)
     , _ufrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -209,7 +209,7 @@ data UpdateFleetResponse = UpdateFleetResponse'
 updateFleetResponse
     :: Int -- ^ 'ufrsResponseStatus'
     -> UpdateFleetResponse
-updateFleetResponse pResponseStatus_ = 
+updateFleetResponse pResponseStatus_ =
     UpdateFleetResponse'
     { _ufrsFleet = Nothing
     , _ufrsResponseStatus = pResponseStatus_

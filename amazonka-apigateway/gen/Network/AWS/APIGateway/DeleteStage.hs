@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteStage
     , DeleteStageResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to delete a 'Stage' resource.
 --
@@ -63,7 +63,7 @@ deleteStage
     :: Text -- ^ 'dsRestAPIId'
     -> Text -- ^ 'dsStageName'
     -> DeleteStage
-deleteStage pRestAPIId_ pStageName_ = 
+deleteStage pRestAPIId_ pStageName_ =
     DeleteStage'
     { _dsRestAPIId = pRestAPIId_
     , _dsStageName = pStageName_
@@ -103,7 +103,7 @@ instance ToQuery DeleteStage where
 
 -- | /See:/ 'deleteStageResponse' smart constructor.
 data DeleteStageResponse =
-    DeleteStageResponse' 
+    DeleteStageResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteStageResponse' with the minimum fields required to make a request.

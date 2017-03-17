@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetResource
     , rParentId
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to list information about a resource.
 --
@@ -54,7 +54,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getResource' smart constructor.
 data GetResource = GetResource'
-    { _grRestAPIId :: !Text
+    { _grRestAPIId  :: !Text
     , _grResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ getResource
     :: Text -- ^ 'grRestAPIId'
     -> Text -- ^ 'grResourceId'
     -> GetResource
-getResource pRestAPIId_ pResourceId_ = 
+getResource pRestAPIId_ pResourceId_ =
     GetResource'
     { _grRestAPIId = pRestAPIId_
     , _grResourceId = pResourceId_

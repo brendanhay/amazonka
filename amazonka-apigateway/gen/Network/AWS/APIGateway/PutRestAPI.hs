@@ -46,12 +46,12 @@ module Network.AWS.APIGateway.PutRestAPI
     , raDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A PUT request to update an existing API, with external API definitions specified as the request body.
 --
@@ -59,11 +59,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'putRestAPI' smart constructor.
 data PutRestAPI = PutRestAPI'
-    { _praMode :: !(Maybe PutMode)
+    { _praMode           :: !(Maybe PutMode)
     , _praFailOnWarnings :: !(Maybe Bool)
-    , _praParameters :: !(Maybe (Map Text Text))
-    , _praRestAPIId :: !Text
-    , _praBody :: !(HashMap Text Value)
+    , _praParameters     :: !(Maybe (Map Text Text))
+    , _praRestAPIId      :: !Text
+    , _praBody           :: !(HashMap Text Value)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutRestAPI' with the minimum fields required to make a request.
@@ -74,16 +74,16 @@ data PutRestAPI = PutRestAPI'
 --
 -- * 'praFailOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'praParameters' - Custom headers supplied as part of the request. 
+-- * 'praParameters' - Custom headers supplied as part of the request.
 --
--- * 'praRestAPIId' - The identifier of the 'RestApi' to be updated. 
+-- * 'praRestAPIId' - The identifier of the 'RestApi' to be updated.
 --
 -- * 'praBody' - The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
 putRestAPI
     :: Text -- ^ 'praRestAPIId'
     -> HashMap Text Value -- ^ 'praBody'
     -> PutRestAPI
-putRestAPI pRestAPIId_ pBody_ = 
+putRestAPI pRestAPIId_ pBody_ =
     PutRestAPI'
     { _praMode = Nothing
     , _praFailOnWarnings = Nothing
@@ -100,11 +100,11 @@ praMode = lens _praMode (\ s a -> s{_praMode = a});
 praFailOnWarnings :: Lens' PutRestAPI (Maybe Bool)
 praFailOnWarnings = lens _praFailOnWarnings (\ s a -> s{_praFailOnWarnings = a});
 
--- | Custom headers supplied as part of the request. 
+-- | Custom headers supplied as part of the request.
 praParameters :: Lens' PutRestAPI (HashMap Text Text)
 praParameters = lens _praParameters (\ s a -> s{_praParameters = a}) . _Default . _Map;
 
--- | The identifier of the 'RestApi' to be updated. 
+-- | The identifier of the 'RestApi' to be updated.
 praRestAPIId :: Lens' PutRestAPI Text
 praRestAPIId = lens _praRestAPIId (\ s a -> s{_praRestAPIId = a});
 

@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteAPIKey
     , DeleteAPIKeyResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to delete the 'ApiKey' resource.
 --
@@ -58,7 +58,7 @@ newtype DeleteAPIKey = DeleteAPIKey'
 deleteAPIKey
     :: Text -- ^ 'dakApiKey'
     -> DeleteAPIKey
-deleteAPIKey pApiKey_ = 
+deleteAPIKey pApiKey_ =
     DeleteAPIKey'
     { _dakApiKey = pApiKey_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteAPIKey where
 
 -- | /See:/ 'deleteAPIKeyResponse' smart constructor.
 data DeleteAPIKeyResponse =
-    DeleteAPIKeyResponse' 
+    DeleteAPIKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteAPIKeyResponse' with the minimum fields required to make a request.

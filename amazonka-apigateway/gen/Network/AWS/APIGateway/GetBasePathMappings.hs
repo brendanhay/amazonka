@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetBasePathMappings
     , gbpmrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to get information about a collection of 'BasePathMapping' resources.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-    { _gLimit :: !(Maybe Int)
-    , _gPosition :: !(Maybe Text)
+    { _gLimit      :: !(Maybe Int)
+    , _gPosition   :: !(Maybe Text)
     , _gDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ data GetBasePathMappings = GetBasePathMappings'
 getBasePathMappings
     :: Text -- ^ 'gDomainName'
     -> GetBasePathMappings
-getBasePathMappings pDomainName_ = 
+getBasePathMappings pDomainName_ =
     GetBasePathMappings'
     { _gLimit = Nothing
     , _gPosition = Nothing
@@ -134,12 +134,12 @@ instance ToQuery GetBasePathMappings where
 -- | Represents a collection of 'BasePathMapping' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
 --
 -- /See:/ 'getBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
-    { _gbpmrsItems :: !(Maybe [BasePathMapping])
-    , _gbpmrsPosition :: !(Maybe Text)
+    { _gbpmrsItems          :: !(Maybe [BasePathMapping])
+    , _gbpmrsPosition       :: !(Maybe Text)
     , _gbpmrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -155,7 +155,7 @@ data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
 getBasePathMappingsResponse
     :: Int -- ^ 'gbpmrsResponseStatus'
     -> GetBasePathMappingsResponse
-getBasePathMappingsResponse pResponseStatus_ = 
+getBasePathMappingsResponse pResponseStatus_ =
     GetBasePathMappingsResponse'
     { _gbpmrsItems = Nothing
     , _gbpmrsPosition = Nothing

@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetDocumentationVersion
     , dvDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Gets a documentation snapshot of an API.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
-    { _gdvdRestAPIId :: !Text
+    { _gdvdRestAPIId            :: !Text
     , _gdvdDocumentationVersion :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -65,7 +65,7 @@ getDocumentationVersion
     :: Text -- ^ 'gdvdRestAPIId'
     -> Text -- ^ 'gdvdDocumentationVersion'
     -> GetDocumentationVersion
-getDocumentationVersion pRestAPIId_ pDocumentationVersion_ = 
+getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     GetDocumentationVersion'
     { _gdvdRestAPIId = pRestAPIId_
     , _gdvdDocumentationVersion = pDocumentationVersion_

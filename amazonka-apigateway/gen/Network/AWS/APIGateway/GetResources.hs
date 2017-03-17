@@ -42,13 +42,13 @@ module Network.AWS.APIGateway.GetResources
     , grrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to list information about a collection of resources.
 --
@@ -56,8 +56,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-    { _grsLimit :: !(Maybe Int)
-    , _grsPosition :: !(Maybe Text)
+    { _grsLimit     :: !(Maybe Int)
+    , _grsPosition  :: !(Maybe Text)
     , _grsRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ data GetResources = GetResources'
 getResources
     :: Text -- ^ 'grsRestAPIId'
     -> GetResources
-getResources pRestAPIId_ = 
+getResources pRestAPIId_ =
     GetResources'
     { _grsLimit = Nothing
     , _grsPosition = Nothing
@@ -132,12 +132,12 @@ instance ToQuery GetResources where
 -- | Represents a collection of 'Resource' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'getResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-    { _grrsItems :: !(Maybe [Resource])
-    , _grrsPosition :: !(Maybe Text)
+    { _grrsItems          :: !(Maybe [Resource])
+    , _grrsPosition       :: !(Maybe Text)
     , _grrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -153,7 +153,7 @@ data GetResourcesResponse = GetResourcesResponse'
 getResourcesResponse
     :: Int -- ^ 'grrsResponseStatus'
     -> GetResourcesResponse
-getResourcesResponse pResponseStatus_ = 
+getResourcesResponse pResponseStatus_ =
     GetResourcesResponse'
     { _grrsItems = Nothing
     , _grrsPosition = Nothing

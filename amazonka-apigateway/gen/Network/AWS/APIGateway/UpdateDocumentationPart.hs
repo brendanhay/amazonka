@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.UpdateDocumentationPart
     , dpProperties
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Updates an existing documentation part of a given API.
 --
@@ -51,8 +51,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateDocumentationPart' smart constructor.
 data UpdateDocumentationPart = UpdateDocumentationPart'
-    { _udpPatchOperations :: !(Maybe [PatchOperation])
-    , _udpRestAPIId :: !Text
+    { _udpPatchOperations     :: !(Maybe [PatchOperation])
+    , _udpRestAPIId           :: !Text
     , _udpDocumentationPartId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -69,7 +69,7 @@ updateDocumentationPart
     :: Text -- ^ 'udpRestAPIId'
     -> Text -- ^ 'udpDocumentationPartId'
     -> UpdateDocumentationPart
-updateDocumentationPart pRestAPIId_ pDocumentationPartId_ = 
+updateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
     UpdateDocumentationPart'
     { _udpPatchOperations = Nothing
     , _udpRestAPIId = pRestAPIId_

@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.UpdateUsagePlan
     , upProductCode
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The PATCH request to update a usage plan of a given plan Id.
 --
@@ -57,7 +57,7 @@ import Network.AWS.Response
 -- /See:/ 'updateUsagePlan' smart constructor.
 data UpdateUsagePlan = UpdateUsagePlan'
     { _uupPatchOperations :: !(Maybe [PatchOperation])
-    , _uupUsagePlanId :: !Text
+    , _uupUsagePlanId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateUsagePlan' with the minimum fields required to make a request.
@@ -70,7 +70,7 @@ data UpdateUsagePlan = UpdateUsagePlan'
 updateUsagePlan
     :: Text -- ^ 'uupUsagePlanId'
     -> UpdateUsagePlan
-updateUsagePlan pUsagePlanId_ = 
+updateUsagePlan pUsagePlanId_ =
     UpdateUsagePlan'
     { _uupPatchOperations = Nothing
     , _uupUsagePlanId = pUsagePlanId_

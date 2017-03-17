@@ -43,20 +43,20 @@ module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
     , rstrsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'registerScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-    { _rstMaxCapacity :: !(Maybe Int)
-    , _rstMinCapacity :: !(Maybe Int)
-    , _rstRoleARN :: !(Maybe Text)
-    , _rstServiceNamespace :: !ServiceNamespace
-    , _rstResourceId :: !Text
+    { _rstMaxCapacity       :: !(Maybe Int)
+    , _rstMinCapacity       :: !(Maybe Int)
+    , _rstRoleARN           :: !(Maybe Text)
+    , _rstServiceNamespace  :: !ServiceNamespace
+    , _rstResourceId        :: !Text
     , _rstScalableDimension :: !ScalableDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -80,7 +80,7 @@ registerScalableTarget
     -> Text -- ^ 'rstResourceId'
     -> ScalableDimension -- ^ 'rstScalableDimension'
     -> RegisterScalableTarget
-registerScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ = 
+registerScalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ =
     RegisterScalableTarget'
     { _rstMaxCapacity = Nothing
     , _rstMinCapacity = Nothing
@@ -168,7 +168,7 @@ newtype RegisterScalableTargetResponse = RegisterScalableTargetResponse'
 registerScalableTargetResponse
     :: Int -- ^ 'rstrsResponseStatus'
     -> RegisterScalableTargetResponse
-registerScalableTargetResponse pResponseStatus_ = 
+registerScalableTargetResponse pResponseStatus_ =
     RegisterScalableTargetResponse'
     { _rstrsResponseStatus = pResponseStatus_
     }

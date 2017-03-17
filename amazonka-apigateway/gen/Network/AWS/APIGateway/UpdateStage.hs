@@ -49,12 +49,12 @@ module Network.AWS.APIGateway.UpdateStage
     , sDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about a 'Stage' resource.
 --
@@ -63,8 +63,8 @@ import Network.AWS.Response
 -- /See:/ 'updateStage' smart constructor.
 data UpdateStage = UpdateStage'
     { _usPatchOperations :: !(Maybe [PatchOperation])
-    , _usRestAPIId :: !Text
-    , _usStageName :: !Text
+    , _usRestAPIId       :: !Text
+    , _usStageName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateStage' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ updateStage
     :: Text -- ^ 'usRestAPIId'
     -> Text -- ^ 'usStageName'
     -> UpdateStage
-updateStage pRestAPIId_ pStageName_ = 
+updateStage pRestAPIId_ pStageName_ =
     UpdateStage'
     { _usPatchOperations = Nothing
     , _usRestAPIId = pRestAPIId_

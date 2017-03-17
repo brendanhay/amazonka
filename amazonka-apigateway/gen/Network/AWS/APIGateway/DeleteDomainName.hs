@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteDomainName
     , DeleteDomainNameResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to delete the 'DomainName' resource.
 --
@@ -58,7 +58,7 @@ newtype DeleteDomainName = DeleteDomainName'
 deleteDomainName
     :: Text -- ^ 'ddnDomainName'
     -> DeleteDomainName
-deleteDomainName pDomainName_ = 
+deleteDomainName pDomainName_ =
     DeleteDomainName'
     { _ddnDomainName = pDomainName_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteDomainName where
 
 -- | /See:/ 'deleteDomainNameResponse' smart constructor.
 data DeleteDomainNameResponse =
-    DeleteDomainNameResponse' 
+    DeleteDomainNameResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDomainNameResponse' with the minimum fields required to make a request.

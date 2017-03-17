@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.GetExport
     , gersResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request a new export of a 'RestApi' for a particular 'Stage' .
 --
@@ -57,9 +57,9 @@ import Network.AWS.Response
 -- /See:/ 'getExport' smart constructor.
 data GetExport = GetExport'
     { _geParameters :: !(Maybe (Map Text Text))
-    , _geAccepts :: !(Maybe Text)
-    , _geRestAPIId :: !Text
-    , _geStageName :: !Text
+    , _geAccepts    :: !(Maybe Text)
+    , _geRestAPIId  :: !Text
+    , _geStageName  :: !Text
     , _geExportType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -81,7 +81,7 @@ getExport
     -> Text -- ^ 'geStageName'
     -> Text -- ^ 'geExportType'
     -> GetExport
-getExport pRestAPIId_ pStageName_ pExportType_ = 
+getExport pRestAPIId_ pStageName_ pExportType_ =
     GetExport'
     { _geParameters = Nothing
     , _geAccepts = Nothing
@@ -150,10 +150,10 @@ instance ToQuery GetExport where
 --
 -- /See:/ 'getExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-    { _gersBody :: !(Maybe (HashMap Text Value))
+    { _gersBody               :: !(Maybe (HashMap Text Value))
     , _gersContentDisposition :: !(Maybe Text)
-    , _gersContentType :: !(Maybe Text)
-    , _gersResponseStatus :: !Int
+    , _gersContentType        :: !(Maybe Text)
+    , _gersResponseStatus     :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetExportResponse' with the minimum fields required to make a request.
@@ -170,7 +170,7 @@ data GetExportResponse = GetExportResponse'
 getExportResponse
     :: Int -- ^ 'gersResponseStatus'
     -> GetExportResponse
-getExportResponse pResponseStatus_ = 
+getExportResponse pResponseStatus_ =
     GetExportResponse'
     { _gersBody = Nothing
     , _gersContentDisposition = Nothing

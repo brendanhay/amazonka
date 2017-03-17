@@ -69,13 +69,13 @@ module Network.AWS.ApplicationAutoScaling
     -- * Operations
     -- $operations
 
-    -- ** DeleteScalingPolicy 
+    -- ** DeleteScalingPolicy
     , module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
 
-    -- ** PutScalingPolicy 
+    -- ** PutScalingPolicy
     , module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
 
-    -- ** RegisterScalableTarget 
+    -- ** RegisterScalableTarget
     , module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 
     -- ** DescribeScalingPolicies (Paginated)
@@ -87,7 +87,7 @@ module Network.AWS.ApplicationAutoScaling
     -- ** DescribeScalingActivities (Paginated)
     , module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
 
-    -- ** DeregisterScalableTarget 
+    -- ** DeregisterScalableTarget
     , module Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
 
     -- * Types
@@ -172,15 +172,15 @@ module Network.AWS.ApplicationAutoScaling
     , sspcMinAdjustmentMagnitude
     ) where
 
-import Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
-import Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-import Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
-import Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
-import Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-import Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Waiters
+import           Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
+import           Network.AWS.ApplicationAutoScaling.DeregisterScalableTarget
+import           Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+import           Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
+import           Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
+import           Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+import           Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

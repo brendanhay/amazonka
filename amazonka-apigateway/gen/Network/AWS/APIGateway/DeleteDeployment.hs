@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteDeployment
     , DeleteDeploymentResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to delete a 'Deployment' resource.
 --
@@ -48,7 +48,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDeployment' smart constructor.
 data DeleteDeployment = DeleteDeployment'
-    { _ddRestAPIId :: !Text
+    { _ddRestAPIId    :: !Text
     , _ddDeploymentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -63,7 +63,7 @@ deleteDeployment
     :: Text -- ^ 'ddRestAPIId'
     -> Text -- ^ 'ddDeploymentId'
     -> DeleteDeployment
-deleteDeployment pRestAPIId_ pDeploymentId_ = 
+deleteDeployment pRestAPIId_ pDeploymentId_ =
     DeleteDeployment'
     { _ddRestAPIId = pRestAPIId_
     , _ddDeploymentId = pDeploymentId_
@@ -103,7 +103,7 @@ instance ToQuery DeleteDeployment where
 
 -- | /See:/ 'deleteDeploymentResponse' smart constructor.
 data DeleteDeploymentResponse =
-    DeleteDeploymentResponse' 
+    DeleteDeploymentResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDeploymentResponse' with the minimum fields required to make a request.

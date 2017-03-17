@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.PutMethodResponse
     , mResponseParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to add a 'MethodResponse' to an existing 'Method' resource.
 --
@@ -56,12 +56,12 @@ import Network.AWS.Response
 --
 -- /See:/ 'putMethodResponse' smart constructor.
 data PutMethodResponse = PutMethodResponse'
-    { _pmResponseModels :: !(Maybe (Map Text Text))
+    { _pmResponseModels     :: !(Maybe (Map Text Text))
     , _pmResponseParameters :: !(Maybe (Map Text Bool))
-    , _pmRestAPIId :: !Text
-    , _pmResourceId :: !Text
-    , _pmHttpMethod :: !Text
-    , _pmStatusCode :: !Text
+    , _pmRestAPIId          :: !Text
+    , _pmResourceId         :: !Text
+    , _pmHttpMethod         :: !Text
+    , _pmStatusCode         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutMethodResponse' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ putMethodResponse
     -> Text -- ^ 'pmHttpMethod'
     -> Text -- ^ 'pmStatusCode'
     -> PutMethodResponse
-putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+putMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     PutMethodResponse'
     { _pmResponseModels = Nothing
     , _pmResponseParameters = Nothing

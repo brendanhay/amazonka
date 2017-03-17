@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.UpdateClientCertificate
     , ccDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to change information about an 'ClientCertificate' resource.
 --
@@ -54,7 +54,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'updateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
-    { _uccPatchOperations :: !(Maybe [PatchOperation])
+    { _uccPatchOperations     :: !(Maybe [PatchOperation])
     , _uccClientCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data UpdateClientCertificate = UpdateClientCertificate'
 updateClientCertificate
     :: Text -- ^ 'uccClientCertificateId'
     -> UpdateClientCertificate
-updateClientCertificate pClientCertificateId_ = 
+updateClientCertificate pClientCertificateId_ =
     UpdateClientCertificate'
     { _uccPatchOperations = Nothing
     , _uccClientCertificateId = pClientCertificateId_

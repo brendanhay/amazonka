@@ -15,7 +15,7 @@
 --
 module Network.AWS.AppStream.Waiters where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.AppStream.Types
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

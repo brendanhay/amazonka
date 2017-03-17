@@ -45,12 +45,12 @@ module Network.AWS.AppStream.CreateFleet
     , cfrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Contains the parameters for the new fleet to create.
 --
@@ -59,21 +59,21 @@ import Network.AWS.Response
 -- /See:/ 'createFleet' smart constructor.
 data CreateFleet = CreateFleet'
     { _cfDisconnectTimeoutInSeconds :: !(Maybe Int)
-    , _cfMaxUserDurationInSeconds :: !(Maybe Int)
-    , _cfVPCConfig :: !(Maybe VPCConfig)
-    , _cfDisplayName :: !(Maybe Text)
-    , _cfDescription :: !(Maybe Text)
-    , _cfName :: !Text
-    , _cfImageName :: !Text
-    , _cfInstanceType :: !Text
-    , _cfComputeCapacity :: !ComputeCapacity
+    , _cfMaxUserDurationInSeconds   :: !(Maybe Int)
+    , _cfVPCConfig                  :: !(Maybe VPCConfig)
+    , _cfDisplayName                :: !(Maybe Text)
+    , _cfDescription                :: !(Maybe Text)
+    , _cfName                       :: !Text
+    , _cfImageName                  :: !Text
+    , _cfInstanceType               :: !Text
+    , _cfComputeCapacity            :: !ComputeCapacity
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateFleet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to his/her previous session. 
+-- * 'cfDisconnectTimeoutInSeconds' - The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to his/her previous session.
 --
 -- * 'cfMaxUserDurationInSeconds' - The maximum time up to which a streaming session can run.
 --
@@ -96,7 +96,7 @@ createFleet
     -> Text -- ^ 'cfInstanceType'
     -> ComputeCapacity -- ^ 'cfComputeCapacity'
     -> CreateFleet
-createFleet pName_ pImageName_ pInstanceType_ pComputeCapacity_ = 
+createFleet pName_ pImageName_ pInstanceType_ pComputeCapacity_ =
     CreateFleet'
     { _cfDisconnectTimeoutInSeconds = Nothing
     , _cfMaxUserDurationInSeconds = Nothing
@@ -109,7 +109,7 @@ createFleet pName_ pImageName_ pInstanceType_ pComputeCapacity_ =
     , _cfComputeCapacity = pComputeCapacity_
     }
 
--- | The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to his/her previous session. 
+-- | The time after disconnection when a session is considered to have ended. If a user who got disconnected reconnects within this timeout interval, the user is connected back to his/her previous session.
 cfDisconnectTimeoutInSeconds :: Lens' CreateFleet (Maybe Int)
 cfDisconnectTimeoutInSeconds = lens _cfDisconnectTimeoutInSeconds (\ s a -> s{_cfDisconnectTimeoutInSeconds = a});
 
@@ -192,7 +192,7 @@ instance ToQuery CreateFleet where
 
 -- | /See:/ 'createFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-    { _cfrsFleet :: !(Maybe Fleet)
+    { _cfrsFleet          :: !(Maybe Fleet)
     , _cfrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -206,7 +206,7 @@ data CreateFleetResponse = CreateFleetResponse'
 createFleetResponse
     :: Int -- ^ 'cfrsResponseStatus'
     -> CreateFleetResponse
-createFleetResponse pResponseStatus_ = 
+createFleetResponse pResponseStatus_ =
     CreateFleetResponse'
     { _cfrsFleet = Nothing
     , _cfrsResponseStatus = pResponseStatus_

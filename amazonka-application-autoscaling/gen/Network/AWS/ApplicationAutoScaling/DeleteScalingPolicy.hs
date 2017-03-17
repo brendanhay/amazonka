@@ -43,18 +43,18 @@ module Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
     , dsprsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-    { _dspPolicyName :: !Text
-    , _dspServiceNamespace :: !ServiceNamespace
-    , _dspResourceId :: !Text
+    { _dspPolicyName        :: !Text
+    , _dspServiceNamespace  :: !ServiceNamespace
+    , _dspResourceId        :: !Text
     , _dspScalableDimension :: !ScalableDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ deleteScalingPolicy
     -> Text -- ^ 'dspResourceId'
     -> ScalableDimension -- ^ 'dspScalableDimension'
     -> DeleteScalingPolicy
-deleteScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ = 
+deleteScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ =
     DeleteScalingPolicy'
     { _dspPolicyName = pPolicyName_
     , _dspServiceNamespace = pServiceNamespace_
@@ -150,7 +150,7 @@ newtype DeleteScalingPolicyResponse = DeleteScalingPolicyResponse'
 deleteScalingPolicyResponse
     :: Int -- ^ 'dsprsResponseStatus'
     -> DeleteScalingPolicyResponse
-deleteScalingPolicyResponse pResponseStatus_ = 
+deleteScalingPolicyResponse pResponseStatus_ =
     DeleteScalingPolicyResponse'
     { _dsprsResponseStatus = pResponseStatus_
     }

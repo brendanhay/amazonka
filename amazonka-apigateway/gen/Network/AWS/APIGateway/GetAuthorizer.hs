@@ -21,7 +21,7 @@
 -- Describe an existing 'Authorizer' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI> 
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizer
     (
     -- * Creating a Request
@@ -47,12 +47,12 @@ module Network.AWS.APIGateway.GetAuthorizer
     , aAuthorizerCredentials
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to describe an existing 'Authorizer' resource.
 --
@@ -60,7 +60,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
-    { _gaaRestAPIId :: !Text
+    { _gaaRestAPIId    :: !Text
     , _gaaAuthorizerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ getAuthorizer
     :: Text -- ^ 'gaaRestAPIId'
     -> Text -- ^ 'gaaAuthorizerId'
     -> GetAuthorizer
-getAuthorizer pRestAPIId_ pAuthorizerId_ = 
+getAuthorizer pRestAPIId_ pAuthorizerId_ =
     GetAuthorizer'
     { _gaaRestAPIId = pRestAPIId_
     , _gaaAuthorizerId = pAuthorizerId_

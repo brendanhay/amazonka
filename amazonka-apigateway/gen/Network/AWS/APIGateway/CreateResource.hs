@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.CreateResource
     , rParentId
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Resource' resource.
 --
@@ -56,15 +56,15 @@ import Network.AWS.Response
 -- /See:/ 'createResource' smart constructor.
 data CreateResource = CreateResource'
     { _crRestAPIId :: !Text
-    , _crParentId :: !Text
-    , _crPathPart :: !Text
+    , _crParentId  :: !Text
+    , _crPathPart  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRestAPIId' - The identifier of the 'RestApi' for the resource. 
+-- * 'crRestAPIId' - The identifier of the 'RestApi' for the resource.
 --
 -- * 'crParentId' - The parent resource's identifier.
 --
@@ -74,14 +74,14 @@ createResource
     -> Text -- ^ 'crParentId'
     -> Text -- ^ 'crPathPart'
     -> CreateResource
-createResource pRestAPIId_ pParentId_ pPathPart_ = 
+createResource pRestAPIId_ pParentId_ pPathPart_ =
     CreateResource'
     { _crRestAPIId = pRestAPIId_
     , _crParentId = pParentId_
     , _crPathPart = pPathPart_
     }
 
--- | The identifier of the 'RestApi' for the resource. 
+-- | The identifier of the 'RestApi' for the resource.
 crRestAPIId :: Lens' CreateResource Text
 crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
 

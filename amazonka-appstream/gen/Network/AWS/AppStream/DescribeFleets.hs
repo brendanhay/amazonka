@@ -39,17 +39,17 @@ module Network.AWS.AppStream.DescribeFleets
     , dfsrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
     { _dfNextToken :: !(Maybe Text)
-    , _dfNames :: !(Maybe [Text])
+    , _dfNames     :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeFleets' with the minimum fields required to make a request.
@@ -61,7 +61,7 @@ data DescribeFleets = DescribeFleets'
 -- * 'dfNames' - The fleet names to describe. Use null to describe all the fleets for the AWS account.
 describeFleets
     :: DescribeFleets
-describeFleets = 
+describeFleets =
     DescribeFleets'
     { _dfNextToken = Nothing
     , _dfNames = Nothing
@@ -114,8 +114,8 @@ instance ToQuery DescribeFleets where
 
 -- | /See:/ 'describeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
-    { _dfsrsNextToken :: !(Maybe Text)
-    , _dfsrsFleets :: !(Maybe [Fleet])
+    { _dfsrsNextToken      :: !(Maybe Text)
+    , _dfsrsFleets         :: !(Maybe [Fleet])
     , _dfsrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -131,7 +131,7 @@ data DescribeFleetsResponse = DescribeFleetsResponse'
 describeFleetsResponse
     :: Int -- ^ 'dfsrsResponseStatus'
     -> DescribeFleetsResponse
-describeFleetsResponse pResponseStatus_ = 
+describeFleetsResponse pResponseStatus_ =
     DescribeFleetsResponse'
     { _dfsrsNextToken = Nothing
     , _dfsrsFleets = Nothing

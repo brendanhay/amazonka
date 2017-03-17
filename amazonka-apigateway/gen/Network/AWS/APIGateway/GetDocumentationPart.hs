@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetDocumentationPart
     , dpProperties
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Gets a specified documentation part of a given API.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDocumentationPart' smart constructor.
 data GetDocumentationPart = GetDocumentationPart'
-    { _getRestAPIId :: !Text
+    { _getRestAPIId           :: !Text
     , _getDocumentationPartId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -65,7 +65,7 @@ getDocumentationPart
     :: Text -- ^ 'getRestAPIId'
     -> Text -- ^ 'getDocumentationPartId'
     -> GetDocumentationPart
-getDocumentationPart pRestAPIId_ pDocumentationPartId_ = 
+getDocumentationPart pRestAPIId_ pDocumentationPartId_ =
     GetDocumentationPart'
     { _getRestAPIId = pRestAPIId_
     , _getDocumentationPartId = pDocumentationPartId_

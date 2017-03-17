@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteRestAPI
     , DeleteRestAPIResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to delete the specified API from your collection.
 --
@@ -58,7 +58,7 @@ newtype DeleteRestAPI = DeleteRestAPI'
 deleteRestAPI
     :: Text -- ^ 'draRestAPIId'
     -> DeleteRestAPI
-deleteRestAPI pRestAPIId_ = 
+deleteRestAPI pRestAPIId_ =
     DeleteRestAPI'
     { _draRestAPIId = pRestAPIId_
     }
@@ -91,7 +91,7 @@ instance ToQuery DeleteRestAPI where
 
 -- | /See:/ 'deleteRestAPIResponse' smart constructor.
 data DeleteRestAPIResponse =
-    DeleteRestAPIResponse' 
+    DeleteRestAPIResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteRestAPIResponse' with the minimum fields required to make a request.

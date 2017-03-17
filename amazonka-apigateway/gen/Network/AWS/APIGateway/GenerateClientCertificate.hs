@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GenerateClientCertificate
     , ccDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to generate a 'ClientCertificate' resource.
 --
@@ -63,7 +63,7 @@ newtype GenerateClientCertificate = GenerateClientCertificate'
 -- * 'gccDescription' - The description of the 'ClientCertificate' .
 generateClientCertificate
     :: GenerateClientCertificate
-generateClientCertificate = 
+generateClientCertificate =
     GenerateClientCertificate'
     { _gccDescription = Nothing
     }

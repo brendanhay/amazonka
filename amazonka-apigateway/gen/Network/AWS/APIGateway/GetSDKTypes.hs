@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.GetSDKTypes
     , gstrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Get the 'SdkTypes' collection.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getSDKTypes' smart constructor.
 data GetSDKTypes = GetSDKTypes'
-    { _gstLimit :: !(Maybe Int)
+    { _gstLimit    :: !(Maybe Int)
     , _gstPosition :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -58,18 +58,18 @@ data GetSDKTypes = GetSDKTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gstLimit' - The maximum number of 'SdkType' instances to be returned. 
+-- * 'gstLimit' - The maximum number of 'SdkType' instances to be returned.
 --
 -- * 'gstPosition' - The position of the last fetched element in the 'SdkTypes' collection.
 getSDKTypes
     :: GetSDKTypes
-getSDKTypes = 
+getSDKTypes =
     GetSDKTypes'
     { _gstLimit = Nothing
     , _gstPosition = Nothing
     }
 
--- | The maximum number of 'SdkType' instances to be returned. 
+-- | The maximum number of 'SdkType' instances to be returned.
 gstLimit :: Lens' GetSDKTypes (Maybe Int)
 gstLimit = lens _gstLimit (\ s a -> s{_gstLimit = a});
 
@@ -111,8 +111,8 @@ instance ToQuery GetSDKTypes where
 --
 -- /See:/ 'getSDKTypesResponse' smart constructor.
 data GetSDKTypesResponse = GetSDKTypesResponse'
-    { _gstrsItems :: !(Maybe [SDKType])
-    , _gstrsPosition :: !(Maybe Text)
+    { _gstrsItems          :: !(Maybe [SDKType])
+    , _gstrsPosition       :: !(Maybe Text)
     , _gstrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -128,7 +128,7 @@ data GetSDKTypesResponse = GetSDKTypesResponse'
 getSDKTypesResponse
     :: Int -- ^ 'gstrsResponseStatus'
     -> GetSDKTypesResponse
-getSDKTypesResponse pResponseStatus_ = 
+getSDKTypesResponse pResponseStatus_ =
     GetSDKTypesResponse'
     { _gstrsItems = Nothing
     , _gstrsPosition = Nothing

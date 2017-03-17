@@ -43,12 +43,12 @@ module Network.AWS.APIGateway.CreateDomainName
     , dnDistributionDomainName
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to create a new domain name.
 --
@@ -56,11 +56,11 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-    { _cdnDomainName :: !Text
-    , _cdnCertificateName :: !Text
-    , _cdnCertificateBody :: !Text
+    { _cdnDomainName            :: !Text
+    , _cdnCertificateName       :: !Text
+    , _cdnCertificateBody       :: !Text
     , _cdnCertificatePrivateKey :: !Text
-    , _cdnCertificateChain :: !Text
+    , _cdnCertificateChain      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDomainName' with the minimum fields required to make a request.
@@ -83,7 +83,7 @@ createDomainName
     -> Text -- ^ 'cdnCertificatePrivateKey'
     -> Text -- ^ 'cdnCertificateChain'
     -> CreateDomainName
-createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePrivateKey_ pCertificateChain_ = 
+createDomainName pDomainName_ pCertificateName_ pCertificateBody_ pCertificatePrivateKey_ pCertificateChain_ =
     CreateDomainName'
     { _cdnDomainName = pDomainName_
     , _cdnCertificateName = pCertificateName_

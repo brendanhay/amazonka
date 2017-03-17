@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.GetDomainName
     , dnDistributionDomainName
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to get the name of a 'DomainName' resource.
 --
@@ -63,7 +63,7 @@ newtype GetDomainName = GetDomainName'
 getDomainName
     :: Text -- ^ 'gdnDomainName'
     -> GetDomainName
-getDomainName pDomainName_ = 
+getDomainName pDomainName_ =
     GetDomainName'
     { _gdnDomainName = pDomainName_
     }

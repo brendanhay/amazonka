@@ -39,23 +39,23 @@ module Network.AWS.APIGateway.ImportDocumentationParts
     , idprsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
--- | Import documentation parts from an external (e.g., Swagger) definition file. 
+-- | Import documentation parts from an external (e.g., Swagger) definition file.
 --
 --
 --
 -- /See:/ 'importDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-    { _idpMode :: !(Maybe PutMode)
+    { _idpMode           :: !(Maybe PutMode)
     , _idpFailOnWarnings :: !(Maybe Bool)
-    , _idpRestAPIId :: !Text
-    , _idpBody :: !(HashMap Text Value)
+    , _idpRestAPIId      :: !Text
+    , _idpBody           :: !(HashMap Text Value)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportDocumentationParts' with the minimum fields required to make a request.
@@ -73,7 +73,7 @@ importDocumentationParts
     :: Text -- ^ 'idpRestAPIId'
     -> HashMap Text Value -- ^ 'idpBody'
     -> ImportDocumentationParts
-importDocumentationParts pRestAPIId_ pBody_ = 
+importDocumentationParts pRestAPIId_ pBody_ =
     ImportDocumentationParts'
     { _idpMode = Nothing
     , _idpFailOnWarnings = Nothing
@@ -137,12 +137,12 @@ instance ToQuery ImportDocumentationParts where
 -- | A collection of the imported 'DocumentationPart' identifiers.
 --
 --
--- This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into Amazon API Gateway<http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , <http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import> , 'DocumentationPart' 
+-- This is used to return the result when documentation parts in an external (e.g., Swagger) file are imported into Amazon API Gateway<http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , <http://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import> , 'DocumentationPart'
 --
 -- /See:/ 'importDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-    { _idprsIds :: !(Maybe [Text])
-    , _idprsWarnings :: !(Maybe [Text])
+    { _idprsIds            :: !(Maybe [Text])
+    , _idprsWarnings       :: !(Maybe [Text])
     , _idprsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -158,7 +158,7 @@ data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
 importDocumentationPartsResponse
     :: Int -- ^ 'idprsResponseStatus'
     -> ImportDocumentationPartsResponse
-importDocumentationPartsResponse pResponseStatus_ = 
+importDocumentationPartsResponse pResponseStatus_ =
     ImportDocumentationPartsResponse'
     { _idprsIds = Nothing
     , _idprsWarnings = Nothing

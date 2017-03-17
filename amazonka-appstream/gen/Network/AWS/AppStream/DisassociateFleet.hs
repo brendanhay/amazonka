@@ -37,12 +37,12 @@ module Network.AWS.AppStream.DisassociateFleet
     , drsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'disassociateFleet' smart constructor.
 data DisassociateFleet = DisassociateFleet'
@@ -61,7 +61,7 @@ disassociateFleet
     :: Text -- ^ 'dfFleetName'
     -> Text -- ^ 'dfStackName'
     -> DisassociateFleet
-disassociateFleet pFleetName_ pStackName_ = 
+disassociateFleet pFleetName_ pStackName_ =
     DisassociateFleet'
     { _dfFleetName = pFleetName_
     , _dfStackName = pStackName_
@@ -123,7 +123,7 @@ newtype DisassociateFleetResponse = DisassociateFleetResponse'
 disassociateFleetResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DisassociateFleetResponse
-disassociateFleetResponse pResponseStatus_ = 
+disassociateFleetResponse pResponseStatus_ =
     DisassociateFleetResponse'
     { _drsResponseStatus = pResponseStatus_
     }

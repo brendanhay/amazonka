@@ -21,7 +21,7 @@
 -- Adds a new 'Authorizer' resource to an existing 'RestApi' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI> 
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/create-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.CreateAuthorizer
     (
     -- * Creating a Request
@@ -55,12 +55,12 @@ module Network.AWS.APIGateway.CreateAuthorizer
     , aAuthorizerCredentials
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to add a new 'Authorizer' to an existing 'RestApi' resource.
 --
@@ -68,16 +68,16 @@ import Network.AWS.Response
 --
 -- /See:/ 'createAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-    { _caAuthorizerURI :: !(Maybe Text)
+    { _caAuthorizerURI                :: !(Maybe Text)
     , _caIdentityValidationExpression :: !(Maybe Text)
-    , _caProviderARNs :: !(Maybe [Text])
+    , _caProviderARNs                 :: !(Maybe [Text])
     , _caAuthorizerResultTtlInSeconds :: !(Maybe Int)
-    , _caAuthType :: !(Maybe Text)
-    , _caAuthorizerCredentials :: !(Maybe Text)
-    , _caRestAPIId :: !Text
-    , _caName :: !Text
-    , _caType :: !AuthorizerType
-    , _caIdentitySource :: !Text
+    , _caAuthType                     :: !(Maybe Text)
+    , _caAuthorizerCredentials        :: !(Maybe Text)
+    , _caRestAPIId                    :: !Text
+    , _caName                         :: !Text
+    , _caType                         :: !AuthorizerType
+    , _caIdentitySource               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateAuthorizer' with the minimum fields required to make a request.
@@ -109,7 +109,7 @@ createAuthorizer
     -> AuthorizerType -- ^ 'caType'
     -> Text -- ^ 'caIdentitySource'
     -> CreateAuthorizer
-createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ = 
+createAuthorizer pRestAPIId_ pName_ pType_ pIdentitySource_ =
     CreateAuthorizer'
     { _caAuthorizerURI = Nothing
     , _caIdentityValidationExpression = Nothing

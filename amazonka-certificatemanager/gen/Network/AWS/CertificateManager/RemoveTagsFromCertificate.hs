@@ -37,17 +37,17 @@ module Network.AWS.CertificateManager.RemoveTagsFromCertificate
     , RemoveTagsFromCertificateResponse
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'removeTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
     { _rtfcCertificateARN :: !Text
-    , _rtfcTags :: !(List1 Tag)
+    , _rtfcTags           :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveTagsFromCertificate' with the minimum fields required to make a request.
@@ -61,7 +61,7 @@ removeTagsFromCertificate
     :: Text -- ^ 'rtfcCertificateARN'
     -> NonEmpty Tag -- ^ 'rtfcTags'
     -> RemoveTagsFromCertificate
-removeTagsFromCertificate pCertificateARN_ pTags_ = 
+removeTagsFromCertificate pCertificateARN_ pTags_ =
     RemoveTagsFromCertificate'
     { _rtfcCertificateARN = pCertificateARN_
     , _rtfcTags = _List1 # pTags_
@@ -111,7 +111,7 @@ instance ToQuery RemoveTagsFromCertificate where
 
 -- | /See:/ 'removeTagsFromCertificateResponse' smart constructor.
 data RemoveTagsFromCertificateResponse =
-    RemoveTagsFromCertificateResponse' 
+    RemoveTagsFromCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RemoveTagsFromCertificateResponse' with the minimum fields required to make a request.

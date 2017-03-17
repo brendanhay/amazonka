@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -105,15 +105,15 @@ module Network.AWS.CertificateManager.Types
     , tagKey
     ) where
 
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.CertificateManager.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.CertificateManager.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
 -- | API version @2015-12-08@ of the Amazon Certificate Manager SDK configuration.
 certificateManager :: Service
-certificateManager = 
+certificateManager =
     Service
     { _svcAbbrev = "CertificateManager"
     , _svcSigner = v4
@@ -126,7 +126,7 @@ certificateManager =
     , _svcRetry = retry
     }
   where
-    retry = 
+    retry =
         Exponential
         { _retryBase = 5.0e-2
         , _retryGrowth = 2
@@ -135,7 +135,7 @@ certificateManager =
         }
     check e
       | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e = 
+      | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
       | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
       | has (hasStatus 504) e = Just "gateway_timeout"
@@ -149,14 +149,14 @@ certificateManager =
 --
 --
 _InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTagException = 
+_InvalidTagException =
     _MatchServiceError certificateManager "InvalidTagException"
 
 -- | One or more values in the 'DomainValidationOption' structure is incorrect.
 --
 --
 _InvalidDomainValidationOptionsException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidDomainValidationOptionsException = 
+_InvalidDomainValidationOptionsException =
     _MatchServiceError
         certificateManager
         "InvalidDomainValidationOptionsException"
@@ -165,47 +165,47 @@ _InvalidDomainValidationOptionsException =
 --
 --
 _TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = 
+_TooManyTagsException =
     _MatchServiceError certificateManager "TooManyTagsException"
 
 -- | The certificate request is in process and the certificate in your account has not yet been issued.
 --
 --
 _RequestInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestInProgressException = 
+_RequestInProgressException =
     _MatchServiceError certificateManager "RequestInProgressException"
 
 -- | The requested Amazon Resource Name (ARN) does not refer to an existing resource.
 --
 --
 _InvalidARNException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidARNException = 
+_InvalidARNException =
     _MatchServiceError certificateManager "InvalidArnException"
 
 -- | The specified certificate cannot be found in the caller's account, or the caller's account cannot be found.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = 
+_ResourceNotFoundException =
     _MatchServiceError certificateManager "ResourceNotFoundException"
 
 -- | Processing has reached an invalid state. For example, this exception can occur if the specified domain is not using email validation, or the current certificate status does not permit the requested operation. See the exception message returned by ACM to determine which state is not valid.
 --
 --
 _InvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidStateException = 
+_InvalidStateException =
     _MatchServiceError certificateManager "InvalidStateException"
 
 -- | An ACM limit has been exceeded. For example, you may have input more domains than are allowed or you've requested too many certificates for your account. See the exception message returned by ACM to determine which limit you have violated. For more information about ACM limits, see the <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> topic.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = 
+_LimitExceededException =
     _MatchServiceError certificateManager "LimitExceededException"
 
 -- | The certificate is in use by another AWS service in the caller's account. Remove the association and try again.
 --
 --
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = 
+_ResourceInUseException =
     _MatchServiceError certificateManager "ResourceInUseException"

@@ -33,12 +33,12 @@ module Network.AWS.APIGateway.DeleteDocumentationVersion
     , DeleteDocumentationVersionResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Deletes an existing documentation version of an API.
 --
@@ -46,7 +46,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-    { _ddvRestAPIId :: !Text
+    { _ddvRestAPIId            :: !Text
     , _ddvDocumentationVersion :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,7 +61,7 @@ deleteDocumentationVersion
     :: Text -- ^ 'ddvRestAPIId'
     -> Text -- ^ 'ddvDocumentationVersion'
     -> DeleteDocumentationVersion
-deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ = 
+deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     DeleteDocumentationVersion'
     { _ddvRestAPIId = pRestAPIId_
     , _ddvDocumentationVersion = pDocumentationVersion_
@@ -104,7 +104,7 @@ instance ToQuery DeleteDocumentationVersion where
 
 -- | /See:/ 'deleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse =
-    DeleteDocumentationVersionResponse' 
+    DeleteDocumentationVersionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteDocumentationVersionResponse' with the minimum fields required to make a request.

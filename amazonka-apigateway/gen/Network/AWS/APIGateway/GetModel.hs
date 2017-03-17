@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetModel
     , mContentType
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to list information about a model in an existing 'RestApi' resource.
 --
@@ -55,7 +55,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getModel' smart constructor.
 data GetModel = GetModel'
-    { _ggFlatten :: !(Maybe Bool)
+    { _ggFlatten   :: !(Maybe Bool)
     , _ggRestAPIId :: !Text
     , _ggModelName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -73,7 +73,7 @@ getModel
     :: Text -- ^ 'ggRestAPIId'
     -> Text -- ^ 'ggModelName'
     -> GetModel
-getModel pRestAPIId_ pModelName_ = 
+getModel pRestAPIId_ pModelName_ =
     GetModel'
     { _ggFlatten = Nothing
     , _ggRestAPIId = pRestAPIId_

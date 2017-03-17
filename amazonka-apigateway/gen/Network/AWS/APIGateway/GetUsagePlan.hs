@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetUsagePlan
     , upProductCode
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to get a usage plan of a given plan identifier.
 --
@@ -66,7 +66,7 @@ newtype GetUsagePlan = GetUsagePlan'
 getUsagePlan
     :: Text -- ^ 'gupUsagePlanId'
     -> GetUsagePlan
-getUsagePlan pUsagePlanId_ = 
+getUsagePlan pUsagePlanId_ =
     GetUsagePlan'
     { _gupUsagePlanId = pUsagePlanId_
     }

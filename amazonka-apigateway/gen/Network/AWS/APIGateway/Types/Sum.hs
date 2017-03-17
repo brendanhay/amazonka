@@ -17,10 +17,10 @@
 --
 module Network.AWS.APIGateway.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data APIKeysFormat =
-    CSV 
+    CSV
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText APIKeysFormat where
@@ -46,8 +46,8 @@ instance ToJSON APIKeysFormat where
 --
 --
 data AuthorizerType
-    = CognitoUserPools 
-    | Token 
+    = CognitoUserPools
+    | Token
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AuthorizerType where
@@ -78,14 +78,14 @@ instance FromJSON AuthorizerType where
 --
 --
 data CacheClusterSize
-    = D0_5 
-    | D118 
-    | D13_5 
-    | D1_6 
-    | D237 
-    | D28_4 
-    | D58_2 
-    | D6_1 
+    = D0_5
+    | D118
+    | D13_5
+    | D1_6
+    | D237
+    | D28_4
+    | D58_2
+    | D6_1
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CacheClusterSize where
@@ -128,11 +128,11 @@ instance FromJSON CacheClusterSize where
 --
 --
 data CacheClusterStatus
-    = Available 
-    | CreateInProgress 
-    | DeleteInProgress 
-    | FlushInProgress 
-    | NotAvailable 
+    = Available
+    | CreateInProgress
+    | DeleteInProgress
+    | FlushInProgress
+    | NotAvailable
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CacheClusterStatus where
@@ -163,8 +163,8 @@ instance FromJSON CacheClusterStatus where
     parseJSON = parseJSONText "CacheClusterStatus"
 
 data ContentHandlingStrategy
-    = ConvertToBinary 
-    | ConvertToText 
+    = ConvertToBinary
+    | ConvertToText
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ContentHandlingStrategy where
@@ -192,18 +192,18 @@ instance FromJSON ContentHandlingStrategy where
     parseJSON = parseJSONText "ContentHandlingStrategy"
 
 data DocumentationPartType
-    = API 
-    | Authorizer 
-    | Method 
-    | Model 
-    | PathParameter 
-    | QueryParameter 
-    | RequestBody 
-    | RequestHeader 
-    | Resource 
-    | Response 
-    | ResponseBody 
-    | ResponseHeader 
+    = API
+    | Authorizer
+    | Method
+    | Model
+    | PathParameter
+    | QueryParameter
+    | RequestBody
+    | RequestHeader
+    | Resource
+    | Response
+    | ResponseBody
+    | ResponseHeader
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DocumentationPartType where
@@ -254,11 +254,11 @@ instance FromJSON DocumentationPartType where
 --
 --
 data IntegrationType
-    = AWS 
-    | AWSProxy 
-    | HTTP 
-    | HTTPProxy 
-    | Mock 
+    = AWS
+    | AWSProxy
+    | HTTP
+    | HTTPProxy
+    | Mock
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IntegrationType where
@@ -292,12 +292,12 @@ instance FromJSON IntegrationType where
     parseJSON = parseJSONText "IntegrationType"
 
 data Op
-    = Add 
-    | Copy 
-    | Move 
-    | Remove 
-    | Replace 
-    | Test 
+    = Add
+    | Copy
+    | Move
+    | Remove
+    | Replace
+    | Test
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Op where
@@ -330,8 +330,8 @@ instance ToJSON Op where
     toJSON = toJSONText
 
 data PutMode
-    = Merge 
-    | Overwrite 
+    = Merge
+    | Overwrite
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PutMode where
@@ -356,9 +356,9 @@ instance ToJSON PutMode where
     toJSON = toJSONText
 
 data QuotaPeriodType
-    = Day 
-    | Month 
-    | Week 
+    = Day
+    | Month
+    | Week
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText QuotaPeriodType where
@@ -388,9 +388,9 @@ instance FromJSON QuotaPeriodType where
     parseJSON = parseJSONText "QuotaPeriodType"
 
 data UnauthorizedCacheControlHeaderStrategy
-    = FailWith403 
-    | SucceedWithResponseHeader 
-    | SucceedWithoutResponseHeader 
+    = FailWith403
+    | SucceedWithResponseHeader
+    | SucceedWithoutResponseHeader
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText UnauthorizedCacheControlHeaderStrategy where

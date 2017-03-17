@@ -37,12 +37,12 @@ module Network.AWS.APIGateway.DeleteIntegrationResponse
     , DeleteIntegrationResponseResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a delete integration response request.
 --
@@ -50,7 +50,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'deleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
-    { _diRestAPIId :: !Text
+    { _diRestAPIId  :: !Text
     , _diResourceId :: !Text
     , _diHttpMethod :: !Text
     , _diStatusCode :: !Text
@@ -73,7 +73,7 @@ deleteIntegrationResponse
     -> Text -- ^ 'diHttpMethod'
     -> Text -- ^ 'diStatusCode'
     -> DeleteIntegrationResponse
-deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ = 
+deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     DeleteIntegrationResponse'
     { _diRestAPIId = pRestAPIId_
     , _diResourceId = pResourceId_
@@ -126,7 +126,7 @@ instance ToQuery DeleteIntegrationResponse where
 
 -- | /See:/ 'deleteIntegrationResponseResponse' smart constructor.
 data DeleteIntegrationResponseResponse =
-    DeleteIntegrationResponseResponse' 
+    DeleteIntegrationResponseResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteIntegrationResponseResponse' with the minimum fields required to make a request.

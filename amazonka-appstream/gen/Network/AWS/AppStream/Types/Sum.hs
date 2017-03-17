@@ -17,20 +17,20 @@
 --
 module Network.AWS.AppStream.Types.Sum where
 
-import Network.AWS.Prelude
+import           Network.AWS.Prelude
 
 data FleetErrorCode
-    = IAMServiceRoleIsMissing 
-    | IAMServiceRoleMissingDescribeSubnetAction 
-    | IAMServiceRoleMissingEniCreateAction 
-    | IAMServiceRoleMissingEniDeleteAction 
-    | IAMServiceRoleMissingEniDescribeAction 
-    | ImageNotFound 
-    | InternalServiceError 
-    | InvalidSubnetConfiguration 
-    | NetworkInterfaceLimitExceeded 
-    | SubnetHasInsufficientIPAddresses 
-    | SubnetNotFound 
+    = IAMServiceRoleIsMissing
+    | IAMServiceRoleMissingDescribeSubnetAction
+    | IAMServiceRoleMissingEniCreateAction
+    | IAMServiceRoleMissingEniDeleteAction
+    | IAMServiceRoleMissingEniDescribeAction
+    | ImageNotFound
+    | InternalServiceError
+    | InvalidSubnetConfiguration
+    | NetworkInterfaceLimitExceeded
+    | SubnetHasInsufficientIPAddresses
+    | SubnetNotFound
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FleetErrorCode where
@@ -73,10 +73,10 @@ instance FromJSON FleetErrorCode where
     parseJSON = parseJSONText "FleetErrorCode"
 
 data FleetState
-    = Running 
-    | Starting 
-    | Stopped 
-    | Stopping 
+    = Running
+    | Starting
+    | Stopped
+    | Stopping
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText FleetState where
@@ -105,10 +105,10 @@ instance FromJSON FleetState where
     parseJSON = parseJSONText "FleetState"
 
 data ImageState
-    = ISAvailable 
-    | ISDeleting 
-    | ISFailed 
-    | ISPending 
+    = ISAvailable
+    | ISDeleting
+    | ISFailed
+    | ISPending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ImageState where
@@ -137,8 +137,8 @@ instance FromJSON ImageState where
     parseJSON = parseJSONText "ImageState"
 
 data ImageStateChangeReasonCode
-    = ImageBuilderNotAvailable 
-    | InternalError 
+    = ImageBuilderNotAvailable
+    | InternalError
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ImageStateChangeReasonCode where
@@ -163,7 +163,7 @@ instance FromJSON ImageStateChangeReasonCode where
     parseJSON = parseJSONText "ImageStateChangeReasonCode"
 
 data PlatformType =
-    Windows 
+    Windows
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PlatformType where
@@ -189,9 +189,9 @@ instance FromJSON PlatformType where
 --
 --
 data SessionState
-    = Active 
-    | Expired 
-    | Pending 
+    = Active
+    | Expired
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SessionState where
@@ -218,8 +218,8 @@ instance FromJSON SessionState where
     parseJSON = parseJSONText "SessionState"
 
 data VisibilityType
-    = Private 
-    | Public 
+    = Private
+    | Public
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VisibilityType where

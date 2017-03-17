@@ -45,12 +45,12 @@ module Network.AWS.APIGateway.GetAPIKey
     , akDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to get information about the current 'ApiKey' resource.
 --
@@ -59,7 +59,7 @@ import Network.AWS.Response
 -- /See:/ 'getAPIKey' smart constructor.
 data GetAPIKey = GetAPIKey'
     { _gakIncludeValue :: !(Maybe Bool)
-    , _gakApiKey :: !Text
+    , _gakApiKey       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAPIKey' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ data GetAPIKey = GetAPIKey'
 getAPIKey
     :: Text -- ^ 'gakApiKey'
     -> GetAPIKey
-getAPIKey pApiKey_ = 
+getAPIKey pApiKey_ =
     GetAPIKey'
     { _gakIncludeValue = Nothing
     , _gakApiKey = pApiKey_

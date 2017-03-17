@@ -38,12 +38,12 @@ module Network.AWS.APIGateway.GetModelTemplate
     , gmtrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to generate a sample mapping template used to transform the payload.
 --
@@ -66,7 +66,7 @@ getModelTemplate
     :: Text -- ^ 'gmtRestAPIId'
     -> Text -- ^ 'gmtModelName'
     -> GetModelTemplate
-getModelTemplate pRestAPIId_ pModelName_ = 
+getModelTemplate pRestAPIId_ pModelName_ =
     GetModelTemplate'
     { _gmtRestAPIId = pRestAPIId_
     , _gmtModelName = pModelName_
@@ -111,11 +111,11 @@ instance ToQuery GetModelTemplate where
 -- | Represents a mapping template used to transform a payload.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
 --
 -- /See:/ 'getModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-    { _gmtrsValue :: !(Maybe Text)
+    { _gmtrsValue          :: !(Maybe Text)
     , _gmtrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -129,7 +129,7 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
 getModelTemplateResponse
     :: Int -- ^ 'gmtrsResponseStatus'
     -> GetModelTemplateResponse
-getModelTemplateResponse pResponseStatus_ = 
+getModelTemplateResponse pResponseStatus_ =
     GetModelTemplateResponse'
     { _gmtrsValue = Nothing
     , _gmtrsResponseStatus = pResponseStatus_

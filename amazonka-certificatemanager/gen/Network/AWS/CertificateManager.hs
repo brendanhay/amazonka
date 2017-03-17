@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Certificate Manager__ 
+-- __AWS Certificate Manager__
 --
 -- Welcome to the AWS Certificate Manager (ACM) API documentation.
 --
@@ -58,34 +58,34 @@ module Network.AWS.CertificateManager
     -- * Operations
     -- $operations
 
-    -- ** ResendValidationEmail 
+    -- ** ResendValidationEmail
     , module Network.AWS.CertificateManager.ResendValidationEmail
 
-    -- ** ListTagsForCertificate 
+    -- ** ListTagsForCertificate
     , module Network.AWS.CertificateManager.ListTagsForCertificate
 
-    -- ** GetCertificate 
+    -- ** GetCertificate
     , module Network.AWS.CertificateManager.GetCertificate
 
-    -- ** AddTagsToCertificate 
+    -- ** AddTagsToCertificate
     , module Network.AWS.CertificateManager.AddTagsToCertificate
 
-    -- ** RequestCertificate 
+    -- ** RequestCertificate
     , module Network.AWS.CertificateManager.RequestCertificate
 
     -- ** ListCertificates (Paginated)
     , module Network.AWS.CertificateManager.ListCertificates
 
-    -- ** DeleteCertificate 
+    -- ** DeleteCertificate
     , module Network.AWS.CertificateManager.DeleteCertificate
 
-    -- ** RemoveTagsFromCertificate 
+    -- ** RemoveTagsFromCertificate
     , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
 
-    -- ** ImportCertificate 
+    -- ** ImportCertificate
     , module Network.AWS.CertificateManager.ImportCertificate
 
-    -- ** DescribeCertificate 
+    -- ** DescribeCertificate
     , module Network.AWS.CertificateManager.DescribeCertificate
 
     -- * Types
@@ -169,18 +169,18 @@ module Network.AWS.CertificateManager
     , tagKey
     ) where
 
-import Network.AWS.CertificateManager.AddTagsToCertificate
-import Network.AWS.CertificateManager.DeleteCertificate
-import Network.AWS.CertificateManager.DescribeCertificate
-import Network.AWS.CertificateManager.GetCertificate
-import Network.AWS.CertificateManager.ImportCertificate
-import Network.AWS.CertificateManager.ListCertificates
-import Network.AWS.CertificateManager.ListTagsForCertificate
-import Network.AWS.CertificateManager.RemoveTagsFromCertificate
-import Network.AWS.CertificateManager.RequestCertificate
-import Network.AWS.CertificateManager.ResendValidationEmail
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Waiters
+import           Network.AWS.CertificateManager.AddTagsToCertificate
+import           Network.AWS.CertificateManager.DeleteCertificate
+import           Network.AWS.CertificateManager.DescribeCertificate
+import           Network.AWS.CertificateManager.GetCertificate
+import           Network.AWS.CertificateManager.ImportCertificate
+import           Network.AWS.CertificateManager.ListCertificates
+import           Network.AWS.CertificateManager.ListTagsForCertificate
+import           Network.AWS.CertificateManager.RemoveTagsFromCertificate
+import           Network.AWS.CertificateManager.RequestCertificate
+import           Network.AWS.CertificateManager.ResendValidationEmail
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

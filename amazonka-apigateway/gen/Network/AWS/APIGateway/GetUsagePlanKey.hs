@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetUsagePlanKey
     , upkType
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to get a usage plan key of a given key identifier.
 --
@@ -54,7 +54,7 @@ import Network.AWS.Response
 -- /See:/ 'getUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
     { _gUsagePlanId :: !Text
-    , _gKeyId :: !Text
+    , _gKeyId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUsagePlanKey' with the minimum fields required to make a request.
@@ -68,7 +68,7 @@ getUsagePlanKey
     :: Text -- ^ 'gUsagePlanId'
     -> Text -- ^ 'gKeyId'
     -> GetUsagePlanKey
-getUsagePlanKey pUsagePlanId_ pKeyId_ = 
+getUsagePlanKey pUsagePlanId_ pKeyId_ =
     GetUsagePlanKey'
     { _gUsagePlanId = pUsagePlanId_
     , _gKeyId = pKeyId_

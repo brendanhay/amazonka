@@ -37,12 +37,12 @@ module Network.AWS.CertificateManager.DescribeCertificate
     , dcrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
@@ -57,7 +57,7 @@ newtype DescribeCertificate = DescribeCertificate'
 describeCertificate
     :: Text -- ^ 'dCertificateARN'
     -> DescribeCertificate
-describeCertificate pCertificateARN_ = 
+describeCertificate pCertificateARN_ =
     DescribeCertificate'
     { _dCertificateARN = pCertificateARN_
     }
@@ -104,7 +104,7 @@ instance ToQuery DescribeCertificate where
 
 -- | /See:/ 'describeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
-    { _dcrsCertificate :: !(Maybe CertificateDetail)
+    { _dcrsCertificate    :: !(Maybe CertificateDetail)
     , _dcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -118,7 +118,7 @@ data DescribeCertificateResponse = DescribeCertificateResponse'
 describeCertificateResponse
     :: Int -- ^ 'dcrsResponseStatus'
     -> DescribeCertificateResponse
-describeCertificateResponse pResponseStatus_ = 
+describeCertificateResponse pResponseStatus_ =
     DescribeCertificateResponse'
     { _dcrsCertificate = Nothing
     , _dcrsResponseStatus = pResponseStatus_

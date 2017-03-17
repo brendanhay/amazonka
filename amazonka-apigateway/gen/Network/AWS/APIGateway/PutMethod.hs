@@ -52,12 +52,12 @@ module Network.AWS.APIGateway.PutMethod
     , mMethodIntegration
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to add a method to an existing 'Resource' resource.
 --
@@ -65,14 +65,14 @@ import Network.AWS.Response
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
-    { _putRequestModels :: !(Maybe (Map Text Text))
+    { _putRequestModels     :: !(Maybe (Map Text Text))
     , _putRequestParameters :: !(Maybe (Map Text Bool))
-    , _putAuthorizerId :: !(Maybe Text)
-    , _putOperationName :: !(Maybe Text)
-    , _putApiKeyRequired :: !(Maybe Bool)
-    , _putRestAPIId :: !Text
-    , _putResourceId :: !Text
-    , _putHttpMethod :: !Text
+    , _putAuthorizerId      :: !(Maybe Text)
+    , _putOperationName     :: !(Maybe Text)
+    , _putApiKeyRequired    :: !(Maybe Bool)
+    , _putRestAPIId         :: !Text
+    , _putResourceId        :: !Text
+    , _putHttpMethod        :: !Text
     , _putAuthorizationType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -103,7 +103,7 @@ putMethod
     -> Text -- ^ 'putHttpMethod'
     -> Text -- ^ 'putAuthorizationType'
     -> PutMethod
-putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ = 
+putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     PutMethod'
     { _putRequestModels = Nothing
     , _putRequestParameters = Nothing

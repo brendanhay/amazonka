@@ -44,12 +44,12 @@ module Network.AWS.APIGateway.CreateModel
     , mContentType
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to add a new 'Model' to an existing 'RestApi' resource.
 --
@@ -57,10 +57,10 @@ import Network.AWS.Response
 --
 -- /See:/ 'createModel' smart constructor.
 data CreateModel = CreateModel'
-    { _cmSchema :: !(Maybe Text)
+    { _cmSchema      :: !(Maybe Text)
     , _cmDescription :: !(Maybe Text)
-    , _cmRestAPIId :: !Text
-    , _cmName :: !Text
+    , _cmRestAPIId   :: !Text
+    , _cmName        :: !Text
     , _cmContentType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -82,7 +82,7 @@ createModel
     -> Text -- ^ 'cmName'
     -> Text -- ^ 'cmContentType'
     -> CreateModel
-createModel pRestAPIId_ pName_ pContentType_ = 
+createModel pRestAPIId_ pName_ pContentType_ =
     CreateModel'
     { _cmSchema = Nothing
     , _cmDescription = Nothing

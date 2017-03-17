@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.DeleteModel
     , DeleteModelResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to delete an existing model in an existing 'RestApi' resource.
 --
@@ -63,7 +63,7 @@ deleteModel
     :: Text -- ^ 'dRestAPIId'
     -> Text -- ^ 'dModelName'
     -> DeleteModel
-deleteModel pRestAPIId_ pModelName_ = 
+deleteModel pRestAPIId_ pModelName_ =
     DeleteModel'
     { _dRestAPIId = pRestAPIId_
     , _dModelName = pModelName_
@@ -103,7 +103,7 @@ instance ToQuery DeleteModel where
 
 -- | /See:/ 'deleteModelResponse' smart constructor.
 data DeleteModelResponse =
-    DeleteModelResponse' 
+    DeleteModelResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.

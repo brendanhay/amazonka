@@ -50,19 +50,19 @@ module Network.AWS.CertificateManager.ImportCertificate
     , icrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'importCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-    { _icCertificateARN :: !(Maybe Text)
+    { _icCertificateARN   :: !(Maybe Text)
     , _icCertificateChain :: !(Maybe Base64)
-    , _icCertificate :: !Base64
-    , _icPrivateKey :: !(Sensitive Base64)
+    , _icCertificate      :: !Base64
+    , _icPrivateKey       :: !(Sensitive Base64)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ importCertificate
     :: ByteString -- ^ 'icCertificate'
     -> ByteString -- ^ 'icPrivateKey'
     -> ImportCertificate
-importCertificate pCertificate_ pPrivateKey_ = 
+importCertificate pCertificate_ pPrivateKey_ =
     ImportCertificate'
     { _icCertificateARN = Nothing
     , _icCertificateChain = Nothing
@@ -158,7 +158,7 @@ data ImportCertificateResponse = ImportCertificateResponse'
 importCertificateResponse
     :: Int -- ^ 'icrsResponseStatus'
     -> ImportCertificateResponse
-importCertificateResponse pResponseStatus_ = 
+importCertificateResponse pResponseStatus_ =
     ImportCertificateResponse'
     { _icrsCertificateARN = Nothing
     , _icrsResponseStatus = pResponseStatus_

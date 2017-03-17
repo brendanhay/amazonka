@@ -37,12 +37,12 @@ module Network.AWS.CertificateManager.ListTagsForCertificate
     , ltfcrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listTagsForCertificate' smart constructor.
 newtype ListTagsForCertificate = ListTagsForCertificate'
@@ -57,7 +57,7 @@ newtype ListTagsForCertificate = ListTagsForCertificate'
 listTagsForCertificate
     :: Text -- ^ 'ltfcCertificateARN'
     -> ListTagsForCertificate
-listTagsForCertificate pCertificateARN_ = 
+listTagsForCertificate pCertificateARN_ =
     ListTagsForCertificate'
     { _ltfcCertificateARN = pCertificateARN_
     }
@@ -104,7 +104,7 @@ instance ToQuery ListTagsForCertificate where
 
 -- | /See:/ 'listTagsForCertificateResponse' smart constructor.
 data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
-    { _ltfcrsTags :: !(Maybe (List1 Tag))
+    { _ltfcrsTags           :: !(Maybe (List1 Tag))
     , _ltfcrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -118,7 +118,7 @@ data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
 listTagsForCertificateResponse
     :: Int -- ^ 'ltfcrsResponseStatus'
     -> ListTagsForCertificateResponse
-listTagsForCertificateResponse pResponseStatus_ = 
+listTagsForCertificateResponse pResponseStatus_ =
     ListTagsForCertificateResponse'
     { _ltfcrsTags = Nothing
     , _ltfcrsResponseStatus = pResponseStatus_

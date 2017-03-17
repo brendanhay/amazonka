@@ -39,12 +39,12 @@ module Network.AWS.APIGateway.CreateDocumentationVersion
     , dvDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Creates a new documentation version of a given API.
 --
@@ -52,9 +52,9 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDocumentationVersion' smart constructor.
 data CreateDocumentationVersion = CreateDocumentationVersion'
-    { _cdvStageName :: !(Maybe Text)
-    , _cdvDescription :: !(Maybe Text)
-    , _cdvRestAPIId :: !Text
+    { _cdvStageName            :: !(Maybe Text)
+    , _cdvDescription          :: !(Maybe Text)
+    , _cdvRestAPIId            :: !Text
     , _cdvDocumentationVersion :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,7 +73,7 @@ createDocumentationVersion
     :: Text -- ^ 'cdvRestAPIId'
     -> Text -- ^ 'cdvDocumentationVersion'
     -> CreateDocumentationVersion
-createDocumentationVersion pRestAPIId_ pDocumentationVersion_ = 
+createDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     CreateDocumentationVersion'
     { _cdvStageName = Nothing
     , _cdvDescription = Nothing

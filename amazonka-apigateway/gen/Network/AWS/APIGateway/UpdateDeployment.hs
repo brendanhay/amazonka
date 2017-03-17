@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.UpdateDeployment
     , dDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to change information about a 'Deployment' resource.
 --
@@ -55,8 +55,8 @@ import Network.AWS.Response
 -- /See:/ 'updateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
     { _udPatchOperations :: !(Maybe [PatchOperation])
-    , _udRestAPIId :: !Text
-    , _udDeploymentId :: !Text
+    , _udRestAPIId       :: !Text
+    , _udDeploymentId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateDeployment' with the minimum fields required to make a request.
@@ -72,7 +72,7 @@ updateDeployment
     :: Text -- ^ 'udRestAPIId'
     -> Text -- ^ 'udDeploymentId'
     -> UpdateDeployment
-updateDeployment pRestAPIId_ pDeploymentId_ = 
+updateDeployment pRestAPIId_ pDeploymentId_ =
     UpdateDeployment'
     { _udPatchOperations = Nothing
     , _udRestAPIId = pRestAPIId_

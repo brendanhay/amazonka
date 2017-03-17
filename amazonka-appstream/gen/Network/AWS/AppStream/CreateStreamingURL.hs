@@ -43,21 +43,21 @@ module Network.AWS.AppStream.CreateStreamingURL
     , csursResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
     { _csuSessionContext :: !(Maybe Text)
-    , _csuApplicationId :: !(Maybe Text)
-    , _csuValidity :: !(Maybe Integer)
-    , _csuStackName :: !Text
-    , _csuFleetName :: !Text
-    , _csuUserId :: !Text
+    , _csuApplicationId  :: !(Maybe Text)
+    , _csuValidity       :: !(Maybe Integer)
+    , _csuStackName      :: !Text
+    , _csuFleetName      :: !Text
+    , _csuUserId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStreamingURL' with the minimum fields required to make a request.
@@ -80,7 +80,7 @@ createStreamingURL
     -> Text -- ^ 'csuFleetName'
     -> Text -- ^ 'csuUserId'
     -> CreateStreamingURL
-createStreamingURL pStackName_ pFleetName_ pUserId_ = 
+createStreamingURL pStackName_ pFleetName_ pUserId_ =
     CreateStreamingURL'
     { _csuSessionContext = Nothing
     , _csuApplicationId = Nothing
@@ -158,8 +158,8 @@ instance ToQuery CreateStreamingURL where
 
 -- | /See:/ 'createStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-    { _csursStreamingURL :: !(Maybe Text)
-    , _csursExpires :: !(Maybe POSIX)
+    { _csursStreamingURL   :: !(Maybe Text)
+    , _csursExpires        :: !(Maybe POSIX)
     , _csursResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -175,7 +175,7 @@ data CreateStreamingURLResponse = CreateStreamingURLResponse'
 createStreamingURLResponse
     :: Int -- ^ 'csursResponseStatus'
     -> CreateStreamingURLResponse
-createStreamingURLResponse pResponseStatus_ = 
+createStreamingURLResponse pResponseStatus_ =
     CreateStreamingURLResponse'
     { _csursStreamingURL = Nothing
     , _csursExpires = Nothing

@@ -42,12 +42,12 @@ module Network.AWS.APIGateway.GetSDK
     , gsdkrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request a new generated client SDK for a 'RestApi' and 'Stage' .
 --
@@ -56,9 +56,9 @@ import Network.AWS.Response
 -- /See:/ 'getSDK' smart constructor.
 data GetSDK = GetSDK'
     { _gsdkParameters :: !(Maybe (Map Text Text))
-    , _gsdkRestAPIId :: !Text
-    , _gsdkStageName :: !Text
-    , _gsdkSdkType :: !Text
+    , _gsdkRestAPIId  :: !Text
+    , _gsdkStageName  :: !Text
+    , _gsdkSdkType    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSDK' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ getSDK
     -> Text -- ^ 'gsdkStageName'
     -> Text -- ^ 'gsdkSdkType'
     -> GetSDK
-getSDK pRestAPIId_ pStageName_ pSdkType_ = 
+getSDK pRestAPIId_ pStageName_ pSdkType_ =
     GetSDK'
     { _gsdkParameters = Nothing
     , _gsdkRestAPIId = pRestAPIId_
@@ -142,10 +142,10 @@ instance ToQuery GetSDK where
 --
 -- /See:/ 'getSDKResponse' smart constructor.
 data GetSDKResponse = GetSDKResponse'
-    { _gsdkrsBody :: !(Maybe (HashMap Text Value))
+    { _gsdkrsBody               :: !(Maybe (HashMap Text Value))
     , _gsdkrsContentDisposition :: !(Maybe Text)
-    , _gsdkrsContentType :: !(Maybe Text)
-    , _gsdkrsResponseStatus :: !Int
+    , _gsdkrsContentType        :: !(Maybe Text)
+    , _gsdkrsResponseStatus     :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetSDKResponse' with the minimum fields required to make a request.
@@ -162,7 +162,7 @@ data GetSDKResponse = GetSDKResponse'
 getSDKResponse
     :: Int -- ^ 'gsdkrsResponseStatus'
     -> GetSDKResponse
-getSDKResponse pResponseStatus_ = 
+getSDKResponse pResponseStatus_ =
     GetSDKResponse'
     { _gsdkrsBody = Nothing
     , _gsdkrsContentDisposition = Nothing

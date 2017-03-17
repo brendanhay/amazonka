@@ -48,12 +48,12 @@ module Network.AWS.APIGateway.GetIntegration
     , iCacheKeyParameters
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Represents a get integration request.
 --
@@ -61,7 +61,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-    { _giRestAPIId :: !Text
+    { _giRestAPIId  :: !Text
     , _giResourceId :: !Text
     , _giHttpMethod :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -80,7 +80,7 @@ getIntegration
     -> Text -- ^ 'giResourceId'
     -> Text -- ^ 'giHttpMethod'
     -> GetIntegration
-getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ = 
+getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     GetIntegration'
     { _giRestAPIId = pRestAPIId_
     , _giResourceId = pResourceId_

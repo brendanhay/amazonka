@@ -15,7 +15,7 @@
 --
 module Network.AWS.CertificateManager.Waiters where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter

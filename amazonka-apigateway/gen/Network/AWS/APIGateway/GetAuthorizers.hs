@@ -21,7 +21,7 @@
 -- Describe an existing 'Authorizers' resource.
 --
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI> 
+-- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 module Network.AWS.APIGateway.GetAuthorizers
     (
     -- * Creating a Request
@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.GetAuthorizers
     , garsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Request to describe an existing 'Authorizers' resource.
 --
@@ -54,8 +54,8 @@ import Network.AWS.Response
 --
 -- /See:/ 'getAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-    { _gaLimit :: !(Maybe Int)
-    , _gaPosition :: !(Maybe Text)
+    { _gaLimit     :: !(Maybe Int)
+    , _gaPosition  :: !(Maybe Text)
     , _gaRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -71,7 +71,7 @@ data GetAuthorizers = GetAuthorizers'
 getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
-getAuthorizers pRestAPIId_ = 
+getAuthorizers pRestAPIId_ =
     GetAuthorizers'
     { _gaLimit = Nothing
     , _gaPosition = Nothing
@@ -123,12 +123,12 @@ instance ToQuery GetAuthorizers where
 -- | Represents a collection of 'Authorizer' resources.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
 --
 -- /See:/ 'getAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'
-    { _garsItems :: !(Maybe [Authorizer])
-    , _garsPosition :: !(Maybe Text)
+    { _garsItems          :: !(Maybe [Authorizer])
+    , _garsPosition       :: !(Maybe Text)
     , _garsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -144,7 +144,7 @@ data GetAuthorizersResponse = GetAuthorizersResponse'
 getAuthorizersResponse
     :: Int -- ^ 'garsResponseStatus'
     -> GetAuthorizersResponse
-getAuthorizersResponse pResponseStatus_ = 
+getAuthorizersResponse pResponseStatus_ =
     GetAuthorizersResponse'
     { _garsItems = Nothing
     , _garsPosition = Nothing

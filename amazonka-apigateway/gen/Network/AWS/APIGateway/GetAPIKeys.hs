@@ -45,13 +45,13 @@ module Network.AWS.APIGateway.GetAPIKeys
     , gakrsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to get information about the current 'ApiKeys' resource.
 --
@@ -60,10 +60,10 @@ import Network.AWS.Response
 -- /See:/ 'getAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
     { _gakIncludeValues :: !(Maybe Bool)
-    , _gakCustomerId :: !(Maybe Text)
-    , _gakNameQuery :: !(Maybe Text)
-    , _gakLimit :: !(Maybe Int)
-    , _gakPosition :: !(Maybe Text)
+    , _gakCustomerId    :: !(Maybe Text)
+    , _gakNameQuery     :: !(Maybe Text)
+    , _gakLimit         :: !(Maybe Int)
+    , _gakPosition      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ data GetAPIKeys = GetAPIKeys'
 -- * 'gakPosition' - The position of the current 'ApiKeys' resource to get information about.
 getAPIKeys
     :: GetAPIKeys
-getAPIKeys = 
+getAPIKeys =
     GetAPIKeys'
     { _gakIncludeValues = Nothing
     , _gakCustomerId = Nothing
@@ -153,13 +153,13 @@ instance ToQuery GetAPIKeys where
 -- | Represents a collection of API keys as represented by an 'ApiKeys' resource.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
 -- /See:/ 'getAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-    { _gakrsItems :: !(Maybe [APIKey])
-    , _gakrsWarnings :: !(Maybe [Text])
-    , _gakrsPosition :: !(Maybe Text)
+    { _gakrsItems          :: !(Maybe [APIKey])
+    , _gakrsWarnings       :: !(Maybe [Text])
+    , _gakrsPosition       :: !(Maybe Text)
     , _gakrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -177,7 +177,7 @@ data GetAPIKeysResponse = GetAPIKeysResponse'
 getAPIKeysResponse
     :: Int -- ^ 'gakrsResponseStatus'
     -> GetAPIKeysResponse
-getAPIKeysResponse pResponseStatus_ = 
+getAPIKeysResponse pResponseStatus_ =
     GetAPIKeysResponse'
     { _gakrsItems = Nothing
     , _gakrsWarnings = Nothing

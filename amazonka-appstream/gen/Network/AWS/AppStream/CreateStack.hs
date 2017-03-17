@@ -39,18 +39,18 @@ module Network.AWS.AppStream.CreateStack
     , csrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
 data CreateStack = CreateStack'
     { _csDisplayName :: !(Maybe Text)
     , _csDescription :: !(Maybe Text)
-    , _csName :: !Text
+    , _csName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
@@ -65,7 +65,7 @@ data CreateStack = CreateStack'
 createStack
     :: Text -- ^ 'csName'
     -> CreateStack
-createStack pName_ = 
+createStack pName_ =
     CreateStack'
     { _csDisplayName = Nothing
     , _csDescription = Nothing
@@ -123,7 +123,7 @@ instance ToQuery CreateStack where
 
 -- | /See:/ 'createStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-    { _csrsStack :: !(Maybe Stack)
+    { _csrsStack          :: !(Maybe Stack)
     , _csrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -137,7 +137,7 @@ data CreateStackResponse = CreateStackResponse'
 createStackResponse
     :: Int -- ^ 'csrsResponseStatus'
     -> CreateStackResponse
-createStackResponse pResponseStatus_ = 
+createStackResponse pResponseStatus_ =
     CreateStackResponse'
     { _csrsStack = Nothing
     , _csrsResponseStatus = pResponseStatus_

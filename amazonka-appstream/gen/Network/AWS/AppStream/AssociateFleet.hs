@@ -37,12 +37,12 @@ module Network.AWS.AppStream.AssociateFleet
     , afrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'associateFleet' smart constructor.
 data AssociateFleet = AssociateFleet'
@@ -61,7 +61,7 @@ associateFleet
     :: Text -- ^ 'afFleetName'
     -> Text -- ^ 'afStackName'
     -> AssociateFleet
-associateFleet pFleetName_ pStackName_ = 
+associateFleet pFleetName_ pStackName_ =
     AssociateFleet'
     { _afFleetName = pFleetName_
     , _afStackName = pStackName_
@@ -123,7 +123,7 @@ newtype AssociateFleetResponse = AssociateFleetResponse'
 associateFleetResponse
     :: Int -- ^ 'afrsResponseStatus'
     -> AssociateFleetResponse
-associateFleetResponse pResponseStatus_ = 
+associateFleetResponse pResponseStatus_ =
     AssociateFleetResponse'
     { _afrsResponseStatus = pResponseStatus_
     }

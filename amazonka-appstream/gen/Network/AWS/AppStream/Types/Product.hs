@@ -17,9 +17,9 @@
 --
 module Network.AWS.AppStream.Types.Product where
 
-import Network.AWS.AppStream.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import           Network.AWS.AppStream.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
 
 -- | An entry for a single application in the application catalog.
 --
@@ -27,13 +27,13 @@ import Network.AWS.Prelude
 --
 -- /See:/ 'application' smart constructor.
 data Application = Application'
-    { _aEnabled :: !(Maybe Bool)
-    , _aLaunchPath :: !(Maybe Text)
+    { _aEnabled          :: !(Maybe Bool)
+    , _aLaunchPath       :: !(Maybe Text)
     , _aLaunchParameters :: !(Maybe Text)
-    , _aName :: !(Maybe Text)
-    , _aDisplayName :: !(Maybe Text)
-    , _aMetadata :: !(Maybe (Map Text Text))
-    , _aIconURL :: !(Maybe Text)
+    , _aName             :: !(Maybe Text)
+    , _aDisplayName      :: !(Maybe Text)
+    , _aMetadata         :: !(Maybe (Map Text Text))
+    , _aIconURL          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Application' with the minimum fields required to make a request.
@@ -55,7 +55,7 @@ data Application = Application'
 -- * 'aIconURL' - The URL for the application icon. This URL may be time-limited.
 application
     :: Application
-application = 
+application =
     Application'
     { _aEnabled = Nothing
     , _aLaunchPath = Nothing
@@ -127,7 +127,7 @@ newtype ComputeCapacity = ComputeCapacity'
 computeCapacity
     :: Int -- ^ 'ccDesiredInstances'
     -> ComputeCapacity
-computeCapacity pDesiredInstances_ = 
+computeCapacity pDesiredInstances_ =
     ComputeCapacity'
     { _ccDesiredInstances = pDesiredInstances_
     }
@@ -152,10 +152,10 @@ instance ToJSON ComputeCapacity where
 --
 -- /See:/ 'computeCapacityStatus' smart constructor.
 data ComputeCapacityStatus = ComputeCapacityStatus'
-    { _ccsInUse :: !(Maybe Int)
-    , _ccsRunning :: !(Maybe Int)
+    { _ccsInUse     :: !(Maybe Int)
+    , _ccsRunning   :: !(Maybe Int)
     , _ccsAvailable :: !(Maybe Int)
-    , _ccsDesired :: !Int
+    , _ccsDesired   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ComputeCapacityStatus' with the minimum fields required to make a request.
@@ -172,7 +172,7 @@ data ComputeCapacityStatus = ComputeCapacityStatus'
 computeCapacityStatus
     :: Int -- ^ 'ccsDesired'
     -> ComputeCapacityStatus
-computeCapacityStatus pDesired_ = 
+computeCapacityStatus pDesired_ =
     ComputeCapacityStatus'
     { _ccsInUse = Nothing
     , _ccsRunning = Nothing
@@ -216,18 +216,18 @@ instance NFData ComputeCapacityStatus
 -- /See:/ 'fleet' smart constructor.
 data Fleet = Fleet'
     { _fDisconnectTimeoutInSeconds :: !(Maybe Int)
-    , _fMaxUserDurationInSeconds :: !(Maybe Int)
-    , _fCreatedTime :: !(Maybe POSIX)
-    , _fVPCConfig :: !(Maybe VPCConfig)
-    , _fFleetErrors :: !(Maybe [FleetError])
-    , _fDisplayName :: !(Maybe Text)
-    , _fDescription :: !(Maybe Text)
-    , _fARN :: !Text
-    , _fName :: !Text
-    , _fImageName :: !Text
-    , _fInstanceType :: !Text
-    , _fComputeCapacityStatus :: !ComputeCapacityStatus
-    , _fState :: !FleetState
+    , _fMaxUserDurationInSeconds   :: !(Maybe Int)
+    , _fCreatedTime                :: !(Maybe POSIX)
+    , _fVPCConfig                  :: !(Maybe VPCConfig)
+    , _fFleetErrors                :: !(Maybe [FleetError])
+    , _fDisplayName                :: !(Maybe Text)
+    , _fDescription                :: !(Maybe Text)
+    , _fARN                        :: !Text
+    , _fName                       :: !Text
+    , _fImageName                  :: !Text
+    , _fInstanceType               :: !Text
+    , _fComputeCapacityStatus      :: !ComputeCapacityStatus
+    , _fState                      :: !FleetState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Fleet' with the minimum fields required to make a request.
@@ -254,7 +254,7 @@ data Fleet = Fleet'
 --
 -- * 'fImageName' - The image used by the fleet.
 --
--- * 'fInstanceType' - The instance type of compute resources for the fleet. The fleet instances are launched from this instance type. 
+-- * 'fInstanceType' - The instance type of compute resources for the fleet. The fleet instances are launched from this instance type.
 --
 -- * 'fComputeCapacityStatus' - The capacity information for the fleet.
 --
@@ -267,7 +267,7 @@ fleet
     -> ComputeCapacityStatus -- ^ 'fComputeCapacityStatus'
     -> FleetState -- ^ 'fState'
     -> Fleet
-fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ = 
+fleet pARN_ pName_ pImageName_ pInstanceType_ pComputeCapacityStatus_ pState_ =
     Fleet'
     { _fDisconnectTimeoutInSeconds = Nothing
     , _fMaxUserDurationInSeconds = Nothing
@@ -324,7 +324,7 @@ fName = lens _fName (\ s a -> s{_fName = a});
 fImageName :: Lens' Fleet Text
 fImageName = lens _fImageName (\ s a -> s{_fImageName = a});
 
--- | The instance type of compute resources for the fleet. The fleet instances are launched from this instance type. 
+-- | The instance type of compute resources for the fleet. The fleet instances are launched from this instance type.
 fInstanceType :: Lens' Fleet Text
 fInstanceType = lens _fInstanceType (\ s a -> s{_fInstanceType = a});
 
@@ -365,7 +365,7 @@ instance NFData Fleet
 --
 -- /See:/ 'fleetError' smart constructor.
 data FleetError = FleetError'
-    { _feErrorCode :: !(Maybe FleetErrorCode)
+    { _feErrorCode    :: !(Maybe FleetErrorCode)
     , _feErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -378,7 +378,7 @@ data FleetError = FleetError'
 -- * 'feErrorMessage' - The error message generated when the fleet has errors.
 fleetError
     :: FleetError
-fleetError = 
+fleetError =
     FleetError'
     { _feErrorCode = Nothing
     , _feErrorMessage = Nothing
@@ -409,17 +409,17 @@ instance NFData FleetError
 --
 -- /See:/ 'image' smart constructor.
 data Image = Image'
-    { _iState :: !(Maybe ImageState)
-    , _iPlatform :: !(Maybe PlatformType)
+    { _iState             :: !(Maybe ImageState)
+    , _iPlatform          :: !(Maybe PlatformType)
     , _iStateChangeReason :: !(Maybe ImageStateChangeReason)
-    , _iARN :: !(Maybe Text)
-    , _iCreatedTime :: !(Maybe POSIX)
-    , _iVisibility :: !(Maybe VisibilityType)
-    , _iBaseImageARN :: !(Maybe Text)
-    , _iDisplayName :: !(Maybe Text)
-    , _iDescription :: !(Maybe Text)
-    , _iApplications :: !(Maybe [Application])
-    , _iName :: !Text
+    , _iARN               :: !(Maybe Text)
+    , _iCreatedTime       :: !(Maybe POSIX)
+    , _iVisibility        :: !(Maybe VisibilityType)
+    , _iBaseImageARN      :: !(Maybe Text)
+    , _iDisplayName       :: !(Maybe Text)
+    , _iDescription       :: !(Maybe Text)
+    , _iApplications      :: !(Maybe [Application])
+    , _iName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Image' with the minimum fields required to make a request.
@@ -450,7 +450,7 @@ data Image = Image'
 image
     :: Text -- ^ 'iName'
     -> Image
-image pName_ = 
+image pName_ =
     Image'
     { _iState = Nothing
     , _iPlatform = Nothing
@@ -535,7 +535,7 @@ instance NFData Image
 --
 -- /See:/ 'imageStateChangeReason' smart constructor.
 data ImageStateChangeReason = ImageStateChangeReason'
-    { _iscrCode :: !(Maybe ImageStateChangeReasonCode)
+    { _iscrCode    :: !(Maybe ImageStateChangeReasonCode)
     , _iscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -548,7 +548,7 @@ data ImageStateChangeReason = ImageStateChangeReason'
 -- * 'iscrMessage' - The state change reason message to the end user.
 imageStateChangeReason
     :: ImageStateChangeReason
-imageStateChangeReason = 
+imageStateChangeReason =
     ImageStateChangeReason'
     { _iscrCode = Nothing
     , _iscrMessage = Nothing
@@ -579,11 +579,11 @@ instance NFData ImageStateChangeReason
 --
 -- /See:/ 'session' smart constructor.
 data Session = Session'
-    { _sId :: !Text
-    , _sUserId :: !Text
+    { _sId        :: !Text
+    , _sUserId    :: !Text
     , _sStackName :: !Text
     , _sFleetName :: !Text
-    , _sState :: !SessionState
+    , _sState     :: !SessionState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Session' with the minimum fields required to make a request.
@@ -606,7 +606,7 @@ session
     -> Text -- ^ 'sFleetName'
     -> SessionState -- ^ 'sState'
     -> Session
-session pId_ pUserId_ pStackName_ pFleetName_ pState_ = 
+session pId_ pUserId_ pStackName_ pFleetName_ pState_ =
     Session'
     { _sId = pId_
     , _sUserId = pUserId_
@@ -655,11 +655,11 @@ instance NFData Session
 --
 -- /See:/ 'stack' smart constructor.
 data Stack = Stack'
-    { _sARN :: !(Maybe Text)
+    { _sARN         :: !(Maybe Text)
     , _sCreatedTime :: !(Maybe POSIX)
     , _sDisplayName :: !(Maybe Text)
     , _sDescription :: !(Maybe Text)
-    , _sName :: !Text
+    , _sName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
@@ -678,7 +678,7 @@ data Stack = Stack'
 stack
     :: Text -- ^ 'sName'
     -> Stack
-stack pName_ = 
+stack pName_ =
     Stack'
     { _sARN = Nothing
     , _sCreatedTime = Nothing
@@ -738,7 +738,7 @@ newtype VPCConfig = VPCConfig'
 vpcConfig
     :: NonEmpty Text -- ^ 'vcSubnetIds'
     -> VPCConfig
-vpcConfig pSubnetIds_ = 
+vpcConfig pSubnetIds_ =
     VPCConfig'
     { _vcSubnetIds = _List1 # pSubnetIds_
     }

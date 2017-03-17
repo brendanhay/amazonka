@@ -39,17 +39,17 @@ module Network.AWS.AppStream.DescribeStacks
     , desrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
     { _dNextToken :: !(Maybe Text)
-    , _dNames :: !(Maybe [Text])
+    , _dNames     :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
@@ -61,7 +61,7 @@ data DescribeStacks = DescribeStacks'
 -- * 'dNames' - The stack names to describe. Use null to describe all the stacks for the AWS account.
 describeStacks
     :: DescribeStacks
-describeStacks = 
+describeStacks =
     DescribeStacks'
     { _dNextToken = Nothing
     , _dNames = Nothing
@@ -114,8 +114,8 @@ instance ToQuery DescribeStacks where
 
 -- | /See:/ 'describeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _desrsNextToken :: !(Maybe Text)
-    , _desrsStacks :: !(Maybe [Stack])
+    { _desrsNextToken      :: !(Maybe Text)
+    , _desrsStacks         :: !(Maybe [Stack])
     , _desrsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -131,7 +131,7 @@ data DescribeStacksResponse = DescribeStacksResponse'
 describeStacksResponse
     :: Int -- ^ 'desrsResponseStatus'
     -> DescribeStacksResponse
-describeStacksResponse pResponseStatus_ = 
+describeStacksResponse pResponseStatus_ =
     DescribeStacksResponse'
     { _desrsNextToken = Nothing
     , _desrsStacks = Nothing

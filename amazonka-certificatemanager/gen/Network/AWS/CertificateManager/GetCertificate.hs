@@ -38,12 +38,12 @@ module Network.AWS.CertificateManager.GetCertificate
     , gcrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'getCertificate' smart constructor.
 newtype GetCertificate = GetCertificate'
@@ -58,7 +58,7 @@ newtype GetCertificate = GetCertificate'
 getCertificate
     :: Text -- ^ 'gcCertificateARN'
     -> GetCertificate
-getCertificate pCertificateARN_ = 
+getCertificate pCertificateARN_ =
     GetCertificate'
     { _gcCertificateARN = pCertificateARN_
     }
@@ -104,9 +104,9 @@ instance ToQuery GetCertificate where
 
 -- | /See:/ 'getCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-    { _gcrsCertificate :: !(Maybe Text)
+    { _gcrsCertificate      :: !(Maybe Text)
     , _gcrsCertificateChain :: !(Maybe Text)
-    , _gcrsResponseStatus :: !Int
+    , _gcrsResponseStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetCertificateResponse' with the minimum fields required to make a request.
@@ -121,7 +121,7 @@ data GetCertificateResponse = GetCertificateResponse'
 getCertificateResponse
     :: Int -- ^ 'gcrsResponseStatus'
     -> GetCertificateResponse
-getCertificateResponse pResponseStatus_ = 
+getCertificateResponse pResponseStatus_ =
     GetCertificateResponse'
     { _gcrsCertificate = Nothing
     , _gcrsCertificateChain = Nothing

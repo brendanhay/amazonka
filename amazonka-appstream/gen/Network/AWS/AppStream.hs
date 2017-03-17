@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon AppStream 2.0__ 
+-- __Amazon AppStream 2.0__
 --
 -- API documentation for Amazon AppStream 2.0.
 --
@@ -50,58 +50,58 @@ module Network.AWS.AppStream
     -- * Operations
     -- $operations
 
-    -- ** DisassociateFleet 
+    -- ** DisassociateFleet
     , module Network.AWS.AppStream.DisassociateFleet
 
-    -- ** ListAssociatedFleets 
+    -- ** ListAssociatedFleets
     , module Network.AWS.AppStream.ListAssociatedFleets
 
-    -- ** DeleteStack 
+    -- ** DeleteStack
     , module Network.AWS.AppStream.DeleteStack
 
-    -- ** UpdateStack 
+    -- ** UpdateStack
     , module Network.AWS.AppStream.UpdateStack
 
-    -- ** ListAssociatedStacks 
+    -- ** ListAssociatedStacks
     , module Network.AWS.AppStream.ListAssociatedStacks
 
-    -- ** DeleteFleet 
+    -- ** DeleteFleet
     , module Network.AWS.AppStream.DeleteFleet
 
-    -- ** UpdateFleet 
+    -- ** UpdateFleet
     , module Network.AWS.AppStream.UpdateFleet
 
-    -- ** AssociateFleet 
+    -- ** AssociateFleet
     , module Network.AWS.AppStream.AssociateFleet
 
-    -- ** DescribeSessions 
+    -- ** DescribeSessions
     , module Network.AWS.AppStream.DescribeSessions
 
-    -- ** DescribeStacks 
+    -- ** DescribeStacks
     , module Network.AWS.AppStream.DescribeStacks
 
-    -- ** DescribeFleets 
+    -- ** DescribeFleets
     , module Network.AWS.AppStream.DescribeFleets
 
-    -- ** StopFleet 
+    -- ** StopFleet
     , module Network.AWS.AppStream.StopFleet
 
-    -- ** CreateFleet 
+    -- ** CreateFleet
     , module Network.AWS.AppStream.CreateFleet
 
-    -- ** CreateStack 
+    -- ** CreateStack
     , module Network.AWS.AppStream.CreateStack
 
-    -- ** ExpireSession 
+    -- ** ExpireSession
     , module Network.AWS.AppStream.ExpireSession
 
-    -- ** CreateStreamingURL 
+    -- ** CreateStreamingURL
     , module Network.AWS.AppStream.CreateStreamingURL
 
-    -- ** StartFleet 
+    -- ** StartFleet
     , module Network.AWS.AppStream.StartFleet
 
-    -- ** DescribeImages 
+    -- ** DescribeImages
     , module Network.AWS.AppStream.DescribeImages
 
     -- * Types
@@ -219,26 +219,26 @@ module Network.AWS.AppStream
     , vcSubnetIds
     ) where
 
-import Network.AWS.AppStream.AssociateFleet
-import Network.AWS.AppStream.CreateFleet
-import Network.AWS.AppStream.CreateStack
-import Network.AWS.AppStream.CreateStreamingURL
-import Network.AWS.AppStream.DeleteFleet
-import Network.AWS.AppStream.DeleteStack
-import Network.AWS.AppStream.DescribeFleets
-import Network.AWS.AppStream.DescribeImages
-import Network.AWS.AppStream.DescribeSessions
-import Network.AWS.AppStream.DescribeStacks
-import Network.AWS.AppStream.DisassociateFleet
-import Network.AWS.AppStream.ExpireSession
-import Network.AWS.AppStream.ListAssociatedFleets
-import Network.AWS.AppStream.ListAssociatedStacks
-import Network.AWS.AppStream.StartFleet
-import Network.AWS.AppStream.StopFleet
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.UpdateFleet
-import Network.AWS.AppStream.UpdateStack
-import Network.AWS.AppStream.Waiters
+import           Network.AWS.AppStream.AssociateFleet
+import           Network.AWS.AppStream.CreateFleet
+import           Network.AWS.AppStream.CreateStack
+import           Network.AWS.AppStream.CreateStreamingURL
+import           Network.AWS.AppStream.DeleteFleet
+import           Network.AWS.AppStream.DeleteStack
+import           Network.AWS.AppStream.DescribeFleets
+import           Network.AWS.AppStream.DescribeImages
+import           Network.AWS.AppStream.DescribeSessions
+import           Network.AWS.AppStream.DescribeStacks
+import           Network.AWS.AppStream.DisassociateFleet
+import           Network.AWS.AppStream.ExpireSession
+import           Network.AWS.AppStream.ListAssociatedFleets
+import           Network.AWS.AppStream.ListAssociatedStacks
+import           Network.AWS.AppStream.StartFleet
+import           Network.AWS.AppStream.StopFleet
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.UpdateFleet
+import           Network.AWS.AppStream.UpdateStack
+import           Network.AWS.AppStream.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by

@@ -36,12 +36,12 @@ module Network.AWS.AppStream.StartFleet
     , sfrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'startFleet' smart constructor.
 newtype StartFleet = StartFleet'
@@ -56,7 +56,7 @@ newtype StartFleet = StartFleet'
 startFleet
     :: Text -- ^ 'staName'
     -> StartFleet
-startFleet pName_ = 
+startFleet pName_ =
     StartFleet'
     { _staName = pName_
     }
@@ -109,7 +109,7 @@ newtype StartFleetResponse = StartFleetResponse'
 startFleetResponse
     :: Int -- ^ 'sfrsResponseStatus'
     -> StartFleetResponse
-startFleetResponse pResponseStatus_ = 
+startFleetResponse pResponseStatus_ =
     StartFleetResponse'
     { _sfrsResponseStatus = pResponseStatus_
     }

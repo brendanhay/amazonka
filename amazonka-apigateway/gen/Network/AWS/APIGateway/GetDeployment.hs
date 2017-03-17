@@ -40,12 +40,12 @@ module Network.AWS.APIGateway.GetDeployment
     , dDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to get information about a 'Deployment' resource.
 --
@@ -53,7 +53,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getDeployment' smart constructor.
 data GetDeployment = GetDeployment'
-    { _gRestAPIId :: !Text
+    { _gRestAPIId    :: !Text
     , _gDeploymentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ getDeployment
     :: Text -- ^ 'gRestAPIId'
     -> Text -- ^ 'gDeploymentId'
     -> GetDeployment
-getDeployment pRestAPIId_ pDeploymentId_ = 
+getDeployment pRestAPIId_ pDeploymentId_ =
     GetDeployment'
     { _gRestAPIId = pRestAPIId_
     , _gDeploymentId = pDeploymentId_

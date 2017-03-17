@@ -41,13 +41,13 @@ module Network.AWS.APIGateway.GetRestAPIs
     , grarsResponseStatus
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | The GET request to list existing 'RestApis' defined for your collection.
 --
@@ -55,7 +55,7 @@ import Network.AWS.Response
 --
 -- /See:/ 'getRestAPIs' smart constructor.
 data GetRestAPIs = GetRestAPIs'
-    { _graLimit :: !(Maybe Int)
+    { _graLimit    :: !(Maybe Int)
     , _graPosition :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -68,7 +68,7 @@ data GetRestAPIs = GetRestAPIs'
 -- * 'graPosition' - The position of the current 'RestApis' resource in the collection to get information about.
 getRestAPIs
     :: GetRestAPIs
-getRestAPIs = 
+getRestAPIs =
     GetRestAPIs'
     { _graLimit = Nothing
     , _graPosition = Nothing
@@ -120,12 +120,12 @@ instance ToQuery GetRestAPIs where
 -- | Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.
 --
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API> 
+-- <http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'getRestAPIsResponse' smart constructor.
 data GetRestAPIsResponse = GetRestAPIsResponse'
-    { _grarsItems :: !(Maybe [RestAPI])
-    , _grarsPosition :: !(Maybe Text)
+    { _grarsItems          :: !(Maybe [RestAPI])
+    , _grarsPosition       :: !(Maybe Text)
     , _grarsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -141,7 +141,7 @@ data GetRestAPIsResponse = GetRestAPIsResponse'
 getRestAPIsResponse
     :: Int -- ^ 'grarsResponseStatus'
     -> GetRestAPIsResponse
-getRestAPIsResponse pResponseStatus_ = 
+getRestAPIsResponse pResponseStatus_ =
     GetRestAPIsResponse'
     { _grarsItems = Nothing
     , _grarsPosition = Nothing

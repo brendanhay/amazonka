@@ -48,21 +48,21 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingActivities
     , dsarsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
     { _dsaScalableDimension :: !(Maybe ScalableDimension)
-    , _dsaResourceId :: !(Maybe Text)
-    , _dsaNextToken :: !(Maybe Text)
-    , _dsaMaxResults :: !(Maybe Int)
-    , _dsaServiceNamespace :: !ServiceNamespace
+    , _dsaResourceId        :: !(Maybe Text)
+    , _dsaNextToken         :: !(Maybe Text)
+    , _dsaMaxResults        :: !(Maybe Int)
+    , _dsaServiceNamespace  :: !ServiceNamespace
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingActivities' with the minimum fields required to make a request.
@@ -81,7 +81,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
 describeScalingActivities
     :: ServiceNamespace -- ^ 'dsaServiceNamespace'
     -> DescribeScalingActivities
-describeScalingActivities pServiceNamespace_ = 
+describeScalingActivities pServiceNamespace_ =
     DescribeScalingActivities'
     { _dsaScalableDimension = Nothing
     , _dsaResourceId = Nothing
@@ -162,8 +162,8 @@ instance ToQuery DescribeScalingActivities where
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dsarsScalingActivities :: !(Maybe [ScalingActivity])
-    , _dsarsNextToken :: !(Maybe Text)
-    , _dsarsResponseStatus :: !Int
+    , _dsarsNextToken         :: !(Maybe Text)
+    , _dsarsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingActivitiesResponse' with the minimum fields required to make a request.
@@ -178,7 +178,7 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 describeScalingActivitiesResponse
     :: Int -- ^ 'dsarsResponseStatus'
     -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pResponseStatus_ = 
+describeScalingActivitiesResponse pResponseStatus_ =
     DescribeScalingActivitiesResponse'
     { _dsarsScalingActivities = Nothing
     , _dsarsNextToken = Nothing

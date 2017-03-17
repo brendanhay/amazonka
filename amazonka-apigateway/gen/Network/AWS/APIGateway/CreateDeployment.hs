@@ -45,12 +45,12 @@ module Network.AWS.APIGateway.CreateDeployment
     , dDescription
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | Requests Amazon API Gateway to create a 'Deployment' resource.
 --
@@ -58,13 +58,13 @@ import Network.AWS.Response
 --
 -- /See:/ 'createDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-    { _cdStageDescription :: !(Maybe Text)
-    , _cdVariables :: !(Maybe (Map Text Text))
-    , _cdCacheClusterSize :: !(Maybe CacheClusterSize)
+    { _cdStageDescription    :: !(Maybe Text)
+    , _cdVariables           :: !(Maybe (Map Text Text))
+    , _cdCacheClusterSize    :: !(Maybe CacheClusterSize)
     , _cdCacheClusterEnabled :: !(Maybe Bool)
-    , _cdStageName :: !(Maybe Text)
-    , _cdDescription :: !(Maybe Text)
-    , _cdRestAPIId :: !Text
+    , _cdStageName           :: !(Maybe Text)
+    , _cdDescription         :: !(Maybe Text)
+    , _cdRestAPIId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
@@ -87,7 +87,7 @@ data CreateDeployment = CreateDeployment'
 createDeployment
     :: Text -- ^ 'cdRestAPIId'
     -> CreateDeployment
-createDeployment pRestAPIId_ = 
+createDeployment pRestAPIId_ =
     CreateDeployment'
     { _cdStageDescription = Nothing
     , _cdVariables = Nothing

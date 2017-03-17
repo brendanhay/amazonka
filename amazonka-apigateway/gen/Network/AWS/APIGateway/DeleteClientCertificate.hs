@@ -34,12 +34,12 @@ module Network.AWS.APIGateway.DeleteClientCertificate
     , DeleteClientCertificateResponse
     ) where
 
-import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.APIGateway.Types
+import           Network.AWS.APIGateway.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | A request to delete the 'ClientCertificate' resource.
 --
@@ -58,7 +58,7 @@ newtype DeleteClientCertificate = DeleteClientCertificate'
 deleteClientCertificate
     :: Text -- ^ 'dccClientCertificateId'
     -> DeleteClientCertificate
-deleteClientCertificate pClientCertificateId_ = 
+deleteClientCertificate pClientCertificateId_ =
     DeleteClientCertificate'
     { _dccClientCertificateId = pClientCertificateId_
     }
@@ -95,7 +95,7 @@ instance ToQuery DeleteClientCertificate where
 
 -- | /See:/ 'deleteClientCertificateResponse' smart constructor.
 data DeleteClientCertificateResponse =
-    DeleteClientCertificateResponse' 
+    DeleteClientCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteClientCertificateResponse' with the minimum fields required to make a request.

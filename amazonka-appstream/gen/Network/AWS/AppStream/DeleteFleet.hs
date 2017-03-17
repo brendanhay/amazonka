@@ -36,12 +36,12 @@ module Network.AWS.AppStream.DeleteFleet
     , dfrsResponseStatus
     ) where
 
-import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.AppStream.Types
+import           Network.AWS.AppStream.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'deleteFleet' smart constructor.
 newtype DeleteFleet = DeleteFleet'
@@ -56,7 +56,7 @@ newtype DeleteFleet = DeleteFleet'
 deleteFleet
     :: Text -- ^ 'dfName'
     -> DeleteFleet
-deleteFleet pName_ = 
+deleteFleet pName_ =
     DeleteFleet'
     { _dfName = pName_
     }
@@ -110,7 +110,7 @@ newtype DeleteFleetResponse = DeleteFleetResponse'
 deleteFleetResponse
     :: Int -- ^ 'dfrsResponseStatus'
     -> DeleteFleetResponse
-deleteFleetResponse pResponseStatus_ = 
+deleteFleetResponse pResponseStatus_ =
     DeleteFleetResponse'
     { _dfrsResponseStatus = pResponseStatus_
     }

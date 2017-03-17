@@ -42,19 +42,19 @@ module Network.AWS.CertificateManager.ListCertificates
     , lcrsResponseStatus
     ) where
 
-import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.CertificateManager.Types
+import           Network.AWS.CertificateManager.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'listCertificates' smart constructor.
 data ListCertificates = ListCertificates'
     { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
-    , _lcNextToken :: !(Maybe Text)
-    , _lcMaxItems :: !(Maybe Nat)
+    , _lcNextToken           :: !(Maybe Text)
+    , _lcMaxItems            :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
@@ -68,7 +68,7 @@ data ListCertificates = ListCertificates'
 -- * 'lcMaxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 listCertificates
     :: ListCertificates
-listCertificates = 
+listCertificates =
     ListCertificates'
     { _lcCertificateStatuses = Nothing
     , _lcNextToken = Nothing
@@ -137,8 +137,8 @@ instance ToQuery ListCertificates where
 -- | /See:/ 'listCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
     { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
-    , _lcrsNextToken :: !(Maybe Text)
-    , _lcrsResponseStatus :: !Int
+    , _lcrsNextToken              :: !(Maybe Text)
+    , _lcrsResponseStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
@@ -153,7 +153,7 @@ data ListCertificatesResponse = ListCertificatesResponse'
 listCertificatesResponse
     :: Int -- ^ 'lcrsResponseStatus'
     -> ListCertificatesResponse
-listCertificatesResponse pResponseStatus_ = 
+listCertificatesResponse pResponseStatus_ =
     ListCertificatesResponse'
     { _lcrsCertificateSummaryList = Nothing
     , _lcrsNextToken = Nothing

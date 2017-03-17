@@ -49,22 +49,22 @@ module Network.AWS.ApplicationAutoScaling.DescribeScalingPolicies
     , drsResponseStatus
     ) where
 
-import Network.AWS.ApplicationAutoScaling.Types
-import Network.AWS.ApplicationAutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import           Network.AWS.ApplicationAutoScaling.Types
+import           Network.AWS.ApplicationAutoScaling.Types.Product
+import           Network.AWS.Lens
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
 -- | /See:/ 'describeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-    { _dPolicyNames :: !(Maybe [Text])
+    { _dPolicyNames       :: !(Maybe [Text])
     , _dScalableDimension :: !(Maybe ScalableDimension)
-    , _dResourceId :: !(Maybe Text)
-    , _dNextToken :: !(Maybe Text)
-    , _dMaxResults :: !(Maybe Int)
-    , _dServiceNamespace :: !ServiceNamespace
+    , _dResourceId        :: !(Maybe Text)
+    , _dNextToken         :: !(Maybe Text)
+    , _dMaxResults        :: !(Maybe Int)
+    , _dServiceNamespace  :: !ServiceNamespace
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingPolicies' with the minimum fields required to make a request.
@@ -85,7 +85,7 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 describeScalingPolicies
     :: ServiceNamespace -- ^ 'dServiceNamespace'
     -> DescribeScalingPolicies
-describeScalingPolicies pServiceNamespace_ = 
+describeScalingPolicies pServiceNamespace_ =
     DescribeScalingPolicies'
     { _dPolicyNames = Nothing
     , _dScalableDimension = Nothing
@@ -171,9 +171,9 @@ instance ToQuery DescribeScalingPolicies where
 
 -- | /See:/ 'describeScalingPoliciesResponse' smart constructor.
 data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
-    { _drsNextToken :: !(Maybe Text)
+    { _drsNextToken       :: !(Maybe Text)
     , _drsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _drsResponseStatus :: !Int
+    , _drsResponseStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeScalingPoliciesResponse' with the minimum fields required to make a request.
@@ -188,7 +188,7 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 describeScalingPoliciesResponse
     :: Int -- ^ 'drsResponseStatus'
     -> DescribeScalingPoliciesResponse
-describeScalingPoliciesResponse pResponseStatus_ = 
+describeScalingPoliciesResponse pResponseStatus_ =
     DescribeScalingPoliciesResponse'
     { _drsNextToken = Nothing
     , _drsScalingPolicies = Nothing

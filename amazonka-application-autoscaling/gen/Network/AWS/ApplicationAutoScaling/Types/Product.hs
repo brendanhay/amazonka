@@ -17,9 +17,9 @@
 --
 module Network.AWS.ApplicationAutoScaling.Types.Product where
 
-import Network.AWS.ApplicationAutoScaling.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import           Network.AWS.ApplicationAutoScaling.Types.Sum
+import           Network.AWS.Lens
+import           Network.AWS.Prelude
 
 -- | Represents a CloudWatch alarm associated with a scaling policy.
 --
@@ -28,7 +28,7 @@ import Network.AWS.Prelude
 -- /See:/ 'alarm' smart constructor.
 data Alarm = Alarm'
     { _aAlarmName :: !Text
-    , _aAlarmARN :: !Text
+    , _aAlarmARN  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
@@ -42,7 +42,7 @@ alarm
     :: Text -- ^ 'aAlarmName'
     -> Text -- ^ 'aAlarmARN'
     -> Alarm
-alarm pAlarmName_ pAlarmARN_ = 
+alarm pAlarmName_ pAlarmARN_ =
     Alarm'
     { _aAlarmName = pAlarmName_
     , _aAlarmARN = pAlarmARN_
@@ -72,13 +72,13 @@ instance NFData Alarm
 --
 -- /See:/ 'scalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
-    { _stServiceNamespace :: !ServiceNamespace
-    , _stResourceId :: !Text
+    { _stServiceNamespace  :: !ServiceNamespace
+    , _stResourceId        :: !Text
     , _stScalableDimension :: !ScalableDimension
-    , _stMinCapacity :: !Int
-    , _stMaxCapacity :: !Int
-    , _stRoleARN :: !Text
-    , _stCreationTime :: !POSIX
+    , _stMinCapacity       :: !Int
+    , _stMaxCapacity       :: !Int
+    , _stRoleARN           :: !Text
+    , _stCreationTime      :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScalableTarget' with the minimum fields required to make a request.
@@ -107,7 +107,7 @@ scalableTarget
     -> Text -- ^ 'stRoleARN'
     -> UTCTime -- ^ 'stCreationTime'
     -> ScalableTarget
-scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_ pMaxCapacity_ pRoleARN_ pCreationTime_ = 
+scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_ pMaxCapacity_ pRoleARN_ pCreationTime_ =
     ScalableTarget'
     { _stServiceNamespace = pServiceNamespace_
     , _stResourceId = pResourceId_
@@ -168,17 +168,17 @@ instance NFData ScalableTarget
 --
 -- /See:/ 'scalingActivity' smart constructor.
 data ScalingActivity = ScalingActivity'
-    { _saStatusMessage :: !(Maybe Text)
-    , _saEndTime :: !(Maybe POSIX)
-    , _saDetails :: !(Maybe Text)
-    , _saActivityId :: !Text
-    , _saServiceNamespace :: !ServiceNamespace
-    , _saResourceId :: !Text
+    { _saStatusMessage     :: !(Maybe Text)
+    , _saEndTime           :: !(Maybe POSIX)
+    , _saDetails           :: !(Maybe Text)
+    , _saActivityId        :: !Text
+    , _saServiceNamespace  :: !ServiceNamespace
+    , _saResourceId        :: !Text
     , _saScalableDimension :: !ScalableDimension
-    , _saDescription :: !Text
-    , _saCause :: !Text
-    , _saStartTime :: !POSIX
-    , _saStatusCode :: !ScalingActivityStatusCode
+    , _saDescription       :: !Text
+    , _saCause             :: !Text
+    , _saStartTime         :: !POSIX
+    , _saStatusCode        :: !ScalingActivityStatusCode
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScalingActivity' with the minimum fields required to make a request.
@@ -216,7 +216,7 @@ scalingActivity
     -> UTCTime -- ^ 'saStartTime'
     -> ScalingActivityStatusCode -- ^ 'saStatusCode'
     -> ScalingActivity
-scalingActivity pActivityId_ pServiceNamespace_ pResourceId_ pScalableDimension_ pDescription_ pCause_ pStartTime_ pStatusCode_ = 
+scalingActivity pActivityId_ pServiceNamespace_ pResourceId_ pScalableDimension_ pDescription_ pCause_ pStartTime_ pStatusCode_ =
     ScalingActivity'
     { _saStatusMessage = Nothing
     , _saEndTime = Nothing
@@ -302,14 +302,14 @@ instance NFData ScalingActivity
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
     { _spStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
-    , _spAlarms :: !(Maybe [Alarm])
-    , _spPolicyARN :: !Text
-    , _spPolicyName :: !Text
-    , _spServiceNamespace :: !ServiceNamespace
-    , _spResourceId :: !Text
-    , _spScalableDimension :: !ScalableDimension
-    , _spPolicyType :: !PolicyType
-    , _spCreationTime :: !POSIX
+    , _spAlarms                         :: !(Maybe [Alarm])
+    , _spPolicyARN                      :: !Text
+    , _spPolicyName                     :: !Text
+    , _spServiceNamespace               :: !ServiceNamespace
+    , _spResourceId                     :: !Text
+    , _spScalableDimension              :: !ScalableDimension
+    , _spPolicyType                     :: !PolicyType
+    , _spCreationTime                   :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
@@ -342,7 +342,7 @@ scalingPolicy
     -> PolicyType -- ^ 'spPolicyType'
     -> UTCTime -- ^ 'spCreationTime'
     -> ScalingPolicy
-scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ pPolicyType_ pCreationTime_ = 
+scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ pPolicyType_ pCreationTime_ =
     ScalingPolicy'
     { _spStepScalingPolicyConfiguration = Nothing
     , _spAlarms = Nothing
@@ -410,7 +410,7 @@ instance Hashable ScalingPolicy
 
 instance NFData ScalingPolicy
 
--- | Represents a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. 
+-- | Represents a step adjustment for a 'StepScalingPolicyConfiguration' . Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 --
 --
 -- For the following examples, suppose that you have an alarm with a breach threshold of 50:
@@ -438,7 +438,7 @@ instance NFData ScalingPolicy
 data StepAdjustment = StepAdjustment'
     { _saMetricIntervalLowerBound :: !(Maybe Double)
     , _saMetricIntervalUpperBound :: !(Maybe Double)
-    , _saScalingAdjustment :: !Int
+    , _saScalingAdjustment        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StepAdjustment' with the minimum fields required to make a request.
@@ -453,7 +453,7 @@ data StepAdjustment = StepAdjustment'
 stepAdjustment
     :: Int -- ^ 'saScalingAdjustment'
     -> StepAdjustment
-stepAdjustment pScalingAdjustment_ = 
+stepAdjustment pScalingAdjustment_ =
     StepAdjustment'
     { _saMetricIntervalLowerBound = Nothing
     , _saMetricIntervalUpperBound = Nothing
@@ -501,10 +501,10 @@ instance ToJSON StepAdjustment where
 --
 -- /See:/ 'stepScalingPolicyConfiguration' smart constructor.
 data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
-    { _sspcStepAdjustments :: !(Maybe [StepAdjustment])
-    , _sspcAdjustmentType :: !(Maybe AdjustmentType)
-    , _sspcCooldown :: !(Maybe Int)
-    , _sspcMetricAggregationType :: !(Maybe MetricAggregationType)
+    { _sspcStepAdjustments        :: !(Maybe [StepAdjustment])
+    , _sspcAdjustmentType         :: !(Maybe AdjustmentType)
+    , _sspcCooldown               :: !(Maybe Int)
+    , _sspcMetricAggregationType  :: !(Maybe MetricAggregationType)
     , _sspcMinAdjustmentMagnitude :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -523,7 +523,7 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- * 'sspcMinAdjustmentMagnitude' - The minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is @PercentChangeInCapacity@ , the scaling policy changes the scalable dimension of the scalable target by this amount.
 stepScalingPolicyConfiguration
     :: StepScalingPolicyConfiguration
-stepScalingPolicyConfiguration = 
+stepScalingPolicyConfiguration =
     StepScalingPolicyConfiguration'
     { _sspcStepAdjustments = Nothing
     , _sspcAdjustmentType = Nothing

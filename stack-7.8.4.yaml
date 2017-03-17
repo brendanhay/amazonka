@@ -76,7 +76,7 @@ packages:
   - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
-  - amazonka-lex
+  - amazonka-lex-runtime
   - amazonka-lightsail
   - amazonka-marketplace-analytics
   - amazonka-marketplace-metering

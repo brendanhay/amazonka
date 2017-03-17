@@ -919,6 +919,38 @@ instance ToHeader     HypervisorType
 instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
+data IAMInstanceProfileAssociationState
+    = IAPASAssociated
+    | IAPASAssociating
+    | IAPASDisassociated
+    | IAPASDisassociating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText IAMInstanceProfileAssociationState where
+    parser = takeLowerText >>= \case
+        "associated" -> pure IAPASAssociated
+        "associating" -> pure IAPASAssociating
+        "disassociated" -> pure IAPASDisassociated
+        "disassociating" -> pure IAPASDisassociating
+        e -> fromTextError $ "Failure parsing IAMInstanceProfileAssociationState from value: '" <> e
+           <> "'. Accepted values: associated, associating, disassociated, disassociating"
+
+instance ToText IAMInstanceProfileAssociationState where
+    toText = \case
+        IAPASAssociated -> "associated"
+        IAPASAssociating -> "associating"
+        IAPASDisassociated -> "disassociated"
+        IAPASDisassociating -> "disassociating"
+
+instance Hashable     IAMInstanceProfileAssociationState
+instance NFData       IAMInstanceProfileAssociationState
+instance ToByteString IAMInstanceProfileAssociationState
+instance ToQuery      IAMInstanceProfileAssociationState
+instance ToHeader     IAMInstanceProfileAssociationState
+
+instance FromXML IAMInstanceProfileAssociationState where
+    parseXML = parseXMLText "IAMInstanceProfileAssociationState"
+
 data ImageAttributeName
     = BlockDeviceMapping
     | Description

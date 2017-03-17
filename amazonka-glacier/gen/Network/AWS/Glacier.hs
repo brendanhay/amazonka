@@ -63,6 +63,12 @@ module Network.AWS.Glacier
     -- * Waiters
     -- $waiters
 
+    -- ** VaultNotExists
+    , vaultNotExists
+
+    -- ** VaultExists
+    , vaultExists
+
     -- * Operations
     -- $operations
 

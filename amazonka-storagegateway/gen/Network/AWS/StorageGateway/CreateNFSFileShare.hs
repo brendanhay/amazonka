@@ -31,6 +31,7 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     , cnfsfsKMSEncrypted
     , cnfsfsDefaultStorageClass
     , cnfsfsNFSFileShareDefaults
+    , cnfsfsClientList
     , cnfsfsClientToken
     , cnfsfsGatewayARN
     , cnfsfsRole
@@ -61,6 +62,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
     , _cnfsfsKMSEncrypted         :: !(Maybe Bool)
     , _cnfsfsDefaultStorageClass  :: !(Maybe Text)
     , _cnfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
+    , _cnfsfsClientList           :: !(Maybe (List1 Text))
     , _cnfsfsClientToken          :: !Text
     , _cnfsfsGatewayARN           :: !Text
     , _cnfsfsRole                 :: !Text
@@ -78,6 +80,8 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- * 'cnfsfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by file gateway. Possible values are S3_STANDARD or S3_STANDARD_IA. If this field is not populated, the default value S3_STANDARD is used. Optional.
 --
 -- * 'cnfsfsNFSFileShareDefaults' - File share default values. Optional.
+--
+-- * 'cnfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
 --
 -- * 'cnfsfsClientToken' - A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 --
@@ -98,6 +102,7 @@ createNFSFileShare pClientToken_ pGatewayARN_ pRole_ pLocationARN_ =
     , _cnfsfsKMSEncrypted = Nothing
     , _cnfsfsDefaultStorageClass = Nothing
     , _cnfsfsNFSFileShareDefaults = Nothing
+    , _cnfsfsClientList = Nothing
     , _cnfsfsClientToken = pClientToken_
     , _cnfsfsGatewayARN = pGatewayARN_
     , _cnfsfsRole = pRole_
@@ -119,6 +124,10 @@ cnfsfsDefaultStorageClass = lens _cnfsfsDefaultStorageClass (\ s a -> s{_cnfsfsD
 -- | File share default values. Optional.
 cnfsfsNFSFileShareDefaults :: Lens' CreateNFSFileShare (Maybe NFSFileShareDefaults)
 cnfsfsNFSFileShareDefaults = lens _cnfsfsNFSFileShareDefaults (\ s a -> s{_cnfsfsNFSFileShareDefaults = a});
+
+-- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+cnfsfsClientList :: Lens' CreateNFSFileShare (Maybe (NonEmpty Text))
+cnfsfsClientList = lens _cnfsfsClientList (\ s a -> s{_cnfsfsClientList = a}) . mapping _List1;
 
 -- | A unique string value that you supply that is used by file gateway to ensure idempotent file share creation.
 cnfsfsClientToken :: Lens' CreateNFSFileShare Text
@@ -170,6 +179,7 @@ instance ToJSON CreateNFSFileShare where
                     _cnfsfsDefaultStorageClass,
                   ("NFSFileShareDefaults" .=) <$>
                     _cnfsfsNFSFileShareDefaults,
+                  ("ClientList" .=) <$> _cnfsfsClientList,
                   Just ("ClientToken" .= _cnfsfsClientToken),
                   Just ("GatewayARN" .= _cnfsfsGatewayARN),
                   Just ("Role" .= _cnfsfsRole),

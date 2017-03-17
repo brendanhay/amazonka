@@ -2863,6 +2863,75 @@ instance Hashable IAMInstanceProfile
 
 instance NFData IAMInstanceProfile
 
+-- | Describes an association between an IAM instance profile and an instance.
+--
+--
+--
+-- /See:/ 'iamInstanceProfileAssociation' smart constructor.
+data IAMInstanceProfileAssociation = IAMInstanceProfileAssociation'
+    { _iapaAssociationId      :: !(Maybe Text)
+    , _iapaInstanceId         :: !(Maybe Text)
+    , _iapaState              :: !(Maybe IAMInstanceProfileAssociationState)
+    , _iapaIAMInstanceProfile :: !(Maybe IAMInstanceProfile)
+    , _iapaTimestamp          :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IAMInstanceProfileAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iapaAssociationId' - The ID of the association.
+--
+-- * 'iapaInstanceId' - The ID of the instance.
+--
+-- * 'iapaState' - The state of the association.
+--
+-- * 'iapaIAMInstanceProfile' - The IAM instance profile.
+--
+-- * 'iapaTimestamp' - The time the IAM instance profile was associated with the instance.
+iamInstanceProfileAssociation
+    :: IAMInstanceProfileAssociation
+iamInstanceProfileAssociation =
+    IAMInstanceProfileAssociation'
+    { _iapaAssociationId = Nothing
+    , _iapaInstanceId = Nothing
+    , _iapaState = Nothing
+    , _iapaIAMInstanceProfile = Nothing
+    , _iapaTimestamp = Nothing
+    }
+
+-- | The ID of the association.
+iapaAssociationId :: Lens' IAMInstanceProfileAssociation (Maybe Text)
+iapaAssociationId = lens _iapaAssociationId (\ s a -> s{_iapaAssociationId = a});
+
+-- | The ID of the instance.
+iapaInstanceId :: Lens' IAMInstanceProfileAssociation (Maybe Text)
+iapaInstanceId = lens _iapaInstanceId (\ s a -> s{_iapaInstanceId = a});
+
+-- | The state of the association.
+iapaState :: Lens' IAMInstanceProfileAssociation (Maybe IAMInstanceProfileAssociationState)
+iapaState = lens _iapaState (\ s a -> s{_iapaState = a});
+
+-- | The IAM instance profile.
+iapaIAMInstanceProfile :: Lens' IAMInstanceProfileAssociation (Maybe IAMInstanceProfile)
+iapaIAMInstanceProfile = lens _iapaIAMInstanceProfile (\ s a -> s{_iapaIAMInstanceProfile = a});
+
+-- | The time the IAM instance profile was associated with the instance.
+iapaTimestamp :: Lens' IAMInstanceProfileAssociation (Maybe UTCTime)
+iapaTimestamp = lens _iapaTimestamp (\ s a -> s{_iapaTimestamp = a}) . mapping _Time;
+
+instance FromXML IAMInstanceProfileAssociation where
+        parseXML x
+          = IAMInstanceProfileAssociation' <$>
+              (x .@? "associationId") <*> (x .@? "instanceId") <*>
+                (x .@? "state")
+                <*> (x .@? "iamInstanceProfile")
+                <*> (x .@? "timestamp")
+
+instance Hashable IAMInstanceProfileAssociation
+
+instance NFData IAMInstanceProfileAssociation
+
 -- | Describes an IAM instance profile.
 --
 --
@@ -12442,7 +12511,7 @@ data StateReason = StateReason'
 --
 -- * 'srCode' - The reason code for the state change.
 --
--- * 'srMessage' - The message for the state change.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- * 'srMessage' - The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
 stateReason
     :: StateReason
 stateReason =
@@ -12455,7 +12524,7 @@ stateReason =
 srCode :: Lens' StateReason (Maybe Text)
 srCode = lens _srCode (\ s a -> s{_srCode = a});
 
--- | The message for the state change.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
+-- | The message for the state change.     * @Server.InsufficientInstanceCapacity@ : There was insufficient instance capacity to satisfy the launch request.     * @Server.InternalError@ : An internal error occurred during instance launch, resulting in termination.     * @Server.ScheduledStop@ : The instance was stopped due to a scheduled retirement.     * @Server.SpotInstanceTermination@ : A Spot instance was terminated due to an increase in the market price.     * @Client.InternalError@ : A client error caused the instance to terminate on launch.     * @Client.InstanceInitiatedShutdown@ : The instance was shut down using the @shutdown -h@ command from the instance.     * @Client.UserInitiatedShutdown@ : The instance was shut down using the Amazon EC2 API.     * @Client.VolumeLimitExceeded@ : The limit on the number of EBS volumes or total storage was exceeded. Decrease usage or request an increase in your limits.     * @Client.InvalidSnapshot.NotFound@ : The specified snapshot was not found.
 srMessage :: Lens' StateReason (Maybe Text)
 srMessage = lens _srMessage (\ s a -> s{_srMessage = a});
 

@@ -562,6 +562,7 @@ data NFSFileShareInfo = NFSFileShareInfo'
     , _nfsfsiRole                 :: !(Maybe Text)
     , _nfsfsiNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
     , _nfsfsiLocationARN          :: !(Maybe Text)
+    , _nfsfsiClientList           :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NFSFileShareInfo' with the minimum fields required to make a request.
@@ -589,6 +590,8 @@ data NFSFileShareInfo = NFSFileShareInfo'
 -- * 'nfsfsiNFSFileShareDefaults' - Undocumented member.
 --
 -- * 'nfsfsiLocationARN' - Undocumented member.
+--
+-- * 'nfsfsiClientList' - Undocumented member.
 nFSFileShareInfo
     :: NFSFileShareInfo
 nFSFileShareInfo =
@@ -604,6 +607,7 @@ nFSFileShareInfo =
     , _nfsfsiRole = Nothing
     , _nfsfsiNFSFileShareDefaults = Nothing
     , _nfsfsiLocationARN = Nothing
+    , _nfsfsiClientList = Nothing
     }
 
 -- | Undocumented member.
@@ -650,6 +654,10 @@ nfsfsiNFSFileShareDefaults = lens _nfsfsiNFSFileShareDefaults (\ s a -> s{_nfsfs
 nfsfsiLocationARN :: Lens' NFSFileShareInfo (Maybe Text)
 nfsfsiLocationARN = lens _nfsfsiLocationARN (\ s a -> s{_nfsfsiLocationARN = a});
 
+-- | Undocumented member.
+nfsfsiClientList :: Lens' NFSFileShareInfo (Maybe (NonEmpty Text))
+nfsfsiClientList = lens _nfsfsiClientList (\ s a -> s{_nfsfsiClientList = a}) . mapping _List1;
+
 instance FromJSON NFSFileShareInfo where
         parseJSON
           = withObject "NFSFileShareInfo"
@@ -664,7 +672,8 @@ instance FromJSON NFSFileShareInfo where
                      <*> (x .:? "DefaultStorageClass")
                      <*> (x .:? "Role")
                      <*> (x .:? "NFSFileShareDefaults")
-                     <*> (x .:? "LocationARN"))
+                     <*> (x .:? "LocationARN")
+                     <*> (x .:? "ClientList"))
 
 instance Hashable NFSFileShareInfo
 

@@ -53,6 +53,9 @@ module Network.AWS.CloudWatch
     -- * Waiters
     -- $waiters
 
+    -- ** AlarmExists
+    , alarmExists
+
     -- * Operations
     -- $operations
 

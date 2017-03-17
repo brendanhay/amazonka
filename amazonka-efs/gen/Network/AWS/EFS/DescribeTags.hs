@@ -23,6 +23,8 @@
 --
 -- This operation requires permissions for the @elasticfilesystem:DescribeTags@ action.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.EFS.DescribeTags
 import           Network.AWS.EFS.Types
 import           Network.AWS.EFS.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -91,6 +94,13 @@ dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 -- | ID of the file system whose tag set you want to retrieve.
 dtFileSystemId :: Lens' DescribeTags Text
 dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
+
+instance AWSPager DescribeTags where
+        page rq rs
+          | stop (rs ^. dtrsNextMarker) = Nothing
+          | stop (rs ^. dtrsTags) = Nothing
+          | otherwise =
+            Just $ rq & dtMarker .~ rs ^. dtrsNextMarker
 
 instance AWSRequest DescribeTags where
         type Rs DescribeTags = DescribeTagsResponse

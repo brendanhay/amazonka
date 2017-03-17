@@ -31,6 +31,7 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     , unfsfsKMSEncrypted
     , unfsfsDefaultStorageClass
     , unfsfsNFSFileShareDefaults
+    , unfsfsClientList
     , unfsfsFileShareARN
 
     -- * Destructuring the Response
@@ -58,6 +59,7 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
     , _unfsfsKMSEncrypted         :: !(Maybe Bool)
     , _unfsfsDefaultStorageClass  :: !(Maybe Text)
     , _unfsfsNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
+    , _unfsfsClientList           :: !(Maybe (List1 Text))
     , _unfsfsFileShareARN         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -73,6 +75,8 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 --
 -- * 'unfsfsNFSFileShareDefaults' - The default values for the file share. Optional.
 --
+-- * 'unfsfsClientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+--
 -- * 'unfsfsFileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
 updateNFSFileShare
     :: Text -- ^ 'unfsfsFileShareARN'
@@ -83,6 +87,7 @@ updateNFSFileShare pFileShareARN_ =
     , _unfsfsKMSEncrypted = Nothing
     , _unfsfsDefaultStorageClass = Nothing
     , _unfsfsNFSFileShareDefaults = Nothing
+    , _unfsfsClientList = Nothing
     , _unfsfsFileShareARN = pFileShareARN_
     }
 
@@ -101,6 +106,10 @@ unfsfsDefaultStorageClass = lens _unfsfsDefaultStorageClass (\ s a -> s{_unfsfsD
 -- | The default values for the file share. Optional.
 unfsfsNFSFileShareDefaults :: Lens' UpdateNFSFileShare (Maybe NFSFileShareDefaults)
 unfsfsNFSFileShareDefaults = lens _unfsfsNFSFileShareDefaults (\ s a -> s{_unfsfsNFSFileShareDefaults = a});
+
+-- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+unfsfsClientList :: Lens' UpdateNFSFileShare (Maybe (NonEmpty Text))
+unfsfsClientList = lens _unfsfsClientList (\ s a -> s{_unfsfsClientList = a}) . mapping _List1;
 
 -- | The Amazon Resource Name (ARN) of the file share to be updated.
 unfsfsFileShareARN :: Lens' UpdateNFSFileShare Text
@@ -140,6 +149,7 @@ instance ToJSON UpdateNFSFileShare where
                     _unfsfsDefaultStorageClass,
                   ("NFSFileShareDefaults" .=) <$>
                     _unfsfsNFSFileShareDefaults,
+                  ("ClientList" .=) <$> _unfsfsClientList,
                   Just ("FileShareARN" .= _unfsfsFileShareARN)])
 
 instance ToPath UpdateNFSFileShare where

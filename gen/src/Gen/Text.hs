@@ -135,6 +135,7 @@ renameReserved x
         , "LT"
         , "EQ"
         , "Error"
+        , "lex"
         ] ++ map Text.pack (reservedNames haskellDef)
 
 -- Pass in Relation, check if Uni directional + not shared and then add

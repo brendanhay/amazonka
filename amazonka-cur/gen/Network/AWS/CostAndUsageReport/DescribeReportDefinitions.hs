@@ -19,6 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe a list of report definitions owned by the account
+--
+-- This operation returns paginated results.
 module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
     (
     -- * Creating a Request
@@ -40,6 +42,7 @@ module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
 import           Network.AWS.CostAndUsageReport.Types
 import           Network.AWS.CostAndUsageReport.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -74,6 +77,13 @@ drdNextToken = lens _drdNextToken (\ s a -> s{_drdNextToken = a});
 -- | Undocumented member.
 drdMaxResults :: Lens' DescribeReportDefinitions (Maybe Natural)
 drdMaxResults = lens _drdMaxResults (\ s a -> s{_drdMaxResults = a}) . mapping _Nat;
+
+instance AWSPager DescribeReportDefinitions where
+        page rq rs
+          | stop (rs ^. drdrsNextToken) = Nothing
+          | stop (rs ^. drdrsReportDefinitions) = Nothing
+          | otherwise =
+            Just $ rq & drdNextToken .~ rs ^. drdrsNextToken
 
 instance AWSRequest DescribeReportDefinitions where
         type Rs DescribeReportDefinitions =

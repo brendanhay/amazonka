@@ -200,6 +200,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.2 LIBRARY=amazonka-lambda
       addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.0.2 LIBRARY=amazonka-lex-runtime
+      addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.2 LIBRARY=amazonka-lightsail
       addons: { apt: { packages: [ghc-8.0.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.0.2 LIBRARY=amazonka-marketplace-analytics

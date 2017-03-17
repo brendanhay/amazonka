@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all attributes associated with an object. This also supports common namespace prefix (key) listing. For example, if you want to retrieve all attributes associated with facet1, key can be @facet1@ . If key is empty, all attributes are returned in a paginated list.
+-- Lists all attributes associated with an object.
 --
 --
 module Network.AWS.CloudDirectory.ListObjectAttributes
@@ -64,7 +64,7 @@ data ListObjectAttributes = ListObjectAttributes'
 --
 -- * 'loaConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'loaNextToken' - Token used for pagination.
+-- * 'loaNextToken' - The pagination token.
 --
 -- * 'loaMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -88,7 +88,7 @@ listObjectAttributes pDirectoryARN_ pObjectReference_ =
 loaConsistencyLevel :: Lens' ListObjectAttributes (Maybe ConsistencyLevel)
 loaConsistencyLevel = lens _loaConsistencyLevel (\ s a -> s{_loaConsistencyLevel = a});
 
--- | Token used for pagination.
+-- | The pagination token.
 loaNextToken :: Lens' ListObjectAttributes (Maybe Text)
 loaNextToken = lens _loaNextToken (\ s a -> s{_loaNextToken = a});
 
@@ -153,7 +153,7 @@ data ListObjectAttributesResponse = ListObjectAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loarsNextToken' - Token used for pagination.
+-- * 'loarsNextToken' - The pagination token.
 --
 -- * 'loarsAttributes' - Attributes map associated with the object. AttributeArn is the key, and attribute value is the value.
 --
@@ -168,7 +168,7 @@ listObjectAttributesResponse pResponseStatus_ =
     , _loarsResponseStatus = pResponseStatus_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 loarsNextToken :: Lens' ListObjectAttributesResponse (Maybe Text)
 loarsNextToken = lens _loarsNextToken (\ s a -> s{_loarsNextToken = a});
 

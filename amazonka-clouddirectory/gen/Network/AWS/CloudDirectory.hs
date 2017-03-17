@@ -161,6 +161,9 @@ module Network.AWS.CloudDirectory
     -- ** ListDirectories
     , module Network.AWS.CloudDirectory.ListDirectories
 
+    -- ** ListObjectParentPaths
+    , module Network.AWS.CloudDirectory.ListObjectParentPaths
+
     -- ** DisableDirectory
     , module Network.AWS.CloudDirectory.DisableDirectory
 
@@ -539,6 +542,12 @@ module Network.AWS.CloudDirectory
     , objectReference
     , orSelector
 
+    -- ** PathToObjectIdentifiers
+    , PathToObjectIdentifiers
+    , pathToObjectIdentifiers
+    , ptoiObjectIdentifiers
+    , ptoiPath
+
     -- ** PolicyAttachment
     , PolicyAttachment
     , policyAttachment
@@ -622,6 +631,7 @@ import           Network.AWS.CloudDirectory.ListFacetNames
 import           Network.AWS.CloudDirectory.ListIndex
 import           Network.AWS.CloudDirectory.ListObjectAttributes
 import           Network.AWS.CloudDirectory.ListObjectChildren
+import           Network.AWS.CloudDirectory.ListObjectParentPaths
 import           Network.AWS.CloudDirectory.ListObjectParents
 import           Network.AWS.CloudDirectory.ListObjectPolicies
 import           Network.AWS.CloudDirectory.ListPolicyAttachments

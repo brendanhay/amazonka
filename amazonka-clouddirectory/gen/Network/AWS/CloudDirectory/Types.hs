@@ -313,6 +313,12 @@ module Network.AWS.CloudDirectory.Types
     , objectReference
     , orSelector
 
+    -- * PathToObjectIdentifiers
+    , PathToObjectIdentifiers
+    , pathToObjectIdentifiers
+    , ptoiObjectIdentifiers
+    , ptoiPath
+
     -- * PolicyAttachment
     , PolicyAttachment
     , policyAttachment
@@ -439,7 +445,7 @@ _FacetAlreadyExistsException =
     _MatchServiceError cloudDirectory "FacetAlreadyExistsException" .
     hasStatus 400
 
--- | Indicates that the provided SchemaDoc value is not valid.
+-- | Indicates that the provided @SchemaDoc@ value is not valid.
 --
 --
 _InvalidSchemaDocException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -517,7 +523,7 @@ _DirectoryNotDisabledException =
     _MatchServiceError cloudDirectory "DirectoryNotDisabledException" .
     hasStatus 400
 
--- | A BatchWrite exception has occurred.
+-- | A @BatchWrite@ exception has occurred.
 --
 --
 _BatchWriteException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -554,14 +560,14 @@ _StillContainsLinksException =
     _MatchServiceError cloudDirectory "StillContainsLinksException" .
     hasStatus 400
 
--- | Occurs when any invalid operations are performed on an object which is not a node, such as calling ListObjectChildren for a leaf node object.
+-- | Occurs when any invalid operations are performed on an object which is not a node, such as calling @ListObjectChildren@ for a leaf node object.
 --
 --
 _NotNodeException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotNodeException =
     _MatchServiceError cloudDirectory "NotNodeException" . hasStatus 400
 
--- | Indicates that the NextToken value is not valid.
+-- | Indicates that the @NextToken@ value is not valid.
 --
 --
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError

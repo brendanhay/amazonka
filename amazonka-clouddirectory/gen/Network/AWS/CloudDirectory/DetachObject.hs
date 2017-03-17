@@ -130,7 +130,7 @@ data DetachObjectResponse = DetachObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'detrsDetachedObjectIdentifier' - The ObjectIdentifier that was detached from the object.
+-- * 'detrsDetachedObjectIdentifier' - The @ObjectIdentifier@ that was detached from the object.
 --
 -- * 'detrsResponseStatus' - -- | The response status code.
 detachObjectResponse
@@ -142,7 +142,7 @@ detachObjectResponse pResponseStatus_ =
     , _detrsResponseStatus = pResponseStatus_
     }
 
--- | The ObjectIdentifier that was detached from the object.
+-- | The @ObjectIdentifier@ that was detached from the object.
 detrsDetachedObjectIdentifier :: Lens' DetachObjectResponse (Maybe Text)
 detrsDetachedObjectIdentifier = lens _detrsDetachedObjectIdentifier (\ s a -> s{_detrsDetachedObjectIdentifier = a});
 

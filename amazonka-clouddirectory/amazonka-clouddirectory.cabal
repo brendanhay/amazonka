@@ -74,6 +74,7 @@ library
         , Network.AWS.CloudDirectory.ListIndex
         , Network.AWS.CloudDirectory.ListObjectAttributes
         , Network.AWS.CloudDirectory.ListObjectChildren
+        , Network.AWS.CloudDirectory.ListObjectParentPaths
         , Network.AWS.CloudDirectory.ListObjectParents
         , Network.AWS.CloudDirectory.ListObjectPolicies
         , Network.AWS.CloudDirectory.ListPolicyAttachments

@@ -130,7 +130,7 @@ data DetachFromIndexResponse = DetachFromIndexResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfirsDetachedObjectIdentifier' - The ObjectIdentifier of the object that was detached from the index.
+-- * 'dfirsDetachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was detached from the index.
 --
 -- * 'dfirsResponseStatus' - -- | The response status code.
 detachFromIndexResponse
@@ -142,7 +142,7 @@ detachFromIndexResponse pResponseStatus_ =
     , _dfirsResponseStatus = pResponseStatus_
     }
 
--- | The ObjectIdentifier of the object that was detached from the index.
+-- | The @ObjectIdentifier@ of the object that was detached from the index.
 dfirsDetachedObjectIdentifier :: Lens' DetachFromIndexResponse (Maybe Text)
 dfirsDetachedObjectIdentifier = lens _dfirsDetachedObjectIdentifier (\ s a -> s{_dfirsDetachedObjectIdentifier = a});
 

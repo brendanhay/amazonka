@@ -64,7 +64,7 @@ data ListObjectChildren = ListObjectChildren'
 --
 -- * 'locConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'locNextToken' - Token used for pagination.
+-- * 'locNextToken' - The pagination token.
 --
 -- * 'locMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -88,7 +88,7 @@ listObjectChildren pDirectoryARN_ pObjectReference_ =
 locConsistencyLevel :: Lens' ListObjectChildren (Maybe ConsistencyLevel)
 locConsistencyLevel = lens _locConsistencyLevel (\ s a -> s{_locConsistencyLevel = a});
 
--- | Token used for pagination.
+-- | The pagination token.
 locNextToken :: Lens' ListObjectChildren (Maybe Text)
 locNextToken = lens _locNextToken (\ s a -> s{_locNextToken = a});
 
@@ -152,9 +152,9 @@ data ListObjectChildrenResponse = ListObjectChildrenResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'locrsChildren' - Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
+-- * 'locrsChildren' - Children structure, which is a map with key as the LinkName and @ObjectIdentifier@ as the value.
 --
--- * 'locrsNextToken' - Token used for pagination.
+-- * 'locrsNextToken' - The pagination token.
 --
 -- * 'locrsResponseStatus' - -- | The response status code.
 listObjectChildrenResponse
@@ -167,11 +167,11 @@ listObjectChildrenResponse pResponseStatus_ =
     , _locrsResponseStatus = pResponseStatus_
     }
 
--- | Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
+-- | Children structure, which is a map with key as the LinkName and @ObjectIdentifier@ as the value.
 locrsChildren :: Lens' ListObjectChildrenResponse (HashMap Text Text)
 locrsChildren = lens _locrsChildren (\ s a -> s{_locrsChildren = a}) . _Default . _Map;
 
--- | Token used for pagination.
+-- | The pagination token.
 locrsNextToken :: Lens' ListObjectChildrenResponse (Maybe Text)
 locrsNextToken = lens _locrsNextToken (\ s a -> s{_locrsNextToken = a});
 

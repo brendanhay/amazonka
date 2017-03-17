@@ -64,7 +64,7 @@ data ListObjectParents = ListObjectParents'
 --
 -- * 'lopConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'lopNextToken' - Token used for pagination.
+-- * 'lopNextToken' - The pagination token.
 --
 -- * 'lopMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -88,7 +88,7 @@ listObjectParents pDirectoryARN_ pObjectReference_ =
 lopConsistencyLevel :: Lens' ListObjectParents (Maybe ConsistencyLevel)
 lopConsistencyLevel = lens _lopConsistencyLevel (\ s a -> s{_lopConsistencyLevel = a});
 
--- | Token used for pagination.
+-- | The pagination token.
 lopNextToken :: Lens' ListObjectParents (Maybe Text)
 lopNextToken = lens _lopNextToken (\ s a -> s{_lopNextToken = a});
 
@@ -151,9 +151,9 @@ data ListObjectParentsResponse = ListObjectParentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrsNextToken' - Token used for pagination.
+-- * 'lrsNextToken' - The pagination token.
 --
--- * 'lrsParents' - Parent structure, which is a map with key as the ObjectIdentifier and LinkName as the value.
+-- * 'lrsParents' - Parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 --
 -- * 'lrsResponseStatus' - -- | The response status code.
 listObjectParentsResponse
@@ -166,11 +166,11 @@ listObjectParentsResponse pResponseStatus_ =
     , _lrsResponseStatus = pResponseStatus_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 lrsNextToken :: Lens' ListObjectParentsResponse (Maybe Text)
 lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
--- | Parent structure, which is a map with key as the ObjectIdentifier and LinkName as the value.
+-- | Parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
 lrsParents :: Lens' ListObjectParentsResponse (HashMap Text Text)
 lrsParents = lens _lrsParents (\ s a -> s{_lrsParents = a}) . _Default . _Map;
 

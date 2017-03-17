@@ -64,7 +64,7 @@ data ListObjectPolicies = ListObjectPolicies'
 --
 -- * 'lConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'lNextToken' - Token used for pagination.
+-- * 'lNextToken' - The pagination token.
 --
 -- * 'lMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -88,7 +88,7 @@ listObjectPolicies pDirectoryARN_ pObjectReference_ =
 lConsistencyLevel :: Lens' ListObjectPolicies (Maybe ConsistencyLevel)
 lConsistencyLevel = lens _lConsistencyLevel (\ s a -> s{_lConsistencyLevel = a});
 
--- | Token used for pagination.
+-- | The pagination token.
 lNextToken :: Lens' ListObjectPolicies (Maybe Text)
 lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
 
@@ -153,9 +153,9 @@ data ListObjectPoliciesResponse = ListObjectPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loprsNextToken' - Token used for pagination.
+-- * 'loprsNextToken' - The pagination token.
 --
--- * 'loprsAttachedPolicyIds' - List of policy ObjectIdentifiers, that are attached to the object.
+-- * 'loprsAttachedPolicyIds' - List of policy @ObjectIdentifiers@ , that are attached to the object.
 --
 -- * 'loprsResponseStatus' - -- | The response status code.
 listObjectPoliciesResponse
@@ -168,11 +168,11 @@ listObjectPoliciesResponse pResponseStatus_ =
     , _loprsResponseStatus = pResponseStatus_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 loprsNextToken :: Lens' ListObjectPoliciesResponse (Maybe Text)
 loprsNextToken = lens _loprsNextToken (\ s a -> s{_loprsNextToken = a});
 
--- | List of policy ObjectIdentifiers, that are attached to the object.
+-- | List of policy @ObjectIdentifiers@ , that are attached to the object.
 loprsAttachedPolicyIds :: Lens' ListObjectPoliciesResponse [Text]
 loprsAttachedPolicyIds = lens _loprsAttachedPolicyIds (\ s a -> s{_loprsAttachedPolicyIds = a}) . _Default . _Coerce;
 

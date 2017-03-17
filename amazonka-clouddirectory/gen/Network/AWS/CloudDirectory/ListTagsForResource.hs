@@ -58,7 +58,7 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfrNextToken' - Next token used for pagination. This is for future use. Currently pagination is not supported for tagging.
+-- * 'ltfrNextToken' - The pagination token. This is for future use. Currently pagination is not supported for tagging.
 --
 -- * 'ltfrMaxResults' - The MaxResults parameter sets the maximum number of results returned in a single page. This is for future use and is not supported currently.
 --
@@ -73,7 +73,7 @@ listTagsForResource pResourceARN_ =
     , _ltfrResourceARN = pResourceARN_
     }
 
--- | Next token used for pagination. This is for future use. Currently pagination is not supported for tagging.
+-- | The pagination token. This is for future use. Currently pagination is not supported for tagging.
 ltfrNextToken :: Lens' ListTagsForResource (Maybe Text)
 ltfrNextToken = lens _ltfrNextToken (\ s a -> s{_ltfrNextToken = a});
 

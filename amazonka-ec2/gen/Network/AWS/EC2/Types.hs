@@ -296,6 +296,9 @@ module Network.AWS.EC2.Types
     -- * VolumeAttributeName
     , VolumeAttributeName (..)
 
+    -- * VolumeModificationState
+    , VolumeModificationState (..)
+
     -- * VolumeState
     , VolumeState (..)
 
@@ -2133,6 +2136,22 @@ module Network.AWS.EC2.Types
     , VolumeDetail
     , volumeDetail
     , vdSize
+
+    -- * VolumeModification
+    , VolumeModification
+    , volumeModification
+    , vmProgress
+    , vmStartTime
+    , vmModificationState
+    , vmTargetVolumeType
+    , vmOriginalVolumeType
+    , vmTargetSize
+    , vmTargetIOPS
+    , vmOriginalSize
+    , vmOriginalIOPS
+    , vmStatusMessage
+    , vmEndTime
+    , vmVolumeId
 
     -- * VolumeStatusAction
     , VolumeStatusAction

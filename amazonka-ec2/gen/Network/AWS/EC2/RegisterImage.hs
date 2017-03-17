@@ -21,13 +21,11 @@
 -- Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 --
--- You can also use @RegisterImage@ to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- You can also use @RegisterImage@ to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- /Important:/ Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 @billingProduct@ code associated with an AMI to verify subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and subsequent instances launched from such an AMI will not be able to connect to package update infrastructure.
+-- You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.
 --
--- Similarly, although you can create a Windows AMI from a snapshot, you can't successfully launch an instance from the AMI.
---
--- To create Windows AMIs or to create AMIs for Linux operating systems that must retain AMI billing codes to work properly, see 'CreateImage' .
+-- Some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. Creating an AMI from an EBS snapshot does not maintain this billing code, and subsequent instances launched from such an AMI will not be able to connect to package update infrastructure. To create an AMI that must retain billing codes, see 'CreateImage' .
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.
 --
@@ -40,6 +38,7 @@ module Network.AWS.EC2.RegisterImage
     , riVirtualizationType
     , riImageLocation
     , riEnaSupport
+    , riBillingProducts
     , riRAMDiskId
     , riKernelId
     , riRootDeviceName
@@ -74,6 +73,7 @@ data RegisterImage = RegisterImage'
     { _riVirtualizationType  :: !(Maybe Text)
     , _riImageLocation       :: !(Maybe Text)
     , _riEnaSupport          :: !(Maybe Bool)
+    , _riBillingProducts     :: !(Maybe [Text])
     , _riRAMDiskId           :: !(Maybe Text)
     , _riKernelId            :: !(Maybe Text)
     , _riRootDeviceName      :: !(Maybe Text)
@@ -94,6 +94,8 @@ data RegisterImage = RegisterImage'
 -- * 'riImageLocation' - The full path to your AMI manifest in Amazon S3 storage.
 --
 -- * 'riEnaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
+--
+-- * 'riBillingProducts' - The billing product codes.
 --
 -- * 'riRAMDiskId' - The ID of the RAM disk.
 --
@@ -120,6 +122,7 @@ registerImage pName_ =
     { _riVirtualizationType = Nothing
     , _riImageLocation = Nothing
     , _riEnaSupport = Nothing
+    , _riBillingProducts = Nothing
     , _riRAMDiskId = Nothing
     , _riKernelId = Nothing
     , _riRootDeviceName = Nothing
@@ -142,6 +145,10 @@ riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
 -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI. This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 riEnaSupport :: Lens' RegisterImage (Maybe Bool)
 riEnaSupport = lens _riEnaSupport (\ s a -> s{_riEnaSupport = a});
+
+-- | The billing product codes.
+riBillingProducts :: Lens' RegisterImage [Text]
+riBillingProducts = lens _riBillingProducts (\ s a -> s{_riBillingProducts = a}) . _Default . _Coerce;
 
 -- | The ID of the RAM disk.
 riRAMDiskId :: Lens' RegisterImage (Maybe Text)
@@ -206,6 +213,9 @@ instance ToQuery RegisterImage where
                "VirtualizationType" =: _riVirtualizationType,
                "ImageLocation" =: _riImageLocation,
                "EnaSupport" =: _riEnaSupport,
+               toQuery
+                 (toQueryList "BillingProduct" <$>
+                    _riBillingProducts),
                "RamdiskId" =: _riRAMDiskId,
                "KernelId" =: _riKernelId,
                "RootDeviceName" =: _riRootDeviceName,

@@ -190,6 +190,7 @@ library
         , Network.AWS.EC2.DescribeVolumeAttribute
         , Network.AWS.EC2.DescribeVolumeStatus
         , Network.AWS.EC2.DescribeVolumes
+        , Network.AWS.EC2.DescribeVolumesModifications
         , Network.AWS.EC2.DetachClassicLinkVPC
         , Network.AWS.EC2.DetachInternetGateway
         , Network.AWS.EC2.DetachNetworkInterface
@@ -231,6 +232,7 @@ library
         , Network.AWS.EC2.ModifyVPCAttribute
         , Network.AWS.EC2.ModifyVPCEndpoint
         , Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
+        , Network.AWS.EC2.ModifyVolume
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.MonitorInstances
         , Network.AWS.EC2.MoveAddressToVPC

@@ -262,6 +262,9 @@ import Test.AWS.EC2.Internal
 --         , requestDisableVPCClassicLinkDNSSupport $
 --             disableVPCClassicLinkDNSSupport
 --
+--         , requestDescribeVolumesModifications $
+--             describeVolumesModifications
+--
 --         , requestAllocateAddress $
 --             allocateAddress
 --
@@ -537,6 +540,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscription
+--
+--         , requestModifyVolume $
+--             modifyVolume
 --
 --         , requestEnableVPCClassicLink $
 --             enableVPCClassicLink
@@ -940,6 +946,9 @@ import Test.AWS.EC2.Internal
 --         , responseDisableVPCClassicLinkDNSSupport $
 --             disableVPCClassicLinkDNSSupportResponse
 --
+--         , responseDescribeVolumesModifications $
+--             describeVolumesModificationsResponse
+--
 --         , responseAllocateAddress $
 --             allocateAddressResponse
 --
@@ -1215,6 +1224,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseDeleteSpotDatafeedSubscription $
 --             deleteSpotDatafeedSubscriptionResponse
+--
+--         , responseModifyVolume $
+--             modifyVolumeResponse
 --
 --         , responseEnableVPCClassicLink $
 --             enableVPCClassicLinkResponse
@@ -1776,6 +1788,11 @@ requestDisableVPCClassicLinkDNSSupport = req
     "DisableVPCClassicLinkDNSSupport"
     "fixture/DisableVPCClassicLinkDNSSupport.yaml"
 
+requestDescribeVolumesModifications :: DescribeVolumesModifications -> TestTree
+requestDescribeVolumesModifications = req
+    "DescribeVolumesModifications"
+    "fixture/DescribeVolumesModifications.yaml"
+
 requestAllocateAddress :: AllocateAddress -> TestTree
 requestAllocateAddress = req
     "AllocateAddress"
@@ -2235,6 +2252,11 @@ requestDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestT
 requestDeleteSpotDatafeedSubscription = req
     "DeleteSpotDatafeedSubscription"
     "fixture/DeleteSpotDatafeedSubscription.yaml"
+
+requestModifyVolume :: ModifyVolume -> TestTree
+requestModifyVolume = req
+    "ModifyVolume"
+    "fixture/ModifyVolume.yaml"
 
 requestEnableVPCClassicLink :: EnableVPCClassicLink -> TestTree
 requestEnableVPCClassicLink = req
@@ -3059,6 +3081,13 @@ responseDisableVPCClassicLinkDNSSupport = res
     ec2
     (Proxy :: Proxy DisableVPCClassicLinkDNSSupport)
 
+responseDescribeVolumesModifications :: DescribeVolumesModificationsResponse -> TestTree
+responseDescribeVolumesModifications = res
+    "DescribeVolumesModificationsResponse"
+    "fixture/DescribeVolumesModificationsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeVolumesModifications)
+
 responseAllocateAddress :: AllocateAddressResponse -> TestTree
 responseAllocateAddress = res
     "AllocateAddressResponse"
@@ -3702,6 +3731,13 @@ responseDeleteSpotDatafeedSubscription = res
     "fixture/DeleteSpotDatafeedSubscriptionResponse.proto"
     ec2
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
+
+responseModifyVolume :: ModifyVolumeResponse -> TestTree
+responseModifyVolume = res
+    "ModifyVolumeResponse"
+    "fixture/ModifyVolumeResponse.proto"
+    ec2
+    (Proxy :: Proxy ModifyVolume)
 
 responseEnableVPCClassicLink :: EnableVPCClassicLinkResponse -> TestTree
 responseEnableVPCClassicLink = res

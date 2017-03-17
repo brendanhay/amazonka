@@ -14612,6 +14612,140 @@ instance ToQuery VolumeDetail where
         toQuery VolumeDetail'{..}
           = mconcat ["Size" =: _vdSize]
 
+-- | Describes the modification status of an EBS volume.
+--
+--
+-- If the volume has never been modified, some element values will be null.
+--
+--
+-- /See:/ 'volumeModification' smart constructor.
+data VolumeModification = VolumeModification'
+    { _vmProgress           :: !(Maybe Integer)
+    , _vmStartTime          :: !(Maybe ISO8601)
+    , _vmModificationState  :: !(Maybe VolumeModificationState)
+    , _vmTargetVolumeType   :: !(Maybe VolumeType)
+    , _vmOriginalVolumeType :: !(Maybe VolumeType)
+    , _vmTargetSize         :: !(Maybe Int)
+    , _vmTargetIOPS         :: !(Maybe Int)
+    , _vmOriginalSize       :: !(Maybe Int)
+    , _vmOriginalIOPS       :: !(Maybe Int)
+    , _vmStatusMessage      :: !(Maybe Text)
+    , _vmEndTime            :: !(Maybe ISO8601)
+    , _vmVolumeId           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeModification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vmProgress' - Modification progress from 0 to 100%.
+--
+-- * 'vmStartTime' - Modification start time
+--
+-- * 'vmModificationState' - Current state of modification. Modification state is null for unmodified volumes.
+--
+-- * 'vmTargetVolumeType' - Target EBS volume type of the volume being modified.
+--
+-- * 'vmOriginalVolumeType' - Original EBS volume type of the volume being modified.
+--
+-- * 'vmTargetSize' - Target size of the volume being modified.
+--
+-- * 'vmTargetIOPS' - Target IOPS rate of the volume being modified.
+--
+-- * 'vmOriginalSize' - Original size of the volume being modified.
+--
+-- * 'vmOriginalIOPS' - Original IOPS rate of the volume being modified.
+--
+-- * 'vmStatusMessage' - Generic status message on modification progress or failure.
+--
+-- * 'vmEndTime' - Modification completion or failure time.
+--
+-- * 'vmVolumeId' - ID of the volume being modified.
+volumeModification
+    :: VolumeModification
+volumeModification =
+    VolumeModification'
+    { _vmProgress = Nothing
+    , _vmStartTime = Nothing
+    , _vmModificationState = Nothing
+    , _vmTargetVolumeType = Nothing
+    , _vmOriginalVolumeType = Nothing
+    , _vmTargetSize = Nothing
+    , _vmTargetIOPS = Nothing
+    , _vmOriginalSize = Nothing
+    , _vmOriginalIOPS = Nothing
+    , _vmStatusMessage = Nothing
+    , _vmEndTime = Nothing
+    , _vmVolumeId = Nothing
+    }
+
+-- | Modification progress from 0 to 100%.
+vmProgress :: Lens' VolumeModification (Maybe Integer)
+vmProgress = lens _vmProgress (\ s a -> s{_vmProgress = a});
+
+-- | Modification start time
+vmStartTime :: Lens' VolumeModification (Maybe UTCTime)
+vmStartTime = lens _vmStartTime (\ s a -> s{_vmStartTime = a}) . mapping _Time;
+
+-- | Current state of modification. Modification state is null for unmodified volumes.
+vmModificationState :: Lens' VolumeModification (Maybe VolumeModificationState)
+vmModificationState = lens _vmModificationState (\ s a -> s{_vmModificationState = a});
+
+-- | Target EBS volume type of the volume being modified.
+vmTargetVolumeType :: Lens' VolumeModification (Maybe VolumeType)
+vmTargetVolumeType = lens _vmTargetVolumeType (\ s a -> s{_vmTargetVolumeType = a});
+
+-- | Original EBS volume type of the volume being modified.
+vmOriginalVolumeType :: Lens' VolumeModification (Maybe VolumeType)
+vmOriginalVolumeType = lens _vmOriginalVolumeType (\ s a -> s{_vmOriginalVolumeType = a});
+
+-- | Target size of the volume being modified.
+vmTargetSize :: Lens' VolumeModification (Maybe Int)
+vmTargetSize = lens _vmTargetSize (\ s a -> s{_vmTargetSize = a});
+
+-- | Target IOPS rate of the volume being modified.
+vmTargetIOPS :: Lens' VolumeModification (Maybe Int)
+vmTargetIOPS = lens _vmTargetIOPS (\ s a -> s{_vmTargetIOPS = a});
+
+-- | Original size of the volume being modified.
+vmOriginalSize :: Lens' VolumeModification (Maybe Int)
+vmOriginalSize = lens _vmOriginalSize (\ s a -> s{_vmOriginalSize = a});
+
+-- | Original IOPS rate of the volume being modified.
+vmOriginalIOPS :: Lens' VolumeModification (Maybe Int)
+vmOriginalIOPS = lens _vmOriginalIOPS (\ s a -> s{_vmOriginalIOPS = a});
+
+-- | Generic status message on modification progress or failure.
+vmStatusMessage :: Lens' VolumeModification (Maybe Text)
+vmStatusMessage = lens _vmStatusMessage (\ s a -> s{_vmStatusMessage = a});
+
+-- | Modification completion or failure time.
+vmEndTime :: Lens' VolumeModification (Maybe UTCTime)
+vmEndTime = lens _vmEndTime (\ s a -> s{_vmEndTime = a}) . mapping _Time;
+
+-- | ID of the volume being modified.
+vmVolumeId :: Lens' VolumeModification (Maybe Text)
+vmVolumeId = lens _vmVolumeId (\ s a -> s{_vmVolumeId = a});
+
+instance FromXML VolumeModification where
+        parseXML x
+          = VolumeModification' <$>
+              (x .@? "progress") <*> (x .@? "startTime") <*>
+                (x .@? "modificationState")
+                <*> (x .@? "targetVolumeType")
+                <*> (x .@? "originalVolumeType")
+                <*> (x .@? "targetSize")
+                <*> (x .@? "targetIops")
+                <*> (x .@? "originalSize")
+                <*> (x .@? "originalIops")
+                <*> (x .@? "statusMessage")
+                <*> (x .@? "endTime")
+                <*> (x .@? "volumeId")
+
+instance Hashable VolumeModification
+
+instance NFData VolumeModification
+
 -- | Describes a volume status operation code.
 --
 --

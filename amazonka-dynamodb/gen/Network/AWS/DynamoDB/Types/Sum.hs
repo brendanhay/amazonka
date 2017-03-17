@@ -459,3 +459,35 @@ instance ToHeader     TableStatus
 
 instance FromJSON TableStatus where
     parseJSON = parseJSONText "TableStatus"
+
+data TimeToLiveStatus
+    = Disabled
+    | Disabling
+    | Enabled
+    | Enabling
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TimeToLiveStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "disabling" -> pure Disabling
+        "enabled" -> pure Enabled
+        "enabling" -> pure Enabling
+        e -> fromTextError $ "Failure parsing TimeToLiveStatus from value: '" <> e
+           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+
+instance ToText TimeToLiveStatus where
+    toText = \case
+        Disabled -> "DISABLED"
+        Disabling -> "DISABLING"
+        Enabled -> "ENABLED"
+        Enabling -> "ENABLING"
+
+instance Hashable     TimeToLiveStatus
+instance NFData       TimeToLiveStatus
+instance ToByteString TimeToLiveStatus
+instance ToQuery      TimeToLiveStatus
+instance ToHeader     TimeToLiveStatus
+
+instance FromJSON TimeToLiveStatus where
+    parseJSON = parseJSONText "TimeToLiveStatus"

@@ -73,11 +73,17 @@ import Test.AWS.DynamoDB.Internal
 --         , requestCreateTable $
 --             createTable
 --
+--         , requestDescribeTimeToLive $
+--             describeTimeToLive
+--
 --         , requestTagResource $
 --             tagResource
 --
 --         , requestUntagResource $
 --             untagResource
+--
+--         , requestUpdateTimeToLive $
+--             updateTimeToLive
 --
 --           ]
 
@@ -127,11 +133,17 @@ import Test.AWS.DynamoDB.Internal
 --         , responseCreateTable $
 --             createTableResponse
 --
+--         , responseDescribeTimeToLive $
+--             describeTimeToLiveResponse
+--
 --         , responseTagResource $
 --             tagResourceResponse
 --
 --         , responseUntagResource $
 --             untagResourceResponse
+--
+--         , responseUpdateTimeToLive $
+--             updateTimeToLiveResponse
 --
 --           ]
 --     ]
@@ -213,6 +225,11 @@ requestCreateTable = req
     "CreateTable"
     "fixture/CreateTable.yaml"
 
+requestDescribeTimeToLive :: DescribeTimeToLive -> TestTree
+requestDescribeTimeToLive = req
+    "DescribeTimeToLive"
+    "fixture/DescribeTimeToLive.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource = req
     "TagResource"
@@ -222,6 +239,11 @@ requestUntagResource :: UntagResource -> TestTree
 requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateTimeToLive :: UpdateTimeToLive -> TestTree
+requestUpdateTimeToLive = req
+    "UpdateTimeToLive"
+    "fixture/UpdateTimeToLive.yaml"
 
 -- Responses
 
@@ -330,6 +352,13 @@ responseCreateTable = res
     dynamoDB
     (Proxy :: Proxy CreateTable)
 
+responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
+responseDescribeTimeToLive = res
+    "DescribeTimeToLiveResponse"
+    "fixture/DescribeTimeToLiveResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy DescribeTimeToLive)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource = res
     "TagResourceResponse"
@@ -343,3 +372,10 @@ responseUntagResource = res
     "fixture/UntagResourceResponse.proto"
     dynamoDB
     (Proxy :: Proxy UntagResource)
+
+responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
+responseUpdateTimeToLive = res
+    "UpdateTimeToLiveResponse"
+    "fixture/UpdateTimeToLiveResponse.proto"
+    dynamoDB
+    (Proxy :: Proxy UpdateTimeToLive)

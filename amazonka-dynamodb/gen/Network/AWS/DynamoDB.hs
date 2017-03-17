@@ -105,11 +105,17 @@ module Network.AWS.DynamoDB
     -- ** CreateTable
     , module Network.AWS.DynamoDB.CreateTable
 
+    -- ** DescribeTimeToLive
+    , module Network.AWS.DynamoDB.DescribeTimeToLive
+
     -- ** TagResource
     , module Network.AWS.DynamoDB.TagResource
 
     -- ** UntagResource
     , module Network.AWS.DynamoDB.UntagResource
+
+    -- ** UpdateTimeToLive
+    , module Network.AWS.DynamoDB.UpdateTimeToLive
 
     -- * Types
 
@@ -151,6 +157,9 @@ module Network.AWS.DynamoDB
 
     -- ** TableStatus
     , TableStatus (..)
+
+    -- ** TimeToLiveStatus
+    , TimeToLiveStatus (..)
 
     -- ** AttributeDefinition
     , AttributeDefinition
@@ -346,6 +355,18 @@ module Network.AWS.DynamoDB
     , tagKey
     , tagValue
 
+    -- ** TimeToLiveDescription
+    , TimeToLiveDescription
+    , timeToLiveDescription
+    , ttldTimeToLiveStatus
+    , ttldAttributeName
+
+    -- ** TimeToLiveSpecification
+    , TimeToLiveSpecification
+    , timeToLiveSpecification
+    , ttlsEnabled
+    , ttlsAttributeName
+
     -- ** UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
     , updateGlobalSecondaryIndexAction
@@ -366,6 +387,7 @@ import           Network.AWS.DynamoDB.DeleteItem
 import           Network.AWS.DynamoDB.DeleteTable
 import           Network.AWS.DynamoDB.DescribeLimits
 import           Network.AWS.DynamoDB.DescribeTable
+import           Network.AWS.DynamoDB.DescribeTimeToLive
 import           Network.AWS.DynamoDB.GetItem
 import           Network.AWS.DynamoDB.ListTables
 import           Network.AWS.DynamoDB.ListTagsOfResource
@@ -377,6 +399,7 @@ import           Network.AWS.DynamoDB.Types
 import           Network.AWS.DynamoDB.UntagResource
 import           Network.AWS.DynamoDB.UpdateItem
 import           Network.AWS.DynamoDB.UpdateTable
+import           Network.AWS.DynamoDB.UpdateTimeToLive
 import           Network.AWS.DynamoDB.Waiters
 
 {- $errors

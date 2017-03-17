@@ -29,7 +29,7 @@
 --
 --
 --
--- For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html Configuring Event Selectors for Trails> in the /AWS CloudTrail User Guide/ .
+-- For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html Logging Data and Management Events for Trails > in the /AWS CloudTrail User Guide/ .
 --
 module Network.AWS.CloudTrail.GetEventSelectors
     (

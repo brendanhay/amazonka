@@ -21,7 +21,7 @@ import           Network.AWS.CloudTrail.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object level API operations that access S3 objects, such as @GetObject@ , @DeleteObject@ , and @PutObject@ . You can specify up to 50 S3 buckets and object prefixes for an event selector.
+-- | The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object-level API operations that access S3 objects, such as @GetObject@ , @DeleteObject@ , and @PutObject@ . You can specify up to 250 S3 buckets and object prefixes for a trail.
 --
 --
 -- Example
@@ -175,7 +175,7 @@ instance Hashable Event
 
 instance NFData Event
 
--- | Use event selectors to specify the types of events that you want your trail to log. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
+-- | Use event selectors to specify whether you want your trail to log management and/or data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.
 --
 --
 -- You can configure up to five event selectors for a trail.
@@ -192,11 +192,11 @@ data EventSelector = EventSelector'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esDataResources' - CloudTrail supports logging only data events for S3 objects. You can specify up to 50 S3 buckets and object prefixes for an event selector. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources Data Events> in the /AWS CloudTrail User Guide/ .
+-- * 'esDataResources' - CloudTrail supports logging only data events for S3 objects. You can specify up to 250 S3 buckets and object prefixes for a trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> in the /AWS CloudTrail User Guide/ .
 --
 -- * 'esReadWriteType' - Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation. By default, the value is @All@ .
 --
--- * 'esIncludeManagementEvents' - Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
+-- * 'esIncludeManagementEvents' - Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
 eventSelector
     :: EventSelector
 eventSelector =
@@ -206,7 +206,7 @@ eventSelector =
     , _esIncludeManagementEvents = Nothing
     }
 
--- | CloudTrail supports logging only data events for S3 objects. You can specify up to 50 S3 buckets and object prefixes for an event selector. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#data-events-resources Data Events> in the /AWS CloudTrail User Guide/ .
+-- | CloudTrail supports logging only data events for S3 objects. You can specify up to 250 S3 buckets and object prefixes for a trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> in the /AWS CloudTrail User Guide/ .
 esDataResources :: Lens' EventSelector [DataResource]
 esDataResources = lens _esDataResources (\ s a -> s{_esDataResources = a}) . _Default . _Coerce;
 
@@ -214,7 +214,7 @@ esDataResources = lens _esDataResources (\ s a -> s{_esDataResources = a}) . _De
 esReadWriteType :: Lens' EventSelector (Maybe ReadWriteType)
 esReadWriteType = lens _esReadWriteType (\ s a -> s{_esReadWriteType = a});
 
--- | Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-event-selectors-for-a-trail.html#event-selector-for-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
+-- | Specify if you want your event selector to include management events for your trail. For more information, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events> in the /AWS CloudTrail User Guide/ . By default, the value is @true@ .
 esIncludeManagementEvents :: Lens' EventSelector (Maybe Bool)
 esIncludeManagementEvents = lens _esIncludeManagementEvents (\ s a -> s{_esIncludeManagementEvents = a});
 

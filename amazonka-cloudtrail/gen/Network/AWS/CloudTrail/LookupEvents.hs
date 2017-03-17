@@ -25,6 +25,8 @@
 --
 --     * Event name
 --
+--     * Event source
+--
 --     * Resource name
 --
 --     * Resource type

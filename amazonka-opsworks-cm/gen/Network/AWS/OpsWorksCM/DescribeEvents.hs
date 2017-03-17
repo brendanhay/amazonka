@@ -23,7 +23,7 @@
 --
 -- This operation is synchronous.
 --
--- A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are invalid.
+-- A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.DescribeEvents
     (

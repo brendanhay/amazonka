@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying cause of maintenance failure has been resolved. The server will switch to @UNDER_MAINTENANCE@ state, while maintenace is in progress.
+-- Manually starts server maintenance. This command can be useful if an earlier maintenance attempt failed, and the underlying cause of maintenance failure has been resolved. The server is in an @UNDER_MAINTENANCE@ state while maintenance is in progress.
 --
 --
--- Maintenace can only be started for @HEALTHY@ and @UNHEALTHY@ servers. A @InvalidStateException@ is thrown otherwise. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are invalid.
+-- Maintenance can only be started on servers in @HEALTHY@ and @UNHEALTHY@ states. Otherwise, an @InvalidStateException@ is thrown. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.StartMaintenance
     (
@@ -106,7 +106,7 @@ instance ToQuery StartMaintenance where
 data StartMaintenanceResponse = StartMaintenanceResponse'
     { _smrsServer         :: !(Maybe Server)
     , _smrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StartMaintenanceResponse' with the minimum fields required to make a request.
 --

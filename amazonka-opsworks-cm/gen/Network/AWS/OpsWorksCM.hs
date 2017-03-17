@@ -13,11 +13,11 @@
 --
 -- __AWS OpsWorks for Chef Automate__
 --
--- A service that runs and manages configuration management servers.
+-- AWS OpsWorks for Chef Automate is a service that runs and manages configuration management servers.
 --
--- Glossary of terms
+-- __Glossary of terms__
 --
---     * __Server__ : A server is a configuration management server, and can be highly-available. The configuration manager runs on your instances by using various AWS services, such as Amazon Elastic Compute Cloud (EC2), and potentially Amazon Relational Database Service (RDS). A server is a generic abstraction over the configuration manager that you want to use, much like Amazon RDS. In AWS OpsWorks for Chef Automate, you do not start or stop servers. After you create servers, they continue to run until they are deleted.
+--     * __Server__ : A configuration management server that can be highly-available. The configuration manager runs on your instances by using various AWS services, such as Amazon Elastic Compute Cloud (EC2), and potentially Amazon Relational Database Service (RDS). A server is a generic abstraction over the configuration manager that you want to use, much like Amazon RDS. In AWS OpsWorks for Chef Automate, you do not start or stop servers. After you create servers, they continue to run until they are deleted.
 --
 --     * __Engine__ : The specific configuration manager that you want to use (such as @Chef@ ) is the engine.
 --
@@ -29,9 +29,21 @@
 --
 --
 --
--- Throttling limits
+-- __Endpoints__
 --
--- All API operations allow for 5 requests per second with a burst of 10 requests per second.
+-- AWS OpsWorks for Chef Automate supports the following endpoints, all HTTPS. You must connect to one of the following endpoints. Chef servers can only be accessed or managed within the endpoint in which they are created.
+--
+--     * opsworks-cm.us-east-1.amazonaws.com
+--
+--     * opsworks-cm.us-west-2.amazonaws.com
+--
+--     * opsworks-cm.eu-west-1.amazonaws.com
+--
+--
+--
+-- __Throttling limits__
+--
+-- All API operations allow for five requests per second with a burst of 10 requests per second.
 --
 module Network.AWS.OpsWorksCM
     (
@@ -180,6 +192,7 @@ module Network.AWS.OpsWorksCM
     , sStatus
     , sInstanceProfileARN
     , sSecurityGroupIds
+    , sAssociatePublicIPAddress
     , sServerName
     , sSubnetIds
     , sKeyPair
@@ -194,6 +207,7 @@ module Network.AWS.OpsWorksCM
     , sPreferredBackupWindow
     , sStatusReason
     , sEndpoint
+    , sCloudFormationStackARN
     , sBackupRetentionCount
 
     -- ** ServerEvent

@@ -18,16 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Associates a new node with the Chef server. This command is an alternative to @knife bootstrap@ . For more information about how to disassociate a node, see 'DisassociateNode' .
+--
+--
+-- A node can can only be associated with servers that are in a @HEALTHY@ state. Otherwise, an @InvalidStateException@ is thrown. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid. The AssociateNode API call can be integrated into Auto Scaling configurations, AWS Cloudformation templates, or the user data of a server's instance.
+--
+-- Example: @aws opsworks-cm associate-node --server-name /MyServer/ --node-name /MyManagedNode/ --engine-attributes "Name=/MyOrganization/ ,Value=default" "Name=/Chef_node_public_key/ ,Value=/Public_key_contents/ "@
+--
 module Network.AWS.OpsWorksCM.AssociateNode
     (
     -- * Creating a Request
       associateNode
     , AssociateNode
     -- * Request Lenses
-    , anEngineAttributes
     , anServerName
     , anNodeName
+    , anEngineAttributes
 
     -- * Destructuring the Response
     , associateNodeResponse
@@ -46,42 +52,42 @@ import           Network.AWS.Response
 
 -- | /See:/ 'associateNode' smart constructor.
 data AssociateNode = AssociateNode'
-    { _anEngineAttributes :: !(Maybe [EngineAttribute])
-    , _anServerName       :: !Text
+    { _anServerName       :: !Text
     , _anNodeName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    , _anEngineAttributes :: ![EngineAttribute]
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateNode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'anEngineAttributes' - Undocumented member.
+-- * 'anServerName' - The name of the server with which to associate the node.
 --
--- * 'anServerName' - Undocumented member.
+-- * 'anNodeName' - The name of the Chef client node.
 --
--- * 'anNodeName' - Undocumented member.
+-- * 'anEngineAttributes' - Engine attributes used for associating the node.  __Attributes accepted in a AssociateNode request:__      * @CHEF_ORGANIZATION@ : The Chef organization with which the node is associated. By default only one organization named @default@ can exist.      * @CHEF_NODE_PUBLIC_KEY@ : A PEM-formatted public key. This key is required for the @chef-client@ agent to access the Chef API.
 associateNode
     :: Text -- ^ 'anServerName'
     -> Text -- ^ 'anNodeName'
     -> AssociateNode
 associateNode pServerName_ pNodeName_ =
     AssociateNode'
-    { _anEngineAttributes = Nothing
-    , _anServerName = pServerName_
+    { _anServerName = pServerName_
     , _anNodeName = pNodeName_
+    , _anEngineAttributes = mempty
     }
 
--- | Undocumented member.
-anEngineAttributes :: Lens' AssociateNode [EngineAttribute]
-anEngineAttributes = lens _anEngineAttributes (\ s a -> s{_anEngineAttributes = a}) . _Default . _Coerce;
-
--- | Undocumented member.
+-- | The name of the server with which to associate the node.
 anServerName :: Lens' AssociateNode Text
 anServerName = lens _anServerName (\ s a -> s{_anServerName = a});
 
--- | Undocumented member.
+-- | The name of the Chef client node.
 anNodeName :: Lens' AssociateNode Text
 anNodeName = lens _anNodeName (\ s a -> s{_anNodeName = a});
+
+-- | Engine attributes used for associating the node.  __Attributes accepted in a AssociateNode request:__      * @CHEF_ORGANIZATION@ : The Chef organization with which the node is associated. By default only one organization named @default@ can exist.      * @CHEF_NODE_PUBLIC_KEY@ : A PEM-formatted public key. This key is required for the @chef-client@ agent to access the Chef API.
+anEngineAttributes :: Lens' AssociateNode [EngineAttribute]
+anEngineAttributes = lens _anEngineAttributes (\ s a -> s{_anEngineAttributes = a}) . _Coerce;
 
 instance AWSRequest AssociateNode where
         type Rs AssociateNode = AssociateNodeResponse
@@ -111,9 +117,9 @@ instance ToJSON AssociateNode where
         toJSON AssociateNode'{..}
           = object
               (catMaybes
-                 [("EngineAttributes" .=) <$> _anEngineAttributes,
-                  Just ("ServerName" .= _anServerName),
-                  Just ("NodeName" .= _anNodeName)])
+                 [Just ("ServerName" .= _anServerName),
+                  Just ("NodeName" .= _anNodeName),
+                  Just ("EngineAttributes" .= _anEngineAttributes)])
 
 instance ToPath AssociateNode where
         toPath = const "/"
@@ -131,7 +137,7 @@ data AssociateNodeResponse = AssociateNodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'anrsNodeAssociationStatusToken' - Undocumented member.
+-- * 'anrsNodeAssociationStatusToken' - Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
 --
 -- * 'anrsResponseStatus' - -- | The response status code.
 associateNodeResponse
@@ -143,7 +149,7 @@ associateNodeResponse pResponseStatus_ =
     , _anrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
 anrsNodeAssociationStatusToken :: Lens' AssociateNodeResponse (Maybe Text)
 anrsNodeAssociationStatusToken = lens _anrsNodeAssociationStatusToken (\ s a -> s{_anrsNodeAssociationStatusToken = a});
 

@@ -103,6 +103,19 @@ instance ToHeader     MaintenanceStatus
 instance FromJSON MaintenanceStatus where
     parseJSON = parseJSONText "MaintenanceStatus"
 
+-- | The status of the association or disassociation request.
+--
+--
+-- __Possible values:__
+--
+--     * @SUCCESS@ : The association or disassociation succeeded.
+--
+--     * @FAILED@ : The association or disassociation failed.
+--
+--     * @IN_PROGRESS@ : The association or disassociation is still in progress.
+--
+--
+--
 data NodeAssociationStatus
     = NASFailed
     | NASInProgress
@@ -140,8 +153,10 @@ data ServerStatus
     | Failed
     | Healthy
     | Modifying
+    | Restoring
     | Running
     | Setup
+    | Terminated
     | UnderMaintenance
     | Unhealthy
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -155,12 +170,14 @@ instance FromText ServerStatus where
         "failed" -> pure Failed
         "healthy" -> pure Healthy
         "modifying" -> pure Modifying
+        "restoring" -> pure Restoring
         "running" -> pure Running
         "setup" -> pure Setup
+        "terminated" -> pure Terminated
         "under_maintenance" -> pure UnderMaintenance
         "unhealthy" -> pure Unhealthy
         e -> fromTextError $ "Failure parsing ServerStatus from value: '" <> e
-           <> "'. Accepted values: backing_up, connection_lost, creating, deleting, failed, healthy, modifying, running, setup, under_maintenance, unhealthy"
+           <> "'. Accepted values: backing_up, connection_lost, creating, deleting, failed, healthy, modifying, restoring, running, setup, terminated, under_maintenance, unhealthy"
 
 instance ToText ServerStatus where
     toText = \case
@@ -171,8 +188,10 @@ instance ToText ServerStatus where
         Failed -> "FAILED"
         Healthy -> "HEALTHY"
         Modifying -> "MODIFYING"
+        Restoring -> "RESTORING"
         Running -> "RUNNING"
         Setup -> "SETUP"
+        Terminated -> "TERMINATED"
         UnderMaintenance -> "UNDER_MAINTENANCE"
         Unhealthy -> "UNHEALTHY"
 

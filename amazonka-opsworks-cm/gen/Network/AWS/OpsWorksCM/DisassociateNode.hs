@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Disassociates a node from a Chef server, and removes the node from the Chef server's managed nodes. After a node is disassociated, the node key pair is no longer valid for accessing the Chef API. For more information about how to associate a node, see 'AssociateNode' .
+--
+--
+-- A node can can only be disassociated from a server that is in a @HEALTHY@ state. Otherwise, an @InvalidStateException@ is thrown. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
+--
 module Network.AWS.OpsWorksCM.DisassociateNode
     (
     -- * Creating a Request
@@ -49,17 +53,17 @@ data DisassociateNode = DisassociateNode'
     { _dnEngineAttributes :: !(Maybe [EngineAttribute])
     , _dnServerName       :: !Text
     , _dnNodeName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisassociateNode' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnEngineAttributes' - Undocumented member.
+-- * 'dnEngineAttributes' - Engine attributes used for disassociating the node.  __Attributes accepted in a DisassociateNode request:__      * @CHEF_ORGANIZATION@ : The Chef organization with which the node was associated. By default only one organization named @default@ can exist.
 --
--- * 'dnServerName' - Undocumented member.
+-- * 'dnServerName' - The name of the server from which to disassociate the node.
 --
--- * 'dnNodeName' - Undocumented member.
+-- * 'dnNodeName' - The name of the Chef client node.
 disassociateNode
     :: Text -- ^ 'dnServerName'
     -> Text -- ^ 'dnNodeName'
@@ -71,15 +75,15 @@ disassociateNode pServerName_ pNodeName_ =
     , _dnNodeName = pNodeName_
     }
 
--- | Undocumented member.
+-- | Engine attributes used for disassociating the node.  __Attributes accepted in a DisassociateNode request:__      * @CHEF_ORGANIZATION@ : The Chef organization with which the node was associated. By default only one organization named @default@ can exist.
 dnEngineAttributes :: Lens' DisassociateNode [EngineAttribute]
 dnEngineAttributes = lens _dnEngineAttributes (\ s a -> s{_dnEngineAttributes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The name of the server from which to disassociate the node.
 dnServerName :: Lens' DisassociateNode Text
 dnServerName = lens _dnServerName (\ s a -> s{_dnServerName = a});
 
--- | Undocumented member.
+-- | The name of the Chef client node.
 dnNodeName :: Lens' DisassociateNode Text
 dnNodeName = lens _dnNodeName (\ s a -> s{_dnNodeName = a});
 
@@ -131,7 +135,7 @@ data DisassociateNodeResponse = DisassociateNodeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dnrsNodeAssociationStatusToken' - Undocumented member.
+-- * 'dnrsNodeAssociationStatusToken' - Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the disassociation request.
 --
 -- * 'dnrsResponseStatus' - -- | The response status code.
 disassociateNodeResponse
@@ -143,7 +147,7 @@ disassociateNodeResponse pResponseStatus_ =
     , _dnrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the disassociation request.
 dnrsNodeAssociationStatusToken :: Lens' DisassociateNodeResponse (Maybe Text)
 dnrsNodeAssociationStatusToken = lens _dnrsNodeAssociationStatusToken (\ s a -> s{_dnrsNodeAssociationStatusToken = a});
 

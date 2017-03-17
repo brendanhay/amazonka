@@ -18,12 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a backup. You can delete both manual and automated backups.
+-- Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
 --
 --
--- This operation is asynchronous.
---
--- A @InvalidStateException@ is thrown then a backup is already deleting. A @ResourceNotFoundException@ is thrown when the backup does not exist. A @ValidationException@ is thrown when parameters of the request are not valid.
+-- An @InvalidStateException@ is thrown when a backup deletion is already in progress. A @ResourceNotFoundException@ is thrown when the backup does not exist. A @ValidationException@ is thrown when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.DeleteBackup
     (

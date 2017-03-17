@@ -18,7 +18,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Returns the current status of an existing association or disassociation request.
+--
+--
+-- A @ResourceNotFoundException@ is thrown when no recent association or disassociation request with the specified token is found, or when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
+--
 module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
     (
     -- * Creating a Request
@@ -55,7 +59,7 @@ data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
 --
 -- * 'dnasNodeAssociationStatusToken' - Undocumented member.
 --
--- * 'dnasServerName' - Undocumented member.
+-- * 'dnasServerName' - The name of the server from which to disassociate the node.
 describeNodeAssociationStatus
     :: Text -- ^ 'dnasNodeAssociationStatusToken'
     -> Text -- ^ 'dnasServerName'
@@ -70,7 +74,7 @@ describeNodeAssociationStatus pNodeAssociationStatusToken_ pServerName_ =
 dnasNodeAssociationStatusToken :: Lens' DescribeNodeAssociationStatus Text
 dnasNodeAssociationStatusToken = lens _dnasNodeAssociationStatusToken (\ s a -> s{_dnasNodeAssociationStatusToken = a});
 
--- | Undocumented member.
+-- | The name of the server from which to disassociate the node.
 dnasServerName :: Lens' DescribeNodeAssociationStatus Text
 dnasServerName = lens _dnasServerName (\ s a -> s{_dnasServerName = a});
 
@@ -128,7 +132,7 @@ data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusRespon
 --
 -- * 'dnasrsResponseStatus' - -- | The response status code.
 --
--- * 'dnasrsNodeAssociationStatus' - Undocumented member.
+-- * 'dnasrsNodeAssociationStatus' - The status of the association or disassociation request.  __Possible values:__      * @SUCCESS@ : The association or disassociation succeeded.      * @FAILED@ : The association or disassociation failed.      * @IN_PROGRESS@ : The association or disassociation is still in progress.
 describeNodeAssociationStatusResponse
     :: Int -- ^ 'dnasrsResponseStatus'
     -> NodeAssociationStatus -- ^ 'dnasrsNodeAssociationStatus'
@@ -143,7 +147,7 @@ describeNodeAssociationStatusResponse pResponseStatus_ pNodeAssociationStatus_ =
 dnasrsResponseStatus :: Lens' DescribeNodeAssociationStatusResponse Int
 dnasrsResponseStatus = lens _dnasrsResponseStatus (\ s a -> s{_dnasrsResponseStatus = a});
 
--- | Undocumented member.
+-- | The status of the association or disassociation request.  __Possible values:__      * @SUCCESS@ : The association or disassociation succeeded.      * @FAILED@ : The association or disassociation failed.      * @IN_PROGRESS@ : The association or disassociation is still in progress.
 dnasrsNodeAssociationStatus :: Lens' DescribeNodeAssociationStatusResponse NodeAssociationStatus
 dnasrsNodeAssociationStatus = lens _dnasrsNodeAssociationStatus (\ s a -> s{_dnasrsNodeAssociationStatus = a});
 

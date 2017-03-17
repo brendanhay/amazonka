@@ -45,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'PutEvents' operation.
---
---
---
--- /See:/ 'putEvents' smart constructor.
+-- | /See:/ 'putEvents' smart constructor.
 newtype PutEvents = PutEvents'
     { _peEntries :: List1 PutEventsRequestEntry
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -105,11 +101,7 @@ instance ToPath PutEvents where
 instance ToQuery PutEvents where
         toQuery = const mempty
 
--- | The result of the 'PutEvents' operation.
---
---
---
--- /See:/ 'putEventsResponse' smart constructor.
+-- | /See:/ 'putEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
     { _persFailedEntryCount :: !(Maybe Int)
     , _persEntries          :: !(Maybe [PutEventsResultEntry])
@@ -122,7 +114,7 @@ data PutEventsResponse = PutEventsResponse'
 --
 -- * 'persFailedEntryCount' - The number of failed entries.
 --
--- * 'persEntries' - A list of successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry will have the event ID in it. If not, then the ErrorCode and ErrorMessage can be used to identify the problem with the entry.
+-- * 'persEntries' - The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 --
 -- * 'persResponseStatus' - -- | The response status code.
 putEventsResponse
@@ -139,7 +131,7 @@ putEventsResponse pResponseStatus_ =
 persFailedEntryCount :: Lens' PutEventsResponse (Maybe Int)
 persFailedEntryCount = lens _persFailedEntryCount (\ s a -> s{_persFailedEntryCount = a});
 
--- | A list of successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry will have the event ID in it. If not, then the ErrorCode and ErrorMessage can be used to identify the problem with the entry.
+-- | The successfully and unsuccessfully ingested events results. If the ingestion was successful, the entry has the event ID in it. Otherwise, you can use the error code and error message to identify the problem with the entry.
 persEntries :: Lens' PutEventsResponse [PutEventsResultEntry]
 persEntries = lens _persEntries (\ s a -> s{_persEntries = a}) . _Default . _Coerce;
 

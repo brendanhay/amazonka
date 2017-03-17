@@ -18,10 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a rule. You must remove all targets from a rule using 'RemoveTargets' before you can delete the rule.
+-- Deletes the specified rule.
 --
 --
--- __Note:__ When you delete a rule, incoming events might still continue to match to the deleted rule. Please allow a short period of time for changes to take effect.
+-- You must remove all targets from a rule using 'RemoveTargets' before you can delete the rule.
+--
+-- When you delete a rule, incoming events might continue to match to the deleted rule. Please allow a short period of time for changes to take effect.
 --
 module Network.AWS.CloudWatchEvents.DeleteRule
     (
@@ -43,11 +45,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DeleteRule' operation.
---
---
---
--- /See:/ 'deleteRule' smart constructor.
+-- | /See:/ 'deleteRule' smart constructor.
 newtype DeleteRule = DeleteRule'
     { _drName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -56,7 +54,7 @@ newtype DeleteRule = DeleteRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drName' - The name of the rule to be deleted.
+-- * 'drName' - The name of the rule.
 deleteRule
     :: Text -- ^ 'drName'
     -> DeleteRule
@@ -65,7 +63,7 @@ deleteRule pName_ =
     { _drName = pName_
     }
 
--- | The name of the rule to be deleted.
+-- | The name of the rule.
 drName :: Lens' DeleteRule Text
 drName = lens _drName (\ s a -> s{_drName = a});
 

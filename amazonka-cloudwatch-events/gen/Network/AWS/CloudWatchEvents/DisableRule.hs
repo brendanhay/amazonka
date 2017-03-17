@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.
+-- Disables the specified rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.
 --
 --
--- __Note:__ When you disable a rule, incoming events might still continue to match to the disabled rule. Please allow a short period of time for changes to take effect.
+-- When you disable a rule, incoming events might continue to match to the disabled rule. Please allow a short period of time for changes to take effect.
 --
 module Network.AWS.CloudWatchEvents.DisableRule
     (
@@ -43,11 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DisableRule' operation.
---
---
---
--- /See:/ 'disableRule' smart constructor.
+-- | /See:/ 'disableRule' smart constructor.
 newtype DisableRule = DisableRule'
     { _dName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -56,7 +52,7 @@ newtype DisableRule = DisableRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dName' - The name of the rule you want to disable.
+-- * 'dName' - The name of the rule.
 disableRule
     :: Text -- ^ 'dName'
     -> DisableRule
@@ -65,7 +61,7 @@ disableRule pName_ =
     { _dName = pName_
     }
 
--- | The name of the rule you want to disable.
+-- | The name of the rule.
 dName :: Lens' DisableRule Text
 dName = lens _dName (\ s a -> s{_dName = a});
 

@@ -25,6 +25,23 @@ module Network.AWS.CloudWatchEvents.Types
     -- * RuleState
     , RuleState (..)
 
+    -- * EcsParameters
+    , EcsParameters
+    , ecsParameters
+    , epTaskCount
+    , epTaskDefinitionARN
+
+    -- * InputTransformer
+    , InputTransformer
+    , inputTransformer
+    , itInputPathsMap
+    , itInputTemplate
+
+    -- * KinesisParameters
+    , KinesisParameters
+    , kinesisParameters
+    , kpPartitionKeyPath
+
     -- * PutEventsRequestEntry
     , PutEventsRequestEntry
     , putEventsRequestEntry
@@ -66,11 +83,27 @@ module Network.AWS.CloudWatchEvents.Types
     , rDescription
     , rRoleARN
 
+    -- * RunCommandParameters
+    , RunCommandParameters
+    , runCommandParameters
+    , rcpRunCommandTargets
+
+    -- * RunCommandTarget
+    , RunCommandTarget
+    , runCommandTarget
+    , rctKey
+    , rctValues
+
     -- * Target
     , Target
     , target
+    , tRunCommandParameters
+    , tKinesisParameters
+    , tInputTransformer
     , tInput
+    , tEcsParameters
     , tInputPath
+    , tRoleARN
     , tId
     , tARN
     ) where
@@ -115,14 +148,14 @@ cloudWatchEvents =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | This exception occurs if there is concurrent modification on rule or target.
+-- | There is concurrent modification on a rule or target.
 --
 --
 _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConcurrentModificationException =
     _MatchServiceError cloudWatchEvents "ConcurrentModificationException"
 
--- | The event pattern is invalid.
+-- | The event pattern is not valid.
 --
 --
 _InvalidEventPatternException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -142,7 +175,7 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 _ResourceNotFoundException =
     _MatchServiceError cloudWatchEvents "ResourceNotFoundException"
 
--- | This exception occurs if you try to create more rules or add more targets to a rule than allowed by default.
+-- | You tried to create more rules or add more targets to a rule than is allowed.
 --
 --
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError

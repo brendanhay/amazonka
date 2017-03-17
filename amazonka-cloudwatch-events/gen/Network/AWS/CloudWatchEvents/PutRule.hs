@@ -18,14 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a rule. Rules are enabled by default, or based on value of the State parameter. You can disable a rule using 'DisableRule' .
+-- Creates or updates the specified rule. Rules are enabled by default, or based on value of the state. You can disable a rule using 'DisableRule' .
 --
 --
--- __Note:__ When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.
+-- When you create or update a rule, incoming events might not immediately start matching to new or updated rules. Please allow a short period of time for changes to take effect.
 --
--- A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule will trigger on matching events as well as on a schedule.
+-- A rule must contain at least an EventPattern or ScheduleExpression. Rules with EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions self-trigger based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression, in which case the rule triggers on matching events as well as on a schedule.
 --
--- __Note:__ Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+-- Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
 --
 module Network.AWS.CloudWatchEvents.PutRule
     (
@@ -55,11 +55,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'PutRule' operation.
---
---
---
--- /See:/ 'putRule' smart constructor.
+-- | /See:/ 'putRule' smart constructor.
 data PutRule = PutRule'
     { _prEventPattern       :: !(Maybe Text)
     , _prState              :: !(Maybe RuleState)
@@ -160,11 +156,7 @@ instance ToPath PutRule where
 instance ToQuery PutRule where
         toQuery = const mempty
 
--- | The result of the 'PutRule' operation.
---
---
---
--- /See:/ 'putRuleResponse' smart constructor.
+-- | /See:/ 'putRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
     { _prrsRuleARN        :: !(Maybe Text)
     , _prrsResponseStatus :: !Int
@@ -174,7 +166,7 @@ data PutRuleResponse = PutRuleResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prrsRuleARN' - The Amazon Resource Name (ARN) that identifies the rule.
+-- * 'prrsRuleARN' - The Amazon Resource Name (ARN) of the rule.
 --
 -- * 'prrsResponseStatus' - -- | The response status code.
 putRuleResponse
@@ -186,7 +178,7 @@ putRuleResponse pResponseStatus_ =
     , _prrsResponseStatus = pResponseStatus_
     }
 
--- | The Amazon Resource Name (ARN) that identifies the rule.
+-- | The Amazon Resource Name (ARN) of the rule.
 prrsRuleARN :: Lens' PutRuleResponse (Maybe Text)
 prrsRuleARN = lens _prrsRuleARN (\ s a -> s{_prrsRuleARN = a});
 

@@ -11,12 +11,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
+-- Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state, they automatically send events into an event stream. You can create rules that match selected events in the stream and route them to targets to take action. You can also use rules to take action on a pre-determined schedule. For example, you can configure rules to:
 --
 --
---     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.    * Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.    * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
+--     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.
 --
--- For more information about Amazon CloudWatch Events features, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide Amazon CloudWatch Developer Guide> .
+--     * Direct specific API records from CloudTrail to an Amazon Kinesis stream for detailed analysis of potential security or availability risks.
+--
+--     * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
+--
+--
+--
+-- For more information about the features of Amazon CloudWatch Events, see the <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events Amazon CloudWatch Events User Guide> .
 --
 module Network.AWS.CloudWatchEvents
     (
@@ -88,6 +94,23 @@ module Network.AWS.CloudWatchEvents
     -- ** RuleState
     , RuleState (..)
 
+    -- ** EcsParameters
+    , EcsParameters
+    , ecsParameters
+    , epTaskCount
+    , epTaskDefinitionARN
+
+    -- ** InputTransformer
+    , InputTransformer
+    , inputTransformer
+    , itInputPathsMap
+    , itInputTemplate
+
+    -- ** KinesisParameters
+    , KinesisParameters
+    , kinesisParameters
+    , kpPartitionKeyPath
+
     -- ** PutEventsRequestEntry
     , PutEventsRequestEntry
     , putEventsRequestEntry
@@ -129,11 +152,27 @@ module Network.AWS.CloudWatchEvents
     , rDescription
     , rRoleARN
 
+    -- ** RunCommandParameters
+    , RunCommandParameters
+    , runCommandParameters
+    , rcpRunCommandTargets
+
+    -- ** RunCommandTarget
+    , RunCommandTarget
+    , runCommandTarget
+    , rctKey
+    , rctValues
+
     -- ** Target
     , Target
     , target
+    , tRunCommandParameters
+    , tKinesisParameters
+    , tInputTransformer
     , tInput
+    , tEcsParameters
     , tInputPath
+    , tRoleARN
     , tId
     , tARN
     ) where

@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes target(s) from a rule so that when the rule is triggered, those targets will no longer be invoked.
+-- Removes the specified targets from the specified rule. When the rule is triggered, those targets are no longer be invoked.
 --
 --
--- __Note:__ When you remove a target, when the associated rule triggers, removed targets might still continue to be invoked. Please allow a short period of time for changes to take effect.
+-- When you remove a target, when the associated rule triggers, removed targets might continue to be invoked. Please allow a short period of time for changes to take effect.
 --
 module Network.AWS.CloudWatchEvents.RemoveTargets
     (
@@ -48,11 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'RemoveTargets' operation.
---
---
---
--- /See:/ 'removeTargets' smart constructor.
+-- | /See:/ 'removeTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
     { _rtRule :: !Text
     , _rtIds  :: !(List1 Text)
@@ -62,9 +58,9 @@ data RemoveTargets = RemoveTargets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtRule' - The name of the rule you want to remove targets from.
+-- * 'rtRule' - The name of the rule.
 --
--- * 'rtIds' - The list of target IDs to remove from the rule.
+-- * 'rtIds' - The IDs of the targets to remove from the rule.
 removeTargets
     :: Text -- ^ 'rtRule'
     -> NonEmpty Text -- ^ 'rtIds'
@@ -75,11 +71,11 @@ removeTargets pRule_ pIds_ =
     , _rtIds = _List1 # pIds_
     }
 
--- | The name of the rule you want to remove targets from.
+-- | The name of the rule.
 rtRule :: Lens' RemoveTargets Text
 rtRule = lens _rtRule (\ s a -> s{_rtRule = a});
 
--- | The list of target IDs to remove from the rule.
+-- | The IDs of the targets to remove from the rule.
 rtIds :: Lens' RemoveTargets (NonEmpty Text)
 rtIds = lens _rtIds (\ s a -> s{_rtIds = a}) . _List1;
 
@@ -119,11 +115,7 @@ instance ToPath RemoveTargets where
 instance ToQuery RemoveTargets where
         toQuery = const mempty
 
--- | The result of the 'RemoveTargets' operation.
---
---
---
--- /See:/ 'removeTargetsResponse' smart constructor.
+-- | /See:/ 'removeTargetsResponse' smart constructor.
 data RemoveTargetsResponse = RemoveTargetsResponse'
     { _rtrsFailedEntryCount :: !(Maybe Int)
     , _rtrsFailedEntries    :: !(Maybe [RemoveTargetsResultEntry])
@@ -136,7 +128,7 @@ data RemoveTargetsResponse = RemoveTargetsResponse'
 --
 -- * 'rtrsFailedEntryCount' - The number of failed entries.
 --
--- * 'rtrsFailedEntries' - An array of failed target entries.
+-- * 'rtrsFailedEntries' - The failed target entries.
 --
 -- * 'rtrsResponseStatus' - -- | The response status code.
 removeTargetsResponse
@@ -153,7 +145,7 @@ removeTargetsResponse pResponseStatus_ =
 rtrsFailedEntryCount :: Lens' RemoveTargetsResponse (Maybe Int)
 rtrsFailedEntryCount = lens _rtrsFailedEntryCount (\ s a -> s{_rtrsFailedEntryCount = a});
 
--- | An array of failed target entries.
+-- | The failed target entries.
 rtrsFailedEntries :: Lens' RemoveTargetsResponse [RemoveTargetsResultEntry]
 rtrsFailedEntries = lens _rtrsFailedEntries (\ s a -> s{_rtrsFailedEntries = a}) . _Default . _Coerce;
 

@@ -139,10 +139,54 @@ instance Hashable AttributeValue
 
 instance NFData AttributeValue
 
+-- | Contains details about the type of identity that made the request.
+--
+--
+--
+-- /See:/ 'identity' smart constructor.
+data Identity = Identity'
+    { _iPrincipalId :: !(Maybe Text)
+    , _iType        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Identity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iPrincipalId' - A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+--
+-- * 'iType' - The type of the identity. For Time To Live, the type is "Service".
+identity
+    :: Identity
+identity =
+    Identity'
+    { _iPrincipalId = Nothing
+    , _iType = Nothing
+    }
+
+-- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+iPrincipalId :: Lens' Identity (Maybe Text)
+iPrincipalId = lens _iPrincipalId (\ s a -> s{_iPrincipalId = a});
+
+-- | The type of the identity. For Time To Live, the type is "Service".
+iType :: Lens' Identity (Maybe Text)
+iType = lens _iType (\ s a -> s{_iType = a});
+
+instance FromJSON Identity where
+        parseJSON
+          = withObject "Identity"
+              (\ x ->
+                 Identity' <$>
+                   (x .:? "PrincipalId") <*> (x .:? "Type"))
+
+instance Hashable Identity
+
+instance NFData Identity
+
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
 --
--- A /KeySchemaElement/ represents exactly one attribute of the primary key. For example, a simple primary key (partition key) would be represented by one /KeySchemaElement/ . A composite primary key (partition key and sort key) would require one /KeySchemaElement/ for the partition key, and another /KeySchemaElement/ for the sort key.
+-- A @KeySchemaElement@ represents exactly one attribute of the primary key. For example, a simple primary key (partition key) would be represented by one @KeySchemaElement@ . A composite primary key (partition key and sort key) would require one @KeySchemaElement@ for the partition key, and another @KeySchemaElement@ for the sort key.
 --
 --
 -- /See:/ 'keySchemaElement' smart constructor.
@@ -193,7 +237,8 @@ instance NFData KeySchemaElement
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rEventVersion :: !(Maybe Text)
+    { _rUserIdentity :: !(Maybe Identity)
+    , _rEventVersion :: !(Maybe Text)
     , _rDynamodb     :: !(Maybe StreamRecord)
     , _rAwsRegion    :: !(Maybe Text)
     , _rEventName    :: !(Maybe OperationType)
@@ -205,22 +250,25 @@ data Record = Record'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rEventVersion' - The version number of the stream record format. This number is updated whenever the structure of /Record/ is modified. Client applications must not assume that /eventVersion/ will remain at a particular value, as this number is subject to change at any time. In general, /eventVersion/ will only increase as the low-level DynamoDB Streams API evolves.
+-- * 'rUserIdentity' - Items that are deleted by the Time to Live process after expiration have the following fields:      * Records[].userIdentity.type "Service"     * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
+--
+-- * 'rEventVersion' - The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified. Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
 --
 -- * 'rDynamodb' - The main body of the stream record, containing all of the DynamoDB-specific fields.
 --
--- * 'rAwsRegion' - The region in which the /GetRecords/ request was received.
+-- * 'rAwsRegion' - The region in which the @GetRecords@ request was received.
 --
 -- * 'rEventName' - The type of data modification that was performed on the DynamoDB table:     * @INSERT@ - a new item was added to the table.     * @MODIFY@ - one or more of an existing item's attributes were modified.     * @REMOVE@ - the item was deleted from the table
 --
--- * 'rEventSource' - The AWS service from which the stream record originated. For DynamoDB Streams, this is /aws:dynamodb/ .
+-- * 'rEventSource' - The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
 --
 -- * 'rEventId' - A globally unique identifier for the event that was recorded in this stream record.
 record
     :: Record
 record =
     Record'
-    { _rEventVersion = Nothing
+    { _rUserIdentity = Nothing
+    , _rEventVersion = Nothing
     , _rDynamodb = Nothing
     , _rAwsRegion = Nothing
     , _rEventName = Nothing
@@ -228,7 +276,11 @@ record =
     , _rEventId = Nothing
     }
 
--- | The version number of the stream record format. This number is updated whenever the structure of /Record/ is modified. Client applications must not assume that /eventVersion/ will remain at a particular value, as this number is subject to change at any time. In general, /eventVersion/ will only increase as the low-level DynamoDB Streams API evolves.
+-- | Items that are deleted by the Time to Live process after expiration have the following fields:      * Records[].userIdentity.type "Service"     * Records[].userIdentity.principalId "dynamodb.amazonaws.com"
+rUserIdentity :: Lens' Record (Maybe Identity)
+rUserIdentity = lens _rUserIdentity (\ s a -> s{_rUserIdentity = a});
+
+-- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified. Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
 rEventVersion :: Lens' Record (Maybe Text)
 rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 
@@ -236,7 +288,7 @@ rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 rDynamodb :: Lens' Record (Maybe StreamRecord)
 rDynamodb = lens _rDynamodb (\ s a -> s{_rDynamodb = a});
 
--- | The region in which the /GetRecords/ request was received.
+-- | The region in which the @GetRecords@ request was received.
 rAwsRegion :: Lens' Record (Maybe Text)
 rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 
@@ -244,7 +296,7 @@ rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 rEventName :: Lens' Record (Maybe OperationType)
 rEventName = lens _rEventName (\ s a -> s{_rEventName = a});
 
--- | The AWS service from which the stream record originated. For DynamoDB Streams, this is /aws:dynamodb/ .
+-- | The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
 rEventSource :: Lens' Record (Maybe Text)
 rEventSource = lens _rEventSource (\ s a -> s{_rEventSource = a});
 
@@ -257,8 +309,9 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   (x .:? "eventVersion") <*> (x .:? "dynamodb") <*>
-                     (x .:? "awsRegion")
+                   (x .:? "userIdentity") <*> (x .:? "eventVersion") <*>
+                     (x .:? "dynamodb")
+                     <*> (x .:? "awsRegion")
                      <*> (x .:? "eventName")
                      <*> (x .:? "eventSource")
                      <*> (x .:? "eventID"))
@@ -381,7 +434,7 @@ data Stream = Stream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the /StreamLabel/
+-- * 'sStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 --
 -- * 'sStreamARN' - The Amazon Resource Name (ARN) for the stream.
 --
@@ -395,7 +448,7 @@ stream =
     , _sTableName = Nothing
     }
 
--- | A timestamp, in ISO 8601 format, for this stream. Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the /StreamLabel/
+-- | A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 sStreamLabel :: Lens' Stream (Maybe Text)
 sStreamLabel = lens _sStreamLabel (\ s a -> s{_sStreamLabel = a});
 
@@ -442,7 +495,7 @@ data StreamDescription = StreamDescription'
 --
 -- * 'sdLastEvaluatedShardId' - The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved. If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
 --
--- * 'sdStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the /StreamLabel/
+-- * 'sdStreamLabel' - A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 --
 -- * 'sdStreamStatus' - Indicates the current status of the stream:     * @ENABLING@ - Streams is currently being enabled on the DynamoDB table.     * @ENABLED@ - the stream is enabled.     * @DISABLING@ - Streams is currently being disabled on the DynamoDB table.     * @DISABLED@ - the stream is disabled.
 --
@@ -476,7 +529,7 @@ streamDescription =
 sdLastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 sdLastEvaluatedShardId = lens _sdLastEvaluatedShardId (\ s a -> s{_sdLastEvaluatedShardId = a});
 
--- | A timestamp, in ISO 8601 format, for this stream. Note that /LatestStreamLabel/ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the /StreamLabel/
+-- | A timestamp, in ISO 8601 format, for this stream. Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:     * the AWS customer ID.     * the table name     * the @StreamLabel@
 sdStreamLabel :: Lens' StreamDescription (Maybe Text)
 sdStreamLabel = lens _sdStreamLabel (\ s a -> s{_sdStreamLabel = a});
 

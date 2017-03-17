@@ -60,9 +60,9 @@ data ListAliases = ListAliases'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- * 'laMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 --
--- * 'laLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- * 'laLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 listAliases
     :: ListAliases
 listAliases =
@@ -71,11 +71,11 @@ listAliases =
     , _laLimit = Nothing
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
@@ -135,11 +135,11 @@ data ListAliasesResponse = ListAliasesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larsTruncated' - A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- * 'larsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
 -- * 'larsAliases' - A list of key aliases in the user's account.
 --
--- * 'larsNextMarker' - When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'larsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- * 'larsResponseStatus' - -- | The response status code.
 listAliasesResponse
@@ -153,7 +153,7 @@ listAliasesResponse pResponseStatus_ =
     , _larsResponseStatus = pResponseStatus_
     }
 
--- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 larsTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 
@@ -161,7 +161,7 @@ larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
--- | When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 

@@ -64,13 +64,16 @@ library
         , Network.AWS.KMS.ListGrants
         , Network.AWS.KMS.ListKeyPolicies
         , Network.AWS.KMS.ListKeys
+        , Network.AWS.KMS.ListResourceTags
         , Network.AWS.KMS.ListRetirableGrants
         , Network.AWS.KMS.PutKeyPolicy
         , Network.AWS.KMS.ReEncrypt
         , Network.AWS.KMS.RetireGrant
         , Network.AWS.KMS.RevokeGrant
         , Network.AWS.KMS.ScheduleKeyDeletion
+        , Network.AWS.KMS.TagResource
         , Network.AWS.KMS.Types
+        , Network.AWS.KMS.UntagResource
         , Network.AWS.KMS.UpdateAlias
         , Network.AWS.KMS.UpdateKeyDescription
         , Network.AWS.KMS.Waiters

@@ -62,9 +62,9 @@ data ListKeyPolicies = ListKeyPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkpMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- * 'lkpMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 --
--- * 'lkpLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
+-- * 'lkpLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 --
 -- * 'lkpKeyId' - A unique identifier for the customer master key (CMK). You can use the unique key ID or the Amazon Resource Name (ARN) of the CMK. Examples:     * Unique key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 listKeyPolicies
@@ -77,11 +77,11 @@ listKeyPolicies pKeyId_ =
     , _lkpKeyId = pKeyId_
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100. Currently only 1 policy can be attached to a key.
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 
@@ -149,9 +149,9 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 --
 -- * 'lkprsPolicyNames' - A list of policy names. Currently, there is only one policy and it is named "Default".
 --
--- * 'lkprsTruncated' - A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- * 'lkprsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
--- * 'lkprsNextMarker' - When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'lkprsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- * 'lkprsResponseStatus' - -- | The response status code.
 listKeyPoliciesResponse
@@ -169,11 +169,11 @@ listKeyPoliciesResponse pResponseStatus_ =
 lkprsPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
 lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default . _Coerce;
 
--- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkprsTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a});
 
--- | When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 

@@ -371,7 +371,7 @@ _HostedZoneNotEmpty :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneNotEmpty =
     _MatchServiceError route53 "HostedZoneNotEmpty" . hasStatus 400
 
--- | Parameter name and problem.
+-- | Parameter name is invalid.
 --
 --
 _InvalidArgument :: AsError a => Getting (First ServiceError) a ServiceError
@@ -492,10 +492,8 @@ _DelegationSetInUse = _MatchServiceError route53 "DelegationSetInUse"
 _NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDelegationSet = _MatchServiceError route53 "NoSuchDelegationSet"
 
--- | The health check you're attempting to create already exists.
+-- | The health check you're attempting to create already exists. Amazon Route 53 returns this error when a health check has already been created with the specified value for @CallerReference@ .
 --
---
--- Amazon Route 53 returns this error when a health check has already been created with the specified value for @CallerReference@ .
 --
 _HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckAlreadyExists =
@@ -537,7 +535,7 @@ _VPCAssociationNotFound :: AsError a => Getting (First ServiceError) a ServiceEr
 _VPCAssociationNotFound =
     _MatchServiceError route53 "VPCAssociationNotFound" . hasStatus 404
 
--- |
+-- | The limit on the number of requests per second was exceeded.
 --
 --
 _ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -570,7 +568,7 @@ _NoSuchTrafficPolicyInstance :: AsError a => Getting (First ServiceError) a Serv
 _NoSuchTrafficPolicyInstance =
     _MatchServiceError route53 "NoSuchTrafficPolicyInstance" . hasStatus 404
 
--- | The resource you are trying to access is unsupported on this Amazon Route 53 endpoint. Please consider using a newer endpoint or a tool that does so.
+-- | The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.
 --
 --
 _IncompatibleVersion :: AsError a => Getting (First ServiceError) a ServiceError
@@ -651,7 +649,7 @@ _TrafficPolicyInUse =
 _InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCId = _MatchServiceError route53 "InvalidVPCId" . hasStatus 400
 
--- | The hosted zone you are trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified @CallerReference@ .
+-- | The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified @CallerReference@ .
 --
 --
 _HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError

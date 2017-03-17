@@ -76,7 +76,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains the information about the request to list your traffic policy instances.
+-- | A request to get information about the traffic policy instances that you created by using the current AWS account.
 --
 --
 --

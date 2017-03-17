@@ -125,7 +125,7 @@ instance ToXML CreateVPCAssociationAuthorization
         toXML CreateVPCAssociationAuthorization'{..}
           = mconcat ["VPC" @= _cvaaVPC]
 
--- | A complex type that contains the response information from a CreateVPCAssociationAuthorization request.
+-- | A complex type that contains the response information from a @CreateVPCAssociationAuthorization@ request.
 --
 --
 --

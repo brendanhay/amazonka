@@ -35,8 +35,10 @@ module Network.AWS.DirectConnect.DeleteConnection
     , connection
     , Connection
     -- * Response Lenses
+    , cLagId
     , cVlan
     , cLocation
+    , cAwsDevice
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName

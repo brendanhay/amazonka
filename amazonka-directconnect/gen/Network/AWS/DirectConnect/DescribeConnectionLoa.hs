@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the LOA-CFA for a Connection.
+-- Deprecated in favor of 'DescribeLoa' .
 --
+--
+-- Returns the LOA-CFA for a Connection.
 --
 -- The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see <http://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html Requesting Cross Connects at AWS Direct Connect Locations> in the AWS Direct Connect user guide.
 --

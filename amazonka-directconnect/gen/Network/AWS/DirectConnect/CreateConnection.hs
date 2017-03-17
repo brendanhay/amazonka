@@ -23,12 +23,15 @@
 --
 -- A connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.
 --
+-- You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection will be created.
+--
 module Network.AWS.DirectConnect.CreateConnection
     (
     -- * Creating a Request
       createConnection
     , CreateConnection
     -- * Request Lenses
+    , ccLagId
     , ccLocation
     , ccBandwidth
     , ccConnectionName
@@ -37,8 +40,10 @@ module Network.AWS.DirectConnect.CreateConnection
     , connection
     , Connection
     -- * Response Lenses
+    , cLagId
     , cVlan
     , cLocation
+    , cAwsDevice
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
@@ -62,7 +67,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createConnection' smart constructor.
 data CreateConnection = CreateConnection'
-    { _ccLocation       :: !Text
+    { _ccLagId          :: !(Maybe Text)
+    , _ccLocation       :: !Text
     , _ccBandwidth      :: !Text
     , _ccConnectionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -70,6 +76,8 @@ data CreateConnection = CreateConnection'
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccLagId' - Undocumented member.
 --
 -- * 'ccLocation' - Undocumented member.
 --
@@ -83,10 +91,15 @@ createConnection
     -> CreateConnection
 createConnection pLocation_ pBandwidth_ pConnectionName_ =
     CreateConnection'
-    { _ccLocation = pLocation_
+    { _ccLagId = Nothing
+    , _ccLocation = pLocation_
     , _ccBandwidth = pBandwidth_
     , _ccConnectionName = pConnectionName_
     }
+
+-- | Undocumented member.
+ccLagId :: Lens' CreateConnection (Maybe Text)
+ccLagId = lens _ccLagId (\ s a -> s{_ccLagId = a});
 
 -- | Undocumented member.
 ccLocation :: Lens' CreateConnection Text
@@ -122,7 +135,8 @@ instance ToJSON CreateConnection where
         toJSON CreateConnection'{..}
           = object
               (catMaybes
-                 [Just ("location" .= _ccLocation),
+                 [("lagId" .=) <$> _ccLagId,
+                  Just ("location" .= _ccLocation),
                   Just ("bandwidth" .= _ccBandwidth),
                   Just ("connectionName" .= _ccConnectionName)])
 

@@ -212,7 +212,7 @@ instance FromJSON ConnectionState where
 --
 --     * __Requested__ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
 --
---     * __Pending__ >: The interconnect has been approved, and is being initialized.
+--     * __Pending__ : The interconnect has been approved, and is being initialized.
 --
 --     * __Available__ : The network link is up, and the interconnect is ready for use.
 --
@@ -262,6 +262,61 @@ instance ToHeader     InterconnectState
 instance FromJSON InterconnectState where
     parseJSON = parseJSONText "InterconnectState"
 
+-- | The state of the LAG.
+--
+--
+--     * __Requested__ : The initial state of a LAG. The LAG stays in the requested state until the Letter of Authorization (LOA) is available.
+--
+--     * __Pending__ : The LAG has been approved, and is being initialized.
+--
+--     * __Available__ : The network link is established, and the LAG is ready for use.
+--
+--     * __Down__ : The network link is down.
+--
+--     * __Deleting__ : The LAG is in the process of being deleted.
+--
+--     * __Deleted__ : The LAG has been deleted.
+--
+--
+--
+data LagState
+    = LSAvailable
+    | LSDeleted
+    | LSDeleting
+    | LSDown
+    | LSPending
+    | LSRequested
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText LagState where
+    parser = takeLowerText >>= \case
+        "available" -> pure LSAvailable
+        "deleted" -> pure LSDeleted
+        "deleting" -> pure LSDeleting
+        "down" -> pure LSDown
+        "pending" -> pure LSPending
+        "requested" -> pure LSRequested
+        e -> fromTextError $ "Failure parsing LagState from value: '" <> e
+           <> "'. Accepted values: available, deleted, deleting, down, pending, requested"
+
+instance ToText LagState where
+    toText = \case
+        LSAvailable -> "available"
+        LSDeleted -> "deleted"
+        LSDeleting -> "deleting"
+        LSDown -> "down"
+        LSPending -> "pending"
+        LSRequested -> "requested"
+
+instance Hashable     LagState
+instance NFData       LagState
+instance ToByteString LagState
+instance ToQuery      LagState
+instance ToHeader     LagState
+
+instance FromJSON LagState where
+    parseJSON = parseJSONText "LagState"
+
 -- | A standard media type indicating the content type of the LOA-CFA document. Currently, the only supported value is "application/pdf".
 --
 --
@@ -306,7 +361,7 @@ instance FromJSON LoaContentType where
 --
 --     * __Down__ : A virtual interface that is BGP down.
 --
---     * __Deleting__ : A virtual interface is in this state immediately after calling /DeleteVirtualInterface/ until it can no longer forward traffic.
+--     * __Deleting__ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
 --
 --     * __Deleted__ : A virtual interface that cannot forward traffic.
 --

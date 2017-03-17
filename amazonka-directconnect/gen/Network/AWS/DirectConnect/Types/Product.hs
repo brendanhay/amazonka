@@ -116,8 +116,10 @@ instance NFData BGPPeer
 --
 -- /See:/ 'connection' smart constructor.
 data Connection = Connection'
-    { _cVlan            :: !(Maybe Int)
+    { _cLagId           :: !(Maybe Text)
+    , _cVlan            :: !(Maybe Int)
     , _cLocation        :: !(Maybe Text)
+    , _cAwsDevice       :: !(Maybe Text)
     , _cConnectionId    :: !(Maybe Text)
     , _cLoaIssueTime    :: !(Maybe POSIX)
     , _cPartnerName     :: !(Maybe Text)
@@ -132,13 +134,17 @@ data Connection = Connection'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'cLagId' - Undocumented member.
+--
 -- * 'cVlan' - Undocumented member.
 --
 -- * 'cLocation' - Undocumented member.
 --
+-- * 'cAwsDevice' - The Direct Connection endpoint which the physical connection terminates on.
+--
 -- * 'cConnectionId' - Undocumented member.
 --
--- * 'cLoaIssueTime' - The time of the most recent call to DescribeConnectionLoa for this Connection.
+-- * 'cLoaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
 --
 -- * 'cPartnerName' - The name of the AWS Direct Connect service provider associated with the connection.
 --
@@ -155,8 +161,10 @@ connection
     :: Connection
 connection =
     Connection'
-    { _cVlan = Nothing
+    { _cLagId = Nothing
+    , _cVlan = Nothing
     , _cLocation = Nothing
+    , _cAwsDevice = Nothing
     , _cConnectionId = Nothing
     , _cLoaIssueTime = Nothing
     , _cPartnerName = Nothing
@@ -168,6 +176,10 @@ connection =
     }
 
 -- | Undocumented member.
+cLagId :: Lens' Connection (Maybe Text)
+cLagId = lens _cLagId (\ s a -> s{_cLagId = a});
+
+-- | Undocumented member.
 cVlan :: Lens' Connection (Maybe Int)
 cVlan = lens _cVlan (\ s a -> s{_cVlan = a});
 
@@ -175,11 +187,15 @@ cVlan = lens _cVlan (\ s a -> s{_cVlan = a});
 cLocation :: Lens' Connection (Maybe Text)
 cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
 
+-- | The Direct Connection endpoint which the physical connection terminates on.
+cAwsDevice :: Lens' Connection (Maybe Text)
+cAwsDevice = lens _cAwsDevice (\ s a -> s{_cAwsDevice = a});
+
 -- | Undocumented member.
 cConnectionId :: Lens' Connection (Maybe Text)
 cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
 
--- | The time of the most recent call to DescribeConnectionLoa for this Connection.
+-- | The time of the most recent call to 'DescribeLoa' for this connection.
 cLoaIssueTime :: Lens' Connection (Maybe UTCTime)
 cLoaIssueTime = lens _cLoaIssueTime (\ s a -> s{_cLoaIssueTime = a}) . mapping _Time;
 
@@ -212,8 +228,10 @@ instance FromJSON Connection where
           = withObject "Connection"
               (\ x ->
                  Connection' <$>
-                   (x .:? "vlan") <*> (x .:? "location") <*>
-                     (x .:? "connectionId")
+                   (x .:? "lagId") <*> (x .:? "vlan") <*>
+                     (x .:? "location")
+                     <*> (x .:? "awsDevice")
+                     <*> (x .:? "connectionId")
                      <*> (x .:? "loaIssueTime")
                      <*> (x .:? "partnerName")
                      <*> (x .:? "connectionName")
@@ -271,9 +289,11 @@ instance NFData Connections
 --
 -- /See:/ 'interconnect' smart constructor.
 data Interconnect = Interconnect'
-    { _iInterconnectId    :: !(Maybe Text)
+    { _iLagId             :: !(Maybe Text)
+    , _iInterconnectId    :: !(Maybe Text)
     , _iLocation          :: !(Maybe Text)
     , _iInterconnectName  :: !(Maybe Text)
+    , _iAwsDevice         :: !(Maybe Text)
     , _iLoaIssueTime      :: !(Maybe POSIX)
     , _iBandwidth         :: !(Maybe Text)
     , _iInterconnectState :: !(Maybe InterconnectState)
@@ -284,11 +304,15 @@ data Interconnect = Interconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'iLagId' - Undocumented member.
+--
 -- * 'iInterconnectId' - Undocumented member.
 --
 -- * 'iLocation' - Undocumented member.
 --
 -- * 'iInterconnectName' - Undocumented member.
+--
+-- * 'iAwsDevice' - The Direct Connection endpoint which the physical connection terminates on.
 --
 -- * 'iLoaIssueTime' - The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
 --
@@ -301,14 +325,20 @@ interconnect
     :: Interconnect
 interconnect =
     Interconnect'
-    { _iInterconnectId = Nothing
+    { _iLagId = Nothing
+    , _iInterconnectId = Nothing
     , _iLocation = Nothing
     , _iInterconnectName = Nothing
+    , _iAwsDevice = Nothing
     , _iLoaIssueTime = Nothing
     , _iBandwidth = Nothing
     , _iInterconnectState = Nothing
     , _iRegion = Nothing
     }
+
+-- | Undocumented member.
+iLagId :: Lens' Interconnect (Maybe Text)
+iLagId = lens _iLagId (\ s a -> s{_iLagId = a});
 
 -- | Undocumented member.
 iInterconnectId :: Lens' Interconnect (Maybe Text)
@@ -321,6 +351,10 @@ iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
 -- | Undocumented member.
 iInterconnectName :: Lens' Interconnect (Maybe Text)
 iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
+
+-- | The Direct Connection endpoint which the physical connection terminates on.
+iAwsDevice :: Lens' Interconnect (Maybe Text)
+iAwsDevice = lens _iAwsDevice (\ s a -> s{_iAwsDevice = a});
 
 -- | The time of the most recent call to DescribeInterconnectLoa for this Interconnect.
 iLoaIssueTime :: Lens' Interconnect (Maybe UTCTime)
@@ -343,8 +377,10 @@ instance FromJSON Interconnect where
           = withObject "Interconnect"
               (\ x ->
                  Interconnect' <$>
-                   (x .:? "interconnectId") <*> (x .:? "location") <*>
-                     (x .:? "interconnectName")
+                   (x .:? "lagId") <*> (x .:? "interconnectId") <*>
+                     (x .:? "location")
+                     <*> (x .:? "interconnectName")
+                     <*> (x .:? "awsDevice")
                      <*> (x .:? "loaIssueTime")
                      <*> (x .:? "bandwidth")
                      <*> (x .:? "interconnectState")
@@ -353,6 +389,140 @@ instance FromJSON Interconnect where
 instance Hashable Interconnect
 
 instance NFData Interconnect
+
+-- | Describes a link aggregation group (LAG). A LAG is a connection that uses the Link Aggregation Control Protocol (LACP) to logically aggregate a bundle of physical connections. Like an interconnect, it can host other connections. All connections in a LAG must terminate on the same physical AWS Direct Connect endpoint, and must be the same bandwidth.
+--
+--
+--
+-- /See:/ 'lag' smart constructor.
+data Lag = Lag'
+    { _lagLagId                   :: !(Maybe Text)
+    , _lagConnectionsBandwidth    :: !(Maybe Text)
+    , _lagMinimumLinks            :: !(Maybe Int)
+    , _lagLagName                 :: !(Maybe Text)
+    , _lagLocation                :: !(Maybe Text)
+    , _lagConnections             :: !(Maybe [Connection])
+    , _lagAwsDevice               :: !(Maybe Text)
+    , _lagAllowsHostedConnections :: !(Maybe Bool)
+    , _lagNumberOfConnections     :: !(Maybe Int)
+    , _lagLagState                :: !(Maybe LagState)
+    , _lagOwnerAccount            :: !(Maybe Text)
+    , _lagRegion                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Lag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lagLagId' - Undocumented member.
+--
+-- * 'lagConnectionsBandwidth' - The individual bandwidth of the physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps
+--
+-- * 'lagMinimumLinks' - The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to @down@ . This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down.
+--
+-- * 'lagLagName' - The name of the LAG.
+--
+-- * 'lagLocation' - Undocumented member.
+--
+-- * 'lagConnections' - A list of connections bundled by this LAG.
+--
+-- * 'lagAwsDevice' - The AWS Direct Connection endpoint that hosts the LAG.
+--
+-- * 'lagAllowsHostedConnections' - Indicates whether the LAG can host other connections.
+--
+-- * 'lagNumberOfConnections' - The number of physical connections bundled by the LAG, up to a maximum of 10.
+--
+-- * 'lagLagState' - Undocumented member.
+--
+-- * 'lagOwnerAccount' - The owner of the LAG.
+--
+-- * 'lagRegion' - Undocumented member.
+lag
+    :: Lag
+lag =
+    Lag'
+    { _lagLagId = Nothing
+    , _lagConnectionsBandwidth = Nothing
+    , _lagMinimumLinks = Nothing
+    , _lagLagName = Nothing
+    , _lagLocation = Nothing
+    , _lagConnections = Nothing
+    , _lagAwsDevice = Nothing
+    , _lagAllowsHostedConnections = Nothing
+    , _lagNumberOfConnections = Nothing
+    , _lagLagState = Nothing
+    , _lagOwnerAccount = Nothing
+    , _lagRegion = Nothing
+    }
+
+-- | Undocumented member.
+lagLagId :: Lens' Lag (Maybe Text)
+lagLagId = lens _lagLagId (\ s a -> s{_lagLagId = a});
+
+-- | The individual bandwidth of the physical connections bundled by the LAG. Available values: 1Gbps, 10Gbps
+lagConnectionsBandwidth :: Lens' Lag (Maybe Text)
+lagConnectionsBandwidth = lens _lagConnectionsBandwidth (\ s a -> s{_lagConnectionsBandwidth = a});
+
+-- | The minimum number of physical connections that must be operational for the LAG itself to be operational. If the number of operational connections drops below this setting, the LAG state changes to @down@ . This value can help to ensure that a LAG is not overutilized if a significant number of its bundled connections go down.
+lagMinimumLinks :: Lens' Lag (Maybe Int)
+lagMinimumLinks = lens _lagMinimumLinks (\ s a -> s{_lagMinimumLinks = a});
+
+-- | The name of the LAG.
+lagLagName :: Lens' Lag (Maybe Text)
+lagLagName = lens _lagLagName (\ s a -> s{_lagLagName = a});
+
+-- | Undocumented member.
+lagLocation :: Lens' Lag (Maybe Text)
+lagLocation = lens _lagLocation (\ s a -> s{_lagLocation = a});
+
+-- | A list of connections bundled by this LAG.
+lagConnections :: Lens' Lag [Connection]
+lagConnections = lens _lagConnections (\ s a -> s{_lagConnections = a}) . _Default . _Coerce;
+
+-- | The AWS Direct Connection endpoint that hosts the LAG.
+lagAwsDevice :: Lens' Lag (Maybe Text)
+lagAwsDevice = lens _lagAwsDevice (\ s a -> s{_lagAwsDevice = a});
+
+-- | Indicates whether the LAG can host other connections.
+lagAllowsHostedConnections :: Lens' Lag (Maybe Bool)
+lagAllowsHostedConnections = lens _lagAllowsHostedConnections (\ s a -> s{_lagAllowsHostedConnections = a});
+
+-- | The number of physical connections bundled by the LAG, up to a maximum of 10.
+lagNumberOfConnections :: Lens' Lag (Maybe Int)
+lagNumberOfConnections = lens _lagNumberOfConnections (\ s a -> s{_lagNumberOfConnections = a});
+
+-- | Undocumented member.
+lagLagState :: Lens' Lag (Maybe LagState)
+lagLagState = lens _lagLagState (\ s a -> s{_lagLagState = a});
+
+-- | The owner of the LAG.
+lagOwnerAccount :: Lens' Lag (Maybe Text)
+lagOwnerAccount = lens _lagOwnerAccount (\ s a -> s{_lagOwnerAccount = a});
+
+-- | Undocumented member.
+lagRegion :: Lens' Lag (Maybe Text)
+lagRegion = lens _lagRegion (\ s a -> s{_lagRegion = a});
+
+instance FromJSON Lag where
+        parseJSON
+          = withObject "Lag"
+              (\ x ->
+                 Lag' <$>
+                   (x .:? "lagId") <*> (x .:? "connectionsBandwidth")
+                     <*> (x .:? "minimumLinks")
+                     <*> (x .:? "lagName")
+                     <*> (x .:? "location")
+                     <*> (x .:? "connections" .!= mempty)
+                     <*> (x .:? "awsDevice")
+                     <*> (x .:? "allowsHostedConnections")
+                     <*> (x .:? "numberOfConnections")
+                     <*> (x .:? "lagState")
+                     <*> (x .:? "ownerAccount")
+                     <*> (x .:? "region"))
+
+instance Hashable Lag
+
+instance NFData Lag
 
 -- | A structure containing the Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.
 --

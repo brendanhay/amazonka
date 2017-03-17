@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a hosted connection on an interconnect.
+-- Deprecated in favor of 'AllocateHostedConnection' .
 --
+--
+-- Creates a hosted connection on an interconnect.
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect.
 --
@@ -39,8 +41,10 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , connection
     , Connection
     -- * Response Lenses
+    , cLagId
     , cVlan
     , cLocation
+    , cAwsDevice
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
@@ -75,7 +79,7 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acoiBandwidth' - Bandwidth of the connection. Example: "/500Mbps/ " Default: None Values: 50M, 100M, 200M, 300M, 400M, or 500M
+-- * 'acoiBandwidth' - Bandwidth of the connection. Example: "/500Mbps/ " Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
 --
 -- * 'acoiConnectionName' - Name of the provisioned connection. Example: "/500M Connection to AWS/ " Default: None
 --
@@ -100,7 +104,7 @@ allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pIn
     , _acoiVlan = pVlan_
     }
 
--- | Bandwidth of the connection. Example: "/500Mbps/ " Default: None Values: 50M, 100M, 200M, 300M, 400M, or 500M
+-- | Bandwidth of the connection. Example: "/500Mbps/ " Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
 acoiBandwidth = lens _acoiBandwidth (\ s a -> s{_acoiBandwidth = a});
 

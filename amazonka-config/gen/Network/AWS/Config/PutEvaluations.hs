@@ -28,6 +28,7 @@ module Network.AWS.Config.PutEvaluations
     , PutEvaluations
     -- * Request Lenses
     , peEvaluations
+    , peTestMode
     , peResultToken
 
     -- * Destructuring the Response
@@ -52,6 +53,7 @@ import           Network.AWS.Response
 -- /See:/ 'putEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
     { _peEvaluations :: !(Maybe [Evaluation])
+    , _peTestMode    :: !(Maybe Bool)
     , _peResultToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,6 +63,8 @@ data PutEvaluations = PutEvaluations'
 --
 -- * 'peEvaluations' - The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 --
+-- * 'peTestMode' - Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
+--
 -- * 'peResultToken' - An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
 putEvaluations
     :: Text -- ^ 'peResultToken'
@@ -68,12 +72,17 @@ putEvaluations
 putEvaluations pResultToken_ =
     PutEvaluations'
     { _peEvaluations = Nothing
+    , _peTestMode = Nothing
     , _peResultToken = pResultToken_
     }
 
 -- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 peEvaluations :: Lens' PutEvaluations [Evaluation]
 peEvaluations = lens _peEvaluations (\ s a -> s{_peEvaluations = a}) . _Default . _Coerce;
+
+-- | Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
+peTestMode :: Lens' PutEvaluations (Maybe Bool)
+peTestMode = lens _peTestMode (\ s a -> s{_peTestMode = a});
 
 -- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation
 peResultToken :: Lens' PutEvaluations Text
@@ -107,6 +116,7 @@ instance ToJSON PutEvaluations where
           = object
               (catMaybes
                  [("Evaluations" .=) <$> _peEvaluations,
+                  ("TestMode" .=) <$> _peTestMode,
                   Just ("ResultToken" .= _peResultToken)])
 
 instance ToPath PutEvaluations where

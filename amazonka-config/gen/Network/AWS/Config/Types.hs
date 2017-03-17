@@ -403,7 +403,7 @@ _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a S
 _InvalidParameterValueException =
     _MatchServiceError config "InvalidParameterValueException"
 
--- | The speNexcified token is invalid.
+-- | The specified @ResultToken@ is invalid.
 --
 --
 _InvalidResultTokenException :: AsError a => Getting (First ServiceError) a ServiceError

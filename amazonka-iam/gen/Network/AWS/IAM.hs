@@ -558,6 +558,7 @@ module Network.AWS.IAM
     , erResourceSpecificResults
     , erEvalResourceName
     , erMissingContextValues
+    , erOrganizationsDecisionDetail
     , erEvalActionName
     , erEvalDecision
 
@@ -629,6 +630,11 @@ module Network.AWS.IAM
     , OpenIdConnectProviderListEntry
     , openIdConnectProviderListEntry
     , oicpleARN
+
+    -- ** OrganizationsDecisionDetail
+    , OrganizationsDecisionDetail
+    , organizationsDecisionDetail
+    , oddAllowedByOrganizations
 
     -- ** PasswordPolicy
     , PasswordPolicy

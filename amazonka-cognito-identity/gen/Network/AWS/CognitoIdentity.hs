@@ -142,6 +142,7 @@ module Network.AWS.CognitoIdentity
     , CognitoIdentityProvider
     , cognitoIdentityProvider
     , cipClientId
+    , cipServerSideTokenCheck
     , cipProviderName
 
     -- ** Credentials

@@ -35,6 +35,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueOptionsToRemove
     , ueOptionSettings
     , ueVersionLabel
+    , uePlatformARN
     , ueTier
     , ueEnvironmentName
     , ueApplicationName
@@ -57,6 +58,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , eDateCreated
     , eHealth
     , eVersionLabel
+    , ePlatformARN
     , eTier
     , eEnvironmentName
     , eApplicationName
@@ -84,6 +86,7 @@ data UpdateEnvironment = UpdateEnvironment'
     , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
     , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
     , _ueVersionLabel      :: !(Maybe Text)
+    , _uePlatformARN       :: !(Maybe Text)
     , _ueTier              :: !(Maybe EnvironmentTier)
     , _ueEnvironmentName   :: !(Maybe Text)
     , _ueApplicationName   :: !(Maybe Text)
@@ -104,6 +107,8 @@ data UpdateEnvironment = UpdateEnvironment'
 -- * 'ueOptionSettings' - If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
 --
 -- * 'ueVersionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
+--
+-- * 'uePlatformARN' - The ARN of the platform, if used.
 --
 -- * 'ueTier' - This specifies the tier to use to update the environment. Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
 --
@@ -126,6 +131,7 @@ updateEnvironment =
     , _ueOptionsToRemove = Nothing
     , _ueOptionSettings = Nothing
     , _ueVersionLabel = Nothing
+    , _uePlatformARN = Nothing
     , _ueTier = Nothing
     , _ueEnvironmentName = Nothing
     , _ueApplicationName = Nothing
@@ -150,6 +156,10 @@ ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\ s a -> s{_ueVersionLabel = a});
+
+-- | The ARN of the platform, if used.
+uePlatformARN :: Lens' UpdateEnvironment (Maybe Text)
+uePlatformARN = lens _uePlatformARN (\ s a -> s{_uePlatformARN = a});
 
 -- | This specifies the tier to use to update the environment. Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
@@ -207,7 +217,8 @@ instance ToQuery UpdateEnvironment where
                    (toQueryList "member" <$> _ueOptionsToRemove),
                "OptionSettings" =:
                  toQuery (toQueryList "member" <$> _ueOptionSettings),
-               "VersionLabel" =: _ueVersionLabel, "Tier" =: _ueTier,
+               "VersionLabel" =: _ueVersionLabel,
+               "PlatformArn" =: _uePlatformARN, "Tier" =: _ueTier,
                "EnvironmentName" =: _ueEnvironmentName,
                "ApplicationName" =: _ueApplicationName,
                "SolutionStackName" =: _ueSolutionStackName,

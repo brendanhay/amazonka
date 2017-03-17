@@ -41,6 +41,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** OperationInProgressException
     , _OperationInProgressException
 
+    -- ** PlatformVersionStillReferencedException
+    , _PlatformVersionStillReferencedException
+
     -- ** TooManyApplicationVersionsException
     , _TooManyApplicationVersionsException
 
@@ -55,6 +58,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** TooManyApplicationsException
     , _TooManyApplicationsException
+
+    -- ** TooManyPlatformsException
+    , _TooManyPlatformsException
 
     -- ** ManagedActionInvalidStateException
     , _ManagedActionInvalidStateException
@@ -86,6 +92,12 @@ module Network.AWS.ElasticBeanstalk
     -- ** TerminateEnvironment
     , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
 
+    -- ** ListPlatformVersions
+    , module Network.AWS.ElasticBeanstalk.ListPlatformVersions
+
+    -- ** DeletePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.DeletePlatformVersion
+
     -- ** CreateApplicationVersion
     , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 
@@ -97,6 +109,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** RetrieveEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+
+    -- ** DescribePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.DescribePlatformVersion
 
     -- ** DeleteApplication
     , module Network.AWS.ElasticBeanstalk.DeleteApplication
@@ -188,6 +203,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** CreateEnvironment
     , module Network.AWS.ElasticBeanstalk.CreateEnvironment
 
+    -- ** CreatePlatformVersion
+    , module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
+
     -- * Types
 
     -- ** ActionHistoryStatus
@@ -234,6 +252,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** InstancesHealthAttribute
     , InstancesHealthAttribute (..)
+
+    -- ** PlatformStatus
+    , PlatformStatus (..)
 
     -- ** SourceRepository
     , SourceRepository (..)
@@ -312,6 +333,11 @@ module Network.AWS.ElasticBeanstalk
     , bcCodeBuildServiceRole
     , bcImage
 
+    -- ** Builder
+    , Builder
+    , builder
+    , bARN
+
     -- ** CPUUtilization
     , CPUUtilization
     , cpuUtilization
@@ -353,11 +379,18 @@ module Network.AWS.ElasticBeanstalk
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdPlatformARN
     , csdEnvironmentName
     , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
+
+    -- ** CustomAMI
+    , CustomAMI
+    , customAMI
+    , caVirtualizationType
+    , caImageId
 
     -- ** Deployment
     , Deployment
@@ -380,6 +413,7 @@ module Network.AWS.ElasticBeanstalk
     , eDateCreated
     , eHealth
     , eVersionLabel
+    , ePlatformARN
     , eTier
     , eEnvironmentName
     , eApplicationName
@@ -438,6 +472,7 @@ module Network.AWS.ElasticBeanstalk
     , edTemplateName
     , edSeverity
     , edVersionLabel
+    , edPlatformARN
     , edEnvironmentName
     , edApplicationName
     , edEventDate
@@ -543,6 +578,59 @@ module Network.AWS.ElasticBeanstalk
     , osResourceName
     , osNamespace
 
+    -- ** PlatformDescription
+    , PlatformDescription
+    , platformDescription
+    , pdSupportedAddonList
+    , pdPlatformCategory
+    , pdPlatformVersion
+    , pdPlatformStatus
+    , pdMaintainer
+    , pdPlatformOwner
+    , pdDateUpdated
+    , pdCustomAMIList
+    , pdDateCreated
+    , pdOperatingSystemName
+    , pdFrameworks
+    , pdPlatformARN
+    , pdOperatingSystemVersion
+    , pdProgrammingLanguages
+    , pdSolutionStackName
+    , pdPlatformName
+    , pdDescription
+    , pdSupportedTierList
+
+    -- ** PlatformFilter
+    , PlatformFilter
+    , platformFilter
+    , pfValues
+    , pfOperator
+    , pfType
+
+    -- ** PlatformFramework
+    , PlatformFramework
+    , platformFramework
+    , pfName
+    , pfVersion
+
+    -- ** PlatformProgrammingLanguage
+    , PlatformProgrammingLanguage
+    , platformProgrammingLanguage
+    , pplName
+    , pplVersion
+
+    -- ** PlatformSummary
+    , PlatformSummary
+    , platformSummary
+    , psSupportedAddonList
+    , psPlatformCategory
+    , psPlatformStatus
+    , psPlatformOwner
+    , psOperatingSystemName
+    , psPlatformARN
+    , psOperatingSystemVersion
+    , psSupportedTierList
+
     -- ** Queue
     , Queue
     , queue
@@ -630,11 +718,13 @@ import           Network.AWS.ElasticBeanstalk.CreateApplication
 import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 import           Network.AWS.ElasticBeanstalk.CreateEnvironment
+import           Network.AWS.ElasticBeanstalk.CreatePlatformVersion
 import           Network.AWS.ElasticBeanstalk.CreateStorageLocation
 import           Network.AWS.ElasticBeanstalk.DeleteApplication
 import           Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 import           Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 import           Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+import           Network.AWS.ElasticBeanstalk.DeletePlatformVersion
 import           Network.AWS.ElasticBeanstalk.DescribeApplications
 import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
@@ -646,7 +736,9 @@ import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import           Network.AWS.ElasticBeanstalk.DescribeEvents
 import           Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+import           Network.AWS.ElasticBeanstalk.DescribePlatformVersion
 import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+import           Network.AWS.ElasticBeanstalk.ListPlatformVersions
 import           Network.AWS.ElasticBeanstalk.RebuildEnvironment
 import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 import           Network.AWS.ElasticBeanstalk.RestartAppServer

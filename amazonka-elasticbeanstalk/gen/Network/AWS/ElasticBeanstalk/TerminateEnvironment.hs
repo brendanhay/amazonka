@@ -46,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , eDateCreated
     , eHealth
     , eVersionLabel
+    , ePlatformARN
     , eTier
     , eEnvironmentName
     , eApplicationName

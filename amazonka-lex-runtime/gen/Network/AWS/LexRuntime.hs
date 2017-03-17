@@ -4,7 +4,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lex
+-- Module      : Network.AWS.LexRuntime
 -- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,10 +14,10 @@
 -- Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your application uses the runtime API to understand user utterances (user input text or voice). For example, suppose user says "I want pizza", your application sends this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is for the OrderPizza intent (one of the intents defined in the application). Then Amazon Lex engages in user conversation on behalf of the application to elicit required information (slot values, such as pizza size and crust type), and then performs fulfillment activity (that you configured when you created the application). You use the build-time API to create and manage your Amazon Lex applications. For a list of build-time operations, see the build-time API. .
 --
 --
-module Network.AWS.Lex
+module Network.AWS.LexRuntime
     (
     -- * Service Configuration
-      lex
+      lexRuntime
 
     -- * Errors
     -- $errors
@@ -53,7 +53,7 @@ module Network.AWS.Lex
     -- $operations
 
     -- ** PostText
-    , module Network.AWS.Lex.PostText
+    , module Network.AWS.LexRuntime.PostText
 
     -- * Types
 
@@ -86,15 +86,15 @@ module Network.AWS.Lex
     , rcContentType
     ) where
 
-import           Network.AWS.Lex.PostText
-import           Network.AWS.Lex.Types
-import           Network.AWS.Lex.Waiters
+import           Network.AWS.LexRuntime.PostText
+import           Network.AWS.LexRuntime.Types
+import           Network.AWS.LexRuntime.Waiters
 
 {- $errors
 Error matchers are designed for use with the functions provided by
 <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
 This allows catching (and rethrowing) service specific errors returned
-by 'Lex'.
+by 'LexRuntime'.
 -}
 
 {- $operations

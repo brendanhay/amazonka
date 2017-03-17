@@ -11,7 +11,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lex.PostText
+-- Module      : Network.AWS.LexRuntime.PostText
 -- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -35,7 +35,7 @@
 --
 --
 --
-module Network.AWS.Lex.PostText
+module Network.AWS.LexRuntime.PostText
     (
     -- * Creating a Request
       postText
@@ -62,8 +62,8 @@ module Network.AWS.Lex.PostText
     ) where
 
 import           Network.AWS.Lens
-import           Network.AWS.Lex.Types
-import           Network.AWS.Lex.Types.Product
+import           Network.AWS.LexRuntime.Types
+import           Network.AWS.LexRuntime.Types.Product
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -127,7 +127,7 @@ ptInputText = lens _ptInputText (\ s a -> s{_ptInputText = a});
 
 instance AWSRequest PostText where
         type Rs PostText = PostTextResponse
-        request = postJSON lex
+        request = postJSON lexRuntime
         response
           = receiveJSON
               (\ s h x ->

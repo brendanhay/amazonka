@@ -8,14 +8,14 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lex.Types.Sum
+-- Module      : Network.AWS.LexRuntime.Types.Sum
 -- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Lex.Types.Sum where
+module Network.AWS.LexRuntime.Types.Sum where
 
 import           Network.AWS.Prelude
 

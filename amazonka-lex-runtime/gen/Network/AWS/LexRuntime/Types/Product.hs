@@ -8,17 +8,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.Lex.Types.Product
+-- Module      : Network.AWS.LexRuntime.Types.Product
 -- Copyright   : (c) 2013-2016 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Lex.Types.Product where
+module Network.AWS.LexRuntime.Types.Product where
 
 import           Network.AWS.Lens
-import           Network.AWS.Lex.Types.Sum
+import           Network.AWS.LexRuntime.Types.Sum
 import           Network.AWS.Prelude
 
 -- | Represents an option to be shown on the client platform (Facebook, Slack, etc.)

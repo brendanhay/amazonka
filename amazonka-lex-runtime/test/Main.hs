@@ -11,11 +11,11 @@
 module Main (main) where
 
 import Test.Tasty
-import Test.AWS.Lex
-import Test.AWS.Lex.Internal
+import Test.AWS.LexRuntime
+import Test.AWS.LexRuntime.Internal
 
 main :: IO ()
-main = defaultMain $ testGroup "Lex"
+main = defaultMain $ testGroup "LexRuntime"
     [ testGroup "tests"    tests
     , testGroup "fixtures" fixtures
     ]

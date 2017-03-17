@@ -13,7 +13,7 @@
 
 ## Description
 
-Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-lex)
+Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-lex-runtime)
 and the [AWS API Reference](https://aws.amazon.com/documentation/).
 
 The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
@@ -26,7 +26,7 @@ de/serialisation into more palatable Haskell values.
 The provided lenses should be compatible with any of the major lens libraries
 [lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
-See [Network.AWS.Lex](http://hackage.haskell.org/package/amazonka-lex/docs/Network-AWS-Lex.html)
+See [Network.AWS.LexRuntime](http://hackage.haskell.org/package/amazonka-lex-runtime/docs/Network-AWS-LexRuntime.html)
 or [the AWS documentation](https://aws.amazon.com/documentation/) to get started.
 
 
@@ -39,7 +39,7 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 
 ## Licence
 
-`amazonka-lex` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+`amazonka-lex-runtime` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
 Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0.
 Source files subject to this contain an additional licensing clause in their header.

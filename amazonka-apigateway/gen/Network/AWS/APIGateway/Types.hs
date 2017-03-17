@@ -149,6 +149,7 @@ module Network.AWS.APIGateway.Types
     , DomainName
     , domainName
     , dnCertificateName
+    , dnCertificateARN
     , dnDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName

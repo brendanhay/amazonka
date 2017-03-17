@@ -483,6 +483,7 @@ module Network.AWS.APIGateway
     , DomainName
     , domainName
     , dnCertificateName
+    , dnCertificateARN
     , dnDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName

@@ -35,6 +35,7 @@ module Network.AWS.APIGateway.UpdateDomainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnCertificateARN
     , dnDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName

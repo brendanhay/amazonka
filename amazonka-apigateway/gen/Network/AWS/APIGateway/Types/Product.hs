@@ -49,7 +49,7 @@ data APIKey = APIKey'
 --
 -- * 'akCustomerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
 --
--- * 'akCreatedDate' - The date when the API Key was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'akCreatedDate' - The timestamp when the API Key was created.
 --
 -- * 'akName' - The name of the API Key.
 --
@@ -57,7 +57,7 @@ data APIKey = APIKey'
 --
 -- * 'akStageKeys' - A list of 'Stage' resources that are associated with the 'ApiKey' resource.
 --
--- * 'akLastUpdatedDate' - When the API Key was last updated, in ISO 8601 format.
+-- * 'akLastUpdatedDate' - The timestamp when the API Key was last updated.
 --
 -- * 'akDescription' - The description of the API Key.
 apiKey
@@ -87,7 +87,7 @@ akValue = lens _akValue (\ s a -> s{_akValue = a});
 akCustomerId :: Lens' APIKey (Maybe Text)
 akCustomerId = lens _akCustomerId (\ s a -> s{_akCustomerId = a});
 
--- | The date when the API Key was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the API Key was created.
 akCreatedDate :: Lens' APIKey (Maybe UTCTime)
 akCreatedDate = lens _akCreatedDate (\ s a -> s{_akCreatedDate = a}) . mapping _Time;
 
@@ -103,7 +103,7 @@ akId = lens _akId (\ s a -> s{_akId = a});
 akStageKeys :: Lens' APIKey [Text]
 akStageKeys = lens _akStageKeys (\ s a -> s{_akStageKeys = a}) . _Default . _Coerce;
 
--- | When the API Key was last updated, in ISO 8601 format.
+-- | The timestamp when the API Key was last updated.
 akLastUpdatedDate :: Lens' APIKey (Maybe UTCTime)
 akLastUpdatedDate = lens _akLastUpdatedDate (\ s a -> s{_akLastUpdatedDate = a}) . mapping _Time;
 
@@ -453,9 +453,9 @@ data ClientCertificate = ClientCertificate'
 --
 -- * 'ccClientCertificateId' - The identifier of the client certificate.
 --
--- * 'ccCreatedDate' - The date when the client certificate was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'ccCreatedDate' - The timestamp when the client certificate was created.
 --
--- * 'ccExpirationDate' - The date when the client certificate will expire, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'ccExpirationDate' - The timestamp when the client certificate will expire.
 --
 -- * 'ccDescription' - The description of the client certificate.
 clientCertificate
@@ -477,11 +477,11 @@ ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\ s a -> s{_ccPemEncode
 ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
 ccClientCertificateId = lens _ccClientCertificateId (\ s a -> s{_ccClientCertificateId = a});
 
--- | The date when the client certificate was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the client certificate was created.
 ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccCreatedDate = lens _ccCreatedDate (\ s a -> s{_ccCreatedDate = a}) . mapping _Time;
 
--- | The date when the client certificate will expire, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the client certificate will expire.
 ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
 ccExpirationDate = lens _ccExpirationDate (\ s a -> s{_ccExpirationDate = a}) . mapping _Time;
 
@@ -651,7 +651,7 @@ data DocumentationPartLocation = DocumentationPartLocation'
 --
 -- * 'dplStatusCode' - The HTTP status code of a response. It is a valid field for the API entity types of @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . The default value is @*@ for any status code. When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other @location@ attributes, the child entity's @statusCode@ attribute must match that of the parent entity exactly.
 --
--- * 'dplType' - The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @MODEL@ , or @RESOURCE@ type.
+-- * 'dplType' - The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
 documentationPartLocation
     :: DocumentationPartType -- ^ 'dplType'
     -> DocumentationPartLocation
@@ -680,7 +680,7 @@ dplMethod = lens _dplMethod (\ s a -> s{_dplMethod = a});
 dplStatusCode :: Lens' DocumentationPartLocation (Maybe Text)
 dplStatusCode = lens _dplStatusCode (\ s a -> s{_dplStatusCode = a});
 
--- | The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @MODEL@ , or @RESOURCE@ type.
+-- | The type of API entity to which the documentation content applies. It is a valid and required field for API entity types of @API@ , @AUTHORIZER@ , @MODEL@ , @RESOURCE@ , @METHOD@ , @PATH_PARAMETER@ , @QUERY_PARAMETER@ , @REQUEST_HEADER@ , @REQUEST_BODY@ , @RESPONSE@ , @RESPONSE_HEADER@ , and @RESPONSE_BODY@ . Content inheritance does not apply to any entity of the @API@ , @AUTHROZER@ , @METHOD@ , @MODEL@ , @REQUEST_BODY@ , or @RESOURCE@ type.
 dplType :: Lens' DocumentationPartLocation DocumentationPartType
 dplType = lens _dplType (\ s a -> s{_dplType = a});
 
@@ -771,6 +771,7 @@ instance NFData DocumentationVersion
 -- /See:/ 'domainName' smart constructor.
 data DomainName = DomainName'
     { _dnCertificateName        :: !(Maybe Text)
+    , _dnCertificateARN         :: !(Maybe Text)
     , _dnDomainName             :: !(Maybe Text)
     , _dnCertificateUploadDate  :: !(Maybe POSIX)
     , _dnDistributionDomainName :: !(Maybe Text)
@@ -782,9 +783,11 @@ data DomainName = DomainName'
 --
 -- * 'dnCertificateName' - The name of the certificate.
 --
+-- * 'dnCertificateARN' - The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported source.
+--
 -- * 'dnDomainName' - The name of the 'DomainName' resource.
 --
--- * 'dnCertificateUploadDate' - The date when the certificate was uploaded, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'dnCertificateUploadDate' - The timestamp when the certificate was uploaded.
 --
 -- * 'dnDistributionDomainName' - The domain name of the Amazon CloudFront distribution. For more information, see the <http://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
 domainName
@@ -792,6 +795,7 @@ domainName
 domainName =
     DomainName'
     { _dnCertificateName = Nothing
+    , _dnCertificateARN = Nothing
     , _dnDomainName = Nothing
     , _dnCertificateUploadDate = Nothing
     , _dnDistributionDomainName = Nothing
@@ -801,11 +805,15 @@ domainName =
 dnCertificateName :: Lens' DomainName (Maybe Text)
 dnCertificateName = lens _dnCertificateName (\ s a -> s{_dnCertificateName = a});
 
+-- | The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported source.
+dnCertificateARN :: Lens' DomainName (Maybe Text)
+dnCertificateARN = lens _dnCertificateARN (\ s a -> s{_dnCertificateARN = a});
+
 -- | The name of the 'DomainName' resource.
 dnDomainName :: Lens' DomainName (Maybe Text)
 dnDomainName = lens _dnDomainName (\ s a -> s{_dnDomainName = a});
 
--- | The date when the certificate was uploaded, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the certificate was uploaded.
 dnCertificateUploadDate :: Lens' DomainName (Maybe UTCTime)
 dnCertificateUploadDate = lens _dnCertificateUploadDate (\ s a -> s{_dnCertificateUploadDate = a}) . mapping _Time;
 
@@ -818,7 +826,9 @@ instance FromJSON DomainName where
           = withObject "DomainName"
               (\ x ->
                  DomainName' <$>
-                   (x .:? "certificateName") <*> (x .:? "domainName")
+                   (x .:? "certificateName") <*>
+                     (x .:? "certificateArn")
+                     <*> (x .:? "domainName")
                      <*> (x .:? "certificateUploadDate")
                      <*> (x .:? "distributionDomainName"))
 
@@ -1664,7 +1674,7 @@ data RestAPI = RestAPI'
 --
 -- * 'raWarnings' - The warning messages reported when @failonwarnings@ is turned on during API import.
 --
--- * 'raCreatedDate' - The date when the API was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'raCreatedDate' - The timestamp when the API was created.
 --
 -- * 'raName' - The API's name.
 --
@@ -1694,7 +1704,7 @@ raBinaryMediaTypes = lens _raBinaryMediaTypes (\ s a -> s{_raBinaryMediaTypes = 
 raWarnings :: Lens' RestAPI [Text]
 raWarnings = lens _raWarnings (\ s a -> s{_raWarnings = a}) . _Default . _Coerce;
 
--- | The date when the API was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the API was created.
 raCreatedDate :: Lens' RestAPI (Maybe UTCTime)
 raCreatedDate = lens _raCreatedDate (\ s a -> s{_raCreatedDate = a}) . mapping _Time;
 
@@ -1898,13 +1908,13 @@ data Stage = Stage'
 --
 -- * 'sClientCertificateId' - The identifier of a client certificate for an API stage.
 --
--- * 'sCreatedDate' - The date and time that the stage was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'sCreatedDate' - The timestamp when the stage was created.
 --
 -- * 'sCacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
 --
 -- * 'sMethodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
 --
--- * 'sLastUpdatedDate' - The date and time that information about the stage was last updated, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- * 'sLastUpdatedDate' - The timestamp when the stage last updated.
 --
 -- * 'sCacheClusterSize' - The size of the cache cluster for the stage, if enabled.
 --
@@ -1947,7 +1957,7 @@ sDocumentationVersion = lens _sDocumentationVersion (\ s a -> s{_sDocumentationV
 sClientCertificateId :: Lens' Stage (Maybe Text)
 sClientCertificateId = lens _sClientCertificateId (\ s a -> s{_sClientCertificateId = a});
 
--- | The date and time that the stage was created, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the stage was created.
 sCreatedDate :: Lens' Stage (Maybe UTCTime)
 sCreatedDate = lens _sCreatedDate (\ s a -> s{_sCreatedDate = a}) . mapping _Time;
 
@@ -1959,7 +1969,7 @@ sCacheClusterStatus = lens _sCacheClusterStatus (\ s a -> s{_sCacheClusterStatus
 sMethodSettings :: Lens' Stage (HashMap Text MethodSetting)
 sMethodSettings = lens _sMethodSettings (\ s a -> s{_sMethodSettings = a}) . _Default . _Map;
 
--- | The date and time that information about the stage was last updated, in <http://www.iso.org/iso/home/standards/iso8601.htm ISO 8601 format> .
+-- | The timestamp when the stage last updated.
 sLastUpdatedDate :: Lens' Stage (Maybe UTCTime)
 sLastUpdatedDate = lens _sLastUpdatedDate (\ s a -> s{_sLastUpdatedDate = a}) . mapping _Time;
 

@@ -289,9 +289,10 @@ notation m = go
   where
     go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
     go s = \case
-        NonEmpty k   -> NonEmpty <$> key s k
-        Choice   x y -> Choice   <$> go s x <*> go s y
-        Access   ks  -> fmap Access
+        NonEmptyList k   -> NonEmptyList <$> key s k
+        NonEmptyText k   -> NonEmptyText <$> key s k
+        Choice       x y -> Choice       <$> go s x <*> go s y
+        Access       ks  -> fmap Access
             . flip evalStateT s
             . forM ks
             $ \x -> do

@@ -28,8 +28,8 @@ alarmExists =
     { _waitName = "AlarmExists"
     , _waitAttempts = 40
     , _waitDelay = 5
-    , _waitAcceptors = [ matchAll
+    , _waitAcceptors = [ matchNonEmpty
                              True
                              AcceptSuccess
-                             (nonEmpty (folding (concatOf darsMetricAlarms)))]
+                             (folding (concatOf darsMetricAlarms))]
     }

@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a specified alias. To get the alias, specify an alias ID. If successful, an 'Alias' object is returned.
+-- Retrieves properties for a fleet alias. This operation returns all alias metadata and settings. To get just the fleet ID an alias is currently pointing to, use 'ResolveAlias' .
 --
+--
+-- To get alias properties, specify the alias ID. If successful, an 'Alias' object is returned.
 --
 module Network.AWS.GameLift.DescribeAlias
     (
@@ -116,7 +118,7 @@ data DescribeAliasResponse = DescribeAliasResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darsAlias' - Object containing the requested alias.
+-- * 'darsAlias' - Object that contains the requested alias.
 --
 -- * 'darsResponseStatus' - -- | The response status code.
 describeAliasResponse
@@ -128,7 +130,7 @@ describeAliasResponse pResponseStatus_ =
     , _darsResponseStatus = pResponseStatus_
     }
 
--- | Object containing the requested alias.
+-- | Object that contains the requested alias.
 darsAlias :: Lens' DescribeAliasResponse (Maybe Alias)
 darsAlias = lens _darsAlias (\ s a -> s{_darsAlias = a});
 

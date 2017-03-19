@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all of the ObjectIdentifiers to which a given policy is attached.
+-- Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
 --
 --
 module Network.AWS.CloudDirectory.ListPolicyAttachments
@@ -64,7 +64,7 @@ data ListPolicyAttachments = ListPolicyAttachments'
 --
 -- * 'lpaConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
--- * 'lpaNextToken' - Token used for pagination.
+-- * 'lpaNextToken' - The pagination token.
 --
 -- * 'lpaMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -88,7 +88,7 @@ listPolicyAttachments pDirectoryARN_ pPolicyReference_ =
 lpaConsistencyLevel :: Lens' ListPolicyAttachments (Maybe ConsistencyLevel)
 lpaConsistencyLevel = lens _lpaConsistencyLevel (\ s a -> s{_lpaConsistencyLevel = a});
 
--- | Token used for pagination.
+-- | The pagination token.
 lpaNextToken :: Lens' ListPolicyAttachments (Maybe Text)
 lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
@@ -153,9 +153,9 @@ data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lparsObjectIdentifiers' - List of ObjectIdentifiers to which the policy is attached.
+-- * 'lparsObjectIdentifiers' - List of @ObjectIdentifiers@ to which the policy is attached.
 --
--- * 'lparsNextToken' - Token used for pagination.
+-- * 'lparsNextToken' - The pagination token.
 --
 -- * 'lparsResponseStatus' - -- | The response status code.
 listPolicyAttachmentsResponse
@@ -168,11 +168,11 @@ listPolicyAttachmentsResponse pResponseStatus_ =
     , _lparsResponseStatus = pResponseStatus_
     }
 
--- | List of ObjectIdentifiers to which the policy is attached.
+-- | List of @ObjectIdentifiers@ to which the policy is attached.
 lparsObjectIdentifiers :: Lens' ListPolicyAttachmentsResponse [Text]
 lparsObjectIdentifiers = lens _lparsObjectIdentifiers (\ s a -> s{_lparsObjectIdentifiers = a}) . _Default . _Coerce;
 
--- | Token used for pagination.
+-- | The pagination token.
 lparsNextToken :: Lens' ListPolicyAttachmentsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 

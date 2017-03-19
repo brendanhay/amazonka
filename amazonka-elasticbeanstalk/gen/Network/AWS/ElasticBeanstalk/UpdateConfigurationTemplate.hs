@@ -47,6 +47,7 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdPlatformARN
     , csdEnvironmentName
     , csdApplicationName
     , csdDeploymentStatus

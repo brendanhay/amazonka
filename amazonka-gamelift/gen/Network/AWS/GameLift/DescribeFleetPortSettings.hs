@@ -57,7 +57,7 @@ newtype DescribeFleetPortSettings = DescribeFleetPortSettings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfpsFleetId' - Unique identifier for the fleet you want to retrieve port settings for.
+-- * 'dfpsFleetId' - Unique identifier for a fleet to retrieve port settings for.
 describeFleetPortSettings
     :: Text -- ^ 'dfpsFleetId'
     -> DescribeFleetPortSettings
@@ -66,7 +66,7 @@ describeFleetPortSettings pFleetId_ =
     { _dfpsFleetId = pFleetId_
     }
 
--- | Unique identifier for the fleet you want to retrieve port settings for.
+-- | Unique identifier for a fleet to retrieve port settings for.
 dfpsFleetId :: Lens' DescribeFleetPortSettings Text
 dfpsFleetId = lens _dfpsFleetId (\ s a -> s{_dfpsFleetId = a});
 
@@ -119,7 +119,7 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfpsrsInboundPermissions' - Object containing port settings for the requested fleet ID.
+-- * 'dfpsrsInboundPermissions' - Object that contains port settings for the requested fleet ID.
 --
 -- * 'dfpsrsResponseStatus' - -- | The response status code.
 describeFleetPortSettingsResponse
@@ -131,7 +131,7 @@ describeFleetPortSettingsResponse pResponseStatus_ =
     , _dfpsrsResponseStatus = pResponseStatus_
     }
 
--- | Object containing port settings for the requested fleet ID.
+-- | Object that contains port settings for the requested fleet ID.
 dfpsrsInboundPermissions :: Lens' DescribeFleetPortSettingsResponse [IPPermission]
 dfpsrsInboundPermissions = lens _dfpsrsInboundPermissions (\ s a -> s{_dfpsrsInboundPermissions = a}) . _Default . _Coerce;
 

@@ -429,11 +429,11 @@ data ListGrantsResponse = ListGrantsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgTruncated' - A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- * 'lgTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
 -- * 'lgGrants' - A list of grants.
 --
--- * 'lgNextMarker' - When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'lgNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 listGrantsResponse
     :: ListGrantsResponse
 listGrantsResponse =
@@ -443,7 +443,7 @@ listGrantsResponse =
     , _lgNextMarker = Nothing
     }
 
--- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lgTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
 
@@ -451,7 +451,7 @@ lgTruncated = lens _lgTruncated (\ s a -> s{_lgTruncated = a});
 lgGrants :: Lens' ListGrantsResponse [GrantListEntry]
 lgGrants = lens _lgGrants (\ s a -> s{_lgGrants = a}) . _Default . _Coerce;
 
--- | When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 lgNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgNextMarker = lens _lgNextMarker (\ s a -> s{_lgNextMarker = a});
 
@@ -466,3 +466,55 @@ instance FromJSON ListGrantsResponse where
 instance Hashable ListGrantsResponse
 
 instance NFData ListGrantsResponse
+
+-- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
+--
+--
+--
+-- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagTagKey   :: !Text
+    , _tagTagValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagTagKey' - The key of the tag.
+--
+-- * 'tagTagValue' - The value of the tag.
+tag
+    :: Text -- ^ 'tagTagKey'
+    -> Text -- ^ 'tagTagValue'
+    -> Tag
+tag pTagKey_ pTagValue_ =
+    Tag'
+    { _tagTagKey = pTagKey_
+    , _tagTagValue = pTagValue_
+    }
+
+-- | The key of the tag.
+tagTagKey :: Lens' Tag Text
+tagTagKey = lens _tagTagKey (\ s a -> s{_tagTagKey = a});
+
+-- | The value of the tag.
+tagTagValue :: Lens' Tag Text
+tagTagValue = lens _tagTagValue (\ s a -> s{_tagTagValue = a});
+
+instance FromJSON Tag where
+        parseJSON
+          = withObject "Tag"
+              (\ x ->
+                 Tag' <$> (x .: "TagKey") <*> (x .: "TagValue"))
+
+instance Hashable Tag
+
+instance NFData Tag
+
+instance ToJSON Tag where
+        toJSON Tag'{..}
+          = object
+              (catMaybes
+                 [Just ("TagKey" .= _tagTagKey),
+                  Just ("TagValue" .= _tagTagValue)])

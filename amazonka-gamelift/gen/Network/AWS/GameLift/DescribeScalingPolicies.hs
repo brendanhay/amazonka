@@ -66,13 +66,13 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'dStatusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATEREQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETEREQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 --
 -- * 'dLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'dFleetId' - Unique identifier for a fleet. Specify the fleet to retrieve scaling policies for.
+-- * 'dFleetId' - Unique identifier for a fleet to retrieve scaling policies for.
 describeScalingPolicies
     :: Text -- ^ 'dFleetId'
     -> DescribeScalingPolicies
@@ -84,7 +84,7 @@ describeScalingPolicies pFleetId_ =
     , _dFleetId = pFleetId_
     }
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
@@ -96,7 +96,7 @@ dStatusFilter = lens _dStatusFilter (\ s a -> s{_dStatusFilter = a});
 dLimit :: Lens' DescribeScalingPolicies (Maybe Natural)
 dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 
--- | Unique identifier for a fleet. Specify the fleet to retrieve scaling policies for.
+-- | Unique identifier for a fleet to retrieve scaling policies for.
 dFleetId :: Lens' DescribeScalingPolicies Text
 dFleetId = lens _dFleetId (\ s a -> s{_dFleetId = a});
 
@@ -155,7 +155,7 @@ data DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsprsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dsprsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'dsprsScalingPolicies' - Collection of objects containing the scaling policies matching the request.
 --
@@ -170,7 +170,7 @@ describeScalingPoliciesResponse pResponseStatus_ =
     , _dsprsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dsprsNextToken :: Lens' DescribeScalingPoliciesResponse (Maybe Text)
 dsprsNextToken = lens _dsprsNextToken (\ s a -> s{_dsprsNextToken = a});
 

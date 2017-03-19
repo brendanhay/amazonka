@@ -53,6 +53,9 @@ module Network.AWS.DeviceFarm.Types
     -- * ExecutionStatus
     , ExecutionStatus (..)
 
+    -- * NetworkProfileType
+    , NetworkProfileType (..)
+
     -- * OfferingTransactionType
     , OfferingTransactionType (..)
 
@@ -81,8 +84,10 @@ module Network.AWS.DeviceFarm.Types
     , AccountSettings
     , accountSettings
     , asAwsAccountNumber
+    , asMaxJobTimeoutMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
+    , asDefaultJobTimeoutMinutes
 
     -- * Artifact
     , Artifact
@@ -160,6 +165,11 @@ module Network.AWS.DeviceFarm.Types
     , dpcrCompatible
     , dpcrIncompatibilityMessages
 
+    -- * ExecutionConfiguration
+    , ExecutionConfiguration
+    , executionConfiguration
+    , ecJobTimeoutMinutes
+
     -- * IncompatibilityMessage
     , IncompatibilityMessage
     , incompatibilityMessage
@@ -193,6 +203,22 @@ module Network.AWS.DeviceFarm.Types
     , monetaryAmount
     , maAmount
     , maCurrencyCode
+
+    -- * NetworkProfile
+    , NetworkProfile
+    , networkProfile
+    , npUplinkJitterMs
+    , npArn
+    , npUplinkLossPercent
+    , npDownlinkJitterMs
+    , npName
+    , npDownlinkLossPercent
+    , npType
+    , npUplinkDelayMs
+    , npUplinkBandwidthBits
+    , npDescription
+    , npDownlinkDelayMs
+    , npDownlinkBandwidthBits
 
     -- * Offering
     , Offering
@@ -242,6 +268,7 @@ module Network.AWS.DeviceFarm.Types
     , pArn
     , pCreated
     , pName
+    , pDefaultJobTimeoutMinutes
 
     -- * Radios
     , Radios
@@ -299,6 +326,7 @@ module Network.AWS.DeviceFarm.Types
     , runResult
     , runCompletedJobs
     , runName
+    , runNetworkProfile
     , runDeviceMinutes
     , runType
     , runMessage

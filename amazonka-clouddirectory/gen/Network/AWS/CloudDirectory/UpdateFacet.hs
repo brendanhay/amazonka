@@ -21,11 +21,11 @@
 -- Does the following:
 --
 --
---     * Adds new Attributes, Rules, or ObjectTypes.
+--     * Adds new @Attributes@ , @Rules@ , or @ObjectTypes@ .
 --
---     * Updates existing Attributes, Rules, or ObjectTypes.
+--     * Updates existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
 --
---     * Deletes existing Attributes, Rules, or ObjectTypes.
+--     * Deletes existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
 --
 --
 --

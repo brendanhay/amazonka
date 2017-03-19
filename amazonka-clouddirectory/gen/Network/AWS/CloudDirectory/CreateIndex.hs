@@ -148,7 +148,7 @@ data CreateIndexResponse = CreateIndexResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cirsObjectIdentifier' - The ObjectIdentifier of the index created by this operation.
+-- * 'cirsObjectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
 --
 -- * 'cirsResponseStatus' - -- | The response status code.
 createIndexResponse
@@ -160,7 +160,7 @@ createIndexResponse pResponseStatus_ =
     , _cirsResponseStatus = pResponseStatus_
     }
 
--- | The ObjectIdentifier of the index created by this operation.
+-- | The @ObjectIdentifier@ of the index created by this operation.
 cirsObjectIdentifier :: Lens' CreateIndexResponse (Maybe Text)
 cirsObjectIdentifier = lens _cirsObjectIdentifier (\ s a -> s{_cirsObjectIdentifier = a});
 

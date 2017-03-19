@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources. Send a @GET@ request to the @//Amazon Route 53 API version/ /checkeripranges@ resource. Use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.
+-- @GetCheckerIpRanges@ still works, but we recommend that you download ip-ranges.json, which includes IP address ranges for all AWS services. For more information, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html IP Address Ranges of Amazon Route 53 Servers> in the /Amazon Route 53 Developer Guide/ .
 --
 --
 module Network.AWS.Route53.GetCheckerIPRanges
@@ -42,11 +42,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | Empty request.
---
---
---
--- /See:/ 'getCheckerIPRanges' smart constructor.
+-- | /See:/ 'getCheckerIPRanges' smart constructor.
 data GetCheckerIPRanges =
     GetCheckerIPRanges'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -82,11 +78,7 @@ instance ToPath GetCheckerIPRanges where
 instance ToQuery GetCheckerIPRanges where
         toQuery = const mempty
 
--- | A complex type that contains the @CheckerIpRanges@ element.
---
---
---
--- /See:/ 'getCheckerIPRangesResponse' smart constructor.
+-- | /See:/ 'getCheckerIPRangesResponse' smart constructor.
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
     { _gcirrsResponseStatus  :: !Int
     , _gcirrsCheckerIPRanges :: ![Text]
@@ -98,7 +90,7 @@ data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
 --
 -- * 'gcirrsResponseStatus' - -- | The response status code.
 --
--- * 'gcirrsCheckerIPRanges' - A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.
+-- * 'gcirrsCheckerIPRanges' - Undocumented member.
 getCheckerIPRangesResponse
     :: Int -- ^ 'gcirrsResponseStatus'
     -> GetCheckerIPRangesResponse
@@ -112,7 +104,7 @@ getCheckerIPRangesResponse pResponseStatus_ =
 gcirrsResponseStatus :: Lens' GetCheckerIPRangesResponse Int
 gcirrsResponseStatus = lens _gcirrsResponseStatus (\ s a -> s{_gcirrsResponseStatus = a});
 
--- | A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.
+-- | Undocumented member.
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
 gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;
 

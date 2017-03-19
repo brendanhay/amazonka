@@ -20,11 +20,13 @@ module Network.AWS.ElasticBeanstalk.Types
     , _TooManyBucketsException
     , _S3SubscriptionRequiredException
     , _OperationInProgressException
+    , _PlatformVersionStillReferencedException
     , _TooManyApplicationVersionsException
     , _TooManyConfigurationTemplatesException
     , _InsufficientPrivilegesException
     , _ElasticBeanstalkServiceException
     , _TooManyApplicationsException
+    , _TooManyPlatformsException
     , _ManagedActionInvalidStateException
     , _SourceBundleDeletionException
     , _S3LocationNotInServiceRegionException
@@ -75,6 +77,9 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * InstancesHealthAttribute
     , InstancesHealthAttribute (..)
+
+    -- * PlatformStatus
+    , PlatformStatus (..)
 
     -- * SourceRepository
     , SourceRepository (..)
@@ -153,6 +158,11 @@ module Network.AWS.ElasticBeanstalk.Types
     , bcCodeBuildServiceRole
     , bcImage
 
+    -- * Builder
+    , Builder
+    , builder
+    , bARN
+
     -- * CPUUtilization
     , CPUUtilization
     , cpuUtilization
@@ -194,11 +204,18 @@ module Network.AWS.ElasticBeanstalk.Types
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdPlatformARN
     , csdEnvironmentName
     , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
+
+    -- * CustomAMI
+    , CustomAMI
+    , customAMI
+    , caVirtualizationType
+    , caImageId
 
     -- * Deployment
     , Deployment
@@ -221,6 +238,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , eDateCreated
     , eHealth
     , eVersionLabel
+    , ePlatformARN
     , eTier
     , eEnvironmentName
     , eApplicationName
@@ -279,6 +297,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , edTemplateName
     , edSeverity
     , edVersionLabel
+    , edPlatformARN
     , edEnvironmentName
     , edApplicationName
     , edEventDate
@@ -383,6 +402,59 @@ module Network.AWS.ElasticBeanstalk.Types
     , osOptionName
     , osResourceName
     , osNamespace
+
+    -- * PlatformDescription
+    , PlatformDescription
+    , platformDescription
+    , pdSupportedAddonList
+    , pdPlatformCategory
+    , pdPlatformVersion
+    , pdPlatformStatus
+    , pdMaintainer
+    , pdPlatformOwner
+    , pdDateUpdated
+    , pdCustomAMIList
+    , pdDateCreated
+    , pdOperatingSystemName
+    , pdFrameworks
+    , pdPlatformARN
+    , pdOperatingSystemVersion
+    , pdProgrammingLanguages
+    , pdSolutionStackName
+    , pdPlatformName
+    , pdDescription
+    , pdSupportedTierList
+
+    -- * PlatformFilter
+    , PlatformFilter
+    , platformFilter
+    , pfValues
+    , pfOperator
+    , pfType
+
+    -- * PlatformFramework
+    , PlatformFramework
+    , platformFramework
+    , pfName
+    , pfVersion
+
+    -- * PlatformProgrammingLanguage
+    , PlatformProgrammingLanguage
+    , platformProgrammingLanguage
+    , pplName
+    , pplVersion
+
+    -- * PlatformSummary
+    , PlatformSummary
+    , platformSummary
+    , psSupportedAddonList
+    , psPlatformCategory
+    , psPlatformStatus
+    , psPlatformOwner
+    , psOperatingSystemName
+    , psPlatformARN
+    , psOperatingSystemVersion
+    , psSupportedTierList
 
     -- * Queue
     , Queue
@@ -535,6 +607,16 @@ _OperationInProgressException =
     _MatchServiceError elasticBeanstalk "OperationInProgressFailure" .
     hasStatus 400
 
+-- | You cannot delete the platform version because there are still environments running on it.
+--
+--
+_PlatformVersionStillReferencedException :: AsError a => Getting (First ServiceError) a ServiceError
+_PlatformVersionStillReferencedException =
+    _MatchServiceError
+        elasticBeanstalk
+        "PlatformVersionStillReferencedException" .
+    hasStatus 400
+
 -- | The specified account has reached its limit of application versions.
 --
 --
@@ -573,6 +655,14 @@ _ElasticBeanstalkServiceException =
 _TooManyApplicationsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationsException =
     _MatchServiceError elasticBeanstalk "TooManyApplicationsException" .
+    hasStatus 400
+
+-- | You have exceeded the maximum number of allowed platforms associated with the account.
+--
+--
+_TooManyPlatformsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyPlatformsException =
+    _MatchServiceError elasticBeanstalk "TooManyPlatformsException" .
     hasStatus 400
 
 -- | Cannot modify the managed action in its current state.

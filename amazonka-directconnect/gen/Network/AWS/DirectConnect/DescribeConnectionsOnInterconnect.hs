@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Return a list of connections that have been provisioned on the given interconnect.
+-- Deprecated in favor of 'DescribeHostedConnections' .
 --
+--
+-- Returns a list of connections that have been provisioned on the given interconnect.
 --
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (

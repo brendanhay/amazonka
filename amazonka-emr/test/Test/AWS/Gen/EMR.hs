@@ -70,11 +70,17 @@ import Test.AWS.EMR.Internal
 --         , requestListSteps $
 --             listSteps
 --
+--         , requestAddInstanceFleet $
+--             addInstanceFleet
+--
 --         , requestAddInstanceGroups $
 --             addInstanceGroups
 --
 --         , requestDeleteSecurityConfiguration $
 --             deleteSecurityConfiguration
+--
+--         , requestModifyInstanceFleet $
+--             modifyInstanceFleet
 --
 --         , requestListInstanceGroups $
 --             listInstanceGroups
@@ -96,6 +102,9 @@ import Test.AWS.EMR.Internal
 --
 --         , requestDescribeSecurityConfiguration $
 --             describeSecurityConfiguration
+--
+--         , requestListInstanceFleets $
+--             listInstanceFleets
 --
 --           ]
 
@@ -142,11 +151,17 @@ import Test.AWS.EMR.Internal
 --         , responseListSteps $
 --             listStepsResponse
 --
+--         , responseAddInstanceFleet $
+--             addInstanceFleetResponse
+--
 --         , responseAddInstanceGroups $
 --             addInstanceGroupsResponse
 --
 --         , responseDeleteSecurityConfiguration $
 --             deleteSecurityConfigurationResponse
+--
+--         , responseModifyInstanceFleet $
+--             modifyInstanceFleetResponse
 --
 --         , responseListInstanceGroups $
 --             listInstanceGroupsResponse
@@ -168,6 +183,9 @@ import Test.AWS.EMR.Internal
 --
 --         , responseDescribeSecurityConfiguration $
 --             describeSecurityConfigurationResponse
+--
+--         , responseListInstanceFleets $
+--             listInstanceFleetsResponse
 --
 --           ]
 --     ]
@@ -244,6 +262,11 @@ requestListSteps = req
     "ListSteps"
     "fixture/ListSteps.yaml"
 
+requestAddInstanceFleet :: AddInstanceFleet -> TestTree
+requestAddInstanceFleet = req
+    "AddInstanceFleet"
+    "fixture/AddInstanceFleet.yaml"
+
 requestAddInstanceGroups :: AddInstanceGroups -> TestTree
 requestAddInstanceGroups = req
     "AddInstanceGroups"
@@ -253,6 +276,11 @@ requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
 requestDeleteSecurityConfiguration = req
     "DeleteSecurityConfiguration"
     "fixture/DeleteSecurityConfiguration.yaml"
+
+requestModifyInstanceFleet :: ModifyInstanceFleet -> TestTree
+requestModifyInstanceFleet = req
+    "ModifyInstanceFleet"
+    "fixture/ModifyInstanceFleet.yaml"
 
 requestListInstanceGroups :: ListInstanceGroups -> TestTree
 requestListInstanceGroups = req
@@ -288,6 +316,11 @@ requestDescribeSecurityConfiguration :: DescribeSecurityConfiguration -> TestTre
 requestDescribeSecurityConfiguration = req
     "DescribeSecurityConfiguration"
     "fixture/DescribeSecurityConfiguration.yaml"
+
+requestListInstanceFleets :: ListInstanceFleets -> TestTree
+requestListInstanceFleets = req
+    "ListInstanceFleets"
+    "fixture/ListInstanceFleets.yaml"
 
 -- Responses
 
@@ -389,6 +422,13 @@ responseListSteps = res
     emr
     (Proxy :: Proxy ListSteps)
 
+responseAddInstanceFleet :: AddInstanceFleetResponse -> TestTree
+responseAddInstanceFleet = res
+    "AddInstanceFleetResponse"
+    "fixture/AddInstanceFleetResponse.proto"
+    emr
+    (Proxy :: Proxy AddInstanceFleet)
+
 responseAddInstanceGroups :: AddInstanceGroupsResponse -> TestTree
 responseAddInstanceGroups = res
     "AddInstanceGroupsResponse"
@@ -402,6 +442,13 @@ responseDeleteSecurityConfiguration = res
     "fixture/DeleteSecurityConfigurationResponse.proto"
     emr
     (Proxy :: Proxy DeleteSecurityConfiguration)
+
+responseModifyInstanceFleet :: ModifyInstanceFleetResponse -> TestTree
+responseModifyInstanceFleet = res
+    "ModifyInstanceFleetResponse"
+    "fixture/ModifyInstanceFleetResponse.proto"
+    emr
+    (Proxy :: Proxy ModifyInstanceFleet)
 
 responseListInstanceGroups :: ListInstanceGroupsResponse -> TestTree
 responseListInstanceGroups = res
@@ -451,3 +498,10 @@ responseDescribeSecurityConfiguration = res
     "fixture/DescribeSecurityConfigurationResponse.proto"
     emr
     (Proxy :: Proxy DescribeSecurityConfiguration)
+
+responseListInstanceFleets :: ListInstanceFleetsResponse -> TestTree
+responseListInstanceFleets = res
+    "ListInstanceFleetsResponse"
+    "fixture/ListInstanceFleetsResponse.proto"
+    emr
+    (Proxy :: Proxy ListInstanceFleets)

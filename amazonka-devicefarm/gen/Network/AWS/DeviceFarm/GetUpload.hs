@@ -116,7 +116,7 @@ data GetUploadResponse = GetUploadResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gursUpload' - Undocumented member.
+-- * 'gursUpload' - An app or a set of one or more tests to upload or that have been uploaded.
 --
 -- * 'gursResponseStatus' - -- | The response status code.
 getUploadResponse
@@ -128,7 +128,7 @@ getUploadResponse pResponseStatus_ =
     , _gursResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | An app or a set of one or more tests to upload or that have been uploaded.
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
 gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 

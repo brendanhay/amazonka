@@ -287,7 +287,7 @@ newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'baoAttachedObjectIdentifier' - The ObjectIdentifier of the object that has been attached.
+-- * 'baoAttachedObjectIdentifier' - The @ObjectIdentifier@ of the object that has been attached.
 batchAttachObjectResponse
     :: BatchAttachObjectResponse
 batchAttachObjectResponse =
@@ -295,7 +295,7 @@ batchAttachObjectResponse =
     { _baoAttachedObjectIdentifier = Nothing
     }
 
--- | The ObjectIdentifier of the object that has been attached.
+-- | The @ObjectIdentifier@ of the object that has been attached.
 baoAttachedObjectIdentifier :: Lens' BatchAttachObjectResponse (Maybe Text)
 baoAttachedObjectIdentifier = lens _baoAttachedObjectIdentifier (\ s a -> s{_baoAttachedObjectIdentifier = a});
 
@@ -386,7 +386,7 @@ instance ToJSON BatchCreateObject where
                   Just
                     ("BatchReferenceName" .= _bcoBatchReferenceName)])
 
--- | Represents the output of a CreateObject response operation.
+-- | Represents the output of a @CreateObject@ response operation.
 --
 --
 --
@@ -422,7 +422,7 @@ instance Hashable BatchCreateObjectResponse
 
 instance NFData BatchCreateObjectResponse
 
--- | Represents the output of a DeleteObject operation.
+-- | Represents the output of a @DeleteObject@ operation.
 --
 --
 --
@@ -458,7 +458,7 @@ instance ToJSON BatchDeleteObject where
               (catMaybes
                  [Just ("ObjectReference" .= _bdoObjectReference)])
 
--- | Represents the output of a DeleteObject response operation.
+-- | Represents the output of a @DeleteObject@ response operation.
 --
 --
 --
@@ -482,7 +482,7 @@ instance Hashable BatchDeleteObjectResponse
 
 instance NFData BatchDeleteObjectResponse
 
--- | Represents the output of a DetachObject operation.
+-- | Represents the output of a @DetachObject@ operation.
 --
 --
 --
@@ -539,7 +539,7 @@ instance ToJSON BatchDetachObject where
                   Just
                     ("BatchReferenceName" .= _bdoBatchReferenceName)])
 
--- | Represents the output of a DetachObject response operation.
+-- | Represents the output of a @DetachObject@ response operation.
 --
 --
 --
@@ -552,7 +552,7 @@ newtype BatchDetachObjectResponse = BatchDetachObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bdoDetachedObjectIdentifier' - The ObjectIdentifier of the detached object.
+-- * 'bdoDetachedObjectIdentifier' - The @ObjectIdentifier@ of the detached object.
 batchDetachObjectResponse
     :: BatchDetachObjectResponse
 batchDetachObjectResponse =
@@ -560,7 +560,7 @@ batchDetachObjectResponse =
     { _bdoDetachedObjectIdentifier = Nothing
     }
 
--- | The ObjectIdentifier of the detached object.
+-- | The @ObjectIdentifier@ of the detached object.
 bdoDetachedObjectIdentifier :: Lens' BatchDetachObjectResponse (Maybe Text)
 bdoDetachedObjectIdentifier = lens _bdoDetachedObjectIdentifier (\ s a -> s{_bdoDetachedObjectIdentifier = a});
 
@@ -575,7 +575,7 @@ instance Hashable BatchDetachObjectResponse
 
 instance NFData BatchDetachObjectResponse
 
--- | Represents the output of a ListObjectAttributes operation.
+-- | Represents the output of a @ListObjectAttributes@ operation.
 --
 --
 --
@@ -590,7 +590,7 @@ data BatchListObjectAttributes = BatchListObjectAttributes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bloaNextToken' - Token used for pagination.
+-- * 'bloaNextToken' - The pagination token.
 --
 -- * 'bloaMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -605,7 +605,7 @@ batchListObjectAttributes pObjectReference_ =
     , _bloaObjectReference = pObjectReference_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 bloaNextToken :: Lens' BatchListObjectAttributes (Maybe Text)
 bloaNextToken = lens _bloaNextToken (\ s a -> s{_bloaNextToken = a});
 
@@ -629,7 +629,7 @@ instance ToJSON BatchListObjectAttributes where
                   ("MaxResults" .=) <$> _bloaMaxResults,
                   Just ("ObjectReference" .= _bloaObjectReference)])
 
--- | Represents the output of a ListObjectAttributes response operation.
+-- | Represents the output of a @ListObjectAttributes@ response operation.
 --
 --
 --
@@ -643,9 +643,9 @@ data BatchListObjectAttributesResponse = BatchListObjectAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bNextToken' - Token used for pagination.
+-- * 'bNextToken' - The pagination token.
 --
--- * 'bAttributes' - Attributes map associated with the object. AttributeArn is the key; attribute value is the value.
+-- * 'bAttributes' - Attributes map associated with the object. @AttributeArn@ is the key; attribute value is the value.
 batchListObjectAttributesResponse
     :: BatchListObjectAttributesResponse
 batchListObjectAttributesResponse =
@@ -654,11 +654,11 @@ batchListObjectAttributesResponse =
     , _bAttributes = Nothing
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 bNextToken :: Lens' BatchListObjectAttributesResponse (Maybe Text)
 bNextToken = lens _bNextToken (\ s a -> s{_bNextToken = a});
 
--- | Attributes map associated with the object. AttributeArn is the key; attribute value is the value.
+-- | Attributes map associated with the object. @AttributeArn@ is the key; attribute value is the value.
 bAttributes :: Lens' BatchListObjectAttributesResponse [AttributeKeyAndValue]
 bAttributes = lens _bAttributes (\ s a -> s{_bAttributes = a}) . _Default . _Coerce;
 
@@ -675,7 +675,7 @@ instance Hashable BatchListObjectAttributesResponse
 
 instance NFData BatchListObjectAttributesResponse
 
--- | Represents the output of a ListObjectChildren operation.
+-- | Represents the output of a @ListObjectChildren@ operation.
 --
 --
 --
@@ -690,7 +690,7 @@ data BatchListObjectChildren = BatchListObjectChildren'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'batNextToken' - Token used for pagination.
+-- * 'batNextToken' - The pagination token.
 --
 -- * 'batMaxResults' - Maximum number of items to be retrieved in a single call. This is an approximate number.
 --
@@ -705,7 +705,7 @@ batchListObjectChildren pObjectReference_ =
     , _batObjectReference = pObjectReference_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 batNextToken :: Lens' BatchListObjectChildren (Maybe Text)
 batNextToken = lens _batNextToken (\ s a -> s{_batNextToken = a});
 
@@ -729,7 +729,7 @@ instance ToJSON BatchListObjectChildren where
                   ("MaxResults" .=) <$> _batMaxResults,
                   Just ("ObjectReference" .= _batObjectReference)])
 
--- | Represents the output of a ListObjectChildren response operation.
+-- | Represents the output of a @ListObjectChildren@ response operation.
 --
 --
 --
@@ -743,9 +743,9 @@ data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'blocChildren' - Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
+-- * 'blocChildren' - Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 --
--- * 'blocNextToken' - Token used for pagination.
+-- * 'blocNextToken' - The pagination token.
 batchListObjectChildrenResponse
     :: BatchListObjectChildrenResponse
 batchListObjectChildrenResponse =
@@ -754,11 +754,11 @@ batchListObjectChildrenResponse =
     , _blocNextToken = Nothing
     }
 
--- | Children structure, which is a map with key as the LinkName and ObjectIdentifier as the value.
+-- | Children structure, which is a map with key as the @LinkName@ and @ObjectIdentifier@ as the value.
 blocChildren :: Lens' BatchListObjectChildrenResponse (HashMap Text Text)
 blocChildren = lens _blocChildren (\ s a -> s{_blocChildren = a}) . _Default . _Map;
 
--- | Token used for pagination.
+-- | The pagination token.
 blocNextToken :: Lens' BatchListObjectChildrenResponse (Maybe Text)
 blocNextToken = lens _blocNextToken (\ s a -> s{_blocNextToken = a});
 
@@ -789,7 +789,7 @@ data BatchReadException = BatchReadException'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'breType' - Type of exception, such as InvalidArnException.
+-- * 'breType' - Type of exception, such as @InvalidArnException@ .
 --
 -- * 'breMessage' - Exception message associated with the failure.
 batchReadException
@@ -800,7 +800,7 @@ batchReadException =
     , _breMessage = Nothing
     }
 
--- | Type of exception, such as InvalidArnException.
+-- | Type of exception, such as @InvalidArnException@ .
 breType :: Lens' BatchReadException (Maybe BatchReadExceptionType)
 breType = lens _breType (\ s a -> s{_breType = a});
 
@@ -819,7 +819,7 @@ instance Hashable BatchReadException
 
 instance NFData BatchReadException
 
--- | Represents the output of a BatchRead operation.
+-- | Represents the output of a @BatchRead@ operation.
 --
 --
 --
@@ -865,7 +865,7 @@ instance ToJSON BatchReadOperation where
                   ("ListObjectChildren" .=) <$>
                     _broListObjectChildren])
 
--- | Represents the output of a BatchRead response operation.
+-- | Represents the output of a @BatchRead@ response operation.
 --
 --
 --
@@ -910,7 +910,7 @@ instance Hashable BatchReadOperationResponse
 
 instance NFData BatchReadOperationResponse
 
--- | Represents the output of a BatchRead success response operation.
+-- | Represents the output of a @BatchRead@ success response operation.
 --
 --
 --
@@ -1026,7 +1026,7 @@ instance Hashable BatchRemoveFacetFromObjectResponse
 
 instance NFData BatchRemoveFacetFromObjectResponse
 
--- | Represents the output of a BatchUpdate operation.
+-- | Represents the output of a @BatchUpdate@ operation.
 --
 --
 --
@@ -1071,7 +1071,7 @@ instance ToJSON BatchUpdateObjectAttributes where
                  [Just ("ObjectReference" .= _buoaObjectReference),
                   Just ("AttributeUpdates" .= _buoaAttributeUpdates)])
 
--- | Represents the output of a BatchUpdate response operation.
+-- | Represents the output of a @BatchUpdate@ response operation.
 --
 --
 --
@@ -1108,7 +1108,7 @@ instance Hashable BatchUpdateObjectAttributesResponse
 
 instance NFData BatchUpdateObjectAttributesResponse
 
--- | Represents the output of a BatchWrite operation.
+-- | Represents the output of a @BatchWrite@ operation.
 --
 --
 --
@@ -1199,7 +1199,7 @@ instance ToJSON BatchWriteOperation where
                   ("UpdateObjectAttributes" .=) <$>
                     _bUpdateObjectAttributes])
 
--- | Represents the output of a BatchWrite response operation.
+-- | Represents the output of a @BatchWrite@ response operation.
 --
 --
 --
@@ -1307,7 +1307,7 @@ data Directory = Directory'
 --
 -- * 'dDirectoryARN' - ARN associated with the directory. For more information, see 'arns' .
 --
--- * 'dState' - The state of the directory. Can be either Enabled, Disabled, or Deleted.
+-- * 'dState' - The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
 --
 -- * 'dName' - The name of the directory.
 --
@@ -1326,7 +1326,7 @@ directory =
 dDirectoryARN :: Lens' Directory (Maybe Text)
 dDirectoryARN = lens _dDirectoryARN (\ s a -> s{_dDirectoryARN = a});
 
--- | The state of the directory. Can be either Enabled, Disabled, or Deleted.
+-- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
 dState :: Lens' Directory (Maybe DirectoryState)
 dState = lens _dState (\ s a -> s{_dState = a});
 
@@ -1351,7 +1351,7 @@ instance Hashable Directory
 
 instance NFData Directory
 
--- | A structure that contains Name, ARN, Attributes, 'Rule' s, and ObjectTypes.
+-- | A structure that contains @Name@ , @ARN@ , @Attributes@ , 'Rule' s, and @ObjectTypes@ .
 --
 --
 --
@@ -1414,7 +1414,7 @@ data FacetAttribute = FacetAttribute'
 --
 -- * 'faAttributeDefinition' - A facet attribute consists of either a definition or a reference. This structure contains the attribute definition. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_advanced.html#attributereferences Attribute References> for more information.
 --
--- * 'faRequiredBehavior' - The required behavior of the FacetAttribute.
+-- * 'faRequiredBehavior' - The required behavior of the @FacetAttribute@ .
 --
 -- * 'faName' - The name of the facet attribute.
 facetAttribute
@@ -1436,7 +1436,7 @@ faAttributeReference = lens _faAttributeReference (\ s a -> s{_faAttributeRefere
 faAttributeDefinition :: Lens' FacetAttribute (Maybe FacetAttributeDefinition)
 faAttributeDefinition = lens _faAttributeDefinition (\ s a -> s{_faAttributeDefinition = a});
 
--- | The required behavior of the FacetAttribute.
+-- | The required behavior of the @FacetAttribute@ .
 faRequiredBehavior :: Lens' FacetAttribute (Maybe RequiredAttributeBehavior)
 faRequiredBehavior = lens _faRequiredBehavior (\ s a -> s{_faRequiredBehavior = a});
 
@@ -1655,7 +1655,7 @@ data IndexAttachment = IndexAttachment'
 --
 -- * 'iaIndexedAttributes' - The indexed attribute values.
 --
--- * 'iaObjectIdentifier' - The ObjectIdentifier of the object attached to the index.
+-- * 'iaObjectIdentifier' - The @ObjectIdentifier@ of the object attached to the index.
 indexAttachment
     :: IndexAttachment
 indexAttachment =
@@ -1668,7 +1668,7 @@ indexAttachment =
 iaIndexedAttributes :: Lens' IndexAttachment [AttributeKeyAndValue]
 iaIndexedAttributes = lens _iaIndexedAttributes (\ s a -> s{_iaIndexedAttributes = a}) . _Default . _Coerce;
 
--- | The ObjectIdentifier of the object attached to the index.
+-- | The @ObjectIdentifier@ of the object attached to the index.
 iaObjectIdentifier :: Lens' IndexAttachment (Maybe Text)
 iaObjectIdentifier = lens _iaObjectIdentifier (\ s a -> s{_iaObjectIdentifier = a});
 
@@ -1833,7 +1833,7 @@ newtype ObjectReference = ObjectReference'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'orSelector' - Allows you to specify an object. You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - Identifies the object by ObjectIdentifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
+-- * 'orSelector' - Allows you to specify an object. You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - Identifies the object by @ObjectIdentifier@      * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
 objectReference
     :: ObjectReference
 objectReference =
@@ -1841,7 +1841,7 @@ objectReference =
     { _orSelector = Nothing
     }
 
--- | Allows you to specify an object. You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - Identifies the object by ObjectIdentifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
+-- | Allows you to specify an object. You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - Identifies the object by @ObjectIdentifier@      * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
 orSelector :: Lens' ObjectReference (Maybe Text)
 orSelector = lens _orSelector (\ s a -> s{_orSelector = a});
 
@@ -1854,7 +1854,52 @@ instance ToJSON ObjectReference where
           = object
               (catMaybes [("Selector" .=) <$> _orSelector])
 
--- | Contains the PolicyType, PolicyId, and the ObjectIdentifier to which it is attached.
+-- | Returns the path to the @ObjectIdentifiers@ associated with the directory.
+--
+--
+--
+-- /See:/ 'pathToObjectIdentifiers' smart constructor.
+data PathToObjectIdentifiers = PathToObjectIdentifiers'
+    { _ptoiObjectIdentifiers :: !(Maybe [Text])
+    , _ptoiPath              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PathToObjectIdentifiers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptoiObjectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
+--
+-- * 'ptoiPath' - The path used to identify the object starting from directory root.
+pathToObjectIdentifiers
+    :: PathToObjectIdentifiers
+pathToObjectIdentifiers =
+    PathToObjectIdentifiers'
+    { _ptoiObjectIdentifiers = Nothing
+    , _ptoiPath = Nothing
+    }
+
+-- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
+ptoiObjectIdentifiers :: Lens' PathToObjectIdentifiers [Text]
+ptoiObjectIdentifiers = lens _ptoiObjectIdentifiers (\ s a -> s{_ptoiObjectIdentifiers = a}) . _Default . _Coerce;
+
+-- | The path used to identify the object starting from directory root.
+ptoiPath :: Lens' PathToObjectIdentifiers (Maybe Text)
+ptoiPath = lens _ptoiPath (\ s a -> s{_ptoiPath = a});
+
+instance FromJSON PathToObjectIdentifiers where
+        parseJSON
+          = withObject "PathToObjectIdentifiers"
+              (\ x ->
+                 PathToObjectIdentifiers' <$>
+                   (x .:? "ObjectIdentifiers" .!= mempty) <*>
+                     (x .:? "Path"))
+
+instance Hashable PathToObjectIdentifiers
+
+instance NFData PathToObjectIdentifiers
+
+-- | Contains the @PolicyType@ , @PolicyId@ , and the @ObjectIdentifier@ to which it is attached.
 --
 --
 --
@@ -1869,11 +1914,11 @@ data PolicyAttachment = PolicyAttachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'paPolicyId' - The ID of PolicyAttachment.
+-- * 'paPolicyId' - The ID of @PolicyAttachment@ .
 --
--- * 'paPolicyType' - The type of policy that can be associated with PolicyAttachment.
+-- * 'paPolicyType' - The type of policy that can be associated with @PolicyAttachment@ .
 --
--- * 'paObjectIdentifier' - The ObjectIdentifier associated with PolicyAttachment.
+-- * 'paObjectIdentifier' - The @ObjectIdentifier@ associated with @PolicyAttachment@ .
 policyAttachment
     :: PolicyAttachment
 policyAttachment =
@@ -1883,15 +1928,15 @@ policyAttachment =
     , _paObjectIdentifier = Nothing
     }
 
--- | The ID of PolicyAttachment.
+-- | The ID of @PolicyAttachment@ .
 paPolicyId :: Lens' PolicyAttachment (Maybe Text)
 paPolicyId = lens _paPolicyId (\ s a -> s{_paPolicyId = a});
 
--- | The type of policy that can be associated with PolicyAttachment.
+-- | The type of policy that can be associated with @PolicyAttachment@ .
 paPolicyType :: Lens' PolicyAttachment (Maybe Text)
 paPolicyType = lens _paPolicyType (\ s a -> s{_paPolicyType = a});
 
--- | The ObjectIdentifier associated with PolicyAttachment.
+-- | The @ObjectIdentifier@ associated with @PolicyAttachment@ .
 paObjectIdentifier :: Lens' PolicyAttachment (Maybe Text)
 paObjectIdentifier = lens _paObjectIdentifier (\ s a -> s{_paObjectIdentifier = a});
 

@@ -23,7 +23,7 @@
 --
 -- To create a new health check, send a @POST@ request to the @/2013-04-01/healthcheck@ resource. The request body must include a document with a @CreateHealthCheckRequest@ element. The response returns the @CreateHealthCheckResponse@ element, containing the health check ID specified when adding health check to a resource record set. For information about adding health checks to resource record sets, see 'ResourceRecordSet$HealthCheckId' in 'ChangeResourceRecordSets' .
 --
--- If you are registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
+-- If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to an Amazon Route 53 health check.
 --
 -- You can associate health checks with failover resource record sets in a private hosted zone. Note the following:
 --

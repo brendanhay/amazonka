@@ -21,6 +21,8 @@
 -- Describes one or more of the your NAT gateways.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeNatGateways
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.EC2.DescribeNatGateways
 import           Network.AWS.EC2.Types
 import           Network.AWS.EC2.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,6 +99,13 @@ dngFilter = lens _dngFilter (\ s a -> s{_dngFilter = a}) . _Default . _Coerce;
 -- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value specified is greater than 1000, we return only 1000 items.
 dngMaxResults :: Lens' DescribeNatGateways (Maybe Int)
 dngMaxResults = lens _dngMaxResults (\ s a -> s{_dngMaxResults = a});
+
+instance AWSPager DescribeNatGateways where
+        page rq rs
+          | stop (rs ^. dngrsNextToken) = Nothing
+          | stop (rs ^. dngrsNatGateways) = Nothing
+          | otherwise =
+            Just $ rq & dngNextToken .~ rs ^. dngrsNextToken
 
 instance AWSRequest DescribeNatGateways where
         type Rs DescribeNatGateways =

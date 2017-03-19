@@ -18,16 +18,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds target(s) to a rule. Targets are the resources that can be invoked when a rule is triggered. For example, AWS Lambda functions, Amazon Kinesis streams, and built-in targets. Updates the target(s) if they are already associated with the role. In other words, if there is already a target with the given target ID, then the target associated with that ID is updated.
+-- Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
 --
 --
--- In order to be able to make API calls against the resources you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For Amazon Kinesis streams, CloudWatch Events relies on IAM roles. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/EventsTargetPermissions.html Permissions for Sending Events to Targets> in the __/Amazon CloudWatch Developer Guide/ __ .
+-- Targets are the resources that are invoked when a rule is triggered. Example targets include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks, AWS Step Functions state machines, and built-in targets. Note that creating rules with built-in targets is supported only in the AWS Management Console.
 --
--- __Input__ and __InputPath__ are mutually-exclusive and optional parameters of a target. When a rule is triggered due to a matched event, if for a target:
+-- For some target types, @PutTargets@ provides target-specific parameters. If the target is an Amazon Kinesis stream, you can optionally specify which shard the event goes to by using the @KinesisParameters@ argument. To invoke a command on multiple EC2 instances with one rule, you can use the @RunCommandParameters@ field.
 --
---     * Neither __Input__ nor __InputPath__ is specified, then the entire event is passed to the target in JSON form.    * __InputPath__ is specified in the form of JSONPath (e.g. __> .detail__ ), then only the part of the event specified in the path is passed to the target (e.g. only the detail part of the event is passed).     * __Input__ is specified in the form of a valid JSON, then the matched event is overridden with this constant.
+-- To be able to make API calls against the resources that you own, Amazon CloudWatch Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources, CloudWatch Events relies on resource-based policies. For EC2 instances, Amazon Kinesis streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles that you specify in the @RoleARN@ argument in @PutTarget@ . For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html Authentication and Access Control> in the /Amazon CloudWatch Events User Guide/ .
 --
--- __Note:__ When you add targets to a rule, when the associated rule triggers, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.
+-- __Input__ , __InputPath__ and __InputTransformer__ are mutually exclusive and optional parameters of a target. When a rule is triggered due to a matched event:
+--
+--     * If none of the following arguments are specified for a target, then the entire event is passed to the target in JSON form (unless the target is Amazon EC2 Run Command or Amazon ECS task, in which case nothing from the event is passed to the target).
+--
+--     * If __Input__ is specified in the form of valid JSON, then the matched event is overridden with this constant.
+--
+--     * If __InputPath__ is specified in the form of JSONPath (for example, @> .detail@ ), then only the part of the event specified in the path is passed to the target (for example, only the detail part of the event is passed).
+--
+--     * If __InputTransformer__ is specified, then one or more specified JSONPaths are extracted from the event and used as values in a template that you specify as the input to the target.
+--
+--
+--
+-- When you add targets to a rule and the associated rule triggers soon after, new or updated targets might not be immediately invoked. Please allow a short period of time for changes to take effect.
 --
 module Network.AWS.CloudWatchEvents.PutTargets
     (
@@ -54,39 +66,36 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'PutTargets' operation.
---
---
---
--- /See:/ 'putTargets' smart constructor.
+-- | /See:/ 'putTargets' smart constructor.
 data PutTargets = PutTargets'
     { _ptRule    :: !Text
-    , _ptTargets :: ![Target]
+    , _ptTargets :: !(List1 Target)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutTargets' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ptRule' - The name of the rule you want to add targets to.
+-- * 'ptRule' - The name of the rule.
 --
--- * 'ptTargets' - List of targets you want to update or add to the rule.
+-- * 'ptTargets' - The targets to update or add to the rule.
 putTargets
     :: Text -- ^ 'ptRule'
+    -> NonEmpty Target -- ^ 'ptTargets'
     -> PutTargets
-putTargets pRule_ =
+putTargets pRule_ pTargets_ =
     PutTargets'
     { _ptRule = pRule_
-    , _ptTargets = mempty
+    , _ptTargets = _List1 # pTargets_
     }
 
--- | The name of the rule you want to add targets to.
+-- | The name of the rule.
 ptRule :: Lens' PutTargets Text
 ptRule = lens _ptRule (\ s a -> s{_ptRule = a});
 
--- | List of targets you want to update or add to the rule.
-ptTargets :: Lens' PutTargets [Target]
-ptTargets = lens _ptTargets (\ s a -> s{_ptTargets = a}) . _Coerce;
+-- | The targets to update or add to the rule.
+ptTargets :: Lens' PutTargets (NonEmpty Target)
+ptTargets = lens _ptTargets (\ s a -> s{_ptTargets = a}) . _List1;
 
 instance AWSRequest PutTargets where
         type Rs PutTargets = PutTargetsResponse
@@ -125,11 +134,7 @@ instance ToPath PutTargets where
 instance ToQuery PutTargets where
         toQuery = const mempty
 
--- | The result of the 'PutTargets' operation.
---
---
---
--- /See:/ 'putTargetsResponse' smart constructor.
+-- | /See:/ 'putTargetsResponse' smart constructor.
 data PutTargetsResponse = PutTargetsResponse'
     { _ptrsFailedEntryCount :: !(Maybe Int)
     , _ptrsFailedEntries    :: !(Maybe [PutTargetsResultEntry])
@@ -142,7 +147,7 @@ data PutTargetsResponse = PutTargetsResponse'
 --
 -- * 'ptrsFailedEntryCount' - The number of failed entries.
 --
--- * 'ptrsFailedEntries' - An array of failed target entries.
+-- * 'ptrsFailedEntries' - The failed target entries.
 --
 -- * 'ptrsResponseStatus' - -- | The response status code.
 putTargetsResponse
@@ -159,7 +164,7 @@ putTargetsResponse pResponseStatus_ =
 ptrsFailedEntryCount :: Lens' PutTargetsResponse (Maybe Int)
 ptrsFailedEntryCount = lens _ptrsFailedEntryCount (\ s a -> s{_ptrsFailedEntryCount = a});
 
--- | An array of failed target entries.
+-- | The failed target entries.
 ptrsFailedEntries :: Lens' PutTargetsResponse [PutTargetsResultEntry]
 ptrsFailedEntries = lens _ptrsFailedEntries (\ s a -> s{_ptrsFailedEntries = a}) . _Default . _Coerce;
 

@@ -34,11 +34,20 @@ import Test.AWS.DirectConnect.Internal
 --         , requestDescribeTags $
 --             describeTags
 --
+--         , requestDescribeLoa $
+--             describeLoa
+--
 --         , requestDeleteConnection $
 --             deleteConnection
 --
+--         , requestAssociateConnectionWithLag $
+--             associateConnectionWithLag
+--
 --         , requestCreateConnection $
 --             createConnection
+--
+--         , requestAssociateVirtualInterface $
+--             associateVirtualInterface
 --
 --         , requestDescribeConnections $
 --             describeConnections
@@ -61,6 +70,9 @@ import Test.AWS.DirectConnect.Internal
 --         , requestAllocatePrivateVirtualInterface $
 --             allocatePrivateVirtualInterface
 --
+--         , requestDescribeLags $
+--             describeLags
+--
 --         , requestConfirmConnection $
 --             confirmConnection
 --
@@ -72,6 +84,9 @@ import Test.AWS.DirectConnect.Internal
 --
 --         , requestDescribeVirtualInterfaces $
 --             describeVirtualInterfaces
+--
+--         , requestAllocateHostedConnection $
+--             allocateHostedConnection
 --
 --         , requestDeleteVirtualInterface $
 --             deleteVirtualInterface
@@ -88,8 +103,17 @@ import Test.AWS.DirectConnect.Internal
 --         , requestAllocateConnectionOnInterconnect $
 --             allocateConnectionOnInterconnect
 --
+--         , requestDisassociateConnectionFromLag $
+--             disassociateConnectionFromLag
+--
 --         , requestTagResource $
 --             tagResource
+--
+--         , requestDeleteLag $
+--             deleteLag
+--
+--         , requestUpdateLag $
+--             updateLag
 --
 --         , requestUntagResource $
 --             untagResource
@@ -97,14 +121,23 @@ import Test.AWS.DirectConnect.Internal
 --         , requestCreateBGPPeer $
 --             createBGPPeer
 --
+--         , requestAssociateHostedConnection $
+--             associateHostedConnection
+--
 --         , requestCreateInterconnect $
 --             createInterconnect
 --
 --         , requestDeleteBGPPeer $
 --             deleteBGPPeer
 --
+--         , requestCreateLag $
+--             createLag
+--
 --         , requestDescribeConnectionLoa $
 --             describeConnectionLoa
+--
+--         , requestDescribeHostedConnections $
+--             describeHostedConnections
 --
 --           ]
 
@@ -115,11 +148,20 @@ import Test.AWS.DirectConnect.Internal
 --         , responseDescribeTags $
 --             describeTagsResponse
 --
+--         , responseDescribeLoa $
+--             loa
+--
 --         , responseDeleteConnection $
+--             connection
+--
+--         , responseAssociateConnectionWithLag $
 --             connection
 --
 --         , responseCreateConnection $
 --             connection
+--
+--         , responseAssociateVirtualInterface $
+--             virtualInterface
 --
 --         , responseDescribeConnections $
 --             connections
@@ -142,6 +184,9 @@ import Test.AWS.DirectConnect.Internal
 --         , responseAllocatePrivateVirtualInterface $
 --             virtualInterface
 --
+--         , responseDescribeLags $
+--             describeLagsResponse
+--
 --         , responseConfirmConnection $
 --             confirmConnectionResponse
 --
@@ -153,6 +198,9 @@ import Test.AWS.DirectConnect.Internal
 --
 --         , responseDescribeVirtualInterfaces $
 --             describeVirtualInterfacesResponse
+--
+--         , responseAllocateHostedConnection $
+--             connection
 --
 --         , responseDeleteVirtualInterface $
 --             deleteVirtualInterfaceResponse
@@ -169,8 +217,17 @@ import Test.AWS.DirectConnect.Internal
 --         , responseAllocateConnectionOnInterconnect $
 --             connection
 --
+--         , responseDisassociateConnectionFromLag $
+--             connection
+--
 --         , responseTagResource $
 --             tagResourceResponse
+--
+--         , responseDeleteLag $
+--             lag
+--
+--         , responseUpdateLag $
+--             lag
 --
 --         , responseUntagResource $
 --             untagResourceResponse
@@ -178,14 +235,23 @@ import Test.AWS.DirectConnect.Internal
 --         , responseCreateBGPPeer $
 --             createBGPPeerResponse
 --
+--         , responseAssociateHostedConnection $
+--             connection
+--
 --         , responseCreateInterconnect $
 --             interconnect
 --
 --         , responseDeleteBGPPeer $
 --             deleteBGPPeerResponse
 --
+--         , responseCreateLag $
+--             lag
+--
 --         , responseDescribeConnectionLoa $
 --             describeConnectionLoaResponse
+--
+--         , responseDescribeHostedConnections $
+--             connections
 --
 --           ]
 --     ]
@@ -202,15 +268,30 @@ requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
+requestDescribeLoa :: DescribeLoa -> TestTree
+requestDescribeLoa = req
+    "DescribeLoa"
+    "fixture/DescribeLoa.yaml"
+
 requestDeleteConnection :: DeleteConnection -> TestTree
 requestDeleteConnection = req
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
 
+requestAssociateConnectionWithLag :: AssociateConnectionWithLag -> TestTree
+requestAssociateConnectionWithLag = req
+    "AssociateConnectionWithLag"
+    "fixture/AssociateConnectionWithLag.yaml"
+
 requestCreateConnection :: CreateConnection -> TestTree
 requestCreateConnection = req
     "CreateConnection"
     "fixture/CreateConnection.yaml"
+
+requestAssociateVirtualInterface :: AssociateVirtualInterface -> TestTree
+requestAssociateVirtualInterface = req
+    "AssociateVirtualInterface"
+    "fixture/AssociateVirtualInterface.yaml"
 
 requestDescribeConnections :: DescribeConnections -> TestTree
 requestDescribeConnections = req
@@ -247,6 +328,11 @@ requestAllocatePrivateVirtualInterface = req
     "AllocatePrivateVirtualInterface"
     "fixture/AllocatePrivateVirtualInterface.yaml"
 
+requestDescribeLags :: DescribeLags -> TestTree
+requestDescribeLags = req
+    "DescribeLags"
+    "fixture/DescribeLags.yaml"
+
 requestConfirmConnection :: ConfirmConnection -> TestTree
 requestConfirmConnection = req
     "ConfirmConnection"
@@ -266,6 +352,11 @@ requestDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
 requestDescribeVirtualInterfaces = req
     "DescribeVirtualInterfaces"
     "fixture/DescribeVirtualInterfaces.yaml"
+
+requestAllocateHostedConnection :: AllocateHostedConnection -> TestTree
+requestAllocateHostedConnection = req
+    "AllocateHostedConnection"
+    "fixture/AllocateHostedConnection.yaml"
 
 requestDeleteVirtualInterface :: DeleteVirtualInterface -> TestTree
 requestDeleteVirtualInterface = req
@@ -292,10 +383,25 @@ requestAllocateConnectionOnInterconnect = req
     "AllocateConnectionOnInterconnect"
     "fixture/AllocateConnectionOnInterconnect.yaml"
 
+requestDisassociateConnectionFromLag :: DisassociateConnectionFromLag -> TestTree
+requestDisassociateConnectionFromLag = req
+    "DisassociateConnectionFromLag"
+    "fixture/DisassociateConnectionFromLag.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestDeleteLag :: DeleteLag -> TestTree
+requestDeleteLag = req
+    "DeleteLag"
+    "fixture/DeleteLag.yaml"
+
+requestUpdateLag :: UpdateLag -> TestTree
+requestUpdateLag = req
+    "UpdateLag"
+    "fixture/UpdateLag.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource = req
@@ -307,6 +413,11 @@ requestCreateBGPPeer = req
     "CreateBGPPeer"
     "fixture/CreateBGPPeer.yaml"
 
+requestAssociateHostedConnection :: AssociateHostedConnection -> TestTree
+requestAssociateHostedConnection = req
+    "AssociateHostedConnection"
+    "fixture/AssociateHostedConnection.yaml"
+
 requestCreateInterconnect :: CreateInterconnect -> TestTree
 requestCreateInterconnect = req
     "CreateInterconnect"
@@ -317,10 +428,20 @@ requestDeleteBGPPeer = req
     "DeleteBGPPeer"
     "fixture/DeleteBGPPeer.yaml"
 
+requestCreateLag :: CreateLag -> TestTree
+requestCreateLag = req
+    "CreateLag"
+    "fixture/CreateLag.yaml"
+
 requestDescribeConnectionLoa :: DescribeConnectionLoa -> TestTree
 requestDescribeConnectionLoa = req
     "DescribeConnectionLoa"
     "fixture/DescribeConnectionLoa.yaml"
+
+requestDescribeHostedConnections :: DescribeHostedConnections -> TestTree
+requestDescribeHostedConnections = req
+    "DescribeHostedConnections"
+    "fixture/DescribeHostedConnections.yaml"
 
 -- Responses
 
@@ -338,6 +459,13 @@ responseDescribeTags = res
     directConnect
     (Proxy :: Proxy DescribeTags)
 
+responseDescribeLoa :: Loa -> TestTree
+responseDescribeLoa = res
+    "DescribeLoaResponse"
+    "fixture/DescribeLoaResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeLoa)
+
 responseDeleteConnection :: Connection -> TestTree
 responseDeleteConnection = res
     "DeleteConnectionResponse"
@@ -345,12 +473,26 @@ responseDeleteConnection = res
     directConnect
     (Proxy :: Proxy DeleteConnection)
 
+responseAssociateConnectionWithLag :: Connection -> TestTree
+responseAssociateConnectionWithLag = res
+    "AssociateConnectionWithLagResponse"
+    "fixture/AssociateConnectionWithLagResponse.proto"
+    directConnect
+    (Proxy :: Proxy AssociateConnectionWithLag)
+
 responseCreateConnection :: Connection -> TestTree
 responseCreateConnection = res
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
     directConnect
     (Proxy :: Proxy CreateConnection)
+
+responseAssociateVirtualInterface :: VirtualInterface -> TestTree
+responseAssociateVirtualInterface = res
+    "AssociateVirtualInterfaceResponse"
+    "fixture/AssociateVirtualInterfaceResponse.proto"
+    directConnect
+    (Proxy :: Proxy AssociateVirtualInterface)
 
 responseDescribeConnections :: Connections -> TestTree
 responseDescribeConnections = res
@@ -401,6 +543,13 @@ responseAllocatePrivateVirtualInterface = res
     directConnect
     (Proxy :: Proxy AllocatePrivateVirtualInterface)
 
+responseDescribeLags :: DescribeLagsResponse -> TestTree
+responseDescribeLags = res
+    "DescribeLagsResponse"
+    "fixture/DescribeLagsResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeLags)
+
 responseConfirmConnection :: ConfirmConnectionResponse -> TestTree
 responseConfirmConnection = res
     "ConfirmConnectionResponse"
@@ -428,6 +577,13 @@ responseDescribeVirtualInterfaces = res
     "fixture/DescribeVirtualInterfacesResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeVirtualInterfaces)
+
+responseAllocateHostedConnection :: Connection -> TestTree
+responseAllocateHostedConnection = res
+    "AllocateHostedConnectionResponse"
+    "fixture/AllocateHostedConnectionResponse.proto"
+    directConnect
+    (Proxy :: Proxy AllocateHostedConnection)
 
 responseDeleteVirtualInterface :: DeleteVirtualInterfaceResponse -> TestTree
 responseDeleteVirtualInterface = res
@@ -464,12 +620,33 @@ responseAllocateConnectionOnInterconnect = res
     directConnect
     (Proxy :: Proxy AllocateConnectionOnInterconnect)
 
+responseDisassociateConnectionFromLag :: Connection -> TestTree
+responseDisassociateConnectionFromLag = res
+    "DisassociateConnectionFromLagResponse"
+    "fixture/DisassociateConnectionFromLagResponse.proto"
+    directConnect
+    (Proxy :: Proxy DisassociateConnectionFromLag)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     directConnect
     (Proxy :: Proxy TagResource)
+
+responseDeleteLag :: Lag -> TestTree
+responseDeleteLag = res
+    "DeleteLagResponse"
+    "fixture/DeleteLagResponse.proto"
+    directConnect
+    (Proxy :: Proxy DeleteLag)
+
+responseUpdateLag :: Lag -> TestTree
+responseUpdateLag = res
+    "UpdateLagResponse"
+    "fixture/UpdateLagResponse.proto"
+    directConnect
+    (Proxy :: Proxy UpdateLag)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource = res
@@ -485,6 +662,13 @@ responseCreateBGPPeer = res
     directConnect
     (Proxy :: Proxy CreateBGPPeer)
 
+responseAssociateHostedConnection :: Connection -> TestTree
+responseAssociateHostedConnection = res
+    "AssociateHostedConnectionResponse"
+    "fixture/AssociateHostedConnectionResponse.proto"
+    directConnect
+    (Proxy :: Proxy AssociateHostedConnection)
+
 responseCreateInterconnect :: Interconnect -> TestTree
 responseCreateInterconnect = res
     "CreateInterconnectResponse"
@@ -499,9 +683,23 @@ responseDeleteBGPPeer = res
     directConnect
     (Proxy :: Proxy DeleteBGPPeer)
 
+responseCreateLag :: Lag -> TestTree
+responseCreateLag = res
+    "CreateLagResponse"
+    "fixture/CreateLagResponse.proto"
+    directConnect
+    (Proxy :: Proxy CreateLag)
+
 responseDescribeConnectionLoa :: DescribeConnectionLoaResponse -> TestTree
 responseDescribeConnectionLoa = res
     "DescribeConnectionLoaResponse"
     "fixture/DescribeConnectionLoaResponse.proto"
     directConnect
     (Proxy :: Proxy DescribeConnectionLoa)
+
+responseDescribeHostedConnections :: Connections -> TestTree
+responseDescribeHostedConnections = res
+    "DescribeHostedConnectionsResponse"
+    "fixture/DescribeHostedConnectionsResponse.proto"
+    directConnect
+    (Proxy :: Proxy DescribeHostedConnections)

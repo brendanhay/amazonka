@@ -164,7 +164,7 @@ data ApplicationMetrics = ApplicationMetrics'
 --
 -- * 'amRequestCount' - Average number of requests handled by the web server per second over the last 10 seconds.
 --
--- * 'amLatency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one milisecond resolution.
+-- * 'amLatency' - Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
 --
 -- * 'amStatusCodes' - Represents the percentage of requests over the last 10 seconds that resulted in each type of status code response.
 --
@@ -183,7 +183,7 @@ applicationMetrics =
 amRequestCount :: Lens' ApplicationMetrics (Maybe Int)
 amRequestCount = lens _amRequestCount (\ s a -> s{_amRequestCount = a});
 
--- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one milisecond resolution.
+-- | Represents the average latency for the slowest X percent of requests over the last 10 seconds. Latencies are in seconds with one millisecond resolution.
 amLatency :: Lens' ApplicationMetrics (Maybe Latency)
 amLatency = lens _amLatency (\ s a -> s{_amLatency = a});
 
@@ -555,6 +555,38 @@ instance ToQuery BuildConfiguration where
                "CodeBuildServiceRole" =: _bcCodeBuildServiceRole,
                "Image" =: _bcImage]
 
+-- | The builder used to build the custom platform.
+--
+--
+--
+-- /See:/ 'builder' smart constructor.
+newtype Builder = Builder'
+    { _bARN :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Builder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bARN' - The ARN of the builder.
+builder
+    :: Builder
+builder =
+    Builder'
+    { _bARN = Nothing
+    }
+
+-- | The ARN of the builder.
+bARN :: Lens' Builder (Maybe Text)
+bARN = lens _bARN (\ s a -> s{_bARN = a});
+
+instance FromXML Builder where
+        parseXML x = Builder' <$> (x .@? "ARN")
+
+instance Hashable Builder
+
+instance NFData Builder
+
 -- | CPU utilization metrics for an instance.
 --
 --
@@ -844,6 +876,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
     , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
     , _csdDateUpdated       :: !(Maybe ISO8601)
     , _csdDateCreated       :: !(Maybe ISO8601)
+    , _csdPlatformARN       :: !(Maybe Text)
     , _csdEnvironmentName   :: !(Maybe Text)
     , _csdApplicationName   :: !(Maybe Text)
     , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
@@ -863,6 +896,8 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 --
 -- * 'csdDateCreated' - The date (in UTC time) when this configuration set was created.
 --
+-- * 'csdPlatformARN' - The ARN of the custom platform.
+--
 -- * 'csdEnvironmentName' - If not @null@ , the name of the environment for this configuration set.
 --
 -- * 'csdApplicationName' - The name of the application associated with this configuration set.
@@ -880,6 +915,7 @@ configurationSettingsDescription =
     , _csdOptionSettings = Nothing
     , _csdDateUpdated = Nothing
     , _csdDateCreated = Nothing
+    , _csdPlatformARN = Nothing
     , _csdEnvironmentName = Nothing
     , _csdApplicationName = Nothing
     , _csdDeploymentStatus = Nothing
@@ -902,6 +938,10 @@ csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mappin
 -- | The date (in UTC time) when this configuration set was created.
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
+
+-- | The ARN of the custom platform.
+csdPlatformARN :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdPlatformARN = lens _csdPlatformARN (\ s a -> s{_csdPlatformARN = a});
 
 -- | If not @null@ , the name of the environment for this configuration set.
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
@@ -932,6 +972,7 @@ instance FromXML ConfigurationSettingsDescription
                    may (parseXMLList "member"))
                 <*> (x .@? "DateUpdated")
                 <*> (x .@? "DateCreated")
+                <*> (x .@? "PlatformArn")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "DeploymentStatus")
@@ -941,6 +982,48 @@ instance FromXML ConfigurationSettingsDescription
 instance Hashable ConfigurationSettingsDescription
 
 instance NFData ConfigurationSettingsDescription
+
+-- | A custom AMI available to platforms.
+--
+--
+--
+-- /See:/ 'customAMI' smart constructor.
+data CustomAMI = CustomAMI'
+    { _caVirtualizationType :: !(Maybe Text)
+    , _caImageId            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomAMI' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caVirtualizationType' - The type of virtualization used to create the custom AMI.
+--
+-- * 'caImageId' - THe ID of the image used to create the custom AMI.
+customAMI
+    :: CustomAMI
+customAMI =
+    CustomAMI'
+    { _caVirtualizationType = Nothing
+    , _caImageId = Nothing
+    }
+
+-- | The type of virtualization used to create the custom AMI.
+caVirtualizationType :: Lens' CustomAMI (Maybe Text)
+caVirtualizationType = lens _caVirtualizationType (\ s a -> s{_caVirtualizationType = a});
+
+-- | THe ID of the image used to create the custom AMI.
+caImageId :: Lens' CustomAMI (Maybe Text)
+caImageId = lens _caImageId (\ s a -> s{_caImageId = a});
+
+instance FromXML CustomAMI where
+        parseXML x
+          = CustomAMI' <$>
+              (x .@? "VirtualizationType") <*> (x .@? "ImageId")
+
+instance Hashable CustomAMI
+
+instance NFData CustomAMI
 
 -- | Information about an application version deployment.
 --
@@ -1018,6 +1101,7 @@ data EnvironmentDescription = EnvironmentDescription'
     , _eDateCreated                  :: !(Maybe ISO8601)
     , _eHealth                       :: !(Maybe EnvironmentHealth)
     , _eVersionLabel                 :: !(Maybe Text)
+    , _ePlatformARN                  :: !(Maybe Text)
     , _eTier                         :: !(Maybe EnvironmentTier)
     , _eEnvironmentName              :: !(Maybe Text)
     , _eApplicationName              :: !(Maybe Text)
@@ -1052,6 +1136,8 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eVersionLabel' - The application version deployed in this environment.
 --
+-- * 'ePlatformARN' - The ARN of the custom platform.
+--
 -- * 'eTier' - Describes the current tier of this environment.
 --
 -- * 'eEnvironmentName' - The name of this environment.
@@ -1081,6 +1167,7 @@ environmentDescription =
     , _eDateCreated = Nothing
     , _eHealth = Nothing
     , _eVersionLabel = Nothing
+    , _ePlatformARN = Nothing
     , _eTier = Nothing
     , _eEnvironmentName = Nothing
     , _eApplicationName = Nothing
@@ -1131,6 +1218,10 @@ eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a});
 
+-- | The ARN of the custom platform.
+ePlatformARN :: Lens' EnvironmentDescription (Maybe Text)
+ePlatformARN = lens _ePlatformARN (\ s a -> s{_ePlatformARN = a});
+
 -- | Describes the current tier of this environment.
 eTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
 eTier = lens _eTier (\ s a -> s{_eTier = a});
@@ -1175,6 +1266,7 @@ instance FromXML EnvironmentDescription where
                 <*> (x .@? "DateCreated")
                 <*> (x .@? "Health")
                 <*> (x .@? "VersionLabel")
+                <*> (x .@? "PlatformArn")
                 <*> (x .@? "Tier")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
@@ -1528,6 +1620,7 @@ data EventDescription = EventDescription'
     , _edTemplateName    :: !(Maybe Text)
     , _edSeverity        :: !(Maybe EventSeverity)
     , _edVersionLabel    :: !(Maybe Text)
+    , _edPlatformARN     :: !(Maybe Text)
     , _edEnvironmentName :: !(Maybe Text)
     , _edApplicationName :: !(Maybe Text)
     , _edEventDate       :: !(Maybe ISO8601)
@@ -1546,6 +1639,8 @@ data EventDescription = EventDescription'
 --
 -- * 'edVersionLabel' - The release label for the application version associated with this event.
 --
+-- * 'edPlatformARN' - The ARN of the custom platform.
+--
 -- * 'edEnvironmentName' - The name of the environment associated with this event.
 --
 -- * 'edApplicationName' - The application associated with the event.
@@ -1561,6 +1656,7 @@ eventDescription =
     , _edTemplateName = Nothing
     , _edSeverity = Nothing
     , _edVersionLabel = Nothing
+    , _edPlatformARN = Nothing
     , _edEnvironmentName = Nothing
     , _edApplicationName = Nothing
     , _edEventDate = Nothing
@@ -1582,6 +1678,10 @@ edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a});
 -- | The release label for the application version associated with this event.
 edVersionLabel :: Lens' EventDescription (Maybe Text)
 edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
+
+-- | The ARN of the custom platform.
+edPlatformARN :: Lens' EventDescription (Maybe Text)
+edPlatformARN = lens _edPlatformARN (\ s a -> s{_edPlatformARN = a});
 
 -- | The name of the environment associated with this event.
 edEnvironmentName :: Lens' EventDescription (Maybe Text)
@@ -1605,6 +1705,7 @@ instance FromXML EventDescription where
               (x .@? "RequestId") <*> (x .@? "TemplateName") <*>
                 (x .@? "Severity")
                 <*> (x .@? "VersionLabel")
+                <*> (x .@? "PlatformArn")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
                 <*> (x .@? "EventDate")
@@ -2372,6 +2473,442 @@ instance ToQuery OptionSpecification where
                "ResourceName" =: _osResourceName,
                "Namespace" =: _osNamespace]
 
+-- | Detailed information about a platform.
+--
+--
+--
+-- /See:/ 'platformDescription' smart constructor.
+data PlatformDescription = PlatformDescription'
+    { _pdSupportedAddonList     :: !(Maybe [Text])
+    , _pdPlatformCategory       :: !(Maybe Text)
+    , _pdPlatformVersion        :: !(Maybe Text)
+    , _pdPlatformStatus         :: !(Maybe PlatformStatus)
+    , _pdMaintainer             :: !(Maybe Text)
+    , _pdPlatformOwner          :: !(Maybe Text)
+    , _pdDateUpdated            :: !(Maybe ISO8601)
+    , _pdCustomAMIList          :: !(Maybe [CustomAMI])
+    , _pdDateCreated            :: !(Maybe ISO8601)
+    , _pdOperatingSystemName    :: !(Maybe Text)
+    , _pdFrameworks             :: !(Maybe [PlatformFramework])
+    , _pdPlatformARN            :: !(Maybe Text)
+    , _pdOperatingSystemVersion :: !(Maybe Text)
+    , _pdProgrammingLanguages   :: !(Maybe [PlatformProgrammingLanguage])
+    , _pdSolutionStackName      :: !(Maybe Text)
+    , _pdPlatformName           :: !(Maybe Text)
+    , _pdDescription            :: !(Maybe Text)
+    , _pdSupportedTierList      :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlatformDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdSupportedAddonList' - The additions supported by the platform.
+--
+-- * 'pdPlatformCategory' - The category of the platform.
+--
+-- * 'pdPlatformVersion' - The version of the platform.
+--
+-- * 'pdPlatformStatus' - The status of the platform.
+--
+-- * 'pdMaintainer' - Information about the maintainer of the platform.
+--
+-- * 'pdPlatformOwner' - The AWS account ID of the person who created the platform.
+--
+-- * 'pdDateUpdated' - The date when the platform was last updated.
+--
+-- * 'pdCustomAMIList' - The custom AMIs supported by the platform.
+--
+-- * 'pdDateCreated' - The date when the platform was created.
+--
+-- * 'pdOperatingSystemName' - The operating system used by the platform.
+--
+-- * 'pdFrameworks' - The frameworks supported by the platform.
+--
+-- * 'pdPlatformARN' - The ARN of the platform.
+--
+-- * 'pdOperatingSystemVersion' - The version of the operating system used by the platform.
+--
+-- * 'pdProgrammingLanguages' - The programming languages supported by the platform.
+--
+-- * 'pdSolutionStackName' - The name of the solution stack used by the platform.
+--
+-- * 'pdPlatformName' - The name of the platform.
+--
+-- * 'pdDescription' - The description of the platform.
+--
+-- * 'pdSupportedTierList' - The tiers supported by the platform.
+platformDescription
+    :: PlatformDescription
+platformDescription =
+    PlatformDescription'
+    { _pdSupportedAddonList = Nothing
+    , _pdPlatformCategory = Nothing
+    , _pdPlatformVersion = Nothing
+    , _pdPlatformStatus = Nothing
+    , _pdMaintainer = Nothing
+    , _pdPlatformOwner = Nothing
+    , _pdDateUpdated = Nothing
+    , _pdCustomAMIList = Nothing
+    , _pdDateCreated = Nothing
+    , _pdOperatingSystemName = Nothing
+    , _pdFrameworks = Nothing
+    , _pdPlatformARN = Nothing
+    , _pdOperatingSystemVersion = Nothing
+    , _pdProgrammingLanguages = Nothing
+    , _pdSolutionStackName = Nothing
+    , _pdPlatformName = Nothing
+    , _pdDescription = Nothing
+    , _pdSupportedTierList = Nothing
+    }
+
+-- | The additions supported by the platform.
+pdSupportedAddonList :: Lens' PlatformDescription [Text]
+pdSupportedAddonList = lens _pdSupportedAddonList (\ s a -> s{_pdSupportedAddonList = a}) . _Default . _Coerce;
+
+-- | The category of the platform.
+pdPlatformCategory :: Lens' PlatformDescription (Maybe Text)
+pdPlatformCategory = lens _pdPlatformCategory (\ s a -> s{_pdPlatformCategory = a});
+
+-- | The version of the platform.
+pdPlatformVersion :: Lens' PlatformDescription (Maybe Text)
+pdPlatformVersion = lens _pdPlatformVersion (\ s a -> s{_pdPlatformVersion = a});
+
+-- | The status of the platform.
+pdPlatformStatus :: Lens' PlatformDescription (Maybe PlatformStatus)
+pdPlatformStatus = lens _pdPlatformStatus (\ s a -> s{_pdPlatformStatus = a});
+
+-- | Information about the maintainer of the platform.
+pdMaintainer :: Lens' PlatformDescription (Maybe Text)
+pdMaintainer = lens _pdMaintainer (\ s a -> s{_pdMaintainer = a});
+
+-- | The AWS account ID of the person who created the platform.
+pdPlatformOwner :: Lens' PlatformDescription (Maybe Text)
+pdPlatformOwner = lens _pdPlatformOwner (\ s a -> s{_pdPlatformOwner = a});
+
+-- | The date when the platform was last updated.
+pdDateUpdated :: Lens' PlatformDescription (Maybe UTCTime)
+pdDateUpdated = lens _pdDateUpdated (\ s a -> s{_pdDateUpdated = a}) . mapping _Time;
+
+-- | The custom AMIs supported by the platform.
+pdCustomAMIList :: Lens' PlatformDescription [CustomAMI]
+pdCustomAMIList = lens _pdCustomAMIList (\ s a -> s{_pdCustomAMIList = a}) . _Default . _Coerce;
+
+-- | The date when the platform was created.
+pdDateCreated :: Lens' PlatformDescription (Maybe UTCTime)
+pdDateCreated = lens _pdDateCreated (\ s a -> s{_pdDateCreated = a}) . mapping _Time;
+
+-- | The operating system used by the platform.
+pdOperatingSystemName :: Lens' PlatformDescription (Maybe Text)
+pdOperatingSystemName = lens _pdOperatingSystemName (\ s a -> s{_pdOperatingSystemName = a});
+
+-- | The frameworks supported by the platform.
+pdFrameworks :: Lens' PlatformDescription [PlatformFramework]
+pdFrameworks = lens _pdFrameworks (\ s a -> s{_pdFrameworks = a}) . _Default . _Coerce;
+
+-- | The ARN of the platform.
+pdPlatformARN :: Lens' PlatformDescription (Maybe Text)
+pdPlatformARN = lens _pdPlatformARN (\ s a -> s{_pdPlatformARN = a});
+
+-- | The version of the operating system used by the platform.
+pdOperatingSystemVersion :: Lens' PlatformDescription (Maybe Text)
+pdOperatingSystemVersion = lens _pdOperatingSystemVersion (\ s a -> s{_pdOperatingSystemVersion = a});
+
+-- | The programming languages supported by the platform.
+pdProgrammingLanguages :: Lens' PlatformDescription [PlatformProgrammingLanguage]
+pdProgrammingLanguages = lens _pdProgrammingLanguages (\ s a -> s{_pdProgrammingLanguages = a}) . _Default . _Coerce;
+
+-- | The name of the solution stack used by the platform.
+pdSolutionStackName :: Lens' PlatformDescription (Maybe Text)
+pdSolutionStackName = lens _pdSolutionStackName (\ s a -> s{_pdSolutionStackName = a});
+
+-- | The name of the platform.
+pdPlatformName :: Lens' PlatformDescription (Maybe Text)
+pdPlatformName = lens _pdPlatformName (\ s a -> s{_pdPlatformName = a});
+
+-- | The description of the platform.
+pdDescription :: Lens' PlatformDescription (Maybe Text)
+pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
+
+-- | The tiers supported by the platform.
+pdSupportedTierList :: Lens' PlatformDescription [Text]
+pdSupportedTierList = lens _pdSupportedTierList (\ s a -> s{_pdSupportedTierList = a}) . _Default . _Coerce;
+
+instance FromXML PlatformDescription where
+        parseXML x
+          = PlatformDescription' <$>
+              (x .@? "SupportedAddonList" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "PlatformCategory")
+                <*> (x .@? "PlatformVersion")
+                <*> (x .@? "PlatformStatus")
+                <*> (x .@? "Maintainer")
+                <*> (x .@? "PlatformOwner")
+                <*> (x .@? "DateUpdated")
+                <*>
+                (x .@? "CustomAmiList" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "DateCreated")
+                <*> (x .@? "OperatingSystemName")
+                <*>
+                (x .@? "Frameworks" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "PlatformArn")
+                <*> (x .@? "OperatingSystemVersion")
+                <*>
+                (x .@? "ProgrammingLanguages" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "SolutionStackName")
+                <*> (x .@? "PlatformName")
+                <*> (x .@? "Description")
+                <*>
+                (x .@? "SupportedTierList" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable PlatformDescription
+
+instance NFData PlatformDescription
+
+-- | Specify criteria to restrict the results when listing custom platforms.
+--
+--
+-- The filter is evaluated as the expression:
+--
+-- @Type@ @Operator@ @Values[i]@
+--
+--
+-- /See:/ 'platformFilter' smart constructor.
+data PlatformFilter = PlatformFilter'
+    { _pfValues   :: !(Maybe [Text])
+    , _pfOperator :: !(Maybe Text)
+    , _pfType     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlatformFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfValues' - The list of values applied to the custom platform attribute.
+--
+-- * 'pfOperator' - The operator to apply to the @Type@ with each of the @Values@ . Valid Values: @=@ (equal to) | @!=@ (not equal to) | @<@ (less than) | @<=@ (less than or equal to) | @>@ (greater than) | @>=@ (greater than or equal to) | @contains@ | @begins_with@ | @ends_with@
+--
+-- * 'pfType' - The custom platform attribute to which the filter values are applied. Valid Values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformOwner@
+platformFilter
+    :: PlatformFilter
+platformFilter =
+    PlatformFilter'
+    { _pfValues = Nothing
+    , _pfOperator = Nothing
+    , _pfType = Nothing
+    }
+
+-- | The list of values applied to the custom platform attribute.
+pfValues :: Lens' PlatformFilter [Text]
+pfValues = lens _pfValues (\ s a -> s{_pfValues = a}) . _Default . _Coerce;
+
+-- | The operator to apply to the @Type@ with each of the @Values@ . Valid Values: @=@ (equal to) | @!=@ (not equal to) | @<@ (less than) | @<=@ (less than or equal to) | @>@ (greater than) | @>=@ (greater than or equal to) | @contains@ | @begins_with@ | @ends_with@
+pfOperator :: Lens' PlatformFilter (Maybe Text)
+pfOperator = lens _pfOperator (\ s a -> s{_pfOperator = a});
+
+-- | The custom platform attribute to which the filter values are applied. Valid Values: @PlatformName@ | @PlatformVersion@ | @PlatformStatus@ | @PlatformOwner@
+pfType :: Lens' PlatformFilter (Maybe Text)
+pfType = lens _pfType (\ s a -> s{_pfType = a});
+
+instance Hashable PlatformFilter
+
+instance NFData PlatformFilter
+
+instance ToQuery PlatformFilter where
+        toQuery PlatformFilter'{..}
+          = mconcat
+              ["Values" =:
+                 toQuery (toQueryList "member" <$> _pfValues),
+               "Operator" =: _pfOperator, "Type" =: _pfType]
+
+-- | A framework supported by the custom platform.
+--
+--
+--
+-- /See:/ 'platformFramework' smart constructor.
+data PlatformFramework = PlatformFramework'
+    { _pfName    :: !(Maybe Text)
+    , _pfVersion :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlatformFramework' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfName' - The name of the framework.
+--
+-- * 'pfVersion' - The version of the framework.
+platformFramework
+    :: PlatformFramework
+platformFramework =
+    PlatformFramework'
+    { _pfName = Nothing
+    , _pfVersion = Nothing
+    }
+
+-- | The name of the framework.
+pfName :: Lens' PlatformFramework (Maybe Text)
+pfName = lens _pfName (\ s a -> s{_pfName = a});
+
+-- | The version of the framework.
+pfVersion :: Lens' PlatformFramework (Maybe Text)
+pfVersion = lens _pfVersion (\ s a -> s{_pfVersion = a});
+
+instance FromXML PlatformFramework where
+        parseXML x
+          = PlatformFramework' <$>
+              (x .@? "Name") <*> (x .@? "Version")
+
+instance Hashable PlatformFramework
+
+instance NFData PlatformFramework
+
+-- | A programming language supported by the platform.
+--
+--
+--
+-- /See:/ 'platformProgrammingLanguage' smart constructor.
+data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
+    { _pplName    :: !(Maybe Text)
+    , _pplVersion :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlatformProgrammingLanguage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pplName' - The name of the programming language.
+--
+-- * 'pplVersion' - The version of the programming language.
+platformProgrammingLanguage
+    :: PlatformProgrammingLanguage
+platformProgrammingLanguage =
+    PlatformProgrammingLanguage'
+    { _pplName = Nothing
+    , _pplVersion = Nothing
+    }
+
+-- | The name of the programming language.
+pplName :: Lens' PlatformProgrammingLanguage (Maybe Text)
+pplName = lens _pplName (\ s a -> s{_pplName = a});
+
+-- | The version of the programming language.
+pplVersion :: Lens' PlatformProgrammingLanguage (Maybe Text)
+pplVersion = lens _pplVersion (\ s a -> s{_pplVersion = a});
+
+instance FromXML PlatformProgrammingLanguage where
+        parseXML x
+          = PlatformProgrammingLanguage' <$>
+              (x .@? "Name") <*> (x .@? "Version")
+
+instance Hashable PlatformProgrammingLanguage
+
+instance NFData PlatformProgrammingLanguage
+
+-- | Detailed information about a platform.
+--
+--
+--
+-- /See:/ 'platformSummary' smart constructor.
+data PlatformSummary = PlatformSummary'
+    { _psSupportedAddonList     :: !(Maybe [Text])
+    , _psPlatformCategory       :: !(Maybe Text)
+    , _psPlatformStatus         :: !(Maybe PlatformStatus)
+    , _psPlatformOwner          :: !(Maybe Text)
+    , _psOperatingSystemName    :: !(Maybe Text)
+    , _psPlatformARN            :: !(Maybe Text)
+    , _psOperatingSystemVersion :: !(Maybe Text)
+    , _psSupportedTierList      :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlatformSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psSupportedAddonList' - The additions associated with the platform.
+--
+-- * 'psPlatformCategory' - The category of platform.
+--
+-- * 'psPlatformStatus' - The status of the platform. You can create an environment from the platform once it is ready.
+--
+-- * 'psPlatformOwner' - The AWS account ID of the person who created the platform.
+--
+-- * 'psOperatingSystemName' - The operating system used by the platform.
+--
+-- * 'psPlatformARN' - The ARN of the platform.
+--
+-- * 'psOperatingSystemVersion' - The version of the operating system used by the platform.
+--
+-- * 'psSupportedTierList' - The tiers in which the platform runs.
+platformSummary
+    :: PlatformSummary
+platformSummary =
+    PlatformSummary'
+    { _psSupportedAddonList = Nothing
+    , _psPlatformCategory = Nothing
+    , _psPlatformStatus = Nothing
+    , _psPlatformOwner = Nothing
+    , _psOperatingSystemName = Nothing
+    , _psPlatformARN = Nothing
+    , _psOperatingSystemVersion = Nothing
+    , _psSupportedTierList = Nothing
+    }
+
+-- | The additions associated with the platform.
+psSupportedAddonList :: Lens' PlatformSummary [Text]
+psSupportedAddonList = lens _psSupportedAddonList (\ s a -> s{_psSupportedAddonList = a}) . _Default . _Coerce;
+
+-- | The category of platform.
+psPlatformCategory :: Lens' PlatformSummary (Maybe Text)
+psPlatformCategory = lens _psPlatformCategory (\ s a -> s{_psPlatformCategory = a});
+
+-- | The status of the platform. You can create an environment from the platform once it is ready.
+psPlatformStatus :: Lens' PlatformSummary (Maybe PlatformStatus)
+psPlatformStatus = lens _psPlatformStatus (\ s a -> s{_psPlatformStatus = a});
+
+-- | The AWS account ID of the person who created the platform.
+psPlatformOwner :: Lens' PlatformSummary (Maybe Text)
+psPlatformOwner = lens _psPlatformOwner (\ s a -> s{_psPlatformOwner = a});
+
+-- | The operating system used by the platform.
+psOperatingSystemName :: Lens' PlatformSummary (Maybe Text)
+psOperatingSystemName = lens _psOperatingSystemName (\ s a -> s{_psOperatingSystemName = a});
+
+-- | The ARN of the platform.
+psPlatformARN :: Lens' PlatformSummary (Maybe Text)
+psPlatformARN = lens _psPlatformARN (\ s a -> s{_psPlatformARN = a});
+
+-- | The version of the operating system used by the platform.
+psOperatingSystemVersion :: Lens' PlatformSummary (Maybe Text)
+psOperatingSystemVersion = lens _psOperatingSystemVersion (\ s a -> s{_psOperatingSystemVersion = a});
+
+-- | The tiers in which the platform runs.
+psSupportedTierList :: Lens' PlatformSummary [Text]
+psSupportedTierList = lens _psSupportedTierList (\ s a -> s{_psSupportedTierList = a}) . _Default . _Coerce;
+
+instance FromXML PlatformSummary where
+        parseXML x
+          = PlatformSummary' <$>
+              (x .@? "SupportedAddonList" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "PlatformCategory")
+                <*> (x .@? "PlatformStatus")
+                <*> (x .@? "PlatformOwner")
+                <*> (x .@? "OperatingSystemName")
+                <*> (x .@? "PlatformArn")
+                <*> (x .@? "OperatingSystemVersion")
+                <*>
+                (x .@? "SupportedTierList" .!@ mempty >>=
+                   may (parseXMLList "member"))
+
+instance Hashable PlatformSummary
+
+instance NFData PlatformSummary
+
 -- | Describes a queue.
 --
 --
@@ -2800,7 +3337,7 @@ data SystemStatus = SystemStatus'
 --
 -- * 'ssCPUUtilization' - CPU utilization metrics for the instance.
 --
--- * 'ssLoadAverage' - Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
+-- * 'ssLoadAverage' - Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 systemStatus
     :: SystemStatus
 systemStatus =
@@ -2813,7 +3350,7 @@ systemStatus =
 ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
 ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
 
--- | Load average in the last 1-minute and 5-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
+-- | Load average in the last 1-minute, 5-minute, and 15-minute periods. For more information, see <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics> .
 ssLoadAverage :: Lens' SystemStatus [Double]
 ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce;
 

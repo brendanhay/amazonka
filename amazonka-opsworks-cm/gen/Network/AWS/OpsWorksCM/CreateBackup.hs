@@ -18,16 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an application-level backup of a server. While the server is @BACKING_UP@ , the server can not be modified and no additional backup can be created.
+-- Creates an application-level backup of a server. While the server is in the @BACKING_UP@ state, the server cannot be changed, and no additional backup can be created.
 --
 --
--- Backups can be created for @RUNNING@ , @HEALTHY@ and @UNHEALTHY@ servers.
+-- Backups can be created for servers in @RUNNING@ , @HEALTHY@ , and @UNHEALTHY@ states. By default, you can create a maximum of 50 manual backups.
 --
--- This operation is asnychronous.
+-- This operation is asynchronous.
 --
--- By default 50 manual backups can be created.
---
--- A @LimitExceededException@ is thrown then the maximum number of manual backup is reached. A @InvalidStateException@ is thrown when the server is not in any of RUNNING, HEALTHY, UNHEALTHY. A @ResourceNotFoundException@ is thrown when the server is not found. A @ValidationException@ is thrown when parameters of the request are not valid.
+-- A @LimitExceededException@ is thrown when the maximum number of manual backups is reached. An @InvalidStateException@ is thrown when the server is not in any of the following states: RUNNING, HEALTHY, or UNHEALTHY. A @ResourceNotFoundException@ is thrown when the server is not found. A @ValidationException@ is thrown when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.CreateBackup
     (

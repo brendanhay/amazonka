@@ -90,6 +90,9 @@ module Network.AWS.KMS
     -- ** KMSInternalException
     , _KMSInternalException
 
+    -- ** TagException
+    , _TagException
+
     -- ** InvalidImportTokenException
     , _InvalidImportTokenException
 
@@ -174,6 +177,9 @@ module Network.AWS.KMS
     -- ** ListKeys (Paginated)
     , module Network.AWS.KMS.ListKeys
 
+    -- ** ListResourceTags
+    , module Network.AWS.KMS.ListResourceTags
+
     -- ** GetKeyRotationStatus
     , module Network.AWS.KMS.GetKeyRotationStatus
 
@@ -201,8 +207,14 @@ module Network.AWS.KMS
     -- ** ReEncrypt
     , module Network.AWS.KMS.ReEncrypt
 
+    -- ** TagResource
+    , module Network.AWS.KMS.TagResource
+
     -- ** ListKeyPolicies (Paginated)
     , module Network.AWS.KMS.ListKeyPolicies
+
+    -- ** UntagResource
+    , module Network.AWS.KMS.UntagResource
 
     -- ** ScheduleKeyDeletion
     , module Network.AWS.KMS.ScheduleKeyDeletion
@@ -305,6 +317,12 @@ module Network.AWS.KMS
     , lgTruncated
     , lgGrants
     , lgNextMarker
+
+    -- ** Tag
+    , Tag
+    , tag
+    , tagTagKey
+    , tagTagValue
     ) where
 
 import           Network.AWS.KMS.CancelKeyDeletion
@@ -331,13 +349,16 @@ import           Network.AWS.KMS.ListAliases
 import           Network.AWS.KMS.ListGrants
 import           Network.AWS.KMS.ListKeyPolicies
 import           Network.AWS.KMS.ListKeys
+import           Network.AWS.KMS.ListResourceTags
 import           Network.AWS.KMS.ListRetirableGrants
 import           Network.AWS.KMS.PutKeyPolicy
 import           Network.AWS.KMS.ReEncrypt
 import           Network.AWS.KMS.RetireGrant
 import           Network.AWS.KMS.RevokeGrant
 import           Network.AWS.KMS.ScheduleKeyDeletion
+import           Network.AWS.KMS.TagResource
 import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.UntagResource
 import           Network.AWS.KMS.UpdateAlias
 import           Network.AWS.KMS.UpdateKeyDescription
 import           Network.AWS.KMS.Waiters

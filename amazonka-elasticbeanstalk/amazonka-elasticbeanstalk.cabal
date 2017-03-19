@@ -48,11 +48,13 @@ library
         , Network.AWS.ElasticBeanstalk.CreateApplicationVersion
         , Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
         , Network.AWS.ElasticBeanstalk.CreateEnvironment
+        , Network.AWS.ElasticBeanstalk.CreatePlatformVersion
         , Network.AWS.ElasticBeanstalk.CreateStorageLocation
         , Network.AWS.ElasticBeanstalk.DeleteApplication
         , Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
         , Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
         , Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+        , Network.AWS.ElasticBeanstalk.DeletePlatformVersion
         , Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
         , Network.AWS.ElasticBeanstalk.DescribeApplications
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
@@ -64,7 +66,9 @@ library
         , Network.AWS.ElasticBeanstalk.DescribeEnvironments
         , Network.AWS.ElasticBeanstalk.DescribeEvents
         , Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+        , Network.AWS.ElasticBeanstalk.DescribePlatformVersion
         , Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+        , Network.AWS.ElasticBeanstalk.ListPlatformVersions
         , Network.AWS.ElasticBeanstalk.RebuildEnvironment
         , Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
         , Network.AWS.ElasticBeanstalk.RestartAppServer

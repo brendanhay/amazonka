@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the available solution stack names.
+-- Returns a list of the available solution stack names, with the public version first and then in reverse chronological order.
 --
 --
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks

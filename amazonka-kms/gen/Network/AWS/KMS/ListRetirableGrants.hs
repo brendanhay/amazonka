@@ -60,9 +60,9 @@ data ListRetirableGrants = ListRetirableGrants'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrgMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- * 'lrgMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 --
--- * 'lrgLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- * 'lrgLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 --
 -- * 'lrgRetiringPrincipal' - The retiring principal for which to list grants. To specify the retiring principal, use the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/ .
 listRetirableGrants
@@ -75,11 +75,11 @@ listRetirableGrants pRetiringPrincipal_ =
     , _lrgRetiringPrincipal = pRetiringPrincipal_
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lrgMarker :: Lens' ListRetirableGrants (Maybe Text)
 lrgMarker = lens _lrgMarker (\ s a -> s{_lrgMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
 lrgLimit :: Lens' ListRetirableGrants (Maybe Natural)
 lrgLimit = lens _lrgLimit (\ s a -> s{_lrgLimit = a}) . mapping _Nat;
 

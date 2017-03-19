@@ -56,7 +56,7 @@ newtype DeleteBuild = DeleteBuild'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBuildId' - Unique identifier for the build you want to delete.
+-- * 'dbBuildId' - Unique identifier for a build to delete.
 deleteBuild
     :: Text -- ^ 'dbBuildId'
     -> DeleteBuild
@@ -65,7 +65,7 @@ deleteBuild pBuildId_ =
     { _dbBuildId = pBuildId_
     }
 
--- | Unique identifier for the build you want to delete.
+-- | Unique identifier for a build to delete.
 dbBuildId :: Lens' DeleteBuild Text
 dbBuildId = lens _dbBuildId (\ s a -> s{_dbBuildId = a});
 

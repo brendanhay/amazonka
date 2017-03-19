@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables a rule. If the rule does not exist, the operation fails.
+-- Enables the specified rule. If the rule does not exist, the operation fails.
 --
 --
--- __Note:__ When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
+-- When you enable a rule, incoming events might not immediately start matching to a newly enabled rule. Please allow a short period of time for changes to take effect.
 --
 module Network.AWS.CloudWatchEvents.EnableRule
     (
@@ -43,11 +43,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'EnableRule' operation.
---
---
---
--- /See:/ 'enableRule' smart constructor.
+-- | /See:/ 'enableRule' smart constructor.
 newtype EnableRule = EnableRule'
     { _erName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -56,7 +52,7 @@ newtype EnableRule = EnableRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'erName' - The name of the rule that you want to enable.
+-- * 'erName' - The name of the rule.
 enableRule
     :: Text -- ^ 'erName'
     -> EnableRule
@@ -65,7 +61,7 @@ enableRule pName_ =
     { _erName = pName_
     }
 
--- | The name of the rule that you want to enable.
+-- | The name of the rule.
 erName :: Lens' EnableRule Text
 erName = lens _erName (\ s a -> s{_erName = a});
 

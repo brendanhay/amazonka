@@ -116,7 +116,7 @@ data GetProjectResponse = GetProjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsProject' - Undocumented member.
+-- * 'gprsProject' - The project you wish to get information about.
 --
 -- * 'gprsResponseStatus' - -- | The response status code.
 getProjectResponse
@@ -128,7 +128,7 @@ getProjectResponse pResponseStatus_ =
     , _gprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The project you wish to get information about.
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 

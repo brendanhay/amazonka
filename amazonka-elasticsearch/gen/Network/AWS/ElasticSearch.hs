@@ -64,11 +64,17 @@ module Network.AWS.ElasticSearch
     -- ** DescribeElasticsearchDomains
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
 
+    -- ** ListElasticsearchInstanceTypes
+    , module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+
     -- ** DescribeElasticsearchDomain
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
 
     -- ** ListDomainNames
     , module Network.AWS.ElasticSearch.ListDomainNames
+
+    -- ** DescribeElasticsearchInstanceTypeLimits
+    , module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 
     -- ** DescribeElasticsearchDomainConfig
     , module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
@@ -78,6 +84,9 @@ module Network.AWS.ElasticSearch
 
     -- ** UpdateElasticsearchDomainConfig
     , module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
+
+    -- ** ListElasticsearchVersions
+    , module Network.AWS.ElasticSearch.ListElasticsearchVersions
 
     -- ** AddTags
     , module Network.AWS.ElasticSearch.AddTags
@@ -101,6 +110,12 @@ module Network.AWS.ElasticSearch
     , accessPoliciesStatus
     , apsOptions
     , apsStatus
+
+    -- ** AdditionalLimit
+    , AdditionalLimit
+    , additionalLimit
+    , alLimitName
+    , alLimitValues
 
     -- ** AdvancedOptionsStatus
     , AdvancedOptionsStatus
@@ -176,6 +191,24 @@ module Network.AWS.ElasticSearch
     , evsOptions
     , evsStatus
 
+    -- ** InstanceCountLimits
+    , InstanceCountLimits
+    , instanceCountLimits
+    , iclMaximumInstanceCount
+    , iclMinimumInstanceCount
+
+    -- ** InstanceLimits
+    , InstanceLimits
+    , instanceLimits
+    , ilInstanceCountLimits
+
+    -- ** Limits
+    , Limits
+    , limits
+    , lInstanceLimits
+    , lAdditionalLimits
+    , lStorageTypes
+
     -- ** OptionStatus
     , OptionStatus
     , optionStatus
@@ -196,6 +229,19 @@ module Network.AWS.ElasticSearch
     , sosOptions
     , sosStatus
 
+    -- ** StorageType
+    , StorageType
+    , storageType
+    , stStorageTypeLimits
+    , stStorageSubTypeName
+    , stStorageTypeName
+
+    -- ** StorageTypeLimit
+    , StorageTypeLimit
+    , storageTypeLimit
+    , stlLimitName
+    , stlLimitValues
+
     -- ** Tag
     , Tag
     , tag
@@ -209,7 +255,10 @@ import           Network.AWS.ElasticSearch.DeleteElasticsearchDomain
 import           Network.AWS.ElasticSearch.DescribeElasticsearchDomain
 import           Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
 import           Network.AWS.ElasticSearch.DescribeElasticsearchDomains
+import           Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 import           Network.AWS.ElasticSearch.ListDomainNames
+import           Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+import           Network.AWS.ElasticSearch.ListElasticsearchVersions
 import           Network.AWS.ElasticSearch.ListTags
 import           Network.AWS.ElasticSearch.RemoveTags
 import           Network.AWS.ElasticSearch.Types

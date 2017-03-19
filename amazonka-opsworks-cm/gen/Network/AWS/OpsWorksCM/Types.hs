@@ -88,6 +88,7 @@ module Network.AWS.OpsWorksCM.Types
     , sStatus
     , sInstanceProfileARN
     , sSecurityGroupIds
+    , sAssociatePublicIPAddress
     , sServerName
     , sSubnetIds
     , sKeyPair
@@ -102,6 +103,7 @@ module Network.AWS.OpsWorksCM.Types
     , sPreferredBackupWindow
     , sStatusReason
     , sEndpoint
+    , sCloudFormationStackARN
     , sBackupRetentionCount
 
     -- * ServerEvent

@@ -36,11 +36,11 @@ data AccountAttribute = AccountAttribute'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaUsed' - The current usage, such as the current number of servers associated with the account.
+-- * 'aaUsed' - The current usage, such as the current number of servers that are associated with the account.
 --
 -- * 'aaMaximum' - The maximum allowed value.
 --
--- * 'aaName' - The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of servers that currently existing / maximal allowed. By default 10 servers can be created.      * /ManualBackupLimit:/ The number of manual backups that currently exist / are maximal allowed. By default 50 manual backups can be created.
+-- * 'aaName' - The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.      * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
 accountAttribute
     :: AccountAttribute
 accountAttribute =
@@ -50,7 +50,7 @@ accountAttribute =
     , _aaName = Nothing
     }
 
--- | The current usage, such as the current number of servers associated with the account.
+-- | The current usage, such as the current number of servers that are associated with the account.
 aaUsed :: Lens' AccountAttribute (Maybe Int)
 aaUsed = lens _aaUsed (\ s a -> s{_aaUsed = a});
 
@@ -58,7 +58,7 @@ aaUsed = lens _aaUsed (\ s a -> s{_aaUsed = a});
 aaMaximum :: Lens' AccountAttribute (Maybe Int)
 aaMaximum = lens _aaMaximum (\ s a -> s{_aaMaximum = a});
 
--- | The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of servers that currently existing / maximal allowed. By default 10 servers can be created.      * /ManualBackupLimit:/ The number of manual backups that currently exist / are maximal allowed. By default 50 manual backups can be created.
+-- | The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.      * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
 aaName :: Lens' AccountAttribute (Maybe Text)
 aaName = lens _aaName (\ s a -> s{_aaName = a});
 
@@ -146,11 +146,11 @@ data Backup = Backup'
 --
 -- * 'bS3LogURL' - The Amazon S3 URL of the backup's log file.
 --
--- * 'bS3DataSize' - The size of the backup, in bytes. The size is returned by the instance in the command results.
+-- * 'bS3DataSize' - This field is deprecated and is no longer used.
 --
 -- * 'bBackupARN' - The ARN of the backup.
 --
--- * 'bS3DataURL' - The Amazon S3 URL of the backup's tar.gz file.
+-- * 'bS3DataURL' - This field is deprecated and is no longer used.
 --
 -- * 'bDescription' - A user-provided description for a manual backup. This field is empty for automated backups.
 --
@@ -259,7 +259,7 @@ bPreferredBackupWindow = lens _bPreferredBackupWindow (\ s a -> s{_bPreferredBac
 bS3LogURL :: Lens' Backup (Maybe Text)
 bS3LogURL = lens _bS3LogURL (\ s a -> s{_bS3LogURL = a});
 
--- | The size of the backup, in bytes. The size is returned by the instance in the command results.
+-- | This field is deprecated and is no longer used.
 bS3DataSize :: Lens' Backup (Maybe Int)
 bS3DataSize = lens _bS3DataSize (\ s a -> s{_bS3DataSize = a});
 
@@ -267,7 +267,7 @@ bS3DataSize = lens _bS3DataSize (\ s a -> s{_bS3DataSize = a});
 bBackupARN :: Lens' Backup (Maybe Text)
 bBackupARN = lens _bBackupARN (\ s a -> s{_bBackupARN = a});
 
--- | The Amazon S3 URL of the backup's tar.gz file.
+-- | This field is deprecated and is no longer used.
 bS3DataURL :: Lens' Backup (Maybe Text)
 bS3DataURL = lens _bS3DataURL (\ s a -> s{_bS3DataURL = a});
 
@@ -316,15 +316,15 @@ instance Hashable Backup
 
 instance NFData Backup
 
--- | A name/value pair that is specific to the engine of the server.
+-- | A name and value pair that is specific to the engine of the server.
 --
 --
 --
 -- /See:/ 'engineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-    { _eaValue :: !(Maybe Text)
+    { _eaValue :: !(Maybe (Sensitive Text))
     , _eaName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EngineAttribute' with the minimum fields required to make a request.
 --
@@ -343,7 +343,7 @@ engineAttribute =
 
 -- | The value of the engine attribute.
 eaValue :: Lens' EngineAttribute (Maybe Text)
-eaValue = lens _eaValue (\ s a -> s{_eaValue = a});
+eaValue = lens _eaValue (\ s a -> s{_eaValue = a}) . mapping _Sensitive;
 
 -- | The name of the engine attribute.
 eaName :: Lens' EngineAttribute (Maybe Text)
@@ -378,6 +378,7 @@ data Server = Server'
     , _sStatus                     :: !(Maybe ServerStatus)
     , _sInstanceProfileARN         :: !(Maybe Text)
     , _sSecurityGroupIds           :: !(Maybe [Text])
+    , _sAssociatePublicIPAddress   :: !(Maybe Bool)
     , _sServerName                 :: !(Maybe Text)
     , _sSubnetIds                  :: !(Maybe [Text])
     , _sKeyPair                    :: !(Maybe Text)
@@ -392,8 +393,9 @@ data Server = Server'
     , _sPreferredBackupWindow      :: !(Maybe Text)
     , _sStatusReason               :: !(Maybe Text)
     , _sEndpoint                   :: !(Maybe Text)
+    , _sCloudFormationStackARN     :: !(Maybe Text)
     , _sBackupRetentionCount       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Server' with the minimum fields required to make a request.
 --
@@ -405,11 +407,13 @@ data Server = Server'
 --
 -- * 'sDisableAutomatedBackup' - Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
 --
--- * 'sStatus' - The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as server health.
+-- * 'sStatus' - The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as the server's health state.
 --
 -- * 'sInstanceProfileARN' - The instance profile ARN of the server.
 --
 -- * 'sSecurityGroupIds' - The security group IDs for the server, as specified in the CloudFormation stack. These might not be the same security groups that are shown in the EC2 console.
+--
+-- * 'sAssociatePublicIPAddress' - Associate a public IP address with a server that you are launching.
 --
 -- * 'sServerName' - The name of the server.
 --
@@ -439,6 +443,8 @@ data Server = Server'
 --
 -- * 'sEndpoint' - A DNS name that can be used to access the engine. Example: @myserver-asdfghjkl.us-east-1.opsworks.io@
 --
+-- * 'sCloudFormationStackARN' - The ARN of the CloudFormation stack that was used to create the server.
+--
 -- * 'sBackupRetentionCount' - The number of automated backups to keep.
 server
     :: Server
@@ -450,6 +456,7 @@ server =
     , _sStatus = Nothing
     , _sInstanceProfileARN = Nothing
     , _sSecurityGroupIds = Nothing
+    , _sAssociatePublicIPAddress = Nothing
     , _sServerName = Nothing
     , _sSubnetIds = Nothing
     , _sKeyPair = Nothing
@@ -464,6 +471,7 @@ server =
     , _sPreferredBackupWindow = Nothing
     , _sStatusReason = Nothing
     , _sEndpoint = Nothing
+    , _sCloudFormationStackARN = Nothing
     , _sBackupRetentionCount = Nothing
     }
 
@@ -479,7 +487,7 @@ sServiceRoleARN = lens _sServiceRoleARN (\ s a -> s{_sServiceRoleARN = a});
 sDisableAutomatedBackup :: Lens' Server (Maybe Bool)
 sDisableAutomatedBackup = lens _sDisableAutomatedBackup (\ s a -> s{_sDisableAutomatedBackup = a});
 
--- | The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as server health.
+-- | The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as the server's health state.
 sStatus :: Lens' Server (Maybe ServerStatus)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
@@ -490,6 +498,10 @@ sInstanceProfileARN = lens _sInstanceProfileARN (\ s a -> s{_sInstanceProfileARN
 -- | The security group IDs for the server, as specified in the CloudFormation stack. These might not be the same security groups that are shown in the EC2 console.
 sSecurityGroupIds :: Lens' Server [Text]
 sSecurityGroupIds = lens _sSecurityGroupIds (\ s a -> s{_sSecurityGroupIds = a}) . _Default . _Coerce;
+
+-- | Associate a public IP address with a server that you are launching.
+sAssociatePublicIPAddress :: Lens' Server (Maybe Bool)
+sAssociatePublicIPAddress = lens _sAssociatePublicIPAddress (\ s a -> s{_sAssociatePublicIPAddress = a});
 
 -- | The name of the server.
 sServerName :: Lens' Server (Maybe Text)
@@ -547,6 +559,10 @@ sStatusReason = lens _sStatusReason (\ s a -> s{_sStatusReason = a});
 sEndpoint :: Lens' Server (Maybe Text)
 sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a});
 
+-- | The ARN of the CloudFormation stack that was used to create the server.
+sCloudFormationStackARN :: Lens' Server (Maybe Text)
+sCloudFormationStackARN = lens _sCloudFormationStackARN (\ s a -> s{_sCloudFormationStackARN = a});
+
 -- | The number of automated backups to keep.
 sBackupRetentionCount :: Lens' Server (Maybe Int)
 sBackupRetentionCount = lens _sBackupRetentionCount (\ s a -> s{_sBackupRetentionCount = a});
@@ -561,6 +577,7 @@ instance FromJSON Server where
                      <*> (x .:? "Status")
                      <*> (x .:? "InstanceProfileArn")
                      <*> (x .:? "SecurityGroupIds" .!= mempty)
+                     <*> (x .:? "AssociatePublicIpAddress")
                      <*> (x .:? "ServerName")
                      <*> (x .:? "SubnetIds" .!= mempty)
                      <*> (x .:? "KeyPair")
@@ -575,6 +592,7 @@ instance FromJSON Server where
                      <*> (x .:? "PreferredBackupWindow")
                      <*> (x .:? "StatusReason")
                      <*> (x .:? "Endpoint")
+                     <*> (x .:? "CloudFormationStackArn")
                      <*> (x .:? "BackupRetentionCount"))
 
 instance Hashable Server

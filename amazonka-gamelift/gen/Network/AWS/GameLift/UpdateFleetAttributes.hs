@@ -67,13 +67,13 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 --
 -- * 'ufaNewGameSessionProtectionPolicy' - Game session protection policy to apply to all new instances created in this fleet. Instances that already exist are not affected. You can set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
--- * 'ufaName' - Descriptive label associated with a fleet. Fleet names do not need to be unique.
+-- * 'ufaName' - Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 --
 -- * 'ufaDescription' - Human-readable description of a fleet.
 --
 -- * 'ufaResourceCreationLimitPolicy' - Policy that limits the number of game sessions an individual player can create over a span of time.
 --
--- * 'ufaFleetId' - Unique identifier for the fleet you want to update attribute metadata for.
+-- * 'ufaFleetId' - Unique identifier for a fleet to update attribute metadata for.
 updateFleetAttributes
     :: Text -- ^ 'ufaFleetId'
     -> UpdateFleetAttributes
@@ -90,7 +90,7 @@ updateFleetAttributes pFleetId_ =
 ufaNewGameSessionProtectionPolicy :: Lens' UpdateFleetAttributes (Maybe ProtectionPolicy)
 ufaNewGameSessionProtectionPolicy = lens _ufaNewGameSessionProtectionPolicy (\ s a -> s{_ufaNewGameSessionProtectionPolicy = a});
 
--- | Descriptive label associated with a fleet. Fleet names do not need to be unique.
+-- | Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 ufaName :: Lens' UpdateFleetAttributes (Maybe Text)
 ufaName = lens _ufaName (\ s a -> s{_ufaName = a});
 
@@ -102,7 +102,7 @@ ufaDescription = lens _ufaDescription (\ s a -> s{_ufaDescription = a});
 ufaResourceCreationLimitPolicy :: Lens' UpdateFleetAttributes (Maybe ResourceCreationLimitPolicy)
 ufaResourceCreationLimitPolicy = lens _ufaResourceCreationLimitPolicy (\ s a -> s{_ufaResourceCreationLimitPolicy = a});
 
--- | Unique identifier for the fleet you want to update attribute metadata for.
+-- | Unique identifier for a fleet to update attribute metadata for.
 ufaFleetId :: Lens' UpdateFleetAttributes Text
 ufaFleetId = lens _ufaFleetId (\ s a -> s{_ufaFleetId = a});
 
@@ -161,7 +161,7 @@ data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ufarsFleetId' - Unique identifier for the updated fleet.
+-- * 'ufarsFleetId' - Unique identifier for a fleet that was updated.
 --
 -- * 'ufarsResponseStatus' - -- | The response status code.
 updateFleetAttributesResponse
@@ -173,7 +173,7 @@ updateFleetAttributesResponse pResponseStatus_ =
     , _ufarsResponseStatus = pResponseStatus_
     }
 
--- | Unique identifier for the updated fleet.
+-- | Unique identifier for a fleet that was updated.
 ufarsFleetId :: Lens' UpdateFleetAttributesResponse (Maybe Text)
 ufarsFleetId = lens _ufarsFleetId (\ s a -> s{_ufarsFleetId = a});
 

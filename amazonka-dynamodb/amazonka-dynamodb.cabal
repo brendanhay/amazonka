@@ -47,6 +47,7 @@ library
         , Network.AWS.DynamoDB.DeleteTable
         , Network.AWS.DynamoDB.DescribeLimits
         , Network.AWS.DynamoDB.DescribeTable
+        , Network.AWS.DynamoDB.DescribeTimeToLive
         , Network.AWS.DynamoDB.GetItem
         , Network.AWS.DynamoDB.ListTables
         , Network.AWS.DynamoDB.ListTagsOfResource
@@ -58,6 +59,7 @@ library
         , Network.AWS.DynamoDB.UntagResource
         , Network.AWS.DynamoDB.UpdateItem
         , Network.AWS.DynamoDB.UpdateTable
+        , Network.AWS.DynamoDB.UpdateTimeToLive
         , Network.AWS.DynamoDB.Waiters
 
     other-modules:

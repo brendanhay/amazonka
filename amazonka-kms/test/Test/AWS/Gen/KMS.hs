@@ -73,6 +73,9 @@ import Test.AWS.KMS.Internal
 --         , requestListKeys $
 --             listKeys
 --
+--         , requestListResourceTags $
+--             listResourceTags
+--
 --         , requestGetKeyRotationStatus $
 --             getKeyRotationStatus
 --
@@ -100,8 +103,14 @@ import Test.AWS.KMS.Internal
 --         , requestReEncrypt $
 --             reEncrypt
 --
+--         , requestTagResource $
+--             tagResource
+--
 --         , requestListKeyPolicies $
 --             listKeyPolicies
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestScheduleKeyDeletion $
 --             scheduleKeyDeletion
@@ -172,6 +181,9 @@ import Test.AWS.KMS.Internal
 --         , responseListKeys $
 --             listKeysResponse
 --
+--         , responseListResourceTags $
+--             listResourceTagsResponse
+--
 --         , responseGetKeyRotationStatus $
 --             getKeyRotationStatusResponse
 --
@@ -199,8 +211,14 @@ import Test.AWS.KMS.Internal
 --         , responseReEncrypt $
 --             reEncryptResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
 --         , responseListKeyPolicies $
 --             listKeyPoliciesResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseScheduleKeyDeletion $
 --             scheduleKeyDeletionResponse
@@ -303,6 +321,11 @@ requestListKeys = req
     "ListKeys"
     "fixture/ListKeys.yaml"
 
+requestListResourceTags :: ListResourceTags -> TestTree
+requestListResourceTags = req
+    "ListResourceTags"
+    "fixture/ListResourceTags.yaml"
+
 requestGetKeyRotationStatus :: GetKeyRotationStatus -> TestTree
 requestGetKeyRotationStatus = req
     "GetKeyRotationStatus"
@@ -348,10 +371,20 @@ requestReEncrypt = req
     "ReEncrypt"
     "fixture/ReEncrypt.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestListKeyPolicies :: ListKeyPolicies -> TestTree
 requestListKeyPolicies = req
     "ListKeyPolicies"
     "fixture/ListKeyPolicies.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestScheduleKeyDeletion :: ScheduleKeyDeletion -> TestTree
 requestScheduleKeyDeletion = req
@@ -495,6 +528,13 @@ responseListKeys = res
     kms
     (Proxy :: Proxy ListKeys)
 
+responseListResourceTags :: ListResourceTagsResponse -> TestTree
+responseListResourceTags = res
+    "ListResourceTagsResponse"
+    "fixture/ListResourceTagsResponse.proto"
+    kms
+    (Proxy :: Proxy ListResourceTags)
+
 responseGetKeyRotationStatus :: GetKeyRotationStatusResponse -> TestTree
 responseGetKeyRotationStatus = res
     "GetKeyRotationStatusResponse"
@@ -558,12 +598,26 @@ responseReEncrypt = res
     kms
     (Proxy :: Proxy ReEncrypt)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    kms
+    (Proxy :: Proxy TagResource)
+
 responseListKeyPolicies :: ListKeyPoliciesResponse -> TestTree
 responseListKeyPolicies = res
     "ListKeyPoliciesResponse"
     "fixture/ListKeyPoliciesResponse.proto"
     kms
     (Proxy :: Proxy ListKeyPolicies)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    kms
+    (Proxy :: Proxy UntagResource)
 
 responseScheduleKeyDeletion :: ScheduleKeyDeletionResponse -> TestTree
 responseScheduleKeyDeletion = res

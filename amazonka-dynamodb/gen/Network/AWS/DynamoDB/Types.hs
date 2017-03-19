@@ -63,6 +63,9 @@ module Network.AWS.DynamoDB.Types
     -- * TableStatus
     , TableStatus (..)
 
+    -- * TimeToLiveStatus
+    , TimeToLiveStatus (..)
+
     -- * AttributeDefinition
     , AttributeDefinition
     , attributeDefinition
@@ -256,6 +259,18 @@ module Network.AWS.DynamoDB.Types
     , tag
     , tagKey
     , tagValue
+
+    -- * TimeToLiveDescription
+    , TimeToLiveDescription
+    , timeToLiveDescription
+    , ttldTimeToLiveStatus
+    , ttldAttributeName
+
+    -- * TimeToLiveSpecification
+    , TimeToLiveSpecification
+    , timeToLiveSpecification
+    , ttlsEnabled
+    , ttlsAttributeName
 
     -- * UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction

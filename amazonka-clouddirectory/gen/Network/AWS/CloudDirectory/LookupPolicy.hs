@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the objectIdentifier for such objects. If policies are present, it returns objectIdentifier, policyId, and policyType. Paths that don't lead to the root from the target object are ignored.
+-- Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored.
 --
 --
 module Network.AWS.CloudDirectory.LookupPolicy
@@ -141,9 +141,9 @@ data LookupPolicyResponse = LookupPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lprsNextToken' - Token used for pagination.
+-- * 'lprsNextToken' - The pagination token.
 --
--- * 'lprsPolicyToPathList' - Provides list of path to policies. Policies contain PolicyId, ObjectIdentifier, and PolicyType.
+-- * 'lprsPolicyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ .
 --
 -- * 'lprsResponseStatus' - -- | The response status code.
 lookupPolicyResponse
@@ -156,11 +156,11 @@ lookupPolicyResponse pResponseStatus_ =
     , _lprsResponseStatus = pResponseStatus_
     }
 
--- | Token used for pagination.
+-- | The pagination token.
 lprsNextToken :: Lens' LookupPolicyResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
--- | Provides list of path to policies. Policies contain PolicyId, ObjectIdentifier, and PolicyType.
+-- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ .
 lprsPolicyToPathList :: Lens' LookupPolicyResponse [PolicyToPath]
 lprsPolicyToPathList = lens _lprsPolicyToPathList (\ s a -> s{_lprsPolicyToPathList = a}) . _Default . _Coerce;
 

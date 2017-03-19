@@ -36,6 +36,9 @@ module Network.AWS.DirectConnect.Types
     -- * InterconnectState
     , InterconnectState (..)
 
+    -- * LagState
+    , LagState (..)
+
     -- * LoaContentType
     , LoaContentType (..)
 
@@ -56,8 +59,10 @@ module Network.AWS.DirectConnect.Types
     -- * Connection
     , Connection
     , connection
+    , cLagId
     , cVlan
     , cLocation
+    , cAwsDevice
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
@@ -75,13 +80,31 @@ module Network.AWS.DirectConnect.Types
     -- * Interconnect
     , Interconnect
     , interconnect
+    , iLagId
     , iInterconnectId
     , iLocation
     , iInterconnectName
+    , iAwsDevice
     , iLoaIssueTime
     , iBandwidth
     , iInterconnectState
     , iRegion
+
+    -- * Lag
+    , Lag
+    , lag
+    , lagLagId
+    , lagConnectionsBandwidth
+    , lagMinimumLinks
+    , lagLagName
+    , lagLocation
+    , lagConnections
+    , lagAwsDevice
+    , lagAllowsHostedConnections
+    , lagNumberOfConnections
+    , lagLagState
+    , lagOwnerAccount
+    , lagRegion
 
     -- * Loa
     , Loa

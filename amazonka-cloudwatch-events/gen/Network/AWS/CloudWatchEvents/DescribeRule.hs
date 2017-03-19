@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the details of the specified rule.
+-- Describes the specified rule.
 --
 --
 module Network.AWS.CloudWatchEvents.DescribeRule
@@ -50,11 +50,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'DescribeRule' operation.
---
---
---
--- /See:/ 'describeRule' smart constructor.
+-- | /See:/ 'describeRule' smart constructor.
 newtype DescribeRule = DescribeRule'
     { _desName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -63,7 +59,7 @@ newtype DescribeRule = DescribeRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desName' - The name of the rule you want to describe details for.
+-- * 'desName' - The name of the rule.
 describeRule
     :: Text -- ^ 'desName'
     -> DescribeRule
@@ -72,7 +68,7 @@ describeRule pName_ =
     { _desName = pName_
     }
 
--- | The name of the rule you want to describe details for.
+-- | The name of the rule.
 desName :: Lens' DescribeRule Text
 desName = lens _desName (\ s a -> s{_desName = a});
 
@@ -114,11 +110,7 @@ instance ToPath DescribeRule where
 instance ToQuery DescribeRule where
         toQuery = const mempty
 
--- | The result of the 'DescribeRule' operation.
---
---
---
--- /See:/ 'describeRuleResponse' smart constructor.
+-- | /See:/ 'describeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
     { _drrsEventPattern       :: !(Maybe Text)
     , _drrsState              :: !(Maybe RuleState)
@@ -138,13 +130,13 @@ data DescribeRuleResponse = DescribeRuleResponse'
 --
 -- * 'drrsState' - Specifies whether the rule is enabled or disabled.
 --
--- * 'drrsARN' - The Amazon Resource Name (ARN) associated with the rule.
+-- * 'drrsARN' - The Amazon Resource Name (ARN) of the rule.
 --
 -- * 'drrsScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
 --
--- * 'drrsName' - The rule's name.
+-- * 'drrsName' - The name of the rule.
 --
--- * 'drrsDescription' - The rule's description.
+-- * 'drrsDescription' - The description of the rule.
 --
 -- * 'drrsRoleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 --
@@ -172,7 +164,7 @@ drrsEventPattern = lens _drrsEventPattern (\ s a -> s{_drrsEventPattern = a});
 drrsState :: Lens' DescribeRuleResponse (Maybe RuleState)
 drrsState = lens _drrsState (\ s a -> s{_drrsState = a});
 
--- | The Amazon Resource Name (ARN) associated with the rule.
+-- | The Amazon Resource Name (ARN) of the rule.
 drrsARN :: Lens' DescribeRuleResponse (Maybe Text)
 drrsARN = lens _drrsARN (\ s a -> s{_drrsARN = a});
 
@@ -180,11 +172,11 @@ drrsARN = lens _drrsARN (\ s a -> s{_drrsARN = a});
 drrsScheduleExpression :: Lens' DescribeRuleResponse (Maybe Text)
 drrsScheduleExpression = lens _drrsScheduleExpression (\ s a -> s{_drrsScheduleExpression = a});
 
--- | The rule's name.
+-- | The name of the rule.
 drrsName :: Lens' DescribeRuleResponse (Maybe Text)
 drrsName = lens _drrsName (\ s a -> s{_drrsName = a});
 
--- | The rule's description.
+-- | The description of the rule.
 drrsDescription :: Lens' DescribeRuleResponse (Maybe Text)
 drrsDescription = lens _drrsDescription (\ s a -> s{_drrsDescription = a});
 

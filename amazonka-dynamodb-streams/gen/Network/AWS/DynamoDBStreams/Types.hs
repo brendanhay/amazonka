@@ -51,6 +51,12 @@ module Network.AWS.DynamoDBStreams.Types
     , avS
     , avBOOL
 
+    -- * Identity
+    , Identity
+    , identity
+    , iPrincipalId
+    , iType
+
     -- * KeySchemaElement
     , KeySchemaElement
     , keySchemaElement
@@ -60,6 +66,7 @@ module Network.AWS.DynamoDBStreams.Types
     -- * Record
     , Record
     , record
+    , rUserIdentity
     , rEventVersion
     , rDynamodb
     , rAwsRegion
@@ -152,7 +159,7 @@ dynamoDBStreams =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the /GetShardIterator/ action.
+-- | The shard iterator has expired and can no longer be used to retrieve stream records. A shard iterator expires 15 minutes after it is retrieved using the @GetShardIterator@ action.
 --
 --
 _ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -172,7 +179,7 @@ _InternalServerError = _MatchServiceError dynamoDBStreams "InternalServerError"
 --
 --     * You request a shard iterator with a sequence number older than the trim point (24 hours).
 --
---     * You obtain a shard iterator, but before you use the iterator in a /GetRecords/ request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
+--     * You obtain a shard iterator, but before you use the iterator in a @GetRecords@ request, a stream record in the shard exceeds the 24 hour period and is trimmed. This causes the iterator to access a record that no longer exists.
 --
 --
 --

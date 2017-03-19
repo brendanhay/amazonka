@@ -66,13 +66,13 @@ data DescribeInstances = DescribeInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInstanceId' - Unique identifier for an instance. Specify an instance to retrieve information for or leave blank to get information on all instances in the fleet.
+-- * 'diInstanceId' - Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 --
--- * 'diNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'diNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 --
 -- * 'diLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
--- * 'diFleetId' - Unique identifier for a fleet. Specify the fleet to retrieve instance information for.
+-- * 'diFleetId' - Unique identifier for a fleet to retrieve instance information for.
 describeInstances
     :: Text -- ^ 'diFleetId'
     -> DescribeInstances
@@ -84,11 +84,11 @@ describeInstances pFleetId_ =
     , _diFleetId = pFleetId_
     }
 
--- | Unique identifier for an instance. Specify an instance to retrieve information for or leave blank to get information on all instances in the fleet.
+-- | Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 diInstanceId :: Lens' DescribeInstances (Maybe Text)
 diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
 diNextToken :: Lens' DescribeInstances (Maybe Text)
 diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a});
 
@@ -96,7 +96,7 @@ diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a});
 diLimit :: Lens' DescribeInstances (Maybe Natural)
 diLimit = lens _diLimit (\ s a -> s{_diLimit = a}) . mapping _Nat;
 
--- | Unique identifier for a fleet. Specify the fleet to retrieve instance information for.
+-- | Unique identifier for a fleet to retrieve instance information for.
 diFleetId :: Lens' DescribeInstances Text
 diFleetId = lens _diFleetId (\ s a -> s{_diFleetId = a});
 
@@ -154,7 +154,7 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dirsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'dirsInstances' - Collection of objects containing properties for each instance returned.
 --
@@ -169,7 +169,7 @@ describeInstancesResponse pResponseStatus_ =
     , _dirsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 

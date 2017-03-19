@@ -23,7 +23,7 @@
 --
 --     * Using the path
 --
---     * Using ObjectIdentifier
+--     * Using @ObjectIdentifier@
 --
 --
 --
@@ -146,7 +146,7 @@ data AttachObjectResponse = AttachObjectResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aorsAttachedObjectIdentifier' - Attached ObjectIdentifier, which is the child ObjectIdentifier.
+-- * 'aorsAttachedObjectIdentifier' - Attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 --
 -- * 'aorsResponseStatus' - -- | The response status code.
 attachObjectResponse
@@ -158,7 +158,7 @@ attachObjectResponse pResponseStatus_ =
     , _aorsResponseStatus = pResponseStatus_
     }
 
--- | Attached ObjectIdentifier, which is the child ObjectIdentifier.
+-- | Attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
 aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
 aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_aorsAttachedObjectIdentifier = a});
 

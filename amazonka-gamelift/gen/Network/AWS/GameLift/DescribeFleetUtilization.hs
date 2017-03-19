@@ -62,11 +62,11 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfuNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'dfuNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
 -- * 'dfuLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
--- * 'dfuFleetIds' - Unique identifier for the fleet(s) you want to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
+-- * 'dfuFleetIds' - Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
 describeFleetUtilization
     :: DescribeFleetUtilization
 describeFleetUtilization =
@@ -76,7 +76,7 @@ describeFleetUtilization =
     , _dfuFleetIds = Nothing
     }
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfuNextToken :: Lens' DescribeFleetUtilization (Maybe Text)
 dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a});
 
@@ -84,7 +84,7 @@ dfuNextToken = lens _dfuNextToken (\ s a -> s{_dfuNextToken = a});
 dfuLimit :: Lens' DescribeFleetUtilization (Maybe Natural)
 dfuLimit = lens _dfuLimit (\ s a -> s{_dfuLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
+-- | Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization data for all fleets, leave this parameter empty.
 dfuFleetIds :: Lens' DescribeFleetUtilization (Maybe (NonEmpty Text))
 dfuFleetIds = lens _dfuFleetIds (\ s a -> s{_dfuFleetIds = a}) . mapping _List1;
 
@@ -142,7 +142,7 @@ data DescribeFleetUtilizationResponse = DescribeFleetUtilizationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfursNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dfursNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'dfursFleetUtilization' - Collection of objects containing utilization information for each requested fleet ID.
 --
@@ -157,7 +157,7 @@ describeFleetUtilizationResponse pResponseStatus_ =
     , _dfursResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfursNextToken :: Lens' DescribeFleetUtilizationResponse (Maybe Text)
 dfursNextToken = lens _dfursNextToken (\ s a -> s{_dfursNextToken = a});
 

@@ -275,9 +275,10 @@ getterN e = if go e then "^?" else "^."
     -- FIXME: doesn't support Maybe fields currently.
 notationE :: Notation Field -> Exp
 notationE = \case
-    Access   (k :| ks) -> labels k ks
-    NonEmpty k         -> app (var "nonEmpty") (label False k)
-    Choice   x y       -> appFun (var "choice") [branch x, branch y]
+    NonEmptyText k        -> app (var "nonEmptyText") (label False k)
+    NonEmptyList k        -> label False k
+    Access      (k :| ks) -> labels k ks
+    Choice       x y      -> appFun (var "choice") [branch x, branch y]
   where
     branch x = let e = notationE x in paren $ app (var (getterN e)) e
 
@@ -709,13 +710,14 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             . listE $ map match (w ^. waitAcceptors)
         ]
 
-    match x = ($ [expect x, criteria x] ++ argument' x) $
-        case _acceptMatch x of
-            Path    -> appFun (var "matchAll")
-            PathAll -> appFun (var "matchAll")
-            PathAny -> appFun (var "matchAny")
-            Status  -> appFun (var "matchStatus")
-            Error   -> appFun (var "matchError")
+    match x =
+        case (_acceptMatch x, _acceptArgument x) of
+            (_, Just (NonEmptyList _)) -> appFun (var "matchNonEmpty") (expect x : criteria x : argument' x)
+            (Path    , _) -> appFun (var "matchAll")    (expect x : criteria x : argument' x)
+            (PathAll , _) -> appFun (var "matchAll")    (expect x : criteria x : argument' x)
+            (PathAny , _) -> appFun (var "matchAny")    (expect x : criteria x : argument' x)
+            (Status  , _) -> appFun (var "matchStatus") (expect x : criteria x : argument' x)
+            (Error   , _) -> appFun (var "matchError")  (expect x : criteria x : argument' x)
 
     expect x =
         case _acceptExpect x of
@@ -729,8 +731,7 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Success -> var "AcceptSuccess"
             Failure -> var "AcceptFailure"
 
-    argument' x = go <$>
-        maybe [] ((:[]) . notationE) (_acceptArgument x)
+    argument' x = go <$> maybeToList (notationE <$> _acceptArgument x)
       where
         go = case _acceptExpect x of
             Textual {} -> \y -> infixApp y "." (app (var "to") (var "toTextCI"))

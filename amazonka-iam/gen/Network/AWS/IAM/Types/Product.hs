@@ -324,13 +324,14 @@ instance ToQuery ContextEntry where
 --
 -- /See:/ 'evaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-    { _erMatchedStatements       :: !(Maybe [Statement])
-    , _erEvalDecisionDetails     :: !(Maybe (Map Text PolicyEvaluationDecisionType))
-    , _erResourceSpecificResults :: !(Maybe [ResourceSpecificResult])
-    , _erEvalResourceName        :: !(Maybe Text)
-    , _erMissingContextValues    :: !(Maybe [Text])
-    , _erEvalActionName          :: !Text
-    , _erEvalDecision            :: !PolicyEvaluationDecisionType
+    { _erMatchedStatements           :: !(Maybe [Statement])
+    , _erEvalDecisionDetails         :: !(Maybe (Map Text PolicyEvaluationDecisionType))
+    , _erResourceSpecificResults     :: !(Maybe [ResourceSpecificResult])
+    , _erEvalResourceName            :: !(Maybe Text)
+    , _erMissingContextValues        :: !(Maybe [Text])
+    , _erOrganizationsDecisionDetail :: !(Maybe OrganizationsDecisionDetail)
+    , _erEvalActionName              :: !Text
+    , _erEvalDecision                :: !PolicyEvaluationDecisionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
@@ -347,6 +348,8 @@ data EvaluationResult = EvaluationResult'
 --
 -- * 'erMissingContextValues' - A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is "*", either explicitly, or when the @ResourceArns@ parameter blank. If you include a list of resources, then any missing context values are instead included under the @ResourceSpecificResults@ section. To discover the context keys used by a set of policies, you can call 'GetContextKeysForCustomPolicy' or 'GetContextKeysForPrincipalPolicy' .
 --
+-- * 'erOrganizationsDecisionDetail' - A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+--
 -- * 'erEvalActionName' - The name of the API action tested on the indicated resource.
 --
 -- * 'erEvalDecision' - The result of the simulation.
@@ -361,6 +364,7 @@ evaluationResult pEvalActionName_ pEvalDecision_ =
     , _erResourceSpecificResults = Nothing
     , _erEvalResourceName = Nothing
     , _erMissingContextValues = Nothing
+    , _erOrganizationsDecisionDetail = Nothing
     , _erEvalActionName = pEvalActionName_
     , _erEvalDecision = pEvalDecision_
     }
@@ -385,6 +389,10 @@ erEvalResourceName = lens _erEvalResourceName (\ s a -> s{_erEvalResourceName = 
 erMissingContextValues :: Lens' EvaluationResult [Text]
 erMissingContextValues = lens _erMissingContextValues (\ s a -> s{_erMissingContextValues = a}) . _Default . _Coerce;
 
+-- | A structure that details how AWS Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.
+erOrganizationsDecisionDetail :: Lens' EvaluationResult (Maybe OrganizationsDecisionDetail)
+erOrganizationsDecisionDetail = lens _erOrganizationsDecisionDetail (\ s a -> s{_erOrganizationsDecisionDetail = a});
+
 -- | The name of the API action tested on the indicated resource.
 erEvalActionName :: Lens' EvaluationResult Text
 erEvalActionName = lens _erEvalActionName (\ s a -> s{_erEvalActionName = a});
@@ -408,6 +416,7 @@ instance FromXML EvaluationResult where
                 <*>
                 (x .@? "MissingContextValues" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "OrganizationsDecisionDetail")
                 <*> (x .@ "EvalActionName")
                 <*> (x .@ "EvalDecision")
 
@@ -996,6 +1005,40 @@ instance FromXML OpenIdConnectProviderListEntry where
 instance Hashable OpenIdConnectProviderListEntry
 
 instance NFData OpenIdConnectProviderListEntry
+
+-- | Contains information about AWS Organizations's affect on a policy simulation.
+--
+--
+--
+-- /See:/ 'organizationsDecisionDetail' smart constructor.
+newtype OrganizationsDecisionDetail = OrganizationsDecisionDetail'
+    { _oddAllowedByOrganizations :: Maybe Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OrganizationsDecisionDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oddAllowedByOrganizations' - Specifies whether the simulated action is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+organizationsDecisionDetail
+    :: OrganizationsDecisionDetail
+organizationsDecisionDetail =
+    OrganizationsDecisionDetail'
+    { _oddAllowedByOrganizations = Nothing
+    }
+
+-- | Specifies whether the simulated action is allowed by the AWS Organizations service control policies that impact the simulated user's account.
+oddAllowedByOrganizations :: Lens' OrganizationsDecisionDetail (Maybe Bool)
+oddAllowedByOrganizations = lens _oddAllowedByOrganizations (\ s a -> s{_oddAllowedByOrganizations = a});
+
+instance FromXML OrganizationsDecisionDetail where
+        parseXML x
+          = OrganizationsDecisionDetail' <$>
+              (x .@? "AllowedByOrganizations")
+
+instance Hashable OrganizationsDecisionDetail
+
+instance NFData OrganizationsDecisionDetail
 
 -- | Contains information about the account password policy.
 --

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of stream ARNs associated with the current account and endpoint. If the @TableName@ parameter is present, then /ListStreams/ will return only the streams ARNs for that table.
+-- Returns an array of stream ARNs associated with the current account and endpoint. If the @TableName@ parameter is present, then @ListStreams@ will return only the streams ARNs for that table.
 --
 --
 module Network.AWS.DynamoDBStreams.ListStreams
@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /ListStreams/ operation.
+-- | Represents the input of a @ListStreams@ operation.
 --
 --
 --
@@ -128,7 +128,7 @@ instance ToPath ListStreams where
 instance ToQuery ListStreams where
         toQuery = const mempty
 
--- | Represents the output of a /ListStreams/ operation.
+-- | Represents the output of a @ListStreams@ operation.
 --
 --
 --

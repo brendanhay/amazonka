@@ -62,11 +62,11 @@ data DescribeFleetCapacity = DescribeFleetCapacity'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfcNextToken' - Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'dfcNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
 -- * 'dfcLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 --
--- * 'dfcFleetIds' - Unique identifier for the fleet(s) you want to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
+-- * 'dfcFleetIds' - Unique identifier for a fleet(s) to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
 describeFleetCapacity
     :: DescribeFleetCapacity
 describeFleetCapacity =
@@ -76,7 +76,7 @@ describeFleetCapacity =
     , _dfcFleetIds = Nothing
     }
 
--- | Token indicating the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
 dfcNextToken :: Lens' DescribeFleetCapacity (Maybe Text)
 dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a});
 
@@ -84,7 +84,7 @@ dfcNextToken = lens _dfcNextToken (\ s a -> s{_dfcNextToken = a});
 dfcLimit :: Lens' DescribeFleetCapacity (Maybe Natural)
 dfcLimit = lens _dfcLimit (\ s a -> s{_dfcLimit = a}) . mapping _Nat;
 
--- | Unique identifier for the fleet(s) you want to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
+-- | Unique identifier for a fleet(s) to retrieve capacity information for. To request capacity information for all fleets, leave this parameter empty.
 dfcFleetIds :: Lens' DescribeFleetCapacity (Maybe (NonEmpty Text))
 dfcFleetIds = lens _dfcFleetIds (\ s a -> s{_dfcFleetIds = a}) . mapping _List1;
 
@@ -142,7 +142,7 @@ data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfcrsNextToken' - Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- * 'dfcrsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 --
 -- * 'dfcrsFleetCapacity' - Collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 --
@@ -157,7 +157,7 @@ describeFleetCapacityResponse pResponseStatus_ =
     , _dfcrsResponseStatus = pResponseStatus_
     }
 
--- | Token indicating where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
+-- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
 dfcrsNextToken :: Lens' DescribeFleetCapacityResponse (Maybe Text)
 dfcrsNextToken = lens _dfcrsNextToken (\ s a -> s{_dfcrsNextToken = a});
 

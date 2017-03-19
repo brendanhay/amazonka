@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tests whether an event pattern matches the provided event.
+-- Tests whether the specified event pattern matches the provided event.
 --
 --
--- __Note:__ Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
+-- Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and rules. Be sure to use the correct ARN characters when creating event patterns so that they match the ARN syntax in the event you want to match.
 --
 module Network.AWS.CloudWatchEvents.TestEventPattern
     (
@@ -47,11 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the 'TestEventPattern' operation.
---
---
---
--- /See:/ 'testEventPattern' smart constructor.
+-- | /See:/ 'testEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
     { _tepEventPattern :: !Text
     , _tepEvent        :: !Text
@@ -61,9 +57,9 @@ data TestEventPattern = TestEventPattern'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tepEventPattern' - The event pattern you want to test.
+-- * 'tepEventPattern' - The event pattern.
 --
--- * 'tepEvent' - The event in the JSON format to test against the event pattern.
+-- * 'tepEvent' - The event, in JSON format, to test against the event pattern.
 testEventPattern
     :: Text -- ^ 'tepEventPattern'
     -> Text -- ^ 'tepEvent'
@@ -74,11 +70,11 @@ testEventPattern pEventPattern_ pEvent_ =
     , _tepEvent = pEvent_
     }
 
--- | The event pattern you want to test.
+-- | The event pattern.
 tepEventPattern :: Lens' TestEventPattern Text
 tepEventPattern = lens _tepEventPattern (\ s a -> s{_tepEventPattern = a});
 
--- | The event in the JSON format to test against the event pattern.
+-- | The event, in JSON format, to test against the event pattern.
 tepEvent :: Lens' TestEventPattern Text
 tepEvent = lens _tepEvent (\ s a -> s{_tepEvent = a});
 
@@ -117,11 +113,7 @@ instance ToPath TestEventPattern where
 instance ToQuery TestEventPattern where
         toQuery = const mempty
 
--- | The result of the 'TestEventPattern' operation.
---
---
---
--- /See:/ 'testEventPatternResponse' smart constructor.
+-- | /See:/ 'testEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
     { _teprsResult         :: !(Maybe Bool)
     , _teprsResponseStatus :: !Int

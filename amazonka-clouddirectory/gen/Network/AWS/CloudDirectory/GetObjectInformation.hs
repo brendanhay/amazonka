@@ -133,7 +133,7 @@ data GetObjectInformationResponse = GetObjectInformationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goirsObjectIdentifier' - The ObjectIdentifier of the specified object.
+-- * 'goirsObjectIdentifier' - The @ObjectIdentifier@ of the specified object.
 --
 -- * 'goirsSchemaFacets' - The facets attached to the specified object.
 --
@@ -148,7 +148,7 @@ getObjectInformationResponse pResponseStatus_ =
     , _goirsResponseStatus = pResponseStatus_
     }
 
--- | The ObjectIdentifier of the specified object.
+-- | The @ObjectIdentifier@ of the specified object.
 goirsObjectIdentifier :: Lens' GetObjectInformationResponse (Maybe Text)
 goirsObjectIdentifier = lens _goirsObjectIdentifier (\ s a -> s{_goirsObjectIdentifier = a});
 

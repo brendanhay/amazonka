@@ -34,6 +34,7 @@ module Network.AWS.APIGateway.GetDomainName
     , DomainName
     -- * Response Lenses
     , dnCertificateName
+    , dnCertificateARN
     , dnDomainName
     , dnCertificateUploadDate
     , dnDistributionDomainName

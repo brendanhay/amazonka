@@ -40,6 +40,7 @@ library
 
     exposed-modules:
           Network.AWS.EMR
+        , Network.AWS.EMR.AddInstanceFleet
         , Network.AWS.EMR.AddInstanceGroups
         , Network.AWS.EMR.AddJobFlowSteps
         , Network.AWS.EMR.AddTags
@@ -51,10 +52,12 @@ library
         , Network.AWS.EMR.DescribeStep
         , Network.AWS.EMR.ListBootstrapActions
         , Network.AWS.EMR.ListClusters
+        , Network.AWS.EMR.ListInstanceFleets
         , Network.AWS.EMR.ListInstanceGroups
         , Network.AWS.EMR.ListInstances
         , Network.AWS.EMR.ListSecurityConfigurations
         , Network.AWS.EMR.ListSteps
+        , Network.AWS.EMR.ModifyInstanceFleet
         , Network.AWS.EMR.ModifyInstanceGroups
         , Network.AWS.EMR.PutAutoScalingPolicy
         , Network.AWS.EMR.RemoveAutoScalingPolicy

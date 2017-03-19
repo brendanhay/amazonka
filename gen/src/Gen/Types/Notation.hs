@@ -32,9 +32,10 @@ data Key a
       deriving (Eq, Show, Functor, Foldable)
 
 data Notation a
-    = Access   (NonEmpty (Key a))
-    | NonEmpty (Key a)
-    | Choice   (Notation a) (Notation a)
+    = Access       (NonEmpty (Key a))
+    | NonEmptyList (Key a)
+    | NonEmptyText (Key a)
+    | Choice       (Notation a) (Notation a)
       deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
@@ -47,26 +48,32 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
         ++ Text.unpack t
         ++ ", with: "
 
-    expr0 = nonEmpty <|> access
-    expr1 = choice   <|> expr0
+    expr0 = nonEmptyList <|> nonEmptyText <|> access
+    expr1 = choice <|> expr0
 
     choice = Choice
         <$> expr0
          <* A.string "||"
         <*> expr1
 
-    nonEmpty = NonEmpty
-        <$> (A.string "length(" *> key <* A.char ')')
+    nonEmptyList = NonEmptyList
+        <$> (A.string "length(" *> key1 <* A.char ')')
+        <*  strip (A.char '>')
+        <*  strip (A.string "`0`")
+
+    nonEmptyText = NonEmptyText
+        <$> (A.string "length(" *> key0 <* A.char ')')
         <*  strip (A.char '>')
         <*  strip (A.string "`0`")
 
     access = do
         x:xs <- A.sepBy1 key (A.char '.')
-        return $! Access (x :| xs)
+        pure $! Access (x :| xs)
 
-    key   = (Each <$> label <* A.string "[]")
+    key   = key1 <|> key0
+    key1  = (Each <$> label <* A.string "[]")
         <|> (Last <$> label <* A.string "[-1]")
-        <|> (Key  <$> label)
+    key0  = (Key  <$> label)
 
     label = mkId <$> strip (A.takeWhile1 delim)
 

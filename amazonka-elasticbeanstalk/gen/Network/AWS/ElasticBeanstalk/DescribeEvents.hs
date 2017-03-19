@@ -35,6 +35,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , deSeverity
     , deNextToken
     , deVersionLabel
+    , dePlatformARN
     , deEnvironmentName
     , deMaxRecords
     , deEndTime
@@ -70,6 +71,7 @@ data DescribeEvents = DescribeEvents'
     , _deSeverity        :: !(Maybe EventSeverity)
     , _deNextToken       :: !(Maybe Text)
     , _deVersionLabel    :: !(Maybe Text)
+    , _dePlatformARN     :: !(Maybe Text)
     , _deEnvironmentName :: !(Maybe Text)
     , _deMaxRecords      :: !(Maybe Nat)
     , _deEndTime         :: !(Maybe ISO8601)
@@ -93,6 +95,8 @@ data DescribeEvents = DescribeEvents'
 --
 -- * 'deVersionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
 --
+-- * 'dePlatformARN' - The ARN of the version of the custom platform.
+--
 -- * 'deEnvironmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 --
 -- * 'deMaxRecords' - Specifies the maximum number of events that can be returned, beginning with the most recent event.
@@ -112,6 +116,7 @@ describeEvents =
     , _deSeverity = Nothing
     , _deNextToken = Nothing
     , _deVersionLabel = Nothing
+    , _dePlatformARN = Nothing
     , _deEnvironmentName = Nothing
     , _deMaxRecords = Nothing
     , _deEndTime = Nothing
@@ -142,6 +147,10 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
 deVersionLabel :: Lens' DescribeEvents (Maybe Text)
 deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
+
+-- | The ARN of the version of the custom platform.
+dePlatformARN :: Lens' DescribeEvents (Maybe Text)
+dePlatformARN = lens _dePlatformARN (\ s a -> s{_dePlatformARN = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
@@ -203,6 +212,7 @@ instance ToQuery DescribeEvents where
                "Severity" =: _deSeverity,
                "NextToken" =: _deNextToken,
                "VersionLabel" =: _deVersionLabel,
+               "PlatformArn" =: _dePlatformARN,
                "EnvironmentName" =: _deEnvironmentName,
                "MaxRecords" =: _deMaxRecords,
                "EndTime" =: _deEndTime,

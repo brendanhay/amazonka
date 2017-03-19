@@ -116,7 +116,7 @@ data StopRunResponse = StopRunResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsRun' - Undocumented member.
+-- * 'srsRun' - The run that was stopped.
 --
 -- * 'srsResponseStatus' - -- | The response status code.
 stopRunResponse
@@ -128,7 +128,7 @@ stopRunResponse pResponseStatus_ =
     , _srsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The run that was stopped.
 srsRun :: Lens' StopRunResponse (Maybe Run)
 srsRun = lens _srsRun (\ s a -> s{_srsRun = a});
 

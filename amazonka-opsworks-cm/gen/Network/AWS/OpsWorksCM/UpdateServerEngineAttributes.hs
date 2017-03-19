@@ -18,16 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates engine specific attributes on a specified server. Server will enter the @MODIFYING@ state when this operation is in progress. Only one update can take place at a time.
+-- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset the Chef server's private key (@CHEF_PIVOTAL_KEY@ ).
 --
---
--- This operation can be use to reset Chef Server main API key (@CHEF_PIVOTAL_KEY@ ).
 --
 -- This operation is asynchronous.
 --
---
---
--- This operation can only be called for @HEALTHY@ and @UNHEALTHY@ servers. Otherwise a @InvalidStateException@ is raised. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are invalid.
+-- This operation can only be called for servers in @HEALTHY@ or @UNHEALTHY@ states. Otherwise, an @InvalidStateException@ is raised. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
     (
@@ -136,7 +132,7 @@ instance ToQuery UpdateServerEngineAttributes where
 data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse'
     { _usearsServer         :: !(Maybe Server)
     , _usearsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateServerEngineAttributesResponse' with the minimum fields required to make a request.
 --

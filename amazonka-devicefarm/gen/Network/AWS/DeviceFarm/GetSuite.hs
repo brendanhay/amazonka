@@ -116,7 +116,7 @@ data GetSuiteResponse = GetSuiteResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrsSuite' - Undocumented member.
+-- * 'gsrsSuite' - A collection of one or more tests.
 --
 -- * 'gsrsResponseStatus' - -- | The response status code.
 getSuiteResponse
@@ -128,7 +128,7 @@ getSuiteResponse pResponseStatus_ =
     , _gsrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | A collection of one or more tests.
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
 gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 

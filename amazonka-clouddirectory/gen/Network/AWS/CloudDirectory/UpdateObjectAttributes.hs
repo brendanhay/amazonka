@@ -129,7 +129,7 @@ data UpdateObjectAttributesResponse = UpdateObjectAttributesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uoarsObjectIdentifier' - ObjectIdentifier of the updated object.
+-- * 'uoarsObjectIdentifier' - @ObjectIdentifier@ of the updated object.
 --
 -- * 'uoarsResponseStatus' - -- | The response status code.
 updateObjectAttributesResponse
@@ -141,7 +141,7 @@ updateObjectAttributesResponse pResponseStatus_ =
     , _uoarsResponseStatus = pResponseStatus_
     }
 
--- | ObjectIdentifier of the updated object.
+-- | @ObjectIdentifier@ of the updated object.
 uoarsObjectIdentifier :: Lens' UpdateObjectAttributesResponse (Maybe Text)
 uoarsObjectIdentifier = lens _uoarsObjectIdentifier (\ s a -> s{_uoarsObjectIdentifier = a});
 

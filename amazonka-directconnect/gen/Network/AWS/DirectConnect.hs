@@ -46,11 +46,20 @@ module Network.AWS.DirectConnect
     -- ** DescribeTags
     , module Network.AWS.DirectConnect.DescribeTags
 
+    -- ** DescribeLoa
+    , module Network.AWS.DirectConnect.DescribeLoa
+
     -- ** DeleteConnection
     , module Network.AWS.DirectConnect.DeleteConnection
 
+    -- ** AssociateConnectionWithLag
+    , module Network.AWS.DirectConnect.AssociateConnectionWithLag
+
     -- ** CreateConnection
     , module Network.AWS.DirectConnect.CreateConnection
+
+    -- ** AssociateVirtualInterface
+    , module Network.AWS.DirectConnect.AssociateVirtualInterface
 
     -- ** DescribeConnections
     , module Network.AWS.DirectConnect.DescribeConnections
@@ -73,6 +82,9 @@ module Network.AWS.DirectConnect
     -- ** AllocatePrivateVirtualInterface
     , module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 
+    -- ** DescribeLags
+    , module Network.AWS.DirectConnect.DescribeLags
+
     -- ** ConfirmConnection
     , module Network.AWS.DirectConnect.ConfirmConnection
 
@@ -84,6 +96,9 @@ module Network.AWS.DirectConnect
 
     -- ** DescribeVirtualInterfaces
     , module Network.AWS.DirectConnect.DescribeVirtualInterfaces
+
+    -- ** AllocateHostedConnection
+    , module Network.AWS.DirectConnect.AllocateHostedConnection
 
     -- ** DeleteVirtualInterface
     , module Network.AWS.DirectConnect.DeleteVirtualInterface
@@ -100,8 +115,17 @@ module Network.AWS.DirectConnect
     -- ** AllocateConnectionOnInterconnect
     , module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 
+    -- ** DisassociateConnectionFromLag
+    , module Network.AWS.DirectConnect.DisassociateConnectionFromLag
+
     -- ** TagResource
     , module Network.AWS.DirectConnect.TagResource
+
+    -- ** DeleteLag
+    , module Network.AWS.DirectConnect.DeleteLag
+
+    -- ** UpdateLag
+    , module Network.AWS.DirectConnect.UpdateLag
 
     -- ** UntagResource
     , module Network.AWS.DirectConnect.UntagResource
@@ -109,14 +133,23 @@ module Network.AWS.DirectConnect
     -- ** CreateBGPPeer
     , module Network.AWS.DirectConnect.CreateBGPPeer
 
+    -- ** AssociateHostedConnection
+    , module Network.AWS.DirectConnect.AssociateHostedConnection
+
     -- ** CreateInterconnect
     , module Network.AWS.DirectConnect.CreateInterconnect
 
     -- ** DeleteBGPPeer
     , module Network.AWS.DirectConnect.DeleteBGPPeer
 
+    -- ** CreateLag
+    , module Network.AWS.DirectConnect.CreateLag
+
     -- ** DescribeConnectionLoa
     , module Network.AWS.DirectConnect.DescribeConnectionLoa
+
+    -- ** DescribeHostedConnections
+    , module Network.AWS.DirectConnect.DescribeHostedConnections
 
     -- * Types
 
@@ -134,6 +167,9 @@ module Network.AWS.DirectConnect
 
     -- ** InterconnectState
     , InterconnectState (..)
+
+    -- ** LagState
+    , LagState (..)
 
     -- ** LoaContentType
     , LoaContentType (..)
@@ -155,8 +191,10 @@ module Network.AWS.DirectConnect
     -- ** Connection
     , Connection
     , connection
+    , cLagId
     , cVlan
     , cLocation
+    , cAwsDevice
     , cConnectionId
     , cLoaIssueTime
     , cPartnerName
@@ -174,13 +212,31 @@ module Network.AWS.DirectConnect
     -- ** Interconnect
     , Interconnect
     , interconnect
+    , iLagId
     , iInterconnectId
     , iLocation
     , iInterconnectName
+    , iAwsDevice
     , iLoaIssueTime
     , iBandwidth
     , iInterconnectState
     , iRegion
+
+    -- ** Lag
+    , Lag
+    , lag
+    , lagLagId
+    , lagConnectionsBandwidth
+    , lagMinimumLinks
+    , lagLagName
+    , lagLocation
+    , lagConnections
+    , lagAwsDevice
+    , lagAllowsHostedConnections
+    , lagNumberOfConnections
+    , lagLagState
+    , lagOwnerAccount
+    , lagRegion
 
     -- ** Loa
     , Loa
@@ -296,32 +352,43 @@ module Network.AWS.DirectConnect
     ) where
 
 import           Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+import           Network.AWS.DirectConnect.AllocateHostedConnection
 import           Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
 import           Network.AWS.DirectConnect.AllocatePublicVirtualInterface
+import           Network.AWS.DirectConnect.AssociateConnectionWithLag
+import           Network.AWS.DirectConnect.AssociateHostedConnection
+import           Network.AWS.DirectConnect.AssociateVirtualInterface
 import           Network.AWS.DirectConnect.ConfirmConnection
 import           Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 import           Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
 import           Network.AWS.DirectConnect.CreateBGPPeer
 import           Network.AWS.DirectConnect.CreateConnection
 import           Network.AWS.DirectConnect.CreateInterconnect
+import           Network.AWS.DirectConnect.CreateLag
 import           Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 import           Network.AWS.DirectConnect.CreatePublicVirtualInterface
 import           Network.AWS.DirectConnect.DeleteBGPPeer
 import           Network.AWS.DirectConnect.DeleteConnection
 import           Network.AWS.DirectConnect.DeleteInterconnect
+import           Network.AWS.DirectConnect.DeleteLag
 import           Network.AWS.DirectConnect.DeleteVirtualInterface
 import           Network.AWS.DirectConnect.DescribeConnectionLoa
 import           Network.AWS.DirectConnect.DescribeConnections
 import           Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+import           Network.AWS.DirectConnect.DescribeHostedConnections
 import           Network.AWS.DirectConnect.DescribeInterconnectLoa
 import           Network.AWS.DirectConnect.DescribeInterconnects
+import           Network.AWS.DirectConnect.DescribeLags
+import           Network.AWS.DirectConnect.DescribeLoa
 import           Network.AWS.DirectConnect.DescribeLocations
 import           Network.AWS.DirectConnect.DescribeTags
 import           Network.AWS.DirectConnect.DescribeVirtualGateways
 import           Network.AWS.DirectConnect.DescribeVirtualInterfaces
+import           Network.AWS.DirectConnect.DisassociateConnectionFromLag
 import           Network.AWS.DirectConnect.TagResource
 import           Network.AWS.DirectConnect.Types
 import           Network.AWS.DirectConnect.UntagResource
+import           Network.AWS.DirectConnect.UpdateLag
 import           Network.AWS.DirectConnect.Waiters
 
 {- $errors

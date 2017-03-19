@@ -20,24 +20,24 @@ module Network.AWS.ElasticBeanstalk.Types.Sum where
 import           Network.AWS.Prelude
 
 data ActionHistoryStatus
-    = Completed
-    | Failed
-    | Unknown
+    = AHSCompleted
+    | AHSFailed
+    | AHSUnknown
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionHistoryStatus where
     parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "failed" -> pure Failed
-        "unknown" -> pure Unknown
+        "completed" -> pure AHSCompleted
+        "failed" -> pure AHSFailed
+        "unknown" -> pure AHSUnknown
         e -> fromTextError $ "Failure parsing ActionHistoryStatus from value: '" <> e
            <> "'. Accepted values: completed, failed, unknown"
 
 instance ToText ActionHistoryStatus where
     toText = \case
-        Completed -> "Completed"
-        Failed -> "Failed"
-        Unknown -> "Unknown"
+        AHSCompleted -> "Completed"
+        AHSFailed -> "Failed"
+        AHSUnknown -> "Unknown"
 
 instance Hashable     ActionHistoryStatus
 instance NFData       ActionHistoryStatus
@@ -81,24 +81,24 @@ instance FromXML ActionStatus where
     parseXML = parseXMLText "ActionStatus"
 
 data ActionType
-    = ATInstanceRefresh
-    | ATPlatformUpdate
-    | ATUnknown
+    = InstanceRefresh
+    | PlatformUpdate
+    | Unknown
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ActionType where
     parser = takeLowerText >>= \case
-        "instancerefresh" -> pure ATInstanceRefresh
-        "platformupdate" -> pure ATPlatformUpdate
-        "unknown" -> pure ATUnknown
+        "instancerefresh" -> pure InstanceRefresh
+        "platformupdate" -> pure PlatformUpdate
+        "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing ActionType from value: '" <> e
            <> "'. Accepted values: instancerefresh, platformupdate, unknown"
 
 instance ToText ActionType where
     toText = \case
-        ATInstanceRefresh -> "InstanceRefresh"
-        ATPlatformUpdate -> "PlatformUpdate"
-        ATUnknown -> "Unknown"
+        InstanceRefresh -> "InstanceRefresh"
+        PlatformUpdate -> "PlatformUpdate"
+        Unknown -> "Unknown"
 
 instance Hashable     ActionType
 instance NFData       ActionType
@@ -369,30 +369,30 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 data EnvironmentStatus
-    = Launching
-    | Ready
-    | Terminated
-    | Terminating
-    | Updating
+    = ESLaunching
+    | ESReady
+    | ESTerminated
+    | ESTerminating
+    | ESUpdating
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
-        "launching" -> pure Launching
-        "ready" -> pure Ready
-        "terminated" -> pure Terminated
-        "terminating" -> pure Terminating
-        "updating" -> pure Updating
+        "launching" -> pure ESLaunching
+        "ready" -> pure ESReady
+        "terminated" -> pure ESTerminated
+        "terminating" -> pure ESTerminating
+        "updating" -> pure ESUpdating
         e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
            <> "'. Accepted values: launching, ready, terminated, terminating, updating"
 
 instance ToText EnvironmentStatus where
     toText = \case
-        Launching -> "Launching"
-        Ready -> "Ready"
-        Terminated -> "Terminated"
-        Terminating -> "Terminating"
-        Updating -> "Updating"
+        ESLaunching -> "Launching"
+        ESReady -> "Ready"
+        ESTerminated -> "Terminated"
+        ESTerminating -> "Terminating"
+        ESUpdating -> "Updating"
 
 instance Hashable     EnvironmentStatus
 instance NFData       EnvironmentStatus
@@ -531,6 +531,41 @@ instance NFData       InstancesHealthAttribute
 instance ToByteString InstancesHealthAttribute
 instance ToQuery      InstancesHealthAttribute
 instance ToHeader     InstancesHealthAttribute
+
+data PlatformStatus
+    = Creating
+    | Deleted
+    | Deleting
+    | Failed
+    | Ready
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText PlatformStatus where
+    parser = takeLowerText >>= \case
+        "creating" -> pure Creating
+        "deleted" -> pure Deleted
+        "deleting" -> pure Deleting
+        "failed" -> pure Failed
+        "ready" -> pure Ready
+        e -> fromTextError $ "Failure parsing PlatformStatus from value: '" <> e
+           <> "'. Accepted values: creating, deleted, deleting, failed, ready"
+
+instance ToText PlatformStatus where
+    toText = \case
+        Creating -> "Creating"
+        Deleted -> "Deleted"
+        Deleting -> "Deleting"
+        Failed -> "Failed"
+        Ready -> "Ready"
+
+instance Hashable     PlatformStatus
+instance NFData       PlatformStatus
+instance ToByteString PlatformStatus
+instance ToQuery      PlatformStatus
+instance ToHeader     PlatformStatus
+
+instance FromXML PlatformStatus where
+    parseXML = parseXMLText "PlatformStatus"
 
 data SourceRepository
     = CodeCommit

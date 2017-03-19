@@ -27,8 +27,9 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'cognitoIdentityProvider' smart constructor.
 data CognitoIdentityProvider = CognitoIdentityProvider'
-    { _cipClientId     :: !(Maybe Text)
-    , _cipProviderName :: !(Maybe Text)
+    { _cipClientId             :: !(Maybe Text)
+    , _cipServerSideTokenCheck :: !(Maybe Bool)
+    , _cipProviderName         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CognitoIdentityProvider' with the minimum fields required to make a request.
@@ -37,18 +38,25 @@ data CognitoIdentityProvider = CognitoIdentityProvider'
 --
 -- * 'cipClientId' - The client ID for the Amazon Cognito Identity User Pool.
 --
+-- * 'cipServerSideTokenCheck' - TRUE if server-side token validation is enabled for the identity provider’s token.
+--
 -- * 'cipProviderName' - The provider name for an Amazon Cognito Identity User Pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 cognitoIdentityProvider
     :: CognitoIdentityProvider
 cognitoIdentityProvider =
     CognitoIdentityProvider'
     { _cipClientId = Nothing
+    , _cipServerSideTokenCheck = Nothing
     , _cipProviderName = Nothing
     }
 
 -- | The client ID for the Amazon Cognito Identity User Pool.
 cipClientId :: Lens' CognitoIdentityProvider (Maybe Text)
 cipClientId = lens _cipClientId (\ s a -> s{_cipClientId = a});
+
+-- | TRUE if server-side token validation is enabled for the identity provider’s token.
+cipServerSideTokenCheck :: Lens' CognitoIdentityProvider (Maybe Bool)
+cipServerSideTokenCheck = lens _cipServerSideTokenCheck (\ s a -> s{_cipServerSideTokenCheck = a});
 
 -- | The provider name for an Amazon Cognito Identity User Pool. For example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
 cipProviderName :: Lens' CognitoIdentityProvider (Maybe Text)
@@ -59,7 +67,8 @@ instance FromJSON CognitoIdentityProvider where
           = withObject "CognitoIdentityProvider"
               (\ x ->
                  CognitoIdentityProvider' <$>
-                   (x .:? "ClientId") <*> (x .:? "ProviderName"))
+                   (x .:? "ClientId") <*> (x .:? "ServerSideTokenCheck")
+                     <*> (x .:? "ProviderName"))
 
 instance Hashable CognitoIdentityProvider
 
@@ -70,6 +79,8 @@ instance ToJSON CognitoIdentityProvider where
           = object
               (catMaybes
                  [("ClientId" .=) <$> _cipClientId,
+                  ("ServerSideTokenCheck" .=) <$>
+                    _cipServerSideTokenCheck,
                   ("ProviderName" .=) <$> _cipProviderName])
 
 -- | Credentials for the provided identity ID.

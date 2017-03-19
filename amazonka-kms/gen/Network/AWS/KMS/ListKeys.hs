@@ -60,9 +60,9 @@ data ListKeys = ListKeys'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkMarker' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- * 'lkMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 --
--- * 'lkLimit' - When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
+-- * 'lkLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 listKeys
     :: ListKeys
 listKeys =
@@ -71,11 +71,11 @@ listKeys =
     , _lkLimit = Nothing
     }
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the response you just received.
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 
--- | When paginating results, specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @Truncated@ element in the response is set to true. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
 lkLimit :: Lens' ListKeys (Maybe Natural)
 lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
@@ -135,11 +135,11 @@ data ListKeysResponse = ListKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lkrsTruncated' - A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- * 'lkrsTruncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 --
 -- * 'lkrsKeys' - A list of keys.
 --
--- * 'lkrsNextMarker' - When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'lkrsNextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- * 'lkrsResponseStatus' - -- | The response status code.
 listKeysResponse
@@ -153,7 +153,7 @@ listKeysResponse pResponseStatus_ =
     , _lkrsResponseStatus = pResponseStatus_
     }
 
--- | A flag that indicates whether there are more items in the list. If your results were truncated, you can use the @Marker@ parameter to make a subsequent pagination request to retrieve more items in the list.
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To retrieve more items, pass the value of the @NextMarker@ element in this response to the @Marker@ parameter in a subsequent request.
 lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 
@@ -161,7 +161,7 @@ lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
 lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
 
--- | When @Truncated@ is true, this value is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 

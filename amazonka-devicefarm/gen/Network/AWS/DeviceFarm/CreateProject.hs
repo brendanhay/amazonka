@@ -27,6 +27,7 @@ module Network.AWS.DeviceFarm.CreateProject
       createProject
     , CreateProject
     -- * Request Lenses
+    , cpDefaultJobTimeoutMinutes
     , cpName
 
     -- * Destructuring the Response
@@ -49,13 +50,16 @@ import           Network.AWS.Response
 --
 --
 -- /See:/ 'createProject' smart constructor.
-newtype CreateProject = CreateProject'
-    { _cpName :: Text
+data CreateProject = CreateProject'
+    { _cpDefaultJobTimeoutMinutes :: !(Maybe Int)
+    , _cpName                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpDefaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test runs in this project will use the specified execution timeout value unless overridden when scheduling a run.
 --
 -- * 'cpName' - The project's name.
 createProject
@@ -63,8 +67,13 @@ createProject
     -> CreateProject
 createProject pName_ =
     CreateProject'
-    { _cpName = pName_
+    { _cpDefaultJobTimeoutMinutes = Nothing
+    , _cpName = pName_
     }
+
+-- | Sets the execution timeout value (in minutes) for a project. All test runs in this project will use the specified execution timeout value unless overridden when scheduling a run.
+cpDefaultJobTimeoutMinutes :: Lens' CreateProject (Maybe Int)
+cpDefaultJobTimeoutMinutes = lens _cpDefaultJobTimeoutMinutes (\ s a -> s{_cpDefaultJobTimeoutMinutes = a});
 
 -- | The project's name.
 cpName :: Lens' CreateProject Text
@@ -94,7 +103,11 @@ instance ToHeaders CreateProject where
 
 instance ToJSON CreateProject where
         toJSON CreateProject'{..}
-          = object (catMaybes [Just ("name" .= _cpName)])
+          = object
+              (catMaybes
+                 [("defaultJobTimeoutMinutes" .=) <$>
+                    _cpDefaultJobTimeoutMinutes,
+                  Just ("name" .= _cpName)])
 
 instance ToPath CreateProject where
         toPath = const "/"

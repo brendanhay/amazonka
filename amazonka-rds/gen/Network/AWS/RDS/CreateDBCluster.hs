@@ -21,7 +21,7 @@
 -- Creates a new Amazon Aurora DB cluster.
 --
 --
--- You can use the @ReplicationSourceIdentifier@ parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance.
+-- You can use the @ReplicationSourceIdentifier@ parameter to create the DB cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For cross-region replication where the DB cluster identified by @ReplicationSourceIdentifier@ is encrypted, you must also specify the @PreSignedUrl@ parameter.
 --
 -- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
 --
@@ -37,6 +37,7 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcReplicationSourceIdentifier
     , cdcMasterUsername
     , cdcDBSubnetGroupName
+    , cdcPreSignedURL
     , cdcPreferredMaintenanceWindow
     , cdcAvailabilityZones
     , cdcCharacterSetName
@@ -79,6 +80,7 @@ data CreateDBCluster = CreateDBCluster'
     , _cdcReplicationSourceIdentifier :: !(Maybe Text)
     , _cdcMasterUsername              :: !(Maybe Text)
     , _cdcDBSubnetGroupName           :: !(Maybe Text)
+    , _cdcPreSignedURL                :: !(Maybe Text)
     , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
     , _cdcAvailabilityZones           :: !(Maybe [Text])
     , _cdcCharacterSetName            :: !(Maybe Text)
@@ -111,13 +113,15 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- * 'cdcDBSubnetGroupName' - A DB subnet group to associate with this DB cluster. Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores, spaces, or hyphens. Must not be default. Example: @mySubnetgroup@
 --
+-- * 'cdcPreSignedURL' - A URL that contains a Signature Version 4 signed request for the @CreateDBCluster@ action to be called in the source region where the DB cluster will be replicated from. You only need to specify @PreSignedUrl@ when you are performing cross-region replication from an encrypted DB cluster. The pre-signed URL must be a valid request for the @CreateDBCluster@ API action that can be executed in the source region that contains the encrypted DB cluster to be copied. The pre-signed URL request must contain the following parameter values:     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination region. This should refer to the same KMS key for both the @CreateDBCluster@ action that is called in the destination region, and the action contained in the pre-signed URL.     * @DestinationRegion@ - The name of the region that Aurora Read Replica will be created in.     * @ReplicationSourceIdentifier@ - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source region. For example, if you are copying an encrypted DB cluster from the us-west-2 region, then your @ReplicationSourceIdentifier@ would look like Example: @arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1@ . To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+--
 -- * 'cdcPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 --
 -- * 'cdcAvailabilityZones' - A list of EC2 Availability Zones that instances in the DB cluster can be created in. For information on regions and Availability Zones, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
 --
 -- * 'cdcCharacterSetName' - A value that indicates that the DB cluster should be associated with the specified CharacterSet.
 --
--- * 'cdcKMSKeyId' - The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- * 'cdcKMSKeyId' - The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. If you create a Read Replica of an encrypted DB cluster in another region, you must set @KmsKeyId@ to a KMS key ID that is valid in the destination region. This key is used to encrypt the Read Replica in that region.
 --
 -- * 'cdcPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled using the @BackupRetentionPeriod@ parameter.  Default: A 30-minute window selected at random from an 8-hour block of time per region. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Times should be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
 --
@@ -150,6 +154,7 @@ createDBCluster pDBClusterIdentifier_ pEngine_ =
     , _cdcReplicationSourceIdentifier = Nothing
     , _cdcMasterUsername = Nothing
     , _cdcDBSubnetGroupName = Nothing
+    , _cdcPreSignedURL = Nothing
     , _cdcPreferredMaintenanceWindow = Nothing
     , _cdcAvailabilityZones = Nothing
     , _cdcCharacterSetName = Nothing
@@ -190,6 +195,10 @@ cdcMasterUsername = lens _cdcMasterUsername (\ s a -> s{_cdcMasterUsername = a})
 cdcDBSubnetGroupName :: Lens' CreateDBCluster (Maybe Text)
 cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupName = a});
 
+-- | A URL that contains a Signature Version 4 signed request for the @CreateDBCluster@ action to be called in the source region where the DB cluster will be replicated from. You only need to specify @PreSignedUrl@ when you are performing cross-region replication from an encrypted DB cluster. The pre-signed URL must be a valid request for the @CreateDBCluster@ API action that can be executed in the source region that contains the encrypted DB cluster to be copied. The pre-signed URL request must contain the following parameter values:     * @KmsKeyId@ - The KMS key identifier for the key to use to encrypt the copy of the DB cluster in the destination region. This should refer to the same KMS key for both the @CreateDBCluster@ action that is called in the destination region, and the action contained in the pre-signed URL.     * @DestinationRegion@ - The name of the region that Aurora Read Replica will be created in.     * @ReplicationSourceIdentifier@ - The DB cluster identifier for the encrypted DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source region. For example, if you are copying an encrypted DB cluster from the us-west-2 region, then your @ReplicationSourceIdentifier@ would look like Example: @arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1@ . To learn how to generate a Signature Version 4 signed request, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)> and <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
+cdcPreSignedURL :: Lens' CreateDBCluster (Maybe Text)
+cdcPreSignedURL = lens _cdcPreSignedURL (\ s a -> s{_cdcPreSignedURL = a});
+
 -- | The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. To see the time blocks available, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
 cdcPreferredMaintenanceWindow :: Lens' CreateDBCluster (Maybe Text)
 cdcPreferredMaintenanceWindow = lens _cdcPreferredMaintenanceWindow (\ s a -> s{_cdcPreferredMaintenanceWindow = a});
@@ -202,7 +211,7 @@ cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZo
 cdcCharacterSetName :: Lens' CreateDBCluster (Maybe Text)
 cdcCharacterSetName = lens _cdcCharacterSetName (\ s a -> s{_cdcCharacterSetName = a});
 
--- | The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KM encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+-- | The KMS key identifier for an encrypted DB cluster. The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key. If the @StorageEncrypted@ parameter is true, and you do not specify a value for the @KmsKeyId@ parameter, then Amazon RDS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. If you create a Read Replica of an encrypted DB cluster in another region, you must set @KmsKeyId@ to a KMS key ID that is valid in the destination region. This key is used to encrypt the Read Replica in that region.
 cdcKMSKeyId :: Lens' CreateDBCluster (Maybe Text)
 cdcKMSKeyId = lens _cdcKMSKeyId (\ s a -> s{_cdcKMSKeyId = a});
 
@@ -277,6 +286,7 @@ instance ToQuery CreateDBCluster where
                  _cdcReplicationSourceIdentifier,
                "MasterUsername" =: _cdcMasterUsername,
                "DBSubnetGroupName" =: _cdcDBSubnetGroupName,
+               "PreSignedUrl" =: _cdcPreSignedURL,
                "PreferredMaintenanceWindow" =:
                  _cdcPreferredMaintenanceWindow,
                "AvailabilityZones" =:

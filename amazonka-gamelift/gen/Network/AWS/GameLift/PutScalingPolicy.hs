@@ -81,9 +81,9 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pspName' - Descriptive label associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
+-- * 'pspName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 --
--- * 'pspFleetId' - Unique identity for the fleet to scale with this policy.
+-- * 'pspFleetId' - Unique identifier for a fleet to apply this policy to.
 --
 -- * 'pspScalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
 --
@@ -118,11 +118,11 @@ putScalingPolicy pName_ pFleetId_ pScalingAdjustment_ pScalingAdjustmentType_ pT
     , _pspMetricName = pMetricName_
     }
 
--- | Descriptive label associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
+-- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.
 pspName :: Lens' PutScalingPolicy Text
 pspName = lens _pspName (\ s a -> s{_pspName = a});
 
--- | Unique identity for the fleet to scale with this policy.
+-- | Unique identifier for a fleet to apply this policy to.
 pspFleetId :: Lens' PutScalingPolicy Text
 pspFleetId = lens _pspFleetId (\ s a -> s{_pspFleetId = a});
 
@@ -208,7 +208,7 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'psprsName' - Descriptive label associated with a scaling policy. Policy names do not need to be unique.
+-- * 'psprsName' - Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
 -- * 'psprsResponseStatus' - -- | The response status code.
 putScalingPolicyResponse
@@ -220,7 +220,7 @@ putScalingPolicyResponse pResponseStatus_ =
     , _psprsResponseStatus = pResponseStatus_
     }
 
--- | Descriptive label associated with a scaling policy. Policy names do not need to be unique.
+-- | Descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 psprsName :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsName = lens _psprsName (\ s a -> s{_psprsName = a});
 

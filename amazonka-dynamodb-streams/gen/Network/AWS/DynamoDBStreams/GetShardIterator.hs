@@ -47,7 +47,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /GetShardIterator/ operation.
+-- | Represents the input of a @GetShardIterator@ operation.
 --
 --
 --
@@ -137,7 +137,7 @@ instance ToPath GetShardIterator where
 instance ToQuery GetShardIterator where
         toQuery = const mempty
 
--- | Represents the output of a /GetShardIterator/ operation.
+-- | Represents the output of a @GetShardIterator@ operation.
 --
 --
 --

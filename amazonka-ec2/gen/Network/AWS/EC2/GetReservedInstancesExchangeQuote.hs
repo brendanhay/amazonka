@@ -169,13 +169,13 @@ data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuo
 --
 -- * 'grieqrsValidationFailureReason' - Describes the reason why the exchange cannot be completed.
 --
--- * 'grieqrsTargetConfigurationValueRollup' - Undocumented member.
+-- * 'grieqrsTargetConfigurationValueRollup' - The cost associated with the Reserved Instance.
 --
 -- * 'grieqrsCurrencyCode' - The currency of the transaction.
 --
 -- * 'grieqrsTargetConfigurationValueSet' - The values of the target Convertible Reserved Instances.
 --
--- * 'grieqrsReservedInstanceValueRollup' - Undocumented member.
+-- * 'grieqrsReservedInstanceValueRollup' - The cost associated with the Reserved Instance.
 --
 -- * 'grieqrsOutputReservedInstancesWillExpireAt' - The new end date of the reservation term.
 --
@@ -207,7 +207,7 @@ getReservedInstancesExchangeQuoteResponse pResponseStatus_ =
 grieqrsValidationFailureReason :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
 grieqrsValidationFailureReason = lens _grieqrsValidationFailureReason (\ s a -> s{_grieqrsValidationFailureReason = a});
 
--- | Undocumented member.
+-- | The cost associated with the Reserved Instance.
 grieqrsTargetConfigurationValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
 grieqrsTargetConfigurationValueRollup = lens _grieqrsTargetConfigurationValueRollup (\ s a -> s{_grieqrsTargetConfigurationValueRollup = a});
 
@@ -219,7 +219,7 @@ grieqrsCurrencyCode = lens _grieqrsCurrencyCode (\ s a -> s{_grieqrsCurrencyCode
 grieqrsTargetConfigurationValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [TargetReservationValue]
 grieqrsTargetConfigurationValueSet = lens _grieqrsTargetConfigurationValueSet (\ s a -> s{_grieqrsTargetConfigurationValueSet = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The cost associated with the Reserved Instance.
 grieqrsReservedInstanceValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
 grieqrsReservedInstanceValueRollup = lens _grieqrsReservedInstanceValueRollup (\ s a -> s{_grieqrsReservedInstanceValueRollup = a});
 

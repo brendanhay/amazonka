@@ -37,6 +37,12 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestTerminateEnvironment $
 --             terminateEnvironment
 --
+--         , requestListPlatformVersions $
+--             listPlatformVersions
+--
+--         , requestDeletePlatformVersion $
+--             deletePlatformVersion
+--
 --         , requestCreateApplicationVersion $
 --             createApplicationVersion
 --
@@ -48,6 +54,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , requestRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfo
+--
+--         , requestDescribePlatformVersion $
+--             describePlatformVersion
 --
 --         , requestDeleteApplication $
 --             deleteApplication
@@ -139,6 +148,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , requestCreateEnvironment $
 --             createEnvironment
 --
+--         , requestCreatePlatformVersion $
+--             createPlatformVersion
+--
 --           ]
 
 --     , testGroup "response"
@@ -151,6 +163,12 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseTerminateEnvironment $
 --             environmentDescription
 --
+--         , responseListPlatformVersions $
+--             listPlatformVersionsResponse
+--
+--         , responseDeletePlatformVersion $
+--             deletePlatformVersionResponse
+--
 --         , responseCreateApplicationVersion $
 --             applicationVersionDescriptionMessage
 --
@@ -162,6 +180,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , responseRetrieveEnvironmentInfo $
 --             retrieveEnvironmentInfoResponse
+--
+--         , responseDescribePlatformVersion $
+--             describePlatformVersionResponse
 --
 --         , responseDeleteApplication $
 --             deleteApplicationResponse
@@ -253,6 +274,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , responseCreateEnvironment $
 --             environmentDescription
 --
+--         , responseCreatePlatformVersion $
+--             createPlatformVersionResponse
+--
 --           ]
 --     ]
 
@@ -273,6 +297,16 @@ requestTerminateEnvironment = req
     "TerminateEnvironment"
     "fixture/TerminateEnvironment.yaml"
 
+requestListPlatformVersions :: ListPlatformVersions -> TestTree
+requestListPlatformVersions = req
+    "ListPlatformVersions"
+    "fixture/ListPlatformVersions.yaml"
+
+requestDeletePlatformVersion :: DeletePlatformVersion -> TestTree
+requestDeletePlatformVersion = req
+    "DeletePlatformVersion"
+    "fixture/DeletePlatformVersion.yaml"
+
 requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
 requestCreateApplicationVersion = req
     "CreateApplicationVersion"
@@ -292,6 +326,11 @@ requestRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
 requestRetrieveEnvironmentInfo = req
     "RetrieveEnvironmentInfo"
     "fixture/RetrieveEnvironmentInfo.yaml"
+
+requestDescribePlatformVersion :: DescribePlatformVersion -> TestTree
+requestDescribePlatformVersion = req
+    "DescribePlatformVersion"
+    "fixture/DescribePlatformVersion.yaml"
 
 requestDeleteApplication :: DeleteApplication -> TestTree
 requestDeleteApplication = req
@@ -443,6 +482,11 @@ requestCreateEnvironment = req
     "CreateEnvironment"
     "fixture/CreateEnvironment.yaml"
 
+requestCreatePlatformVersion :: CreatePlatformVersion -> TestTree
+requestCreatePlatformVersion = req
+    "CreatePlatformVersion"
+    "fixture/CreatePlatformVersion.yaml"
+
 -- Responses
 
 responseDescribeApplications :: DescribeApplicationsResponse -> TestTree
@@ -465,6 +509,20 @@ responseTerminateEnvironment = res
     "fixture/TerminateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy TerminateEnvironment)
+
+responseListPlatformVersions :: ListPlatformVersionsResponse -> TestTree
+responseListPlatformVersions = res
+    "ListPlatformVersionsResponse"
+    "fixture/ListPlatformVersionsResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy ListPlatformVersions)
+
+responseDeletePlatformVersion :: DeletePlatformVersionResponse -> TestTree
+responseDeletePlatformVersion = res
+    "DeletePlatformVersionResponse"
+    "fixture/DeletePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DeletePlatformVersion)
 
 responseCreateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
 responseCreateApplicationVersion = res
@@ -493,6 +551,13 @@ responseRetrieveEnvironmentInfo = res
     "fixture/RetrieveEnvironmentInfoResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy RetrieveEnvironmentInfo)
+
+responseDescribePlatformVersion :: DescribePlatformVersionResponse -> TestTree
+responseDescribePlatformVersion = res
+    "DescribePlatformVersionResponse"
+    "fixture/DescribePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy DescribePlatformVersion)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
 responseDeleteApplication = res
@@ -703,3 +768,10 @@ responseCreateEnvironment = res
     "fixture/CreateEnvironmentResponse.proto"
     elasticBeanstalk
     (Proxy :: Proxy CreateEnvironment)
+
+responseCreatePlatformVersion :: CreatePlatformVersionResponse -> TestTree
+responseCreatePlatformVersion = res
+    "CreatePlatformVersionResponse"
+    "fixture/CreatePlatformVersionResponse.proto"
+    elasticBeanstalk
+    (Proxy :: Proxy CreatePlatformVersion)

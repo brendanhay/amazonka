@@ -116,7 +116,7 @@ data GetDeviceResponse = GetDeviceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsDevice' - Undocumented member.
+-- * 'gdrsDevice' - An object containing information about the requested device.
 --
 -- * 'gdrsResponseStatus' - -- | The response status code.
 getDeviceResponse
@@ -128,7 +128,7 @@ getDeviceResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | An object containing information about the requested device.
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 

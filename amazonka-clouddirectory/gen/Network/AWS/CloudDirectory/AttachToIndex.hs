@@ -130,7 +130,7 @@ data AttachToIndexResponse = AttachToIndexResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'atirsAttachedObjectIdentifier' - The ObjectIdentifier of the object that was attached to the index.
+-- * 'atirsAttachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was attached to the index.
 --
 -- * 'atirsResponseStatus' - -- | The response status code.
 attachToIndexResponse
@@ -142,7 +142,7 @@ attachToIndexResponse pResponseStatus_ =
     , _atirsResponseStatus = pResponseStatus_
     }
 
--- | The ObjectIdentifier of the object that was attached to the index.
+-- | The @ObjectIdentifier@ of the object that was attached to the index.
 atirsAttachedObjectIdentifier :: Lens' AttachToIndexResponse (Maybe Text)
 atirsAttachedObjectIdentifier = lens _atirsAttachedObjectIdentifier (\ s a -> s{_atirsAttachedObjectIdentifier = a});
 

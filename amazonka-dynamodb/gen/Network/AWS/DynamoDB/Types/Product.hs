@@ -1660,6 +1660,104 @@ instance ToJSON Tag where
                  [Just ("Key" .= _tagKey),
                   Just ("Value" .= _tagValue)])
 
+-- | The description of the Time to Live (TTL) status on the specified table.
+--
+--
+--
+-- /See:/ 'timeToLiveDescription' smart constructor.
+data TimeToLiveDescription = TimeToLiveDescription'
+    { _ttldTimeToLiveStatus :: !(Maybe TimeToLiveStatus)
+    , _ttldAttributeName    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TimeToLiveDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttldTimeToLiveStatus' - The Time to Live status for the table.
+--
+-- * 'ttldAttributeName' - The name of the Time to Live attribute for items in the table.
+timeToLiveDescription
+    :: TimeToLiveDescription
+timeToLiveDescription =
+    TimeToLiveDescription'
+    { _ttldTimeToLiveStatus = Nothing
+    , _ttldAttributeName = Nothing
+    }
+
+-- | The Time to Live status for the table.
+ttldTimeToLiveStatus :: Lens' TimeToLiveDescription (Maybe TimeToLiveStatus)
+ttldTimeToLiveStatus = lens _ttldTimeToLiveStatus (\ s a -> s{_ttldTimeToLiveStatus = a});
+
+-- | The name of the Time to Live attribute for items in the table.
+ttldAttributeName :: Lens' TimeToLiveDescription (Maybe Text)
+ttldAttributeName = lens _ttldAttributeName (\ s a -> s{_ttldAttributeName = a});
+
+instance FromJSON TimeToLiveDescription where
+        parseJSON
+          = withObject "TimeToLiveDescription"
+              (\ x ->
+                 TimeToLiveDescription' <$>
+                   (x .:? "TimeToLiveStatus") <*>
+                     (x .:? "AttributeName"))
+
+instance Hashable TimeToLiveDescription
+
+instance NFData TimeToLiveDescription
+
+-- | Represents the settings used to enable or disable Time to Live for the specified table.
+--
+--
+--
+-- /See:/ 'timeToLiveSpecification' smart constructor.
+data TimeToLiveSpecification = TimeToLiveSpecification'
+    { _ttlsEnabled       :: !Bool
+    , _ttlsAttributeName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TimeToLiveSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttlsEnabled' - Indicates whether Time To Live is to be enabled (true) or disabled (false) on the table.
+--
+-- * 'ttlsAttributeName' - The name of the Time to Live attribute used to store the expiration time for items in the table.
+timeToLiveSpecification
+    :: Bool -- ^ 'ttlsEnabled'
+    -> Text -- ^ 'ttlsAttributeName'
+    -> TimeToLiveSpecification
+timeToLiveSpecification pEnabled_ pAttributeName_ =
+    TimeToLiveSpecification'
+    { _ttlsEnabled = pEnabled_
+    , _ttlsAttributeName = pAttributeName_
+    }
+
+-- | Indicates whether Time To Live is to be enabled (true) or disabled (false) on the table.
+ttlsEnabled :: Lens' TimeToLiveSpecification Bool
+ttlsEnabled = lens _ttlsEnabled (\ s a -> s{_ttlsEnabled = a});
+
+-- | The name of the Time to Live attribute used to store the expiration time for items in the table.
+ttlsAttributeName :: Lens' TimeToLiveSpecification Text
+ttlsAttributeName = lens _ttlsAttributeName (\ s a -> s{_ttlsAttributeName = a});
+
+instance FromJSON TimeToLiveSpecification where
+        parseJSON
+          = withObject "TimeToLiveSpecification"
+              (\ x ->
+                 TimeToLiveSpecification' <$>
+                   (x .: "Enabled") <*> (x .: "AttributeName"))
+
+instance Hashable TimeToLiveSpecification
+
+instance NFData TimeToLiveSpecification
+
+instance ToJSON TimeToLiveSpecification where
+        toJSON TimeToLiveSpecification'{..}
+          = object
+              (catMaybes
+                 [Just ("Enabled" .= _ttlsEnabled),
+                  Just ("AttributeName" .= _ttlsAttributeName)])
+
 -- | Represents the new provisioned throughput settings to be applied to a global secondary index.
 --
 --

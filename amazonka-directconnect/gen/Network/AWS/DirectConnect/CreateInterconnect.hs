@@ -23,6 +23,8 @@
 --
 -- An interconnect is a connection which is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the AWS Direct Connect partner's network to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.
 --
+-- You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect will be created.
+--
 -- For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling AllocateConnectionOnInterconnect. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect partner.
 --
 module Network.AWS.DirectConnect.CreateInterconnect
@@ -31,6 +33,7 @@ module Network.AWS.DirectConnect.CreateInterconnect
       createInterconnect
     , CreateInterconnect
     -- * Request Lenses
+    , ciLagId
     , ciInterconnectName
     , ciBandwidth
     , ciLocation
@@ -39,9 +42,11 @@ module Network.AWS.DirectConnect.CreateInterconnect
     , interconnect
     , Interconnect
     -- * Response Lenses
+    , iLagId
     , iInterconnectId
     , iLocation
     , iInterconnectName
+    , iAwsDevice
     , iLoaIssueTime
     , iBandwidth
     , iInterconnectState
@@ -61,7 +66,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-    { _ciInterconnectName :: !Text
+    { _ciLagId            :: !(Maybe Text)
+    , _ciInterconnectName :: !Text
     , _ciBandwidth        :: !Text
     , _ciLocation         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -69,6 +75,8 @@ data CreateInterconnect = CreateInterconnect'
 -- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciLagId' - Undocumented member.
 --
 -- * 'ciInterconnectName' - The name of the interconnect. Example: "/1G Interconnect to AWS/ " Default: None
 --
@@ -82,10 +90,15 @@ createInterconnect
     -> CreateInterconnect
 createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
     CreateInterconnect'
-    { _ciInterconnectName = pInterconnectName_
+    { _ciLagId = Nothing
+    , _ciInterconnectName = pInterconnectName_
     , _ciBandwidth = pBandwidth_
     , _ciLocation = pLocation_
     }
+
+-- | Undocumented member.
+ciLagId :: Lens' CreateInterconnect (Maybe Text)
+ciLagId = lens _ciLagId (\ s a -> s{_ciLagId = a});
 
 -- | The name of the interconnect. Example: "/1G Interconnect to AWS/ " Default: None
 ciInterconnectName :: Lens' CreateInterconnect Text
@@ -121,7 +134,8 @@ instance ToJSON CreateInterconnect where
         toJSON CreateInterconnect'{..}
           = object
               (catMaybes
-                 [Just ("interconnectName" .= _ciInterconnectName),
+                 [("lagId" .=) <$> _ciLagId,
+                  Just ("interconnectName" .= _ciInterconnectName),
                   Just ("bandwidth" .= _ciBandwidth),
                   Just ("location" .= _ciLocation)])
 

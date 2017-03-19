@@ -25,6 +25,7 @@ module Network.AWS.KMS.Types
     , _KeyUnavailableException
     , _IncorrectKeyMaterialException
     , _KMSInternalException
+    , _TagException
     , _InvalidImportTokenException
     , _NotFoundException
     , _InvalidAliasNameException
@@ -115,6 +116,12 @@ module Network.AWS.KMS.Types
     , lgTruncated
     , lgGrants
     , lgNextMarker
+
+    -- * Tag
+    , Tag
+    , tag
+    , tagTagKey
+    , tagTagValue
     ) where
 
 import           Network.AWS.KMS.Types.Product
@@ -215,6 +222,12 @@ _IncorrectKeyMaterialException =
 --
 _KMSInternalException :: AsError a => Getting (First ServiceError) a ServiceError
 _KMSInternalException = _MatchServiceError kms "KMSInternalException"
+
+-- | The request was rejected because one or more tags are not valid.
+--
+--
+_TagException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagException = _MatchServiceError kms "TagException"
 
 -- | The request was rejected because the provided import token is invalid or is associated with a different customer master key (CMK).
 --

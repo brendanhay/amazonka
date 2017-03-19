@@ -104,7 +104,7 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsAccountSettings' - Undocumented member.
+-- * 'gasrsAccountSettings' - The account settings.
 --
 -- * 'gasrsResponseStatus' - -- | The response status code.
 getAccountSettingsResponse
@@ -116,7 +116,7 @@ getAccountSettingsResponse pResponseStatus_ =
     , _gasrsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | The account settings.
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 

@@ -30,7 +30,9 @@ module Network.AWS.EMR.ListInstances
     , ListInstances
     -- * Request Lenses
     , liInstanceGroupTypes
+    , liInstanceFleetType
     , liMarker
+    , liInstanceFleetId
     , liInstanceStates
     , liInstanceGroupId
     , liClusterId
@@ -59,7 +61,9 @@ import           Network.AWS.Response
 -- /See:/ 'listInstances' smart constructor.
 data ListInstances = ListInstances'
     { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+    , _liInstanceFleetType  :: !(Maybe InstanceFleetType)
     , _liMarker             :: !(Maybe Text)
+    , _liInstanceFleetId    :: !(Maybe Text)
     , _liInstanceStates     :: !(Maybe [InstanceState])
     , _liInstanceGroupId    :: !(Maybe Text)
     , _liClusterId          :: !Text
@@ -71,7 +75,11 @@ data ListInstances = ListInstances'
 --
 -- * 'liInstanceGroupTypes' - The type of instance group for which to list the instances.
 --
+-- * 'liInstanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
+--
 -- * 'liMarker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- * 'liInstanceFleetId' - The unique identifier of the instance fleet.
 --
 -- * 'liInstanceStates' - A list of instance states that will filter the instances returned with this request.
 --
@@ -84,7 +92,9 @@ listInstances
 listInstances pClusterId_ =
     ListInstances'
     { _liInstanceGroupTypes = Nothing
+    , _liInstanceFleetType = Nothing
     , _liMarker = Nothing
+    , _liInstanceFleetId = Nothing
     , _liInstanceStates = Nothing
     , _liInstanceGroupId = Nothing
     , _liClusterId = pClusterId_
@@ -94,9 +104,17 @@ listInstances pClusterId_ =
 liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
 liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default . _Coerce;
 
+-- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
+liInstanceFleetType :: Lens' ListInstances (Maybe InstanceFleetType)
+liInstanceFleetType = lens _liInstanceFleetType (\ s a -> s{_liInstanceFleetType = a});
+
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
 liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+
+-- | The unique identifier of the instance fleet.
+liInstanceFleetId :: Lens' ListInstances (Maybe Text)
+liInstanceFleetId = lens _liInstanceFleetId (\ s a -> s{_liInstanceFleetId = a});
 
 -- | A list of instance states that will filter the instances returned with this request.
 liInstanceStates :: Lens' ListInstances [InstanceState]
@@ -145,7 +163,9 @@ instance ToJSON ListInstances where
           = object
               (catMaybes
                  [("InstanceGroupTypes" .=) <$> _liInstanceGroupTypes,
+                  ("InstanceFleetType" .=) <$> _liInstanceFleetType,
                   ("Marker" .=) <$> _liMarker,
+                  ("InstanceFleetId" .=) <$> _liInstanceFleetId,
                   ("InstanceStates" .=) <$> _liInstanceStates,
                   ("InstanceGroupId" .=) <$> _liInstanceGroupId,
                   Just ("ClusterId" .= _liClusterId)])

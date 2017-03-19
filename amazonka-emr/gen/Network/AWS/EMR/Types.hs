@@ -44,6 +44,18 @@ module Network.AWS.EMR.Types
     -- * ComparisonOperator
     , ComparisonOperator (..)
 
+    -- * InstanceCollectionType
+    , InstanceCollectionType (..)
+
+    -- * InstanceFleetState
+    , InstanceFleetState (..)
+
+    -- * InstanceFleetStateChangeReasonCode
+    , InstanceFleetStateChangeReasonCode (..)
+
+    -- * InstanceFleetType
+    , InstanceFleetType (..)
+
     -- * InstanceGroupState
     , InstanceGroupState (..)
 
@@ -67,6 +79,9 @@ module Network.AWS.EMR.Types
 
     -- * ScaleDownBehavior
     , ScaleDownBehavior (..)
+
+    -- * SpotProvisioningTimeoutAction
+    , SpotProvisioningTimeoutAction (..)
 
     -- * Statistic
     , Statistic (..)
@@ -149,6 +164,7 @@ module Network.AWS.EMR.Types
     , cluAutoScalingRole
     , cluSecurityConfiguration
     , cluScaleDownBehavior
+    , cluInstanceCollectionType
     , cluReleaseLabel
     , cluLogURI
     , cluRunningAMIVersion
@@ -235,10 +251,12 @@ module Network.AWS.EMR.Types
     , eiaEC2KeyName
     , eiaEmrManagedSlaveSecurityGroup
     , eiaAdditionalSlaveSecurityGroups
+    , eiaRequestedEC2SubnetIds
     , eiaAdditionalMasterSecurityGroups
     , eiaIAMInstanceProfile
     , eiaEmrManagedMasterSecurityGroup
     , eiaEC2SubnetId
+    , eiaRequestedEC2AvailabilityZones
     , eiaServiceAccessSecurityGroup
     , eiaEC2AvailabilityZone
 
@@ -272,11 +290,70 @@ module Network.AWS.EMR.Types
     , iPublicDNSName
     , iEBSVolumes
     , iEC2InstanceId
+    , iInstanceType
+    , iMarket
     , iPrivateIPAddress
+    , iInstanceFleetId
     , iId
     , iInstanceGroupId
     , iPrivateDNSName
     , iPublicIPAddress
+
+    -- * InstanceFleet
+    , InstanceFleet
+    , instanceFleet
+    , ifProvisionedSpotCapacity
+    , ifStatus
+    , ifTargetOnDemandCapacity
+    , ifInstanceFleetType
+    , ifInstanceTypeSpecifications
+    , ifName
+    , ifProvisionedOnDemandCapacity
+    , ifTargetSpotCapacity
+    , ifId
+    , ifLaunchSpecifications
+
+    -- * InstanceFleetConfig
+    , InstanceFleetConfig
+    , instanceFleetConfig
+    , ifcInstanceTypeConfigs
+    , ifcTargetOnDemandCapacity
+    , ifcName
+    , ifcTargetSpotCapacity
+    , ifcLaunchSpecifications
+    , ifcInstanceFleetType
+
+    -- * InstanceFleetModifyConfig
+    , InstanceFleetModifyConfig
+    , instanceFleetModifyConfig
+    , ifmcTargetOnDemandCapacity
+    , ifmcTargetSpotCapacity
+    , ifmcInstanceFleetId
+
+    -- * InstanceFleetProvisioningSpecifications
+    , InstanceFleetProvisioningSpecifications
+    , instanceFleetProvisioningSpecifications
+    , ifpsSpotSpecification
+
+    -- * InstanceFleetStateChangeReason
+    , InstanceFleetStateChangeReason
+    , instanceFleetStateChangeReason
+    , ifscrCode
+    , ifscrMessage
+
+    -- * InstanceFleetStatus
+    , InstanceFleetStatus
+    , instanceFleetStatus
+    , ifsState
+    , ifsStateChangeReason
+    , ifsTimeline
+
+    -- * InstanceFleetTimeline
+    , InstanceFleetTimeline
+    , instanceFleetTimeline
+    , iftReadyDateTime
+    , iftCreationDateTime
+    , iftEndDateTime
 
     -- * InstanceGroup
     , InstanceGroup
@@ -364,14 +441,37 @@ module Network.AWS.EMR.Types
     , itCreationDateTime
     , itEndDateTime
 
+    -- * InstanceTypeConfig
+    , InstanceTypeConfig
+    , instanceTypeConfig
+    , itcEBSConfiguration
+    , itcBidPrice
+    , itcWeightedCapacity
+    , itcConfigurations
+    , itcBidPriceAsPercentageOfOnDemandPrice
+    , itcInstanceType
+
+    -- * InstanceTypeSpecification
+    , InstanceTypeSpecification
+    , instanceTypeSpecification
+    , itsBidPrice
+    , itsWeightedCapacity
+    , itsConfigurations
+    , itsEBSBlockDevices
+    , itsInstanceType
+    , itsEBSOptimized
+    , itsBidPriceAsPercentageOfOnDemandPrice
+
     -- * JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
+    , jficInstanceFleets
     , jficEC2KeyName
     , jficSlaveInstanceType
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
     , jficAdditionalSlaveSecurityGroups
+    , jficEC2SubnetIds
     , jficHadoopVersion
     , jficAdditionalMasterSecurityGroups
     , jficEmrManagedMasterSecurityGroup
@@ -398,6 +498,7 @@ module Network.AWS.EMR.Types
     -- * PlacementType
     , PlacementType
     , placementType
+    , ptAvailabilityZones
     , ptAvailabilityZone
 
     -- * ScalingAction
@@ -449,6 +550,13 @@ module Network.AWS.EMR.Types
     , sspcAdjustmentType
     , sspcCoolDown
     , sspcScalingAdjustment
+
+    -- * SpotProvisioningSpecification
+    , SpotProvisioningSpecification
+    , spotProvisioningSpecification
+    , spsBlockDurationMinutes
+    , spsTimeoutDurationMinutes
+    , spsTimeoutAction
 
     -- * Step
     , Step

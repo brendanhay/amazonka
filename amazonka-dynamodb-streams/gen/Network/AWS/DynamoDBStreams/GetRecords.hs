@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /GetRecords/ operation.
+-- | Represents the input of a @GetRecords@ operation.
 --
 --
 --
@@ -120,7 +120,7 @@ instance ToPath GetRecords where
 instance ToQuery GetRecords where
         toQuery = const mempty
 
--- | Represents the output of a /GetRecords/ operation.
+-- | Represents the output of a @GetRecords@ operation.
 --
 --
 --

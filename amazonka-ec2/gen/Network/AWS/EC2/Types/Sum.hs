@@ -920,27 +920,27 @@ instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
 
 data IAMInstanceProfileAssociationState
-    = IAPASAssociated
-    | IAPASAssociating
-    | IAPASDisassociated
-    | IAPASDisassociating
+    = Associated
+    | Associating
+    | Disassociated
+    | Disassociating
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText IAMInstanceProfileAssociationState where
     parser = takeLowerText >>= \case
-        "associated" -> pure IAPASAssociated
-        "associating" -> pure IAPASAssociating
-        "disassociated" -> pure IAPASDisassociated
-        "disassociating" -> pure IAPASDisassociating
+        "associated" -> pure Associated
+        "associating" -> pure Associating
+        "disassociated" -> pure Disassociated
+        "disassociating" -> pure Disassociating
         e -> fromTextError $ "Failure parsing IAMInstanceProfileAssociationState from value: '" <> e
            <> "'. Accepted values: associated, associating, disassociated, disassociating"
 
 instance ToText IAMInstanceProfileAssociationState where
     toText = \case
-        IAPASAssociated -> "associated"
-        IAPASAssociating -> "associating"
-        IAPASDisassociated -> "disassociated"
-        IAPASDisassociating -> "disassociating"
+        Associated -> "associated"
+        Associating -> "associating"
+        Disassociated -> "disassociated"
+        Disassociating -> "disassociating"
 
 instance Hashable     IAMInstanceProfileAssociationState
 instance NFData       IAMInstanceProfileAssociationState
@@ -1239,6 +1239,12 @@ data InstanceType
     | I2_4XLarge
     | I2_8XLarge
     | I2_XLarge
+    | I3_16XLarge
+    | I3_2XLarge
+    | I3_4XLarge
+    | I3_8XLarge
+    | I3_Large
+    | I3_XLarge
     | M1_Large
     | M1_Medium
     | M1_Small
@@ -1314,6 +1320,12 @@ instance FromText InstanceType where
         "i2.4xlarge" -> pure I2_4XLarge
         "i2.8xlarge" -> pure I2_8XLarge
         "i2.xlarge" -> pure I2_XLarge
+        "i3.16xlarge" -> pure I3_16XLarge
+        "i3.2xlarge" -> pure I3_2XLarge
+        "i3.4xlarge" -> pure I3_4XLarge
+        "i3.8xlarge" -> pure I3_8XLarge
+        "i3.large" -> pure I3_Large
+        "i3.xlarge" -> pure I3_XLarge
         "m1.large" -> pure M1_Large
         "m1.medium" -> pure M1_Medium
         "m1.small" -> pure M1_Small
@@ -1356,7 +1368,7 @@ instance FromText InstanceType where
         "x1.16xlarge" -> pure X1_16XLarge
         "x1.32xlarge" -> pure X1_32XLarge
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, f1.16xlarge, f1.2xlarge, g2.2xlarge, g2.8xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, i3.16xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.large, i3.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.16xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, p2.16xlarge, p2.8xlarge, p2.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, r4.16xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.large, r4.xlarge, t1.micro, t2.2xlarge, t2.large, t2.medium, t2.micro, t2.nano, t2.small, t2.xlarge, x1.16xlarge, x1.32xlarge"
 
 instance ToText InstanceType where
     toText = \case
@@ -1390,6 +1402,12 @@ instance ToText InstanceType where
         I2_4XLarge -> "i2.4xlarge"
         I2_8XLarge -> "i2.8xlarge"
         I2_XLarge -> "i2.xlarge"
+        I3_16XLarge -> "i3.16xlarge"
+        I3_2XLarge -> "i3.2xlarge"
+        I3_4XLarge -> "i3.4xlarge"
+        I3_8XLarge -> "i3.8xlarge"
+        I3_Large -> "i3.large"
+        I3_XLarge -> "i3.xlarge"
         M1_Large -> "m1.large"
         M1_Medium -> "m1.medium"
         M1_Small -> "m1.small"
@@ -1686,21 +1704,21 @@ instance FromXML NetworkInterfaceType where
     parseXML = parseXMLText "NetworkInterfaceType"
 
 data OfferingClassType
-    = Convertible
-    | Standard
+    = OCTConvertible
+    | OCTStandard
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OfferingClassType where
     parser = takeLowerText >>= \case
-        "convertible" -> pure Convertible
-        "standard" -> pure Standard
+        "convertible" -> pure OCTConvertible
+        "standard" -> pure OCTStandard
         e -> fromTextError $ "Failure parsing OfferingClassType from value: '" <> e
            <> "'. Accepted values: convertible, standard"
 
 instance ToText OfferingClassType where
     toText = \case
-        Convertible -> "convertible"
-        Standard -> "standard"
+        OCTConvertible -> "convertible"
+        OCTStandard -> "standard"
 
 instance Hashable     OfferingClassType
 instance NFData       OfferingClassType
@@ -2536,33 +2554,33 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SubnetCidrBlockStateCode
-    = Associated
-    | Associating
-    | Disassociated
-    | Disassociating
-    | Failed
-    | Failing
+    = SCBSCAssociated
+    | SCBSCAssociating
+    | SCBSCDisassociated
+    | SCBSCDisassociating
+    | SCBSCFailed
+    | SCBSCFailing
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText SubnetCidrBlockStateCode where
     parser = takeLowerText >>= \case
-        "associated" -> pure Associated
-        "associating" -> pure Associating
-        "disassociated" -> pure Disassociated
-        "disassociating" -> pure Disassociating
-        "failed" -> pure Failed
-        "failing" -> pure Failing
+        "associated" -> pure SCBSCAssociated
+        "associating" -> pure SCBSCAssociating
+        "disassociated" -> pure SCBSCDisassociated
+        "disassociating" -> pure SCBSCDisassociating
+        "failed" -> pure SCBSCFailed
+        "failing" -> pure SCBSCFailing
         e -> fromTextError $ "Failure parsing SubnetCidrBlockStateCode from value: '" <> e
            <> "'. Accepted values: associated, associating, disassociated, disassociating, failed, failing"
 
 instance ToText SubnetCidrBlockStateCode where
     toText = \case
-        Associated -> "associated"
-        Associating -> "associating"
-        Disassociated -> "disassociated"
-        Disassociating -> "disassociating"
-        Failed -> "failed"
-        Failing -> "failing"
+        SCBSCAssociated -> "associated"
+        SCBSCAssociating -> "associating"
+        SCBSCDisassociated -> "disassociated"
+        SCBSCDisassociating -> "disassociating"
+        SCBSCFailed -> "failed"
+        SCBSCFailing -> "failing"
 
 instance Hashable     SubnetCidrBlockStateCode
 instance NFData       SubnetCidrBlockStateCode
@@ -2991,6 +3009,38 @@ instance ToByteString VolumeAttributeName
 instance ToQuery      VolumeAttributeName
 instance ToHeader     VolumeAttributeName
 
+data VolumeModificationState
+    = Completed
+    | Failed
+    | Modifying
+    | Optimizing
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText VolumeModificationState where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "modifying" -> pure Modifying
+        "optimizing" -> pure Optimizing
+        e -> fromTextError $ "Failure parsing VolumeModificationState from value: '" <> e
+           <> "'. Accepted values: completed, failed, modifying, optimizing"
+
+instance ToText VolumeModificationState where
+    toText = \case
+        Completed -> "completed"
+        Failed -> "failed"
+        Modifying -> "modifying"
+        Optimizing -> "optimizing"
+
+instance Hashable     VolumeModificationState
+instance NFData       VolumeModificationState
+instance ToByteString VolumeModificationState
+instance ToQuery      VolumeModificationState
+instance ToHeader     VolumeModificationState
+
+instance FromXML VolumeModificationState where
+    parseXML = parseXMLText "VolumeModificationState"
+
 data VolumeState
     = VAvailable
     | VCreating
@@ -3085,30 +3135,30 @@ instance FromXML VolumeStatusName where
     parseXML = parseXMLText "VolumeStatusName"
 
 data VolumeType
-    = VTGP2
-    | VTIO1
-    | VTSC1
-    | VTST1
-    | VTStandard
+    = GP2
+    | IO1
+    | SC1
+    | ST1
+    | Standard
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
-        "gp2" -> pure VTGP2
-        "io1" -> pure VTIO1
-        "sc1" -> pure VTSC1
-        "st1" -> pure VTST1
-        "standard" -> pure VTStandard
+        "gp2" -> pure GP2
+        "io1" -> pure IO1
+        "sc1" -> pure SC1
+        "st1" -> pure ST1
+        "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing VolumeType from value: '" <> e
            <> "'. Accepted values: gp2, io1, sc1, st1, standard"
 
 instance ToText VolumeType where
     toText = \case
-        VTGP2 -> "gp2"
-        VTIO1 -> "io1"
-        VTSC1 -> "sc1"
-        VTST1 -> "st1"
-        VTStandard -> "standard"
+        GP2 -> "gp2"
+        IO1 -> "io1"
+        SC1 -> "sc1"
+        ST1 -> "st1"
+        Standard -> "standard"
 
 instance Hashable     VolumeType
 instance NFData       VolumeType

@@ -23,7 +23,7 @@
 --
 -- This operation is synchronous.
 --
--- A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are invalid.
+-- A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.DescribeServers
     (
@@ -131,7 +131,7 @@ data DescribeServersResponse = DescribeServersResponse'
     { _dssrsServers        :: !(Maybe [Server])
     , _dssrsNextToken      :: !(Maybe Text)
     , _dssrsResponseStatus :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeServersResponse' with the minimum fields required to make a request.
 --

@@ -230,7 +230,7 @@ module Network.AWS.EC2
     -- ** ReplaceNetworkACLAssociation
     , module Network.AWS.EC2.ReplaceNetworkACLAssociation
 
-    -- ** DescribeNatGateways
+    -- ** DescribeNatGateways (Paginated)
     , module Network.AWS.EC2.DescribeNatGateways
 
     -- ** DescribeAddresses
@@ -346,6 +346,9 @@ module Network.AWS.EC2
 
     -- ** DisableVPCClassicLinkDNSSupport
     , module Network.AWS.EC2.DisableVPCClassicLinkDNSSupport
+
+    -- ** DescribeVolumesModifications
+    , module Network.AWS.EC2.DescribeVolumesModifications
 
     -- ** AllocateAddress
     , module Network.AWS.EC2.AllocateAddress
@@ -622,6 +625,9 @@ module Network.AWS.EC2
 
     -- ** DeleteSpotDatafeedSubscription
     , module Network.AWS.EC2.DeleteSpotDatafeedSubscription
+
+    -- ** ModifyVolume
+    , module Network.AWS.EC2.ModifyVolume
 
     -- ** EnableVPCClassicLink
     , module Network.AWS.EC2.EnableVPCClassicLink
@@ -1068,6 +1074,9 @@ module Network.AWS.EC2
 
     -- ** VolumeAttributeName
     , VolumeAttributeName (..)
+
+    -- ** VolumeModificationState
+    , VolumeModificationState (..)
 
     -- ** VolumeState
     , VolumeState (..)
@@ -2907,6 +2916,22 @@ module Network.AWS.EC2
     , volumeDetail
     , vdSize
 
+    -- ** VolumeModification
+    , VolumeModification
+    , volumeModification
+    , vmProgress
+    , vmStartTime
+    , vmModificationState
+    , vmTargetVolumeType
+    , vmOriginalVolumeType
+    , vmTargetSize
+    , vmTargetIOPS
+    , vmOriginalSize
+    , vmOriginalIOPS
+    , vmStatusMessage
+    , vmEndTime
+    , vmVolumeId
+
     -- ** VolumeStatusAction
     , VolumeStatusAction
     , volumeStatusAction
@@ -3086,6 +3111,7 @@ import           Network.AWS.EC2.DescribeSubnets
 import           Network.AWS.EC2.DescribeTags
 import           Network.AWS.EC2.DescribeVolumeAttribute
 import           Network.AWS.EC2.DescribeVolumes
+import           Network.AWS.EC2.DescribeVolumesModifications
 import           Network.AWS.EC2.DescribeVolumeStatus
 import           Network.AWS.EC2.DescribeVPCAttribute
 import           Network.AWS.EC2.DescribeVPCClassicLink
@@ -3135,6 +3161,7 @@ import           Network.AWS.EC2.ModifyReservedInstances
 import           Network.AWS.EC2.ModifySnapshotAttribute
 import           Network.AWS.EC2.ModifySpotFleetRequest
 import           Network.AWS.EC2.ModifySubnetAttribute
+import           Network.AWS.EC2.ModifyVolume
 import           Network.AWS.EC2.ModifyVolumeAttribute
 import           Network.AWS.EC2.ModifyVPCAttribute
 import           Network.AWS.EC2.ModifyVPCEndpoint

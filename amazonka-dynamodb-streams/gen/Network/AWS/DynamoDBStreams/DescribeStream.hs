@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input of a /DescribeStream/ operation.
+-- | Represents the input of a @DescribeStream@ operation.
 --
 --
 --
@@ -128,7 +128,7 @@ instance ToPath DescribeStream where
 instance ToQuery DescribeStream where
         toQuery = const mempty
 
--- | Represents the output of a /DescribeStream/ operation.
+-- | Represents the output of a @DescribeStream@ operation.
 --
 --
 --

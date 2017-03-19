@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Restores a backup to a server that is in a @RUNNING@ , @FAILED@ , or @HEALTHY@ state. When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains the existing server endpoint, so configuration management of all of the server's client devices should continue to work.
+-- Restores a backup to a server that is in a @CONNECTION_LOST@ , @HEALTHY@ , @RUNNING@ , @UNHEALTHY@ , or @TERMINATED@ state. When you run RestoreServer, the server's EC2 instance is deleted, and a new EC2 instance is configured. RestoreServer maintains the existing server endpoint, so configuration management of the server's client devices (nodes) should continue to work.
 --
 --
 -- This operation is asynchronous.
 --
--- A @InvalidStateException@ is thrown when the server is not in a valid state. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are invalid.
+-- An @InvalidStateException@ is thrown when the server is not in a valid state. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 --
 module Network.AWS.OpsWorksCM.RestoreServer
     (
@@ -62,9 +62,9 @@ data RestoreServer = RestoreServer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsKeyPair' - The name of the key pair to set on the new EC2 instance. This can be helpful if any of the administrators who manage the server no longer have the SSH key.
+-- * 'rsKeyPair' - The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 --
--- * 'rsInstanceType' - The type of the instance to create. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @c3.large@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
+-- * 'rsInstanceType' - The type of the instance to create. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m4.large@ . Valid values are @t2.medium@ , @m4.large@ , and @m4.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
 --
 -- * 'rsBackupId' - The ID of the backup that you want to use to restore a server.
 --
@@ -81,11 +81,11 @@ restoreServer pBackupId_ pServerName_ =
     , _rsServerName = pServerName_
     }
 
--- | The name of the key pair to set on the new EC2 instance. This can be helpful if any of the administrators who manage the server no longer have the SSH key.
+-- | The name of the key pair to set on the new EC2 instance. This can be helpful if the administrator no longer has the SSH key.
 rsKeyPair :: Lens' RestoreServer (Maybe Text)
 rsKeyPair = lens _rsKeyPair (\ s a -> s{_rsKeyPair = a});
 
--- | The type of the instance to create. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @c3.large@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
+-- | The type of the instance to create. Valid values must be specified in the following format: @^([cm][34]|t2).*@ For example, @m4.large@ . Valid values are @t2.medium@ , @m4.large@ , and @m4.2xlarge@ . If you do not specify this parameter, RestoreServer uses the instance type from the specified backup.
 rsInstanceType :: Lens' RestoreServer (Maybe Text)
 rsInstanceType = lens _rsInstanceType (\ s a -> s{_rsInstanceType = a});
 

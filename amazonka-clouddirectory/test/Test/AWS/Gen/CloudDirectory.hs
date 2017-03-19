@@ -58,6 +58,9 @@ import Test.AWS.CloudDirectory.Internal
 --         , requestListDirectories $
 --             listDirectories
 --
+--         , requestListObjectParentPaths $
+--             listObjectParentPaths
+--
 --         , requestDisableDirectory $
 --             disableDirectory
 --
@@ -204,6 +207,9 @@ import Test.AWS.CloudDirectory.Internal
 --
 --         , responseListDirectories $
 --             listDirectoriesResponse
+--
+--         , responseListObjectParentPaths $
+--             listObjectParentPathsResponse
 --
 --         , responseDisableDirectory $
 --             disableDirectoryResponse
@@ -373,6 +379,11 @@ requestListDirectories :: ListDirectories -> TestTree
 requestListDirectories = req
     "ListDirectories"
     "fixture/ListDirectories.yaml"
+
+requestListObjectParentPaths :: ListObjectParentPaths -> TestTree
+requestListObjectParentPaths = req
+    "ListObjectParentPaths"
+    "fixture/ListObjectParentPaths.yaml"
 
 requestDisableDirectory :: DisableDirectory -> TestTree
 requestDisableDirectory = req
@@ -635,6 +646,13 @@ responseListDirectories = res
     "fixture/ListDirectoriesResponse.proto"
     cloudDirectory
     (Proxy :: Proxy ListDirectories)
+
+responseListObjectParentPaths :: ListObjectParentPathsResponse -> TestTree
+responseListObjectParentPaths = res
+    "ListObjectParentPathsResponse"
+    "fixture/ListObjectParentPathsResponse.proto"
+    cloudDirectory
+    (Proxy :: Proxy ListObjectParentPaths)
 
 responseDisableDirectory :: DisableDirectoryResponse -> TestTree
 responseDisableDirectory = res

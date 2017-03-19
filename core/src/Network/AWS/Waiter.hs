@@ -24,21 +24,22 @@ module Network.AWS.Waiter
     -- * Matchers
     , matchAll
     , matchAny
+    , matchNonEmpty
     , matchError
     , matchStatus
 
     -- * Util
-    , nonEmpty
+    , nonEmptyText
     ) where
 
 import           Control.Applicative
+import           Control.Lens                (Fold, allOf, anyOf, to, (^?), (^..))
 import           Data.Maybe
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Log
 import           Network.AWS.Error
-import           Network.AWS.Lens            (Fold, allOf, anyOf, to, (^?))
 import           Network.AWS.Types
 
 type Acceptor a = Request a -> Either Error (Response a) -> Maybe Accept
@@ -72,6 +73,9 @@ matchAll x a l = match (allOf l (== x)) a
 matchAny :: Eq b => b -> Accept -> Fold (Rs a) b -> Acceptor a
 matchAny x a l = match (anyOf l (== x)) a
 
+matchNonEmpty :: Bool -> Accept -> Fold (Rs a) b -> Acceptor a
+matchNonEmpty x a l = match (\rs -> null (rs ^.. l) == x) a
+
 matchStatus :: Int -> Accept -> Acceptor a
 matchStatus x a _ = \case
     Right (s, _) | x == fromEnum s                          -> Just a
@@ -88,5 +92,5 @@ match f a _ = \case
     Right (_, rs) | f rs -> Just a
     _                    -> Nothing
 
-nonEmpty :: Fold a Text -> Fold a Bool
-nonEmpty l = l . to Text.null
+nonEmptyText :: Fold a Text -> Fold a Bool
+nonEmptyText f = f . to Text.null

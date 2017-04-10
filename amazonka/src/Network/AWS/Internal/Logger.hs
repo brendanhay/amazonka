@@ -43,7 +43,6 @@ import           System.IO
 -- should be used in production code.
 newLogger :: MonadIO m => LogLevel -> Handle -> m Logger
 newLogger x hd = liftIO $ do
-    hSetBinaryMode hd True
     hSetBuffering  hd LineBuffering
     return $ \y b ->
         when (x >= y) $

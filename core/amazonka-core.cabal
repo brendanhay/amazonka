@@ -61,6 +61,8 @@ library
         , Network.AWS.Prelude
         , Network.AWS.Request
         , Network.AWS.Response
+        , Network.AWS.Sign.V2Header
+        , Network.AWS.Sign.V2Header.Base
         , Network.AWS.Sign.V2
         , Network.AWS.Sign.V4
         , Network.AWS.Types
@@ -128,6 +130,7 @@ test-suite tests
         , Test.AWS.Data.Path
         , Test.AWS.Data.Time
         , Test.AWS.Error
+        , Test.AWS.Sign.V2Header.BaseSpec
         , Test.AWS.Sign.V4
         , Test.AWS.Util
 
@@ -137,12 +140,14 @@ test-suite tests
         , base
         , bytestring
         , case-insensitive
+        , data-ordlist
         , http-types
+        , lens
+        , QuickCheck
+        , quickcheck-unicode
         , tasty
         , tasty-hunit
         , tasty-quickcheck
         , template-haskell
         , text
         , time
-        , QuickCheck
-        , quickcheck-unicode

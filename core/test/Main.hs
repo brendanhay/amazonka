@@ -10,14 +10,16 @@
 --
 module Main (main) where
 
-import qualified Test.AWS.Data.Base64  as Base64
-import qualified Test.AWS.Data.List    as List
-import qualified Test.AWS.Data.Maybe   as Maybe
-import qualified Test.AWS.Data.Numeric as Numeric
-import qualified Test.AWS.Data.Path    as Path
-import qualified Test.AWS.Data.Time    as Time
-import qualified Test.AWS.Error        as Error
-import qualified Test.AWS.Sign.V4      as V4
+import qualified Test.AWS.Data.Base64            as Base64
+import qualified Test.AWS.Data.List              as List
+import qualified Test.AWS.Data.Maybe             as Maybe
+import qualified Test.AWS.Data.Numeric           as Numeric
+import qualified Test.AWS.Data.Path              as Path
+import qualified Test.AWS.Data.Time              as Time
+import qualified Test.AWS.Error                  as Error
+import qualified Test.AWS.Sign.V4                as V4
+import qualified Test.AWS.Sign.V2Header.BaseSpec as V2Header
+
 import           Test.Tasty
 
 main :: IO ()
@@ -39,7 +41,8 @@ main = defaultMain $
             ]
 
         , testGroup "signing"
-            [ V4.tests
+            [ V2Header.tests
+            , V4.tests
             ]
 
         , Error.tests

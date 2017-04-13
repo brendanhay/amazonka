@@ -269,3 +269,4 @@ normaliseHeaders = Tag
     . nubBy  ((==)    `on` fst)
     . sortBy (compare `on` fst)
     . filter ((/= "authorization") . fst)
+    . filter ((/= "expect") . fst)

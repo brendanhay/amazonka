@@ -75,6 +75,23 @@
                     "state": "retry"
                 }
             ]
+        },
+        "ImageExists": {
+            "delay": 5,
+            "maxAttempts": 40,
+            "operation": "DescribeImages",
+            "acceptors": [
+                {
+                    "matcher": "status",
+                    "expected": 200,
+                    "state": "success"
+                },
+                {
+                    "matcher": "error",
+                    "expected": "InvalidAMIIDNotFound",
+                    "state": "retry"
+                }
+            ]
         }
     }
 }

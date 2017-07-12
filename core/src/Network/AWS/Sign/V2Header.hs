@@ -4,17 +4,20 @@
 
 -- |
 -- Module      : Network.AWS.Sign.V2Header
--- Description : This module provides an AWS compliant V2 Header request signer. It is based heavily on boto (https://github.com/boto/boto)
---               Specifically boto's HmacAuthV1Handler AWS capable signer. Documentation in http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
---               Notice: Limitations include inability to sign with a security token and inability to overwrite Date header with expiry.
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
+-- This module provides an AWS compliant V2 Header request signer. It is based
+-- heavily on boto (https://github.com/boto/boto), specifically boto's
+-- @HmacAuthV1Handler@ AWS capable signer. AWS documentation is available
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html here>.
+--
+-- /Notice/: Limitations include an inability to sign with a security token and
+-- inability to overwrite the @Date@ header with an expiry.
 module Network.AWS.Sign.V2Header
     ( v2Header
     ) where
 
-import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
@@ -44,8 +47,8 @@ instance ToLog V2Header where
         , "  time      = " <> build metaTime
         , "  endpoint  = " <> build (_endpointHost metaEndpoint)
         , "  signature = " <> build metaSignature
-        , "  headers = " <> build headers
-        , "  signer = " <> build signer
+        , "  headers = "   <> build headers
+        , "  signer = "    <> build signer
         , "}"
         ]
 
@@ -77,6 +80,9 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
     signature = digestToBase Base64
         . hmacSHA1 (toBS _authSecret) $ signer
 
-    headers = hdr hDate time _rqHeaders ++ [(hAuthorization, BS8.append "AWS " (BS8.append (toBS _authAccess) (BS8.append ":" signature)))]
+    headers =
+          hdr hDate time
+        . hdr hAuthorization ("AWS " <> toBS _authAccess <> ":" <> signature)
+        $ _rqHeaders
 
     time = toBS (Time t :: RFC822)

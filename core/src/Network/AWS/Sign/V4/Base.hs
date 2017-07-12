@@ -19,33 +19,33 @@
 --
 module Network.AWS.Sign.V4.Base where
 
-import Control.Applicative
+import           Control.Applicative
 
-import Data.Bifunctor
-import Data.Function  (on)
-import Data.List      (nubBy, sortBy)
-import Data.Monoid
+import           Data.Bifunctor
+import           Data.Function               (on)
+import           Data.List                   (nubBy, sortBy)
+import           Data.Monoid
 
-import GHC.TypeLits
+import           GHC.TypeLits
 
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Sensitive  (_Sensitive)
-import Network.AWS.Data.Time
-import Network.AWS.Lens            ((%~), (<>~), (^.))
-import Network.AWS.Request
-import Network.AWS.Types
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
+import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Log
+import           Network.AWS.Data.Path
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Sensitive  (_Sensitive)
+import           Network.AWS.Data.Time
+import           Network.AWS.Lens            ((%~), (<>~), (^.))
+import           Network.AWS.Request
+import           Network.AWS.Types
 
-import qualified Data.ByteString           as BS
-import qualified Data.ByteString.Char8     as BS8
-import qualified Data.CaseInsensitive      as CI
-import qualified Data.Foldable             as Fold
-import qualified Network.HTTP.Conduit      as Client
-import qualified Network.HTTP.Types.Header as H
+import qualified Data.ByteString             as BS
+import qualified Data.ByteString.Char8       as BS8
+import qualified Data.CaseInsensitive        as CI
+import qualified Data.Foldable               as Fold
+import qualified Network.HTTP.Conduit        as Client
+import qualified Network.HTTP.Types.Header   as H
 
 default (ByteString)
 

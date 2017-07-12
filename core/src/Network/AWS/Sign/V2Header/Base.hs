@@ -1,135 +1,83 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Sign.V2Header.Base
--- Description : This module provides auxiliary functions necessary for the AWS compliant V2 Header request signer.
---               See also Network.AWS.Sign.V2Header
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-
+-- This module provides auxiliary functions necessary for the AWS compliant V2
+-- Header request signer.
+-- /See/: "Network.AWS.Sign.V2Header"
 module Network.AWS.Sign.V2Header.Base
-  (
-  constructHeaderSigner
-  , constructFullPath
-  , constructHeaderStringForSigning
-  , constructQueryStringForSigning
-  , filterHeaders
-  , sortHeaders
-  , toSignerQBS
-  , unionNecessaryHeaders
-  ) where
+    ( newSigner
 
+    -- * Testing
+    , toSignerQueryBS
 
-import           Data.ByteString.Builder     (Builder)
-import           Network.HTTP.Types.URI      (urlEncode)
+    , constructSigningHeader
+    , constructSigningQuery
+    , constructFullPath
 
-import qualified Data.ByteString.Builder      as Build
-import qualified Data.ByteString.Char8        as DBC
-import qualified Data.ByteString.Lazy         as LBS
-import qualified Data.CaseInsensitive         as DC
-import qualified Data.List                    as DL
-import           Data.Monoid                  ((<>), mempty)
+    , unionNecessaryHeaders
+    ) where
 
-import qualified Network.AWS.Data.ByteString  as NADB
-import qualified Network.AWS.Data.Query       as NADQ
-import qualified Network.HTTP.Types           as NHT
+import           Data.ByteString         (ByteString)
+import           Data.ByteString.Builder (Builder)
+import qualified Data.ByteString.Builder as Build
+import qualified Data.ByteString.Char8   as BS8
+import qualified Data.ByteString.Lazy    as LBS
+import qualified Data.CaseInsensitive    as CI
+import           Data.Function           (on)
+import qualified Data.List               as List
+import           Data.Monoid             (mempty, (<>))
+import qualified Network.AWS.Data.Query  as Query
+import qualified Network.HTTP.Types      as HTTP
+import           Network.HTTP.Types.URI  (urlEncode)
 
--- | Filter for 'interesting' keys within a QueryString
-isInterestingQueryKey :: NADB.ByteString -> Bool
-isInterestingQueryKey key
-  | key == "acl" = True
-  | key == "cors" = True
-  | key == "defaultObjectAcl" = True
-  | key == "location" = True
-  | key == "logging" = True
-  | key == "partNumber" = True
-  | key == "policy" = True
-  | key == "requestPayment" = True
-  | key == "torrent" = True
-  | key == "versioning" = True
-  | key == "versionId" = True
-  | key == "versions" = True
-  | key == "website" = True
-  | key == "uploads" = True
-  | key == "uploadId" = True
-  | key == "response-content-type" = True
-  | key == "response-content-language" = True
-  | key == "response-expires" = True
-  | key == "response-cache-control" = True
-  | key == "response-content-disposition" = True
-  | key == "response-content-encoding" = True
-  | key == "delete" = True
-  | key == "lifecycle" = True
-  | key == "tagging" = True
-  | key == "restore" = True
-  | key == "storageClass" = True
-  | key == "websiteConfig" = True
-  | key == "compose" = True
-  | otherwise = False
-
--- | Filter for 'interesting' header fields
-isInterestingHeader :: NHT.Header -> Bool
-isInterestingHeader header
-  | headerName == NHT.hDate = True
-  | headerName == NHT.hContentMD5 = True
-  | headerName == NHT.hContentType = True
-  | "aws-" `DBC.isPrefixOf` DC.foldedCase headerName = True
-  | otherwise = False
-  where headerName = fst header
-
--- | Constructs a query string for signing
-constructQueryStringForSigning :: NADQ.QueryString -> NADQ.QueryString
-constructQueryStringForSigning (NADQ.QValue _) = NADQ.QValue Nothing
-constructQueryStringForSigning (NADQ.QList qList) = NADQ.QList filtered
+-- | Construct a full header signer following the V2 Header scheme
+newSigner :: HTTP.RequestHeaders
+          -> ByteString
+          -> ByteString
+          -> Query.QueryString
+          -> ByteString
+newSigner headers method path query = signer
   where
-    filtered = map constructQueryStringForSigning qList
-constructQueryStringForSigning (NADQ.QPair key value)
-  | isInterestingQueryKey key = NADQ.QPair key value
-  | otherwise = NADQ.QValue Nothing
+    signer =
+        BS8.intercalate "\n"
+            ( method
+            : map constructSigningHeader (List.sort filteredHeaders)
+          ++ [constructFullPath path (toSignerQueryBS filteredQuery)]
+            )
 
--- | Construct a header string for signing
-constructHeaderStringForSigning :: NHT.Header -> NADB.ByteString
-constructHeaderStringForSigning header
-  | "aws-" `DBC.isPrefixOf` DC.foldedCase headerName = DBC.append (DC.foldedCase headerName) $ DBC.append ":" headerValue
-  | otherwise = headerValue
-  where
-    headerName = fst header
-    headerValue = snd header
+    filteredHeaders = unionNecessaryHeaders (filter isInterestingHeader headers)
 
-filterHeaders :: [NHT.Header] -> [NHT.Header]
-filterHeaders = filter isInterestingHeader
-
-unionNecessaryHeaders :: [NHT.Header] -> [NHT.Header]
-unionNecessaryHeaders headers = DL.unionBy (\x y -> fst x == fst y) headers [(NHT.hContentMD5, ""), (NHT.hContentType, "")]
-
-sortHeaders :: [NHT.Header] -> [NHT.Header]
-sortHeaders = DL.sort
+    filteredQuery = constructSigningQuery query
 
 -- | The following function mostly follows the toBS in amazonka QueryString
---   except for single QValue or single QPair keys not being suffixed with
---   an equals.
-toSignerQBS :: NADQ.QueryString -> NADB.ByteString
-toSignerQBS = LBS.toStrict . Build.toLazyByteString . cat . DL.sort . enc Nothing
+-- except for single QValue or single QPair keys not being suffixed with
+-- an equals.
+toSignerQueryBS :: Query.QueryString -> ByteString
+toSignerQueryBS =
+    LBS.toStrict . Build.toLazyByteString . cat . List.sort . enc Nothing
   where
-    enc :: Maybe NADB.ByteString -> NADQ.QueryString -> [NADB.ByteString]
+    enc :: Maybe ByteString -> Query.QueryString -> [ByteString]
     enc p = \case
-      NADQ.QList xs          -> concatMap (enc p) xs
+      Query.QList xs    -> concatMap (enc p) xs
 
-      NADQ.QPair (urlEncode True -> k) x
-        | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
-        | otherwise   -> enc (Just k)                  x -- key <recur>
+      Query.QPair (urlEncode True -> k) x
+          | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
+          | otherwise   -> enc (Just k)                  x -- key <recur>
 
-      NADQ.QValue (Just (urlEncode True -> v))
-        | Just n <- p -> [n <> vsep <> v] -- key=value
-        | otherwise   -> [v]
+      Query.QValue (Just (urlEncode True -> v))
+          | Just n <- p -> [n <> vsep <> v] -- key=value
+          | otherwise   -> [v]
 
       _   | Just n <- p -> [n]
           | otherwise   -> []
 
-    cat :: [NADB.ByteString] -> Builder
+    cat :: [ByteString] -> Builder
     cat []     = mempty
     cat [x]    = Build.byteString x
     cat (x:xs) = Build.byteString x <> ksep <> cat xs
@@ -138,22 +86,74 @@ toSignerQBS = LBS.toStrict . Build.toLazyByteString . cat . DL.sort . enc Nothin
     ksep   = "&"
     vsep   = "="
 
-constructFullPath :: NADB.ByteString -> NADB.ByteString -> NADB.ByteString
+hasAWSPrefix :: CI.CI ByteString -> Bool
+hasAWSPrefix = BS8.isPrefixOf "aws-" . CI.foldedCase
+
+-- | Filter for 'interesting' keys within a QueryString
+isInterestingQueryKey :: ByteString -> Bool
+isInterestingQueryKey = \case
+    "acl"                          -> True
+    "cors"                         -> True
+    "defaultObjectAcl"             -> True
+    "location"                     -> True
+    "logging"                      -> True
+    "partNumber"                   -> True
+    "policy"                       -> True
+    "requestPayment"               -> True
+    "torrent"                      -> True
+    "versioning"                   -> True
+    "versionId"                    -> True
+    "versions"                     -> True
+    "website"                      -> True
+    "uploads"                      -> True
+    "uploadId"                     -> True
+    "response-content-type"        -> True
+    "response-content-language"    -> True
+    "response-expires"             -> True
+    "response-cache-control"       -> True
+    "response-content-disposition" -> True
+    "response-content-encoding"    -> True
+    "delete"                       -> True
+    "lifecycle"                    -> True
+    "tagging"                      -> True
+    "restore"                      -> True
+    "storageClass"                 -> True
+    "websiteConfig"                -> True
+    "compose"                      -> True
+    _                              -> False
+
+-- | Filter for 'interesting' header fields
+isInterestingHeader :: HTTP.Header -> Bool
+isInterestingHeader (name, _)
+    | name == HTTP.hDate        = True
+    | name == HTTP.hContentMD5  = True
+    | name == HTTP.hContentType = True
+    | hasAWSPrefix name         = True
+    | otherwise                 = False
+
+-- | Constructs a query string for signing
+constructSigningQuery :: Query.QueryString -> Query.QueryString
+constructSigningQuery = \case
+    Query.QValue {} -> Query.QValue Nothing
+    Query.QList  qs -> Query.QList (map constructSigningQuery qs)
+    Query.QPair  k v
+        | isInterestingQueryKey k -> Query.QPair k v
+        | otherwise               -> Query.QValue Nothing
+
+-- | Construct a header string for signing
+constructSigningHeader :: HTTP.Header -> ByteString
+constructSigningHeader (name, value)
+    | hasAWSPrefix name = CI.foldedCase name <> ":" <> value
+    | otherwise         = value
+
+constructFullPath :: ByteString -> ByteString -> ByteString
 constructFullPath path q
-  | q == "" = path
-  | otherwise = path `DBC.append` "?" `DBC.append` q
+    | BS8.null q = path
+    | otherwise  = path <> "?" <> q
 
--- | Construct a full header signer following the V2 Header scheme
-constructHeaderSigner :: NHT.RequestHeaders -> NADB.ByteString -> NADB.ByteString -> NADQ.QueryString -> NADB.ByteString
-constructHeaderSigner headers method path query = signer
-  where
-
-    signer = DBC.intercalate "\n" $ [method] ++ map constructHeaderStringForSigning sortedHeaders ++ [constructFullPath path (toSignerQBS filteredQuery)]
-
-    sortedHeaders = sortHeaders allInterestingHeaders
-
-    allInterestingHeaders = unionNecessaryHeaders filterList
-
-    filterList = filterHeaders headers
-
-    filteredQuery = constructQueryStringForSigning query
+unionNecessaryHeaders :: [HTTP.Header] -> [HTTP.Header]
+unionNecessaryHeaders =
+    flip (List.unionBy (on (==) fst))
+        [ (HTTP.hContentMD5,  "")
+        , (HTTP.hContentType, "")
+        ]

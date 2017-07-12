@@ -27,11 +27,10 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Time
+import qualified Network.AWS.Sign.V2Header.Base as V2
 import           Network.AWS.Types
-import qualified Network.HTTP.Conduit        as Client
+import qualified Network.HTTP.Conduit           as Client
 import           Network.HTTP.Types
-
-import qualified Network.AWS.Sign.V2Header.Base as VB
 
 data V2Header = V2Header
     { metaTime      :: !UTCTime
@@ -60,7 +59,7 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
   where
     meta = Meta (V2Header t end signature headers signer)
 
-    signer = VB.constructHeaderSigner headers meth path' _rqQuery
+    signer = V2.newSigner headers meth path' _rqQuery
 
     rq = (clientRequest end _svcTimeout)
         { Client.method         = meth

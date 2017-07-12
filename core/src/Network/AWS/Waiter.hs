@@ -33,7 +33,8 @@ module Network.AWS.Waiter
     ) where
 
 import           Control.Applicative
-import           Control.Lens                (Fold, allOf, anyOf, to, (^?), (^..))
+import           Control.Lens                (Fold, allOf, anyOf, to, (^..),
+                                              (^?))
 import           Data.Maybe
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text

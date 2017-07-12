@@ -12,24 +12,24 @@
 --
 module Network.AWS.Error where
 
-import Control.Applicative
-import Control.Monad
+import           Control.Applicative
+import           Control.Monad
 
-import Data.Aeson
-import Data.Aeson.Types (parseEither)
-import Data.Maybe
-import Data.Monoid
+import           Data.Aeson
+import           Data.Aeson.Types            (parseEither)
+import           Data.Maybe
+import           Data.Monoid
 
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Text
-import Network.AWS.Data.XML
-import Network.AWS.Lens            (Choice, Getting, Optic', filtered)
-import Network.AWS.Types
-import Network.HTTP.Conduit
-import Network.HTTP.Types.Status   (Status (..))
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Headers
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
+import           Network.AWS.Lens            (Choice, Getting, Optic', filtered)
+import           Network.AWS.Types
+import           Network.HTTP.Conduit
+import           Network.HTTP.Types.Status   (Status (..))
 
-import qualified Data.ByteString.Lazy as LBS
+import qualified Data.ByteString.Lazy        as LBS
 
 -- | Provides a generalised prism for catching a specific service error
 -- identified by the opaque service abbreviation and error code.

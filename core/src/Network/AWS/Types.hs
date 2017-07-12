@@ -125,48 +125,48 @@ module Network.AWS.Types
     , _Default
     ) where
 
-import Control.Applicative
-import Control.Concurrent           (ThreadId)
-import Control.DeepSeq
-import Control.Exception
-import Control.Monad.IO.Class
-import Control.Monad.Trans.Resource
+import           Control.Applicative
+import           Control.Concurrent           (ThreadId)
+import           Control.DeepSeq
+import           Control.Exception
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Resource
 
-import Data.Aeson              hiding (Error)
-import Data.ByteString.Builder (Builder)
-import Data.Coerce
-import Data.Conduit
-import Data.Data               (Data, Typeable)
-import Data.Hashable
-import Data.IORef
-import Data.Maybe
-import Data.Monoid
-import Data.Proxy
-import Data.String
-import Data.Time
+import           Data.Aeson                   hiding (Error)
+import           Data.ByteString.Builder      (Builder)
+import           Data.Coerce
+import           Data.Conduit
+import           Data.Data                    (Data, Typeable)
+import           Data.Hashable
+import           Data.IORef
+import           Data.Maybe
+import           Data.Monoid
+import           Data.Proxy
+import           Data.String
+import           Data.Time
 
-import GHC.Generics (Generic)
+import           GHC.Generics                 (Generic)
 
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Sensitive  (Sensitive, _Sensitive)
-import Network.AWS.Data.Text
-import Network.AWS.Data.Time       (ISO8601, _Time)
-import Network.AWS.Data.XML
-import Network.AWS.Lens            (Iso', Lens', Prism', Setter')
-import Network.AWS.Lens            (exception, iso, lens, mapping, prism, sets,
-                                    view)
-import Network.HTTP.Conduit        hiding (Proxy, Request, Response)
-import Network.HTTP.Types.Header
-import Network.HTTP.Types.Method
-import Network.HTTP.Types.Status   (Status)
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Log
+import           Network.AWS.Data.Path
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Sensitive   (Sensitive, _Sensitive)
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.Time        (ISO8601, _Time)
+import           Network.AWS.Data.XML
+import           Network.AWS.Lens             (Iso', Lens', Prism', Setter')
+import           Network.AWS.Lens             (exception, iso, lens, mapping,
+                                               prism, sets, view)
+import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
+import           Network.HTTP.Types.Header
+import           Network.HTTP.Types.Method
+import           Network.HTTP.Types.Status    (Status)
 
-import qualified Data.Text            as Text
-import qualified Network.HTTP.Conduit as Client
+import qualified Data.Text                    as Text
+import qualified Network.HTTP.Conduit         as Client
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

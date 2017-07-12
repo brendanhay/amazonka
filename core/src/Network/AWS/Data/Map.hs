@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RoleAnnotations            #-}
@@ -23,14 +23,14 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
-import           Control.DeepSeq
 import           Control.Applicative
+import           Control.DeepSeq
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
-import           Data.Data                   (Data,Typeable)
+import           Data.Data                   (Data, Typeable)
 import           Data.Foldable               hiding (toList)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)

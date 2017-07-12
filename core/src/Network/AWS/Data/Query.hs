@@ -56,17 +56,16 @@ instance IsString QueryString where
 parseQueryString :: ByteString -> QueryString
 parseQueryString bs
     | BS8.null bs = mempty
-    | otherwise   = QList (query bs)
+    | otherwise   =
+        QList (map breakPair . filter (not . BS8.null) $ BS8.split '&' bs)
   where
-    query = map pair . filter (not . BS8.null) . BS8.split '&'
-
-    pair x =
+    breakPair x =
         case BS8.break (== '=') x of
             ("", "") -> mempty
-            ("", v)  -> value v
-            (k,  v)  -> QPair k (value v)
+            ("", v)  -> stripValue v
+            (k,  v)  -> QPair k (stripValue v)
 
-    value x =
+    stripValue x =
         case x of
             ""  -> QValue Nothing
             "=" -> QValue Nothing

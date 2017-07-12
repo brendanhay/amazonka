@@ -50,8 +50,27 @@ instance Monoid QueryString where
         (l,       r)       -> QList [l, r]
 
 instance IsString QueryString where
-    fromString [] = mempty
-    fromString xs = QPair (BS8.pack xs) (QValue Nothing)
+    fromString = parseQueryString . fromString
+    {-# INLINE fromString #-}
+
+parseQueryString :: ByteString -> QueryString
+parseQueryString bs
+    | BS8.null bs = mempty
+    | otherwise   = QList (query bs)
+  where
+    query = map pair . filter (not . BS8.null) . BS8.split '&'
+
+    pair x =
+        case BS8.break (== '=') x of
+            ("", "") -> mempty
+            ("", v)  -> value v
+            (k,  v)  -> QPair k (value v)
+
+    value x =
+        case x of
+            ""  -> QValue Nothing
+            "=" -> QValue Nothing
+            _   -> QValue (maybe (Just x) Just (BS8.stripPrefix "=" x))
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

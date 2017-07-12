@@ -84,7 +84,7 @@ instance AWSRequest GetParameters where
               (\ s h x ->
                  GetParametersResponse' <$>
                    (x .?> "Parameters" .!@ mempty) <*>
-                     (x .?> "InvalidParameters")
+                     (x .?> "InvalidParameters" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable GetParameters
@@ -116,7 +116,7 @@ instance ToQuery GetParameters where
 -- | /See:/ 'getParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
     { _gprsParameters        :: !(Maybe [Parameter])
-    , _gprsInvalidParameters :: !(Maybe (List1 Text))
+    , _gprsInvalidParameters :: !(Maybe [Text])
     , _gprsResponseStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -144,8 +144,8 @@ gprsParameters :: Lens' GetParametersResponse [Parameter]
 gprsParameters = lens _gprsParameters (\ s a -> s{_gprsParameters = a}) . _Default . _Coerce;
 
 -- | A list of parameters that are not formatted correctly or do not run when executed.
-gprsInvalidParameters :: Lens' GetParametersResponse (Maybe (NonEmpty Text))
-gprsInvalidParameters = lens _gprsInvalidParameters (\ s a -> s{_gprsInvalidParameters = a}) . mapping _List1;
+gprsInvalidParameters :: Lens' GetParametersResponse [Text]
+gprsInvalidParameters = lens _gprsInvalidParameters (\ s a -> s{_gprsInvalidParameters = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
 gprsResponseStatus :: Lens' GetParametersResponse Int

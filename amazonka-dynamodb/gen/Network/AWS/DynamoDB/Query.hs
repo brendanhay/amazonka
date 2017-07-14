@@ -236,9 +236,6 @@ qTableName = lens _qTableName (\ s a -> s{_qTableName = a});
 instance AWSPager Query where
         page rq rs
           | stop (rs ^. qrsLastEvaluatedKey) = Nothing
-          | stop (rs ^. qrsItems) = Nothing
-          | stop (rs ^. qrsCount) = Nothing
-          | stop (rs ^. qrsScannedCount) = Nothing
           | otherwise =
             Just $ rq &
               qExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey

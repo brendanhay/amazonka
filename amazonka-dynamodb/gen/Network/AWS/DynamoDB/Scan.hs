@@ -223,9 +223,6 @@ sTableName = lens _sTableName (\ s a -> s{_sTableName = a});
 instance AWSPager Scan where
         page rq rs
           | stop (rs ^. srsLastEvaluatedKey) = Nothing
-          | stop (rs ^. srsItems) = Nothing
-          | stop (rs ^. srsCount) = Nothing
-          | stop (rs ^. srsScannedCount) = Nothing
           | otherwise =
             Just $ rq &
               sExclusiveStartKey .~ rs ^. srsLastEvaluatedKey

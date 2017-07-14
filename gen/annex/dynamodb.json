@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "DynamoDB"
+    },
+    "pagination": {
+        "Query": {
+            "result_key": []
+        },
+        "Scan": {
+            "result_key": []
+        }
+    }
+}

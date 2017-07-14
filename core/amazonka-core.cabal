@@ -129,6 +129,7 @@ test-suite tests
         , Test.AWS.Data.Numeric
         , Test.AWS.Data.Path
         , Test.AWS.Data.Time
+        , Test.AWS.Data.Query
         , Test.AWS.Error
         , Test.AWS.Sign.V2Header.BaseSpec
         , Test.AWS.Sign.V4

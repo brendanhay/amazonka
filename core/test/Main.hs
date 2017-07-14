@@ -15,6 +15,7 @@ import qualified Test.AWS.Data.List              as List
 import qualified Test.AWS.Data.Maybe             as Maybe
 import qualified Test.AWS.Data.Numeric           as Numeric
 import qualified Test.AWS.Data.Path              as Path
+import qualified Test.AWS.Data.Query             as Query
 import qualified Test.AWS.Data.Time              as Time
 import qualified Test.AWS.Error                  as Error
 import qualified Test.AWS.Sign.V2Header.BaseSpec as V2Header
@@ -30,6 +31,7 @@ main = defaultMain $
             , Time.tests
             , Base64.tests
             , Maybe.tests
+            , Query.tests
             ]
 
         , testGroup "paths"

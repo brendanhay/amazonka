@@ -224,7 +224,7 @@ randomHeaderGenerator =
 
 interestingAwsHeaderName :: Gen HTTP.HeaderName
 interestingAwsHeaderName =
-    CI.mk <$> BS8.pack <$> (mappend "aws-" <$> nonEmptyString)
+    CI.mk <$> BS8.pack <$> fmap ("aws-" <>) nonEmptyString
 
 interestingHeaderName :: Gen HTTP.HeaderName
 interestingHeaderName =

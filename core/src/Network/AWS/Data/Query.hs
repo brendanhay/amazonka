@@ -25,6 +25,7 @@ import qualified Data.ByteString.Char8       as BS8
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.Data
 import           Data.List                   (sort)
+import           Data.Maybe                  (fromMaybe)
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding          as Text
@@ -69,7 +70,7 @@ parseQueryString bs
         case x of
             ""  -> QValue Nothing
             "=" -> QValue Nothing
-            _   -> QValue (maybe (Just x) Just (BS8.stripPrefix "=" x))
+            _   -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
 
 -- FIXME: use Builder
 instance ToByteString QueryString where

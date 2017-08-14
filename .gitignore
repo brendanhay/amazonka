@@ -15,6 +15,7 @@ vendor
 .vagrant.d
 .stack-work
 bin
+/doc
 
 # CTAGS
 TAGS

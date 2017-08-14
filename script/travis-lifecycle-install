@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 LIBRARY=${LIBRARY?"LIBRARY needs to be set."}

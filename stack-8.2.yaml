@@ -1,17 +1,7 @@
-compiler:   ghc-7.8.4
-resolver:   lts-5.17
-flags:
-  QuickCheck:
-    base3:       false
-    base4:       true
-    base4point8: false
-extra-deps:
-  - QuickCheck-2.8.2
-  - ini-0.3.5
-  - unordered-containers-0.2.7.0
-  - http-conduit-2.2.0
-  - http-client-0.5.0.1
-  - http-client-tls-0.3.0
+compiler:   ghc-8.2
+resolver:   nightly-2017-08-12
+flags:      {}
+extra-deps: []
 packages:
   - core
   - test

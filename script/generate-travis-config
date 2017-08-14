@@ -40,9 +40,9 @@ TITLE
     done
 }
 
-ghc_710=( 7.10.3 )
 ghc_802=( 8.0.2 )
-ghc_all=( 8.0.2 7.10.3 7.8.4 )
+ghc_82=( 8.2 )
+ghc_all=( 8.2 8.0.2 7.10.3 )
 
 travis=".travis.yml"
 
@@ -50,13 +50,13 @@ echo "Updating ${travis}"
 
 sed -i -e '/# GENERATED/,/# END GENERATED/d' "${travis}"
 
-echo "# GENERATED"                        >> "${travis}"
-matrix "Documentation" ghc_710[@] docs[@] >> "${travis}"
-matrix "Core" ghc_all[@] core[@]          >> "${travis}"
-matrix "Test" ghc_802[@] test[@]          >> "${travis}"
-matrix "Priority" ghc_all[@] priority[@]  >> "${travis}"
-matrix "Remainder" ghc_802[@] library[@]  >> "${travis}"
-matrix "Examples" ghc_802[@] examples[@]  >> "${travis}"
-echo "# END GENERATED"                    >> "${travis}"
+echo "# GENERATED"                       >> "${travis}"
+matrix "Documentation" ghc_82[@] docs[@] >> "${travis}"
+matrix "Core" ghc_all[@] core[@]         >> "${travis}"
+matrix "Test" ghc_82[@] test[@]          >> "${travis}"
+matrix "Priority" ghc_all[@] priority[@] >> "${travis}"
+matrix "Remainder" ghc_82[@] library[@]  >> "${travis}"
+matrix "Examples" ghc_82[@] examples[@]  >> "${travis}"
+echo "# END GENERATED"                   >> "${travis}"
 
 echo "Done."

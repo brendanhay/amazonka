@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 mkdir -p ~/.local/bin
 
 curl -L https://www.stackage.org/stack/linux-x86_64 | \
     tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
 
-ghc --version
 stack --version

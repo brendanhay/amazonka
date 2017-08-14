@@ -21,7 +21,7 @@ import qualified Data.Text.Encoding       as Text
 import           Network.AWS.Error
 import           Network.AWS.Prelude
 import           Test.AWS.Arbitrary       ()
-import           Test.QuickCheck.Property
+import           Test.QuickCheck.Property ()
 import           Test.Tasty
 import           Test.Tasty.HUnit
 

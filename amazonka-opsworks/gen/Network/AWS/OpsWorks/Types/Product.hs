@@ -1835,7 +1835,7 @@ data Layer = Layer'
     , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
     , _lEnableAutoHealing           :: !(Maybe Bool)
     , _lPackages                    :: !(Maybe [Text])
-    , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys (Maybe Text)))
     , _lName                        :: !(Maybe Text)
     , _lAutoAssignPublicIPs         :: !(Maybe Bool)
     , _lType                        :: !(Maybe LayerType)
@@ -1967,7 +1967,7 @@ lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
 -- | The layer attributes. For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is set to the cluster's ARN.
-lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
+lAttributes :: Lens' Layer (HashMap LayerAttributesKeys (Maybe Text))
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
 
 -- | The layer name.

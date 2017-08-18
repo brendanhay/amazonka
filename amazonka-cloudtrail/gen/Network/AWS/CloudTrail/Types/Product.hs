@@ -408,7 +408,7 @@ data ResourceTag = ResourceTag'
 --
 -- * 'rResourceId' - Specifies the ARN of the resource.
 --
--- * 'rTagsList' - Undocumented member.
+-- * 'rTagsList' - A list of tags.
 resourceTag
     :: ResourceTag
 resourceTag =
@@ -421,7 +421,7 @@ resourceTag =
 rResourceId :: Lens' ResourceTag (Maybe Text)
 rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
 
--- | Undocumented member.
+-- | A list of tags.
 rTagsList :: Lens' ResourceTag [Tag]
 rTagsList = lens _rTagsList (\ s a -> s{_rTagsList = a}) . _Default . _Coerce;
 

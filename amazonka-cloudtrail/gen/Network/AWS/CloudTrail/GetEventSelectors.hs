@@ -57,7 +57,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'getEventSelectors' smart constructor.
 newtype GetEventSelectors = GetEventSelectors'
-    { _gesTrailName :: Maybe Text
+    { _gesTrailName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetEventSelectors' with the minimum fields required to make a request.
@@ -66,14 +66,15 @@ newtype GetEventSelectors = GetEventSelectors'
 --
 -- * 'gesTrailName' - Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
 getEventSelectors
-    :: GetEventSelectors
-getEventSelectors =
+    :: Text -- ^ 'gesTrailName'
+    -> GetEventSelectors
+getEventSelectors pTrailName_ =
     GetEventSelectors'
-    { _gesTrailName = Nothing
+    { _gesTrailName = pTrailName_
     }
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
-gesTrailName :: Lens' GetEventSelectors (Maybe Text)
+gesTrailName :: Lens' GetEventSelectors Text
 gesTrailName = lens _gesTrailName (\ s a -> s{_gesTrailName = a});
 
 instance AWSRequest GetEventSelectors where
@@ -104,7 +105,7 @@ instance ToHeaders GetEventSelectors where
 instance ToJSON GetEventSelectors where
         toJSON GetEventSelectors'{..}
           = object
-              (catMaybes [("TrailName" .=) <$> _gesTrailName])
+              (catMaybes [Just ("TrailName" .= _gesTrailName)])
 
 instance ToPath GetEventSelectors where
         toPath = const "/"

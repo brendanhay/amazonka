@@ -134,7 +134,7 @@ data ListTagsResponse = ListTagsResponse'
 --
 -- * 'ltrsNextToken' - Reserved for future use.
 --
--- * 'ltrsResourceTagList' - Undocumented member.
+-- * 'ltrsResourceTagList' - A list of resource tags.
 --
 -- * 'ltrsResponseStatus' - -- | The response status code.
 listTagsResponse
@@ -151,7 +151,7 @@ listTagsResponse pResponseStatus_ =
 ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | Undocumented member.
+-- | A list of resource tags.
 ltrsResourceTagList :: Lens' ListTagsResponse [ResourceTag]
 ltrsResourceTagList = lens _ltrsResourceTagList (\ s a -> s{_ltrsResourceTagList = a}) . _Default . _Coerce;
 

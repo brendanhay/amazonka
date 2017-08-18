@@ -31,6 +31,7 @@ module Network.AWS.CloudFormation.ExecuteChangeSet
       executeChangeSet
     , ExecuteChangeSet
     -- * Request Lenses
+    , ecsClientRequestToken
     , ecsStackName
     , ecsChangeSetName
 
@@ -54,13 +55,16 @@ import           Network.AWS.Response
 --
 -- /See:/ 'executeChangeSet' smart constructor.
 data ExecuteChangeSet = ExecuteChangeSet'
-    { _ecsStackName     :: !(Maybe Text)
-    , _ecsChangeSetName :: !Text
+    { _ecsClientRequestToken :: !(Maybe Text)
+    , _ecsStackName          :: !(Maybe Text)
+    , _ecsChangeSetName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExecuteChangeSet' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecsClientRequestToken' - A unique identifier for this @ExecuteChangeSet@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry @ExecuteChangeSet@ requests to ensure that AWS CloudFormation successfully received them.
 --
 -- * 'ecsStackName' - If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
 --
@@ -70,9 +74,14 @@ executeChangeSet
     -> ExecuteChangeSet
 executeChangeSet pChangeSetName_ =
     ExecuteChangeSet'
-    { _ecsStackName = Nothing
+    { _ecsClientRequestToken = Nothing
+    , _ecsStackName = Nothing
     , _ecsChangeSetName = pChangeSetName_
     }
+
+-- | A unique identifier for this @ExecuteChangeSet@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to execute a change set to update a stack with the same name. You might retry @ExecuteChangeSet@ requests to ensure that AWS CloudFormation successfully received them.
+ecsClientRequestToken :: Lens' ExecuteChangeSet (Maybe Text)
+ecsClientRequestToken = lens _ecsClientRequestToken (\ s a -> s{_ecsClientRequestToken = a});
 
 -- | If you specified the name of a change set, specify the stack name or ID (ARN) that is associated with the change set you want to execute.
 ecsStackName :: Lens' ExecuteChangeSet (Maybe Text)
@@ -105,6 +114,7 @@ instance ToQuery ExecuteChangeSet where
           = mconcat
               ["Action" =: ("ExecuteChangeSet" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "ClientRequestToken" =: _ecsClientRequestToken,
                "StackName" =: _ecsStackName,
                "ChangeSetName" =: _ecsChangeSetName]
 

@@ -19,6 +19,35 @@ module Network.AWS.CloudFormation.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data AccountGateStatus
+    = AGSFailed
+    | AGSSkipped
+    | AGSSucceeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AccountGateStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure AGSFailed
+        "skipped" -> pure AGSSkipped
+        "succeeded" -> pure AGSSucceeded
+        e -> fromTextError $ "Failure parsing AccountGateStatus from value: '" <> e
+           <> "'. Accepted values: failed, skipped, succeeded"
+
+instance ToText AccountGateStatus where
+    toText = \case
+        AGSFailed -> "FAILED"
+        AGSSkipped -> "SKIPPED"
+        AGSSucceeded -> "SUCCEEDED"
+
+instance Hashable     AccountGateStatus
+instance NFData       AccountGateStatus
+instance ToByteString AccountGateStatus
+instance ToQuery      AccountGateStatus
+instance ToHeader     AccountGateStatus
+
+instance FromXML AccountGateStatus where
+    parseXML = parseXMLText "AccountGateStatus"
+
 data Capability
     = CapabilityIAM
     | CapabilityNamedIAM
@@ -448,6 +477,160 @@ instance ToHeader     ResourceStatus
 
 instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
+
+data StackInstanceStatus
+    = Current
+    | Inoperable
+    | Outdated
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackInstanceStatus where
+    parser = takeLowerText >>= \case
+        "current" -> pure Current
+        "inoperable" -> pure Inoperable
+        "outdated" -> pure Outdated
+        e -> fromTextError $ "Failure parsing StackInstanceStatus from value: '" <> e
+           <> "'. Accepted values: current, inoperable, outdated"
+
+instance ToText StackInstanceStatus where
+    toText = \case
+        Current -> "CURRENT"
+        Inoperable -> "INOPERABLE"
+        Outdated -> "OUTDATED"
+
+instance Hashable     StackInstanceStatus
+instance NFData       StackInstanceStatus
+instance ToByteString StackInstanceStatus
+instance ToQuery      StackInstanceStatus
+instance ToHeader     StackInstanceStatus
+
+instance FromXML StackInstanceStatus where
+    parseXML = parseXMLText "StackInstanceStatus"
+
+data StackSetOperationAction
+    = SSOACreate
+    | SSOADelete
+    | SSOAUpdate
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackSetOperationAction where
+    parser = takeLowerText >>= \case
+        "create" -> pure SSOACreate
+        "delete" -> pure SSOADelete
+        "update" -> pure SSOAUpdate
+        e -> fromTextError $ "Failure parsing StackSetOperationAction from value: '" <> e
+           <> "'. Accepted values: create, delete, update"
+
+instance ToText StackSetOperationAction where
+    toText = \case
+        SSOACreate -> "CREATE"
+        SSOADelete -> "DELETE"
+        SSOAUpdate -> "UPDATE"
+
+instance Hashable     StackSetOperationAction
+instance NFData       StackSetOperationAction
+instance ToByteString StackSetOperationAction
+instance ToQuery      StackSetOperationAction
+instance ToHeader     StackSetOperationAction
+
+instance FromXML StackSetOperationAction where
+    parseXML = parseXMLText "StackSetOperationAction"
+
+data StackSetOperationResultStatus
+    = Cancelled
+    | Failed
+    | Pending
+    | Running
+    | Succeeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackSetOperationResultStatus where
+    parser = takeLowerText >>= \case
+        "cancelled" -> pure Cancelled
+        "failed" -> pure Failed
+        "pending" -> pure Pending
+        "running" -> pure Running
+        "succeeded" -> pure Succeeded
+        e -> fromTextError $ "Failure parsing StackSetOperationResultStatus from value: '" <> e
+           <> "'. Accepted values: cancelled, failed, pending, running, succeeded"
+
+instance ToText StackSetOperationResultStatus where
+    toText = \case
+        Cancelled -> "CANCELLED"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        Running -> "RUNNING"
+        Succeeded -> "SUCCEEDED"
+
+instance Hashable     StackSetOperationResultStatus
+instance NFData       StackSetOperationResultStatus
+instance ToByteString StackSetOperationResultStatus
+instance ToQuery      StackSetOperationResultStatus
+instance ToHeader     StackSetOperationResultStatus
+
+instance FromXML StackSetOperationResultStatus where
+    parseXML = parseXMLText "StackSetOperationResultStatus"
+
+data StackSetOperationStatus
+    = SSOSFailed
+    | SSOSRunning
+    | SSOSStopped
+    | SSOSStopping
+    | SSOSSucceeded
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackSetOperationStatus where
+    parser = takeLowerText >>= \case
+        "failed" -> pure SSOSFailed
+        "running" -> pure SSOSRunning
+        "stopped" -> pure SSOSStopped
+        "stopping" -> pure SSOSStopping
+        "succeeded" -> pure SSOSSucceeded
+        e -> fromTextError $ "Failure parsing StackSetOperationStatus from value: '" <> e
+           <> "'. Accepted values: failed, running, stopped, stopping, succeeded"
+
+instance ToText StackSetOperationStatus where
+    toText = \case
+        SSOSFailed -> "FAILED"
+        SSOSRunning -> "RUNNING"
+        SSOSStopped -> "STOPPED"
+        SSOSStopping -> "STOPPING"
+        SSOSSucceeded -> "SUCCEEDED"
+
+instance Hashable     StackSetOperationStatus
+instance NFData       StackSetOperationStatus
+instance ToByteString StackSetOperationStatus
+instance ToQuery      StackSetOperationStatus
+instance ToHeader     StackSetOperationStatus
+
+instance FromXML StackSetOperationStatus where
+    parseXML = parseXMLText "StackSetOperationStatus"
+
+data StackSetStatus
+    = Active
+    | Deleted
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StackSetStatus where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "deleted" -> pure Deleted
+        e -> fromTextError $ "Failure parsing StackSetStatus from value: '" <> e
+           <> "'. Accepted values: active, deleted"
+
+instance ToText StackSetStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Deleted -> "DELETED"
+
+instance Hashable     StackSetStatus
+instance NFData       StackSetStatus
+instance ToByteString StackSetStatus
+instance ToQuery      StackSetStatus
+instance ToHeader     StackSetStatus
+
+instance FromXML StackSetStatus where
+    parseXML = parseXMLText "StackSetStatus"
 
 data StackStatus
     = SSCreateComplete

@@ -33,6 +33,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     -- * Request Lenses
     , gtsTemplateBody
     , gtsTemplateURL
+    , gtsStackSetName
     , gtsStackName
 
     -- * Destructuring the Response
@@ -65,6 +66,7 @@ import           Network.AWS.Response
 data GetTemplateSummary = GetTemplateSummary'
     { _gtsTemplateBody :: !(Maybe Text)
     , _gtsTemplateURL  :: !(Maybe Text)
+    , _gtsStackSetName :: !(Maybe Text)
     , _gtsStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -76,6 +78,8 @@ data GetTemplateSummary = GetTemplateSummary'
 --
 -- * 'gtsTemplateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 --
+-- * 'gtsStackSetName' - The name or unique ID of the stack set from which the stack was created.
+--
 -- * 'gtsStackName' - The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 getTemplateSummary
     :: GetTemplateSummary
@@ -83,6 +87,7 @@ getTemplateSummary =
     GetTemplateSummary'
     { _gtsTemplateBody = Nothing
     , _gtsTemplateURL = Nothing
+    , _gtsStackSetName = Nothing
     , _gtsStackName = Nothing
     }
 
@@ -93,6 +98,10 @@ gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
+
+-- | The name or unique ID of the stack set from which the stack was created.
+gtsStackSetName :: Lens' GetTemplateSummary (Maybe Text)
+gtsStackSetName = lens _gtsStackSetName (\ s a -> s{_gtsStackSetName = a});
 
 -- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID. Conditional: You must specify only one of the following parameters: @StackName@ , @TemplateBody@ , or @TemplateURL@ .
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
@@ -140,6 +149,7 @@ instance ToQuery GetTemplateSummary where
                "Version" =: ("2010-05-15" :: ByteString),
                "TemplateBody" =: _gtsTemplateBody,
                "TemplateURL" =: _gtsTemplateURL,
+               "StackSetName" =: _gtsStackSetName,
                "StackName" =: _gtsStackName]
 
 -- | The output for the 'GetTemplateSummary' action.

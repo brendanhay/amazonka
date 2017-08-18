@@ -23,6 +23,8 @@
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html AWS CloudFormation Export Stack Output Values> .
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListExports
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.CloudFormation.ListExports
 import           Network.AWS.CloudFormation.Types
 import           Network.AWS.CloudFormation.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -67,6 +70,13 @@ listExports =
 -- | A string (provided by the 'ListExports' response output) that identifies the next page of exported output values that you asked to retrieve.
 leNextToken :: Lens' ListExports (Maybe Text)
 leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a});
+
+instance AWSPager ListExports where
+        page rq rs
+          | stop (rs ^. lersNextToken) = Nothing
+          | stop (rs ^. lersExports) = Nothing
+          | otherwise =
+            Just $ rq & leNextToken .~ rs ^. lersNextToken
 
 instance AWSRequest ListExports where
         type Rs ListExports = ListExportsResponse

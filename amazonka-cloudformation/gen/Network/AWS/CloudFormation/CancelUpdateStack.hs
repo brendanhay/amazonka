@@ -27,6 +27,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
       cancelUpdateStack
     , CancelUpdateStack
     -- * Request Lenses
+    , cusClientRequestToken
     , cusStackName
 
     -- * Destructuring the Response
@@ -46,13 +47,16 @@ import           Network.AWS.Response
 --
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
-newtype CancelUpdateStack = CancelUpdateStack'
-    { _cusStackName :: Text
+data CancelUpdateStack = CancelUpdateStack'
+    { _cusClientRequestToken :: !(Maybe Text)
+    , _cusStackName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cusClientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
 --
 -- * 'cusStackName' - The name or the unique stack ID that is associated with the stack.
 cancelUpdateStack
@@ -60,8 +64,13 @@ cancelUpdateStack
     -> CancelUpdateStack
 cancelUpdateStack pStackName_ =
     CancelUpdateStack'
-    { _cusStackName = pStackName_
+    { _cusClientRequestToken = Nothing
+    , _cusStackName = pStackName_
     }
+
+-- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+cusClientRequestToken :: Lens' CancelUpdateStack (Maybe Text)
+cusClientRequestToken = lens _cusClientRequestToken (\ s a -> s{_cusClientRequestToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
@@ -87,6 +96,7 @@ instance ToQuery CancelUpdateStack where
           = mconcat
               ["Action" =: ("CancelUpdateStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "ClientRequestToken" =: _cusClientRequestToken,
                "StackName" =: _cusStackName]
 
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.

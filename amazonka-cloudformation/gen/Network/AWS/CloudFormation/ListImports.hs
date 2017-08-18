@@ -23,6 +23,8 @@
 --
 -- For more information about importing an exported output value, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html @Fn::ImportValue@ > function.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListImports
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.CloudFormation.ListImports
 import           Network.AWS.CloudFormation.Types
 import           Network.AWS.CloudFormation.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -77,6 +80,13 @@ liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 -- | The name of the exported output value. AWS CloudFormation returns the stack names that are importing this value.
 liExportName :: Lens' ListImports Text
 liExportName = lens _liExportName (\ s a -> s{_liExportName = a});
+
+instance AWSPager ListImports where
+        page rq rs
+          | stop (rs ^. lirsNextToken) = Nothing
+          | stop (rs ^. lirsImports) = Nothing
+          | otherwise =
+            Just $ rq & liNextToken .~ rs ^. lirsNextToken
 
 instance AWSRequest ListImports where
         type Rs ListImports = ListImportsResponse

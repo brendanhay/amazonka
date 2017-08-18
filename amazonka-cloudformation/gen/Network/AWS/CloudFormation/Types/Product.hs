@@ -21,6 +21,50 @@ import           Network.AWS.CloudFormation.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | Structure that contains the results of the account gate function AWS CloudFormation StackSets invokes, if present, before proceeding with stack set operations in an account.
+--
+--
+-- Account gating enables you to specify a Lamdba function for an account that encapsulates any requirements that must be met before AWS CloudFormation StackSets proceeds with stack set operations in that account. CloudFormation invokes the function each time stack set operations are initiated for that account, and only proceeds if the function returns a success code.
+--
+--
+-- /See:/ 'accountGateResult' smart constructor.
+data AccountGateResult = AccountGateResult'
+    { _agrStatus       :: !(Maybe AccountGateStatus)
+    , _agrStatusReason :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccountGateResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'agrStatus' - The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account passes any requirements for stack set operations to occur. AWS CloudFormation proceeds with stack operations in the account.      * @FAILED@ : The account gate function has determined that the account does not meet the requirements for stack set operations to occur. AWS CloudFormation cancels the stack set operations in that account, and the stack set operation status is set to FAILED.     * @SKIPPED@ : An account gate function has not been specified for the account, or the AWSCloudFormationStackSetExecutionRole of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with stack set operations in the account.
+--
+-- * 'agrStatusReason' - The reason for the account gate status assigned to this account.
+accountGateResult
+    :: AccountGateResult
+accountGateResult =
+    AccountGateResult'
+    { _agrStatus = Nothing
+    , _agrStatusReason = Nothing
+    }
+
+-- | The status of the account gate function.     * @SUCCEEDED@ : The account gate function has determined that the account passes any requirements for stack set operations to occur. AWS CloudFormation proceeds with stack operations in the account.      * @FAILED@ : The account gate function has determined that the account does not meet the requirements for stack set operations to occur. AWS CloudFormation cancels the stack set operations in that account, and the stack set operation status is set to FAILED.     * @SKIPPED@ : An account gate function has not been specified for the account, or the AWSCloudFormationStackSetExecutionRole of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with stack set operations in the account.
+agrStatus :: Lens' AccountGateResult (Maybe AccountGateStatus)
+agrStatus = lens _agrStatus (\ s a -> s{_agrStatus = a});
+
+-- | The reason for the account gate status assigned to this account.
+agrStatusReason :: Lens' AccountGateResult (Maybe Text)
+agrStatusReason = lens _agrStatusReason (\ s a -> s{_agrStatusReason = a});
+
+instance FromXML AccountGateResult where
+        parseXML x
+          = AccountGateResult' <$>
+              (x .@? "Status") <*> (x .@? "StatusReason")
+
+instance Hashable AccountGateResult
+
+instance NFData AccountGateResult
+
 -- | The AccountLimit data type.
 --
 --
@@ -111,88 +155,88 @@ instance NFData Change
 --
 -- /See:/ 'changeSetSummary' smart constructor.
 data ChangeSetSummary = ChangeSetSummary'
-    { _cssCreationTime    :: !(Maybe ISO8601)
-    , _cssStatus          :: !(Maybe ChangeSetStatus)
-    , _cssChangeSetName   :: !(Maybe Text)
-    , _cssExecutionStatus :: !(Maybe ExecutionStatus)
-    , _cssChangeSetId     :: !(Maybe Text)
-    , _cssStatusReason    :: !(Maybe Text)
-    , _cssStackId         :: !(Maybe Text)
-    , _cssDescription     :: !(Maybe Text)
-    , _cssStackName       :: !(Maybe Text)
+    { _cCreationTime    :: !(Maybe ISO8601)
+    , _cStatus          :: !(Maybe ChangeSetStatus)
+    , _cChangeSetName   :: !(Maybe Text)
+    , _cExecutionStatus :: !(Maybe ExecutionStatus)
+    , _cChangeSetId     :: !(Maybe Text)
+    , _cStatusReason    :: !(Maybe Text)
+    , _cStackId         :: !(Maybe Text)
+    , _cDescription     :: !(Maybe Text)
+    , _cStackName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangeSetSummary' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cssCreationTime' - The start time when the change set was created, in UTC.
+-- * 'cCreationTime' - The start time when the change set was created, in UTC.
 --
--- * 'cssStatus' - The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
+-- * 'cStatus' - The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
 --
--- * 'cssChangeSetName' - The name of the change set.
+-- * 'cChangeSetName' - The name of the change set.
 --
--- * 'cssExecutionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
+-- * 'cExecutionStatus' - If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
 --
--- * 'cssChangeSetId' - The ID of the change set.
+-- * 'cChangeSetId' - The ID of the change set.
 --
--- * 'cssStatusReason' - A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
+-- * 'cStatusReason' - A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
 --
--- * 'cssStackId' - The ID of the stack with which the change set is associated.
+-- * 'cStackId' - The ID of the stack with which the change set is associated.
 --
--- * 'cssDescription' - Descriptive information about the change set.
+-- * 'cDescription' - Descriptive information about the change set.
 --
--- * 'cssStackName' - The name of the stack with which the change set is associated.
+-- * 'cStackName' - The name of the stack with which the change set is associated.
 changeSetSummary
     :: ChangeSetSummary
 changeSetSummary =
     ChangeSetSummary'
-    { _cssCreationTime = Nothing
-    , _cssStatus = Nothing
-    , _cssChangeSetName = Nothing
-    , _cssExecutionStatus = Nothing
-    , _cssChangeSetId = Nothing
-    , _cssStatusReason = Nothing
-    , _cssStackId = Nothing
-    , _cssDescription = Nothing
-    , _cssStackName = Nothing
+    { _cCreationTime = Nothing
+    , _cStatus = Nothing
+    , _cChangeSetName = Nothing
+    , _cExecutionStatus = Nothing
+    , _cChangeSetId = Nothing
+    , _cStatusReason = Nothing
+    , _cStackId = Nothing
+    , _cDescription = Nothing
+    , _cStackName = Nothing
     }
 
 -- | The start time when the change set was created, in UTC.
-cssCreationTime :: Lens' ChangeSetSummary (Maybe UTCTime)
-cssCreationTime = lens _cssCreationTime (\ s a -> s{_cssCreationTime = a}) . mapping _Time;
+cCreationTime :: Lens' ChangeSetSummary (Maybe UTCTime)
+cCreationTime = lens _cCreationTime (\ s a -> s{_cCreationTime = a}) . mapping _Time;
 
 -- | The state of the change set, such as @CREATE_IN_PROGRESS@ , @CREATE_COMPLETE@ , or @FAILED@ .
-cssStatus :: Lens' ChangeSetSummary (Maybe ChangeSetStatus)
-cssStatus = lens _cssStatus (\ s a -> s{_cssStatus = a});
+cStatus :: Lens' ChangeSetSummary (Maybe ChangeSetStatus)
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
 -- | The name of the change set.
-cssChangeSetName :: Lens' ChangeSetSummary (Maybe Text)
-cssChangeSetName = lens _cssChangeSetName (\ s a -> s{_cssChangeSetName = a});
+cChangeSetName :: Lens' ChangeSetSummary (Maybe Text)
+cChangeSetName = lens _cChangeSetName (\ s a -> s{_cChangeSetName = a});
 
 -- | If the change set execution status is @AVAILABLE@ , you can execute the change set. If you can’t execute the change set, the status indicates why. For example, a change set might be in an @UNAVAILABLE@ state because AWS CloudFormation is still creating it or in an @OBSOLETE@ state because the stack was already updated.
-cssExecutionStatus :: Lens' ChangeSetSummary (Maybe ExecutionStatus)
-cssExecutionStatus = lens _cssExecutionStatus (\ s a -> s{_cssExecutionStatus = a});
+cExecutionStatus :: Lens' ChangeSetSummary (Maybe ExecutionStatus)
+cExecutionStatus = lens _cExecutionStatus (\ s a -> s{_cExecutionStatus = a});
 
 -- | The ID of the change set.
-cssChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
-cssChangeSetId = lens _cssChangeSetId (\ s a -> s{_cssChangeSetId = a});
+cChangeSetId :: Lens' ChangeSetSummary (Maybe Text)
+cChangeSetId = lens _cChangeSetId (\ s a -> s{_cChangeSetId = a});
 
 -- | A description of the change set's status. For example, if your change set is in the @FAILED@ state, AWS CloudFormation shows the error message.
-cssStatusReason :: Lens' ChangeSetSummary (Maybe Text)
-cssStatusReason = lens _cssStatusReason (\ s a -> s{_cssStatusReason = a});
+cStatusReason :: Lens' ChangeSetSummary (Maybe Text)
+cStatusReason = lens _cStatusReason (\ s a -> s{_cStatusReason = a});
 
 -- | The ID of the stack with which the change set is associated.
-cssStackId :: Lens' ChangeSetSummary (Maybe Text)
-cssStackId = lens _cssStackId (\ s a -> s{_cssStackId = a});
+cStackId :: Lens' ChangeSetSummary (Maybe Text)
+cStackId = lens _cStackId (\ s a -> s{_cStackId = a});
 
 -- | Descriptive information about the change set.
-cssDescription :: Lens' ChangeSetSummary (Maybe Text)
-cssDescription = lens _cssDescription (\ s a -> s{_cssDescription = a});
+cDescription :: Lens' ChangeSetSummary (Maybe Text)
+cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
 -- | The name of the stack with which the change set is associated.
-cssStackName :: Lens' ChangeSetSummary (Maybe Text)
-cssStackName = lens _cssStackName (\ s a -> s{_cssStackName = a});
+cStackName :: Lens' ChangeSetSummary (Maybe Text)
+cStackName = lens _cStackName (\ s a -> s{_cStackName = a});
 
 instance FromXML ChangeSetSummary where
         parseXML x
@@ -269,6 +313,7 @@ instance NFData Export
 data Output = Output'
     { _oOutputValue :: !(Maybe Text)
     , _oOutputKey   :: !(Maybe Text)
+    , _oExportName  :: !(Maybe Text)
     , _oDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -280,6 +325,8 @@ data Output = Output'
 --
 -- * 'oOutputKey' - The key associated with the output.
 --
+-- * 'oExportName' - The name of the export associated with the output.
+--
 -- * 'oDescription' - User defined description associated with the output.
 output
     :: Output
@@ -287,6 +334,7 @@ output =
     Output'
     { _oOutputValue = Nothing
     , _oOutputKey = Nothing
+    , _oExportName = Nothing
     , _oDescription = Nothing
     }
 
@@ -298,6 +346,10 @@ oOutputValue = lens _oOutputValue (\ s a -> s{_oOutputValue = a});
 oOutputKey :: Lens' Output (Maybe Text)
 oOutputKey = lens _oOutputKey (\ s a -> s{_oOutputKey = a});
 
+-- | The name of the export associated with the output.
+oExportName :: Lens' Output (Maybe Text)
+oExportName = lens _oExportName (\ s a -> s{_oExportName = a});
+
 -- | User defined description associated with the output.
 oDescription :: Lens' Output (Maybe Text)
 oDescription = lens _oDescription (\ s a -> s{_oDescription = a});
@@ -306,7 +358,8 @@ instance FromXML Output where
         parseXML x
           = Output' <$>
               (x .@? "OutputValue") <*> (x .@? "OutputKey") <*>
-                (x .@? "Description")
+                (x .@? "ExportName")
+                <*> (x .@? "Description")
 
 instance Hashable Output
 
@@ -880,6 +933,7 @@ data StackEvent = StackEvent'
     , _seResourceStatusReason :: !(Maybe Text)
     , _seResourceProperties   :: !(Maybe Text)
     , _seResourceStatus       :: !(Maybe ResourceStatus)
+    , _seClientRequestToken   :: !(Maybe Text)
     , _seStackId              :: !Text
     , _seEventId              :: !Text
     , _seStackName            :: !Text
@@ -902,6 +956,8 @@ data StackEvent = StackEvent'
 --
 -- * 'seResourceStatus' - Current status of the resource.
 --
+-- * 'seClientRequestToken' - The token passed to the operation that generated this event. All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a @CreateStack@ operation with the token @token1@ , then all the @StackEvents@ generated by that operation will have @ClientRequestToken@ set as @token1@ . In the console, stack operations display the client request token on the Events tab. Stack operations that are initiated from the console use the token format /Console-StackOperation-ID/ , which helps you easily identify the stack operation . For example, if you create a stack using the console, each stack event would be assigned the same token in the following format: @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@ .
+--
 -- * 'seStackId' - The unique ID name of the instance of the stack.
 --
 -- * 'seEventId' - The unique ID of this event.
@@ -923,6 +979,7 @@ stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
     , _seResourceStatusReason = Nothing
     , _seResourceProperties = Nothing
     , _seResourceStatus = Nothing
+    , _seClientRequestToken = Nothing
     , _seStackId = pStackId_
     , _seEventId = pEventId_
     , _seStackName = pStackName_
@@ -953,6 +1010,10 @@ seResourceProperties = lens _seResourceProperties (\ s a -> s{_seResourcePropert
 seResourceStatus :: Lens' StackEvent (Maybe ResourceStatus)
 seResourceStatus = lens _seResourceStatus (\ s a -> s{_seResourceStatus = a});
 
+-- | The token passed to the operation that generated this event. All events triggered by a given stack operation are assigned the same client request token, which you can use to track operations. For example, if you execute a @CreateStack@ operation with the token @token1@ , then all the @StackEvents@ generated by that operation will have @ClientRequestToken@ set as @token1@ . In the console, stack operations display the client request token on the Events tab. Stack operations that are initiated from the console use the token format /Console-StackOperation-ID/ , which helps you easily identify the stack operation . For example, if you create a stack using the console, each stack event would be assigned the same token in the following format: @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@ .
+seClientRequestToken :: Lens' StackEvent (Maybe Text)
+seClientRequestToken = lens _seClientRequestToken (\ s a -> s{_seClientRequestToken = a});
+
 -- | The unique ID name of the instance of the stack.
 seStackId :: Lens' StackEvent Text
 seStackId = lens _seStackId (\ s a -> s{_seStackId = a});
@@ -978,6 +1039,7 @@ instance FromXML StackEvent where
                 <*> (x .@? "ResourceStatusReason")
                 <*> (x .@? "ResourceProperties")
                 <*> (x .@? "ResourceStatus")
+                <*> (x .@? "ClientRequestToken")
                 <*> (x .@ "StackId")
                 <*> (x .@ "EventId")
                 <*> (x .@ "StackName")
@@ -986,6 +1048,162 @@ instance FromXML StackEvent where
 instance Hashable StackEvent
 
 instance NFData StackEvent
+
+-- | An AWS CloudFormation stack, in a specific account and region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status.
+--
+--
+--
+-- /See:/ 'stackInstance' smart constructor.
+data StackInstance = StackInstance'
+    { _siStatus       :: !(Maybe StackInstanceStatus)
+    , _siAccount      :: !(Maybe Text)
+    , _siRegion       :: !(Maybe Text)
+    , _siStatusReason :: !(Maybe Text)
+    , _siStackId      :: !(Maybe Text)
+    , _siStackSetId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+--
+-- * 'siAccount' - The name of the AWS account that the stack instance is associated with.
+--
+-- * 'siRegion' - The name of the AWS region that the stack instance is associated with.
+--
+-- * 'siStatusReason' - The explanation for the specific status code that is assigned to this stack instance.
+--
+-- * 'siStackId' - The ID of the stack instance.
+--
+-- * 'siStackSetId' - The name or unique ID of the stack set that the stack instance is associated with.
+stackInstance
+    :: StackInstance
+stackInstance =
+    StackInstance'
+    { _siStatus = Nothing
+    , _siAccount = Nothing
+    , _siRegion = Nothing
+    , _siStatusReason = Nothing
+    , _siStackId = Nothing
+    , _siStackSetId = Nothing
+    }
+
+-- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+siStatus :: Lens' StackInstance (Maybe StackInstanceStatus)
+siStatus = lens _siStatus (\ s a -> s{_siStatus = a});
+
+-- | The name of the AWS account that the stack instance is associated with.
+siAccount :: Lens' StackInstance (Maybe Text)
+siAccount = lens _siAccount (\ s a -> s{_siAccount = a});
+
+-- | The name of the AWS region that the stack instance is associated with.
+siRegion :: Lens' StackInstance (Maybe Text)
+siRegion = lens _siRegion (\ s a -> s{_siRegion = a});
+
+-- | The explanation for the specific status code that is assigned to this stack instance.
+siStatusReason :: Lens' StackInstance (Maybe Text)
+siStatusReason = lens _siStatusReason (\ s a -> s{_siStatusReason = a});
+
+-- | The ID of the stack instance.
+siStackId :: Lens' StackInstance (Maybe Text)
+siStackId = lens _siStackId (\ s a -> s{_siStackId = a});
+
+-- | The name or unique ID of the stack set that the stack instance is associated with.
+siStackSetId :: Lens' StackInstance (Maybe Text)
+siStackSetId = lens _siStackSetId (\ s a -> s{_siStackSetId = a});
+
+instance FromXML StackInstance where
+        parseXML x
+          = StackInstance' <$>
+              (x .@? "Status") <*> (x .@? "Account") <*>
+                (x .@? "Region")
+                <*> (x .@? "StatusReason")
+                <*> (x .@? "StackId")
+                <*> (x .@? "StackSetId")
+
+instance Hashable StackInstance
+
+instance NFData StackInstance
+
+-- | The structure that contains summary information about a stack instance.
+--
+--
+--
+-- /See:/ 'stackInstanceSummary' smart constructor.
+data StackInstanceSummary = StackInstanceSummary'
+    { _sisStatus       :: !(Maybe StackInstanceStatus)
+    , _sisAccount      :: !(Maybe Text)
+    , _sisRegion       :: !(Maybe Text)
+    , _sisStatusReason :: !(Maybe Text)
+    , _sisStackId      :: !(Maybe Text)
+    , _sisStackSetId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackInstanceSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sisStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+--
+-- * 'sisAccount' - The name of the AWS account that the stack instance is associated with.
+--
+-- * 'sisRegion' - The name of the AWS region that the stack instance is associated with.
+--
+-- * 'sisStatusReason' - The explanation for the specific status code assigned to this stack instance.
+--
+-- * 'sisStackId' - The ID of the stack instance.
+--
+-- * 'sisStackSetId' - The name or unique ID of the stack set that the stack instance is associated with.
+stackInstanceSummary
+    :: StackInstanceSummary
+stackInstanceSummary =
+    StackInstanceSummary'
+    { _sisStatus = Nothing
+    , _sisAccount = Nothing
+    , _sisRegion = Nothing
+    , _sisStatusReason = Nothing
+    , _sisStackId = Nothing
+    , _sisStackSetId = Nothing
+    }
+
+-- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ and @DeleteStackInstances@ operations. You might need to clean up the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
+sisStatus :: Lens' StackInstanceSummary (Maybe StackInstanceStatus)
+sisStatus = lens _sisStatus (\ s a -> s{_sisStatus = a});
+
+-- | The name of the AWS account that the stack instance is associated with.
+sisAccount :: Lens' StackInstanceSummary (Maybe Text)
+sisAccount = lens _sisAccount (\ s a -> s{_sisAccount = a});
+
+-- | The name of the AWS region that the stack instance is associated with.
+sisRegion :: Lens' StackInstanceSummary (Maybe Text)
+sisRegion = lens _sisRegion (\ s a -> s{_sisRegion = a});
+
+-- | The explanation for the specific status code assigned to this stack instance.
+sisStatusReason :: Lens' StackInstanceSummary (Maybe Text)
+sisStatusReason = lens _sisStatusReason (\ s a -> s{_sisStatusReason = a});
+
+-- | The ID of the stack instance.
+sisStackId :: Lens' StackInstanceSummary (Maybe Text)
+sisStackId = lens _sisStackId (\ s a -> s{_sisStackId = a});
+
+-- | The name or unique ID of the stack set that the stack instance is associated with.
+sisStackSetId :: Lens' StackInstanceSummary (Maybe Text)
+sisStackSetId = lens _sisStackSetId (\ s a -> s{_sisStackSetId = a});
+
+instance FromXML StackInstanceSummary where
+        parseXML x
+          = StackInstanceSummary' <$>
+              (x .@? "Status") <*> (x .@? "Account") <*>
+                (x .@? "Region")
+                <*> (x .@? "StatusReason")
+                <*> (x .@? "StackId")
+                <*> (x .@? "StackSetId")
+
+instance Hashable StackInstanceSummary
+
+instance NFData StackInstanceSummary
 
 -- | The StackResource data type.
 --
@@ -1299,6 +1517,486 @@ instance Hashable StackResourceSummary
 
 instance NFData StackResourceSummary
 
+-- | A structure that contains information about a stack set. A stack set enables you to provision stacks into AWS accounts and across regions by using a single CloudFormation template. In the stack set, you specify the template to use, as well as any parameters and capabilities that the template requires.
+--
+--
+--
+-- /See:/ 'stackSet' smart constructor.
+data StackSet = StackSet'
+    { _ssStatus       :: !(Maybe StackSetStatus)
+    , _ssParameters   :: !(Maybe [Parameter])
+    , _ssTemplateBody :: !(Maybe Text)
+    , _ssStackSetName :: !(Maybe Text)
+    , _ssDescription  :: !(Maybe Text)
+    , _ssCapabilities :: !(Maybe [Capability])
+    , _ssTags         :: !(Maybe [Tag])
+    , _ssStackSetId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssStatus' - The status of the stack set.
+--
+-- * 'ssParameters' - A list of input parameters for a stack set.
+--
+-- * 'ssTemplateBody' - The structure that contains the body of the template that was used to create or update the stack set.
+--
+-- * 'ssStackSetName' - The name that's associated with the stack set.
+--
+-- * 'ssDescription' - A description of the stack set that you specify when the stack set is created or updated.
+--
+-- * 'ssCapabilities' - The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+--
+-- * 'ssTags' - A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
+--
+-- * 'ssStackSetId' - The ID of the stack set.
+stackSet
+    :: StackSet
+stackSet =
+    StackSet'
+    { _ssStatus = Nothing
+    , _ssParameters = Nothing
+    , _ssTemplateBody = Nothing
+    , _ssStackSetName = Nothing
+    , _ssDescription = Nothing
+    , _ssCapabilities = Nothing
+    , _ssTags = Nothing
+    , _ssStackSetId = Nothing
+    }
+
+-- | The status of the stack set.
+ssStatus :: Lens' StackSet (Maybe StackSetStatus)
+ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
+
+-- | A list of input parameters for a stack set.
+ssParameters :: Lens' StackSet [Parameter]
+ssParameters = lens _ssParameters (\ s a -> s{_ssParameters = a}) . _Default . _Coerce;
+
+-- | The structure that contains the body of the template that was used to create or update the stack set.
+ssTemplateBody :: Lens' StackSet (Maybe Text)
+ssTemplateBody = lens _ssTemplateBody (\ s a -> s{_ssTemplateBody = a});
+
+-- | The name that's associated with the stack set.
+ssStackSetName :: Lens' StackSet (Maybe Text)
+ssStackSetName = lens _ssStackSetName (\ s a -> s{_ssStackSetName = a});
+
+-- | A description of the stack set that you specify when the stack set is created or updated.
+ssDescription :: Lens' StackSet (Maybe Text)
+ssDescription = lens _ssDescription (\ s a -> s{_ssDescription = a});
+
+-- | The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+ssCapabilities :: Lens' StackSet [Capability]
+ssCapabilities = lens _ssCapabilities (\ s a -> s{_ssCapabilities = a}) . _Default . _Coerce;
+
+-- | A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
+ssTags :: Lens' StackSet [Tag]
+ssTags = lens _ssTags (\ s a -> s{_ssTags = a}) . _Default . _Coerce;
+
+-- | The ID of the stack set.
+ssStackSetId :: Lens' StackSet (Maybe Text)
+ssStackSetId = lens _ssStackSetId (\ s a -> s{_ssStackSetId = a});
+
+instance FromXML StackSet where
+        parseXML x
+          = StackSet' <$>
+              (x .@? "Status") <*>
+                (x .@? "Parameters" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "TemplateBody")
+                <*> (x .@? "StackSetName")
+                <*> (x .@? "Description")
+                <*>
+                (x .@? "Capabilities" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "StackSetId")
+
+instance Hashable StackSet
+
+instance NFData StackSet
+
+-- | The structure that contains information about a stack set operation.
+--
+--
+--
+-- /See:/ 'stackSetOperation' smart constructor.
+data StackSetOperation = StackSetOperation'
+    { _ssoStatus               :: !(Maybe StackSetOperationStatus)
+    , _ssoAction               :: !(Maybe StackSetOperationAction)
+    , _ssoEndTimestamp         :: !(Maybe ISO8601)
+    , _ssoCreationTimestamp    :: !(Maybe ISO8601)
+    , _ssoOperationPreferences :: !(Maybe StackSetOperationPreferences)
+    , _ssoOperationId          :: !(Maybe Text)
+    , _ssoRetainStacks         :: !(Maybe Bool)
+    , _ssoStackSetId           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSetOperation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssoStatus' - The status of the operation.      * @FAILED@ : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to @FAILED@ . This in turn sets the status of the operation as a whole to @FAILED@ , and AWS CloudFormation cancels the operation in any remaining regions.     * @RUNNING@ : The operation is currently being performed.     * @STOPPED@ : The user has cancelled the operation.     * @STOPPING@ : The operation is in the process of stopping, at user request.      * @SUCCEEDED@ : The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.
+--
+-- * 'ssoAction' - The type of stack set operation: @CREATE@ , @UPDATE@ , or @DELETE@ . Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, as well as /all/ associated stack set instances.
+--
+-- * 'ssoEndTimestamp' - The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+--
+-- * 'ssoCreationTimestamp' - The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because AWS CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested regions, before actually creating the first stacks.
+--
+-- * 'ssoOperationPreferences' - The preferences for how AWS CloudFormation performs this stack set operation.
+--
+-- * 'ssoOperationId' - The unique ID of a stack set operation.
+--
+-- * 'ssoRetainStacks' - For stack set operations of action type @DELETE@ , specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack, or add an existing, saved stack to a new stack set.
+--
+-- * 'ssoStackSetId' - The ID of the stack set.
+stackSetOperation
+    :: StackSetOperation
+stackSetOperation =
+    StackSetOperation'
+    { _ssoStatus = Nothing
+    , _ssoAction = Nothing
+    , _ssoEndTimestamp = Nothing
+    , _ssoCreationTimestamp = Nothing
+    , _ssoOperationPreferences = Nothing
+    , _ssoOperationId = Nothing
+    , _ssoRetainStacks = Nothing
+    , _ssoStackSetId = Nothing
+    }
+
+-- | The status of the operation.      * @FAILED@ : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to @FAILED@ . This in turn sets the status of the operation as a whole to @FAILED@ , and AWS CloudFormation cancels the operation in any remaining regions.     * @RUNNING@ : The operation is currently being performed.     * @STOPPED@ : The user has cancelled the operation.     * @STOPPING@ : The operation is in the process of stopping, at user request.      * @SUCCEEDED@ : The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.
+ssoStatus :: Lens' StackSetOperation (Maybe StackSetOperationStatus)
+ssoStatus = lens _ssoStatus (\ s a -> s{_ssoStatus = a});
+
+-- | The type of stack set operation: @CREATE@ , @UPDATE@ , or @DELETE@ . Create and delete operations affect only the specified stack set instances that are associated with the specified stack set. Update operations affect both the stack set itself, as well as /all/ associated stack set instances.
+ssoAction :: Lens' StackSetOperation (Maybe StackSetOperationAction)
+ssoAction = lens _ssoAction (\ s a -> s{_ssoAction = a});
+
+-- | The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+ssoEndTimestamp :: Lens' StackSetOperation (Maybe UTCTime)
+ssoEndTimestamp = lens _ssoEndTimestamp (\ s a -> s{_ssoEndTimestamp = a}) . mapping _Time;
+
+-- | The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because AWS CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested regions, before actually creating the first stacks.
+ssoCreationTimestamp :: Lens' StackSetOperation (Maybe UTCTime)
+ssoCreationTimestamp = lens _ssoCreationTimestamp (\ s a -> s{_ssoCreationTimestamp = a}) . mapping _Time;
+
+-- | The preferences for how AWS CloudFormation performs this stack set operation.
+ssoOperationPreferences :: Lens' StackSetOperation (Maybe StackSetOperationPreferences)
+ssoOperationPreferences = lens _ssoOperationPreferences (\ s a -> s{_ssoOperationPreferences = a});
+
+-- | The unique ID of a stack set operation.
+ssoOperationId :: Lens' StackSetOperation (Maybe Text)
+ssoOperationId = lens _ssoOperationId (\ s a -> s{_ssoOperationId = a});
+
+-- | For stack set operations of action type @DELETE@ , specifies whether to remove the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack, or add an existing, saved stack to a new stack set.
+ssoRetainStacks :: Lens' StackSetOperation (Maybe Bool)
+ssoRetainStacks = lens _ssoRetainStacks (\ s a -> s{_ssoRetainStacks = a});
+
+-- | The ID of the stack set.
+ssoStackSetId :: Lens' StackSetOperation (Maybe Text)
+ssoStackSetId = lens _ssoStackSetId (\ s a -> s{_ssoStackSetId = a});
+
+instance FromXML StackSetOperation where
+        parseXML x
+          = StackSetOperation' <$>
+              (x .@? "Status") <*> (x .@? "Action") <*>
+                (x .@? "EndTimestamp")
+                <*> (x .@? "CreationTimestamp")
+                <*> (x .@? "OperationPreferences")
+                <*> (x .@? "OperationId")
+                <*> (x .@? "RetainStacks")
+                <*> (x .@? "StackSetId")
+
+instance Hashable StackSetOperation
+
+instance NFData StackSetOperation
+
+-- | The user-specified preferences for how AWS CloudFormation performs a stack set operation.
+--
+--
+--
+-- /See:/ 'stackSetOperationPreferences' smart constructor.
+data StackSetOperationPreferences = StackSetOperationPreferences'
+    { _ssopRegionOrder                :: !(Maybe [Text])
+    , _ssopMaxConcurrentCount         :: !(Maybe Nat)
+    , _ssopMaxConcurrentPercentage    :: !(Maybe Nat)
+    , _ssopFailureToleranceCount      :: !(Maybe Nat)
+    , _ssopFailureTolerancePercentage :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSetOperationPreferences' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssopRegionOrder' - The order of the regions in where you want to perform the stack operation.
+--
+-- * 'ssopMaxConcurrentCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+--
+-- * 'ssopMaxConcurrentPercentage' - The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+--
+-- * 'ssopFailureToleranceCount' - The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions. Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
+--
+-- * 'ssopFailureTolerancePercentage' - The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds /down/ to the next whole number. Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ , but not both.
+stackSetOperationPreferences
+    :: StackSetOperationPreferences
+stackSetOperationPreferences =
+    StackSetOperationPreferences'
+    { _ssopRegionOrder = Nothing
+    , _ssopMaxConcurrentCount = Nothing
+    , _ssopMaxConcurrentPercentage = Nothing
+    , _ssopFailureToleranceCount = Nothing
+    , _ssopFailureTolerancePercentage = Nothing
+    }
+
+-- | The order of the regions in where you want to perform the stack operation.
+ssopRegionOrder :: Lens' StackSetOperationPreferences [Text]
+ssopRegionOrder = lens _ssopRegionOrder (\ s a -> s{_ssopRegionOrder = a}) . _Default . _Coerce;
+
+-- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ —@MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ . Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+ssopMaxConcurrentCount :: Lens' StackSetOperationPreferences (Maybe Natural)
+ssopMaxConcurrentCount = lens _ssopMaxConcurrentCount (\ s a -> s{_ssopMaxConcurrentCount = a}) . mapping _Nat;
+
+-- | The maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead. Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+ssopMaxConcurrentPercentage :: Lens' StackSetOperationPreferences (Maybe Natural)
+ssopMaxConcurrentPercentage = lens _ssopMaxConcurrentPercentage (\ s a -> s{_ssopMaxConcurrentPercentage = a}) . mapping _Nat;
+
+-- | The number of accounts, per region, for which this operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions. Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
+ssopFailureToleranceCount :: Lens' StackSetOperationPreferences (Maybe Natural)
+ssopFailureToleranceCount = lens _ssopFailureToleranceCount (\ s a -> s{_ssopFailureToleranceCount = a}) . mapping _Nat;
+
+-- | The percentage of accounts, per region, for which this stack operation can fail before AWS CloudFormation stops the operation in that region. If the operation is stopped in a region, AWS CloudFormation doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds /down/ to the next whole number. Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ , but not both.
+ssopFailureTolerancePercentage :: Lens' StackSetOperationPreferences (Maybe Natural)
+ssopFailureTolerancePercentage = lens _ssopFailureTolerancePercentage (\ s a -> s{_ssopFailureTolerancePercentage = a}) . mapping _Nat;
+
+instance FromXML StackSetOperationPreferences where
+        parseXML x
+          = StackSetOperationPreferences' <$>
+              (x .@? "RegionOrder" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "MaxConcurrentCount")
+                <*> (x .@? "MaxConcurrentPercentage")
+                <*> (x .@? "FailureToleranceCount")
+                <*> (x .@? "FailureTolerancePercentage")
+
+instance Hashable StackSetOperationPreferences
+
+instance NFData StackSetOperationPreferences
+
+instance ToQuery StackSetOperationPreferences where
+        toQuery StackSetOperationPreferences'{..}
+          = mconcat
+              ["RegionOrder" =:
+                 toQuery (toQueryList "member" <$> _ssopRegionOrder),
+               "MaxConcurrentCount" =: _ssopMaxConcurrentCount,
+               "MaxConcurrentPercentage" =:
+                 _ssopMaxConcurrentPercentage,
+               "FailureToleranceCount" =:
+                 _ssopFailureToleranceCount,
+               "FailureTolerancePercentage" =:
+                 _ssopFailureTolerancePercentage]
+
+-- | The structure that contains information about a specified operation's results for a given account in a given region.
+--
+--
+--
+-- /See:/ 'stackSetOperationResultSummary' smart constructor.
+data StackSetOperationResultSummary = StackSetOperationResultSummary'
+    { _ssorsStatus            :: !(Maybe StackSetOperationResultStatus)
+    , _ssorsAccount           :: !(Maybe Text)
+    , _ssorsAccountGateResult :: !(Maybe AccountGateResult)
+    , _ssorsRegion            :: !(Maybe Text)
+    , _ssorsStatusReason      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSetOperationResultSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssorsStatus' - The result status of the stack set operation for the given account in the given region.     * @CANCELLED@ : The operation in the specified account and region has been cancelled. This is either because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has been exceeded.     * @FAILED@ : The operation in the specified account and region failed.  If the stack set operation fails in enough accounts within a region, the failure tolerance for the stack set operation as a whole might be exceeded.      * @RUNNING@ : The operation in the specified account and region is currently in progress.     * @PENDING@ : The operation in the specified account and region has yet to start.      * @SUCCEEDED@ : The operation in the specified account and region completed successfully.
+--
+-- * 'ssorsAccount' - The name of the AWS account for this operation result.
+--
+-- * 'ssorsAccountGateResult' - The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+--
+-- * 'ssorsRegion' - The name of the AWS region for this operation result.
+--
+-- * 'ssorsStatusReason' - The reason for the assigned result status.
+stackSetOperationResultSummary
+    :: StackSetOperationResultSummary
+stackSetOperationResultSummary =
+    StackSetOperationResultSummary'
+    { _ssorsStatus = Nothing
+    , _ssorsAccount = Nothing
+    , _ssorsAccountGateResult = Nothing
+    , _ssorsRegion = Nothing
+    , _ssorsStatusReason = Nothing
+    }
+
+-- | The result status of the stack set operation for the given account in the given region.     * @CANCELLED@ : The operation in the specified account and region has been cancelled. This is either because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has been exceeded.     * @FAILED@ : The operation in the specified account and region failed.  If the stack set operation fails in enough accounts within a region, the failure tolerance for the stack set operation as a whole might be exceeded.      * @RUNNING@ : The operation in the specified account and region is currently in progress.     * @PENDING@ : The operation in the specified account and region has yet to start.      * @SUCCEEDED@ : The operation in the specified account and region completed successfully.
+ssorsStatus :: Lens' StackSetOperationResultSummary (Maybe StackSetOperationResultStatus)
+ssorsStatus = lens _ssorsStatus (\ s a -> s{_ssorsStatus = a});
+
+-- | The name of the AWS account for this operation result.
+ssorsAccount :: Lens' StackSetOperationResultSummary (Maybe Text)
+ssorsAccount = lens _ssorsAccount (\ s a -> s{_ssorsAccount = a});
+
+-- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+ssorsAccountGateResult :: Lens' StackSetOperationResultSummary (Maybe AccountGateResult)
+ssorsAccountGateResult = lens _ssorsAccountGateResult (\ s a -> s{_ssorsAccountGateResult = a});
+
+-- | The name of the AWS region for this operation result.
+ssorsRegion :: Lens' StackSetOperationResultSummary (Maybe Text)
+ssorsRegion = lens _ssorsRegion (\ s a -> s{_ssorsRegion = a});
+
+-- | The reason for the assigned result status.
+ssorsStatusReason :: Lens' StackSetOperationResultSummary (Maybe Text)
+ssorsStatusReason = lens _ssorsStatusReason (\ s a -> s{_ssorsStatusReason = a});
+
+instance FromXML StackSetOperationResultSummary where
+        parseXML x
+          = StackSetOperationResultSummary' <$>
+              (x .@? "Status") <*> (x .@? "Account") <*>
+                (x .@? "AccountGateResult")
+                <*> (x .@? "Region")
+                <*> (x .@? "StatusReason")
+
+instance Hashable StackSetOperationResultSummary
+
+instance NFData StackSetOperationResultSummary
+
+-- | The structures that contain summary information about the specified operation.
+--
+--
+--
+-- /See:/ 'stackSetOperationSummary' smart constructor.
+data StackSetOperationSummary = StackSetOperationSummary'
+    { _ssosStatus            :: !(Maybe StackSetOperationStatus)
+    , _ssosAction            :: !(Maybe StackSetOperationAction)
+    , _ssosEndTimestamp      :: !(Maybe ISO8601)
+    , _ssosCreationTimestamp :: !(Maybe ISO8601)
+    , _ssosOperationId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSetOperationSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssosStatus' - The overall status of the operation.     * @FAILED@ : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to @FAILED@ . This in turn sets the status of the operation as a whole to @FAILED@ , and AWS CloudFormation cancels the operation in any remaining regions.     * @RUNNING@ : The operation is currently being performed.     * @STOPPED@ : The user has cancelled the operation.     * @STOPPING@ : The operation is in the process of stopping, at user request.      * @SUCCEEDED@ : The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.
+--
+-- * 'ssosAction' - The type of operation: @CREATE@ , @UPDATE@ , or @DELETE@ . Create and delete operations affect only the specified stack instances that are associated with the specified stack set. Update operations affect both the stack set itself as well as /all/ associated stack set instances.
+--
+-- * 'ssosEndTimestamp' - The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+--
+-- * 'ssosCreationTimestamp' - The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because AWS CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested regions, before actually creating the first stacks.
+--
+-- * 'ssosOperationId' - The unique ID of the stack set operation.
+stackSetOperationSummary
+    :: StackSetOperationSummary
+stackSetOperationSummary =
+    StackSetOperationSummary'
+    { _ssosStatus = Nothing
+    , _ssosAction = Nothing
+    , _ssosEndTimestamp = Nothing
+    , _ssosCreationTimestamp = Nothing
+    , _ssosOperationId = Nothing
+    }
+
+-- | The overall status of the operation.     * @FAILED@ : The operation exceeded the specified failure tolerance. The failure tolerance value that you've set for an operation is applied for each region during stack create and update operations. If the number of failed stacks within a region exceeds the failure tolerance, the status of the operation in the region is set to @FAILED@ . This in turn sets the status of the operation as a whole to @FAILED@ , and AWS CloudFormation cancels the operation in any remaining regions.     * @RUNNING@ : The operation is currently being performed.     * @STOPPED@ : The user has cancelled the operation.     * @STOPPING@ : The operation is in the process of stopping, at user request.      * @SUCCEEDED@ : The operation completed creating or updating all the specified stacks without exceeding the failure tolerance for the operation.
+ssosStatus :: Lens' StackSetOperationSummary (Maybe StackSetOperationStatus)
+ssosStatus = lens _ssosStatus (\ s a -> s{_ssosStatus = a});
+
+-- | The type of operation: @CREATE@ , @UPDATE@ , or @DELETE@ . Create and delete operations affect only the specified stack instances that are associated with the specified stack set. Update operations affect both the stack set itself as well as /all/ associated stack set instances.
+ssosAction :: Lens' StackSetOperationSummary (Maybe StackSetOperationAction)
+ssosAction = lens _ssosAction (\ s a -> s{_ssosAction = a});
+
+-- | The time at which the stack set operation ended, across all accounts and regions specified. Note that this doesn't necessarily mean that the stack set operation was successful, or even attempted, in each account or region.
+ssosEndTimestamp :: Lens' StackSetOperationSummary (Maybe UTCTime)
+ssosEndTimestamp = lens _ssosEndTimestamp (\ s a -> s{_ssosEndTimestamp = a}) . mapping _Time;
+
+-- | The time at which the operation was initiated. Note that the creation times for the stack set operation might differ from the creation time of the individual stacks themselves. This is because AWS CloudFormation needs to perform preparatory work for the operation, such as dispatching the work to the requested regions, before actually creating the first stacks.
+ssosCreationTimestamp :: Lens' StackSetOperationSummary (Maybe UTCTime)
+ssosCreationTimestamp = lens _ssosCreationTimestamp (\ s a -> s{_ssosCreationTimestamp = a}) . mapping _Time;
+
+-- | The unique ID of the stack set operation.
+ssosOperationId :: Lens' StackSetOperationSummary (Maybe Text)
+ssosOperationId = lens _ssosOperationId (\ s a -> s{_ssosOperationId = a});
+
+instance FromXML StackSetOperationSummary where
+        parseXML x
+          = StackSetOperationSummary' <$>
+              (x .@? "Status") <*> (x .@? "Action") <*>
+                (x .@? "EndTimestamp")
+                <*> (x .@? "CreationTimestamp")
+                <*> (x .@? "OperationId")
+
+instance Hashable StackSetOperationSummary
+
+instance NFData StackSetOperationSummary
+
+-- | The structures that contain summary information about the specified stack set.
+--
+--
+--
+-- /See:/ 'stackSetSummary' smart constructor.
+data StackSetSummary = StackSetSummary'
+    { _sssStatus       :: !(Maybe StackSetStatus)
+    , _sssStackSetName :: !(Maybe Text)
+    , _sssDescription  :: !(Maybe Text)
+    , _sssStackSetId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSetSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sssStatus' - The status of the stack set.
+--
+-- * 'sssStackSetName' - The name of the stack set.
+--
+-- * 'sssDescription' - A description of the stack set that you specify when the stack set is created or updated.
+--
+-- * 'sssStackSetId' - The ID of the stack set.
+stackSetSummary
+    :: StackSetSummary
+stackSetSummary =
+    StackSetSummary'
+    { _sssStatus = Nothing
+    , _sssStackSetName = Nothing
+    , _sssDescription = Nothing
+    , _sssStackSetId = Nothing
+    }
+
+-- | The status of the stack set.
+sssStatus :: Lens' StackSetSummary (Maybe StackSetStatus)
+sssStatus = lens _sssStatus (\ s a -> s{_sssStatus = a});
+
+-- | The name of the stack set.
+sssStackSetName :: Lens' StackSetSummary (Maybe Text)
+sssStackSetName = lens _sssStackSetName (\ s a -> s{_sssStackSetName = a});
+
+-- | A description of the stack set that you specify when the stack set is created or updated.
+sssDescription :: Lens' StackSetSummary (Maybe Text)
+sssDescription = lens _sssDescription (\ s a -> s{_sssDescription = a});
+
+-- | The ID of the stack set.
+sssStackSetId :: Lens' StackSetSummary (Maybe Text)
+sssStackSetId = lens _sssStackSetId (\ s a -> s{_sssStackSetId = a});
+
+instance FromXML StackSetSummary where
+        parseXML x
+          = StackSetSummary' <$>
+              (x .@? "Status") <*> (x .@? "StackSetName") <*>
+                (x .@? "Description")
+                <*> (x .@? "StackSetId")
+
+instance Hashable StackSetSummary
+
+instance NFData StackSetSummary
+
 -- | The StackSummary Data Type
 --
 --
@@ -1405,36 +2103,37 @@ instance NFData StackSummary
 --
 -- /See:/ 'tag' smart constructor.
 data Tag = Tag'
-    { _tagValue :: !(Maybe Text)
-    , _tagKey   :: !(Maybe Text)
+    { _tagKey   :: !Text
+    , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'tagValue' - /Required/ . A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
---
 -- * 'tagKey' - /Required/ . A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: @aws:@ .
+--
+-- * 'tagValue' - /Required/ . A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
 tag
-    :: Tag
-tag =
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag pKey_ pValue_ =
     Tag'
-    { _tagValue = Nothing
-    , _tagKey = Nothing
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
--- | /Required/ . A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
-tagValue :: Lens' Tag (Maybe Text)
-tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
-
 -- | /Required/ . A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: @aws:@ .
-tagKey :: Lens' Tag (Maybe Text)
+tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
+-- | /Required/ . A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
+
 instance FromXML Tag where
-        parseXML x
-          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
+        parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
 
 instance Hashable Tag
 
@@ -1442,7 +2141,7 @@ instance NFData Tag
 
 instance ToQuery Tag where
         toQuery Tag'{..}
-          = mconcat ["Value" =: _tagValue, "Key" =: _tagKey]
+          = mconcat ["Key" =: _tagKey, "Value" =: _tagValue]
 
 -- | The TemplateParameter data type.
 --

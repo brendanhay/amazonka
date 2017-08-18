@@ -180,6 +180,9 @@ module Network.AWS.EMR
     -- ** MarketType
     , MarketType (..)
 
+    -- ** RepoUpgradeOnBoot
+    , RepoUpgradeOnBoot (..)
+
     -- ** ScaleDownBehavior
     , ScaleDownBehavior (..)
 
@@ -261,14 +264,17 @@ module Network.AWS.EMR
     , Cluster
     , cluster
     , cluRequestedAMIVersion
+    , cluEBSRootVolumeSize
     , cluEC2InstanceAttributes
     , cluNormalizedInstanceHours
     , cluConfigurations
+    , cluCustomAMIId
     , cluAutoScalingRole
     , cluSecurityConfiguration
     , cluScaleDownBehavior
     , cluInstanceCollectionType
     , cluReleaseLabel
+    , cluRepoUpgradeOnBoot
     , cluLogURI
     , cluRunningAMIVersion
     , cluMasterPublicDNSName

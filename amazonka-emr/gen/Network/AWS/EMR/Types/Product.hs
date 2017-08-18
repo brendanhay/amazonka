@@ -522,14 +522,17 @@ instance ToJSON CloudWatchAlarmDefinition where
 -- /See:/ 'cluster' smart constructor.
 data Cluster = Cluster'
     { _cluRequestedAMIVersion     :: !(Maybe Text)
+    , _cluEBSRootVolumeSize       :: !(Maybe Int)
     , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
     , _cluNormalizedInstanceHours :: !(Maybe Int)
     , _cluConfigurations          :: !(Maybe [Configuration])
+    , _cluCustomAMIId             :: !(Maybe Text)
     , _cluAutoScalingRole         :: !(Maybe Text)
     , _cluSecurityConfiguration   :: !(Maybe Text)
     , _cluScaleDownBehavior       :: !(Maybe ScaleDownBehavior)
     , _cluInstanceCollectionType  :: !(Maybe InstanceCollectionType)
     , _cluReleaseLabel            :: !(Maybe Text)
+    , _cluRepoUpgradeOnBoot       :: !(Maybe RepoUpgradeOnBoot)
     , _cluLogURI                  :: !(Maybe Text)
     , _cluRunningAMIVersion       :: !(Maybe Text)
     , _cluMasterPublicDNSName     :: !(Maybe Text)
@@ -550,11 +553,15 @@ data Cluster = Cluster'
 --
 -- * 'cluRequestedAMIVersion' - The AMI version requested for this cluster.
 --
+-- * 'cluEBSRootVolumeSize' - The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+--
 -- * 'cluEC2InstanceAttributes' - Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 --
 -- * 'cluNormalizedInstanceHours' - An approximation of the cost of the cluster, represented in m1.small/hours. This value is incremented one time for every hour an m1.small instance runs. Larger instances are weighted more, so an EC2 instance that is roughly four times more expensive would result in the normalized instance hours being incremented by four. This result is only an approximation and does not reflect the actual billing rate.
 --
--- * 'cluConfigurations' - The list of Configurations supplied to the EMR cluster.
+-- * 'cluConfigurations' - Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
+--
+-- * 'cluCustomAMIId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
 --
 -- * 'cluAutoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 --
@@ -564,7 +571,9 @@ data Cluster = Cluster'
 --
 -- * 'cluInstanceCollectionType' - The instance group configuration of the cluster. A value of @INSTANCE_GROUP@ indicates a uniform instance group configuration. A value of @INSTANCE_FLEET@ indicates an instance fleets configuration.
 --
--- * 'cluReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
+-- * 'cluReleaseLabel' - The release label for the Amazon EMR release.
+--
+-- * 'cluRepoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies the type of updates that are applied from the Amazon Linux AMI package repositories when an instance boots using the AMI.
 --
 -- * 'cluLogURI' - The path to the Amazon S3 location where logs for this cluster are stored.
 --
@@ -597,14 +606,17 @@ cluster
 cluster pId_ pName_ pStatus_ =
     Cluster'
     { _cluRequestedAMIVersion = Nothing
+    , _cluEBSRootVolumeSize = Nothing
     , _cluEC2InstanceAttributes = Nothing
     , _cluNormalizedInstanceHours = Nothing
     , _cluConfigurations = Nothing
+    , _cluCustomAMIId = Nothing
     , _cluAutoScalingRole = Nothing
     , _cluSecurityConfiguration = Nothing
     , _cluScaleDownBehavior = Nothing
     , _cluInstanceCollectionType = Nothing
     , _cluReleaseLabel = Nothing
+    , _cluRepoUpgradeOnBoot = Nothing
     , _cluLogURI = Nothing
     , _cluRunningAMIVersion = Nothing
     , _cluMasterPublicDNSName = Nothing
@@ -623,6 +635,10 @@ cluster pId_ pName_ pStatus_ =
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
 cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedAMIVersion = a});
 
+-- | The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+cluEBSRootVolumeSize :: Lens' Cluster (Maybe Int)
+cluEBSRootVolumeSize = lens _cluEBSRootVolumeSize (\ s a -> s{_cluEBSRootVolumeSize = a});
+
 -- | Provides information about the EC2 instances in a cluster grouped by category. For example, key name, subnet ID, IAM instance profile, and so on.
 cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
 cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
@@ -631,9 +647,13 @@ cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2Ins
 cluNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
 cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNormalizedInstanceHours = a});
 
--- | The list of Configurations supplied to the EMR cluster.
+-- | Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied to the EMR cluster.
 cluConfigurations :: Lens' Cluster [Configuration]
 cluConfigurations = lens _cluConfigurations (\ s a -> s{_cluConfigurations = a}) . _Default . _Coerce;
+
+-- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI if the cluster uses a custom AMI.
+cluCustomAMIId :: Lens' Cluster (Maybe Text)
+cluCustomAMIId = lens _cluCustomAMIId (\ s a -> s{_cluCustomAMIId = a});
 
 -- | An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 cluAutoScalingRole :: Lens' Cluster (Maybe Text)
@@ -651,9 +671,13 @@ cluScaleDownBehavior = lens _cluScaleDownBehavior (\ s a -> s{_cluScaleDownBehav
 cluInstanceCollectionType :: Lens' Cluster (Maybe InstanceCollectionType)
 cluInstanceCollectionType = lens _cluInstanceCollectionType (\ s a -> s{_cluInstanceCollectionType = a});
 
--- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
+-- | The release label for the Amazon EMR release.
 cluReleaseLabel :: Lens' Cluster (Maybe Text)
 cluReleaseLabel = lens _cluReleaseLabel (\ s a -> s{_cluReleaseLabel = a});
+
+-- | Applies only when @CustomAmiID@ is used. Specifies the type of updates that are applied from the Amazon Linux AMI package repositories when an instance boots using the AMI.
+cluRepoUpgradeOnBoot :: Lens' Cluster (Maybe RepoUpgradeOnBoot)
+cluRepoUpgradeOnBoot = lens _cluRepoUpgradeOnBoot (\ s a -> s{_cluRepoUpgradeOnBoot = a});
 
 -- | The path to the Amazon S3 location where logs for this cluster are stored.
 cluLogURI :: Lens' Cluster (Maybe Text)
@@ -709,14 +733,17 @@ instance FromJSON Cluster where
               (\ x ->
                  Cluster' <$>
                    (x .:? "RequestedAmiVersion") <*>
-                     (x .:? "Ec2InstanceAttributes")
+                     (x .:? "EbsRootVolumeSize")
+                     <*> (x .:? "Ec2InstanceAttributes")
                      <*> (x .:? "NormalizedInstanceHours")
                      <*> (x .:? "Configurations" .!= mempty)
+                     <*> (x .:? "CustomAmiId")
                      <*> (x .:? "AutoScalingRole")
                      <*> (x .:? "SecurityConfiguration")
                      <*> (x .:? "ScaleDownBehavior")
                      <*> (x .:? "InstanceCollectionType")
                      <*> (x .:? "ReleaseLabel")
+                     <*> (x .:? "RepoUpgradeOnBoot")
                      <*> (x .:? "LogUri")
                      <*> (x .:? "RunningAmiVersion")
                      <*> (x .:? "MasterPublicDnsName")
@@ -1272,7 +1299,7 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- * 'eiaAdditionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the slave nodes.
 --
--- * 'eiaRequestedEC2SubnetIds' - Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Amazon EMR chooses the EC2 subnet with the best performance and cost characteristics from among the list of RequestedEc2SubnetIds and launches all cluster instances within that subnet. If this value is not specified, and the account supports EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses Requested
+-- * 'eiaRequestedEC2SubnetIds' - Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among the list of @RequestedEc2SubnetIds@ , and then launches all cluster instances within that Subnet. If this value is not specified, and the account and region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
 --
 -- * 'eiaAdditionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
 --
@@ -1282,7 +1309,7 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
 --
 -- * 'eiaEC2SubnetId' - To launch the cluster in Amazon VPC, set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, the cluster is launched in the normal AWS cloud, outside of a VPC. Amazon VPC currently does not support cluster compute quadruple extra large (cc1.4xlarge) instances. Thus, you cannot specify the cc1.4xlarge instance type for nodes of a cluster launched in a VPC.
 --
--- * 'eiaRequestedEC2AvailabilityZones' - Applies to clusters configured with the The list of availability zones to choose from. The service will choose the availability zone with the best mix of available capacity and lowest cost to launch the cluster. If you do not specify this value, the cluster is launched in any availability zone that the customer account has access to.
+-- * 'eiaRequestedEC2AvailabilityZones' - Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of @RequestedEc2AvailabilityZones@ , and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
 --
 -- * 'eiaServiceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
 --
@@ -1316,7 +1343,7 @@ eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -
 eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
 eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
--- | Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Amazon EMR chooses the EC2 subnet with the best performance and cost characteristics from among the list of RequestedEc2SubnetIds and launches all cluster instances within that subnet. If this value is not specified, and the account supports EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses Requested
+-- | Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among the list of @RequestedEc2SubnetIds@ , and then launches all cluster instances within that Subnet. If this value is not specified, and the account and region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
 eiaRequestedEC2SubnetIds :: Lens' EC2InstanceAttributes [Text]
 eiaRequestedEC2SubnetIds = lens _eiaRequestedEC2SubnetIds (\ s a -> s{_eiaRequestedEC2SubnetIds = a}) . _Default . _Coerce;
 
@@ -1336,7 +1363,7 @@ eiaEmrManagedMasterSecurityGroup = lens _eiaEmrManagedMasterSecurityGroup (\ s a
 eiaEC2SubnetId :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEC2SubnetId = lens _eiaEC2SubnetId (\ s a -> s{_eiaEC2SubnetId = a});
 
--- | Applies to clusters configured with the The list of availability zones to choose from. The service will choose the availability zone with the best mix of available capacity and lowest cost to launch the cluster. If you do not specify this value, the cluster is launched in any availability zone that the customer account has access to.
+-- | Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of @RequestedEc2AvailabilityZones@ , and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
 eiaRequestedEC2AvailabilityZones :: Lens' EC2InstanceAttributes [Text]
 eiaRequestedEC2AvailabilityZones = lens _eiaRequestedEC2AvailabilityZones (\ s a -> s{_eiaRequestedEC2AvailabilityZones = a}) . _Default . _Coerce;
 
@@ -2858,11 +2885,11 @@ data InstanceTypeConfig = InstanceTypeConfig'
 --
 -- * 'itcBidPrice' - The bid price for each EC2 Spot instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 --
--- * 'itcWeightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be greater than 0 for core and task instance fleets.
+-- * 'itcWeightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
 --
 -- * 'itcConfigurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
 --
--- * 'itcBidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number between 0 and 1000 (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+-- * 'itcBidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 --
 -- * 'itcInstanceType' - An EC2 instance type, such as @m3.xlarge@ .
 instanceTypeConfig
@@ -2886,7 +2913,7 @@ itcEBSConfiguration = lens _itcEBSConfiguration (\ s a -> s{_itcEBSConfiguration
 itcBidPrice :: Lens' InstanceTypeConfig (Maybe Text)
 itcBidPrice = lens _itcBidPrice (\ s a -> s{_itcBidPrice = a});
 
--- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be greater than 0 for core and task instance fleets.
+-- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
 itcWeightedCapacity :: Lens' InstanceTypeConfig (Maybe Natural)
 itcWeightedCapacity = lens _itcWeightedCapacity (\ s a -> s{_itcWeightedCapacity = a}) . mapping _Nat;
 
@@ -2894,7 +2921,7 @@ itcWeightedCapacity = lens _itcWeightedCapacity (\ s a -> s{_itcWeightedCapacity
 itcConfigurations :: Lens' InstanceTypeConfig [Configuration]
 itcConfigurations = lens _itcConfigurations (\ s a -> s{_itcConfigurations = a}) . _Default . _Coerce;
 
--- | The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number between 0 and 1000 (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 itcBidPriceAsPercentageOfOnDemandPrice :: Lens' InstanceTypeConfig (Maybe Double)
 itcBidPriceAsPercentageOfOnDemandPrice = lens _itcBidPriceAsPercentageOfOnDemandPrice (\ s a -> s{_itcBidPriceAsPercentageOfOnDemandPrice = a});
 
@@ -3785,7 +3812,7 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 --
 -- * 'spsTimeoutDurationMinutes' - The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the @TimeOutAction@ is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
 --
--- * 'spsTimeoutAction' - The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ to fulfill the remaining capacity.
+-- * 'spsTimeoutAction' - The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ . SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 spotProvisioningSpecification
     :: Natural -- ^ 'spsTimeoutDurationMinutes'
     -> SpotProvisioningTimeoutAction -- ^ 'spsTimeoutAction'
@@ -3805,7 +3832,7 @@ spsBlockDurationMinutes = lens _spsBlockDurationMinutes (\ s a -> s{_spsBlockDur
 spsTimeoutDurationMinutes :: Lens' SpotProvisioningSpecification Natural
 spsTimeoutDurationMinutes = lens _spsTimeoutDurationMinutes (\ s a -> s{_spsTimeoutDurationMinutes = a}) . _Nat;
 
--- | The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ to fulfill the remaining capacity.
+-- | The action to take when @TargetSpotCapacity@ has not been fulfilled when the @TimeoutDurationMinutes@ has expired. Spot instances are not uprovisioned within the Spot provisioining timeout. Valid values are @TERMINATE_CLUSTER@ and @SWITCH_TO_ON_DEMAND@ . SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
 spsTimeoutAction :: Lens' SpotProvisioningSpecification SpotProvisioningTimeoutAction
 spsTimeoutAction = lens _spsTimeoutAction (\ s a -> s{_spsTimeoutAction = a});
 

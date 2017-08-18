@@ -36,8 +36,10 @@ module Network.AWS.EMR.RunJobFlow
     , RunJobFlow
     -- * Request Lenses
     , rjfAMIVersion
+    , rjfEBSRootVolumeSize
     , rjfAdditionalInfo
     , rjfConfigurations
+    , rjfCustomAMIId
     , rjfAutoScalingRole
     , rjfSecurityConfiguration
     , rjfScaleDownBehavior
@@ -45,6 +47,7 @@ module Network.AWS.EMR.RunJobFlow
     , rjfJobFlowRole
     , rjfBootstrapActions
     , rjfReleaseLabel
+    , rjfRepoUpgradeOnBoot
     , rjfLogURI
     , rjfNewSupportedProducts
     , rjfVisibleToAllUsers
@@ -77,8 +80,10 @@ import           Network.AWS.Response
 -- /See:/ 'runJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
     { _rjfAMIVersion            :: !(Maybe Text)
+    , _rjfEBSRootVolumeSize     :: !(Maybe Int)
     , _rjfAdditionalInfo        :: !(Maybe Text)
     , _rjfConfigurations        :: !(Maybe [Configuration])
+    , _rjfCustomAMIId           :: !(Maybe Text)
     , _rjfAutoScalingRole       :: !(Maybe Text)
     , _rjfSecurityConfiguration :: !(Maybe Text)
     , _rjfScaleDownBehavior     :: !(Maybe ScaleDownBehavior)
@@ -86,6 +91,7 @@ data RunJobFlow = RunJobFlow'
     , _rjfJobFlowRole           :: !(Maybe Text)
     , _rjfBootstrapActions      :: !(Maybe [BootstrapActionConfig])
     , _rjfReleaseLabel          :: !(Maybe Text)
+    , _rjfRepoUpgradeOnBoot     :: !(Maybe RepoUpgradeOnBoot)
     , _rjfLogURI                :: !(Maybe Text)
     , _rjfNewSupportedProducts  :: !(Maybe [SupportedProductConfig])
     , _rjfVisibleToAllUsers     :: !(Maybe Bool)
@@ -101,11 +107,15 @@ data RunJobFlow = RunJobFlow'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rjfAMIVersion' - The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./
+-- * 'rjfAMIVersion' - For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by the @ReleaseLabel@ specified or by @CustomAmiID@ . The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently supported in EMR version 3.x and 2.x, see <ElasticMapReduce/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported AMI Versions Supported in EMR> in the /Amazon EMR Developer Guide/ .  If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above.
+--
+-- * 'rjfEBSRootVolumeSize' - The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
 --
 -- * 'rjfAdditionalInfo' - A JSON string for selecting additional features.
 --
--- * 'rjfConfigurations' - The list of configurations supplied for the EMR cluster you are creating.
+-- * 'rjfConfigurations' - For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR cluster you are creating.
+--
+-- * 'rjfCustomAMIId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI> in the /Amazon EMR Management Guide/ . If omitted, the cluster uses the base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions 2.x and 3.x, use @AmiVersion@ instead. For information about creating a custom AMI, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating an Amazon EBS-Backed Linux AMI> in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/ . For information about finding an AMI ID, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI> .
 --
 -- * 'rjfAutoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 --
@@ -119,7 +129,9 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfBootstrapActions' - A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 --
--- * 'rjfReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
+-- * 'rjfReleaseLabel' - The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use @AmiVersion@ instead.
+--
+-- * 'rjfRepoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
 --
 -- * 'rjfLogURI' - The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
 --
@@ -129,7 +141,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- * 'rjfSupportedProducts' - A list of strings that indicates third-party software to use. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR> . Currently supported values are:     * "mapr-m3" - launch the job flow using MapR M3 Edition.     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
--- * 'rjfApplications' - A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
+-- * 'rjfApplications' - For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
 --
 -- * 'rjfTags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
 --
@@ -145,8 +157,10 @@ runJobFlow
 runJobFlow pName_ pInstances_ =
     RunJobFlow'
     { _rjfAMIVersion = Nothing
+    , _rjfEBSRootVolumeSize = Nothing
     , _rjfAdditionalInfo = Nothing
     , _rjfConfigurations = Nothing
+    , _rjfCustomAMIId = Nothing
     , _rjfAutoScalingRole = Nothing
     , _rjfSecurityConfiguration = Nothing
     , _rjfScaleDownBehavior = Nothing
@@ -154,6 +168,7 @@ runJobFlow pName_ pInstances_ =
     , _rjfJobFlowRole = Nothing
     , _rjfBootstrapActions = Nothing
     , _rjfReleaseLabel = Nothing
+    , _rjfRepoUpgradeOnBoot = Nothing
     , _rjfLogURI = Nothing
     , _rjfNewSupportedProducts = Nothing
     , _rjfVisibleToAllUsers = Nothing
@@ -165,17 +180,25 @@ runJobFlow pName_ pInstances_ =
     , _rjfInstances = pInstances_
     }
 
--- | The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. The following values are valid:     * The version number of the AMI to use, for example, "2.0." If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20) you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above. For details about the AMI versions currently supported by Amazon Elastic MapReduce, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce> in the /Amazon Elastic MapReduce Developer Guide./
+-- | For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the Linux AMI is determined by the @ReleaseLabel@ specified or by @CustomAmiID@ . The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances in the job flow. For details about the AMI versions currently supported in EMR version 3.x and 2.x, see <ElasticMapReduce/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported AMI Versions Supported in EMR> in the /Amazon EMR Developer Guide/ .  If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both Hadoop 0.18 and 0.20), you can use the 'JobFlowInstancesConfig' @HadoopVersion@ parameter to modify the version of Hadoop from the defaults shown above.
 rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
 rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
+
+-- | The size, in GiB, of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+rjfEBSRootVolumeSize :: Lens' RunJobFlow (Maybe Int)
+rjfEBSRootVolumeSize = lens _rjfEBSRootVolumeSize (\ s a -> s{_rjfEBSRootVolumeSize = a});
 
 -- | A JSON string for selecting additional features.
 rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a});
 
--- | The list of configurations supplied for the EMR cluster you are creating.
+-- | For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR cluster you are creating.
 rjfConfigurations :: Lens' RunJobFlow [Configuration]
 rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
+
+-- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI> in the /Amazon EMR Management Guide/ . If omitted, the cluster uses the base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions 2.x and 3.x, use @AmiVersion@ instead. For information about creating a custom AMI, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating an Amazon EBS-Backed Linux AMI> in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/ . For information about finding an AMI ID, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI> .
+rjfCustomAMIId :: Lens' RunJobFlow (Maybe Text)
+rjfCustomAMIId = lens _rjfCustomAMIId (\ s a -> s{_rjfCustomAMIId = a});
 
 -- | An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 rjfAutoScalingRole :: Lens' RunJobFlow (Maybe Text)
@@ -201,9 +224,13 @@ rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default . _Coerce;
 
--- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use amiVersion instead instead of ReleaseLabel.
+-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use @AmiVersion@ instead.
 rjfReleaseLabel :: Lens' RunJobFlow (Maybe Text)
 rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
+
+-- | Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
+rjfRepoUpgradeOnBoot :: Lens' RunJobFlow (Maybe RepoUpgradeOnBoot)
+rjfRepoUpgradeOnBoot = lens _rjfRepoUpgradeOnBoot (\ s a -> s{_rjfRepoUpgradeOnBoot = a});
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
 rjfLogURI :: Lens' RunJobFlow (Maybe Text)
@@ -221,7 +248,7 @@ rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUs
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 
--- | A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
+-- | For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.
 rjfApplications :: Lens' RunJobFlow [Application]
 rjfApplications = lens _rjfApplications (\ s a -> s{_rjfApplications = a}) . _Default . _Coerce;
 
@@ -268,8 +295,10 @@ instance ToJSON RunJobFlow where
           = object
               (catMaybes
                  [("AmiVersion" .=) <$> _rjfAMIVersion,
+                  ("EbsRootVolumeSize" .=) <$> _rjfEBSRootVolumeSize,
                   ("AdditionalInfo" .=) <$> _rjfAdditionalInfo,
                   ("Configurations" .=) <$> _rjfConfigurations,
+                  ("CustomAmiId" .=) <$> _rjfCustomAMIId,
                   ("AutoScalingRole" .=) <$> _rjfAutoScalingRole,
                   ("SecurityConfiguration" .=) <$>
                     _rjfSecurityConfiguration,
@@ -278,6 +307,7 @@ instance ToJSON RunJobFlow where
                   ("JobFlowRole" .=) <$> _rjfJobFlowRole,
                   ("BootstrapActions" .=) <$> _rjfBootstrapActions,
                   ("ReleaseLabel" .=) <$> _rjfReleaseLabel,
+                  ("RepoUpgradeOnBoot" .=) <$> _rjfRepoUpgradeOnBoot,
                   ("LogUri" .=) <$> _rjfLogURI,
                   ("NewSupportedProducts" .=) <$>
                     _rjfNewSupportedProducts,

@@ -153,6 +153,32 @@ instance ToJSON GrantOperation where
 instance FromJSON GrantOperation where
     parseJSON = parseJSONText "GrantOperation"
 
+data KeyManagerType
+    = AWS
+    | Customer
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText KeyManagerType where
+    parser = takeLowerText >>= \case
+        "aws" -> pure AWS
+        "customer" -> pure Customer
+        e -> fromTextError $ "Failure parsing KeyManagerType from value: '" <> e
+           <> "'. Accepted values: aws, customer"
+
+instance ToText KeyManagerType where
+    toText = \case
+        AWS -> "AWS"
+        Customer -> "CUSTOMER"
+
+instance Hashable     KeyManagerType
+instance NFData       KeyManagerType
+instance ToByteString KeyManagerType
+instance ToQuery      KeyManagerType
+instance ToHeader     KeyManagerType
+
+instance FromJSON KeyManagerType where
+    parseJSON = parseJSONText "KeyManagerType"
+
 data KeyState
     = Disabled
     | Enabled

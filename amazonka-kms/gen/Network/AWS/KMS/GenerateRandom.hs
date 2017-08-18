@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates an unpredictable byte string.
+-- Returns a random byte string that is cryptographically secure.
 --
+--
+-- For more information about entropy and random number generation, see the <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details> whitepaper.
 --
 module Network.AWS.KMS.GenerateRandom
     (
@@ -109,7 +111,7 @@ data GenerateRandomResponse = GenerateRandomResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsPlaintext' - The unpredictable byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'grrsPlaintext' - The random byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
 -- * 'grrsResponseStatus' - -- | The response status code.
 generateRandomResponse
@@ -121,7 +123,7 @@ generateRandomResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | The unpredictable byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The random byte string.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 

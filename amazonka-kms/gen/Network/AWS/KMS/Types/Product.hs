@@ -74,10 +74,10 @@ instance Hashable AliasListEntry
 
 instance NFData AliasListEntry
 
--- | A structure for specifying the conditions under which the operations permitted by the grant are allowed.
+-- | A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 --
--- You can use this structure to allow the operations permitted by the grant only when a specified encryption context is present. For more information about encryption context, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+-- Grant constraints apply only to operations that accept encryption context as input. For example, the @'DescribeKey' @ operation does not accept encryption context as input. A grant that allows the @DescribeKey@ operation does so regardless of the grant constraints. In constrast, the @'Encrypt' @ operation accepts encryption context as input. A grant that allows the @Encrypt@ operation does so only when the encryption context of the @Encrypt@ operation satisfies the grant constraints.
 --
 --
 -- /See:/ 'grantConstraints' smart constructor.
@@ -90,9 +90,9 @@ data GrantConstraints = GrantConstraints'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcEncryptionContextEquals' - Contains a list of key-value pairs that must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list, the grant allows the operation. Otherwise, the operation is not allowed.
+-- * 'gcEncryptionContextEquals' - A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list, the grant allows the operation. Otherwise, the grant does not allow the operation.
 --
--- * 'gcEncryptionContextSubset' - Contains a list of key-value pairs, a subset of which must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list or is a subset of this list, the grant allows the operation. Otherwise, the operation is not allowed.
+-- * 'gcEncryptionContextSubset' - A list of key-value pairs, all of which must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list or is a superset of this list, the grant allows the operation. Otherwise, the grant does not allow the operation.
 grantConstraints
     :: GrantConstraints
 grantConstraints =
@@ -101,11 +101,11 @@ grantConstraints =
     , _gcEncryptionContextSubset = Nothing
     }
 
--- | Contains a list of key-value pairs that must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list, the grant allows the operation. Otherwise, the operation is not allowed.
+-- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list, the grant allows the operation. Otherwise, the grant does not allow the operation.
 gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Default . _Map;
 
--- | Contains a list of key-value pairs, a subset of which must be present in the encryption context of a subsequent operation permitted by the grant. When a subsequent operation permitted by the grant includes an encryption context that matches this list or is a subset of this list, the grant allows the operation. Otherwise, the operation is not allowed.
+-- | A list of key-value pairs, all of which must be present in the encryption context of certain subsequent operations that the grant allows. When certain subsequent operations allowed by the grant include encryption context that matches this list or is a superset of this list, the grant allows the operation. Otherwise, the grant does not allow the operation.
 gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Default . _Map;
 
@@ -159,7 +159,7 @@ data GrantListEntry = GrantListEntry'
 --
 -- * 'gleGrantId' - The unique identifier for the grant.
 --
--- * 'gleConstraints' - The conditions under which the grant's operations are allowed.
+-- * 'gleConstraints' - A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
 --
 -- * 'gleGranteePrincipal' - The principal that receives the grant's permissions.
 --
@@ -199,7 +199,7 @@ gleIssuingAccount = lens _gleIssuingAccount (\ s a -> s{_gleIssuingAccount = a})
 gleGrantId :: Lens' GrantListEntry (Maybe Text)
 gleGrantId = lens _gleGrantId (\ s a -> s{_gleGrantId = a});
 
--- | The conditions under which the grant's operations are allowed.
+-- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
 
@@ -291,6 +291,7 @@ instance NFData KeyListEntry
 data KeyMetadata = KeyMetadata'
     { _kmOrigin          :: !(Maybe OriginType)
     , _kmExpirationModel :: !(Maybe ExpirationModelType)
+    , _kmKeyManager      :: !(Maybe KeyManagerType)
     , _kmEnabled         :: !(Maybe Bool)
     , _kmValidTo         :: !(Maybe POSIX)
     , _kmARN             :: !(Maybe Text)
@@ -310,6 +311,8 @@ data KeyMetadata = KeyMetadata'
 -- * 'kmOrigin' - The source of the CMK's key material. When this value is @AWS_KMS@ , AWS KMS created the key material. When this value is @EXTERNAL@ , the key material was imported from your existing key management infrastructure or the CMK lacks key material.
 --
 -- * 'kmExpirationModel' - Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
+--
+-- * 'kmKeyManager' - The CMK's manager. CMKs are either customer-managed or AWS-managed. For more information about the difference, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
 --
 -- * 'kmEnabled' - Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
 --
@@ -337,6 +340,7 @@ keyMetadata pKeyId_ =
     KeyMetadata'
     { _kmOrigin = Nothing
     , _kmExpirationModel = Nothing
+    , _kmKeyManager = Nothing
     , _kmEnabled = Nothing
     , _kmValidTo = Nothing
     , _kmARN = Nothing
@@ -356,6 +360,10 @@ kmOrigin = lens _kmOrigin (\ s a -> s{_kmOrigin = a});
 -- | Specifies whether the CMK's key material expires. This value is present only when @Origin@ is @EXTERNAL@ , otherwise this value is omitted.
 kmExpirationModel :: Lens' KeyMetadata (Maybe ExpirationModelType)
 kmExpirationModel = lens _kmExpirationModel (\ s a -> s{_kmExpirationModel = a});
+
+-- | The CMK's manager. CMKs are either customer-managed or AWS-managed. For more information about the difference, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys> in the /AWS Key Management Service Developer Guide/ .
+kmKeyManager :: Lens' KeyMetadata (Maybe KeyManagerType)
+kmKeyManager = lens _kmKeyManager (\ s a -> s{_kmKeyManager = a});
 
 -- | Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this value is true, otherwise it is false.
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
@@ -403,7 +411,8 @@ instance FromJSON KeyMetadata where
               (\ x ->
                  KeyMetadata' <$>
                    (x .:? "Origin") <*> (x .:? "ExpirationModel") <*>
-                     (x .:? "Enabled")
+                     (x .:? "KeyManager")
+                     <*> (x .:? "Enabled")
                      <*> (x .:? "ValidTo")
                      <*> (x .:? "Arn")
                      <*> (x .:? "KeyState")

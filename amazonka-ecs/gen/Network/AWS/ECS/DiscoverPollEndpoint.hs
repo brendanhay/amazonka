@@ -56,7 +56,7 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpeCluster' - The cluster that the container instance belongs to.
+-- * 'dpeCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that the container instance belongs to.
 --
 -- * 'dpeContainerInstance' - The container instance ID or full Amazon Resource Name (ARN) of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:/region/ :/aws_account_id/ :container-instance//container_instance_ID/ @ .
 discoverPollEndpoint
@@ -67,7 +67,7 @@ discoverPollEndpoint =
     , _dpeContainerInstance = Nothing
     }
 
--- | The cluster that the container instance belongs to.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that the container instance belongs to.
 dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 

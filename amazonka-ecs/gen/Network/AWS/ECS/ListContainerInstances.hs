@@ -65,7 +65,7 @@ data ListContainerInstances = ListContainerInstances'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lciStatus' - The container instance status with which to filter the @ListContainerInstances@ results. Specifying a container instance status of @DRAINING@ limits the results to container instances that have been set to drain with the 'UpdateContainerInstancesState' operation.
+-- * 'lciStatus' - Filters the container instances by status. For example, if you specify the @DRAINING@ status, the results include only container instances that have been set to @DRAINING@ using 'UpdateContainerInstancesState' . If you do not specify this parameter, the default is to include container instances set to @ACTIVE@ and @DRAINING@ .
 --
 -- * 'lciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instances to list. If you do not specify a cluster, the default cluster is assumed.
 --
@@ -85,7 +85,7 @@ listContainerInstances =
     , _lciMaxResults = Nothing
     }
 
--- | The container instance status with which to filter the @ListContainerInstances@ results. Specifying a container instance status of @DRAINING@ limits the results to container instances that have been set to drain with the 'UpdateContainerInstancesState' operation.
+-- | Filters the container instances by status. For example, if you specify the @DRAINING@ status, the results include only container instances that have been set to @DRAINING@ using 'UpdateContainerInstancesState' . If you do not specify this parameter, the default is to include container instances set to @ACTIVE@ and @DRAINING@ .
 lciStatus :: Lens' ListContainerInstances (Maybe ContainerInstanceStatus)
 lciStatus = lens _lciStatus (\ s a -> s{_lciStatus = a});
 

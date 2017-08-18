@@ -581,6 +581,7 @@ data ContainerInstance = ContainerInstance'
     , _ciAttributes           :: !(Maybe [Attribute])
     , _ciVersion              :: !(Maybe Integer)
     , _ciPendingTasksCount    :: !(Maybe Int)
+    , _ciRegisteredAt         :: !(Maybe POSIX)
     , _ciRegisteredResources  :: !(Maybe [Resource])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -588,7 +589,7 @@ data ContainerInstance = ContainerInstance'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciStatus' - The status of the container instance. The valid values are @ACTIVE@ or @INACTIVE@ . @ACTIVE@ indicates that the container instance can accept tasks.
+-- * 'ciStatus' - The status of the container instance. The valid values are @ACTIVE@ , @INACTIVE@ , or @DRAINING@ . @ACTIVE@ indicates that the container instance can accept tasks. @DRAINING@ indicates that new tasks are not placed on the container instance and any service tasks running on the container instance are removed if possible. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining> in the /Amazon EC2 Container Service Developer Guide/ .
 --
 -- * 'ciRunningTasksCount' - The number of tasks on the container instance that are in the @RUNNING@ status.
 --
@@ -610,6 +611,8 @@ data ContainerInstance = ContainerInstance'
 --
 -- * 'ciPendingTasksCount' - The number of tasks on the container instance that are in the @PENDING@ status.
 --
+-- * 'ciRegisteredAt' - The Unix timestamp for when the container instance was registered.
+--
 -- * 'ciRegisteredResources' - For most resource types, this parameter describes the registered resources on the container instance that are in use by current tasks. For port resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the container instance with Amazon ECS.
 containerInstance
     :: ContainerInstance
@@ -626,10 +629,11 @@ containerInstance =
     , _ciAttributes = Nothing
     , _ciVersion = Nothing
     , _ciPendingTasksCount = Nothing
+    , _ciRegisteredAt = Nothing
     , _ciRegisteredResources = Nothing
     }
 
--- | The status of the container instance. The valid values are @ACTIVE@ or @INACTIVE@ . @ACTIVE@ indicates that the container instance can accept tasks.
+-- | The status of the container instance. The valid values are @ACTIVE@ , @INACTIVE@ , or @DRAINING@ . @ACTIVE@ indicates that the container instance can accept tasks. @DRAINING@ indicates that new tasks are not placed on the container instance and any service tasks running on the container instance are removed if possible. For more information, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining> in the /Amazon EC2 Container Service Developer Guide/ .
 ciStatus :: Lens' ContainerInstance (Maybe Text)
 ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
 
@@ -673,6 +677,10 @@ ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a});
 ciPendingTasksCount :: Lens' ContainerInstance (Maybe Int)
 ciPendingTasksCount = lens _ciPendingTasksCount (\ s a -> s{_ciPendingTasksCount = a});
 
+-- | The Unix timestamp for when the container instance was registered.
+ciRegisteredAt :: Lens' ContainerInstance (Maybe UTCTime)
+ciRegisteredAt = lens _ciRegisteredAt (\ s a -> s{_ciRegisteredAt = a}) . mapping _Time;
+
 -- | For most resource types, this parameter describes the registered resources on the container instance that are in use by current tasks. For port resource types, this parameter describes the ports that were reserved by the Amazon ECS container agent when it registered the container instance with Amazon ECS.
 ciRegisteredResources :: Lens' ContainerInstance [Resource]
 ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a}) . _Default . _Coerce;
@@ -692,6 +700,7 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "attributes" .!= mempty)
                      <*> (x .:? "version")
                      <*> (x .:? "pendingTasksCount")
+                     <*> (x .:? "registeredAt")
                      <*> (x .:? "registeredResources" .!= mempty))
 
 instance Hashable ContainerInstance
@@ -704,40 +713,64 @@ instance NFData ContainerInstance
 --
 -- /See:/ 'containerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-    { _coCommand     :: !(Maybe [Text])
-    , _coEnvironment :: !(Maybe [KeyValuePair])
-    , _coName        :: !(Maybe Text)
+    { _coCommand           :: !(Maybe [Text])
+    , _coEnvironment       :: !(Maybe [KeyValuePair])
+    , _coMemory            :: !(Maybe Int)
+    , _coName              :: !(Maybe Text)
+    , _coCpu               :: !(Maybe Int)
+    , _coMemoryReservation :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ContainerOverride' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coCommand' - The command to send to the container that overrides the default command from the Docker image or the task definition.
+-- * 'coCommand' - The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 --
--- * 'coEnvironment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition.
+-- * 'coEnvironment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
 --
--- * 'coName' - The name of the container that receives the override.
+-- * 'coMemory' - The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+--
+-- * 'coName' - The name of the container that receives the override. This parameter is required if any override is specified.
+--
+-- * 'coCpu' - The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+--
+-- * 'coMemoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
 containerOverride
     :: ContainerOverride
 containerOverride =
     ContainerOverride'
     { _coCommand = Nothing
     , _coEnvironment = Nothing
+    , _coMemory = Nothing
     , _coName = Nothing
+    , _coCpu = Nothing
+    , _coMemoryReservation = Nothing
     }
 
--- | The command to send to the container that overrides the default command from the Docker image or the task definition.
+-- | The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 coCommand :: Lens' ContainerOverride [Text]
 coCommand = lens _coCommand (\ s a -> s{_coCommand = a}) . _Default . _Coerce;
 
--- | The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition.
+-- | The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.
 coEnvironment :: Lens' ContainerOverride [KeyValuePair]
 coEnvironment = lens _coEnvironment (\ s a -> s{_coEnvironment = a}) . _Default . _Coerce;
 
--- | The name of the container that receives the override.
+-- | The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+coMemory :: Lens' ContainerOverride (Maybe Int)
+coMemory = lens _coMemory (\ s a -> s{_coMemory = a});
+
+-- | The name of the container that receives the override. This parameter is required if any override is specified.
 coName :: Lens' ContainerOverride (Maybe Text)
 coName = lens _coName (\ s a -> s{_coName = a});
+
+-- | The number of @cpu@ units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+coCpu :: Lens' ContainerOverride (Maybe Int)
+coCpu = lens _coCpu (\ s a -> s{_coCpu = a});
+
+-- | The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+coMemoryReservation :: Lens' ContainerOverride (Maybe Int)
+coMemoryReservation = lens _coMemoryReservation (\ s a -> s{_coMemoryReservation = a});
 
 instance FromJSON ContainerOverride where
         parseJSON
@@ -746,7 +779,10 @@ instance FromJSON ContainerOverride where
                  ContainerOverride' <$>
                    (x .:? "command" .!= mempty) <*>
                      (x .:? "environment" .!= mempty)
-                     <*> (x .:? "name"))
+                     <*> (x .:? "memory")
+                     <*> (x .:? "name")
+                     <*> (x .:? "cpu")
+                     <*> (x .:? "memoryReservation"))
 
 instance Hashable ContainerOverride
 
@@ -758,7 +794,9 @@ instance ToJSON ContainerOverride where
               (catMaybes
                  [("command" .=) <$> _coCommand,
                   ("environment" .=) <$> _coEnvironment,
-                  ("name" .=) <$> _coName])
+                  ("memory" .=) <$> _coMemory, ("name" .=) <$> _coName,
+                  ("cpu" .=) <$> _coCpu,
+                  ("memoryReservation" .=) <$> _coMemoryReservation])
 
 -- | Details on a service within a cluster
 --
@@ -1283,7 +1321,7 @@ data LoadBalancer = LoadBalancer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lbLoadBalancerName' - The name of the load balancer.
+-- * 'lbLoadBalancerName' - The name of a Classic load balancer.
 --
 -- * 'lbContainerName' - The name of the container (as it appears in a container definition) to associate with the load balancer.
 --
@@ -1300,7 +1338,7 @@ loadBalancer =
     , _lbContainerPort = Nothing
     }
 
--- | The name of the load balancer.
+-- | The name of a Classic load balancer.
 lbLoadBalancerName :: Lens' LoadBalancer (Maybe Text)
 lbLoadBalancerName = lens _lbLoadBalancerName (\ s a -> s{_lbLoadBalancerName = a});
 
@@ -1641,7 +1679,7 @@ data PortMapping = PortMapping'
 --
 -- * 'pmProtocol' - The protocol used for the port mapping. Valid values are @tcp@ and @udp@ . The default is @tcp@ .
 --
--- * 'pmHostPort' - The port number on the container instance to reserve for your container. You can specify a non-reserved host port for your container port mapping, or you can omit the @hostPort@ (or set it to @0@ ) while specifying a @containerPort@ and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version. The default ephemeral port range is 49153 to 65535, and this range is used for Docker versions prior to 1.6.0. For Docker version 1.6.0 and later, the Docker daemon tries to read the ephemeral port range from @/proc/sys/net/ipv4/ip_local_port_range@ ; if this kernel parameter is unavailable, the default ephemeral port range is used. You should not attempt to specify a host port in the ephemeral port range, because these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range. The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678 and 51679. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the @remainingResources@ of 'DescribeContainerInstances' output, and a container instance may have up to 100 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward the 100 reserved ports limit).
+-- * 'pmHostPort' - The port number on the container instance to reserve for your container. You can specify a non-reserved host port for your container port mapping, or you can omit the @hostPort@ (or set it to @0@ ) while specifying a @containerPort@ and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version. The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under @/proc/sys/net/ipv4/ip_local_port_range@ ; if this kernel parameter is unavailable, the default ephemeral port range of 49153 to 65535 is used. You should not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range. The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678 and 51679. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the @remainingResources@ of 'DescribeContainerInstances' output, and a container instance may have up to 100 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward the 100 reserved ports limit).
 --
 -- * 'pmContainerPort' - The port number on the container that is bound to the user-specified or automatically assigned host port. If you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range (for more information, see @hostPort@ ). Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.
 portMapping
@@ -1657,7 +1695,7 @@ portMapping =
 pmProtocol :: Lens' PortMapping (Maybe TransportProtocol)
 pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 
--- | The port number on the container instance to reserve for your container. You can specify a non-reserved host port for your container port mapping, or you can omit the @hostPort@ (or set it to @0@ ) while specifying a @containerPort@ and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version. The default ephemeral port range is 49153 to 65535, and this range is used for Docker versions prior to 1.6.0. For Docker version 1.6.0 and later, the Docker daemon tries to read the ephemeral port range from @/proc/sys/net/ipv4/ip_local_port_range@ ; if this kernel parameter is unavailable, the default ephemeral port range is used. You should not attempt to specify a host port in the ephemeral port range, because these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range. The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678 and 51679. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the @remainingResources@ of 'DescribeContainerInstances' output, and a container instance may have up to 100 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward the 100 reserved ports limit).
+-- | The port number on the container instance to reserve for your container. You can specify a non-reserved host port for your container port mapping, or you can omit the @hostPort@ (or set it to @0@ ) while specifying a @containerPort@ and your container automatically receives a port in the ephemeral port range for your container instance operating system and Docker version. The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under @/proc/sys/net/ipv4/ip_local_port_range@ ; if this kernel parameter is unavailable, the default ephemeral port range of 49153 to 65535 is used. You should not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range. The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678 and 51679. Any host port that was previously specified in a running task is also reserved while the task is running (after a task stops, the host port is released).The current reserved ports are displayed in the @remainingResources@ of 'DescribeContainerInstances' output, and a container instance may have up to 100 reserved ports at a time, including the default reserved ports (automatically assigned ports do not count toward the 100 reserved ports limit).
 pmHostPort :: Lens' PortMapping (Maybe Int)
 pmHostPort = lens _pmHostPort (\ s a -> s{_pmHostPort = a});
 
@@ -2385,7 +2423,7 @@ instance ToJSON Volume where
               (catMaybes
                  [("name" .=) <$> _vName, ("host" .=) <$> _vHost])
 
--- | Details on a data volume from another container.
+-- | Details on a data volume from another container in the same task definition.
 --
 --
 --
@@ -2399,7 +2437,7 @@ data VolumeFrom = VolumeFrom'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'vfSourceContainer' - The name of the container to mount volumes from.
+-- * 'vfSourceContainer' - The name of another container within the same task definition to mount volumes from.
 --
 -- * 'vfReadOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
 volumeFrom
@@ -2410,7 +2448,7 @@ volumeFrom =
     , _vfReadOnly = Nothing
     }
 
--- | The name of the container to mount volumes from.
+-- | The name of another container within the same task definition to mount volumes from.
 vfSourceContainer :: Lens' VolumeFrom (Maybe Text)
 vfSourceContainer = lens _vfSourceContainer (\ s a -> s{_vfSourceContainer = a});
 

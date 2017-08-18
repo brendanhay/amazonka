@@ -78,7 +78,7 @@ data UpdateContainerInstancesState = UpdateContainerInstancesState'
 --
 -- * 'ucisCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'ucisContainerInstances' - A space-separated list of container instance IDs or full Amazon Resource Name (ARN) entries.
+-- * 'ucisContainerInstances' - A list of container instance IDs or full Amazon Resource Name (ARN) entries.
 --
 -- * 'ucisStatus' - The container instance state with which to update the container instance.
 updateContainerInstancesState
@@ -95,7 +95,7 @@ updateContainerInstancesState pStatus_ =
 ucisCluster :: Lens' UpdateContainerInstancesState (Maybe Text)
 ucisCluster = lens _ucisCluster (\ s a -> s{_ucisCluster = a});
 
--- | A space-separated list of container instance IDs or full Amazon Resource Name (ARN) entries.
+-- | A list of container instance IDs or full Amazon Resource Name (ARN) entries.
 ucisContainerInstances :: Lens' UpdateContainerInstancesState [Text]
 ucisContainerInstances = lens _ucisContainerInstances (\ s a -> s{_ucisContainerInstances = a}) . _Coerce;
 

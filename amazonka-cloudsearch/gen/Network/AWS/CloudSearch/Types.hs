@@ -314,6 +314,8 @@ cloudSearch =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
           Just "request_limit_exceeded"
       | has (hasStatus 429) e = Just "too_many_requests"

@@ -110,6 +110,7 @@ module Network.AWS.XRay.Types
     , sState
     , sStartTime
     , sRoot
+    , sResponseTimeHistogram
     , sDurationHistogram
     , sReferenceId
     , sAccountId
@@ -210,6 +211,8 @@ xRay =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

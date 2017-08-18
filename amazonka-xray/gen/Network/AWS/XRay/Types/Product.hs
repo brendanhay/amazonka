@@ -230,7 +230,7 @@ data Edge = Edge'
 --
 -- * 'eAliases' - Aliases for the edge.
 --
--- * 'eResponseTimeHistogram' - Histogram describing the prominence of response times on the edge.
+-- * 'eResponseTimeHistogram' - A histogram that maps the spread of client response times on an edge.
 --
 -- * 'eReferenceId' - Identifier of the edge. Unique within a service map.
 --
@@ -257,7 +257,7 @@ eStartTime = lens _eStartTime (\ s a -> s{_eStartTime = a}) . mapping _Time;
 eAliases :: Lens' Edge [Alias]
 eAliases = lens _eAliases (\ s a -> s{_eAliases = a}) . _Default . _Coerce;
 
--- | Histogram describing the prominence of response times on the edge.
+-- | A histogram that maps the spread of client response times on an edge.
 eResponseTimeHistogram :: Lens' Edge [HistogramEntry]
 eResponseTimeHistogram = lens _eResponseTimeHistogram (\ s a -> s{_eResponseTimeHistogram = a}) . _Default . _Coerce;
 
@@ -571,7 +571,7 @@ instance Hashable HistogramEntry
 
 instance NFData HistogramEntry
 
--- | Information about a segment
+-- | A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with 'PutTraceSegments' , or an @inferred@ segment for a downstream service, generated from a subsegment sent by the service that called it.
 --
 --
 --
@@ -585,7 +585,7 @@ data Segment = Segment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sDocument' - The segment document.
+-- * 'sDocument' - The segment document
 --
 -- * 'sId' - The segment's ID.
 segment
@@ -596,7 +596,7 @@ segment =
     , _sId = Nothing
     }
 
--- | The segment document.
+-- | The segment document
 sDocument :: Lens' Segment (Maybe Text)
 sDocument = lens _sDocument (\ s a -> s{_sDocument = a});
 
@@ -682,18 +682,19 @@ instance NFData ServiceId
 --
 -- /See:/ 'serviceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-    { _sState             :: !(Maybe Text)
-    , _sStartTime         :: !(Maybe POSIX)
-    , _sRoot              :: !(Maybe Bool)
-    , _sDurationHistogram :: !(Maybe [HistogramEntry])
-    , _sReferenceId       :: !(Maybe Int)
-    , _sAccountId         :: !(Maybe Text)
-    , _sNames             :: !(Maybe [Text])
-    , _sName              :: !(Maybe Text)
-    , _sEndTime           :: !(Maybe POSIX)
-    , _sType              :: !(Maybe Text)
-    , _sEdges             :: !(Maybe [Edge])
-    , _sSummaryStatistics :: !(Maybe ServiceStatistics)
+    { _sState                 :: !(Maybe Text)
+    , _sStartTime             :: !(Maybe POSIX)
+    , _sRoot                  :: !(Maybe Bool)
+    , _sResponseTimeHistogram :: !(Maybe [HistogramEntry])
+    , _sDurationHistogram     :: !(Maybe [HistogramEntry])
+    , _sReferenceId           :: !(Maybe Int)
+    , _sAccountId             :: !(Maybe Text)
+    , _sNames                 :: !(Maybe [Text])
+    , _sName                  :: !(Maybe Text)
+    , _sEndTime               :: !(Maybe POSIX)
+    , _sType                  :: !(Maybe Text)
+    , _sEdges                 :: !(Maybe [Edge])
+    , _sSummaryStatistics     :: !(Maybe ServiceStatistics)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
@@ -706,7 +707,9 @@ data ServiceInfo = ServiceInfo'
 --
 -- * 'sRoot' - Indicates that the service was the first service to process a request.
 --
--- * 'sDurationHistogram' - Histogram mapping the spread of trace durations
+-- * 'sResponseTimeHistogram' - A histogram that maps the spread of service response times.
+--
+-- * 'sDurationHistogram' - A histogram that maps the spread of service durations.
 --
 -- * 'sReferenceId' - Identifier for the service. Unique within the service map.
 --
@@ -730,6 +733,7 @@ serviceInfo =
     { _sState = Nothing
     , _sStartTime = Nothing
     , _sRoot = Nothing
+    , _sResponseTimeHistogram = Nothing
     , _sDurationHistogram = Nothing
     , _sReferenceId = Nothing
     , _sAccountId = Nothing
@@ -753,7 +757,11 @@ sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . mapping _Time;
 sRoot :: Lens' ServiceInfo (Maybe Bool)
 sRoot = lens _sRoot (\ s a -> s{_sRoot = a});
 
--- | Histogram mapping the spread of trace durations
+-- | A histogram that maps the spread of service response times.
+sResponseTimeHistogram :: Lens' ServiceInfo [HistogramEntry]
+sResponseTimeHistogram = lens _sResponseTimeHistogram (\ s a -> s{_sResponseTimeHistogram = a}) . _Default . _Coerce;
+
+-- | A histogram that maps the spread of service durations.
 sDurationHistogram :: Lens' ServiceInfo [HistogramEntry]
 sDurationHistogram = lens _sDurationHistogram (\ s a -> s{_sDurationHistogram = a}) . _Default . _Coerce;
 
@@ -796,6 +804,7 @@ instance FromJSON ServiceInfo where
                  ServiceInfo' <$>
                    (x .:? "State") <*> (x .:? "StartTime") <*>
                      (x .:? "Root")
+                     <*> (x .:? "ResponseTimeHistogram" .!= mempty)
                      <*> (x .:? "DurationHistogram" .!= mempty)
                      <*> (x .:? "ReferenceId")
                      <*> (x .:? "AccountId")

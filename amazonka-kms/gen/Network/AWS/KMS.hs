@@ -251,6 +251,9 @@ module Network.AWS.KMS
     -- ** GrantOperation
     , GrantOperation (..)
 
+    -- ** KeyManagerType
+    , KeyManagerType (..)
+
     -- ** KeyState
     , KeyState (..)
 
@@ -300,6 +303,7 @@ module Network.AWS.KMS
     , keyMetadata
     , kmOrigin
     , kmExpirationModel
+    , kmKeyManager
     , kmEnabled
     , kmValidTo
     , kmARN

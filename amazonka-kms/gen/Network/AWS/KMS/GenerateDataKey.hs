@@ -43,7 +43,7 @@
 --
 --
 --
--- To return only an encrypted copy of the data key, use 'GenerateDataKeyWithoutPlaintext' . To return an arbitrary unpredictable byte string, use 'GenerateRandom' .
+-- To return only an encrypted copy of the data key, use 'GenerateDataKeyWithoutPlaintext' . To return a random byte string that is cryptographically secure, use 'GenerateRandom' .
 --
 -- If you use the optional @EncryptionContext@ field, you must store at least enough information to be able to reconstruct the full encryption context when you later send the ciphertext to the 'Decrypt' operation. It is a good practice to choose an encryption context that you can reconstruct on the fly to better secure the ciphertext. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --

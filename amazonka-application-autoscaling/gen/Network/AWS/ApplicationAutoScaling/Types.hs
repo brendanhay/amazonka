@@ -30,6 +30,12 @@ module Network.AWS.ApplicationAutoScaling.Types
     -- * MetricAggregationType
     , MetricAggregationType (..)
 
+    -- * MetricStatistic
+    , MetricStatistic (..)
+
+    -- * MetricType
+    , MetricType (..)
+
     -- * PolicyType
     , PolicyType (..)
 
@@ -47,6 +53,27 @@ module Network.AWS.ApplicationAutoScaling.Types
     , alarm
     , aAlarmName
     , aAlarmARN
+
+    -- * CustomizedMetricSpecification
+    , CustomizedMetricSpecification
+    , customizedMetricSpecification
+    , cmsDimensions
+    , cmsUnit
+    , cmsMetricName
+    , cmsNamespace
+    , cmsStatistic
+
+    -- * MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdName
+    , mdValue
+
+    -- * PredefinedMetricSpecification
+    , PredefinedMetricSpecification
+    , predefinedMetricSpecification
+    , pmsResourceLabel
+    , pmsPredefinedMetricType
 
     -- * ScalableTarget
     , ScalableTarget
@@ -77,6 +104,7 @@ module Network.AWS.ApplicationAutoScaling.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
+    , spTargetTrackingScalingPolicyConfiguration
     , spStepScalingPolicyConfiguration
     , spAlarms
     , spPolicyARN
@@ -102,6 +130,15 @@ module Network.AWS.ApplicationAutoScaling.Types
     , sspcCooldown
     , sspcMetricAggregationType
     , sspcMinAdjustmentMagnitude
+
+    -- * TargetTrackingScalingPolicyConfiguration
+    , TargetTrackingScalingPolicyConfiguration
+    , targetTrackingScalingPolicyConfiguration
+    , ttspcPredefinedMetricSpecification
+    , ttspcScaleInCooldown
+    , ttspcCustomizedMetricSpecification
+    , ttspcScaleOutCooldown
+    , ttspcTargetValue
     ) where
 
 import           Network.AWS.ApplicationAutoScaling.Types.Product
@@ -133,6 +170,8 @@ applicationAutoScaling =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -151,7 +190,7 @@ _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 _ValidationException =
     _MatchServiceError applicationAutoScaling "ValidationException"
 
--- | Failed access to resources caused an exception. This exception currently only applies to 'DescribeScalingPolicies' . It is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have the proper permissions to call the CloudWatch <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms> API operation on behalf of your account.
+-- | Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have permission to call the CloudWatch <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms> API operation on behalf of your account.
 --
 --
 _FailedResourceAccessException :: AsError a => Getting (First ServiceError) a ServiceError

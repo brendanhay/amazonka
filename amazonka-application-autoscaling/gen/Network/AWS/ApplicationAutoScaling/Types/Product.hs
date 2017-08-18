@@ -66,6 +66,198 @@ instance Hashable Alarm
 
 instance NFData Alarm
 
+-- | Configures a customized metric for a target tracking policy.
+--
+--
+--
+-- /See:/ 'customizedMetricSpecification' smart constructor.
+data CustomizedMetricSpecification = CustomizedMetricSpecification'
+    { _cmsDimensions :: !(Maybe [MetricDimension])
+    , _cmsUnit       :: !(Maybe Text)
+    , _cmsMetricName :: !Text
+    , _cmsNamespace  :: !Text
+    , _cmsStatistic  :: !MetricStatistic
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomizedMetricSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmsDimensions' - The dimensions of the metric.
+--
+-- * 'cmsUnit' - The unit of the metric.
+--
+-- * 'cmsMetricName' - The name of the metric.
+--
+-- * 'cmsNamespace' - The namespace of the metric.
+--
+-- * 'cmsStatistic' - The statistic of the metric.
+customizedMetricSpecification
+    :: Text -- ^ 'cmsMetricName'
+    -> Text -- ^ 'cmsNamespace'
+    -> MetricStatistic -- ^ 'cmsStatistic'
+    -> CustomizedMetricSpecification
+customizedMetricSpecification pMetricName_ pNamespace_ pStatistic_ =
+    CustomizedMetricSpecification'
+    { _cmsDimensions = Nothing
+    , _cmsUnit = Nothing
+    , _cmsMetricName = pMetricName_
+    , _cmsNamespace = pNamespace_
+    , _cmsStatistic = pStatistic_
+    }
+
+-- | The dimensions of the metric.
+cmsDimensions :: Lens' CustomizedMetricSpecification [MetricDimension]
+cmsDimensions = lens _cmsDimensions (\ s a -> s{_cmsDimensions = a}) . _Default . _Coerce;
+
+-- | The unit of the metric.
+cmsUnit :: Lens' CustomizedMetricSpecification (Maybe Text)
+cmsUnit = lens _cmsUnit (\ s a -> s{_cmsUnit = a});
+
+-- | The name of the metric.
+cmsMetricName :: Lens' CustomizedMetricSpecification Text
+cmsMetricName = lens _cmsMetricName (\ s a -> s{_cmsMetricName = a});
+
+-- | The namespace of the metric.
+cmsNamespace :: Lens' CustomizedMetricSpecification Text
+cmsNamespace = lens _cmsNamespace (\ s a -> s{_cmsNamespace = a});
+
+-- | The statistic of the metric.
+cmsStatistic :: Lens' CustomizedMetricSpecification MetricStatistic
+cmsStatistic = lens _cmsStatistic (\ s a -> s{_cmsStatistic = a});
+
+instance FromJSON CustomizedMetricSpecification where
+        parseJSON
+          = withObject "CustomizedMetricSpecification"
+              (\ x ->
+                 CustomizedMetricSpecification' <$>
+                   (x .:? "Dimensions" .!= mempty) <*> (x .:? "Unit")
+                     <*> (x .: "MetricName")
+                     <*> (x .: "Namespace")
+                     <*> (x .: "Statistic"))
+
+instance Hashable CustomizedMetricSpecification
+
+instance NFData CustomizedMetricSpecification
+
+instance ToJSON CustomizedMetricSpecification where
+        toJSON CustomizedMetricSpecification'{..}
+          = object
+              (catMaybes
+                 [("Dimensions" .=) <$> _cmsDimensions,
+                  ("Unit" .=) <$> _cmsUnit,
+                  Just ("MetricName" .= _cmsMetricName),
+                  Just ("Namespace" .= _cmsNamespace),
+                  Just ("Statistic" .= _cmsStatistic)])
+
+-- | Describes the dimension of a metric.
+--
+--
+--
+-- /See:/ 'metricDimension' smart constructor.
+data MetricDimension = MetricDimension'
+    { _mdName  :: !Text
+    , _mdValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdName' - The name of the dimension.
+--
+-- * 'mdValue' - The value of the dimension.
+metricDimension
+    :: Text -- ^ 'mdName'
+    -> Text -- ^ 'mdValue'
+    -> MetricDimension
+metricDimension pName_ pValue_ =
+    MetricDimension'
+    { _mdName = pName_
+    , _mdValue = pValue_
+    }
+
+-- | The name of the dimension.
+mdName :: Lens' MetricDimension Text
+mdName = lens _mdName (\ s a -> s{_mdName = a});
+
+-- | The value of the dimension.
+mdValue :: Lens' MetricDimension Text
+mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
+
+instance FromJSON MetricDimension where
+        parseJSON
+          = withObject "MetricDimension"
+              (\ x ->
+                 MetricDimension' <$>
+                   (x .: "Name") <*> (x .: "Value"))
+
+instance Hashable MetricDimension
+
+instance NFData MetricDimension
+
+instance ToJSON MetricDimension where
+        toJSON MetricDimension'{..}
+          = object
+              (catMaybes
+                 [Just ("Name" .= _mdName),
+                  Just ("Value" .= _mdValue)])
+
+-- | Configures a predefined metric for a target tracking policy.
+--
+--
+--
+-- /See:/ 'predefinedMetricSpecification' smart constructor.
+data PredefinedMetricSpecification = PredefinedMetricSpecification'
+    { _pmsResourceLabel        :: !(Maybe Text)
+    , _pmsPredefinedMetricType :: !MetricType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PredefinedMetricSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmsResourceLabel' - Reserved for future use.
+--
+-- * 'pmsPredefinedMetricType' - The metric type.
+predefinedMetricSpecification
+    :: MetricType -- ^ 'pmsPredefinedMetricType'
+    -> PredefinedMetricSpecification
+predefinedMetricSpecification pPredefinedMetricType_ =
+    PredefinedMetricSpecification'
+    { _pmsResourceLabel = Nothing
+    , _pmsPredefinedMetricType = pPredefinedMetricType_
+    }
+
+-- | Reserved for future use.
+pmsResourceLabel :: Lens' PredefinedMetricSpecification (Maybe Text)
+pmsResourceLabel = lens _pmsResourceLabel (\ s a -> s{_pmsResourceLabel = a});
+
+-- | The metric type.
+pmsPredefinedMetricType :: Lens' PredefinedMetricSpecification MetricType
+pmsPredefinedMetricType = lens _pmsPredefinedMetricType (\ s a -> s{_pmsPredefinedMetricType = a});
+
+instance FromJSON PredefinedMetricSpecification where
+        parseJSON
+          = withObject "PredefinedMetricSpecification"
+              (\ x ->
+                 PredefinedMetricSpecification' <$>
+                   (x .:? "ResourceLabel") <*>
+                     (x .: "PredefinedMetricType"))
+
+instance Hashable PredefinedMetricSpecification
+
+instance NFData PredefinedMetricSpecification
+
+instance ToJSON PredefinedMetricSpecification where
+        toJSON PredefinedMetricSpecification'{..}
+          = object
+              (catMaybes
+                 [("ResourceLabel" .=) <$> _pmsResourceLabel,
+                  Just
+                    ("PredefinedMetricType" .=
+                       _pmsPredefinedMetricType)])
+
 -- | Represents a scalable target.
 --
 --
@@ -87,9 +279,9 @@ data ScalableTarget = ScalableTarget'
 --
 -- * 'stServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'stResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- * 'stResourceId' - The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'stScalableDimension' - The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- * 'stScalableDimension' - The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 --
 -- * 'stMinCapacity' - The minimum value to scale to in response to a scale in event.
 --
@@ -122,11 +314,11 @@ scalableTarget pServiceNamespace_ pResourceId_ pScalableDimension_ pMinCapacity_
 stServiceNamespace :: Lens' ScalableTarget ServiceNamespace
 stServiceNamespace = lens _stServiceNamespace (\ s a -> s{_stServiceNamespace = a});
 
--- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- | The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 stResourceId :: Lens' ScalableTarget Text
 stResourceId = lens _stResourceId (\ s a -> s{_stResourceId = a});
 
--- | The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- | The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 stScalableDimension :: Lens' ScalableTarget ScalableDimension
 stScalableDimension = lens _stScalableDimension (\ s a -> s{_stScalableDimension = a});
 
@@ -195,9 +387,9 @@ data ScalingActivity = ScalingActivity'
 --
 -- * 'saServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'saResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- * 'saResourceId' - The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'saScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- * 'saScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 --
 -- * 'saDescription' - A simple description of what action the scaling activity intends to accomplish.
 --
@@ -251,11 +443,11 @@ saActivityId = lens _saActivityId (\ s a -> s{_saActivityId = a});
 saServiceNamespace :: Lens' ScalingActivity ServiceNamespace
 saServiceNamespace = lens _saServiceNamespace (\ s a -> s{_saServiceNamespace = a});
 
--- | The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- | The identifier of the resource associated with the scaling activity. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 saResourceId :: Lens' ScalingActivity Text
 saResourceId = lens _saResourceId (\ s a -> s{_saResourceId = a});
 
--- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 saScalableDimension :: Lens' ScalingActivity ScalableDimension
 saScalableDimension = lens _saScalableDimension (\ s a -> s{_saScalableDimension = a});
 
@@ -301,22 +493,25 @@ instance NFData ScalingActivity
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _spStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
-    , _spAlarms                         :: !(Maybe [Alarm])
-    , _spPolicyARN                      :: !Text
-    , _spPolicyName                     :: !Text
-    , _spServiceNamespace               :: !ServiceNamespace
-    , _spResourceId                     :: !Text
-    , _spScalableDimension              :: !ScalableDimension
-    , _spPolicyType                     :: !PolicyType
-    , _spCreationTime                   :: !POSIX
+    { _spTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
+    , _spStepScalingPolicyConfiguration           :: !(Maybe StepScalingPolicyConfiguration)
+    , _spAlarms                                   :: !(Maybe [Alarm])
+    , _spPolicyARN                                :: !Text
+    , _spPolicyName                               :: !Text
+    , _spServiceNamespace                         :: !ServiceNamespace
+    , _spResourceId                               :: !Text
+    , _spScalableDimension                        :: !ScalableDimension
+    , _spPolicyType                               :: !PolicyType
+    , _spCreationTime                             :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spStepScalingPolicyConfiguration' - The configuration for the step scaling policy.
+-- * 'spTargetTrackingScalingPolicyConfiguration' - A target tracking policy.
+--
+-- * 'spStepScalingPolicyConfiguration' - A step scaling policy.
 --
 -- * 'spAlarms' - The CloudWatch alarms associated with the scaling policy.
 --
@@ -326,9 +521,9 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- * 'spServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'spResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- * 'spResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'spScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- * 'spScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 --
 -- * 'spPolicyType' - The scaling policy type.
 --
@@ -344,7 +539,8 @@ scalingPolicy
     -> ScalingPolicy
 scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ pPolicyType_ pCreationTime_ =
     ScalingPolicy'
-    { _spStepScalingPolicyConfiguration = Nothing
+    { _spTargetTrackingScalingPolicyConfiguration = Nothing
+    , _spStepScalingPolicyConfiguration = Nothing
     , _spAlarms = Nothing
     , _spPolicyARN = pPolicyARN_
     , _spPolicyName = pPolicyName_
@@ -355,7 +551,11 @@ scalingPolicy pPolicyARN_ pPolicyName_ pServiceNamespace_ pResourceId_ pScalable
     , _spCreationTime = _Time # pCreationTime_
     }
 
--- | The configuration for the step scaling policy.
+-- | A target tracking policy.
+spTargetTrackingScalingPolicyConfiguration :: Lens' ScalingPolicy (Maybe TargetTrackingScalingPolicyConfiguration)
+spTargetTrackingScalingPolicyConfiguration = lens _spTargetTrackingScalingPolicyConfiguration (\ s a -> s{_spTargetTrackingScalingPolicyConfiguration = a});
+
+-- | A step scaling policy.
 spStepScalingPolicyConfiguration :: Lens' ScalingPolicy (Maybe StepScalingPolicyConfiguration)
 spStepScalingPolicyConfiguration = lens _spStepScalingPolicyConfiguration (\ s a -> s{_spStepScalingPolicyConfiguration = a});
 
@@ -375,11 +575,11 @@ spPolicyName = lens _spPolicyName (\ s a -> s{_spPolicyName = a});
 spServiceNamespace :: Lens' ScalingPolicy ServiceNamespace
 spServiceNamespace = lens _spServiceNamespace (\ s a -> s{_spServiceNamespace = a});
 
--- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 spResourceId :: Lens' ScalingPolicy Text
 spResourceId = lens _spResourceId (\ s a -> s{_spResourceId = a});
 
--- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 spScalableDimension :: Lens' ScalingPolicy ScalableDimension
 spScalableDimension = lens _spScalableDimension (\ s a -> s{_spScalableDimension = a});
 
@@ -396,8 +596,9 @@ instance FromJSON ScalingPolicy where
           = withObject "ScalingPolicy"
               (\ x ->
                  ScalingPolicy' <$>
-                   (x .:? "StepScalingPolicyConfiguration") <*>
-                     (x .:? "Alarms" .!= mempty)
+                   (x .:? "TargetTrackingScalingPolicyConfiguration")
+                     <*> (x .:? "StepScalingPolicyConfiguration")
+                     <*> (x .:? "Alarms" .!= mempty)
                      <*> (x .: "PolicyARN")
                      <*> (x .: "PolicyName")
                      <*> (x .: "ServiceNamespace")
@@ -516,7 +717,7 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 --
 -- * 'sspcAdjustmentType' - The adjustment type, which specifies how the @ScalingAdjustment@ parameter in a 'StepAdjustment' is interpreted.
 --
--- * 'sspcCooldown' - The amount of time, in seconds, after a scaling activity completes where previous trigger-related scaling activities can influence future scaling events. For scale out policies, while @Cooldown@ is in effect, the capacity that has been added by the previous scale out event that initiated the @Cooldown@ is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a @Cooldown@ period of 5 minutes starts. During the @Cooldown@ period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count. For scale in policies, the @Cooldown@ period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the @Cooldown@ period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+-- * 'sspcCooldown' - The amount of time, in seconds, after a scaling activity completes where previous trigger-related scaling activities can influence future scaling events. For scale out policies, while the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a cooldown period of 5 minutes starts. During the Cooldown period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count. For scale in policies, the cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
 --
 -- * 'sspcMetricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are @Minimum@ , @Maximum@ , and @Average@ .
 --
@@ -540,7 +741,7 @@ sspcStepAdjustments = lens _sspcStepAdjustments (\ s a -> s{_sspcStepAdjustments
 sspcAdjustmentType :: Lens' StepScalingPolicyConfiguration (Maybe AdjustmentType)
 sspcAdjustmentType = lens _sspcAdjustmentType (\ s a -> s{_sspcAdjustmentType = a});
 
--- | The amount of time, in seconds, after a scaling activity completes where previous trigger-related scaling activities can influence future scaling events. For scale out policies, while @Cooldown@ is in effect, the capacity that has been added by the previous scale out event that initiated the @Cooldown@ is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a @Cooldown@ period of 5 minutes starts. During the @Cooldown@ period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count. For scale in policies, the @Cooldown@ period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the @Cooldown@ period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+-- | The amount of time, in seconds, after a scaling activity completes where previous trigger-related scaling activities can influence future scaling events. For scale out policies, while the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out. For example, an alarm triggers a step scaling policy to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully, and a cooldown period of 5 minutes starts. During the Cooldown period, if the alarm triggers the same policy again but at a more aggressive step adjustment to scale out the service by 3 tasks, the 2 tasks that were added in the previous scale out event are considered part of that capacity and only 1 additional task is added to the desired count. For scale in policies, the cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
 sspcCooldown :: Lens' StepScalingPolicyConfiguration (Maybe Int)
 sspcCooldown = lens _sspcCooldown (\ s a -> s{_sspcCooldown = a});
 
@@ -579,3 +780,93 @@ instance ToJSON StepScalingPolicyConfiguration where
                     _sspcMetricAggregationType,
                   ("MinAdjustmentMagnitude" .=) <$>
                     _sspcMinAdjustmentMagnitude])
+
+-- | Represents a target tracking scaling policy configuration.
+--
+--
+--
+-- /See:/ 'targetTrackingScalingPolicyConfiguration' smart constructor.
+data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration'
+    { _ttspcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
+    , _ttspcScaleInCooldown               :: !(Maybe Int)
+    , _ttspcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
+    , _ttspcScaleOutCooldown              :: !(Maybe Int)
+    , _ttspcTargetValue                   :: !Double
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetTrackingScalingPolicyConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttspcPredefinedMetricSpecification' - A predefined metric.
+--
+-- * 'ttspcScaleInCooldown' - The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+--
+-- * 'ttspcCustomizedMetricSpecification' - Reserved for future use.
+--
+-- * 'ttspcScaleOutCooldown' - The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
+--
+-- * 'ttspcTargetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+targetTrackingScalingPolicyConfiguration
+    :: Double -- ^ 'ttspcTargetValue'
+    -> TargetTrackingScalingPolicyConfiguration
+targetTrackingScalingPolicyConfiguration pTargetValue_ =
+    TargetTrackingScalingPolicyConfiguration'
+    { _ttspcPredefinedMetricSpecification = Nothing
+    , _ttspcScaleInCooldown = Nothing
+    , _ttspcCustomizedMetricSpecification = Nothing
+    , _ttspcScaleOutCooldown = Nothing
+    , _ttspcTargetValue = pTargetValue_
+    }
+
+-- | A predefined metric.
+ttspcPredefinedMetricSpecification :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe PredefinedMetricSpecification)
+ttspcPredefinedMetricSpecification = lens _ttspcPredefinedMetricSpecification (\ s a -> s{_ttspcPredefinedMetricSpecification = a});
+
+-- | The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, Application Auto Scaling scales out your scalable target immediately.
+ttspcScaleInCooldown :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe Int)
+ttspcScaleInCooldown = lens _ttspcScaleInCooldown (\ s a -> s{_ttspcScaleInCooldown = a});
+
+-- | Reserved for future use.
+ttspcCustomizedMetricSpecification :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe CustomizedMetricSpecification)
+ttspcCustomizedMetricSpecification = lens _ttspcCustomizedMetricSpecification (\ s a -> s{_ttspcCustomizedMetricSpecification = a});
+
+-- | The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
+ttspcScaleOutCooldown :: Lens' TargetTrackingScalingPolicyConfiguration (Maybe Int)
+ttspcScaleOutCooldown = lens _ttspcScaleOutCooldown (\ s a -> s{_ttspcScaleOutCooldown = a});
+
+-- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+ttspcTargetValue :: Lens' TargetTrackingScalingPolicyConfiguration Double
+ttspcTargetValue = lens _ttspcTargetValue (\ s a -> s{_ttspcTargetValue = a});
+
+instance FromJSON
+         TargetTrackingScalingPolicyConfiguration where
+        parseJSON
+          = withObject
+              "TargetTrackingScalingPolicyConfiguration"
+              (\ x ->
+                 TargetTrackingScalingPolicyConfiguration' <$>
+                   (x .:? "PredefinedMetricSpecification") <*>
+                     (x .:? "ScaleInCooldown")
+                     <*> (x .:? "CustomizedMetricSpecification")
+                     <*> (x .:? "ScaleOutCooldown")
+                     <*> (x .: "TargetValue"))
+
+instance Hashable
+         TargetTrackingScalingPolicyConfiguration
+
+instance NFData
+         TargetTrackingScalingPolicyConfiguration
+
+instance ToJSON
+         TargetTrackingScalingPolicyConfiguration where
+        toJSON TargetTrackingScalingPolicyConfiguration'{..}
+          = object
+              (catMaybes
+                 [("PredefinedMetricSpecification" .=) <$>
+                    _ttspcPredefinedMetricSpecification,
+                  ("ScaleInCooldown" .=) <$> _ttspcScaleInCooldown,
+                  ("CustomizedMetricSpecification" .=) <$>
+                    _ttspcCustomizedMetricSpecification,
+                  ("ScaleOutCooldown" .=) <$> _ttspcScaleOutCooldown,
+                  Just ("TargetValue" .= _ttspcTargetValue)])

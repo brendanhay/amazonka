@@ -27,6 +27,7 @@ module Network.AWS.Polly.SynthesizeSpeech
       synthesizeSpeech
     , SynthesizeSpeech
     -- * Request Lenses
+    , ssSpeechMarkTypes
     , ssSampleRate
     , ssTextType
     , ssLexiconNames
@@ -53,17 +54,20 @@ import           Network.AWS.Response
 
 -- | /See:/ 'synthesizeSpeech' smart constructor.
 data SynthesizeSpeech = SynthesizeSpeech'
-    { _ssSampleRate   :: !(Maybe Text)
-    , _ssTextType     :: !(Maybe TextType)
-    , _ssLexiconNames :: !(Maybe [Sensitive Text])
-    , _ssOutputFormat :: !OutputFormat
-    , _ssText         :: !Text
-    , _ssVoiceId      :: !VoiceId
+    { _ssSpeechMarkTypes :: !(Maybe [SpeechMarkType])
+    , _ssSampleRate      :: !(Maybe Text)
+    , _ssTextType        :: !(Maybe TextType)
+    , _ssLexiconNames    :: !(Maybe [Sensitive Text])
+    , _ssOutputFormat    :: !OutputFormat
+    , _ssText            :: !Text
+    , _ssVoiceId         :: !VoiceId
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SynthesizeSpeech' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssSpeechMarkTypes' - The type of speech marks returned for the input text.
 --
 -- * 'ssSampleRate' - The audio frequency specified in Hz.  The valid values for @mp3@ and @ogg_vorbis@ are "8000", "16000", and "22050". The default value is "22050".  Valid values for @pcm@ are "8000" and "16000" The default value is "16000".
 --
@@ -71,7 +75,7 @@ data SynthesizeSpeech = SynthesizeSpeech'
 --
 -- * 'ssLexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. For information about storing lexicons, see <http://docs.aws.amazon.com/polly/latest/dg/API_PutLexicon.html PutLexicon> .
 --
--- * 'ssOutputFormat' - The audio format in which the resulting stream will be encoded.
+-- * 'ssOutputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
 --
 -- * 'ssText' - Input text to synthesize. If you specify @ssml@ as the @TextType@ , follow the SSML format for the input text.
 --
@@ -83,13 +87,18 @@ synthesizeSpeech
     -> SynthesizeSpeech
 synthesizeSpeech pOutputFormat_ pText_ pVoiceId_ =
     SynthesizeSpeech'
-    { _ssSampleRate = Nothing
+    { _ssSpeechMarkTypes = Nothing
+    , _ssSampleRate = Nothing
     , _ssTextType = Nothing
     , _ssLexiconNames = Nothing
     , _ssOutputFormat = pOutputFormat_
     , _ssText = pText_
     , _ssVoiceId = pVoiceId_
     }
+
+-- | The type of speech marks returned for the input text.
+ssSpeechMarkTypes :: Lens' SynthesizeSpeech [SpeechMarkType]
+ssSpeechMarkTypes = lens _ssSpeechMarkTypes (\ s a -> s{_ssSpeechMarkTypes = a}) . _Default . _Coerce;
 
 -- | The audio frequency specified in Hz.  The valid values for @mp3@ and @ogg_vorbis@ are "8000", "16000", and "22050". The default value is "22050".  Valid values for @pcm@ are "8000" and "16000" The default value is "16000".
 ssSampleRate :: Lens' SynthesizeSpeech (Maybe Text)
@@ -103,7 +112,7 @@ ssTextType = lens _ssTextType (\ s a -> s{_ssTextType = a});
 ssLexiconNames :: Lens' SynthesizeSpeech [Text]
 ssLexiconNames = lens _ssLexiconNames (\ s a -> s{_ssLexiconNames = a}) . _Default . _Coerce;
 
--- | The audio format in which the resulting stream will be encoded.
+-- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
 ssOutputFormat :: Lens' SynthesizeSpeech OutputFormat
 ssOutputFormat = lens _ssOutputFormat (\ s a -> s{_ssOutputFormat = a});
 
@@ -138,7 +147,8 @@ instance ToJSON SynthesizeSpeech where
         toJSON SynthesizeSpeech'{..}
           = object
               (catMaybes
-                 [("SampleRate" .=) <$> _ssSampleRate,
+                 [("SpeechMarkTypes" .=) <$> _ssSpeechMarkTypes,
+                  ("SampleRate" .=) <$> _ssSampleRate,
                   ("TextType" .=) <$> _ssTextType,
                   ("LexiconNames" .=) <$> _ssLexiconNames,
                   Just ("OutputFormat" .= _ssOutputFormat),
@@ -165,7 +175,7 @@ data SynthesizeSpeechResponse = SynthesizeSpeechResponse'
 --
 -- * 'ssrsRequestCharacters' - Number of characters synthesized.
 --
--- * 'ssrsContentType' - Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
+-- * 'ssrsContentType' - Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.      * If you request @json@ as the @OutputFormat@ , the @ContentType@ returned is audio/json.
 --
 -- * 'ssrsResponseStatus' - -- | The response status code.
 --
@@ -186,7 +196,7 @@ synthesizeSpeechResponse pResponseStatus_ pAudioStream_ =
 ssrsRequestCharacters :: Lens' SynthesizeSpeechResponse (Maybe Int)
 ssrsRequestCharacters = lens _ssrsRequestCharacters (\ s a -> s{_ssrsRequestCharacters = a});
 
--- | Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.
+-- | Specifies the type audio stream. This should reflect the @OutputFormat@ parameter in your request.      * If you request @mp3@ as the @OutputFormat@ , the @ContentType@ returned is audio/mpeg.      * If you request @ogg_vorbis@ as the @OutputFormat@ , the @ContentType@ returned is audio/ogg.      * If you request @pcm@ as the @OutputFormat@ , the @ContentType@ returned is audio/pcm in a signed 16-bit, 1 channel (mono), little-endian format.      * If you request @json@ as the @OutputFormat@ , the @ContentType@ returned is audio/json.
 ssrsContentType :: Lens' SynthesizeSpeechResponse (Maybe Text)
 ssrsContentType = lens _ssrsContentType (\ s a -> s{_ssrsContentType = a});
 

@@ -26,6 +26,8 @@ module Network.AWS.Polly.Types
     , _ServiceFailureException
     , _UnsupportedPlsAlphabetException
     , _InvalidNextTokenException
+    , _MarksNotSupportedForFormatException
+    , _SsmlMarksNotSupportedForTextTypeException
     , _LexiconSizeExceededException
     , _LexiconNotFoundException
 
@@ -37,6 +39,9 @@ module Network.AWS.Polly.Types
 
     -- * OutputFormat
     , OutputFormat (..)
+
+    -- * SpeechMarkType
+    , SpeechMarkType (..)
 
     -- * TextType
     , TextType (..)
@@ -105,6 +110,8 @@ polly =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -186,6 +193,22 @@ _UnsupportedPlsAlphabetException =
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextTokenException =
     _MatchServiceError polly "InvalidNextTokenException" . hasStatus 400
+
+-- | Speech marks are not supported for the @OutputFormat@ selected. Speech marks are only available for content in @json@ format.
+--
+--
+_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
+_MarksNotSupportedForFormatException =
+    _MatchServiceError polly "MarksNotSupportedForFormatException" .
+    hasStatus 400
+
+-- | SSML speech marks are not supported for plain text-type input.
+--
+--
+_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_SsmlMarksNotSupportedForTextTypeException =
+    _MatchServiceError polly "SsmlMarksNotSupportedForTextTypeException" .
+    hasStatus 400
 
 -- | The maximum size of the specified lexicon would be exceeded by this operation.
 --

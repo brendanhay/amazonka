@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Instructs the specified agents or Connectors to start collecting data.
+-- Instructs the specified agents or connectors to start collecting data.
 --
 --
 module Network.AWS.Discovery.StartDataCollectionByAgentIds
@@ -53,7 +53,7 @@ newtype StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sAgentIds' - The IDs of the agents or Connectors that you want to start collecting data. If you send a request to an agent/Connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/Connectors and you do not have permission to contact some of those agents/Connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
+-- * 'sAgentIds' - The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
 startDataCollectionByAgentIds
     :: StartDataCollectionByAgentIds
 startDataCollectionByAgentIds =
@@ -61,7 +61,7 @@ startDataCollectionByAgentIds =
     { _sAgentIds = mempty
     }
 
--- | The IDs of the agents or Connectors that you want to start collecting data. If you send a request to an agent/Connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/Connectors and you do not have permission to contact some of those agents/Connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
+-- | The IDs of the agents or connectors from which to start collecting data. If you send a request to an agent/connector ID that you do not have permission to contact, according to your AWS account, the service does not throw an exception. Instead, it returns the error in the /Description/ field. If you send a request to multiple agents/connectors and you do not have permission to contact some of those agents/connectors, the system does not throw an exception. Instead, the system shows @Failed@ in the /Description/ field.
 sAgentIds :: Lens' StartDataCollectionByAgentIds [Text]
 sAgentIds = lens _sAgentIds (\ s a -> s{_sAgentIds = a}) . _Coerce;
 
@@ -113,7 +113,7 @@ data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsRespon
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsAgentsConfigurationStatus' - Information about agents or the Connector that were instructed to start collecting data. Information includes the agent/Connector ID, a description of the operation performed, and whether or not the agent/Connector configuration was updated.
+-- * 'srsAgentsConfigurationStatus' - Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 --
 -- * 'srsResponseStatus' - -- | The response status code.
 startDataCollectionByAgentIdsResponse
@@ -125,7 +125,7 @@ startDataCollectionByAgentIdsResponse pResponseStatus_ =
     , _srsResponseStatus = pResponseStatus_
     }
 
--- | Information about agents or the Connector that were instructed to start collecting data. Information includes the agent/Connector ID, a description of the operation performed, and whether or not the agent/Connector configuration was updated.
+-- | Information about agents or the connector that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 srsAgentsConfigurationStatus :: Lens' StartDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
 srsAgentsConfigurationStatus = lens _srsAgentsConfigurationStatus (\ s a -> s{_srsAgentsConfigurationStatus = a}) . _Default . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Instructs the specified agents or Connectors to stop collecting data.
+-- Instructs the specified agents or connectors to stop collecting data.
 --
 --
 module Network.AWS.Discovery.StopDataCollectionByAgentIds
@@ -53,7 +53,7 @@ newtype StopDataCollectionByAgentIds = StopDataCollectionByAgentIds'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcbaiAgentIds' - The IDs of the agents or Connectors that you want to stop collecting data.
+-- * 'sdcbaiAgentIds' - The IDs of the agents or connectors from which to stop collecting data.
 stopDataCollectionByAgentIds
     :: StopDataCollectionByAgentIds
 stopDataCollectionByAgentIds =
@@ -61,7 +61,7 @@ stopDataCollectionByAgentIds =
     { _sdcbaiAgentIds = mempty
     }
 
--- | The IDs of the agents or Connectors that you want to stop collecting data.
+-- | The IDs of the agents or connectors from which to stop collecting data.
 sdcbaiAgentIds :: Lens' StopDataCollectionByAgentIds [Text]
 sdcbaiAgentIds = lens _sdcbaiAgentIds (\ s a -> s{_sdcbaiAgentIds = a}) . _Coerce;
 
@@ -112,7 +112,7 @@ data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdcbairsAgentsConfigurationStatus' - Information about agents or the Connector that were instructed to stop collecting data. Information includes the agent/Connector ID, a description of the operation performed, and whether or not the agent/Connector configuration was updated.
+-- * 'sdcbairsAgentsConfigurationStatus' - Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 --
 -- * 'sdcbairsResponseStatus' - -- | The response status code.
 stopDataCollectionByAgentIdsResponse
@@ -124,7 +124,7 @@ stopDataCollectionByAgentIdsResponse pResponseStatus_ =
     , _sdcbairsResponseStatus = pResponseStatus_
     }
 
--- | Information about agents or the Connector that were instructed to stop collecting data. Information includes the agent/Connector ID, a description of the operation performed, and whether or not the agent/Connector configuration was updated.
+-- | Information about the agents or connector that were instructed to stop collecting data. Information includes the agent/connector ID, a description of the operation performed, and whether the agent/connector configuration was updated.
 sdcbairsAgentsConfigurationStatus :: Lens' StopDataCollectionByAgentIdsResponse [AgentConfigurationStatus]
 sdcbairsAgentsConfigurationStatus = lens _sdcbairsAgentsConfigurationStatus (\ s a -> s{_sdcbairsAgentsConfigurationStatus = a}) . _Default . _Coerce;
 

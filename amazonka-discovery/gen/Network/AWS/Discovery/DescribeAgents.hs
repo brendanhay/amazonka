@@ -62,7 +62,7 @@ data DescribeAgents = DescribeAgents'
 --
 -- * 'daAgentIds' - The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
 --
--- * 'daFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
+-- * 'daFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
 --
 -- * 'daNextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
 --
@@ -81,7 +81,7 @@ describeAgents =
 daAgentIds :: Lens' DescribeAgents [Text]
 daAgentIds = lens _daAgentIds (\ s a -> s{_daAgentIds = a}) . _Default . _Coerce;
 
--- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agent.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
+-- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
 daFilters :: Lens' DescribeAgents [Filter]
 daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
 

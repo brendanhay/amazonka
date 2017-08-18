@@ -58,7 +58,7 @@ data DescribeTags = DescribeTags'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
+-- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 --
 -- * 'dtNextToken' - A token to start the list. Use this token to get the next set of results.
 --
@@ -72,7 +72,7 @@ describeTags =
     , _dtMaxResults = Nothing
     }
 
--- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/managing-agents.html Managing AWS Application Discovery Service Agents and the AWS Application Discovery Connector > .
+-- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 dtFilters :: Lens' DescribeTags [TagFilter]
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 

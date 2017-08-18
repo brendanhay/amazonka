@@ -23,7 +23,13 @@
 --
 -- This operation can be called only from a member account in the organization.
 --
--- /Important:/ The master account in an organization with all features enabled can set service control policies (SCPs) that can restrict what administrators of member accounts can do, including preventing them from successfully calling @LeaveOrganization@ and leaving the organization.
+-- /Important:/     * The master account in an organization with all features enabled can set service control policies (SCPs) that can restrict what administrators of member accounts can do, including preventing them from successfully calling @LeaveOrganization@ and leaving the organization.
+--
+--     * If you created the account using the AWS Organizations console, the Organizations API, or the Organizations CLI commands, then you cannot remove the account.
+--
+--     * You can leave an organization only after you enable IAM user access to billing in your account. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
+--
+--
 --
 module Network.AWS.Organizations.LeaveOrganization
     (

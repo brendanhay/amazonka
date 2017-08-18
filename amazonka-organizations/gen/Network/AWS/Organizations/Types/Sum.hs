@@ -137,6 +137,7 @@ data CreateAccountFailureReason
     | EmailAlreadyExists
     | InternalFailure
     | InvalidAddress
+    | InvalidEmail
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText CreateAccountFailureReason where
@@ -145,8 +146,9 @@ instance FromText CreateAccountFailureReason where
         "email_already_exists" -> pure EmailAlreadyExists
         "internal_failure" -> pure InternalFailure
         "invalid_address" -> pure InvalidAddress
+        "invalid_email" -> pure InvalidEmail
         e -> fromTextError $ "Failure parsing CreateAccountFailureReason from value: '" <> e
-           <> "'. Accepted values: account_limit_exceeded, email_already_exists, internal_failure, invalid_address"
+           <> "'. Accepted values: account_limit_exceeded, email_already_exists, internal_failure, invalid_address, invalid_email"
 
 instance ToText CreateAccountFailureReason where
     toText = \case
@@ -154,6 +156,7 @@ instance ToText CreateAccountFailureReason where
         EmailAlreadyExists -> "EMAIL_ALREADY_EXISTS"
         InternalFailure -> "INTERNAL_FAILURE"
         InvalidAddress -> "INVALID_ADDRESS"
+        InvalidEmail -> "INVALID_EMAIL"
 
 instance Hashable     CreateAccountFailureReason
 instance NFData       CreateAccountFailureReason

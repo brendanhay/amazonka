@@ -21,8 +21,12 @@
 -- Lists the current handshakes that are associated with the account of the requesting user.
 --
 --
+-- Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results of this API for only 30 days after changing to that state. After that they are deleted and no longer accessible.
+--
 -- This operation can be called from any account in the organization.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListHandshakesForAccount
     (
     -- * Creating a Request
@@ -45,6 +49,7 @@ module Network.AWS.Organizations.ListHandshakesForAccount
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -85,6 +90,13 @@ lhfaFilter = lens _lhfaFilter (\ s a -> s{_lhfaFilter = a});
 -- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 lhfaMaxResults :: Lens' ListHandshakesForAccount (Maybe Natural)
 lhfaMaxResults = lens _lhfaMaxResults (\ s a -> s{_lhfaMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListHandshakesForAccount where
+        page rq rs
+          | stop (rs ^. lhfarsNextToken) = Nothing
+          | stop (rs ^. lhfarsHandshakes) = Nothing
+          | otherwise =
+            Just $ rq & lhfaNextToken .~ rs ^. lhfarsNextToken
 
 instance AWSRequest ListHandshakesForAccount where
         type Rs ListHandshakesForAccount =

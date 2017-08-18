@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the account that received the handshake. The originator of the handshake can use 'CancelHandshake' instead. The originator can't reactivate a declined request, but can re-initiate the process with a new handshake request.
 --
+-- After you decline a handshake, it continues to appear in the results of relevant APIs for only 30 days. After that it is deleted.
+--
 module Network.AWS.Organizations.DeclineHandshake
     (
     -- * Creating a Request

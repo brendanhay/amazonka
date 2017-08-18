@@ -29,6 +29,7 @@ import           Network.AWS.Prelude
 data Account = Account'
     { _aStatus          :: !(Maybe AccountStatus)
     , _aJoinedMethod    :: !(Maybe AccountJoinedMethod)
+    , _aEmail           :: !(Maybe (Sensitive Text))
     , _aARN             :: !(Maybe Text)
     , _aJoinedTimestamp :: !(Maybe POSIX)
     , _aName            :: !(Maybe (Sensitive Text))
@@ -43,6 +44,8 @@ data Account = Account'
 --
 -- * 'aJoinedMethod' - The method by which the account joined the organization.
 --
+-- * 'aEmail' - The email address associated with the AWS account. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that represents a standard Internet email address.
+--
 -- * 'aARN' - The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- * 'aJoinedTimestamp' - The date the account became a part of the organization.
@@ -56,6 +59,7 @@ account =
     Account'
     { _aStatus = Nothing
     , _aJoinedMethod = Nothing
+    , _aEmail = Nothing
     , _aARN = Nothing
     , _aJoinedTimestamp = Nothing
     , _aName = Nothing
@@ -69,6 +73,10 @@ aStatus = lens _aStatus (\ s a -> s{_aStatus = a});
 -- | The method by which the account joined the organization.
 aJoinedMethod :: Lens' Account (Maybe AccountJoinedMethod)
 aJoinedMethod = lens _aJoinedMethod (\ s a -> s{_aJoinedMethod = a});
+
+-- | The email address associated with the AWS account. The <http://wikipedia.org/wiki/regex regex pattern> for this parameter is a string of characters that represents a standard Internet email address.
+aEmail :: Lens' Account (Maybe Text)
+aEmail = lens _aEmail (\ s a -> s{_aEmail = a}) . mapping _Sensitive;
 
 -- | The Amazon Resource Name (ARN) of the account. For more information about ARNs in Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 aARN :: Lens' Account (Maybe Text)
@@ -92,7 +100,8 @@ instance FromJSON Account where
               (\ x ->
                  Account' <$>
                    (x .:? "Status") <*> (x .:? "JoinedMethod") <*>
-                     (x .:? "Arn")
+                     (x .:? "Email")
+                     <*> (x .:? "Arn")
                      <*> (x .:? "JoinedTimestamp")
                      <*> (x .:? "Name")
                      <*> (x .:? "Id"))
@@ -162,7 +171,7 @@ data CreateAccountStatus = CreateAccountStatus'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'casFailureReason' - If the request failed, a description of the reason for the failure.
+-- * 'casFailureReason' - If the request failed, a description of the reason for the failure.     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.     * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists.     * INVALID_ADDRESS: The account could not be created because the address you provided is not valid.     * INVALID_EMAIL: The account could not be created because the email address you provided is not valid.     * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support.
 --
 -- * 'casState' - The status of the request.
 --
@@ -188,7 +197,7 @@ createAccountStatus =
     , _casRequestedTimestamp = Nothing
     }
 
--- | If the request failed, a description of the reason for the failure.
+-- | If the request failed, a description of the reason for the failure.     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.     * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists.     * INVALID_ADDRESS: The account could not be created because the address you provided is not valid.     * INVALID_EMAIL: The account could not be created because the email address you provided is not valid.     * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support.
 casFailureReason :: Lens' CreateAccountStatus (Maybe CreateAccountFailureReason)
 casFailureReason = lens _casFailureReason (\ s a -> s{_casFailureReason = a});
 
@@ -234,6 +243,8 @@ instance NFData CreateAccountStatus
 
 -- | Contains information that must be exchanged to securely establish a relationship between two accounts (an /originator/ and a /recipient/ ). For example, when a master account (the originator) invites another account (the recipient) to join its organization, the two accounts exchange information as a series of handshake requests and responses.
 --
+--
+-- __Note:__ Handshakes that are CANCELED, ACCEPTED, or DECLINED show up in lists for only 30 days after entering that state After that they are deleted.
 --
 --
 -- /See:/ 'handshake' smart constructor.

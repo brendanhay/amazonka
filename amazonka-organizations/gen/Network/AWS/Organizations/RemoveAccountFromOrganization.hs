@@ -25,7 +25,11 @@
 --
 -- This operation can be called only from the organization's master account. Member accounts can remove themselves with 'LeaveOrganization' instead.
 --
--- /Important:/ You can remove only existing accounts that were invited to join the organization. You cannot remove accounts that were created by AWS Organizations.
+-- /Important:/     * You can remove only accounts that were created outside your organization and invited to join. If you created the account using the AWS Organizations console, the Organizations API, or the Organizations CLI commands, then you cannot remove the account.
+--
+--     * You can remove a member account only after you enable IAM user access to billing in the member account. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
+--
+--
 --
 module Network.AWS.Organizations.RemoveAccountFromOrganization
     (

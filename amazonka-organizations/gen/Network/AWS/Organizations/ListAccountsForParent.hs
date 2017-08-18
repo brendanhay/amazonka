@@ -21,6 +21,8 @@
 -- Lists the accounts in an organization that are contained by the specified target root or organizational unit (OU). If you specify the root, you get a list of all the accounts that are not in any OU. If you specify an OU, you get a list of all the accounts in only that OU, and not in any child OUs. To get a list of all accounts in the organization, use the 'ListAccounts' operation.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListAccountsForParent
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.Organizations.ListAccountsForParent
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -84,6 +87,13 @@ lafpMaxResults = lens _lafpMaxResults (\ s a -> s{_lafpMaxResults = a}) . mappin
 -- | The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.
 lafpParentId :: Lens' ListAccountsForParent Text
 lafpParentId = lens _lafpParentId (\ s a -> s{_lafpParentId = a});
+
+instance AWSPager ListAccountsForParent where
+        page rq rs
+          | stop (rs ^. lafprsNextToken) = Nothing
+          | stop (rs ^. lafprsAccounts) = Nothing
+          | otherwise =
+            Just $ rq & lafpNextToken .~ rs ^. lafprsNextToken
 
 instance AWSRequest ListAccountsForParent where
         type Rs ListAccountsForParent =

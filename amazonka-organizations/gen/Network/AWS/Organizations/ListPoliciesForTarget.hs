@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the organization's master account.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListPoliciesForTarget
     (
     -- * Creating a Request
@@ -46,6 +48,7 @@ module Network.AWS.Organizations.ListPoliciesForTarget
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,6 +99,13 @@ lpftTargetId = lens _lpftTargetId (\ s a -> s{_lpftTargetId = a});
 -- | The type of policy that you want to include in the returned list.
 lpftFilter :: Lens' ListPoliciesForTarget PolicyType
 lpftFilter = lens _lpftFilter (\ s a -> s{_lpftFilter = a});
+
+instance AWSPager ListPoliciesForTarget where
+        page rq rs
+          | stop (rs ^. lpftrsNextToken) = Nothing
+          | stop (rs ^. lpftrsPolicies) = Nothing
+          | otherwise =
+            Just $ rq & lpftNextToken .~ rs ^. lpftrsNextToken
 
 instance AWSRequest ListPoliciesForTarget where
         type Rs ListPoliciesForTarget =

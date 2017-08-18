@@ -190,19 +190,19 @@ module Network.AWS.Organizations
     -- * Operations
     -- $operations
 
-    -- ** ListHandshakesForAccount
+    -- ** ListHandshakesForAccount (Paginated)
     , module Network.AWS.Organizations.ListHandshakesForAccount
 
     -- ** DescribeAccount
     , module Network.AWS.Organizations.DescribeAccount
 
-    -- ** ListPolicies
+    -- ** ListPolicies (Paginated)
     , module Network.AWS.Organizations.ListPolicies
 
     -- ** CreatePolicy
     , module Network.AWS.Organizations.CreatePolicy
 
-    -- ** ListRoots
+    -- ** ListRoots (Paginated)
     , module Network.AWS.Organizations.ListRoots
 
     -- ** AcceptHandshake
@@ -229,19 +229,19 @@ module Network.AWS.Organizations
     -- ** MoveAccount
     , module Network.AWS.Organizations.MoveAccount
 
-    -- ** ListAccounts
+    -- ** ListAccounts (Paginated)
     , module Network.AWS.Organizations.ListAccounts
 
     -- ** InviteAccountToOrganization
     , module Network.AWS.Organizations.InviteAccountToOrganization
 
-    -- ** ListOrganizationalUnitsForParent
+    -- ** ListOrganizationalUnitsForParent (Paginated)
     , module Network.AWS.Organizations.ListOrganizationalUnitsForParent
 
     -- ** CancelHandshake
     , module Network.AWS.Organizations.CancelHandshake
 
-    -- ** ListChildren
+    -- ** ListChildren (Paginated)
     , module Network.AWS.Organizations.ListChildren
 
     -- ** DeletePolicy
@@ -262,7 +262,7 @@ module Network.AWS.Organizations
     -- ** CreateOrganizationalUnit
     , module Network.AWS.Organizations.CreateOrganizationalUnit
 
-    -- ** ListAccountsForParent
+    -- ** ListAccountsForParent (Paginated)
     , module Network.AWS.Organizations.ListAccountsForParent
 
     -- ** DetachPolicy
@@ -274,16 +274,16 @@ module Network.AWS.Organizations
     -- ** DescribeOrganizationalUnit
     , module Network.AWS.Organizations.DescribeOrganizationalUnit
 
-    -- ** ListParents
+    -- ** ListParents (Paginated)
     , module Network.AWS.Organizations.ListParents
 
     -- ** CreateAccount
     , module Network.AWS.Organizations.CreateAccount
 
-    -- ** ListCreateAccountStatus
+    -- ** ListCreateAccountStatus (Paginated)
     , module Network.AWS.Organizations.ListCreateAccountStatus
 
-    -- ** ListTargetsForPolicy
+    -- ** ListTargetsForPolicy (Paginated)
     , module Network.AWS.Organizations.ListTargetsForPolicy
 
     -- ** DeclineHandshake
@@ -292,13 +292,13 @@ module Network.AWS.Organizations
     -- ** AttachPolicy
     , module Network.AWS.Organizations.AttachPolicy
 
-    -- ** ListPoliciesForTarget
+    -- ** ListPoliciesForTarget (Paginated)
     , module Network.AWS.Organizations.ListPoliciesForTarget
 
     -- ** DescribeOrganization
     , module Network.AWS.Organizations.DescribeOrganization
 
-    -- ** ListHandshakesForOrganization
+    -- ** ListHandshakesForOrganization (Paginated)
     , module Network.AWS.Organizations.ListHandshakesForOrganization
 
     -- ** DeleteOrganizationalUnit
@@ -359,6 +359,7 @@ module Network.AWS.Organizations
     , account
     , aStatus
     , aJoinedMethod
+    , aEmail
     , aARN
     , aJoinedTimestamp
     , aName

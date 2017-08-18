@@ -23,6 +23,8 @@
 --
 -- This operation can be called only from the organization's master account.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.Organizations.ListPolicies
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.Organizations.ListPolicies
 import           Network.AWS.Lens
 import           Network.AWS.Organizations.Types
 import           Network.AWS.Organizations.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -86,6 +89,13 @@ lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
 -- | Specifies the type of policy that you want to include in the response.
 lpFilter :: Lens' ListPolicies PolicyType
 lpFilter = lens _lpFilter (\ s a -> s{_lpFilter = a});
+
+instance AWSPager ListPolicies where
+        page rq rs
+          | stop (rs ^. lprsNextToken) = Nothing
+          | stop (rs ^. lprsPolicies) = Nothing
+          | otherwise =
+            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
 
 instance AWSRequest ListPolicies where
         type Rs ListPolicies = ListPoliciesResponse

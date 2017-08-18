@@ -21,6 +21,8 @@
 -- Sends an invitation to another account to join your organization as a member account. Organizations sends email on your behalf to the email address that is associated with the other account's owner. The invitation is implemented as a 'Handshake' whose details are in the response.
 --
 --
+-- /Important:/ You can invite AWS accounts only from the same reseller as the master account. For example, if your organization's master account was created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS reseller in India, then you can only invite other AISPL accounts to your organization. You can't combine accounts from AISPL and AWS. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html Consolidated Billing in India> .
+--
 -- This operation can be called only from the organization's master account.
 --
 module Network.AWS.Organizations.InviteAccountToOrganization

@@ -57,4 +57,4 @@ $(MODEL_DIR): vendor/botocore
 	cp -rf vendor/botocore/botocore/data $@
 
 vendor/botocore:
-	git clone git@github.com:boto/botocore $@
+	git clone https://github.com/boto/botocore.git $@

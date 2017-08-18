@@ -28,6 +28,7 @@ module Network.AWS.Batch.SubmitJob
     , SubmitJob
     -- * Request Lenses
     , sjContainerOverrides
+    , sjRetryStrategy
     , sjDependsOn
     , sjParameters
     , sjJobName
@@ -53,6 +54,7 @@ import           Network.AWS.Response
 -- | /See:/ 'submitJob' smart constructor.
 data SubmitJob = SubmitJob'
     { _sjContainerOverrides :: !(Maybe ContainerOverrides)
+    , _sjRetryStrategy      :: !(Maybe RetryStrategy)
     , _sjDependsOn          :: !(Maybe [JobDependency])
     , _sjParameters         :: !(Maybe (Map Text Text))
     , _sjJobName            :: !Text
@@ -66,11 +68,13 @@ data SubmitJob = SubmitJob'
 --
 -- * 'sjContainerOverrides' - A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive. You can override the default command for a container (that is specified in the job definition or the Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the job definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
 --
--- * 'sjDependsOn' - A list of job names or IDs on which this job depends. A job can depend upon a maximum of 100 jobs.
+-- * 'sjRetryStrategy' - The retry strategy to use for failed jobs from this 'SubmitJob' operation. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition.
+--
+-- * 'sjDependsOn' - A list of job IDs on which this job depends. A job can depend upon a maximum of 100 jobs.
 --
 -- * 'sjParameters' - Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition.
 --
--- * 'sjJobName' - The name of the job.
+-- * 'sjJobName' - The name of the job. A name must be 1 to 128 characters in length. Pattern: ^[a-zA-Z0-9_]+$
 --
 -- * 'sjJobQueue' - The job queue into which the job will be submitted. You can specify either the name or the Amazon Resource Name (ARN) of the queue.
 --
@@ -83,6 +87,7 @@ submitJob
 submitJob pJobName_ pJobQueue_ pJobDefinition_ =
     SubmitJob'
     { _sjContainerOverrides = Nothing
+    , _sjRetryStrategy = Nothing
     , _sjDependsOn = Nothing
     , _sjParameters = Nothing
     , _sjJobName = pJobName_
@@ -94,7 +99,11 @@ submitJob pJobName_ pJobQueue_ pJobDefinition_ =
 sjContainerOverrides :: Lens' SubmitJob (Maybe ContainerOverrides)
 sjContainerOverrides = lens _sjContainerOverrides (\ s a -> s{_sjContainerOverrides = a});
 
--- | A list of job names or IDs on which this job depends. A job can depend upon a maximum of 100 jobs.
+-- | The retry strategy to use for failed jobs from this 'SubmitJob' operation. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition.
+sjRetryStrategy :: Lens' SubmitJob (Maybe RetryStrategy)
+sjRetryStrategy = lens _sjRetryStrategy (\ s a -> s{_sjRetryStrategy = a});
+
+-- | A list of job IDs on which this job depends. A job can depend upon a maximum of 100 jobs.
 sjDependsOn :: Lens' SubmitJob [JobDependency]
 sjDependsOn = lens _sjDependsOn (\ s a -> s{_sjDependsOn = a}) . _Default . _Coerce;
 
@@ -102,7 +111,7 @@ sjDependsOn = lens _sjDependsOn (\ s a -> s{_sjDependsOn = a}) . _Default . _Coe
 sjParameters :: Lens' SubmitJob (HashMap Text Text)
 sjParameters = lens _sjParameters (\ s a -> s{_sjParameters = a}) . _Default . _Map;
 
--- | The name of the job.
+-- | The name of the job. A name must be 1 to 128 characters in length. Pattern: ^[a-zA-Z0-9_]+$
 sjJobName :: Lens' SubmitJob Text
 sjJobName = lens _sjJobName (\ s a -> s{_sjJobName = a});
 
@@ -140,6 +149,7 @@ instance ToJSON SubmitJob where
           = object
               (catMaybes
                  [("containerOverrides" .=) <$> _sjContainerOverrides,
+                  ("retryStrategy" .=) <$> _sjRetryStrategy,
                   ("dependsOn" .=) <$> _sjDependsOn,
                   ("parameters" .=) <$> _sjParameters,
                   Just ("jobName" .= _sjJobName),

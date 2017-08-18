@@ -43,6 +43,23 @@ module Network.AWS.Batch.Types
     -- * JobStatus
     , JobStatus (..)
 
+    -- * AttemptContainerDetail
+    , AttemptContainerDetail
+    , attemptContainerDetail
+    , acdTaskARN
+    , acdContainerInstanceARN
+    , acdReason
+    , acdLogStreamName
+    , acdExitCode
+
+    -- * AttemptDetail
+    , AttemptDetail
+    , attemptDetail
+    , adStoppedAt
+    , adStartedAt
+    , adContainer
+    , adStatusReason
+
     -- * ComputeEnvironmentDetail
     , ComputeEnvironmentDetail
     , computeEnvironmentDetail
@@ -68,6 +85,7 @@ module Network.AWS.Batch.Types
     , crEc2KeyPair
     , crBidPercentage
     , crSpotIAMFleetRole
+    , crImageId
     , crDesiredvCPUs
     , crTags
     , crType
@@ -91,6 +109,7 @@ module Network.AWS.Batch.Types
     , cdImage
     , cdCommand
     , cdEnvironment
+    , cdTaskARN
     , cdUlimits
     , cdContainerInstanceARN
     , cdPrivileged
@@ -98,6 +117,7 @@ module Network.AWS.Batch.Types
     , cdMemory
     , cdUser
     , cdReason
+    , cdLogStreamName
     , cdMountPoints
     , cdExitCode
     , cdVcpus
@@ -137,6 +157,7 @@ module Network.AWS.Batch.Types
     , JobDefinition
     , jobDefinition
     , jStatus
+    , jRetryStrategy
     , jParameters
     , jContainerProperties
     , jJobDefinitionName
@@ -154,6 +175,8 @@ module Network.AWS.Batch.Types
     , jobDetail
     , jdStoppedAt
     , jdCreatedAt
+    , jdRetryStrategy
+    , jdAttempts
     , jdDependsOn
     , jdContainer
     , jdParameters
@@ -194,6 +217,11 @@ module Network.AWS.Batch.Types
     , mpContainerPath
     , mpSourceVolume
     , mpReadOnly
+
+    -- * RetryStrategy
+    , RetryStrategy
+    , retryStrategy
+    , rsAttempts
 
     -- * Ulimit
     , Ulimit
@@ -238,6 +266,8 @@ batch =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

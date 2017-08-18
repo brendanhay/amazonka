@@ -110,6 +110,23 @@ module Network.AWS.Batch
     -- ** JobStatus
     , JobStatus (..)
 
+    -- ** AttemptContainerDetail
+    , AttemptContainerDetail
+    , attemptContainerDetail
+    , acdTaskARN
+    , acdContainerInstanceARN
+    , acdReason
+    , acdLogStreamName
+    , acdExitCode
+
+    -- ** AttemptDetail
+    , AttemptDetail
+    , attemptDetail
+    , adStoppedAt
+    , adStartedAt
+    , adContainer
+    , adStatusReason
+
     -- ** ComputeEnvironmentDetail
     , ComputeEnvironmentDetail
     , computeEnvironmentDetail
@@ -135,6 +152,7 @@ module Network.AWS.Batch
     , crEc2KeyPair
     , crBidPercentage
     , crSpotIAMFleetRole
+    , crImageId
     , crDesiredvCPUs
     , crTags
     , crType
@@ -158,6 +176,7 @@ module Network.AWS.Batch
     , cdImage
     , cdCommand
     , cdEnvironment
+    , cdTaskARN
     , cdUlimits
     , cdContainerInstanceARN
     , cdPrivileged
@@ -165,6 +184,7 @@ module Network.AWS.Batch
     , cdMemory
     , cdUser
     , cdReason
+    , cdLogStreamName
     , cdMountPoints
     , cdExitCode
     , cdVcpus
@@ -204,6 +224,7 @@ module Network.AWS.Batch
     , JobDefinition
     , jobDefinition
     , jStatus
+    , jRetryStrategy
     , jParameters
     , jContainerProperties
     , jJobDefinitionName
@@ -221,6 +242,8 @@ module Network.AWS.Batch
     , jobDetail
     , jdStoppedAt
     , jdCreatedAt
+    , jdRetryStrategy
+    , jdAttempts
     , jdDependsOn
     , jdContainer
     , jdParameters
@@ -261,6 +284,11 @@ module Network.AWS.Batch
     , mpContainerPath
     , mpSourceVolume
     , mpReadOnly
+
+    -- ** RetryStrategy
+    , RetryStrategy
+    , retryStrategy
+    , rsAttempts
 
     -- ** Ulimit
     , Ulimit

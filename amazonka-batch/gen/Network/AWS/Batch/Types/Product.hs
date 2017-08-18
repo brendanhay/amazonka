@@ -21,6 +21,139 @@ import           Network.AWS.Batch.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
+-- | An object representing the details of a container that is part of a job attempt.
+--
+--
+--
+-- /See:/ 'attemptContainerDetail' smart constructor.
+data AttemptContainerDetail = AttemptContainerDetail'
+    { _acdTaskARN              :: !(Maybe Text)
+    , _acdContainerInstanceARN :: !(Maybe Text)
+    , _acdReason               :: !(Maybe Text)
+    , _acdLogStreamName        :: !(Maybe Text)
+    , _acdExitCode             :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttemptContainerDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt.
+--
+-- * 'acdContainerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
+--
+-- * 'acdReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+--
+-- * 'acdLogStreamName' - Undocumented member.
+--
+-- * 'acdExitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
+attemptContainerDetail
+    :: AttemptContainerDetail
+attemptContainerDetail =
+    AttemptContainerDetail'
+    { _acdTaskARN = Nothing
+    , _acdContainerInstanceARN = Nothing
+    , _acdReason = Nothing
+    , _acdLogStreamName = Nothing
+    , _acdExitCode = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt.
+acdTaskARN :: Lens' AttemptContainerDetail (Maybe Text)
+acdTaskARN = lens _acdTaskARN (\ s a -> s{_acdTaskARN = a});
+
+-- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
+acdContainerInstanceARN :: Lens' AttemptContainerDetail (Maybe Text)
+acdContainerInstanceARN = lens _acdContainerInstanceARN (\ s a -> s{_acdContainerInstanceARN = a});
+
+-- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+acdReason :: Lens' AttemptContainerDetail (Maybe Text)
+acdReason = lens _acdReason (\ s a -> s{_acdReason = a});
+
+-- | Undocumented member.
+acdLogStreamName :: Lens' AttemptContainerDetail (Maybe Text)
+acdLogStreamName = lens _acdLogStreamName (\ s a -> s{_acdLogStreamName = a});
+
+-- | The exit code for the job attempt. A non-zero exit code is considered a failure.
+acdExitCode :: Lens' AttemptContainerDetail (Maybe Int)
+acdExitCode = lens _acdExitCode (\ s a -> s{_acdExitCode = a});
+
+instance FromJSON AttemptContainerDetail where
+        parseJSON
+          = withObject "AttemptContainerDetail"
+              (\ x ->
+                 AttemptContainerDetail' <$>
+                   (x .:? "taskArn") <*> (x .:? "containerInstanceArn")
+                     <*> (x .:? "reason")
+                     <*> (x .:? "logStreamName")
+                     <*> (x .:? "exitCode"))
+
+instance Hashable AttemptContainerDetail
+
+instance NFData AttemptContainerDetail
+
+-- | An object representing a job attempt.
+--
+--
+--
+-- /See:/ 'attemptDetail' smart constructor.
+data AttemptDetail = AttemptDetail'
+    { _adStoppedAt    :: !(Maybe Integer)
+    , _adStartedAt    :: !(Maybe Integer)
+    , _adContainer    :: !(Maybe AttemptContainerDetail)
+    , _adStatusReason :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttemptDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adStoppedAt' - The Unix timestamp for when the attempt was stopped (when the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
+--
+-- * 'adStartedAt' - The Unix timestamp for when the attempt was started (when the task transitioned from the @PENDING@ state to the @RUNNING@ state).
+--
+-- * 'adContainer' - Details about the container in this job attempt.
+--
+-- * 'adStatusReason' - A short, human-readable string to provide additional details about the current status of the job attempt.
+attemptDetail
+    :: AttemptDetail
+attemptDetail =
+    AttemptDetail'
+    { _adStoppedAt = Nothing
+    , _adStartedAt = Nothing
+    , _adContainer = Nothing
+    , _adStatusReason = Nothing
+    }
+
+-- | The Unix timestamp for when the attempt was stopped (when the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
+adStoppedAt :: Lens' AttemptDetail (Maybe Integer)
+adStoppedAt = lens _adStoppedAt (\ s a -> s{_adStoppedAt = a});
+
+-- | The Unix timestamp for when the attempt was started (when the task transitioned from the @PENDING@ state to the @RUNNING@ state).
+adStartedAt :: Lens' AttemptDetail (Maybe Integer)
+adStartedAt = lens _adStartedAt (\ s a -> s{_adStartedAt = a});
+
+-- | Details about the container in this job attempt.
+adContainer :: Lens' AttemptDetail (Maybe AttemptContainerDetail)
+adContainer = lens _adContainer (\ s a -> s{_adContainer = a});
+
+-- | A short, human-readable string to provide additional details about the current status of the job attempt.
+adStatusReason :: Lens' AttemptDetail (Maybe Text)
+adStatusReason = lens _adStatusReason (\ s a -> s{_adStatusReason = a});
+
+instance FromJSON AttemptDetail where
+        parseJSON
+          = withObject "AttemptDetail"
+              (\ x ->
+                 AttemptDetail' <$>
+                   (x .:? "stoppedAt") <*> (x .:? "startedAt") <*>
+                     (x .:? "container")
+                     <*> (x .:? "statusReason"))
+
+instance Hashable AttemptDetail
+
+instance NFData AttemptDetail
+
 -- | An object representing an AWS Batch compute environment.
 --
 --
@@ -194,6 +327,7 @@ data ComputeResource = ComputeResource'
     { _crEc2KeyPair       :: !(Maybe Text)
     , _crBidPercentage    :: !(Maybe Int)
     , _crSpotIAMFleetRole :: !(Maybe Text)
+    , _crImageId          :: !(Maybe Text)
     , _crDesiredvCPUs     :: !(Maybe Int)
     , _crTags             :: !(Maybe (Map Text Text))
     , _crType             :: !CRType
@@ -214,6 +348,8 @@ data ComputeResource = ComputeResource'
 -- * 'crBidPercentage' - The minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20%, then the Spot price must be below 20% of the current On-Demand price for that EC2 instance.
 --
 -- * 'crSpotIAMFleetRole' - The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a @SPOT@ compute environment.
+--
+-- * 'crImageId' - The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
 --
 -- * 'crDesiredvCPUs' - The desired number of EC2 vCPUS in the compute environment.
 --
@@ -243,6 +379,7 @@ computeResource pType_ pMinvCPUs_ pMaxvCPUs_ pInstanceRole_ =
     { _crEc2KeyPair = Nothing
     , _crBidPercentage = Nothing
     , _crSpotIAMFleetRole = Nothing
+    , _crImageId = Nothing
     , _crDesiredvCPUs = Nothing
     , _crTags = Nothing
     , _crType = pType_
@@ -265,6 +402,10 @@ crBidPercentage = lens _crBidPercentage (\ s a -> s{_crBidPercentage = a});
 -- | The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a @SPOT@ compute environment.
 crSpotIAMFleetRole :: Lens' ComputeResource (Maybe Text)
 crSpotIAMFleetRole = lens _crSpotIAMFleetRole (\ s a -> s{_crSpotIAMFleetRole = a});
+
+-- | The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
+crImageId :: Lens' ComputeResource (Maybe Text)
+crImageId = lens _crImageId (\ s a -> s{_crImageId = a});
 
 -- | The desired number of EC2 vCPUS in the compute environment.
 crDesiredvCPUs :: Lens' ComputeResource (Maybe Int)
@@ -309,6 +450,7 @@ instance FromJSON ComputeResource where
                  ComputeResource' <$>
                    (x .:? "ec2KeyPair") <*> (x .:? "bidPercentage") <*>
                      (x .:? "spotIamFleetRole")
+                     <*> (x .:? "imageId")
                      <*> (x .:? "desiredvCpus")
                      <*> (x .:? "tags" .!= mempty)
                      <*> (x .: "type")
@@ -330,6 +472,7 @@ instance ToJSON ComputeResource where
                  [("ec2KeyPair" .=) <$> _crEc2KeyPair,
                   ("bidPercentage" .=) <$> _crBidPercentage,
                   ("spotIamFleetRole" .=) <$> _crSpotIAMFleetRole,
+                  ("imageId" .=) <$> _crImageId,
                   ("desiredvCpus" .=) <$> _crDesiredvCPUs,
                   ("tags" .=) <$> _crTags, Just ("type" .= _crType),
                   Just ("minvCpus" .= _crMinvCPUs),
@@ -401,6 +544,7 @@ data ContainerDetail = ContainerDetail'
     { _cdImage                  :: !(Maybe Text)
     , _cdCommand                :: !(Maybe [Text])
     , _cdEnvironment            :: !(Maybe [KeyValuePair])
+    , _cdTaskARN                :: !(Maybe Text)
     , _cdUlimits                :: !(Maybe [Ulimit])
     , _cdContainerInstanceARN   :: !(Maybe Text)
     , _cdPrivileged             :: !(Maybe Bool)
@@ -408,6 +552,7 @@ data ContainerDetail = ContainerDetail'
     , _cdMemory                 :: !(Maybe Int)
     , _cdUser                   :: !(Maybe Text)
     , _cdReason                 :: !(Maybe Text)
+    , _cdLogStreamName          :: !(Maybe Text)
     , _cdMountPoints            :: !(Maybe [MountPoint])
     , _cdExitCode               :: !(Maybe Int)
     , _cdVcpus                  :: !(Maybe Int)
@@ -425,6 +570,8 @@ data ContainerDetail = ContainerDetail'
 --
 -- * 'cdEnvironment' - The environment variables to pass to a container.
 --
+-- * 'cdTaskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job.
+--
 -- * 'cdUlimits' - A list of @ulimit@ values to set in the container.
 --
 -- * 'cdContainerInstanceARN' - The Amazon Resource Name (ARN) of the container instance on which the container is running.
@@ -438,6 +585,8 @@ data ContainerDetail = ContainerDetail'
 -- * 'cdUser' - The user name to use inside the container.
 --
 -- * 'cdReason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+--
+-- * 'cdLogStreamName' - Undocumented member.
 --
 -- * 'cdMountPoints' - The mount points for data volumes in your container.
 --
@@ -455,6 +604,7 @@ containerDetail =
     { _cdImage = Nothing
     , _cdCommand = Nothing
     , _cdEnvironment = Nothing
+    , _cdTaskARN = Nothing
     , _cdUlimits = Nothing
     , _cdContainerInstanceARN = Nothing
     , _cdPrivileged = Nothing
@@ -462,6 +612,7 @@ containerDetail =
     , _cdMemory = Nothing
     , _cdUser = Nothing
     , _cdReason = Nothing
+    , _cdLogStreamName = Nothing
     , _cdMountPoints = Nothing
     , _cdExitCode = Nothing
     , _cdVcpus = Nothing
@@ -480,6 +631,10 @@ cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default . _Coerce;
 -- | The environment variables to pass to a container.
 cdEnvironment :: Lens' ContainerDetail [KeyValuePair]
 cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default . _Coerce;
+
+-- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the container job.
+cdTaskARN :: Lens' ContainerDetail (Maybe Text)
+cdTaskARN = lens _cdTaskARN (\ s a -> s{_cdTaskARN = a});
 
 -- | A list of @ulimit@ values to set in the container.
 cdUlimits :: Lens' ContainerDetail [Ulimit]
@@ -509,6 +664,10 @@ cdUser = lens _cdUser (\ s a -> s{_cdUser = a});
 cdReason :: Lens' ContainerDetail (Maybe Text)
 cdReason = lens _cdReason (\ s a -> s{_cdReason = a});
 
+-- | Undocumented member.
+cdLogStreamName :: Lens' ContainerDetail (Maybe Text)
+cdLogStreamName = lens _cdLogStreamName (\ s a -> s{_cdLogStreamName = a});
+
 -- | The mount points for data volumes in your container.
 cdMountPoints :: Lens' ContainerDetail [MountPoint]
 cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default . _Coerce;
@@ -536,6 +695,7 @@ instance FromJSON ContainerDetail where
                  ContainerDetail' <$>
                    (x .:? "image") <*> (x .:? "command" .!= mempty) <*>
                      (x .:? "environment" .!= mempty)
+                     <*> (x .:? "taskArn")
                      <*> (x .:? "ulimits" .!= mempty)
                      <*> (x .:? "containerInstanceArn")
                      <*> (x .:? "privileged")
@@ -543,6 +703,7 @@ instance FromJSON ContainerDetail where
                      <*> (x .:? "memory")
                      <*> (x .:? "user")
                      <*> (x .:? "reason")
+                     <*> (x .:? "logStreamName")
                      <*> (x .:? "mountPoints" .!= mempty)
                      <*> (x .:? "exitCode")
                      <*> (x .:? "vcpus")
@@ -817,6 +978,7 @@ instance ToJSON Host where
 -- /See:/ 'jobDefinition' smart constructor.
 data JobDefinition = JobDefinition'
     { _jStatus              :: !(Maybe Text)
+    , _jRetryStrategy       :: !(Maybe RetryStrategy)
     , _jParameters          :: !(Maybe (Map Text Text))
     , _jContainerProperties :: !(Maybe ContainerProperties)
     , _jJobDefinitionName   :: !Text
@@ -830,6 +992,8 @@ data JobDefinition = JobDefinition'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jStatus' - The status of the job definition.
+--
+-- * 'jRetryStrategy' - The retry strategy to use for failed jobs that are submitted with this job definition.
 --
 -- * 'jParameters' - Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition.
 --
@@ -851,6 +1015,7 @@ jobDefinition
 jobDefinition pJobDefinitionName_ pJobDefinitionARN_ pRevision_ pType_ =
     JobDefinition'
     { _jStatus = Nothing
+    , _jRetryStrategy = Nothing
     , _jParameters = Nothing
     , _jContainerProperties = Nothing
     , _jJobDefinitionName = pJobDefinitionName_
@@ -862,6 +1027,10 @@ jobDefinition pJobDefinitionName_ pJobDefinitionARN_ pRevision_ pType_ =
 -- | The status of the job definition.
 jStatus :: Lens' JobDefinition (Maybe Text)
 jStatus = lens _jStatus (\ s a -> s{_jStatus = a});
+
+-- | The retry strategy to use for failed jobs that are submitted with this job definition.
+jRetryStrategy :: Lens' JobDefinition (Maybe RetryStrategy)
+jRetryStrategy = lens _jRetryStrategy (\ s a -> s{_jRetryStrategy = a});
 
 -- | Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a @SubmitJob@ request override any corresponding parameter defaults from the job definition.
 jParameters :: Lens' JobDefinition (HashMap Text Text)
@@ -892,7 +1061,8 @@ instance FromJSON JobDefinition where
           = withObject "JobDefinition"
               (\ x ->
                  JobDefinition' <$>
-                   (x .:? "status") <*> (x .:? "parameters" .!= mempty)
+                   (x .:? "status") <*> (x .:? "retryStrategy") <*>
+                     (x .:? "parameters" .!= mempty)
                      <*> (x .:? "containerProperties")
                      <*> (x .: "jobDefinitionName")
                      <*> (x .: "jobDefinitionArn")
@@ -949,6 +1119,8 @@ instance ToJSON JobDependency where
 data JobDetail = JobDetail'
     { _jdStoppedAt     :: !(Maybe Integer)
     , _jdCreatedAt     :: !(Maybe Integer)
+    , _jdRetryStrategy :: !(Maybe RetryStrategy)
+    , _jdAttempts      :: !(Maybe [AttemptDetail])
     , _jdDependsOn     :: !(Maybe [JobDependency])
     , _jdContainer     :: !(Maybe ContainerDetail)
     , _jdParameters    :: !(Maybe (Map Text Text))
@@ -968,6 +1140,10 @@ data JobDetail = JobDetail'
 -- * 'jdStoppedAt' - The Unix timestamp for when the job was stopped (when the task transitioned from the @RUNNING@ state to the @STOPPED@ state).
 --
 -- * 'jdCreatedAt' - The Unix timestamp for when the job was created (when the task entered the @PENDING@ state).
+--
+-- * 'jdRetryStrategy' - The retry strategy to use for this job if an attempt fails.
+--
+-- * 'jdAttempts' - A list of job attempts associated with this job.
 --
 -- * 'jdDependsOn' - A list of job names or IDs on which this job depends.
 --
@@ -1000,6 +1176,8 @@ jobDetail pJobName_ pJobId_ pJobQueue_ pStatus_ pStartedAt_ pJobDefinition_ =
     JobDetail'
     { _jdStoppedAt = Nothing
     , _jdCreatedAt = Nothing
+    , _jdRetryStrategy = Nothing
+    , _jdAttempts = Nothing
     , _jdDependsOn = Nothing
     , _jdContainer = Nothing
     , _jdParameters = Nothing
@@ -1019,6 +1197,14 @@ jdStoppedAt = lens _jdStoppedAt (\ s a -> s{_jdStoppedAt = a});
 -- | The Unix timestamp for when the job was created (when the task entered the @PENDING@ state).
 jdCreatedAt :: Lens' JobDetail (Maybe Integer)
 jdCreatedAt = lens _jdCreatedAt (\ s a -> s{_jdCreatedAt = a});
+
+-- | The retry strategy to use for this job if an attempt fails.
+jdRetryStrategy :: Lens' JobDetail (Maybe RetryStrategy)
+jdRetryStrategy = lens _jdRetryStrategy (\ s a -> s{_jdRetryStrategy = a});
+
+-- | A list of job attempts associated with this job.
+jdAttempts :: Lens' JobDetail [AttemptDetail]
+jdAttempts = lens _jdAttempts (\ s a -> s{_jdAttempts = a}) . _Default . _Coerce;
 
 -- | A list of job names or IDs on which this job depends.
 jdDependsOn :: Lens' JobDetail [JobDependency]
@@ -1066,7 +1252,9 @@ instance FromJSON JobDetail where
               (\ x ->
                  JobDetail' <$>
                    (x .:? "stoppedAt") <*> (x .:? "createdAt") <*>
-                     (x .:? "dependsOn" .!= mempty)
+                     (x .:? "retryStrategy")
+                     <*> (x .:? "attempts" .!= mempty)
+                     <*> (x .:? "dependsOn" .!= mempty)
                      <*> (x .:? "container")
                      <*> (x .:? "parameters" .!= mempty)
                      <*> (x .:? "statusReason")
@@ -1269,7 +1457,7 @@ instance ToJSON KeyValuePair where
                  [("value" .=) <$> _kvpValue,
                   ("name" .=) <$> _kvpName])
 
--- | Details on a volume mount point that is used in a job's container properties.
+-- | Details on a Docker volume mount point that is used in a job's container properties.
 --
 --
 --
@@ -1329,6 +1517,45 @@ instance ToJSON MountPoint where
                  [("containerPath" .=) <$> _mpContainerPath,
                   ("sourceVolume" .=) <$> _mpSourceVolume,
                   ("readOnly" .=) <$> _mpReadOnly])
+
+-- | The retry strategy associated with a job.
+--
+--
+--
+-- /See:/ 'retryStrategy' smart constructor.
+newtype RetryStrategy = RetryStrategy'
+    { _rsAttempts :: Maybe Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RetryStrategy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsAttempts' - The number of times to move a job to the @RUNNABLE@ status. You may specify between 1 and 10 attempts. If @attempts@ is greater than one, the job is retried if it fails until it has moved to @RUNNABLE@ that many times.
+retryStrategy
+    :: RetryStrategy
+retryStrategy =
+    RetryStrategy'
+    { _rsAttempts = Nothing
+    }
+
+-- | The number of times to move a job to the @RUNNABLE@ status. You may specify between 1 and 10 attempts. If @attempts@ is greater than one, the job is retried if it fails until it has moved to @RUNNABLE@ that many times.
+rsAttempts :: Lens' RetryStrategy (Maybe Int)
+rsAttempts = lens _rsAttempts (\ s a -> s{_rsAttempts = a});
+
+instance FromJSON RetryStrategy where
+        parseJSON
+          = withObject "RetryStrategy"
+              (\ x -> RetryStrategy' <$> (x .:? "attempts"))
+
+instance Hashable RetryStrategy
+
+instance NFData RetryStrategy
+
+instance ToJSON RetryStrategy where
+        toJSON RetryStrategy'{..}
+          = object
+              (catMaybes [("attempts" .=) <$> _rsAttempts])
 
 -- | The @ulimit@ settings to pass to the container.
 --

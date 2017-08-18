@@ -26,6 +26,12 @@ module Network.AWS.AutoScaling.Types
     -- * LifecycleState
     , LifecycleState (..)
 
+    -- * MetricStatistic
+    , MetricStatistic (..)
+
+    -- * MetricType
+    , MetricType (..)
+
     -- * ScalingActivityStatusCode
     , ScalingActivityStatusCode (..)
 
@@ -98,6 +104,15 @@ module Network.AWS.AutoScaling.Types
     , bdmNoDevice
     , bdmEBS
     , bdmDeviceName
+
+    -- * CustomizedMetricSpecification
+    , CustomizedMetricSpecification
+    , customizedMetricSpecification
+    , cmsDimensions
+    , cmsUnit
+    , cmsMetricName
+    , cmsNamespace
+    , cmsStatistic
 
     -- * EBS
     , EBS
@@ -189,6 +204,12 @@ module Network.AWS.AutoScaling.Types
     , metricCollectionType
     , mctMetric
 
+    -- * MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdName
+    , mdValue
+
     -- * MetricGranularityType
     , MetricGranularityType
     , metricGranularityType
@@ -200,6 +221,12 @@ module Network.AWS.AutoScaling.Types
     , ncTopicARN
     , ncAutoScalingGroupName
     , ncNotificationType
+
+    -- * PredefinedMetricSpecification
+    , PredefinedMetricSpecification
+    , predefinedMetricSpecification
+    , pmsResourceLabel
+    , pmsPredefinedMetricType
 
     -- * ProcessType
     , ProcessType
@@ -214,6 +241,7 @@ module Network.AWS.AutoScaling.Types
     , sPolicyName
     , sPolicyType
     , sStepAdjustments
+    , sTargetTrackingConfiguration
     , sAdjustmentType
     , sAutoScalingGroupName
     , sScalingAdjustment
@@ -273,6 +301,14 @@ module Network.AWS.AutoScaling.Types
     , tdKey
     , tdPropagateAtLaunch
     , tdValue
+
+    -- * TargetTrackingConfiguration
+    , TargetTrackingConfiguration
+    , targetTrackingConfiguration
+    , ttcPredefinedMetricSpecification
+    , ttcCustomizedMetricSpecification
+    , ttcDisableScaleIn
+    , ttcTargetValue
     ) where
 
 import           Network.AWS.AutoScaling.Types.Product
@@ -304,6 +340,8 @@ autoScaling =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

@@ -71,7 +71,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- * 'desAutoScalingGroupName' - The name of the group.
 --
--- * 'desMaxRecords' - The maximum number of items to return with this call.
+-- * 'desMaxRecords' - The maximum number of items to return with this call. The default value is 100.
 --
 -- * 'desActivityIds' - The activity IDs of the desired scaling activities. If you omit this parameter, all activities for the past six weeks are described. If you specify an Auto Scaling group, the results are limited to that group. The list of requested activities cannot contain more than 50 items. If unknown activities are requested, they are ignored with no error.
 describeScalingActivities
@@ -92,7 +92,7 @@ desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 desAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
 desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 100.
 desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 

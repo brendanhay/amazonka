@@ -77,7 +77,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- * 'dsasAutoScalingGroupName' - The name of the group.
 --
--- * 'dsasMaxRecords' - The maximum number of items to return with this call.
+-- * 'dsasMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 --
 -- * 'dsasEndTime' - The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 --
@@ -106,7 +106,7 @@ dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
 dsasAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
 dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dsasMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
 dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 

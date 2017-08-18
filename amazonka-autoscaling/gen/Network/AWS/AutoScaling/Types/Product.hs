@@ -482,7 +482,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asidLaunchConfigurationName' - The launch configuration associated with the instance.
+-- * 'asidLaunchConfigurationName' - The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
 --
 -- * 'asidInstanceId' - The ID of the instance.
 --
@@ -514,7 +514,7 @@ autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone
     , _asidProtectedFromScaleIn = pProtectedFromScaleIn_
     }
 
--- | The launch configuration associated with the instance.
+-- | The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
 asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Maybe Text)
 asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asidLaunchConfigurationName = a});
 
@@ -624,6 +624,89 @@ instance ToQuery BlockDeviceMapping where
               ["VirtualName" =: _bdmVirtualName,
                "NoDevice" =: _bdmNoDevice, "Ebs" =: _bdmEBS,
                "DeviceName" =: _bdmDeviceName]
+
+-- | Configures a customized metric for a target tracking policy.
+--
+--
+--
+-- /See:/ 'customizedMetricSpecification' smart constructor.
+data CustomizedMetricSpecification = CustomizedMetricSpecification'
+    { _cmsDimensions :: !(Maybe [MetricDimension])
+    , _cmsUnit       :: !(Maybe Text)
+    , _cmsMetricName :: !Text
+    , _cmsNamespace  :: !Text
+    , _cmsStatistic  :: !MetricStatistic
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomizedMetricSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmsDimensions' - The dimensions of the metric.
+--
+-- * 'cmsUnit' - The unit of the metric.
+--
+-- * 'cmsMetricName' - The name of the metric.
+--
+-- * 'cmsNamespace' - The namespace of the metric.
+--
+-- * 'cmsStatistic' - The statistic of the metric.
+customizedMetricSpecification
+    :: Text -- ^ 'cmsMetricName'
+    -> Text -- ^ 'cmsNamespace'
+    -> MetricStatistic -- ^ 'cmsStatistic'
+    -> CustomizedMetricSpecification
+customizedMetricSpecification pMetricName_ pNamespace_ pStatistic_ =
+    CustomizedMetricSpecification'
+    { _cmsDimensions = Nothing
+    , _cmsUnit = Nothing
+    , _cmsMetricName = pMetricName_
+    , _cmsNamespace = pNamespace_
+    , _cmsStatistic = pStatistic_
+    }
+
+-- | The dimensions of the metric.
+cmsDimensions :: Lens' CustomizedMetricSpecification [MetricDimension]
+cmsDimensions = lens _cmsDimensions (\ s a -> s{_cmsDimensions = a}) . _Default . _Coerce;
+
+-- | The unit of the metric.
+cmsUnit :: Lens' CustomizedMetricSpecification (Maybe Text)
+cmsUnit = lens _cmsUnit (\ s a -> s{_cmsUnit = a});
+
+-- | The name of the metric.
+cmsMetricName :: Lens' CustomizedMetricSpecification Text
+cmsMetricName = lens _cmsMetricName (\ s a -> s{_cmsMetricName = a});
+
+-- | The namespace of the metric.
+cmsNamespace :: Lens' CustomizedMetricSpecification Text
+cmsNamespace = lens _cmsNamespace (\ s a -> s{_cmsNamespace = a});
+
+-- | The statistic of the metric.
+cmsStatistic :: Lens' CustomizedMetricSpecification MetricStatistic
+cmsStatistic = lens _cmsStatistic (\ s a -> s{_cmsStatistic = a});
+
+instance FromXML CustomizedMetricSpecification where
+        parseXML x
+          = CustomizedMetricSpecification' <$>
+              (x .@? "Dimensions" .!@ mempty >>=
+                 may (parseXMLList "member"))
+                <*> (x .@? "Unit")
+                <*> (x .@ "MetricName")
+                <*> (x .@ "Namespace")
+                <*> (x .@ "Statistic")
+
+instance Hashable CustomizedMetricSpecification
+
+instance NFData CustomizedMetricSpecification
+
+instance ToQuery CustomizedMetricSpecification where
+        toQuery CustomizedMetricSpecification'{..}
+          = mconcat
+              ["Dimensions" =:
+                 toQuery (toQueryList "member" <$> _cmsDimensions),
+               "Unit" =: _cmsUnit, "MetricName" =: _cmsMetricName,
+               "Namespace" =: _cmsNamespace,
+               "Statistic" =: _cmsStatistic]
 
 -- | Describes an Amazon EBS volume.
 --
@@ -1240,7 +1323,7 @@ instance Hashable LifecycleHook
 
 instance NFData LifecycleHook
 
--- | Describes the state of a Classic load balancer.
+-- | Describes the state of a Classic Load Balancer.
 --
 --
 -- If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is @InService@ .
@@ -1364,6 +1447,54 @@ instance Hashable MetricCollectionType
 
 instance NFData MetricCollectionType
 
+-- | Describes the dimension of a metric.
+--
+--
+--
+-- /See:/ 'metricDimension' smart constructor.
+data MetricDimension = MetricDimension'
+    { _mdName  :: !Text
+    , _mdValue :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdName' - The name of the dimension.
+--
+-- * 'mdValue' - The value of the dimension.
+metricDimension
+    :: Text -- ^ 'mdName'
+    -> Text -- ^ 'mdValue'
+    -> MetricDimension
+metricDimension pName_ pValue_ =
+    MetricDimension'
+    { _mdName = pName_
+    , _mdValue = pValue_
+    }
+
+-- | The name of the dimension.
+mdName :: Lens' MetricDimension Text
+mdName = lens _mdName (\ s a -> s{_mdName = a});
+
+-- | The value of the dimension.
+mdValue :: Lens' MetricDimension Text
+mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
+
+instance FromXML MetricDimension where
+        parseXML x
+          = MetricDimension' <$>
+              (x .@ "Name") <*> (x .@ "Value")
+
+instance Hashable MetricDimension
+
+instance NFData MetricDimension
+
+instance ToQuery MetricDimension where
+        toQuery MetricDimension'{..}
+          = mconcat ["Name" =: _mdName, "Value" =: _mdValue]
+
 -- | Describes a granularity of a metric.
 --
 --
@@ -1448,6 +1579,66 @@ instance Hashable NotificationConfiguration
 
 instance NFData NotificationConfiguration
 
+-- | Configures a predefined metric for a target tracking policy. The following predefined metrics are available:
+--
+--
+--     * @ASGAverageCPUUtilization@ - average CPU utilization of the Auto Scaling group
+--
+--     * @ASGAverageNetworkIn@ - average number of bytes received on all network interfaces by the Auto Scaling group
+--
+--     * @ASGAverageNetworkOut@ - average number of bytes sent out on all network interfaces by the Auto Scaling group
+--
+--     * @ALBRequestCountPerTarget@ - number of requests completed per target in an Application Load Balancer target group
+--
+--
+--
+--
+-- /See:/ 'predefinedMetricSpecification' smart constructor.
+data PredefinedMetricSpecification = PredefinedMetricSpecification'
+    { _pmsResourceLabel        :: !(Maybe Text)
+    , _pmsPredefinedMetricType :: !MetricType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PredefinedMetricSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmsResourceLabel' - Identifies the resource associated with the metric type. For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
+--
+-- * 'pmsPredefinedMetricType' - The metric type.
+predefinedMetricSpecification
+    :: MetricType -- ^ 'pmsPredefinedMetricType'
+    -> PredefinedMetricSpecification
+predefinedMetricSpecification pPredefinedMetricType_ =
+    PredefinedMetricSpecification'
+    { _pmsResourceLabel = Nothing
+    , _pmsPredefinedMetricType = pPredefinedMetricType_
+    }
+
+-- | Identifies the resource associated with the metric type. For predefined metric types @ASGAverageCPUUtilization@ , @ASGAverageNetworkIn@ and @ASGAverageNetworkOut@ , the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type @ALBRequestCountPerTarget@ , the parameter must be specified in the format @app//load-balancer-name/ //load-balancer-id/ /targetgroup//target-group-name/ //target-group-id/ @ , where @app//load-balancer-name/ //load-balancer-id/ @ is the final portion of the load balancer ARN, and @targetgroup//target-group-name/ //target-group-id/ @ is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
+pmsResourceLabel :: Lens' PredefinedMetricSpecification (Maybe Text)
+pmsResourceLabel = lens _pmsResourceLabel (\ s a -> s{_pmsResourceLabel = a});
+
+-- | The metric type.
+pmsPredefinedMetricType :: Lens' PredefinedMetricSpecification MetricType
+pmsPredefinedMetricType = lens _pmsPredefinedMetricType (\ s a -> s{_pmsPredefinedMetricType = a});
+
+instance FromXML PredefinedMetricSpecification where
+        parseXML x
+          = PredefinedMetricSpecification' <$>
+              (x .@? "ResourceLabel") <*>
+                (x .@ "PredefinedMetricType")
+
+instance Hashable PredefinedMetricSpecification
+
+instance NFData PredefinedMetricSpecification
+
+instance ToQuery PredefinedMetricSpecification where
+        toQuery PredefinedMetricSpecification'{..}
+          = mconcat
+              ["ResourceLabel" =: _pmsResourceLabel,
+               "PredefinedMetricType" =: _pmsPredefinedMetricType]
+
 -- | Describes a process type.
 --
 --
@@ -1489,19 +1680,20 @@ instance NFData ProcessType
 --
 -- /See:/ 'scalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-    { _sMinAdjustmentStep       :: !(Maybe Int)
-    , _sEstimatedInstanceWarmup :: !(Maybe Int)
-    , _sPolicyName              :: !(Maybe Text)
-    , _sPolicyType              :: !(Maybe Text)
-    , _sStepAdjustments         :: !(Maybe [StepAdjustment])
-    , _sAdjustmentType          :: !(Maybe Text)
-    , _sAutoScalingGroupName    :: !(Maybe Text)
-    , _sScalingAdjustment       :: !(Maybe Int)
-    , _sCooldown                :: !(Maybe Int)
-    , _sPolicyARN               :: !(Maybe Text)
-    , _sAlarms                  :: !(Maybe [Alarm])
-    , _sMetricAggregationType   :: !(Maybe Text)
-    , _sMinAdjustmentMagnitude  :: !(Maybe Int)
+    { _sMinAdjustmentStep           :: !(Maybe Int)
+    , _sEstimatedInstanceWarmup     :: !(Maybe Int)
+    , _sPolicyName                  :: !(Maybe Text)
+    , _sPolicyType                  :: !(Maybe Text)
+    , _sStepAdjustments             :: !(Maybe [StepAdjustment])
+    , _sTargetTrackingConfiguration :: !(Maybe TargetTrackingConfiguration)
+    , _sAdjustmentType              :: !(Maybe Text)
+    , _sAutoScalingGroupName        :: !(Maybe Text)
+    , _sScalingAdjustment           :: !(Maybe Int)
+    , _sCooldown                    :: !(Maybe Int)
+    , _sPolicyARN                   :: !(Maybe Text)
+    , _sAlarms                      :: !(Maybe [Alarm])
+    , _sMetricAggregationType       :: !(Maybe Text)
+    , _sMinAdjustmentMagnitude      :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
@@ -1517,6 +1709,8 @@ data ScalingPolicy = ScalingPolicy'
 -- * 'sPolicyType' - The policy type. Valid values are @SimpleScaling@ and @StepScaling@ .
 --
 -- * 'sStepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach.
+--
+-- * 'sTargetTrackingConfiguration' - A target tracking policy.
 --
 -- * 'sAdjustmentType' - The adjustment type, which specifies how @ScalingAdjustment@ is interpreted. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
 --
@@ -1542,6 +1736,7 @@ scalingPolicy =
     , _sPolicyName = Nothing
     , _sPolicyType = Nothing
     , _sStepAdjustments = Nothing
+    , _sTargetTrackingConfiguration = Nothing
     , _sAdjustmentType = Nothing
     , _sAutoScalingGroupName = Nothing
     , _sScalingAdjustment = Nothing
@@ -1571,6 +1766,10 @@ sPolicyType = lens _sPolicyType (\ s a -> s{_sPolicyType = a});
 -- | A set of adjustments that enable you to scale based on the size of the alarm breach.
 sStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
 sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . _Default . _Coerce;
+
+-- | A target tracking policy.
+sTargetTrackingConfiguration :: Lens' ScalingPolicy (Maybe TargetTrackingConfiguration)
+sTargetTrackingConfiguration = lens _sTargetTrackingConfiguration (\ s a -> s{_sTargetTrackingConfiguration = a});
 
 -- | The adjustment type, which specifies how @ScalingAdjustment@ is interpreted. Valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
 sAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
@@ -1614,6 +1813,7 @@ instance FromXML ScalingPolicy where
                 <*>
                 (x .@? "StepAdjustments" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "TargetTrackingConfiguration")
                 <*> (x .@? "AdjustmentType")
                 <*> (x .@? "AutoScalingGroupName")
                 <*> (x .@? "ScalingAdjustment")
@@ -2060,3 +2260,75 @@ instance FromXML TagDescription where
 instance Hashable TagDescription
 
 instance NFData TagDescription
+
+-- | Represents a target tracking policy configuration.
+--
+--
+--
+-- /See:/ 'targetTrackingConfiguration' smart constructor.
+data TargetTrackingConfiguration = TargetTrackingConfiguration'
+    { _ttcPredefinedMetricSpecification :: !(Maybe PredefinedMetricSpecification)
+    , _ttcCustomizedMetricSpecification :: !(Maybe CustomizedMetricSpecification)
+    , _ttcDisableScaleIn                :: !(Maybe Bool)
+    , _ttcTargetValue                   :: !Double
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TargetTrackingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ttcPredefinedMetricSpecification' - A predefined metric. You can specify either a predefined metric or a customized metric.
+--
+-- * 'ttcCustomizedMetricSpecification' - A customized metric.
+--
+-- * 'ttcDisableScaleIn' - If the parameter is true, then scale-in will be disabled for the target tracking policy, i.e. the target tracking policy will not scale in the Auto Scaling group. The default value is false.
+--
+-- * 'ttcTargetValue' - The target value for the metric.
+targetTrackingConfiguration
+    :: Double -- ^ 'ttcTargetValue'
+    -> TargetTrackingConfiguration
+targetTrackingConfiguration pTargetValue_ =
+    TargetTrackingConfiguration'
+    { _ttcPredefinedMetricSpecification = Nothing
+    , _ttcCustomizedMetricSpecification = Nothing
+    , _ttcDisableScaleIn = Nothing
+    , _ttcTargetValue = pTargetValue_
+    }
+
+-- | A predefined metric. You can specify either a predefined metric or a customized metric.
+ttcPredefinedMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedMetricSpecification)
+ttcPredefinedMetricSpecification = lens _ttcPredefinedMetricSpecification (\ s a -> s{_ttcPredefinedMetricSpecification = a});
+
+-- | A customized metric.
+ttcCustomizedMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe CustomizedMetricSpecification)
+ttcCustomizedMetricSpecification = lens _ttcCustomizedMetricSpecification (\ s a -> s{_ttcCustomizedMetricSpecification = a});
+
+-- | If the parameter is true, then scale-in will be disabled for the target tracking policy, i.e. the target tracking policy will not scale in the Auto Scaling group. The default value is false.
+ttcDisableScaleIn :: Lens' TargetTrackingConfiguration (Maybe Bool)
+ttcDisableScaleIn = lens _ttcDisableScaleIn (\ s a -> s{_ttcDisableScaleIn = a});
+
+-- | The target value for the metric.
+ttcTargetValue :: Lens' TargetTrackingConfiguration Double
+ttcTargetValue = lens _ttcTargetValue (\ s a -> s{_ttcTargetValue = a});
+
+instance FromXML TargetTrackingConfiguration where
+        parseXML x
+          = TargetTrackingConfiguration' <$>
+              (x .@? "PredefinedMetricSpecification") <*>
+                (x .@? "CustomizedMetricSpecification")
+                <*> (x .@? "DisableScaleIn")
+                <*> (x .@ "TargetValue")
+
+instance Hashable TargetTrackingConfiguration
+
+instance NFData TargetTrackingConfiguration
+
+instance ToQuery TargetTrackingConfiguration where
+        toQuery TargetTrackingConfiguration'{..}
+          = mconcat
+              ["PredefinedMetricSpecification" =:
+                 _ttcPredefinedMetricSpecification,
+               "CustomizedMetricSpecification" =:
+                 _ttcCustomizedMetricSpecification,
+               "DisableScaleIn" =: _ttcDisableScaleIn,
+               "TargetValue" =: _ttcTargetValue]

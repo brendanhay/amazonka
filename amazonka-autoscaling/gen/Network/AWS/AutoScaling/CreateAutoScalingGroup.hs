@@ -114,7 +114,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- * 'casgPlacementGroup' - The name of the placement group into which you'll launch your instances, if any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'casgLoadBalancerNames' - One or more Classic load balancers. To specify an Application load balancer, use @TargetGroupARNs@ instead. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Using a Load Balancer With an Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- * 'casgLoadBalancerNames' - One or more Classic Load Balancers. To specify an Application Load Balancer, use @TargetGroupARNs@ instead. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Using a Load Balancer With an Auto Scaling Group> in the /Auto Scaling User Guide/ .
 --
 -- * 'casgTags' - One or more tags. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
 --
@@ -197,7 +197,7 @@ casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType
 casgPlacementGroup :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = a});
 
--- | One or more Classic load balancers. To specify an Application load balancer, use @TargetGroupARNs@ instead. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Using a Load Balancer With an Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- | One or more Classic Load Balancers. To specify an Application Load Balancer, use @TargetGroupARNs@ instead. For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html Using a Load Balancer With an Auto Scaling Group> in the /Auto Scaling User Guide/ .
 casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
 casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default . _Coerce;
 

@@ -64,7 +64,7 @@ data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
 --
 -- * 'dlbtgsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call.
+-- * 'dlbtgsMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 --
 -- * 'dlbtgsAutoScalingGroupName' - The name of the Auto Scaling group.
 describeLoadBalancerTargetGroups
@@ -81,7 +81,7 @@ describeLoadBalancerTargetGroups pAutoScalingGroupName_ =
 dlbtgsNextToken :: Lens' DescribeLoadBalancerTargetGroups (Maybe Text)
 dlbtgsNextToken = lens _dlbtgsNextToken (\ s a -> s{_dlbtgsNextToken = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dlbtgsMaxRecords :: Lens' DescribeLoadBalancerTargetGroups (Maybe Int)
 dlbtgsMaxRecords = lens _dlbtgsMaxRecords (\ s a -> s{_dlbtgsMaxRecords = a});
 

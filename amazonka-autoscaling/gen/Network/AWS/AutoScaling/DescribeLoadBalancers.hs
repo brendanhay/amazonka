@@ -21,7 +21,7 @@
 -- Describes the load balancers for the specified Auto Scaling group.
 --
 --
--- Note that this operation describes only Classic load balancers. If you have Application load balancers, use 'DescribeLoadBalancerTargetGroups' instead.
+-- Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use 'DescribeLoadBalancerTargetGroups' instead.
 --
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
@@ -66,7 +66,7 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 --
 -- * 'dlbNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'dlbMaxRecords' - The maximum number of items to return with this call.
+-- * 'dlbMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 --
 -- * 'dlbAutoScalingGroupName' - The name of the group.
 describeLoadBalancers
@@ -83,7 +83,7 @@ describeLoadBalancers pAutoScalingGroupName_ =
 dlbNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
 dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a});
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dlbMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
 dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a});
 

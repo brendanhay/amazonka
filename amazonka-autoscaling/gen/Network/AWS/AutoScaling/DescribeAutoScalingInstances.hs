@@ -69,7 +69,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
 --
 -- * 'dasiInstanceIds' - The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 --
--- * 'dasiMaxRecords' - The maximum number of items to return with this call.
+-- * 'dasiMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 describeAutoScalingInstances
     :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
@@ -87,7 +87,7 @@ dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
 dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce;
 
--- | The maximum number of items to return with this call.
+-- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
 dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a});
 

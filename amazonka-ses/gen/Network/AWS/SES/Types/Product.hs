@@ -513,7 +513,7 @@ instance ToQuery Destination where
 -- | Contains information about the event destination to which the specified email sending events are published.
 --
 --
--- Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch or Amazon Kinesis Firehose. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 --
 -- /See:/ 'eventDestination' smart constructor.
@@ -521,6 +521,7 @@ data EventDestination = EventDestination'
     { _edEnabled                    :: !(Maybe Bool)
     , _edKinesisFirehoseDestination :: !(Maybe KinesisFirehoseDestination)
     , _edCloudWatchDestination      :: !(Maybe CloudWatchDestination)
+    , _edSNSDestination             :: !(Maybe SNSDestination)
     , _edName                       :: !Text
     , _edMatchingEventTypes         :: ![EventType]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -535,6 +536,8 @@ data EventDestination = EventDestination'
 --
 -- * 'edCloudWatchDestination' - An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
 --
+-- * 'edSNSDestination' - An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
+--
 -- * 'edName' - The name of the event destination. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
 --
 -- * 'edMatchingEventTypes' - The type of email sending events to publish to the event destination.
@@ -546,6 +549,7 @@ eventDestination pName_ =
     { _edEnabled = Nothing
     , _edKinesisFirehoseDestination = Nothing
     , _edCloudWatchDestination = Nothing
+    , _edSNSDestination = Nothing
     , _edName = pName_
     , _edMatchingEventTypes = mempty
     }
@@ -562,6 +566,10 @@ edKinesisFirehoseDestination = lens _edKinesisFirehoseDestination (\ s a -> s{_e
 edCloudWatchDestination :: Lens' EventDestination (Maybe CloudWatchDestination)
 edCloudWatchDestination = lens _edCloudWatchDestination (\ s a -> s{_edCloudWatchDestination = a});
 
+-- | An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
+edSNSDestination :: Lens' EventDestination (Maybe SNSDestination)
+edSNSDestination = lens _edSNSDestination (\ s a -> s{_edSNSDestination = a});
+
 -- | The name of the event destination. The name must:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Contain less than 64 characters.
 edName :: Lens' EventDestination Text
 edName = lens _edName (\ s a -> s{_edName = a});
@@ -576,6 +584,7 @@ instance FromXML EventDestination where
               (x .@? "Enabled") <*>
                 (x .@? "KinesisFirehoseDestination")
                 <*> (x .@? "CloudWatchDestination")
+                <*> (x .@? "SNSDestination")
                 <*> (x .@ "Name")
                 <*>
                 (x .@? "MatchingEventTypes" .!@ mempty >>=
@@ -592,6 +601,7 @@ instance ToQuery EventDestination where
                "KinesisFirehoseDestination" =:
                  _edKinesisFirehoseDestination,
                "CloudWatchDestination" =: _edCloudWatchDestination,
+               "SNSDestination" =: _edSNSDestination,
                "Name" =: _edName,
                "MatchingEventTypes" =:
                  toQueryList "member" _edMatchingEventTypes]
@@ -1161,7 +1171,7 @@ newtype RawMessage = RawMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rmData' - The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- * 'rmData' - The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rawMessage
     :: ByteString -- ^ 'rmData'
     -> RawMessage
@@ -1170,7 +1180,7 @@ rawMessage pData_ =
     { _rmData = _Base64 # pData_
     }
 
--- | The raw data of the message. The client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, MIME encoding, and base64 encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- | The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding. The To:, CC:, and BCC: headers in the raw message can contain a group list. If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .  /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> . -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
@@ -1746,6 +1756,45 @@ instance ToQuery SNSAction where
           = mconcat
               ["Encoding" =: _saEncoding,
                "TopicArn" =: _saTopicARN]
+
+-- | Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
+--
+--
+-- Event destinations, such as Amazon SNS, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+--
+--
+-- /See:/ 'snsDestination' smart constructor.
+newtype SNSDestination = SNSDestination'
+    { _sdTopicARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SNSDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdTopicARN' - The ARN of the Amazon SNS topic to which you want to publish email sending events. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html /Amazon SNS Developer Guide/ > .
+snsDestination
+    :: Text -- ^ 'sdTopicARN'
+    -> SNSDestination
+snsDestination pTopicARN_ =
+    SNSDestination'
+    { _sdTopicARN = pTopicARN_
+    }
+
+-- | The ARN of the Amazon SNS topic to which you want to publish email sending events. An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic. For more information about Amazon SNS topics, see the <http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html /Amazon SNS Developer Guide/ > .
+sdTopicARN :: Lens' SNSDestination Text
+sdTopicARN = lens _sdTopicARN (\ s a -> s{_sdTopicARN = a});
+
+instance FromXML SNSDestination where
+        parseXML x = SNSDestination' <$> (x .@ "TopicARN")
+
+instance Hashable SNSDestination
+
+instance NFData SNSDestination
+
+instance ToQuery SNSDestination where
+        toQuery SNSDestination'{..}
+          = mconcat ["TopicARN" =: _sdTopicARN]
 
 -- | Represents sending statistics data. Each @SendDataPoint@ contains statistics for a 15-minute period of sending activity.
 --

@@ -26,6 +26,9 @@ module Network.AWS.SES
     -- ** InvalidConfigurationSetException
     , _InvalidConfigurationSetException
 
+    -- ** InvalidSNSDestinationException
+    , _InvalidSNSDestinationException
+
     -- ** CannotDeleteException
     , _CannotDeleteException
 
@@ -342,6 +345,7 @@ module Network.AWS.SES
     , edEnabled
     , edKinesisFirehoseDestination
     , edCloudWatchDestination
+    , edSNSDestination
     , edName
     , edMatchingEventTypes
 
@@ -482,6 +486,11 @@ module Network.AWS.SES
     , snsAction
     , saEncoding
     , saTopicARN
+
+    -- ** SNSDestination
+    , SNSDestination
+    , snsDestination
+    , sdTopicARN
 
     -- ** SendDataPoint
     , SendDataPoint

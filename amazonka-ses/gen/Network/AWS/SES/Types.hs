@@ -17,6 +17,7 @@ module Network.AWS.SES.Types
 
     -- * Errors
     , _InvalidConfigurationSetException
+    , _InvalidSNSDestinationException
     , _CannotDeleteException
     , _RuleDoesNotExistException
     , _MessageRejected
@@ -145,6 +146,7 @@ module Network.AWS.SES.Types
     , edEnabled
     , edKinesisFirehoseDestination
     , edCloudWatchDestination
+    , edSNSDestination
     , edName
     , edMatchingEventTypes
 
@@ -286,6 +288,11 @@ module Network.AWS.SES.Types
     , saEncoding
     , saTopicARN
 
+    -- * SNSDestination
+    , SNSDestination
+    , snsDestination
+    , sdTopicARN
+
     -- * SendDataPoint
     , SendDataPoint
     , sendDataPoint
@@ -337,6 +344,8 @@ ses =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -354,6 +363,13 @@ ses =
 _InvalidConfigurationSetException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidConfigurationSetException =
     _MatchServiceError ses "InvalidConfigurationSet" . hasStatus 400
+
+-- | Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.
+--
+--
+_InvalidSNSDestinationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSNSDestinationException =
+    _MatchServiceError ses "InvalidSNSDestination" . hasStatus 400
 
 -- | Indicates that the delete operation could not be completed.
 --

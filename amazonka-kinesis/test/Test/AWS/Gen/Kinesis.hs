@@ -43,6 +43,9 @@ import Test.AWS.Kinesis.Internal
 --         , requestGetRecords $
 --             getRecords
 --
+--         , requestStopStreamEncryption $
+--             stopStreamEncryption
+--
 --         , requestEnableEnhancedMonitoring $
 --             enableEnhancedMonitoring
 --
@@ -76,6 +79,9 @@ import Test.AWS.Kinesis.Internal
 --         , requestCreateStream $
 --             createStream
 --
+--         , requestStartStreamEncryption $
+--             startStreamEncryption
+--
 --         , requestSplitShard $
 --             splitShard
 --
@@ -102,6 +108,9 @@ import Test.AWS.Kinesis.Internal
 --
 --         , responseGetRecords $
 --             getRecordsResponse
+--
+--         , responseStopStreamEncryption $
+--             stopStreamEncryptionResponse
 --
 --         , responseEnableEnhancedMonitoring $
 --             enhancedMonitoringOutput
@@ -135,6 +144,9 @@ import Test.AWS.Kinesis.Internal
 --
 --         , responseCreateStream $
 --             createStreamResponse
+--
+--         , responseStartStreamEncryption $
+--             startStreamEncryptionResponse
 --
 --         , responseSplitShard $
 --             splitShardResponse
@@ -174,6 +186,11 @@ requestGetRecords :: GetRecords -> TestTree
 requestGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
+
+requestStopStreamEncryption :: StopStreamEncryption -> TestTree
+requestStopStreamEncryption = req
+    "StopStreamEncryption"
+    "fixture/StopStreamEncryption.yaml"
 
 requestEnableEnhancedMonitoring :: EnableEnhancedMonitoring -> TestTree
 requestEnableEnhancedMonitoring = req
@@ -230,6 +247,11 @@ requestCreateStream = req
     "CreateStream"
     "fixture/CreateStream.yaml"
 
+requestStartStreamEncryption :: StartStreamEncryption -> TestTree
+requestStartStreamEncryption = req
+    "StartStreamEncryption"
+    "fixture/StartStreamEncryption.yaml"
+
 requestSplitShard :: SplitShard -> TestTree
 requestSplitShard = req
     "SplitShard"
@@ -281,6 +303,13 @@ responseGetRecords = res
     "fixture/GetRecordsResponse.proto"
     kinesis
     (Proxy :: Proxy GetRecords)
+
+responseStopStreamEncryption :: StopStreamEncryptionResponse -> TestTree
+responseStopStreamEncryption = res
+    "StopStreamEncryptionResponse"
+    "fixture/StopStreamEncryptionResponse.proto"
+    kinesis
+    (Proxy :: Proxy StopStreamEncryption)
 
 responseEnableEnhancedMonitoring :: EnhancedMonitoringOutput -> TestTree
 responseEnableEnhancedMonitoring = res
@@ -358,6 +387,13 @@ responseCreateStream = res
     "fixture/CreateStreamResponse.proto"
     kinesis
     (Proxy :: Proxy CreateStream)
+
+responseStartStreamEncryption :: StartStreamEncryptionResponse -> TestTree
+responseStartStreamEncryption = res
+    "StartStreamEncryptionResponse"
+    "fixture/StartStreamEncryptionResponse.proto"
+    kinesis
+    (Proxy :: Proxy StartStreamEncryption)
 
 responseSplitShard :: SplitShardResponse -> TestTree
 responseSplitShard = res

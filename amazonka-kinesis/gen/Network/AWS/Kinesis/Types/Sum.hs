@@ -19,6 +19,35 @@ module Network.AWS.Kinesis.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data EncryptionType
+    = KMS
+    | None
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText EncryptionType where
+    parser = takeLowerText >>= \case
+        "kms" -> pure KMS
+        "none" -> pure None
+        e -> fromTextError $ "Failure parsing EncryptionType from value: '" <> e
+           <> "'. Accepted values: kms, none"
+
+instance ToText EncryptionType where
+    toText = \case
+        KMS -> "KMS"
+        None -> "NONE"
+
+instance Hashable     EncryptionType
+instance NFData       EncryptionType
+instance ToByteString EncryptionType
+instance ToQuery      EncryptionType
+instance ToHeader     EncryptionType
+
+instance ToJSON EncryptionType where
+    toJSON = toJSONText
+
+instance FromJSON EncryptionType where
+    parseJSON = parseJSONText "EncryptionType"
+
 data MetricsName
     = All
     | IncomingBytes

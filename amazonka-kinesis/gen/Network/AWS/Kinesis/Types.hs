@@ -16,12 +16,21 @@ module Network.AWS.Kinesis.Types
       kinesis
 
     -- * Errors
+    , _KMSInvalidStateException
+    , _KMSThrottlingException
     , _ExpiredIteratorException
     , _InvalidArgumentException
+    , _KMSOptInRequired
     , _ProvisionedThroughputExceededException
+    , _KMSNotFoundException
+    , _KMSDisabledException
     , _ResourceNotFoundException
+    , _KMSAccessDeniedException
     , _LimitExceededException
     , _ResourceInUseException
+
+    -- * EncryptionType
+    , EncryptionType (..)
 
     -- * MetricsName
     , MetricsName (..)
@@ -71,6 +80,7 @@ module Network.AWS.Kinesis.Types
     -- * Record
     , Record
     , record
+    , rEncryptionType
     , rApproximateArrivalTimestamp
     , rSequenceNumber
     , rData
@@ -94,6 +104,8 @@ module Network.AWS.Kinesis.Types
     -- * StreamDescription
     , StreamDescription
     , streamDescription
+    , sdEncryptionType
+    , sdKeyId
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
@@ -139,6 +151,8 @@ kinesis =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -149,6 +163,19 @@ kinesis =
       | has (hasStatus 500) e = Just "general_server_error"
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
+
+-- | The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
+--
+--
+_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSInvalidStateException =
+    _MatchServiceError kinesis "KMSInvalidStateException"
+
+-- | The request was denied due to request throttling. For more information about throttling, see <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits> in the /AWS Key Management Service Developer Guide/ .
+--
+--
+_KMSThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSThrottlingException = _MatchServiceError kinesis "KMSThrottlingException"
 
 -- | The provided iterator exceeds the maximum age allowed.
 --
@@ -164,6 +191,12 @@ _InvalidArgumentException :: AsError a => Getting (First ServiceError) a Service
 _InvalidArgumentException =
     _MatchServiceError kinesis "InvalidArgumentException"
 
+-- | The AWS access key ID needs a subscription for the service.
+--
+--
+_KMSOptInRequired :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSOptInRequired = _MatchServiceError kinesis "KMSOptInRequired"
+
 -- | The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ , and <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS> in the /AWS General Reference/ .
 --
 --
@@ -171,12 +204,31 @@ _ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceEr
 _ProvisionedThroughputExceededException =
     _MatchServiceError kinesis "ProvisionedThroughputExceededException"
 
+-- | The request was rejected because the specified entity or resource couldn't be found.
+--
+--
+_KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSNotFoundException = _MatchServiceError kinesis "KMSNotFoundException"
+
+-- | The request was rejected because the specified CMK isn't enabled.
+--
+--
+_KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSDisabledException = _MatchServiceError kinesis "KMSDisabledException"
+
 -- | The requested resource could not be found. The stream might not be specified correctly.
 --
 --
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _MatchServiceError kinesis "ResourceNotFoundException"
+
+-- | The ciphertext references a key that doesn't exist or that you don't have access to.
+--
+--
+_KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+_KMSAccessDeniedException =
+    _MatchServiceError kinesis "KMSAccessDeniedException"
 
 -- | The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).
 --

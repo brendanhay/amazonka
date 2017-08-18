@@ -280,7 +280,8 @@ instance NFData PutRecordsResultEntry
 --
 -- /See:/ 'record' smart constructor.
 data Record = Record'
-    { _rApproximateArrivalTimestamp :: !(Maybe POSIX)
+    { _rEncryptionType              :: !(Maybe EncryptionType)
+    , _rApproximateArrivalTimestamp :: !(Maybe POSIX)
     , _rSequenceNumber              :: !Text
     , _rData                        :: !Base64
     , _rPartitionKey                :: !Text
@@ -290,9 +291,11 @@ data Record = Record'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'rEncryptionType' - The encryption type used on the record. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed KMS key.
+--
 -- * 'rApproximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
 --
--- * 'rSequenceNumber' - The unique identifier of the record in the stream.
+-- * 'rSequenceNumber' - The unique identifier of the record within its shard.
 --
 -- * 'rData' - The data blob. The data in the blob is both opaque and immutable to the Amazon Kinesis service, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
@@ -304,17 +307,22 @@ record
     -> Record
 record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
-    { _rApproximateArrivalTimestamp = Nothing
+    { _rEncryptionType = Nothing
+    , _rApproximateArrivalTimestamp = Nothing
     , _rSequenceNumber = pSequenceNumber_
     , _rData = _Base64 # pData_
     , _rPartitionKey = pPartitionKey_
     }
 
+-- | The encryption type used on the record. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed KMS key.
+rEncryptionType :: Lens' Record (Maybe EncryptionType)
+rEncryptionType = lens _rEncryptionType (\ s a -> s{_rEncryptionType = a});
+
 -- | The approximate time that the record was inserted into the stream.
 rApproximateArrivalTimestamp :: Lens' Record (Maybe UTCTime)
 rApproximateArrivalTimestamp = lens _rApproximateArrivalTimestamp (\ s a -> s{_rApproximateArrivalTimestamp = a}) . mapping _Time;
 
--- | The unique identifier of the record in the stream.
+-- | The unique identifier of the record within its shard.
 rSequenceNumber :: Lens' Record Text
 rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 
@@ -331,8 +339,9 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   (x .:? "ApproximateArrivalTimestamp") <*>
-                     (x .: "SequenceNumber")
+                   (x .:? "EncryptionType") <*>
+                     (x .:? "ApproximateArrivalTimestamp")
+                     <*> (x .: "SequenceNumber")
                      <*> (x .: "Data")
                      <*> (x .: "PartitionKey"))
 
@@ -467,7 +476,9 @@ instance NFData Shard
 --
 -- /See:/ 'streamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-    { _sdStreamName              :: !Text
+    { _sdEncryptionType          :: !(Maybe EncryptionType)
+    , _sdKeyId                   :: !(Maybe Text)
+    , _sdStreamName              :: !Text
     , _sdStreamARN               :: !Text
     , _sdStreamStatus            :: !StreamStatus
     , _sdShards                  :: ![Shard]
@@ -480,6 +491,10 @@ data StreamDescription = StreamDescription'
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdEncryptionType' - The server-side encryption type used on the stream. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed KMS key.
+--
+-- * 'sdKeyId' - The GUID for the customer-managed KMS key used for encryption on the stream.
 --
 -- * 'sdStreamName' - The name of the stream being described.
 --
@@ -506,7 +521,9 @@ streamDescription
     -> StreamDescription
 streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pRetentionPeriodHours_ pStreamCreationTimestamp_ =
     StreamDescription'
-    { _sdStreamName = pStreamName_
+    { _sdEncryptionType = Nothing
+    , _sdKeyId = Nothing
+    , _sdStreamName = pStreamName_
     , _sdStreamARN = pStreamARN_
     , _sdStreamStatus = pStreamStatus_
     , _sdShards = mempty
@@ -515,6 +532,14 @@ streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ pReten
     , _sdStreamCreationTimestamp = _Time # pStreamCreationTimestamp_
     , _sdEnhancedMonitoring = mempty
     }
+
+-- | The server-side encryption type used on the stream. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed KMS key.
+sdEncryptionType :: Lens' StreamDescription (Maybe EncryptionType)
+sdEncryptionType = lens _sdEncryptionType (\ s a -> s{_sdEncryptionType = a});
+
+-- | The GUID for the customer-managed KMS key used for encryption on the stream.
+sdKeyId :: Lens' StreamDescription (Maybe Text)
+sdKeyId = lens _sdKeyId (\ s a -> s{_sdKeyId = a});
 
 -- | The name of the stream being described.
 sdStreamName :: Lens' StreamDescription Text
@@ -553,8 +578,10 @@ instance FromJSON StreamDescription where
           = withObject "StreamDescription"
               (\ x ->
                  StreamDescription' <$>
-                   (x .: "StreamName") <*> (x .: "StreamARN") <*>
-                     (x .: "StreamStatus")
+                   (x .:? "EncryptionType") <*> (x .:? "KeyId") <*>
+                     (x .: "StreamName")
+                     <*> (x .: "StreamARN")
+                     <*> (x .: "StreamStatus")
                      <*> (x .:? "Shards" .!= mempty)
                      <*> (x .: "HasMoreShards")
                      <*> (x .: "RetentionPeriodHours")

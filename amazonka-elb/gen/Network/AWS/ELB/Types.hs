@@ -111,6 +111,12 @@ module Network.AWS.ELB.Types
     , lbcspPolicyName
     , lbcspCookieExpirationPeriod
 
+    -- * Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
+
     -- * Listener
     , Listener
     , listener
@@ -251,6 +257,8 @@ elb =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -338,7 +346,9 @@ _PolicyTypeNotFoundException :: AsError a => Getting (First ServiceError) a Serv
 _PolicyTypeNotFoundException =
     _MatchServiceError elb "PolicyTypeNotFound" . hasStatus 400
 
--- | Prism for UnsupportedProtocolException' errors.
+-- | The specified protocol or signature version is not supported.
+--
+--
 _UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnsupportedProtocolException =
     _MatchServiceError elb "UnsupportedProtocol" . hasStatus 400

@@ -67,7 +67,7 @@ data PollForJobs = PollForJobs'
 --
 -- * 'pfjQueryParam' - A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value will be returned.
 --
--- * 'pfjActionTypeId' - Undocumented member.
+-- * 'pfjActionTypeId' - Represents information about an action type.
 pollForJobs
     :: ActionTypeId -- ^ 'pfjActionTypeId'
     -> PollForJobs
@@ -86,7 +86,7 @@ pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . map
 pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
 pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | Represents information about an action type.
 pfjActionTypeId :: Lens' PollForJobs ActionTypeId
 pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
 

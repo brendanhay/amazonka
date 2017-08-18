@@ -57,7 +57,7 @@ newtype CreatePipeline = CreatePipeline'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpPipeline' - Undocumented member.
+-- * 'cpPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 createPipeline
     :: PipelineDeclaration -- ^ 'cpPipeline'
     -> CreatePipeline
@@ -66,7 +66,7 @@ createPipeline pPipeline_ =
     { _cpPipeline = pPipeline_
     }
 
--- | Undocumented member.
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 cpPipeline :: Lens' CreatePipeline PipelineDeclaration
 cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 
@@ -118,7 +118,7 @@ data CreatePipelineResponse = CreatePipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cprsPipeline' - Undocumented member.
+-- * 'cprsPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 --
 -- * 'cprsResponseStatus' - -- | The response status code.
 createPipelineResponse
@@ -130,7 +130,7 @@ createPipelineResponse pResponseStatus_ =
     , _cprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 

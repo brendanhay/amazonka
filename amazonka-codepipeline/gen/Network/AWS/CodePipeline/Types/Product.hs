@@ -550,9 +550,9 @@ data ActionState = ActionState'
 --
 -- * 'asActionName' - The name of the action.
 --
--- * 'asCurrentRevision' - Undocumented member.
+-- * 'asCurrentRevision' - Represents information about the version (or revision) of an action.
 --
--- * 'asLatestExecution' - Undocumented member.
+-- * 'asLatestExecution' - Represents information about the run of an action.
 actionState
     :: ActionState
 actionState =
@@ -576,11 +576,11 @@ asEntityURL = lens _asEntityURL (\ s a -> s{_asEntityURL = a});
 asActionName :: Lens' ActionState (Maybe Text)
 asActionName = lens _asActionName (\ s a -> s{_asActionName = a});
 
--- | Undocumented member.
+-- | Represents information about the version (or revision) of an action.
 asCurrentRevision :: Lens' ActionState (Maybe ActionRevision)
 asCurrentRevision = lens _asCurrentRevision (\ s a -> s{_asCurrentRevision = a});
 
--- | Undocumented member.
+-- | Represents information about the run of an action.
 asLatestExecution :: Lens' ActionState (Maybe ActionExecution)
 asLatestExecution = lens _asLatestExecution (\ s a -> s{_asLatestExecution = a});
 
@@ -619,7 +619,7 @@ data ActionType = ActionType'
 --
 -- * 'atActionConfigurationProperties' - The configuration properties for the action type.
 --
--- * 'atId' - Undocumented member.
+-- * 'atId' - Represents information about an action type.
 --
 -- * 'atInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
 --
@@ -646,7 +646,7 @@ atSettings = lens _atSettings (\ s a -> s{_atSettings = a});
 atActionConfigurationProperties :: Lens' ActionType [ActionConfigurationProperty]
 atActionConfigurationProperties = lens _atActionConfigurationProperties (\ s a -> s{_atActionConfigurationProperties = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action type.
 atId :: Lens' ActionType ActionTypeId
 atId = lens _atId (\ s a -> s{_atId = a});
 
@@ -1099,7 +1099,7 @@ instance Hashable ArtifactRevision
 
 instance NFData ArtifactRevision
 
--- | The Amazon S3 location where artifacts are stored for the pipeline. If this Amazon S3 bucket is created manually, it must meet the requirements for AWS CodePipeline. For more information, see the <http://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#CPS3Bucket Concepts> .
+-- | The Amazon S3 bucket where artifacts are stored for the pipeline.
 --
 --
 --
@@ -1118,7 +1118,7 @@ data ArtifactStore = ArtifactStore'
 --
 -- * 'asType' - The type of the artifact store, such as S3.
 --
--- * 'asLocation' - The location for storing the artifacts for a pipeline, such as an S3 bucket or folder.
+-- * 'asLocation' - The Amazon S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder within the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any Amazon S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 artifactStore
     :: ArtifactStoreType -- ^ 'asType'
     -> Text -- ^ 'asLocation'
@@ -1138,7 +1138,7 @@ asEncryptionKey = lens _asEncryptionKey (\ s a -> s{_asEncryptionKey = a});
 asType :: Lens' ArtifactStore ArtifactStoreType
 asType = lens _asType (\ s a -> s{_asType = a});
 
--- | The location for storing the artifacts for a pipeline, such as an S3 bucket or folder.
+-- | The Amazon S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder within the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any Amazon S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 asLocation :: Lens' ArtifactStore Text
 asLocation = lens _asLocation (\ s a -> s{_asLocation = a});
 
@@ -1608,17 +1608,17 @@ data JobData = JobData'
 --
 -- * 'jdOutputArtifacts' - The output of the job.
 --
--- * 'jdArtifactCredentials' - Undocumented member.
+-- * 'jdArtifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
--- * 'jdPipelineContext' - Undocumented member.
+-- * 'jdPipelineContext' - Represents information about a pipeline to a job worker.
 --
--- * 'jdEncryptionKey' - Undocumented member.
+-- * 'jdEncryptionKey' - Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 --
--- * 'jdActionTypeId' - Undocumented member.
+-- * 'jdActionTypeId' - Represents information about an action type.
 --
 -- * 'jdInputArtifacts' - The artifact supplied to the job.
 --
--- * 'jdActionConfiguration' - Undocumented member.
+-- * 'jdActionConfiguration' - Represents information about an action configuration.
 jobData
     :: JobData
 jobData =
@@ -1641,19 +1641,19 @@ jdContinuationToken = lens _jdContinuationToken (\ s a -> s{_jdContinuationToken
 jdOutputArtifacts :: Lens' JobData [Artifact]
 jdOutputArtifacts = lens _jdOutputArtifacts (\ s a -> s{_jdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 jdArtifactCredentials :: Lens' JobData (Maybe AWSSessionCredentials)
 jdArtifactCredentials = lens _jdArtifactCredentials (\ s a -> s{_jdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | Undocumented member.
+-- | Represents information about a pipeline to a job worker.
 jdPipelineContext :: Lens' JobData (Maybe PipelineContext)
 jdPipelineContext = lens _jdPipelineContext (\ s a -> s{_jdPipelineContext = a});
 
--- | Undocumented member.
+-- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
 jdEncryptionKey :: Lens' JobData (Maybe EncryptionKey)
 jdEncryptionKey = lens _jdEncryptionKey (\ s a -> s{_jdEncryptionKey = a});
 
--- | Undocumented member.
+-- | Represents information about an action type.
 jdActionTypeId :: Lens' JobData (Maybe ActionTypeId)
 jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
@@ -1661,7 +1661,7 @@ jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 jdInputArtifacts :: Lens' JobData [Artifact]
 jdInputArtifacts = lens _jdInputArtifacts (\ s a -> s{_jdInputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action configuration.
 jdActionConfiguration :: Lens' JobData (Maybe ActionConfiguration)
 jdActionConfiguration = lens _jdActionConfiguration (\ s a -> s{_jdActionConfiguration = a});
 
@@ -1698,7 +1698,7 @@ data JobDetails = JobDetails'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'jdData' - Undocumented member.
+-- * 'jdData' - Represents additional information about a job required for a job worker to complete the job.
 --
 -- * 'jdAccountId' - The AWS account ID associated with the job.
 --
@@ -1712,7 +1712,7 @@ jobDetails =
     , _jdId = Nothing
     }
 
--- | Undocumented member.
+-- | Represents additional information about a job required for a job worker to complete the job.
 jdData :: Lens' JobDetails (Maybe JobData)
 jdData = lens _jdData (\ s a -> s{_jdData = a});
 
@@ -1794,7 +1794,7 @@ data PipelineContext = PipelineContext'
 --
 -- * 'pcPipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.
 --
--- * 'pcAction' - Undocumented member.
+-- * 'pcAction' -
 pipelineContext
     :: PipelineContext
 pipelineContext =
@@ -1812,7 +1812,7 @@ pcStage = lens _pcStage (\ s a -> s{_pcStage = a});
 pcPipelineName :: Lens' PipelineContext (Maybe Text)
 pcPipelineName = lens _pcPipelineName (\ s a -> s{_pcPipelineName = a});
 
--- | Undocumented member.
+-- |
 pcAction :: Lens' PipelineContext (Maybe ActionContext)
 pcAction = lens _pcAction (\ s a -> s{_pcAction = a});
 
@@ -1851,7 +1851,7 @@ data PipelineDeclaration = PipelineDeclaration'
 --
 -- * 'pdRoleARN' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn.
 --
--- * 'pdArtifactStore' - Undocumented member.
+-- * 'pdArtifactStore' - Represents the context of an action within the stage of a pipeline to a job worker.
 --
 -- * 'pdStages' - The stage in which to perform the action.
 pipelineDeclaration
@@ -1880,7 +1880,7 @@ pdName = lens _pdName (\ s a -> s{_pdName = a});
 pdRoleARN :: Lens' PipelineDeclaration Text
 pdRoleARN = lens _pdRoleARN (\ s a -> s{_pdRoleARN = a});
 
--- | Undocumented member.
+-- | Represents the context of an action within the stage of a pipeline to a job worker.
 pdArtifactStore :: Lens' PipelineDeclaration ArtifactStore
 pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a});
 
@@ -1929,7 +1929,7 @@ data PipelineExecution = PipelineExecution'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline did not complete successfully.
+-- * 'peStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
 --
 -- * 'pePipelineName' - The name of the pipeline that was executed.
 --
@@ -1949,7 +1949,7 @@ pipelineExecution =
     , _peArtifactRevisions = Nothing
     }
 
--- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline did not complete successfully.
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
 peStatus :: Lens' PipelineExecution (Maybe PipelineExecutionStatus)
 peStatus = lens _peStatus (\ s a -> s{_peStatus = a});
 
@@ -1982,6 +1982,68 @@ instance FromJSON PipelineExecution where
 instance Hashable PipelineExecution
 
 instance NFData PipelineExecution
+
+-- | Summary information about a pipeline execution.
+--
+--
+--
+-- /See:/ 'pipelineExecutionSummary' smart constructor.
+data PipelineExecutionSummary = PipelineExecutionSummary'
+    { _pesStatus              :: !(Maybe PipelineExecutionStatus)
+    , _pesStartTime           :: !(Maybe POSIX)
+    , _pesPipelineExecutionId :: !(Maybe Text)
+    , _pesLastUpdateTime      :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PipelineExecutionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pesStatus' - The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+--
+-- * 'pesStartTime' - The date and time when the pipeline execution began, in timestamp format.
+--
+-- * 'pesPipelineExecutionId' - The ID of the pipeline execution.
+--
+-- * 'pesLastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
+pipelineExecutionSummary
+    :: PipelineExecutionSummary
+pipelineExecutionSummary =
+    PipelineExecutionSummary'
+    { _pesStatus = Nothing
+    , _pesStartTime = Nothing
+    , _pesPipelineExecutionId = Nothing
+    , _pesLastUpdateTime = Nothing
+    }
+
+-- | The status of the pipeline execution.     * InProgress: The pipeline execution is currently running.     * Succeeded: The pipeline execution completed successfully.      * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution caught up and continued through the pipeline instead.      * Failed: The pipeline execution did not complete successfully.
+pesStatus :: Lens' PipelineExecutionSummary (Maybe PipelineExecutionStatus)
+pesStatus = lens _pesStatus (\ s a -> s{_pesStatus = a});
+
+-- | The date and time when the pipeline execution began, in timestamp format.
+pesStartTime :: Lens' PipelineExecutionSummary (Maybe UTCTime)
+pesStartTime = lens _pesStartTime (\ s a -> s{_pesStartTime = a}) . mapping _Time;
+
+-- | The ID of the pipeline execution.
+pesPipelineExecutionId :: Lens' PipelineExecutionSummary (Maybe Text)
+pesPipelineExecutionId = lens _pesPipelineExecutionId (\ s a -> s{_pesPipelineExecutionId = a});
+
+-- | The date and time of the last change to the pipeline execution, in timestamp format.
+pesLastUpdateTime :: Lens' PipelineExecutionSummary (Maybe UTCTime)
+pesLastUpdateTime = lens _pesLastUpdateTime (\ s a -> s{_pesLastUpdateTime = a}) . mapping _Time;
+
+instance FromJSON PipelineExecutionSummary where
+        parseJSON
+          = withObject "PipelineExecutionSummary"
+              (\ x ->
+                 PipelineExecutionSummary' <$>
+                   (x .:? "status") <*> (x .:? "startTime") <*>
+                     (x .:? "pipelineExecutionId")
+                     <*> (x .:? "lastUpdateTime"))
+
+instance Hashable PipelineExecutionSummary
+
+instance NFData PipelineExecutionSummary
 
 -- | Returns a summary of a pipeline.
 --
@@ -2364,17 +2426,17 @@ data ThirdPartyJobData = ThirdPartyJobData'
 --
 -- * 'tpjdOutputArtifacts' - The name of the artifact that will be the result of the action, if any. This name might be system-generated, such as "MyBuiltApp", or might be defined by the user when the action is created.
 --
--- * 'tpjdArtifactCredentials' - Undocumented member.
+-- * 'tpjdArtifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
--- * 'tpjdPipelineContext' - Undocumented member.
+-- * 'tpjdPipelineContext' - Represents information about a pipeline to a job worker.
 --
 -- * 'tpjdEncryptionKey' - The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present.
 --
--- * 'tpjdActionTypeId' - Undocumented member.
+-- * 'tpjdActionTypeId' - Represents information about an action type.
 --
 -- * 'tpjdInputArtifacts' - The name of the artifact that will be worked upon by the action, if any. This name might be system-generated, such as "MyApp", or might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline.
 --
--- * 'tpjdActionConfiguration' - Undocumented member.
+-- * 'tpjdActionConfiguration' - Represents information about an action configuration.
 thirdPartyJobData
     :: ThirdPartyJobData
 thirdPartyJobData =
@@ -2397,11 +2459,11 @@ tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuatio
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the Amazon S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 tpjdArtifactCredentials :: Lens' ThirdPartyJobData (Maybe AWSSessionCredentials)
 tpjdArtifactCredentials = lens _tpjdArtifactCredentials (\ s a -> s{_tpjdArtifactCredentials = a}) . mapping _Sensitive;
 
--- | Undocumented member.
+-- | Represents information about a pipeline to a job worker.
 tpjdPipelineContext :: Lens' ThirdPartyJobData (Maybe PipelineContext)
 tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext = a});
 
@@ -2409,7 +2471,7 @@ tpjdPipelineContext = lens _tpjdPipelineContext (\ s a -> s{_tpjdPipelineContext
 tpjdEncryptionKey :: Lens' ThirdPartyJobData (Maybe EncryptionKey)
 tpjdEncryptionKey = lens _tpjdEncryptionKey (\ s a -> s{_tpjdEncryptionKey = a});
 
--- | Undocumented member.
+-- | Represents information about an action type.
 tpjdActionTypeId :: Lens' ThirdPartyJobData (Maybe ActionTypeId)
 tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 
@@ -2417,7 +2479,7 @@ tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
 tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | Represents information about an action configuration.
 tpjdActionConfiguration :: Lens' ThirdPartyJobData (Maybe ActionConfiguration)
 tpjdActionConfiguration = lens _tpjdActionConfiguration (\ s a -> s{_tpjdActionConfiguration = a});
 

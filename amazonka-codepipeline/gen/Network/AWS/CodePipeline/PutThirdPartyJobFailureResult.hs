@@ -62,7 +62,7 @@ data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
 --
 -- * 'ptpjfrClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 --
--- * 'ptpjfrFailureDetails' - Undocumented member.
+-- * 'ptpjfrFailureDetails' - Represents information about failure details.
 putThirdPartyJobFailureResult
     :: Text -- ^ 'ptpjfrJobId'
     -> Text -- ^ 'ptpjfrClientToken'
@@ -83,7 +83,7 @@ ptpjfrJobId = lens _ptpjfrJobId (\ s a -> s{_ptpjfrJobId = a});
 ptpjfrClientToken :: Lens' PutThirdPartyJobFailureResult Text
 ptpjfrClientToken = lens _ptpjfrClientToken (\ s a -> s{_ptpjfrClientToken = a});
 
--- | Undocumented member.
+-- | Represents information about failure details.
 ptpjfrFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
 ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDetails = a});
 

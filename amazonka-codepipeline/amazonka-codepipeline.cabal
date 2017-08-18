@@ -54,6 +54,7 @@ library
         , Network.AWS.CodePipeline.GetPipelineState
         , Network.AWS.CodePipeline.GetThirdPartyJobDetails
         , Network.AWS.CodePipeline.ListActionTypes
+        , Network.AWS.CodePipeline.ListPipelineExecutions
         , Network.AWS.CodePipeline.ListPipelines
         , Network.AWS.CodePipeline.PollForJobs
         , Network.AWS.CodePipeline.PollForThirdPartyJobs

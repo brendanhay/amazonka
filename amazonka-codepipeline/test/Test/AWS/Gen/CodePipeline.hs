@@ -106,6 +106,9 @@ import Test.AWS.CodePipeline.Internal
 --         , requestCreateCustomActionType $
 --             createCustomActionType
 --
+--         , requestListPipelineExecutions $
+--             listPipelineExecutions
+--
 --           ]
 
 --     , testGroup "response"
@@ -186,6 +189,9 @@ import Test.AWS.CodePipeline.Internal
 --
 --         , responseCreateCustomActionType $
 --             createCustomActionTypeResponse
+--
+--         , responseListPipelineExecutions $
+--             listPipelineExecutionsResponse
 --
 --           ]
 --     ]
@@ -321,6 +327,11 @@ requestCreateCustomActionType :: CreateCustomActionType -> TestTree
 requestCreateCustomActionType = req
     "CreateCustomActionType"
     "fixture/CreateCustomActionType.yaml"
+
+requestListPipelineExecutions :: ListPipelineExecutions -> TestTree
+requestListPipelineExecutions = req
+    "ListPipelineExecutions"
+    "fixture/ListPipelineExecutions.yaml"
 
 -- Responses
 
@@ -505,3 +516,10 @@ responseCreateCustomActionType = res
     "fixture/CreateCustomActionTypeResponse.proto"
     codePipeline
     (Proxy :: Proxy CreateCustomActionType)
+
+responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
+responseListPipelineExecutions = res
+    "ListPipelineExecutionsResponse"
+    "fixture/ListPipelineExecutionsResponse.proto"
+    codePipeline
+    (Proxy :: Proxy ListPipelineExecutions)

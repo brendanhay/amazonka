@@ -21,11 +21,13 @@
 -- Compares a face in the /source/ input image with each face detected in the /target/ input image.
 --
 --
--- In response, the operation returns an array of face matches ordered by similarity score with the highest similarity scores first. For each face match, the response provides a bounding box of the face and @confidence@ value (indicating the level of confidence that the bounding box contains a face). The response also provides a @similarity@ score, which indicates how closely the faces match.
+-- In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match.
 --
--- In addition to the face matches, the response returns information about the face in the source image, including the bounding box of the face and confidence value.
+-- @CompareFaces@ also returns an array of faces that don't match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.
 --
--- For an example, see 'get-started-exercise-compare-faces'
+-- If the image doesn't contain Exif metadata, @CompareFaces@ returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.
+--
+-- For an example, see 'get-started-exercise-compare-faces' .
 --
 -- This operation requires permissions to perform the @rekognition:CompareFaces@ action.
 --
@@ -44,6 +46,9 @@ module Network.AWS.Rekognition.CompareFaces
     , CompareFacesResponse
     -- * Response Lenses
     , cfrsFaceMatches
+    , cfrsUnmatchedFaces
+    , cfrsTargetImageOrientationCorrection
+    , cfrsSourceImageOrientationCorrection
     , cfrsSourceImageFace
     , cfrsResponseStatus
     ) where
@@ -66,11 +71,11 @@ data CompareFaces = CompareFaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfSimilarityThreshold' - The minimum level of confidence in the match you want included in the result.
+-- * 'cfSimilarityThreshold' - The minimum level of confidence in the face matches that a match must meet to be included in the @FaceMatches@ array.
 --
--- * 'cfSourceImage' - Source image either as bytes or an S3 object
+-- * 'cfSourceImage' - The source image, either as bytes or as an S3 object.
 --
--- * 'cfTargetImage' - Target image either as bytes or an S3 object
+-- * 'cfTargetImage' - The target image, either as bytes or as an S3 object.
 compareFaces
     :: Image -- ^ 'cfSourceImage'
     -> Image -- ^ 'cfTargetImage'
@@ -82,15 +87,15 @@ compareFaces pSourceImage_ pTargetImage_ =
     , _cfTargetImage = pTargetImage_
     }
 
--- | The minimum level of confidence in the match you want included in the result.
+-- | The minimum level of confidence in the face matches that a match must meet to be included in the @FaceMatches@ array.
 cfSimilarityThreshold :: Lens' CompareFaces (Maybe Double)
 cfSimilarityThreshold = lens _cfSimilarityThreshold (\ s a -> s{_cfSimilarityThreshold = a});
 
--- | Source image either as bytes or an S3 object
+-- | The source image, either as bytes or as an S3 object.
 cfSourceImage :: Lens' CompareFaces Image
 cfSourceImage = lens _cfSourceImage (\ s a -> s{_cfSourceImage = a});
 
--- | Target image either as bytes or an S3 object
+-- | The target image, either as bytes or as an S3 object.
 cfTargetImage :: Lens' CompareFaces Image
 cfTargetImage = lens _cfTargetImage (\ s a -> s{_cfTargetImage = a});
 
@@ -102,7 +107,10 @@ instance AWSRequest CompareFaces where
               (\ s h x ->
                  CompareFacesResponse' <$>
                    (x .?> "FaceMatches" .!@ mempty) <*>
-                     (x .?> "SourceImageFace")
+                     (x .?> "UnmatchedFaces" .!@ mempty)
+                     <*> (x .?> "TargetImageOrientationCorrection")
+                     <*> (x .?> "SourceImageOrientationCorrection")
+                     <*> (x .?> "SourceImageFace")
                      <*> (pure (fromEnum s)))
 
 instance Hashable CompareFaces
@@ -135,18 +143,27 @@ instance ToQuery CompareFaces where
 
 -- | /See:/ 'compareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
-    { _cfrsFaceMatches     :: !(Maybe [CompareFacesMatch])
-    , _cfrsSourceImageFace :: !(Maybe ComparedSourceImageFace)
-    , _cfrsResponseStatus  :: !Int
+    { _cfrsFaceMatches                      :: !(Maybe [CompareFacesMatch])
+    , _cfrsUnmatchedFaces                   :: !(Maybe [ComparedFace])
+    , _cfrsTargetImageOrientationCorrection :: !(Maybe OrientationCorrection)
+    , _cfrsSourceImageOrientationCorrection :: !(Maybe OrientationCorrection)
+    , _cfrsSourceImageFace                  :: !(Maybe ComparedSourceImageFace)
+    , _cfrsResponseStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CompareFacesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfrsFaceMatches' - Provides an array of @CompareFacesMatch@ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- * 'cfrsFaceMatches' - An array of faces in the target image that match the source image face. Each @CompareFacesMatch@ object provides the bounding box, the confidence level that the bounding box contains a face, and the similarity score for the face in the bounding box and the face in the source image.
 --
--- * 'cfrsSourceImageFace' - The face from the source image that was used for comparison.
+-- * 'cfrsUnmatchedFaces' - An array of faces in the target image that did not match the source image face.
+--
+-- * 'cfrsTargetImageOrientationCorrection' - The orientation of the target image (in counterclockwise direction). If your application displays the target image, you can use this value to correct the orientation of the image. The bounding box coordinates returned in @FaceMatches@ and @UnmatchedFaces@ represent face locations before the image orientation is corrected.
+--
+-- * 'cfrsSourceImageOrientationCorrection' - The orientation of the source image (counterclockwise direction). If your application displays the source image, you can use this value to correct image orientation. The bounding box coordinates returned in @SourceImageFace@ represent the location of the face before the image orientation is corrected.
+--
+-- * 'cfrsSourceImageFace' - The face in the source image that was used for comparison.
 --
 -- * 'cfrsResponseStatus' - -- | The response status code.
 compareFacesResponse
@@ -155,15 +172,30 @@ compareFacesResponse
 compareFacesResponse pResponseStatus_ =
     CompareFacesResponse'
     { _cfrsFaceMatches = Nothing
+    , _cfrsUnmatchedFaces = Nothing
+    , _cfrsTargetImageOrientationCorrection = Nothing
+    , _cfrsSourceImageOrientationCorrection = Nothing
     , _cfrsSourceImageFace = Nothing
     , _cfrsResponseStatus = pResponseStatus_
     }
 
--- | Provides an array of @CompareFacesMatch@ objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- | An array of faces in the target image that match the source image face. Each @CompareFacesMatch@ object provides the bounding box, the confidence level that the bounding box contains a face, and the similarity score for the face in the bounding box and the face in the source image.
 cfrsFaceMatches :: Lens' CompareFacesResponse [CompareFacesMatch]
 cfrsFaceMatches = lens _cfrsFaceMatches (\ s a -> s{_cfrsFaceMatches = a}) . _Default . _Coerce;
 
--- | The face from the source image that was used for comparison.
+-- | An array of faces in the target image that did not match the source image face.
+cfrsUnmatchedFaces :: Lens' CompareFacesResponse [ComparedFace]
+cfrsUnmatchedFaces = lens _cfrsUnmatchedFaces (\ s a -> s{_cfrsUnmatchedFaces = a}) . _Default . _Coerce;
+
+-- | The orientation of the target image (in counterclockwise direction). If your application displays the target image, you can use this value to correct the orientation of the image. The bounding box coordinates returned in @FaceMatches@ and @UnmatchedFaces@ represent face locations before the image orientation is corrected.
+cfrsTargetImageOrientationCorrection :: Lens' CompareFacesResponse (Maybe OrientationCorrection)
+cfrsTargetImageOrientationCorrection = lens _cfrsTargetImageOrientationCorrection (\ s a -> s{_cfrsTargetImageOrientationCorrection = a});
+
+-- | The orientation of the source image (counterclockwise direction). If your application displays the source image, you can use this value to correct image orientation. The bounding box coordinates returned in @SourceImageFace@ represent the location of the face before the image orientation is corrected.
+cfrsSourceImageOrientationCorrection :: Lens' CompareFacesResponse (Maybe OrientationCorrection)
+cfrsSourceImageOrientationCorrection = lens _cfrsSourceImageOrientationCorrection (\ s a -> s{_cfrsSourceImageOrientationCorrection = a});
+
+-- | The face in the source image that was used for comparison.
 cfrsSourceImageFace :: Lens' CompareFacesResponse (Maybe ComparedSourceImageFace)
 cfrsSourceImageFace = lens _cfrsSourceImageFace (\ s a -> s{_cfrsSourceImageFace = a});
 

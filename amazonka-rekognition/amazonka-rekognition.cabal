@@ -46,9 +46,12 @@ library
         , Network.AWS.Rekognition.DeleteFaces
         , Network.AWS.Rekognition.DetectFaces
         , Network.AWS.Rekognition.DetectLabels
+        , Network.AWS.Rekognition.DetectModerationLabels
+        , Network.AWS.Rekognition.GetCelebrityInfo
         , Network.AWS.Rekognition.IndexFaces
         , Network.AWS.Rekognition.ListCollections
         , Network.AWS.Rekognition.ListFaces
+        , Network.AWS.Rekognition.RecognizeCelebrities
         , Network.AWS.Rekognition.SearchFaces
         , Network.AWS.Rekognition.SearchFacesByImage
         , Network.AWS.Rekognition.Types

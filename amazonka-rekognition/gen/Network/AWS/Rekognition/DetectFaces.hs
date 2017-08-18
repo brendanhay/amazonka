@@ -64,7 +64,7 @@ data DetectFaces = DetectFaces'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfAttributes' - A list of facial attributes you would like to be returned. By default, the API returns subset of facial attributes.  For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], the service uses a logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, Amazon Rekognition performs additional detection.
+-- * 'dfAttributes' - An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned but the operation will take longer to complete. If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 --
 -- * 'dfImage' - The image in which you want to detect faces. You can specify a blob or an S3 object.
 detectFaces
@@ -76,7 +76,7 @@ detectFaces pImage_ =
     , _dfImage = pImage_
     }
 
--- | A list of facial attributes you would like to be returned. By default, the API returns subset of facial attributes.  For example, you can specify the value as, ["ALL"] or ["DEFAULT"]. If you provide both, ["ALL", "DEFAULT"], the service uses a logical AND operator to determine which attributes to return (in this case, it is all attributes). If you specify all attributes, Amazon Rekognition performs additional detection.
+-- | An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned but the operation will take longer to complete. If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 dfAttributes :: Lens' DetectFaces [Attribute]
 dfAttributes = lens _dfAttributes (\ s a -> s{_dfAttributes = a}) . _Default . _Coerce;
 
@@ -132,7 +132,7 @@ data DetectFacesResponse = DetectFacesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dfrsOrientationCorrection' - The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation.  For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation.
+-- * 'dfrsOrientationCorrection' - The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in @FaceDetails@ represent face locations before the image orientation is corrected.
 --
 -- * 'dfrsFaceDetails' - Details of each face found in the image.
 --
@@ -147,7 +147,7 @@ detectFacesResponse pResponseStatus_ =
     , _dfrsResponseStatus = pResponseStatus_
     }
 
--- | The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation.  For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation.
+-- | The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in @FaceDetails@ represent face locations before the image orientation is corrected.
 dfrsOrientationCorrection :: Lens' DetectFacesResponse (Maybe OrientationCorrection)
 dfrsOrientationCorrection = lens _dfrsOrientationCorrection (\ s a -> s{_dfrsOrientationCorrection = a});
 

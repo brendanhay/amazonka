@@ -76,6 +76,9 @@ module Network.AWS.Rekognition
     -- ** SearchFacesByImage
     , module Network.AWS.Rekognition.SearchFacesByImage
 
+    -- ** RecognizeCelebrities
+    , module Network.AWS.Rekognition.RecognizeCelebrities
+
     -- ** SearchFaces
     , module Network.AWS.Rekognition.SearchFaces
 
@@ -93,6 +96,12 @@ module Network.AWS.Rekognition
 
     -- ** DeleteFaces
     , module Network.AWS.Rekognition.DeleteFaces
+
+    -- ** GetCelebrityInfo
+    , module Network.AWS.Rekognition.GetCelebrityInfo
+
+    -- ** DetectModerationLabels
+    , module Network.AWS.Rekognition.DetectModerationLabels
 
     -- * Types
 
@@ -131,6 +140,15 @@ module Network.AWS.Rekognition
     , bbWidth
     , bbTop
 
+    -- ** Celebrity
+    , Celebrity
+    , celebrity
+    , cMatchConfidence
+    , cURLs
+    , cName
+    , cId
+    , cFace
+
     -- ** CompareFacesMatch
     , CompareFacesMatch
     , compareFacesMatch
@@ -141,7 +159,10 @@ module Network.AWS.Rekognition
     , ComparedFace
     , comparedFace
     , cfBoundingBox
+    , cfPose
     , cfConfidence
+    , cfQuality
+    , cfLandmarks
 
     -- ** ComparedSourceImageFace
     , ComparedSourceImageFace
@@ -238,6 +259,13 @@ module Network.AWS.Rekognition
     , lX
     , lY
 
+    -- ** ModerationLabel
+    , ModerationLabel
+    , moderationLabel
+    , mlConfidence
+    , mlName
+    , mlParentName
+
     -- ** MouthOpen
     , MouthOpen
     , mouthOpen
@@ -283,9 +311,12 @@ import           Network.AWS.Rekognition.DeleteCollection
 import           Network.AWS.Rekognition.DeleteFaces
 import           Network.AWS.Rekognition.DetectFaces
 import           Network.AWS.Rekognition.DetectLabels
+import           Network.AWS.Rekognition.DetectModerationLabels
+import           Network.AWS.Rekognition.GetCelebrityInfo
 import           Network.AWS.Rekognition.IndexFaces
 import           Network.AWS.Rekognition.ListCollections
 import           Network.AWS.Rekognition.ListFaces
+import           Network.AWS.Rekognition.RecognizeCelebrities
 import           Network.AWS.Rekognition.SearchFaces
 import           Network.AWS.Rekognition.SearchFacesByImage
 import           Network.AWS.Rekognition.Types

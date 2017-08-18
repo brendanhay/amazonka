@@ -175,7 +175,79 @@ instance Hashable BoundingBox
 
 instance NFData BoundingBox
 
--- | For the provided the bounding box, confidence level that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.
+-- | Provides information about a celebrity recognized by the operation.
+--
+--
+--
+-- /See:/ 'celebrity' smart constructor.
+data Celebrity = Celebrity'
+    { _cMatchConfidence :: !(Maybe Double)
+    , _cURLs            :: !(Maybe [Text])
+    , _cName            :: !(Maybe Text)
+    , _cId              :: !(Maybe Text)
+    , _cFace            :: !(Maybe ComparedFace)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Celebrity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cMatchConfidence' - The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.
+--
+-- * 'cURLs' - An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
+--
+-- * 'cName' - The name of the celebrity.
+--
+-- * 'cId' - A unique identifier for the celebrity.
+--
+-- * 'cFace' - Provides information about the celebrity's face, such as its location on the image.
+celebrity
+    :: Celebrity
+celebrity =
+    Celebrity'
+    { _cMatchConfidence = Nothing
+    , _cURLs = Nothing
+    , _cName = Nothing
+    , _cId = Nothing
+    , _cFace = Nothing
+    }
+
+-- | The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.
+cMatchConfidence :: Lens' Celebrity (Maybe Double)
+cMatchConfidence = lens _cMatchConfidence (\ s a -> s{_cMatchConfidence = a});
+
+-- | An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
+cURLs :: Lens' Celebrity [Text]
+cURLs = lens _cURLs (\ s a -> s{_cURLs = a}) . _Default . _Coerce;
+
+-- | The name of the celebrity.
+cName :: Lens' Celebrity (Maybe Text)
+cName = lens _cName (\ s a -> s{_cName = a});
+
+-- | A unique identifier for the celebrity.
+cId :: Lens' Celebrity (Maybe Text)
+cId = lens _cId (\ s a -> s{_cId = a});
+
+-- | Provides information about the celebrity's face, such as its location on the image.
+cFace :: Lens' Celebrity (Maybe ComparedFace)
+cFace = lens _cFace (\ s a -> s{_cFace = a});
+
+instance FromJSON Celebrity where
+        parseJSON
+          = withObject "Celebrity"
+              (\ x ->
+                 Celebrity' <$>
+                   (x .:? "MatchConfidence") <*>
+                     (x .:? "Urls" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Face"))
+
+instance Hashable Celebrity
+
+instance NFData Celebrity
+
+-- | Provides information about a face in a target image that matches the source image face analysed by @CompareFaces@ . The @Face@ property contains the bounding box of the face in the target image. The @Similarity@ property is the confidence that the source image face matches the face in the bounding box.
 --
 --
 --
@@ -219,45 +291,72 @@ instance Hashable CompareFacesMatch
 
 instance NFData CompareFacesMatch
 
--- | Provides face metadata (bounding box and confidence that the bounding box actually contains a face).
+-- | Provides face metadata for target image faces that are analysed by @CompareFaces@ and @RecognizeCelebrities@ .
 --
 --
 --
 -- /See:/ 'comparedFace' smart constructor.
 data ComparedFace = ComparedFace'
     { _cfBoundingBox :: !(Maybe BoundingBox)
+    , _cfPose        :: !(Maybe Pose)
     , _cfConfidence  :: !(Maybe Double)
+    , _cfQuality     :: !(Maybe ImageQuality)
+    , _cfLandmarks   :: !(Maybe [Landmark])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ComparedFace' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfBoundingBox' - Undocumented member.
+-- * 'cfBoundingBox' - Bounding box of the face.
+--
+-- * 'cfPose' - Indicates the pose of the face as determined by its pitch, roll, and yaw.
 --
 -- * 'cfConfidence' - Level of confidence that what the bounding box contains is a face.
+--
+-- * 'cfQuality' - Identifies face image brightness and sharpness.
+--
+-- * 'cfLandmarks' - An array of facial landmarks.
 comparedFace
     :: ComparedFace
 comparedFace =
     ComparedFace'
     { _cfBoundingBox = Nothing
+    , _cfPose = Nothing
     , _cfConfidence = Nothing
+    , _cfQuality = Nothing
+    , _cfLandmarks = Nothing
     }
 
--- | Undocumented member.
+-- | Bounding box of the face.
 cfBoundingBox :: Lens' ComparedFace (Maybe BoundingBox)
 cfBoundingBox = lens _cfBoundingBox (\ s a -> s{_cfBoundingBox = a});
+
+-- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
+cfPose :: Lens' ComparedFace (Maybe Pose)
+cfPose = lens _cfPose (\ s a -> s{_cfPose = a});
 
 -- | Level of confidence that what the bounding box contains is a face.
 cfConfidence :: Lens' ComparedFace (Maybe Double)
 cfConfidence = lens _cfConfidence (\ s a -> s{_cfConfidence = a});
+
+-- | Identifies face image brightness and sharpness.
+cfQuality :: Lens' ComparedFace (Maybe ImageQuality)
+cfQuality = lens _cfQuality (\ s a -> s{_cfQuality = a});
+
+-- | An array of facial landmarks.
+cfLandmarks :: Lens' ComparedFace [Landmark]
+cfLandmarks = lens _cfLandmarks (\ s a -> s{_cfLandmarks = a}) . _Default . _Coerce;
 
 instance FromJSON ComparedFace where
         parseJSON
           = withObject "ComparedFace"
               (\ x ->
                  ComparedFace' <$>
-                   (x .:? "BoundingBox") <*> (x .:? "Confidence"))
+                   (x .:? "BoundingBox") <*> (x .:? "Pose") <*>
+                     (x .:? "Confidence")
+                     <*> (x .:? "Quality")
+                     <*> (x .:? "Landmarks" .!= mempty))
 
 instance Hashable ComparedFace
 
@@ -277,7 +376,7 @@ data ComparedSourceImageFace = ComparedSourceImageFace'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csifBoundingBox' - Undocumented member.
+-- * 'csifBoundingBox' - Bounding box of the face.
 --
 -- * 'csifConfidence' - Confidence level that the selected bounding box contains a face.
 comparedSourceImageFace
@@ -288,7 +387,7 @@ comparedSourceImageFace =
     , _csifConfidence = Nothing
     }
 
--- | Undocumented member.
+-- | Bounding box of the face.
 csifBoundingBox :: Lens' ComparedSourceImageFace (Maybe BoundingBox)
 csifBoundingBox = lens _csifBoundingBox (\ s a -> s{_csifBoundingBox = a});
 
@@ -438,7 +537,7 @@ instance Hashable Eyeglasses
 
 instance NFData Eyeglasses
 
--- | Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
+-- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 --
 --
 --
@@ -457,13 +556,13 @@ data Face = Face'
 --
 -- * 'fFaceId' - Unique identifier that Amazon Rekognition assigns to the face.
 --
--- * 'fBoundingBox' - Undocumented member.
+-- * 'fBoundingBox' - Bounding box of the face.
 --
 -- * 'fExternalImageId' - Identifier that you assign to all the faces in the input image.
 --
 -- * 'fConfidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree).
 --
--- * 'fImageId' - Unique identifier that Amazon Rekognition assigns to the source image.
+-- * 'fImageId' - Unique identifier that Amazon Rekognition assigns to the input image.
 face
     :: Face
 face =
@@ -479,7 +578,7 @@ face =
 fFaceId :: Lens' Face (Maybe Text)
 fFaceId = lens _fFaceId (\ s a -> s{_fFaceId = a});
 
--- | Undocumented member.
+-- | Bounding box of the face.
 fBoundingBox :: Lens' Face (Maybe BoundingBox)
 fBoundingBox = lens _fBoundingBox (\ s a -> s{_fBoundingBox = a});
 
@@ -491,7 +590,7 @@ fExternalImageId = lens _fExternalImageId (\ s a -> s{_fExternalImageId = a});
 fConfidence :: Lens' Face (Maybe Double)
 fConfidence = lens _fConfidence (\ s a -> s{_fConfidence = a});
 
--- | Unique identifier that Amazon Rekognition assigns to the source image.
+-- | Unique identifier that Amazon Rekognition assigns to the input image.
 fImageId :: Lens' Face (Maybe Text)
 fImageId = lens _fImageId (\ s a -> s{_fImageId = a});
 
@@ -548,7 +647,7 @@ data FaceDetail = FaceDetail'
 --
 -- * 'fdEyesOpen' - Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
 --
--- * 'fdPose' - Indicates the pose of the face as determined by pitch, roll, and the yaw.
+-- * 'fdPose' - Indicates the pose of the face as determined by its pitch, roll, and yaw.
 --
 -- * 'fdConfidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree).
 --
@@ -564,7 +663,7 @@ data FaceDetail = FaceDetail'
 --
 -- * 'fdSmile' - Indicates whether or not the face is smiling, and the confidence level in the determination.
 --
--- * 'fdLandmarks' - Indicates the location of the landmark on the face.
+-- * 'fdLandmarks' - Indicates the location of landmarks on the face.
 faceDetail
     :: FaceDetail
 faceDetail =
@@ -610,7 +709,7 @@ fdEmotions = lens _fdEmotions (\ s a -> s{_fdEmotions = a}) . _Default . _Coerce
 fdEyesOpen :: Lens' FaceDetail (Maybe EyeOpen)
 fdEyesOpen = lens _fdEyesOpen (\ s a -> s{_fdEyesOpen = a});
 
--- | Indicates the pose of the face as determined by pitch, roll, and the yaw.
+-- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
 fdPose :: Lens' FaceDetail (Maybe Pose)
 fdPose = lens _fdPose (\ s a -> s{_fdPose = a});
 
@@ -642,7 +741,7 @@ fdMustache = lens _fdMustache (\ s a -> s{_fdMustache = a});
 fdSmile :: Lens' FaceDetail (Maybe Smile)
 fdSmile = lens _fdSmile (\ s a -> s{_fdSmile = a});
 
--- | Indicates the location of the landmark on the face.
+-- | Indicates the location of landmarks on the face.
 fdLandmarks :: Lens' FaceDetail [Landmark]
 fdLandmarks = lens _fdLandmarks (\ s a -> s{_fdLandmarks = a}) . _Default . _Coerce;
 
@@ -686,7 +785,7 @@ data FaceMatch = FaceMatch'
 --
 -- * 'fmSimilarity' - Confidence in the match of this face with the input face.
 --
--- * 'fmFace' - Undocumented member.
+-- * 'fmFace' - Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
 faceMatch
     :: FaceMatch
 faceMatch =
@@ -699,7 +798,7 @@ faceMatch =
 fmSimilarity :: Lens' FaceMatch (Maybe Double)
 fmSimilarity = lens _fmSimilarity (\ s a -> s{_fmSimilarity = a});
 
--- | Undocumented member.
+-- | Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
 fmFace :: Lens' FaceMatch (Maybe Face)
 fmFace = lens _fmFace (\ s a -> s{_fmFace = a});
 
@@ -728,9 +827,9 @@ data FaceRecord = FaceRecord'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'frFaceDetail' - Undocumented member.
+-- * 'frFaceDetail' - Structure containing attributes of the face that the algorithm detected.
 --
--- * 'frFace' - Undocumented member.
+-- * 'frFace' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 faceRecord
     :: FaceRecord
 faceRecord =
@@ -739,11 +838,11 @@ faceRecord =
     , _frFace = Nothing
     }
 
--- | Undocumented member.
+-- | Structure containing attributes of the face that the algorithm detected.
 frFaceDetail :: Lens' FaceRecord (Maybe FaceDetail)
 frFaceDetail = lens _frFaceDetail (\ s a -> s{_frFaceDetail = a});
 
--- | Undocumented member.
+-- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 frFace :: Lens' FaceRecord (Maybe Face)
 frFace = lens _frFace (\ s a -> s{_frFace = a});
 
@@ -801,12 +900,14 @@ instance Hashable Gender
 
 instance NFData Gender
 
--- | Provides the source image either as bytes or an S3 object.
+-- | Provides the input image either as bytes or an S3 object.
 --
+--
+-- You pass image bytes to a Rekognition API operation by using the @Bytes@ property. For example, you would use the @Bytes@ property to pass an image loaded from a local file system. Image bytes passed by using the @Bytes@ property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Rekognition API operations. For more information, see 'example4' .
+--
+-- You pass images stored in an S3 bucket to a Rekognition API operation by using the @S3Object@ property. Images stored in an S3 bucket do not need to be base64-encoded.
 --
 -- The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.
---
--- You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see 'example4' .
 --
 -- If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.
 --
@@ -853,7 +954,7 @@ instance ToJSON Image where
                  [("S3Object" .=) <$> _iS3Object,
                   ("Bytes" .=) <$> _iBytes])
 
--- | Identifies image brightness and sharpness.
+-- | Identifies face image brightness and sharpness.
 --
 --
 --
@@ -867,9 +968,9 @@ data ImageQuality = ImageQuality'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'iqSharpness' - Value representing sharpness of the face.
+-- * 'iqSharpness' - Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
 --
--- * 'iqBrightness' - Value representing brightness of the face. The service returns a value between 0 and 1 (inclusive).
+-- * 'iqBrightness' - Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
 imageQuality
     :: ImageQuality
 imageQuality =
@@ -878,11 +979,11 @@ imageQuality =
     , _iqBrightness = Nothing
     }
 
--- | Value representing sharpness of the face.
+-- | Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image.
 iqSharpness :: Lens' ImageQuality (Maybe Double)
 iqSharpness = lens _iqSharpness (\ s a -> s{_iqSharpness = a});
 
--- | Value representing brightness of the face. The service returns a value between 0 and 1 (inclusive).
+-- | Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.
 iqBrightness :: Lens' ImageQuality (Maybe Double)
 iqBrightness = lens _iqBrightness (\ s a -> s{_iqBrightness = a});
 
@@ -992,6 +1093,59 @@ instance Hashable Landmark
 
 instance NFData Landmark
 
+-- | Provides information about a single type of moderated content found in an image. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see 'image-moderation' .
+--
+--
+--
+-- /See:/ 'moderationLabel' smart constructor.
+data ModerationLabel = ModerationLabel'
+    { _mlConfidence :: !(Maybe Double)
+    , _mlName       :: !(Maybe Text)
+    , _mlParentName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModerationLabel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mlConfidence' - Specifies the confidence that Amazon Rekognition has that the label has been correctly identified. If you don't specify the @MinConfidence@ parameter in the call to @DetectModerationLabels@ , the operation returns labels with a confidence value greater than or equal to 50 percent.
+--
+-- * 'mlName' - The label name for the type of content detected in the image.
+--
+-- * 'mlParentName' - The name for the parent label. Labels at the top-level of the hierarchy have the parent label @""@ .
+moderationLabel
+    :: ModerationLabel
+moderationLabel =
+    ModerationLabel'
+    { _mlConfidence = Nothing
+    , _mlName = Nothing
+    , _mlParentName = Nothing
+    }
+
+-- | Specifies the confidence that Amazon Rekognition has that the label has been correctly identified. If you don't specify the @MinConfidence@ parameter in the call to @DetectModerationLabels@ , the operation returns labels with a confidence value greater than or equal to 50 percent.
+mlConfidence :: Lens' ModerationLabel (Maybe Double)
+mlConfidence = lens _mlConfidence (\ s a -> s{_mlConfidence = a});
+
+-- | The label name for the type of content detected in the image.
+mlName :: Lens' ModerationLabel (Maybe Text)
+mlName = lens _mlName (\ s a -> s{_mlName = a});
+
+-- | The name for the parent label. Labels at the top-level of the hierarchy have the parent label @""@ .
+mlParentName :: Lens' ModerationLabel (Maybe Text)
+mlParentName = lens _mlParentName (\ s a -> s{_mlParentName = a});
+
+instance FromJSON ModerationLabel where
+        parseJSON
+          = withObject "ModerationLabel"
+              (\ x ->
+                 ModerationLabel' <$>
+                   (x .:? "Confidence") <*> (x .:? "Name") <*>
+                     (x .:? "ParentName"))
+
+instance Hashable ModerationLabel
+
+instance NFData ModerationLabel
+
 -- | Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
 --
 --
@@ -1080,7 +1234,7 @@ instance Hashable Mustache
 
 instance NFData Mustache
 
--- | Indicates the pose of the face as determined by pitch, roll, and the yaw.
+-- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
 --
 --
 --

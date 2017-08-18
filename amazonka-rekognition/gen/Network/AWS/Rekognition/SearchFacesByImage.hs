@@ -73,7 +73,7 @@ data SearchFacesByImage = SearchFacesByImage'
 --
 -- * 'sfbiCollectionId' - ID of the collection to search.
 --
--- * 'sfbiImage' - Undocumented member.
+-- * 'sfbiImage' - The input image as bytes or an S3 object.
 searchFacesByImage
     :: Text -- ^ 'sfbiCollectionId'
     -> Image -- ^ 'sfbiImage'
@@ -98,7 +98,7 @@ sfbiMaxFaces = lens _sfbiMaxFaces (\ s a -> s{_sfbiMaxFaces = a}) . mapping _Nat
 sfbiCollectionId :: Lens' SearchFacesByImage Text
 sfbiCollectionId = lens _sfbiCollectionId (\ s a -> s{_sfbiCollectionId = a});
 
--- | Undocumented member.
+-- | The input image as bytes or an S3 object.
 sfbiImage :: Lens' SearchFacesByImage Image
 sfbiImage = lens _sfbiImage (\ s a -> s{_sfbiImage = a});
 

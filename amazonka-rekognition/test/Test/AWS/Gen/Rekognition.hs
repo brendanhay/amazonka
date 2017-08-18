@@ -43,6 +43,9 @@ import Test.AWS.Rekognition.Internal
 --         , requestSearchFacesByImage $
 --             searchFacesByImage
 --
+--         , requestRecognizeCelebrities $
+--             recognizeCelebrities
+--
 --         , requestSearchFaces $
 --             searchFaces
 --
@@ -60,6 +63,12 @@ import Test.AWS.Rekognition.Internal
 --
 --         , requestDeleteFaces $
 --             deleteFaces
+--
+--         , requestGetCelebrityInfo $
+--             getCelebrityInfo
+--
+--         , requestDetectModerationLabels $
+--             detectModerationLabels
 --
 --           ]
 
@@ -79,6 +88,9 @@ import Test.AWS.Rekognition.Internal
 --         , responseSearchFacesByImage $
 --             searchFacesByImageResponse
 --
+--         , responseRecognizeCelebrities $
+--             recognizeCelebritiesResponse
+--
 --         , responseSearchFaces $
 --             searchFacesResponse
 --
@@ -96,6 +108,12 @@ import Test.AWS.Rekognition.Internal
 --
 --         , responseDeleteFaces $
 --             deleteFacesResponse
+--
+--         , responseGetCelebrityInfo $
+--             getCelebrityInfoResponse
+--
+--         , responseDetectModerationLabels $
+--             detectModerationLabelsResponse
 --
 --           ]
 --     ]
@@ -127,6 +145,11 @@ requestSearchFacesByImage = req
     "SearchFacesByImage"
     "fixture/SearchFacesByImage.yaml"
 
+requestRecognizeCelebrities :: RecognizeCelebrities -> TestTree
+requestRecognizeCelebrities = req
+    "RecognizeCelebrities"
+    "fixture/RecognizeCelebrities.yaml"
+
 requestSearchFaces :: SearchFaces -> TestTree
 requestSearchFaces = req
     "SearchFaces"
@@ -156,6 +179,16 @@ requestDeleteFaces :: DeleteFaces -> TestTree
 requestDeleteFaces = req
     "DeleteFaces"
     "fixture/DeleteFaces.yaml"
+
+requestGetCelebrityInfo :: GetCelebrityInfo -> TestTree
+requestGetCelebrityInfo = req
+    "GetCelebrityInfo"
+    "fixture/GetCelebrityInfo.yaml"
+
+requestDetectModerationLabels :: DetectModerationLabels -> TestTree
+requestDetectModerationLabels = req
+    "DetectModerationLabels"
+    "fixture/DetectModerationLabels.yaml"
 
 -- Responses
 
@@ -193,6 +226,13 @@ responseSearchFacesByImage = res
     "fixture/SearchFacesByImageResponse.proto"
     rekognition
     (Proxy :: Proxy SearchFacesByImage)
+
+responseRecognizeCelebrities :: RecognizeCelebritiesResponse -> TestTree
+responseRecognizeCelebrities = res
+    "RecognizeCelebritiesResponse"
+    "fixture/RecognizeCelebritiesResponse.proto"
+    rekognition
+    (Proxy :: Proxy RecognizeCelebrities)
 
 responseSearchFaces :: SearchFacesResponse -> TestTree
 responseSearchFaces = res
@@ -235,3 +275,17 @@ responseDeleteFaces = res
     "fixture/DeleteFacesResponse.proto"
     rekognition
     (Proxy :: Proxy DeleteFaces)
+
+responseGetCelebrityInfo :: GetCelebrityInfoResponse -> TestTree
+responseGetCelebrityInfo = res
+    "GetCelebrityInfoResponse"
+    "fixture/GetCelebrityInfoResponse.proto"
+    rekognition
+    (Proxy :: Proxy GetCelebrityInfo)
+
+responseDetectModerationLabels :: DetectModerationLabelsResponse -> TestTree
+responseDetectModerationLabels = res
+    "DetectModerationLabelsResponse"
+    "fixture/DetectModerationLabelsResponse.proto"
+    rekognition
+    (Proxy :: Proxy DetectModerationLabels)

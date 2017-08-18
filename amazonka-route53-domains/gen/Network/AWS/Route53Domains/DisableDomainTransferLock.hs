@@ -57,7 +57,7 @@ newtype DisableDomainTransferLock = DisableDomainTransferLock'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddtlDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- * 'ddtlDomainName' - The name of the domain that you want to remove the transfer lock for.
 disableDomainTransferLock
     :: Text -- ^ 'ddtlDomainName'
     -> DisableDomainTransferLock
@@ -66,7 +66,7 @@ disableDomainTransferLock pDomainName_ =
     { _ddtlDomainName = pDomainName_
     }
 
--- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- | The name of the domain that you want to remove the transfer lock for.
 ddtlDomainName :: Lens' DisableDomainTransferLock Text
 ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a});
 
@@ -121,7 +121,7 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
 --
 -- * 'ddtlrsResponseStatus' - -- | The response status code.
 --
--- * 'ddtlrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- * 'ddtlrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 disableDomainTransferLockResponse
     :: Int -- ^ 'ddtlrsResponseStatus'
     -> Text -- ^ 'ddtlrsOperationId'
@@ -136,7 +136,7 @@ disableDomainTransferLockResponse pResponseStatus_ pOperationId_ =
 ddtlrsResponseStatus :: Lens' DisableDomainTransferLockResponse Int
 ddtlrsResponseStatus = lens _ddtlrsResponseStatus (\ s a -> s{_ddtlrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 ddtlrsOperationId :: Lens' DisableDomainTransferLockResponse Text
 ddtlrsOperationId = lens _ddtlrsOperationId (\ s a -> s{_ddtlrsOperationId = a});
 

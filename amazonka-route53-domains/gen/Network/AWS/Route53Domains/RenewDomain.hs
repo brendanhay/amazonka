@@ -21,7 +21,7 @@
 -- This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your AWS account.
 --
 --
--- We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see <http://docs.aws.amazon.com/console/route53/domain-renew Renewing Registration for a Domain> in the Amazon Route 53 documentation.
+-- We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html Renewing Registration for a Domain> in the Amazon Route 53 Developer Guide.
 --
 module Network.AWS.Route53Domains.RenewDomain
     (
@@ -63,11 +63,11 @@ data RenewDomain = RenewDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdDurationInYears' - The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/console/route53/domain-tld-list Domains that You Can Register with Amazon Route 53> in the Amazon Route 53 documentation. Type: Integer Default: 1 Valid values: Integer from 1 to 10 Required: No
+-- * 'rdDurationInYears' - The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
 --
--- * 'rdDomainName' - Undocumented member.
+-- * 'rdDomainName' - The name of the domain that you want to renew.
 --
--- * 'rdCurrentExpiryYear' - The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain. Type: Integer Default: None Valid values: Integer Required: Yes
+-- * 'rdCurrentExpiryYear' - The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 renewDomain
     :: Text -- ^ 'rdDomainName'
     -> Int -- ^ 'rdCurrentExpiryYear'
@@ -79,15 +79,15 @@ renewDomain pDomainName_ pCurrentExpiryYear_ =
     , _rdCurrentExpiryYear = pCurrentExpiryYear_
     }
 
--- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/console/route53/domain-tld-list Domains that You Can Register with Amazon Route 53> in the Amazon Route 53 documentation. Type: Integer Default: 1 Valid values: Integer from 1 to 10 Required: No
+-- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
 rdDurationInYears :: Lens' RenewDomain (Maybe Natural)
 rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The name of the domain that you want to renew.
 rdDomainName :: Lens' RenewDomain Text
 rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a});
 
--- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain. Type: Integer Default: None Valid values: Integer Required: Yes
+-- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
 rdCurrentExpiryYear :: Lens' RenewDomain Int
 rdCurrentExpiryYear = lens _rdCurrentExpiryYear (\ s a -> s{_rdCurrentExpiryYear = a});
 
@@ -140,7 +140,7 @@ data RenewDomainResponse = RenewDomainResponse'
 --
 -- * 'rrsResponseStatus' - -- | The response status code.
 --
--- * 'rrsOperationId' - Undocumented member.
+-- * 'rrsOperationId' - The identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 renewDomainResponse
     :: Int -- ^ 'rrsResponseStatus'
     -> Text -- ^ 'rrsOperationId'
@@ -155,7 +155,7 @@ renewDomainResponse pResponseStatus_ pOperationId_ =
 rrsResponseStatus :: Lens' RenewDomainResponse Int
 rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
 
--- | Undocumented member.
+-- | The identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 rrsOperationId :: Lens' RenewDomainResponse Text
 rrsOperationId = lens _rrsOperationId (\ s a -> s{_rrsOperationId = a});
 

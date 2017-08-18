@@ -60,9 +60,9 @@ data DeleteTagsForDomain = DeleteTagsForDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtfdDomainName' - The domain for which you want to delete one or more tags. The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they're surrounded by letters, numbers, or other hyphens. You can't specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode. Required: Yes
+-- * 'dtfdDomainName' - The domain for which you want to delete one or more tags.
 --
--- * 'dtfdTagsToDelete' - A list of tag keys to delete. Type: A list that contains the keys of the tags that you want to delete. Default: None Required: No '>
+-- * 'dtfdTagsToDelete' - A list of tag keys to delete.
 deleteTagsForDomain
     :: Text -- ^ 'dtfdDomainName'
     -> DeleteTagsForDomain
@@ -72,11 +72,11 @@ deleteTagsForDomain pDomainName_ =
     , _dtfdTagsToDelete = mempty
     }
 
--- | The domain for which you want to delete one or more tags. The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they're surrounded by letters, numbers, or other hyphens. You can't specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode. Required: Yes
+-- | The domain for which you want to delete one or more tags.
 dtfdDomainName :: Lens' DeleteTagsForDomain Text
 dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
 
--- | A list of tag keys to delete. Type: A list that contains the keys of the tags that you want to delete. Default: None Required: No '>
+-- | A list of tag keys to delete.
 dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
 dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a}) . _Coerce;
 

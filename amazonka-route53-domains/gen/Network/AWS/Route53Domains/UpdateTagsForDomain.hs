@@ -60,9 +60,9 @@ data UpdateTagsForDomain = UpdateTagsForDomain'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utfdTagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced. Type: A complex type containing a list of tags Default: None Required: No '> Each tag includes the following elements:     * Key The key (name) of a tag. Type: String Default: None Valid values: Unicode characters including alphanumeric, space, and ".:/=+\-@" Constraints: Each key can be 1-128 characters long. Required: Yes     * Value The value of a tag. Type: String Default: None Valid values: Unicode characters including alphanumeric, space, and ".:/=+\-@" Constraints: Each value can be 0-256 characters long. Required: Yes
+-- * 'utfdTagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 --
--- * 'utfdDomainName' - The domain for which you want to add or update tags. The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they're surrounded by letters, numbers, or other hyphens. You can't specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode. Required: Yes
+-- * 'utfdDomainName' - The domain for which you want to add or update tags.
 updateTagsForDomain
     :: Text -- ^ 'utfdDomainName'
     -> UpdateTagsForDomain
@@ -72,11 +72,11 @@ updateTagsForDomain pDomainName_ =
     , _utfdDomainName = pDomainName_
     }
 
--- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced. Type: A complex type containing a list of tags Default: None Required: No '> Each tag includes the following elements:     * Key The key (name) of a tag. Type: String Default: None Valid values: Unicode characters including alphanumeric, space, and ".:/=+\-@" Constraints: Each key can be 1-128 characters long. Required: Yes     * Value The value of a tag. Type: String Default: None Valid values: Unicode characters including alphanumeric, space, and ".:/=+\-@" Constraints: Each value can be 0-256 characters long. Required: Yes
+-- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
 utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
 utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default . _Coerce;
 
--- | The domain for which you want to add or update tags. The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Hyphens are allowed only when they're surrounded by letters, numbers, or other hyphens. You can't specify a hyphen at the beginning or end of a label. To specify an Internationalized Domain Name, you must convert the name to Punycode. Required: Yes
+-- | The domain for which you want to add or update tags.
 utfdDomainName :: Lens' UpdateTagsForDomain Text
 utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
 

@@ -48,8 +48,10 @@ import           Network.AWS.Response
 import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Route53Domains.Types.Product
 
--- | The UpdateDomainNameserver request includes the following elements.
+-- | Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.
 --
+--
+-- If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 --
 --
 -- /See:/ 'updateDomainNameservers' smart constructor.
@@ -65,9 +67,9 @@ data UpdateDomainNameservers = UpdateDomainNameservers'
 --
 -- * 'udnFIAuthKey' - The authorization key for .fi domains
 --
--- * 'udnDomainName' - The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- * 'udnDomainName' - The name of the domain that you want to change name servers for.
 --
--- * 'udnNameservers' - A list of new name servers for the domain. Type: Complex Children: @Name@ , @GlueIps@  Required: Yes
+-- * 'udnNameservers' - A list of new name servers for the domain.
 updateDomainNameservers
     :: Text -- ^ 'udnDomainName'
     -> UpdateDomainNameservers
@@ -82,11 +84,11 @@ updateDomainNameservers pDomainName_ =
 udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
 udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
 
--- | The name of a domain. Type: String Default: None Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not supported. Required: Yes
+-- | The name of the domain that you want to change name servers for.
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 
--- | A list of new name servers for the domain. Type: Complex Children: @Name@ , @GlueIps@  Required: Yes
+-- | A list of new name servers for the domain.
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
 udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce;
 
@@ -144,7 +146,7 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
 --
 -- * 'udnrsResponseStatus' - -- | The response status code.
 --
--- * 'udnrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- * 'udnrsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 updateDomainNameserversResponse
     :: Int -- ^ 'udnrsResponseStatus'
     -> Text -- ^ 'udnrsOperationId'
@@ -159,7 +161,7 @@ updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
 udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
 udnrsResponseStatus = lens _udnrsResponseStatus (\ s a -> s{_udnrsResponseStatus = a});
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail. Type: String Default: None Constraints: Maximum 255 characters.
+-- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
 udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
 udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});
 

@@ -75,9 +75,9 @@ data GetUsage = GetUsage'
 --
 -- * 'guKeyId' - The Id of the API key associated with the resultant usage data.
 --
--- * 'guLimit' - The maximum number of results to be returned.
+-- * 'guLimit' - The maximum number of returned results per page.
 --
--- * 'guPosition' - Position
+-- * 'guPosition' - The current pagination position in the paged result set.
 --
 -- * 'guUsagePlanId' - The Id of the usage plan associated with the usage data.
 --
@@ -103,11 +103,11 @@ getUsage pUsagePlanId_ pStartDate_ pEndDate_ =
 guKeyId :: Lens' GetUsage (Maybe Text)
 guKeyId = lens _guKeyId (\ s a -> s{_guKeyId = a});
 
--- | The maximum number of results to be returned.
+-- | The maximum number of returned results per page.
 guLimit :: Lens' GetUsage (Maybe Int)
 guLimit = lens _guLimit (\ s a -> s{_guLimit = a});
 
--- | Position
+-- | The current pagination position in the paged result set.
 guPosition :: Lens' GetUsage (Maybe Text)
 guPosition = lens _guPosition (\ s a -> s{_guPosition = a});
 

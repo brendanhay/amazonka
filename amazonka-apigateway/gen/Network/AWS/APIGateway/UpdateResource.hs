@@ -66,7 +66,7 @@ data UpdateResource = UpdateResource'
 --
 -- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'urRestAPIId' - The 'RestApi' identifier for the 'Resource' resource.
+-- * 'urRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'urResourceId' - The identifier of the 'Resource' resource.
 updateResource
@@ -84,7 +84,7 @@ updateResource pRestAPIId_ pResourceId_ =
 urPatchOperations :: Lens' UpdateResource [PatchOperation]
 urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
 
--- | The 'RestApi' identifier for the 'Resource' resource.
+-- | The string identifier of the associated 'RestApi' .
 urRestAPIId :: Lens' UpdateResource Text
 urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
 

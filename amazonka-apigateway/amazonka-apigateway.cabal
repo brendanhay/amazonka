@@ -48,6 +48,7 @@ library
         , Network.AWS.APIGateway.CreateDocumentationVersion
         , Network.AWS.APIGateway.CreateDomainName
         , Network.AWS.APIGateway.CreateModel
+        , Network.AWS.APIGateway.CreateRequestValidator
         , Network.AWS.APIGateway.CreateResource
         , Network.AWS.APIGateway.CreateRestAPI
         , Network.AWS.APIGateway.CreateStage
@@ -61,11 +62,13 @@ library
         , Network.AWS.APIGateway.DeleteDocumentationPart
         , Network.AWS.APIGateway.DeleteDocumentationVersion
         , Network.AWS.APIGateway.DeleteDomainName
+        , Network.AWS.APIGateway.DeleteGatewayResponse
         , Network.AWS.APIGateway.DeleteIntegration
         , Network.AWS.APIGateway.DeleteIntegrationResponse
         , Network.AWS.APIGateway.DeleteMethod
         , Network.AWS.APIGateway.DeleteMethodResponse
         , Network.AWS.APIGateway.DeleteModel
+        , Network.AWS.APIGateway.DeleteRequestValidator
         , Network.AWS.APIGateway.DeleteResource
         , Network.AWS.APIGateway.DeleteRestAPI
         , Network.AWS.APIGateway.DeleteStage
@@ -92,6 +95,8 @@ library
         , Network.AWS.APIGateway.GetDomainName
         , Network.AWS.APIGateway.GetDomainNames
         , Network.AWS.APIGateway.GetExport
+        , Network.AWS.APIGateway.GetGatewayResponse
+        , Network.AWS.APIGateway.GetGatewayResponses
         , Network.AWS.APIGateway.GetIntegration
         , Network.AWS.APIGateway.GetIntegrationResponse
         , Network.AWS.APIGateway.GetMethod
@@ -99,6 +104,8 @@ library
         , Network.AWS.APIGateway.GetModel
         , Network.AWS.APIGateway.GetModelTemplate
         , Network.AWS.APIGateway.GetModels
+        , Network.AWS.APIGateway.GetRequestValidator
+        , Network.AWS.APIGateway.GetRequestValidators
         , Network.AWS.APIGateway.GetResource
         , Network.AWS.APIGateway.GetResources
         , Network.AWS.APIGateway.GetRestAPI
@@ -116,6 +123,7 @@ library
         , Network.AWS.APIGateway.ImportAPIKeys
         , Network.AWS.APIGateway.ImportDocumentationParts
         , Network.AWS.APIGateway.ImportRestAPI
+        , Network.AWS.APIGateway.PutGatewayResponse
         , Network.AWS.APIGateway.PutIntegration
         , Network.AWS.APIGateway.PutIntegrationResponse
         , Network.AWS.APIGateway.PutMethod
@@ -133,11 +141,13 @@ library
         , Network.AWS.APIGateway.UpdateDocumentationPart
         , Network.AWS.APIGateway.UpdateDocumentationVersion
         , Network.AWS.APIGateway.UpdateDomainName
+        , Network.AWS.APIGateway.UpdateGatewayResponse
         , Network.AWS.APIGateway.UpdateIntegration
         , Network.AWS.APIGateway.UpdateIntegrationResponse
         , Network.AWS.APIGateway.UpdateMethod
         , Network.AWS.APIGateway.UpdateMethodResponse
         , Network.AWS.APIGateway.UpdateModel
+        , Network.AWS.APIGateway.UpdateRequestValidator
         , Network.AWS.APIGateway.UpdateResource
         , Network.AWS.APIGateway.UpdateRestAPI
         , Network.AWS.APIGateway.UpdateStage

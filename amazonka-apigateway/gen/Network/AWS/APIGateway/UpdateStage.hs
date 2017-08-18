@@ -73,7 +73,7 @@ data UpdateStage = UpdateStage'
 --
 -- * 'usPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'usRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to change information about.
+-- * 'usRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'usStageName' - The name of the 'Stage' resource to change information about.
 updateStage
@@ -91,7 +91,7 @@ updateStage pRestAPIId_ pStageName_ =
 usPatchOperations :: Lens' UpdateStage [PatchOperation]
 usPatchOperations = lens _usPatchOperations (\ s a -> s{_usPatchOperations = a}) . _Default . _Coerce;
 
--- | The identifier of the 'RestApi' resource for the 'Stage' resource to change information about.
+-- | The string identifier of the associated 'RestApi' .
 usRestAPIId :: Lens' UpdateStage Text
 usRestAPIId = lens _usRestAPIId (\ s a -> s{_usRestAPIId = a});
 

@@ -70,7 +70,7 @@ data CreateBasePathMapping = CreateBasePathMapping'
 --
 -- * 'cbpmDomainName' - The domain name of the 'BasePathMapping' resource to create.
 --
--- * 'cbpmRestAPIId' - The name of the API that you want to apply this mapping to.
+-- * 'cbpmRestAPIId' - The string identifier of the associated 'RestApi' .
 createBasePathMapping
     :: Text -- ^ 'cbpmDomainName'
     -> Text -- ^ 'cbpmRestAPIId'
@@ -95,7 +95,7 @@ cbpmBasePath = lens _cbpmBasePath (\ s a -> s{_cbpmBasePath = a});
 cbpmDomainName :: Lens' CreateBasePathMapping Text
 cbpmDomainName = lens _cbpmDomainName (\ s a -> s{_cbpmDomainName = a});
 
--- | The name of the API that you want to apply this mapping to.
+-- | The string identifier of the associated 'RestApi' .
 cbpmRestAPIId :: Lens' CreateBasePathMapping Text
 cbpmRestAPIId = lens _cbpmRestAPIId (\ s a -> s{_cbpmRestAPIId = a});
 

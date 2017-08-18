@@ -72,7 +72,7 @@ data UpdateAuthorizer = UpdateAuthorizer'
 --
 -- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uaaRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
+-- * 'uaaRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'uaaAuthorizerId' - The identifier of the 'Authorizer' resource.
 updateAuthorizer
@@ -90,7 +90,7 @@ updateAuthorizer pRestAPIId_ pAuthorizerId_ =
 uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
 uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce;
 
--- | The 'RestApi' identifier for the 'Authorizer' resource.
+-- | The string identifier of the associated 'RestApi' .
 uaaRestAPIId :: Lens' UpdateAuthorizer Text
 uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a});
 

@@ -60,7 +60,7 @@ data DeleteMethodResponse = DeleteMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
+-- * 'dmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'dmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
@@ -81,7 +81,7 @@ deleteMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _dmStatusCode = pStatusCode_
     }
 
--- | The 'RestApi' identifier for the 'MethodResponse' resource.
+-- | The string identifier of the associated 'RestApi' .
 dmRestAPIId :: Lens' DeleteMethodResponse Text
 dmRestAPIId = lens _dmRestAPIId (\ s a -> s{_dmRestAPIId = a});
 

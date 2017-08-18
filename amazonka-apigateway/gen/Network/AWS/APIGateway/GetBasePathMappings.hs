@@ -65,9 +65,9 @@ data GetBasePathMappings = GetBasePathMappings'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gLimit' - The maximum number of 'BasePathMapping' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'gLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gPosition' - The position of the current 'BasePathMapping' resource in the collection to get information about.
+-- * 'gPosition' - The current pagination position in the paged result set.
 --
 -- * 'gDomainName' - The domain name of a 'BasePathMapping' resource.
 getBasePathMappings
@@ -80,11 +80,11 @@ getBasePathMappings pDomainName_ =
     , _gDomainName = pDomainName_
     }
 
--- | The maximum number of 'BasePathMapping' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gLimit :: Lens' GetBasePathMappings (Maybe Int)
 gLimit = lens _gLimit (\ s a -> s{_gLimit = a});
 
--- | The position of the current 'BasePathMapping' resource in the collection to get information about.
+-- | The current pagination position in the paged result set.
 gPosition :: Lens' GetBasePathMappings (Maybe Text)
 gPosition = lens _gPosition (\ s a -> s{_gPosition = a});
 
@@ -147,7 +147,7 @@ data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpmrsItems' - The current page of any 'BasePathMapping' resources in the collection of base path mapping resources.
+-- * 'gbpmrsItems' - The current page of elements from this collection.
 --
 -- * 'gbpmrsPosition' - Undocumented member.
 --
@@ -162,7 +162,7 @@ getBasePathMappingsResponse pResponseStatus_ =
     , _gbpmrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any 'BasePathMapping' resources in the collection of base path mapping resources.
+-- | The current page of elements from this collection.
 gbpmrsItems :: Lens' GetBasePathMappingsResponse [BasePathMapping]
 gbpmrsItems = lens _gbpmrsItems (\ s a -> s{_gbpmrsItems = a}) . _Default . _Coerce;
 

@@ -85,7 +85,7 @@ data TestInvokeMethod = TestInvokeMethod'
 --
 -- * 'timHeaders' - A key-value map of headers to simulate an incoming invocation request.
 --
--- * 'timRestAPIId' - Specifies a test invoke method request's API identifier.
+-- * 'timRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'timResourceId' - Specifies a test invoke method request's resource ID.
 --
@@ -127,7 +127,7 @@ timStageVariables = lens _timStageVariables (\ s a -> s{_timStageVariables = a})
 timHeaders :: Lens' TestInvokeMethod (HashMap Text Text)
 timHeaders = lens _timHeaders (\ s a -> s{_timHeaders = a}) . _Default . _Map;
 
--- | Specifies a test invoke method request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 timRestAPIId :: Lens' TestInvokeMethod Text
 timRestAPIId = lens _timRestAPIId (\ s a -> s{_timRestAPIId = a});
 

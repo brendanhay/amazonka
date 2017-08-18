@@ -54,7 +54,7 @@ data DeleteDocumentationPart = DeleteDocumentationPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddpRestAPIId' - [Required] Specifies the identifier of an API of the to-be-deleted documentation part.
+-- * 'ddpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'ddpDocumentationPartId' - [Required] The identifier of the to-be-deleted documentation part.
 deleteDocumentationPart
@@ -67,7 +67,7 @@ deleteDocumentationPart pRestAPIId_ pDocumentationPartId_ =
     , _ddpDocumentationPartId = pDocumentationPartId_
     }
 
--- | [Required] Specifies the identifier of an API of the to-be-deleted documentation part.
+-- | [Required] The string identifier of the associated 'RestApi' .
 ddpRestAPIId :: Lens' DeleteDocumentationPart Text
 ddpRestAPIId = lens _ddpRestAPIId (\ s a -> s{_ddpRestAPIId = a});
 

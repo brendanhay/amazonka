@@ -54,7 +54,7 @@ newtype DeleteRestAPI = DeleteRestAPI'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'draRestAPIId' - The ID of the 'RestApi' you want to delete.
+-- * 'draRestAPIId' - The string identifier of the associated 'RestApi' .
 deleteRestAPI
     :: Text -- ^ 'draRestAPIId'
     -> DeleteRestAPI
@@ -63,7 +63,7 @@ deleteRestAPI pRestAPIId_ =
     { _draRestAPIId = pRestAPIId_
     }
 
--- | The ID of the 'RestApi' you want to delete.
+-- | The string identifier of the associated 'RestApi' .
 draRestAPIId :: Lens' DeleteRestAPI Text
 draRestAPIId = lens _draRestAPIId (\ s a -> s{_draRestAPIId = a});
 

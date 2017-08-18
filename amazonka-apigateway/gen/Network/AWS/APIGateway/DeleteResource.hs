@@ -56,7 +56,7 @@ data DeleteResource = DeleteResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drRestAPIId' - The 'RestApi' identifier for the 'Resource' resource.
+-- * 'drRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'drResourceId' - The identifier of the 'Resource' resource.
 deleteResource
@@ -69,7 +69,7 @@ deleteResource pRestAPIId_ pResourceId_ =
     , _drResourceId = pResourceId_
     }
 
--- | The 'RestApi' identifier for the 'Resource' resource.
+-- | The string identifier of the associated 'RestApi' .
 drRestAPIId :: Lens' DeleteResource Text
 drRestAPIId = lens _drRestAPIId (\ s a -> s{_drRestAPIId = a});
 

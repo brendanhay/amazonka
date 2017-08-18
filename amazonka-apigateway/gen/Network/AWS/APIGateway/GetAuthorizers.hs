@@ -63,11 +63,11 @@ data GetAuthorizers = GetAuthorizers'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaLimit' - Limit the number of 'Authorizer' resources in the response.
+-- * 'gaLimit' - The maximum number of returned results per page.
 --
--- * 'gaPosition' - If not all 'Authorizer' resources in the response were present, the position will specify where to start the next page of results.
+-- * 'gaPosition' - The current pagination position in the paged result set.
 --
--- * 'gaRestAPIId' - The 'RestApi' identifier for the 'Authorizers' resource.
+-- * 'gaRestAPIId' - The string identifier of the associated 'RestApi' .
 getAuthorizers
     :: Text -- ^ 'gaRestAPIId'
     -> GetAuthorizers
@@ -78,15 +78,15 @@ getAuthorizers pRestAPIId_ =
     , _gaRestAPIId = pRestAPIId_
     }
 
--- | Limit the number of 'Authorizer' resources in the response.
+-- | The maximum number of returned results per page.
 gaLimit :: Lens' GetAuthorizers (Maybe Int)
 gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a});
 
--- | If not all 'Authorizer' resources in the response were present, the position will specify where to start the next page of results.
+-- | The current pagination position in the paged result set.
 gaPosition :: Lens' GetAuthorizers (Maybe Text)
 gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a});
 
--- | The 'RestApi' identifier for the 'Authorizers' resource.
+-- | The string identifier of the associated 'RestApi' .
 gaRestAPIId :: Lens' GetAuthorizers Text
 gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a});
 
@@ -136,7 +136,7 @@ data GetAuthorizersResponse = GetAuthorizersResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'garsItems' - Gets the current list of 'Authorizer' resources in the collection.
+-- * 'garsItems' - The current page of elements from this collection.
 --
 -- * 'garsPosition' - Undocumented member.
 --
@@ -151,7 +151,7 @@ getAuthorizersResponse pResponseStatus_ =
     , _garsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current list of 'Authorizer' resources in the collection.
+-- | The current page of elements from this collection.
 garsItems :: Lens' GetAuthorizersResponse [Authorizer]
 garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce;
 

@@ -91,7 +91,7 @@ data CreateStage = CreateStage'
 --
 -- * 'csDescription' - The description of the 'Stage' resource.
 --
--- * 'csRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to create.
+-- * 'csRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'csStageName' - The name for the 'Stage' resource.
 --
@@ -133,7 +133,7 @@ csCacheClusterEnabled = lens _csCacheClusterEnabled (\ s a -> s{_csCacheClusterE
 csDescription :: Lens' CreateStage (Maybe Text)
 csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
--- | The identifier of the 'RestApi' resource for the 'Stage' resource to create.
+-- | The string identifier of the associated 'RestApi' .
 csRestAPIId :: Lens' CreateStage Text
 csRestAPIId = lens _csRestAPIId (\ s a -> s{_csRestAPIId = a});
 

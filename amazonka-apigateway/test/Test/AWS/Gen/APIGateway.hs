@@ -37,6 +37,12 @@ import Test.AWS.APIGateway.Internal
 --         , requestGetDeployment $
 --             getDeployment
 --
+--         , requestDeleteGatewayResponse $
+--             deleteGatewayResponse
+--
+--         , requestUpdateGatewayResponse $
+--             updateGatewayResponse
+--
 --         , requestCreateUsagePlan $
 --             createUsagePlan
 --
@@ -45,6 +51,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestGetClientCertificate $
 --             getClientCertificate
+--
+--         , requestPutGatewayResponse $
+--             putGatewayResponse
 --
 --         , requestGetSDKType $
 --             getSDKType
@@ -57,6 +66,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestGetBasePathMapping $
 --             getBasePathMapping
+--
+--         , requestGetRequestValidators $
+--             getRequestValidators
 --
 --         , requestPutMethodResponse $
 --             putMethodResponse
@@ -115,6 +127,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateResource $
 --             updateResource
 --
+--         , requestCreateRequestValidator $
+--             createRequestValidator
+--
 --         , requestImportDocumentationParts $
 --             importDocumentationParts
 --
@@ -132,6 +147,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestFlushStageAuthorizersCache $
 --             flushStageAuthorizersCache
+--
+--         , requestGetGatewayResponses $
+--             getGatewayResponses
 --
 --         , requestDeleteModel $
 --             deleteModel
@@ -177,6 +195,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , requestTestInvokeMethod $
 --             testInvokeMethod
+--
+--         , requestGetRequestValidator $
+--             getRequestValidator
 --
 --         , requestGetDomainName $
 --             getDomainName
@@ -271,6 +292,9 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateClientCertificate $
 --             updateClientCertificate
 --
+--         , requestGetGatewayResponse $
+--             getGatewayResponse
+--
 --         , requestCreateUsagePlanKey $
 --             createUsagePlanKey
 --
@@ -313,6 +337,12 @@ import Test.AWS.APIGateway.Internal
 --         , requestUpdateMethod $
 --             updateMethod
 --
+--         , requestUpdateRequestValidator $
+--             updateRequestValidator
+--
+--         , requestDeleteRequestValidator $
+--             deleteRequestValidator
+--
 --         , requestGetSDKTypes $
 --             getSDKTypes
 --
@@ -346,6 +376,12 @@ import Test.AWS.APIGateway.Internal
 --         , responseGetDeployment $
 --             deployment
 --
+--         , responseDeleteGatewayResponse $
+--             deleteGatewayResponseResponse
+--
+--         , responseUpdateGatewayResponse $
+--             gatewayResponse
+--
 --         , responseCreateUsagePlan $
 --             usagePlan
 --
@@ -354,6 +390,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetClientCertificate $
 --             clientCertificate
+--
+--         , responsePutGatewayResponse $
+--             gatewayResponse
 --
 --         , responseGetSDKType $
 --             sdkType
@@ -366,6 +405,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseGetBasePathMapping $
 --             basePathMapping
+--
+--         , responseGetRequestValidators $
+--             getRequestValidatorsResponse
 --
 --         , responsePutMethodResponse $
 --             methodResponse
@@ -424,6 +466,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateResource $
 --             resource
 --
+--         , responseCreateRequestValidator $
+--             requestValidator
+--
 --         , responseImportDocumentationParts $
 --             importDocumentationPartsResponse
 --
@@ -441,6 +486,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseFlushStageAuthorizersCache $
 --             flushStageAuthorizersCacheResponse
+--
+--         , responseGetGatewayResponses $
+--             getGatewayResponsesResponse
 --
 --         , responseDeleteModel $
 --             deleteModelResponse
@@ -486,6 +534,9 @@ import Test.AWS.APIGateway.Internal
 --
 --         , responseTestInvokeMethod $
 --             testInvokeMethodResponse
+--
+--         , responseGetRequestValidator $
+--             requestValidator
 --
 --         , responseGetDomainName $
 --             domainName
@@ -580,6 +631,9 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateClientCertificate $
 --             clientCertificate
 --
+--         , responseGetGatewayResponse $
+--             gatewayResponse
+--
 --         , responseCreateUsagePlanKey $
 --             usagePlanKey
 --
@@ -622,6 +676,12 @@ import Test.AWS.APIGateway.Internal
 --         , responseUpdateMethod $
 --             method
 --
+--         , responseUpdateRequestValidator $
+--             requestValidator
+--
+--         , responseDeleteRequestValidator $
+--             deleteRequestValidatorResponse
+--
 --         , responseGetSDKTypes $
 --             getSDKTypesResponse
 --
@@ -663,6 +723,16 @@ requestGetDeployment = req
     "GetDeployment"
     "fixture/GetDeployment.yaml"
 
+requestDeleteGatewayResponse :: DeleteGatewayResponse -> TestTree
+requestDeleteGatewayResponse = req
+    "DeleteGatewayResponse"
+    "fixture/DeleteGatewayResponse.yaml"
+
+requestUpdateGatewayResponse :: UpdateGatewayResponse -> TestTree
+requestUpdateGatewayResponse = req
+    "UpdateGatewayResponse"
+    "fixture/UpdateGatewayResponse.yaml"
+
 requestCreateUsagePlan :: CreateUsagePlan -> TestTree
 requestCreateUsagePlan = req
     "CreateUsagePlan"
@@ -677,6 +747,11 @@ requestGetClientCertificate :: GetClientCertificate -> TestTree
 requestGetClientCertificate = req
     "GetClientCertificate"
     "fixture/GetClientCertificate.yaml"
+
+requestPutGatewayResponse :: PutGatewayResponse -> TestTree
+requestPutGatewayResponse = req
+    "PutGatewayResponse"
+    "fixture/PutGatewayResponse.yaml"
 
 requestGetSDKType :: GetSDKType -> TestTree
 requestGetSDKType = req
@@ -697,6 +772,11 @@ requestGetBasePathMapping :: GetBasePathMapping -> TestTree
 requestGetBasePathMapping = req
     "GetBasePathMapping"
     "fixture/GetBasePathMapping.yaml"
+
+requestGetRequestValidators :: GetRequestValidators -> TestTree
+requestGetRequestValidators = req
+    "GetRequestValidators"
+    "fixture/GetRequestValidators.yaml"
 
 requestPutMethodResponse :: PutMethodResponse -> TestTree
 requestPutMethodResponse = req
@@ -793,6 +873,11 @@ requestUpdateResource = req
     "UpdateResource"
     "fixture/UpdateResource.yaml"
 
+requestCreateRequestValidator :: CreateRequestValidator -> TestTree
+requestCreateRequestValidator = req
+    "CreateRequestValidator"
+    "fixture/CreateRequestValidator.yaml"
+
 requestImportDocumentationParts :: ImportDocumentationParts -> TestTree
 requestImportDocumentationParts = req
     "ImportDocumentationParts"
@@ -822,6 +907,11 @@ requestFlushStageAuthorizersCache :: FlushStageAuthorizersCache -> TestTree
 requestFlushStageAuthorizersCache = req
     "FlushStageAuthorizersCache"
     "fixture/FlushStageAuthorizersCache.yaml"
+
+requestGetGatewayResponses :: GetGatewayResponses -> TestTree
+requestGetGatewayResponses = req
+    "GetGatewayResponses"
+    "fixture/GetGatewayResponses.yaml"
 
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel = req
@@ -897,6 +987,11 @@ requestTestInvokeMethod :: TestInvokeMethod -> TestTree
 requestTestInvokeMethod = req
     "TestInvokeMethod"
     "fixture/TestInvokeMethod.yaml"
+
+requestGetRequestValidator :: GetRequestValidator -> TestTree
+requestGetRequestValidator = req
+    "GetRequestValidator"
+    "fixture/GetRequestValidator.yaml"
 
 requestGetDomainName :: GetDomainName -> TestTree
 requestGetDomainName = req
@@ -1053,6 +1148,11 @@ requestUpdateClientCertificate = req
     "UpdateClientCertificate"
     "fixture/UpdateClientCertificate.yaml"
 
+requestGetGatewayResponse :: GetGatewayResponse -> TestTree
+requestGetGatewayResponse = req
+    "GetGatewayResponse"
+    "fixture/GetGatewayResponse.yaml"
+
 requestCreateUsagePlanKey :: CreateUsagePlanKey -> TestTree
 requestCreateUsagePlanKey = req
     "CreateUsagePlanKey"
@@ -1123,6 +1223,16 @@ requestUpdateMethod = req
     "UpdateMethod"
     "fixture/UpdateMethod.yaml"
 
+requestUpdateRequestValidator :: UpdateRequestValidator -> TestTree
+requestUpdateRequestValidator = req
+    "UpdateRequestValidator"
+    "fixture/UpdateRequestValidator.yaml"
+
+requestDeleteRequestValidator :: DeleteRequestValidator -> TestTree
+requestDeleteRequestValidator = req
+    "DeleteRequestValidator"
+    "fixture/DeleteRequestValidator.yaml"
+
 requestGetSDKTypes :: GetSDKTypes -> TestTree
 requestGetSDKTypes = req
     "GetSDKTypes"
@@ -1181,6 +1291,20 @@ responseGetDeployment = res
     apiGateway
     (Proxy :: Proxy GetDeployment)
 
+responseDeleteGatewayResponse :: DeleteGatewayResponseResponse -> TestTree
+responseDeleteGatewayResponse = res
+    "DeleteGatewayResponseResponse"
+    "fixture/DeleteGatewayResponseResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteGatewayResponse)
+
+responseUpdateGatewayResponse :: GatewayResponse -> TestTree
+responseUpdateGatewayResponse = res
+    "UpdateGatewayResponseResponse"
+    "fixture/UpdateGatewayResponseResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateGatewayResponse)
+
 responseCreateUsagePlan :: UsagePlan -> TestTree
 responseCreateUsagePlan = res
     "CreateUsagePlanResponse"
@@ -1201,6 +1325,13 @@ responseGetClientCertificate = res
     "fixture/GetClientCertificateResponse.proto"
     apiGateway
     (Proxy :: Proxy GetClientCertificate)
+
+responsePutGatewayResponse :: GatewayResponse -> TestTree
+responsePutGatewayResponse = res
+    "PutGatewayResponseResponse"
+    "fixture/PutGatewayResponseResponse.proto"
+    apiGateway
+    (Proxy :: Proxy PutGatewayResponse)
 
 responseGetSDKType :: SDKType -> TestTree
 responseGetSDKType = res
@@ -1229,6 +1360,13 @@ responseGetBasePathMapping = res
     "fixture/GetBasePathMappingResponse.proto"
     apiGateway
     (Proxy :: Proxy GetBasePathMapping)
+
+responseGetRequestValidators :: GetRequestValidatorsResponse -> TestTree
+responseGetRequestValidators = res
+    "GetRequestValidatorsResponse"
+    "fixture/GetRequestValidatorsResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetRequestValidators)
 
 responsePutMethodResponse :: MethodResponse -> TestTree
 responsePutMethodResponse = res
@@ -1363,6 +1501,13 @@ responseUpdateResource = res
     apiGateway
     (Proxy :: Proxy UpdateResource)
 
+responseCreateRequestValidator :: RequestValidator -> TestTree
+responseCreateRequestValidator = res
+    "CreateRequestValidatorResponse"
+    "fixture/CreateRequestValidatorResponse.proto"
+    apiGateway
+    (Proxy :: Proxy CreateRequestValidator)
+
 responseImportDocumentationParts :: ImportDocumentationPartsResponse -> TestTree
 responseImportDocumentationParts = res
     "ImportDocumentationPartsResponse"
@@ -1404,6 +1549,13 @@ responseFlushStageAuthorizersCache = res
     "fixture/FlushStageAuthorizersCacheResponse.proto"
     apiGateway
     (Proxy :: Proxy FlushStageAuthorizersCache)
+
+responseGetGatewayResponses :: GetGatewayResponsesResponse -> TestTree
+responseGetGatewayResponses = res
+    "GetGatewayResponsesResponse"
+    "fixture/GetGatewayResponsesResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetGatewayResponses)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel = res
@@ -1509,6 +1661,13 @@ responseTestInvokeMethod = res
     "fixture/TestInvokeMethodResponse.proto"
     apiGateway
     (Proxy :: Proxy TestInvokeMethod)
+
+responseGetRequestValidator :: RequestValidator -> TestTree
+responseGetRequestValidator = res
+    "GetRequestValidatorResponse"
+    "fixture/GetRequestValidatorResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetRequestValidator)
 
 responseGetDomainName :: DomainName -> TestTree
 responseGetDomainName = res
@@ -1727,6 +1886,13 @@ responseUpdateClientCertificate = res
     apiGateway
     (Proxy :: Proxy UpdateClientCertificate)
 
+responseGetGatewayResponse :: GatewayResponse -> TestTree
+responseGetGatewayResponse = res
+    "GetGatewayResponseResponse"
+    "fixture/GetGatewayResponseResponse.proto"
+    apiGateway
+    (Proxy :: Proxy GetGatewayResponse)
+
 responseCreateUsagePlanKey :: UsagePlanKey -> TestTree
 responseCreateUsagePlanKey = res
     "CreateUsagePlanKeyResponse"
@@ -1824,6 +1990,20 @@ responseUpdateMethod = res
     "fixture/UpdateMethodResponse.proto"
     apiGateway
     (Proxy :: Proxy UpdateMethod)
+
+responseUpdateRequestValidator :: RequestValidator -> TestTree
+responseUpdateRequestValidator = res
+    "UpdateRequestValidatorResponse"
+    "fixture/UpdateRequestValidatorResponse.proto"
+    apiGateway
+    (Proxy :: Proxy UpdateRequestValidator)
+
+responseDeleteRequestValidator :: DeleteRequestValidatorResponse -> TestTree
+responseDeleteRequestValidator = res
+    "DeleteRequestValidatorResponse"
+    "fixture/DeleteRequestValidatorResponse.proto"
+    apiGateway
+    (Proxy :: Proxy DeleteRequestValidator)
 
 responseGetSDKTypes :: GetSDKTypesResponse -> TestTree
 responseGetSDKTypes = res

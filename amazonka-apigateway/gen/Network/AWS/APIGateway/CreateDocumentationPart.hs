@@ -60,7 +60,7 @@ data CreateDocumentationPart = CreateDocumentationPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdpRestAPIId' - [Required] The identifier of an API of the to-be-created documentation part.
+-- * 'cdpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'cdpLocation' - [Required] The location of the targeted API entity of the to-be-created documentation part.
 --
@@ -77,7 +77,7 @@ createDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
     , _cdpProperties = pProperties_
     }
 
--- | [Required] The identifier of an API of the to-be-created documentation part.
+-- | [Required] The string identifier of the associated 'RestApi' .
 cdpRestAPIId :: Lens' CreateDocumentationPart Text
 cdpRestAPIId = lens _cdpRestAPIId (\ s a -> s{_cdpRestAPIId = a});
 

@@ -74,7 +74,7 @@ data UpdateIntegration = UpdateIntegration'
 --
 -- * 'updPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'updRestAPIId' - Represents an update integration request's API identifier.
+-- * 'updRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'updResourceId' - Represents an update integration request's resource identifier.
 --
@@ -96,7 +96,7 @@ updateIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
 updPatchOperations :: Lens' UpdateIntegration [PatchOperation]
 updPatchOperations = lens _updPatchOperations (\ s a -> s{_updPatchOperations = a}) . _Default . _Coerce;
 
--- | Represents an update integration request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 updRestAPIId :: Lens' UpdateIntegration Text
 updRestAPIId = lens _updRestAPIId (\ s a -> s{_updRestAPIId = a});
 

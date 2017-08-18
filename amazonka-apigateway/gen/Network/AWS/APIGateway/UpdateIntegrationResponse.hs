@@ -70,7 +70,7 @@ data UpdateIntegrationResponse = UpdateIntegrationResponse'
 --
 -- * 'uiPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uiRestAPIId' - Specifies an update integration response request's API identifier.
+-- * 'uiRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'uiResourceId' - Specifies an update integration response request's resource identifier.
 --
@@ -96,7 +96,7 @@ updateIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
 uiPatchOperations :: Lens' UpdateIntegrationResponse [PatchOperation]
 uiPatchOperations = lens _uiPatchOperations (\ s a -> s{_uiPatchOperations = a}) . _Default . _Coerce;
 
--- | Specifies an update integration response request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 uiRestAPIId :: Lens' UpdateIntegrationResponse Text
 uiRestAPIId = lens _uiRestAPIId (\ s a -> s{_uiRestAPIId = a});
 

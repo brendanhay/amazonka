@@ -37,6 +37,7 @@ module Network.AWS.APIGateway.GetMethod
     -- * Response Lenses
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
@@ -68,7 +69,7 @@ data GetMethod = GetMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmmRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
+-- * 'gmmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gmmResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
@@ -85,7 +86,7 @@ getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _gmmHttpMethod = pHttpMethod_
     }
 
--- | The 'RestApi' identifier for the 'Method' resource.
+-- | The string identifier of the associated 'RestApi' .
 gmmRestAPIId :: Lens' GetMethod Text
 gmmRestAPIId = lens _gmmRestAPIId (\ s a -> s{_gmmRestAPIId = a});
 

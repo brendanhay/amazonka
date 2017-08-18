@@ -60,7 +60,7 @@ data DeleteIntegrationResponse = DeleteIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diRestAPIId' - Specifies a delete integration response request's API identifier.
+-- * 'diRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'diResourceId' - Specifies a delete integration response request's resource identifier.
 --
@@ -81,7 +81,7 @@ deleteIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _diStatusCode = pStatusCode_
     }
 
--- | Specifies a delete integration response request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 diRestAPIId :: Lens' DeleteIntegrationResponse Text
 diRestAPIId = lens _diRestAPIId (\ s a -> s{_diRestAPIId = a});
 

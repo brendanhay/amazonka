@@ -83,7 +83,7 @@ data CreateDeployment = CreateDeployment'
 --
 -- * 'cdDescription' - The description for the 'Deployment' resource to create.
 --
--- * 'cdRestAPIId' - The 'RestApi' resource identifier for the 'Deployment' resource to create.
+-- * 'cdRestAPIId' - The string identifier of the associated 'RestApi' .
 createDeployment
     :: Text -- ^ 'cdRestAPIId'
     -> CreateDeployment
@@ -122,7 +122,7 @@ cdStageName = lens _cdStageName (\ s a -> s{_cdStageName = a});
 cdDescription :: Lens' CreateDeployment (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
--- | The 'RestApi' resource identifier for the 'Deployment' resource to create.
+-- | The string identifier of the associated 'RestApi' .
 cdRestAPIId :: Lens' CreateDeployment Text
 cdRestAPIId = lens _cdRestAPIId (\ s a -> s{_cdRestAPIId = a});
 

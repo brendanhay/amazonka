@@ -74,11 +74,11 @@ data PutRestAPI = PutRestAPI'
 --
 -- * 'praFailOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'praParameters' - Custom headers supplied as part of the request.
+-- * 'praParameters' - Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
 --
--- * 'praRestAPIId' - The identifier of the 'RestApi' to be updated.
+-- * 'praRestAPIId' - The string identifier of the associated 'RestApi' .
 --
--- * 'praBody' - The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
+-- * 'praBody' - The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 putRestAPI
     :: Text -- ^ 'praRestAPIId'
     -> HashMap Text Value -- ^ 'praBody'
@@ -100,15 +100,15 @@ praMode = lens _praMode (\ s a -> s{_praMode = a});
 praFailOnWarnings :: Lens' PutRestAPI (Maybe Bool)
 praFailOnWarnings = lens _praFailOnWarnings (\ s a -> s{_praFailOnWarnings = a});
 
--- | Custom headers supplied as part of the request.
+-- | Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
 praParameters :: Lens' PutRestAPI (HashMap Text Text)
 praParameters = lens _praParameters (\ s a -> s{_praParameters = a}) . _Default . _Map;
 
--- | The identifier of the 'RestApi' to be updated.
+-- | The string identifier of the associated 'RestApi' .
 praRestAPIId :: Lens' PutRestAPI Text
 praRestAPIId = lens _praRestAPIId (\ s a -> s{_praRestAPIId = a});
 
--- | The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
+-- | The PUT request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 praBody :: Lens' PutRestAPI (HashMap Text Value)
 praBody = lens _praBody (\ s a -> s{_praBody = a});
 

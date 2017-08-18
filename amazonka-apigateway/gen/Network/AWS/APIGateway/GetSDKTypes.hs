@@ -58,9 +58,9 @@ data GetSDKTypes = GetSDKTypes'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gstLimit' - The maximum number of 'SdkType' instances to be returned.
+-- * 'gstLimit' - The maximum number of returned results per page.
 --
--- * 'gstPosition' - The position of the last fetched element in the 'SdkTypes' collection.
+-- * 'gstPosition' - The current pagination position in the paged result set.
 getSDKTypes
     :: GetSDKTypes
 getSDKTypes =
@@ -69,11 +69,11 @@ getSDKTypes =
     , _gstPosition = Nothing
     }
 
--- | The maximum number of 'SdkType' instances to be returned.
+-- | The maximum number of returned results per page.
 gstLimit :: Lens' GetSDKTypes (Maybe Int)
 gstLimit = lens _gstLimit (\ s a -> s{_gstLimit = a});
 
--- | The position of the last fetched element in the 'SdkTypes' collection.
+-- | The current pagination position in the paged result set.
 gstPosition :: Lens' GetSDKTypes (Maybe Text)
 gstPosition = lens _gstPosition (\ s a -> s{_gstPosition = a});
 
@@ -120,7 +120,7 @@ data GetSDKTypesResponse = GetSDKTypesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gstrsItems' - The set of 'SdkType' items that comprise this view of the 'SdkTypes' collection.
+-- * 'gstrsItems' - The current page of elements from this collection.
 --
 -- * 'gstrsPosition' - Undocumented member.
 --
@@ -135,7 +135,7 @@ getSDKTypesResponse pResponseStatus_ =
     , _gstrsResponseStatus = pResponseStatus_
     }
 
--- | The set of 'SdkType' items that comprise this view of the 'SdkTypes' collection.
+-- | The current page of elements from this collection.
 gstrsItems :: Lens' GetSDKTypesResponse [SDKType]
 gstrsItems = lens _gstrsItems (\ s a -> s{_gstrsItems = a}) . _Default . _Coerce;
 

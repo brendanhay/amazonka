@@ -64,7 +64,7 @@ data GetMethodResponse = GetMethodResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
+-- * 'gmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gmResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
@@ -85,7 +85,7 @@ getMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _gmStatusCode = pStatusCode_
     }
 
--- | The 'RestApi' identifier for the 'MethodResponse' resource.
+-- | The string identifier of the associated 'RestApi' .
 gmRestAPIId :: Lens' GetMethodResponse Text
 gmRestAPIId = lens _gmRestAPIId (\ s a -> s{_gmRestAPIId = a});
 

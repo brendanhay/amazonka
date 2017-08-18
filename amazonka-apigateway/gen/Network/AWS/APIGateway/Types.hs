@@ -42,6 +42,9 @@ module Network.AWS.APIGateway.Types
     -- * DocumentationPartType
     , DocumentationPartType (..)
 
+    -- * GatewayResponseType
+    , GatewayResponseType (..)
+
     -- * IntegrationType
     , IntegrationType (..)
 
@@ -154,6 +157,15 @@ module Network.AWS.APIGateway.Types
     , dnCertificateUploadDate
     , dnDistributionDomainName
 
+    -- * GatewayResponse
+    , GatewayResponse
+    , gatewayResponse
+    , gDefaultResponse
+    , gResponseTemplates
+    , gResponseType
+    , gStatusCode
+    , gResponseParameters
+
     -- * Integration
     , Integration
     , integration
@@ -183,6 +195,7 @@ module Network.AWS.APIGateway.Types
     , method
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
@@ -241,6 +254,14 @@ module Network.AWS.APIGateway.Types
     , qsOffset
     , qsPeriod
     , qsLimit
+
+    -- * RequestValidator
+    , RequestValidator
+    , requestValidator
+    , rvValidateRequestParameters
+    , rvName
+    , rvValidateRequestBody
+    , rvId
 
     -- * Resource
     , Resource
@@ -365,6 +386,8 @@ apiGateway =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

@@ -86,7 +86,7 @@ data TestInvokeAuthorizer = TestInvokeAuthorizer'
 --
 -- * 'tiaHeaders' - [Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.
 --
--- * 'tiaRestAPIId' - Specifies a test invoke authorizer request's 'RestApi' identifier.
+-- * 'tiaRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'tiaAuthorizerId' - Specifies a test invoke authorizer request's 'Authorizer' ID.
 testInvokeAuthorizer
@@ -124,7 +124,7 @@ tiaStageVariables = lens _tiaStageVariables (\ s a -> s{_tiaStageVariables = a})
 tiaHeaders :: Lens' TestInvokeAuthorizer (HashMap Text Text)
 tiaHeaders = lens _tiaHeaders (\ s a -> s{_tiaHeaders = a}) . _Default . _Map;
 
--- | Specifies a test invoke authorizer request's 'RestApi' identifier.
+-- | The string identifier of the associated 'RestApi' .
 tiaRestAPIId :: Lens' TestInvokeAuthorizer Text
 tiaRestAPIId = lens _tiaRestAPIId (\ s a -> s{_tiaRestAPIId = a});
 

@@ -56,7 +56,7 @@ data DeleteStage = DeleteStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to delete.
+-- * 'dsRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'dsStageName' - The name of the 'Stage' resource to delete.
 deleteStage
@@ -69,7 +69,7 @@ deleteStage pRestAPIId_ pStageName_ =
     , _dsStageName = pStageName_
     }
 
--- | The identifier of the 'RestApi' resource for the 'Stage' resource to delete.
+-- | The string identifier of the associated 'RestApi' .
 dsRestAPIId :: Lens' DeleteStage Text
 dsRestAPIId = lens _dsRestAPIId (\ s a -> s{_dsRestAPIId = a});
 

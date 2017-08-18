@@ -66,7 +66,7 @@ data CreateDocumentationVersion = CreateDocumentationVersion'
 --
 -- * 'cdvDescription' - A description about the new documentation snapshot.
 --
--- * 'cdvRestAPIId' - [Required] Specifies the API identifier of the to-be-created documentation version.
+-- * 'cdvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'cdvDocumentationVersion' - [Required] The version identifier of the new snapshot.
 createDocumentationVersion
@@ -89,7 +89,7 @@ cdvStageName = lens _cdvStageName (\ s a -> s{_cdvStageName = a});
 cdvDescription :: Lens' CreateDocumentationVersion (Maybe Text)
 cdvDescription = lens _cdvDescription (\ s a -> s{_cdvDescription = a});
 
--- | [Required] Specifies the API identifier of the to-be-created documentation version.
+-- | [Required] The string identifier of the associated 'RestApi' .
 cdvRestAPIId :: Lens' CreateDocumentationVersion Text
 cdvRestAPIId = lens _cdvRestAPIId (\ s a -> s{_cdvRestAPIId = a});
 

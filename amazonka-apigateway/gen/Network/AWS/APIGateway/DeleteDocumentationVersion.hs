@@ -54,7 +54,7 @@ data DeleteDocumentationVersion = DeleteDocumentationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddvRestAPIId' - [Required] The identifier of an API of a to-be-deleted documentation snapshot.
+-- * 'ddvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'ddvDocumentationVersion' - [Required] The version identifier of a to-be-deleted documentation snapshot.
 deleteDocumentationVersion
@@ -67,7 +67,7 @@ deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     , _ddvDocumentationVersion = pDocumentationVersion_
     }
 
--- | [Required] The identifier of an API of a to-be-deleted documentation snapshot.
+-- | [Required] The string identifier of the associated 'RestApi' .
 ddvRestAPIId :: Lens' DeleteDocumentationVersion Text
 ddvRestAPIId = lens _ddvRestAPIId (\ s a -> s{_ddvRestAPIId = a});
 

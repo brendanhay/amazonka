@@ -62,7 +62,7 @@ data UpdateDocumentationVersion = UpdateDocumentationVersion'
 --
 -- * 'udvPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udvRestAPIId' - [Required] The identifier of an API of the to-be-updated documentation version.
+-- * 'udvRestAPIId' - [Required] The string identifier of the associated 'RestApi' ..
 --
 -- * 'udvDocumentationVersion' - [Required] The version identifier of the to-be-updated documentation version.
 updateDocumentationVersion
@@ -80,7 +80,7 @@ updateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
 udvPatchOperations :: Lens' UpdateDocumentationVersion [PatchOperation]
 udvPatchOperations = lens _udvPatchOperations (\ s a -> s{_udvPatchOperations = a}) . _Default . _Coerce;
 
--- | [Required] The identifier of an API of the to-be-updated documentation version.
+-- | [Required] The string identifier of the associated 'RestApi' ..
 udvRestAPIId :: Lens' UpdateDocumentationVersion Text
 udvRestAPIId = lens _udvRestAPIId (\ s a -> s{_udvRestAPIId = a});
 

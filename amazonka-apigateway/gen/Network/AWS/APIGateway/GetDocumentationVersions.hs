@@ -60,11 +60,11 @@ data GetDocumentationVersions = GetDocumentationVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdvLimit' - The page size of the returned documentation versions.
+-- * 'gdvLimit' - The maximum number of returned results per page.
 --
--- * 'gdvPosition' - The position of the returned @DocumentationVersion@ in the 'DocumentationVersions' collection.
+-- * 'gdvPosition' - The current pagination position in the paged result set.
 --
--- * 'gdvRestAPIId' - [Required] The identifier of an API of the to-be-retrieved documentation versions.
+-- * 'gdvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getDocumentationVersions
     :: Text -- ^ 'gdvRestAPIId'
     -> GetDocumentationVersions
@@ -75,15 +75,15 @@ getDocumentationVersions pRestAPIId_ =
     , _gdvRestAPIId = pRestAPIId_
     }
 
--- | The page size of the returned documentation versions.
+-- | The maximum number of returned results per page.
 gdvLimit :: Lens' GetDocumentationVersions (Maybe Int)
 gdvLimit = lens _gdvLimit (\ s a -> s{_gdvLimit = a});
 
--- | The position of the returned @DocumentationVersion@ in the 'DocumentationVersions' collection.
+-- | The current pagination position in the paged result set.
 gdvPosition :: Lens' GetDocumentationVersions (Maybe Text)
 gdvPosition = lens _gdvPosition (\ s a -> s{_gdvPosition = a});
 
--- | [Required] The identifier of an API of the to-be-retrieved documentation versions.
+-- | [Required] The string identifier of the associated 'RestApi' .
 gdvRestAPIId :: Lens' GetDocumentationVersions Text
 gdvRestAPIId = lens _gdvRestAPIId (\ s a -> s{_gdvRestAPIId = a});
 
@@ -137,7 +137,7 @@ data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdvrsItems' - The current page of 'DocumentationVersion' items from the 'DocumentationVersions' collection of an API.
+-- * 'gdvrsItems' - The current page of elements from this collection.
 --
 -- * 'gdvrsPosition' - Undocumented member.
 --
@@ -152,7 +152,7 @@ getDocumentationVersionsResponse pResponseStatus_ =
     , _gdvrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of 'DocumentationVersion' items from the 'DocumentationVersions' collection of an API.
+-- | The current page of elements from this collection.
 gdvrsItems :: Lens' GetDocumentationVersionsResponse [DocumentationVersion]
 gdvrsItems = lens _gdvrsItems (\ s a -> s{_gdvrsItems = a}) . _Default . _Coerce;
 

@@ -68,9 +68,9 @@ data ImportRestAPI = ImportRestAPI'
 --
 -- * 'iraFailOnWarnings' - A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'iraParameters' - Custom header parameters as part of the request.
+-- * 'iraParameters' - Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
 --
--- * 'iraBody' - The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
+-- * 'iraBody' - The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 importRestAPI
     :: HashMap Text Value -- ^ 'iraBody'
     -> ImportRestAPI
@@ -85,11 +85,11 @@ importRestAPI pBody_ =
 iraFailOnWarnings :: Lens' ImportRestAPI (Maybe Bool)
 iraFailOnWarnings = lens _iraFailOnWarnings (\ s a -> s{_iraFailOnWarnings = a});
 
--- | Custom header parameters as part of the request.
+-- | Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json@ .
 iraParameters :: Lens' ImportRestAPI (HashMap Text Text)
 iraParameters = lens _iraParameters (\ s a -> s{_iraParameters = a}) . _Default . _Map;
 
--- | The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported.
+-- | The POST request body containing external API definitions. Currently, only Swagger definition JSON files are supported. The maximum size of the API definition file is 2MB.
 iraBody :: Lens' ImportRestAPI (HashMap Text Value)
 iraBody = lens _iraBody (\ s a -> s{_iraBody = a});
 

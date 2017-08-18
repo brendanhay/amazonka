@@ -68,7 +68,7 @@ data GetAuthorizer = GetAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaaRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
+-- * 'gaaRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gaaAuthorizerId' - The identifier of the 'Authorizer' resource.
 getAuthorizer
@@ -81,7 +81,7 @@ getAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _gaaAuthorizerId = pAuthorizerId_
     }
 
--- | The 'RestApi' identifier for the 'Authorizer' resource.
+-- | The string identifier of the associated 'RestApi' .
 gaaRestAPIId :: Lens' GetAuthorizer Text
 gaaRestAPIId = lens _gaaRestAPIId (\ s a -> s{_gaaRestAPIId = a});
 

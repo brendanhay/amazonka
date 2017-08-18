@@ -66,7 +66,7 @@ data UpdateRestAPI = UpdateRestAPI'
 --
 -- * 'uraPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uraRestAPIId' - The ID of the 'RestApi' you want to update.
+-- * 'uraRestAPIId' - The string identifier of the associated 'RestApi' .
 updateRestAPI
     :: Text -- ^ 'uraRestAPIId'
     -> UpdateRestAPI
@@ -80,7 +80,7 @@ updateRestAPI pRestAPIId_ =
 uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
 uraPatchOperations = lens _uraPatchOperations (\ s a -> s{_uraPatchOperations = a}) . _Default . _Coerce;
 
--- | The ID of the 'RestApi' you want to update.
+-- | The string identifier of the associated 'RestApi' .
 uraRestAPIId :: Lens' UpdateRestAPI Text
 uraRestAPIId = lens _uraRestAPIId (\ s a -> s{_uraRestAPIId = a});
 

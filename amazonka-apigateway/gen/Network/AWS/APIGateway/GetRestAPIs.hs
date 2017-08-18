@@ -63,9 +63,9 @@ data GetRestAPIs = GetRestAPIs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'graLimit' - The maximum number of 'RestApi' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'graLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'graPosition' - The position of the current 'RestApis' resource in the collection to get information about.
+-- * 'graPosition' - The current pagination position in the paged result set.
 getRestAPIs
     :: GetRestAPIs
 getRestAPIs =
@@ -74,11 +74,11 @@ getRestAPIs =
     , _graPosition = Nothing
     }
 
--- | The maximum number of 'RestApi' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 graLimit :: Lens' GetRestAPIs (Maybe Int)
 graLimit = lens _graLimit (\ s a -> s{_graLimit = a});
 
--- | The position of the current 'RestApis' resource in the collection to get information about.
+-- | The current pagination position in the paged result set.
 graPosition :: Lens' GetRestAPIs (Maybe Text)
 graPosition = lens _graPosition (\ s a -> s{_graPosition = a});
 
@@ -133,7 +133,7 @@ data GetRestAPIsResponse = GetRestAPIsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grarsItems' - An array of links to the current page of 'RestApi' resources.
+-- * 'grarsItems' - The current page of elements from this collection.
 --
 -- * 'grarsPosition' - Undocumented member.
 --
@@ -148,7 +148,7 @@ getRestAPIsResponse pResponseStatus_ =
     , _grarsResponseStatus = pResponseStatus_
     }
 
--- | An array of links to the current page of 'RestApi' resources.
+-- | The current page of elements from this collection.
 grarsItems :: Lens' GetRestAPIsResponse [RestAPI]
 grarsItems = lens _grarsItems (\ s a -> s{_grarsItems = a}) . _Default . _Coerce;
 

@@ -70,13 +70,13 @@ data GetDocumentationParts = GetDocumentationParts'
 --
 -- * 'gdpNameQuery' - The name of API entities of the to-be-retrieved documentation parts.
 --
--- * 'gdpLimit' - The size of the paged results.
+-- * 'gdpLimit' - The maximum number of returned results per page.
 --
 -- * 'gdpType' - The type of API entities of the to-be-retrieved documentation parts.
 --
--- * 'gdpPosition' - The position of the to-be-retrieved documentation part in the 'DocumentationParts' collection.
+-- * 'gdpPosition' - The current pagination position in the paged result set.
 --
--- * 'gdpRestAPIId' - [Required] The identifier of the API of the to-be-retrieved documentation parts.
+-- * 'gdpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 getDocumentationParts
     :: Text -- ^ 'gdpRestAPIId'
     -> GetDocumentationParts
@@ -98,7 +98,7 @@ gdpPath = lens _gdpPath (\ s a -> s{_gdpPath = a});
 gdpNameQuery :: Lens' GetDocumentationParts (Maybe Text)
 gdpNameQuery = lens _gdpNameQuery (\ s a -> s{_gdpNameQuery = a});
 
--- | The size of the paged results.
+-- | The maximum number of returned results per page.
 gdpLimit :: Lens' GetDocumentationParts (Maybe Int)
 gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a});
 
@@ -106,11 +106,11 @@ gdpLimit = lens _gdpLimit (\ s a -> s{_gdpLimit = a});
 gdpType :: Lens' GetDocumentationParts (Maybe DocumentationPartType)
 gdpType = lens _gdpType (\ s a -> s{_gdpType = a});
 
--- | The position of the to-be-retrieved documentation part in the 'DocumentationParts' collection.
+-- | The current pagination position in the paged result set.
 gdpPosition :: Lens' GetDocumentationParts (Maybe Text)
 gdpPosition = lens _gdpPosition (\ s a -> s{_gdpPosition = a});
 
--- | [Required] The identifier of the API of the to-be-retrieved documentation parts.
+-- | [Required] The string identifier of the associated 'RestApi' .
 gdpRestAPIId :: Lens' GetDocumentationParts Text
 gdpRestAPIId = lens _gdpRestAPIId (\ s a -> s{_gdpRestAPIId = a});
 
@@ -164,7 +164,7 @@ data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdprsItems' - The current page of 'DocumentationPart' resources in the 'DocumentationParts' collection.
+-- * 'gdprsItems' - The current page of elements from this collection.
 --
 -- * 'gdprsPosition' - Undocumented member.
 --
@@ -179,7 +179,7 @@ getDocumentationPartsResponse pResponseStatus_ =
     , _gdprsResponseStatus = pResponseStatus_
     }
 
--- | The current page of 'DocumentationPart' resources in the 'DocumentationParts' collection.
+-- | The current page of elements from this collection.
 gdprsItems :: Lens' GetDocumentationPartsResponse [DocumentationPart]
 gdprsItems = lens _gdprsItems (\ s a -> s{_gdprsItems = a}) . _Default . _Coerce;
 

@@ -66,7 +66,7 @@ data UpdateModel = UpdateModel'
 --
 -- * 'uPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'uRestAPIId' - The 'RestApi' identifier under which the model exists.
+-- * 'uRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'uModelName' - The name of the model to update.
 updateModel
@@ -84,7 +84,7 @@ updateModel pRestAPIId_ pModelName_ =
 uPatchOperations :: Lens' UpdateModel [PatchOperation]
 uPatchOperations = lens _uPatchOperations (\ s a -> s{_uPatchOperations = a}) . _Default . _Coerce;
 
--- | The 'RestApi' identifier under which the model exists.
+-- | The string identifier of the associated 'RestApi' .
 uRestAPIId :: Lens' UpdateModel Text
 uRestAPIId = lens _uRestAPIId (\ s a -> s{_uRestAPIId = a});
 

@@ -68,7 +68,7 @@ data UpdateMethodResponse = UpdateMethodResponse'
 --
 -- * 'umPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'umRestAPIId' - The 'RestApi' identifier for the 'MethodResponse' resource.
+-- * 'umRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'umResourceId' - The 'Resource' identifier for the 'MethodResponse' resource.
 --
@@ -94,7 +94,7 @@ updateMethodResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
 umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
 umPatchOperations = lens _umPatchOperations (\ s a -> s{_umPatchOperations = a}) . _Default . _Coerce;
 
--- | The 'RestApi' identifier for the 'MethodResponse' resource.
+-- | The string identifier of the associated 'RestApi' .
 umRestAPIId :: Lens' UpdateMethodResponse Text
 umRestAPIId = lens _umRestAPIId (\ s a -> s{_umRestAPIId = a});
 

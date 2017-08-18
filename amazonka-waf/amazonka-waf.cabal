@@ -42,6 +42,7 @@ library
           Network.AWS.WAF
         , Network.AWS.WAF.CreateByteMatchSet
         , Network.AWS.WAF.CreateIPSet
+        , Network.AWS.WAF.CreateRateBasedRule
         , Network.AWS.WAF.CreateRule
         , Network.AWS.WAF.CreateSizeConstraintSet
         , Network.AWS.WAF.CreateSqlInjectionMatchSet
@@ -49,6 +50,7 @@ library
         , Network.AWS.WAF.CreateXSSMatchSet
         , Network.AWS.WAF.DeleteByteMatchSet
         , Network.AWS.WAF.DeleteIPSet
+        , Network.AWS.WAF.DeleteRateBasedRule
         , Network.AWS.WAF.DeleteRule
         , Network.AWS.WAF.DeleteSizeConstraintSet
         , Network.AWS.WAF.DeleteSqlInjectionMatchSet
@@ -58,6 +60,8 @@ library
         , Network.AWS.WAF.GetChangeToken
         , Network.AWS.WAF.GetChangeTokenStatus
         , Network.AWS.WAF.GetIPSet
+        , Network.AWS.WAF.GetRateBasedRule
+        , Network.AWS.WAF.GetRateBasedRuleManagedKeys
         , Network.AWS.WAF.GetRule
         , Network.AWS.WAF.GetSampledRequests
         , Network.AWS.WAF.GetSizeConstraintSet
@@ -66,6 +70,7 @@ library
         , Network.AWS.WAF.GetXSSMatchSet
         , Network.AWS.WAF.ListByteMatchSets
         , Network.AWS.WAF.ListIPSets
+        , Network.AWS.WAF.ListRateBasedRules
         , Network.AWS.WAF.ListRules
         , Network.AWS.WAF.ListSizeConstraintSets
         , Network.AWS.WAF.ListSqlInjectionMatchSets
@@ -74,6 +79,7 @@ library
         , Network.AWS.WAF.Types
         , Network.AWS.WAF.UpdateByteMatchSet
         , Network.AWS.WAF.UpdateIPSet
+        , Network.AWS.WAF.UpdateRateBasedRule
         , Network.AWS.WAF.UpdateRule
         , Network.AWS.WAF.UpdateSizeConstraintSet
         , Network.AWS.WAF.UpdateSqlInjectionMatchSet

@@ -28,8 +28,17 @@ import Test.AWS.WAF.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetSizeConstraintSet $
+--         [ requestListRateBasedRules $
+--             listRateBasedRules
+--
+--         , requestGetSizeConstraintSet $
 --             getSizeConstraintSet
+--
+--         , requestDeleteRateBasedRule $
+--             deleteRateBasedRule
+--
+--         , requestUpdateRateBasedRule $
+--             updateRateBasedRule
 --
 --         , requestUpdateRule $
 --             updateRule
@@ -109,6 +118,9 @@ import Test.AWS.WAF.Internal
 --         , requestDeleteByteMatchSet $
 --             deleteByteMatchSet
 --
+--         , requestGetRateBasedRuleManagedKeys $
+--             getRateBasedRuleManagedKeys
+--
 --         , requestDeleteIPSet $
 --             deleteIPSet
 --
@@ -124,6 +136,9 @@ import Test.AWS.WAF.Internal
 --         , requestGetByteMatchSet $
 --             getByteMatchSet
 --
+--         , requestGetRateBasedRule $
+--             getRateBasedRule
+--
 --         , requestDeleteSizeConstraintSet $
 --             deleteSizeConstraintSet
 --
@@ -136,6 +151,9 @@ import Test.AWS.WAF.Internal
 --         , requestListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSets
 --
+--         , requestCreateRateBasedRule $
+--             createRateBasedRule
+--
 --         , requestDeleteSqlInjectionMatchSet $
 --             deleteSqlInjectionMatchSet
 --
@@ -145,8 +163,17 @@ import Test.AWS.WAF.Internal
 --           ]
 
 --     , testGroup "response"
---         [ responseGetSizeConstraintSet $
+--         [ responseListRateBasedRules $
+--             listRateBasedRulesResponse
+--
+--         , responseGetSizeConstraintSet $
 --             getSizeConstraintSetResponse
+--
+--         , responseDeleteRateBasedRule $
+--             deleteRateBasedRuleResponse
+--
+--         , responseUpdateRateBasedRule $
+--             updateRateBasedRuleResponse
 --
 --         , responseUpdateRule $
 --             updateRuleResponse
@@ -226,6 +253,9 @@ import Test.AWS.WAF.Internal
 --         , responseDeleteByteMatchSet $
 --             deleteByteMatchSetResponse
 --
+--         , responseGetRateBasedRuleManagedKeys $
+--             getRateBasedRuleManagedKeysResponse
+--
 --         , responseDeleteIPSet $
 --             deleteIPSetResponse
 --
@@ -241,6 +271,9 @@ import Test.AWS.WAF.Internal
 --         , responseGetByteMatchSet $
 --             getByteMatchSetResponse
 --
+--         , responseGetRateBasedRule $
+--             getRateBasedRuleResponse
+--
 --         , responseDeleteSizeConstraintSet $
 --             deleteSizeConstraintSetResponse
 --
@@ -253,6 +286,9 @@ import Test.AWS.WAF.Internal
 --         , responseListSqlInjectionMatchSets $
 --             listSqlInjectionMatchSetsResponse
 --
+--         , responseCreateRateBasedRule $
+--             createRateBasedRuleResponse
+--
 --         , responseDeleteSqlInjectionMatchSet $
 --             deleteSqlInjectionMatchSetResponse
 --
@@ -264,10 +300,25 @@ import Test.AWS.WAF.Internal
 
 -- Requests
 
+requestListRateBasedRules :: ListRateBasedRules -> TestTree
+requestListRateBasedRules = req
+    "ListRateBasedRules"
+    "fixture/ListRateBasedRules.yaml"
+
 requestGetSizeConstraintSet :: GetSizeConstraintSet -> TestTree
 requestGetSizeConstraintSet = req
     "GetSizeConstraintSet"
     "fixture/GetSizeConstraintSet.yaml"
+
+requestDeleteRateBasedRule :: DeleteRateBasedRule -> TestTree
+requestDeleteRateBasedRule = req
+    "DeleteRateBasedRule"
+    "fixture/DeleteRateBasedRule.yaml"
+
+requestUpdateRateBasedRule :: UpdateRateBasedRule -> TestTree
+requestUpdateRateBasedRule = req
+    "UpdateRateBasedRule"
+    "fixture/UpdateRateBasedRule.yaml"
 
 requestUpdateRule :: UpdateRule -> TestTree
 requestUpdateRule = req
@@ -399,6 +450,11 @@ requestDeleteByteMatchSet = req
     "DeleteByteMatchSet"
     "fixture/DeleteByteMatchSet.yaml"
 
+requestGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeys -> TestTree
+requestGetRateBasedRuleManagedKeys = req
+    "GetRateBasedRuleManagedKeys"
+    "fixture/GetRateBasedRuleManagedKeys.yaml"
+
 requestDeleteIPSet :: DeleteIPSet -> TestTree
 requestDeleteIPSet = req
     "DeleteIPSet"
@@ -424,6 +480,11 @@ requestGetByteMatchSet = req
     "GetByteMatchSet"
     "fixture/GetByteMatchSet.yaml"
 
+requestGetRateBasedRule :: GetRateBasedRule -> TestTree
+requestGetRateBasedRule = req
+    "GetRateBasedRule"
+    "fixture/GetRateBasedRule.yaml"
+
 requestDeleteSizeConstraintSet :: DeleteSizeConstraintSet -> TestTree
 requestDeleteSizeConstraintSet = req
     "DeleteSizeConstraintSet"
@@ -444,6 +505,11 @@ requestListSqlInjectionMatchSets = req
     "ListSqlInjectionMatchSets"
     "fixture/ListSqlInjectionMatchSets.yaml"
 
+requestCreateRateBasedRule :: CreateRateBasedRule -> TestTree
+requestCreateRateBasedRule = req
+    "CreateRateBasedRule"
+    "fixture/CreateRateBasedRule.yaml"
+
 requestDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSet -> TestTree
 requestDeleteSqlInjectionMatchSet = req
     "DeleteSqlInjectionMatchSet"
@@ -456,12 +522,33 @@ requestUpdateSqlInjectionMatchSet = req
 
 -- Responses
 
+responseListRateBasedRules :: ListRateBasedRulesResponse -> TestTree
+responseListRateBasedRules = res
+    "ListRateBasedRulesResponse"
+    "fixture/ListRateBasedRulesResponse.proto"
+    waf
+    (Proxy :: Proxy ListRateBasedRules)
+
 responseGetSizeConstraintSet :: GetSizeConstraintSetResponse -> TestTree
 responseGetSizeConstraintSet = res
     "GetSizeConstraintSetResponse"
     "fixture/GetSizeConstraintSetResponse.proto"
     waf
     (Proxy :: Proxy GetSizeConstraintSet)
+
+responseDeleteRateBasedRule :: DeleteRateBasedRuleResponse -> TestTree
+responseDeleteRateBasedRule = res
+    "DeleteRateBasedRuleResponse"
+    "fixture/DeleteRateBasedRuleResponse.proto"
+    waf
+    (Proxy :: Proxy DeleteRateBasedRule)
+
+responseUpdateRateBasedRule :: UpdateRateBasedRuleResponse -> TestTree
+responseUpdateRateBasedRule = res
+    "UpdateRateBasedRuleResponse"
+    "fixture/UpdateRateBasedRuleResponse.proto"
+    waf
+    (Proxy :: Proxy UpdateRateBasedRule)
 
 responseUpdateRule :: UpdateRuleResponse -> TestTree
 responseUpdateRule = res
@@ -645,6 +732,13 @@ responseDeleteByteMatchSet = res
     waf
     (Proxy :: Proxy DeleteByteMatchSet)
 
+responseGetRateBasedRuleManagedKeys :: GetRateBasedRuleManagedKeysResponse -> TestTree
+responseGetRateBasedRuleManagedKeys = res
+    "GetRateBasedRuleManagedKeysResponse"
+    "fixture/GetRateBasedRuleManagedKeysResponse.proto"
+    waf
+    (Proxy :: Proxy GetRateBasedRuleManagedKeys)
+
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
 responseDeleteIPSet = res
     "DeleteIPSetResponse"
@@ -680,6 +774,13 @@ responseGetByteMatchSet = res
     waf
     (Proxy :: Proxy GetByteMatchSet)
 
+responseGetRateBasedRule :: GetRateBasedRuleResponse -> TestTree
+responseGetRateBasedRule = res
+    "GetRateBasedRuleResponse"
+    "fixture/GetRateBasedRuleResponse.proto"
+    waf
+    (Proxy :: Proxy GetRateBasedRule)
+
 responseDeleteSizeConstraintSet :: DeleteSizeConstraintSetResponse -> TestTree
 responseDeleteSizeConstraintSet = res
     "DeleteSizeConstraintSetResponse"
@@ -707,6 +808,13 @@ responseListSqlInjectionMatchSets = res
     "fixture/ListSqlInjectionMatchSetsResponse.proto"
     waf
     (Proxy :: Proxy ListSqlInjectionMatchSets)
+
+responseCreateRateBasedRule :: CreateRateBasedRuleResponse -> TestTree
+responseCreateRateBasedRule = res
+    "CreateRateBasedRuleResponse"
+    "fixture/CreateRateBasedRuleResponse.proto"
+    waf
+    (Proxy :: Proxy CreateRateBasedRule)
 
 responseDeleteSqlInjectionMatchSet :: DeleteSqlInjectionMatchSetResponse -> TestTree
 responseDeleteSqlInjectionMatchSet = res

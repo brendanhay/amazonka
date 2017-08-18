@@ -258,6 +258,32 @@ instance ToJSON PredicateType where
 instance FromJSON PredicateType where
     parseJSON = parseJSONText "PredicateType"
 
+data RateKey =
+    IP
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText RateKey where
+    parser = takeLowerText >>= \case
+        "ip" -> pure IP
+        e -> fromTextError $ "Failure parsing RateKey from value: '" <> e
+           <> "'. Accepted values: ip"
+
+instance ToText RateKey where
+    toText = \case
+        IP -> "IP"
+
+instance Hashable     RateKey
+instance NFData       RateKey
+instance ToByteString RateKey
+instance ToQuery      RateKey
+instance ToHeader     RateKey
+
+instance ToJSON RateKey where
+    toJSON = toJSONText
+
+instance FromJSON RateKey where
+    parseJSON = parseJSONText "RateKey"
+
 data TextTransformation
     = CmdLine
     | CompressWhiteSpace
@@ -330,3 +356,32 @@ instance ToJSON WafActionType where
 
 instance FromJSON WafActionType where
     parseJSON = parseJSONText "WafActionType"
+
+data WafRuleType
+    = RateBased
+    | Regular
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText WafRuleType where
+    parser = takeLowerText >>= \case
+        "rate_based" -> pure RateBased
+        "regular" -> pure Regular
+        e -> fromTextError $ "Failure parsing WafRuleType from value: '" <> e
+           <> "'. Accepted values: rate_based, regular"
+
+instance ToText WafRuleType where
+    toText = \case
+        RateBased -> "RATE_BASED"
+        Regular -> "REGULAR"
+
+instance Hashable     WafRuleType
+instance NFData       WafRuleType
+instance ToByteString WafRuleType
+instance ToQuery      WafRuleType
+instance ToHeader     WafRuleType
+
+instance ToJSON WafRuleType where
+    toJSON = toJSONText
+
+instance FromJSON WafRuleType where
+    parseJSON = parseJSONText "WafRuleType"

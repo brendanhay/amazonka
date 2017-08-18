@@ -207,6 +207,9 @@ module Network.AWS.ELBv2
     -- ** DescribeSSLPolicies
     , module Network.AWS.ELBv2.DescribeSSLPolicies
 
+    -- ** DescribeAccountLimits
+    , module Network.AWS.ELBv2.DescribeAccountLimits
+
     -- ** DeregisterTargets
     , module Network.AWS.ELBv2.DeregisterTargets
 
@@ -288,6 +291,12 @@ module Network.AWS.ELBv2
     , cipher
     , cPriority
     , cName
+
+    -- ** Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
 
     -- ** Listener
     , Listener
@@ -428,6 +437,7 @@ import           Network.AWS.ELBv2.DeleteLoadBalancer
 import           Network.AWS.ELBv2.DeleteRule
 import           Network.AWS.ELBv2.DeleteTargetGroup
 import           Network.AWS.ELBv2.DeregisterTargets
+import           Network.AWS.ELBv2.DescribeAccountLimits
 import           Network.AWS.ELBv2.DescribeListeners
 import           Network.AWS.ELBv2.DescribeLoadBalancerAttributes
 import           Network.AWS.ELBv2.DescribeLoadBalancers

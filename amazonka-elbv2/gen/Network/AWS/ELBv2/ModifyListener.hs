@@ -21,7 +21,7 @@
 -- Modifies the specified properties of the specified listener.
 --
 --
--- Any properties that you do not specify retain their current values. However, changing the protocol from HTTPS to HTTP removes the security policy and SSL certificate properties. If you change the protocol from HTTP to HTTPS, you must add the security policy.
+-- Any properties that you do not specify retain their current values. However, changing the protocol from HTTPS to HTTP removes the security policy and SSL certificate properties. If you change the protocol from HTTP to HTTPS, you must add the security policy and server certificate.
 --
 module Network.AWS.ELBv2.ModifyListener
     (
@@ -65,7 +65,7 @@ data ModifyListener = ModifyListener'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mlSSLPolicy' - The security policy that defines which ciphers and protocols are supported.
+-- * 'mlSSLPolicy' - The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 --
 -- * 'mlProtocol' - The protocol for connections from clients to the load balancer.
 --
@@ -89,7 +89,7 @@ modifyListener pListenerARN_ =
     , _mlListenerARN = pListenerARN_
     }
 
--- | The security policy that defines which ciphers and protocols are supported.
+-- | The security policy that defines which protocols and ciphers are supported. For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 mlSSLPolicy :: Lens' ModifyListener (Maybe Text)
 mlSSLPolicy = lens _mlSSLPolicy (\ s a -> s{_mlSSLPolicy = a});
 

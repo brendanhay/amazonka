@@ -65,7 +65,7 @@ data CreateRule = CreateRule'
 --
 -- * 'crListenerARN' - The Amazon Resource Name (ARN) of the listener.
 --
--- * 'crConditions' - A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'crConditions' - A condition. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 --
 -- * 'crPriority' - The priority for the rule. A listener can't have multiple rules with the same priority.
 --
@@ -86,7 +86,7 @@ createRule pListenerARN_ pPriority_ =
 crListenerARN :: Lens' CreateRule Text
 crListenerARN = lens _crListenerARN (\ s a -> s{_crListenerARN = a});
 
--- | A condition. Each condition has the field @path-pattern@ and specifies one path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | A condition. Each condition specifies a field name and a single value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 crConditions :: Lens' CreateRule [RuleCondition]
 crConditions = lens _crConditions (\ s a -> s{_crConditions = a}) . _Coerce;
 

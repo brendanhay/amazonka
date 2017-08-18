@@ -67,7 +67,7 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 --
 -- * 'dlbNames' - The names of the load balancers.
 --
--- * 'dlbLoadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers.
+-- * 'dlbLoadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
 --
 -- * 'dlbMarker' - The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -86,7 +86,7 @@ describeLoadBalancers =
 dlbNames :: Lens' DescribeLoadBalancers [Text]
 dlbNames = lens _dlbNames (\ s a -> s{_dlbNames = a}) . _Default . _Coerce;
 
--- | The Amazon Resource Names (ARN) of the load balancers.
+-- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
 dlbLoadBalancerARNs :: Lens' DescribeLoadBalancers [Text]
 dlbLoadBalancerARNs = lens _dlbLoadBalancerARNs (\ s a -> s{_dlbLoadBalancerARNs = a}) . _Default . _Coerce;
 

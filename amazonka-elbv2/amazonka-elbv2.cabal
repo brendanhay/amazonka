@@ -50,6 +50,7 @@ library
         , Network.AWS.ELBv2.DeleteRule
         , Network.AWS.ELBv2.DeleteTargetGroup
         , Network.AWS.ELBv2.DeregisterTargets
+        , Network.AWS.ELBv2.DescribeAccountLimits
         , Network.AWS.ELBv2.DescribeListeners
         , Network.AWS.ELBv2.DescribeLoadBalancerAttributes
         , Network.AWS.ELBv2.DescribeLoadBalancers

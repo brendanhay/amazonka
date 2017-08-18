@@ -99,7 +99,7 @@ data CreateTargetGroup = CreateTargetGroup'
 --
 -- * 'ctgHealthCheckPort' - The port the load balancer uses when performing health checks on targets. The default is @traffic-port@ , which indicates the port on which each target receives traffic from the load balancer.
 --
--- * 'ctgName' - The name of the target group.
+-- * 'ctgName' - The name of the target group. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 --
 -- * 'ctgProtocol' - The protocol to use for routing traffic to the targets.
 --
@@ -160,7 +160,7 @@ ctgHealthCheckTimeoutSeconds = lens _ctgHealthCheckTimeoutSeconds (\ s a -> s{_c
 ctgHealthCheckPort :: Lens' CreateTargetGroup (Maybe Text)
 ctgHealthCheckPort = lens _ctgHealthCheckPort (\ s a -> s{_ctgHealthCheckPort = a});
 
--- | The name of the target group.
+-- | The name of the target group. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 ctgName :: Lens' CreateTargetGroup Text
 ctgName = lens _ctgName (\ s a -> s{_ctgName = a});
 

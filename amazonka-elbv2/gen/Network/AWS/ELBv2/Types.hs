@@ -95,6 +95,12 @@ module Network.AWS.ELBv2.Types
     , cPriority
     , cName
 
+    -- * Limit
+    , Limit
+    , limit
+    , lMax
+    , lName
+
     -- * Listener
     , Listener
     , listener
@@ -253,6 +259,8 @@ eLBv2 =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -313,7 +321,7 @@ _TooManyTargetGroupsException :: AsError a => Getting (First ServiceError) a Ser
 _TooManyTargetGroupsException =
     _MatchServiceError eLBv2 "TooManyTargetGroups" . hasStatus 400
 
--- | A load balancer with the specified name already exists for this account.
+-- | A load balancer with the specified name already exists.
 --
 --
 _DuplicateLoadBalancerNameException :: AsError a => Getting (First ServiceError) a ServiceError

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the tags for the specified resources.
+-- Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers and target groups.
 --
 --
 module Network.AWS.ELBv2.DescribeTags

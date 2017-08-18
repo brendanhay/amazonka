@@ -21,6 +21,8 @@
 -- Lists your policies.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListPolicies
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.IoT.ListPolicies
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ lpAscendingOrder = lens _lpAscendingOrder (\ s a -> s{_lpAscendingOrder = a});
 -- | The result page size.
 lpPageSize :: Lens' ListPolicies (Maybe Natural)
 lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat;
+
+instance AWSPager ListPolicies where
+        page rq rs
+          | stop (rs ^. lprsNextMarker) = Nothing
+          | stop (rs ^. lprsPolicies) = Nothing
+          | otherwise =
+            Just $ rq & lpMarker .~ rs ^. lprsNextMarker
 
 instance AWSRequest ListPolicies where
         type Rs ListPolicies = ListPoliciesResponse

@@ -21,6 +21,8 @@
 -- Lists the existing thing types.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListThingTypes
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.IoT.ListThingTypes
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ lttNextToken = lens _lttNextToken (\ s a -> s{_lttNextToken = a});
 -- | The maximum number of results to return in this operation.
 lttMaxResults :: Lens' ListThingTypes (Maybe Natural)
 lttMaxResults = lens _lttMaxResults (\ s a -> s{_lttMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListThingTypes where
+        page rq rs
+          | stop (rs ^. lttrsNextToken) = Nothing
+          | stop (rs ^. lttrsThingTypes) = Nothing
+          | otherwise =
+            Just $ rq & lttNextToken .~ rs ^. lttrsNextToken
 
 instance AWSRequest ListThingTypes where
         type Rs ListThingTypes = ListThingTypesResponse

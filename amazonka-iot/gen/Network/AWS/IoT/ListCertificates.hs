@@ -23,6 +23,8 @@
 --
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificates
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.IoT.ListCertificates
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -89,6 +92,13 @@ lcAscendingOrder = lens _lcAscendingOrder (\ s a -> s{_lcAscendingOrder = a});
 -- | The result page size.
 lcPageSize :: Lens' ListCertificates (Maybe Natural)
 lcPageSize = lens _lcPageSize (\ s a -> s{_lcPageSize = a}) . mapping _Nat;
+
+instance AWSPager ListCertificates where
+        page rq rs
+          | stop (rs ^. lcrsNextMarker) = Nothing
+          | stop (rs ^. lcrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & lcMarker .~ rs ^. lcrsNextMarker
 
 instance AWSRequest ListCertificates where
         type Rs ListCertificates = ListCertificatesResponse

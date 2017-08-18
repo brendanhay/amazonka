@@ -21,6 +21,8 @@
 -- Lists the principals associated with the specified policy.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListPolicyPrincipals
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.IoT.ListPolicyPrincipals
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -97,6 +100,13 @@ lPageSize = lens _lPageSize (\ s a -> s{_lPageSize = a}) . mapping _Nat;
 -- | The policy name.
 lPolicyName :: Lens' ListPolicyPrincipals Text
 lPolicyName = lens _lPolicyName (\ s a -> s{_lPolicyName = a});
+
+instance AWSPager ListPolicyPrincipals where
+        page rq rs
+          | stop (rs ^. lrsNextMarker) = Nothing
+          | stop (rs ^. lrsPrincipals) = Nothing
+          | otherwise =
+            Just $ rq & lMarker .~ rs ^. lrsNextMarker
 
 instance AWSRequest ListPolicyPrincipals where
         type Rs ListPolicyPrincipals =

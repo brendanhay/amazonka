@@ -64,7 +64,7 @@ data RegisterCertificate = RegisterCertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcStatus' - Undocumented member.
+-- * 'rcStatus' - The status of the register certificate request.
 --
 -- * 'rcCaCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
@@ -82,7 +82,7 @@ registerCertificate pCertificatePem_ =
     , _rcCertificatePem = pCertificatePem_
     }
 
--- | Undocumented member.
+-- | The status of the register certificate request.
 rcStatus :: Lens' RegisterCertificate (Maybe CertificateStatus)
 rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a});
 

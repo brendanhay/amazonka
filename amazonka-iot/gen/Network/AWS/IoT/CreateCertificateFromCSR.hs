@@ -21,7 +21,9 @@
 -- Creates an X.509 certificate using the specified certificate signing request.
 --
 --
--- __Note__ Reusing the same certificate signing request (CSR) results in a distinct certificate.
+-- __Note:__ The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves.
+--
+-- __Note:__ Reusing the same certificate signing request (CSR) results in a distinct certificate.
 --
 -- You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.
 --

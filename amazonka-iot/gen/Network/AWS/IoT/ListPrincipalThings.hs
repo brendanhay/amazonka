@@ -21,6 +21,8 @@
 -- Lists the things associated with the specified principal.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListPrincipalThings
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.IoT.ListPrincipalThings
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -88,6 +91,13 @@ lptMaxResults = lens _lptMaxResults (\ s a -> s{_lptMaxResults = a}) . mapping _
 -- | The principal.
 lptPrincipal :: Lens' ListPrincipalThings Text
 lptPrincipal = lens _lptPrincipal (\ s a -> s{_lptPrincipal = a});
+
+instance AWSPager ListPrincipalThings where
+        page rq rs
+          | stop (rs ^. lptrsNextToken) = Nothing
+          | stop (rs ^. lptrsThings) = Nothing
+          | otherwise =
+            Just $ rq & lptNextToken .~ rs ^. lptrsNextToken
 
 instance AWSRequest ListPrincipalThings where
         type Rs ListPrincipalThings =

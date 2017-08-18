@@ -21,6 +21,8 @@
 -- Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax AmazonCognito Identity format> .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListPrincipalPolicies
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.IoT.ListPrincipalPolicies
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -97,6 +100,13 @@ lppPageSize = lens _lppPageSize (\ s a -> s{_lppPageSize = a}) . mapping _Nat;
 -- | The principal.
 lppPrincipal :: Lens' ListPrincipalPolicies Text
 lppPrincipal = lens _lppPrincipal (\ s a -> s{_lppPrincipal = a});
+
+instance AWSPager ListPrincipalPolicies where
+        page rq rs
+          | stop (rs ^. lpprsNextMarker) = Nothing
+          | stop (rs ^. lpprsPolicies) = Nothing
+          | otherwise =
+            Just $ rq & lppMarker .~ rs ^. lpprsNextMarker
 
 instance AWSRequest ListPrincipalPolicies where
         type Rs ListPrincipalPolicies =

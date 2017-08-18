@@ -21,7 +21,7 @@
 -- Creates an Amazon Kinesis Analytics application. You can configure each application with one streaming source as input, application code to process the input, and up to five streaming destinations where you want Amazon Kinesis Analytics to write the output data from your application. For an overview, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html How it Works> .
 --
 --
--- In the input configuration, you map the streaming source to an in-application stream, which you can think of as a constantly updating table. In the mapping, you must provide a schema for the in-application stream and map each data column in the in-application stream to a data element in the streaming source, with the option of renaming, casting and dropping columns as desired.
+-- In the input configuration, you map the streaming source to an in-application stream, which you can think of as a constantly updating table. In the mapping, you must provide a schema for the in-application stream and map each data column in the in-application stream to a data element in the streaming source.
 --
 -- Your application code is one or more SQL statements that read input data, transform it, and generate output. Your application code can create one or more SQL artifacts like SQL streams or pumps.
 --
@@ -39,6 +39,7 @@ module Network.AWS.KinesisAnalytics.CreateApplication
     -- * Request Lenses
     , caApplicationDescription
     , caInputs
+    , caCloudWatchLoggingOptions
     , caOutputs
     , caApplicationCode
     , caApplicationName
@@ -64,11 +65,12 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createApplication' smart constructor.
 data CreateApplication = CreateApplication'
-    { _caApplicationDescription :: !(Maybe Text)
-    , _caInputs                 :: !(Maybe [Input])
-    , _caOutputs                :: !(Maybe [Output])
-    , _caApplicationCode        :: !(Maybe Text)
-    , _caApplicationName        :: !Text
+    { _caApplicationDescription   :: !(Maybe Text)
+    , _caInputs                   :: !(Maybe [Input])
+    , _caCloudWatchLoggingOptions :: !(Maybe [CloudWatchLoggingOption])
+    , _caOutputs                  :: !(Maybe [Output])
+    , _caApplicationCode          :: !(Maybe Text)
+    , _caApplicationName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
@@ -79,9 +81,11 @@ data CreateApplication = CreateApplication'
 --
 -- * 'caInputs' - Use this parameter to configure the application input. You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table). For the streaming source, you provide its Amazon Resource Name (ARN) and format of data on the stream (for example, JSON, CSV, etc). You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf. To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.
 --
+-- * 'caCloudWatchLoggingOptions' - Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
+--
 -- * 'caOutputs' - You can configure application output to write data from any of the in-application streams to up to five destinations. These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, or both. In the configuration, you specify the in-application stream name, the destination stream Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. In the output configuration, you also provide the output stream Amazon Resource Name (ARN) and the format of data in the stream (for example, JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume to write to this stream on your behalf.
 --
--- * 'caApplicationCode' - One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads input data and generates a running average of the number of advertisement clicks by vendor. You can also provide a series of SQL statements, where output of one statement can be used as the input for the next statement. Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
+-- * 'caApplicationCode' - One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more inforamtion about the typical pattern, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code> .  You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps. Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
 --
 -- * 'caApplicationName' - Name of your Amazon Kinesis Analytics application (for example, @sample-app@ ).
 createApplication
@@ -91,6 +95,7 @@ createApplication pApplicationName_ =
     CreateApplication'
     { _caApplicationDescription = Nothing
     , _caInputs = Nothing
+    , _caCloudWatchLoggingOptions = Nothing
     , _caOutputs = Nothing
     , _caApplicationCode = Nothing
     , _caApplicationName = pApplicationName_
@@ -104,11 +109,15 @@ caApplicationDescription = lens _caApplicationDescription (\ s a -> s{_caApplica
 caInputs :: Lens' CreateApplication [Input]
 caInputs = lens _caInputs (\ s a -> s{_caInputs = a}) . _Default . _Coerce;
 
+-- | Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
+caCloudWatchLoggingOptions :: Lens' CreateApplication [CloudWatchLoggingOption]
+caCloudWatchLoggingOptions = lens _caCloudWatchLoggingOptions (\ s a -> s{_caCloudWatchLoggingOptions = a}) . _Default . _Coerce;
+
 -- | You can configure application output to write data from any of the in-application streams to up to five destinations. These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, or both. In the configuration, you specify the in-application stream name, the destination stream Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. In the output configuration, you also provide the output stream Amazon Resource Name (ARN) and the format of data in the stream (for example, JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume to write to this stream on your behalf.
 caOutputs :: Lens' CreateApplication [Output]
 caOutputs = lens _caOutputs (\ s a -> s{_caOutputs = a}) . _Default . _Coerce;
 
--- | One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads input data and generates a running average of the number of advertisement clicks by vendor. You can also provide a series of SQL statements, where output of one statement can be used as the input for the next statement. Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
+-- | One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more inforamtion about the typical pattern, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code> .  You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps. Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
 caApplicationCode :: Lens' CreateApplication (Maybe Text)
 caApplicationCode = lens _caApplicationCode (\ s a -> s{_caApplicationCode = a});
 
@@ -146,6 +155,8 @@ instance ToJSON CreateApplication where
                  [("ApplicationDescription" .=) <$>
                     _caApplicationDescription,
                   ("Inputs" .=) <$> _caInputs,
+                  ("CloudWatchLoggingOptions" .=) <$>
+                    _caCloudWatchLoggingOptions,
                   ("Outputs" .=) <$> _caOutputs,
                   ("ApplicationCode" .=) <$> _caApplicationCode,
                   Just ("ApplicationName" .= _caApplicationName)])

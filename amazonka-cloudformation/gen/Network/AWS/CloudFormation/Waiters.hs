@@ -156,10 +156,10 @@ changeSetCreateComplete =
     , _waitAcceptors = [ matchAll
                              "CREATE_COMPLETE"
                              AcceptSuccess
-                             (drsStatus . to toTextCI)
+                             (desrsStatus . to toTextCI)
                        , matchAll
                              "FAILED"
                              AcceptFailure
-                             (drsStatus . to toTextCI)
+                             (desrsStatus . to toTextCI)
                        , matchError "ValidationError" AcceptFailure]
     }

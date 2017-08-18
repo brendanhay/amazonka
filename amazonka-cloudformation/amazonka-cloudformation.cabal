@@ -44,13 +44,20 @@ library
         , Network.AWS.CloudFormation.ContinueUpdateRollback
         , Network.AWS.CloudFormation.CreateChangeSet
         , Network.AWS.CloudFormation.CreateStack
+        , Network.AWS.CloudFormation.CreateStackInstances
+        , Network.AWS.CloudFormation.CreateStackSet
         , Network.AWS.CloudFormation.DeleteChangeSet
         , Network.AWS.CloudFormation.DeleteStack
+        , Network.AWS.CloudFormation.DeleteStackInstances
+        , Network.AWS.CloudFormation.DeleteStackSet
         , Network.AWS.CloudFormation.DescribeAccountLimits
         , Network.AWS.CloudFormation.DescribeChangeSet
         , Network.AWS.CloudFormation.DescribeStackEvents
+        , Network.AWS.CloudFormation.DescribeStackInstance
         , Network.AWS.CloudFormation.DescribeStackResource
         , Network.AWS.CloudFormation.DescribeStackResources
+        , Network.AWS.CloudFormation.DescribeStackSet
+        , Network.AWS.CloudFormation.DescribeStackSetOperation
         , Network.AWS.CloudFormation.DescribeStacks
         , Network.AWS.CloudFormation.EstimateTemplateCost
         , Network.AWS.CloudFormation.ExecuteChangeSet
@@ -60,12 +67,18 @@ library
         , Network.AWS.CloudFormation.ListChangeSets
         , Network.AWS.CloudFormation.ListExports
         , Network.AWS.CloudFormation.ListImports
+        , Network.AWS.CloudFormation.ListStackInstances
         , Network.AWS.CloudFormation.ListStackResources
+        , Network.AWS.CloudFormation.ListStackSetOperationResults
+        , Network.AWS.CloudFormation.ListStackSetOperations
+        , Network.AWS.CloudFormation.ListStackSets
         , Network.AWS.CloudFormation.ListStacks
         , Network.AWS.CloudFormation.SetStackPolicy
         , Network.AWS.CloudFormation.SignalResource
+        , Network.AWS.CloudFormation.StopStackSetOperation
         , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.UpdateStack
+        , Network.AWS.CloudFormation.UpdateStackSet
         , Network.AWS.CloudFormation.ValidateTemplate
         , Network.AWS.CloudFormation.Waiters
 

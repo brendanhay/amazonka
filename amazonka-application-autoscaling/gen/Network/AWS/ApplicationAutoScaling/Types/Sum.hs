@@ -52,24 +52,24 @@ instance FromJSON AdjustmentType where
     parseJSON = parseJSONText "AdjustmentType"
 
 data MetricAggregationType
-    = Average
-    | Maximum
-    | Minimum
+    = MATAverage
+    | MATMaximum
+    | MATMinimum
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText MetricAggregationType where
     parser = takeLowerText >>= \case
-        "average" -> pure Average
-        "maximum" -> pure Maximum
-        "minimum" -> pure Minimum
+        "average" -> pure MATAverage
+        "maximum" -> pure MATMaximum
+        "minimum" -> pure MATMinimum
         e -> fromTextError $ "Failure parsing MetricAggregationType from value: '" <> e
            <> "'. Accepted values: average, maximum, minimum"
 
 instance ToText MetricAggregationType where
     toText = \case
-        Average -> "Average"
-        Maximum -> "Maximum"
-        Minimum -> "Minimum"
+        MATAverage -> "Average"
+        MATMaximum -> "Maximum"
+        MATMinimum -> "Minimum"
 
 instance Hashable     MetricAggregationType
 instance NFData       MetricAggregationType
@@ -83,19 +83,89 @@ instance ToJSON MetricAggregationType where
 instance FromJSON MetricAggregationType where
     parseJSON = parseJSONText "MetricAggregationType"
 
-data PolicyType =
-    StepScaling
+data MetricStatistic
+    = Average
+    | Maximum
+    | Minimum
+    | SampleCount
+    | Sum
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MetricStatistic where
+    parser = takeLowerText >>= \case
+        "average" -> pure Average
+        "maximum" -> pure Maximum
+        "minimum" -> pure Minimum
+        "samplecount" -> pure SampleCount
+        "sum" -> pure Sum
+        e -> fromTextError $ "Failure parsing MetricStatistic from value: '" <> e
+           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
+
+instance ToText MetricStatistic where
+    toText = \case
+        Average -> "Average"
+        Maximum -> "Maximum"
+        Minimum -> "Minimum"
+        SampleCount -> "SampleCount"
+        Sum -> "Sum"
+
+instance Hashable     MetricStatistic
+instance NFData       MetricStatistic
+instance ToByteString MetricStatistic
+instance ToQuery      MetricStatistic
+instance ToHeader     MetricStatistic
+
+instance ToJSON MetricStatistic where
+    toJSON = toJSONText
+
+instance FromJSON MetricStatistic where
+    parseJSON = parseJSONText "MetricStatistic"
+
+data MetricType
+    = DynamoDBReadCapacityUtilization
+    | DynamoDBWriteCapacityUtilization
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MetricType where
+    parser = takeLowerText >>= \case
+        "dynamodbreadcapacityutilization" -> pure DynamoDBReadCapacityUtilization
+        "dynamodbwritecapacityutilization" -> pure DynamoDBWriteCapacityUtilization
+        e -> fromTextError $ "Failure parsing MetricType from value: '" <> e
+           <> "'. Accepted values: dynamodbreadcapacityutilization, dynamodbwritecapacityutilization"
+
+instance ToText MetricType where
+    toText = \case
+        DynamoDBReadCapacityUtilization -> "DynamoDBReadCapacityUtilization"
+        DynamoDBWriteCapacityUtilization -> "DynamoDBWriteCapacityUtilization"
+
+instance Hashable     MetricType
+instance NFData       MetricType
+instance ToByteString MetricType
+instance ToQuery      MetricType
+instance ToHeader     MetricType
+
+instance ToJSON MetricType where
+    toJSON = toJSONText
+
+instance FromJSON MetricType where
+    parseJSON = parseJSONText "MetricType"
+
+data PolicyType
+    = StepScaling
+    | TargetTrackingScaling
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText PolicyType where
     parser = takeLowerText >>= \case
         "stepscaling" -> pure StepScaling
+        "targettrackingscaling" -> pure TargetTrackingScaling
         e -> fromTextError $ "Failure parsing PolicyType from value: '" <> e
-           <> "'. Accepted values: stepscaling"
+           <> "'. Accepted values: stepscaling, targettrackingscaling"
 
 instance ToText PolicyType where
     toText = \case
         StepScaling -> "StepScaling"
+        TargetTrackingScaling -> "TargetTrackingScaling"
 
 instance Hashable     PolicyType
 instance NFData       PolicyType
@@ -110,21 +180,36 @@ instance FromJSON PolicyType where
     parseJSON = parseJSONText "PolicyType"
 
 data ScalableDimension
-    = EC2SpotFleetRequestTargetCapacity
+    = AppstreamFleetDesiredCapacity
+    | DynamodbIndexReadCapacityUnits
+    | DynamodbIndexWriteCapacityUnits
+    | DynamodbTableReadCapacityUnits
+    | DynamodbTableWriteCapacityUnits
+    | EC2SpotFleetRequestTargetCapacity
     | EcsServiceDesiredCount
     | ElasticmapreduceInstancegroupInstanceCount
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ScalableDimension where
     parser = takeLowerText >>= \case
+        "appstream:fleet:desiredcapacity" -> pure AppstreamFleetDesiredCapacity
+        "dynamodb:index:readcapacityunits" -> pure DynamodbIndexReadCapacityUnits
+        "dynamodb:index:writecapacityunits" -> pure DynamodbIndexWriteCapacityUnits
+        "dynamodb:table:readcapacityunits" -> pure DynamodbTableReadCapacityUnits
+        "dynamodb:table:writecapacityunits" -> pure DynamodbTableWriteCapacityUnits
         "ec2:spot-fleet-request:targetcapacity" -> pure EC2SpotFleetRequestTargetCapacity
         "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
         "elasticmapreduce:instancegroup:instancecount" -> pure ElasticmapreduceInstancegroupInstanceCount
         e -> fromTextError $ "Failure parsing ScalableDimension from value: '" <> e
-           <> "'. Accepted values: ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount"
+           <> "'. Accepted values: appstream:fleet:desiredcapacity, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, elasticmapreduce:instancegroup:instancecount"
 
 instance ToText ScalableDimension where
     toText = \case
+        AppstreamFleetDesiredCapacity -> "appstream:fleet:DesiredCapacity"
+        DynamodbIndexReadCapacityUnits -> "dynamodb:index:ReadCapacityUnits"
+        DynamodbIndexWriteCapacityUnits -> "dynamodb:index:WriteCapacityUnits"
+        DynamodbTableReadCapacityUnits -> "dynamodb:table:ReadCapacityUnits"
+        DynamodbTableWriteCapacityUnits -> "dynamodb:table:WriteCapacityUnits"
         EC2SpotFleetRequestTargetCapacity -> "ec2:spot-fleet-request:TargetCapacity"
         EcsServiceDesiredCount -> "ecs:service:DesiredCount"
         ElasticmapreduceInstancegroupInstanceCount -> "elasticmapreduce:instancegroup:InstanceCount"
@@ -180,21 +265,27 @@ instance FromJSON ScalingActivityStatusCode where
     parseJSON = parseJSONText "ScalingActivityStatusCode"
 
 data ServiceNamespace
-    = EC2
+    = Appstream
+    | Dynamodb
+    | EC2
     | Ecs
     | Elasticmapreduce
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ServiceNamespace where
     parser = takeLowerText >>= \case
+        "appstream" -> pure Appstream
+        "dynamodb" -> pure Dynamodb
         "ec2" -> pure EC2
         "ecs" -> pure Ecs
         "elasticmapreduce" -> pure Elasticmapreduce
         e -> fromTextError $ "Failure parsing ServiceNamespace from value: '" <> e
-           <> "'. Accepted values: ec2, ecs, elasticmapreduce"
+           <> "'. Accepted values: appstream, dynamodb, ec2, ecs, elasticmapreduce"
 
 instance ToText ServiceNamespace where
     toText = \case
+        Appstream -> "appstream"
+        Dynamodb -> "dynamodb"
         EC2 -> "ec2"
         Ecs -> "ecs"
         Elasticmapreduce -> "elasticmapreduce"

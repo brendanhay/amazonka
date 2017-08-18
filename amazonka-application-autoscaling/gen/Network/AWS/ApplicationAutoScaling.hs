@@ -30,6 +30,10 @@
 --
 --     * Amazon EMR clusters. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-automatic-scaling.html Using Automatic Scaling in Amazon EMR> in the /Amazon EMR Management Guide/ .
 --
+--     * AppStream 2.0 fleets. For more information, see <http://docs.aws.amazon.com/appstream2/latest/developerguide/autoscaling.html Fleet Auto Scaling for Amazon AppStream 2.0> in the /Amazon AppStream 2.0 Developer Guide/ .
+--
+--     * Provisioned read and write capacity for Amazon DynamoDB tables and global secondary indexes. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TargetTracking.html Auto Scaling for DynamoDB> in the /Amazon DynamoDB Developer Guide/ .
+--
 --
 --
 -- For a list of supported regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region AWS Regions and Endpoints: Application Auto Scaling> in the /AWS General Reference/ .
@@ -98,6 +102,12 @@ module Network.AWS.ApplicationAutoScaling
     -- ** MetricAggregationType
     , MetricAggregationType (..)
 
+    -- ** MetricStatistic
+    , MetricStatistic (..)
+
+    -- ** MetricType
+    , MetricType (..)
+
     -- ** PolicyType
     , PolicyType (..)
 
@@ -115,6 +125,27 @@ module Network.AWS.ApplicationAutoScaling
     , alarm
     , aAlarmName
     , aAlarmARN
+
+    -- ** CustomizedMetricSpecification
+    , CustomizedMetricSpecification
+    , customizedMetricSpecification
+    , cmsDimensions
+    , cmsUnit
+    , cmsMetricName
+    , cmsNamespace
+    , cmsStatistic
+
+    -- ** MetricDimension
+    , MetricDimension
+    , metricDimension
+    , mdName
+    , mdValue
+
+    -- ** PredefinedMetricSpecification
+    , PredefinedMetricSpecification
+    , predefinedMetricSpecification
+    , pmsResourceLabel
+    , pmsPredefinedMetricType
 
     -- ** ScalableTarget
     , ScalableTarget
@@ -145,6 +176,7 @@ module Network.AWS.ApplicationAutoScaling
     -- ** ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
+    , spTargetTrackingScalingPolicyConfiguration
     , spStepScalingPolicyConfiguration
     , spAlarms
     , spPolicyARN
@@ -170,6 +202,15 @@ module Network.AWS.ApplicationAutoScaling
     , sspcCooldown
     , sspcMetricAggregationType
     , sspcMinAdjustmentMagnitude
+
+    -- ** TargetTrackingScalingPolicyConfiguration
+    , TargetTrackingScalingPolicyConfiguration
+    , targetTrackingScalingPolicyConfiguration
+    , ttspcPredefinedMetricSpecification
+    , ttspcScaleInCooldown
+    , ttspcCustomizedMetricSpecification
+    , ttspcScaleOutCooldown
+    , ttspcTargetValue
     ) where
 
 import           Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy

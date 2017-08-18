@@ -34,6 +34,7 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     , PutScalingPolicy
     -- * Request Lenses
     , pspPolicyType
+    , pspTargetTrackingScalingPolicyConfiguration
     , pspStepScalingPolicyConfiguration
     , pspPolicyName
     , pspServiceNamespace
@@ -44,6 +45,7 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     , putScalingPolicyResponse
     , PutScalingPolicyResponse
     -- * Response Lenses
+    , psprsAlarms
     , psprsResponseStatus
     , psprsPolicyARN
     ) where
@@ -57,29 +59,32 @@ import           Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-    { _pspPolicyType                     :: !(Maybe PolicyType)
-    , _pspStepScalingPolicyConfiguration :: !(Maybe StepScalingPolicyConfiguration)
-    , _pspPolicyName                     :: !Text
-    , _pspServiceNamespace               :: !ServiceNamespace
-    , _pspResourceId                     :: !Text
-    , _pspScalableDimension              :: !ScalableDimension
+    { _pspPolicyType                               :: !(Maybe PolicyType)
+    , _pspTargetTrackingScalingPolicyConfiguration :: !(Maybe TargetTrackingScalingPolicyConfiguration)
+    , _pspStepScalingPolicyConfiguration           :: !(Maybe StepScalingPolicyConfiguration)
+    , _pspPolicyName                               :: !Text
+    , _pspServiceNamespace                         :: !ServiceNamespace
+    , _pspResourceId                               :: !Text
+    , _pspScalableDimension                        :: !ScalableDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pspPolicyType' - The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required.
+-- * 'pspPolicyType' - The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For DynamoDB, only @TargetTrackingScaling@ is supported. For any other service, only @StepScaling@ is supported.
 --
--- * 'pspStepScalingPolicyConfiguration' - The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
+-- * 'pspTargetTrackingScalingPolicyConfiguration' - A target tracking policy. This parameter is required if you are creating a new policy and the policy type is @TargetTrackingScaling@ .
+--
+-- * 'pspStepScalingPolicyConfiguration' - A step scaling policy. This parameter is required if you are creating a policy and the policy type is @StepScaling@ .
 --
 -- * 'pspPolicyName' - The name of the scaling policy.
 --
 -- * 'pspServiceNamespace' - The namespace of the AWS service. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /Amazon Web Services General Reference/ .
 --
--- * 'pspResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- * 'pspResourceId' - The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 --
--- * 'pspScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- * 'pspScalableDimension' - The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 putScalingPolicy
     :: Text -- ^ 'pspPolicyName'
     -> ServiceNamespace -- ^ 'pspServiceNamespace'
@@ -89,6 +94,7 @@ putScalingPolicy
 putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension_ =
     PutScalingPolicy'
     { _pspPolicyType = Nothing
+    , _pspTargetTrackingScalingPolicyConfiguration = Nothing
     , _pspStepScalingPolicyConfiguration = Nothing
     , _pspPolicyName = pPolicyName_
     , _pspServiceNamespace = pServiceNamespace_
@@ -96,11 +102,15 @@ putScalingPolicy pPolicyName_ pServiceNamespace_ pResourceId_ pScalableDimension
     , _pspScalableDimension = pScalableDimension_
     }
 
--- | The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required.
+-- | The policy type. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For DynamoDB, only @TargetTrackingScaling@ is supported. For any other service, only @StepScaling@ is supported.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe PolicyType)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 
--- | The configuration for the step scaling policy. If you are creating a new policy, this parameter is required. If you are updating a policy, this parameter is not required. For more information, see 'StepScalingPolicyConfiguration' and 'StepAdjustment' .
+-- | A target tracking policy. This parameter is required if you are creating a new policy and the policy type is @TargetTrackingScaling@ .
+pspTargetTrackingScalingPolicyConfiguration :: Lens' PutScalingPolicy (Maybe TargetTrackingScalingPolicyConfiguration)
+pspTargetTrackingScalingPolicyConfiguration = lens _pspTargetTrackingScalingPolicyConfiguration (\ s a -> s{_pspTargetTrackingScalingPolicyConfiguration = a});
+
+-- | A step scaling policy. This parameter is required if you are creating a policy and the policy type is @StepScaling@ .
 pspStepScalingPolicyConfiguration :: Lens' PutScalingPolicy (Maybe StepScalingPolicyConfiguration)
 pspStepScalingPolicyConfiguration = lens _pspStepScalingPolicyConfiguration (\ s a -> s{_pspStepScalingPolicyConfiguration = a});
 
@@ -112,11 +122,11 @@ pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 pspServiceNamespace :: Lens' PutScalingPolicy ServiceNamespace
 pspServiceNamespace = lens _pspServiceNamespace (\ s a -> s{_pspServiceNamespace = a});
 
--- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .
+-- | The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.     * ECS service - The resource type is @service@ and the unique identifier is the cluster name and service name. Example: @service/default/sample-webapp@ .     * Spot fleet request - The resource type is @spot-fleet-request@ and the unique identifier is the Spot fleet request ID. Example: @spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@ .     * EMR cluster - The resource type is @instancegroup@ and the unique identifier is the cluster ID and instance group ID. Example: @instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0@ .     * AppStream 2.0 fleet - The resource type is @fleet@ and the unique identifier is the fleet name. Example: @fleet/sample-fleet@ .     * DynamoDB table - The resource type is @table@ and the unique identifier is the resource ID. Example: @table/my-table@ .     * DynamoDB global secondary index - The resource type is @index@ and the unique identifier is the resource ID. Example: @table/my-table/index/my-table-index@ .
 pspResourceId :: Lens' PutScalingPolicy Text
 pspResourceId = lens _pspResourceId (\ s a -> s{_pspResourceId = a});
 
--- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.
+-- | The scalable dimension. This string consists of the service namespace, resource type, and scaling property.     * @ecs:service:DesiredCount@ - The desired task count of an ECS service.     * @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a Spot fleet request.     * @elasticmapreduce:instancegroup:InstanceCount@ - The instance count of an EMR Instance Group.     * @appstream:fleet:DesiredCapacity@ - The desired capacity of an AppStream 2.0 fleet.     * @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB table.     * @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB table.     * @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity for a DynamoDB global secondary index.     * @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity for a DynamoDB global secondary index.
 pspScalableDimension :: Lens' PutScalingPolicy ScalableDimension
 pspScalableDimension = lens _pspScalableDimension (\ s a -> s{_pspScalableDimension = a});
 
@@ -127,7 +137,8 @@ instance AWSRequest PutScalingPolicy where
           = receiveJSON
               (\ s h x ->
                  PutScalingPolicyResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "PolicyARN"))
+                   (x .?> "Alarms" .!@ mempty) <*> (pure (fromEnum s))
+                     <*> (x .:> "PolicyARN"))
 
 instance Hashable PutScalingPolicy
 
@@ -148,6 +159,8 @@ instance ToJSON PutScalingPolicy where
           = object
               (catMaybes
                  [("PolicyType" .=) <$> _pspPolicyType,
+                  ("TargetTrackingScalingPolicyConfiguration" .=) <$>
+                    _pspTargetTrackingScalingPolicyConfiguration,
                   ("StepScalingPolicyConfiguration" .=) <$>
                     _pspStepScalingPolicyConfiguration,
                   Just ("PolicyName" .= _pspPolicyName),
@@ -163,13 +176,16 @@ instance ToQuery PutScalingPolicy where
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-    { _psprsResponseStatus :: !Int
+    { _psprsAlarms         :: !(Maybe [Alarm])
+    , _psprsResponseStatus :: !Int
     , _psprsPolicyARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psprsAlarms' - The CloudWatch alarms created for the target tracking policy.
 --
 -- * 'psprsResponseStatus' - -- | The response status code.
 --
@@ -180,9 +196,14 @@ putScalingPolicyResponse
     -> PutScalingPolicyResponse
 putScalingPolicyResponse pResponseStatus_ pPolicyARN_ =
     PutScalingPolicyResponse'
-    { _psprsResponseStatus = pResponseStatus_
+    { _psprsAlarms = Nothing
+    , _psprsResponseStatus = pResponseStatus_
     , _psprsPolicyARN = pPolicyARN_
     }
+
+-- | The CloudWatch alarms created for the target tracking policy.
+psprsAlarms :: Lens' PutScalingPolicyResponse [Alarm]
+psprsAlarms = lens _psprsAlarms (\ s a -> s{_psprsAlarms = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
 psprsResponseStatus :: Lens' PutScalingPolicyResponse Int

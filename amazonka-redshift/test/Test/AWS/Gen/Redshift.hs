@@ -139,6 +139,9 @@ import Test.AWS.Redshift.Internal
 --         , requestModifyClusterParameterGroup $
 --             modifyClusterParameterGroup
 --
+--         , requestGetClusterCredentials $
+--             getClusterCredentials
+--
 --         , requestCreateClusterSecurityGroup $
 --             createClusterSecurityGroup
 --
@@ -327,6 +330,9 @@ import Test.AWS.Redshift.Internal
 --
 --         , responseModifyClusterParameterGroup $
 --             clusterParameterGroupNameMessage
+--
+--         , responseGetClusterCredentials $
+--             getClusterCredentialsResponse
 --
 --         , responseCreateClusterSecurityGroup $
 --             createClusterSecurityGroupResponse
@@ -592,6 +598,11 @@ requestModifyClusterParameterGroup :: ModifyClusterParameterGroup -> TestTree
 requestModifyClusterParameterGroup = req
     "ModifyClusterParameterGroup"
     "fixture/ModifyClusterParameterGroup.yaml"
+
+requestGetClusterCredentials :: GetClusterCredentials -> TestTree
+requestGetClusterCredentials = req
+    "GetClusterCredentials"
+    "fixture/GetClusterCredentials.yaml"
 
 requestCreateClusterSecurityGroup :: CreateClusterSecurityGroup -> TestTree
 requestCreateClusterSecurityGroup = req
@@ -978,6 +989,13 @@ responseModifyClusterParameterGroup = res
     "fixture/ModifyClusterParameterGroupResponse.proto"
     redshift
     (Proxy :: Proxy ModifyClusterParameterGroup)
+
+responseGetClusterCredentials :: GetClusterCredentialsResponse -> TestTree
+responseGetClusterCredentials = res
+    "GetClusterCredentialsResponse"
+    "fixture/GetClusterCredentialsResponse.proto"
+    redshift
+    (Proxy :: Proxy GetClusterCredentials)
 
 responseCreateClusterSecurityGroup :: CreateClusterSecurityGroupResponse -> TestTree
 responseCreateClusterSecurityGroup = res

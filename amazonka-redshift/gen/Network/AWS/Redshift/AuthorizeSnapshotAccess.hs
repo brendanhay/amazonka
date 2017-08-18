@@ -67,7 +67,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 --
 -- * 'asaSnapshotIdentifier' - The identifier of the snapshot the account is authorized to restore.
 --
--- * 'asaAccountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the specified snapshot.
+-- * 'asaAccountWithRestoreAccess' - The identifier of the AWS customer account authorized to restore the specified snapshot. To share a snapshot with AWS support, specify amazon-redshift-support.
 authorizeSnapshotAccess
     :: Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
@@ -87,7 +87,7 @@ asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_a
 asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
 asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\ s a -> s{_asaSnapshotIdentifier = a});
 
--- | The identifier of the AWS customer account authorized to restore the specified snapshot.
+-- | The identifier of the AWS customer account authorized to restore the specified snapshot. To share a snapshot with AWS support, specify amazon-redshift-support.
 asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
 asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a});
 

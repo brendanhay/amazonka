@@ -45,8 +45,8 @@ module Network.AWS.CloudTrail.PutEventSelectors
       putEventSelectors
     , PutEventSelectors
     -- * Request Lenses
-    , pesEventSelectors
     , pesTrailName
+    , pesEventSelectors
 
     -- * Destructuring the Response
     , putEventSelectorsResponse
@@ -66,32 +66,33 @@ import           Network.AWS.Response
 
 -- | /See:/ 'putEventSelectors' smart constructor.
 data PutEventSelectors = PutEventSelectors'
-    { _pesEventSelectors :: !(Maybe [EventSelector])
-    , _pesTrailName      :: !(Maybe Text)
+    { _pesTrailName      :: !Text
+    , _pesEventSelectors :: ![EventSelector]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutEventSelectors' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pesEventSelectors' - Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
---
 -- * 'pesTrailName' - Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+--
+-- * 'pesEventSelectors' - Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
 putEventSelectors
-    :: PutEventSelectors
-putEventSelectors =
+    :: Text -- ^ 'pesTrailName'
+    -> PutEventSelectors
+putEventSelectors pTrailName_ =
     PutEventSelectors'
-    { _pesEventSelectors = Nothing
-    , _pesTrailName = Nothing
+    { _pesTrailName = pTrailName_
+    , _pesEventSelectors = mempty
     }
+
+-- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
+pesTrailName :: Lens' PutEventSelectors Text
+pesTrailName = lens _pesTrailName (\ s a -> s{_pesTrailName = a});
 
 -- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
 pesEventSelectors :: Lens' PutEventSelectors [EventSelector]
-pesEventSelectors = lens _pesEventSelectors (\ s a -> s{_pesEventSelectors = a}) . _Default . _Coerce;
-
--- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)     * Start with a letter or number, and end with a letter or number     * Be between 3 and 128 characters     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.     * Not be in IP address format (for example, 192.168.5.4) If you specify a trail ARN, it must be in the format: @arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail@
-pesTrailName :: Lens' PutEventSelectors (Maybe Text)
-pesTrailName = lens _pesTrailName (\ s a -> s{_pesTrailName = a});
+pesEventSelectors = lens _pesEventSelectors (\ s a -> s{_pesEventSelectors = a}) . _Coerce;
 
 instance AWSRequest PutEventSelectors where
         type Rs PutEventSelectors = PutEventSelectorsResponse
@@ -122,8 +123,8 @@ instance ToJSON PutEventSelectors where
         toJSON PutEventSelectors'{..}
           = object
               (catMaybes
-                 [("EventSelectors" .=) <$> _pesEventSelectors,
-                  ("TrailName" .=) <$> _pesTrailName])
+                 [Just ("TrailName" .= _pesTrailName),
+                  Just ("EventSelectors" .= _pesEventSelectors)])
 
 instance ToPath PutEventSelectors where
         toPath = const "/"

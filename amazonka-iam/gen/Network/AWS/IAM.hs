@@ -61,6 +61,9 @@ module Network.AWS.IAM
     -- ** CredentialReportExpiredException
     , _CredentialReportExpiredException
 
+    -- ** UnmodifiableEntityException
+    , _UnmodifiableEntityException
+
     -- ** DuplicateCertificateException
     , _DuplicateCertificateException
 
@@ -325,6 +328,9 @@ module Network.AWS.IAM
     -- ** GetPolicyVersion
     , module Network.AWS.IAM.GetPolicyVersion
 
+    -- ** CreateServiceLinkedRole
+    , module Network.AWS.IAM.CreateServiceLinkedRole
+
     -- ** ListServiceSpecificCredentials
     , module Network.AWS.IAM.ListServiceSpecificCredentials
 
@@ -438,6 +444,9 @@ module Network.AWS.IAM
 
     -- ** ListPolicyVersions (Paginated)
     , module Network.AWS.IAM.ListPolicyVersions
+
+    -- ** UpdateRoleDescription
+    , module Network.AWS.IAM.UpdateRoleDescription
 
     -- ** ListSAMLProviders
     , module Network.AWS.IAM.ListSAMLProviders
@@ -715,6 +724,7 @@ module Network.AWS.IAM
     , Role
     , role'
     , rAssumeRolePolicyDocument
+    , rDescription
     , rPath
     , rRoleName
     , rRoleId
@@ -870,6 +880,7 @@ import           Network.AWS.IAM.CreatePolicy
 import           Network.AWS.IAM.CreatePolicyVersion
 import           Network.AWS.IAM.CreateRole
 import           Network.AWS.IAM.CreateSAMLProvider
+import           Network.AWS.IAM.CreateServiceLinkedRole
 import           Network.AWS.IAM.CreateServiceSpecificCredential
 import           Network.AWS.IAM.CreateUser
 import           Network.AWS.IAM.CreateVirtualMFADevice
@@ -963,6 +974,7 @@ import           Network.AWS.IAM.UpdateAssumeRolePolicy
 import           Network.AWS.IAM.UpdateGroup
 import           Network.AWS.IAM.UpdateLoginProfile
 import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+import           Network.AWS.IAM.UpdateRoleDescription
 import           Network.AWS.IAM.UpdateSAMLProvider
 import           Network.AWS.IAM.UpdateServerCertificate
 import           Network.AWS.IAM.UpdateServiceSpecificCredential

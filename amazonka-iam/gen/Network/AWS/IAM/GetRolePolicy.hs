@@ -63,7 +63,7 @@ data GetRolePolicy = GetRolePolicy'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grpRoleName' - The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'grpRoleName' - The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- * 'grpPolicyName' - The name of the policy document to get. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 getRolePolicy
@@ -76,7 +76,7 @@ getRolePolicy pRoleName_ pPolicyName_ =
     , _grpPolicyName = pPolicyName_
     }
 
--- | The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role associated with the policy. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
 

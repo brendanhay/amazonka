@@ -50,7 +50,7 @@ newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- * 'dvmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 deleteVirtualMFADevice
     :: Text -- ^ 'dvmdSerialNumber'
     -> DeleteVirtualMFADevice
@@ -59,7 +59,7 @@ deleteVirtualMFADevice pSerialNumber_ =
     { _dvmdSerialNumber = pSerialNumber_
     }
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =/:,.@-
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 

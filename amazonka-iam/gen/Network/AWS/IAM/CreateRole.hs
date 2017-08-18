@@ -28,6 +28,7 @@ module Network.AWS.IAM.CreateRole
     , CreateRole
     -- * Request Lenses
     , crPath
+    , crDescription
     , crRoleName
     , crAssumeRolePolicyDocument
 
@@ -49,6 +50,7 @@ import           Network.AWS.Response
 -- | /See:/ 'createRole' smart constructor.
 data CreateRole = CreateRole'
     { _crPath                     :: !(Maybe Text)
+    , _crDescription              :: !(Maybe Text)
     , _crRoleName                 :: !Text
     , _crAssumeRolePolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -59,7 +61,9 @@ data CreateRole = CreateRole'
 --
 -- * 'crPath' - The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ . This parameter is optional. If it is not included, it defaults to a slash (/). This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
 --
--- * 'crRoleName' - The name of the role to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
+-- * 'crDescription' - A customer-provided description of the role.
+--
+-- * 'crRoleName' - The name of the role to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@- Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
 --
 -- * 'crAssumeRolePolicyDocument' - The trust relationship policy document that grants an entity permission to assume the role. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of any printable ASCII character ranging from the space character (\u0020) through end of the ASCII character range as well as the printable characters in the Basic Latin and Latin-1 Supplement character set (through \u00FF). It also includes the special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D).
 createRole
@@ -69,6 +73,7 @@ createRole
 createRole pRoleName_ pAssumeRolePolicyDocument_ =
     CreateRole'
     { _crPath = Nothing
+    , _crDescription = Nothing
     , _crRoleName = pRoleName_
     , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
     }
@@ -77,7 +82,11 @@ createRole pRoleName_ pAssumeRolePolicyDocument_ =
 crPath :: Lens' CreateRole (Maybe Text)
 crPath = lens _crPath (\ s a -> s{_crPath = a});
 
--- | The name of the role to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-. Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
+-- | A customer-provided description of the role.
+crDescription :: Lens' CreateRole (Maybe Text)
+crDescription = lens _crDescription (\ s a -> s{_crDescription = a});
+
+-- | The name of the role to create. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@- Role names are not distinguished by case. For example, you cannot create roles named both "PRODROLE" and "prodrole".
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 
@@ -109,7 +118,8 @@ instance ToQuery CreateRole where
           = mconcat
               ["Action" =: ("CreateRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _crPath, "RoleName" =: _crRoleName,
+               "Path" =: _crPath, "Description" =: _crDescription,
+               "RoleName" =: _crRoleName,
                "AssumeRolePolicyDocument" =:
                  _crAssumeRolePolicyDocument]
 

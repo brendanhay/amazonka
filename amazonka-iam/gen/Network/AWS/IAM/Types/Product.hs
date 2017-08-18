@@ -115,9 +115,9 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- * 'akluLastUsedDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 --
--- * 'akluServiceName' - The name of the AWS service with which this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- * 'akluServiceName' - The name of the AWS service with which this access key was most recently used. This field displays "N/A" when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 --
--- * 'akluRegion' - The AWS region where this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
+-- * 'akluRegion' - The AWS region where this access key was most recently used. This field is displays "N/A" when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 accessKeyLastUsed
     :: UTCTime -- ^ 'akluLastUsedDate'
     -> Text -- ^ 'akluServiceName'
@@ -134,11 +134,11 @@ accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
 akluLastUsedDate :: Lens' AccessKeyLastUsed UTCTime
 akluLastUsedDate = lens _akluLastUsedDate (\ s a -> s{_akluLastUsedDate = a}) . _Time;
 
--- | The name of the AWS service with which this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
+-- | The name of the AWS service with which this access key was most recently used. This field displays "N/A" when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user
 akluServiceName :: Lens' AccessKeyLastUsed Text
 akluServiceName = lens _akluServiceName (\ s a -> s{_akluServiceName = a});
 
--- | The AWS region where this access key was most recently used. This field is null when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
+-- | The AWS region where this access key was most recently used. This field is displays "N/A" when:     * The user does not have an access key.     * An access key exists but has never been used, at least not since IAM started tracking this information on April 22nd, 2015.     * There is no sign-in data associated with the user For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the Amazon Web Services General Reference.
 akluRegion :: Lens' AccessKeyLastUsed Text
 akluRegion = lens _akluRegion (\ s a -> s{_akluRegion = a});
 
@@ -1643,23 +1643,14 @@ instance Hashable ResourceSpecificResult
 
 instance NFData ResourceSpecificResult
 
--- | Contains information about an IAM role.
---
---
--- This data type is used as a response element in the following actions:
---
---     * 'CreateRole'
---
---     * 'GetRole'
---
---     * 'ListRoles'
---
+-- | Contains information about an IAM role. This structure is returned as a response element in several APIs that interact with roles.
 --
 --
 --
 -- /See:/ 'role'' smart constructor.
 data Role = Role'
     { _rAssumeRolePolicyDocument :: !(Maybe Text)
+    , _rDescription              :: !(Maybe Text)
     , _rPath                     :: !Text
     , _rRoleName                 :: !Text
     , _rRoleId                   :: !Text
@@ -1673,13 +1664,15 @@ data Role = Role'
 --
 -- * 'rAssumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
+-- * 'rDescription' - A description of the role that you provide.
+--
 -- * 'rPath' - The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
 -- * 'rRoleName' - The friendly name that identifies the role.
 --
 -- * 'rRoleId' - The stable and unique string identifying the role. For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 --
--- * 'rARN' - The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- * 'rARN' - The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
 --
 -- * 'rCreateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the role was created.
 role'
@@ -1692,6 +1685,7 @@ role'
 role' pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     Role'
     { _rAssumeRolePolicyDocument = Nothing
+    , _rDescription = Nothing
     , _rPath = pPath_
     , _rRoleName = pRoleName_
     , _rRoleId = pRoleId_
@@ -1702,6 +1696,10 @@ role' pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
 -- | The policy that grants an entity permission to assume the role.
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument = lens _rAssumeRolePolicyDocument (\ s a -> s{_rAssumeRolePolicyDocument = a});
+
+-- | A description of the role that you provide.
+rDescription :: Lens' Role (Maybe Text)
+rDescription = lens _rDescription (\ s a -> s{_rDescription = a});
 
 -- | The path to the role. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
 rPath :: Lens' Role Text
@@ -1715,7 +1713,7 @@ rRoleName = lens _rRoleName (\ s a -> s{_rRoleName = a});
 rRoleId :: Lens' Role Text
 rRoleId = lens _rRoleId (\ s a -> s{_rRoleId = a});
 
--- | The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ guide.
 rARN :: Lens' Role Text
 rARN = lens _rARN (\ s a -> s{_rARN = a});
 
@@ -1726,7 +1724,9 @@ rCreateDate = lens _rCreateDate (\ s a -> s{_rCreateDate = a}) . _Time;
 instance FromXML Role where
         parseXML x
           = Role' <$>
-              (x .@? "AssumeRolePolicyDocument") <*> (x .@ "Path")
+              (x .@? "AssumeRolePolicyDocument") <*>
+                (x .@? "Description")
+                <*> (x .@ "Path")
                 <*> (x .@ "RoleName")
                 <*> (x .@ "RoleId")
                 <*> (x .@ "Arn")
@@ -2779,7 +2779,7 @@ data VirtualMFADevice = VirtualMFADevice'
 --
 -- * 'vmdBase32StringSeed' - The Base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is Base64-encoded. -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'vmdUser' - The user to whom the MFA device is assigned.
+-- * 'vmdUser' - The IAM user associated with this virtual MFA device.
 --
 -- * 'vmdEnableDate' - The date and time on which the virtual MFA device was enabled.
 --
@@ -2804,7 +2804,7 @@ vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Se
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
 
--- | The user to whom the MFA device is assigned.
+-- | The IAM user associated with this virtual MFA device.
 vmdUser :: Lens' VirtualMFADevice (Maybe User)
 vmdUser = lens _vmdUser (\ s a -> s{_vmdUser = a});
 

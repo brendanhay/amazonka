@@ -229,6 +229,9 @@ import Test.AWS.IAM.Internal
 --         , requestGetPolicyVersion $
 --             getPolicyVersion
 --
+--         , requestCreateServiceLinkedRole $
+--             createServiceLinkedRole
+--
 --         , requestListServiceSpecificCredentials $
 --             listServiceSpecificCredentials
 --
@@ -342,6 +345,9 @@ import Test.AWS.IAM.Internal
 --
 --         , requestListPolicyVersions $
 --             listPolicyVersions
+--
+--         , requestUpdateRoleDescription $
+--             updateRoleDescription
 --
 --         , requestListSAMLProviders $
 --             listSAMLProviders
@@ -586,6 +592,9 @@ import Test.AWS.IAM.Internal
 --         , responseGetPolicyVersion $
 --             getPolicyVersionResponse
 --
+--         , responseCreateServiceLinkedRole $
+--             createServiceLinkedRoleResponse
+--
 --         , responseListServiceSpecificCredentials $
 --             listServiceSpecificCredentialsResponse
 --
@@ -699,6 +708,9 @@ import Test.AWS.IAM.Internal
 --
 --         , responseListPolicyVersions $
 --             listPolicyVersionsResponse
+--
+--         , responseUpdateRoleDescription $
+--             updateRoleDescriptionResponse
 --
 --         , responseListSAMLProviders $
 --             listSAMLProvidersResponse
@@ -1079,6 +1091,11 @@ requestGetPolicyVersion = req
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
+requestCreateServiceLinkedRole :: CreateServiceLinkedRole -> TestTree
+requestCreateServiceLinkedRole = req
+    "CreateServiceLinkedRole"
+    "fixture/CreateServiceLinkedRole.yaml"
+
 requestListServiceSpecificCredentials :: ListServiceSpecificCredentials -> TestTree
 requestListServiceSpecificCredentials = req
     "ListServiceSpecificCredentials"
@@ -1268,6 +1285,11 @@ requestListPolicyVersions :: ListPolicyVersions -> TestTree
 requestListPolicyVersions = req
     "ListPolicyVersions"
     "fixture/ListPolicyVersions.yaml"
+
+requestUpdateRoleDescription :: UpdateRoleDescription -> TestTree
+requestUpdateRoleDescription = req
+    "UpdateRoleDescription"
+    "fixture/UpdateRoleDescription.yaml"
 
 requestListSAMLProviders :: ListSAMLProviders -> TestTree
 requestListSAMLProviders = req
@@ -1805,6 +1827,13 @@ responseGetPolicyVersion = res
     iam
     (Proxy :: Proxy GetPolicyVersion)
 
+responseCreateServiceLinkedRole :: CreateServiceLinkedRoleResponse -> TestTree
+responseCreateServiceLinkedRole = res
+    "CreateServiceLinkedRoleResponse"
+    "fixture/CreateServiceLinkedRoleResponse.proto"
+    iam
+    (Proxy :: Proxy CreateServiceLinkedRole)
+
 responseListServiceSpecificCredentials :: ListServiceSpecificCredentialsResponse -> TestTree
 responseListServiceSpecificCredentials = res
     "ListServiceSpecificCredentialsResponse"
@@ -2070,6 +2099,13 @@ responseListPolicyVersions = res
     "fixture/ListPolicyVersionsResponse.proto"
     iam
     (Proxy :: Proxy ListPolicyVersions)
+
+responseUpdateRoleDescription :: UpdateRoleDescriptionResponse -> TestTree
+responseUpdateRoleDescription = res
+    "UpdateRoleDescriptionResponse"
+    "fixture/UpdateRoleDescriptionResponse.proto"
+    iam
+    (Proxy :: Proxy UpdateRoleDescription)
 
 responseListSAMLProviders :: ListSAMLProvidersResponse -> TestTree
 responseListSAMLProviders = res

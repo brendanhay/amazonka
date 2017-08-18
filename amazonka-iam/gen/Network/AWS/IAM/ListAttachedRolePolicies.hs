@@ -74,7 +74,7 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 --
 -- * 'larpMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
--- * 'larpRoleName' - The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'larpRoleName' - The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 listAttachedRolePolicies
     :: Text -- ^ 'larpRoleName'
     -> ListAttachedRolePolicies
@@ -98,7 +98,7 @@ larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
 larpMaxItems = lens _larpMaxItems (\ s a -> s{_larpMaxItems = a}) . mapping _Nat;
 
--- | The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 larpRoleName :: Lens' ListAttachedRolePolicies Text
 larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 

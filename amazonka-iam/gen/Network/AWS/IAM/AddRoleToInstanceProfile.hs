@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified IAM role to the specified instance profile.
+-- Adds the specified IAM role to the specified instance profile. An instance profile can contain only one role, and this limit cannot be increased.
 --
 --
 -- For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> . For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
@@ -56,7 +56,7 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
 --
 -- * 'artipInstanceProfileName' - The name of the instance profile to update. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
--- * 'artipRoleName' - The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- * 'artipRoleName' - The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 addRoleToInstanceProfile
     :: Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
@@ -71,7 +71,7 @@ addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
 artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
 artipInstanceProfileName = lens _artipInstanceProfileName (\ s a -> s{_artipInstanceProfileName = a});
 
--- | The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- | The name of the role to add. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\ s a -> s{_artipRoleName = a});
 

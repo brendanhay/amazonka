@@ -57,6 +57,7 @@ library
         , Network.AWS.IAM.CreatePolicyVersion
         , Network.AWS.IAM.CreateRole
         , Network.AWS.IAM.CreateSAMLProvider
+        , Network.AWS.IAM.CreateServiceLinkedRole
         , Network.AWS.IAM.CreateServiceSpecificCredential
         , Network.AWS.IAM.CreateUser
         , Network.AWS.IAM.CreateVirtualMFADevice
@@ -150,6 +151,7 @@ library
         , Network.AWS.IAM.UpdateGroup
         , Network.AWS.IAM.UpdateLoginProfile
         , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
+        , Network.AWS.IAM.UpdateRoleDescription
         , Network.AWS.IAM.UpdateSAMLProvider
         , Network.AWS.IAM.UpdateSSHPublicKey
         , Network.AWS.IAM.UpdateServerCertificate

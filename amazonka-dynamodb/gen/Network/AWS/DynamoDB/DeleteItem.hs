@@ -97,7 +97,7 @@ data DeleteItem = DeleteItem'
 --
 -- * 'diConditionalOperator' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'diExpected' - This is a legacy parameter. Use @ConditionExpresssion@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'diExpected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 --
 -- * 'diTableName' - The name of the table from which to delete the item.
 --
@@ -147,7 +147,7 @@ diConditionExpression = lens _diConditionExpression (\ s a -> s{_diConditionExpr
 diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
 diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOperator = a});
 
--- | This is a legacy parameter. Use @ConditionExpresssion@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
+-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected> in the /Amazon DynamoDB Developer Guide/ .
 diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
 diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . _Default . _Map;
 

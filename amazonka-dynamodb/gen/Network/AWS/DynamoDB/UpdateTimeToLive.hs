@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specify the lifetime of individual table items. The database automatically removes the item at the expiration of the item. The UpdateTimeToLive method will enable or disable TTL for the specified table. A successful @UpdateTimeToLive@ call returns the current @TimeToLiveSpecification@ ; it may take up to one hour for the change to fully process.
+-- The UpdateTimeToLive method will enable or disable TTL for the specified table. A successful @UpdateTimeToLive@ call returns the current @TimeToLiveSpecification@ ; it may take up to one hour for the change to fully process. Any additional @UpdateTimeToLive@ calls for the same table during this one hour duration result in a @ValidationException@ .
 --
 --
 -- TTL compares the current time in epoch time format to the time stored in the TTL attribute of an item. If the epoch time value stored in the attribute is less than the current time, the item is marked as expired and subsequently deleted.

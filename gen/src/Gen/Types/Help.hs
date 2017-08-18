@@ -65,6 +65,7 @@ convertHaddock =
             "dd"        -> list (nodes x)
             "br"        -> "\n" <> nodes x
             "i"         -> emphasis (nodes x)
+            "u"         -> emphasis (nodes x)
             "important" -> "/Important:/ " <> nodes x
             "title"     -> title (nodes x)
             "fullname"  -> title (nodes x)
@@ -75,6 +76,7 @@ convertHaddock =
             "h4"        -> title (nodes x)
             "h5"        -> title (nodes x)
             "b"         -> bold  (nodes x)
+            "strong"    -> bold  (nodes x)
             "a" | Just link <- attribute "href" x -> "<" <> link <> " " <> nodes x <> "> "
                 | otherwise                       -> code (nodes x)
             "code"

@@ -66,9 +66,9 @@ data DescribeApplicationVersions = DescribeApplicationVersions'
 --
 -- * 'dVersionLabels' - Specify a version label to show a specific application version.
 --
--- * 'dNextToken' - Specify a next token to retrieve the next page in a paginated request.
+-- * 'dNextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
 --
--- * 'dMaxRecords' - Specify a maximum number of application versions to paginate in the request.
+-- * 'dMaxRecords' - For a paginated request. Specify a maximum number of application versions to include in each response. If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
 --
 -- * 'dApplicationName' - Specify an application name to show only application versions for that application.
 describeApplicationVersions
@@ -85,11 +85,11 @@ describeApplicationVersions =
 dVersionLabels :: Lens' DescribeApplicationVersions [Text]
 dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default . _Coerce;
 
--- | Specify a next token to retrieve the next page in a paginated request.
+-- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
 dNextToken :: Lens' DescribeApplicationVersions (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
--- | Specify a maximum number of application versions to paginate in the request.
+-- | For a paginated request. Specify a maximum number of application versions to include in each response. If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
 dMaxRecords :: Lens' DescribeApplicationVersions (Maybe Natural)
 dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a}) . mapping _Nat;
 
@@ -150,7 +150,7 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 --
 -- * 'davrsApplicationVersions' - List of @ApplicationVersionDescription@ objects sorted in order of creation.
 --
--- * 'davrsNextToken' - For a paginated request, the token that you can pass in a subsequent request to get the next page.
+-- * 'davrsNextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 --
 -- * 'davrsResponseStatus' - -- | The response status code.
 describeApplicationVersionsResponse
@@ -167,7 +167,7 @@ describeApplicationVersionsResponse pResponseStatus_ =
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
--- | For a paginated request, the token that you can pass in a subsequent request to get the next page.
+-- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
 davrsNextToken :: Lens' DescribeApplicationVersionsResponse (Maybe Text)
 davrsNextToken = lens _davrsNextToken (\ s a -> s{_davrsNextToken = a});
 

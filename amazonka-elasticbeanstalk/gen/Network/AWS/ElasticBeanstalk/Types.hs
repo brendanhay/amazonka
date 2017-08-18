@@ -242,6 +242,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eEnvironmentARN
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
@@ -251,6 +252,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * EnvironmentDescriptionsMessage
     , EnvironmentDescriptionsMessage
     , environmentDescriptionsMessage
+    , edmNextToken
     , edmEnvironments
 
     -- * EnvironmentInfoDescription
@@ -564,6 +566,8 @@ elasticBeanstalk =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

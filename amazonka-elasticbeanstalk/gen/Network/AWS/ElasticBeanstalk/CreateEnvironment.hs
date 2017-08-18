@@ -59,6 +59,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eEnvironmentARN
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
@@ -108,11 +109,11 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- * 'cVersionLabel' - The name of the application version to deploy. If the specified application has no associated application versions, AWS Elastic Beanstalk @UpdateEnvironment@ returns an @InvalidParameterValue@ error.  Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container.
 --
--- * 'cPlatformARN' - The ARN of the custom platform.
+-- * 'cPlatformARN' - The ARN of the platform.
 --
 -- * 'cTier' - This specifies the tier to use for creating this environment.
 --
--- * 'cEnvironmentName' - A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+-- * 'cEnvironmentName' - A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 --
 -- * 'cSolutionStackName' - This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack.
 --
@@ -163,7 +164,7 @@ cOptionSettings = lens _cOptionSettings (\ s a -> s{_cOptionSettings = a}) . _De
 cVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 cVersionLabel = lens _cVersionLabel (\ s a -> s{_cVersionLabel = a});
 
--- | The ARN of the custom platform.
+-- | The ARN of the platform.
 cPlatformARN :: Lens' CreateEnvironment (Maybe Text)
 cPlatformARN = lens _cPlatformARN (\ s a -> s{_cPlatformARN = a});
 
@@ -171,7 +172,7 @@ cPlatformARN = lens _cPlatformARN (\ s a -> s{_cPlatformARN = a});
 cTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
 cTier = lens _cTier (\ s a -> s{_cTier = a});
 
--- | A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique in your account. If the specified name already exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+-- | A unique name for the deployment environment. Used in the application URL. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.  Default: If the CNAME parameter is not specified, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
 cEnvironmentName :: Lens' CreateEnvironment (Maybe Text)
 cEnvironmentName = lens _cEnvironmentName (\ s a -> s{_cEnvironmentName = a});
 

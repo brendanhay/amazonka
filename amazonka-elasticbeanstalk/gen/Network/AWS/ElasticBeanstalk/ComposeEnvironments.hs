@@ -35,6 +35,7 @@ module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     , environmentDescriptionsMessage
     , EnvironmentDescriptionsMessage
     -- * Response Lenses
+    , edmNextToken
     , edmEnvironments
     ) where
 

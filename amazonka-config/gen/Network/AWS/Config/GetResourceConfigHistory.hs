@@ -21,7 +21,7 @@
 -- Returns a list of configuration items for the specified resource. The list contains details about each state of the resource during the specified time interval.
 --
 --
--- The response is paginated, and by default, AWS Config returns a limit of 10 configuration items per page. You can customize this number with the @limit@ parameter. The response includes a @nextToken@ string, and to get the next page of results, run the request again and enter this string for the @nextToken@ parameter.
+-- The response is paginated. By default, AWS Config returns a limit of 10 configuration items per page. You can customize this number with the @limit@ parameter. The response includes a @nextToken@ string. To get the next page of results, run the request again and specify the string for the @nextToken@ parameter.
 --
 --
 -- This operation returns paginated results.

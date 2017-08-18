@@ -58,6 +58,9 @@ import Test.AWS.Config.Internal
 --         , requestDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatus
 --
+--         , requestGetDiscoveredResourceCounts $
+--             getDiscoveredResourceCounts
+--
 --         , requestStartConfigRulesEvaluation $
 --             startConfigRulesEvaluation
 --
@@ -138,6 +141,9 @@ import Test.AWS.Config.Internal
 --
 --         , responseDescribeConfigRuleEvaluationStatus $
 --             describeConfigRuleEvaluationStatusResponse
+--
+--         , responseGetDiscoveredResourceCounts $
+--             getDiscoveredResourceCountsResponse
 --
 --         , responseStartConfigRulesEvaluation $
 --             startConfigRulesEvaluationResponse
@@ -241,6 +247,11 @@ requestDescribeConfigRuleEvaluationStatus :: DescribeConfigRuleEvaluationStatus 
 requestDescribeConfigRuleEvaluationStatus = req
     "DescribeConfigRuleEvaluationStatus"
     "fixture/DescribeConfigRuleEvaluationStatus.yaml"
+
+requestGetDiscoveredResourceCounts :: GetDiscoveredResourceCounts -> TestTree
+requestGetDiscoveredResourceCounts = req
+    "GetDiscoveredResourceCounts"
+    "fixture/GetDiscoveredResourceCounts.yaml"
 
 requestStartConfigRulesEvaluation :: StartConfigRulesEvaluation -> TestTree
 requestStartConfigRulesEvaluation = req
@@ -393,6 +404,13 @@ responseDescribeConfigRuleEvaluationStatus = res
     "fixture/DescribeConfigRuleEvaluationStatusResponse.proto"
     config
     (Proxy :: Proxy DescribeConfigRuleEvaluationStatus)
+
+responseGetDiscoveredResourceCounts :: GetDiscoveredResourceCountsResponse -> TestTree
+responseGetDiscoveredResourceCounts = res
+    "GetDiscoveredResourceCountsResponse"
+    "fixture/GetDiscoveredResourceCountsResponse.proto"
+    config
+    (Proxy :: Proxy GetDiscoveredResourceCounts)
 
 responseStartConfigRulesEvaluation :: StartConfigRulesEvaluationResponse -> TestTree
 responseStartConfigRulesEvaluation = res

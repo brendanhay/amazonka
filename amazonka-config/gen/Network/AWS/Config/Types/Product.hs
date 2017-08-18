@@ -1143,7 +1143,7 @@ data DeliveryChannel = DeliveryChannel'
 --
 -- * 'dcName' - The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
 --
--- * 'dcConfigSnapshotDeliveryProperties' - Undocumented member.
+-- * 'dcConfigSnapshotDeliveryProperties' - The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 --
 -- * 'dcS3BucketName' - The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see <http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket> in the AWS Config Developer Guide.
 deliveryChannel
@@ -1169,7 +1169,7 @@ dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a});
 dcName :: Lens' DeliveryChannel (Maybe Text)
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
--- | Undocumented member.
+-- | The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 dcConfigSnapshotDeliveryProperties :: Lens' DeliveryChannel (Maybe ConfigSnapshotDeliveryProperties)
 dcConfigSnapshotDeliveryProperties = lens _dcConfigSnapshotDeliveryProperties (\ s a -> s{_dcConfigSnapshotDeliveryProperties = a});
 
@@ -1674,6 +1674,50 @@ instance Hashable Relationship
 
 instance NFData Relationship
 
+-- | An object that contains the resource type and the number of resources.
+--
+--
+--
+-- /See:/ 'resourceCount' smart constructor.
+data ResourceCount = ResourceCount'
+    { _rcResourceType :: !(Maybe ResourceType)
+    , _rcCount        :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceCount' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcResourceType' - The resource type, for example @"AWS::EC2::Instance"@ .
+--
+-- * 'rcCount' - The number of resources.
+resourceCount
+    :: ResourceCount
+resourceCount =
+    ResourceCount'
+    { _rcResourceType = Nothing
+    , _rcCount = Nothing
+    }
+
+-- | The resource type, for example @"AWS::EC2::Instance"@ .
+rcResourceType :: Lens' ResourceCount (Maybe ResourceType)
+rcResourceType = lens _rcResourceType (\ s a -> s{_rcResourceType = a});
+
+-- | The number of resources.
+rcCount :: Lens' ResourceCount (Maybe Integer)
+rcCount = lens _rcCount (\ s a -> s{_rcCount = a});
+
+instance FromJSON ResourceCount where
+        parseJSON
+          = withObject "ResourceCount"
+              (\ x ->
+                 ResourceCount' <$>
+                   (x .:? "resourceType") <*> (x .:? "count"))
+
+instance Hashable ResourceCount
+
+instance NFData ResourceCount
+
 -- | The details that identify a resource that is discovered by AWS Config, including the resource type, ID, and (if available) the custom resource name.
 --
 --
@@ -1829,7 +1873,7 @@ data Source = Source'
 --
 -- * 'sOwner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
 --
--- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
+-- * 'sSourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
 source
     :: Owner -- ^ 'sOwner'
     -> Text -- ^ 'sSourceIdentifier'
@@ -1849,7 +1893,7 @@ sSourceDetails = lens _sSourceDetails (\ s a -> s{_sSourceDetails = a}) . _Defau
 sOwner :: Lens' Source Owner
 sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
 
--- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name@ .
+-- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> . For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
 sSourceIdentifier :: Lens' Source Text
 sSourceIdentifier = lens _sSourceIdentifier (\ s a -> s{_sSourceIdentifier = a});
 
@@ -1890,7 +1934,7 @@ data SourceDetail = SourceDetail'
 --
 -- * 'sdMessageType' - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .     * @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot. If you want your custom rule to be triggered by configuration changes, specify both @ConfigurationItemChangeNotification@ and @OversizedConfigurationItemChangeNotification@ .
 --
--- * 'sdMaximumExecutionFrequency' - The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
+-- * 'sdMaximumExecutionFrequency' - The frequency that you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
 --
 -- * 'sdEventSource' - The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 sourceDetail
@@ -1906,7 +1950,7 @@ sourceDetail =
 sdMessageType :: Lens' SourceDetail (Maybe MessageType)
 sdMessageType = lens _sdMessageType (\ s a -> s{_sdMessageType = a});
 
--- | The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
+-- | The frequency that you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
 sdMaximumExecutionFrequency :: Lens' SourceDetail (Maybe MaximumExecutionFrequency)
 sdMaximumExecutionFrequency = lens _sdMaximumExecutionFrequency (\ s a -> s{_sdMaximumExecutionFrequency = a});
 

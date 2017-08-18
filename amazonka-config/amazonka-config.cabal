@@ -57,6 +57,7 @@ library
         , Network.AWS.Config.GetComplianceDetailsByResource
         , Network.AWS.Config.GetComplianceSummaryByConfigRule
         , Network.AWS.Config.GetComplianceSummaryByResourceType
+        , Network.AWS.Config.GetDiscoveredResourceCounts
         , Network.AWS.Config.GetResourceConfigHistory
         , Network.AWS.Config.ListDiscoveredResources
         , Network.AWS.Config.PutConfigRule

@@ -27,7 +27,9 @@ import           Network.AWS.Prelude
 --
 -- /See:/ 'fileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
-    { _fsdName                 :: !(Maybe Text)
+    { _fsdEncrypted            :: !(Maybe Bool)
+    , _fsdKMSKeyId             :: !(Maybe Text)
+    , _fsdName                 :: !(Maybe Text)
     , _fsdOwnerId              :: !Text
     , _fsdCreationToken        :: !Text
     , _fsdFileSystemId         :: !Text
@@ -41,6 +43,10 @@ data FileSystemDescription = FileSystemDescription'
 -- | Creates a value of 'FileSystemDescription' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fsdEncrypted' - A boolean value that, if true, indicates that the file system is encrypted.
+--
+-- * 'fsdKMSKeyId' - The id of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the encrypted file system.
 --
 -- * 'fsdName' - You can add tags to a file system, including a @Name@ tag. For more information, see 'CreateTags' . If the file system has a @Name@ tag, Amazon EFS returns the value in this field.
 --
@@ -71,7 +77,9 @@ fileSystemDescription
     -> FileSystemDescription
 fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ pPerformanceMode_ =
     FileSystemDescription'
-    { _fsdName = Nothing
+    { _fsdEncrypted = Nothing
+    , _fsdKMSKeyId = Nothing
+    , _fsdName = Nothing
     , _fsdOwnerId = pOwnerId_
     , _fsdCreationToken = pCreationToken_
     , _fsdFileSystemId = pFileSystemId_
@@ -81,6 +89,14 @@ fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pL
     , _fsdSizeInBytes = pSizeInBytes_
     , _fsdPerformanceMode = pPerformanceMode_
     }
+
+-- | A boolean value that, if true, indicates that the file system is encrypted.
+fsdEncrypted :: Lens' FileSystemDescription (Maybe Bool)
+fsdEncrypted = lens _fsdEncrypted (\ s a -> s{_fsdEncrypted = a});
+
+-- | The id of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to protect the encrypted file system.
+fsdKMSKeyId :: Lens' FileSystemDescription (Maybe Text)
+fsdKMSKeyId = lens _fsdKMSKeyId (\ s a -> s{_fsdKMSKeyId = a});
 
 -- | You can add tags to a file system, including a @Name@ tag. For more information, see 'CreateTags' . If the file system has a @Name@ tag, Amazon EFS returns the value in this field.
 fsdName :: Lens' FileSystemDescription (Maybe Text)
@@ -123,8 +139,10 @@ instance FromJSON FileSystemDescription where
           = withObject "FileSystemDescription"
               (\ x ->
                  FileSystemDescription' <$>
-                   (x .:? "Name") <*> (x .: "OwnerId") <*>
-                     (x .: "CreationToken")
+                   (x .:? "Encrypted") <*> (x .:? "KmsKeyId") <*>
+                     (x .:? "Name")
+                     <*> (x .: "OwnerId")
+                     <*> (x .: "CreationToken")
                      <*> (x .: "FileSystemId")
                      <*> (x .: "CreationTime")
                      <*> (x .: "LifeCycleState")

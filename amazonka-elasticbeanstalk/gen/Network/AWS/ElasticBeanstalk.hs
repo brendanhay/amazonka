@@ -417,6 +417,7 @@ module Network.AWS.ElasticBeanstalk
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eEnvironmentARN
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus
@@ -426,6 +427,7 @@ module Network.AWS.ElasticBeanstalk
     -- ** EnvironmentDescriptionsMessage
     , EnvironmentDescriptionsMessage
     , environmentDescriptionsMessage
+    , edmNextToken
     , edmEnvironments
 
     -- ** EnvironmentInfoDescription

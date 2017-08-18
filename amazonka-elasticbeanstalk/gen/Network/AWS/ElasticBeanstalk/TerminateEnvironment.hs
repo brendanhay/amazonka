@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eEnvironmentARN
     , eSolutionStackName
     , eEnvironmentId
     , eHealthStatus

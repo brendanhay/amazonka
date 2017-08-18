@@ -29,7 +29,9 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Request Lenses
     , desEnvironmentIds
     , desEnvironmentNames
+    , desNextToken
     , desVersionLabel
+    , desMaxRecords
     , desApplicationName
     , desIncludedDeletedBackTo
     , desIncludeDeleted
@@ -38,6 +40,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , environmentDescriptionsMessage
     , EnvironmentDescriptionsMessage
     -- * Response Lenses
+    , edmNextToken
     , edmEnvironments
     ) where
 
@@ -56,7 +59,9 @@ import           Network.AWS.Response
 data DescribeEnvironments = DescribeEnvironments'
     { _desEnvironmentIds        :: !(Maybe [Text])
     , _desEnvironmentNames      :: !(Maybe [Text])
+    , _desNextToken             :: !(Maybe Text)
     , _desVersionLabel          :: !(Maybe Text)
+    , _desMaxRecords            :: !(Maybe Nat)
     , _desApplicationName       :: !(Maybe Text)
     , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
     , _desIncludeDeleted        :: !(Maybe Bool)
@@ -70,7 +75,11 @@ data DescribeEnvironments = DescribeEnvironments'
 --
 -- * 'desEnvironmentNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.
 --
+-- * 'desNextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
+--
 -- * 'desVersionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
+--
+-- * 'desMaxRecords' - For a paginated request. Specify a maximum number of environments to include in each response. If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
 --
 -- * 'desApplicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 --
@@ -83,7 +92,9 @@ describeEnvironments =
     DescribeEnvironments'
     { _desEnvironmentIds = Nothing
     , _desEnvironmentNames = Nothing
+    , _desNextToken = Nothing
     , _desVersionLabel = Nothing
+    , _desMaxRecords = Nothing
     , _desApplicationName = Nothing
     , _desIncludedDeletedBackTo = Nothing
     , _desIncludeDeleted = Nothing
@@ -97,9 +108,17 @@ desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a})
 desEnvironmentNames :: Lens' DescribeEnvironments [Text]
 desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default . _Coerce;
 
+-- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request. If no @NextToken@ is specified, the first page is retrieved.
+desNextToken :: Lens' DescribeEnvironments (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.
 desVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a});
+
+-- | For a paginated request. Specify a maximum number of environments to include in each response. If no @MaxRecords@ is specified, all available environments are retrieved in a single response.
+desMaxRecords :: Lens' DescribeEnvironments (Maybe Natural)
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a}) . mapping _Nat;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.
 desApplicationName :: Lens' DescribeEnvironments (Maybe Text)
@@ -142,7 +161,9 @@ instance ToQuery DescribeEnvironments where
                "EnvironmentNames" =:
                  toQuery
                    (toQueryList "member" <$> _desEnvironmentNames),
+               "NextToken" =: _desNextToken,
                "VersionLabel" =: _desVersionLabel,
+               "MaxRecords" =: _desMaxRecords,
                "ApplicationName" =: _desApplicationName,
                "IncludedDeletedBackTo" =: _desIncludedDeletedBackTo,
                "IncludeDeleted" =: _desIncludeDeleted]

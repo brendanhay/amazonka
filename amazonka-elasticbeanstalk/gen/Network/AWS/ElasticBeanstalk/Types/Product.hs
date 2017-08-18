@@ -896,7 +896,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 --
 -- * 'csdDateCreated' - The date (in UTC time) when this configuration set was created.
 --
--- * 'csdPlatformARN' - The ARN of the custom platform.
+-- * 'csdPlatformARN' - The ARN of the platform.
 --
 -- * 'csdEnvironmentName' - If not @null@ , the name of the environment for this configuration set.
 --
@@ -939,7 +939,7 @@ csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mappin
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
 
--- | The ARN of the custom platform.
+-- | The ARN of the platform.
 csdPlatformARN :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdPlatformARN = lens _csdPlatformARN (\ s a -> s{_csdPlatformARN = a});
 
@@ -1045,7 +1045,7 @@ data Deployment = Deployment'
 --
 -- * 'dStatus' - The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
 --
--- * 'dDeploymentTime' - For in-progress deployments, the time that the deloyment started. For completed deployments, the time that the deployment ended.
+-- * 'dDeploymentTime' - For in-progress deployments, the time that the deployment started. For completed deployments, the time that the deployment ended.
 --
 -- * 'dVersionLabel' - The version label of the application version in the deployment.
 deployment
@@ -1066,7 +1066,7 @@ dDeploymentId = lens _dDeploymentId (\ s a -> s{_dDeploymentId = a});
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | For in-progress deployments, the time that the deloyment started. For completed deployments, the time that the deployment ended.
+-- | For in-progress deployments, the time that the deployment started. For completed deployments, the time that the deployment ended.
 dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
 dDeploymentTime = lens _dDeploymentTime (\ s a -> s{_dDeploymentTime = a}) . mapping _Time;
 
@@ -1105,6 +1105,7 @@ data EnvironmentDescription = EnvironmentDescription'
     , _eTier                         :: !(Maybe EnvironmentTier)
     , _eEnvironmentName              :: !(Maybe Text)
     , _eApplicationName              :: !(Maybe Text)
+    , _eEnvironmentARN               :: !(Maybe Text)
     , _eSolutionStackName            :: !(Maybe Text)
     , _eEnvironmentId                :: !(Maybe Text)
     , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
@@ -1136,13 +1137,15 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eVersionLabel' - The application version deployed in this environment.
 --
--- * 'ePlatformARN' - The ARN of the custom platform.
+-- * 'ePlatformARN' - The ARN of the platform.
 --
 -- * 'eTier' - Describes the current tier of this environment.
 --
 -- * 'eEnvironmentName' - The name of this environment.
 --
 -- * 'eApplicationName' - The name of the application associated with this environment.
+--
+-- * 'eEnvironmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN.
 --
 -- * 'eSolutionStackName' - The name of the @SolutionStack@ deployed with this environment.
 --
@@ -1171,6 +1174,7 @@ environmentDescription =
     , _eTier = Nothing
     , _eEnvironmentName = Nothing
     , _eApplicationName = Nothing
+    , _eEnvironmentARN = Nothing
     , _eSolutionStackName = Nothing
     , _eEnvironmentId = Nothing
     , _eHealthStatus = Nothing
@@ -1218,7 +1222,7 @@ eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
 eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a});
 
--- | The ARN of the custom platform.
+-- | The ARN of the platform.
 ePlatformARN :: Lens' EnvironmentDescription (Maybe Text)
 ePlatformARN = lens _ePlatformARN (\ s a -> s{_ePlatformARN = a});
 
@@ -1233,6 +1237,10 @@ eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
 -- | The name of the application associated with this environment.
 eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
+
+-- | The environment's Amazon Resource Name (ARN), which can be used in other API reuqests that require an ARN.
+eEnvironmentARN :: Lens' EnvironmentDescription (Maybe Text)
+eEnvironmentARN = lens _eEnvironmentARN (\ s a -> s{_eEnvironmentARN = a});
 
 -- | The name of the @SolutionStack@ deployed with this environment.
 eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
@@ -1270,6 +1278,7 @@ instance FromXML EnvironmentDescription where
                 <*> (x .@? "Tier")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
+                <*> (x .@? "EnvironmentArn")
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "EnvironmentId")
                 <*> (x .@? "HealthStatus")
@@ -1287,21 +1296,29 @@ instance NFData EnvironmentDescription
 --
 --
 -- /See:/ 'environmentDescriptionsMessage' smart constructor.
-newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
-    { _edmEnvironments :: Maybe [EnvironmentDescription]
+data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
+    { _edmNextToken    :: !(Maybe Text)
+    , _edmEnvironments :: !(Maybe [EnvironmentDescription])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnvironmentDescriptionsMessage' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'edmNextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+--
 -- * 'edmEnvironments' - Returns an 'EnvironmentDescription' list.
 environmentDescriptionsMessage
     :: EnvironmentDescriptionsMessage
 environmentDescriptionsMessage =
     EnvironmentDescriptionsMessage'
-    { _edmEnvironments = Nothing
+    { _edmNextToken = Nothing
+    , _edmEnvironments = Nothing
     }
+
+-- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+edmNextToken :: Lens' EnvironmentDescriptionsMessage (Maybe Text)
+edmNextToken = lens _edmNextToken (\ s a -> s{_edmNextToken = a});
 
 -- | Returns an 'EnvironmentDescription' list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
@@ -1310,8 +1327,9 @@ edmEnvironments = lens _edmEnvironments (\ s a -> s{_edmEnvironments = a}) . _De
 instance FromXML EnvironmentDescriptionsMessage where
         parseXML x
           = EnvironmentDescriptionsMessage' <$>
-              (x .@? "Environments" .!@ mempty >>=
-                 may (parseXMLList "member"))
+              (x .@? "NextToken") <*>
+                (x .@? "Environments" .!@ mempty >>=
+                   may (parseXMLList "member"))
 
 instance Hashable EnvironmentDescriptionsMessage
 
@@ -1639,7 +1657,7 @@ data EventDescription = EventDescription'
 --
 -- * 'edVersionLabel' - The release label for the application version associated with this event.
 --
--- * 'edPlatformARN' - The ARN of the custom platform.
+-- * 'edPlatformARN' - The ARN of the platform.
 --
 -- * 'edEnvironmentName' - The name of the environment associated with this event.
 --
@@ -1679,7 +1697,7 @@ edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a});
 edVersionLabel :: Lens' EventDescription (Maybe Text)
 edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
 
--- | The ARN of the custom platform.
+-- | The ARN of the platform.
 edPlatformARN :: Lens' EventDescription (Maybe Text)
 edPlatformARN = lens _edPlatformARN (\ s a -> s{_edPlatformARN = a});
 

@@ -19,6 +19,7 @@ module Network.AWS.Inspector.Types
     , _AccessDeniedException
     , _AssessmentRunInProgressException
     , _NoSuchEntityException
+    , _UnsupportedFeatureException
     , _AgentsAlreadyRunningAssessmentException
     , _InvalidCrossAccountRoleException
     , _InvalidInputException
@@ -49,8 +50,20 @@ module Network.AWS.Inspector.Types
     -- * Locale
     , Locale (..)
 
+    -- * ReportFileFormat
+    , ReportFileFormat (..)
+
+    -- * ReportStatus
+    , ReportStatus (..)
+
+    -- * ReportType
+    , ReportType (..)
+
     -- * Severity
     , Severity (..)
+
+    -- * StopAction
+    , StopAction (..)
 
     -- * AgentFilter
     , AgentFilter
@@ -81,6 +94,7 @@ module Network.AWS.Inspector.Types
     , arDataCollected
     , arStateChanges
     , arNotifications
+    , arFindingCounts
 
     -- * AssessmentRunAgent
     , AssessmentRunAgent
@@ -305,6 +319,8 @@ inspector =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -334,6 +350,13 @@ _AssessmentRunInProgressException =
 --
 _NoSuchEntityException :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchEntityException = _MatchServiceError inspector "NoSuchEntityException"
+
+-- | Used by the 'GetAssessmentReport' API. The request was rejected because you tried to generate a report for an assessment run that existed before reporting was supported in Amazon Inspector. You can only generate reports for assessment runs that took place or will take place after generating reports in Amazon Inspector became available.
+--
+--
+_UnsupportedFeatureException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedFeatureException =
+    _MatchServiceError inspector "UnsupportedFeatureException"
 
 -- | You started an assessment run, but one of the instances is already participating in another assessment run.
 --

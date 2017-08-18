@@ -54,6 +54,7 @@ library
         , Network.AWS.Inspector.DescribeFindings
         , Network.AWS.Inspector.DescribeResourceGroups
         , Network.AWS.Inspector.DescribeRulesPackages
+        , Network.AWS.Inspector.GetAssessmentReport
         , Network.AWS.Inspector.GetTelemetryMetadata
         , Network.AWS.Inspector.ListAssessmentRunAgents
         , Network.AWS.Inspector.ListAssessmentRuns

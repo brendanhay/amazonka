@@ -88,6 +88,7 @@ library
         , Network.AWS.Redshift.DisableSnapshotCopy
         , Network.AWS.Redshift.EnableLogging
         , Network.AWS.Redshift.EnableSnapshotCopy
+        , Network.AWS.Redshift.GetClusterCredentials
         , Network.AWS.Redshift.ModifyCluster
         , Network.AWS.Redshift.ModifyClusterIAMRoles
         , Network.AWS.Redshift.ModifyClusterParameterGroup

@@ -59,6 +59,7 @@ module Network.AWS.Redshift.Types
     , _ClusterSnapshotQuotaExceededFault
     , _InsufficientClusterCapacityFault
     , _SNSInvalidTopicFault
+    , _DependentServiceUnavailableFault
     , _UnsupportedOptionFault
     , _SubscriptionAlreadyExistFault
     , _InvalidVPCNetworkStateFault
@@ -115,6 +116,7 @@ module Network.AWS.Redshift.Types
     -- * AccountWithRestoreAccess
     , AccountWithRestoreAccess
     , accountWithRestoreAccess
+    , awraAccountAlias
     , awraAccountId
 
     -- * AvailabilityZone
@@ -539,6 +541,8 @@ redshift =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -865,6 +869,14 @@ _InsufficientClusterCapacityFault =
 _SNSInvalidTopicFault :: AsError a => Getting (First ServiceError) a ServiceError
 _SNSInvalidTopicFault =
     _MatchServiceError redshift "SNSInvalidTopic" . hasStatus 400
+
+-- | Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
+--
+--
+_DependentServiceUnavailableFault :: AsError a => Getting (First ServiceError) a ServiceError
+_DependentServiceUnavailableFault =
+    _MatchServiceError redshift "DependentServiceUnavailableFault" .
+    hasStatus 400
 
 -- | A request option was specified that is not supported.
 --

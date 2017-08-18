@@ -160,6 +160,9 @@ module Network.AWS.Redshift
     -- ** SNSInvalidTopicFault
     , _SNSInvalidTopicFault
 
+    -- ** DependentServiceUnavailableFault
+    , _DependentServiceUnavailableFault
+
     -- ** UnsupportedOptionFault
     , _UnsupportedOptionFault
 
@@ -406,6 +409,9 @@ module Network.AWS.Redshift
     -- ** ModifyClusterParameterGroup
     , module Network.AWS.Redshift.ModifyClusterParameterGroup
 
+    -- ** GetClusterCredentials
+    , module Network.AWS.Redshift.GetClusterCredentials
+
     -- ** CreateClusterSecurityGroup
     , module Network.AWS.Redshift.CreateClusterSecurityGroup
 
@@ -498,6 +504,7 @@ module Network.AWS.Redshift
     -- ** AccountWithRestoreAccess
     , AccountWithRestoreAccess
     , accountWithRestoreAccess
+    , awraAccountAlias
     , awraAccountId
 
     -- ** AvailabilityZone
@@ -940,6 +947,7 @@ import           Network.AWS.Redshift.DisableLogging
 import           Network.AWS.Redshift.DisableSnapshotCopy
 import           Network.AWS.Redshift.EnableLogging
 import           Network.AWS.Redshift.EnableSnapshotCopy
+import           Network.AWS.Redshift.GetClusterCredentials
 import           Network.AWS.Redshift.Internal
 import           Network.AWS.Redshift.ModifyCluster
 import           Network.AWS.Redshift.ModifyClusterIAMRoles

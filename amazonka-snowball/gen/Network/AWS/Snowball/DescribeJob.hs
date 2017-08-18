@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a specific job including shipping information, job status, and other important metadata. .
+-- Returns information about a specific job including shipping information, job status, and other important metadata.
 --
 --
 module Network.AWS.Snowball.DescribeJob

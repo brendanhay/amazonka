@@ -28,6 +28,7 @@ module Network.AWS.Snowball.UpdateCluster
     , UpdateCluster
     -- * Request Lenses
     , ucNotification
+    , ucForwardingAddressId
     , ucAddressId
     , ucShippingOption
     , ucResources
@@ -51,13 +52,14 @@ import           Network.AWS.Snowball.Types.Product
 
 -- | /See:/ 'updateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-    { _ucNotification   :: !(Maybe Notification)
-    , _ucAddressId      :: !(Maybe Text)
-    , _ucShippingOption :: !(Maybe ShippingOption)
-    , _ucResources      :: !(Maybe JobResource)
-    , _ucDescription    :: !(Maybe Text)
-    , _ucRoleARN        :: !(Maybe Text)
-    , _ucClusterId      :: !Text
+    { _ucNotification        :: !(Maybe Notification)
+    , _ucForwardingAddressId :: !(Maybe Text)
+    , _ucAddressId           :: !(Maybe Text)
+    , _ucShippingOption      :: !(Maybe ShippingOption)
+    , _ucResources           :: !(Maybe JobResource)
+    , _ucDescription         :: !(Maybe Text)
+    , _ucRoleARN             :: !(Maybe Text)
+    , _ucClusterId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
@@ -65,6 +67,8 @@ data UpdateCluster = UpdateCluster'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ucNotification' - The new or updated 'Notification' object.
+--
+-- * 'ucForwardingAddressId' - The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
 --
 -- * 'ucAddressId' - The ID of the updated 'Address' object.
 --
@@ -83,6 +87,7 @@ updateCluster
 updateCluster pClusterId_ =
     UpdateCluster'
     { _ucNotification = Nothing
+    , _ucForwardingAddressId = Nothing
     , _ucAddressId = Nothing
     , _ucShippingOption = Nothing
     , _ucResources = Nothing
@@ -94,6 +99,10 @@ updateCluster pClusterId_ =
 -- | The new or updated 'Notification' object.
 ucNotification :: Lens' UpdateCluster (Maybe Notification)
 ucNotification = lens _ucNotification (\ s a -> s{_ucNotification = a});
+
+-- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
+ucForwardingAddressId :: Lens' UpdateCluster (Maybe Text)
+ucForwardingAddressId = lens _ucForwardingAddressId (\ s a -> s{_ucForwardingAddressId = a});
 
 -- | The ID of the updated 'Address' object.
 ucAddressId :: Lens' UpdateCluster (Maybe Text)
@@ -146,6 +155,8 @@ instance ToJSON UpdateCluster where
           = object
               (catMaybes
                  [("Notification" .=) <$> _ucNotification,
+                  ("ForwardingAddressId" .=) <$>
+                    _ucForwardingAddressId,
                   ("AddressId" .=) <$> _ucAddressId,
                   ("ShippingOption" .=) <$> _ucShippingOption,
                   ("Resources" .=) <$> _ucResources,

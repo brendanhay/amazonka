@@ -37,6 +37,9 @@ module Network.AWS.Snowball
     -- ** InvalidInputCombinationException
     , _InvalidInputCombinationException
 
+    -- ** InvalidNextTokenException
+    , _InvalidNextTokenException
+
     -- ** InvalidAddressException
     , _InvalidAddressException
 
@@ -123,6 +126,7 @@ module Network.AWS.Snowball
     -- ** Address
     , Address
     , address
+    , aIsRestricted
     , aStreet3
     , aLandmark
     , aPostalCode
@@ -152,6 +156,7 @@ module Network.AWS.Snowball
     , cmKMSKeyARN
     , cmClusterState
     , cmNotification
+    , cmForwardingAddressId
     , cmAddressId
     , cmSnowballType
     , cmShippingOption
@@ -201,6 +206,7 @@ module Network.AWS.Snowball
     , jmJobLogInfo
     , jmNotification
     , jmJobState
+    , jmForwardingAddressId
     , jmShippingDetails
     , jmAddressId
     , jmSnowballType

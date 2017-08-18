@@ -28,6 +28,7 @@ module Network.AWS.Snowball.UpdateJob
     , UpdateJob
     -- * Request Lenses
     , ujNotification
+    , ujForwardingAddressId
     , ujAddressId
     , ujShippingOption
     , ujResources
@@ -53,6 +54,7 @@ import           Network.AWS.Snowball.Types.Product
 -- | /See:/ 'updateJob' smart constructor.
 data UpdateJob = UpdateJob'
     { _ujNotification               :: !(Maybe Notification)
+    , _ujForwardingAddressId        :: !(Maybe Text)
     , _ujAddressId                  :: !(Maybe Text)
     , _ujShippingOption             :: !(Maybe ShippingOption)
     , _ujResources                  :: !(Maybe JobResource)
@@ -67,6 +69,8 @@ data UpdateJob = UpdateJob'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ujNotification' - The new or updated 'Notification' object.
+--
+-- * 'ujForwardingAddressId' - The updated ID for the forwarding address for a job. This field is not supported in most regions.
 --
 -- * 'ujAddressId' - The ID of the updated 'Address' object.
 --
@@ -87,6 +91,7 @@ updateJob
 updateJob pJobId_ =
     UpdateJob'
     { _ujNotification = Nothing
+    , _ujForwardingAddressId = Nothing
     , _ujAddressId = Nothing
     , _ujShippingOption = Nothing
     , _ujResources = Nothing
@@ -99,6 +104,10 @@ updateJob pJobId_ =
 -- | The new or updated 'Notification' object.
 ujNotification :: Lens' UpdateJob (Maybe Notification)
 ujNotification = lens _ujNotification (\ s a -> s{_ujNotification = a});
+
+-- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
+ujForwardingAddressId :: Lens' UpdateJob (Maybe Text)
+ujForwardingAddressId = lens _ujForwardingAddressId (\ s a -> s{_ujForwardingAddressId = a});
 
 -- | The ID of the updated 'Address' object.
 ujAddressId :: Lens' UpdateJob (Maybe Text)
@@ -155,6 +164,8 @@ instance ToJSON UpdateJob where
           = object
               (catMaybes
                  [("Notification" .=) <$> _ujNotification,
+                  ("ForwardingAddressId" .=) <$>
+                    _ujForwardingAddressId,
                   ("AddressId" .=) <$> _ujAddressId,
                   ("ShippingOption" .=) <$> _ujShippingOption,
                   ("Resources" .=) <$> _ujResources,

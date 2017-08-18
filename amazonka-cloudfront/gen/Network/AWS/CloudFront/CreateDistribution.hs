@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new web distribution. Send a @GET@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
+-- Creates a new web distribution. Send a @POST@ request to the @//CloudFront API version/ /distribution@ /@distribution ID@ resource.
 --
 --
 module Network.AWS.CloudFront.CreateDistribution
@@ -91,7 +91,7 @@ instance NFData CreateDistribution
 instance ToElement CreateDistribution where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}DistributionConfig"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}DistributionConfig"
               .
               _cdDistributionConfig
 
@@ -99,7 +99,7 @@ instance ToHeaders CreateDistribution where
         toHeaders = const mempty
 
 instance ToPath CreateDistribution where
-        toPath = const "/2016-11-25/distribution"
+        toPath = const "/2017-03-25/distribution"
 
 instance ToQuery CreateDistribution where
         toQuery = const mempty

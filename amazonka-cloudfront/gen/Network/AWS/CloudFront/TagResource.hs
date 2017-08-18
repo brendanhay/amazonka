@@ -89,7 +89,7 @@ instance NFData TagResource
 instance ToElement TagResource where
         toElement
           = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2016-11-25/}Tags"
+              "{http://cloudfront.amazonaws.com/doc/2017-03-25/}Tags"
               .
               _trTags
 
@@ -97,7 +97,7 @@ instance ToHeaders TagResource where
         toHeaders = const mempty
 
 instance ToPath TagResource where
-        toPath = const "/2016-11-25/tagging"
+        toPath = const "/2017-03-25/tagging"
 
 instance ToQuery TagResource where
         toQuery TagResource'{..}

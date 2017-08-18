@@ -125,7 +125,7 @@ instance ToPath ListCloudFrontOriginAccessIdentities
          where
         toPath
           = const
-              "/2016-11-25/origin-access-identity/cloudfront"
+              "/2017-03-25/origin-access-identity/cloudfront"
 
 instance ToQuery ListCloudFrontOriginAccessIdentities
          where

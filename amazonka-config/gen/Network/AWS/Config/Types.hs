@@ -272,6 +272,12 @@ module Network.AWS.Config.Types
     , rResourceName
     , rRelationshipName
 
+    -- * ResourceCount
+    , ResourceCount
+    , resourceCount
+    , rcResourceType
+    , rcCount
+
     -- * ResourceIdentifier
     , ResourceIdentifier
     , resourceIdentifier
@@ -332,6 +338,8 @@ config =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

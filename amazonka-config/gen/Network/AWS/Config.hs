@@ -151,6 +151,9 @@ module Network.AWS.Config
     -- ** DescribeConfigRuleEvaluationStatus
     , module Network.AWS.Config.DescribeConfigRuleEvaluationStatus
 
+    -- ** GetDiscoveredResourceCounts
+    , module Network.AWS.Config.GetDiscoveredResourceCounts
+
     -- ** StartConfigRulesEvaluation
     , module Network.AWS.Config.StartConfigRulesEvaluation
 
@@ -428,6 +431,12 @@ module Network.AWS.Config
     , rResourceName
     , rRelationshipName
 
+    -- ** ResourceCount
+    , ResourceCount
+    , resourceCount
+    , rcResourceType
+    , rcCount
+
     -- ** ResourceIdentifier
     , ResourceIdentifier
     , resourceIdentifier
@@ -476,6 +485,7 @@ import           Network.AWS.Config.GetComplianceDetailsByConfigRule
 import           Network.AWS.Config.GetComplianceDetailsByResource
 import           Network.AWS.Config.GetComplianceSummaryByConfigRule
 import           Network.AWS.Config.GetComplianceSummaryByResourceType
+import           Network.AWS.Config.GetDiscoveredResourceCounts
 import           Network.AWS.Config.GetResourceConfigHistory
 import           Network.AWS.Config.ListDiscoveredResources
 import           Network.AWS.Config.PutConfigRule

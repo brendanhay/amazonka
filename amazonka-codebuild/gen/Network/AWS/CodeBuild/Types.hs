@@ -163,6 +163,7 @@ module Network.AWS.CodeBuild.Types
     -- * ProjectEnvironment
     , ProjectEnvironment
     , projectEnvironment
+    , pePrivilegedMode
     , peEnvironmentVariables
     , peType
     , peImage
@@ -218,6 +219,8 @@ codeBuild =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

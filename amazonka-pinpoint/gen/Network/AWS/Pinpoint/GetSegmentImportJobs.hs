@@ -57,9 +57,9 @@ data GetSegmentImportJobs = GetSegmentImportJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsijToken' - Undocumented member.
+-- * 'gsijToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gsijPageSize' - Undocumented member.
+-- * 'gsijPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gsijSegmentId' - Undocumented member.
 --
@@ -76,11 +76,11 @@ getSegmentImportJobs pSegmentId_ pApplicationId_ =
     , _gsijApplicationId = pApplicationId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsijToken :: Lens' GetSegmentImportJobs (Maybe Text)
 gsijToken = lens _gsijToken (\ s a -> s{_gsijToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gsijPageSize :: Lens' GetSegmentImportJobs (Maybe Text)
 gsijPageSize = lens _gsijPageSize (\ s a -> s{_gsijPageSize = a});
 

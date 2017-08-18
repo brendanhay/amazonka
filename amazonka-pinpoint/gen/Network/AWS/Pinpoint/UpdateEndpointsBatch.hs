@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to update your endpoints.
+-- Use to update a batch of endpoints.
 module Network.AWS.Pinpoint.UpdateEndpointsBatch
     (
     -- * Creating a Request

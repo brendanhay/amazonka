@@ -55,9 +55,9 @@ data GetSegments = GetSegments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gssToken' - Undocumented member.
+-- * 'gssToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gssPageSize' - Undocumented member.
+-- * 'gssPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gssApplicationId' - Undocumented member.
 getSegments
@@ -70,11 +70,11 @@ getSegments pApplicationId_ =
     , _gssApplicationId = pApplicationId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gssToken :: Lens' GetSegments (Maybe Text)
 gssToken = lens _gssToken (\ s a -> s{_gssToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gssPageSize :: Lens' GetSegments (Maybe Text)
 gssPageSize = lens _gssPageSize (\ s a -> s{_gssPageSize = a});
 

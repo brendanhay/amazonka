@@ -55,9 +55,9 @@ data GetCampaigns = GetCampaigns'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcsToken' - Undocumented member.
+-- * 'gcsToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gcsPageSize' - Undocumented member.
+-- * 'gcsPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gcsApplicationId' - Undocumented member.
 getCampaigns
@@ -70,11 +70,11 @@ getCampaigns pApplicationId_ =
     , _gcsApplicationId = pApplicationId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcsToken :: Lens' GetCampaigns (Maybe Text)
 gcsToken = lens _gcsToken (\ s a -> s{_gcsToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gcsPageSize :: Lens' GetCampaigns (Maybe Text)
 gcsPageSize = lens _gcsPageSize (\ s a -> s{_gcsPageSize = a});
 

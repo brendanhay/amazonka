@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about your campaign versions.
+-- Returns information about a specific version of a campaign.
 module Network.AWS.Pinpoint.GetCampaignVersion
     (
     -- * Creating a Request

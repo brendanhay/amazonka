@@ -21,9 +21,12 @@ import           Network.AWS.Lens
 import           Network.AWS.Pinpoint.Types.Sum
 import           Network.AWS.Prelude
 
--- | /See:/ 'apnsChannelRequest' smart constructor.
+-- | Apple Push Notification Service channel definition.
+--
+-- /See:/ 'apnsChannelRequest' smart constructor.
 data APNSChannelRequest = APNSChannelRequest'
     { _acrPrivateKey  :: !(Maybe Text)
+    , _acrEnabled     :: !(Maybe Bool)
     , _acrCertificate :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -33,18 +36,25 @@ data APNSChannelRequest = APNSChannelRequest'
 --
 -- * 'acrPrivateKey' - The certificate private key.
 --
+-- * 'acrEnabled' - If the channel is enabled for sending messages.
+--
 -- * 'acrCertificate' - The distribution certificate from Apple.
 apnsChannelRequest
     :: APNSChannelRequest
 apnsChannelRequest =
     APNSChannelRequest'
     { _acrPrivateKey = Nothing
+    , _acrEnabled = Nothing
     , _acrCertificate = Nothing
     }
 
 -- | The certificate private key.
 acrPrivateKey :: Lens' APNSChannelRequest (Maybe Text)
 acrPrivateKey = lens _acrPrivateKey (\ s a -> s{_acrPrivateKey = a});
+
+-- | If the channel is enabled for sending messages.
+acrEnabled :: Lens' APNSChannelRequest (Maybe Bool)
+acrEnabled = lens _acrEnabled (\ s a -> s{_acrEnabled = a});
 
 -- | The distribution certificate from Apple.
 acrCertificate :: Lens' APNSChannelRequest (Maybe Text)
@@ -59,12 +69,16 @@ instance ToJSON APNSChannelRequest where
           = object
               (catMaybes
                  [("PrivateKey" .=) <$> _acrPrivateKey,
+                  ("Enabled" .=) <$> _acrEnabled,
                   ("Certificate" .=) <$> _acrCertificate])
 
--- | /See:/ 'apnsChannelResponse' smart constructor.
+-- | Apple Distribution Push Notification Service channel definition.
+--
+-- /See:/ 'apnsChannelResponse' smart constructor.
 data APNSChannelResponse = APNSChannelResponse'
     { _acPlatform         :: !(Maybe Text)
     , _acLastModifiedDate :: !(Maybe Text)
+    , _acEnabled          :: !(Maybe Bool)
     , _acIsArchived       :: !(Maybe Bool)
     , _acApplicationId    :: !(Maybe Text)
     , _acVersion          :: !(Maybe Int)
@@ -81,13 +95,15 @@ data APNSChannelResponse = APNSChannelResponse'
 --
 -- * 'acLastModifiedDate' - Last date this was updated
 --
+-- * 'acEnabled' - If the channel is enabled for sending messages.
+--
 -- * 'acIsArchived' - Is this channel archived
 --
--- * 'acApplicationId' - Undocumented member.
+-- * 'acApplicationId' - The ID of the application to which the channel applies.
 --
 -- * 'acVersion' - Version of channel
 --
--- * 'acId' - Undocumented member.
+-- * 'acId' - Channel ID. Not used. Present only for backwards compatibility.
 --
 -- * 'acCreationDate' - When was this segment created
 --
@@ -98,6 +114,7 @@ apnsChannelResponse =
     APNSChannelResponse'
     { _acPlatform = Nothing
     , _acLastModifiedDate = Nothing
+    , _acEnabled = Nothing
     , _acIsArchived = Nothing
     , _acApplicationId = Nothing
     , _acVersion = Nothing
@@ -114,11 +131,15 @@ acPlatform = lens _acPlatform (\ s a -> s{_acPlatform = a});
 acLastModifiedDate :: Lens' APNSChannelResponse (Maybe Text)
 acLastModifiedDate = lens _acLastModifiedDate (\ s a -> s{_acLastModifiedDate = a});
 
+-- | If the channel is enabled for sending messages.
+acEnabled :: Lens' APNSChannelResponse (Maybe Bool)
+acEnabled = lens _acEnabled (\ s a -> s{_acEnabled = a});
+
 -- | Is this channel archived
 acIsArchived :: Lens' APNSChannelResponse (Maybe Bool)
 acIsArchived = lens _acIsArchived (\ s a -> s{_acIsArchived = a});
 
--- | Undocumented member.
+-- | The ID of the application to which the channel applies.
 acApplicationId :: Lens' APNSChannelResponse (Maybe Text)
 acApplicationId = lens _acApplicationId (\ s a -> s{_acApplicationId = a});
 
@@ -126,7 +147,7 @@ acApplicationId = lens _acApplicationId (\ s a -> s{_acApplicationId = a});
 acVersion :: Lens' APNSChannelResponse (Maybe Int)
 acVersion = lens _acVersion (\ s a -> s{_acVersion = a});
 
--- | Undocumented member.
+-- | Channel ID. Not used. Present only for backwards compatibility.
 acId :: Lens' APNSChannelResponse (Maybe Text)
 acId = lens _acId (\ s a -> s{_acId = a});
 
@@ -144,7 +165,8 @@ instance FromJSON APNSChannelResponse where
               (\ x ->
                  APNSChannelResponse' <$>
                    (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
-                     (x .:? "IsArchived")
+                     (x .:? "Enabled")
+                     <*> (x .:? "IsArchived")
                      <*> (x .:? "ApplicationId")
                      <*> (x .:? "Version")
                      <*> (x .:? "Id")
@@ -155,7 +177,303 @@ instance Hashable APNSChannelResponse
 
 instance NFData APNSChannelResponse
 
--- | /See:/ 'activitiesResponse' smart constructor.
+-- | APNS Message.
+--
+-- /See:/ 'apnsMessage' smart constructor.
+data APNSMessage = APNSMessage'
+    { _amSubstitutions :: !(Maybe (Map Text [Text]))
+    , _amSilentPush    :: !(Maybe Bool)
+    , _amRawContent    :: !(Maybe Text)
+    , _amData          :: !(Maybe (Map Text Text))
+    , _amBody          :: !(Maybe Text)
+    , _amCategory      :: !(Maybe Text)
+    , _amURL           :: !(Maybe Text)
+    , _amSound         :: !(Maybe Text)
+    , _amAction        :: !(Maybe Action)
+    , _amMediaURL      :: !(Maybe Text)
+    , _amBadge         :: !(Maybe Int)
+    , _amTitle         :: !(Maybe Text)
+    , _amThreadId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'APNSMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'amSilentPush' - Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+--
+-- * 'amRawContent' - The Raw JSON formatted string to be used as the payload. This value overrides the message.
+--
+-- * 'amData' - The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+--
+-- * 'amBody' - The message body of the notification, the email body or the text message.
+--
+-- * 'amCategory' - Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
+--
+-- * 'amURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
+--
+-- * 'amSound' - Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
+--
+-- * 'amAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+--
+-- * 'amMediaURL' - The URL that points to a video used in the push notification.
+--
+-- * 'amBadge' - Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.
+--
+-- * 'amTitle' - The message title that displays above the message on the user's device.
+--
+-- * 'amThreadId' - Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.
+apnsMessage
+    :: APNSMessage
+apnsMessage =
+    APNSMessage'
+    { _amSubstitutions = Nothing
+    , _amSilentPush = Nothing
+    , _amRawContent = Nothing
+    , _amData = Nothing
+    , _amBody = Nothing
+    , _amCategory = Nothing
+    , _amURL = Nothing
+    , _amSound = Nothing
+    , _amAction = Nothing
+    , _amMediaURL = Nothing
+    , _amBadge = Nothing
+    , _amTitle = Nothing
+    , _amThreadId = Nothing
+    }
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+amSubstitutions :: Lens' APNSMessage (HashMap Text [Text])
+amSubstitutions = lens _amSubstitutions (\ s a -> s{_amSubstitutions = a}) . _Default . _Map;
+
+-- | Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+amSilentPush :: Lens' APNSMessage (Maybe Bool)
+amSilentPush = lens _amSilentPush (\ s a -> s{_amSilentPush = a});
+
+-- | The Raw JSON formatted string to be used as the payload. This value overrides the message.
+amRawContent :: Lens' APNSMessage (Maybe Text)
+amRawContent = lens _amRawContent (\ s a -> s{_amRawContent = a});
+
+-- | The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+amData :: Lens' APNSMessage (HashMap Text Text)
+amData = lens _amData (\ s a -> s{_amData = a}) . _Default . _Map;
+
+-- | The message body of the notification, the email body or the text message.
+amBody :: Lens' APNSMessage (Maybe Text)
+amBody = lens _amBody (\ s a -> s{_amBody = a});
+
+-- | Provide this key with a string value that represents the notification's type. This value corresponds to the value in the identifier property of one of your app's registered categories.
+amCategory :: Lens' APNSMessage (Maybe Text)
+amCategory = lens _amCategory (\ s a -> s{_amCategory = a});
+
+-- | The URL to open in the user's mobile browser. Used if the value for Action is URL.
+amURL :: Lens' APNSMessage (Maybe Text)
+amURL = lens _amURL (\ s a -> s{_amURL = a});
+
+-- | Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app's main bundle or in the Library/Sounds folder of your app's data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.
+amSound :: Lens' APNSMessage (Maybe Text)
+amSound = lens _amSound (\ s a -> s{_amSound = a});
+
+-- | The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+amAction :: Lens' APNSMessage (Maybe Action)
+amAction = lens _amAction (\ s a -> s{_amAction = a});
+
+-- | The URL that points to a video used in the push notification.
+amMediaURL :: Lens' APNSMessage (Maybe Text)
+amMediaURL = lens _amMediaURL (\ s a -> s{_amMediaURL = a});
+
+-- | Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.
+amBadge :: Lens' APNSMessage (Maybe Int)
+amBadge = lens _amBadge (\ s a -> s{_amBadge = a});
+
+-- | The message title that displays above the message on the user's device.
+amTitle :: Lens' APNSMessage (Maybe Text)
+amTitle = lens _amTitle (\ s a -> s{_amTitle = a});
+
+-- | Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.
+amThreadId :: Lens' APNSMessage (Maybe Text)
+amThreadId = lens _amThreadId (\ s a -> s{_amThreadId = a});
+
+instance Hashable APNSMessage
+
+instance NFData APNSMessage
+
+instance ToJSON APNSMessage where
+        toJSON APNSMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _amSubstitutions,
+                  ("SilentPush" .=) <$> _amSilentPush,
+                  ("RawContent" .=) <$> _amRawContent,
+                  ("Data" .=) <$> _amData, ("Body" .=) <$> _amBody,
+                  ("Category" .=) <$> _amCategory,
+                  ("Url" .=) <$> _amURL, ("Sound" .=) <$> _amSound,
+                  ("Action" .=) <$> _amAction,
+                  ("MediaUrl" .=) <$> _amMediaURL,
+                  ("Badge" .=) <$> _amBadge, ("Title" .=) <$> _amTitle,
+                  ("ThreadId" .=) <$> _amThreadId])
+
+-- | Apple Development Push Notification Service channel definition.
+--
+-- /See:/ 'apnsSandboxChannelRequest' smart constructor.
+data APNSSandboxChannelRequest = APNSSandboxChannelRequest'
+    { _ascrPrivateKey  :: !(Maybe Text)
+    , _ascrEnabled     :: !(Maybe Bool)
+    , _ascrCertificate :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'APNSSandboxChannelRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ascrPrivateKey' - The certificate private key.
+--
+-- * 'ascrEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'ascrCertificate' - The distribution certificate from Apple.
+apnsSandboxChannelRequest
+    :: APNSSandboxChannelRequest
+apnsSandboxChannelRequest =
+    APNSSandboxChannelRequest'
+    { _ascrPrivateKey = Nothing
+    , _ascrEnabled = Nothing
+    , _ascrCertificate = Nothing
+    }
+
+-- | The certificate private key.
+ascrPrivateKey :: Lens' APNSSandboxChannelRequest (Maybe Text)
+ascrPrivateKey = lens _ascrPrivateKey (\ s a -> s{_ascrPrivateKey = a});
+
+-- | If the channel is enabled for sending messages.
+ascrEnabled :: Lens' APNSSandboxChannelRequest (Maybe Bool)
+ascrEnabled = lens _ascrEnabled (\ s a -> s{_ascrEnabled = a});
+
+-- | The distribution certificate from Apple.
+ascrCertificate :: Lens' APNSSandboxChannelRequest (Maybe Text)
+ascrCertificate = lens _ascrCertificate (\ s a -> s{_ascrCertificate = a});
+
+instance Hashable APNSSandboxChannelRequest
+
+instance NFData APNSSandboxChannelRequest
+
+instance ToJSON APNSSandboxChannelRequest where
+        toJSON APNSSandboxChannelRequest'{..}
+          = object
+              (catMaybes
+                 [("PrivateKey" .=) <$> _ascrPrivateKey,
+                  ("Enabled" .=) <$> _ascrEnabled,
+                  ("Certificate" .=) <$> _ascrCertificate])
+
+-- | Apple Development Push Notification Service channel definition.
+--
+-- /See:/ 'apnsSandboxChannelResponse' smart constructor.
+data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
+    { _ascPlatform         :: !(Maybe Text)
+    , _ascLastModifiedDate :: !(Maybe Text)
+    , _ascEnabled          :: !(Maybe Bool)
+    , _ascIsArchived       :: !(Maybe Bool)
+    , _ascApplicationId    :: !(Maybe Text)
+    , _ascVersion          :: !(Maybe Int)
+    , _ascId               :: !(Maybe Text)
+    , _ascCreationDate     :: !(Maybe Text)
+    , _ascLastModifiedBy   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'APNSSandboxChannelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ascPlatform' - The platform type. Will be APNS_SANDBOX.
+--
+-- * 'ascLastModifiedDate' - Last date this was updated
+--
+-- * 'ascEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'ascIsArchived' - Is this channel archived
+--
+-- * 'ascApplicationId' - Application id
+--
+-- * 'ascVersion' - Version of channel
+--
+-- * 'ascId' - Channel ID. Not used, only for backwards compatibility.
+--
+-- * 'ascCreationDate' - When was this segment created
+--
+-- * 'ascLastModifiedBy' - Who last updated this entry
+apnsSandboxChannelResponse
+    :: APNSSandboxChannelResponse
+apnsSandboxChannelResponse =
+    APNSSandboxChannelResponse'
+    { _ascPlatform = Nothing
+    , _ascLastModifiedDate = Nothing
+    , _ascEnabled = Nothing
+    , _ascIsArchived = Nothing
+    , _ascApplicationId = Nothing
+    , _ascVersion = Nothing
+    , _ascId = Nothing
+    , _ascCreationDate = Nothing
+    , _ascLastModifiedBy = Nothing
+    }
+
+-- | The platform type. Will be APNS_SANDBOX.
+ascPlatform :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascPlatform = lens _ascPlatform (\ s a -> s{_ascPlatform = a});
+
+-- | Last date this was updated
+ascLastModifiedDate :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascLastModifiedDate = lens _ascLastModifiedDate (\ s a -> s{_ascLastModifiedDate = a});
+
+-- | If the channel is enabled for sending messages.
+ascEnabled :: Lens' APNSSandboxChannelResponse (Maybe Bool)
+ascEnabled = lens _ascEnabled (\ s a -> s{_ascEnabled = a});
+
+-- | Is this channel archived
+ascIsArchived :: Lens' APNSSandboxChannelResponse (Maybe Bool)
+ascIsArchived = lens _ascIsArchived (\ s a -> s{_ascIsArchived = a});
+
+-- | Application id
+ascApplicationId :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascApplicationId = lens _ascApplicationId (\ s a -> s{_ascApplicationId = a});
+
+-- | Version of channel
+ascVersion :: Lens' APNSSandboxChannelResponse (Maybe Int)
+ascVersion = lens _ascVersion (\ s a -> s{_ascVersion = a});
+
+-- | Channel ID. Not used, only for backwards compatibility.
+ascId :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascId = lens _ascId (\ s a -> s{_ascId = a});
+
+-- | When was this segment created
+ascCreationDate :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascCreationDate = lens _ascCreationDate (\ s a -> s{_ascCreationDate = a});
+
+-- | Who last updated this entry
+ascLastModifiedBy :: Lens' APNSSandboxChannelResponse (Maybe Text)
+ascLastModifiedBy = lens _ascLastModifiedBy (\ s a -> s{_ascLastModifiedBy = a});
+
+instance FromJSON APNSSandboxChannelResponse where
+        parseJSON
+          = withObject "APNSSandboxChannelResponse"
+              (\ x ->
+                 APNSSandboxChannelResponse' <$>
+                   (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
+                     (x .:? "Enabled")
+                     <*> (x .:? "IsArchived")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy"))
+
+instance Hashable APNSSandboxChannelResponse
+
+instance NFData APNSSandboxChannelResponse
+
+-- | Activities for campaign.
+--
+-- /See:/ 'activitiesResponse' smart constructor.
 newtype ActivitiesResponse = ActivitiesResponse'
     { _aItem :: Maybe [ActivityResponse]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -186,11 +504,15 @@ instance Hashable ActivitiesResponse
 
 instance NFData ActivitiesResponse
 
--- | /See:/ 'activityResponse' smart constructor.
+-- | Activity definition
+--
+-- /See:/ 'activityResponse' smart constructor.
 data ActivityResponse = ActivityResponse'
     { _aState                   :: !(Maybe Text)
     , _aStart                   :: !(Maybe Text)
     , _aCampaignId              :: !(Maybe Text)
+    , _aTimezonesCompletedCount :: !(Maybe Int)
+    , _aTimezonesTotalCount     :: !(Maybe Int)
     , _aResult                  :: !(Maybe Text)
     , _aTreatmentId             :: !(Maybe Text)
     , _aSuccessfulEndpointCount :: !(Maybe Int)
@@ -210,6 +532,10 @@ data ActivityResponse = ActivityResponse'
 -- * 'aStart' - The actual start time of the activity in ISO 8601 format.
 --
 -- * 'aCampaignId' - The ID of the campaign to which the activity applies.
+--
+-- * 'aTimezonesCompletedCount' - The total number of timezones completed.
+--
+-- * 'aTimezonesTotalCount' - The total number of unique timezones present in the segment.
 --
 -- * 'aResult' - Indicates whether the activity succeeded. Valid values: SUCCESS, FAIL
 --
@@ -233,6 +559,8 @@ activityResponse =
     { _aState = Nothing
     , _aStart = Nothing
     , _aCampaignId = Nothing
+    , _aTimezonesCompletedCount = Nothing
+    , _aTimezonesTotalCount = Nothing
     , _aResult = Nothing
     , _aTreatmentId = Nothing
     , _aSuccessfulEndpointCount = Nothing
@@ -254,6 +582,14 @@ aStart = lens _aStart (\ s a -> s{_aStart = a});
 -- | The ID of the campaign to which the activity applies.
 aCampaignId :: Lens' ActivityResponse (Maybe Text)
 aCampaignId = lens _aCampaignId (\ s a -> s{_aCampaignId = a});
+
+-- | The total number of timezones completed.
+aTimezonesCompletedCount :: Lens' ActivityResponse (Maybe Int)
+aTimezonesCompletedCount = lens _aTimezonesCompletedCount (\ s a -> s{_aTimezonesCompletedCount = a});
+
+-- | The total number of unique timezones present in the segment.
+aTimezonesTotalCount :: Lens' ActivityResponse (Maybe Int)
+aTimezonesTotalCount = lens _aTimezonesTotalCount (\ s a -> s{_aTimezonesTotalCount = a});
 
 -- | Indicates whether the activity succeeded. Valid values: SUCCESS, FAIL
 aResult :: Lens' ActivityResponse (Maybe Text)
@@ -294,6 +630,8 @@ instance FromJSON ActivityResponse where
                  ActivityResponse' <$>
                    (x .:? "State") <*> (x .:? "Start") <*>
                      (x .:? "CampaignId")
+                     <*> (x .:? "TimezonesCompletedCount")
+                     <*> (x .:? "TimezonesTotalCount")
                      <*> (x .:? "Result")
                      <*> (x .:? "TreatmentId")
                      <*> (x .:? "SuccessfulEndpointCount")
@@ -307,7 +645,129 @@ instance Hashable ActivityResponse
 
 instance NFData ActivityResponse
 
--- | /See:/ 'applicationSettingsResource' smart constructor.
+-- | Address configuration.
+--
+-- /See:/ 'addressConfiguration' smart constructor.
+data AddressConfiguration = AddressConfiguration'
+    { _acSubstitutions :: !(Maybe (Map Text [Text]))
+    , _acTitleOverride :: !(Maybe Text)
+    , _acContext       :: !(Maybe (Map Text Text))
+    , _acRawContent    :: !(Maybe Text)
+    , _acBodyOverride  :: !(Maybe Text)
+    , _acChannelType   :: !(Maybe ChannelType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddressConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acSubstitutions' - A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+--
+-- * 'acTitleOverride' - Title override. If specified will override default title if applicable.
+--
+-- * 'acContext' - A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+--
+-- * 'acRawContent' - The Raw JSON formatted string to be used as the payload. This value overrides the message.
+--
+-- * 'acBodyOverride' - Body override. If specified will override default body.
+--
+-- * 'acChannelType' - The channel type. Valid values: GCM | APNS | SMS | EMAIL
+addressConfiguration
+    :: AddressConfiguration
+addressConfiguration =
+    AddressConfiguration'
+    { _acSubstitutions = Nothing
+    , _acTitleOverride = Nothing
+    , _acContext = Nothing
+    , _acRawContent = Nothing
+    , _acBodyOverride = Nothing
+    , _acChannelType = Nothing
+    }
+
+-- | A map of substitution values for the message to be merged with the DefaultMessage's substitutions. Substitutions on this map take precedence over the all other substitutions.
+acSubstitutions :: Lens' AddressConfiguration (HashMap Text [Text])
+acSubstitutions = lens _acSubstitutions (\ s a -> s{_acSubstitutions = a}) . _Default . _Map;
+
+-- | Title override. If specified will override default title if applicable.
+acTitleOverride :: Lens' AddressConfiguration (Maybe Text)
+acTitleOverride = lens _acTitleOverride (\ s a -> s{_acTitleOverride = a});
+
+-- | A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+acContext :: Lens' AddressConfiguration (HashMap Text Text)
+acContext = lens _acContext (\ s a -> s{_acContext = a}) . _Default . _Map;
+
+-- | The Raw JSON formatted string to be used as the payload. This value overrides the message.
+acRawContent :: Lens' AddressConfiguration (Maybe Text)
+acRawContent = lens _acRawContent (\ s a -> s{_acRawContent = a});
+
+-- | Body override. If specified will override default body.
+acBodyOverride :: Lens' AddressConfiguration (Maybe Text)
+acBodyOverride = lens _acBodyOverride (\ s a -> s{_acBodyOverride = a});
+
+-- | The channel type. Valid values: GCM | APNS | SMS | EMAIL
+acChannelType :: Lens' AddressConfiguration (Maybe ChannelType)
+acChannelType = lens _acChannelType (\ s a -> s{_acChannelType = a});
+
+instance Hashable AddressConfiguration
+
+instance NFData AddressConfiguration
+
+instance ToJSON AddressConfiguration where
+        toJSON AddressConfiguration'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _acSubstitutions,
+                  ("TitleOverride" .=) <$> _acTitleOverride,
+                  ("Context" .=) <$> _acContext,
+                  ("RawContent" .=) <$> _acRawContent,
+                  ("BodyOverride" .=) <$> _acBodyOverride,
+                  ("ChannelType" .=) <$> _acChannelType])
+
+-- | Application Response.
+--
+-- /See:/ 'applicationResponse' smart constructor.
+data ApplicationResponse = ApplicationResponse'
+    { _appName :: !(Maybe Text)
+    , _appId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'appName' - The display name of the application.
+--
+-- * 'appId' - The unique application ID.
+applicationResponse
+    :: ApplicationResponse
+applicationResponse =
+    ApplicationResponse'
+    { _appName = Nothing
+    , _appId = Nothing
+    }
+
+-- | The display name of the application.
+appName :: Lens' ApplicationResponse (Maybe Text)
+appName = lens _appName (\ s a -> s{_appName = a});
+
+-- | The unique application ID.
+appId :: Lens' ApplicationResponse (Maybe Text)
+appId = lens _appId (\ s a -> s{_appId = a});
+
+instance FromJSON ApplicationResponse where
+        parseJSON
+          = withObject "ApplicationResponse"
+              (\ x ->
+                 ApplicationResponse' <$>
+                   (x .:? "Name") <*> (x .:? "Id"))
+
+instance Hashable ApplicationResponse
+
+instance NFData ApplicationResponse
+
+-- | Application settings.
+--
+-- /See:/ 'applicationSettingsResource' smart constructor.
 data ApplicationSettingsResource = ApplicationSettingsResource'
     { _asrLastModifiedDate :: !(Maybe Text)
     , _asrLimits           :: !(Maybe CampaignLimits)
@@ -365,7 +825,51 @@ instance Hashable ApplicationSettingsResource
 
 instance NFData ApplicationSettingsResource
 
--- | /See:/ 'attributeDimension' smart constructor.
+-- | Get Applications Result.
+--
+-- /See:/ 'applicationsResponse' smart constructor.
+data ApplicationsResponse = ApplicationsResponse'
+    { _appNextToken :: !(Maybe Text)
+    , _appItem      :: !(Maybe [ApplicationResponse])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'appNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+--
+-- * 'appItem' - List of applications returned in this page.
+applicationsResponse
+    :: ApplicationsResponse
+applicationsResponse =
+    ApplicationsResponse'
+    { _appNextToken = Nothing
+    , _appItem = Nothing
+    }
+
+-- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+appNextToken :: Lens' ApplicationsResponse (Maybe Text)
+appNextToken = lens _appNextToken (\ s a -> s{_appNextToken = a});
+
+-- | List of applications returned in this page.
+appItem :: Lens' ApplicationsResponse [ApplicationResponse]
+appItem = lens _appItem (\ s a -> s{_appItem = a}) . _Default . _Coerce;
+
+instance FromJSON ApplicationsResponse where
+        parseJSON
+          = withObject "ApplicationsResponse"
+              (\ x ->
+                 ApplicationsResponse' <$>
+                   (x .:? "NextToken") <*> (x .:? "Item" .!= mempty))
+
+instance Hashable ApplicationsResponse
+
+instance NFData ApplicationsResponse
+
+-- | Custom attibute dimension
+--
+-- /See:/ 'attributeDimension' smart constructor.
 data AttributeDimension = AttributeDimension'
     { _adValues        :: !(Maybe [Text])
     , _adAttributeType :: !(Maybe AttributeType)
@@ -377,7 +881,7 @@ data AttributeDimension = AttributeDimension'
 --
 -- * 'adValues' - The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
 --
--- * 'adAttributeType' - The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+-- * 'adAttributeType' - The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
 attributeDimension
     :: AttributeDimension
 attributeDimension =
@@ -390,7 +894,7 @@ attributeDimension =
 adValues :: Lens' AttributeDimension [Text]
 adValues = lens _adValues (\ s a -> s{_adValues = a}) . _Default . _Coerce;
 
--- | The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+-- | The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
 adAttributeType :: Lens' AttributeDimension (Maybe AttributeType)
 adAttributeType = lens _adAttributeType (\ s a -> s{_adAttributeType = a});
 
@@ -413,7 +917,78 @@ instance ToJSON AttributeDimension where
                  [("Values" .=) <$> _adValues,
                   ("AttributeType" .=) <$> _adAttributeType])
 
--- | /See:/ 'campaignLimits' smart constructor.
+-- | The email message configuration.
+--
+-- /See:/ 'campaignEmailMessage' smart constructor.
+data CampaignEmailMessage = CampaignEmailMessage'
+    { _cemBody        :: !(Maybe Text)
+    , _cemFromAddress :: !(Maybe Text)
+    , _cemHTMLBody    :: !(Maybe Text)
+    , _cemTitle       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CampaignEmailMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cemBody' - The email text body.
+--
+-- * 'cemFromAddress' - The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel.
+--
+-- * 'cemHTMLBody' - The email html body.
+--
+-- * 'cemTitle' - The email title (Or subject).
+campaignEmailMessage
+    :: CampaignEmailMessage
+campaignEmailMessage =
+    CampaignEmailMessage'
+    { _cemBody = Nothing
+    , _cemFromAddress = Nothing
+    , _cemHTMLBody = Nothing
+    , _cemTitle = Nothing
+    }
+
+-- | The email text body.
+cemBody :: Lens' CampaignEmailMessage (Maybe Text)
+cemBody = lens _cemBody (\ s a -> s{_cemBody = a});
+
+-- | The email address used to send the email from. Defaults to use FromAddress specified in the Email Channel.
+cemFromAddress :: Lens' CampaignEmailMessage (Maybe Text)
+cemFromAddress = lens _cemFromAddress (\ s a -> s{_cemFromAddress = a});
+
+-- | The email html body.
+cemHTMLBody :: Lens' CampaignEmailMessage (Maybe Text)
+cemHTMLBody = lens _cemHTMLBody (\ s a -> s{_cemHTMLBody = a});
+
+-- | The email title (Or subject).
+cemTitle :: Lens' CampaignEmailMessage (Maybe Text)
+cemTitle = lens _cemTitle (\ s a -> s{_cemTitle = a});
+
+instance FromJSON CampaignEmailMessage where
+        parseJSON
+          = withObject "CampaignEmailMessage"
+              (\ x ->
+                 CampaignEmailMessage' <$>
+                   (x .:? "Body") <*> (x .:? "FromAddress") <*>
+                     (x .:? "HtmlBody")
+                     <*> (x .:? "Title"))
+
+instance Hashable CampaignEmailMessage
+
+instance NFData CampaignEmailMessage
+
+instance ToJSON CampaignEmailMessage where
+        toJSON CampaignEmailMessage'{..}
+          = object
+              (catMaybes
+                 [("Body" .=) <$> _cemBody,
+                  ("FromAddress" .=) <$> _cemFromAddress,
+                  ("HtmlBody" .=) <$> _cemHTMLBody,
+                  ("Title" .=) <$> _cemTitle])
+
+-- | Campaign Limits are used to limit the number of messages that can be sent to a user.
+--
+-- /See:/ 'campaignLimits' smart constructor.
 data CampaignLimits = CampaignLimits'
     { _clDaily :: !(Maybe Int)
     , _clTotal :: !(Maybe Int)
@@ -460,7 +1035,9 @@ instance ToJSON CampaignLimits where
                  [("Daily" .=) <$> _clDaily,
                   ("Total" .=) <$> _clTotal])
 
--- | /See:/ 'campaignResponse' smart constructor.
+-- | Campaign definition
+--
+-- /See:/ 'campaignResponse' smart constructor.
 data CampaignResponse = CampaignResponse'
     { _cState                :: !(Maybe CampaignState)
     , _cLastModifiedDate     :: !(Maybe Text)
@@ -653,7 +1230,68 @@ instance Hashable CampaignResponse
 
 instance NFData CampaignResponse
 
--- | /See:/ 'campaignState' smart constructor.
+-- | SMS message configuration.
+--
+-- /See:/ 'campaignSmsMessage' smart constructor.
+data CampaignSmsMessage = CampaignSmsMessage'
+    { _csmBody        :: !(Maybe Text)
+    , _csmMessageType :: !(Maybe MessageType)
+    , _csmSenderId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CampaignSmsMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csmBody' - The SMS text body.
+--
+-- * 'csmMessageType' - Is this is a transactional SMS message, otherwise a promotional message.
+--
+-- * 'csmSenderId' - Sender ID of sent message.
+campaignSmsMessage
+    :: CampaignSmsMessage
+campaignSmsMessage =
+    CampaignSmsMessage'
+    { _csmBody = Nothing
+    , _csmMessageType = Nothing
+    , _csmSenderId = Nothing
+    }
+
+-- | The SMS text body.
+csmBody :: Lens' CampaignSmsMessage (Maybe Text)
+csmBody = lens _csmBody (\ s a -> s{_csmBody = a});
+
+-- | Is this is a transactional SMS message, otherwise a promotional message.
+csmMessageType :: Lens' CampaignSmsMessage (Maybe MessageType)
+csmMessageType = lens _csmMessageType (\ s a -> s{_csmMessageType = a});
+
+-- | Sender ID of sent message.
+csmSenderId :: Lens' CampaignSmsMessage (Maybe Text)
+csmSenderId = lens _csmSenderId (\ s a -> s{_csmSenderId = a});
+
+instance FromJSON CampaignSmsMessage where
+        parseJSON
+          = withObject "CampaignSmsMessage"
+              (\ x ->
+                 CampaignSmsMessage' <$>
+                   (x .:? "Body") <*> (x .:? "MessageType") <*>
+                     (x .:? "SenderId"))
+
+instance Hashable CampaignSmsMessage
+
+instance NFData CampaignSmsMessage
+
+instance ToJSON CampaignSmsMessage where
+        toJSON CampaignSmsMessage'{..}
+          = object
+              (catMaybes
+                 [("Body" .=) <$> _csmBody,
+                  ("MessageType" .=) <$> _csmMessageType,
+                  ("SenderId" .=) <$> _csmSenderId])
+
+-- | State of the Campaign
+--
+-- /See:/ 'campaignState' smart constructor.
 newtype CampaignState = CampaignState'
     { _csCampaignStatus :: Maybe CampaignStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -683,7 +1321,9 @@ instance Hashable CampaignState
 
 instance NFData CampaignState
 
--- | /See:/ 'campaignsResponse' smart constructor.
+-- | List of available campaigns.
+--
+-- /See:/ 'campaignsResponse' smart constructor.
 data CampaignsResponse = CampaignsResponse'
     { _cNextToken :: !(Maybe Text)
     , _cItem      :: !(Maybe [CampaignResponse])
@@ -723,7 +1363,430 @@ instance Hashable CampaignsResponse
 
 instance NFData CampaignsResponse
 
--- | /See:/ 'endpointBatchItem' smart constructor.
+-- | Application Request.
+--
+-- /See:/ 'createApplicationRequest' smart constructor.
+newtype CreateApplicationRequest = CreateApplicationRequest'
+    { _carName :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateApplicationRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carName' - The display name of the application. Used in the Amazon Pinpoint console.
+createApplicationRequest
+    :: CreateApplicationRequest
+createApplicationRequest =
+    CreateApplicationRequest'
+    { _carName = Nothing
+    }
+
+-- | The display name of the application. Used in the Amazon Pinpoint console.
+carName :: Lens' CreateApplicationRequest (Maybe Text)
+carName = lens _carName (\ s a -> s{_carName = a});
+
+instance Hashable CreateApplicationRequest
+
+instance NFData CreateApplicationRequest
+
+instance ToJSON CreateApplicationRequest where
+        toJSON CreateApplicationRequest'{..}
+          = object (catMaybes [("Name" .=) <$> _carName])
+
+-- | Default Message across push notification, email, and sms.
+--
+-- /See:/ 'defaultMessage' smart constructor.
+data DefaultMessage = DefaultMessage'
+    { _dmSubstitutions :: !(Maybe (Map Text [Text]))
+    , _dmBody          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefaultMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'dmBody' - The message body of the notification, the email body or the text message.
+defaultMessage
+    :: DefaultMessage
+defaultMessage =
+    DefaultMessage'
+    { _dmSubstitutions = Nothing
+    , _dmBody = Nothing
+    }
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+dmSubstitutions :: Lens' DefaultMessage (HashMap Text [Text])
+dmSubstitutions = lens _dmSubstitutions (\ s a -> s{_dmSubstitutions = a}) . _Default . _Map;
+
+-- | The message body of the notification, the email body or the text message.
+dmBody :: Lens' DefaultMessage (Maybe Text)
+dmBody = lens _dmBody (\ s a -> s{_dmBody = a});
+
+instance Hashable DefaultMessage
+
+instance NFData DefaultMessage
+
+instance ToJSON DefaultMessage where
+        toJSON DefaultMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _dmSubstitutions,
+                  ("Body" .=) <$> _dmBody])
+
+-- | Default Push Notification Message.
+--
+-- /See:/ 'defaultPushNotificationMessage' smart constructor.
+data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
+    { _dpnmSubstitutions :: !(Maybe (Map Text [Text]))
+    , _dpnmSilentPush    :: !(Maybe Bool)
+    , _dpnmData          :: !(Maybe (Map Text Text))
+    , _dpnmBody          :: !(Maybe Text)
+    , _dpnmURL           :: !(Maybe Text)
+    , _dpnmAction        :: !(Maybe Action)
+    , _dpnmTitle         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefaultPushNotificationMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpnmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'dpnmSilentPush' - Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+--
+-- * 'dpnmData' - The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+--
+-- * 'dpnmBody' - The message body of the notification, the email body or the text message.
+--
+-- * 'dpnmURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
+--
+-- * 'dpnmAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+--
+-- * 'dpnmTitle' - The message title that displays above the message on the user's device.
+defaultPushNotificationMessage
+    :: DefaultPushNotificationMessage
+defaultPushNotificationMessage =
+    DefaultPushNotificationMessage'
+    { _dpnmSubstitutions = Nothing
+    , _dpnmSilentPush = Nothing
+    , _dpnmData = Nothing
+    , _dpnmBody = Nothing
+    , _dpnmURL = Nothing
+    , _dpnmAction = Nothing
+    , _dpnmTitle = Nothing
+    }
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+dpnmSubstitutions :: Lens' DefaultPushNotificationMessage (HashMap Text [Text])
+dpnmSubstitutions = lens _dpnmSubstitutions (\ s a -> s{_dpnmSubstitutions = a}) . _Default . _Map;
+
+-- | Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+dpnmSilentPush :: Lens' DefaultPushNotificationMessage (Maybe Bool)
+dpnmSilentPush = lens _dpnmSilentPush (\ s a -> s{_dpnmSilentPush = a});
+
+-- | The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+dpnmData :: Lens' DefaultPushNotificationMessage (HashMap Text Text)
+dpnmData = lens _dpnmData (\ s a -> s{_dpnmData = a}) . _Default . _Map;
+
+-- | The message body of the notification, the email body or the text message.
+dpnmBody :: Lens' DefaultPushNotificationMessage (Maybe Text)
+dpnmBody = lens _dpnmBody (\ s a -> s{_dpnmBody = a});
+
+-- | The URL to open in the user's mobile browser. Used if the value for Action is URL.
+dpnmURL :: Lens' DefaultPushNotificationMessage (Maybe Text)
+dpnmURL = lens _dpnmURL (\ s a -> s{_dpnmURL = a});
+
+-- | The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+dpnmAction :: Lens' DefaultPushNotificationMessage (Maybe Action)
+dpnmAction = lens _dpnmAction (\ s a -> s{_dpnmAction = a});
+
+-- | The message title that displays above the message on the user's device.
+dpnmTitle :: Lens' DefaultPushNotificationMessage (Maybe Text)
+dpnmTitle = lens _dpnmTitle (\ s a -> s{_dpnmTitle = a});
+
+instance Hashable DefaultPushNotificationMessage
+
+instance NFData DefaultPushNotificationMessage
+
+instance ToJSON DefaultPushNotificationMessage where
+        toJSON DefaultPushNotificationMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _dpnmSubstitutions,
+                  ("SilentPush" .=) <$> _dpnmSilentPush,
+                  ("Data" .=) <$> _dpnmData, ("Body" .=) <$> _dpnmBody,
+                  ("Url" .=) <$> _dpnmURL,
+                  ("Action" .=) <$> _dpnmAction,
+                  ("Title" .=) <$> _dpnmTitle])
+
+-- | The message configuration.
+--
+-- /See:/ 'directMessageConfiguration' smart constructor.
+data DirectMessageConfiguration = DirectMessageConfiguration'
+    { _dmcAPNSMessage                    :: !(Maybe APNSMessage)
+    , _dmcGCMMessage                     :: !(Maybe GCMMessage)
+    , _dmcDefaultMessage                 :: !(Maybe DefaultMessage)
+    , _dmcSMSMessage                     :: !(Maybe SMSMessage)
+    , _dmcDefaultPushNotificationMessage :: !(Maybe DefaultPushNotificationMessage)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectMessageConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmcAPNSMessage' - The message to APNS channels. Overrides the default push notification message.
+--
+-- * 'dmcGCMMessage' - The message to GCM channels. Overrides the default push notification message.
+--
+-- * 'dmcDefaultMessage' - The default message for all channels.
+--
+-- * 'dmcSMSMessage' - The message to SMS channels. Overrides the default message.
+--
+-- * 'dmcDefaultPushNotificationMessage' - The default push notification message for all push channels.
+directMessageConfiguration
+    :: DirectMessageConfiguration
+directMessageConfiguration =
+    DirectMessageConfiguration'
+    { _dmcAPNSMessage = Nothing
+    , _dmcGCMMessage = Nothing
+    , _dmcDefaultMessage = Nothing
+    , _dmcSMSMessage = Nothing
+    , _dmcDefaultPushNotificationMessage = Nothing
+    }
+
+-- | The message to APNS channels. Overrides the default push notification message.
+dmcAPNSMessage :: Lens' DirectMessageConfiguration (Maybe APNSMessage)
+dmcAPNSMessage = lens _dmcAPNSMessage (\ s a -> s{_dmcAPNSMessage = a});
+
+-- | The message to GCM channels. Overrides the default push notification message.
+dmcGCMMessage :: Lens' DirectMessageConfiguration (Maybe GCMMessage)
+dmcGCMMessage = lens _dmcGCMMessage (\ s a -> s{_dmcGCMMessage = a});
+
+-- | The default message for all channels.
+dmcDefaultMessage :: Lens' DirectMessageConfiguration (Maybe DefaultMessage)
+dmcDefaultMessage = lens _dmcDefaultMessage (\ s a -> s{_dmcDefaultMessage = a});
+
+-- | The message to SMS channels. Overrides the default message.
+dmcSMSMessage :: Lens' DirectMessageConfiguration (Maybe SMSMessage)
+dmcSMSMessage = lens _dmcSMSMessage (\ s a -> s{_dmcSMSMessage = a});
+
+-- | The default push notification message for all push channels.
+dmcDefaultPushNotificationMessage :: Lens' DirectMessageConfiguration (Maybe DefaultPushNotificationMessage)
+dmcDefaultPushNotificationMessage = lens _dmcDefaultPushNotificationMessage (\ s a -> s{_dmcDefaultPushNotificationMessage = a});
+
+instance Hashable DirectMessageConfiguration
+
+instance NFData DirectMessageConfiguration
+
+instance ToJSON DirectMessageConfiguration where
+        toJSON DirectMessageConfiguration'{..}
+          = object
+              (catMaybes
+                 [("APNSMessage" .=) <$> _dmcAPNSMessage,
+                  ("GCMMessage" .=) <$> _dmcGCMMessage,
+                  ("DefaultMessage" .=) <$> _dmcDefaultMessage,
+                  ("SMSMessage" .=) <$> _dmcSMSMessage,
+                  ("DefaultPushNotificationMessage" .=) <$>
+                    _dmcDefaultPushNotificationMessage])
+
+-- | Email Channel Request
+--
+-- /See:/ 'emailChannelRequest' smart constructor.
+data EmailChannelRequest = EmailChannelRequest'
+    { _ecrEnabled     :: !(Maybe Bool)
+    , _ecrFromAddress :: !(Maybe Text)
+    , _ecrIdentity    :: !(Maybe Text)
+    , _ecrRoleARN     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EmailChannelRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecrEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'ecrFromAddress' - The email address used to send emails from.
+--
+-- * 'ecrIdentity' - The ARN of an identity verified with SES.
+--
+-- * 'ecrRoleARN' - The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+emailChannelRequest
+    :: EmailChannelRequest
+emailChannelRequest =
+    EmailChannelRequest'
+    { _ecrEnabled = Nothing
+    , _ecrFromAddress = Nothing
+    , _ecrIdentity = Nothing
+    , _ecrRoleARN = Nothing
+    }
+
+-- | If the channel is enabled for sending messages.
+ecrEnabled :: Lens' EmailChannelRequest (Maybe Bool)
+ecrEnabled = lens _ecrEnabled (\ s a -> s{_ecrEnabled = a});
+
+-- | The email address used to send emails from.
+ecrFromAddress :: Lens' EmailChannelRequest (Maybe Text)
+ecrFromAddress = lens _ecrFromAddress (\ s a -> s{_ecrFromAddress = a});
+
+-- | The ARN of an identity verified with SES.
+ecrIdentity :: Lens' EmailChannelRequest (Maybe Text)
+ecrIdentity = lens _ecrIdentity (\ s a -> s{_ecrIdentity = a});
+
+-- | The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+ecrRoleARN :: Lens' EmailChannelRequest (Maybe Text)
+ecrRoleARN = lens _ecrRoleARN (\ s a -> s{_ecrRoleARN = a});
+
+instance Hashable EmailChannelRequest
+
+instance NFData EmailChannelRequest
+
+instance ToJSON EmailChannelRequest where
+        toJSON EmailChannelRequest'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _ecrEnabled,
+                  ("FromAddress" .=) <$> _ecrFromAddress,
+                  ("Identity" .=) <$> _ecrIdentity,
+                  ("RoleArn" .=) <$> _ecrRoleARN])
+
+-- | Email Channel Response.
+--
+-- /See:/ 'emailChannelResponse' smart constructor.
+data EmailChannelResponse = EmailChannelResponse'
+    { _ecPlatform         :: !(Maybe Text)
+    , _ecLastModifiedDate :: !(Maybe Text)
+    , _ecEnabled          :: !(Maybe Bool)
+    , _ecFromAddress      :: !(Maybe Text)
+    , _ecIsArchived       :: !(Maybe Bool)
+    , _ecApplicationId    :: !(Maybe Text)
+    , _ecVersion          :: !(Maybe Int)
+    , _ecId               :: !(Maybe Text)
+    , _ecCreationDate     :: !(Maybe Text)
+    , _ecLastModifiedBy   :: !(Maybe Text)
+    , _ecIdentity         :: !(Maybe Text)
+    , _ecRoleARN          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EmailChannelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecPlatform' - Platform type. Will be "EMAIL"
+--
+-- * 'ecLastModifiedDate' - Last date this was updated
+--
+-- * 'ecEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'ecFromAddress' - The email address used to send emails from.
+--
+-- * 'ecIsArchived' - Is this channel archived
+--
+-- * 'ecApplicationId' - The unique ID of the application to which the email channel belongs.
+--
+-- * 'ecVersion' - Version of channel
+--
+-- * 'ecId' - Channel ID. Not used, only for backwards compatibility.
+--
+-- * 'ecCreationDate' - The date that the settings were last updated in ISO 8601 format.
+--
+-- * 'ecLastModifiedBy' - Who last updated this entry
+--
+-- * 'ecIdentity' - The ARN of an identity verified with SES.
+--
+-- * 'ecRoleARN' - The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+emailChannelResponse
+    :: EmailChannelResponse
+emailChannelResponse =
+    EmailChannelResponse'
+    { _ecPlatform = Nothing
+    , _ecLastModifiedDate = Nothing
+    , _ecEnabled = Nothing
+    , _ecFromAddress = Nothing
+    , _ecIsArchived = Nothing
+    , _ecApplicationId = Nothing
+    , _ecVersion = Nothing
+    , _ecId = Nothing
+    , _ecCreationDate = Nothing
+    , _ecLastModifiedBy = Nothing
+    , _ecIdentity = Nothing
+    , _ecRoleARN = Nothing
+    }
+
+-- | Platform type. Will be "EMAIL"
+ecPlatform :: Lens' EmailChannelResponse (Maybe Text)
+ecPlatform = lens _ecPlatform (\ s a -> s{_ecPlatform = a});
+
+-- | Last date this was updated
+ecLastModifiedDate :: Lens' EmailChannelResponse (Maybe Text)
+ecLastModifiedDate = lens _ecLastModifiedDate (\ s a -> s{_ecLastModifiedDate = a});
+
+-- | If the channel is enabled for sending messages.
+ecEnabled :: Lens' EmailChannelResponse (Maybe Bool)
+ecEnabled = lens _ecEnabled (\ s a -> s{_ecEnabled = a});
+
+-- | The email address used to send emails from.
+ecFromAddress :: Lens' EmailChannelResponse (Maybe Text)
+ecFromAddress = lens _ecFromAddress (\ s a -> s{_ecFromAddress = a});
+
+-- | Is this channel archived
+ecIsArchived :: Lens' EmailChannelResponse (Maybe Bool)
+ecIsArchived = lens _ecIsArchived (\ s a -> s{_ecIsArchived = a});
+
+-- | The unique ID of the application to which the email channel belongs.
+ecApplicationId :: Lens' EmailChannelResponse (Maybe Text)
+ecApplicationId = lens _ecApplicationId (\ s a -> s{_ecApplicationId = a});
+
+-- | Version of channel
+ecVersion :: Lens' EmailChannelResponse (Maybe Int)
+ecVersion = lens _ecVersion (\ s a -> s{_ecVersion = a});
+
+-- | Channel ID. Not used, only for backwards compatibility.
+ecId :: Lens' EmailChannelResponse (Maybe Text)
+ecId = lens _ecId (\ s a -> s{_ecId = a});
+
+-- | The date that the settings were last updated in ISO 8601 format.
+ecCreationDate :: Lens' EmailChannelResponse (Maybe Text)
+ecCreationDate = lens _ecCreationDate (\ s a -> s{_ecCreationDate = a});
+
+-- | Who last updated this entry
+ecLastModifiedBy :: Lens' EmailChannelResponse (Maybe Text)
+ecLastModifiedBy = lens _ecLastModifiedBy (\ s a -> s{_ecLastModifiedBy = a});
+
+-- | The ARN of an identity verified with SES.
+ecIdentity :: Lens' EmailChannelResponse (Maybe Text)
+ecIdentity = lens _ecIdentity (\ s a -> s{_ecIdentity = a});
+
+-- | The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service
+ecRoleARN :: Lens' EmailChannelResponse (Maybe Text)
+ecRoleARN = lens _ecRoleARN (\ s a -> s{_ecRoleARN = a});
+
+instance FromJSON EmailChannelResponse where
+        parseJSON
+          = withObject "EmailChannelResponse"
+              (\ x ->
+                 EmailChannelResponse' <$>
+                   (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
+                     (x .:? "Enabled")
+                     <*> (x .:? "FromAddress")
+                     <*> (x .:? "IsArchived")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy")
+                     <*> (x .:? "Identity")
+                     <*> (x .:? "RoleArn"))
+
+instance Hashable EmailChannelResponse
+
+instance NFData EmailChannelResponse
+
+-- | Endpoint update request
+--
+-- /See:/ 'endpointBatchItem' smart constructor.
 data EndpointBatchItem = EndpointBatchItem'
     { _ebiRequestId      :: !(Maybe Text)
     , _ebiMetrics        :: !(Maybe (Map Text Double))
@@ -751,7 +1814,7 @@ data EndpointBatchItem = EndpointBatchItem'
 --
 -- * 'ebiDemographic' - The endpoint demographic attributes.
 --
--- * 'ebiAddress' - The address or token of the endpoint.
+-- * 'ebiAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 --
 -- * 'ebiEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
 --
@@ -761,11 +1824,11 @@ data EndpointBatchItem = EndpointBatchItem'
 --
 -- * 'ebiEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
 --
--- * 'ebiOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- * 'ebiOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
--- * 'ebiId' - Undocumented member.
+-- * 'ebiId' - The unique Id for the Endpoint in the batch.
 --
--- * 'ebiChannelType' - The channel type. Valid values: APNS, GCM
+-- * 'ebiChannelType' - The channel type. Valid values: GCM | APNS | SMS | EMAIL
 endpointBatchItem
     :: EndpointBatchItem
 endpointBatchItem =
@@ -800,7 +1863,7 @@ ebiLocation = lens _ebiLocation (\ s a -> s{_ebiLocation = a});
 ebiDemographic :: Lens' EndpointBatchItem (Maybe EndpointDemographic)
 ebiDemographic = lens _ebiDemographic (\ s a -> s{_ebiDemographic = a});
 
--- | The address or token of the endpoint.
+-- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 ebiAddress :: Lens' EndpointBatchItem (Maybe Text)
 ebiAddress = lens _ebiAddress (\ s a -> s{_ebiAddress = a});
 
@@ -820,15 +1883,15 @@ ebiAttributes = lens _ebiAttributes (\ s a -> s{_ebiAttributes = a}) . _Default 
 ebiEndpointStatus :: Lens' EndpointBatchItem (Maybe Text)
 ebiEndpointStatus = lens _ebiEndpointStatus (\ s a -> s{_ebiEndpointStatus = a});
 
--- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 ebiOptOut :: Lens' EndpointBatchItem (Maybe Text)
 ebiOptOut = lens _ebiOptOut (\ s a -> s{_ebiOptOut = a});
 
--- | Undocumented member.
+-- | The unique Id for the Endpoint in the batch.
 ebiId :: Lens' EndpointBatchItem (Maybe Text)
 ebiId = lens _ebiId (\ s a -> s{_ebiId = a});
 
--- | The channel type. Valid values: APNS, GCM
+-- | The channel type. Valid values: GCM | APNS | SMS | EMAIL
 ebiChannelType :: Lens' EndpointBatchItem (Maybe ChannelType)
 ebiChannelType = lens _ebiChannelType (\ s a -> s{_ebiChannelType = a});
 
@@ -852,7 +1915,9 @@ instance ToJSON EndpointBatchItem where
                   ("OptOut" .=) <$> _ebiOptOut, ("Id" .=) <$> _ebiId,
                   ("ChannelType" .=) <$> _ebiChannelType])
 
--- | /See:/ 'endpointBatchRequest' smart constructor.
+-- | Endpoint batch update request.
+--
+-- /See:/ 'endpointBatchRequest' smart constructor.
 newtype EndpointBatchRequest = EndpointBatchRequest'
     { _ebrItem :: Maybe [EndpointBatchItem]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -881,7 +1946,9 @@ instance ToJSON EndpointBatchRequest where
         toJSON EndpointBatchRequest'{..}
           = object (catMaybes [("Item" .=) <$> _ebrItem])
 
--- | /See:/ 'endpointDemographic' smart constructor.
+-- | Endpoint demographic data
+--
+-- /See:/ 'endpointDemographic' smart constructor.
 data EndpointDemographic = EndpointDemographic'
     { _edPlatform        :: !(Maybe Text)
     , _edPlatformVersion :: !(Maybe Text)
@@ -987,7 +2054,9 @@ instance ToJSON EndpointDemographic where
                   ("ModelVersion" .=) <$> _edModelVersion,
                   ("Timezone" .=) <$> _edTimezone])
 
--- | /See:/ 'endpointLocation' smart constructor.
+-- | Endpoint location data
+--
+-- /See:/ 'endpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
     { _elPostalCode :: !(Maybe Text)
     , _elLatitude   :: !(Maybe Double)
@@ -1073,7 +2142,9 @@ instance ToJSON EndpointLocation where
                   ("City" .=) <$> _elCity, ("Region" .=) <$> _elRegion,
                   ("Longitude" .=) <$> _elLongitude])
 
--- | /See:/ 'endpointRequest' smart constructor.
+-- | Endpoint update request
+--
+-- /See:/ 'endpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
     { _erRequestId      :: !(Maybe Text)
     , _erMetrics        :: !(Maybe (Map Text Double))
@@ -1100,7 +2171,7 @@ data EndpointRequest = EndpointRequest'
 --
 -- * 'erDemographic' - The endpoint demographic attributes.
 --
--- * 'erAddress' - The address or token of the endpoint.
+-- * 'erAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 --
 -- * 'erEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
 --
@@ -1110,9 +2181,9 @@ data EndpointRequest = EndpointRequest'
 --
 -- * 'erEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
 --
--- * 'erOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- * 'erOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
--- * 'erChannelType' - The channel type. Valid values: APNS, GCM
+-- * 'erChannelType' - The channel type. Valid values: GCM | APNS | SMS | EMAIL
 endpointRequest
     :: EndpointRequest
 endpointRequest =
@@ -1146,7 +2217,7 @@ erLocation = lens _erLocation (\ s a -> s{_erLocation = a});
 erDemographic :: Lens' EndpointRequest (Maybe EndpointDemographic)
 erDemographic = lens _erDemographic (\ s a -> s{_erDemographic = a});
 
--- | The address or token of the endpoint.
+-- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 erAddress :: Lens' EndpointRequest (Maybe Text)
 erAddress = lens _erAddress (\ s a -> s{_erAddress = a});
 
@@ -1166,11 +2237,11 @@ erAttributes = lens _erAttributes (\ s a -> s{_erAttributes = a}) . _Default . _
 erEndpointStatus :: Lens' EndpointRequest (Maybe Text)
 erEndpointStatus = lens _erEndpointStatus (\ s a -> s{_erEndpointStatus = a});
 
--- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 erOptOut :: Lens' EndpointRequest (Maybe Text)
 erOptOut = lens _erOptOut (\ s a -> s{_erOptOut = a});
 
--- | The channel type. Valid values: APNS, GCM
+-- | The channel type. Valid values: GCM | APNS | SMS | EMAIL
 erChannelType :: Lens' EndpointRequest (Maybe ChannelType)
 erChannelType = lens _erChannelType (\ s a -> s{_erChannelType = a});
 
@@ -1194,7 +2265,9 @@ instance ToJSON EndpointRequest where
                   ("OptOut" .=) <$> _erOptOut,
                   ("ChannelType" .=) <$> _erChannelType])
 
--- | /See:/ 'endpointResponse' smart constructor.
+-- | Endpoint response
+--
+-- /See:/ 'endpointResponse' smart constructor.
 data EndpointResponse = EndpointResponse'
     { _eRequestId      :: !(Maybe Text)
     , _eMetrics        :: !(Maybe (Map Text Double))
@@ -1228,7 +2301,7 @@ data EndpointResponse = EndpointResponse'
 --
 -- * 'eCohortId' - A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.
 --
--- * 'eAddress' - The address or token of the endpoint.
+-- * 'eAddress' - The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 --
 -- * 'eEffectiveDate' - The last time the endpoint was updated. Provided in ISO 8601 format.
 --
@@ -1240,13 +2313,13 @@ data EndpointResponse = EndpointResponse'
 --
 -- * 'eEndpointStatus' - The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.
 --
--- * 'eOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- * 'eOptOut' - Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 --
 -- * 'eId' - The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.
 --
 -- * 'eCreationDate' - The last time the endpoint was created. Provided in ISO 8601 format.
 --
--- * 'eChannelType' - The channel type. Valid values: APNS, GCM
+-- * 'eChannelType' - The channel type. Valid values: GCM | APNS | SMS | EMAIL
 --
 -- * 'eShardId' - The ShardId of endpoint
 endpointResponse
@@ -1291,7 +2364,7 @@ eDemographic = lens _eDemographic (\ s a -> s{_eDemographic = a});
 eCohortId :: Lens' EndpointResponse (Maybe Text)
 eCohortId = lens _eCohortId (\ s a -> s{_eCohortId = a});
 
--- | The address or token of the endpoint.
+-- | The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).
 eAddress :: Lens' EndpointResponse (Maybe Text)
 eAddress = lens _eAddress (\ s a -> s{_eAddress = a});
 
@@ -1315,7 +2388,7 @@ eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map
 eEndpointStatus :: Lens' EndpointResponse (Maybe Text)
 eEndpointStatus = lens _eEndpointStatus (\ s a -> s{_eEndpointStatus = a});
 
--- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL – User receives all messages. NONE – User receives no messages.
+-- | Indicates whether a user has opted out of receiving messages with one of the following values: ALL - User has opted out of all messages. NONE - Users has not opted out and receives all messages.
 eOptOut :: Lens' EndpointResponse (Maybe Text)
 eOptOut = lens _eOptOut (\ s a -> s{_eOptOut = a});
 
@@ -1327,7 +2400,7 @@ eId = lens _eId (\ s a -> s{_eId = a});
 eCreationDate :: Lens' EndpointResponse (Maybe Text)
 eCreationDate = lens _eCreationDate (\ s a -> s{_eCreationDate = a});
 
--- | The channel type. Valid values: APNS, GCM
+-- | The channel type. Valid values: GCM | APNS | SMS | EMAIL
 eChannelType :: Lens' EndpointResponse (Maybe ChannelType)
 eChannelType = lens _eChannelType (\ s a -> s{_eChannelType = a});
 
@@ -1360,7 +2433,9 @@ instance Hashable EndpointResponse
 
 instance NFData EndpointResponse
 
--- | /See:/ 'endpointUser' smart constructor.
+-- | Endpoint user specific custom userAttributes
+--
+-- /See:/ 'endpointUser' smart constructor.
 data EndpointUser = EndpointUser'
     { _euUserAttributes :: !(Maybe (Map Text [Text]))
     , _euUserId         :: !(Maybe Text)
@@ -1370,7 +2445,7 @@ data EndpointUser = EndpointUser'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'euUserAttributes' - Custom attributesd specific to the user.
+-- * 'euUserAttributes' - Custom attributes specific to the user.
 --
 -- * 'euUserId' - The unique ID of the user.
 endpointUser
@@ -1381,7 +2456,7 @@ endpointUser =
     , _euUserId = Nothing
     }
 
--- | Custom attributesd specific to the user.
+-- | Custom attributes specific to the user.
 euUserAttributes :: Lens' EndpointUser (HashMap Text [Text])
 euUserAttributes = lens _euUserAttributes (\ s a -> s{_euUserAttributes = a}) . _Default . _Map;
 
@@ -1408,9 +2483,91 @@ instance ToJSON EndpointUser where
                  [("UserAttributes" .=) <$> _euUserAttributes,
                   ("UserId" .=) <$> _euUserId])
 
--- | /See:/ 'gcmChannelRequest' smart constructor.
-newtype GCMChannelRequest = GCMChannelRequest'
-    { _gcrAPIKey :: Maybe Text
+-- | Model for an event publishing subscription export.
+--
+-- /See:/ 'eventStream' smart constructor.
+data EventStream = EventStream'
+    { _esLastUpdatedBy        :: !(Maybe Text)
+    , _esLastModifiedDate     :: !(Maybe Text)
+    , _esDestinationStreamARN :: !(Maybe Text)
+    , _esApplicationId        :: !(Maybe Text)
+    , _esExternalId           :: !(Maybe Text)
+    , _esRoleARN              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esLastUpdatedBy' - The IAM user who last modified the event stream.
+--
+-- * 'esLastModifiedDate' - The date the event stream was last updated in ISO 8601 format.
+--
+-- * 'esDestinationStreamARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.  Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME  Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+--
+-- * 'esApplicationId' - The ID of the application from which events should be published.
+--
+-- * 'esExternalId' - The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+--
+-- * 'esRoleARN' - The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+eventStream
+    :: EventStream
+eventStream =
+    EventStream'
+    { _esLastUpdatedBy = Nothing
+    , _esLastModifiedDate = Nothing
+    , _esDestinationStreamARN = Nothing
+    , _esApplicationId = Nothing
+    , _esExternalId = Nothing
+    , _esRoleARN = Nothing
+    }
+
+-- | The IAM user who last modified the event stream.
+esLastUpdatedBy :: Lens' EventStream (Maybe Text)
+esLastUpdatedBy = lens _esLastUpdatedBy (\ s a -> s{_esLastUpdatedBy = a});
+
+-- | The date the event stream was last updated in ISO 8601 format.
+esLastModifiedDate :: Lens' EventStream (Maybe Text)
+esLastModifiedDate = lens _esLastModifiedDate (\ s a -> s{_esLastModifiedDate = a});
+
+-- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.  Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME  Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+esDestinationStreamARN :: Lens' EventStream (Maybe Text)
+esDestinationStreamARN = lens _esDestinationStreamARN (\ s a -> s{_esDestinationStreamARN = a});
+
+-- | The ID of the application from which events should be published.
+esApplicationId :: Lens' EventStream (Maybe Text)
+esApplicationId = lens _esApplicationId (\ s a -> s{_esApplicationId = a});
+
+-- | The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+esExternalId :: Lens' EventStream (Maybe Text)
+esExternalId = lens _esExternalId (\ s a -> s{_esExternalId = a});
+
+-- | The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+esRoleARN :: Lens' EventStream (Maybe Text)
+esRoleARN = lens _esRoleARN (\ s a -> s{_esRoleARN = a});
+
+instance FromJSON EventStream where
+        parseJSON
+          = withObject "EventStream"
+              (\ x ->
+                 EventStream' <$>
+                   (x .:? "LastUpdatedBy") <*>
+                     (x .:? "LastModifiedDate")
+                     <*> (x .:? "DestinationStreamArn")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "ExternalId")
+                     <*> (x .:? "RoleArn"))
+
+instance Hashable EventStream
+
+instance NFData EventStream
+
+-- | Google Cloud Messaging credentials
+--
+-- /See:/ 'gcmChannelRequest' smart constructor.
+data GCMChannelRequest = GCMChannelRequest'
+    { _gcrAPIKey  :: !(Maybe Text)
+    , _gcrEnabled :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GCMChannelRequest' with the minimum fields required to make a request.
@@ -1418,16 +2575,23 @@ newtype GCMChannelRequest = GCMChannelRequest'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gcrAPIKey' - Platform credential API key from Google.
+--
+-- * 'gcrEnabled' - If the channel is enabled for sending messages.
 gcmChannelRequest
     :: GCMChannelRequest
 gcmChannelRequest =
     GCMChannelRequest'
     { _gcrAPIKey = Nothing
+    , _gcrEnabled = Nothing
     }
 
 -- | Platform credential API key from Google.
 gcrAPIKey :: Lens' GCMChannelRequest (Maybe Text)
 gcrAPIKey = lens _gcrAPIKey (\ s a -> s{_gcrAPIKey = a});
+
+-- | If the channel is enabled for sending messages.
+gcrEnabled :: Lens' GCMChannelRequest (Maybe Bool)
+gcrEnabled = lens _gcrEnabled (\ s a -> s{_gcrEnabled = a});
 
 instance Hashable GCMChannelRequest
 
@@ -1435,12 +2599,18 @@ instance NFData GCMChannelRequest
 
 instance ToJSON GCMChannelRequest where
         toJSON GCMChannelRequest'{..}
-          = object (catMaybes [("ApiKey" .=) <$> _gcrAPIKey])
+          = object
+              (catMaybes
+                 [("ApiKey" .=) <$> _gcrAPIKey,
+                  ("Enabled" .=) <$> _gcrEnabled])
 
--- | /See:/ 'gcmChannelResponse' smart constructor.
+-- | Google Cloud Messaging channel definition
+--
+-- /See:/ 'gcmChannelResponse' smart constructor.
 data GCMChannelResponse = GCMChannelResponse'
     { _gcPlatform         :: !(Maybe Text)
     , _gcLastModifiedDate :: !(Maybe Text)
+    , _gcEnabled          :: !(Maybe Bool)
     , _gcCredential       :: !(Maybe Text)
     , _gcIsArchived       :: !(Maybe Bool)
     , _gcApplicationId    :: !(Maybe Text)
@@ -1458,15 +2628,17 @@ data GCMChannelResponse = GCMChannelResponse'
 --
 -- * 'gcLastModifiedDate' - Last date this was updated
 --
+-- * 'gcEnabled' - If the channel is enabled for sending messages.
+--
 -- * 'gcCredential' - The GCM API key from Google.
 --
 -- * 'gcIsArchived' - Is this channel archived
 --
--- * 'gcApplicationId' - Undocumented member.
+-- * 'gcApplicationId' - The ID of the application to which the channel applies.
 --
 -- * 'gcVersion' - Version of channel
 --
--- * 'gcId' - Undocumented member.
+-- * 'gcId' - Channel ID. Not used. Present only for backwards compatibility.
 --
 -- * 'gcCreationDate' - When was this segment created
 --
@@ -1477,6 +2649,7 @@ gcmChannelResponse =
     GCMChannelResponse'
     { _gcPlatform = Nothing
     , _gcLastModifiedDate = Nothing
+    , _gcEnabled = Nothing
     , _gcCredential = Nothing
     , _gcIsArchived = Nothing
     , _gcApplicationId = Nothing
@@ -1494,6 +2667,10 @@ gcPlatform = lens _gcPlatform (\ s a -> s{_gcPlatform = a});
 gcLastModifiedDate :: Lens' GCMChannelResponse (Maybe Text)
 gcLastModifiedDate = lens _gcLastModifiedDate (\ s a -> s{_gcLastModifiedDate = a});
 
+-- | If the channel is enabled for sending messages.
+gcEnabled :: Lens' GCMChannelResponse (Maybe Bool)
+gcEnabled = lens _gcEnabled (\ s a -> s{_gcEnabled = a});
+
 -- | The GCM API key from Google.
 gcCredential :: Lens' GCMChannelResponse (Maybe Text)
 gcCredential = lens _gcCredential (\ s a -> s{_gcCredential = a});
@@ -1502,7 +2679,7 @@ gcCredential = lens _gcCredential (\ s a -> s{_gcCredential = a});
 gcIsArchived :: Lens' GCMChannelResponse (Maybe Bool)
 gcIsArchived = lens _gcIsArchived (\ s a -> s{_gcIsArchived = a});
 
--- | Undocumented member.
+-- | The ID of the application to which the channel applies.
 gcApplicationId :: Lens' GCMChannelResponse (Maybe Text)
 gcApplicationId = lens _gcApplicationId (\ s a -> s{_gcApplicationId = a});
 
@@ -1510,7 +2687,7 @@ gcApplicationId = lens _gcApplicationId (\ s a -> s{_gcApplicationId = a});
 gcVersion :: Lens' GCMChannelResponse (Maybe Int)
 gcVersion = lens _gcVersion (\ s a -> s{_gcVersion = a});
 
--- | Undocumented member.
+-- | Channel ID. Not used. Present only for backwards compatibility.
 gcId :: Lens' GCMChannelResponse (Maybe Text)
 gcId = lens _gcId (\ s a -> s{_gcId = a});
 
@@ -1528,7 +2705,8 @@ instance FromJSON GCMChannelResponse where
               (\ x ->
                  GCMChannelResponse' <$>
                    (x .:? "Platform") <*> (x .:? "LastModifiedDate") <*>
-                     (x .:? "Credential")
+                     (x .:? "Enabled")
+                     <*> (x .:? "Credential")
                      <*> (x .:? "IsArchived")
                      <*> (x .:? "ApplicationId")
                      <*> (x .:? "Version")
@@ -1539,6 +2717,165 @@ instance FromJSON GCMChannelResponse where
 instance Hashable GCMChannelResponse
 
 instance NFData GCMChannelResponse
+
+-- | GCM Message.
+--
+-- /See:/ 'gcmMessage' smart constructor.
+data GCMMessage = GCMMessage'
+    { _gmSubstitutions         :: !(Maybe (Map Text [Text]))
+    , _gmSilentPush            :: !(Maybe Bool)
+    , _gmImageIconURL          :: !(Maybe Text)
+    , _gmRawContent            :: !(Maybe Text)
+    , _gmData                  :: !(Maybe (Map Text Text))
+    , _gmRestrictedPackageName :: !(Maybe Text)
+    , _gmSmallImageIconURL     :: !(Maybe Text)
+    , _gmBody                  :: !(Maybe Text)
+    , _gmURL                   :: !(Maybe Text)
+    , _gmSound                 :: !(Maybe Text)
+    , _gmAction                :: !(Maybe Action)
+    , _gmCollapseKey           :: !(Maybe Text)
+    , _gmImageURL              :: !(Maybe Text)
+    , _gmTitle                 :: !(Maybe Text)
+    , _gmIconReference         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GCMMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'gmSilentPush' - Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+--
+-- * 'gmImageIconURL' - The URL that points to an image used as the large icon to the notification content view.
+--
+-- * 'gmRawContent' - The Raw JSON formatted string to be used as the payload. This value overrides the message.
+--
+-- * 'gmData' - The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+--
+-- * 'gmRestrictedPackageName' - This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
+--
+-- * 'gmSmallImageIconURL' - The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
+--
+-- * 'gmBody' - The message body of the notification, the email body or the text message.
+--
+-- * 'gmURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
+--
+-- * 'gmSound' - Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/
+--
+-- * 'gmAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+--
+-- * 'gmCollapseKey' - This parameter identifies a group of messages (e.g., with collapse_key: "Updates Available") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
+--
+-- * 'gmImageURL' - The URL that points to an image used in the push notification.
+--
+-- * 'gmTitle' - The message title that displays above the message on the user's device.
+--
+-- * 'gmIconReference' - The icon image name of the asset saved in your application.
+gcmMessage
+    :: GCMMessage
+gcmMessage =
+    GCMMessage'
+    { _gmSubstitutions = Nothing
+    , _gmSilentPush = Nothing
+    , _gmImageIconURL = Nothing
+    , _gmRawContent = Nothing
+    , _gmData = Nothing
+    , _gmRestrictedPackageName = Nothing
+    , _gmSmallImageIconURL = Nothing
+    , _gmBody = Nothing
+    , _gmURL = Nothing
+    , _gmSound = Nothing
+    , _gmAction = Nothing
+    , _gmCollapseKey = Nothing
+    , _gmImageURL = Nothing
+    , _gmTitle = Nothing
+    , _gmIconReference = Nothing
+    }
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+gmSubstitutions :: Lens' GCMMessage (HashMap Text [Text])
+gmSubstitutions = lens _gmSubstitutions (\ s a -> s{_gmSubstitutions = a}) . _Default . _Map;
+
+-- | Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.
+gmSilentPush :: Lens' GCMMessage (Maybe Bool)
+gmSilentPush = lens _gmSilentPush (\ s a -> s{_gmSilentPush = a});
+
+-- | The URL that points to an image used as the large icon to the notification content view.
+gmImageIconURL :: Lens' GCMMessage (Maybe Text)
+gmImageIconURL = lens _gmImageIconURL (\ s a -> s{_gmImageIconURL = a});
+
+-- | The Raw JSON formatted string to be used as the payload. This value overrides the message.
+gmRawContent :: Lens' GCMMessage (Maybe Text)
+gmRawContent = lens _gmRawContent (\ s a -> s{_gmRawContent = a});
+
+-- | The data payload used for a silent push. This payload is added to the notifications' data.pinpoint.jsonBody' object
+gmData :: Lens' GCMMessage (HashMap Text Text)
+gmData = lens _gmData (\ s a -> s{_gmData = a}) . _Default . _Map;
+
+-- | This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
+gmRestrictedPackageName :: Lens' GCMMessage (Maybe Text)
+gmRestrictedPackageName = lens _gmRestrictedPackageName (\ s a -> s{_gmRestrictedPackageName = a});
+
+-- | The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view
+gmSmallImageIconURL :: Lens' GCMMessage (Maybe Text)
+gmSmallImageIconURL = lens _gmSmallImageIconURL (\ s a -> s{_gmSmallImageIconURL = a});
+
+-- | The message body of the notification, the email body or the text message.
+gmBody :: Lens' GCMMessage (Maybe Text)
+gmBody = lens _gmBody (\ s a -> s{_gmBody = a});
+
+-- | The URL to open in the user's mobile browser. Used if the value for Action is URL.
+gmURL :: Lens' GCMMessage (Maybe Text)
+gmURL = lens _gmURL (\ s a -> s{_gmURL = a});
+
+-- | Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/
+gmSound :: Lens' GCMMessage (Maybe Text)
+gmSound = lens _gmSound (\ s a -> s{_gmSound = a});
+
+-- | The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify. Possible values include: OPEN_APP | DEEP_LINK | URL
+gmAction :: Lens' GCMMessage (Maybe Action)
+gmAction = lens _gmAction (\ s a -> s{_gmAction = a});
+
+-- | This parameter identifies a group of messages (e.g., with collapse_key: "Updates Available") that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.
+gmCollapseKey :: Lens' GCMMessage (Maybe Text)
+gmCollapseKey = lens _gmCollapseKey (\ s a -> s{_gmCollapseKey = a});
+
+-- | The URL that points to an image used in the push notification.
+gmImageURL :: Lens' GCMMessage (Maybe Text)
+gmImageURL = lens _gmImageURL (\ s a -> s{_gmImageURL = a});
+
+-- | The message title that displays above the message on the user's device.
+gmTitle :: Lens' GCMMessage (Maybe Text)
+gmTitle = lens _gmTitle (\ s a -> s{_gmTitle = a});
+
+-- | The icon image name of the asset saved in your application.
+gmIconReference :: Lens' GCMMessage (Maybe Text)
+gmIconReference = lens _gmIconReference (\ s a -> s{_gmIconReference = a});
+
+instance Hashable GCMMessage
+
+instance NFData GCMMessage
+
+instance ToJSON GCMMessage where
+        toJSON GCMMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _gmSubstitutions,
+                  ("SilentPush" .=) <$> _gmSilentPush,
+                  ("ImageIconUrl" .=) <$> _gmImageIconURL,
+                  ("RawContent" .=) <$> _gmRawContent,
+                  ("Data" .=) <$> _gmData,
+                  ("RestrictedPackageName" .=) <$>
+                    _gmRestrictedPackageName,
+                  ("SmallImageIconUrl" .=) <$> _gmSmallImageIconURL,
+                  ("Body" .=) <$> _gmBody, ("Url" .=) <$> _gmURL,
+                  ("Sound" .=) <$> _gmSound,
+                  ("Action" .=) <$> _gmAction,
+                  ("CollapseKey" .=) <$> _gmCollapseKey,
+                  ("ImageUrl" .=) <$> _gmImageURL,
+                  ("Title" .=) <$> _gmTitle,
+                  ("IconReference" .=) <$> _gmIconReference])
 
 -- | /See:/ 'importJobRequest' smart constructor.
 data ImportJobRequest = ImportJobRequest'
@@ -1867,7 +3204,9 @@ instance Hashable ImportJobResponse
 
 instance NFData ImportJobResponse
 
--- | /See:/ 'importJobsResponse' smart constructor.
+-- | Import job list.
+--
+-- /See:/ 'importJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
     { _ijNextToken :: !(Maybe Text)
     , _ijItem      :: !(Maybe [ImportJobResponse])
@@ -1909,15 +3248,17 @@ instance NFData ImportJobsResponse
 
 -- | /See:/ 'message' smart constructor.
 data Message = Message'
-    { _mSilentPush   :: !(Maybe Bool)
-    , _mImageIconURL :: !(Maybe Text)
-    , _mBody         :: !(Maybe Text)
-    , _mJSONBody     :: !(Maybe Text)
-    , _mURL          :: !(Maybe Text)
-    , _mAction       :: !(Maybe Action)
-    , _mImageURL     :: !(Maybe Text)
-    , _mMediaURL     :: !(Maybe Text)
-    , _mTitle        :: !(Maybe Text)
+    { _mSilentPush        :: !(Maybe Bool)
+    , _mImageIconURL      :: !(Maybe Text)
+    , _mRawContent        :: !(Maybe Text)
+    , _mBody              :: !(Maybe Text)
+    , _mImageSmallIconURL :: !(Maybe Text)
+    , _mJSONBody          :: !(Maybe Text)
+    , _mURL               :: !(Maybe Text)
+    , _mAction            :: !(Maybe Action)
+    , _mImageURL          :: !(Maybe Text)
+    , _mMediaURL          :: !(Maybe Text)
+    , _mTitle             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
@@ -1928,13 +3269,17 @@ data Message = Message'
 --
 -- * 'mImageIconURL' - The URL that points to the icon image for the push notification icon, for example, the app icon.
 --
+-- * 'mRawContent' - The Raw JSON formatted string to be used as the payload. This value overrides the message.
+--
 -- * 'mBody' - The message body. Can include up to 140 characters.
+--
+-- * 'mImageSmallIconURL' - The URL that points to the small icon image for the push notification icon, for example, the app icon.
 --
 -- * 'mJSONBody' - The JSON payload used for a silent push.
 --
 -- * 'mURL' - The URL to open in the user's mobile browser. Used if the value for Action is URL.
 --
--- * 'mAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP – Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK – Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL – The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+-- * 'mAction' - The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
 --
 -- * 'mImageURL' - The URL that points to an image used in the push notification.
 --
@@ -1947,7 +3292,9 @@ message =
     Message'
     { _mSilentPush = Nothing
     , _mImageIconURL = Nothing
+    , _mRawContent = Nothing
     , _mBody = Nothing
+    , _mImageSmallIconURL = Nothing
     , _mJSONBody = Nothing
     , _mURL = Nothing
     , _mAction = Nothing
@@ -1964,9 +3311,17 @@ mSilentPush = lens _mSilentPush (\ s a -> s{_mSilentPush = a});
 mImageIconURL :: Lens' Message (Maybe Text)
 mImageIconURL = lens _mImageIconURL (\ s a -> s{_mImageIconURL = a});
 
+-- | The Raw JSON formatted string to be used as the payload. This value overrides the message.
+mRawContent :: Lens' Message (Maybe Text)
+mRawContent = lens _mRawContent (\ s a -> s{_mRawContent = a});
+
 -- | The message body. Can include up to 140 characters.
 mBody :: Lens' Message (Maybe Text)
 mBody = lens _mBody (\ s a -> s{_mBody = a});
+
+-- | The URL that points to the small icon image for the push notification icon, for example, the app icon.
+mImageSmallIconURL :: Lens' Message (Maybe Text)
+mImageSmallIconURL = lens _mImageSmallIconURL (\ s a -> s{_mImageSmallIconURL = a});
 
 -- | The JSON payload used for a silent push.
 mJSONBody :: Lens' Message (Maybe Text)
@@ -1976,7 +3331,7 @@ mJSONBody = lens _mJSONBody (\ s a -> s{_mJSONBody = a});
 mURL :: Lens' Message (Maybe Text)
 mURL = lens _mURL (\ s a -> s{_mURL = a});
 
--- | The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP – Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK – Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL – The default mobile browser on the user's device launches and opens a web page at the URL you specify.
+-- | The action that occurs if the user taps a push notification delivered by the campaign: OPEN_APP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEP_LINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user's device launches and opens a web page at the URL you specify.
 mAction :: Lens' Message (Maybe Action)
 mAction = lens _mAction (\ s a -> s{_mAction = a});
 
@@ -1998,7 +3353,9 @@ instance FromJSON Message where
               (\ x ->
                  Message' <$>
                    (x .:? "SilentPush") <*> (x .:? "ImageIconUrl") <*>
-                     (x .:? "Body")
+                     (x .:? "RawContent")
+                     <*> (x .:? "Body")
+                     <*> (x .:? "ImageSmallIconUrl")
                      <*> (x .:? "JsonBody")
                      <*> (x .:? "Url")
                      <*> (x .:? "Action")
@@ -2016,14 +3373,18 @@ instance ToJSON Message where
               (catMaybes
                  [("SilentPush" .=) <$> _mSilentPush,
                   ("ImageIconUrl" .=) <$> _mImageIconURL,
+                  ("RawContent" .=) <$> _mRawContent,
                   ("Body" .=) <$> _mBody,
+                  ("ImageSmallIconUrl" .=) <$> _mImageSmallIconURL,
                   ("JsonBody" .=) <$> _mJSONBody, ("Url" .=) <$> _mURL,
                   ("Action" .=) <$> _mAction,
                   ("ImageUrl" .=) <$> _mImageURL,
                   ("MediaUrl" .=) <$> _mMediaURL,
                   ("Title" .=) <$> _mTitle])
 
--- | /See:/ 'messageBody' smart constructor.
+-- | Simple message object.
+--
+-- /See:/ 'messageBody' smart constructor.
 data MessageBody = MessageBody'
     { _mbRequestId :: !(Maybe Text)
     , _mbMessage   :: !(Maybe Text)
@@ -2033,9 +3394,9 @@ data MessageBody = MessageBody'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mbRequestId' - Undocumented member.
+-- * 'mbRequestId' - The unique message body ID.
 --
--- * 'mbMessage' - Undocumented member.
+-- * 'mbMessage' - The error message returned from the API.
 messageBody
     :: MessageBody
 messageBody =
@@ -2044,11 +3405,11 @@ messageBody =
     , _mbMessage = Nothing
     }
 
--- | Undocumented member.
+-- | The unique message body ID.
 mbRequestId :: Lens' MessageBody (Maybe Text)
 mbRequestId = lens _mbRequestId (\ s a -> s{_mbRequestId = a});
 
--- | Undocumented member.
+-- | The error message returned from the API.
 mbMessage :: Lens' MessageBody (Maybe Text)
 mbMessage = lens _mbMessage (\ s a -> s{_mbMessage = a});
 
@@ -2063,11 +3424,15 @@ instance Hashable MessageBody
 
 instance NFData MessageBody
 
--- | /See:/ 'messageConfiguration' smart constructor.
+-- | Message configuration for a campaign.
+--
+-- /See:/ 'messageConfiguration' smart constructor.
 data MessageConfiguration = MessageConfiguration'
     { _mcAPNSMessage    :: !(Maybe Message)
     , _mcGCMMessage     :: !(Maybe Message)
     , _mcDefaultMessage :: !(Maybe Message)
+    , _mcSMSMessage     :: !(Maybe CampaignSmsMessage)
+    , _mcEmailMessage   :: !(Maybe CampaignEmailMessage)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'MessageConfiguration' with the minimum fields required to make a request.
@@ -2079,6 +3444,10 @@ data MessageConfiguration = MessageConfiguration'
 -- * 'mcGCMMessage' - The message that the campaign delivers to GCM channels. Overrides the default message.
 --
 -- * 'mcDefaultMessage' - The default message for all channels.
+--
+-- * 'mcSMSMessage' - The SMS message configuration.
+--
+-- * 'mcEmailMessage' - The email message configuration.
 messageConfiguration
     :: MessageConfiguration
 messageConfiguration =
@@ -2086,6 +3455,8 @@ messageConfiguration =
     { _mcAPNSMessage = Nothing
     , _mcGCMMessage = Nothing
     , _mcDefaultMessage = Nothing
+    , _mcSMSMessage = Nothing
+    , _mcEmailMessage = Nothing
     }
 
 -- | The message that the campaign delivers to APNS channels. Overrides the default message.
@@ -2100,13 +3471,23 @@ mcGCMMessage = lens _mcGCMMessage (\ s a -> s{_mcGCMMessage = a});
 mcDefaultMessage :: Lens' MessageConfiguration (Maybe Message)
 mcDefaultMessage = lens _mcDefaultMessage (\ s a -> s{_mcDefaultMessage = a});
 
+-- | The SMS message configuration.
+mcSMSMessage :: Lens' MessageConfiguration (Maybe CampaignSmsMessage)
+mcSMSMessage = lens _mcSMSMessage (\ s a -> s{_mcSMSMessage = a});
+
+-- | The email message configuration.
+mcEmailMessage :: Lens' MessageConfiguration (Maybe CampaignEmailMessage)
+mcEmailMessage = lens _mcEmailMessage (\ s a -> s{_mcEmailMessage = a});
+
 instance FromJSON MessageConfiguration where
         parseJSON
           = withObject "MessageConfiguration"
               (\ x ->
                  MessageConfiguration' <$>
                    (x .:? "APNSMessage") <*> (x .:? "GCMMessage") <*>
-                     (x .:? "DefaultMessage"))
+                     (x .:? "DefaultMessage")
+                     <*> (x .:? "SMSMessage")
+                     <*> (x .:? "EmailMessage"))
 
 instance Hashable MessageConfiguration
 
@@ -2118,9 +3499,176 @@ instance ToJSON MessageConfiguration where
               (catMaybes
                  [("APNSMessage" .=) <$> _mcAPNSMessage,
                   ("GCMMessage" .=) <$> _mcGCMMessage,
-                  ("DefaultMessage" .=) <$> _mcDefaultMessage])
+                  ("DefaultMessage" .=) <$> _mcDefaultMessage,
+                  ("SMSMessage" .=) <$> _mcSMSMessage,
+                  ("EmailMessage" .=) <$> _mcEmailMessage])
 
--- | /See:/ 'quietTime' smart constructor.
+-- | Send message request.
+--
+-- /See:/ 'messageRequest' smart constructor.
+data MessageRequest = MessageRequest'
+    { _mrContext              :: !(Maybe (Map Text Text))
+    , _mrAddresses            :: !(Maybe (Map Text AddressConfiguration))
+    , _mrMessageConfiguration :: !(Maybe DirectMessageConfiguration)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrContext' - A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+--
+-- * 'mrAddresses' - A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+--
+-- * 'mrMessageConfiguration' - Message configuration.
+messageRequest
+    :: MessageRequest
+messageRequest =
+    MessageRequest'
+    { _mrContext = Nothing
+    , _mrAddresses = Nothing
+    , _mrMessageConfiguration = Nothing
+    }
+
+-- | A map of custom attributes to attributes to be attached to the message. This payload is added to the push notification's 'data.pinpoint' object or added to the email/sms delivery receipt event attributes.
+mrContext :: Lens' MessageRequest (HashMap Text Text)
+mrContext = lens _mrContext (\ s a -> s{_mrContext = a}) . _Default . _Map;
+
+-- | A map of destination addresses, with the address as the key(Email address, phone number or push token) and the Address Configuration as the value.
+mrAddresses :: Lens' MessageRequest (HashMap Text AddressConfiguration)
+mrAddresses = lens _mrAddresses (\ s a -> s{_mrAddresses = a}) . _Default . _Map;
+
+-- | Message configuration.
+mrMessageConfiguration :: Lens' MessageRequest (Maybe DirectMessageConfiguration)
+mrMessageConfiguration = lens _mrMessageConfiguration (\ s a -> s{_mrMessageConfiguration = a});
+
+instance Hashable MessageRequest
+
+instance NFData MessageRequest
+
+instance ToJSON MessageRequest where
+        toJSON MessageRequest'{..}
+          = object
+              (catMaybes
+                 [("Context" .=) <$> _mrContext,
+                  ("Addresses" .=) <$> _mrAddresses,
+                  ("MessageConfiguration" .=) <$>
+                    _mrMessageConfiguration])
+
+-- | Send message response.
+--
+-- /See:/ 'messageResponse' smart constructor.
+data MessageResponse = MessageResponse'
+    { _mRequestId     :: !(Maybe Text)
+    , _mResult        :: !(Maybe (Map Text MessageResult))
+    , _mApplicationId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mRequestId' - Original request Id for which this message was delivered.
+--
+-- * 'mResult' - A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.
+--
+-- * 'mApplicationId' - Application id of the message.
+messageResponse
+    :: MessageResponse
+messageResponse =
+    MessageResponse'
+    { _mRequestId = Nothing
+    , _mResult = Nothing
+    , _mApplicationId = Nothing
+    }
+
+-- | Original request Id for which this message was delivered.
+mRequestId :: Lens' MessageResponse (Maybe Text)
+mRequestId = lens _mRequestId (\ s a -> s{_mRequestId = a});
+
+-- | A map containing a multi part response for each address, with the address as the key(Email address, phone number or push token) and the result as the value.
+mResult :: Lens' MessageResponse (HashMap Text MessageResult)
+mResult = lens _mResult (\ s a -> s{_mResult = a}) . _Default . _Map;
+
+-- | Application id of the message.
+mApplicationId :: Lens' MessageResponse (Maybe Text)
+mApplicationId = lens _mApplicationId (\ s a -> s{_mApplicationId = a});
+
+instance FromJSON MessageResponse where
+        parseJSON
+          = withObject "MessageResponse"
+              (\ x ->
+                 MessageResponse' <$>
+                   (x .:? "RequestId") <*> (x .:? "Result" .!= mempty)
+                     <*> (x .:? "ApplicationId"))
+
+instance Hashable MessageResponse
+
+instance NFData MessageResponse
+
+-- | The result from sending a message to an address.
+--
+-- /See:/ 'messageResult' smart constructor.
+data MessageResult = MessageResult'
+    { _mrDeliveryStatus :: !(Maybe DeliveryStatus)
+    , _mrStatusMessage  :: !(Maybe Text)
+    , _mrUpdatedToken   :: !(Maybe Text)
+    , _mrStatusCode     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrDeliveryStatus' - Delivery status of message.
+--
+-- * 'mrStatusMessage' - Status message for message delivery.
+--
+-- * 'mrUpdatedToken' - If token was updated as part of delivery. (This is GCM Specific)
+--
+-- * 'mrStatusCode' - Downstream service status code.
+messageResult
+    :: MessageResult
+messageResult =
+    MessageResult'
+    { _mrDeliveryStatus = Nothing
+    , _mrStatusMessage = Nothing
+    , _mrUpdatedToken = Nothing
+    , _mrStatusCode = Nothing
+    }
+
+-- | Delivery status of message.
+mrDeliveryStatus :: Lens' MessageResult (Maybe DeliveryStatus)
+mrDeliveryStatus = lens _mrDeliveryStatus (\ s a -> s{_mrDeliveryStatus = a});
+
+-- | Status message for message delivery.
+mrStatusMessage :: Lens' MessageResult (Maybe Text)
+mrStatusMessage = lens _mrStatusMessage (\ s a -> s{_mrStatusMessage = a});
+
+-- | If token was updated as part of delivery. (This is GCM Specific)
+mrUpdatedToken :: Lens' MessageResult (Maybe Text)
+mrUpdatedToken = lens _mrUpdatedToken (\ s a -> s{_mrUpdatedToken = a});
+
+-- | Downstream service status code.
+mrStatusCode :: Lens' MessageResult (Maybe Int)
+mrStatusCode = lens _mrStatusCode (\ s a -> s{_mrStatusCode = a});
+
+instance FromJSON MessageResult where
+        parseJSON
+          = withObject "MessageResult"
+              (\ x ->
+                 MessageResult' <$>
+                   (x .:? "DeliveryStatus") <*> (x .:? "StatusMessage")
+                     <*> (x .:? "UpdatedToken")
+                     <*> (x .:? "StatusCode"))
+
+instance Hashable MessageResult
+
+instance NFData MessageResult
+
+-- | Quiet Time
+--
+-- /See:/ 'quietTime' smart constructor.
 data QuietTime = QuietTime'
     { _qtStart :: !(Maybe Text)
     , _qtEnd   :: !(Maybe Text)
@@ -2165,7 +3713,9 @@ instance ToJSON QuietTime where
               (catMaybes
                  [("Start" .=) <$> _qtStart, ("End" .=) <$> _qtEnd])
 
--- | /See:/ 'recencyDimension' smart constructor.
+-- | Define how a segment based on recency of use.
+--
+-- /See:/ 'recencyDimension' smart constructor.
 data RecencyDimension = RecencyDimension'
     { _rdRecencyType :: !(Maybe RecencyType)
     , _rdDuration    :: !(Maybe Duration)
@@ -2175,7 +3725,7 @@ data RecencyDimension = RecencyDimension'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdRecencyType' - The recency dimension type: ACTIVE – Users who have used your app within the specified duration are included in the segment. INACTIVE – Users who have not used your app within the specified duration are included in the segment.
+-- * 'rdRecencyType' - The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.
 --
 -- * 'rdDuration' - The length of time during which users have been active or inactive with your app. Valid values: HR_24, DAY_7, DAY_14, DAY_30
 recencyDimension
@@ -2186,7 +3736,7 @@ recencyDimension =
     , _rdDuration = Nothing
     }
 
--- | The recency dimension type: ACTIVE – Users who have used your app within the specified duration are included in the segment. INACTIVE – Users who have not used your app within the specified duration are included in the segment.
+-- | The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.
 rdRecencyType :: Lens' RecencyDimension (Maybe RecencyType)
 rdRecencyType = lens _rdRecencyType (\ s a -> s{_rdRecencyType = a});
 
@@ -2212,7 +3762,234 @@ instance ToJSON RecencyDimension where
                  [("RecencyType" .=) <$> _rdRecencyType,
                   ("Duration" .=) <$> _rdDuration])
 
--- | /See:/ 'schedule' smart constructor.
+-- | SMS Channel Request
+--
+-- /See:/ 'sMSChannelRequest' smart constructor.
+data SMSChannelRequest = SMSChannelRequest'
+    { _smscrEnabled  :: !(Maybe Bool)
+    , _smscrSenderId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SMSChannelRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smscrEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'smscrSenderId' - Sender identifier of your messages.
+sMSChannelRequest
+    :: SMSChannelRequest
+sMSChannelRequest =
+    SMSChannelRequest'
+    { _smscrEnabled = Nothing
+    , _smscrSenderId = Nothing
+    }
+
+-- | If the channel is enabled for sending messages.
+smscrEnabled :: Lens' SMSChannelRequest (Maybe Bool)
+smscrEnabled = lens _smscrEnabled (\ s a -> s{_smscrEnabled = a});
+
+-- | Sender identifier of your messages.
+smscrSenderId :: Lens' SMSChannelRequest (Maybe Text)
+smscrSenderId = lens _smscrSenderId (\ s a -> s{_smscrSenderId = a});
+
+instance Hashable SMSChannelRequest
+
+instance NFData SMSChannelRequest
+
+instance ToJSON SMSChannelRequest where
+        toJSON SMSChannelRequest'{..}
+          = object
+              (catMaybes
+                 [("Enabled" .=) <$> _smscrEnabled,
+                  ("SenderId" .=) <$> _smscrSenderId])
+
+-- | SMS Channel Response.
+--
+-- /See:/ 'sMSChannelResponse' smart constructor.
+data SMSChannelResponse = SMSChannelResponse'
+    { _smscPlatform         :: !(Maybe Text)
+    , _smscShortCode        :: !(Maybe Text)
+    , _smscLastModifiedDate :: !(Maybe Text)
+    , _smscEnabled          :: !(Maybe Bool)
+    , _smscSenderId         :: !(Maybe Text)
+    , _smscIsArchived       :: !(Maybe Bool)
+    , _smscApplicationId    :: !(Maybe Text)
+    , _smscVersion          :: !(Maybe Int)
+    , _smscId               :: !(Maybe Text)
+    , _smscCreationDate     :: !(Maybe Text)
+    , _smscLastModifiedBy   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SMSChannelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smscPlatform' - Platform type. Will be "SMS"
+--
+-- * 'smscShortCode' - The short code registered with the phone provider.
+--
+-- * 'smscLastModifiedDate' - Last date this was updated
+--
+-- * 'smscEnabled' - If the channel is enabled for sending messages.
+--
+-- * 'smscSenderId' - Sender identifier of your messages.
+--
+-- * 'smscIsArchived' - Is this channel archived
+--
+-- * 'smscApplicationId' - The unique ID of the application to which the SMS channel belongs.
+--
+-- * 'smscVersion' - Version of channel
+--
+-- * 'smscId' - Channel ID. Not used, only for backwards compatibility.
+--
+-- * 'smscCreationDate' - The date that the settings were last updated in ISO 8601 format.
+--
+-- * 'smscLastModifiedBy' - Who last updated this entry
+sMSChannelResponse
+    :: SMSChannelResponse
+sMSChannelResponse =
+    SMSChannelResponse'
+    { _smscPlatform = Nothing
+    , _smscShortCode = Nothing
+    , _smscLastModifiedDate = Nothing
+    , _smscEnabled = Nothing
+    , _smscSenderId = Nothing
+    , _smscIsArchived = Nothing
+    , _smscApplicationId = Nothing
+    , _smscVersion = Nothing
+    , _smscId = Nothing
+    , _smscCreationDate = Nothing
+    , _smscLastModifiedBy = Nothing
+    }
+
+-- | Platform type. Will be "SMS"
+smscPlatform :: Lens' SMSChannelResponse (Maybe Text)
+smscPlatform = lens _smscPlatform (\ s a -> s{_smscPlatform = a});
+
+-- | The short code registered with the phone provider.
+smscShortCode :: Lens' SMSChannelResponse (Maybe Text)
+smscShortCode = lens _smscShortCode (\ s a -> s{_smscShortCode = a});
+
+-- | Last date this was updated
+smscLastModifiedDate :: Lens' SMSChannelResponse (Maybe Text)
+smscLastModifiedDate = lens _smscLastModifiedDate (\ s a -> s{_smscLastModifiedDate = a});
+
+-- | If the channel is enabled for sending messages.
+smscEnabled :: Lens' SMSChannelResponse (Maybe Bool)
+smscEnabled = lens _smscEnabled (\ s a -> s{_smscEnabled = a});
+
+-- | Sender identifier of your messages.
+smscSenderId :: Lens' SMSChannelResponse (Maybe Text)
+smscSenderId = lens _smscSenderId (\ s a -> s{_smscSenderId = a});
+
+-- | Is this channel archived
+smscIsArchived :: Lens' SMSChannelResponse (Maybe Bool)
+smscIsArchived = lens _smscIsArchived (\ s a -> s{_smscIsArchived = a});
+
+-- | The unique ID of the application to which the SMS channel belongs.
+smscApplicationId :: Lens' SMSChannelResponse (Maybe Text)
+smscApplicationId = lens _smscApplicationId (\ s a -> s{_smscApplicationId = a});
+
+-- | Version of channel
+smscVersion :: Lens' SMSChannelResponse (Maybe Int)
+smscVersion = lens _smscVersion (\ s a -> s{_smscVersion = a});
+
+-- | Channel ID. Not used, only for backwards compatibility.
+smscId :: Lens' SMSChannelResponse (Maybe Text)
+smscId = lens _smscId (\ s a -> s{_smscId = a});
+
+-- | The date that the settings were last updated in ISO 8601 format.
+smscCreationDate :: Lens' SMSChannelResponse (Maybe Text)
+smscCreationDate = lens _smscCreationDate (\ s a -> s{_smscCreationDate = a});
+
+-- | Who last updated this entry
+smscLastModifiedBy :: Lens' SMSChannelResponse (Maybe Text)
+smscLastModifiedBy = lens _smscLastModifiedBy (\ s a -> s{_smscLastModifiedBy = a});
+
+instance FromJSON SMSChannelResponse where
+        parseJSON
+          = withObject "SMSChannelResponse"
+              (\ x ->
+                 SMSChannelResponse' <$>
+                   (x .:? "Platform") <*> (x .:? "ShortCode") <*>
+                     (x .:? "LastModifiedDate")
+                     <*> (x .:? "Enabled")
+                     <*> (x .:? "SenderId")
+                     <*> (x .:? "IsArchived")
+                     <*> (x .:? "ApplicationId")
+                     <*> (x .:? "Version")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy"))
+
+instance Hashable SMSChannelResponse
+
+instance NFData SMSChannelResponse
+
+-- | SMS Message.
+--
+-- /See:/ 'sMSMessage' smart constructor.
+data SMSMessage = SMSMessage'
+    { _smsmSubstitutions :: !(Maybe (Map Text [Text]))
+    , _smsmBody          :: !(Maybe Text)
+    , _smsmMessageType   :: !(Maybe MessageType)
+    , _smsmSenderId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SMSMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smsmSubstitutions' - Default message substitutions. Can be overridden by individual address substitutions.
+--
+-- * 'smsmBody' - The message body of the notification, the email body or the text message.
+--
+-- * 'smsmMessageType' - Is this a transaction priority message or lower priority.
+--
+-- * 'smsmSenderId' - Sender ID of sent message.
+sMSMessage
+    :: SMSMessage
+sMSMessage =
+    SMSMessage'
+    { _smsmSubstitutions = Nothing
+    , _smsmBody = Nothing
+    , _smsmMessageType = Nothing
+    , _smsmSenderId = Nothing
+    }
+
+-- | Default message substitutions. Can be overridden by individual address substitutions.
+smsmSubstitutions :: Lens' SMSMessage (HashMap Text [Text])
+smsmSubstitutions = lens _smsmSubstitutions (\ s a -> s{_smsmSubstitutions = a}) . _Default . _Map;
+
+-- | The message body of the notification, the email body or the text message.
+smsmBody :: Lens' SMSMessage (Maybe Text)
+smsmBody = lens _smsmBody (\ s a -> s{_smsmBody = a});
+
+-- | Is this a transaction priority message or lower priority.
+smsmMessageType :: Lens' SMSMessage (Maybe MessageType)
+smsmMessageType = lens _smsmMessageType (\ s a -> s{_smsmMessageType = a});
+
+-- | Sender ID of sent message.
+smsmSenderId :: Lens' SMSMessage (Maybe Text)
+smsmSenderId = lens _smsmSenderId (\ s a -> s{_smsmSenderId = a});
+
+instance Hashable SMSMessage
+
+instance NFData SMSMessage
+
+instance ToJSON SMSMessage where
+        toJSON SMSMessage'{..}
+          = object
+              (catMaybes
+                 [("Substitutions" .=) <$> _smsmSubstitutions,
+                  ("Body" .=) <$> _smsmBody,
+                  ("MessageType" .=) <$> _smsmMessageType,
+                  ("SenderId" .=) <$> _smsmSenderId])
+
+-- | Shcedule that defines when a campaign is run.
+--
+-- /See:/ 'schedule' smart constructor.
 data Schedule = Schedule'
     { _sFrequency   :: !(Maybe Frequency)
     , _sStartTime   :: !(Maybe Text)
@@ -2299,7 +4076,9 @@ instance ToJSON Schedule where
                   ("EndTime" .=) <$> _sEndTime,
                   ("Timezone" .=) <$> _sTimezone])
 
--- | /See:/ 'segmentBehaviors' smart constructor.
+-- | Segment behavior dimensions
+--
+-- /See:/ 'segmentBehaviors' smart constructor.
 newtype SegmentBehaviors = SegmentBehaviors'
     { _sbRecency :: Maybe RecencyDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2333,10 +4112,13 @@ instance ToJSON SegmentBehaviors where
         toJSON SegmentBehaviors'{..}
           = object (catMaybes [("Recency" .=) <$> _sbRecency])
 
--- | /See:/ 'segmentDemographics' smart constructor.
+-- | Segment demographic dimensions
+--
+-- /See:/ 'segmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
     { _sdPlatform   :: !(Maybe SetDimension)
     , _sdAppVersion :: !(Maybe SetDimension)
+    , _sdChannel    :: !(Maybe SetDimension)
     , _sdModel      :: !(Maybe SetDimension)
     , _sdMake       :: !(Maybe SetDimension)
     , _sdDeviceType :: !(Maybe SetDimension)
@@ -2350,6 +4132,8 @@ data SegmentDemographics = SegmentDemographics'
 --
 -- * 'sdAppVersion' - The app version criteria for the segment.
 --
+-- * 'sdChannel' - The channel criteria for the segment.
+--
 -- * 'sdModel' - The device model criteria for the segment.
 --
 -- * 'sdMake' - The device make criteria for the segment.
@@ -2361,6 +4145,7 @@ segmentDemographics =
     SegmentDemographics'
     { _sdPlatform = Nothing
     , _sdAppVersion = Nothing
+    , _sdChannel = Nothing
     , _sdModel = Nothing
     , _sdMake = Nothing
     , _sdDeviceType = Nothing
@@ -2373,6 +4158,10 @@ sdPlatform = lens _sdPlatform (\ s a -> s{_sdPlatform = a});
 -- | The app version criteria for the segment.
 sdAppVersion :: Lens' SegmentDemographics (Maybe SetDimension)
 sdAppVersion = lens _sdAppVersion (\ s a -> s{_sdAppVersion = a});
+
+-- | The channel criteria for the segment.
+sdChannel :: Lens' SegmentDemographics (Maybe SetDimension)
+sdChannel = lens _sdChannel (\ s a -> s{_sdChannel = a});
 
 -- | The device model criteria for the segment.
 sdModel :: Lens' SegmentDemographics (Maybe SetDimension)
@@ -2392,7 +4181,8 @@ instance FromJSON SegmentDemographics where
               (\ x ->
                  SegmentDemographics' <$>
                    (x .:? "Platform") <*> (x .:? "AppVersion") <*>
-                     (x .:? "Model")
+                     (x .:? "Channel")
+                     <*> (x .:? "Model")
                      <*> (x .:? "Make")
                      <*> (x .:? "DeviceType"))
 
@@ -2406,15 +4196,19 @@ instance ToJSON SegmentDemographics where
               (catMaybes
                  [("Platform" .=) <$> _sdPlatform,
                   ("AppVersion" .=) <$> _sdAppVersion,
+                  ("Channel" .=) <$> _sdChannel,
                   ("Model" .=) <$> _sdModel, ("Make" .=) <$> _sdMake,
                   ("DeviceType" .=) <$> _sdDeviceType])
 
--- | /See:/ 'segmentDimensions' smart constructor.
+-- | Segment dimensions
+--
+-- /See:/ 'segmentDimensions' smart constructor.
 data SegmentDimensions = SegmentDimensions'
-    { _sdLocation    :: !(Maybe SegmentLocation)
-    , _sdDemographic :: !(Maybe SegmentDemographics)
-    , _sdBehavior    :: !(Maybe SegmentBehaviors)
-    , _sdAttributes  :: !(Maybe (Map Text AttributeDimension))
+    { _sdLocation       :: !(Maybe SegmentLocation)
+    , _sdDemographic    :: !(Maybe SegmentDemographics)
+    , _sdUserAttributes :: !(Maybe (Map Text AttributeDimension))
+    , _sdBehavior       :: !(Maybe SegmentBehaviors)
+    , _sdAttributes     :: !(Maybe (Map Text AttributeDimension))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SegmentDimensions' with the minimum fields required to make a request.
@@ -2425,6 +4219,8 @@ data SegmentDimensions = SegmentDimensions'
 --
 -- * 'sdDemographic' - The segment demographics attributes.
 --
+-- * 'sdUserAttributes' - Custom segment user attributes.
+--
 -- * 'sdBehavior' - The segment behaviors attributes.
 --
 -- * 'sdAttributes' - Custom segment attributes.
@@ -2434,6 +4230,7 @@ segmentDimensions =
     SegmentDimensions'
     { _sdLocation = Nothing
     , _sdDemographic = Nothing
+    , _sdUserAttributes = Nothing
     , _sdBehavior = Nothing
     , _sdAttributes = Nothing
     }
@@ -2445,6 +4242,10 @@ sdLocation = lens _sdLocation (\ s a -> s{_sdLocation = a});
 -- | The segment demographics attributes.
 sdDemographic :: Lens' SegmentDimensions (Maybe SegmentDemographics)
 sdDemographic = lens _sdDemographic (\ s a -> s{_sdDemographic = a});
+
+-- | Custom segment user attributes.
+sdUserAttributes :: Lens' SegmentDimensions (HashMap Text AttributeDimension)
+sdUserAttributes = lens _sdUserAttributes (\ s a -> s{_sdUserAttributes = a}) . _Default . _Map;
 
 -- | The segment behaviors attributes.
 sdBehavior :: Lens' SegmentDimensions (Maybe SegmentBehaviors)
@@ -2460,7 +4261,8 @@ instance FromJSON SegmentDimensions where
               (\ x ->
                  SegmentDimensions' <$>
                    (x .:? "Location") <*> (x .:? "Demographic") <*>
-                     (x .:? "Behavior")
+                     (x .:? "UserAttributes" .!= mempty)
+                     <*> (x .:? "Behavior")
                      <*> (x .:? "Attributes" .!= mempty))
 
 instance Hashable SegmentDimensions
@@ -2473,16 +4275,20 @@ instance ToJSON SegmentDimensions where
               (catMaybes
                  [("Location" .=) <$> _sdLocation,
                   ("Demographic" .=) <$> _sdDemographic,
+                  ("UserAttributes" .=) <$> _sdUserAttributes,
                   ("Behavior" .=) <$> _sdBehavior,
                   ("Attributes" .=) <$> _sdAttributes])
 
--- | /See:/ 'segmentImportResource' smart constructor.
+-- | Segment import definition.
+--
+-- /See:/ 'segmentImportResource' smart constructor.
 data SegmentImportResource = SegmentImportResource'
-    { _sirSize       :: !(Maybe Int)
-    , _sirFormat     :: !(Maybe DefinitionFormat)
-    , _sirExternalId :: !(Maybe Text)
-    , _sirS3URL      :: !(Maybe Text)
-    , _sirRoleARN    :: !(Maybe Text)
+    { _sirSize          :: !(Maybe Int)
+    , _sirFormat        :: !(Maybe DefinitionFormat)
+    , _sirChannelCounts :: !(Maybe (Map Text Int))
+    , _sirExternalId    :: !(Maybe Text)
+    , _sirS3URL         :: !(Maybe Text)
+    , _sirRoleARN       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SegmentImportResource' with the minimum fields required to make a request.
@@ -2492,6 +4298,8 @@ data SegmentImportResource = SegmentImportResource'
 -- * 'sirSize' - The number of endpoints that were successfully imported to create this segment.
 --
 -- * 'sirFormat' - The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON
+--
+-- * 'sirChannelCounts' - Channel type counts
 --
 -- * 'sirExternalId' - A unique, custom ID assigned to the IAM role that restricts who can assume the role.
 --
@@ -2504,6 +4312,7 @@ segmentImportResource =
     SegmentImportResource'
     { _sirSize = Nothing
     , _sirFormat = Nothing
+    , _sirChannelCounts = Nothing
     , _sirExternalId = Nothing
     , _sirS3URL = Nothing
     , _sirRoleARN = Nothing
@@ -2516,6 +4325,10 @@ sirSize = lens _sirSize (\ s a -> s{_sirSize = a});
 -- | The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON
 sirFormat :: Lens' SegmentImportResource (Maybe DefinitionFormat)
 sirFormat = lens _sirFormat (\ s a -> s{_sirFormat = a});
+
+-- | Channel type counts
+sirChannelCounts :: Lens' SegmentImportResource (HashMap Text Int)
+sirChannelCounts = lens _sirChannelCounts (\ s a -> s{_sirChannelCounts = a}) . _Default . _Map;
 
 -- | A unique, custom ID assigned to the IAM role that restricts who can assume the role.
 sirExternalId :: Lens' SegmentImportResource (Maybe Text)
@@ -2535,7 +4348,8 @@ instance FromJSON SegmentImportResource where
               (\ x ->
                  SegmentImportResource' <$>
                    (x .:? "Size") <*> (x .:? "Format") <*>
-                     (x .:? "ExternalId")
+                     (x .:? "ChannelCounts" .!= mempty)
+                     <*> (x .:? "ExternalId")
                      <*> (x .:? "S3Url")
                      <*> (x .:? "RoleArn"))
 
@@ -2543,7 +4357,9 @@ instance Hashable SegmentImportResource
 
 instance NFData SegmentImportResource
 
--- | /See:/ 'segmentLocation' smart constructor.
+-- | Segment location dimensions
+--
+-- /See:/ 'segmentLocation' smart constructor.
 newtype SegmentLocation = SegmentLocation'
     { _slCountry :: Maybe SetDimension
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2577,7 +4393,9 @@ instance ToJSON SegmentLocation where
         toJSON SegmentLocation'{..}
           = object (catMaybes [("Country" .=) <$> _slCountry])
 
--- | /See:/ 'segmentResponse' smart constructor.
+-- | Segment definition.
+--
+-- /See:/ 'segmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
     { _sLastModifiedDate :: !(Maybe Text)
     , _sSegmentType      :: !(Maybe SegmentType)
@@ -2596,7 +4414,7 @@ data SegmentResponse = SegmentResponse'
 --
 -- * 'sLastModifiedDate' - The date the segment was last updated in ISO 8601 format.
 --
--- * 'sSegmentType' - The segment type: DIMENSIONAL – A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT – A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
+-- * 'sSegmentType' - The segment type: DIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
 --
 -- * 'sApplicationId' - The ID of the application to which the segment applies.
 --
@@ -2630,7 +4448,7 @@ segmentResponse =
 sLastModifiedDate :: Lens' SegmentResponse (Maybe Text)
 sLastModifiedDate = lens _sLastModifiedDate (\ s a -> s{_sLastModifiedDate = a});
 
--- | The segment type: DIMENSIONAL – A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT – A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
+-- | The segment type: DIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource. IMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.
 sSegmentType :: Lens' SegmentResponse (Maybe SegmentType)
 sSegmentType = lens _sSegmentType (\ s a -> s{_sSegmentType = a});
 
@@ -2680,7 +4498,9 @@ instance Hashable SegmentResponse
 
 instance NFData SegmentResponse
 
--- | /See:/ 'segmentsResponse' smart constructor.
+-- | Segments in your account.
+--
+-- /See:/ 'segmentsResponse' smart constructor.
 data SegmentsResponse = SegmentsResponse'
     { _sNextToken :: !(Maybe Text)
     , _sItem      :: !(Maybe [SegmentResponse])
@@ -2720,7 +4540,9 @@ instance Hashable SegmentsResponse
 
 instance NFData SegmentsResponse
 
--- | /See:/ 'setDimension' smart constructor.
+-- | Dimension specification of a segment.
+--
+-- /See:/ 'setDimension' smart constructor.
 data SetDimension = SetDimension'
     { _sdValues        :: !(Maybe [Text])
     , _sdDimensionType :: !(Maybe DimensionType)
@@ -2732,7 +4554,7 @@ data SetDimension = SetDimension'
 --
 -- * 'sdValues' - The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
 --
--- * 'sdDimensionType' - The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+-- * 'sdDimensionType' - The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
 setDimension
     :: SetDimension
 setDimension =
@@ -2745,7 +4567,7 @@ setDimension =
 sdValues :: Lens' SetDimension [Text]
 sdValues = lens _sdValues (\ s a -> s{_sdValues = a}) . _Default . _Coerce;
 
--- | The type of dimension: INCLUSIVE – Endpoints that match the criteria are included in the segment. EXCLUSIVE – Endpoints that match the criteria are excluded from the segment.
+-- | The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.
 sdDimensionType :: Lens' SetDimension (Maybe DimensionType)
 sdDimensionType = lens _sdDimensionType (\ s a -> s{_sdDimensionType = a});
 
@@ -2768,7 +4590,9 @@ instance ToJSON SetDimension where
                  [("Values" .=) <$> _sdValues,
                   ("DimensionType" .=) <$> _sdDimensionType])
 
--- | /See:/ 'treatmentResource' smart constructor.
+-- | Treatment resource
+--
+-- /See:/ 'treatmentResource' smart constructor.
 data TreatmentResource = TreatmentResource'
     { _trState                :: !(Maybe CampaignState)
     , _trSchedule             :: !(Maybe Schedule)
@@ -2853,7 +4677,9 @@ instance Hashable TreatmentResource
 
 instance NFData TreatmentResource
 
--- | /See:/ 'writeApplicationSettingsRequest' smart constructor.
+-- | Creating application setting request
+--
+-- /See:/ 'writeApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
     { _wasrLimits    :: !(Maybe CampaignLimits)
     , _wasrQuietTime :: !(Maybe QuietTime)
@@ -2893,7 +4719,9 @@ instance ToJSON WriteApplicationSettingsRequest where
                  [("Limits" .=) <$> _wasrLimits,
                   ("QuietTime" .=) <$> _wasrQuietTime])
 
--- | /See:/ 'writeCampaignRequest' smart constructor.
+-- | Used to create a campaign.
+--
+-- /See:/ 'writeCampaignRequest' smart constructor.
 data WriteCampaignRequest = WriteCampaignRequest'
     { _wcrSchedule             :: !(Maybe Schedule)
     , _wcrTreatmentName        :: !(Maybe Text)
@@ -3026,7 +4854,61 @@ instance ToJSON WriteCampaignRequest where
                     _wcrAdditionalTreatments,
                   ("SegmentVersion" .=) <$> _wcrSegmentVersion])
 
--- | /See:/ 'writeSegmentRequest' smart constructor.
+-- | Request to save an EventStream.
+--
+-- /See:/ 'writeEventStream' smart constructor.
+data WriteEventStream = WriteEventStream'
+    { _wesDestinationStreamARN :: !(Maybe Text)
+    , _wesExternalId           :: !(Maybe Text)
+    , _wesRoleARN              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WriteEventStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wesDestinationStreamARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.  Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME  Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+--
+-- * 'wesExternalId' - The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+--
+-- * 'wesRoleARN' - The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+writeEventStream
+    :: WriteEventStream
+writeEventStream =
+    WriteEventStream'
+    { _wesDestinationStreamARN = Nothing
+    , _wesExternalId = Nothing
+    , _wesRoleARN = Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.  Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME  Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+wesDestinationStreamARN :: Lens' WriteEventStream (Maybe Text)
+wesDestinationStreamARN = lens _wesDestinationStreamARN (\ s a -> s{_wesDestinationStreamARN = a});
+
+-- | The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.
+wesExternalId :: Lens' WriteEventStream (Maybe Text)
+wesExternalId = lens _wesExternalId (\ s a -> s{_wesExternalId = a});
+
+-- | The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+wesRoleARN :: Lens' WriteEventStream (Maybe Text)
+wesRoleARN = lens _wesRoleARN (\ s a -> s{_wesRoleARN = a});
+
+instance Hashable WriteEventStream
+
+instance NFData WriteEventStream
+
+instance ToJSON WriteEventStream where
+        toJSON WriteEventStream'{..}
+          = object
+              (catMaybes
+                 [("DestinationStreamArn" .=) <$>
+                    _wesDestinationStreamARN,
+                  ("ExternalId" .=) <$> _wesExternalId,
+                  ("RoleArn" .=) <$> _wesRoleARN])
+
+-- | Segment definition.
+--
+-- /See:/ 'writeSegmentRequest' smart constructor.
 data WriteSegmentRequest = WriteSegmentRequest'
     { _wsrName       :: !(Maybe Text)
     , _wsrDimensions :: !(Maybe SegmentDimensions)
@@ -3066,7 +4948,9 @@ instance ToJSON WriteSegmentRequest where
                  [("Name" .=) <$> _wsrName,
                   ("Dimensions" .=) <$> _wsrDimensions])
 
--- | /See:/ 'writeTreatmentResource' smart constructor.
+-- | Used to create a campaign treatment.
+--
+-- /See:/ 'writeTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
     { _wtrSchedule             :: !(Maybe Schedule)
     , _wtrTreatmentName        :: !(Maybe Text)

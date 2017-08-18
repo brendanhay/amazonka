@@ -116,21 +116,33 @@ instance FromJSON CampaignStatus where
     parseJSON = parseJSONText "CampaignStatus"
 
 data ChannelType
-    = APNS
+    = ADM
+    | APNS
+    | APNSSandbox
+    | Email
     | GCM
+    | Sms
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText ChannelType where
     parser = takeLowerText >>= \case
+        "adm" -> pure ADM
         "apns" -> pure APNS
+        "apns_sandbox" -> pure APNSSandbox
+        "email" -> pure Email
         "gcm" -> pure GCM
+        "sms" -> pure Sms
         e -> fromTextError $ "Failure parsing ChannelType from value: '" <> e
-           <> "'. Accepted values: apns, gcm"
+           <> "'. Accepted values: adm, apns, apns_sandbox, email, gcm, sms"
 
 instance ToText ChannelType where
     toText = \case
+        ADM -> "ADM"
         APNS -> "APNS"
+        APNSSandbox -> "APNS_SANDBOX"
+        Email -> "EMAIL"
         GCM -> "GCM"
+        Sms -> "SMS"
 
 instance Hashable     ChannelType
 instance NFData       ChannelType
@@ -172,6 +184,38 @@ instance ToJSON DefinitionFormat where
 
 instance FromJSON DefinitionFormat where
     parseJSON = parseJSONText "DefinitionFormat"
+
+data DeliveryStatus
+    = PermanentFailure
+    | Successful
+    | TemporaryFailure
+    | Throttled
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DeliveryStatus where
+    parser = takeLowerText >>= \case
+        "permanent_failure" -> pure PermanentFailure
+        "successful" -> pure Successful
+        "temporary_failure" -> pure TemporaryFailure
+        "throttled" -> pure Throttled
+        e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
+           <> "'. Accepted values: permanent_failure, successful, temporary_failure, throttled"
+
+instance ToText DeliveryStatus where
+    toText = \case
+        PermanentFailure -> "PERMANENT_FAILURE"
+        Successful -> "SUCCESSFUL"
+        TemporaryFailure -> "TEMPORARY_FAILURE"
+        Throttled -> "THROTTLED"
+
+instance Hashable     DeliveryStatus
+instance NFData       DeliveryStatus
+instance ToByteString DeliveryStatus
+instance ToQuery      DeliveryStatus
+instance ToHeader     DeliveryStatus
+
+instance FromJSON DeliveryStatus where
+    parseJSON = parseJSONText "DeliveryStatus"
 
 data DimensionType
     = DTExclusive
@@ -315,6 +359,35 @@ instance ToHeader     JobStatus
 
 instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
+
+data MessageType
+    = Promotional
+    | Transactional
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MessageType where
+    parser = takeLowerText >>= \case
+        "promotional" -> pure Promotional
+        "transactional" -> pure Transactional
+        e -> fromTextError $ "Failure parsing MessageType from value: '" <> e
+           <> "'. Accepted values: promotional, transactional"
+
+instance ToText MessageType where
+    toText = \case
+        Promotional -> "PROMOTIONAL"
+        Transactional -> "TRANSACTIONAL"
+
+instance Hashable     MessageType
+instance NFData       MessageType
+instance ToByteString MessageType
+instance ToQuery      MessageType
+instance ToHeader     MessageType
+
+instance ToJSON MessageType where
+    toJSON = toJSONText
+
+instance FromJSON MessageType where
+    parseJSON = parseJSONText "MessageType"
 
 data RecencyType
     = Active

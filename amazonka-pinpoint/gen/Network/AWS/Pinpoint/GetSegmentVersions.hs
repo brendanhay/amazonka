@@ -57,9 +57,9 @@ data GetSegmentVersions = GetSegmentVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsvToken' - Undocumented member.
+-- * 'gsvToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gsvPageSize' - Undocumented member.
+-- * 'gsvPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gsvSegmentId' - Undocumented member.
 --
@@ -76,11 +76,11 @@ getSegmentVersions pSegmentId_ pApplicationId_ =
     , _gsvApplicationId = pApplicationId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gsvToken :: Lens' GetSegmentVersions (Maybe Text)
 gsvToken = lens _gsvToken (\ s a -> s{_gsvToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gsvPageSize :: Lens' GetSegmentVersions (Maybe Text)
 gsvPageSize = lens _gsvPageSize (\ s a -> s{_gsvPageSize = a});
 

@@ -55,9 +55,9 @@ data GetImportJobs = GetImportJobs'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gijsToken' - Undocumented member.
+-- * 'gijsToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gijsPageSize' - Undocumented member.
+-- * 'gijsPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gijsApplicationId' - Undocumented member.
 getImportJobs
@@ -70,11 +70,11 @@ getImportJobs pApplicationId_ =
     , _gijsApplicationId = pApplicationId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gijsToken :: Lens' GetImportJobs (Maybe Text)
 gijsToken = lens _gijsToken (\ s a -> s{_gijsToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gijsPageSize :: Lens' GetImportJobs (Maybe Text)
 gijsPageSize = lens _gijsPageSize (\ s a -> s{_gijsPageSize = a});
 

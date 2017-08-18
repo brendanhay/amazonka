@@ -34,6 +34,9 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetSegmentImportJobs $
 --             getSegmentImportJobs
 --
+--         , requestSendMessages $
+--             sendMessages
+--
 --         , requestGetImportJob $
 --             getImportJob
 --
@@ -70,6 +73,9 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetCampaign $
 --             getCampaign
 --
+--         , requestDeleteApp $
+--             deleteApp
+--
 --         , requestUpdateGCMChannel $
 --             updateGCMChannel
 --
@@ -79,11 +85,26 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetCampaignActivities $
 --             getCampaignActivities
 --
+--         , requestGetEventStream $
+--             getEventStream
+--
+--         , requestDeleteEmailChannel $
+--             deleteEmailChannel
+--
+--         , requestUpdateEmailChannel $
+--             updateEmailChannel
+--
 --         , requestDeleteAPNSChannel $
 --             deleteAPNSChannel
 --
 --         , requestUpdateAPNSChannel $
 --             updateAPNSChannel
+--
+--         , requestPutEventStream $
+--             putEventStream
+--
+--         , requestDeleteEventStream $
+--             deleteEventStream
 --
 --         , requestGetCampaignVersions $
 --             getCampaignVersions
@@ -91,8 +112,23 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetAPNSChannel $
 --             getAPNSChannel
 --
+--         , requestGetApps $
+--             getApps
+--
+--         , requestGetAPNSSandboxChannel $
+--             getAPNSSandboxChannel
+--
 --         , requestGetImportJobs $
 --             getImportJobs
+--
+--         , requestDeleteSmsChannel $
+--             deleteSmsChannel
+--
+--         , requestUpdateSmsChannel $
+--             updateSmsChannel
+--
+--         , requestGetApp $
+--             getApp
 --
 --         , requestGetCampaignVersion $
 --             getCampaignVersion
@@ -102,6 +138,18 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , requestUpdateSegment $
 --             updateSegment
+--
+--         , requestCreateApp $
+--             createApp
+--
+--         , requestGetSmsChannel $
+--             getSmsChannel
+--
+--         , requestDeleteAPNSSandboxChannel $
+--             deleteAPNSSandboxChannel
+--
+--         , requestUpdateAPNSSandboxChannel $
+--             updateAPNSSandboxChannel
 --
 --         , requestGetCampaigns $
 --             getCampaigns
@@ -118,6 +166,9 @@ import Test.AWS.Pinpoint.Internal
 --         , requestGetApplicationSettings $
 --             getApplicationSettings
 --
+--         , requestGetEmailChannel $
+--             getEmailChannel
+--
 --           ]
 
 --     , testGroup "response"
@@ -126,6 +177,9 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , responseGetSegmentImportJobs $
 --             getSegmentImportJobsResponse
+--
+--         , responseSendMessages $
+--             sendMessagesResponse
 --
 --         , responseGetImportJob $
 --             getImportJobResponse
@@ -163,6 +217,9 @@ import Test.AWS.Pinpoint.Internal
 --         , responseGetCampaign $
 --             getCampaignResponse
 --
+--         , responseDeleteApp $
+--             deleteAppResponse
+--
 --         , responseUpdateGCMChannel $
 --             updateGCMChannelResponse
 --
@@ -172,11 +229,26 @@ import Test.AWS.Pinpoint.Internal
 --         , responseGetCampaignActivities $
 --             getCampaignActivitiesResponse
 --
+--         , responseGetEventStream $
+--             getEventStreamResponse
+--
+--         , responseDeleteEmailChannel $
+--             deleteEmailChannelResponse
+--
+--         , responseUpdateEmailChannel $
+--             updateEmailChannelResponse
+--
 --         , responseDeleteAPNSChannel $
 --             deleteAPNSChannelResponse
 --
 --         , responseUpdateAPNSChannel $
 --             updateAPNSChannelResponse
+--
+--         , responsePutEventStream $
+--             putEventStreamResponse
+--
+--         , responseDeleteEventStream $
+--             deleteEventStreamResponse
 --
 --         , responseGetCampaignVersions $
 --             getCampaignVersionsResponse
@@ -184,8 +256,23 @@ import Test.AWS.Pinpoint.Internal
 --         , responseGetAPNSChannel $
 --             getAPNSChannelResponse
 --
+--         , responseGetApps $
+--             getAppsResponse
+--
+--         , responseGetAPNSSandboxChannel $
+--             getAPNSSandboxChannelResponse
+--
 --         , responseGetImportJobs $
 --             getImportJobsResponse
+--
+--         , responseDeleteSmsChannel $
+--             deleteSmsChannelResponse
+--
+--         , responseUpdateSmsChannel $
+--             updateSmsChannelResponse
+--
+--         , responseGetApp $
+--             getAppResponse
 --
 --         , responseGetCampaignVersion $
 --             getCampaignVersionResponse
@@ -195,6 +282,18 @@ import Test.AWS.Pinpoint.Internal
 --
 --         , responseUpdateSegment $
 --             updateSegmentResponse
+--
+--         , responseCreateApp $
+--             createAppResponse
+--
+--         , responseGetSmsChannel $
+--             getSmsChannelResponse
+--
+--         , responseDeleteAPNSSandboxChannel $
+--             deleteAPNSSandboxChannelResponse
+--
+--         , responseUpdateAPNSSandboxChannel $
+--             updateAPNSSandboxChannelResponse
 --
 --         , responseGetCampaigns $
 --             getCampaignsResponse
@@ -211,6 +310,9 @@ import Test.AWS.Pinpoint.Internal
 --         , responseGetApplicationSettings $
 --             getApplicationSettingsResponse
 --
+--         , responseGetEmailChannel $
+--             getEmailChannelResponse
+--
 --           ]
 --     ]
 
@@ -225,6 +327,11 @@ requestGetSegmentImportJobs :: GetSegmentImportJobs -> TestTree
 requestGetSegmentImportJobs = req
     "GetSegmentImportJobs"
     "fixture/GetSegmentImportJobs.yaml"
+
+requestSendMessages :: SendMessages -> TestTree
+requestSendMessages = req
+    "SendMessages"
+    "fixture/SendMessages.yaml"
 
 requestGetImportJob :: GetImportJob -> TestTree
 requestGetImportJob = req
@@ -286,6 +393,11 @@ requestGetCampaign = req
     "GetCampaign"
     "fixture/GetCampaign.yaml"
 
+requestDeleteApp :: DeleteApp -> TestTree
+requestDeleteApp = req
+    "DeleteApp"
+    "fixture/DeleteApp.yaml"
+
 requestUpdateGCMChannel :: UpdateGCMChannel -> TestTree
 requestUpdateGCMChannel = req
     "UpdateGCMChannel"
@@ -301,6 +413,21 @@ requestGetCampaignActivities = req
     "GetCampaignActivities"
     "fixture/GetCampaignActivities.yaml"
 
+requestGetEventStream :: GetEventStream -> TestTree
+requestGetEventStream = req
+    "GetEventStream"
+    "fixture/GetEventStream.yaml"
+
+requestDeleteEmailChannel :: DeleteEmailChannel -> TestTree
+requestDeleteEmailChannel = req
+    "DeleteEmailChannel"
+    "fixture/DeleteEmailChannel.yaml"
+
+requestUpdateEmailChannel :: UpdateEmailChannel -> TestTree
+requestUpdateEmailChannel = req
+    "UpdateEmailChannel"
+    "fixture/UpdateEmailChannel.yaml"
+
 requestDeleteAPNSChannel :: DeleteAPNSChannel -> TestTree
 requestDeleteAPNSChannel = req
     "DeleteAPNSChannel"
@@ -310,6 +437,16 @@ requestUpdateAPNSChannel :: UpdateAPNSChannel -> TestTree
 requestUpdateAPNSChannel = req
     "UpdateAPNSChannel"
     "fixture/UpdateAPNSChannel.yaml"
+
+requestPutEventStream :: PutEventStream -> TestTree
+requestPutEventStream = req
+    "PutEventStream"
+    "fixture/PutEventStream.yaml"
+
+requestDeleteEventStream :: DeleteEventStream -> TestTree
+requestDeleteEventStream = req
+    "DeleteEventStream"
+    "fixture/DeleteEventStream.yaml"
 
 requestGetCampaignVersions :: GetCampaignVersions -> TestTree
 requestGetCampaignVersions = req
@@ -321,10 +458,35 @@ requestGetAPNSChannel = req
     "GetAPNSChannel"
     "fixture/GetAPNSChannel.yaml"
 
+requestGetApps :: GetApps -> TestTree
+requestGetApps = req
+    "GetApps"
+    "fixture/GetApps.yaml"
+
+requestGetAPNSSandboxChannel :: GetAPNSSandboxChannel -> TestTree
+requestGetAPNSSandboxChannel = req
+    "GetAPNSSandboxChannel"
+    "fixture/GetAPNSSandboxChannel.yaml"
+
 requestGetImportJobs :: GetImportJobs -> TestTree
 requestGetImportJobs = req
     "GetImportJobs"
     "fixture/GetImportJobs.yaml"
+
+requestDeleteSmsChannel :: DeleteSmsChannel -> TestTree
+requestDeleteSmsChannel = req
+    "DeleteSmsChannel"
+    "fixture/DeleteSmsChannel.yaml"
+
+requestUpdateSmsChannel :: UpdateSmsChannel -> TestTree
+requestUpdateSmsChannel = req
+    "UpdateSmsChannel"
+    "fixture/UpdateSmsChannel.yaml"
+
+requestGetApp :: GetApp -> TestTree
+requestGetApp = req
+    "GetApp"
+    "fixture/GetApp.yaml"
 
 requestGetCampaignVersion :: GetCampaignVersion -> TestTree
 requestGetCampaignVersion = req
@@ -340,6 +502,26 @@ requestUpdateSegment :: UpdateSegment -> TestTree
 requestUpdateSegment = req
     "UpdateSegment"
     "fixture/UpdateSegment.yaml"
+
+requestCreateApp :: CreateApp -> TestTree
+requestCreateApp = req
+    "CreateApp"
+    "fixture/CreateApp.yaml"
+
+requestGetSmsChannel :: GetSmsChannel -> TestTree
+requestGetSmsChannel = req
+    "GetSmsChannel"
+    "fixture/GetSmsChannel.yaml"
+
+requestDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannel -> TestTree
+requestDeleteAPNSSandboxChannel = req
+    "DeleteAPNSSandboxChannel"
+    "fixture/DeleteAPNSSandboxChannel.yaml"
+
+requestUpdateAPNSSandboxChannel :: UpdateAPNSSandboxChannel -> TestTree
+requestUpdateAPNSSandboxChannel = req
+    "UpdateAPNSSandboxChannel"
+    "fixture/UpdateAPNSSandboxChannel.yaml"
 
 requestGetCampaigns :: GetCampaigns -> TestTree
 requestGetCampaigns = req
@@ -366,6 +548,11 @@ requestGetApplicationSettings = req
     "GetApplicationSettings"
     "fixture/GetApplicationSettings.yaml"
 
+requestGetEmailChannel :: GetEmailChannel -> TestTree
+requestGetEmailChannel = req
+    "GetEmailChannel"
+    "fixture/GetEmailChannel.yaml"
+
 -- Responses
 
 responseGetGCMChannel :: GetGCMChannelResponse -> TestTree
@@ -381,6 +568,13 @@ responseGetSegmentImportJobs = res
     "fixture/GetSegmentImportJobsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetSegmentImportJobs)
+
+responseSendMessages :: SendMessagesResponse -> TestTree
+responseSendMessages = res
+    "SendMessagesResponse"
+    "fixture/SendMessagesResponse.proto"
+    pinpoint
+    (Proxy :: Proxy SendMessages)
 
 responseGetImportJob :: GetImportJobResponse -> TestTree
 responseGetImportJob = res
@@ -466,6 +660,13 @@ responseGetCampaign = res
     pinpoint
     (Proxy :: Proxy GetCampaign)
 
+responseDeleteApp :: DeleteAppResponse -> TestTree
+responseDeleteApp = res
+    "DeleteAppResponse"
+    "fixture/DeleteAppResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteApp)
+
 responseUpdateGCMChannel :: UpdateGCMChannelResponse -> TestTree
 responseUpdateGCMChannel = res
     "UpdateGCMChannelResponse"
@@ -487,6 +688,27 @@ responseGetCampaignActivities = res
     pinpoint
     (Proxy :: Proxy GetCampaignActivities)
 
+responseGetEventStream :: GetEventStreamResponse -> TestTree
+responseGetEventStream = res
+    "GetEventStreamResponse"
+    "fixture/GetEventStreamResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetEventStream)
+
+responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
+responseDeleteEmailChannel = res
+    "DeleteEmailChannelResponse"
+    "fixture/DeleteEmailChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteEmailChannel)
+
+responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
+responseUpdateEmailChannel = res
+    "UpdateEmailChannelResponse"
+    "fixture/UpdateEmailChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateEmailChannel)
+
 responseDeleteAPNSChannel :: DeleteAPNSChannelResponse -> TestTree
 responseDeleteAPNSChannel = res
     "DeleteAPNSChannelResponse"
@@ -500,6 +722,20 @@ responseUpdateAPNSChannel = res
     "fixture/UpdateAPNSChannelResponse.proto"
     pinpoint
     (Proxy :: Proxy UpdateAPNSChannel)
+
+responsePutEventStream :: PutEventStreamResponse -> TestTree
+responsePutEventStream = res
+    "PutEventStreamResponse"
+    "fixture/PutEventStreamResponse.proto"
+    pinpoint
+    (Proxy :: Proxy PutEventStream)
+
+responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
+responseDeleteEventStream = res
+    "DeleteEventStreamResponse"
+    "fixture/DeleteEventStreamResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteEventStream)
 
 responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
 responseGetCampaignVersions = res
@@ -515,12 +751,47 @@ responseGetAPNSChannel = res
     pinpoint
     (Proxy :: Proxy GetAPNSChannel)
 
+responseGetApps :: GetAppsResponse -> TestTree
+responseGetApps = res
+    "GetAppsResponse"
+    "fixture/GetAppsResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetApps)
+
+responseGetAPNSSandboxChannel :: GetAPNSSandboxChannelResponse -> TestTree
+responseGetAPNSSandboxChannel = res
+    "GetAPNSSandboxChannelResponse"
+    "fixture/GetAPNSSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetAPNSSandboxChannel)
+
 responseGetImportJobs :: GetImportJobsResponse -> TestTree
 responseGetImportJobs = res
     "GetImportJobsResponse"
     "fixture/GetImportJobsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetImportJobs)
+
+responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
+responseDeleteSmsChannel = res
+    "DeleteSmsChannelResponse"
+    "fixture/DeleteSmsChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteSmsChannel)
+
+responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
+responseUpdateSmsChannel = res
+    "UpdateSmsChannelResponse"
+    "fixture/UpdateSmsChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateSmsChannel)
+
+responseGetApp :: GetAppResponse -> TestTree
+responseGetApp = res
+    "GetAppResponse"
+    "fixture/GetAppResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetApp)
 
 responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
 responseGetCampaignVersion = res
@@ -542,6 +813,34 @@ responseUpdateSegment = res
     "fixture/UpdateSegmentResponse.proto"
     pinpoint
     (Proxy :: Proxy UpdateSegment)
+
+responseCreateApp :: CreateAppResponse -> TestTree
+responseCreateApp = res
+    "CreateAppResponse"
+    "fixture/CreateAppResponse.proto"
+    pinpoint
+    (Proxy :: Proxy CreateApp)
+
+responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
+responseGetSmsChannel = res
+    "GetSmsChannelResponse"
+    "fixture/GetSmsChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetSmsChannel)
+
+responseDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannelResponse -> TestTree
+responseDeleteAPNSSandboxChannel = res
+    "DeleteAPNSSandboxChannelResponse"
+    "fixture/DeleteAPNSSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy DeleteAPNSSandboxChannel)
+
+responseUpdateAPNSSandboxChannel :: UpdateAPNSSandboxChannelResponse -> TestTree
+responseUpdateAPNSSandboxChannel = res
+    "UpdateAPNSSandboxChannelResponse"
+    "fixture/UpdateAPNSSandboxChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy UpdateAPNSSandboxChannel)
 
 responseGetCampaigns :: GetCampaignsResponse -> TestTree
 responseGetCampaigns = res
@@ -577,3 +876,10 @@ responseGetApplicationSettings = res
     "fixture/GetApplicationSettingsResponse.proto"
     pinpoint
     (Proxy :: Proxy GetApplicationSettings)
+
+responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
+responseGetEmailChannel = res
+    "GetEmailChannelResponse"
+    "fixture/GetEmailChannelResponse.proto"
+    pinpoint
+    (Proxy :: Proxy GetEmailChannel)

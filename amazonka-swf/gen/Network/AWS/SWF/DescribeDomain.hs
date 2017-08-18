@@ -25,9 +25,15 @@
 --
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.    * Use an @Action@ element to allow or deny permission to call this action.    * You cannot use an IAM policy to constrain this action's parameters.
+--     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
--- If the caller does not have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's __cause__ parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> .
+--     * Use an @Action@ element to allow or deny permission to call this action.
+--
+--     * You cannot use an IAM policy to constrain this action's parameters.
+--
+--
+--
+-- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
 module Network.AWS.SWF.DescribeDomain
     (
@@ -126,9 +132,9 @@ data DescribeDomainResponse = DescribeDomainResponse'
 --
 -- * 'ddrsResponseStatus' - -- | The response status code.
 --
--- * 'ddrsDomainInfo' - Undocumented member.
+-- * 'ddrsDomainInfo' - The basic information about a domain, such as its name, status, and description.
 --
--- * 'ddrsConfiguration' - Undocumented member.
+-- * 'ddrsConfiguration' - The domain configuration. Currently, this includes only the domain's retention period.
 describeDomainResponse
     :: Int -- ^ 'ddrsResponseStatus'
     -> DomainInfo -- ^ 'ddrsDomainInfo'
@@ -145,11 +151,11 @@ describeDomainResponse pResponseStatus_ pDomainInfo_ pConfiguration_ =
 ddrsResponseStatus :: Lens' DescribeDomainResponse Int
 ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
 
--- | Undocumented member.
+-- | The basic information about a domain, such as its name, status, and description.
 ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
 ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
 
--- | Undocumented member.
+-- | The domain configuration. Currently, this includes only the domain's retention period.
 ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
 ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});
 

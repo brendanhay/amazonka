@@ -40,6 +40,7 @@ data DataSetType
     | MonthlyRevenueAnnualSubscriptions
     | MonthlyRevenueBillingAndRevenueData
     | SalesCompensationBilledRevenue
+    | UsSalesAndUseTaxRecords
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText DataSetType where
@@ -64,8 +65,9 @@ instance FromText DataSetType where
         "monthly_revenue_annual_subscriptions" -> pure MonthlyRevenueAnnualSubscriptions
         "monthly_revenue_billing_and_revenue_data" -> pure MonthlyRevenueBillingAndRevenueData
         "sales_compensation_billed_revenue" -> pure SalesCompensationBilledRevenue
+        "us_sales_and_use_tax_records" -> pure UsSalesAndUseTaxRecords
         e -> fromTextError $ "Failure parsing DataSetType from value: '" <> e
-           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_instance_hours, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data, sales_compensation_billed_revenue"
+           <> "'. Accepted values: customer_profile_by_geography, customer_profile_by_industry, customer_profile_by_revenue, customer_subscriber_annual_subscriptions, customer_subscriber_hourly_monthly_subscriptions, daily_business_canceled_product_subscribers, daily_business_fees, daily_business_free_trial_conversions, daily_business_new_instances, daily_business_new_product_subscribers, daily_business_usage_by_instance_type, disbursed_amount_by_age_of_disbursed_funds, disbursed_amount_by_age_of_uncollected_funds, disbursed_amount_by_customer_geo, disbursed_amount_by_instance_hours, disbursed_amount_by_product, disbursed_amount_by_product_with_uncollected_funds, monthly_revenue_annual_subscriptions, monthly_revenue_billing_and_revenue_data, sales_compensation_billed_revenue, us_sales_and_use_tax_records"
 
 instance ToText DataSetType where
     toText = \case
@@ -89,6 +91,7 @@ instance ToText DataSetType where
         MonthlyRevenueAnnualSubscriptions -> "monthly_revenue_annual_subscriptions"
         MonthlyRevenueBillingAndRevenueData -> "monthly_revenue_billing_and_revenue_data"
         SalesCompensationBilledRevenue -> "sales_compensation_billed_revenue"
+        UsSalesAndUseTaxRecords -> "us_sales_and_use_tax_records"
 
 instance Hashable     DataSetType
 instance NFData       DataSetType

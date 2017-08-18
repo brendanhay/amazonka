@@ -70,6 +70,9 @@ import Test.AWS.ELB.Internal
 --         , requestSetLoadBalancerListenerSSLCertificate $
 --             setLoadBalancerListenerSSLCertificate
 --
+--         , requestDescribeAccountLimits $
+--             describeAccountLimits
+--
 --         , requestAttachLoadBalancerToSubnets $
 --             attachLoadBalancerToSubnets
 --
@@ -156,6 +159,9 @@ import Test.AWS.ELB.Internal
 --
 --         , responseSetLoadBalancerListenerSSLCertificate $
 --             setLoadBalancerListenerSSLCertificateResponse
+--
+--         , responseDescribeAccountLimits $
+--             describeAccountLimitsResponse
 --
 --         , responseAttachLoadBalancerToSubnets $
 --             attachLoadBalancerToSubnetsResponse
@@ -273,6 +279,11 @@ requestSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertif
 requestSetLoadBalancerListenerSSLCertificate = req
     "SetLoadBalancerListenerSSLCertificate"
     "fixture/SetLoadBalancerListenerSSLCertificate.yaml"
+
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
 
 requestAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnets -> TestTree
 requestAttachLoadBalancerToSubnets = req
@@ -443,6 +454,13 @@ responseSetLoadBalancerListenerSSLCertificate = res
     "fixture/SetLoadBalancerListenerSSLCertificateResponse.proto"
     elb
     (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
+
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits = res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    elb
+    (Proxy :: Proxy DescribeAccountLimits)
 
 responseAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnetsResponse -> TestTree
 responseAttachLoadBalancerToSubnets = res

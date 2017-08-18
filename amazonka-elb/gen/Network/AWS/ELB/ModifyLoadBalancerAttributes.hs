@@ -23,7 +23,7 @@
 --
 -- You can modify the load balancer attributes, such as @AccessLogs@ , @ConnectionDraining@ , and @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can modify the load balancer attribute @ConnectionSettings@ by specifying an idle connection timeout value for your load balancer.
 --
--- For more information, see the following in the /Classic Load Balancers Guide/ :
+-- For more information, see the following in the /Classic Load Balancer Guide/ :
 --
 --     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
 --
@@ -76,7 +76,7 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
 --
 -- * 'mlbaLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbaLoadBalancerAttributes' - The attributes of the load balancer.
+-- * 'mlbaLoadBalancerAttributes' - The attributes for the load balancer.
 modifyLoadBalancerAttributes
     :: Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
@@ -91,7 +91,7 @@ modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
 mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
 mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a});
 
--- | The attributes of the load balancer.
+-- | The attributes for the load balancer.
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a});
 
@@ -146,7 +146,7 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 --
 -- * 'mlbarsLoadBalancerName' - The name of the load balancer.
 --
--- * 'mlbarsLoadBalancerAttributes' - Undocumented member.
+-- * 'mlbarsLoadBalancerAttributes' - Information about the load balancer attributes.
 --
 -- * 'mlbarsResponseStatus' - -- | The response status code.
 modifyLoadBalancerAttributesResponse
@@ -163,7 +163,7 @@ modifyLoadBalancerAttributesResponse pResponseStatus_ =
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
 
--- | Undocumented member.
+-- | Information about the load balancer attributes.
 mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 

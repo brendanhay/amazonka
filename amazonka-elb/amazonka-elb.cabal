@@ -53,6 +53,7 @@ library
         , Network.AWS.ELB.DeleteLoadBalancerListeners
         , Network.AWS.ELB.DeleteLoadBalancerPolicy
         , Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+        , Network.AWS.ELB.DescribeAccountLimits
         , Network.AWS.ELB.DescribeInstanceHealth
         , Network.AWS.ELB.DescribeLoadBalancerAttributes
         , Network.AWS.ELB.DescribeLoadBalancerPolicies

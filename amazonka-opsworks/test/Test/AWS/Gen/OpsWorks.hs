@@ -187,6 +187,12 @@ import Test.AWS.OpsWorks.Internal
 --         , requestDescribeStackProvisioningParameters $
 --             describeStackProvisioningParameters
 --
+--         , requestTagResource $
+--             tagResource
+--
+--         , requestListTags $
+--             listTags
+--
 --         , requestUnassignInstance $
 --             unassignInstance
 --
@@ -204,6 +210,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , requestRegisterRDSDBInstance $
 --             registerRDSDBInstance
+--
+--         , requestUntagResource $
+--             untagResource
 --
 --         , requestStartStack $
 --             startStack
@@ -400,6 +409,12 @@ import Test.AWS.OpsWorks.Internal
 --         , responseDescribeStackProvisioningParameters $
 --             describeStackProvisioningParametersResponse
 --
+--         , responseTagResource $
+--             tagResourceResponse
+--
+--         , responseListTags $
+--             listTagsResponse
+--
 --         , responseUnassignInstance $
 --             unassignInstanceResponse
 --
@@ -417,6 +432,9 @@ import Test.AWS.OpsWorks.Internal
 --
 --         , responseRegisterRDSDBInstance $
 --             registerRDSDBInstanceResponse
+--
+--         , responseUntagResource $
+--             untagResourceResponse
 --
 --         , responseStartStack $
 --             startStackResponse
@@ -721,6 +739,16 @@ requestDescribeStackProvisioningParameters = req
     "DescribeStackProvisioningParameters"
     "fixture/DescribeStackProvisioningParameters.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource = req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags = req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
 requestUnassignInstance :: UnassignInstance -> TestTree
 requestUnassignInstance = req
     "UnassignInstance"
@@ -750,6 +778,11 @@ requestRegisterRDSDBInstance :: RegisterRDSDBInstance -> TestTree
 requestRegisterRDSDBInstance = req
     "RegisterRDSDBInstance"
     "fixture/RegisterRDSDBInstance.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource = req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestStartStack :: StartStack -> TestTree
 requestStartStack = req
@@ -1179,6 +1212,20 @@ responseDescribeStackProvisioningParameters = res
     opsWorks
     (Proxy :: Proxy DescribeStackProvisioningParameters)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource = res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    opsWorks
+    (Proxy :: Proxy TagResource)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags = res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    opsWorks
+    (Proxy :: Proxy ListTags)
+
 responseUnassignInstance :: UnassignInstanceResponse -> TestTree
 responseUnassignInstance = res
     "UnassignInstanceResponse"
@@ -1220,6 +1267,13 @@ responseRegisterRDSDBInstance = res
     "fixture/RegisterRDSDBInstanceResponse.proto"
     opsWorks
     (Proxy :: Proxy RegisterRDSDBInstance)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource = res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    opsWorks
+    (Proxy :: Proxy UntagResource)
 
 responseStartStack :: StartStackResponse -> TestTree
 responseStartStack = res

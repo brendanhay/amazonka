@@ -25,7 +25,7 @@
 --
 --     * You can assign registered Amazon EC2 instances only to custom layers.
 --
---     * You cannot use this action with instances that were created with AWS OpsWorks.
+--     * You cannot use this action with instances that were created with AWS OpsWorks Stacks.
 --
 --
 --

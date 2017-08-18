@@ -32,6 +32,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     , ulCustomInstanceProfileARN
     , ulCustomSecurityGroupIds
     , ulInstallUpdatesOnBoot
+    , ulCloudWatchLogsConfiguration
     , ulLifecycleEventConfiguration
     , ulShortname
     , ulCustomRecipes
@@ -63,6 +64,7 @@ data UpdateLayer = UpdateLayer'
     { _ulCustomInstanceProfileARN    :: !(Maybe Text)
     , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
     , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _ulCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
     , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
     , _ulShortname                   :: !(Maybe Text)
     , _ulCustomRecipes               :: !(Maybe Recipes)
@@ -88,9 +90,11 @@ data UpdateLayer = UpdateLayer'
 --
 -- * 'ulInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 --
+-- * 'ulCloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
+--
 -- * 'ulLifecycleEventConfiguration' -
 --
--- * 'ulShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorksand by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+-- * 'ulShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 --
 -- * 'ulCustomRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
 --
@@ -121,6 +125,7 @@ updateLayer pLayerId_ =
     { _ulCustomInstanceProfileARN = Nothing
     , _ulCustomSecurityGroupIds = Nothing
     , _ulInstallUpdatesOnBoot = Nothing
+    , _ulCloudWatchLogsConfiguration = Nothing
     , _ulLifecycleEventConfiguration = Nothing
     , _ulShortname = Nothing
     , _ulCustomRecipes = Nothing
@@ -148,11 +153,15 @@ ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomS
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
 
+-- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
+ulCloudWatchLogsConfiguration :: Lens' UpdateLayer (Maybe CloudWatchLogsConfiguration)
+ulCloudWatchLogsConfiguration = lens _ulCloudWatchLogsConfiguration (\ s a -> s{_ulCloudWatchLogsConfiguration = a});
+
 -- |
 ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
 ulLifecycleEventConfiguration = lens _ulLifecycleEventConfiguration (\ s a -> s{_ulLifecycleEventConfiguration = a});
 
--- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorksand by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+-- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 ulShortname :: Lens' UpdateLayer (Maybe Text)
 ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a});
 
@@ -228,6 +237,8 @@ instance ToJSON UpdateLayer where
                     _ulCustomSecurityGroupIds,
                   ("InstallUpdatesOnBoot" .=) <$>
                     _ulInstallUpdatesOnBoot,
+                  ("CloudWatchLogsConfiguration" .=) <$>
+                    _ulCloudWatchLogsConfiguration,
                   ("LifecycleEventConfiguration" .=) <$>
                     _ulLifecycleEventConfiguration,
                   ("Shortname" .=) <$> _ulShortname,

@@ -32,6 +32,7 @@ module Network.AWS.OpsWorks.CreateLayer
     , clCustomInstanceProfileARN
     , clCustomSecurityGroupIds
     , clInstallUpdatesOnBoot
+    , clCloudWatchLogsConfiguration
     , clLifecycleEventConfiguration
     , clCustomRecipes
     , clCustomJSON
@@ -67,6 +68,7 @@ data CreateLayer = CreateLayer'
     { _clCustomInstanceProfileARN    :: !(Maybe Text)
     , _clCustomSecurityGroupIds      :: !(Maybe [Text])
     , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _clCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
     , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
     , _clCustomRecipes               :: !(Maybe Recipes)
     , _clCustomJSON                  :: !(Maybe Text)
@@ -92,6 +94,8 @@ data CreateLayer = CreateLayer'
 -- * 'clCustomSecurityGroupIds' - An array containing the layer custom security group IDs.
 --
 -- * 'clInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+--
+-- * 'clCloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
 --
 -- * 'clLifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
 --
@@ -119,7 +123,7 @@ data CreateLayer = CreateLayer'
 --
 -- * 'clName' - The layer name, which is used by the console.
 --
--- * 'clShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
+-- * 'clShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
 createLayer
     :: Text -- ^ 'clStackId'
     -> LayerType -- ^ 'clType'
@@ -131,6 +135,7 @@ createLayer pStackId_ pType_ pName_ pShortname_ =
     { _clCustomInstanceProfileARN = Nothing
     , _clCustomSecurityGroupIds = Nothing
     , _clInstallUpdatesOnBoot = Nothing
+    , _clCloudWatchLogsConfiguration = Nothing
     , _clLifecycleEventConfiguration = Nothing
     , _clCustomRecipes = Nothing
     , _clCustomJSON = Nothing
@@ -158,6 +163,10 @@ clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomS
 -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or by manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
+
+-- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
+clCloudWatchLogsConfiguration :: Lens' CreateLayer (Maybe CloudWatchLogsConfiguration)
+clCloudWatchLogsConfiguration = lens _clCloudWatchLogsConfiguration (\ s a -> s{_clCloudWatchLogsConfiguration = a});
 
 -- | A @LifeCycleEventConfiguration@ object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.
 clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
@@ -211,7 +220,7 @@ clType = lens _clType (\ s a -> s{_clType = a});
 clName :: Lens' CreateLayer Text
 clName = lens _clName (\ s a -> s{_clName = a});
 
--- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
+-- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters, which are limited to the alphanumeric characters, '-', '_', and '.'. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference> .
 clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
@@ -247,6 +256,8 @@ instance ToJSON CreateLayer where
                     _clCustomSecurityGroupIds,
                   ("InstallUpdatesOnBoot" .=) <$>
                     _clInstallUpdatesOnBoot,
+                  ("CloudWatchLogsConfiguration" .=) <$>
+                    _clCloudWatchLogsConfiguration,
                   ("LifecycleEventConfiguration" .=) <$>
                     _clLifecycleEventConfiguration,
                   ("CustomRecipes" .=) <$> _clCustomRecipes,

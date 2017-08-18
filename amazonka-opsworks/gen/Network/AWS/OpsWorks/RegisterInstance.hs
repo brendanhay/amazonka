@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers instances with a specified stack that were created outside of AWS OpsWorks.
+-- Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.
 --
+--
+-- Registered instances have the same requirements as instances that are created by using the 'CreateInstance' API. For example, registered instances must be running a supported Linux-based operating system, and they must have a supported instance type. For more information about requirements for instances that you want to register, see <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register-registering-preparer.html Preparing the Instance> .
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 --
@@ -177,7 +179,7 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rirsInstanceId' - The registered instance's AWS OpsWorks ID.
+-- * 'rirsInstanceId' - The registered instance's AWS OpsWorks Stacks ID.
 --
 -- * 'rirsResponseStatus' - -- | The response status code.
 registerInstanceResponse
@@ -189,7 +191,7 @@ registerInstanceResponse pResponseStatus_ =
     , _rirsResponseStatus = pResponseStatus_
     }
 
--- | The registered instance's AWS OpsWorks ID.
+-- | The registered instance's AWS OpsWorks Stacks ID.
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 

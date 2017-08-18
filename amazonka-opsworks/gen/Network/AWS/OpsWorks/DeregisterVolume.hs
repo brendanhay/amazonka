@@ -52,7 +52,7 @@ newtype DeregisterVolume = DeregisterVolume'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvVolumeId' - The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
+-- * 'dvVolumeId' - The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
 deregisterVolume
     :: Text -- ^ 'dvVolumeId'
     -> DeregisterVolume
@@ -61,7 +61,7 @@ deregisterVolume pVolumeId_ =
     { _dvVolumeId = pVolumeId_
     }
 
--- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
+-- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 

@@ -1,0 +1,154 @@
+name:                  amazonka-glue
+version:               1.4.5
+synopsis:              Amazon Glue SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2016 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+description:
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Glue" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Glue
+        , Network.AWS.Glue.BatchCreatePartition
+        , Network.AWS.Glue.BatchDeleteConnection
+        , Network.AWS.Glue.BatchDeletePartition
+        , Network.AWS.Glue.BatchDeleteTable
+        , Network.AWS.Glue.BatchGetPartition
+        , Network.AWS.Glue.CreateClassifier
+        , Network.AWS.Glue.CreateConnection
+        , Network.AWS.Glue.CreateCrawler
+        , Network.AWS.Glue.CreateDatabase
+        , Network.AWS.Glue.CreateDevEndpoint
+        , Network.AWS.Glue.CreateJob
+        , Network.AWS.Glue.CreatePartition
+        , Network.AWS.Glue.CreateScript
+        , Network.AWS.Glue.CreateTable
+        , Network.AWS.Glue.CreateTrigger
+        , Network.AWS.Glue.CreateUserDefinedFunction
+        , Network.AWS.Glue.DeleteClassifier
+        , Network.AWS.Glue.DeleteConnection
+        , Network.AWS.Glue.DeleteCrawler
+        , Network.AWS.Glue.DeleteDatabase
+        , Network.AWS.Glue.DeleteDevEndpoint
+        , Network.AWS.Glue.DeleteJob
+        , Network.AWS.Glue.DeletePartition
+        , Network.AWS.Glue.DeleteTable
+        , Network.AWS.Glue.DeleteTrigger
+        , Network.AWS.Glue.DeleteUserDefinedFunction
+        , Network.AWS.Glue.GetCatalogImportStatus
+        , Network.AWS.Glue.GetClassifier
+        , Network.AWS.Glue.GetClassifiers
+        , Network.AWS.Glue.GetConnection
+        , Network.AWS.Glue.GetConnections
+        , Network.AWS.Glue.GetCrawler
+        , Network.AWS.Glue.GetCrawlerMetrics
+        , Network.AWS.Glue.GetCrawlers
+        , Network.AWS.Glue.GetDatabase
+        , Network.AWS.Glue.GetDatabases
+        , Network.AWS.Glue.GetDataflowGraph
+        , Network.AWS.Glue.GetDevEndpoint
+        , Network.AWS.Glue.GetDevEndpoints
+        , Network.AWS.Glue.GetJob
+        , Network.AWS.Glue.GetJobRun
+        , Network.AWS.Glue.GetJobRuns
+        , Network.AWS.Glue.GetJobs
+        , Network.AWS.Glue.GetMapping
+        , Network.AWS.Glue.GetPartition
+        , Network.AWS.Glue.GetPartitions
+        , Network.AWS.Glue.GetPlan
+        , Network.AWS.Glue.GetTable
+        , Network.AWS.Glue.GetTableVersions
+        , Network.AWS.Glue.GetTables
+        , Network.AWS.Glue.GetTrigger
+        , Network.AWS.Glue.GetTriggers
+        , Network.AWS.Glue.GetUserDefinedFunction
+        , Network.AWS.Glue.GetUserDefinedFunctions
+        , Network.AWS.Glue.ImportCatalogToGlue
+        , Network.AWS.Glue.ResetJobBookmark
+        , Network.AWS.Glue.StartCrawler
+        , Network.AWS.Glue.StartCrawlerSchedule
+        , Network.AWS.Glue.StartJobRun
+        , Network.AWS.Glue.StartTrigger
+        , Network.AWS.Glue.StopCrawler
+        , Network.AWS.Glue.StopCrawlerSchedule
+        , Network.AWS.Glue.StopTrigger
+        , Network.AWS.Glue.Types
+        , Network.AWS.Glue.UpdateClassifier
+        , Network.AWS.Glue.UpdateConnection
+        , Network.AWS.Glue.UpdateCrawler
+        , Network.AWS.Glue.UpdateCrawlerSchedule
+        , Network.AWS.Glue.UpdateDatabase
+        , Network.AWS.Glue.UpdateDevEndpoint
+        , Network.AWS.Glue.UpdateJob
+        , Network.AWS.Glue.UpdatePartition
+        , Network.AWS.Glue.UpdateTable
+        , Network.AWS.Glue.UpdateTrigger
+        , Network.AWS.Glue.UpdateUserDefinedFunction
+        , Network.AWS.Glue.Waiters
+
+    other-modules:
+          Network.AWS.Glue.Types.Product
+        , Network.AWS.Glue.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-glue-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Glue
+        , Test.AWS.Gen.Glue
+        , Test.AWS.Glue.Internal
+
+    build-depends:
+          amazonka-core == 1.4.5.*
+        , amazonka-test == 1.4.5.*
+        , amazonka-glue == 1.4.5.*
+        , base
+        , bytestring
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

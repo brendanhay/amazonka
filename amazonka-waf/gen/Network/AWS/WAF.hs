@@ -61,8 +61,17 @@ module Network.AWS.WAF
     -- * Operations
     -- $operations
 
+    -- ** ListRateBasedRules
+    , module Network.AWS.WAF.ListRateBasedRules
+
     -- ** GetSizeConstraintSet
     , module Network.AWS.WAF.GetSizeConstraintSet
+
+    -- ** DeleteRateBasedRule
+    , module Network.AWS.WAF.DeleteRateBasedRule
+
+    -- ** UpdateRateBasedRule
+    , module Network.AWS.WAF.UpdateRateBasedRule
 
     -- ** UpdateRule
     , module Network.AWS.WAF.UpdateRule
@@ -142,6 +151,9 @@ module Network.AWS.WAF
     -- ** DeleteByteMatchSet
     , module Network.AWS.WAF.DeleteByteMatchSet
 
+    -- ** GetRateBasedRuleManagedKeys
+    , module Network.AWS.WAF.GetRateBasedRuleManagedKeys
+
     -- ** DeleteIPSet
     , module Network.AWS.WAF.DeleteIPSet
 
@@ -157,6 +169,9 @@ module Network.AWS.WAF
     -- ** GetByteMatchSet
     , module Network.AWS.WAF.GetByteMatchSet
 
+    -- ** GetRateBasedRule
+    , module Network.AWS.WAF.GetRateBasedRule
+
     -- ** DeleteSizeConstraintSet
     , module Network.AWS.WAF.DeleteSizeConstraintSet
 
@@ -168,6 +183,9 @@ module Network.AWS.WAF
 
     -- ** ListSqlInjectionMatchSets (Paginated)
     , module Network.AWS.WAF.ListSqlInjectionMatchSets
+
+    -- ** CreateRateBasedRule
+    , module Network.AWS.WAF.CreateRateBasedRule
 
     -- ** DeleteSqlInjectionMatchSet
     , module Network.AWS.WAF.DeleteSqlInjectionMatchSet
@@ -198,15 +216,22 @@ module Network.AWS.WAF
     -- ** PredicateType
     , PredicateType (..)
 
+    -- ** RateKey
+    , RateKey (..)
+
     -- ** TextTransformation
     , TextTransformation (..)
 
     -- ** WafActionType
     , WafActionType (..)
 
+    -- ** WafRuleType
+    , WafRuleType (..)
+
     -- ** ActivatedRule
     , ActivatedRule
     , activatedRule
+    , arType
     , arPriority
     , arRuleId
     , arAction
@@ -291,6 +316,16 @@ module Network.AWS.WAF
     , pNegated
     , pType
     , pDataId
+
+    -- ** RateBasedRule
+    , RateBasedRule
+    , rateBasedRule
+    , rbrMetricName
+    , rbrName
+    , rbrRuleId
+    , rbrMatchPredicates
+    , rbrRateKey
+    , rbrRateLimit
 
     -- ** Rule
     , Rule
@@ -432,6 +467,7 @@ module Network.AWS.WAF
 
 import           Network.AWS.WAF.CreateByteMatchSet
 import           Network.AWS.WAF.CreateIPSet
+import           Network.AWS.WAF.CreateRateBasedRule
 import           Network.AWS.WAF.CreateRule
 import           Network.AWS.WAF.CreateSizeConstraintSet
 import           Network.AWS.WAF.CreateSqlInjectionMatchSet
@@ -439,6 +475,7 @@ import           Network.AWS.WAF.CreateWebACL
 import           Network.AWS.WAF.CreateXSSMatchSet
 import           Network.AWS.WAF.DeleteByteMatchSet
 import           Network.AWS.WAF.DeleteIPSet
+import           Network.AWS.WAF.DeleteRateBasedRule
 import           Network.AWS.WAF.DeleteRule
 import           Network.AWS.WAF.DeleteSizeConstraintSet
 import           Network.AWS.WAF.DeleteSqlInjectionMatchSet
@@ -448,6 +485,8 @@ import           Network.AWS.WAF.GetByteMatchSet
 import           Network.AWS.WAF.GetChangeToken
 import           Network.AWS.WAF.GetChangeTokenStatus
 import           Network.AWS.WAF.GetIPSet
+import           Network.AWS.WAF.GetRateBasedRule
+import           Network.AWS.WAF.GetRateBasedRuleManagedKeys
 import           Network.AWS.WAF.GetRule
 import           Network.AWS.WAF.GetSampledRequests
 import           Network.AWS.WAF.GetSizeConstraintSet
@@ -456,6 +495,7 @@ import           Network.AWS.WAF.GetWebACL
 import           Network.AWS.WAF.GetXSSMatchSet
 import           Network.AWS.WAF.ListByteMatchSets
 import           Network.AWS.WAF.ListIPSets
+import           Network.AWS.WAF.ListRateBasedRules
 import           Network.AWS.WAF.ListRules
 import           Network.AWS.WAF.ListSizeConstraintSets
 import           Network.AWS.WAF.ListSqlInjectionMatchSets
@@ -464,6 +504,7 @@ import           Network.AWS.WAF.ListXSSMatchSets
 import           Network.AWS.WAF.Types
 import           Network.AWS.WAF.UpdateByteMatchSet
 import           Network.AWS.WAF.UpdateIPSet
+import           Network.AWS.WAF.UpdateRateBasedRule
 import           Network.AWS.WAF.UpdateRule
 import           Network.AWS.WAF.UpdateSizeConstraintSet
 import           Network.AWS.WAF.UpdateSqlInjectionMatchSet

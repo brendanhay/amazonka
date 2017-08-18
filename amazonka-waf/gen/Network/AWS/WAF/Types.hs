@@ -49,15 +49,22 @@ module Network.AWS.WAF.Types
     -- * PredicateType
     , PredicateType (..)
 
+    -- * RateKey
+    , RateKey (..)
+
     -- * TextTransformation
     , TextTransformation (..)
 
     -- * WafActionType
     , WafActionType (..)
 
+    -- * WafRuleType
+    , WafRuleType (..)
+
     -- * ActivatedRule
     , ActivatedRule
     , activatedRule
+    , arType
     , arPriority
     , arRuleId
     , arAction
@@ -142,6 +149,16 @@ module Network.AWS.WAF.Types
     , pNegated
     , pType
     , pDataId
+
+    -- * RateBasedRule
+    , RateBasedRule
+    , rateBasedRule
+    , rbrMetricName
+    , rbrName
+    , rbrRuleId
+    , rbrMatchPredicates
+    , rbrRateKey
+    , rbrRateLimit
 
     -- * Rule
     , Rule
@@ -310,6 +327,8 @@ waf =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -379,6 +398,8 @@ _WAFNonexistentItemException =
 --     * You tried to update an object (@ByteMatchSet@ , @IPSet@ , @Rule@ , or @WebACL@ ) using an action other than @INSERT@ or @DELETE@ .
 --
 --     * You tried to create a @WebACL@ with a @DefaultAction@ @Type@ other than @ALLOW@ , @BLOCK@ , or @COUNT@ .
+--
+--     * You tried to create a @RateBasedRule@ with a @RateKey@ value other than @IP@ .
 --
 --     * You tried to update a @WebACL@ with a @WafAction@ @Type@ other than @ALLOW@ , @BLOCK@ , or @COUNT@ .
 --

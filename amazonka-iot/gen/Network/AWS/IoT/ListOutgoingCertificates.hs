@@ -21,6 +21,8 @@
 -- Lists certificates that are being transfered but not yet accepted.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListOutgoingCertificates
     (
     -- * Creating a Request
@@ -43,6 +45,7 @@ module Network.AWS.IoT.ListOutgoingCertificates
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -87,6 +90,13 @@ locAscendingOrder = lens _locAscendingOrder (\ s a -> s{_locAscendingOrder = a})
 -- | The result page size.
 locPageSize :: Lens' ListOutgoingCertificates (Maybe Natural)
 locPageSize = lens _locPageSize (\ s a -> s{_locPageSize = a}) . mapping _Nat;
+
+instance AWSPager ListOutgoingCertificates where
+        page rq rs
+          | stop (rs ^. locrsNextMarker) = Nothing
+          | stop (rs ^. locrsOutgoingCertificates) = Nothing
+          | otherwise =
+            Just $ rq & locMarker .~ rs ^. locrsNextMarker
 
 instance AWSRequest ListOutgoingCertificates where
         type Rs ListOutgoingCertificates =

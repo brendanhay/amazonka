@@ -70,7 +70,7 @@ data UpdateThing = UpdateThing'
 --
 -- * 'utExpectedVersion' - The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
 --
--- * 'utAttributePayload' - A list of thing attributes, a JSON string containing name-value pairs. For example: @{\"attributes\":{\"name1\":\"value2\"}})@  This data is used to add new attributes or update existing attributes.
+-- * 'utAttributePayload' - A list of thing attributes, a JSON string containing name-value pairs. For example: @{\"attributes\":{\"name1\":\"value2\"}}@  This data is used to add new attributes or update existing attributes.
 --
 -- * 'utThingName' - The name of the thing to update.
 updateThing
@@ -97,7 +97,7 @@ utThingTypeName = lens _utThingTypeName (\ s a -> s{_utThingTypeName = a});
 utExpectedVersion :: Lens' UpdateThing (Maybe Integer)
 utExpectedVersion = lens _utExpectedVersion (\ s a -> s{_utExpectedVersion = a});
 
--- | A list of thing attributes, a JSON string containing name-value pairs. For example: @{\"attributes\":{\"name1\":\"value2\"}})@  This data is used to add new attributes or update existing attributes.
+-- | A list of thing attributes, a JSON string containing name-value pairs. For example: @{\"attributes\":{\"name1\":\"value2\"}}@  This data is used to add new attributes or update existing attributes.
 utAttributePayload :: Lens' UpdateThing (Maybe AttributePayload)
 utAttributePayload = lens _utAttributePayload (\ s a -> s{_utAttributePayload = a});
 

@@ -21,6 +21,8 @@
 -- List the device certificates signed by the specified CA certificate.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListCertificatesByCA
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.IoT.ListCertificatesByCA
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -97,6 +100,13 @@ lcbcaPageSize = lens _lcbcaPageSize (\ s a -> s{_lcbcaPageSize = a}) . mapping _
 -- | The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.
 lcbcaCaCertificateId :: Lens' ListCertificatesByCA Text
 lcbcaCaCertificateId = lens _lcbcaCaCertificateId (\ s a -> s{_lcbcaCaCertificateId = a});
+
+instance AWSPager ListCertificatesByCA where
+        page rq rs
+          | stop (rs ^. lcbcarsNextMarker) = Nothing
+          | stop (rs ^. lcbcarsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & lcbcaMarker .~ rs ^. lcbcarsNextMarker
 
 instance AWSRequest ListCertificatesByCA where
         type Rs ListCertificatesByCA =

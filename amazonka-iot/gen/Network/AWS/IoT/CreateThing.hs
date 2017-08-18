@@ -64,7 +64,7 @@ data CreateThing = CreateThing'
 --
 -- * 'ctThingTypeName' - The name of the thing type associated with the new thing.
 --
--- * 'ctAttributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
+-- * 'ctAttributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 --
 -- * 'ctThingName' - The name of the thing to create.
 createThing
@@ -81,7 +81,7 @@ createThing pThingName_ =
 ctThingTypeName :: Lens' CreateThing (Maybe Text)
 ctThingTypeName = lens _ctThingTypeName (\ s a -> s{_ctThingTypeName = a});
 
--- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
+-- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
 ctAttributePayload = lens _ctAttributePayload (\ s a -> s{_ctAttributePayload = a});
 

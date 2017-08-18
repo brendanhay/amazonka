@@ -21,6 +21,8 @@
 -- Lists the rules for the specific topic.
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListTopicRules
     (
     -- * Creating a Request
@@ -44,6 +46,7 @@ module Network.AWS.IoT.ListTopicRules
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -96,6 +99,13 @@ ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 -- | The maximum number of results to return.
 ltrMaxResults :: Lens' ListTopicRules (Maybe Natural)
 ltrMaxResults = lens _ltrMaxResults (\ s a -> s{_ltrMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListTopicRules where
+        page rq rs
+          | stop (rs ^. ltrrsNextToken) = Nothing
+          | stop (rs ^. ltrrsRules) = Nothing
+          | otherwise =
+            Just $ rq & ltrNextToken .~ rs ^. ltrrsNextToken
 
 instance AWSRequest ListTopicRules where
         type Rs ListTopicRules = ListTopicRulesResponse

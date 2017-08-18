@@ -23,6 +23,8 @@
 --
 -- The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListCACertificates
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.IoT.ListCACertificates
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -89,6 +92,13 @@ lcacAscendingOrder = lens _lcacAscendingOrder (\ s a -> s{_lcacAscendingOrder = 
 -- | The result page size.
 lcacPageSize :: Lens' ListCACertificates (Maybe Natural)
 lcacPageSize = lens _lcacPageSize (\ s a -> s{_lcacPageSize = a}) . mapping _Nat;
+
+instance AWSPager ListCACertificates where
+        page rq rs
+          | stop (rs ^. lcacrsNextMarker) = Nothing
+          | stop (rs ^. lcacrsCertificates) = Nothing
+          | otherwise =
+            Just $ rq & lcacMarker .~ rs ^. lcacrsNextMarker
 
 instance AWSRequest ListCACertificates where
         type Rs ListCACertificates =

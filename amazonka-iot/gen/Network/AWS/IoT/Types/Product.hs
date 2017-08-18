@@ -34,6 +34,7 @@ data Action = Action'
     , _aDynamoDB         :: !(Maybe DynamoDBAction)
     , _aFirehose         :: !(Maybe FirehoseAction)
     , _aLambda           :: !(Maybe LambdaAction)
+    , _aSalesforce       :: !(Maybe SalesforceAction)
     , _aKinesis          :: !(Maybe KinesisAction)
     , _aS3               :: !(Maybe S3Action)
     , _aElasticsearch    :: !(Maybe ElasticsearchAction)
@@ -59,6 +60,8 @@ data Action = Action'
 --
 -- * 'aLambda' - Invoke a Lambda function.
 --
+-- * 'aSalesforce' - Send a message to a Salesforce IoT Cloud Input Stream.
+--
 -- * 'aKinesis' - Write data to an Amazon Kinesis stream.
 --
 -- * 'aS3' - Write to an Amazon S3 bucket.
@@ -79,6 +82,7 @@ action =
     , _aDynamoDB = Nothing
     , _aFirehose = Nothing
     , _aLambda = Nothing
+    , _aSalesforce = Nothing
     , _aKinesis = Nothing
     , _aS3 = Nothing
     , _aElasticsearch = Nothing
@@ -114,6 +118,10 @@ aFirehose = lens _aFirehose (\ s a -> s{_aFirehose = a});
 aLambda :: Lens' Action (Maybe LambdaAction)
 aLambda = lens _aLambda (\ s a -> s{_aLambda = a});
 
+-- | Send a message to a Salesforce IoT Cloud Input Stream.
+aSalesforce :: Lens' Action (Maybe SalesforceAction)
+aSalesforce = lens _aSalesforce (\ s a -> s{_aSalesforce = a});
+
 -- | Write data to an Amazon Kinesis stream.
 aKinesis :: Lens' Action (Maybe KinesisAction)
 aKinesis = lens _aKinesis (\ s a -> s{_aKinesis = a});
@@ -145,6 +153,7 @@ instance FromJSON Action where
                      <*> (x .:? "dynamoDB")
                      <*> (x .:? "firehose")
                      <*> (x .:? "lambda")
+                     <*> (x .:? "salesforce")
                      <*> (x .:? "kinesis")
                      <*> (x .:? "s3")
                      <*> (x .:? "elasticsearch")
@@ -165,6 +174,7 @@ instance ToJSON Action where
                   ("sns" .=) <$> _aSns, ("dynamoDB" .=) <$> _aDynamoDB,
                   ("firehose" .=) <$> _aFirehose,
                   ("lambda" .=) <$> _aLambda,
+                  ("salesforce" .=) <$> _aSalesforce,
                   ("kinesis" .=) <$> _aKinesis, ("s3" .=) <$> _aS3,
                   ("elasticsearch" .=) <$> _aElasticsearch,
                   ("republish" .=) <$> _aRepublish,
@@ -184,7 +194,7 @@ data AttributePayload = AttributePayload'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apAttributes' - A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
+-- * 'apAttributes' - A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 --
 -- * 'apMerge' - Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them. To remove an attribute, call @UpdateThing@ with an empty attribute value.
 attributePayload
@@ -195,7 +205,7 @@ attributePayload =
     , _apMerge = Nothing
     }
 
--- | A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}})@
+-- | A JSON string containing up to three key-value pair in JSON format. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
 apAttributes :: Lens' AttributePayload (HashMap Text Text)
 apAttributes = lens _apAttributes (\ s a -> s{_apAttributes = a}) . _Default . _Map;
 
@@ -230,7 +240,7 @@ data CACertificate = CACertificate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cacStatus' - The status of the CA certificate.  The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- * 'cacStatus' - The status of the CA certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
 -- * 'cacCertificateARN' - The ARN of the CA certificate.
 --
@@ -247,7 +257,7 @@ cACertificate =
     , _cacCreationDate = Nothing
     }
 
--- | The status of the CA certificate.  The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- | The status of the CA certificate. The status value REGISTER_INACTIVE is deprecated and should not be used.
 cacStatus :: Lens' CACertificate (Maybe CACertificateStatus)
 cacStatus = lens _cacStatus (\ s a -> s{_cacStatus = a});
 
@@ -1614,7 +1624,7 @@ data SNSAction = SNSAction'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'snsaMessageFormat' - The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
+-- * 'snsaMessageFormat' - The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html http://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
 --
 -- * 'snsaTargetARN' - The ARN of the SNS topic.
 --
@@ -1630,7 +1640,7 @@ snsAction pTargetARN_ pRoleARN_ =
     , _snsaRoleARN = pRoleARN_
     }
 
--- | The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html > refer to their official documentation.
+-- | The message format of the message to publish. Optional. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <http://docs.aws.amazon.com/sns/latest/dg/json-formats.html http://docs.aws.amazon.com/sns/latest/dg/json-formats.html> refer to their official documentation.
 snsaMessageFormat :: Lens' SNSAction (Maybe MessageFormat)
 snsaMessageFormat = lens _snsaMessageFormat (\ s a -> s{_snsaMessageFormat = a});
 
@@ -1661,6 +1671,58 @@ instance ToJSON SNSAction where
                  [("messageFormat" .=) <$> _snsaMessageFormat,
                   Just ("targetArn" .= _snsaTargetARN),
                   Just ("roleArn" .= _snsaRoleARN)])
+
+-- | Describes an action to write a message to a Salesforce IoT Cloud Input Stream.
+--
+--
+--
+-- /See:/ 'salesforceAction' smart constructor.
+data SalesforceAction = SalesforceAction'
+    { _saToken :: !Text
+    , _saUrl   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SalesforceAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saToken' - The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+--
+-- * 'saUrl' - The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+salesforceAction
+    :: Text -- ^ 'saToken'
+    -> Text -- ^ 'saUrl'
+    -> SalesforceAction
+salesforceAction pToken_ pUrl_ =
+    SalesforceAction'
+    { _saToken = pToken_
+    , _saUrl = pUrl_
+    }
+
+-- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+saToken :: Lens' SalesforceAction Text
+saToken = lens _saToken (\ s a -> s{_saToken = a});
+
+-- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+saUrl :: Lens' SalesforceAction Text
+saUrl = lens _saUrl (\ s a -> s{_saUrl = a});
+
+instance FromJSON SalesforceAction where
+        parseJSON
+          = withObject "SalesforceAction"
+              (\ x ->
+                 SalesforceAction' <$>
+                   (x .: "token") <*> (x .: "url"))
+
+instance Hashable SalesforceAction
+
+instance NFData SalesforceAction
+
+instance ToJSON SalesforceAction where
+        toJSON SalesforceAction'{..}
+          = object
+              (catMaybes
+                 [Just ("token" .= _saToken), Just ("url" .= _saUrl)])
 
 -- | Describes an action to publish data to an Amazon SQS queue.
 --
@@ -1807,7 +1869,7 @@ data ThingTypeDefinition = ThingTypeDefinition'
 --
 -- * 'ttdThingTypeName' - The name of the thing type.
 --
--- * 'ttdThingTypeMetadata' - Undocumented member.
+-- * 'ttdThingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 thingTypeDefinition
     :: ThingTypeDefinition
 thingTypeDefinition =
@@ -1825,7 +1887,7 @@ ttdThingTypeProperties = lens _ttdThingTypeProperties (\ s a -> s{_ttdThingTypeP
 ttdThingTypeName :: Lens' ThingTypeDefinition (Maybe Text)
 ttdThingTypeName = lens _ttdThingTypeName (\ s a -> s{_ttdThingTypeName = a});
 
--- | Undocumented member.
+-- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 ttdThingTypeMetadata :: Lens' ThingTypeDefinition (Maybe ThingTypeMetadata)
 ttdThingTypeMetadata = lens _ttdThingTypeMetadata (\ s a -> s{_ttdThingTypeMetadata = a});
 

@@ -91,7 +91,7 @@ module Network.AWS.IoT
     -- * Operations
     -- $operations
 
-    -- ** ListPolicies
+    -- ** ListPolicies (Paginated)
     , module Network.AWS.IoT.ListPolicies
 
     -- ** CreatePolicy
@@ -103,13 +103,13 @@ module Network.AWS.IoT
     -- ** ListThingPrincipals
     , module Network.AWS.IoT.ListThingPrincipals
 
-    -- ** ListPrincipalThings
+    -- ** ListPrincipalThings (Paginated)
     , module Network.AWS.IoT.ListPrincipalThings
 
     -- ** GetLoggingOptions
     , module Network.AWS.IoT.GetLoggingOptions
 
-    -- ** ListThingTypes
+    -- ** ListThingTypes (Paginated)
     , module Network.AWS.IoT.ListThingTypes
 
     -- ** CreateCertificateFromCSR
@@ -139,13 +139,13 @@ module Network.AWS.IoT
     -- ** CreatePolicyVersion
     , module Network.AWS.IoT.CreatePolicyVersion
 
-    -- ** ListCACertificates
+    -- ** ListCACertificates (Paginated)
     , module Network.AWS.IoT.ListCACertificates
 
     -- ** DeleteTopicRule
     , module Network.AWS.IoT.DeleteTopicRule
 
-    -- ** ListPrincipalPolicies
+    -- ** ListPrincipalPolicies (Paginated)
     , module Network.AWS.IoT.ListPrincipalPolicies
 
     -- ** DeleteCACertificate
@@ -154,7 +154,7 @@ module Network.AWS.IoT
     -- ** UpdateCACertificate
     , module Network.AWS.IoT.UpdateCACertificate
 
-    -- ** ListTopicRules
+    -- ** ListTopicRules (Paginated)
     , module Network.AWS.IoT.ListTopicRules
 
     -- ** TransferCertificate
@@ -169,7 +169,7 @@ module Network.AWS.IoT
     -- ** DeletePolicy
     , module Network.AWS.IoT.DeletePolicy
 
-    -- ** ListCertificates
+    -- ** ListCertificates (Paginated)
     , module Network.AWS.IoT.ListCertificates
 
     -- ** GetPolicyVersion
@@ -181,7 +181,7 @@ module Network.AWS.IoT
     -- ** UpdateCertificate
     , module Network.AWS.IoT.UpdateCertificate
 
-    -- ** ListOutgoingCertificates
+    -- ** ListOutgoingCertificates (Paginated)
     , module Network.AWS.IoT.ListOutgoingCertificates
 
     -- ** DescribeCACertificate
@@ -193,13 +193,13 @@ module Network.AWS.IoT
     -- ** DeleteThingType
     , module Network.AWS.IoT.DeleteThingType
 
-    -- ** ListCertificatesByCA
+    -- ** ListCertificatesByCA (Paginated)
     , module Network.AWS.IoT.ListCertificatesByCA
 
     -- ** AttachThingPrincipal
     , module Network.AWS.IoT.AttachThingPrincipal
 
-    -- ** ListThings
+    -- ** ListThings (Paginated)
     , module Network.AWS.IoT.ListThings
 
     -- ** DetachPrincipalPolicy
@@ -214,7 +214,7 @@ module Network.AWS.IoT
     -- ** DescribeCertificate
     , module Network.AWS.IoT.DescribeCertificate
 
-    -- ** ListPolicyPrincipals
+    -- ** ListPolicyPrincipals (Paginated)
     , module Network.AWS.IoT.ListPolicyPrincipals
 
     -- ** ReplaceTopicRule
@@ -295,6 +295,7 @@ module Network.AWS.IoT
     , aDynamoDB
     , aFirehose
     , aLambda
+    , aSalesforce
     , aKinesis
     , aS3
     , aElasticsearch
@@ -474,6 +475,12 @@ module Network.AWS.IoT
     , snsaMessageFormat
     , snsaTargetARN
     , snsaRoleARN
+
+    -- ** SalesforceAction
+    , SalesforceAction
+    , salesforceAction
+    , saToken
+    , saUrl
 
     -- ** SqsAction
     , SqsAction

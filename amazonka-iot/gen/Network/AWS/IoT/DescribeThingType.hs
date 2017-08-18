@@ -118,7 +118,7 @@ data DescribeThingTypeResponse = DescribeThingTypeResponse'
 --
 -- * 'drsThingTypeName' - The name of the thing type.
 --
--- * 'drsThingTypeMetadata' - Undocumented member.
+-- * 'drsThingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 --
 -- * 'drsResponseStatus' - -- | The response status code.
 describeThingTypeResponse
@@ -140,7 +140,7 @@ drsThingTypeProperties = lens _drsThingTypeProperties (\ s a -> s{_drsThingTypeP
 drsThingTypeName :: Lens' DescribeThingTypeResponse (Maybe Text)
 drsThingTypeName = lens _drsThingTypeName (\ s a -> s{_drsThingTypeName = a});
 
--- | Undocumented member.
+-- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 drsThingTypeMetadata :: Lens' DescribeThingTypeResponse (Maybe ThingTypeMetadata)
 drsThingTypeMetadata = lens _drsThingTypeMetadata (\ s a -> s{_drsThingTypeMetadata = a});
 

@@ -68,6 +68,7 @@ module Network.AWS.IoT.Types
     , aDynamoDB
     , aFirehose
     , aLambda
+    , aSalesforce
     , aKinesis
     , aS3
     , aElasticsearch
@@ -248,6 +249,12 @@ module Network.AWS.IoT.Types
     , snsaTargetARN
     , snsaRoleARN
 
+    -- * SalesforceAction
+    , SalesforceAction
+    , salesforceAction
+    , saToken
+    , saUrl
+
     -- * SqsAction
     , SqsAction
     , sqsAction
@@ -351,6 +358,8 @@ ioT =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

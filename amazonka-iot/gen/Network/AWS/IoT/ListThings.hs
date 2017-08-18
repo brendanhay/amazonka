@@ -21,6 +21,8 @@
 -- Lists your things. Use the __attributeName__ and __attributeValue__ parameters to filter your things. For example, calling @ListThings@ with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute __Color__ with the value __Red__ .
 --
 --
+--
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListThings
     (
     -- * Creating a Request
@@ -45,6 +47,7 @@ module Network.AWS.IoT.ListThings
 import           Network.AWS.IoT.Types
 import           Network.AWS.IoT.Types.Product
 import           Network.AWS.Lens
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -105,6 +108,13 @@ ltAttributeName = lens _ltAttributeName (\ s a -> s{_ltAttributeName = a});
 -- | The maximum number of results to return in this operation.
 ltMaxResults :: Lens' ListThings (Maybe Natural)
 ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat;
+
+instance AWSPager ListThings where
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsThings) = Nothing
+          | otherwise =
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListThings where
         type Rs ListThings = ListThingsResponse

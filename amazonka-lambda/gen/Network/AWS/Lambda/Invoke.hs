@@ -81,7 +81,7 @@ data Invoke = Invoke'
 --
 -- * 'iClientContext' - Using the @ClientContext@ you can pass client-specific information to the Lambda function you are invoking. You can then process the client information in your Lambda function as you choose through the context variable. For an example of a @ClientContext@ JSON, see <http://docs.aws.amazon.com/mobileanalytics/latest/ug/PutEvents.html PutEvents> in the /Amazon Mobile Analytics API Reference and User Guide/ . The ClientContext JSON must be base64-encoded.
 --
--- * 'iFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'iFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'iPayload' - JSON that you want to provide to your Lambda function as input.
 invoke
@@ -114,7 +114,7 @@ iQualifier = lens _iQualifier (\ s a -> s{_iQualifier = a});
 iClientContext :: Lens' Invoke (Maybe Text)
 iClientContext = lens _iClientContext (\ s a -> s{_iClientContext = a});
 
--- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 iFunctionName :: Lens' Invoke Text
 iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
 
@@ -180,7 +180,7 @@ data InvokeResponse = InvokeResponse'
 --
 -- * 'irsPayload' - It is the JSON representation of the object returned by the Lambda function. This is present only if the invocation type is @RequestResponse@ .  In the event of a function error this field contains a message describing the error. For the @Handled@ errors the Lambda function will report this message. For @Unhandled@ errors AWS Lambda reports the message.
 --
--- * 'irsStatusCode' - The HTTP status code will be in the 200 range for successful request. For the @RequestResonse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
+-- * 'irsStatusCode' - The HTTP status code will be in the 200 range for successful request. For the @RequestResponse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
 invokeResponse
     :: Int -- ^ 'irsStatusCode'
     -> InvokeResponse
@@ -204,7 +204,7 @@ irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 irsPayload :: Lens' InvokeResponse (Maybe (HashMap Text Value))
 irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 
--- | The HTTP status code will be in the 200 range for successful request. For the @RequestResonse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
+-- | The HTTP status code will be in the 200 range for successful request. For the @RequestResponse@ invocation type this status code will be 200. For the @Event@ invocation type this status code will be 202. For the @DryRun@ invocation type the status code will be 204.
 irsStatusCode :: Lens' InvokeResponse Int
 irsStatusCode = lens _irsStatusCode (\ s a -> s{_irsStatusCode = a});
 

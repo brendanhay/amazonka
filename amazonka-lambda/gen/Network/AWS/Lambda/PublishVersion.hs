@@ -50,7 +50,9 @@ module Network.AWS.Lambda.PublishVersion
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -79,7 +81,7 @@ data PublishVersion = PublishVersion'
 --
 -- * 'pvDescription' - The description for the version you are publishing. If not provided, AWS Lambda copies the description from the $LATEST version.
 --
--- * 'pvFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'pvFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 publishVersion
     :: Text -- ^ 'pvFunctionName'
     -> PublishVersion
@@ -98,7 +100,7 @@ pvCodeSha256 = lens _pvCodeSha256 (\ s a -> s{_pvCodeSha256 = a});
 pvDescription :: Lens' PublishVersion (Maybe Text)
 pvDescription = lens _pvDescription (\ s a -> s{_pvDescription = a});
 
--- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 pvFunctionName :: Lens' PublishVersion Text
 pvFunctionName = lens _pvFunctionName (\ s a -> s{_pvFunctionName = a});
 

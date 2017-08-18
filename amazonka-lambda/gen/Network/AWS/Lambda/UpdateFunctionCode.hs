@@ -35,6 +35,7 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , uS3Key
     , uZipFile
     , uS3Bucket
+    , uDryRun
     , uPublish
     , uFunctionName
 
@@ -57,7 +58,9 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -77,6 +80,7 @@ data UpdateFunctionCode = UpdateFunctionCode'
     , _uS3Key           :: !(Maybe Text)
     , _uZipFile         :: !(Maybe (Sensitive Base64))
     , _uS3Bucket        :: !(Maybe Text)
+    , _uDryRun          :: !(Maybe Bool)
     , _uPublish         :: !(Maybe Bool)
     , _uFunctionName    :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -93,9 +97,11 @@ data UpdateFunctionCode = UpdateFunctionCode'
 --
 -- * 'uS3Bucket' - Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS Region where you are creating the Lambda function.
 --
+-- * 'uDryRun' - This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the @CodeSha256@ hash value the provided code will also be computed and returned in the response.
+--
 -- * 'uPublish' - This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation.
 --
--- * 'uFunctionName' - The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'uFunctionName' - The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 updateFunctionCode
     :: Text -- ^ 'uFunctionName'
     -> UpdateFunctionCode
@@ -105,6 +111,7 @@ updateFunctionCode pFunctionName_ =
     , _uS3Key = Nothing
     , _uZipFile = Nothing
     , _uS3Bucket = Nothing
+    , _uDryRun = Nothing
     , _uPublish = Nothing
     , _uFunctionName = pFunctionName_
     }
@@ -125,11 +132,15 @@ uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping (_Sensitive . _B
 uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Bucket = lens _uS3Bucket (\ s a -> s{_uS3Bucket = a});
 
+-- | This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the @CodeSha256@ hash value the provided code will also be computed and returned in the response.
+uDryRun :: Lens' UpdateFunctionCode (Maybe Bool)
+uDryRun = lens _uDryRun (\ s a -> s{_uDryRun = a});
+
 -- | This boolean parameter can be used to request AWS Lambda to update the Lambda function and publish a version as an atomic operation.
 uPublish :: Lens' UpdateFunctionCode (Maybe Bool)
 uPublish = lens _uPublish (\ s a -> s{_uPublish = a});
 
--- | The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The existing Lambda function name whose code you want to replace. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 uFunctionName :: Lens' UpdateFunctionCode Text
 uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 
@@ -153,6 +164,7 @@ instance ToJSON UpdateFunctionCode where
                   ("S3Key" .=) <$> _uS3Key,
                   ("ZipFile" .=) <$> _uZipFile,
                   ("S3Bucket" .=) <$> _uS3Bucket,
+                  ("DryRun" .=) <$> _uDryRun,
                   ("Publish" .=) <$> _uPublish])
 
 instance ToPath UpdateFunctionCode where

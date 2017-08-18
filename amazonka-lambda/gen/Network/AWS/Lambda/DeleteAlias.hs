@@ -54,7 +54,7 @@ data DeleteAlias = DeleteAlias'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daFunctionName' - The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing.
+-- * 'daFunctionName' - The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'daName' - Name of the alias to delete.
 deleteAlias
@@ -67,7 +67,7 @@ deleteAlias pFunctionName_ pName_ =
     , _daName = pName_
     }
 
--- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing.
+-- | The Lambda function name for which the alias is created. Deleting an alias does not delete the function version to which it is pointing. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 daFunctionName :: Lens' DeleteAlias Text
 daFunctionName = lens _daFunctionName (\ s a -> s{_daFunctionName = a});
 

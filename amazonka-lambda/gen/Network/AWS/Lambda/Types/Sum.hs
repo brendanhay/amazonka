@@ -48,6 +48,29 @@ instance ToHeader     EventSourcePosition
 instance ToJSON EventSourcePosition where
     toJSON = toJSONText
 
+data FunctionVersion =
+    All
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText FunctionVersion where
+    parser = takeLowerText >>= \case
+        "all" -> pure All
+        e -> fromTextError $ "Failure parsing FunctionVersion from value: '" <> e
+           <> "'. Accepted values: all"
+
+instance ToText FunctionVersion where
+    toText = \case
+        All -> "ALL"
+
+instance Hashable     FunctionVersion
+instance NFData       FunctionVersion
+instance ToByteString FunctionVersion
+instance ToQuery      FunctionVersion
+instance ToHeader     FunctionVersion
+
+instance ToJSON FunctionVersion where
+    toJSON = toJSONText
+
 data InvocationType
     = DryRun
     | Event
@@ -108,8 +131,10 @@ data Runtime
     | JAVA8
     | NODEJS4_3
     | NODEJS4_3Edge
+    | NODEJS6_10
     | Nodejs
     | PYTHON2_7
+    | PYTHON3_6
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText Runtime where
@@ -118,10 +143,12 @@ instance FromText Runtime where
         "java8" -> pure JAVA8
         "nodejs4.3" -> pure NODEJS4_3
         "nodejs4.3-edge" -> pure NODEJS4_3Edge
+        "nodejs6.10" -> pure NODEJS6_10
         "nodejs" -> pure Nodejs
         "python2.7" -> pure PYTHON2_7
+        "python3.6" -> pure PYTHON3_6
         e -> fromTextError $ "Failure parsing Runtime from value: '" <> e
-           <> "'. Accepted values: dotnetcore1.0, java8, nodejs4.3, nodejs4.3-edge, nodejs, python2.7"
+           <> "'. Accepted values: dotnetcore1.0, java8, nodejs4.3, nodejs4.3-edge, nodejs6.10, nodejs, python2.7, python3.6"
 
 instance ToText Runtime where
     toText = \case
@@ -129,8 +156,10 @@ instance ToText Runtime where
         JAVA8 -> "java8"
         NODEJS4_3 -> "nodejs4.3"
         NODEJS4_3Edge -> "nodejs4.3-edge"
+        NODEJS6_10 -> "nodejs6.10"
         Nodejs -> "nodejs"
         PYTHON2_7 -> "python2.7"
+        PYTHON3_6 -> "python3.6"
 
 instance Hashable     Runtime
 instance NFData       Runtime
@@ -143,3 +172,32 @@ instance ToJSON Runtime where
 
 instance FromJSON Runtime where
     parseJSON = parseJSONText "Runtime"
+
+data TracingMode
+    = Active
+    | PassThrough
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText TracingMode where
+    parser = takeLowerText >>= \case
+        "active" -> pure Active
+        "passthrough" -> pure PassThrough
+        e -> fromTextError $ "Failure parsing TracingMode from value: '" <> e
+           <> "'. Accepted values: active, passthrough"
+
+instance ToText TracingMode where
+    toText = \case
+        Active -> "Active"
+        PassThrough -> "PassThrough"
+
+instance Hashable     TracingMode
+instance NFData       TracingMode
+instance ToByteString TracingMode
+instance ToQuery      TracingMode
+instance ToHeader     TracingMode
+
+instance ToJSON TracingMode where
+    toJSON = toJSONText
+
+instance FromJSON TracingMode where
+    parseJSON = parseJSONText "TracingMode"

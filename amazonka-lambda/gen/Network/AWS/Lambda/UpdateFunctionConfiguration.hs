@@ -40,6 +40,7 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , ufcVPCConfig
     , ufcHandler
     , ufcTimeout
+    , ufcTracingConfig
     , ufcDescription
     , ufcFunctionName
 
@@ -62,7 +63,9 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -87,6 +90,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     , _ufcVPCConfig        :: !(Maybe VPCConfig)
     , _ufcHandler          :: !(Maybe Text)
     , _ufcTimeout          :: !(Maybe Nat)
+    , _ufcTracingConfig    :: !(Maybe TracingConfig)
     , _ufcDescription      :: !(Maybe Text)
     , _ufcFunctionName     :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
@@ -97,13 +101,13 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- * 'ufcMemorySize' - The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory size to infer the amount of CPU allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
 --
--- * 'ufcRuntime' - The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- * 'ufcRuntime' - The runtime environment for the Lambda function. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use the Python runtime v3.6, set the value to "python3.6".
 --
 -- * 'ufcKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If you elect to use the AWS Lambda default service key, pass in an empty string ("") for this parameter.
 --
 -- * 'ufcEnvironment' - The parent object that contains your environment's configuration settings.
 --
--- * 'ufcDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'ufcDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'ufcRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes your function.
 --
@@ -112,6 +116,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- * 'ufcHandler' - The function that Lambda calls to begin executing your function. For Node.js, it is the @module-name.export@ value in your function.
 --
 -- * 'ufcTimeout' - The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
+--
+-- * 'ufcTracingConfig' - The parent object that contains your function's tracing settings.
 --
 -- * 'ufcDescription' - A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit.
 --
@@ -130,6 +136,7 @@ updateFunctionConfiguration pFunctionName_ =
     , _ufcVPCConfig = Nothing
     , _ufcHandler = Nothing
     , _ufcTimeout = Nothing
+    , _ufcTracingConfig = Nothing
     , _ufcDescription = Nothing
     , _ufcFunctionName = pFunctionName_
     }
@@ -138,7 +145,7 @@ updateFunctionConfiguration pFunctionName_ =
 ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat;
 
--- | The runtime environment for the Lambda function. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- | The runtime environment for the Lambda function. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use the Python runtime v3.6, set the value to "python3.6".
 ufcRuntime :: Lens' UpdateFunctionConfiguration (Maybe Runtime)
 ufcRuntime = lens _ufcRuntime (\ s a -> s{_ufcRuntime = a});
 
@@ -150,7 +157,7 @@ ufcKMSKeyARN = lens _ufcKMSKeyARN (\ s a -> s{_ufcKMSKeyARN = a});
 ufcEnvironment :: Lens' UpdateFunctionConfiguration (Maybe Environment)
 ufcEnvironment = lens _ufcEnvironment (\ s a -> s{_ufcEnvironment = a});
 
--- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 ufcDeadLetterConfig :: Lens' UpdateFunctionConfiguration (Maybe DeadLetterConfig)
 ufcDeadLetterConfig = lens _ufcDeadLetterConfig (\ s a -> s{_ufcDeadLetterConfig = a});
 
@@ -169,6 +176,10 @@ ufcHandler = lens _ufcHandler (\ s a -> s{_ufcHandler = a});
 -- | The function execution time at which AWS Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 ufcTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
 ufcTimeout = lens _ufcTimeout (\ s a -> s{_ufcTimeout = a}) . mapping _Nat;
+
+-- | The parent object that contains your function's tracing settings.
+ufcTracingConfig :: Lens' UpdateFunctionConfiguration (Maybe TracingConfig)
+ufcTracingConfig = lens _ufcTracingConfig (\ s a -> s{_ufcTracingConfig = a});
 
 -- | A short user-defined function description. AWS Lambda does not use this value. Assign a meaningful description as you see fit.
 ufcDescription :: Lens' UpdateFunctionConfiguration (Maybe Text)
@@ -204,6 +215,7 @@ instance ToJSON UpdateFunctionConfiguration where
                   ("VpcConfig" .=) <$> _ufcVPCConfig,
                   ("Handler" .=) <$> _ufcHandler,
                   ("Timeout" .=) <$> _ufcTimeout,
+                  ("TracingConfig" .=) <$> _ufcTracingConfig,
                   ("Description" .=) <$> _ufcDescription])
 
 instance ToPath UpdateFunctionConfiguration where

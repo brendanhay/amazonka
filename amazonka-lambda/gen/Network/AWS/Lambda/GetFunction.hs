@@ -40,6 +40,7 @@ module Network.AWS.Lambda.GetFunction
     -- * Response Lenses
     , gfrsCode
     , gfrsConfiguration
+    , gfrsTags
     , gfrsResponseStatus
     ) where
 
@@ -66,7 +67,7 @@ data GetFunction = GetFunction'
 --
 -- * 'gfQualifier' - Using this optional parameter to specify a function version or an alias name. If you specify function version, the API uses qualified function ARN for the request and returns information about the specific Lambda function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't provide this parameter, the API uses unqualified function ARN and returns information about the @> LATEST@ version of the Lambda function.
 --
--- * 'gfFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- * 'gfFunctionName' - The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 getFunction
     :: Text -- ^ 'gfFunctionName'
     -> GetFunction
@@ -80,7 +81,7 @@ getFunction pFunctionName_ =
 gfQualifier :: Lens' GetFunction (Maybe Text)
 gfQualifier = lens _gfQualifier (\ s a -> s{_gfQualifier = a});
 
--- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+-- | The Lambda function name. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
 
@@ -92,7 +93,8 @@ instance AWSRequest GetFunction where
               (\ s h x ->
                  GetFunctionResponse' <$>
                    (x .?> "Code") <*> (x .?> "Configuration") <*>
-                     (pure (fromEnum s)))
+                     (x .?> "Tags" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
 instance Hashable GetFunction
 
@@ -118,6 +120,7 @@ instance ToQuery GetFunction where
 data GetFunctionResponse = GetFunctionResponse'
     { _gfrsCode           :: !(Maybe FunctionCodeLocation)
     , _gfrsConfiguration  :: !(Maybe FunctionConfiguration)
+    , _gfrsTags           :: !(Maybe (Map Text Text))
     , _gfrsResponseStatus :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
@@ -129,6 +132,8 @@ data GetFunctionResponse = GetFunctionResponse'
 --
 -- * 'gfrsConfiguration' - Undocumented member.
 --
+-- * 'gfrsTags' - Returns the list of tags associated with the function.
+--
 -- * 'gfrsResponseStatus' - -- | The response status code.
 getFunctionResponse
     :: Int -- ^ 'gfrsResponseStatus'
@@ -137,6 +142,7 @@ getFunctionResponse pResponseStatus_ =
     GetFunctionResponse'
     { _gfrsCode = Nothing
     , _gfrsConfiguration = Nothing
+    , _gfrsTags = Nothing
     , _gfrsResponseStatus = pResponseStatus_
     }
 
@@ -147,6 +153,10 @@ gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a});
 -- | Undocumented member.
 gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
+
+-- | Returns the list of tags associated with the function.
+gfrsTags :: Lens' GetFunctionResponse (HashMap Text Text)
+gfrsTags = lens _gfrsTags (\ s a -> s{_gfrsTags = a}) . _Default . _Map;
 
 -- | -- | The response status code.
 gfrsResponseStatus :: Lens' GetFunctionResponse Int

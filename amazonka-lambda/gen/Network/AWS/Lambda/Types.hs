@@ -18,6 +18,7 @@ module Network.AWS.Lambda.Types
     -- * Errors
     , _KMSInvalidStateException
     , _EC2ThrottledException
+    , _InvalidRuntimeException
     , _PolicyLengthExceededException
     , _EC2AccessDeniedException
     , _InvalidSubnetIdException
@@ -42,6 +43,9 @@ module Network.AWS.Lambda.Types
     -- * EventSourcePosition
     , EventSourcePosition (..)
 
+    -- * FunctionVersion
+    , FunctionVersion (..)
+
     -- * InvocationType
     , InvocationType (..)
 
@@ -50,6 +54,9 @@ module Network.AWS.Lambda.Types
 
     -- * Runtime
     , Runtime (..)
+
+    -- * TracingMode
+    , TracingMode (..)
 
     -- * AccountLimit
     , AccountLimit
@@ -139,7 +146,19 @@ module Network.AWS.Lambda.Types
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
+
+    -- * TracingConfig
+    , TracingConfig
+    , tracingConfig
+    , tMode
+
+    -- * TracingConfigResponse
+    , TracingConfigResponse
+    , tracingConfigResponse
+    , tcMode
 
     -- * VPCConfig
     , VPCConfig
@@ -184,6 +203,8 @@ lambda =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -208,6 +229,13 @@ _KMSInvalidStateException =
 _EC2ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
 _EC2ThrottledException =
     _MatchServiceError lambda "EC2ThrottledException" . hasStatus 502
+
+-- | The runtime or runtime version specified is not supported.
+--
+--
+_InvalidRuntimeException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidRuntimeException =
+    _MatchServiceError lambda "InvalidRuntimeException" . hasStatus 502
 
 -- | Lambda function access policy is limited to 20 KB.
 --
@@ -258,7 +286,7 @@ _ENILimitReachedException :: AsError a => Getting (First ServiceError) a Service
 _ENILimitReachedException =
     _MatchServiceError lambda "ENILimitReachedException" . hasStatus 502
 
--- | One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to assume you will get this exception.
+-- | One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to assume you will get this exception. You will also get this exception if you have selected a deprecated runtime, such as Node v0.10.42.
 --
 --
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError

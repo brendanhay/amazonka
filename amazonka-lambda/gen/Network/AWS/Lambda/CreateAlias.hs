@@ -65,7 +65,7 @@ data CreateAlias = CreateAlias'
 --
 -- * 'caDescription' - Description of the alias.
 --
--- * 'caFunctionName' - Name of the Lambda function for which you want to create an alias.
+-- * 'caFunctionName' - Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- * 'caName' - Name for the alias you are creating.
 --
@@ -87,7 +87,7 @@ createAlias pFunctionName_ pName_ pFunctionVersion_ =
 caDescription :: Lens' CreateAlias (Maybe Text)
 caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
--- | Name of the Lambda function for which you want to create an alias.
+-- | Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 caFunctionName :: Lens' CreateAlias Text
 caFunctionName = lens _caFunctionName (\ s a -> s{_caFunctionName = a});
 

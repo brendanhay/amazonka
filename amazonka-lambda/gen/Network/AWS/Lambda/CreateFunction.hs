@@ -37,7 +37,9 @@ module Network.AWS.Lambda.CreateFunction
     , cfDeadLetterConfig
     , cfVPCConfig
     , cfTimeout
+    , cfTracingConfig
     , cfDescription
+    , cfTags
     , cfPublish
     , cfFunctionName
     , cfRuntime
@@ -64,7 +66,9 @@ module Network.AWS.Lambda.CreateFunction
     , fcTimeout
     , fcLastModified
     , fcCodeSha256
+    , fcTracingConfig
     , fcDescription
+    , fcMasterARN
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -86,7 +90,9 @@ data CreateFunction = CreateFunction'
     , _cfDeadLetterConfig :: !(Maybe DeadLetterConfig)
     , _cfVPCConfig        :: !(Maybe VPCConfig)
     , _cfTimeout          :: !(Maybe Nat)
+    , _cfTracingConfig    :: !(Maybe TracingConfig)
     , _cfDescription      :: !(Maybe Text)
+    , _cfTags             :: !(Maybe (Map Text Text))
     , _cfPublish          :: !(Maybe Bool)
     , _cfFunctionName     :: !Text
     , _cfRuntime          :: !Runtime
@@ -105,19 +111,23 @@ data CreateFunction = CreateFunction'
 --
 -- * 'cfEnvironment' - Undocumented member.
 --
--- * 'cfDeadLetterConfig' - The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- * 'cfDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 --
 -- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
 --
 -- * 'cfTimeout' - The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
 --
+-- * 'cfTracingConfig' - The parent object that contains your function's tracing settings.
+--
 -- * 'cfDescription' - A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
+--
+-- * 'cfTags' - The list of tags (key-value pairs) assigned to the new function.
 --
 -- * 'cfPublish' - This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
 --
--- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' .
+-- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' . Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'cfRuntime' - The runtime environment for the Lambda function you are uploading. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- * 'cfRuntime' - The runtime environment for the Lambda function you are uploading. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3".
 --
 -- * 'cfRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
 --
@@ -139,7 +149,9 @@ createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     , _cfDeadLetterConfig = Nothing
     , _cfVPCConfig = Nothing
     , _cfTimeout = Nothing
+    , _cfTracingConfig = Nothing
     , _cfDescription = Nothing
+    , _cfTags = Nothing
     , _cfPublish = Nothing
     , _cfFunctionName = pFunctionName_
     , _cfRuntime = pRuntime_
@@ -160,7 +172,7 @@ cfKMSKeyARN = lens _cfKMSKeyARN (\ s a -> s{_cfKMSKeyARN = a});
 cfEnvironment :: Lens' CreateFunction (Maybe Environment)
 cfEnvironment = lens _cfEnvironment (\ s a -> s{_cfEnvironment = a});
 
--- | The parent object that contains the target Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+-- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
 cfDeadLetterConfig :: Lens' CreateFunction (Maybe DeadLetterConfig)
 cfDeadLetterConfig = lens _cfDeadLetterConfig (\ s a -> s{_cfDeadLetterConfig = a});
 
@@ -172,19 +184,27 @@ cfVPCConfig = lens _cfVPCConfig (\ s a -> s{_cfVPCConfig = a});
 cfTimeout :: Lens' CreateFunction (Maybe Natural)
 cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
 
+-- | The parent object that contains your function's tracing settings.
+cfTracingConfig :: Lens' CreateFunction (Maybe TracingConfig)
+cfTracingConfig = lens _cfTracingConfig (\ s a -> s{_cfTracingConfig = a});
+
 -- | A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
 cfDescription :: Lens' CreateFunction (Maybe Text)
 cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
+
+-- | The list of tags (key-value pairs) assigned to the new function.
+cfTags :: Lens' CreateFunction (HashMap Text Text)
+cfTags = lens _cfTags (\ s a -> s{_cfTags = a}) . _Default . _Map;
 
 -- | This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
 cfPublish :: Lens' CreateFunction (Maybe Bool)
 cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
 
--- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' .
+-- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' . Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
 cfFunctionName :: Lens' CreateFunction Text
 cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
 
--- | The runtime environment for the Lambda function you are uploading. To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".
+-- | The runtime environment for the Lambda function you are uploading. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3".
 cfRuntime :: Lens' CreateFunction Runtime
 cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
 
@@ -222,7 +242,9 @@ instance ToJSON CreateFunction where
                   ("DeadLetterConfig" .=) <$> _cfDeadLetterConfig,
                   ("VpcConfig" .=) <$> _cfVPCConfig,
                   ("Timeout" .=) <$> _cfTimeout,
+                  ("TracingConfig" .=) <$> _cfTracingConfig,
                   ("Description" .=) <$> _cfDescription,
+                  ("Tags" .=) <$> _cfTags,
                   ("Publish" .=) <$> _cfPublish,
                   Just ("FunctionName" .= _cfFunctionName),
                   Just ("Runtime" .= _cfRuntime),

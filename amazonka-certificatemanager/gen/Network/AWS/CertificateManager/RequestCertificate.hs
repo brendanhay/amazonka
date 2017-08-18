@@ -61,11 +61,11 @@ data RequestCertificate = RequestCertificate'
 --
 -- * 'rcIdempotencyToken' - Customer chosen string that can be used to distinguish between calls to @RequestCertificate@ . Idempotency tokens time out after one hour. Therefore, if you call @RequestCertificate@ multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
 --
--- * 'rcSubjectAlternativeNames' - Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name.
+-- * 'rcSubjectAlternativeNames' - Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM Certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
 --
 -- * 'rcDomainValidationOptions' - The domain name that you want ACM to use to send you emails to validate your ownership of the domain.
 --
--- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
+-- * 'rcDomainName' - Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The maximum length of a DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:  @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.  @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.  @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
 requestCertificate
     :: Text -- ^ 'rcDomainName'
     -> RequestCertificate
@@ -81,7 +81,7 @@ requestCertificate pDomainName_ =
 rcIdempotencyToken :: Lens' RequestCertificate (Maybe Text)
 rcIdempotencyToken = lens _rcIdempotencyToken (\ s a -> s{_rcIdempotencyToken = a});
 
--- | Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name.
+-- | Additional FQDNs to be included in the Subject Alternative Name extension of the ACM Certificate. For example, add the name www.example.net to a certificate for which the @DomainName@ field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM Certificate is 100. However, the initial limit is 10 domain names. If you need more than 10 names, you must request a limit increase. For more information, see <http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html Limits> .
 rcSubjectAlternativeNames :: Lens' RequestCertificate (Maybe (NonEmpty Text))
 rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubjectAlternativeNames = a}) . mapping _List1;
 
@@ -89,7 +89,7 @@ rcSubjectAlternativeNames = lens _rcSubjectAlternativeNames (\ s a -> s{_rcSubje
 rcDomainValidationOptions :: Lens' RequestCertificate (Maybe (NonEmpty DomainValidationOption))
 rcDomainValidationOptions = lens _rcDomainValidationOptions (\ s a -> s{_rcDomainValidationOptions = a}) . mapping _List1;
 
--- | Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
+-- | Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.  The maximum length of a DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:  @(63 octets).(63 octets).(63 octets).(61 octets)@ is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.  @(64 octets).(63 octets).(63 octets).(61 octets)@ is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.  @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
 rcDomainName :: Lens' RequestCertificate Text
 rcDomainName = lens _rcDomainName (\ s a -> s{_rcDomainName = a});
 

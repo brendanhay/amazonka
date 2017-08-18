@@ -138,7 +138,7 @@ instance ToQuery GetBot where
 -- | /See:/ 'getBotResponse' smart constructor.
 data GetBotResponse = GetBotResponse'
     { _gbrsFailureReason           :: !(Maybe Text)
-    , _gbrsStatus                  :: !(Maybe Status)
+    , _gbrsStatus                  :: !(Maybe LexStatus)
     , _gbrsAbortStatement          :: !(Maybe Statement)
     , _gbrsIntents                 :: !(Maybe (List1 Intent))
     , _gbrsChecksum                :: !(Maybe Text)
@@ -218,7 +218,7 @@ gbrsFailureReason :: Lens' GetBotResponse (Maybe Text)
 gbrsFailureReason = lens _gbrsFailureReason (\ s a -> s{_gbrsFailureReason = a});
 
 -- | The status of the bot. If the bot is ready to run, the status is @READY@ . If there was a problem with building the bot, the status is @FAILED@ and the @failureReason@ explains why the bot did not build. If the bot was saved but not built, the status is @NOT BUILT@ .
-gbrsStatus :: Lens' GetBotResponse (Maybe Status)
+gbrsStatus :: Lens' GetBotResponse (Maybe LexStatus)
 gbrsStatus = lens _gbrsStatus (\ s a -> s{_gbrsStatus = a});
 
 -- | The message that Amazon Lex returns when the user elects to end the conversation without completing it. For more information, see 'PutBot' .

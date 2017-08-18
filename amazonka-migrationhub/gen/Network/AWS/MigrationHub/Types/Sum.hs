@@ -51,6 +51,41 @@ instance ToJSON ApplicationStatus where
 instance FromJSON ApplicationStatus where
     parseJSON = parseJSONText "ApplicationStatus"
 
+data MigrationStatus
+    = Completed
+    | Failed
+    | InProgress
+    | NotStarted
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MigrationStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure Completed
+        "failed" -> pure Failed
+        "in_progress" -> pure InProgress
+        "not_started" -> pure NotStarted
+        e -> fromTextError $ "Failure parsing MigrationStatus from value: '" <> e
+           <> "'. Accepted values: completed, failed, in_progress, not_started"
+
+instance ToText MigrationStatus where
+    toText = \case
+        Completed -> "COMPLETED"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+
+instance Hashable     MigrationStatus
+instance NFData       MigrationStatus
+instance ToByteString MigrationStatus
+instance ToQuery      MigrationStatus
+instance ToHeader     MigrationStatus
+
+instance ToJSON MigrationStatus where
+    toJSON = toJSONText
+
+instance FromJSON MigrationStatus where
+    parseJSON = parseJSONText "MigrationStatus"
+
 data ResourceAttributeType
     = BiosId
     | Fqdn
@@ -106,38 +141,3 @@ instance ToJSON ResourceAttributeType where
 
 instance FromJSON ResourceAttributeType where
     parseJSON = parseJSONText "ResourceAttributeType"
-
-data Status
-    = Completed
-    | Failed
-    | InProgress
-    | NotStarted
-    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
-
-instance FromText Status where
-    parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "failed" -> pure Failed
-        "in_progress" -> pure InProgress
-        "not_started" -> pure NotStarted
-        e -> fromTextError $ "Failure parsing Status from value: '" <> e
-           <> "'. Accepted values: completed, failed, in_progress, not_started"
-
-instance ToText Status where
-    toText = \case
-        Completed -> "COMPLETED"
-        Failed -> "FAILED"
-        InProgress -> "IN_PROGRESS"
-        NotStarted -> "NOT_STARTED"
-
-instance Hashable     Status
-instance NFData       Status
-instance ToByteString Status
-instance ToQuery      Status
-instance ToHeader     Status
-
-instance ToJSON Status where
-    toJSON = toJSONText
-
-instance FromJSON Status where
-    parseJSON = parseJSONText "Status"

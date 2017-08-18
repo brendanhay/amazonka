@@ -1,3 +1,8 @@
 {
-    "libraryName": "amazonka-resourcegroupstagging"
+    "libraryName": "amazonka-resourcegroupstagging",
+    "typeOverrides": {
+        "ErrorCode": {
+            "renamedTo": "ResourceErrorCode"
+        }
+    }
 }

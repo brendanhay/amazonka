@@ -78,8 +78,8 @@ module Network.AWS.ResourceGroupsTagging
 
     -- * Types
 
-    -- ** ErrorCode
-    , ErrorCode (..)
+    -- ** ResourceErrorCode
+    , ResourceErrorCode (..)
 
     -- ** FailureInfo
     , FailureInfo

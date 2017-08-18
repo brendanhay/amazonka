@@ -49,7 +49,7 @@ import           Network.AWS.Response
 
 -- | /See:/ 'createLoggerDefinitionVersion' smart constructor.
 data CreateLoggerDefinitionVersion = CreateLoggerDefinitionVersion'
-    { _cldvLoggers            :: !(Maybe [Logger])
+    { _cldvLoggers            :: !(Maybe [GreengrassLogger])
     , _cldvAmznClientToken    :: !(Maybe Text)
     , _cldvLoggerDefinitionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -74,7 +74,7 @@ createLoggerDefinitionVersion pLoggerDefinitionId_ =
     }
 
 -- | List of loggers.
-cldvLoggers :: Lens' CreateLoggerDefinitionVersion [Logger]
+cldvLoggers :: Lens' CreateLoggerDefinitionVersion [GreengrassLogger]
 cldvLoggers = lens _cldvLoggers (\ s a -> s{_cldvLoggers = a}) . _Default . _Coerce;
 
 -- | The client token used to request idempotent operations.

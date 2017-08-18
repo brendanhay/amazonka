@@ -205,7 +205,7 @@ instance NFData BotChannelAssociation
 --
 -- /See:/ 'botMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-    { _bmStatus          :: !(Maybe Status)
+    { _bmStatus          :: !(Maybe LexStatus)
     , _bmCreatedDate     :: !(Maybe POSIX)
     , _bmName            :: !(Maybe Text)
     , _bmVersion         :: !(Maybe Text)
@@ -241,7 +241,7 @@ botMetadata =
     }
 
 -- | The status of the bot.
-bmStatus :: Lens' BotMetadata (Maybe Status)
+bmStatus :: Lens' BotMetadata (Maybe LexStatus)
 bmStatus = lens _bmStatus (\ s a -> s{_bmStatus = a});
 
 -- | The date that the bot was created.

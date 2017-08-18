@@ -19,6 +19,8 @@ module Network.AWS.Pager
 import           Control.Applicative
 import           Data.HashMap.Strict   (HashMap)
 import qualified Data.HashMap.Strict   as Map
+import           Data.List.NonEmpty    (NonEmpty)
+import           Data.Maybe            (isJust, fromMaybe)
 import           Data.Text             (Text)
 import           Network.AWS.Data.Text (ToText (..))
 import           Network.AWS.Lens      (Getter, to)
@@ -37,23 +39,17 @@ class AWSTruncated a where
 instance AWSTruncated Bool where
     truncated = id
 
-instance AWSTruncated (Maybe Int) where
-    truncated (Just _) = True
-    truncated Nothing  = False
-
-instance AWSTruncated (Maybe Bool) where
-    truncated (Just x) = x
-    truncated Nothing  = False
-
-instance AWSTruncated (Maybe Text) where
-    truncated (Just _) = True
-    truncated Nothing  = False
-
 instance AWSTruncated [a] where
     truncated = not . null
 
 instance AWSTruncated (HashMap k v) where
     truncated = not . Map.null
+
+instance {-# OVERLAPPABLE #-} AWSTruncated (Maybe a) where
+    truncated = isJust
+
+instance {-# OVERLAPS #-} AWSTruncated (Maybe Bool) where
+    truncated = fromMaybe False
 
 stop :: AWSTruncated a => a -> Bool
 stop = not . truncated

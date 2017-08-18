@@ -28,11 +28,11 @@ module Network.AWS.MigrationHub.Types
     -- * ApplicationStatus
     , ApplicationStatus (..)
 
+    -- * MigrationStatus
+    , MigrationStatus (..)
+
     -- * ResourceAttributeType
     , ResourceAttributeType (..)
-
-    -- * Status
-    , Status (..)
 
     -- * CreatedArtifact
     , CreatedArtifact

@@ -19,28 +19,28 @@ module Network.AWS.ResourceGroupsTagging.Types.Sum where
 
 import           Network.AWS.Prelude
 
-data ErrorCode
+data ResourceErrorCode
     = InternalServiceException
     | InvalidParameterException
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
-instance FromText ErrorCode where
+instance FromText ResourceErrorCode where
     parser = takeLowerText >>= \case
         "internalserviceexception" -> pure InternalServiceException
         "invalidparameterexception" -> pure InvalidParameterException
-        e -> fromTextError $ "Failure parsing ErrorCode from value: '" <> e
+        e -> fromTextError $ "Failure parsing ResourceErrorCode from value: '" <> e
            <> "'. Accepted values: internalserviceexception, invalidparameterexception"
 
-instance ToText ErrorCode where
+instance ToText ResourceErrorCode where
     toText = \case
         InternalServiceException -> "InternalServiceException"
         InvalidParameterException -> "InvalidParameterException"
 
-instance Hashable     ErrorCode
-instance NFData       ErrorCode
-instance ToByteString ErrorCode
-instance ToQuery      ErrorCode
-instance ToHeader     ErrorCode
+instance Hashable     ResourceErrorCode
+instance NFData       ResourceErrorCode
+instance ToByteString ResourceErrorCode
+instance ToQuery      ResourceErrorCode
+instance ToHeader     ResourceErrorCode
 
-instance FromJSON ErrorCode where
-    parseJSON = parseJSONText "ErrorCode"
+instance FromJSON ResourceErrorCode where
+    parseJSON = parseJSONText "ResourceErrorCode"

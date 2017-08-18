@@ -680,6 +680,84 @@ instance ToJSON FunctionDefinitionVersion where
           = object
               (catMaybes [("Functions" .=) <$> _fdvFunctions])
 
+-- | Information on the Logger
+--
+-- /See:/ 'greengrassLogger' smart constructor.
+data GreengrassLogger = GreengrassLogger'
+    { _glSpace     :: !(Maybe Int)
+    , _glComponent :: !(Maybe LoggerComponent)
+    , _glId        :: !(Maybe Text)
+    , _glType      :: !(Maybe LoggerType)
+    , _glLevel     :: !(Maybe LoggerLevel)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GreengrassLogger' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'glSpace' - Amount of hardware space, in KB, to use if file system is used for logging purposes.
+--
+-- * 'glComponent' - The component that will be subject to logs
+--
+-- * 'glId' - Element Id for this entry in the list.
+--
+-- * 'glType' - The type which will be use for log output
+--
+-- * 'glLevel' - The level of the logs
+greengrassLogger
+    :: GreengrassLogger
+greengrassLogger =
+    GreengrassLogger'
+    { _glSpace = Nothing
+    , _glComponent = Nothing
+    , _glId = Nothing
+    , _glType = Nothing
+    , _glLevel = Nothing
+    }
+
+-- | Amount of hardware space, in KB, to use if file system is used for logging purposes.
+glSpace :: Lens' GreengrassLogger (Maybe Int)
+glSpace = lens _glSpace (\ s a -> s{_glSpace = a});
+
+-- | The component that will be subject to logs
+glComponent :: Lens' GreengrassLogger (Maybe LoggerComponent)
+glComponent = lens _glComponent (\ s a -> s{_glComponent = a});
+
+-- | Element Id for this entry in the list.
+glId :: Lens' GreengrassLogger (Maybe Text)
+glId = lens _glId (\ s a -> s{_glId = a});
+
+-- | The type which will be use for log output
+glType :: Lens' GreengrassLogger (Maybe LoggerType)
+glType = lens _glType (\ s a -> s{_glType = a});
+
+-- | The level of the logs
+glLevel :: Lens' GreengrassLogger (Maybe LoggerLevel)
+glLevel = lens _glLevel (\ s a -> s{_glLevel = a});
+
+instance FromJSON GreengrassLogger where
+        parseJSON
+          = withObject "GreengrassLogger"
+              (\ x ->
+                 GreengrassLogger' <$>
+                   (x .:? "Space") <*> (x .:? "Component") <*>
+                     (x .:? "Id")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Level"))
+
+instance Hashable GreengrassLogger
+
+instance NFData GreengrassLogger
+
+instance ToJSON GreengrassLogger where
+        toJSON GreengrassLogger'{..}
+          = object
+              (catMaybes
+                 [("Space" .=) <$> _glSpace,
+                  ("Component" .=) <$> _glComponent,
+                  ("Id" .=) <$> _glId, ("Type" .=) <$> _glType,
+                  ("Level" .=) <$> _glLevel])
+
 -- | Information on group certificate authority properties
 --
 -- /See:/ 'groupCertificateAuthorityProperties' smart constructor.
@@ -896,88 +974,11 @@ instance ToJSON GroupVersion where
                   ("LoggerDefinitionVersionArn" .=) <$>
                     _gvLoggerDefinitionVersionARN])
 
--- | Information on the Logger
---
--- /See:/ 'logger' smart constructor.
-data Logger = Logger'
-    { _lSpace     :: !(Maybe Int)
-    , _lComponent :: !(Maybe LoggerComponent)
-    , _lId        :: !(Maybe Text)
-    , _lType      :: !(Maybe LoggerType)
-    , _lLevel     :: !(Maybe LoggerLevel)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | Creates a value of 'Logger' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lSpace' - Amount of hardware space, in KB, to use if file system is used for logging purposes.
---
--- * 'lComponent' - The component that will be subject to logs
---
--- * 'lId' - Element Id for this entry in the list.
---
--- * 'lType' - The type which will be use for log output
---
--- * 'lLevel' - The level of the logs
-logger
-    :: Logger
-logger =
-    Logger'
-    { _lSpace = Nothing
-    , _lComponent = Nothing
-    , _lId = Nothing
-    , _lType = Nothing
-    , _lLevel = Nothing
-    }
-
--- | Amount of hardware space, in KB, to use if file system is used for logging purposes.
-lSpace :: Lens' Logger (Maybe Int)
-lSpace = lens _lSpace (\ s a -> s{_lSpace = a});
-
--- | The component that will be subject to logs
-lComponent :: Lens' Logger (Maybe LoggerComponent)
-lComponent = lens _lComponent (\ s a -> s{_lComponent = a});
-
--- | Element Id for this entry in the list.
-lId :: Lens' Logger (Maybe Text)
-lId = lens _lId (\ s a -> s{_lId = a});
-
--- | The type which will be use for log output
-lType :: Lens' Logger (Maybe LoggerType)
-lType = lens _lType (\ s a -> s{_lType = a});
-
--- | The level of the logs
-lLevel :: Lens' Logger (Maybe LoggerLevel)
-lLevel = lens _lLevel (\ s a -> s{_lLevel = a});
-
-instance FromJSON Logger where
-        parseJSON
-          = withObject "Logger"
-              (\ x ->
-                 Logger' <$>
-                   (x .:? "Space") <*> (x .:? "Component") <*>
-                     (x .:? "Id")
-                     <*> (x .:? "Type")
-                     <*> (x .:? "Level"))
-
-instance Hashable Logger
-
-instance NFData Logger
-
-instance ToJSON Logger where
-        toJSON Logger'{..}
-          = object
-              (catMaybes
-                 [("Space" .=) <$> _lSpace,
-                  ("Component" .=) <$> _lComponent, ("Id" .=) <$> _lId,
-                  ("Type" .=) <$> _lType, ("Level" .=) <$> _lLevel])
-
 -- | Information on logger definition version
 --
 -- /See:/ 'loggerDefinitionVersion' smart constructor.
 newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
-    { _ldvLoggers :: Maybe [Logger]
+    { _ldvLoggers :: Maybe [GreengrassLogger]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'LoggerDefinitionVersion' with the minimum fields required to make a request.
@@ -993,7 +994,7 @@ loggerDefinitionVersion =
     }
 
 -- | List of loggers.
-ldvLoggers :: Lens' LoggerDefinitionVersion [Logger]
+ldvLoggers :: Lens' LoggerDefinitionVersion [GreengrassLogger]
 ldvLoggers = lens _ldvLoggers (\ s a -> s{_ldvLoggers = a}) . _Default . _Coerce;
 
 instance FromJSON LoggerDefinitionVersion where

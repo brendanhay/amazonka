@@ -27,6 +27,7 @@ module Network.AWS.Inspector.StopAssessmentRun
       stopAssessmentRun
     , StopAssessmentRun
     -- * Request Lenses
+    , sarStopAction
     , sarAssessmentRunARN
 
     -- * Destructuring the Response
@@ -42,13 +43,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'stopAssessmentRun' smart constructor.
-newtype StopAssessmentRun = StopAssessmentRun'
-    { _sarAssessmentRunARN :: Text
+data StopAssessmentRun = StopAssessmentRun'
+    { _sarStopAction       :: !(Maybe StopAction)
+    , _sarAssessmentRunARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopAssessmentRun' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sarStopAction' - An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
 --
 -- * 'sarAssessmentRunARN' - The ARN of the assessment run that you want to stop.
 stopAssessmentRun
@@ -56,8 +60,13 @@ stopAssessmentRun
     -> StopAssessmentRun
 stopAssessmentRun pAssessmentRunARN_ =
     StopAssessmentRun'
-    { _sarAssessmentRunARN = pAssessmentRunARN_
+    { _sarStopAction = Nothing
+    , _sarAssessmentRunARN = pAssessmentRunARN_
     }
+
+-- | An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
+sarStopAction :: Lens' StopAssessmentRun (Maybe StopAction)
+sarStopAction = lens _sarStopAction (\ s a -> s{_sarStopAction = a});
 
 -- | The ARN of the assessment run that you want to stop.
 sarAssessmentRunARN :: Lens' StopAssessmentRun Text
@@ -85,7 +94,8 @@ instance ToJSON StopAssessmentRun where
         toJSON StopAssessmentRun'{..}
           = object
               (catMaybes
-                 [Just ("assessmentRunArn" .= _sarAssessmentRunARN)])
+                 [("stopAction" .=) <$> _sarStopAction,
+                  Just ("assessmentRunArn" .= _sarAssessmentRunARN)])
 
 instance ToPath StopAssessmentRun where
         toPath = const "/"

@@ -122,44 +122,53 @@ instance FromJSON AssessmentRunNotificationSNSStatusCode where
     parseJSON = parseJSONText "AssessmentRunNotificationSNSStatusCode"
 
 data AssessmentRunState
-    = CollectingData
+    = Canceled
+    | CollectingData
     | Completed
     | CompletedWithErrors
     | Created
     | DataCollected
+    | Error'
     | EvaluatingRules
     | Failed
     | StartDataCollectionInProgress
     | StartDataCollectionPending
+    | StartEvaluatingRulesPending
     | StopDataCollectionPending
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText AssessmentRunState where
     parser = takeLowerText >>= \case
+        "canceled" -> pure Canceled
         "collecting_data" -> pure CollectingData
         "completed" -> pure Completed
         "completed_with_errors" -> pure CompletedWithErrors
         "created" -> pure Created
         "data_collected" -> pure DataCollected
+        "error" -> pure Error'
         "evaluating_rules" -> pure EvaluatingRules
         "failed" -> pure Failed
         "start_data_collection_in_progress" -> pure StartDataCollectionInProgress
         "start_data_collection_pending" -> pure StartDataCollectionPending
+        "start_evaluating_rules_pending" -> pure StartEvaluatingRulesPending
         "stop_data_collection_pending" -> pure StopDataCollectionPending
         e -> fromTextError $ "Failure parsing AssessmentRunState from value: '" <> e
-           <> "'. Accepted values: collecting_data, completed, completed_with_errors, created, data_collected, evaluating_rules, failed, start_data_collection_in_progress, start_data_collection_pending, stop_data_collection_pending"
+           <> "'. Accepted values: canceled, collecting_data, completed, completed_with_errors, created, data_collected, error, evaluating_rules, failed, start_data_collection_in_progress, start_data_collection_pending, start_evaluating_rules_pending, stop_data_collection_pending"
 
 instance ToText AssessmentRunState where
     toText = \case
+        Canceled -> "CANCELED"
         CollectingData -> "COLLECTING_DATA"
         Completed -> "COMPLETED"
         CompletedWithErrors -> "COMPLETED_WITH_ERRORS"
         Created -> "CREATED"
         DataCollected -> "DATA_COLLECTED"
+        Error' -> "ERROR"
         EvaluatingRules -> "EVALUATING_RULES"
         Failed -> "FAILED"
         StartDataCollectionInProgress -> "START_DATA_COLLECTION_IN_PROGRESS"
         StartDataCollectionPending -> "START_DATA_COLLECTION_PENDING"
+        StartEvaluatingRulesPending -> "START_EVALUATING_RULES_PENDING"
         StopDataCollectionPending -> "STOP_DATA_COLLECTION_PENDING"
 
 instance Hashable     AssessmentRunState
@@ -296,6 +305,87 @@ instance ToHeader     Locale
 instance ToJSON Locale where
     toJSON = toJSONText
 
+data ReportFileFormat
+    = HTML
+    | Pdf
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReportFileFormat where
+    parser = takeLowerText >>= \case
+        "html" -> pure HTML
+        "pdf" -> pure Pdf
+        e -> fromTextError $ "Failure parsing ReportFileFormat from value: '" <> e
+           <> "'. Accepted values: html, pdf"
+
+instance ToText ReportFileFormat where
+    toText = \case
+        HTML -> "HTML"
+        Pdf -> "PDF"
+
+instance Hashable     ReportFileFormat
+instance NFData       ReportFileFormat
+instance ToByteString ReportFileFormat
+instance ToQuery      ReportFileFormat
+instance ToHeader     ReportFileFormat
+
+instance ToJSON ReportFileFormat where
+    toJSON = toJSONText
+
+data ReportStatus
+    = RSCompleted
+    | RSFailed
+    | RSWorkInProgress
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReportStatus where
+    parser = takeLowerText >>= \case
+        "completed" -> pure RSCompleted
+        "failed" -> pure RSFailed
+        "work_in_progress" -> pure RSWorkInProgress
+        e -> fromTextError $ "Failure parsing ReportStatus from value: '" <> e
+           <> "'. Accepted values: completed, failed, work_in_progress"
+
+instance ToText ReportStatus where
+    toText = \case
+        RSCompleted -> "COMPLETED"
+        RSFailed -> "FAILED"
+        RSWorkInProgress -> "WORK_IN_PROGRESS"
+
+instance Hashable     ReportStatus
+instance NFData       ReportStatus
+instance ToByteString ReportStatus
+instance ToQuery      ReportStatus
+instance ToHeader     ReportStatus
+
+instance FromJSON ReportStatus where
+    parseJSON = parseJSONText "ReportStatus"
+
+data ReportType
+    = Finding
+    | Full
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText ReportType where
+    parser = takeLowerText >>= \case
+        "finding" -> pure Finding
+        "full" -> pure Full
+        e -> fromTextError $ "Failure parsing ReportType from value: '" <> e
+           <> "'. Accepted values: finding, full"
+
+instance ToText ReportType where
+    toText = \case
+        Finding -> "FINDING"
+        Full -> "FULL"
+
+instance Hashable     ReportType
+instance NFData       ReportType
+instance ToByteString ReportType
+instance ToQuery      ReportType
+instance ToHeader     ReportType
+
+instance ToJSON ReportType where
+    toJSON = toJSONText
+
 data Severity
     = High
     | Informational
@@ -333,3 +423,29 @@ instance ToJSON Severity where
 
 instance FromJSON Severity where
     parseJSON = parseJSONText "Severity"
+
+data StopAction
+    = SkipEvaluation
+    | StartEvaluation
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText StopAction where
+    parser = takeLowerText >>= \case
+        "skip_evaluation" -> pure SkipEvaluation
+        "start_evaluation" -> pure StartEvaluation
+        e -> fromTextError $ "Failure parsing StopAction from value: '" <> e
+           <> "'. Accepted values: skip_evaluation, start_evaluation"
+
+instance ToText StopAction where
+    toText = \case
+        SkipEvaluation -> "SKIP_EVALUATION"
+        StartEvaluation -> "START_EVALUATION"
+
+instance Hashable     StopAction
+instance NFData       StopAction
+instance ToByteString StopAction
+instance ToQuery      StopAction
+instance ToHeader     StopAction
+
+instance ToJSON StopAction where
+    toJSON = toJSONText

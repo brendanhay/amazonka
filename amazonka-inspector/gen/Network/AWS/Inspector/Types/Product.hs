@@ -132,6 +132,7 @@ data AssessmentRun = AssessmentRun'
     , _arDataCollected             :: !Bool
     , _arStateChanges              :: ![AssessmentRunStateChange]
     , _arNotifications             :: ![AssessmentRunNotification]
+    , _arFindingCounts             :: !(Map Severity Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssessmentRun' with the minimum fields required to make a request.
@@ -165,6 +166,8 @@ data AssessmentRun = AssessmentRun'
 -- * 'arStateChanges' - A list of the assessment run state changes.
 --
 -- * 'arNotifications' - A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
+--
+-- * 'arFindingCounts' - Provides a total count of generated findings per severity.
 assessmentRun
     :: Text -- ^ 'arArn'
     -> Text -- ^ 'arName'
@@ -192,6 +195,7 @@ assessmentRun pArn_ pName_ pAssessmentTemplateARN_ pState_ pDurationInSeconds_ p
     , _arDataCollected = pDataCollected_
     , _arStateChanges = mempty
     , _arNotifications = mempty
+    , _arFindingCounts = mempty
     }
 
 -- | The time when 'StartAssessmentRun' was called.
@@ -250,6 +254,10 @@ arStateChanges = lens _arStateChanges (\ s a -> s{_arStateChanges = a}) . _Coerc
 arNotifications :: Lens' AssessmentRun [AssessmentRunNotification]
 arNotifications = lens _arNotifications (\ s a -> s{_arNotifications = a}) . _Coerce;
 
+-- | Provides a total count of generated findings per severity.
+arFindingCounts :: Lens' AssessmentRun (HashMap Severity Int)
+arFindingCounts = lens _arFindingCounts (\ s a -> s{_arFindingCounts = a}) . _Map;
+
 instance FromJSON AssessmentRun where
         parseJSON
           = withObject "AssessmentRun"
@@ -267,7 +275,8 @@ instance FromJSON AssessmentRun where
                      <*> (x .: "stateChangedAt")
                      <*> (x .: "dataCollected")
                      <*> (x .:? "stateChanges" .!= mempty)
-                     <*> (x .:? "notifications" .!= mempty))
+                     <*> (x .:? "notifications" .!= mempty)
+                     <*> (x .:? "findingCounts" .!= mempty))
 
 instance Hashable AssessmentRun
 
@@ -480,7 +489,7 @@ data AssessmentRunNotification = AssessmentRunNotification'
 --
 -- * 'arnSnsPublishStatusCode' - The status code of the SNS notification.
 --
--- * 'arnMessage' - Undocumented member.
+-- * 'arnMessage' - The message included in the notification.
 --
 -- * 'arnDate' - The date of the notification.
 --
@@ -510,7 +519,7 @@ arnSnsTopicARN = lens _arnSnsTopicARN (\ s a -> s{_arnSnsTopicARN = a});
 arnSnsPublishStatusCode :: Lens' AssessmentRunNotification (Maybe AssessmentRunNotificationSNSStatusCode)
 arnSnsPublishStatusCode = lens _arnSnsPublishStatusCode (\ s a -> s{_arnSnsPublishStatusCode = a});
 
--- | Undocumented member.
+-- | The message included in the notification.
 arnMessage :: Lens' AssessmentRunNotification (Maybe Text)
 arnMessage = lens _arnMessage (\ s a -> s{_arnMessage = a});
 
@@ -1154,7 +1163,7 @@ data Finding = Finding'
 --
 -- * 'fAssetAttributes' - A collection of attributes of the host from which the finding is generated.
 --
--- * 'fServiceAttributes' - Undocumented member.
+-- * 'fServiceAttributes' - This data type is used in the 'Finding' data type.
 --
 -- * 'fId' - The ID of the finding.
 --
@@ -1226,7 +1235,7 @@ fConfidence = lens _fConfidence (\ s a -> s{_fConfidence = a}) . mapping _Nat;
 fAssetAttributes :: Lens' Finding (Maybe AssetAttributes)
 fAssetAttributes = lens _fAssetAttributes (\ s a -> s{_fAssetAttributes = a});
 
--- | Undocumented member.
+-- | This data type is used in the 'Finding' data type.
 fServiceAttributes :: Lens' Finding (Maybe InspectorServiceAttributes)
 fServiceAttributes = lens _fServiceAttributes (\ s a -> s{_fServiceAttributes = a});
 

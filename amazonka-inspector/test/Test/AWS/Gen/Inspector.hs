@@ -109,6 +109,9 @@ import Test.AWS.Inspector.Internal
 --         , requestListAssessmentRuns $
 --             listAssessmentRuns
 --
+--         , requestGetAssessmentReport $
+--             getAssessmentReport
+--
 --         , requestListRulesPackages $
 --             listRulesPackages
 --
@@ -207,6 +210,9 @@ import Test.AWS.Inspector.Internal
 --
 --         , responseListAssessmentRuns $
 --             listAssessmentRunsResponse
+--
+--         , responseGetAssessmentReport $
+--             getAssessmentReportResponse
 --
 --         , responseListRulesPackages $
 --             listRulesPackagesResponse
@@ -362,6 +368,11 @@ requestListAssessmentRuns :: ListAssessmentRuns -> TestTree
 requestListAssessmentRuns = req
     "ListAssessmentRuns"
     "fixture/ListAssessmentRuns.yaml"
+
+requestGetAssessmentReport :: GetAssessmentReport -> TestTree
+requestGetAssessmentReport = req
+    "GetAssessmentReport"
+    "fixture/GetAssessmentReport.yaml"
 
 requestListRulesPackages :: ListRulesPackages -> TestTree
 requestListRulesPackages = req
@@ -578,6 +589,13 @@ responseListAssessmentRuns = res
     "fixture/ListAssessmentRunsResponse.proto"
     inspector
     (Proxy :: Proxy ListAssessmentRuns)
+
+responseGetAssessmentReport :: GetAssessmentReportResponse -> TestTree
+responseGetAssessmentReport = res
+    "GetAssessmentReportResponse"
+    "fixture/GetAssessmentReportResponse.proto"
+    inspector
+    (Proxy :: Proxy GetAssessmentReport)
 
 responseListRulesPackages :: ListRulesPackagesResponse -> TestTree
 responseListRulesPackages = res

@@ -32,6 +32,9 @@ module Network.AWS.Inspector
     -- ** NoSuchEntityException
     , _NoSuchEntityException
 
+    -- ** UnsupportedFeatureException
+    , _UnsupportedFeatureException
+
     -- ** AgentsAlreadyRunningAssessmentException
     , _AgentsAlreadyRunningAssessmentException
 
@@ -134,6 +137,9 @@ module Network.AWS.Inspector
     -- ** ListAssessmentRuns
     , module Network.AWS.Inspector.ListAssessmentRuns
 
+    -- ** GetAssessmentReport
+    , module Network.AWS.Inspector.GetAssessmentReport
+
     -- ** ListRulesPackages
     , module Network.AWS.Inspector.ListRulesPackages
 
@@ -175,8 +181,20 @@ module Network.AWS.Inspector
     -- ** Locale
     , Locale (..)
 
+    -- ** ReportFileFormat
+    , ReportFileFormat (..)
+
+    -- ** ReportStatus
+    , ReportStatus (..)
+
+    -- ** ReportType
+    , ReportType (..)
+
     -- ** Severity
     , Severity (..)
+
+    -- ** StopAction
+    , StopAction (..)
 
     -- ** AgentFilter
     , AgentFilter
@@ -207,6 +225,7 @@ module Network.AWS.Inspector
     , arDataCollected
     , arStateChanges
     , arNotifications
+    , arFindingCounts
 
     -- ** AssessmentRunAgent
     , AssessmentRunAgent
@@ -416,6 +435,7 @@ import           Network.AWS.Inspector.DescribeCrossAccountAccessRole
 import           Network.AWS.Inspector.DescribeFindings
 import           Network.AWS.Inspector.DescribeResourceGroups
 import           Network.AWS.Inspector.DescribeRulesPackages
+import           Network.AWS.Inspector.GetAssessmentReport
 import           Network.AWS.Inspector.GetTelemetryMetadata
 import           Network.AWS.Inspector.ListAssessmentRunAgents
 import           Network.AWS.Inspector.ListAssessmentRuns

@@ -69,11 +69,11 @@ data PutRule = PutRule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prEventPattern' - The event pattern.
+-- * 'prEventPattern' - The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- * 'prState' - Indicates whether the rule is enabled or disabled.
 --
--- * 'prScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+-- * 'prScheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
 --
 -- * 'prDescription' - A description of the rule.
 --
@@ -93,7 +93,7 @@ putRule pName_ =
     , _prName = pName_
     }
 
--- | The event pattern.
+-- | The event pattern. For more information, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html Events and Event Patterns> in the /Amazon CloudWatch Events User Guide/ .
 prEventPattern :: Lens' PutRule (Maybe Text)
 prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a});
 
@@ -101,7 +101,7 @@ prEventPattern = lens _prEventPattern (\ s a -> s{_prEventPattern = a});
 prState :: Lens' PutRule (Maybe RuleState)
 prState = lens _prState (\ s a -> s{_prState = a});
 
--- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
+-- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
 prScheduleExpression :: Lens' PutRule (Maybe Text)
 prScheduleExpression = lens _prScheduleExpression (\ s a -> s{_prScheduleExpression = a});
 

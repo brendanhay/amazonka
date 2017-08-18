@@ -41,6 +41,7 @@ library
     exposed-modules:
           Network.AWS.CloudWatchEvents
         , Network.AWS.CloudWatchEvents.DeleteRule
+        , Network.AWS.CloudWatchEvents.DescribeEventBus
         , Network.AWS.CloudWatchEvents.DescribeRule
         , Network.AWS.CloudWatchEvents.DisableRule
         , Network.AWS.CloudWatchEvents.EnableRule
@@ -48,8 +49,10 @@ library
         , Network.AWS.CloudWatchEvents.ListRules
         , Network.AWS.CloudWatchEvents.ListTargetsByRule
         , Network.AWS.CloudWatchEvents.PutEvents
+        , Network.AWS.CloudWatchEvents.PutPermission
         , Network.AWS.CloudWatchEvents.PutRule
         , Network.AWS.CloudWatchEvents.PutTargets
+        , Network.AWS.CloudWatchEvents.RemovePermission
         , Network.AWS.CloudWatchEvents.RemoveTargets
         , Network.AWS.CloudWatchEvents.TestEventPattern
         , Network.AWS.CloudWatchEvents.Types

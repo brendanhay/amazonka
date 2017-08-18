@@ -64,11 +64,11 @@ data ConfirmSignUp = ConfirmSignUp'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csuForceAliasCreation' - Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
+-- * 'csuForceAliasCreation' - Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
 --
 -- * 'csuSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- * 'csuClientId' - The ID of the client associated with the user pool.
+-- * 'csuClientId' - The ID of the app client associated with the user pool.
 --
 -- * 'csuUsername' - The user name of the user whose registration you wish to confirm.
 --
@@ -87,7 +87,7 @@ confirmSignUp pClientId_ pUsername_ pConfirmationCode_ =
     , _csuConfirmationCode = pConfirmationCode_
     }
 
--- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to False. If this parameter is set to True and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to False, the API will throw an __AliasExistsException__ error.
+-- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
 csuForceAliasCreation :: Lens' ConfirmSignUp (Maybe Bool)
 csuForceAliasCreation = lens _csuForceAliasCreation (\ s a -> s{_csuForceAliasCreation = a});
 
@@ -95,7 +95,7 @@ csuForceAliasCreation = lens _csuForceAliasCreation (\ s a -> s{_csuForceAliasCr
 csuSecretHash :: Lens' ConfirmSignUp (Maybe Text)
 csuSecretHash = lens _csuSecretHash (\ s a -> s{_csuSecretHash = a}) . mapping _Sensitive;
 
--- | The ID of the client associated with the user pool.
+-- | The ID of the app client associated with the user pool.
 csuClientId :: Lens' ConfirmSignUp Text
 csuClientId = lens _csuClientId (\ s a -> s{_csuClientId = a}) . _Sensitive;
 

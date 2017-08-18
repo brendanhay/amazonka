@@ -165,6 +165,35 @@ instance ToJSON ChallengeNameType where
 instance FromJSON ChallengeNameType where
     parseJSON = parseJSONText "ChallengeNameType"
 
+data DefaultEmailOptionType
+    = ConfirmWithCode
+    | ConfirmWithLink
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DefaultEmailOptionType where
+    parser = takeLowerText >>= \case
+        "confirm_with_code" -> pure ConfirmWithCode
+        "confirm_with_link" -> pure ConfirmWithLink
+        e -> fromTextError $ "Failure parsing DefaultEmailOptionType from value: '" <> e
+           <> "'. Accepted values: confirm_with_code, confirm_with_link"
+
+instance ToText DefaultEmailOptionType where
+    toText = \case
+        ConfirmWithCode -> "CONFIRM_WITH_CODE"
+        ConfirmWithLink -> "CONFIRM_WITH_LINK"
+
+instance Hashable     DefaultEmailOptionType
+instance NFData       DefaultEmailOptionType
+instance ToByteString DefaultEmailOptionType
+instance ToQuery      DefaultEmailOptionType
+instance ToHeader     DefaultEmailOptionType
+
+instance ToJSON DefaultEmailOptionType where
+    toJSON = toJSONText
+
+instance FromJSON DefaultEmailOptionType where
+    parseJSON = parseJSONText "DefaultEmailOptionType"
+
 data DeliveryMediumType
     = DMTEmail
     | DMTSms
@@ -220,6 +249,41 @@ instance ToHeader     DeviceRememberedStatusType
 instance ToJSON DeviceRememberedStatusType where
     toJSON = toJSONText
 
+data DomainStatusType
+    = DSTActive
+    | DSTCreating
+    | DSTDeleting
+    | DSTFailed
+    | DSTUpdating
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText DomainStatusType where
+    parser = takeLowerText >>= \case
+        "active" -> pure DSTActive
+        "creating" -> pure DSTCreating
+        "deleting" -> pure DSTDeleting
+        "failed" -> pure DSTFailed
+        "updating" -> pure DSTUpdating
+        e -> fromTextError $ "Failure parsing DomainStatusType from value: '" <> e
+           <> "'. Accepted values: active, creating, deleting, failed, updating"
+
+instance ToText DomainStatusType where
+    toText = \case
+        DSTActive -> "ACTIVE"
+        DSTCreating -> "CREATING"
+        DSTDeleting -> "DELETING"
+        DSTFailed -> "FAILED"
+        DSTUpdating -> "UPDATING"
+
+instance Hashable     DomainStatusType
+instance NFData       DomainStatusType
+instance ToByteString DomainStatusType
+instance ToQuery      DomainStatusType
+instance ToHeader     DomainStatusType
+
+instance FromJSON DomainStatusType where
+    parseJSON = parseJSONText "DomainStatusType"
+
 data ExplicitAuthFlowsType
     = EAFTAdminNoSrpAuth
     | EAFTCustomAuthFlowOnly
@@ -249,6 +313,41 @@ instance ToJSON ExplicitAuthFlowsType where
 instance FromJSON ExplicitAuthFlowsType where
     parseJSON = parseJSONText "ExplicitAuthFlowsType"
 
+data IdentityProviderTypeType
+    = Facebook
+    | Google
+    | LoginWithAmazon
+    | Saml
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText IdentityProviderTypeType where
+    parser = takeLowerText >>= \case
+        "facebook" -> pure Facebook
+        "google" -> pure Google
+        "loginwithamazon" -> pure LoginWithAmazon
+        "saml" -> pure Saml
+        e -> fromTextError $ "Failure parsing IdentityProviderTypeType from value: '" <> e
+           <> "'. Accepted values: facebook, google, loginwithamazon, saml"
+
+instance ToText IdentityProviderTypeType where
+    toText = \case
+        Facebook -> "Facebook"
+        Google -> "Google"
+        LoginWithAmazon -> "LoginWithAmazon"
+        Saml -> "SAML"
+
+instance Hashable     IdentityProviderTypeType
+instance NFData       IdentityProviderTypeType
+instance ToByteString IdentityProviderTypeType
+instance ToQuery      IdentityProviderTypeType
+instance ToHeader     IdentityProviderTypeType
+
+instance ToJSON IdentityProviderTypeType where
+    toJSON = toJSONText
+
+instance FromJSON IdentityProviderTypeType where
+    parseJSON = parseJSONText "IdentityProviderTypeType"
+
 data MessageActionType
     = Resend
     | Suppress
@@ -274,6 +373,38 @@ instance ToHeader     MessageActionType
 
 instance ToJSON MessageActionType where
     toJSON = toJSONText
+
+data OAuthFlowType
+    = ClientCredentials
+    | Code
+    | Implicit
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText OAuthFlowType where
+    parser = takeLowerText >>= \case
+        "client_credentials" -> pure ClientCredentials
+        "code" -> pure Code
+        "implicit" -> pure Implicit
+        e -> fromTextError $ "Failure parsing OAuthFlowType from value: '" <> e
+           <> "'. Accepted values: client_credentials, code, implicit"
+
+instance ToText OAuthFlowType where
+    toText = \case
+        ClientCredentials -> "client_credentials"
+        Code -> "code"
+        Implicit -> "implicit"
+
+instance Hashable     OAuthFlowType
+instance NFData       OAuthFlowType
+instance ToByteString OAuthFlowType
+instance ToQuery      OAuthFlowType
+instance ToHeader     OAuthFlowType
+
+instance ToJSON OAuthFlowType where
+    toJSON = toJSONText
+
+instance FromJSON OAuthFlowType where
+    parseJSON = parseJSONText "OAuthFlowType"
 
 data StatusType
     = Disabled
@@ -417,6 +548,35 @@ instance ToHeader     UserStatusType
 
 instance FromJSON UserStatusType where
     parseJSON = parseJSONText "UserStatusType"
+
+data UsernameAttributeType
+    = UATEmail
+    | UATPhoneNumber
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText UsernameAttributeType where
+    parser = takeLowerText >>= \case
+        "email" -> pure UATEmail
+        "phone_number" -> pure UATPhoneNumber
+        e -> fromTextError $ "Failure parsing UsernameAttributeType from value: '" <> e
+           <> "'. Accepted values: email, phone_number"
+
+instance ToText UsernameAttributeType where
+    toText = \case
+        UATEmail -> "email"
+        UATPhoneNumber -> "phone_number"
+
+instance Hashable     UsernameAttributeType
+instance NFData       UsernameAttributeType
+instance ToByteString UsernameAttributeType
+instance ToQuery      UsernameAttributeType
+instance ToHeader     UsernameAttributeType
+
+instance ToJSON UsernameAttributeType where
+    toJSON = toJSONText
+
+instance FromJSON UsernameAttributeType where
+    parseJSON = parseJSONText "UsernameAttributeType"
 
 data VerifiedAttributeType
     = Email

@@ -58,7 +58,7 @@ data DeleteUserPoolClient = DeleteUserPoolClient'
 --
 -- * 'dupcUserPoolId' - The user pool ID for the user pool where you want to delete the client.
 --
--- * 'dupcClientId' - The ID of the client associated with the user pool.
+-- * 'dupcClientId' - The app client ID of the app associated with the user pool.
 deleteUserPoolClient
     :: Text -- ^ 'dupcUserPoolId'
     -> Text -- ^ 'dupcClientId'
@@ -73,7 +73,7 @@ deleteUserPoolClient pUserPoolId_ pClientId_ =
 dupcUserPoolId :: Lens' DeleteUserPoolClient Text
 dupcUserPoolId = lens _dupcUserPoolId (\ s a -> s{_dupcUserPoolId = a});
 
--- | The ID of the client associated with the user pool.
+-- | The app client ID of the app associated with the user pool.
 dupcClientId :: Lens' DeleteUserPoolClient Text
 dupcClientId = lens _dupcClientId (\ s a -> s{_dupcClientId = a}) . _Sensitive;
 

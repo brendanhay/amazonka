@@ -28,9 +28,11 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     , CreateUserPool
     -- * Request Lenses
     , cupUserPoolTags
+    , cupVerificationMessageTemplate
     , cupEmailVerificationMessage
     , cupSmsAuthenticationMessage
     , cupEmailVerificationSubject
+    , cupUsernameAttributes
     , cupAliasAttributes
     , cupSchema
     , cupEmailConfiguration
@@ -65,22 +67,24 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-    { _cupUserPoolTags             :: !(Maybe (Map Text Text))
-    , _cupEmailVerificationMessage :: !(Maybe Text)
-    , _cupSmsAuthenticationMessage :: !(Maybe Text)
-    , _cupEmailVerificationSubject :: !(Maybe Text)
-    , _cupAliasAttributes          :: !(Maybe [AliasAttributeType])
-    , _cupSchema                   :: !(Maybe (List1 SchemaAttributeType))
-    , _cupEmailConfiguration       :: !(Maybe EmailConfigurationType)
-    , _cupSmsVerificationMessage   :: !(Maybe Text)
-    , _cupMFAConfiguration         :: !(Maybe UserPoolMFAType)
-    , _cupLambdaConfig             :: !(Maybe LambdaConfigType)
-    , _cupSmsConfiguration         :: !(Maybe SmsConfigurationType)
-    , _cupAdminCreateUserConfig    :: !(Maybe AdminCreateUserConfigType)
-    , _cupDeviceConfiguration      :: !(Maybe DeviceConfigurationType)
-    , _cupAutoVerifiedAttributes   :: !(Maybe [VerifiedAttributeType])
-    , _cupPolicies                 :: !(Maybe UserPoolPolicyType)
-    , _cupPoolName                 :: !Text
+    { _cupUserPoolTags                :: !(Maybe (Map Text Text))
+    , _cupVerificationMessageTemplate :: !(Maybe VerificationMessageTemplateType)
+    , _cupEmailVerificationMessage    :: !(Maybe Text)
+    , _cupSmsAuthenticationMessage    :: !(Maybe Text)
+    , _cupEmailVerificationSubject    :: !(Maybe Text)
+    , _cupUsernameAttributes          :: !(Maybe [UsernameAttributeType])
+    , _cupAliasAttributes             :: !(Maybe [AliasAttributeType])
+    , _cupSchema                      :: !(Maybe (List1 SchemaAttributeType))
+    , _cupEmailConfiguration          :: !(Maybe EmailConfigurationType)
+    , _cupSmsVerificationMessage      :: !(Maybe Text)
+    , _cupMFAConfiguration            :: !(Maybe UserPoolMFAType)
+    , _cupLambdaConfig                :: !(Maybe LambdaConfigType)
+    , _cupSmsConfiguration            :: !(Maybe SmsConfigurationType)
+    , _cupAdminCreateUserConfig       :: !(Maybe AdminCreateUserConfigType)
+    , _cupDeviceConfiguration         :: !(Maybe DeviceConfigurationType)
+    , _cupAutoVerifiedAttributes      :: !(Maybe [VerifiedAttributeType])
+    , _cupPolicies                    :: !(Maybe UserPoolPolicyType)
+    , _cupPoolName                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateUserPool' with the minimum fields required to make a request.
@@ -89,11 +93,15 @@ data CreateUserPool = CreateUserPool'
 --
 -- * 'cupUserPoolTags' - The cost allocation tags for the user pool. For more information, see <http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html Adding Cost Allocation Tags to Your User Pool>
 --
+-- * 'cupVerificationMessageTemplate' - The template for the verification message that the user sees when the app requests permission to access the user's information.
+--
 -- * 'cupEmailVerificationMessage' - A string representing the email verification message.
 --
 -- * 'cupSmsAuthenticationMessage' - A string representing the SMS authentication message.
 --
 -- * 'cupEmailVerificationSubject' - A string representing the email verification subject.
+--
+-- * 'cupUsernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
 --
 -- * 'cupAliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
 --
@@ -109,7 +117,7 @@ data CreateUserPool = CreateUserPool'
 --
 -- * 'cupSmsConfiguration' - The SMS configuration.
 --
--- * 'cupAdminCreateUserConfig' - The configuration for AdminCreateUser requests.
+-- * 'cupAdminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
 -- * 'cupDeviceConfiguration' - The device configuration.
 --
@@ -124,9 +132,11 @@ createUserPool
 createUserPool pPoolName_ =
     CreateUserPool'
     { _cupUserPoolTags = Nothing
+    , _cupVerificationMessageTemplate = Nothing
     , _cupEmailVerificationMessage = Nothing
     , _cupSmsAuthenticationMessage = Nothing
     , _cupEmailVerificationSubject = Nothing
+    , _cupUsernameAttributes = Nothing
     , _cupAliasAttributes = Nothing
     , _cupSchema = Nothing
     , _cupEmailConfiguration = Nothing
@@ -145,6 +155,10 @@ createUserPool pPoolName_ =
 cupUserPoolTags :: Lens' CreateUserPool (HashMap Text Text)
 cupUserPoolTags = lens _cupUserPoolTags (\ s a -> s{_cupUserPoolTags = a}) . _Default . _Map;
 
+-- | The template for the verification message that the user sees when the app requests permission to access the user's information.
+cupVerificationMessageTemplate :: Lens' CreateUserPool (Maybe VerificationMessageTemplateType)
+cupVerificationMessageTemplate = lens _cupVerificationMessageTemplate (\ s a -> s{_cupVerificationMessageTemplate = a});
+
 -- | A string representing the email verification message.
 cupEmailVerificationMessage :: Lens' CreateUserPool (Maybe Text)
 cupEmailVerificationMessage = lens _cupEmailVerificationMessage (\ s a -> s{_cupEmailVerificationMessage = a});
@@ -156,6 +170,10 @@ cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\ s a -> s{_cup
 -- | A string representing the email verification subject.
 cupEmailVerificationSubject :: Lens' CreateUserPool (Maybe Text)
 cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\ s a -> s{_cupEmailVerificationSubject = a});
+
+-- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+cupUsernameAttributes :: Lens' CreateUserPool [UsernameAttributeType]
+cupUsernameAttributes = lens _cupUsernameAttributes (\ s a -> s{_cupUsernameAttributes = a}) . _Default . _Coerce;
 
 -- | Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
 cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
@@ -185,7 +203,7 @@ cupLambdaConfig = lens _cupLambdaConfig (\ s a -> s{_cupLambdaConfig = a});
 cupSmsConfiguration :: Lens' CreateUserPool (Maybe SmsConfigurationType)
 cupSmsConfiguration = lens _cupSmsConfiguration (\ s a -> s{_cupSmsConfiguration = a});
 
--- | The configuration for AdminCreateUser requests.
+-- | The configuration for @AdminCreateUser@ requests.
 cupAdminCreateUserConfig :: Lens' CreateUserPool (Maybe AdminCreateUserConfigType)
 cupAdminCreateUserConfig = lens _cupAdminCreateUserConfig (\ s a -> s{_cupAdminCreateUserConfig = a});
 
@@ -233,12 +251,15 @@ instance ToJSON CreateUserPool where
           = object
               (catMaybes
                  [("UserPoolTags" .=) <$> _cupUserPoolTags,
+                  ("VerificationMessageTemplate" .=) <$>
+                    _cupVerificationMessageTemplate,
                   ("EmailVerificationMessage" .=) <$>
                     _cupEmailVerificationMessage,
                   ("SmsAuthenticationMessage" .=) <$>
                     _cupSmsAuthenticationMessage,
                   ("EmailVerificationSubject" .=) <$>
                     _cupEmailVerificationSubject,
+                  ("UsernameAttributes" .=) <$> _cupUsernameAttributes,
                   ("AliasAttributes" .=) <$> _cupAliasAttributes,
                   ("Schema" .=) <$> _cupSchema,
                   ("EmailConfiguration" .=) <$> _cupEmailConfiguration,

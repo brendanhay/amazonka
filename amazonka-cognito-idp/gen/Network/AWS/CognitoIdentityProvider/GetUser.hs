@@ -52,7 +52,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getUser' smart constructor.
 newtype GetUser = GetUser'
-    { _guAccessToken :: Maybe (Sensitive Text)
+    { _guAccessToken :: Sensitive Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetUser' with the minimum fields required to make a request.
@@ -61,15 +61,16 @@ newtype GetUser = GetUser'
 --
 -- * 'guAccessToken' - The access token returned by the server response to get information about the user.
 getUser
-    :: GetUser
-getUser =
+    :: Text -- ^ 'guAccessToken'
+    -> GetUser
+getUser pAccessToken_ =
     GetUser'
-    { _guAccessToken = Nothing
+    { _guAccessToken = _Sensitive # pAccessToken_
     }
 
 -- | The access token returned by the server response to get information about the user.
-guAccessToken :: Lens' GetUser (Maybe Text)
-guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . mapping _Sensitive;
+guAccessToken :: Lens' GetUser Text
+guAccessToken = lens _guAccessToken (\ s a -> s{_guAccessToken = a}) . _Sensitive;
 
 instance AWSRequest GetUser where
         type Rs GetUser = GetUserResponse
@@ -100,7 +101,7 @@ instance ToHeaders GetUser where
 instance ToJSON GetUser where
         toJSON GetUser'{..}
           = object
-              (catMaybes [("AccessToken" .=) <$> _guAccessToken])
+              (catMaybes [Just ("AccessToken" .= _guAccessToken)])
 
 instance ToPath GetUser where
         toPath = const "/"
@@ -130,7 +131,7 @@ data GetUserResponse = GetUserResponse'
 --
 -- * 'gursUsername' - The user name of the user you wish to retrieve from the get user request.
 --
--- * 'gursUserAttributes' - An array of name-value pairs representing user attributes.
+-- * 'gursUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 getUserResponse
     :: Int -- ^ 'gursResponseStatus'
     -> Text -- ^ 'gursUsername'
@@ -155,7 +156,7 @@ gursResponseStatus = lens _gursResponseStatus (\ s a -> s{_gursResponseStatus = 
 gursUsername :: Lens' GetUserResponse Text
 gursUsername = lens _gursUsername (\ s a -> s{_gursUsername = a}) . _Sensitive;
 
--- | An array of name-value pairs representing user attributes.
+-- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
 gursUserAttributes :: Lens' GetUserResponse [AttributeType]
 gursUserAttributes = lens _gursUserAttributes (\ s a -> s{_gursUserAttributes = a}) . _Coerce;
 

@@ -49,7 +49,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'globalSignOut' smart constructor.
 newtype GlobalSignOut = GlobalSignOut'
-    { _gsoAccessToken :: Maybe (Sensitive Text)
+    { _gsoAccessToken :: Sensitive Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GlobalSignOut' with the minimum fields required to make a request.
@@ -58,15 +58,16 @@ newtype GlobalSignOut = GlobalSignOut'
 --
 -- * 'gsoAccessToken' - The access token.
 globalSignOut
-    :: GlobalSignOut
-globalSignOut =
+    :: Text -- ^ 'gsoAccessToken'
+    -> GlobalSignOut
+globalSignOut pAccessToken_ =
     GlobalSignOut'
-    { _gsoAccessToken = Nothing
+    { _gsoAccessToken = _Sensitive # pAccessToken_
     }
 
 -- | The access token.
-gsoAccessToken :: Lens' GlobalSignOut (Maybe Text)
-gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . mapping _Sensitive;
+gsoAccessToken :: Lens' GlobalSignOut Text
+gsoAccessToken = lens _gsoAccessToken (\ s a -> s{_gsoAccessToken = a}) . _Sensitive;
 
 instance AWSRequest GlobalSignOut where
         type Rs GlobalSignOut = GlobalSignOutResponse
@@ -93,7 +94,7 @@ instance ToHeaders GlobalSignOut where
 instance ToJSON GlobalSignOut where
         toJSON GlobalSignOut'{..}
           = object
-              (catMaybes [("AccessToken" .=) <$> _gsoAccessToken])
+              (catMaybes [Just ("AccessToken" .= _gsoAccessToken)])
 
 instance ToPath GlobalSignOut where
         toPath = const "/"

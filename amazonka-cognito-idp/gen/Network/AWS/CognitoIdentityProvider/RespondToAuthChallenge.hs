@@ -66,13 +66,13 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtacChallengeResponses' - The responses to the authentication challenge.
+-- * 'rtacChallengeResponses' - The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
 --
--- * 'rtacSession' - The session.
+-- * 'rtacSession' - The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
--- * 'rtacClientId' - The client ID.
+-- * 'rtacClientId' - The app client ID.
 --
--- * 'rtacChallengeName' - The name of the challenge.
+-- * 'rtacChallengeName' - The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> . @ADMIN_NO_SRP_AUTH@ is not a valid value.
 respondToAuthChallenge
     :: Text -- ^ 'rtacClientId'
     -> ChallengeNameType -- ^ 'rtacChallengeName'
@@ -85,19 +85,19 @@ respondToAuthChallenge pClientId_ pChallengeName_ =
     , _rtacChallengeName = pChallengeName_
     }
 
--- | The responses to the authentication challenge.
+-- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
 rtacChallengeResponses :: Lens' RespondToAuthChallenge (HashMap Text Text)
 rtacChallengeResponses = lens _rtacChallengeResponses (\ s a -> s{_rtacChallengeResponses = a}) . _Default . _Map;
 
--- | The session.
+-- | The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 rtacSession :: Lens' RespondToAuthChallenge (Maybe Text)
 rtacSession = lens _rtacSession (\ s a -> s{_rtacSession = a});
 
--- | The client ID.
+-- | The app client ID.
 rtacClientId :: Lens' RespondToAuthChallenge Text
 rtacClientId = lens _rtacClientId (\ s a -> s{_rtacClientId = a}) . _Sensitive;
 
--- | The name of the challenge.
+-- | The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> . @ADMIN_NO_SRP_AUTH@ is not a valid value.
 rtacChallengeName :: Lens' RespondToAuthChallenge ChallengeNameType
 rtacChallengeName = lens _rtacChallengeName (\ s a -> s{_rtacChallengeName = a});
 
@@ -162,13 +162,13 @@ data RespondToAuthChallengeResponse = RespondToAuthChallengeResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtacrsChallengeName' - The challenge name.
+-- * 'rtacrsChallengeName' - The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> .
 --
--- * 'rtacrsChallengeParameters' - The challenge parameters.
+-- * 'rtacrsChallengeParameters' - The challenge parameters. For more information, see <API_InitiateAuth.html InitiateAuth> .
 --
 -- * 'rtacrsAuthenticationResult' - The result returned by the server in response to the request to respond to the authentication challenge.
 --
--- * 'rtacrsSession' - The session.
+-- * 'rtacrsSession' - The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- * 'rtacrsResponseStatus' - -- | The response status code.
 respondToAuthChallengeResponse
@@ -183,11 +183,11 @@ respondToAuthChallengeResponse pResponseStatus_ =
     , _rtacrsResponseStatus = pResponseStatus_
     }
 
--- | The challenge name.
+-- | The challenge name. For more information, see <API_InitiateAuth.html InitiateAuth> .
 rtacrsChallengeName :: Lens' RespondToAuthChallengeResponse (Maybe ChallengeNameType)
 rtacrsChallengeName = lens _rtacrsChallengeName (\ s a -> s{_rtacrsChallengeName = a});
 
--- | The challenge parameters.
+-- | The challenge parameters. For more information, see <API_InitiateAuth.html InitiateAuth> .
 rtacrsChallengeParameters :: Lens' RespondToAuthChallengeResponse (HashMap Text Text)
 rtacrsChallengeParameters = lens _rtacrsChallengeParameters (\ s a -> s{_rtacrsChallengeParameters = a}) . _Default . _Map;
 
@@ -195,7 +195,7 @@ rtacrsChallengeParameters = lens _rtacrsChallengeParameters (\ s a -> s{_rtacrsC
 rtacrsAuthenticationResult :: Lens' RespondToAuthChallengeResponse (Maybe AuthenticationResultType)
 rtacrsAuthenticationResult = lens _rtacrsAuthenticationResult (\ s a -> s{_rtacrsAuthenticationResult = a});
 
--- | The session.
+-- | The session which should be passed both ways in challenge-response calls to the service. If the <API_InitiateAuth.html InitiateAuth> or <API_RespondToAuthChallenge.html RespondToAuthChallenge> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 rtacrsSession :: Lens' RespondToAuthChallengeResponse (Maybe Text)
 rtacrsSession = lens _rtacrsSession (\ s a -> s{_rtacrsSession = a});
 

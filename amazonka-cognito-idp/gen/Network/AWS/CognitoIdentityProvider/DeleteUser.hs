@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows a user to delete one's self.
+-- Allows a user to delete himself or herself.
 --
 --
 module Network.AWS.CognitoIdentityProvider.DeleteUser
@@ -47,7 +47,7 @@ import           Network.AWS.Response
 --
 -- /See:/ 'deleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
-    { _duAccessToken :: Maybe (Sensitive Text)
+    { _duAccessToken :: Sensitive Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
@@ -56,15 +56,16 @@ newtype DeleteUser = DeleteUser'
 --
 -- * 'duAccessToken' - The access token from a request to delete a user.
 deleteUser
-    :: DeleteUser
-deleteUser =
+    :: Text -- ^ 'duAccessToken'
+    -> DeleteUser
+deleteUser pAccessToken_ =
     DeleteUser'
-    { _duAccessToken = Nothing
+    { _duAccessToken = _Sensitive # pAccessToken_
     }
 
 -- | The access token from a request to delete a user.
-duAccessToken :: Lens' DeleteUser (Maybe Text)
-duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . mapping _Sensitive;
+duAccessToken :: Lens' DeleteUser Text
+duAccessToken = lens _duAccessToken (\ s a -> s{_duAccessToken = a}) . _Sensitive;
 
 instance AWSRequest DeleteUser where
         type Rs DeleteUser = DeleteUserResponse
@@ -88,7 +89,7 @@ instance ToHeaders DeleteUser where
 instance ToJSON DeleteUser where
         toJSON DeleteUser'{..}
           = object
-              (catMaybes [("AccessToken" .=) <$> _duAccessToken])
+              (catMaybes [Just ("AccessToken" .= _duAccessToken)])
 
 instance ToPath DeleteUser where
         toPath = const "/"

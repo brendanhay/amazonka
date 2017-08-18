@@ -27,9 +27,9 @@ module Network.AWS.CognitoIdentityProvider.ChangePassword
       changePassword
     , ChangePassword
     -- * Request Lenses
-    , cpAccessToken
     , cpPreviousPassword
     , cpProposedPassword
+    , cpAccessToken
 
     -- * Destructuring the Response
     , changePasswordResponse
@@ -51,34 +51,31 @@ import           Network.AWS.Response
 --
 -- /See:/ 'changePassword' smart constructor.
 data ChangePassword = ChangePassword'
-    { _cpAccessToken      :: !(Maybe (Sensitive Text))
-    , _cpPreviousPassword :: !(Sensitive Text)
+    { _cpPreviousPassword :: !(Sensitive Text)
     , _cpProposedPassword :: !(Sensitive Text)
+    , _cpAccessToken      :: !(Sensitive Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpAccessToken' - The access token in the change password request.
---
 -- * 'cpPreviousPassword' - The old password in the change password request.
 --
 -- * 'cpProposedPassword' - The new password in the change password request.
+--
+-- * 'cpAccessToken' - The access token in the change password request.
 changePassword
     :: Text -- ^ 'cpPreviousPassword'
     -> Text -- ^ 'cpProposedPassword'
+    -> Text -- ^ 'cpAccessToken'
     -> ChangePassword
-changePassword pPreviousPassword_ pProposedPassword_ =
+changePassword pPreviousPassword_ pProposedPassword_ pAccessToken_ =
     ChangePassword'
-    { _cpAccessToken = Nothing
-    , _cpPreviousPassword = _Sensitive # pPreviousPassword_
+    { _cpPreviousPassword = _Sensitive # pPreviousPassword_
     , _cpProposedPassword = _Sensitive # pProposedPassword_
+    , _cpAccessToken = _Sensitive # pAccessToken_
     }
-
--- | The access token in the change password request.
-cpAccessToken :: Lens' ChangePassword (Maybe Text)
-cpAccessToken = lens _cpAccessToken (\ s a -> s{_cpAccessToken = a}) . mapping _Sensitive;
 
 -- | The old password in the change password request.
 cpPreviousPassword :: Lens' ChangePassword Text
@@ -87,6 +84,10 @@ cpPreviousPassword = lens _cpPreviousPassword (\ s a -> s{_cpPreviousPassword = 
 -- | The new password in the change password request.
 cpProposedPassword :: Lens' ChangePassword Text
 cpProposedPassword = lens _cpProposedPassword (\ s a -> s{_cpProposedPassword = a}) . _Sensitive;
+
+-- | The access token in the change password request.
+cpAccessToken :: Lens' ChangePassword Text
+cpAccessToken = lens _cpAccessToken (\ s a -> s{_cpAccessToken = a}) . _Sensitive;
 
 instance AWSRequest ChangePassword where
         type Rs ChangePassword = ChangePasswordResponse
@@ -114,9 +115,9 @@ instance ToJSON ChangePassword where
         toJSON ChangePassword'{..}
           = object
               (catMaybes
-                 [("AccessToken" .=) <$> _cpAccessToken,
-                  Just ("PreviousPassword" .= _cpPreviousPassword),
-                  Just ("ProposedPassword" .= _cpProposedPassword)])
+                 [Just ("PreviousPassword" .= _cpPreviousPassword),
+                  Just ("ProposedPassword" .= _cpProposedPassword),
+                  Just ("AccessToken" .= _cpAccessToken)])
 
 instance ToPath ChangePassword where
         toPath = const "/"

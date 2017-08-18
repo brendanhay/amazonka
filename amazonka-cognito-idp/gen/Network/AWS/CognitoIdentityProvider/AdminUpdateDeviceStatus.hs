@@ -66,7 +66,7 @@ data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
 --
 -- * 'audsDeviceRememberedStatus' - The status indicating whether a device has been remembered or not.
 --
--- * 'audsUserPoolId' - The user pool ID>
+-- * 'audsUserPoolId' - The user pool ID.
 --
 -- * 'audsUsername' - The user name.
 --
@@ -88,7 +88,7 @@ adminUpdateDeviceStatus pUserPoolId_ pUsername_ pDeviceKey_ =
 audsDeviceRememberedStatus :: Lens' AdminUpdateDeviceStatus (Maybe DeviceRememberedStatusType)
 audsDeviceRememberedStatus = lens _audsDeviceRememberedStatus (\ s a -> s{_audsDeviceRememberedStatus = a});
 
--- | The user pool ID>
+-- | The user pool ID.
 audsUserPoolId :: Lens' AdminUpdateDeviceStatus Text
 audsUserPoolId = lens _audsUserPoolId (\ s a -> s{_audsUserPoolId = a});
 

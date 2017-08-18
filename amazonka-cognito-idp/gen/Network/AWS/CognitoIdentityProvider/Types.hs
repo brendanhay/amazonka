@@ -21,12 +21,14 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _InvalidParameterException
     , _InvalidLambdaResponseException
     , _InvalidEmailRoleAccessPolicyException
+    , _UnsupportedIdentityProviderException
     , _UserNotFoundException
     , _UnexpectedLambdaException
     , _NotAuthorizedException
     , _InternalErrorException
     , _InvalidUserPoolConfigurationException
     , _InvalidSmsRoleAccessPolicyException
+    , _InvalidOAuthFlowException
     , _CodeMismatchException
     , _UserImportInProgressException
     , _InvalidSmsRoleTrustRelationshipException
@@ -40,9 +42,11 @@ module Network.AWS.CognitoIdentityProvider.Types
     , _UserNotConfirmedException
     , _GroupExistsException
     , _CodeDeliveryFailureException
+    , _ScopeDoesNotExistException
     , _ResourceNotFoundException
     , _MFAMethodNotFoundException
     , _AliasExistsException
+    , _DuplicateProviderException
     , _LimitExceededException
     , _InvalidPasswordException
     , _UsernameExistsException
@@ -59,17 +63,29 @@ module Network.AWS.CognitoIdentityProvider.Types
     -- * ChallengeNameType
     , ChallengeNameType (..)
 
+    -- * DefaultEmailOptionType
+    , DefaultEmailOptionType (..)
+
     -- * DeliveryMediumType
     , DeliveryMediumType (..)
 
     -- * DeviceRememberedStatusType
     , DeviceRememberedStatusType (..)
 
+    -- * DomainStatusType
+    , DomainStatusType (..)
+
     -- * ExplicitAuthFlowsType
     , ExplicitAuthFlowsType (..)
 
+    -- * IdentityProviderTypeType
+    , IdentityProviderTypeType (..)
+
     -- * MessageActionType
     , MessageActionType (..)
+
+    -- * OAuthFlowType
+    , OAuthFlowType (..)
 
     -- * StatusType
     , StatusType (..)
@@ -82,6 +98,9 @@ module Network.AWS.CognitoIdentityProvider.Types
 
     -- * UserStatusType
     , UserStatusType (..)
+
+    -- * UsernameAttributeType
+    , UsernameAttributeType (..)
 
     -- * VerifiedAttributeType
     , VerifiedAttributeType (..)
@@ -137,6 +156,17 @@ module Network.AWS.CognitoIdentityProvider.Types
     , dtDeviceKey
     , dtDeviceLastAuthenticatedDate
 
+    -- * DomainDescriptionType
+    , DomainDescriptionType
+    , domainDescriptionType
+    , ddtStatus
+    , ddtCloudFrontDistribution
+    , ddtUserPoolId
+    , ddtDomain
+    , ddtAWSAccountId
+    , ddtVersion
+    , ddtS3Bucket
+
     -- * EmailConfigurationType
     , EmailConfigurationType
     , emailConfigurationType
@@ -153,6 +183,18 @@ module Network.AWS.CognitoIdentityProvider.Types
     , gtGroupName
     , gtDescription
     , gtRoleARN
+
+    -- * IdentityProviderType
+    , IdentityProviderType
+    , identityProviderType
+    , iptLastModifiedDate
+    , iptUserPoolId
+    , iptProviderType
+    , iptCreationDate
+    , iptIdpIdentifiers
+    , iptAttributeMapping
+    , iptProviderDetails
+    , iptProviderName
 
     -- * LambdaConfigType
     , LambdaConfigType
@@ -200,6 +242,35 @@ module Network.AWS.CognitoIdentityProvider.Types
     , pptMinimumLength
     , pptRequireSymbols
 
+    -- * ProviderDescription
+    , ProviderDescription
+    , providerDescription
+    , pdLastModifiedDate
+    , pdProviderType
+    , pdCreationDate
+    , pdProviderName
+
+    -- * ProviderUserIdentifierType
+    , ProviderUserIdentifierType
+    , providerUserIdentifierType
+    , puitProviderAttributeValue
+    , puitProviderAttributeName
+    , puitProviderName
+
+    -- * ResourceServerScopeType
+    , ResourceServerScopeType
+    , resourceServerScopeType
+    , rsstScopeName
+    , rsstScopeDescription
+
+    -- * ResourceServerType
+    , ResourceServerType
+    , resourceServerType
+    , rstUserPoolId
+    , rstIdentifier
+    , rstScopes
+    , rstName
+
     -- * SchemaAttributeType
     , SchemaAttributeType
     , schemaAttributeType
@@ -222,6 +293,17 @@ module Network.AWS.CognitoIdentityProvider.Types
     , stringAttributeConstraintsType
     , sactMaxLength
     , sactMinLength
+
+    -- * UICustomizationType
+    , UICustomizationType
+    , uICustomizationType
+    , uictClientId
+    , uictLastModifiedDate
+    , uictUserPoolId
+    , uictCSS
+    , uictCSSVersion
+    , uictImageURL
+    , uictCreationDate
 
     -- * UserImportJobType
     , UserImportJobType
@@ -255,11 +337,18 @@ module Network.AWS.CognitoIdentityProvider.Types
     , upctExplicitAuthFlows
     , upctClientSecret
     , upctLastModifiedDate
+    , upctSupportedIdentityProviders
+    , upctLogoutURLs
+    , upctAllowedOAuthFlowsUserPoolClient
     , upctUserPoolId
+    , upctDefaultRedirectURI
     , upctWriteAttributes
     , upctCreationDate
     , upctReadAttributes
+    , upctAllowedOAuthScopes
+    , upctAllowedOAuthFlows
     , upctClientName
+    , upctCallbackURLs
 
     -- * UserPoolDescriptionType
     , UserPoolDescriptionType
@@ -283,11 +372,13 @@ module Network.AWS.CognitoIdentityProvider.Types
     , uptUserPoolTags
     , uptEmailConfigurationFailure
     , uptLastModifiedDate
+    , uptVerificationMessageTemplate
     , uptEstimatedNumberOfUsers
     , uptEmailVerificationMessage
     , uptSmsAuthenticationMessage
     , uptSchemaAttributes
     , uptEmailVerificationSubject
+    , uptUsernameAttributes
     , uptAliasAttributes
     , uptEmailConfiguration
     , uptSmsVerificationMessage
@@ -313,6 +404,16 @@ module Network.AWS.CognitoIdentityProvider.Types
     , utAttributes
     , utMFAOptions
     , utUserLastModifiedDate
+
+    -- * VerificationMessageTemplateType
+    , VerificationMessageTemplateType
+    , verificationMessageTemplateType
+    , vmttDefaultEmailOption
+    , vmttEmailSubject
+    , vmttEmailSubjectByLink
+    , vmttSmsMessage
+    , vmttEmailMessageByLink
+    , vmttEmailMessage
     ) where
 
 import           Network.AWS.CognitoIdentityProvider.Types.Product
@@ -344,6 +445,8 @@ cognitoIdentityProvider =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -392,6 +495,15 @@ _InvalidEmailRoleAccessPolicyException =
         cognitoIdentityProvider
         "InvalidEmailRoleAccessPolicyException"
 
+-- | This exception is thrown when the specified identifier is not supported.
+--
+--
+_UnsupportedIdentityProviderException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedIdentityProviderException =
+    _MatchServiceError
+        cognitoIdentityProvider
+        "UnsupportedIdentityProviderException"
+
 -- | This exception is thrown when a user is not found.
 --
 --
@@ -399,14 +511,14 @@ _UserNotFoundException :: AsError a => Getting (First ServiceError) a ServiceErr
 _UserNotFoundException =
     _MatchServiceError cognitoIdentityProvider "UserNotFoundException"
 
--- | This exception gets thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.
+-- | This exception is thrown when the Amazon Cognito service encounters an unexpected exception with the AWS Lambda service.
 --
 --
 _UnexpectedLambdaException :: AsError a => Getting (First ServiceError) a ServiceError
 _UnexpectedLambdaException =
     _MatchServiceError cognitoIdentityProvider "UnexpectedLambdaException"
 
--- | This exception gets thrown when a user is not authorized.
+-- | This exception is thrown when a user is not authorized.
 --
 --
 _NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -438,6 +550,13 @@ _InvalidSmsRoleAccessPolicyException =
         cognitoIdentityProvider
         "InvalidSmsRoleAccessPolicyException"
 
+-- | This exception is thrown when the specified OAuth flow is invalid.
+--
+--
+_InvalidOAuthFlowException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidOAuthFlowException =
+    _MatchServiceError cognitoIdentityProvider "InvalidOAuthFlowException"
+
 -- | This exception is thrown if the provided code does not match what the server was expecting.
 --
 --
@@ -461,14 +580,14 @@ _InvalidSmsRoleTrustRelationshipException =
         cognitoIdentityProvider
         "InvalidSmsRoleTrustRelationshipException"
 
--- | This exception gets thrown when a user pool tag cannot be set or updated.
+-- | This exception is thrown when a user pool tag cannot be set or updated.
 --
 --
 _UserPoolTaggingException :: AsError a => Getting (First ServiceError) a ServiceError
 _UserPoolTaggingException =
     _MatchServiceError cognitoIdentityProvider "UserPoolTaggingException"
 
--- | This exception gets thrown when the user has made too many requests for a given operation.
+-- | This exception is thrown when the user has made too many requests for a given operation.
 --
 --
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -484,7 +603,7 @@ _ConcurrentModificationException =
         cognitoIdentityProvider
         "ConcurrentModificationException"
 
--- | This exception gets thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
+-- | This exception is thrown when the Amazon Cognito service encounters a user validation exception with the AWS Lambda service.
 --
 --
 _UserLambdaValidationException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -505,7 +624,7 @@ _ExpiredCodeException :: AsError a => Getting (First ServiceError) a ServiceErro
 _ExpiredCodeException =
     _MatchServiceError cognitoIdentityProvider "ExpiredCodeException"
 
--- | This exception gets thrown when the user has made too many failed attempts for a given action (e.g., sign in).
+-- | This exception is thrown when the user has made too many failed attempts for a given action (e.g., sign in).
 --
 --
 _TooManyFailedAttemptsException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -533,6 +652,13 @@ _CodeDeliveryFailureException :: AsError a => Getting (First ServiceError) a Ser
 _CodeDeliveryFailureException =
     _MatchServiceError cognitoIdentityProvider "CodeDeliveryFailureException"
 
+-- | This exception is thrown when the specified scope does not exist.
+--
+--
+_ScopeDoesNotExistException :: AsError a => Getting (First ServiceError) a ServiceError
+_ScopeDoesNotExistException =
+    _MatchServiceError cognitoIdentityProvider "ScopeDoesNotExistException"
+
 -- | This exception is thrown when the Amazon Cognito service cannot find the requested resource.
 --
 --
@@ -553,6 +679,13 @@ _MFAMethodNotFoundException =
 _AliasExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 _AliasExistsException =
     _MatchServiceError cognitoIdentityProvider "AliasExistsException"
+
+-- | This exception is thrown when the provider is already supported by the user pool.
+--
+--
+_DuplicateProviderException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateProviderException =
+    _MatchServiceError cognitoIdentityProvider "DuplicateProviderException"
 
 -- | This exception is thrown when a user exceeds the limit for a requested AWS resource.
 --

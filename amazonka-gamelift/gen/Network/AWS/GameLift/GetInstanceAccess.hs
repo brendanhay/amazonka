@@ -49,7 +49,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'getInstanceAccess' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'getInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
     { _giaFleetId    :: !Text
     , _giaInstanceId :: !Text
@@ -115,7 +119,11 @@ instance ToPath GetInstanceAccess where
 instance ToQuery GetInstanceAccess where
         toQuery = const mempty
 
--- | /See:/ 'getInstanceAccessResponse' smart constructor.
+-- | Represents the returned data in response to a request action.
+--
+--
+--
+-- /See:/ 'getInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
     { _giarsInstanceAccess :: !(Maybe InstanceAccess)
     , _giarsResponseStatus :: !Int

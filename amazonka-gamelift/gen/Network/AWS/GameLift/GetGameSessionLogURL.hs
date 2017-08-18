@@ -18,7 +18,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the location of stored game session logs for a specified game session. When a game session is terminated, Amazon GameLift automatically stores the logs in Amazon S3. Use this URL to download the logs.
+-- Retrieves the location of stored game session logs for a specified game session. When a game session is terminated, Amazon GameLift automatically stores the logs in Amazon S3 and retains them for 14 days. Use this URL to download the logs.
+--
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
 --
 --
 module Network.AWS.GameLift.GetGameSessionLogURL

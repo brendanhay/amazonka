@@ -21,7 +21,7 @@ import           Network.AWS.GameLift.Types.Sum
 import           Network.AWS.Lens
 import           Network.AWS.Prelude
 
--- | AWS access credentials sometimes used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling 'RequestUploadCredentials' .
+-- | Temporary access credentials used for uploading game build files to Amazon GameLift. They are valid for a limited time. If they expire before you upload your game build, get a new set by calling 'RequestUploadCredentials' .
 --
 --
 --
@@ -36,11 +36,11 @@ data AWSCredentials = AWSCredentials'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acSecretAccessKey' - Secret key for an AWS account.
+-- * 'acSecretAccessKey' - Temporary secret key allowing access to the Amazon GameLift S3 account.
 --
--- * 'acSessionToken' - Token specific to a build ID.
+-- * 'acSessionToken' - Token used to associate a specific build ID with the files uploaded using these credentials.
 --
--- * 'acAccessKeyId' - Access key for an AWS account.
+-- * 'acAccessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
 awsCredentials
     :: AWSCredentials
 awsCredentials =
@@ -50,15 +50,15 @@ awsCredentials =
     , _acAccessKeyId = Nothing
     }
 
--- | Secret key for an AWS account.
+-- | Temporary secret key allowing access to the Amazon GameLift S3 account.
 acSecretAccessKey :: Lens' AWSCredentials (Maybe Text)
 acSecretAccessKey = lens _acSecretAccessKey (\ s a -> s{_acSecretAccessKey = a});
 
--- | Token specific to a build ID.
+-- | Token used to associate a specific build ID with the files uploaded using these credentials.
 acSessionToken :: Lens' AWSCredentials (Maybe Text)
 acSessionToken = lens _acSessionToken (\ s a -> s{_acSessionToken = a});
 
--- | Access key for an AWS account.
+-- | Temporary key allowing access to the Amazon GameLift S3 account.
 acAccessKeyId :: Lens' AWSCredentials (Maybe Text)
 acAccessKeyId = lens _acAccessKeyId (\ s a -> s{_acAccessKeyId = a});
 
@@ -88,6 +88,8 @@ instance NFData AWSCredentials
 --     * 'UpdateAlias'
 --
 --     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
 --
 --
 --
@@ -176,6 +178,75 @@ instance FromJSON Alias where
 instance Hashable Alias
 
 instance NFData Alias
+
+-- | Values for use in 'Player' attribute type:value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array or data map. Each @AttributeValue@ object can use only one of the available properties.
+--
+--
+--
+-- /See:/ 'attributeValue' smart constructor.
+data AttributeValue = AttributeValue'
+    { _avSL  :: !(Maybe [Text])
+    , _avSDM :: !(Maybe (Map Text Double))
+    , _avN   :: !(Maybe Double)
+    , _avS   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avSL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurances of the the repeated value after the first of a repeated value are ignored.
+--
+-- * 'avSDM' - For a map of up to 10 type:value pairs. Maximum length for each string value is 100 characters.
+--
+-- * 'avN' - For number values, expressed as double.
+--
+-- * 'avS' - For single string values. Maximum string length is 100 characters.
+attributeValue
+    :: AttributeValue
+attributeValue =
+    AttributeValue'
+    { _avSL = Nothing
+    , _avSDM = Nothing
+    , _avN = Nothing
+    , _avS = Nothing
+    }
+
+-- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurances of the the repeated value after the first of a repeated value are ignored.
+avSL :: Lens' AttributeValue [Text]
+avSL = lens _avSL (\ s a -> s{_avSL = a}) . _Default . _Coerce;
+
+-- | For a map of up to 10 type:value pairs. Maximum length for each string value is 100 characters.
+avSDM :: Lens' AttributeValue (HashMap Text Double)
+avSDM = lens _avSDM (\ s a -> s{_avSDM = a}) . _Default . _Map;
+
+-- | For number values, expressed as double.
+avN :: Lens' AttributeValue (Maybe Double)
+avN = lens _avN (\ s a -> s{_avN = a});
+
+-- | For single string values. Maximum string length is 100 characters.
+avS :: Lens' AttributeValue (Maybe Text)
+avS = lens _avS (\ s a -> s{_avS = a});
+
+instance FromJSON AttributeValue where
+        parseJSON
+          = withObject "AttributeValue"
+              (\ x ->
+                 AttributeValue' <$>
+                   (x .:? "SL" .!= mempty) <*> (x .:? "SDM" .!= mempty)
+                     <*> (x .:? "N")
+                     <*> (x .:? "S"))
+
+instance Hashable AttributeValue
+
+instance NFData AttributeValue
+
+instance ToJSON AttributeValue where
+        toJSON AttributeValue'{..}
+          = object
+              (catMaybes
+                 [("SL" .=) <$> _avSL, ("SDM" .=) <$> _avSDM,
+                  ("N" .=) <$> _avN, ("S" .=) <$> _avS])
 
 -- | Properties describing a game build.
 --
@@ -327,6 +398,58 @@ instance ToJSON DesiredPlayerSession where
 -- | Current status of fleet capacity. The number of active instances should match or be in the process of matching the number of desired instances. Pending and terminating counts are non-zero only if fleet capacity is adjusting to an 'UpdateFleetCapacity' request, or if access to resources is temporarily affected.
 --
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 --
 -- /See:/ 'ec2InstanceCounts' smart constructor.
 data EC2InstanceCounts = EC2InstanceCounts'
@@ -467,17 +590,18 @@ instance Hashable EC2InstanceLimit
 
 instance NFData EC2InstanceLimit
 
--- | Log entry describing an event involving Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.
+-- | Log entry describing an event that involves Amazon GameLift resources (such as a fleet). In addition to tracking activity, event codes and messages can provide additional information for troubleshooting and debugging problems.
 --
 --
 --
 -- /See:/ 'event' smart constructor.
 data Event = Event'
-    { _eResourceId :: !(Maybe Text)
-    , _eEventTime  :: !(Maybe POSIX)
-    , _eMessage    :: !(Maybe Text)
-    , _eEventCode  :: !(Maybe EventCode)
-    , _eEventId    :: !(Maybe Text)
+    { _eResourceId      :: !(Maybe Text)
+    , _ePreSignedLogURL :: !(Maybe Text)
+    , _eEventTime       :: !(Maybe POSIX)
+    , _eMessage         :: !(Maybe Text)
+    , _eEventCode       :: !(Maybe EventCode)
+    , _eEventId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
@@ -486,11 +610,13 @@ data Event = Event'
 --
 -- * 'eResourceId' - Unique identifier for an event resource, such as a fleet ID.
 --
+-- * 'ePreSignedLogURL' - Location of stored logs with additional detail that is related to the event. This is useful for debugging issues. The URL is valid for 15 minutes. You can also access fleet creation logs through the Amazon GameLift console.
+--
 -- * 'eEventTime' - Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
 -- * 'eMessage' - Additional information related to the event.
 --
--- * 'eEventCode' - Type of event being logged.
+-- * 'eEventCode' - Type of event being logged. The following events are currently in use:     * General events:     * __GENERIC_EVENT__ – An unspecified event has occurred.     * Fleet creation events:     * __FLEET_CREATED__ – A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * __FLEET_STATE_DOWNLOADING__ – Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * __FLEET_BINARY_DOWNLOAD_FAILED__ – The build failed to download to the fleet instance.     * __FLEET_CREATION_EXTRACTING_BUILD__ – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * __FLEET_CREATION_RUNNING_INSTALLER__ – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_CREATION_VALIDATING_RUNTIME_CONFIG__ – The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_STATE_VALIDATING__ – Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * __FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND__ – Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * __FLEET_STATE_BUILDING__ – Fleet status changed from @VALIDATING@ to @BUILDING@ .     * __FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE__ – Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * __FLEET_STATE_ACTIVATING__ – Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * __FLEET_ACTIVATION_FAILED__ - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * __FLEET_STATE_ACTIVE__ – The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions.     * Other fleet events:     * __FLEET_SCALING_EVENT__ – A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * __FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED__ – A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * __FLEET_DELETED__ – A request to delete a fleet was initiated.
 --
 -- * 'eEventId' - Unique identifier for a fleet event.
 event
@@ -498,6 +624,7 @@ event
 event =
     Event'
     { _eResourceId = Nothing
+    , _ePreSignedLogURL = Nothing
     , _eEventTime = Nothing
     , _eMessage = Nothing
     , _eEventCode = Nothing
@@ -508,6 +635,10 @@ event =
 eResourceId :: Lens' Event (Maybe Text)
 eResourceId = lens _eResourceId (\ s a -> s{_eResourceId = a});
 
+-- | Location of stored logs with additional detail that is related to the event. This is useful for debugging issues. The URL is valid for 15 minutes. You can also access fleet creation logs through the Amazon GameLift console.
+ePreSignedLogURL :: Lens' Event (Maybe Text)
+ePreSignedLogURL = lens _ePreSignedLogURL (\ s a -> s{_ePreSignedLogURL = a});
+
 -- | Time stamp indicating when this event occurred. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 eEventTime :: Lens' Event (Maybe UTCTime)
 eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
@@ -516,7 +647,7 @@ eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 eMessage :: Lens' Event (Maybe Text)
 eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
--- | Type of event being logged.
+-- | Type of event being logged. The following events are currently in use:     * General events:     * __GENERIC_EVENT__ – An unspecified event has occurred.     * Fleet creation events:     * __FLEET_CREATED__ – A fleet record was successfully created with a status of @NEW@ . Event messaging includes the fleet ID.     * __FLEET_STATE_DOWNLOADING__ – Fleet status changed from @NEW@ to @DOWNLOADING@ . The compressed build has started downloading to a fleet instance for installation.     * __FLEET_BINARY_DOWNLOAD_FAILED__ – The build failed to download to the fleet instance.     * __FLEET_CREATION_EXTRACTING_BUILD__ – The game server build was successfully downloaded to an instance, and the build files are now being extracted from the uploaded build and saved to an instance. Failure at this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage display a list of the files that are extracted and saved on the instance. Access the logs by using the URL in /PreSignedLogUrl/ .     * __FLEET_CREATION_RUNNING_INSTALLER__ – The game server build files were successfully extracted, and the Amazon GameLift is now running the build's install script (if one is included). Failure in this stage prevents a fleet from moving to @ACTIVE@ status. Logs for this stage list the installation steps and whether or not the install completed successfully. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_CREATION_VALIDATING_RUNTIME_CONFIG__ – The build process was successful, and the Amazon GameLift is now verifying that the game server launch paths, which are specified in the fleet's run-time configuration, exist. If any listed launch path exists, Amazon GameLift tries to launch a game server process and waits for the process to report ready. Failures in this stage prevent a fleet from moving to @ACTIVE@ status. Logs for this stage list the launch paths in the run-time configuration and indicate whether each is found. Access the logs by using the URL in /PreSignedLogUrl/ .      * __FLEET_STATE_VALIDATING__ – Fleet status changed from @DOWNLOADING@ to @VALIDATING@ .     * __FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND__ – Validation of the run-time configuration failed because the executable specified in a launch path does not exist on the instance.     * __FLEET_STATE_BUILDING__ – Fleet status changed from @VALIDATING@ to @BUILDING@ .     * __FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE__ – Validation of the run-time configuration failed because the executable specified in a launch path failed to run on the fleet instance.     * __FLEET_STATE_ACTIVATING__ – Fleet status changed from @BUILDING@ to @ACTIVATING@ .      * __FLEET_ACTIVATION_FAILED__ - The fleet failed to successfully complete one of the steps in the fleet activation process. This event code indicates that the game build was successfully downloaded to a fleet instance, built, and validated, but was not able to start a server process. A possible reason for failure is that the game server is not reporting "process ready" to the Amazon GameLift service.     * __FLEET_STATE_ACTIVE__ – The fleet's status changed from @ACTIVATING@ to @ACTIVE@ . The fleet is now ready to host game sessions.     * Other fleet events:     * __FLEET_SCALING_EVENT__ – A change was made to the fleet's capacity settings (desired instances, minimum/maximum scaling limits). Event messaging includes the new capacity settings.     * __FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED__ – A change was made to the fleet's game session protection policy setting. Event messaging includes both the old and new policy setting.      * __FLEET_DELETED__ – A request to delete a fleet was initiated.
 eEventCode :: Lens' Event (Maybe EventCode)
 eEventCode = lens _eEventCode (\ s a -> s{_eEventCode = a});
 
@@ -529,8 +660,9 @@ instance FromJSON Event where
           = withObject "Event"
               (\ x ->
                  Event' <$>
-                   (x .:? "ResourceId") <*> (x .:? "EventTime") <*>
-                     (x .:? "Message")
+                   (x .:? "ResourceId") <*> (x .:? "PreSignedLogUrl")
+                     <*> (x .:? "EventTime")
+                     <*> (x .:? "Message")
                      <*> (x .:? "EventCode")
                      <*> (x .:? "EventId"))
 
@@ -539,6 +671,58 @@ instance Hashable Event
 instance NFData Event
 
 -- | General properties describing a fleet.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
 --
 --
 --
@@ -555,6 +739,7 @@ data FleetAttributes = FleetAttributes'
     , _faNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
     , _faName                           :: !(Maybe Text)
     , _faServerLaunchPath               :: !(Maybe Text)
+    , _faMetricGroups                   :: !(Maybe [Text])
     , _faFleetId                        :: !(Maybe Text)
     , _faDescription                    :: !(Maybe Text)
     , _faResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
@@ -568,9 +753,9 @@ data FleetAttributes = FleetAttributes'
 --
 -- * 'faStatus' - Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ – A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ – Amazon GameLift is setting up the new fleet, creating new instances with the game build and starting server processes.     * __ACTIVE__ – Hosts can now accept game sessions.     * __ERROR__ – An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ – Hosts are responding to a delete fleet request.     * __TERMINATED__ – The fleet no longer exists.
 --
--- * 'faServerLaunchParameters' - Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'faServerLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 --
--- * 'faLogPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift will automatically upload logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
+-- * 'faLogPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
 --
 -- * 'faOperatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
 --
@@ -584,7 +769,9 @@ data FleetAttributes = FleetAttributes'
 --
 -- * 'faName' - Descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 --
--- * 'faServerLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'faServerLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+--
+-- * 'faMetricGroups' - Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
 --
 -- * 'faFleetId' - Unique identifier for a fleet.
 --
@@ -606,6 +793,7 @@ fleetAttributes =
     , _faNewGameSessionProtectionPolicy = Nothing
     , _faName = Nothing
     , _faServerLaunchPath = Nothing
+    , _faMetricGroups = Nothing
     , _faFleetId = Nothing
     , _faDescription = Nothing
     , _faResourceCreationLimitPolicy = Nothing
@@ -619,11 +807,11 @@ faCreationTime = lens _faCreationTime (\ s a -> s{_faCreationTime = a}) . mappin
 faStatus :: Lens' FleetAttributes (Maybe FleetStatus)
 faStatus = lens _faStatus (\ s a -> s{_faStatus = a});
 
--- | Game server launch parameters specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- | Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 faServerLaunchParameters :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchParameters = lens _faServerLaunchParameters (\ s a -> s{_faServerLaunchParameters = a});
 
--- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift will automatically upload logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
+-- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
 faLogPaths :: Lens' FleetAttributes [Text]
 faLogPaths = lens _faLogPaths (\ s a -> s{_faLogPaths = a}) . _Default . _Coerce;
 
@@ -651,9 +839,13 @@ faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\ s a
 faName :: Lens' FleetAttributes (Maybe Text)
 faName = lens _faName (\ s a -> s{_faName = a});
 
--- | Path to a game server executable in the fleet's build, specified for fleets created prior to 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- | Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 faServerLaunchPath :: Lens' FleetAttributes (Maybe Text)
 faServerLaunchPath = lens _faServerLaunchPath (\ s a -> s{_faServerLaunchPath = a});
+
+-- | Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
+faMetricGroups :: Lens' FleetAttributes [Text]
+faMetricGroups = lens _faMetricGroups (\ s a -> s{_faMetricGroups = a}) . _Default . _Coerce;
 
 -- | Unique identifier for a fleet.
 faFleetId :: Lens' FleetAttributes (Maybe Text)
@@ -682,6 +874,7 @@ instance FromJSON FleetAttributes where
                      <*> (x .:? "NewGameSessionProtectionPolicy")
                      <*> (x .:? "Name")
                      <*> (x .:? "ServerLaunchPath")
+                     <*> (x .:? "MetricGroups" .!= mempty)
                      <*> (x .:? "FleetId")
                      <*> (x .:? "Description")
                      <*> (x .:? "ResourceCreationLimitPolicy"))
@@ -691,6 +884,58 @@ instance Hashable FleetAttributes
 instance NFData FleetAttributes
 
 -- | Information about the fleet's capacity. Fleet capacity is measured in EC2 instances. By default, new fleets have a capacity of one instance, but can be updated as needed. The maximum number of instances for a fleet is determined by the fleet's instance type.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
 --
 --
 --
@@ -744,6 +989,58 @@ instance Hashable FleetCapacity
 instance NFData FleetCapacity
 
 -- | Current status of fleet utilization, including the number of game and player sessions being hosted.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
 --
 --
 --
@@ -815,7 +1112,7 @@ instance Hashable FleetUtilization
 
 instance NFData FleetUtilization
 
--- | Set of key-value pairs containing information a server process requires to set up a game session. This object allows you to pass in any set of data needed for your game. For more information, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> .
+-- | Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session, such as to specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session; the server process uses the properties as appropriate. For more information, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create Amazon GameLift Developer Guide> .
 --
 --
 --
@@ -829,9 +1126,9 @@ data GameProperty = GameProperty'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gpKey' - TBD
+-- * 'gpKey' - Game property identifier.
 --
--- * 'gpValue' - TBD
+-- * 'gpValue' - Game property value.
 gameProperty
     :: Text -- ^ 'gpKey'
     -> Text -- ^ 'gpValue'
@@ -842,11 +1139,11 @@ gameProperty pKey_ pValue_ =
     , _gpValue = pValue_
     }
 
--- | TBD
+-- | Game property identifier.
 gpKey :: Lens' GameProperty Text
 gpKey = lens _gpKey (\ s a -> s{_gpKey = a});
 
--- | TBD
+-- | Game property value.
 gpValue :: Lens' GameProperty Text
 gpValue = lens _gpValue (\ s a -> s{_gpValue = a});
 
@@ -869,6 +1166,36 @@ instance ToJSON GameProperty where
 -- | Properties describing a game session.
 --
 --
+-- A game session in ACTIVE status can host players. When a game session ends, its status is set to @TERMINATED@ .
+--
+-- Once the session ends, the game session object is retained for 30 days. This means you can reuse idempotency token values after this time. Game session logs are retained for 14 days.
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
 --
 -- /See:/ 'gameSession' smart constructor.
 data GameSession = GameSession'
@@ -882,6 +1209,7 @@ data GameSession = GameSession'
     , _gsPlayerSessionCreationPolicy :: !(Maybe PlayerSessionCreationPolicy)
     , _gsName                        :: !(Maybe Text)
     , _gsCurrentPlayerSessionCount   :: !(Maybe Nat)
+    , _gsGameSessionData             :: !(Maybe Text)
     , _gsFleetId                     :: !(Maybe Text)
     , _gsCreatorId                   :: !(Maybe Text)
     , _gsPort                        :: !(Maybe Nat)
@@ -895,11 +1223,11 @@ data GameSession = GameSession'
 --
 -- * 'gsStatus' - Current status of the game session. A game session must have an @ACTIVE@ status to have player sessions.
 --
--- * 'gsGameProperties' - Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- * 'gsGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
--- * 'gsIPAddress' - IP address of the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
+-- * 'gsIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 --
--- * 'gsGameSessionId' - Unique identifier for the game session. A game session ID has the following format: "arn:aws:gamelift:<region>::gamesession/<fleet ID>/<game session ID>".
+-- * 'gsGameSessionId' - Unique identifier for the game session. A game session ID has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
 --
 -- * 'gsMaximumPlayerSessionCount' - Maximum number of players that can be connected simultaneously to the game session.
 --
@@ -911,11 +1239,13 @@ data GameSession = GameSession'
 --
 -- * 'gsCurrentPlayerSessionCount' - Number of players currently in the game session.
 --
+-- * 'gsGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+--
 -- * 'gsFleetId' - Unique identifier for a fleet the game session is running on.
 --
 -- * 'gsCreatorId' - Unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists), that limits the number of game sessions a player can create.
 --
--- * 'gsPort' - Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
+-- * 'gsPort' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 gameSession
     :: GameSession
 gameSession =
@@ -930,6 +1260,7 @@ gameSession =
     , _gsPlayerSessionCreationPolicy = Nothing
     , _gsName = Nothing
     , _gsCurrentPlayerSessionCount = Nothing
+    , _gsGameSessionData = Nothing
     , _gsFleetId = Nothing
     , _gsCreatorId = Nothing
     , _gsPort = Nothing
@@ -943,15 +1274,15 @@ gsCreationTime = lens _gsCreationTime (\ s a -> s{_gsCreationTime = a}) . mappin
 gsStatus :: Lens' GameSession (Maybe GameSessionStatus)
 gsStatus = lens _gsStatus (\ s a -> s{_gsStatus = a});
 
--- | Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 gsGameProperties :: Lens' GameSession [GameProperty]
 gsGameProperties = lens _gsGameProperties (\ s a -> s{_gsGameProperties = a}) . _Default . _Coerce;
 
--- | IP address of the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
+-- | IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 gsIPAddress :: Lens' GameSession (Maybe Text)
 gsIPAddress = lens _gsIPAddress (\ s a -> s{_gsIPAddress = a});
 
--- | Unique identifier for the game session. A game session ID has the following format: "arn:aws:gamelift:<region>::gamesession/<fleet ID>/<game session ID>".
+-- | Unique identifier for the game session. A game session ID has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
 gsGameSessionId :: Lens' GameSession (Maybe Text)
 gsGameSessionId = lens _gsGameSessionId (\ s a -> s{_gsGameSessionId = a});
 
@@ -975,6 +1306,10 @@ gsName = lens _gsName (\ s a -> s{_gsName = a});
 gsCurrentPlayerSessionCount :: Lens' GameSession (Maybe Natural)
 gsCurrentPlayerSessionCount = lens _gsCurrentPlayerSessionCount (\ s a -> s{_gsCurrentPlayerSessionCount = a}) . mapping _Nat;
 
+-- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+gsGameSessionData :: Lens' GameSession (Maybe Text)
+gsGameSessionData = lens _gsGameSessionData (\ s a -> s{_gsGameSessionData = a});
+
 -- | Unique identifier for a fleet the game session is running on.
 gsFleetId :: Lens' GameSession (Maybe Text)
 gsFleetId = lens _gsFleetId (\ s a -> s{_gsFleetId = a});
@@ -983,7 +1318,7 @@ gsFleetId = lens _gsFleetId (\ s a -> s{_gsFleetId = a});
 gsCreatorId :: Lens' GameSession (Maybe Text)
 gsCreatorId = lens _gsCreatorId (\ s a -> s{_gsCreatorId = a});
 
--- | Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
+-- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 gsPort :: Lens' GameSession (Maybe Natural)
 gsPort = lens _gsPort (\ s a -> s{_gsPort = a}) . mapping _Nat;
 
@@ -1001,6 +1336,7 @@ instance FromJSON GameSession where
                      <*> (x .:? "PlayerSessionCreationPolicy")
                      <*> (x .:? "Name")
                      <*> (x .:? "CurrentPlayerSessionCount")
+                     <*> (x .:? "GameSessionData")
                      <*> (x .:? "FleetId")
                      <*> (x .:? "CreatorId")
                      <*> (x .:? "Port"))
@@ -1008,6 +1344,69 @@ instance FromJSON GameSession where
 instance Hashable GameSession
 
 instance NFData GameSession
+
+-- | Connection information for the new game session that is created with matchmaking. (with 'StartMatchmaking' ). Once a match is set, the FlexMatch engine places the match and creates a new game session for it. This information, including the game session endpoint and player sessions for each player in the original matchmaking request, is added to the 'MatchmakingTicket' , which can be retrieved by calling 'DescribeMatchmaking' .
+--
+--
+--
+-- /See:/ 'gameSessionConnectionInfo' smart constructor.
+data GameSessionConnectionInfo = GameSessionConnectionInfo'
+    { _gsciMatchedPlayerSessions :: !(Maybe [MatchedPlayerSession])
+    , _gsciIPAddress             :: !(Maybe Text)
+    , _gsciGameSessionARN        :: !(Maybe Text)
+    , _gsciPort                  :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GameSessionConnectionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsciMatchedPlayerSessions' - Collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+--
+-- * 'gsciIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
+--
+-- * 'gsciGameSessionARN' - Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session and uniquely identifies it.
+--
+-- * 'gsciPort' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
+gameSessionConnectionInfo
+    :: GameSessionConnectionInfo
+gameSessionConnectionInfo =
+    GameSessionConnectionInfo'
+    { _gsciMatchedPlayerSessions = Nothing
+    , _gsciIPAddress = Nothing
+    , _gsciGameSessionARN = Nothing
+    , _gsciPort = Nothing
+    }
+
+-- | Collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+gsciMatchedPlayerSessions :: Lens' GameSessionConnectionInfo [MatchedPlayerSession]
+gsciMatchedPlayerSessions = lens _gsciMatchedPlayerSessions (\ s a -> s{_gsciMatchedPlayerSessions = a}) . _Default . _Coerce;
+
+-- | IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
+gsciIPAddress :: Lens' GameSessionConnectionInfo (Maybe Text)
+gsciIPAddress = lens _gsciIPAddress (\ s a -> s{_gsciIPAddress = a});
+
+-- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session and uniquely identifies it.
+gsciGameSessionARN :: Lens' GameSessionConnectionInfo (Maybe Text)
+gsciGameSessionARN = lens _gsciGameSessionARN (\ s a -> s{_gsciGameSessionARN = a});
+
+-- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
+gsciPort :: Lens' GameSessionConnectionInfo (Maybe Natural)
+gsciPort = lens _gsciPort (\ s a -> s{_gsciPort = a}) . mapping _Nat;
+
+instance FromJSON GameSessionConnectionInfo where
+        parseJSON
+          = withObject "GameSessionConnectionInfo"
+              (\ x ->
+                 GameSessionConnectionInfo' <$>
+                   (x .:? "MatchedPlayerSessions" .!= mempty) <*>
+                     (x .:? "IpAddress")
+                     <*> (x .:? "GameSessionArn")
+                     <*> (x .:? "Port"))
+
+instance Hashable GameSessionConnectionInfo
+
+instance NFData GameSessionConnectionInfo
 
 -- | A game session's properties plus the protection policy currently in force.
 --
@@ -1072,41 +1471,56 @@ data GameSessionPlacement = GameSessionPlacement'
     { _gspStatus                    :: !(Maybe GameSessionPlacementState)
     , _gspPlacementId               :: !(Maybe Text)
     , _gspGameProperties            :: !(Maybe [GameProperty])
+    , _gspIPAddress                 :: !(Maybe Text)
     , _gspGameSessionName           :: !(Maybe Text)
     , _gspStartTime                 :: !(Maybe POSIX)
+    , _gspGameSessionId             :: !(Maybe Text)
     , _gspGameSessionRegion         :: !(Maybe Text)
     , _gspMaximumPlayerSessionCount :: !(Maybe Nat)
     , _gspEndTime                   :: !(Maybe POSIX)
     , _gspGameSessionARN            :: !(Maybe Text)
     , _gspPlayerLatencies           :: !(Maybe [PlayerLatency])
+    , _gspGameSessionData           :: !(Maybe Text)
     , _gspGameSessionQueueName      :: !(Maybe Text)
+    , _gspPlacedPlayerSessions      :: !(Maybe [PlacedPlayerSession])
+    , _gspPort                      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GameSessionPlacement' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gspStatus' - Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was cancelled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
+-- * 'gspStatus' - Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
 --
 -- * 'gspPlacementId' - Unique identifier for a game session placement.
 --
--- * 'gspGameProperties' - Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- * 'gspGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+--
+-- * 'gspIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
 --
 -- * 'gspGameSessionName' - Descriptive label that is associated with a game session. Session names do not need to be unique.
 --
 -- * 'gspStartTime' - Time stamp indicating when this request was placed in the queue. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'gspGameSessionRegion' - Name of the region where the game session created by this placement request is running. This value exists only if the game session placement status is Completed.
+-- * 'gspGameSessionId' - Unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+--
+-- * 'gspGameSessionRegion' - Name of the region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
 --
 -- * 'gspMaximumPlayerSessionCount' - Maximum number of players that can be connected simultaneously to the game session.
 --
--- * 'gspEndTime' - Time stamp indicating when this request was completed, cancelled, or timed out.
+-- * 'gspEndTime' - Time stamp indicating when this request was completed, canceled, or timed out.
 --
--- * 'gspGameSessionARN' - Identifier for the game session created by this placement request. This value exists only if the game session placement status is Completed. This identifier is unique across all regions.
+-- * 'gspGameSessionARN' - Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all regions. You can use this value as a @GameSessionId@ value as needed.
 --
--- * 'gspPlayerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that players experience when connected to AWS regions.
+-- * 'gspPlayerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions.
 --
--- * 'gspGameSessionQueueName' - Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- * 'gspGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+--
+-- * 'gspGameSessionQueueName' - Descriptive label that is associated with game session queue. Queue names must be unique within each region.
+--
+-- * 'gspPlacedPlayerSessions' - Collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+--
+-- * 'gspPort' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
 gameSessionPlacement
     :: GameSessionPlacement
 gameSessionPlacement =
@@ -1114,17 +1528,22 @@ gameSessionPlacement =
     { _gspStatus = Nothing
     , _gspPlacementId = Nothing
     , _gspGameProperties = Nothing
+    , _gspIPAddress = Nothing
     , _gspGameSessionName = Nothing
     , _gspStartTime = Nothing
+    , _gspGameSessionId = Nothing
     , _gspGameSessionRegion = Nothing
     , _gspMaximumPlayerSessionCount = Nothing
     , _gspEndTime = Nothing
     , _gspGameSessionARN = Nothing
     , _gspPlayerLatencies = Nothing
+    , _gspGameSessionData = Nothing
     , _gspGameSessionQueueName = Nothing
+    , _gspPlacedPlayerSessions = Nothing
+    , _gspPort = Nothing
     }
 
--- | Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was cancelled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
+-- | Current status of the game session placement request.     * __PENDING__ – The placement request is currently in the queue waiting to be processed.     * __FULFILLED__ – A new game session and player sessions (if requested) have been successfully created. Values for /GameSessionArn/ and /GameSessionRegion/ are available.      * __CANCELLED__ – The placement request was canceled with a call to 'StopGameSessionPlacement' .     * __TIMED_OUT__ – A new game session was not successfully created before the time limit expired. You can resubmit the placement request as needed.
 gspStatus :: Lens' GameSessionPlacement (Maybe GameSessionPlacementState)
 gspStatus = lens _gspStatus (\ s a -> s{_gspStatus = a});
 
@@ -1132,9 +1551,13 @@ gspStatus = lens _gspStatus (\ s a -> s{_gspStatus = a});
 gspPlacementId :: Lens' GameSessionPlacement (Maybe Text)
 gspPlacementId = lens _gspPlacementId (\ s a -> s{_gspPlacementId = a});
 
--- | Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 gspGameProperties :: Lens' GameSessionPlacement [GameProperty]
 gspGameProperties = lens _gspGameProperties (\ s a -> s{_gspGameProperties = a}) . _Default . _Coerce;
+
+-- | IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+gspIPAddress :: Lens' GameSessionPlacement (Maybe Text)
+gspIPAddress = lens _gspIPAddress (\ s a -> s{_gspIPAddress = a});
 
 -- | Descriptive label that is associated with a game session. Session names do not need to be unique.
 gspGameSessionName :: Lens' GameSessionPlacement (Maybe Text)
@@ -1144,7 +1567,11 @@ gspGameSessionName = lens _gspGameSessionName (\ s a -> s{_gspGameSessionName = 
 gspStartTime :: Lens' GameSessionPlacement (Maybe UTCTime)
 gspStartTime = lens _gspStartTime (\ s a -> s{_gspStartTime = a}) . mapping _Time;
 
--- | Name of the region where the game session created by this placement request is running. This value exists only if the game session placement status is Completed.
+-- | Unique identifier for the game session. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+gspGameSessionId :: Lens' GameSessionPlacement (Maybe Text)
+gspGameSessionId = lens _gspGameSessionId (\ s a -> s{_gspGameSessionId = a});
+
+-- | Name of the region where the game session created by this placement request is running. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
 gspGameSessionRegion :: Lens' GameSessionPlacement (Maybe Text)
 gspGameSessionRegion = lens _gspGameSessionRegion (\ s a -> s{_gspGameSessionRegion = a});
 
@@ -1152,21 +1579,33 @@ gspGameSessionRegion = lens _gspGameSessionRegion (\ s a -> s{_gspGameSessionReg
 gspMaximumPlayerSessionCount :: Lens' GameSessionPlacement (Maybe Natural)
 gspMaximumPlayerSessionCount = lens _gspMaximumPlayerSessionCount (\ s a -> s{_gspMaximumPlayerSessionCount = a}) . mapping _Nat;
 
--- | Time stamp indicating when this request was completed, cancelled, or timed out.
+-- | Time stamp indicating when this request was completed, canceled, or timed out.
 gspEndTime :: Lens' GameSessionPlacement (Maybe UTCTime)
 gspEndTime = lens _gspEndTime (\ s a -> s{_gspEndTime = a}) . mapping _Time;
 
--- | Identifier for the game session created by this placement request. This value exists only if the game session placement status is Completed. This identifier is unique across all regions.
+-- | Identifier for the game session created by this placement request. This value is set once the new game session is placed (placement status is @FULFILLED@ ). This identifier is unique across all regions. You can use this value as a @GameSessionId@ value as needed.
 gspGameSessionARN :: Lens' GameSessionPlacement (Maybe Text)
 gspGameSessionARN = lens _gspGameSessionARN (\ s a -> s{_gspGameSessionARN = a});
 
--- | Set of values, expressed in milliseconds, indicating the amount of latency that players experience when connected to AWS regions.
+-- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions.
 gspPlayerLatencies :: Lens' GameSessionPlacement [PlayerLatency]
 gspPlayerLatencies = lens _gspPlayerLatencies (\ s a -> s{_gspPlayerLatencies = a}) . _Default . _Coerce;
 
--- | Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+gspGameSessionData :: Lens' GameSessionPlacement (Maybe Text)
+gspGameSessionData = lens _gspGameSessionData (\ s a -> s{_gspGameSessionData = a});
+
+-- | Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 gspGameSessionQueueName :: Lens' GameSessionPlacement (Maybe Text)
 gspGameSessionQueueName = lens _gspGameSessionQueueName (\ s a -> s{_gspGameSessionQueueName = a});
+
+-- | Collection of information on player sessions created in response to the game session placement request. These player sessions are created only once a new game session is successfully placed (placement status is @FULFILLED@ ). This information includes the player ID (as provided in the placement request) and the corresponding player session ID. Retrieve full player sessions by calling 'DescribePlayerSessions' with the player session ID.
+gspPlacedPlayerSessions :: Lens' GameSessionPlacement [PlacedPlayerSession]
+gspPlacedPlayerSessions = lens _gspPlacedPlayerSessions (\ s a -> s{_gspPlacedPlayerSessions = a}) . _Default . _Coerce;
+
+-- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number. This value is set once the new game session is placed (placement status is @FULFILLED@ ).
+gspPort :: Lens' GameSessionPlacement (Maybe Natural)
+gspPort = lens _gspPort (\ s a -> s{_gspPort = a}) . mapping _Nat;
 
 instance FromJSON GameSessionPlacement where
         parseJSON
@@ -1175,20 +1614,33 @@ instance FromJSON GameSessionPlacement where
                  GameSessionPlacement' <$>
                    (x .:? "Status") <*> (x .:? "PlacementId") <*>
                      (x .:? "GameProperties" .!= mempty)
+                     <*> (x .:? "IpAddress")
                      <*> (x .:? "GameSessionName")
                      <*> (x .:? "StartTime")
+                     <*> (x .:? "GameSessionId")
                      <*> (x .:? "GameSessionRegion")
                      <*> (x .:? "MaximumPlayerSessionCount")
                      <*> (x .:? "EndTime")
                      <*> (x .:? "GameSessionArn")
                      <*> (x .:? "PlayerLatencies" .!= mempty)
-                     <*> (x .:? "GameSessionQueueName"))
+                     <*> (x .:? "GameSessionData")
+                     <*> (x .:? "GameSessionQueueName")
+                     <*> (x .:? "PlacedPlayerSessions" .!= mempty)
+                     <*> (x .:? "Port"))
 
 instance Hashable GameSessionPlacement
 
 instance NFData GameSessionPlacement
 
--- | Configuration of a queue used to process game session placement requests. The queue configuration identifies the fleets that new game session can be placed on, given available resources, and the length of time a request can remain in the queue waiting for placement.
+-- | Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:
+--
+--
+--     * The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency.
+--
+--     * The length of time that placement requests can wait in the queue before timing out.
+--
+--     * A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum.
+--
 --
 --
 -- Queue-related operations include:
@@ -1206,30 +1658,46 @@ instance NFData GameSessionPlacement
 --
 -- /See:/ 'gameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
-    { _gsqTimeoutInSeconds :: !(Maybe Nat)
-    , _gsqDestinations     :: !(Maybe [GameSessionQueueDestination])
-    , _gsqName             :: !(Maybe Text)
+    { _gsqGameSessionQueueARN   :: !(Maybe Text)
+    , _gsqPlayerLatencyPolicies :: !(Maybe [PlayerLatencyPolicy])
+    , _gsqTimeoutInSeconds      :: !(Maybe Nat)
+    , _gsqDestinations          :: !(Maybe [GameSessionQueueDestination])
+    , _gsqName                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GameSessionQueue' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsqTimeoutInSeconds' - Maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT status.
+-- * 'gsqGameSessionQueueARN' - Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ .
+--
+-- * 'gsqPlayerLatencyPolicies' - Collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, it is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
+--
+-- * 'gsqTimeoutInSeconds' - Maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
 --
 -- * 'gsqDestinations' - List of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
 --
--- * 'gsqName' - Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- * 'gsqName' - Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 gameSessionQueue
     :: GameSessionQueue
 gameSessionQueue =
     GameSessionQueue'
-    { _gsqTimeoutInSeconds = Nothing
+    { _gsqGameSessionQueueARN = Nothing
+    , _gsqPlayerLatencyPolicies = Nothing
+    , _gsqTimeoutInSeconds = Nothing
     , _gsqDestinations = Nothing
     , _gsqName = Nothing
     }
 
--- | Maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT status.
+-- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ .
+gsqGameSessionQueueARN :: Lens' GameSessionQueue (Maybe Text)
+gsqGameSessionQueueARN = lens _gsqGameSessionQueueARN (\ s a -> s{_gsqGameSessionQueueARN = a});
+
+-- | Collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, it is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
+gsqPlayerLatencyPolicies :: Lens' GameSessionQueue [PlayerLatencyPolicy]
+gsqPlayerLatencyPolicies = lens _gsqPlayerLatencyPolicies (\ s a -> s{_gsqPlayerLatencyPolicies = a}) . _Default . _Coerce;
+
+-- | Maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
 gsqTimeoutInSeconds :: Lens' GameSessionQueue (Maybe Natural)
 gsqTimeoutInSeconds = lens _gsqTimeoutInSeconds (\ s a -> s{_gsqTimeoutInSeconds = a}) . mapping _Nat;
 
@@ -1237,7 +1705,7 @@ gsqTimeoutInSeconds = lens _gsqTimeoutInSeconds (\ s a -> s{_gsqTimeoutInSeconds
 gsqDestinations :: Lens' GameSessionQueue [GameSessionQueueDestination]
 gsqDestinations = lens _gsqDestinations (\ s a -> s{_gsqDestinations = a}) . _Default . _Coerce;
 
--- | Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- | Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 gsqName :: Lens' GameSessionQueue (Maybe Text)
 gsqName = lens _gsqName (\ s a -> s{_gsqName = a});
 
@@ -1246,15 +1714,29 @@ instance FromJSON GameSessionQueue where
           = withObject "GameSessionQueue"
               (\ x ->
                  GameSessionQueue' <$>
-                   (x .:? "TimeoutInSeconds") <*>
-                     (x .:? "Destinations" .!= mempty)
+                   (x .:? "GameSessionQueueArn") <*>
+                     (x .:? "PlayerLatencyPolicies" .!= mempty)
+                     <*> (x .:? "TimeoutInSeconds")
+                     <*> (x .:? "Destinations" .!= mempty)
                      <*> (x .:? "Name"))
 
 instance Hashable GameSessionQueue
 
 instance NFData GameSessionQueue
 
--- | Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination listed for a queue.
+-- | Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination configured for a queue.
+--
+--
+-- Queue-related operations include:
+--
+--     * 'CreateGameSessionQueue'
+--
+--     * 'DescribeGameSessionQueues'
+--
+--     * 'UpdateGameSessionQueue'
+--
+--     * 'DeleteGameSessionQueue'
+--
 --
 --
 --
@@ -1371,7 +1853,7 @@ instance ToJSON IPPermission where
                   Just ("IpRange" .= _ipIPRange),
                   Just ("Protocol" .= _ipProtocol)])
 
--- | Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet contains zero or more instances.
+-- | Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet may contain zero or more instances.
 --
 --
 --
@@ -1394,7 +1876,7 @@ data Instance = Instance'
 --
 -- * 'iInstanceId' - Unique identifier for an instance.
 --
--- * 'iStatus' - Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's runtime configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+-- * 'iStatus' - Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 --
 -- * 'iIPAddress' - IP address assigned to the instance.
 --
@@ -1424,7 +1906,7 @@ iCreationTime = lens _iCreationTime (\ s a -> s{_iCreationTime = a}) . mapping _
 iInstanceId :: Lens' Instance (Maybe Text)
 iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
--- | Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's runtime configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+-- | Current status of the instance. Possible statuses include the following:     * __PENDING__ – The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ – The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ – The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 iStatus :: Lens' Instance (Maybe InstanceStatus)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
@@ -1575,6 +2057,496 @@ instance Hashable InstanceCredentials
 
 instance NFData InstanceCredentials
 
+-- | New player session created as a result of a successful FlexMatch match. A successful match automatically creates new player sessions for every player ID in the original matchmaking request.
+--
+--
+-- When players connect to the match's game session, they must include both player ID and player session ID in order to claim their assigned player slot.
+--
+--
+-- /See:/ 'matchedPlayerSession' smart constructor.
+data MatchedPlayerSession = MatchedPlayerSession'
+    { _mpsPlayerSessionId :: !(Maybe Text)
+    , _mpsPlayerId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MatchedPlayerSession' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mpsPlayerSessionId' - Unique identifier for a player session
+--
+-- * 'mpsPlayerId' - Unique identifier for a player
+matchedPlayerSession
+    :: MatchedPlayerSession
+matchedPlayerSession =
+    MatchedPlayerSession'
+    { _mpsPlayerSessionId = Nothing
+    , _mpsPlayerId = Nothing
+    }
+
+-- | Unique identifier for a player session
+mpsPlayerSessionId :: Lens' MatchedPlayerSession (Maybe Text)
+mpsPlayerSessionId = lens _mpsPlayerSessionId (\ s a -> s{_mpsPlayerSessionId = a});
+
+-- | Unique identifier for a player
+mpsPlayerId :: Lens' MatchedPlayerSession (Maybe Text)
+mpsPlayerId = lens _mpsPlayerId (\ s a -> s{_mpsPlayerId = a});
+
+instance FromJSON MatchedPlayerSession where
+        parseJSON
+          = withObject "MatchedPlayerSession"
+              (\ x ->
+                 MatchedPlayerSession' <$>
+                   (x .:? "PlayerSessionId") <*> (x .:? "PlayerId"))
+
+instance Hashable MatchedPlayerSession
+
+instance NFData MatchedPlayerSession
+
+-- | Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.
+--
+--
+--
+-- /See:/ 'matchmakingConfiguration' smart constructor.
+data MatchmakingConfiguration = MatchmakingConfiguration'
+    { _mcCreationTime             :: !(Maybe POSIX)
+    , _mcGameProperties           :: !(Maybe [GameProperty])
+    , _mcRuleSetName              :: !(Maybe Text)
+    , _mcAcceptanceTimeoutSeconds :: !(Maybe Nat)
+    , _mcRequestTimeoutSeconds    :: !(Maybe Nat)
+    , _mcNotificationTarget       :: !(Maybe Text)
+    , _mcGameSessionQueueARNs     :: !(Maybe [Text])
+    , _mcName                     :: !(Maybe Text)
+    , _mcCustomEventData          :: !(Maybe Text)
+    , _mcAcceptanceRequired       :: !(Maybe Bool)
+    , _mcGameSessionData          :: !(Maybe Text)
+    , _mcDescription              :: !(Maybe Text)
+    , _mcAdditionalPlayerCount    :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MatchmakingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- * 'mcGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+--
+-- * 'mcRuleSetName' - Unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same region.
+--
+-- * 'mcAcceptanceTimeoutSeconds' - Length of time (in seconds) to wait for players to accept a proposed match. If any player rejects the match or fails to accept before the timeout, the ticket continues to look for an acceptable match.
+--
+-- * 'mcRequestTimeoutSeconds' - Maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that time out can be resubmitted as needed.
+--
+-- * 'mcNotificationTarget' - SNS topic ARN that is set up to receive matchmaking notifications.
+--
+-- * 'mcGameSessionQueueARNs' - Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
+--
+-- * 'mcName' - Unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
+--
+-- * 'mcCustomEventData' - Information to attached to all events related to the matchmaking configuration.
+--
+-- * 'mcAcceptanceRequired' - Flag that determines whether or not a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE.
+--
+-- * 'mcGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+--
+-- * 'mcDescription' - Descriptive label that is associated with matchmaking configuration.
+--
+-- * 'mcAdditionalPlayerCount' - Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+matchmakingConfiguration
+    :: MatchmakingConfiguration
+matchmakingConfiguration =
+    MatchmakingConfiguration'
+    { _mcCreationTime = Nothing
+    , _mcGameProperties = Nothing
+    , _mcRuleSetName = Nothing
+    , _mcAcceptanceTimeoutSeconds = Nothing
+    , _mcRequestTimeoutSeconds = Nothing
+    , _mcNotificationTarget = Nothing
+    , _mcGameSessionQueueARNs = Nothing
+    , _mcName = Nothing
+    , _mcCustomEventData = Nothing
+    , _mcAcceptanceRequired = Nothing
+    , _mcGameSessionData = Nothing
+    , _mcDescription = Nothing
+    , _mcAdditionalPlayerCount = Nothing
+    }
+
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mcCreationTime :: Lens' MatchmakingConfiguration (Maybe UTCTime)
+mcCreationTime = lens _mcCreationTime (\ s a -> s{_mcCreationTime = a}) . mapping _Time;
+
+-- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+mcGameProperties :: Lens' MatchmakingConfiguration [GameProperty]
+mcGameProperties = lens _mcGameProperties (\ s a -> s{_mcGameProperties = a}) . _Default . _Coerce;
+
+-- | Unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same region.
+mcRuleSetName :: Lens' MatchmakingConfiguration (Maybe Text)
+mcRuleSetName = lens _mcRuleSetName (\ s a -> s{_mcRuleSetName = a});
+
+-- | Length of time (in seconds) to wait for players to accept a proposed match. If any player rejects the match or fails to accept before the timeout, the ticket continues to look for an acceptable match.
+mcAcceptanceTimeoutSeconds :: Lens' MatchmakingConfiguration (Maybe Natural)
+mcAcceptanceTimeoutSeconds = lens _mcAcceptanceTimeoutSeconds (\ s a -> s{_mcAcceptanceTimeoutSeconds = a}) . mapping _Nat;
+
+-- | Maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that time out can be resubmitted as needed.
+mcRequestTimeoutSeconds :: Lens' MatchmakingConfiguration (Maybe Natural)
+mcRequestTimeoutSeconds = lens _mcRequestTimeoutSeconds (\ s a -> s{_mcRequestTimeoutSeconds = a}) . mapping _Nat;
+
+-- | SNS topic ARN that is set up to receive matchmaking notifications.
+mcNotificationTarget :: Lens' MatchmakingConfiguration (Maybe Text)
+mcNotificationTarget = lens _mcNotificationTarget (\ s a -> s{_mcNotificationTarget = a});
+
+-- | Amazon Resource Name (<http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) that is assigned to a game session queue and uniquely identifies it. Format is @arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@ . These queues are used when placing game sessions for matches that are created with this matchmaking configuration. Queues can be located in any region.
+mcGameSessionQueueARNs :: Lens' MatchmakingConfiguration [Text]
+mcGameSessionQueueARNs = lens _mcGameSessionQueueARNs (\ s a -> s{_mcGameSessionQueueARNs = a}) . _Default . _Coerce;
+
+-- | Unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
+mcName :: Lens' MatchmakingConfiguration (Maybe Text)
+mcName = lens _mcName (\ s a -> s{_mcName = a});
+
+-- | Information to attached to all events related to the matchmaking configuration.
+mcCustomEventData :: Lens' MatchmakingConfiguration (Maybe Text)
+mcCustomEventData = lens _mcCustomEventData (\ s a -> s{_mcCustomEventData = a});
+
+-- | Flag that determines whether or not a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE.
+mcAcceptanceRequired :: Lens' MatchmakingConfiguration (Maybe Bool)
+mcAcceptanceRequired = lens _mcAcceptanceRequired (\ s a -> s{_mcAcceptanceRequired = a});
+
+-- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match.
+mcGameSessionData :: Lens' MatchmakingConfiguration (Maybe Text)
+mcGameSessionData = lens _mcGameSessionData (\ s a -> s{_mcGameSessionData = a});
+
+-- | Descriptive label that is associated with matchmaking configuration.
+mcDescription :: Lens' MatchmakingConfiguration (Maybe Text)
+mcDescription = lens _mcDescription (\ s a -> s{_mcDescription = a});
+
+-- | Number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match.
+mcAdditionalPlayerCount :: Lens' MatchmakingConfiguration (Maybe Natural)
+mcAdditionalPlayerCount = lens _mcAdditionalPlayerCount (\ s a -> s{_mcAdditionalPlayerCount = a}) . mapping _Nat;
+
+instance FromJSON MatchmakingConfiguration where
+        parseJSON
+          = withObject "MatchmakingConfiguration"
+              (\ x ->
+                 MatchmakingConfiguration' <$>
+                   (x .:? "CreationTime") <*>
+                     (x .:? "GameProperties" .!= mempty)
+                     <*> (x .:? "RuleSetName")
+                     <*> (x .:? "AcceptanceTimeoutSeconds")
+                     <*> (x .:? "RequestTimeoutSeconds")
+                     <*> (x .:? "NotificationTarget")
+                     <*> (x .:? "GameSessionQueueArns" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "CustomEventData")
+                     <*> (x .:? "AcceptanceRequired")
+                     <*> (x .:? "GameSessionData")
+                     <*> (x .:? "Description")
+                     <*> (x .:? "AdditionalPlayerCount"))
+
+instance Hashable MatchmakingConfiguration
+
+instance NFData MatchmakingConfiguration
+
+-- | Set of rule statements, used with FlexMatch, that determine how to build a certain kind of player match. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in 'MatchmakingConfiguration' objects.
+--
+--
+-- A rule set may define the following elements for a match. For detailed information and examples showing how to construct a rule set, see <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-rules.html Create Matchmaking Rules for Your Game> .
+--
+--     * Teams -- Required. A rule set must define one or multiple teams for the match and set minimum and maximum team sizes. For example, a rule set might describe a 4x4 match that requires all eight slots to be filled.
+--
+--     * Player attributes -- Optional. These attributes specify a set of player characteristics to evaluate when looking for a match. Matchmaking requests that use a rule set with player attributes must provide the corresponding attribute values. For example, an attribute might specify a player's skill or level.
+--
+--     * Rules -- Optional. Rules define how to evaluate potential players for a match based on player attributes. A rule might specify minimum requirements for individual players--such as each player must meet a certain skill level, or may describe an entire group--such as all teams must be evenly matched or have at least one player in a certain role.
+--
+--     * Expansions -- Optional. Expansions allow you to relax the rules after a period of time if no acceptable matches are found. This feature lets you balance getting players into games in a reasonable amount of time instead of making them wait indefinitely for the best possible match. For example, you might use an expansion to increase the maximum skill variance between players after 30 seconds.
+--
+--
+--
+--
+-- /See:/ 'matchmakingRuleSet' smart constructor.
+data MatchmakingRuleSet = MatchmakingRuleSet'
+    { _mrsCreationTime :: !(Maybe POSIX)
+    , _mrsRuleSetName  :: !(Maybe Text)
+    , _mrsRuleSetBody  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MatchmakingRuleSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrsCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- * 'mrsRuleSetName' - Unique identifier for a matchmaking rule set
+--
+-- * 'mrsRuleSetBody' - Collection of matchmaking rules, formatted as a JSON string. (Note that comments14 are not allowed in JSON, but most elements support a description field.)
+matchmakingRuleSet
+    :: Text -- ^ 'mrsRuleSetBody'
+    -> MatchmakingRuleSet
+matchmakingRuleSet pRuleSetBody_ =
+    MatchmakingRuleSet'
+    { _mrsCreationTime = Nothing
+    , _mrsRuleSetName = Nothing
+    , _mrsRuleSetBody = pRuleSetBody_
+    }
+
+-- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mrsCreationTime :: Lens' MatchmakingRuleSet (Maybe UTCTime)
+mrsCreationTime = lens _mrsCreationTime (\ s a -> s{_mrsCreationTime = a}) . mapping _Time;
+
+-- | Unique identifier for a matchmaking rule set
+mrsRuleSetName :: Lens' MatchmakingRuleSet (Maybe Text)
+mrsRuleSetName = lens _mrsRuleSetName (\ s a -> s{_mrsRuleSetName = a});
+
+-- | Collection of matchmaking rules, formatted as a JSON string. (Note that comments14 are not allowed in JSON, but most elements support a description field.)
+mrsRuleSetBody :: Lens' MatchmakingRuleSet Text
+mrsRuleSetBody = lens _mrsRuleSetBody (\ s a -> s{_mrsRuleSetBody = a});
+
+instance FromJSON MatchmakingRuleSet where
+        parseJSON
+          = withObject "MatchmakingRuleSet"
+              (\ x ->
+                 MatchmakingRuleSet' <$>
+                   (x .:? "CreationTime") <*> (x .:? "RuleSetName") <*>
+                     (x .: "RuleSetBody"))
+
+instance Hashable MatchmakingRuleSet
+
+instance NFData MatchmakingRuleSet
+
+-- | Ticket generated to track the progress of a matchmaking request. Each ticket is uniquely identified by a ticket ID, supplied by the requester, when creating a matchmaking request with 'StartMatchmaking' . Tickets can be retrieved by calling 'DescribeMatchmaking' with the ticket ID.
+--
+--
+--
+-- /See:/ 'matchmakingTicket' smart constructor.
+data MatchmakingTicket = MatchmakingTicket'
+    { _mtStatus                    :: !(Maybe MatchmakingConfigurationStatus)
+    , _mtConfigurationName         :: !(Maybe Text)
+    , _mtStartTime                 :: !(Maybe POSIX)
+    , _mtGameSessionConnectionInfo :: !(Maybe GameSessionConnectionInfo)
+    , _mtTicketId                  :: !(Maybe Text)
+    , _mtStatusMessage             :: !(Maybe Text)
+    , _mtStatusReason              :: !(Maybe Text)
+    , _mtPlayers                   :: !(Maybe [Player])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MatchmakingTicket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtStatus' - Current status of the matchmaking request.     * __QUEUED__ – The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ – The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ – A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ – The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ – Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ – The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ – The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ – The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
+--
+-- * 'mtConfigurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
+--
+-- * 'mtStartTime' - Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- * 'mtGameSessionConnectionInfo' - Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed.
+--
+-- * 'mtTicketId' - Unique identifier for a matchmaking ticket.
+--
+-- * 'mtStatusMessage' - Additional information about the current status.
+--
+-- * 'mtStatusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+--
+-- * 'mtPlayers' - A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
+matchmakingTicket
+    :: MatchmakingTicket
+matchmakingTicket =
+    MatchmakingTicket'
+    { _mtStatus = Nothing
+    , _mtConfigurationName = Nothing
+    , _mtStartTime = Nothing
+    , _mtGameSessionConnectionInfo = Nothing
+    , _mtTicketId = Nothing
+    , _mtStatusMessage = Nothing
+    , _mtStatusReason = Nothing
+    , _mtPlayers = Nothing
+    }
+
+-- | Current status of the matchmaking request.     * __QUEUED__ – The matchmaking request has been received and is currently waiting to be processed.     * __SEARCHING__ – The matchmaking request is currently being processed.      * __REQUIRES_ACCEPTANCE__ – A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.     * __PLACING__ – The FlexMatch engine has matched players and is in the process of placing a new game session for the match.     * __COMPLETED__ – Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.     * __FAILED__ – The matchmaking request was not completed. Tickets with players who fail to accept a proposed match are placed in @FAILED@ status; new matchmaking requests can be submitted for these players.     * __CANCELLED__ – The matchmaking request was canceled with a call to 'StopMatchmaking' .     * __TIMED_OUT__ – The matchmaking request was not completed within the duration specified in the matchmaking configuration. Matchmaking requests that time out can be resubmitted.
+mtStatus :: Lens' MatchmakingTicket (Maybe MatchmakingConfigurationStatus)
+mtStatus = lens _mtStatus (\ s a -> s{_mtStatus = a});
+
+-- | Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
+mtConfigurationName :: Lens' MatchmakingTicket (Maybe Text)
+mtConfigurationName = lens _mtConfigurationName (\ s a -> s{_mtConfigurationName = a});
+
+-- | Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mtStartTime :: Lens' MatchmakingTicket (Maybe UTCTime)
+mtStartTime = lens _mtStartTime (\ s a -> s{_mtStartTime = a}) . mapping _Time;
+
+-- | Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed.
+mtGameSessionConnectionInfo :: Lens' MatchmakingTicket (Maybe GameSessionConnectionInfo)
+mtGameSessionConnectionInfo = lens _mtGameSessionConnectionInfo (\ s a -> s{_mtGameSessionConnectionInfo = a});
+
+-- | Unique identifier for a matchmaking ticket.
+mtTicketId :: Lens' MatchmakingTicket (Maybe Text)
+mtTicketId = lens _mtTicketId (\ s a -> s{_mtTicketId = a});
+
+-- | Additional information about the current status.
+mtStatusMessage :: Lens' MatchmakingTicket (Maybe Text)
+mtStatusMessage = lens _mtStatusMessage (\ s a -> s{_mtStatusMessage = a});
+
+-- | Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+mtStatusReason :: Lens' MatchmakingTicket (Maybe Text)
+mtStatusReason = lens _mtStatusReason (\ s a -> s{_mtStatusReason = a});
+
+-- | A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
+mtPlayers :: Lens' MatchmakingTicket [Player]
+mtPlayers = lens _mtPlayers (\ s a -> s{_mtPlayers = a}) . _Default . _Coerce;
+
+instance FromJSON MatchmakingTicket where
+        parseJSON
+          = withObject "MatchmakingTicket"
+              (\ x ->
+                 MatchmakingTicket' <$>
+                   (x .:? "Status") <*> (x .:? "ConfigurationName") <*>
+                     (x .:? "StartTime")
+                     <*> (x .:? "GameSessionConnectionInfo")
+                     <*> (x .:? "TicketId")
+                     <*> (x .:? "StatusMessage")
+                     <*> (x .:? "StatusReason")
+                     <*> (x .:? "Players" .!= mempty))
+
+instance Hashable MatchmakingTicket
+
+instance NFData MatchmakingTicket
+
+-- | Information about a player session that was created as part of a 'StartGameSessionPlacement' request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call 'DescribePlayerSessions' with the player session ID.
+--
+--
+-- Player-session-related operations include:
+--
+--     * 'CreatePlayerSession'
+--
+--     * 'CreatePlayerSessions'
+--
+--     * 'DescribePlayerSessions'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
+--
+-- /See:/ 'placedPlayerSession' smart constructor.
+data PlacedPlayerSession = PlacedPlayerSession'
+    { _ppsPlayerSessionId :: !(Maybe Text)
+    , _ppsPlayerId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlacedPlayerSession' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ppsPlayerSessionId' - Unique identifier for a player session.
+--
+-- * 'ppsPlayerId' - Unique identifier for a player that is associated with this player session.
+placedPlayerSession
+    :: PlacedPlayerSession
+placedPlayerSession =
+    PlacedPlayerSession'
+    { _ppsPlayerSessionId = Nothing
+    , _ppsPlayerId = Nothing
+    }
+
+-- | Unique identifier for a player session.
+ppsPlayerSessionId :: Lens' PlacedPlayerSession (Maybe Text)
+ppsPlayerSessionId = lens _ppsPlayerSessionId (\ s a -> s{_ppsPlayerSessionId = a});
+
+-- | Unique identifier for a player that is associated with this player session.
+ppsPlayerId :: Lens' PlacedPlayerSession (Maybe Text)
+ppsPlayerId = lens _ppsPlayerId (\ s a -> s{_ppsPlayerId = a});
+
+instance FromJSON PlacedPlayerSession where
+        parseJSON
+          = withObject "PlacedPlayerSession"
+              (\ x ->
+                 PlacedPlayerSession' <$>
+                   (x .:? "PlayerSessionId") <*> (x .:? "PlayerId"))
+
+instance Hashable PlacedPlayerSession
+
+instance NFData PlacedPlayerSession
+
+-- | Object used in matchmaking to represent a player. When starting a matchmaking request, a player has a player ID and may have latency data. Team information is added after a match has been successfully completed.
+--
+--
+--
+-- /See:/ 'player' smart constructor.
+data Player = Player'
+    { _pPlayerAttributes :: !(Maybe (Map Text AttributeValue))
+    , _pTeam             :: !(Maybe Text)
+    , _pPlayerId         :: !(Maybe Text)
+    , _pLatencyInMs      :: !(Maybe (Map Text Nat))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Player' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pPlayerAttributes' - Collection of name:value pairs containing player information for use in matchmaking. Player attribute names need to match /playerAttributes/ names in the rule set being used. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+--
+-- * 'pTeam' - Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
+--
+-- * 'pPlayerId' - Unique identifier for a player
+--
+-- * 'pLatencyInMs' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions that are included in the object map. If not present (that is, null), FlexMatch ignores latency issues and may place the match in any region in the queue.
+player
+    :: Player
+player =
+    Player'
+    { _pPlayerAttributes = Nothing
+    , _pTeam = Nothing
+    , _pPlayerId = Nothing
+    , _pLatencyInMs = Nothing
+    }
+
+-- | Collection of name:value pairs containing player information for use in matchmaking. Player attribute names need to match /playerAttributes/ names in the rule set being used. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+pPlayerAttributes :: Lens' Player (HashMap Text AttributeValue)
+pPlayerAttributes = lens _pPlayerAttributes (\ s a -> s{_pPlayerAttributes = a}) . _Default . _Map;
+
+-- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
+pTeam :: Lens' Player (Maybe Text)
+pTeam = lens _pTeam (\ s a -> s{_pTeam = a});
+
+-- | Unique identifier for a player
+pPlayerId :: Lens' Player (Maybe Text)
+pPlayerId = lens _pPlayerId (\ s a -> s{_pPlayerId = a});
+
+-- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. If this property is present, FlexMatch considers placing the match only in regions that are included in the object map. If not present (that is, null), FlexMatch ignores latency issues and may place the match in any region in the queue.
+pLatencyInMs :: Lens' Player (HashMap Text Natural)
+pLatencyInMs = lens _pLatencyInMs (\ s a -> s{_pLatencyInMs = a}) . _Default . _Map;
+
+instance FromJSON Player where
+        parseJSON
+          = withObject "Player"
+              (\ x ->
+                 Player' <$>
+                   (x .:? "PlayerAttributes" .!= mempty) <*>
+                     (x .:? "Team")
+                     <*> (x .:? "PlayerId")
+                     <*> (x .:? "LatencyInMs" .!= mempty))
+
+instance Hashable Player
+
+instance NFData Player
+
+instance ToJSON Player where
+        toJSON Player'{..}
+          = object
+              (catMaybes
+                 [("PlayerAttributes" .=) <$> _pPlayerAttributes,
+                  ("Team" .=) <$> _pTeam,
+                  ("PlayerId" .=) <$> _pPlayerId,
+                  ("LatencyInMs" .=) <$> _pLatencyInMs])
+
 -- | Regional latency information for a player, used when requesting a new game session with 'StartGameSessionPlacement' . This value indicates the amount of time lag that exists when the player is connected to a fleet in the specified region. The relative difference between a player's latency values for multiple regions are used to determine which fleets are best suited to place a new game session for the player.
 --
 --
@@ -1638,16 +2610,94 @@ instance ToJSON PlayerLatency where
                   ("RegionIdentifier" .=) <$> _plRegionIdentifier,
                   ("PlayerId" .=) <$> _plPlayerId])
 
--- | Properties describing a player session. A player session represents either a player reservation for a game session or actual player activity in a game session. A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.
+-- | Queue setting that determines the highest latency allowed for individual players when placing a game session. When a latency policy is in force, a game session cannot be placed at any destination in a region where a player is reporting latency higher than the cap. Latency policies are only enforced when the placement request contains player latency information.
 --
 --
--- Player session-related operations include:
+-- Queue-related operations include:
+--
+--     * 'CreateGameSessionQueue'
+--
+--     * 'DescribeGameSessionQueues'
+--
+--     * 'UpdateGameSessionQueue'
+--
+--     * 'DeleteGameSessionQueue'
+--
+--
+--
+--
+-- /See:/ 'playerLatencyPolicy' smart constructor.
+data PlayerLatencyPolicy = PlayerLatencyPolicy'
+    { _plpPolicyDurationSeconds                      :: !(Maybe Nat)
+    , _plpMaximumIndividualPlayerLatencyMilliseconds :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlayerLatencyPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'plpPolicyDurationSeconds' - The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+--
+-- * 'plpMaximumIndividualPlayerLatencyMilliseconds' - The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+playerLatencyPolicy
+    :: PlayerLatencyPolicy
+playerLatencyPolicy =
+    PlayerLatencyPolicy'
+    { _plpPolicyDurationSeconds = Nothing
+    , _plpMaximumIndividualPlayerLatencyMilliseconds = Nothing
+    }
+
+-- | The length of time, in seconds, that the policy is enforced while placing a new game session. A null value for this property means that the policy is enforced until the queue times out.
+plpPolicyDurationSeconds :: Lens' PlayerLatencyPolicy (Maybe Natural)
+plpPolicyDurationSeconds = lens _plpPolicyDurationSeconds (\ s a -> s{_plpPolicyDurationSeconds = a}) . mapping _Nat;
+
+-- | The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+plpMaximumIndividualPlayerLatencyMilliseconds :: Lens' PlayerLatencyPolicy (Maybe Natural)
+plpMaximumIndividualPlayerLatencyMilliseconds = lens _plpMaximumIndividualPlayerLatencyMilliseconds (\ s a -> s{_plpMaximumIndividualPlayerLatencyMilliseconds = a}) . mapping _Nat;
+
+instance FromJSON PlayerLatencyPolicy where
+        parseJSON
+          = withObject "PlayerLatencyPolicy"
+              (\ x ->
+                 PlayerLatencyPolicy' <$>
+                   (x .:? "PolicyDurationSeconds") <*>
+                     (x .:? "MaximumIndividualPlayerLatencyMilliseconds"))
+
+instance Hashable PlayerLatencyPolicy
+
+instance NFData PlayerLatencyPolicy
+
+instance ToJSON PlayerLatencyPolicy where
+        toJSON PlayerLatencyPolicy'{..}
+          = object
+              (catMaybes
+                 [("PolicyDurationSeconds" .=) <$>
+                    _plpPolicyDurationSeconds,
+                  ("MaximumIndividualPlayerLatencyMilliseconds" .=) <$>
+                    _plpMaximumIndividualPlayerLatencyMilliseconds])
+
+-- | Properties describing a player session. Player session objects are created either by creating a player session for a specific game session, or as part of a game session placement. A player session represents either a player reservation for a game session (status @RESERVED@ ) or actual player activity in a game session (status @ACTIVE@ ). A player session object (including player data) is automatically passed to a game session when the player connects to the game session and is validated.
+--
+--
+-- When a player disconnects, the player session status changes to @COMPLETED@ . Once the session ends, the player session object is retained for 30 days and then removed.
+--
+-- Player-session-related operations include:
 --
 --     * 'CreatePlayerSession'
 --
 --     * 'CreatePlayerSessions'
 --
 --     * 'DescribePlayerSessions'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
 --
 --
 --
@@ -1674,7 +2724,7 @@ data PlayerSession = PlayerSession'
 --
 -- * 'psStatus' - Current status of the player session. Possible player session statuses include the following:     * __RESERVED__ – The player session request has been received, but the player has not yet connected to the server process and/or been validated.      * __ACTIVE__ – The player has been validated by the server process and is currently connected.     * __COMPLETED__ – The player connection has been dropped.     * __TIMEDOUT__ – A player session request was received, but the player did not connect and/or was not validated within the time-out limit (60 seconds).
 --
--- * 'psIPAddress' - Game session IP address. All player sessions reference the game session location.
+-- * 'psIPAddress' - IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 --
 -- * 'psGameSessionId' - Unique identifier for the game session that the player session is connected to.
 --
@@ -1713,7 +2763,7 @@ psCreationTime = lens _psCreationTime (\ s a -> s{_psCreationTime = a}) . mappin
 psStatus :: Lens' PlayerSession (Maybe PlayerSessionStatus)
 psStatus = lens _psStatus (\ s a -> s{_psStatus = a});
 
--- | Game session IP address. All player sessions reference the game session location.
+-- | IP address of the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 psIPAddress :: Lens' PlayerSession (Maybe Text)
 psIPAddress = lens _psIPAddress (\ s a -> s{_psIPAddress = a});
 
@@ -1823,6 +2873,58 @@ instance ToJSON ResourceCreationLimitPolicy where
 -- | Routing configuration for a fleet alias.
 --
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 --
 -- /See:/ 'routingStrategy' smart constructor.
 data RoutingStrategy = RoutingStrategy'
@@ -1881,40 +2983,111 @@ instance ToJSON RoutingStrategy where
                   ("Message" .=) <$> _rsMessage,
                   ("FleetId" .=) <$> _rsFleetId])
 
--- | Collection of server process configurations that describe what processes should be run on each instance in a fleet. An instance can launch and maintain multiple server processes based on the runtime configuration; it regularly checks for an updated runtime configuration and starts new server processes to match the latest version.
+-- | A collection of server process configurations that describe what processes to run on each instance in a fleet. All fleets must have a run-time configuration. Each instance in the fleet launches the server processes specified in the run-time configuration and launches new ones as existing processes end. Each instance regularly checks for an updated run-time configuration and follows the new instructions.
 --
 --
--- The key purpose of a runtime configuration with multiple server process configurations is to be able to run more than one kind of game server in a single fleet. You can include configurations for more than one server executable in order to run two or more different programs to run on the same instance. This option might be useful, for example, to run more than one version of your game server on the same fleet. Another option is to specify configurations for the same server executable but with different launch parameters.
+-- The run-time configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different build executables, such as your game server executable and a related program, or two or more different versions of a game server. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
 --
--- A Amazon GameLift instance is limited to 50 processes running simultaneously. To calculate the total number of processes specified in a runtime configuration, add the values of the @ConcurrentExecutions@ parameter for each @'ServerProcess' @ object in the runtime configuration.
+-- A Amazon GameLift instance is limited to 50 processes running simultaneously. A run-time configuration must specify fewer than this limit. To calculate the total number of processes specified in a run-time configuration, add the values of the @ConcurrentExecutions@ parameter for each @'ServerProcess' @ object in the run-time configuration.
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
 --
 --
 -- /See:/ 'runtimeConfiguration' smart constructor.
-newtype RuntimeConfiguration = RuntimeConfiguration'
-    { _rcServerProcesses :: Maybe (List1 ServerProcess)
+data RuntimeConfiguration = RuntimeConfiguration'
+    { _rcGameSessionActivationTimeoutSeconds :: !(Maybe Nat)
+    , _rcServerProcesses                     :: !(Maybe (List1 ServerProcess))
+    , _rcMaxConcurrentGameSessionActivations :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RuntimeConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcServerProcesses' - Collection of server process configurations describing what server processes to run on each instance in a fleet
+-- * 'rcGameSessionActivationTimeoutSeconds' - Maximum amount of time (in seconds) that a game session can remain in status @ACTIVATING@ . If the game session is not active before the timeout, activation is terminated and the game session status is changed to @TERMINATED@ .
+--
+-- * 'rcServerProcesses' - Collection of server process configurations that describe which server processes to run on each instance in a fleet.
+--
+-- * 'rcMaxConcurrentGameSessionActivations' - Maximum number of game sessions with status @ACTIVATING@ to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 runtimeConfiguration
     :: RuntimeConfiguration
 runtimeConfiguration =
     RuntimeConfiguration'
-    { _rcServerProcesses = Nothing
+    { _rcGameSessionActivationTimeoutSeconds = Nothing
+    , _rcServerProcesses = Nothing
+    , _rcMaxConcurrentGameSessionActivations = Nothing
     }
 
--- | Collection of server process configurations describing what server processes to run on each instance in a fleet
+-- | Maximum amount of time (in seconds) that a game session can remain in status @ACTIVATING@ . If the game session is not active before the timeout, activation is terminated and the game session status is changed to @TERMINATED@ .
+rcGameSessionActivationTimeoutSeconds :: Lens' RuntimeConfiguration (Maybe Natural)
+rcGameSessionActivationTimeoutSeconds = lens _rcGameSessionActivationTimeoutSeconds (\ s a -> s{_rcGameSessionActivationTimeoutSeconds = a}) . mapping _Nat;
+
+-- | Collection of server process configurations that describe which server processes to run on each instance in a fleet.
 rcServerProcesses :: Lens' RuntimeConfiguration (Maybe (NonEmpty ServerProcess))
 rcServerProcesses = lens _rcServerProcesses (\ s a -> s{_rcServerProcesses = a}) . mapping _List1;
+
+-- | Maximum number of game sessions with status @ACTIVATING@ to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
+rcMaxConcurrentGameSessionActivations :: Lens' RuntimeConfiguration (Maybe Natural)
+rcMaxConcurrentGameSessionActivations = lens _rcMaxConcurrentGameSessionActivations (\ s a -> s{_rcMaxConcurrentGameSessionActivations = a}) . mapping _Nat;
 
 instance FromJSON RuntimeConfiguration where
         parseJSON
           = withObject "RuntimeConfiguration"
               (\ x ->
-                 RuntimeConfiguration' <$> (x .:? "ServerProcesses"))
+                 RuntimeConfiguration' <$>
+                   (x .:? "GameSessionActivationTimeoutSeconds") <*>
+                     (x .:? "ServerProcesses")
+                     <*> (x .:? "MaxConcurrentGameSessionActivations"))
 
 instance Hashable RuntimeConfiguration
 
@@ -1924,7 +3097,11 @@ instance ToJSON RuntimeConfiguration where
         toJSON RuntimeConfiguration'{..}
           = object
               (catMaybes
-                 [("ServerProcesses" .=) <$> _rcServerProcesses])
+                 [("GameSessionActivationTimeoutSeconds" .=) <$>
+                    _rcGameSessionActivationTimeoutSeconds,
+                  ("ServerProcesses" .=) <$> _rcServerProcesses,
+                  ("MaxConcurrentGameSessionActivations" .=) <$>
+                    _rcMaxConcurrentGameSessionActivations])
 
 -- | Location in Amazon Simple Storage Service (Amazon S3) where build files can be stored for access by Amazon GameLift. This location is specified in a 'CreateBuild' request. For more details, see the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build Create a Build with Files in Amazon S3> .
 --
@@ -1987,6 +3164,58 @@ instance ToJSON S3Location where
                   ("RoleArn" .=) <$> _slRoleARN])
 
 -- | Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+--
+--
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
 --
 --
 --

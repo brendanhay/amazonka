@@ -19,6 +19,32 @@ module Network.AWS.GameLift.Types.Sum where
 
 import           Network.AWS.Prelude
 
+data AcceptanceType
+    = Accept
+    | Reject
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText AcceptanceType where
+    parser = takeLowerText >>= \case
+        "accept" -> pure Accept
+        "reject" -> pure Reject
+        e -> fromTextError $ "Failure parsing AcceptanceType from value: '" <> e
+           <> "'. Accepted values: accept, reject"
+
+instance ToText AcceptanceType where
+    toText = \case
+        Accept -> "ACCEPT"
+        Reject -> "REJECT"
+
+instance Hashable     AcceptanceType
+instance NFData       AcceptanceType
+instance ToByteString AcceptanceType
+instance ToQuery      AcceptanceType
+instance ToHeader     AcceptanceType
+
+instance ToJSON AcceptanceType where
+    toJSON = toJSONText
+
 data BuildStatus
     = Failed
     | Initialized
@@ -198,6 +224,9 @@ data EventCode
     | FleetActivationFailedNoInstances
     | FleetBinaryDownloadFailed
     | FleetCreated
+    | FleetCreationExtractingBuild
+    | FleetCreationRunningInstaller
+    | FleetCreationValidatingRuntimeConfig
     | FleetDeleted
     | FleetInitializationFailed
     | FleetNewGameSessionProtectionPolicyUpdated
@@ -228,6 +257,9 @@ instance FromText EventCode where
         "fleet_activation_failed_no_instances" -> pure FleetActivationFailedNoInstances
         "fleet_binary_download_failed" -> pure FleetBinaryDownloadFailed
         "fleet_created" -> pure FleetCreated
+        "fleet_creation_extracting_build" -> pure FleetCreationExtractingBuild
+        "fleet_creation_running_installer" -> pure FleetCreationRunningInstaller
+        "fleet_creation_validating_runtime_config" -> pure FleetCreationValidatingRuntimeConfig
         "fleet_deleted" -> pure FleetDeleted
         "fleet_initialization_failed" -> pure FleetInitializationFailed
         "fleet_new_game_session_protection_policy_updated" -> pure FleetNewGameSessionProtectionPolicyUpdated
@@ -251,7 +283,7 @@ instance FromText EventCode where
         "server_process_sdk_initialization_timeout" -> pure ServerProcessSDKInitializationTimeout
         "server_process_terminated_unhealthy" -> pure ServerProcessTerminatedUnhealthy
         e -> fromTextError $ "Failure parsing EventCode from value: '" <> e
-           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
+           <> "'. Accepted values: fleet_activation_failed, fleet_activation_failed_no_instances, fleet_binary_download_failed, fleet_created, fleet_creation_extracting_build, fleet_creation_running_installer, fleet_creation_validating_runtime_config, fleet_deleted, fleet_initialization_failed, fleet_new_game_session_protection_policy_updated, fleet_scaling_event, fleet_state_activating, fleet_state_active, fleet_state_building, fleet_state_downloading, fleet_state_error, fleet_state_validating, fleet_validation_executable_runtime_failure, fleet_validation_launch_path_not_found, fleet_validation_timed_out, game_session_activation_timeout, generic_event, server_process_crashed, server_process_force_terminated, server_process_invalid_path, server_process_process_exit_timeout, server_process_process_ready_timeout, server_process_sdk_initialization_timeout, server_process_terminated_unhealthy"
 
 instance ToText EventCode where
     toText = \case
@@ -259,6 +291,9 @@ instance ToText EventCode where
         FleetActivationFailedNoInstances -> "FLEET_ACTIVATION_FAILED_NO_INSTANCES"
         FleetBinaryDownloadFailed -> "FLEET_BINARY_DOWNLOAD_FAILED"
         FleetCreated -> "FLEET_CREATED"
+        FleetCreationExtractingBuild -> "FLEET_CREATION_EXTRACTING_BUILD"
+        FleetCreationRunningInstaller -> "FLEET_CREATION_RUNNING_INSTALLER"
+        FleetCreationValidatingRuntimeConfig -> "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG"
         FleetDeleted -> "FLEET_DELETED"
         FleetInitializationFailed -> "FLEET_INITIALIZATION_FAILED"
         FleetNewGameSessionProtectionPolicyUpdated -> "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED"
@@ -463,13 +498,60 @@ instance ToHeader     InstanceStatus
 instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
+data MatchmakingConfigurationStatus
+    = MCSCanceled
+    | MCSComplete
+    | MCSFailed
+    | MCSPlacing
+    | MCSQueued
+    | MCSRequiresAcceptance
+    | MCSSearching
+    | MCSTimedOut
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText MatchmakingConfigurationStatus where
+    parser = takeLowerText >>= \case
+        "canceled" -> pure MCSCanceled
+        "complete" -> pure MCSComplete
+        "failed" -> pure MCSFailed
+        "placing" -> pure MCSPlacing
+        "queued" -> pure MCSQueued
+        "requires_acceptance" -> pure MCSRequiresAcceptance
+        "searching" -> pure MCSSearching
+        "timed_out" -> pure MCSTimedOut
+        e -> fromTextError $ "Failure parsing MatchmakingConfigurationStatus from value: '" <> e
+           <> "'. Accepted values: canceled, complete, failed, placing, queued, requires_acceptance, searching, timed_out"
+
+instance ToText MatchmakingConfigurationStatus where
+    toText = \case
+        MCSCanceled -> "CANCELED"
+        MCSComplete -> "COMPLETE"
+        MCSFailed -> "FAILED"
+        MCSPlacing -> "PLACING"
+        MCSQueued -> "QUEUED"
+        MCSRequiresAcceptance -> "REQUIRES_ACCEPTANCE"
+        MCSSearching -> "SEARCHING"
+        MCSTimedOut -> "TIMED_OUT"
+
+instance Hashable     MatchmakingConfigurationStatus
+instance NFData       MatchmakingConfigurationStatus
+instance ToByteString MatchmakingConfigurationStatus
+instance ToQuery      MatchmakingConfigurationStatus
+instance ToHeader     MatchmakingConfigurationStatus
+
+instance FromJSON MatchmakingConfigurationStatus where
+    parseJSON = parseJSONText "MatchmakingConfigurationStatus"
+
 data MetricName
     = ActivatingGameSessions
     | ActiveGameSessions
     | ActiveInstances
+    | AvailableGameSessions
     | AvailablePlayerSessions
     | CurrentPlayerSessions
     | IdleInstances
+    | PercentAvailableGameSessions
+    | PercentIdleInstances
     | QueueDepth
     | WaitTime
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
@@ -479,22 +561,28 @@ instance FromText MetricName where
         "activatinggamesessions" -> pure ActivatingGameSessions
         "activegamesessions" -> pure ActiveGameSessions
         "activeinstances" -> pure ActiveInstances
+        "availablegamesessions" -> pure AvailableGameSessions
         "availableplayersessions" -> pure AvailablePlayerSessions
         "currentplayersessions" -> pure CurrentPlayerSessions
         "idleinstances" -> pure IdleInstances
+        "percentavailablegamesessions" -> pure PercentAvailableGameSessions
+        "percentidleinstances" -> pure PercentIdleInstances
         "queuedepth" -> pure QueueDepth
         "waittime" -> pure WaitTime
         e -> fromTextError $ "Failure parsing MetricName from value: '" <> e
-           <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availableplayersessions, currentplayersessions, idleinstances, queuedepth, waittime"
+           <> "'. Accepted values: activatinggamesessions, activegamesessions, activeinstances, availablegamesessions, availableplayersessions, currentplayersessions, idleinstances, percentavailablegamesessions, percentidleinstances, queuedepth, waittime"
 
 instance ToText MetricName where
     toText = \case
         ActivatingGameSessions -> "ActivatingGameSessions"
         ActiveGameSessions -> "ActiveGameSessions"
         ActiveInstances -> "ActiveInstances"
+        AvailableGameSessions -> "AvailableGameSessions"
         AvailablePlayerSessions -> "AvailablePlayerSessions"
         CurrentPlayerSessions -> "CurrentPlayerSessions"
         IdleInstances -> "IdleInstances"
+        PercentAvailableGameSessions -> "PercentAvailableGameSessions"
+        PercentIdleInstances -> "PercentIdleInstances"
         QueueDepth -> "QueueDepth"
         WaitTime -> "WaitTime"
 

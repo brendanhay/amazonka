@@ -18,10 +18,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for a fleet alias. This operation returns all alias metadata and settings. To get just the fleet ID an alias is currently pointing to, use 'ResolveAlias' .
+-- Retrieves properties for an alias. This operation returns all alias metadata and settings. To get an alias's target fleet ID only, use @ResolveAlias@ .
 --
 --
--- To get alias properties, specify the alias ID. If successful, an 'Alias' object is returned.
+-- To get alias properties, specify the alias ID. If successful, the requested alias record is returned.
+--
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
+--
 --
 module Network.AWS.GameLift.DescribeAlias
     (

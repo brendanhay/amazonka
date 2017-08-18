@@ -18,7 +18,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates properties for a fleet alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
+-- Updates properties for an alias. To update properties, specify the alias ID to be updated and provide the information to be changed. To reassign an alias to another fleet, provide an updated routing strategy. If successful, the updated alias record is returned.
+--
+--
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
 --
 --
 module Network.AWS.GameLift.UpdateAlias

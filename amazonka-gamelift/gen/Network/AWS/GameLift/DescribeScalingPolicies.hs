@@ -23,6 +23,58 @@
 --
 -- To get a fleet's scaling policies, specify the fleet ID. You can filter this request by policy status, such as to retrieve only active scaling policies. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, set of 'ScalingPolicy' objects is returned for the fleet.
 --
+-- Fleet-related operations include:
+--
+--     * 'CreateFleet'
+--
+--     * 'ListFleets'
+--
+--     * Describe fleets:
+--
+--     * 'DescribeFleetAttributes'
+--
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
+--
+--
+--
 module Network.AWS.GameLift.DescribeScalingPolicies
     (
     -- * Creating a Request
@@ -66,7 +118,7 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'dStatusFilter' - Scaling policy status to filter results on. A scaling policy is only in force when in an @ACTIVE@ status.     * __ACTIVE__ – The scaling policy is currently in force.     * __UPDATEREQUESTED__ – A request to update the scaling policy has been received.     * __UPDATING__ – A change is being made to the scaling policy.     * __DELETEREQUESTED__ – A request to delete the scaling policy has been received.     * __DELETING__ – The scaling policy is being deleted.     * __DELETED__ – The scaling policy has been deleted.     * __ERROR__ – An error occurred in creating the policy. It should be removed and recreated.
 --
@@ -84,7 +136,7 @@ describeScalingPolicies pFleetId_ =
     , _dFleetId = pFleetId_
     }
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dNextToken :: Lens' DescribeScalingPolicies (Maybe Text)
 dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 

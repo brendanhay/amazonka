@@ -18,10 +18,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties for one or more player sessions. This action can be used in several ways: (1) provide a @PlayerSessionId@ parameter to request properties for a specific player session; (2) provide a @GameSessionId@ parameter to request properties for all player sessions in the specified game session; (3) provide a @PlayerId@ parameter to request properties for all player sessions of a specified player.
+-- Retrieves properties for one or more player sessions. This action can be used in several ways: (1) provide a @PlayerSessionId@ to request properties for a specific player session; (2) provide a @GameSessionId@ to request properties for all player sessions in the specified game session; (3) provide a @PlayerId@ to request properties for all player sessions of a specified player.
 --
 --
 -- To get game session record(s), specify only one of the following: a player session ID, a game session ID, or a player ID. You can filter this request by player session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'PlayerSession' object is returned for each session matching the request.
+--
+-- /Available in Amazon GameLift Local./
+--
+-- Player-session-related operations include:
+--
+--     * 'CreatePlayerSession'
+--
+--     * 'CreatePlayerSessions'
+--
+--     * 'DescribePlayerSessions'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
 --
 module Network.AWS.GameLift.DescribePlayerSessions
     (
@@ -72,7 +94,7 @@ data DescribePlayerSessions = DescribePlayerSessions'
 --
 -- * 'dpssGameSessionId' - Unique identifier for the game session to retrieve player sessions for.
 --
--- * 'dpssNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
+-- * 'dpssNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
 --
 -- * 'dpssLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. If a player session ID is specified, this parameter is ignored.
 --
@@ -97,7 +119,7 @@ describePlayerSessions =
 dpssGameSessionId :: Lens' DescribePlayerSessions (Maybe Text)
 dpssGameSessionId = lens _dpssGameSessionId (\ s a -> s{_dpssGameSessionId = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value. If a player session ID is specified, this parameter is ignored.
 dpssNextToken :: Lens' DescribePlayerSessions (Maybe Text)
 dpssNextToken = lens _dpssNextToken (\ s a -> s{_dpssNextToken = a});
 

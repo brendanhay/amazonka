@@ -21,6 +21,20 @@
 -- Retrieves properties for a build. To get a build record, specify a build ID. If successful, an object containing the build properties is returned.
 --
 --
+-- Build-related operations include:
+--
+--     * 'CreateBuild'
+--
+--     * 'ListBuilds'
+--
+--     * 'DescribeBuild'
+--
+--     * 'UpdateBuild'
+--
+--     * 'DeleteBuild'
+--
+--
+--
 module Network.AWS.GameLift.DescribeBuild
     (
     -- * Creating a Request

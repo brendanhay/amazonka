@@ -40,17 +40,21 @@ library
 
     exposed-modules:
           Network.AWS.GameLift
+        , Network.AWS.GameLift.AcceptMatch
         , Network.AWS.GameLift.CreateAlias
         , Network.AWS.GameLift.CreateBuild
         , Network.AWS.GameLift.CreateFleet
         , Network.AWS.GameLift.CreateGameSession
         , Network.AWS.GameLift.CreateGameSessionQueue
+        , Network.AWS.GameLift.CreateMatchmakingConfiguration
+        , Network.AWS.GameLift.CreateMatchmakingRuleSet
         , Network.AWS.GameLift.CreatePlayerSession
         , Network.AWS.GameLift.CreatePlayerSessions
         , Network.AWS.GameLift.DeleteAlias
         , Network.AWS.GameLift.DeleteBuild
         , Network.AWS.GameLift.DeleteFleet
         , Network.AWS.GameLift.DeleteGameSessionQueue
+        , Network.AWS.GameLift.DeleteMatchmakingConfiguration
         , Network.AWS.GameLift.DeleteScalingPolicy
         , Network.AWS.GameLift.DescribeAlias
         , Network.AWS.GameLift.DescribeBuild
@@ -65,6 +69,9 @@ library
         , Network.AWS.GameLift.DescribeGameSessionQueues
         , Network.AWS.GameLift.DescribeGameSessions
         , Network.AWS.GameLift.DescribeInstances
+        , Network.AWS.GameLift.DescribeMatchmaking
+        , Network.AWS.GameLift.DescribeMatchmakingConfigurations
+        , Network.AWS.GameLift.DescribeMatchmakingRuleSets
         , Network.AWS.GameLift.DescribePlayerSessions
         , Network.AWS.GameLift.DescribeRuntimeConfiguration
         , Network.AWS.GameLift.DescribeScalingPolicies
@@ -78,7 +85,9 @@ library
         , Network.AWS.GameLift.ResolveAlias
         , Network.AWS.GameLift.SearchGameSessions
         , Network.AWS.GameLift.StartGameSessionPlacement
+        , Network.AWS.GameLift.StartMatchmaking
         , Network.AWS.GameLift.StopGameSessionPlacement
+        , Network.AWS.GameLift.StopMatchmaking
         , Network.AWS.GameLift.Types
         , Network.AWS.GameLift.UpdateAlias
         , Network.AWS.GameLift.UpdateBuild
@@ -87,7 +96,9 @@ library
         , Network.AWS.GameLift.UpdateFleetPortSettings
         , Network.AWS.GameLift.UpdateGameSession
         , Network.AWS.GameLift.UpdateGameSessionQueue
+        , Network.AWS.GameLift.UpdateMatchmakingConfiguration
         , Network.AWS.GameLift.UpdateRuntimeConfiguration
+        , Network.AWS.GameLift.ValidateMatchmakingRuleSet
         , Network.AWS.GameLift.Waiters
 
     other-modules:

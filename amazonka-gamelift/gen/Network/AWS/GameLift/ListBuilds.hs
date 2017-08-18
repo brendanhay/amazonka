@@ -21,6 +21,20 @@
 -- Retrieves build records for all builds associated with the AWS account in use. You can limit results to builds that are in a specific status by using the @Status@ parameter. Use the pagination parameters to retrieve results in a set of sequential pages.
 --
 --
+-- Build-related operations include:
+--
+--     * 'CreateBuild'
+--
+--     * 'ListBuilds'
+--
+--     * 'DescribeBuild'
+--
+--     * 'UpdateBuild'
+--
+--     * 'DeleteBuild'
+--
+--
+--
 module Network.AWS.GameLift.ListBuilds
     (
     -- * Creating a Request
@@ -64,7 +78,7 @@ data ListBuilds = ListBuilds'
 --
 -- * 'lbStatus' - Build status to filter results by. To retrieve all builds, leave this parameter empty. Possible build statuses include the following:     * __INITIALIZED__ – A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.      * __READY__ – The game build has been successfully uploaded. You can now create new fleets for this build.     * __FAILED__ – The game build upload failed. You cannot create new fleets for this build.
 --
--- * 'lbNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'lbNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'lbLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 listBuilds
@@ -80,7 +94,7 @@ listBuilds =
 lbStatus :: Lens' ListBuilds (Maybe BuildStatus)
 lbStatus = lens _lbStatus (\ s a -> s{_lbStatus = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 lbNextToken :: Lens' ListBuilds (Maybe Text)
 lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
 

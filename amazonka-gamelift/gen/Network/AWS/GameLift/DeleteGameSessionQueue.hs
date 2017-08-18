@@ -21,6 +21,18 @@
 -- Deletes a game session queue. This action means that any 'StartGameSessionPlacement' requests that reference this queue will fail. To delete a queue, specify the queue name.
 --
 --
+-- Queue-related operations include:
+--
+--     * 'CreateGameSessionQueue'
+--
+--     * 'DescribeGameSessionQueues'
+--
+--     * 'UpdateGameSessionQueue'
+--
+--     * 'DeleteGameSessionQueue'
+--
+--
+--
 module Network.AWS.GameLift.DeleteGameSessionQueue
     (
     -- * Creating a Request
@@ -43,7 +55,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'deleteGameSessionQueue' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'deleteGameSessionQueue' smart constructor.
 newtype DeleteGameSessionQueue = DeleteGameSessionQueue'
     { _dgsqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -52,7 +68,7 @@ newtype DeleteGameSessionQueue = DeleteGameSessionQueue'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgsqName' - Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- * 'dgsqName' - Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 deleteGameSessionQueue
     :: Text -- ^ 'dgsqName'
     -> DeleteGameSessionQueue
@@ -61,7 +77,7 @@ deleteGameSessionQueue pName_ =
     { _dgsqName = pName_
     }
 
--- | Descriptive label that is associated with queue. Queue names must be unique within each region.
+-- | Descriptive label that is associated with game session queue. Queue names must be unique within each region.
 dgsqName :: Lens' DeleteGameSessionQueue Text
 dgsqName = lens _dgsqName (\ s a -> s{_dgsqName = a});
 

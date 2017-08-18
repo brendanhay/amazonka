@@ -21,6 +21,22 @@
 -- Retrieves the fleet ID that a specified alias is currently pointing to.
 --
 --
+-- Alias-related operations include:
+--
+--     * 'CreateAlias'
+--
+--     * 'ListAliases'
+--
+--     * 'DescribeAlias'
+--
+--     * 'UpdateAlias'
+--
+--     * 'DeleteAlias'
+--
+--     * 'ResolveAlias'
+--
+--
+--
 module Network.AWS.GameLift.ResolveAlias
     (
     -- * Creating a Request

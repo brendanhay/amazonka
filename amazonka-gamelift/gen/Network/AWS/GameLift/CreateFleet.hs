@@ -21,33 +21,85 @@
 -- Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances, each of which can run multiple server processes to host game sessions. You configure a fleet to create instances with certain hardware specifications (see <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for more information), and deploy a specified game build to each instance. A newly created fleet passes through several statuses; once it reaches the @ACTIVE@ status, it can begin hosting game sessions.
 --
 --
--- To create a new fleet, provide a fleet name, an EC2 instance type, and a build ID of the game build to deploy. You can also configure the new fleet with the following settings: (1) a runtime configuration describing what server processes to run on each instance in the fleet (required to create fleet), (2) access permissions for inbound traffic, (3) fleet-wide game session protection, and (4) the location of default log files for Amazon GameLift to upload and store.
+-- To create a new fleet, you must specify the following: (1) fleet name, (2) build ID of an uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration that describes which server processes to run on each instance in the fleet. (Although the run-time configuration is not a required parameter, the fleet cannot be successfully activated without it.)
+--
+-- You can also configure the new fleet with the following settings:
+--
+--     * Fleet description
+--
+--     * Access permissions for inbound traffic
+--
+--     * Fleet-wide game session protection
+--
+--     * Resource creation limit
+--
+--
+--
+-- If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group. This allows you to view aggregated metrics for a set of fleets. Once you specify a metric group, the new fleet's metrics are included in the metric group's data.
 --
 -- If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
 --
 --     * Creates a fleet record and sets the status to @NEW@ (followed by other statuses as the fleet is activated).
 --
---     * Sets the fleet's capacity to 1 "desired", which causes Amazon GameLift to start one new EC2 instance.
+--     * Sets the fleet's target capacity to 1 (desired instances), which causes Amazon GameLift to start one new EC2 instance.
 --
 --     * Starts launching server processes on the instance. If the fleet is configured to run multiple server processes per instance, Amazon GameLift staggers each launch by a few seconds.
 --
 --     * Begins writing events to the fleet event log, which can be accessed in the Amazon GameLift console.
 --
---     * Sets the fleet's status to @ACTIVE@ once one server process in the fleet is ready to host a game session.
+--     * Sets the fleet's status to @ACTIVE@ as soon as one server process in the fleet is ready to host a game session.
 --
 --
 --
--- After a fleet is created, use the following actions to change fleet properties and configuration:
+-- Fleet-related operations include:
 --
---     * 'UpdateFleetAttributes' -- Update fleet metadata, including name and description.
+--     * 'CreateFleet'
 --
---     * 'UpdateFleetCapacity' -- Increase or decrease the number of instances you want the fleet to maintain.
+--     * 'ListFleets'
 --
---     * 'UpdateFleetPortSettings' -- Change the IP address and port ranges that allow access to incoming traffic.
+--     * Describe fleets:
 --
---     * 'UpdateRuntimeConfiguration' -- Change how server processes are launched in the fleet, including launch path, launch parameters, and the number of concurrent processes.
+--     * 'DescribeFleetAttributes'
 --
---     * 'PutScalingPolicy' -- Create or update rules that are used to set the fleet's capacity (autoscaling).
+--     * 'DescribeFleetPortSettings'
+--
+--     * 'DescribeFleetUtilization'
+--
+--     * 'DescribeRuntimeConfiguration'
+--
+--     * 'DescribeFleetEvents'
+--
+--
+--
+--     * Update fleets:
+--
+--     * 'UpdateFleetAttributes'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'UpdateFleetPortSettings'
+--
+--     * 'UpdateRuntimeConfiguration'
+--
+--
+--
+--     * Manage fleet capacity:
+--
+--     * 'DescribeFleetCapacity'
+--
+--     * 'UpdateFleetCapacity'
+--
+--     * 'PutScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeScalingPolicies' (automatic scaling)
+--
+--     * 'DeleteScalingPolicy' (automatic scaling)
+--
+--     * 'DescribeEC2InstanceLimits'
+--
+--
+--
+--     * 'DeleteFleet'
 --
 --
 --
@@ -63,6 +115,7 @@ module Network.AWS.GameLift.CreateFleet
     , cfRuntimeConfiguration
     , cfNewGameSessionProtectionPolicy
     , cfServerLaunchPath
+    , cfMetricGroups
     , cfDescription
     , cfResourceCreationLimitPolicy
     , cfName
@@ -96,6 +149,7 @@ data CreateFleet = CreateFleet'
     , _cfRuntimeConfiguration           :: !(Maybe RuntimeConfiguration)
     , _cfNewGameSessionProtectionPolicy :: !(Maybe ProtectionPolicy)
     , _cfServerLaunchPath               :: !(Maybe Text)
+    , _cfMetricGroups                   :: !(Maybe [Text])
     , _cfDescription                    :: !(Maybe Text)
     , _cfResourceCreationLimitPolicy    :: !(Maybe ResourceCreationLimitPolicy)
     , _cfName                           :: !Text
@@ -107,17 +161,19 @@ data CreateFleet = CreateFleet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cfServerLaunchParameters' - This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+-- * 'cfServerLaunchParameters' - This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 --
 -- * 'cfLogPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
 --
 -- * 'cfEC2InboundPermissions' - Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. If no inbound permissions are set, including both IP address range and port range, the server processes in the fleet cannot accept connections. You can specify one or more sets of permissions for a fleet.
 --
--- * 'cfRuntimeConfiguration' - Instructions for launching server processes on each instance in the fleet. The runtime configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration; otherwise the request will fail with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ ; requests that contain values for these parameters instead of a runtime configuration will continue to work.)
+-- * 'cfRuntimeConfiguration' - Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ ; requests that contain values for these parameters instead of a run-time configuration will continue to work.)
 --
 -- * 'cfNewGameSessionProtectionPolicy' - Game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using UpdateFleetAttributes, but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .     * __NoProtection__ – The game session can be terminated during a scale-down event.     * __FullProtection__ – If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
--- * 'cfServerLaunchPath' - This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+-- * 'cfServerLaunchPath' - This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
+--
+-- * 'cfMetricGroups' - Names of metric groups to add this fleet to. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
 --
 -- * 'cfDescription' - Human-readable description of a fleet.
 --
@@ -141,6 +197,7 @@ createFleet pName_ pBuildId_ pEC2InstanceType_ =
     , _cfRuntimeConfiguration = Nothing
     , _cfNewGameSessionProtectionPolicy = Nothing
     , _cfServerLaunchPath = Nothing
+    , _cfMetricGroups = Nothing
     , _cfDescription = Nothing
     , _cfResourceCreationLimitPolicy = Nothing
     , _cfName = pName_
@@ -148,7 +205,7 @@ createFleet pName_ pBuildId_ pEC2InstanceType_ =
     , _cfEC2InstanceType = pEC2InstanceType_
     }
 
--- | This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+-- | This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 cfServerLaunchParameters :: Lens' CreateFleet (Maybe Text)
 cfServerLaunchParameters = lens _cfServerLaunchParameters (\ s a -> s{_cfServerLaunchParameters = a});
 
@@ -160,7 +217,7 @@ cfLogPaths = lens _cfLogPaths (\ s a -> s{_cfLogPaths = a}) . _Default . _Coerce
 cfEC2InboundPermissions :: Lens' CreateFleet [IPPermission]
 cfEC2InboundPermissions = lens _cfEC2InboundPermissions (\ s a -> s{_cfEC2InboundPermissions = a}) . _Default . _Coerce;
 
--- | Instructions for launching server processes on each instance in the fleet. The runtime configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a runtime configuration with at least one server process configuration; otherwise the request will fail with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ ; requests that contain values for these parameters instead of a runtime configuration will continue to work.)
+-- | Instructions for launching server processes on each instance in the fleet. The run-time configuration for a fleet has a collection of server process configurations, one for each type of server process to run on an instance. A server process configuration specifies the location of the server executable, launch parameters, and the number of concurrent processes with that configuration to maintain on each instance. A CreateFleet request must include a run-time configuration with at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ ; requests that contain values for these parameters instead of a run-time configuration will continue to work.)
 cfRuntimeConfiguration :: Lens' CreateFleet (Maybe RuntimeConfiguration)
 cfRuntimeConfiguration = lens _cfRuntimeConfiguration (\ s a -> s{_cfRuntimeConfiguration = a});
 
@@ -168,9 +225,13 @@ cfRuntimeConfiguration = lens _cfRuntimeConfiguration (\ s a -> s{_cfRuntimeConf
 cfNewGameSessionProtectionPolicy :: Lens' CreateFleet (Maybe ProtectionPolicy)
 cfNewGameSessionProtectionPolicy = lens _cfNewGameSessionProtectionPolicy (\ s a -> s{_cfNewGameSessionProtectionPolicy = a});
 
--- | This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+-- | This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a run-time configuration will continue to work.)
 cfServerLaunchPath :: Lens' CreateFleet (Maybe Text)
 cfServerLaunchPath = lens _cfServerLaunchPath (\ s a -> s{_cfServerLaunchPath = a});
+
+-- | Names of metric groups to add this fleet to. Use an existing metric group name to add this fleet to the group. Or use a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+cfMetricGroups :: Lens' CreateFleet [Text]
+cfMetricGroups = lens _cfMetricGroups (\ s a -> s{_cfMetricGroups = a}) . _Default . _Coerce;
 
 -- | Human-readable description of a fleet.
 cfDescription :: Lens' CreateFleet (Maybe Text)
@@ -228,6 +289,7 @@ instance ToJSON CreateFleet where
                   ("NewGameSessionProtectionPolicy" .=) <$>
                     _cfNewGameSessionProtectionPolicy,
                   ("ServerLaunchPath" .=) <$> _cfServerLaunchPath,
+                  ("MetricGroups" .=) <$> _cfMetricGroups,
                   ("Description" .=) <$> _cfDescription,
                   ("ResourceCreationLimitPolicy" .=) <$>
                     _cfResourceCreationLimitPolicy,

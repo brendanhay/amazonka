@@ -68,7 +68,7 @@ data DescribeInstances = DescribeInstances'
 --
 -- * 'diInstanceId' - Unique identifier for an instance to retrieve. Specify an instance ID or leave blank to retrieve all instances in the fleet.
 --
--- * 'diNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'diNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'diLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
@@ -88,7 +88,7 @@ describeInstances pFleetId_ =
 diInstanceId :: Lens' DescribeInstances (Maybe Text)
 diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 diNextToken :: Lens' DescribeInstances (Maybe Text)
 diNextToken = lens _diNextToken (\ s a -> s{_diNextToken = a});
 

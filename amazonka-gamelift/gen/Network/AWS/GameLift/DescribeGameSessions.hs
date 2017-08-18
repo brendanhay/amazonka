@@ -23,6 +23,34 @@
 --
 -- To get game sessions, specify one of the following: game session ID, fleet ID, or alias ID. You can filter this request by game session status. Use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSession' object is returned for each game session matching the request.
 --
+-- /Available in Amazon GameLift Local./
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
 module Network.AWS.GameLift.DescribeGameSessions
     (
     -- * Creating a Request
@@ -70,11 +98,11 @@ data DescribeGameSessions = DescribeGameSessions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgsGameSessionId' - Unique identifier for the game session to retrieve.
+-- * 'dgsGameSessionId' - Unique identifier for the game session to retrieve. You can use either a @GameSessionId@ or @GameSessionArn@ value.
 --
 -- * 'dgsAliasId' - Unique identifier for an alias associated with the fleet to retrieve all game sessions for.
 --
--- * 'dgsNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dgsNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'dgsStatusFilter' - Game session status to filter results on. Possible game session statuses include @ACTIVE@ , @TERMINATED@ , @ACTIVATING@ , and @TERMINATING@ (the last two are transitory).
 --
@@ -93,7 +121,7 @@ describeGameSessions =
     , _dgsFleetId = Nothing
     }
 
--- | Unique identifier for the game session to retrieve.
+-- | Unique identifier for the game session to retrieve. You can use either a @GameSessionId@ or @GameSessionArn@ value.
 dgsGameSessionId :: Lens' DescribeGameSessions (Maybe Text)
 dgsGameSessionId = lens _dgsGameSessionId (\ s a -> s{_dgsGameSessionId = a});
 
@@ -101,7 +129,7 @@ dgsGameSessionId = lens _dgsGameSessionId (\ s a -> s{_dgsGameSessionId = a});
 dgsAliasId :: Lens' DescribeGameSessions (Maybe Text)
 dgsAliasId = lens _dgsAliasId (\ s a -> s{_dgsAliasId = a});
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsNextToken :: Lens' DescribeGameSessions (Maybe Text)
 dgsNextToken = lens _dgsNextToken (\ s a -> s{_dgsNextToken = a});
 

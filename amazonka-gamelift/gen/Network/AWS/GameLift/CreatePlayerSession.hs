@@ -23,6 +23,28 @@
 --
 -- To create a player session, specify a game session ID, player ID, and optionally a string of player data. If successful, the player is added to the game session and a new 'PlayerSession' object is returned. Player sessions cannot be updated.
 --
+-- /Available in Amazon GameLift Local./
+--
+-- Player-session-related operations include:
+--
+--     * 'CreatePlayerSession'
+--
+--     * 'CreatePlayerSessions'
+--
+--     * 'DescribePlayerSessions'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
+--
 module Network.AWS.GameLift.CreatePlayerSession
     (
     -- * Creating a Request

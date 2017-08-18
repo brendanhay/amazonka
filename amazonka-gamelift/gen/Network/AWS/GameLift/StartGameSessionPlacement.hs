@@ -18,12 +18,56 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Places a request for a new game session in a queue (see 'CreateGameSessionQueue' ). When processing a placement request, Amazon GameLift attempts to create a new game session on one of the fleets associated with the queue. If no resources are available, Amazon GameLift tries again with another and so on until resources are found or the placement request times out. A game session placement request can also request player sessions. When a new game session is successfully created, Amazon GameLift creates a player session for each player included in the request.
+-- Places a request for a new game session in a queue (see 'CreateGameSessionQueue' ). When processing a placement request, Amazon GameLift searches for available resources on the queue's destinations, scanning each until it finds resources or the placement request times out.
 --
 --
--- When placing a game session, by default Amazon GameLift tries each fleet in the order they are listed in the queue configuration. Ideally, a queue's destinations are listed in preference order. Alternatively, when requesting a game session with players, you can also provide latency data for each player in relevant regions. Latency data indicates the performance lag a player experiences when connected to a fleet in the region. Amazon GameLift uses latency data to reorder the list of destinations to place the game session in a region with minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each region's average lag for all players and reorders to get the best game play across all players.
+-- A game session placement request can also request player sessions. When a new game session is successfully created, Amazon GameLift creates a player session for each player included in the request.
 --
--- To place a new game session request, specify the queue name and a set of game session properties and settings. Also provide a unique ID (such as a UUID) for the placement. You'll use this ID to track the status of the placement request. Optionally, provide a set of IDs and player data for each player you want to join to the new game session. To optimize game play for the players, also provide latency data for all players. If successful, a new game session placement is created. To track the status of a placement request, call 'DescribeGameSessionPlacement' and check the request's status. If the status is Fulfilled, a new game session has been created and a game session ARN and region are referenced. If the placement request times out, you have the option of resubmitting the request or retrying it with a different queue.
+-- When placing a game session, by default Amazon GameLift tries each fleet in the order they are listed in the queue configuration. Ideally, a queue's destinations are listed in preference order.
+--
+-- Alternatively, when requesting a game session with players, you can also provide latency data for each player in relevant regions. Latency data indicates the performance lag a player experiences when connected to a fleet in the region. Amazon GameLift uses latency data to reorder the list of destinations to place the game session in a region with minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each region's average lag for all players and reorders to get the best game play across all players.
+--
+-- To place a new game session request, specify the following:
+--
+--     * The queue name and a set of game session properties and settings
+--
+--     * A unique ID (such as a UUID) for the placement. You use this ID to track the status of the placement request
+--
+--     * (Optional) A set of IDs and player data for each player you want to join to the new game session
+--
+--     * Latency data for all players (if you want to optimize game play for the players)
+--
+--
+--
+-- If successful, a new game session placement is created.
+--
+-- To track the status of a placement request, call 'DescribeGameSessionPlacement' and check the request's status. If the status is @FULFILLED@ , a new game session has been created and a game session ARN and region are referenced. If the placement request times out, you can resubmit the request or retry it with a different queue.
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
+--
 --
 module Network.AWS.GameLift.StartGameSessionPlacement
     (
@@ -34,6 +78,7 @@ module Network.AWS.GameLift.StartGameSessionPlacement
     , sgspGameProperties
     , sgspGameSessionName
     , sgspPlayerLatencies
+    , sgspGameSessionData
     , sgspDesiredPlayerSessions
     , sgspPlacementId
     , sgspGameSessionQueueName
@@ -54,11 +99,16 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'startGameSessionPlacement' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'startGameSessionPlacement' smart constructor.
 data StartGameSessionPlacement = StartGameSessionPlacement'
     { _sgspGameProperties            :: !(Maybe [GameProperty])
     , _sgspGameSessionName           :: !(Maybe Text)
     , _sgspPlayerLatencies           :: !(Maybe [PlayerLatency])
+    , _sgspGameSessionData           :: !(Maybe Text)
     , _sgspDesiredPlayerSessions     :: !(Maybe [DesiredPlayerSession])
     , _sgspPlacementId               :: !Text
     , _sgspGameSessionQueueName      :: !Text
@@ -69,15 +119,17 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sgspGameProperties' - Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- * 'sgspGameProperties' - Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'sgspGameSessionName' - Descriptive label that is associated with a game session. Session names do not need to be unique.
 --
--- * 'sgspPlayerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that players experience when connected to AWS regions. This information is relevant when requesting player sessions. Latency information provided for player IDs not included in /DesiredPlayerSessions/ are ignored.
+-- * 'sgspPlayerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
+--
+-- * 'sgspGameSessionData' - Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
 -- * 'sgspDesiredPlayerSessions' - Set of information on each player to create a player session for.
 --
--- * 'sgspPlacementId' - Unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all regions and cannot be reused unless you are resubmitting a cancelled or timed-out placement request.
+-- * 'sgspPlacementId' - Unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
 --
 -- * 'sgspGameSessionQueueName' - Name of the queue to use to place the new game session.
 --
@@ -92,13 +144,14 @@ startGameSessionPlacement pPlacementId_ pGameSessionQueueName_ pMaximumPlayerSes
     { _sgspGameProperties = Nothing
     , _sgspGameSessionName = Nothing
     , _sgspPlayerLatencies = Nothing
+    , _sgspGameSessionData = Nothing
     , _sgspDesiredPlayerSessions = Nothing
     , _sgspPlacementId = pPlacementId_
     , _sgspGameSessionQueueName = pGameSessionQueueName_
     , _sgspMaximumPlayerSessionCount = _Nat # pMaximumPlayerSessionCount_
     }
 
--- | Set of developer-defined properties for a game session. These properties are passed to the server process hosting the game session.
+-- | Set of developer-defined properties for a game session, formatted as a set of type:value pairs. These properties are included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 sgspGameProperties :: Lens' StartGameSessionPlacement [GameProperty]
 sgspGameProperties = lens _sgspGameProperties (\ s a -> s{_sgspGameProperties = a}) . _Default . _Coerce;
 
@@ -106,15 +159,19 @@ sgspGameProperties = lens _sgspGameProperties (\ s a -> s{_sgspGameProperties = 
 sgspGameSessionName :: Lens' StartGameSessionPlacement (Maybe Text)
 sgspGameSessionName = lens _sgspGameSessionName (\ s a -> s{_sgspGameSessionName = a});
 
--- | Set of values, expressed in milliseconds, indicating the amount of latency that players experience when connected to AWS regions. This information is relevant when requesting player sessions. Latency information provided for player IDs not included in /DesiredPlayerSessions/ are ignored.
+-- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
 sgspPlayerLatencies :: Lens' StartGameSessionPlacement [PlayerLatency]
 sgspPlayerLatencies = lens _sgspPlayerLatencies (\ s a -> s{_sgspPlayerLatencies = a}) . _Default . _Coerce;
+
+-- | Set of developer-defined game session properties, formatted as a single string value. This data is included in the 'GameSession' object, which is passed to the game server with a request to start a new game session (see <http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+sgspGameSessionData :: Lens' StartGameSessionPlacement (Maybe Text)
+sgspGameSessionData = lens _sgspGameSessionData (\ s a -> s{_sgspGameSessionData = a});
 
 -- | Set of information on each player to create a player session for.
 sgspDesiredPlayerSessions :: Lens' StartGameSessionPlacement [DesiredPlayerSession]
 sgspDesiredPlayerSessions = lens _sgspDesiredPlayerSessions (\ s a -> s{_sgspDesiredPlayerSessions = a}) . _Default . _Coerce;
 
--- | Unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all regions and cannot be reused unless you are resubmitting a cancelled or timed-out placement request.
+-- | Unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
 sgspPlacementId :: Lens' StartGameSessionPlacement Text
 sgspPlacementId = lens _sgspPlacementId (\ s a -> s{_sgspPlacementId = a});
 
@@ -157,6 +214,7 @@ instance ToJSON StartGameSessionPlacement where
                  [("GameProperties" .=) <$> _sgspGameProperties,
                   ("GameSessionName" .=) <$> _sgspGameSessionName,
                   ("PlayerLatencies" .=) <$> _sgspPlayerLatencies,
+                  ("GameSessionData" .=) <$> _sgspGameSessionData,
                   ("DesiredPlayerSessions" .=) <$>
                     _sgspDesiredPlayerSessions,
                   Just ("PlacementId" .= _sgspPlacementId),
@@ -173,7 +231,11 @@ instance ToPath StartGameSessionPlacement where
 instance ToQuery StartGameSessionPlacement where
         toQuery = const mempty
 
--- | /See:/ 'startGameSessionPlacementResponse' smart constructor.
+-- | Represents the returned data in response to a request action.
+--
+--
+--
+-- /See:/ 'startGameSessionPlacementResponse' smart constructor.
 data StartGameSessionPlacementResponse = StartGameSessionPlacementResponse'
     { _sgsprsGameSessionPlacement :: !(Maybe GameSessionPlacement)
     , _sgsprsResponseStatus       :: !Int

@@ -21,6 +21,18 @@
 -- Retrieves the properties for one or more game session queues. When requesting multiple queues, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a 'GameSessionQueue' object is returned for each requested queue. When specifying a list of queues, objects are returned only for queues that currently exist in the region.
 --
 --
+-- Queue-related operations include:
+--
+--     * 'CreateGameSessionQueue'
+--
+--     * 'DescribeGameSessionQueues'
+--
+--     * 'UpdateGameSessionQueue'
+--
+--     * 'DeleteGameSessionQueue'
+--
+--
+--
 module Network.AWS.GameLift.DescribeGameSessionQueues
     (
     -- * Creating a Request
@@ -47,7 +59,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'describeGameSessionQueues' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'describeGameSessionQueues' smart constructor.
 data DescribeGameSessionQueues = DescribeGameSessionQueues'
     { _dgsqNextToken :: !(Maybe Text)
     , _dgsqNames     :: !(Maybe [Text])
@@ -58,7 +74,7 @@ data DescribeGameSessionQueues = DescribeGameSessionQueues'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgsqNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- * 'dgsqNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 --
 -- * 'dgsqNames' - List of queue names to retrieve information for. To request settings for all queues, leave this parameter empty.
 --
@@ -72,7 +88,7 @@ describeGameSessionQueues =
     , _dgsqLimit = Nothing
     }
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To specify the start of the result set, do not specify a value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
 dgsqNextToken :: Lens' DescribeGameSessionQueues (Maybe Text)
 dgsqNextToken = lens _dgsqNextToken (\ s a -> s{_dgsqNextToken = a});
 
@@ -123,7 +139,11 @@ instance ToPath DescribeGameSessionQueues where
 instance ToQuery DescribeGameSessionQueues where
         toQuery = const mempty
 
--- | /See:/ 'describeGameSessionQueuesResponse' smart constructor.
+-- | Represents the returned data in response to a request action.
+--
+--
+--
+-- /See:/ 'describeGameSessionQueuesResponse' smart constructor.
 data DescribeGameSessionQueuesResponse = DescribeGameSessionQueuesResponse'
     { _drsNextToken         :: !(Maybe Text)
     , _drsGameSessionQueues :: !(Maybe [GameSessionQueue])

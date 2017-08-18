@@ -28,7 +28,10 @@ import Test.AWS.GameLift.Internal
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateGameSession $
+--         [ requestStopMatchmaking $
+--             stopMatchmaking
+--
+--         , requestCreateGameSession $
 --             createGameSession
 --
 --         , requestDeleteScalingPolicy $
@@ -79,6 +82,9 @@ import Test.AWS.GameLift.Internal
 --         , requestDescribeScalingPolicies $
 --             describeScalingPolicies
 --
+--         , requestDescribeMatchmakingRuleSets $
+--             describeMatchmakingRuleSets
+--
 --         , requestDescribeGameSessions $
 --             describeGameSessions
 --
@@ -102,6 +108,12 @@ import Test.AWS.GameLift.Internal
 --
 --         , requestDescribeFleetEvents $
 --             describeFleetEvents
+--
+--         , requestStartMatchmaking $
+--             startMatchmaking
+--
+--         , requestCreateMatchmakingRuleSet $
+--             createMatchmakingRuleSet
 --
 --         , requestDescribeFleetCapacity $
 --             describeFleetCapacity
@@ -136,11 +148,23 @@ import Test.AWS.GameLift.Internal
 --         , requestCreatePlayerSessions $
 --             createPlayerSessions
 --
+--         , requestDescribeMatchmakingConfigurations $
+--             describeMatchmakingConfigurations
+--
 --         , requestCreateFleet $
 --             createFleet
 --
+--         , requestDeleteMatchmakingConfiguration $
+--             deleteMatchmakingConfiguration
+--
+--         , requestUpdateMatchmakingConfiguration $
+--             updateMatchmakingConfiguration
+--
 --         , requestUpdateFleetAttributes $
 --             updateFleetAttributes
+--
+--         , requestCreateMatchmakingConfiguration $
+--             createMatchmakingConfiguration
 --
 --         , requestDescribePlayerSessions $
 --             describePlayerSessions
@@ -154,8 +178,14 @@ import Test.AWS.GameLift.Internal
 --         , requestUpdateFleetCapacity $
 --             updateFleetCapacity
 --
+--         , requestAcceptMatch $
+--             acceptMatch
+--
 --         , requestDescribeAlias $
 --             describeAlias
+--
+--         , requestValidateMatchmakingRuleSet $
+--             validateMatchmakingRuleSet
 --
 --         , requestDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimits
@@ -166,13 +196,19 @@ import Test.AWS.GameLift.Internal
 --         , requestUpdateGameSession $
 --             updateGameSession
 --
+--         , requestDescribeMatchmaking $
+--             describeMatchmaking
+--
 --         , requestCreatePlayerSession $
 --             createPlayerSession
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateGameSession $
+--         [ responseStopMatchmaking $
+--             stopMatchmakingResponse
+--
+--         , responseCreateGameSession $
 --             createGameSessionResponse
 --
 --         , responseDeleteScalingPolicy $
@@ -223,6 +259,9 @@ import Test.AWS.GameLift.Internal
 --         , responseDescribeScalingPolicies $
 --             describeScalingPoliciesResponse
 --
+--         , responseDescribeMatchmakingRuleSets $
+--             describeMatchmakingRuleSetsResponse
+--
 --         , responseDescribeGameSessions $
 --             describeGameSessionsResponse
 --
@@ -246,6 +285,12 @@ import Test.AWS.GameLift.Internal
 --
 --         , responseDescribeFleetEvents $
 --             describeFleetEventsResponse
+--
+--         , responseStartMatchmaking $
+--             startMatchmakingResponse
+--
+--         , responseCreateMatchmakingRuleSet $
+--             createMatchmakingRuleSetResponse
 --
 --         , responseDescribeFleetCapacity $
 --             describeFleetCapacityResponse
@@ -280,11 +325,23 @@ import Test.AWS.GameLift.Internal
 --         , responseCreatePlayerSessions $
 --             createPlayerSessionsResponse
 --
+--         , responseDescribeMatchmakingConfigurations $
+--             describeMatchmakingConfigurationsResponse
+--
 --         , responseCreateFleet $
 --             createFleetResponse
 --
+--         , responseDeleteMatchmakingConfiguration $
+--             deleteMatchmakingConfigurationResponse
+--
+--         , responseUpdateMatchmakingConfiguration $
+--             updateMatchmakingConfigurationResponse
+--
 --         , responseUpdateFleetAttributes $
 --             updateFleetAttributesResponse
+--
+--         , responseCreateMatchmakingConfiguration $
+--             createMatchmakingConfigurationResponse
 --
 --         , responseDescribePlayerSessions $
 --             describePlayerSessionsResponse
@@ -298,8 +355,14 @@ import Test.AWS.GameLift.Internal
 --         , responseUpdateFleetCapacity $
 --             updateFleetCapacityResponse
 --
+--         , responseAcceptMatch $
+--             acceptMatchResponse
+--
 --         , responseDescribeAlias $
 --             describeAliasResponse
+--
+--         , responseValidateMatchmakingRuleSet $
+--             validateMatchmakingRuleSetResponse
 --
 --         , responseDescribeEC2InstanceLimits $
 --             describeEC2InstanceLimitsResponse
@@ -310,6 +373,9 @@ import Test.AWS.GameLift.Internal
 --         , responseUpdateGameSession $
 --             updateGameSessionResponse
 --
+--         , responseDescribeMatchmaking $
+--             describeMatchmakingResponse
+--
 --         , responseCreatePlayerSession $
 --             createPlayerSessionResponse
 --
@@ -317,6 +383,11 @@ import Test.AWS.GameLift.Internal
 --     ]
 
 -- Requests
+
+requestStopMatchmaking :: StopMatchmaking -> TestTree
+requestStopMatchmaking = req
+    "StopMatchmaking"
+    "fixture/StopMatchmaking.yaml"
 
 requestCreateGameSession :: CreateGameSession -> TestTree
 requestCreateGameSession = req
@@ -403,6 +474,11 @@ requestDescribeScalingPolicies = req
     "DescribeScalingPolicies"
     "fixture/DescribeScalingPolicies.yaml"
 
+requestDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSets -> TestTree
+requestDescribeMatchmakingRuleSets = req
+    "DescribeMatchmakingRuleSets"
+    "fixture/DescribeMatchmakingRuleSets.yaml"
+
 requestDescribeGameSessions :: DescribeGameSessions -> TestTree
 requestDescribeGameSessions = req
     "DescribeGameSessions"
@@ -442,6 +518,16 @@ requestDescribeFleetEvents :: DescribeFleetEvents -> TestTree
 requestDescribeFleetEvents = req
     "DescribeFleetEvents"
     "fixture/DescribeFleetEvents.yaml"
+
+requestStartMatchmaking :: StartMatchmaking -> TestTree
+requestStartMatchmaking = req
+    "StartMatchmaking"
+    "fixture/StartMatchmaking.yaml"
+
+requestCreateMatchmakingRuleSet :: CreateMatchmakingRuleSet -> TestTree
+requestCreateMatchmakingRuleSet = req
+    "CreateMatchmakingRuleSet"
+    "fixture/CreateMatchmakingRuleSet.yaml"
 
 requestDescribeFleetCapacity :: DescribeFleetCapacity -> TestTree
 requestDescribeFleetCapacity = req
@@ -498,15 +584,35 @@ requestCreatePlayerSessions = req
     "CreatePlayerSessions"
     "fixture/CreatePlayerSessions.yaml"
 
+requestDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurations -> TestTree
+requestDescribeMatchmakingConfigurations = req
+    "DescribeMatchmakingConfigurations"
+    "fixture/DescribeMatchmakingConfigurations.yaml"
+
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet = req
     "CreateFleet"
     "fixture/CreateFleet.yaml"
 
+requestDeleteMatchmakingConfiguration :: DeleteMatchmakingConfiguration -> TestTree
+requestDeleteMatchmakingConfiguration = req
+    "DeleteMatchmakingConfiguration"
+    "fixture/DeleteMatchmakingConfiguration.yaml"
+
+requestUpdateMatchmakingConfiguration :: UpdateMatchmakingConfiguration -> TestTree
+requestUpdateMatchmakingConfiguration = req
+    "UpdateMatchmakingConfiguration"
+    "fixture/UpdateMatchmakingConfiguration.yaml"
+
 requestUpdateFleetAttributes :: UpdateFleetAttributes -> TestTree
 requestUpdateFleetAttributes = req
     "UpdateFleetAttributes"
     "fixture/UpdateFleetAttributes.yaml"
+
+requestCreateMatchmakingConfiguration :: CreateMatchmakingConfiguration -> TestTree
+requestCreateMatchmakingConfiguration = req
+    "CreateMatchmakingConfiguration"
+    "fixture/CreateMatchmakingConfiguration.yaml"
 
 requestDescribePlayerSessions :: DescribePlayerSessions -> TestTree
 requestDescribePlayerSessions = req
@@ -528,10 +634,20 @@ requestUpdateFleetCapacity = req
     "UpdateFleetCapacity"
     "fixture/UpdateFleetCapacity.yaml"
 
+requestAcceptMatch :: AcceptMatch -> TestTree
+requestAcceptMatch = req
+    "AcceptMatch"
+    "fixture/AcceptMatch.yaml"
+
 requestDescribeAlias :: DescribeAlias -> TestTree
 requestDescribeAlias = req
     "DescribeAlias"
     "fixture/DescribeAlias.yaml"
+
+requestValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSet -> TestTree
+requestValidateMatchmakingRuleSet = req
+    "ValidateMatchmakingRuleSet"
+    "fixture/ValidateMatchmakingRuleSet.yaml"
 
 requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
 requestDescribeEC2InstanceLimits = req
@@ -548,12 +664,24 @@ requestUpdateGameSession = req
     "UpdateGameSession"
     "fixture/UpdateGameSession.yaml"
 
+requestDescribeMatchmaking :: DescribeMatchmaking -> TestTree
+requestDescribeMatchmaking = req
+    "DescribeMatchmaking"
+    "fixture/DescribeMatchmaking.yaml"
+
 requestCreatePlayerSession :: CreatePlayerSession -> TestTree
 requestCreatePlayerSession = req
     "CreatePlayerSession"
     "fixture/CreatePlayerSession.yaml"
 
 -- Responses
+
+responseStopMatchmaking :: StopMatchmakingResponse -> TestTree
+responseStopMatchmaking = res
+    "StopMatchmakingResponse"
+    "fixture/StopMatchmakingResponse.proto"
+    gameLift
+    (Proxy :: Proxy StopMatchmaking)
 
 responseCreateGameSession :: CreateGameSessionResponse -> TestTree
 responseCreateGameSession = res
@@ -674,6 +802,13 @@ responseDescribeScalingPolicies = res
     gameLift
     (Proxy :: Proxy DescribeScalingPolicies)
 
+responseDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSetsResponse -> TestTree
+responseDescribeMatchmakingRuleSets = res
+    "DescribeMatchmakingRuleSetsResponse"
+    "fixture/DescribeMatchmakingRuleSetsResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeMatchmakingRuleSets)
+
 responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
 responseDescribeGameSessions = res
     "DescribeGameSessionsResponse"
@@ -729,6 +864,20 @@ responseDescribeFleetEvents = res
     "fixture/DescribeFleetEventsResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeFleetEvents)
+
+responseStartMatchmaking :: StartMatchmakingResponse -> TestTree
+responseStartMatchmaking = res
+    "StartMatchmakingResponse"
+    "fixture/StartMatchmakingResponse.proto"
+    gameLift
+    (Proxy :: Proxy StartMatchmaking)
+
+responseCreateMatchmakingRuleSet :: CreateMatchmakingRuleSetResponse -> TestTree
+responseCreateMatchmakingRuleSet = res
+    "CreateMatchmakingRuleSetResponse"
+    "fixture/CreateMatchmakingRuleSetResponse.proto"
+    gameLift
+    (Proxy :: Proxy CreateMatchmakingRuleSet)
 
 responseDescribeFleetCapacity :: DescribeFleetCapacityResponse -> TestTree
 responseDescribeFleetCapacity = res
@@ -807,6 +956,13 @@ responseCreatePlayerSessions = res
     gameLift
     (Proxy :: Proxy CreatePlayerSessions)
 
+responseDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurationsResponse -> TestTree
+responseDescribeMatchmakingConfigurations = res
+    "DescribeMatchmakingConfigurationsResponse"
+    "fixture/DescribeMatchmakingConfigurationsResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeMatchmakingConfigurations)
+
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet = res
     "CreateFleetResponse"
@@ -814,12 +970,33 @@ responseCreateFleet = res
     gameLift
     (Proxy :: Proxy CreateFleet)
 
+responseDeleteMatchmakingConfiguration :: DeleteMatchmakingConfigurationResponse -> TestTree
+responseDeleteMatchmakingConfiguration = res
+    "DeleteMatchmakingConfigurationResponse"
+    "fixture/DeleteMatchmakingConfigurationResponse.proto"
+    gameLift
+    (Proxy :: Proxy DeleteMatchmakingConfiguration)
+
+responseUpdateMatchmakingConfiguration :: UpdateMatchmakingConfigurationResponse -> TestTree
+responseUpdateMatchmakingConfiguration = res
+    "UpdateMatchmakingConfigurationResponse"
+    "fixture/UpdateMatchmakingConfigurationResponse.proto"
+    gameLift
+    (Proxy :: Proxy UpdateMatchmakingConfiguration)
+
 responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
 responseUpdateFleetAttributes = res
     "UpdateFleetAttributesResponse"
     "fixture/UpdateFleetAttributesResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateFleetAttributes)
+
+responseCreateMatchmakingConfiguration :: CreateMatchmakingConfigurationResponse -> TestTree
+responseCreateMatchmakingConfiguration = res
+    "CreateMatchmakingConfigurationResponse"
+    "fixture/CreateMatchmakingConfigurationResponse.proto"
+    gameLift
+    (Proxy :: Proxy CreateMatchmakingConfiguration)
 
 responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
 responseDescribePlayerSessions = res
@@ -849,12 +1026,26 @@ responseUpdateFleetCapacity = res
     gameLift
     (Proxy :: Proxy UpdateFleetCapacity)
 
+responseAcceptMatch :: AcceptMatchResponse -> TestTree
+responseAcceptMatch = res
+    "AcceptMatchResponse"
+    "fixture/AcceptMatchResponse.proto"
+    gameLift
+    (Proxy :: Proxy AcceptMatch)
+
 responseDescribeAlias :: DescribeAliasResponse -> TestTree
 responseDescribeAlias = res
     "DescribeAliasResponse"
     "fixture/DescribeAliasResponse.proto"
     gameLift
     (Proxy :: Proxy DescribeAlias)
+
+responseValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSetResponse -> TestTree
+responseValidateMatchmakingRuleSet = res
+    "ValidateMatchmakingRuleSetResponse"
+    "fixture/ValidateMatchmakingRuleSetResponse.proto"
+    gameLift
+    (Proxy :: Proxy ValidateMatchmakingRuleSet)
 
 responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
 responseDescribeEC2InstanceLimits = res
@@ -876,6 +1067,13 @@ responseUpdateGameSession = res
     "fixture/UpdateGameSessionResponse.proto"
     gameLift
     (Proxy :: Proxy UpdateGameSession)
+
+responseDescribeMatchmaking :: DescribeMatchmakingResponse -> TestTree
+responseDescribeMatchmaking = res
+    "DescribeMatchmakingResponse"
+    "fixture/DescribeMatchmakingResponse.proto"
+    gameLift
+    (Proxy :: Proxy DescribeMatchmaking)
 
 responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
 responseCreatePlayerSession = res

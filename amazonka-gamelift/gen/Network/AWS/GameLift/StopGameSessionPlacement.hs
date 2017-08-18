@@ -18,7 +18,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels a game session placement that is in Pending status. To stop a placement, provide the placement ID values. If successful, the placement is moved to Cancelled status.
+-- Cancels a game session placement that is in @PENDING@ status. To stop a placement, provide the placement ID values. If successful, the placement is moved to @CANCELLED@ status.
+--
+--
+-- Game-session-related operations include:
+--
+--     * 'CreateGameSession'
+--
+--     * 'DescribeGameSessions'
+--
+--     * 'DescribeGameSessionDetails'
+--
+--     * 'SearchGameSessions'
+--
+--     * 'UpdateGameSession'
+--
+--     * 'GetGameSessionLogUrl'
+--
+--     * Game session placements
+--
+--     * 'StartGameSessionPlacement'
+--
+--     * 'DescribeGameSessionPlacement'
+--
+--     * 'StopGameSessionPlacement'
+--
+--
+--
 --
 --
 module Network.AWS.GameLift.StopGameSessionPlacement
@@ -33,8 +59,8 @@ module Network.AWS.GameLift.StopGameSessionPlacement
     , stopGameSessionPlacementResponse
     , StopGameSessionPlacementResponse
     -- * Response Lenses
-    , srsGameSessionPlacement
-    , srsResponseStatus
+    , storsGameSessionPlacement
+    , storsResponseStatus
     ) where
 
 import           Network.AWS.GameLift.Types
@@ -44,7 +70,11 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'stopGameSessionPlacement' smart constructor.
+-- | Represents the input for a request action.
+--
+--
+--
+-- /See:/ 'stopGameSessionPlacement' smart constructor.
 newtype StopGameSessionPlacement = StopGameSessionPlacement'
     { _sPlacementId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -101,34 +131,38 @@ instance ToPath StopGameSessionPlacement where
 instance ToQuery StopGameSessionPlacement where
         toQuery = const mempty
 
--- | /See:/ 'stopGameSessionPlacementResponse' smart constructor.
+-- | Represents the returned data in response to a request action.
+--
+--
+--
+-- /See:/ 'stopGameSessionPlacementResponse' smart constructor.
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
-    { _srsGameSessionPlacement :: !(Maybe GameSessionPlacement)
-    , _srsResponseStatus       :: !Int
+    { _storsGameSessionPlacement :: !(Maybe GameSessionPlacement)
+    , _storsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'StopGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'srsGameSessionPlacement' - Object that describes the cancelled game session placement, with cancelled status and an end time stamp.
+-- * 'storsGameSessionPlacement' - Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
 --
--- * 'srsResponseStatus' - -- | The response status code.
+-- * 'storsResponseStatus' - -- | The response status code.
 stopGameSessionPlacementResponse
-    :: Int -- ^ 'srsResponseStatus'
+    :: Int -- ^ 'storsResponseStatus'
     -> StopGameSessionPlacementResponse
 stopGameSessionPlacementResponse pResponseStatus_ =
     StopGameSessionPlacementResponse'
-    { _srsGameSessionPlacement = Nothing
-    , _srsResponseStatus = pResponseStatus_
+    { _storsGameSessionPlacement = Nothing
+    , _storsResponseStatus = pResponseStatus_
     }
 
--- | Object that describes the cancelled game session placement, with cancelled status and an end time stamp.
-srsGameSessionPlacement :: Lens' StopGameSessionPlacementResponse (Maybe GameSessionPlacement)
-srsGameSessionPlacement = lens _srsGameSessionPlacement (\ s a -> s{_srsGameSessionPlacement = a});
+-- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
+storsGameSessionPlacement :: Lens' StopGameSessionPlacementResponse (Maybe GameSessionPlacement)
+storsGameSessionPlacement = lens _storsGameSessionPlacement (\ s a -> s{_storsGameSessionPlacement = a});
 
 -- | -- | The response status code.
-srsResponseStatus :: Lens' StopGameSessionPlacementResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
+storsResponseStatus :: Lens' StopGameSessionPlacementResponse Int
+storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a});
 
 instance NFData StopGameSessionPlacementResponse

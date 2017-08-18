@@ -289,6 +289,7 @@ module Network.AWS.ECS
     , ciAttributes
     , ciVersion
     , ciPendingTasksCount
+    , ciRegisteredAt
     , ciRegisteredResources
 
     -- ** ContainerOverride
@@ -296,7 +297,10 @@ module Network.AWS.ECS
     , containerOverride
     , coCommand
     , coEnvironment
+    , coMemory
     , coName
+    , coCpu
+    , coMemoryReservation
 
     -- ** ContainerService
     , ContainerService

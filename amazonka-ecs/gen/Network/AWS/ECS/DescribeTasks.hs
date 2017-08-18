@@ -58,7 +58,7 @@ data DescribeTasks = DescribeTasks'
 --
 -- * 'dtCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task to describe. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'dtTasks' - A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.
+-- * 'dtTasks' - A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.
 describeTasks
     :: DescribeTasks
 describeTasks =
@@ -71,7 +71,7 @@ describeTasks =
 dtCluster :: Lens' DescribeTasks (Maybe Text)
 dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
 
--- | A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.
+-- | A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.
 dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
 

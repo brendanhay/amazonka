@@ -54,7 +54,7 @@ newtype DescribeClusters = DescribeClusters'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcClusters' - A space-separated list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
+-- * 'dcClusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 describeClusters
     :: DescribeClusters
 describeClusters =
@@ -62,7 +62,7 @@ describeClusters =
     { _dcClusters = Nothing
     }
 
--- | A space-separated list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
+-- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
 dcClusters :: Lens' DescribeClusters [Text]
 dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce;
 

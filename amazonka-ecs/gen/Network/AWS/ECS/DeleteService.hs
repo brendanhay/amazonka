@@ -55,7 +55,7 @@ data DeleteService = DeleteService'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsCluster' - The name of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
+-- * 'dsCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'dsService' - The name of the service to delete.
 deleteService
@@ -67,7 +67,7 @@ deleteService pService_ =
     , _dsService = pService_
     }
 
--- | The name of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
 dsCluster :: Lens' DeleteService (Maybe Text)
 dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 

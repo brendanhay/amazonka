@@ -56,7 +56,7 @@ data DescribeServices = DescribeServices'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dCluster' - The name of the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
+-- * 'dCluster' - The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 --
 -- * 'dServices' - A list of services to describe. You may specify up to 10 services to describe in a single operation.
 describeServices
@@ -67,7 +67,7 @@ describeServices =
     , _dServices = mempty
     }
 
--- | The name of the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed.
 dCluster :: Lens' DescribeServices (Maybe Text)
 dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 

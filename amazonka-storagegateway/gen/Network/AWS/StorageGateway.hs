@@ -25,17 +25,17 @@
 --
 --     * <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html Operations in AWS Storage Gateway> : Contains detailed descriptions of all AWS Storage Gateway operations, their request parameters, response elements, possible errors, and examples of requests and responses.
 --
---     * <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints> : Provides a list of each of the s and endpoints available for use with AWS Storage Gateway.
+--     * <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region AWS Storage Gateway Regions and Endpoints:> Provides a list of each region and endpoints available for use with AWS Storage Gateway.
 --
 --
 --
 -- /Important:/ IDs for Storage Gateway volumes and Amazon EBS snapshots created from gateway volumes are changing to a longer format. Starting in December 2016, all new volumes and snapshots will be created with a 17-character string. Starting in April 2016, you will be able to use these longer IDs so you can test your systems with the new format. For more information, see <https://aws.amazon.com/ec2/faqs/#longer-ids Longer EC2 and EBS Resource IDs> .
 --
--- For example, a volume ARN with the longer volume ID format will look like this:
+-- For example, a volume Amazon Resource Name (ARN) with the longer volume ID format looks like the following:
 --
 -- @arn:aws:storagegateway:us-west-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABBCCDDEEFFG@ .
 --
--- A snapshot ID with the longer ID format will look like this: @snap-78e226633445566ee@ .
+-- A snapshot ID with the longer ID format looks like the following: @snap-78e226633445566ee@ .
 --
 -- For more information, see <https://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016> .
 --
@@ -160,6 +160,9 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeGatewayInformation
     , module Network.AWS.StorageGateway.DescribeGatewayInformation
+
+    -- ** RefreshCache
+    , module Network.AWS.StorageGateway.RefreshCache
 
     -- ** UpdateNFSFileShare
     , module Network.AWS.StorageGateway.UpdateNFSFileShare
@@ -324,9 +327,11 @@ module Network.AWS.StorageGateway
     , nfsfsiFileShareARN
     , nfsfsiDefaultStorageClass
     , nfsfsiRole
+    , nfsfsiSquash
     , nfsfsiNFSFileShareDefaults
     , nfsfsiLocationARN
     , nfsfsiClientList
+    , nfsfsiReadOnly
 
     -- ** NetworkInterface
     , NetworkInterface
@@ -365,6 +370,7 @@ module Network.AWS.StorageGateway
     , tProgress
     , tTapeSizeInBytes
     , tVTLDevice
+    , tTapeUsedInBytes
     , tTapeCreatedDate
 
     -- ** TapeArchive
@@ -375,6 +381,7 @@ module Network.AWS.StorageGateway
     , taTapeARN
     , taTapeSizeInBytes
     , taCompletionTime
+    , taTapeUsedInBytes
     , taTapeCreatedDate
     , taRetrievedTo
 
@@ -478,6 +485,7 @@ import           Network.AWS.StorageGateway.ListTapes
 import           Network.AWS.StorageGateway.ListVolumeInitiators
 import           Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import           Network.AWS.StorageGateway.ListVolumes
+import           Network.AWS.StorageGateway.RefreshCache
 import           Network.AWS.StorageGateway.RemoveTagsFromResource
 import           Network.AWS.StorageGateway.ResetCache
 import           Network.AWS.StorageGateway.RetrieveTapeArchive

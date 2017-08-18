@@ -52,9 +52,9 @@ data CachediSCSIVolume = CachediSCSIVolume'
 --
 -- * 'cscsivVolumeProgress' - Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the cached volume is not restoring or bootstrapping.
 --
--- * 'cscsivVolumeSizeInBytes' - The size of the volume in bytes.
+-- * 'cscsivVolumeSizeInBytes' - The size, in bytes, of the volume capacity.
 --
--- * 'cscsivCreatedDate' - Undocumented member.
+-- * 'cscsivCreatedDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
 --
 -- * 'cscsivVolumeId' - The unique identifier of the volume, e.g. vol-AE4B946D.
 --
@@ -94,11 +94,11 @@ cscsivVolumeARN = lens _cscsivVolumeARN (\ s a -> s{_cscsivVolumeARN = a});
 cscsivVolumeProgress :: Lens' CachediSCSIVolume (Maybe Double)
 cscsivVolumeProgress = lens _cscsivVolumeProgress (\ s a -> s{_cscsivVolumeProgress = a});
 
--- | The size of the volume in bytes.
+-- | The size, in bytes, of the volume capacity.
 cscsivVolumeSizeInBytes :: Lens' CachediSCSIVolume (Maybe Integer)
 cscsivVolumeSizeInBytes = lens _cscsivVolumeSizeInBytes (\ s a -> s{_cscsivVolumeSizeInBytes = a});
 
--- | Undocumented member.
+-- | The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
 cscsivCreatedDate :: Lens' CachediSCSIVolume (Maybe UTCTime)
 cscsivCreatedDate = lens _cscsivCreatedDate (\ s a -> s{_cscsivCreatedDate = a}) . mapping _Time;
 
@@ -474,7 +474,7 @@ instance Hashable GatewayInfo
 
 instance NFData GatewayInfo
 
--- | Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions.
+-- | Describes file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported in the file gateway architecture.
 --
 --
 --
@@ -545,7 +545,7 @@ instance ToJSON NFSFileShareDefaults where
                   ("DirectoryMode" .=) <$> _nfsfsdDirectoryMode,
                   ("GroupId" .=) <$> _nfsfsdGroupId])
 
--- | The Unix file permissions and ownership information assigned, by default, to native S3 objects when Storage Gateway discovers them in S3 buckets.
+-- | The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.
 --
 --
 --
@@ -560,9 +560,11 @@ data NFSFileShareInfo = NFSFileShareInfo'
     , _nfsfsiFileShareARN         :: !(Maybe Text)
     , _nfsfsiDefaultStorageClass  :: !(Maybe Text)
     , _nfsfsiRole                 :: !(Maybe Text)
+    , _nfsfsiSquash               :: !(Maybe Text)
     , _nfsfsiNFSFileShareDefaults :: !(Maybe NFSFileShareDefaults)
     , _nfsfsiLocationARN          :: !(Maybe Text)
     , _nfsfsiClientList           :: !(Maybe (List1 Text))
+    , _nfsfsiReadOnly             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'NFSFileShareInfo' with the minimum fields required to make a request.
@@ -587,11 +589,15 @@ data NFSFileShareInfo = NFSFileShareInfo'
 --
 -- * 'nfsfsiRole' - Undocumented member.
 --
+-- * 'nfsfsiSquash' - Undocumented member.
+--
 -- * 'nfsfsiNFSFileShareDefaults' - Undocumented member.
 --
 -- * 'nfsfsiLocationARN' - Undocumented member.
 --
 -- * 'nfsfsiClientList' - Undocumented member.
+--
+-- * 'nfsfsiReadOnly' - Undocumented member.
 nFSFileShareInfo
     :: NFSFileShareInfo
 nFSFileShareInfo =
@@ -605,9 +611,11 @@ nFSFileShareInfo =
     , _nfsfsiFileShareARN = Nothing
     , _nfsfsiDefaultStorageClass = Nothing
     , _nfsfsiRole = Nothing
+    , _nfsfsiSquash = Nothing
     , _nfsfsiNFSFileShareDefaults = Nothing
     , _nfsfsiLocationARN = Nothing
     , _nfsfsiClientList = Nothing
+    , _nfsfsiReadOnly = Nothing
     }
 
 -- | Undocumented member.
@@ -647,6 +655,10 @@ nfsfsiRole :: Lens' NFSFileShareInfo (Maybe Text)
 nfsfsiRole = lens _nfsfsiRole (\ s a -> s{_nfsfsiRole = a});
 
 -- | Undocumented member.
+nfsfsiSquash :: Lens' NFSFileShareInfo (Maybe Text)
+nfsfsiSquash = lens _nfsfsiSquash (\ s a -> s{_nfsfsiSquash = a});
+
+-- | Undocumented member.
 nfsfsiNFSFileShareDefaults :: Lens' NFSFileShareInfo (Maybe NFSFileShareDefaults)
 nfsfsiNFSFileShareDefaults = lens _nfsfsiNFSFileShareDefaults (\ s a -> s{_nfsfsiNFSFileShareDefaults = a});
 
@@ -657,6 +669,10 @@ nfsfsiLocationARN = lens _nfsfsiLocationARN (\ s a -> s{_nfsfsiLocationARN = a})
 -- | Undocumented member.
 nfsfsiClientList :: Lens' NFSFileShareInfo (Maybe (NonEmpty Text))
 nfsfsiClientList = lens _nfsfsiClientList (\ s a -> s{_nfsfsiClientList = a}) . mapping _List1;
+
+-- | Undocumented member.
+nfsfsiReadOnly :: Lens' NFSFileShareInfo (Maybe Bool)
+nfsfsiReadOnly = lens _nfsfsiReadOnly (\ s a -> s{_nfsfsiReadOnly = a});
 
 instance FromJSON NFSFileShareInfo where
         parseJSON
@@ -671,9 +687,11 @@ instance FromJSON NFSFileShareInfo where
                      <*> (x .:? "FileShareARN")
                      <*> (x .:? "DefaultStorageClass")
                      <*> (x .:? "Role")
+                     <*> (x .:? "Squash")
                      <*> (x .:? "NFSFileShareDefaults")
                      <*> (x .:? "LocationARN")
-                     <*> (x .:? "ClientList"))
+                     <*> (x .:? "ClientList")
+                     <*> (x .:? "ReadOnly"))
 
 instance Hashable NFSFileShareInfo
 
@@ -769,7 +787,7 @@ data StorediSCSIVolume = StorediSCSIVolume'
 --
 -- * 'sscsivVolumeSizeInBytes' - The size of the volume in bytes.
 --
--- * 'sscsivCreatedDate' - Undocumented member.
+-- * 'sscsivCreatedDate' - The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
 --
 -- * 'sscsivVolumeId' - The unique identifier of the volume, e.g. vol-AE4B946D.
 --
@@ -821,7 +839,7 @@ sscsivVolumeProgress = lens _sscsivVolumeProgress (\ s a -> s{_sscsivVolumeProgr
 sscsivVolumeSizeInBytes :: Lens' StorediSCSIVolume (Maybe Integer)
 sscsivVolumeSizeInBytes = lens _sscsivVolumeSizeInBytes (\ s a -> s{_sscsivVolumeSizeInBytes = a});
 
--- | Undocumented member.
+-- | The date the volume was created. Volumes created prior to March 28, 2017 don’t have this time stamp.
 sscsivCreatedDate :: Lens' StorediSCSIVolume (Maybe UTCTime)
 sscsivCreatedDate = lens _sscsivCreatedDate (\ s a -> s{_sscsivCreatedDate = a}) . mapping _Time;
 
@@ -917,6 +935,7 @@ data Tape = Tape'
     , _tProgress        :: !(Maybe Double)
     , _tTapeSizeInBytes :: !(Maybe Integer)
     , _tVTLDevice       :: !(Maybe Text)
+    , _tTapeUsedInBytes :: !(Maybe Integer)
     , _tTapeCreatedDate :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -932,11 +951,13 @@ data Tape = Tape'
 --
 -- * 'tProgress' - For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete. Range: 0 (not started) to 100 (complete).
 --
--- * 'tTapeSizeInBytes' - The size, in bytes, of the virtual tape.
+-- * 'tTapeSizeInBytes' - The size, in bytes, of the virtual tape capacity.
 --
 -- * 'tVTLDevice' - The virtual tape library (VTL) device that the virtual tape is associated with.
 --
--- * 'tTapeCreatedDate' - Undocumented member.
+-- * 'tTapeUsedInBytes' - The size, in bytes, of data written to the virtual tape.
+--
+-- * 'tTapeCreatedDate' - The date the virtual tape was created.
 tape
     :: Tape
 tape =
@@ -947,6 +968,7 @@ tape =
     , _tProgress = Nothing
     , _tTapeSizeInBytes = Nothing
     , _tVTLDevice = Nothing
+    , _tTapeUsedInBytes = Nothing
     , _tTapeCreatedDate = Nothing
     }
 
@@ -966,7 +988,7 @@ tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
 tProgress :: Lens' Tape (Maybe Double)
 tProgress = lens _tProgress (\ s a -> s{_tProgress = a});
 
--- | The size, in bytes, of the virtual tape.
+-- | The size, in bytes, of the virtual tape capacity.
 tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
 tTapeSizeInBytes = lens _tTapeSizeInBytes (\ s a -> s{_tTapeSizeInBytes = a});
 
@@ -974,7 +996,11 @@ tTapeSizeInBytes = lens _tTapeSizeInBytes (\ s a -> s{_tTapeSizeInBytes = a});
 tVTLDevice :: Lens' Tape (Maybe Text)
 tVTLDevice = lens _tVTLDevice (\ s a -> s{_tVTLDevice = a});
 
--- | Undocumented member.
+-- | The size, in bytes, of data written to the virtual tape.
+tTapeUsedInBytes :: Lens' Tape (Maybe Integer)
+tTapeUsedInBytes = lens _tTapeUsedInBytes (\ s a -> s{_tTapeUsedInBytes = a});
+
+-- | The date the virtual tape was created.
 tTapeCreatedDate :: Lens' Tape (Maybe UTCTime)
 tTapeCreatedDate = lens _tTapeCreatedDate (\ s a -> s{_tTapeCreatedDate = a}) . mapping _Time;
 
@@ -988,6 +1014,7 @@ instance FromJSON Tape where
                      <*> (x .:? "Progress")
                      <*> (x .:? "TapeSizeInBytes")
                      <*> (x .:? "VTLDevice")
+                     <*> (x .:? "TapeUsedInBytes")
                      <*> (x .:? "TapeCreatedDate"))
 
 instance Hashable Tape
@@ -1005,6 +1032,7 @@ data TapeArchive = TapeArchive'
     , _taTapeARN         :: !(Maybe Text)
     , _taTapeSizeInBytes :: !(Maybe Integer)
     , _taCompletionTime  :: !(Maybe POSIX)
+    , _taTapeUsedInBytes :: !(Maybe Integer)
     , _taTapeCreatedDate :: !(Maybe POSIX)
     , _taRetrievedTo     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1023,9 +1051,11 @@ data TapeArchive = TapeArchive'
 --
 -- * 'taCompletionTime' - The time that the archiving of the virtual tape was completed. The string format of the completion time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
 --
+-- * 'taTapeUsedInBytes' - The size, in bytes, of data written to the virtual tape.
+--
 -- * 'taTapeCreatedDate' - Undocumented member.
 --
--- * 'taRetrievedTo' - The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
+-- * 'taRetrievedTo' - The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
 tapeArchive
     :: TapeArchive
 tapeArchive =
@@ -1035,6 +1065,7 @@ tapeArchive =
     , _taTapeARN = Nothing
     , _taTapeSizeInBytes = Nothing
     , _taCompletionTime = Nothing
+    , _taTapeUsedInBytes = Nothing
     , _taTapeCreatedDate = Nothing
     , _taRetrievedTo = Nothing
     }
@@ -1059,11 +1090,15 @@ taTapeSizeInBytes = lens _taTapeSizeInBytes (\ s a -> s{_taTapeSizeInBytes = a})
 taCompletionTime :: Lens' TapeArchive (Maybe UTCTime)
 taCompletionTime = lens _taCompletionTime (\ s a -> s{_taCompletionTime = a}) . mapping _Time;
 
+-- | The size, in bytes, of data written to the virtual tape.
+taTapeUsedInBytes :: Lens' TapeArchive (Maybe Integer)
+taTapeUsedInBytes = lens _taTapeUsedInBytes (\ s a -> s{_taTapeUsedInBytes = a});
+
 -- | Undocumented member.
 taTapeCreatedDate :: Lens' TapeArchive (Maybe UTCTime)
 taTapeCreatedDate = lens _taTapeCreatedDate (\ s a -> s{_taTapeCreatedDate = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the gateway-VTL that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
+-- | The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS).
 taRetrievedTo :: Lens' TapeArchive (Maybe Text)
 taRetrievedTo = lens _taRetrievedTo (\ s a -> s{_taRetrievedTo = a});
 
@@ -1076,6 +1111,7 @@ instance FromJSON TapeArchive where
                      (x .:? "TapeARN")
                      <*> (x .:? "TapeSizeInBytes")
                      <*> (x .:? "CompletionTime")
+                     <*> (x .:? "TapeUsedInBytes")
                      <*> (x .:? "TapeCreatedDate")
                      <*> (x .:? "RetrievedTo"))
 
@@ -1217,7 +1253,7 @@ instance Hashable TapeRecoveryPointInfo
 
 instance NFData TapeRecoveryPointInfo
 
--- | Represents a device object associated with a gateway-VTL.
+-- | Represents a device object associated with a tape gateway.
 --
 --
 --
@@ -1309,7 +1345,7 @@ data VolumeInfo = VolumeInfo'
 --
 -- * 'viGatewayARN' - Undocumented member.
 --
--- * 'viVolumeARN' - The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- * 'viVolumeARN' - The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
 -- * 'viVolumeSizeInBytes' - The size of the volume in bytes. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 --
@@ -1334,7 +1370,7 @@ volumeInfo =
 viGatewayARN :: Lens' VolumeInfo (Maybe Text)
 viGatewayARN = lens _viGatewayARN (\ s a -> s{_viGatewayARN = a});
 
--- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@  Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 viVolumeARN :: Lens' VolumeInfo (Maybe Text)
 viVolumeARN = lens _viVolumeARN (\ s a -> s{_viVolumeARN = a});
 

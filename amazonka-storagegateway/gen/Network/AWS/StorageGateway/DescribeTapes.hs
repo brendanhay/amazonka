@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway.
+-- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway. This operation is only supported in the tape gateway architecture.
 --
 --
 --
@@ -71,7 +71,7 @@ data DescribeTapes = DescribeTapes'
 --
 -- * 'dtLimit' - Specifies that the number of virtual tapes described be limited to the specified number.
 --
--- * 'dtTapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.
+-- * 'dtTapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway.
 --
 -- * 'dtGatewayARN' - Undocumented member.
 describeTapes
@@ -93,7 +93,7 @@ dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 dtLimit :: Lens' DescribeTapes (Maybe Natural)
 dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, AWS Storage Gateway returns a description of all virtual tapes associated with the specified gateway.
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway.
 dtTapeARNs :: Lens' DescribeTapes [Text]
 dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce;
 

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the cache of a gateway. This operation is supported only for the gateway-cached volume architecture.
+-- Returns information about the cache of a gateway. This operation is only supported in the cached volume,tape and file gateway architectures.
 --
 --
 -- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.

@@ -97,9 +97,11 @@ module Network.AWS.StorageGateway.Types
     , nfsfsiFileShareARN
     , nfsfsiDefaultStorageClass
     , nfsfsiRole
+    , nfsfsiSquash
     , nfsfsiNFSFileShareDefaults
     , nfsfsiLocationARN
     , nfsfsiClientList
+    , nfsfsiReadOnly
 
     -- * NetworkInterface
     , NetworkInterface
@@ -138,6 +140,7 @@ module Network.AWS.StorageGateway.Types
     , tProgress
     , tTapeSizeInBytes
     , tVTLDevice
+    , tTapeUsedInBytes
     , tTapeCreatedDate
 
     -- * TapeArchive
@@ -148,6 +151,7 @@ module Network.AWS.StorageGateway.Types
     , taTapeARN
     , taTapeSizeInBytes
     , taCompletionTime
+    , taTapeUsedInBytes
     , taTapeCreatedDate
     , taRetrievedTo
 
@@ -234,6 +238,8 @@ storageGateway =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

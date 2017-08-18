@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL. Virtual tapes archived in the VTS are not associated with any gateway. However after a tape is retrieved, it is associated with a gateway, even though it is also listed in the VTS.
+-- Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway. Virtual tapes archived in the VTS are not associated with any gateway. However after a tape is retrieved, it is associated with a gateway, even though it is also listed in the VTS, that is, archive. This operation is only supported in the tape gateway architecture.
 --
 --
--- Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to another gateway. You must archive the tape again before you can retrieve it to another gateway.
+-- Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to another gateway. You must archive the tape again before you can retrieve it to another gateway. This operation is only supported in the tape gateway architecture.
 --
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
@@ -63,7 +63,7 @@ data RetrieveTapeArchive = RetrieveTapeArchive'
 --
 -- * 'rtaTapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
 --
--- * 'rtaGatewayARN' - The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and region. You retrieve archived virtual tapes to only one gateway and the gateway must be a gateway-VTL.
+-- * 'rtaGatewayARN' - The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and region. You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
 retrieveTapeArchive
     :: Text -- ^ 'rtaTapeARN'
     -> Text -- ^ 'rtaGatewayARN'
@@ -78,7 +78,7 @@ retrieveTapeArchive pTapeARN_ pGatewayARN_ =
 rtaTapeARN :: Lens' RetrieveTapeArchive Text
 rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
 
--- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and region. You retrieve archived virtual tapes to only one gateway and the gateway must be a gateway-VTL.
+-- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and region. You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
 rtaGatewayARN :: Lens' RetrieveTapeArchive Text
 rtaGatewayARN = lens _rtaGatewayARN (\ s a -> s{_rtaGatewayARN = a});
 

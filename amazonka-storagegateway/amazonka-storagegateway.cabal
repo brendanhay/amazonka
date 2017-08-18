@@ -86,6 +86,7 @@ library
         , Network.AWS.StorageGateway.ListVolumeInitiators
         , Network.AWS.StorageGateway.ListVolumeRecoveryPoints
         , Network.AWS.StorageGateway.ListVolumes
+        , Network.AWS.StorageGateway.RefreshCache
         , Network.AWS.StorageGateway.RemoveTagsFromResource
         , Network.AWS.StorageGateway.ResetCache
         , Network.AWS.StorageGateway.RetrieveTapeArchive

@@ -16,9 +16,12 @@ module Network.AWS.LexRuntime.Types
       lexRuntime
 
     -- * Errors
+    , _NotAcceptableException
     , _DependencyFailedException
+    , _UnsupportedMediaTypeException
     , _ConflictException
     , _NotFoundException
+    , _RequestTimeoutException
     , _LoopDetectedException
     , _InternalFailureException
     , _BadGatewayException
@@ -83,6 +86,8 @@ lexRuntime =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -94,12 +99,27 @@ lexRuntime =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, if Amazon Lex does not have sufficient permissions to call a Lambda function which results in AWS Lambda throwing an exception.
+-- | The accept header in the request does not have a valid value.
+--
+--
+_NotAcceptableException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotAcceptableException =
+    _MatchServiceError lexRuntime "NotAcceptableException" . hasStatus 406
+
+-- | One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example, if Amazon Lex does not have sufficient permissions to call a Lambda function, it results in Lambda throwing an exception.
 --
 --
 _DependencyFailedException :: AsError a => Getting (First ServiceError) a ServiceError
 _DependencyFailedException =
     _MatchServiceError lexRuntime "DependencyFailedException" . hasStatus 424
+
+-- | The Content-Type header (@PostContent@ API) has an invalid value.
+--
+--
+_UnsupportedMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_UnsupportedMediaTypeException =
+    _MatchServiceError lexRuntime "UnsupportedMediaTypeException" .
+    hasStatus 415
 
 -- | Two clients are using the same AWS account, Amazon Lex bot, and user ID.
 --
@@ -108,12 +128,19 @@ _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 _ConflictException =
     _MatchServiceError lexRuntime "ConflictException" . hasStatus 409
 
--- | Resource (such as the Amazon Lex bot or an alias) referred is not found.
+-- | The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
 --
 --
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
     _MatchServiceError lexRuntime "NotFoundException" . hasStatus 404
+
+-- | The input speech is too long.
+--
+--
+_RequestTimeoutException :: AsError a => Getting (First ServiceError) a ServiceError
+_RequestTimeoutException =
+    _MatchServiceError lexRuntime "RequestTimeoutException" . hasStatus 408
 
 -- | Lambda fulfilment function returned @DelegateDialogAction@ to Amazon Lex without changing any slot values.
 --
@@ -143,7 +170,9 @@ _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
     _MatchServiceError lexRuntime "BadRequestException" . hasStatus 400
 
--- | Prism for LimitExceededException' errors.
+-- | Exceeded a limit.
+--
+--
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _MatchServiceError lexRuntime "LimitExceededException" . hasStatus 429

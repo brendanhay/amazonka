@@ -11,7 +11,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your application uses the runtime API to understand user utterances (user input text or voice). For example, suppose user says "I want pizza", your application sends this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is for the OrderPizza intent (one of the intents defined in the application). Then Amazon Lex engages in user conversation on behalf of the application to elicit required information (slot values, such as pizza size and crust type), and then performs fulfillment activity (that you configured when you created the application). You use the build-time API to create and manage your Amazon Lex applications. For a list of build-time operations, see the build-time API. .
+-- Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your conversational bot uses the runtime API to understand user utterances (user input text or voice). For example, suppose a user says "I want pizza", your bot sends this input to Amazon Lex using the runtime API. Amazon Lex recognizes that the user request is for the OrderPizza intent (one of the intents defined in the bot). Then Amazon Lex engages in user conversation on behalf of the bot to elicit required information (slot values, such as pizza size and crust type), and then performs fulfillment activity (that you configured when you created the bot). You use the build-time API to create and manage your Amazon Lex bot. For a list of build-time operations, see the build-time API, .
 --
 --
 module Network.AWS.LexRuntime
@@ -22,14 +22,23 @@ module Network.AWS.LexRuntime
     -- * Errors
     -- $errors
 
+    -- ** NotAcceptableException
+    , _NotAcceptableException
+
     -- ** DependencyFailedException
     , _DependencyFailedException
+
+    -- ** UnsupportedMediaTypeException
+    , _UnsupportedMediaTypeException
 
     -- ** ConflictException
     , _ConflictException
 
     -- ** NotFoundException
     , _NotFoundException
+
+    -- ** RequestTimeoutException
+    , _RequestTimeoutException
 
     -- ** LoopDetectedException
     , _LoopDetectedException
@@ -54,6 +63,9 @@ module Network.AWS.LexRuntime
 
     -- ** PostText
     , module Network.AWS.LexRuntime.PostText
+
+    -- ** PostContent
+    , module Network.AWS.LexRuntime.PostContent
 
     -- * Types
 
@@ -86,6 +98,7 @@ module Network.AWS.LexRuntime
     , rcContentType
     ) where
 
+import           Network.AWS.LexRuntime.PostContent
 import           Network.AWS.LexRuntime.PostText
 import           Network.AWS.LexRuntime.Types
 import           Network.AWS.LexRuntime.Waiters

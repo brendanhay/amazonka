@@ -40,6 +40,7 @@ library
 
     exposed-modules:
           Network.AWS.LexRuntime
+        , Network.AWS.LexRuntime.PostContent
         , Network.AWS.LexRuntime.PostText
         , Network.AWS.LexRuntime.Types
         , Network.AWS.LexRuntime.Waiters

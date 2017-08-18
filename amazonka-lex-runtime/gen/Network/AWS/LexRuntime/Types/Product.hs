@@ -35,9 +35,9 @@ data Button = Button'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bText' - Text visible to the user on the button.
+-- * 'bText' - Text that is visible to the user on the button.
 --
--- * 'bValue' - Value sent to Amazon Lex when user clicks the button. For example, consider button text "NYC". When the user clicks the button, the value sent can be "New York City".
+-- * 'bValue' - The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
 button
     :: Text -- ^ 'bText'
     -> Text -- ^ 'bValue'
@@ -48,11 +48,11 @@ button pText_ pValue_ =
     , _bValue = pValue_
     }
 
--- | Text visible to the user on the button.
+-- | Text that is visible to the user on the button.
 bText :: Lens' Button Text
 bText = lens _bText (\ s a -> s{_bText = a});
 
--- | Value sent to Amazon Lex when user clicks the button. For example, consider button text "NYC". When the user clicks the button, the value sent can be "New York City".
+-- | The value sent to Amazon Lex when a user chooses the button. For example, consider button text "NYC." When the user chooses the button, the value sent can be "New York City."
 bValue :: Lens' Button Text
 bValue = lens _bValue (\ s a -> s{_bValue = a});
 
@@ -82,15 +82,15 @@ data GenericAttachment = GenericAttachment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaButtons' - List of options to show to the user.
+-- * 'gaButtons' - The list of options to show to the user.
 --
--- * 'gaSubTitle' - Subtitle shown below the title.
+-- * 'gaSubTitle' - The subtitle shown below the title.
 --
--- * 'gaImageURL' - URL of an image that is displayed to the user.
+-- * 'gaImageURL' - The URL of an image that is displayed to the user.
 --
--- * 'gaAttachmentLinkURL' - Undocumented member.
+-- * 'gaAttachmentLinkURL' - The URL of an attachment to the response card.
 --
--- * 'gaTitle' - Title of the option.
+-- * 'gaTitle' - The title of the option.
 genericAttachment
     :: GenericAttachment
 genericAttachment =
@@ -102,23 +102,23 @@ genericAttachment =
     , _gaTitle = Nothing
     }
 
--- | List of options to show to the user.
+-- | The list of options to show to the user.
 gaButtons :: Lens' GenericAttachment [Button]
 gaButtons = lens _gaButtons (\ s a -> s{_gaButtons = a}) . _Default . _Coerce;
 
--- | Subtitle shown below the title.
+-- | The subtitle shown below the title.
 gaSubTitle :: Lens' GenericAttachment (Maybe Text)
 gaSubTitle = lens _gaSubTitle (\ s a -> s{_gaSubTitle = a});
 
--- | URL of an image that is displayed to the user.
+-- | The URL of an image that is displayed to the user.
 gaImageURL :: Lens' GenericAttachment (Maybe Text)
 gaImageURL = lens _gaImageURL (\ s a -> s{_gaImageURL = a});
 
--- | Undocumented member.
+-- | The URL of an attachment to the response card.
 gaAttachmentLinkURL :: Lens' GenericAttachment (Maybe Text)
 gaAttachmentLinkURL = lens _gaAttachmentLinkURL (\ s a -> s{_gaAttachmentLinkURL = a});
 
--- | Title of the option.
+-- | The title of the option.
 gaTitle :: Lens' GenericAttachment (Maybe Text)
 gaTitle = lens _gaTitle (\ s a -> s{_gaTitle = a});
 
@@ -136,7 +136,7 @@ instance Hashable GenericAttachment
 
 instance NFData GenericAttachment
 
--- | If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values available, and then returns it. The response card can also come from a Lambda function ( @dialogCodeHook@ and @fulfillmentActivity@ on an intent).
+-- | If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values that are available, and then returns it. The response card can also come from a Lambda function ( @dialogCodeHook@ and @fulfillmentActivity@ on an intent).
 --
 --
 --
@@ -153,9 +153,9 @@ data ResponseCard = ResponseCard'
 --
 -- * 'rcGenericAttachments' - An array of attachment objects representing options.
 --
--- * 'rcVersion' - Version of response card format.
+-- * 'rcVersion' - The version of the response card format.
 --
--- * 'rcContentType' - Content type of the response.
+-- * 'rcContentType' - The content type of the response.
 responseCard
     :: ResponseCard
 responseCard =
@@ -169,11 +169,11 @@ responseCard =
 rcGenericAttachments :: Lens' ResponseCard [GenericAttachment]
 rcGenericAttachments = lens _rcGenericAttachments (\ s a -> s{_rcGenericAttachments = a}) . _Default . _Coerce;
 
--- | Version of response card format.
+-- | The version of the response card format.
 rcVersion :: Lens' ResponseCard (Maybe Text)
 rcVersion = lens _rcVersion (\ s a -> s{_rcVersion = a});
 
--- | Content type of the response.
+-- | The content type of the response.
 rcContentType :: Lens' ResponseCard (Maybe ContentType)
 rcContentType = lens _rcContentType (\ s a -> s{_rcContentType = a});
 

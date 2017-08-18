@@ -31,11 +31,17 @@ import Test.AWS.LexRuntime.Internal
 --         [ requestPostText $
 --             postText
 --
+--         , requestPostContent $
+--             postContent
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responsePostText $
 --             postTextResponse
+--
+--         , responsePostContent $
+--             postContentResponse
 --
 --           ]
 --     ]

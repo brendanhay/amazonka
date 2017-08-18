@@ -79,7 +79,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
 --
 -- * 'clbTags' - One or more tags to assign to the load balancer.
 --
--- * 'clbName' - The name of the load balancer. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+-- * 'clbName' - The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 --
 -- * 'clbSubnets' - The IDs of the subnets to attach to the load balancer. You can specify only one subnet per Availability Zone. You must specify subnets from at least two Availability Zones.
 createLoadBalancer
@@ -111,7 +111,7 @@ clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
 clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
 
--- | The name of the load balancer. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+-- | The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 clbName :: Lens' CreateLoadBalancer Text
 clbName = lens _clbName (\ s a -> s{_clbName = a});
 

@@ -85,6 +85,9 @@ import Test.AWS.ELBv2.Internal
 --         , requestDescribeSSLPolicies $
 --             describeSSLPolicies
 --
+--         , requestDescribeAccountLimits $
+--             describeAccountLimits
+--
 --         , requestDeregisterTargets $
 --             deregisterTargets
 --
@@ -177,6 +180,9 @@ import Test.AWS.ELBv2.Internal
 --
 --         , responseDescribeSSLPolicies $
 --             describeSSLPoliciesResponse
+--
+--         , responseDescribeAccountLimits $
+--             describeAccountLimitsResponse
 --
 --         , responseDeregisterTargets $
 --             deregisterTargetsResponse
@@ -310,6 +316,11 @@ requestDescribeSSLPolicies :: DescribeSSLPolicies -> TestTree
 requestDescribeSSLPolicies = req
     "DescribeSSLPolicies"
     "fixture/DescribeSSLPolicies.yaml"
+
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
 
 requestDeregisterTargets :: DeregisterTargets -> TestTree
 requestDeregisterTargets = req
@@ -500,6 +511,13 @@ responseDescribeSSLPolicies = res
     "fixture/DescribeSSLPoliciesResponse.proto"
     eLBv2
     (Proxy :: Proxy DescribeSSLPolicies)
+
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits = res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    eLBv2
+    (Proxy :: Proxy DescribeAccountLimits)
 
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
 responseDeregisterTargets = res

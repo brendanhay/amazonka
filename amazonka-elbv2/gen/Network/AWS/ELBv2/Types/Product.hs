@@ -191,6 +191,47 @@ instance Hashable Cipher
 
 instance NFData Cipher
 
+-- | Information about an Elastic Load Balancing resource limit for your AWS account.
+--
+--
+--
+-- /See:/ 'limit' smart constructor.
+data Limit = Limit'
+    { _lMax  :: !(Maybe Text)
+    , _lName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Limit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lMax' - The maximum value of the limit.
+--
+-- * 'lName' - The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer
+limit
+    :: Limit
+limit =
+    Limit'
+    { _lMax = Nothing
+    , _lName = Nothing
+    }
+
+-- | The maximum value of the limit.
+lMax :: Lens' Limit (Maybe Text)
+lMax = lens _lMax (\ s a -> s{_lMax = a});
+
+-- | The name of the limit. The possible values are:     * application-load-balancers     * listeners-per-application-load-balancer     * rules-per-application-load-balancer     * target-groups     * targets-per-application-load-balancer
+lName :: Lens' Limit (Maybe Text)
+lName = lens _lName (\ s a -> s{_lName = a});
+
+instance FromXML Limit where
+        parseXML x
+          = Limit' <$> (x .@? "Max") <*> (x .@? "Name")
+
+instance Hashable Limit
+
+instance NFData Limit
+
 -- | Information about a listener.
 --
 --
@@ -519,7 +560,7 @@ newtype Matcher = Matcher'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mHTTPCode' - The HTTP codes. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+-- * 'mHTTPCode' - The HTTP codes. You can specify values between 200 and 499. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 matcher
     :: Text -- ^ 'mHTTPCode'
     -> Matcher
@@ -528,7 +569,7 @@ matcher pHTTPCode_ =
     { _mHTTPCode = pHTTPCode_
     }
 
--- | The HTTP codes. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+-- | The HTTP codes. You can specify values between 200 and 499. The default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 mHTTPCode :: Lens' Matcher Text
 mHTTPCode = lens _mHTTPCode (\ s a -> s{_mHTTPCode = a});
 
@@ -630,9 +671,9 @@ data RuleCondition = RuleCondition'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcField' - The only possible value is @path-pattern@ .
+-- * 'rcField' - The name of the field. The possible values are @host-header@ and @path-pattern@ .
 --
--- * 'rcValues' - The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- * 'rcValues' - The condition value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern (for example, /img/*). A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 ruleCondition
     :: RuleCondition
 ruleCondition =
@@ -641,11 +682,11 @@ ruleCondition =
     , _rcValues = Nothing
     }
 
--- | The only possible value is @path-pattern@ .
+-- | The name of the field. The possible values are @host-header@ and @path-pattern@ .
 rcField :: Lens' RuleCondition (Maybe Text)
 rcField = lens _rcField (\ s a -> s{_rcField = a});
 
--- | The path pattern. You can specify a single path pattern. A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters in a path pattern.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
+-- | The condition value. If the field name is @host-header@ , you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * - .     * * (matches 0 or more characters)     * ? (matches exactly 1 character) If the field name is @path-pattern@ , you can specify a single path pattern (for example, /img/*). A path pattern is case sensitive, can be up to 128 characters in length, and can contain any of the following characters. Note that you can include up to three wildcard characters.     * A-Z, a-z, 0-9     * _ - . $ / ~ " ' @ : +     * & (using &amp;)     * * (matches 0 or more characters)     * ? (matches exactly 1 character)
 rcValues :: Lens' RuleCondition [Text]
 rcValues = lens _rcValues (\ s a -> s{_rcValues = a}) . _Default . _Coerce;
 

@@ -21,7 +21,7 @@
 -- Describes the specified policies or all policies used for SSL negotiation.
 --
 --
--- Note that the only supported policy at this time is ELBSecurityPolicy-2015-05.
+-- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security Policies> in the /Application Load Balancers Guide/ .
 --
 module Network.AWS.ELBv2.DescribeSSLPolicies
     (

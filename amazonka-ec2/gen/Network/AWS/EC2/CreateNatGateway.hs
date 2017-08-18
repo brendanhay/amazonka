@@ -28,8 +28,8 @@ module Network.AWS.EC2.CreateNatGateway
     , CreateNatGateway
     -- * Request Lenses
     , cngClientToken
-    , cngSubnetId
     , cngAllocationId
+    , cngSubnetId
 
     -- * Destructuring the Response
     , createNatGatewayResponse
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 -- /See:/ 'createNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
     { _cngClientToken  :: !(Maybe Text)
-    , _cngSubnetId     :: !Text
     , _cngAllocationId :: !Text
+    , _cngSubnetId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateNatGateway' with the minimum fields required to make a request.
@@ -64,31 +64,31 @@ data CreateNatGateway = CreateNatGateway'
 --
 -- * 'cngClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
 --
--- * 'cngSubnetId' - The subnet in which to create the NAT gateway.
---
 -- * 'cngAllocationId' - The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
+--
+-- * 'cngSubnetId' - The subnet in which to create the NAT gateway.
 createNatGateway
-    :: Text -- ^ 'cngSubnetId'
-    -> Text -- ^ 'cngAllocationId'
+    :: Text -- ^ 'cngAllocationId'
+    -> Text -- ^ 'cngSubnetId'
     -> CreateNatGateway
-createNatGateway pSubnetId_ pAllocationId_ =
+createNatGateway pAllocationId_ pSubnetId_ =
     CreateNatGateway'
     { _cngClientToken = Nothing
-    , _cngSubnetId = pSubnetId_
     , _cngAllocationId = pAllocationId_
+    , _cngSubnetId = pSubnetId_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> . Constraint: Maximum 64 ASCII characters.
 cngClientToken :: Lens' CreateNatGateway (Maybe Text)
 cngClientToken = lens _cngClientToken (\ s a -> s{_cngClientToken = a});
 
--- | The subnet in which to create the NAT gateway.
-cngSubnetId :: Lens' CreateNatGateway Text
-cngSubnetId = lens _cngSubnetId (\ s a -> s{_cngSubnetId = a});
-
 -- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 cngAllocationId :: Lens' CreateNatGateway Text
 cngAllocationId = lens _cngAllocationId (\ s a -> s{_cngAllocationId = a});
+
+-- | The subnet in which to create the NAT gateway.
+cngSubnetId :: Lens' CreateNatGateway Text
+cngSubnetId = lens _cngSubnetId (\ s a -> s{_cngSubnetId = a});
 
 instance AWSRequest CreateNatGateway where
         type Rs CreateNatGateway = CreateNatGatewayResponse
@@ -116,8 +116,8 @@ instance ToQuery CreateNatGateway where
               ["Action" =: ("CreateNatGateway" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "ClientToken" =: _cngClientToken,
-               "SubnetId" =: _cngSubnetId,
-               "AllocationId" =: _cngAllocationId]
+               "AllocationId" =: _cngAllocationId,
+               "SubnetId" =: _cngSubnetId]
 
 -- | Contains the output of CreateNatGateway.
 --

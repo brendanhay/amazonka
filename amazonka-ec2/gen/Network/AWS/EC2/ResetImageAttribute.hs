@@ -28,8 +28,8 @@ module Network.AWS.EC2.ResetImageAttribute
     , ResetImageAttribute
     -- * Request Lenses
     , resDryRun
-    , resImageId
     , resAttribute
+    , resImageId
 
     -- * Destructuring the Response
     , resetImageAttributeResponse
@@ -50,8 +50,8 @@ import           Network.AWS.Response
 -- /See:/ 'resetImageAttribute' smart constructor.
 data ResetImageAttribute = ResetImageAttribute'
     { _resDryRun    :: !(Maybe Bool)
-    , _resImageId   :: !Text
     , _resAttribute :: !ResetImageAttributeName
+    , _resImageId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
@@ -60,31 +60,31 @@ data ResetImageAttribute = ResetImageAttribute'
 --
 -- * 'resDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'resImageId' - The ID of the AMI.
---
 -- * 'resAttribute' - The attribute to reset (currently you can only reset the launch permission attribute).
+--
+-- * 'resImageId' - The ID of the AMI.
 resetImageAttribute
-    :: Text -- ^ 'resImageId'
-    -> ResetImageAttributeName -- ^ 'resAttribute'
+    :: ResetImageAttributeName -- ^ 'resAttribute'
+    -> Text -- ^ 'resImageId'
     -> ResetImageAttribute
-resetImageAttribute pImageId_ pAttribute_ =
+resetImageAttribute pAttribute_ pImageId_ =
     ResetImageAttribute'
     { _resDryRun = Nothing
-    , _resImageId = pImageId_
     , _resAttribute = pAttribute_
+    , _resImageId = pImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
 resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 
--- | The ID of the AMI.
-resImageId :: Lens' ResetImageAttribute Text
-resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
-
 -- | The attribute to reset (currently you can only reset the launch permission attribute).
 resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
 resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
+
+-- | The ID of the AMI.
+resImageId :: Lens' ResetImageAttribute Text
+resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
 
 instance AWSRequest ResetImageAttribute where
         type Rs ResetImageAttribute =
@@ -107,8 +107,8 @@ instance ToQuery ResetImageAttribute where
           = mconcat
               ["Action" =: ("ResetImageAttribute" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _resDryRun, "ImageId" =: _resImageId,
-               "Attribute" =: _resAttribute]
+               "DryRun" =: _resDryRun, "Attribute" =: _resAttribute,
+               "ImageId" =: _resImageId]
 
 -- | /See:/ 'resetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse =

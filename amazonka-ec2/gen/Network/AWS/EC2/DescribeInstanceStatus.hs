@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the status of one or more instances. By default, only running instances are described, unless specified otherwise.
+-- Describes the status of one or more instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.
 --
 --
 -- Instance status includes the following components:

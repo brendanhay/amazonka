@@ -32,11 +32,11 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , rnaePortRange
     , rnaeCidrBlock
     , rnaeDryRun
+    , rnaeEgress
     , rnaeNetworkACLId
-    , rnaeRuleNumber
     , rnaeProtocol
     , rnaeRuleAction
-    , rnaeEgress
+    , rnaeRuleNumber
 
     -- * Destructuring the Response
     , replaceNetworkACLEntryResponse
@@ -61,11 +61,11 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     , _rnaePortRange     :: !(Maybe PortRange)
     , _rnaeCidrBlock     :: !(Maybe Text)
     , _rnaeDryRun        :: !(Maybe Bool)
+    , _rnaeEgress        :: !Bool
     , _rnaeNetworkACLId  :: !Text
-    , _rnaeRuleNumber    :: !Int
     , _rnaeProtocol      :: !Text
     , _rnaeRuleAction    :: !RuleAction
-    , _rnaeEgress        :: !Bool
+    , _rnaeRuleNumber    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ReplaceNetworkACLEntry' with the minimum fields required to make a request.
@@ -82,34 +82,34 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
 --
 -- * 'rnaeDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rnaeNetworkACLId' - The ID of the ACL.
+-- * 'rnaeEgress' - Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
 --
--- * 'rnaeRuleNumber' - The rule number of the entry to replace.
+-- * 'rnaeNetworkACLId' - The ID of the ACL.
 --
 -- * 'rnaeProtocol' - The IP protocol. You can specify @all@ or @-1@ to mean all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 --
 -- * 'rnaeRuleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 --
--- * 'rnaeEgress' - Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
+-- * 'rnaeRuleNumber' - The rule number of the entry to replace.
 replaceNetworkACLEntry
-    :: Text -- ^ 'rnaeNetworkACLId'
-    -> Int -- ^ 'rnaeRuleNumber'
+    :: Bool -- ^ 'rnaeEgress'
+    -> Text -- ^ 'rnaeNetworkACLId'
     -> Text -- ^ 'rnaeProtocol'
     -> RuleAction -- ^ 'rnaeRuleAction'
-    -> Bool -- ^ 'rnaeEgress'
+    -> Int -- ^ 'rnaeRuleNumber'
     -> ReplaceNetworkACLEntry
-replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ =
+replaceNetworkACLEntry pEgress_ pNetworkACLId_ pProtocol_ pRuleAction_ pRuleNumber_ =
     ReplaceNetworkACLEntry'
     { _rnaeIPv6CidrBlock = Nothing
     , _rnaeICMPTypeCode = Nothing
     , _rnaePortRange = Nothing
     , _rnaeCidrBlock = Nothing
     , _rnaeDryRun = Nothing
+    , _rnaeEgress = pEgress_
     , _rnaeNetworkACLId = pNetworkACLId_
-    , _rnaeRuleNumber = pRuleNumber_
     , _rnaeProtocol = pProtocol_
     , _rnaeRuleAction = pRuleAction_
-    , _rnaeEgress = pEgress_
+    , _rnaeRuleNumber = pRuleNumber_
     }
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:bd8:1234:1a00::/64@ ).
@@ -132,13 +132,13 @@ rnaeCidrBlock = lens _rnaeCidrBlock (\ s a -> s{_rnaeCidrBlock = a});
 rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
 rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
 
+-- | Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
+rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
+rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
+
 -- | The ID of the ACL.
 rnaeNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
 rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a});
-
--- | The rule number of the entry to replace.
-rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
-rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
 
 -- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols. If you specify @all@ , @-1@ , or a protocol number other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol @58@ (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
 rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
@@ -148,9 +148,9 @@ rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
 rnaeRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
 rnaeRuleAction = lens _rnaeRuleAction (\ s a -> s{_rnaeRuleAction = a});
 
--- | Indicates whether to replace the egress rule. Default: If no value is specified, we replace the ingress rule.
-rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
-rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
+-- | The rule number of the entry to replace.
+rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
+rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
 
 instance AWSRequest ReplaceNetworkACLEntry where
         type Rs ReplaceNetworkACLEntry =
@@ -179,12 +179,11 @@ instance ToQuery ReplaceNetworkACLEntry where
                "Icmp" =: _rnaeICMPTypeCode,
                "PortRange" =: _rnaePortRange,
                "CidrBlock" =: _rnaeCidrBlock,
-               "DryRun" =: _rnaeDryRun,
+               "DryRun" =: _rnaeDryRun, "Egress" =: _rnaeEgress,
                "NetworkAclId" =: _rnaeNetworkACLId,
-               "RuleNumber" =: _rnaeRuleNumber,
                "Protocol" =: _rnaeProtocol,
                "RuleAction" =: _rnaeRuleAction,
-               "Egress" =: _rnaeEgress]
+               "RuleNumber" =: _rnaeRuleNumber]
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =

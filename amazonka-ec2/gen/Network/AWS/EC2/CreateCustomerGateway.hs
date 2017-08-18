@@ -34,9 +34,9 @@ module Network.AWS.EC2.CreateCustomerGateway
     , CreateCustomerGateway
     -- * Request Lenses
     , ccgDryRun
-    , ccgType
-    , ccgPublicIP
     , ccgBGPASN
+    , ccgPublicIP
+    , ccgType
 
     -- * Destructuring the Response
     , createCustomerGatewayResponse
@@ -60,9 +60,9 @@ import           Network.AWS.Response
 -- /See:/ 'createCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
     { _ccgDryRun   :: !(Maybe Bool)
-    , _ccgType     :: !GatewayType
-    , _ccgPublicIP :: !Text
     , _ccgBGPASN   :: !Int
+    , _ccgPublicIP :: !Text
+    , _ccgType     :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateCustomerGateway' with the minimum fields required to make a request.
@@ -71,39 +71,39 @@ data CreateCustomerGateway = CreateCustomerGateway'
 --
 -- * 'ccgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'ccgType' - The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
+-- * 'ccgBGPASN' - For devices that support BGP, the customer gateway's BGP ASN. Default: 65000
 --
 -- * 'ccgPublicIP' - The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
 --
--- * 'ccgBGPASN' - For devices that support BGP, the customer gateway's BGP ASN. Default: 65000
+-- * 'ccgType' - The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
 createCustomerGateway
-    :: GatewayType -- ^ 'ccgType'
+    :: Int -- ^ 'ccgBGPASN'
     -> Text -- ^ 'ccgPublicIP'
-    -> Int -- ^ 'ccgBGPASN'
+    -> GatewayType -- ^ 'ccgType'
     -> CreateCustomerGateway
-createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
+createCustomerGateway pBGPASN_ pPublicIP_ pType_ =
     CreateCustomerGateway'
     { _ccgDryRun = Nothing
-    , _ccgType = pType_
-    , _ccgPublicIP = pPublicIP_
     , _ccgBGPASN = pBGPASN_
+    , _ccgPublicIP = pPublicIP_
+    , _ccgType = pType_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
 ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a});
 
--- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
-ccgType :: Lens' CreateCustomerGateway GatewayType
-ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
+-- | For devices that support BGP, the customer gateway's BGP ASN. Default: 65000
+ccgBGPASN :: Lens' CreateCustomerGateway Int
+ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
 
 -- | The Internet-routable IP address for the customer gateway's outside interface. The address must be static.
 ccgPublicIP :: Lens' CreateCustomerGateway Text
 ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a});
 
--- | For devices that support BGP, the customer gateway's BGP ASN. Default: 65000
-ccgBGPASN :: Lens' CreateCustomerGateway Int
-ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
+-- | The type of VPN connection that this customer gateway supports (@ipsec.1@ ).
+ccgType :: Lens' CreateCustomerGateway GatewayType
+ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
 
 instance AWSRequest CreateCustomerGateway where
         type Rs CreateCustomerGateway =
@@ -130,8 +130,8 @@ instance ToQuery CreateCustomerGateway where
           = mconcat
               ["Action" =: ("CreateCustomerGateway" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _ccgDryRun, "Type" =: _ccgType,
-               "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
+               "DryRun" =: _ccgDryRun, "BgpAsn" =: _ccgBGPASN,
+               "IpAddress" =: _ccgPublicIP, "Type" =: _ccgType]
 
 -- | Contains the output of CreateCustomerGateway.
 --

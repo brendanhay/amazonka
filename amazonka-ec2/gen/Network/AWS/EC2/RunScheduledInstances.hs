@@ -34,8 +34,8 @@ module Network.AWS.EC2.RunScheduledInstances
     , rsiClientToken
     , rsiInstanceCount
     , rsiDryRun
-    , rsiScheduledInstanceId
     , rsiLaunchSpecification
+    , rsiScheduledInstanceId
 
     -- * Destructuring the Response
     , runScheduledInstancesResponse
@@ -61,8 +61,8 @@ data RunScheduledInstances = RunScheduledInstances'
     { _rsiClientToken         :: !(Maybe Text)
     , _rsiInstanceCount       :: !(Maybe Int)
     , _rsiDryRun              :: !(Maybe Bool)
-    , _rsiScheduledInstanceId :: !Text
     , _rsiLaunchSpecification :: !ScheduledInstancesLaunchSpecification
+    , _rsiScheduledInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'RunScheduledInstances' with the minimum fields required to make a request.
@@ -75,20 +75,20 @@ data RunScheduledInstances = RunScheduledInstances'
 --
 -- * 'rsiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'rsiScheduledInstanceId' - The Scheduled Instance ID.
---
 -- * 'rsiLaunchSpecification' - The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
+--
+-- * 'rsiScheduledInstanceId' - The Scheduled Instance ID.
 runScheduledInstances
-    :: Text -- ^ 'rsiScheduledInstanceId'
-    -> ScheduledInstancesLaunchSpecification -- ^ 'rsiLaunchSpecification'
+    :: ScheduledInstancesLaunchSpecification -- ^ 'rsiLaunchSpecification'
+    -> Text -- ^ 'rsiScheduledInstanceId'
     -> RunScheduledInstances
-runScheduledInstances pScheduledInstanceId_ pLaunchSpecification_ =
+runScheduledInstances pLaunchSpecification_ pScheduledInstanceId_ =
     RunScheduledInstances'
     { _rsiClientToken = Nothing
     , _rsiInstanceCount = Nothing
     , _rsiDryRun = Nothing
-    , _rsiScheduledInstanceId = pScheduledInstanceId_
     , _rsiLaunchSpecification = pLaunchSpecification_
+    , _rsiScheduledInstanceId = pScheduledInstanceId_
     }
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -103,13 +103,13 @@ rsiInstanceCount = lens _rsiInstanceCount (\ s a -> s{_rsiInstanceCount = a});
 rsiDryRun :: Lens' RunScheduledInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 
--- | The Scheduled Instance ID.
-rsiScheduledInstanceId :: Lens' RunScheduledInstances Text
-rsiScheduledInstanceId = lens _rsiScheduledInstanceId (\ s a -> s{_rsiScheduledInstanceId = a});
-
 -- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
 rsiLaunchSpecification :: Lens' RunScheduledInstances ScheduledInstancesLaunchSpecification
 rsiLaunchSpecification = lens _rsiLaunchSpecification (\ s a -> s{_rsiLaunchSpecification = a});
+
+-- | The Scheduled Instance ID.
+rsiScheduledInstanceId :: Lens' RunScheduledInstances Text
+rsiScheduledInstanceId = lens _rsiScheduledInstanceId (\ s a -> s{_rsiScheduledInstanceId = a});
 
 instance AWSRequest RunScheduledInstances where
         type Rs RunScheduledInstances =
@@ -141,8 +141,8 @@ instance ToQuery RunScheduledInstances where
                "ClientToken" =: _rsiClientToken,
                "InstanceCount" =: _rsiInstanceCount,
                "DryRun" =: _rsiDryRun,
-               "ScheduledInstanceId" =: _rsiScheduledInstanceId,
-               "LaunchSpecification" =: _rsiLaunchSpecification]
+               "LaunchSpecification" =: _rsiLaunchSpecification,
+               "ScheduledInstanceId" =: _rsiScheduledInstanceId]
 
 -- | Contains the output of RunScheduledInstances.
 --

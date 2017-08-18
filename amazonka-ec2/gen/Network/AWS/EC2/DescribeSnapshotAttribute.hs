@@ -30,8 +30,8 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , DescribeSnapshotAttribute
     -- * Request Lenses
     , dsaDryRun
-    , dsaSnapshotId
     , dsaAttribute
+    , dsaSnapshotId
 
     -- * Destructuring the Response
     , describeSnapshotAttributeResponse
@@ -57,8 +57,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
     { _dsaDryRun     :: !(Maybe Bool)
-    , _dsaSnapshotId :: !Text
     , _dsaAttribute  :: !SnapshotAttributeName
+    , _dsaSnapshotId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
@@ -67,31 +67,31 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
 --
 -- * 'dsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dsaSnapshotId' - The ID of the EBS snapshot.
---
 -- * 'dsaAttribute' - The snapshot attribute you would like to view.
+--
+-- * 'dsaSnapshotId' - The ID of the EBS snapshot.
 describeSnapshotAttribute
-    :: Text -- ^ 'dsaSnapshotId'
-    -> SnapshotAttributeName -- ^ 'dsaAttribute'
+    :: SnapshotAttributeName -- ^ 'dsaAttribute'
+    -> Text -- ^ 'dsaSnapshotId'
     -> DescribeSnapshotAttribute
-describeSnapshotAttribute pSnapshotId_ pAttribute_ =
+describeSnapshotAttribute pAttribute_ pSnapshotId_ =
     DescribeSnapshotAttribute'
     { _dsaDryRun = Nothing
-    , _dsaSnapshotId = pSnapshotId_
     , _dsaAttribute = pAttribute_
+    , _dsaSnapshotId = pSnapshotId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
 
--- | The ID of the EBS snapshot.
-dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
-
 -- | The snapshot attribute you would like to view.
 dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
+
+-- | The ID of the EBS snapshot.
+dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
+dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
 
 instance AWSRequest DescribeSnapshotAttribute where
         type Rs DescribeSnapshotAttribute =
@@ -125,9 +125,8 @@ instance ToQuery DescribeSnapshotAttribute where
               ["Action" =:
                  ("DescribeSnapshotAttribute" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _dsaDryRun,
-               "SnapshotId" =: _dsaSnapshotId,
-               "Attribute" =: _dsaAttribute]
+               "DryRun" =: _dsaDryRun, "Attribute" =: _dsaAttribute,
+               "SnapshotId" =: _dsaSnapshotId]
 
 -- | Contains the output of DescribeSnapshotAttribute.
 --

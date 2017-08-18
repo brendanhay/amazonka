@@ -42,10 +42,10 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     -- * Response Lenses
     , dsfrhrsNextToken
     , dsfrhrsResponseStatus
+    , dsfrhrsHistoryRecords
+    , dsfrhrsLastEvaluatedTime
     , dsfrhrsSpotFleetRequestId
     , dsfrhrsStartTime
-    , dsfrhrsLastEvaluatedTime
-    , dsfrhrsHistoryRecords
     ) where
 
 import           Network.AWS.EC2.Types
@@ -132,12 +132,11 @@ instance AWSRequest DescribeSpotFleetRequestHistory
               (\ s h x ->
                  DescribeSpotFleetRequestHistoryResponse' <$>
                    (x .@? "nextToken") <*> (pure (fromEnum s)) <*>
-                     (x .@ "spotFleetRequestId")
-                     <*> (x .@ "startTime")
-                     <*> (x .@ "lastEvaluatedTime")
-                     <*>
                      (x .@? "historyRecordSet" .!@ mempty >>=
-                        parseXMLList "item"))
+                        parseXMLList "item")
+                     <*> (x .@ "lastEvaluatedTime")
+                     <*> (x .@ "spotFleetRequestId")
+                     <*> (x .@ "startTime"))
 
 instance Hashable DescribeSpotFleetRequestHistory
 
@@ -172,10 +171,10 @@ instance ToQuery DescribeSpotFleetRequestHistory
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken          :: !(Maybe Text)
     , _dsfrhrsResponseStatus     :: !Int
+    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
+    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
     , _dsfrhrsSpotFleetRequestId :: !Text
     , _dsfrhrsStartTime          :: !ISO8601
-    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
-    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeSpotFleetRequestHistoryResponse' with the minimum fields required to make a request.
@@ -186,27 +185,27 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
 --
 -- * 'dsfrhrsResponseStatus' - -- | The response status code.
 --
--- * 'dsfrhrsSpotFleetRequestId' - The ID of the Spot fleet request.
---
--- * 'dsfrhrsStartTime' - The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'dsfrhrsHistoryRecords' - Information about the events in the history of the Spot fleet request.
 --
 -- * 'dsfrhrsLastEvaluatedTime' - The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved. If @nextToken@ indicates that there are more results, this value is not present.
 --
--- * 'dsfrhrsHistoryRecords' - Information about the events in the history of the Spot fleet request.
+-- * 'dsfrhrsSpotFleetRequestId' - The ID of the Spot fleet request.
+--
+-- * 'dsfrhrsStartTime' - The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 describeSpotFleetRequestHistoryResponse
     :: Int -- ^ 'dsfrhrsResponseStatus'
+    -> UTCTime -- ^ 'dsfrhrsLastEvaluatedTime'
     -> Text -- ^ 'dsfrhrsSpotFleetRequestId'
     -> UTCTime -- ^ 'dsfrhrsStartTime'
-    -> UTCTime -- ^ 'dsfrhrsLastEvaluatedTime'
     -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pResponseStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
+describeSpotFleetRequestHistoryResponse pResponseStatus_ pLastEvaluatedTime_ pSpotFleetRequestId_ pStartTime_ =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken = Nothing
     , _dsfrhrsResponseStatus = pResponseStatus_
+    , _dsfrhrsHistoryRecords = mempty
+    , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime_
     , _dsfrhrsSpotFleetRequestId = pSpotFleetRequestId_
     , _dsfrhrsStartTime = _Time # pStartTime_
-    , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime_
-    , _dsfrhrsHistoryRecords = mempty
     }
 
 -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
@@ -217,6 +216,14 @@ dsfrhrsNextToken = lens _dsfrhrsNextToken (\ s a -> s{_dsfrhrsNextToken = a});
 dsfrhrsResponseStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
 dsfrhrsResponseStatus = lens _dsfrhrsResponseStatus (\ s a -> s{_dsfrhrsResponseStatus = a});
 
+-- | Information about the events in the history of the Spot fleet request.
+dsfrhrsHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
+dsfrhrsHistoryRecords = lens _dsfrhrsHistoryRecords (\ s a -> s{_dsfrhrsHistoryRecords = a}) . _Coerce;
+
+-- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved. If @nextToken@ indicates that there are more results, this value is not present.
+dsfrhrsLastEvaluatedTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
+dsfrhrsLastEvaluatedTime = lens _dsfrhrsLastEvaluatedTime (\ s a -> s{_dsfrhrsLastEvaluatedTime = a}) . _Time;
+
 -- | The ID of the Spot fleet request.
 dsfrhrsSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistoryResponse Text
 dsfrhrsSpotFleetRequestId = lens _dsfrhrsSpotFleetRequestId (\ s a -> s{_dsfrhrsSpotFleetRequestId = a});
@@ -224,14 +231,6 @@ dsfrhrsSpotFleetRequestId = lens _dsfrhrsSpotFleetRequestId (\ s a -> s{_dsfrhrs
 -- | The starting date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 dsfrhrsStartTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
 dsfrhrsStartTime = lens _dsfrhrsStartTime (\ s a -> s{_dsfrhrsStartTime = a}) . _Time;
-
--- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved. If @nextToken@ indicates that there are more results, this value is not present.
-dsfrhrsLastEvaluatedTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
-dsfrhrsLastEvaluatedTime = lens _dsfrhrsLastEvaluatedTime (\ s a -> s{_dsfrhrsLastEvaluatedTime = a}) . _Time;
-
--- | Information about the events in the history of the Spot fleet request.
-dsfrhrsHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
-dsfrhrsHistoryRecords = lens _dsfrhrsHistoryRecords (\ s a -> s{_dsfrhrsHistoryRecords = a}) . _Coerce;
 
 instance NFData
          DescribeSpotFleetRequestHistoryResponse

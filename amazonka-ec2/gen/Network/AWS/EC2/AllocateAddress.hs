@@ -18,10 +18,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Acquires an Elastic IP address.
+-- Allocates an Elastic IP address.
 --
 --
--- An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5 Elastic IP addresses for EC2-VPC per region.
+--
+-- If you release an Elastic IP address for use in a VPC, you might be able to recover it. To recover an Elastic IP address that you released, specify it in the @Address@ parameter. Note that you cannot recover an Elastic IP address that you released after it is allocated to another AWS account.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.AllocateAddress
     (
@@ -30,6 +34,7 @@ module Network.AWS.EC2.AllocateAddress
     , AllocateAddress
     -- * Request Lenses
     , aaDomain
+    , aaAddress
     , aaDryRun
 
     -- * Destructuring the Response
@@ -55,8 +60,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'allocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-    { _aaDomain :: !(Maybe DomainType)
-    , _aaDryRun :: !(Maybe Bool)
+    { _aaDomain  :: !(Maybe DomainType)
+    , _aaAddress :: !(Maybe Text)
+    , _aaDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
@@ -65,18 +71,25 @@ data AllocateAddress = AllocateAddress'
 --
 -- * 'aaDomain' - Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 --
+-- * 'aaAddress' - [EC2-VPC] The Elastic IP address to recover.
+--
 -- * 'aaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 allocateAddress
     :: AllocateAddress
 allocateAddress =
     AllocateAddress'
     { _aaDomain = Nothing
+    , _aaAddress = Nothing
     , _aaDryRun = Nothing
     }
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC. Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
+
+-- | [EC2-VPC] The Elastic IP address to recover.
+aaAddress :: Lens' AllocateAddress (Maybe Text)
+aaAddress = lens _aaAddress (\ s a -> s{_aaAddress = a});
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
@@ -108,7 +121,8 @@ instance ToQuery AllocateAddress where
           = mconcat
               ["Action" =: ("AllocateAddress" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
+               "Domain" =: _aaDomain, "Address" =: _aaAddress,
+               "DryRun" =: _aaDryRun]
 
 -- | Contains the output of AllocateAddress.
 --

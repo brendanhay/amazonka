@@ -27,8 +27,8 @@ module Network.AWS.EC2.EnableVGWRoutePropagation
       enableVGWRoutePropagation
     , EnableVGWRoutePropagation
     -- * Request Lenses
-    , evrpRouteTableId
     , evrpGatewayId
+    , evrpRouteTableId
 
     -- * Destructuring the Response
     , enableVGWRoutePropagationResponse
@@ -48,34 +48,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'enableVGWRoutePropagation' smart constructor.
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
-    { _evrpRouteTableId :: !Text
-    , _evrpGatewayId    :: !Text
+    { _evrpGatewayId    :: !Text
+    , _evrpRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'EnableVGWRoutePropagation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'evrpRouteTableId' - The ID of the route table.
---
 -- * 'evrpGatewayId' - The ID of the virtual private gateway.
+--
+-- * 'evrpRouteTableId' - The ID of the route table.
 enableVGWRoutePropagation
-    :: Text -- ^ 'evrpRouteTableId'
-    -> Text -- ^ 'evrpGatewayId'
+    :: Text -- ^ 'evrpGatewayId'
+    -> Text -- ^ 'evrpRouteTableId'
     -> EnableVGWRoutePropagation
-enableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
+enableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
     EnableVGWRoutePropagation'
-    { _evrpRouteTableId = pRouteTableId_
-    , _evrpGatewayId = pGatewayId_
+    { _evrpGatewayId = pGatewayId_
+    , _evrpRouteTableId = pRouteTableId_
     }
-
--- | The ID of the route table.
-evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
-evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
 
 -- | The ID of the virtual private gateway.
 evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
 evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
+
+-- | The ID of the route table.
+evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
+evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
 
 instance AWSRequest EnableVGWRoutePropagation where
         type Rs EnableVGWRoutePropagation =
@@ -100,8 +100,8 @@ instance ToQuery EnableVGWRoutePropagation where
               ["Action" =:
                  ("EnableVgwRoutePropagation" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "RouteTableId" =: _evrpRouteTableId,
-               "GatewayId" =: _evrpGatewayId]
+               "GatewayId" =: _evrpGatewayId,
+               "RouteTableId" =: _evrpRouteTableId]
 
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
 data EnableVGWRoutePropagationResponse =

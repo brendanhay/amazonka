@@ -29,9 +29,9 @@ module Network.AWS.EC2.AllocateHosts
     -- * Request Lenses
     , ahClientToken
     , ahAutoPlacement
+    , ahAvailabilityZone
     , ahInstanceType
     , ahQuantity
-    , ahAvailabilityZone
 
     -- * Destructuring the Response
     , allocateHostsResponse
@@ -56,9 +56,9 @@ import           Network.AWS.Response
 data AllocateHosts = AllocateHosts'
     { _ahClientToken      :: !(Maybe Text)
     , _ahAutoPlacement    :: !(Maybe AutoPlacement)
+    , _ahAvailabilityZone :: !Text
     , _ahInstanceType     :: !Text
     , _ahQuantity         :: !Int
-    , _ahAvailabilityZone :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AllocateHosts' with the minimum fields required to make a request.
@@ -69,23 +69,23 @@ data AllocateHosts = AllocateHosts'
 --
 -- * 'ahAutoPlacement' - This is enabled by default. This property allows instances to be automatically placed onto available Dedicated Hosts, when you are launching instances without specifying a host ID. Default: Enabled
 --
+-- * 'ahAvailabilityZone' - The Availability Zone for the Dedicated Hosts.
+--
 -- * 'ahInstanceType' - Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
 --
 -- * 'ahQuantity' - The number of Dedicated Hosts you want to allocate to your account with these parameters.
---
--- * 'ahAvailabilityZone' - The Availability Zone for the Dedicated Hosts.
 allocateHosts
-    :: Text -- ^ 'ahInstanceType'
+    :: Text -- ^ 'ahAvailabilityZone'
+    -> Text -- ^ 'ahInstanceType'
     -> Int -- ^ 'ahQuantity'
-    -> Text -- ^ 'ahAvailabilityZone'
     -> AllocateHosts
-allocateHosts pInstanceType_ pQuantity_ pAvailabilityZone_ =
+allocateHosts pAvailabilityZone_ pInstanceType_ pQuantity_ =
     AllocateHosts'
     { _ahClientToken = Nothing
     , _ahAutoPlacement = Nothing
+    , _ahAvailabilityZone = pAvailabilityZone_
     , _ahInstanceType = pInstanceType_
     , _ahQuantity = pQuantity_
-    , _ahAvailabilityZone = pAvailabilityZone_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/ .
@@ -96,6 +96,10 @@ ahClientToken = lens _ahClientToken (\ s a -> s{_ahClientToken = a});
 ahAutoPlacement :: Lens' AllocateHosts (Maybe AutoPlacement)
 ahAutoPlacement = lens _ahAutoPlacement (\ s a -> s{_ahAutoPlacement = a});
 
+-- | The Availability Zone for the Dedicated Hosts.
+ahAvailabilityZone :: Lens' AllocateHosts Text
+ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a});
+
 -- | Specify the instance type that you want your Dedicated Hosts to be configured for. When you specify the instance type, that is the only instance type that you can launch onto that host.
 ahInstanceType :: Lens' AllocateHosts Text
 ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a});
@@ -103,10 +107,6 @@ ahInstanceType = lens _ahInstanceType (\ s a -> s{_ahInstanceType = a});
 -- | The number of Dedicated Hosts you want to allocate to your account with these parameters.
 ahQuantity :: Lens' AllocateHosts Int
 ahQuantity = lens _ahQuantity (\ s a -> s{_ahQuantity = a});
-
--- | The Availability Zone for the Dedicated Hosts.
-ahAvailabilityZone :: Lens' AllocateHosts Text
-ahAvailabilityZone = lens _ahAvailabilityZone (\ s a -> s{_ahAvailabilityZone = a});
 
 instance AWSRequest AllocateHosts where
         type Rs AllocateHosts = AllocateHostsResponse
@@ -136,9 +136,9 @@ instance ToQuery AllocateHosts where
                "Version" =: ("2016-11-15" :: ByteString),
                "ClientToken" =: _ahClientToken,
                "AutoPlacement" =: _ahAutoPlacement,
+               "AvailabilityZone" =: _ahAvailabilityZone,
                "InstanceType" =: _ahInstanceType,
-               "Quantity" =: _ahQuantity,
-               "AvailabilityZone" =: _ahAvailabilityZone]
+               "Quantity" =: _ahQuantity]
 
 -- | Contains the output of AllocateHosts.
 --

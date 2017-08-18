@@ -25,7 +25,9 @@
 --
 -- You can create encrypted volumes with the @Encrypted@ parameter. Encrypted volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- You can tag your volumes during creation. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Amazon EC2 Resources> .
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 module Network.AWS.EC2.CreateVolume
     (
@@ -36,6 +38,7 @@ module Network.AWS.EC2.CreateVolume
     , creSize
     , creIOPS
     , creEncrypted
+    , creTagSpecifications
     , creKMSKeyId
     , creVolumeType
     , creDryRun
@@ -73,14 +76,15 @@ import           Network.AWS.Response
 --
 -- /See:/ 'createVolume' smart constructor.
 data CreateVolume = CreateVolume'
-    { _creSize             :: !(Maybe Int)
-    , _creIOPS             :: !(Maybe Int)
-    , _creEncrypted        :: !(Maybe Bool)
-    , _creKMSKeyId         :: !(Maybe Text)
-    , _creVolumeType       :: !(Maybe VolumeType)
-    , _creDryRun           :: !(Maybe Bool)
-    , _creSnapshotId       :: !(Maybe Text)
-    , _creAvailabilityZone :: !Text
+    { _creSize              :: !(Maybe Int)
+    , _creIOPS              :: !(Maybe Int)
+    , _creEncrypted         :: !(Maybe Bool)
+    , _creTagSpecifications :: !(Maybe [TagSpecification])
+    , _creKMSKeyId          :: !(Maybe Text)
+    , _creVolumeType        :: !(Maybe VolumeType)
+    , _creDryRun            :: !(Maybe Bool)
+    , _creSnapshotId        :: !(Maybe Text)
+    , _creAvailabilityZone  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CreateVolume' with the minimum fields required to make a request.
@@ -92,6 +96,8 @@ data CreateVolume = CreateVolume'
 -- * 'creIOPS' - Only valid for Provisioned IOPS SSD volumes. The number of I/O operations per second (IOPS) to provision for the volume, with a maximum ratio of 50 IOPS/GiB. Constraint: Range is 100 to 20000 for Provisioned IOPS SSD volumes
 --
 -- * 'creEncrypted' - Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- * 'creTagSpecifications' - The tags to apply to the volume during creation.
 --
 -- * 'creKMSKeyId' - The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 --
@@ -110,6 +116,7 @@ createVolume pAvailabilityZone_ =
     { _creSize = Nothing
     , _creIOPS = Nothing
     , _creEncrypted = Nothing
+    , _creTagSpecifications = Nothing
     , _creKMSKeyId = Nothing
     , _creVolumeType = Nothing
     , _creDryRun = Nothing
@@ -128,6 +135,10 @@ creIOPS = lens _creIOPS (\ s a -> s{_creIOPS = a});
 -- | Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 creEncrypted :: Lens' CreateVolume (Maybe Bool)
 creEncrypted = lens _creEncrypted (\ s a -> s{_creEncrypted = a});
+
+-- | The tags to apply to the volume during creation.
+creTagSpecifications :: Lens' CreateVolume [TagSpecification]
+creTagSpecifications = lens _creTagSpecifications (\ s a -> s{_creTagSpecifications = a}) . _Default . _Coerce;
 
 -- | The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. The ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ . If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 creKMSKeyId :: Lens' CreateVolume (Maybe Text)
@@ -171,6 +182,9 @@ instance ToQuery CreateVolume where
                "Version" =: ("2016-11-15" :: ByteString),
                "Size" =: _creSize, "Iops" =: _creIOPS,
                "Encrypted" =: _creEncrypted,
+               toQuery
+                 (toQueryList "TagSpecification" <$>
+                    _creTagSpecifications),
                "KmsKeyId" =: _creKMSKeyId,
                "VolumeType" =: _creVolumeType,
                "DryRun" =: _creDryRun,

@@ -27,8 +27,8 @@ module Network.AWS.EC2.DisableVGWRoutePropagation
       disableVGWRoutePropagation
     , DisableVGWRoutePropagation
     -- * Request Lenses
-    , dvrpRouteTableId
     , dvrpGatewayId
+    , dvrpRouteTableId
 
     -- * Destructuring the Response
     , disableVGWRoutePropagationResponse
@@ -48,34 +48,34 @@ import           Network.AWS.Response
 --
 -- /See:/ 'disableVGWRoutePropagation' smart constructor.
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
-    { _dvrpRouteTableId :: !Text
-    , _dvrpGatewayId    :: !Text
+    { _dvrpGatewayId    :: !Text
+    , _dvrpRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DisableVGWRoutePropagation' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvrpRouteTableId' - The ID of the route table.
---
 -- * 'dvrpGatewayId' - The ID of the virtual private gateway.
+--
+-- * 'dvrpRouteTableId' - The ID of the route table.
 disableVGWRoutePropagation
-    :: Text -- ^ 'dvrpRouteTableId'
-    -> Text -- ^ 'dvrpGatewayId'
+    :: Text -- ^ 'dvrpGatewayId'
+    -> Text -- ^ 'dvrpRouteTableId'
     -> DisableVGWRoutePropagation
-disableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
+disableVGWRoutePropagation pGatewayId_ pRouteTableId_ =
     DisableVGWRoutePropagation'
-    { _dvrpRouteTableId = pRouteTableId_
-    , _dvrpGatewayId = pGatewayId_
+    { _dvrpGatewayId = pGatewayId_
+    , _dvrpRouteTableId = pRouteTableId_
     }
-
--- | The ID of the route table.
-dvrpRouteTableId :: Lens' DisableVGWRoutePropagation Text
-dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a});
 
 -- | The ID of the virtual private gateway.
 dvrpGatewayId :: Lens' DisableVGWRoutePropagation Text
 dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a});
+
+-- | The ID of the route table.
+dvrpRouteTableId :: Lens' DisableVGWRoutePropagation Text
+dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a});
 
 instance AWSRequest DisableVGWRoutePropagation where
         type Rs DisableVGWRoutePropagation =
@@ -100,8 +100,8 @@ instance ToQuery DisableVGWRoutePropagation where
               ["Action" =:
                  ("DisableVgwRoutePropagation" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "RouteTableId" =: _dvrpRouteTableId,
-               "GatewayId" =: _dvrpGatewayId]
+               "GatewayId" =: _dvrpGatewayId,
+               "RouteTableId" =: _dvrpRouteTableId]
 
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
 data DisableVGWRoutePropagationResponse =

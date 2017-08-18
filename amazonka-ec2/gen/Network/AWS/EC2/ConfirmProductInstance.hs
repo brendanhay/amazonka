@@ -28,8 +28,8 @@ module Network.AWS.EC2.ConfirmProductInstance
     , ConfirmProductInstance
     -- * Request Lenses
     , cpiDryRun
-    , cpiProductCode
     , cpiInstanceId
+    , cpiProductCode
 
     -- * Destructuring the Response
     , confirmProductInstanceResponse
@@ -54,8 +54,8 @@ import           Network.AWS.Response
 -- /See:/ 'confirmProductInstance' smart constructor.
 data ConfirmProductInstance = ConfirmProductInstance'
     { _cpiDryRun      :: !(Maybe Bool)
-    , _cpiProductCode :: !Text
     , _cpiInstanceId  :: !Text
+    , _cpiProductCode :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ConfirmProductInstance' with the minimum fields required to make a request.
@@ -64,31 +64,31 @@ data ConfirmProductInstance = ConfirmProductInstance'
 --
 -- * 'cpiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'cpiProductCode' - The product code. This must be a product code that you own.
---
 -- * 'cpiInstanceId' - The ID of the instance.
+--
+-- * 'cpiProductCode' - The product code. This must be a product code that you own.
 confirmProductInstance
-    :: Text -- ^ 'cpiProductCode'
-    -> Text -- ^ 'cpiInstanceId'
+    :: Text -- ^ 'cpiInstanceId'
+    -> Text -- ^ 'cpiProductCode'
     -> ConfirmProductInstance
-confirmProductInstance pProductCode_ pInstanceId_ =
+confirmProductInstance pInstanceId_ pProductCode_ =
     ConfirmProductInstance'
     { _cpiDryRun = Nothing
-    , _cpiProductCode = pProductCode_
     , _cpiInstanceId = pInstanceId_
+    , _cpiProductCode = pProductCode_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
 cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a});
 
--- | The product code. This must be a product code that you own.
-cpiProductCode :: Lens' ConfirmProductInstance Text
-cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a});
-
 -- | The ID of the instance.
 cpiInstanceId :: Lens' ConfirmProductInstance Text
 cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a});
+
+-- | The product code. This must be a product code that you own.
+cpiProductCode :: Lens' ConfirmProductInstance Text
+cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a});
 
 instance AWSRequest ConfirmProductInstance where
         type Rs ConfirmProductInstance =
@@ -118,8 +118,8 @@ instance ToQuery ConfirmProductInstance where
                  ("ConfirmProductInstance" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _cpiDryRun,
-               "ProductCode" =: _cpiProductCode,
-               "InstanceId" =: _cpiInstanceId]
+               "InstanceId" =: _cpiInstanceId,
+               "ProductCode" =: _cpiProductCode]
 
 -- | Contains the output of ConfirmProductInstance.
 --

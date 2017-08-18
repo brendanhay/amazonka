@@ -28,8 +28,8 @@ module Network.AWS.EC2.DescribeVPCAttribute
     , DescribeVPCAttribute
     -- * Request Lenses
     , dvpcaDryRun
-    , dvpcaVPCId
     , dvpcaAttribute
+    , dvpcaVPCId
 
     -- * Destructuring the Response
     , describeVPCAttributeResponse
@@ -55,8 +55,8 @@ import           Network.AWS.Response
 -- /See:/ 'describeVPCAttribute' smart constructor.
 data DescribeVPCAttribute = DescribeVPCAttribute'
     { _dvpcaDryRun    :: !(Maybe Bool)
-    , _dvpcaVPCId     :: !Text
     , _dvpcaAttribute :: !VPCAttributeName
+    , _dvpcaVPCId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeVPCAttribute' with the minimum fields required to make a request.
@@ -65,31 +65,31 @@ data DescribeVPCAttribute = DescribeVPCAttribute'
 --
 -- * 'dvpcaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvpcaVPCId' - The ID of the VPC.
---
 -- * 'dvpcaAttribute' - The VPC attribute.
+--
+-- * 'dvpcaVPCId' - The ID of the VPC.
 describeVPCAttribute
-    :: Text -- ^ 'dvpcaVPCId'
-    -> VPCAttributeName -- ^ 'dvpcaAttribute'
+    :: VPCAttributeName -- ^ 'dvpcaAttribute'
+    -> Text -- ^ 'dvpcaVPCId'
     -> DescribeVPCAttribute
-describeVPCAttribute pVPCId_ pAttribute_ =
+describeVPCAttribute pAttribute_ pVPCId_ =
     DescribeVPCAttribute'
     { _dvpcaDryRun = Nothing
-    , _dvpcaVPCId = pVPCId_
     , _dvpcaAttribute = pAttribute_
+    , _dvpcaVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
 dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
 
--- | The ID of the VPC.
-dvpcaVPCId :: Lens' DescribeVPCAttribute Text
-dvpcaVPCId = lens _dvpcaVPCId (\ s a -> s{_dvpcaVPCId = a});
-
 -- | The VPC attribute.
 dvpcaAttribute :: Lens' DescribeVPCAttribute VPCAttributeName
 dvpcaAttribute = lens _dvpcaAttribute (\ s a -> s{_dvpcaAttribute = a});
+
+-- | The ID of the VPC.
+dvpcaVPCId :: Lens' DescribeVPCAttribute Text
+dvpcaVPCId = lens _dvpcaVPCId (\ s a -> s{_dvpcaVPCId = a});
 
 instance AWSRequest DescribeVPCAttribute where
         type Rs DescribeVPCAttribute =
@@ -119,8 +119,9 @@ instance ToQuery DescribeVPCAttribute where
           = mconcat
               ["Action" =: ("DescribeVpcAttribute" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _dvpcaDryRun, "VpcId" =: _dvpcaVPCId,
-               "Attribute" =: _dvpcaAttribute]
+               "DryRun" =: _dvpcaDryRun,
+               "Attribute" =: _dvpcaAttribute,
+               "VpcId" =: _dvpcaVPCId]
 
 -- | Contains the output of DescribeVpcAttribute.
 --

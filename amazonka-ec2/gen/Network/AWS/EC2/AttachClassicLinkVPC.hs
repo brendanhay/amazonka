@@ -32,9 +32,9 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , AttachClassicLinkVPC
     -- * Request Lenses
     , aclvDryRun
+    , aclvGroups
     , aclvInstanceId
     , aclvVPCId
-    , aclvGroups
 
     -- * Destructuring the Response
     , attachClassicLinkVPCResponse
@@ -58,9 +58,9 @@ import           Network.AWS.Response
 -- /See:/ 'attachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
     { _aclvDryRun     :: !(Maybe Bool)
+    , _aclvGroups     :: ![Text]
     , _aclvInstanceId :: !Text
     , _aclvVPCId      :: !Text
-    , _aclvGroups     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachClassicLinkVPC' with the minimum fields required to make a request.
@@ -69,11 +69,11 @@ data AttachClassicLinkVPC = AttachClassicLinkVPC'
 --
 -- * 'aclvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
+-- * 'aclvGroups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+--
 -- * 'aclvInstanceId' - The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 --
 -- * 'aclvVPCId' - The ID of a ClassicLink-enabled VPC.
---
--- * 'aclvGroups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
 attachClassicLinkVPC
     :: Text -- ^ 'aclvInstanceId'
     -> Text -- ^ 'aclvVPCId'
@@ -81,14 +81,18 @@ attachClassicLinkVPC
 attachClassicLinkVPC pInstanceId_ pVPCId_ =
     AttachClassicLinkVPC'
     { _aclvDryRun = Nothing
+    , _aclvGroups = mempty
     , _aclvInstanceId = pInstanceId_
     , _aclvVPCId = pVPCId_
-    , _aclvGroups = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
 aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
+
+-- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+aclvGroups :: Lens' AttachClassicLinkVPC [Text]
+aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
 aclvInstanceId :: Lens' AttachClassicLinkVPC Text
@@ -97,10 +101,6 @@ aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
 -- | The ID of a ClassicLink-enabled VPC.
 aclvVPCId :: Lens' AttachClassicLinkVPC Text
 aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
-
--- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
-aclvGroups :: Lens' AttachClassicLinkVPC [Text]
-aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 
 instance AWSRequest AttachClassicLinkVPC where
         type Rs AttachClassicLinkVPC =
@@ -128,9 +128,9 @@ instance ToQuery AttachClassicLinkVPC where
               ["Action" =: ("AttachClassicLinkVpc" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
                "DryRun" =: _aclvDryRun,
+               toQueryList "SecurityGroupId" _aclvGroups,
                "InstanceId" =: _aclvInstanceId,
-               "VpcId" =: _aclvVPCId,
-               toQueryList "SecurityGroupId" _aclvGroups]
+               "VpcId" =: _aclvVPCId]
 
 -- | Contains the output of AttachClassicLinkVpc.
 --

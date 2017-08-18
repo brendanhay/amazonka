@@ -37,8 +37,8 @@ module Network.AWS.EC2.DescribeImages
     , describeImagesResponse
     , DescribeImagesResponse
     -- * Response Lenses
-    , desrsImages
-    , desrsResponseStatus
+    , diirsImages
+    , diirsResponseStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -145,32 +145,32 @@ instance ToQuery DescribeImages where
 --
 -- /See:/ 'describeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _desrsImages         :: !(Maybe [Image])
-    , _desrsResponseStatus :: !Int
+    { _diirsImages         :: !(Maybe [Image])
+    , _diirsResponseStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrsImages' - Information about one or more images.
+-- * 'diirsImages' - Information about one or more images.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
+-- * 'diirsResponseStatus' - -- | The response status code.
 describeImagesResponse
-    :: Int -- ^ 'desrsResponseStatus'
+    :: Int -- ^ 'diirsResponseStatus'
     -> DescribeImagesResponse
 describeImagesResponse pResponseStatus_ =
     DescribeImagesResponse'
-    { _desrsImages = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { _diirsImages = Nothing
+    , _diirsResponseStatus = pResponseStatus_
     }
 
 -- | Information about one or more images.
-desrsImages :: Lens' DescribeImagesResponse [Image]
-desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coerce;
+diirsImages :: Lens' DescribeImagesResponse [Image]
+diirsImages = lens _diirsImages (\ s a -> s{_diirsImages = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeImagesResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
+diirsResponseStatus :: Lens' DescribeImagesResponse Int
+diirsResponseStatus = lens _diirsResponseStatus (\ s a -> s{_diirsResponseStatus = a});
 
 instance NFData DescribeImagesResponse

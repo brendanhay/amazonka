@@ -48,9 +48,9 @@ module Network.AWS.EC2.AttachVolume
     , AttachVolume
     -- * Request Lenses
     , avDryRun
-    , avVolumeId
-    , avInstanceId
     , avDevice
+    , avInstanceId
+    , avVolumeId
 
     -- * Destructuring the Response
     , volumeAttachment
@@ -78,9 +78,9 @@ import           Network.AWS.Response
 -- /See:/ 'attachVolume' smart constructor.
 data AttachVolume = AttachVolume'
     { _avDryRun     :: !(Maybe Bool)
-    , _avVolumeId   :: !Text
-    , _avInstanceId :: !Text
     , _avDevice     :: !Text
+    , _avInstanceId :: !Text
+    , _avVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AttachVolume' with the minimum fields required to make a request.
@@ -89,39 +89,39 @@ data AttachVolume = AttachVolume'
 --
 -- * 'avDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'avVolumeId' - The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+-- * 'avDevice' - The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
 --
 -- * 'avInstanceId' - The ID of the instance.
 --
--- * 'avDevice' - The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+-- * 'avVolumeId' - The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
 attachVolume
-    :: Text -- ^ 'avVolumeId'
+    :: Text -- ^ 'avDevice'
     -> Text -- ^ 'avInstanceId'
-    -> Text -- ^ 'avDevice'
+    -> Text -- ^ 'avVolumeId'
     -> AttachVolume
-attachVolume pVolumeId_ pInstanceId_ pDevice_ =
+attachVolume pDevice_ pInstanceId_ pVolumeId_ =
     AttachVolume'
     { _avDryRun = Nothing
-    , _avVolumeId = pVolumeId_
-    , _avInstanceId = pInstanceId_
     , _avDevice = pDevice_
+    , _avInstanceId = pInstanceId_
+    , _avVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
 
--- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
-avVolumeId :: Lens' AttachVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+-- | The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
+avDevice :: Lens' AttachVolume Text
+avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 
 -- | The ID of the instance.
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 
--- | The device name to expose to the instance (for example, @/dev/sdh@ or @xvdh@ ).
-avDevice :: Lens' AttachVolume Text
-avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
+-- | The ID of the EBS volume. The volume and instance must be within the same Availability Zone.
+avVolumeId :: Lens' AttachVolume Text
+avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 
 instance AWSRequest AttachVolume where
         type Rs AttachVolume = VolumeAttachment
@@ -143,5 +143,6 @@ instance ToQuery AttachVolume where
           = mconcat
               ["Action" =: ("AttachVolume" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _avDryRun, "VolumeId" =: _avVolumeId,
-               "InstanceId" =: _avInstanceId, "Device" =: _avDevice]
+               "DryRun" =: _avDryRun, "Device" =: _avDevice,
+               "InstanceId" =: _avInstanceId,
+               "VolumeId" =: _avVolumeId]

@@ -117,7 +117,7 @@ data ActiveInstance = ActiveInstance'
 --
 -- * 'aiInstanceId' - The ID of the instance.
 --
--- * 'aiInstanceHealth' - The health status of the instance. If the status of both the instance status check and the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
+-- * 'aiInstanceHealth' - The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
 --
 -- * 'aiInstanceType' - The instance type.
 --
@@ -136,7 +136,7 @@ activeInstance =
 aiInstanceId :: Lens' ActiveInstance (Maybe Text)
 aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
 
--- | The health status of the instance. If the status of both the instance status check and the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
+-- | The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
 aiInstanceHealth :: Lens' ActiveInstance (Maybe InstanceHealthStatus)
 aiInstanceHealth = lens _aiInstanceHealth (\ s a -> s{_aiInstanceHealth = a});
 
@@ -759,40 +759,40 @@ instance NFData CancelSpotFleetRequestsError
 --
 -- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
-    { _csfreiSpotFleetRequestId :: !Text
-    , _csfreiError              :: !CancelSpotFleetRequestsError
+    { _csfreiError              :: !CancelSpotFleetRequestsError
+    , _csfreiSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelSpotFleetRequestsErrorItem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfreiSpotFleetRequestId' - The ID of the Spot fleet request.
---
 -- * 'csfreiError' - The error.
+--
+-- * 'csfreiSpotFleetRequestId' - The ID of the Spot fleet request.
 cancelSpotFleetRequestsErrorItem
-    :: Text -- ^ 'csfreiSpotFleetRequestId'
-    -> CancelSpotFleetRequestsError -- ^ 'csfreiError'
+    :: CancelSpotFleetRequestsError -- ^ 'csfreiError'
+    -> Text -- ^ 'csfreiSpotFleetRequestId'
     -> CancelSpotFleetRequestsErrorItem
-cancelSpotFleetRequestsErrorItem pSpotFleetRequestId_ pError_ =
+cancelSpotFleetRequestsErrorItem pError_ pSpotFleetRequestId_ =
     CancelSpotFleetRequestsErrorItem'
-    { _csfreiSpotFleetRequestId = pSpotFleetRequestId_
-    , _csfreiError = pError_
+    { _csfreiError = pError_
+    , _csfreiSpotFleetRequestId = pSpotFleetRequestId_
     }
-
--- | The ID of the Spot fleet request.
-csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem Text
-csfreiSpotFleetRequestId = lens _csfreiSpotFleetRequestId (\ s a -> s{_csfreiSpotFleetRequestId = a});
 
 -- | The error.
 csfreiError :: Lens' CancelSpotFleetRequestsErrorItem CancelSpotFleetRequestsError
 csfreiError = lens _csfreiError (\ s a -> s{_csfreiError = a});
 
+-- | The ID of the Spot fleet request.
+csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem Text
+csfreiSpotFleetRequestId = lens _csfreiSpotFleetRequestId (\ s a -> s{_csfreiSpotFleetRequestId = a});
+
 instance FromXML CancelSpotFleetRequestsErrorItem
          where
         parseXML x
           = CancelSpotFleetRequestsErrorItem' <$>
-              (x .@ "spotFleetRequestId") <*> (x .@ "error")
+              (x .@ "error") <*> (x .@ "spotFleetRequestId")
 
 instance Hashable CancelSpotFleetRequestsErrorItem
 
@@ -804,35 +804,31 @@ instance NFData CancelSpotFleetRequestsErrorItem
 --
 -- /See:/ 'cancelSpotFleetRequestsSuccessItem' smart constructor.
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
-    { _csfrsiSpotFleetRequestId            :: !Text
-    , _csfrsiCurrentSpotFleetRequestState  :: !BatchState
+    { _csfrsiCurrentSpotFleetRequestState  :: !BatchState
     , _csfrsiPreviousSpotFleetRequestState :: !BatchState
+    , _csfrsiSpotFleetRequestId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'CancelSpotFleetRequestsSuccessItem' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csfrsiSpotFleetRequestId' - The ID of the Spot fleet request.
---
 -- * 'csfrsiCurrentSpotFleetRequestState' - The current state of the Spot fleet request.
 --
 -- * 'csfrsiPreviousSpotFleetRequestState' - The previous state of the Spot fleet request.
+--
+-- * 'csfrsiSpotFleetRequestId' - The ID of the Spot fleet request.
 cancelSpotFleetRequestsSuccessItem
-    :: Text -- ^ 'csfrsiSpotFleetRequestId'
-    -> BatchState -- ^ 'csfrsiCurrentSpotFleetRequestState'
+    :: BatchState -- ^ 'csfrsiCurrentSpotFleetRequestState'
     -> BatchState -- ^ 'csfrsiPreviousSpotFleetRequestState'
+    -> Text -- ^ 'csfrsiSpotFleetRequestId'
     -> CancelSpotFleetRequestsSuccessItem
-cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId_ pCurrentSpotFleetRequestState_ pPreviousSpotFleetRequestState_ =
+cancelSpotFleetRequestsSuccessItem pCurrentSpotFleetRequestState_ pPreviousSpotFleetRequestState_ pSpotFleetRequestId_ =
     CancelSpotFleetRequestsSuccessItem'
-    { _csfrsiSpotFleetRequestId = pSpotFleetRequestId_
-    , _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState_
+    { _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState_
     , _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState_
+    , _csfrsiSpotFleetRequestId = pSpotFleetRequestId_
     }
-
--- | The ID of the Spot fleet request.
-csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem Text
-csfrsiSpotFleetRequestId = lens _csfrsiSpotFleetRequestId (\ s a -> s{_csfrsiSpotFleetRequestId = a});
 
 -- | The current state of the Spot fleet request.
 csfrsiCurrentSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
@@ -842,13 +838,17 @@ csfrsiCurrentSpotFleetRequestState = lens _csfrsiCurrentSpotFleetRequestState (\
 csfrsiPreviousSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
 csfrsiPreviousSpotFleetRequestState = lens _csfrsiPreviousSpotFleetRequestState (\ s a -> s{_csfrsiPreviousSpotFleetRequestState = a});
 
+-- | The ID of the Spot fleet request.
+csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem Text
+csfrsiSpotFleetRequestId = lens _csfrsiSpotFleetRequestId (\ s a -> s{_csfrsiSpotFleetRequestId = a});
+
 instance FromXML CancelSpotFleetRequestsSuccessItem
          where
         parseXML x
           = CancelSpotFleetRequestsSuccessItem' <$>
-              (x .@ "spotFleetRequestId") <*>
-                (x .@ "currentSpotFleetRequestState")
-                <*> (x .@ "previousSpotFleetRequestState")
+              (x .@ "currentSpotFleetRequestState") <*>
+                (x .@ "previousSpotFleetRequestState")
+                <*> (x .@ "spotFleetRequestId")
 
 instance Hashable CancelSpotFleetRequestsSuccessItem
 
@@ -1487,8 +1487,8 @@ instance ToQuery DiskImage where
 data DiskImageDescription = DiskImageDescription'
     { _dChecksum          :: !(Maybe Text)
     , _dFormat            :: !DiskImageFormat
-    , _dSize              :: !Integer
     , _dImportManifestURL :: !Text
+    , _dSize              :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DiskImageDescription' with the minimum fields required to make a request.
@@ -1499,20 +1499,20 @@ data DiskImageDescription = DiskImageDescription'
 --
 -- * 'dFormat' - The disk image format.
 --
--- * 'dSize' - The size of the disk image, in GiB.
---
 -- * 'dImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
+-- * 'dSize' - The size of the disk image, in GiB.
 diskImageDescription
     :: DiskImageFormat -- ^ 'dFormat'
-    -> Integer -- ^ 'dSize'
     -> Text -- ^ 'dImportManifestURL'
+    -> Integer -- ^ 'dSize'
     -> DiskImageDescription
-diskImageDescription pFormat_ pSize_ pImportManifestURL_ =
+diskImageDescription pFormat_ pImportManifestURL_ pSize_ =
     DiskImageDescription'
     { _dChecksum = Nothing
     , _dFormat = pFormat_
-    , _dSize = pSize_
     , _dImportManifestURL = pImportManifestURL_
+    , _dSize = pSize_
     }
 
 -- | The checksum computed for the disk image.
@@ -1523,20 +1523,20 @@ dChecksum = lens _dChecksum (\ s a -> s{_dChecksum = a});
 dFormat :: Lens' DiskImageDescription DiskImageFormat
 dFormat = lens _dFormat (\ s a -> s{_dFormat = a});
 
--- | The size of the disk image, in GiB.
-dSize :: Lens' DiskImageDescription Integer
-dSize = lens _dSize (\ s a -> s{_dSize = a});
-
 -- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 dImportManifestURL :: Lens' DiskImageDescription Text
 dImportManifestURL = lens _dImportManifestURL (\ s a -> s{_dImportManifestURL = a});
+
+-- | The size of the disk image, in GiB.
+dSize :: Lens' DiskImageDescription Integer
+dSize = lens _dSize (\ s a -> s{_dSize = a});
 
 instance FromXML DiskImageDescription where
         parseXML x
           = DiskImageDescription' <$>
               (x .@? "checksum") <*> (x .@ "format") <*>
-                (x .@ "size")
-                <*> (x .@ "importManifestUrl")
+                (x .@ "importManifestUrl")
+                <*> (x .@ "size")
 
 instance Hashable DiskImageDescription
 
@@ -1548,8 +1548,8 @@ instance NFData DiskImageDescription
 --
 -- /See:/ 'diskImageDetail' smart constructor.
 data DiskImageDetail = DiskImageDetail'
-    { _didFormat            :: !DiskImageFormat
-    , _didBytes             :: !Integer
+    { _didBytes             :: !Integer
+    , _didFormat            :: !DiskImageFormat
     , _didImportManifestURL :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1557,30 +1557,30 @@ data DiskImageDetail = DiskImageDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'didFormat' - The disk image format.
---
 -- * 'didBytes' - The size of the disk image, in GiB.
+--
+-- * 'didFormat' - The disk image format.
 --
 -- * 'didImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 diskImageDetail
-    :: DiskImageFormat -- ^ 'didFormat'
-    -> Integer -- ^ 'didBytes'
+    :: Integer -- ^ 'didBytes'
+    -> DiskImageFormat -- ^ 'didFormat'
     -> Text -- ^ 'didImportManifestURL'
     -> DiskImageDetail
-diskImageDetail pFormat_ pBytes_ pImportManifestURL_ =
+diskImageDetail pBytes_ pFormat_ pImportManifestURL_ =
     DiskImageDetail'
-    { _didFormat = pFormat_
-    , _didBytes = pBytes_
+    { _didBytes = pBytes_
+    , _didFormat = pFormat_
     , _didImportManifestURL = pImportManifestURL_
     }
-
--- | The disk image format.
-didFormat :: Lens' DiskImageDetail DiskImageFormat
-didFormat = lens _didFormat (\ s a -> s{_didFormat = a});
 
 -- | The size of the disk image, in GiB.
 didBytes :: Lens' DiskImageDetail Integer
 didBytes = lens _didBytes (\ s a -> s{_didBytes = a});
+
+-- | The disk image format.
+didFormat :: Lens' DiskImageDetail DiskImageFormat
+didFormat = lens _didFormat (\ s a -> s{_didFormat = a});
 
 -- | A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 didImportManifestURL :: Lens' DiskImageDetail Text
@@ -1593,7 +1593,7 @@ instance NFData DiskImageDetail
 instance ToQuery DiskImageDetail where
         toQuery DiskImageDetail'{..}
           = mconcat
-              ["Format" =: _didFormat, "Bytes" =: _didBytes,
+              ["Bytes" =: _didBytes, "Format" =: _didFormat,
                "ImportManifestUrl" =: _didImportManifestURL]
 
 -- | Describes a disk image volume.
@@ -1874,6 +1874,211 @@ instance FromXML EgressOnlyInternetGateway where
 instance Hashable EgressOnlyInternetGateway
 
 instance NFData EgressOnlyInternetGateway
+
+-- | Describes the association between an instance and an Elastic GPU.
+--
+--
+--
+-- /See:/ 'elasticGpuAssociation' smart constructor.
+data ElasticGpuAssociation = ElasticGpuAssociation'
+    { _egaElasticGpuId               :: !(Maybe Text)
+    , _egaElasticGpuAssociationId    :: !(Maybe Text)
+    , _egaElasticGpuAssociationTime  :: !(Maybe Text)
+    , _egaElasticGpuAssociationState :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticGpuAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'egaElasticGpuId' - The ID of the Elastic GPU.
+--
+-- * 'egaElasticGpuAssociationId' - The ID of the association.
+--
+-- * 'egaElasticGpuAssociationTime' - The time the Elastic GPU was associated with the instance.
+--
+-- * 'egaElasticGpuAssociationState' - The state of the association between the instance and the Elastic GPU.
+elasticGpuAssociation
+    :: ElasticGpuAssociation
+elasticGpuAssociation =
+    ElasticGpuAssociation'
+    { _egaElasticGpuId = Nothing
+    , _egaElasticGpuAssociationId = Nothing
+    , _egaElasticGpuAssociationTime = Nothing
+    , _egaElasticGpuAssociationState = Nothing
+    }
+
+-- | The ID of the Elastic GPU.
+egaElasticGpuId :: Lens' ElasticGpuAssociation (Maybe Text)
+egaElasticGpuId = lens _egaElasticGpuId (\ s a -> s{_egaElasticGpuId = a});
+
+-- | The ID of the association.
+egaElasticGpuAssociationId :: Lens' ElasticGpuAssociation (Maybe Text)
+egaElasticGpuAssociationId = lens _egaElasticGpuAssociationId (\ s a -> s{_egaElasticGpuAssociationId = a});
+
+-- | The time the Elastic GPU was associated with the instance.
+egaElasticGpuAssociationTime :: Lens' ElasticGpuAssociation (Maybe Text)
+egaElasticGpuAssociationTime = lens _egaElasticGpuAssociationTime (\ s a -> s{_egaElasticGpuAssociationTime = a});
+
+-- | The state of the association between the instance and the Elastic GPU.
+egaElasticGpuAssociationState :: Lens' ElasticGpuAssociation (Maybe Text)
+egaElasticGpuAssociationState = lens _egaElasticGpuAssociationState (\ s a -> s{_egaElasticGpuAssociationState = a});
+
+instance FromXML ElasticGpuAssociation where
+        parseXML x
+          = ElasticGpuAssociation' <$>
+              (x .@? "elasticGpuId") <*>
+                (x .@? "elasticGpuAssociationId")
+                <*> (x .@? "elasticGpuAssociationTime")
+                <*> (x .@? "elasticGpuAssociationState")
+
+instance Hashable ElasticGpuAssociation
+
+instance NFData ElasticGpuAssociation
+
+-- | Describes the status of an Elastic GPU.
+--
+--
+--
+-- /See:/ 'elasticGpuHealth' smart constructor.
+newtype ElasticGpuHealth = ElasticGpuHealth'
+    { _eghStatus :: Maybe ElasticGpuStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticGpuHealth' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eghStatus' - The health status.
+elasticGpuHealth
+    :: ElasticGpuHealth
+elasticGpuHealth =
+    ElasticGpuHealth'
+    { _eghStatus = Nothing
+    }
+
+-- | The health status.
+eghStatus :: Lens' ElasticGpuHealth (Maybe ElasticGpuStatus)
+eghStatus = lens _eghStatus (\ s a -> s{_eghStatus = a});
+
+instance FromXML ElasticGpuHealth where
+        parseXML x = ElasticGpuHealth' <$> (x .@? "status")
+
+instance Hashable ElasticGpuHealth
+
+instance NFData ElasticGpuHealth
+
+-- | A specification for an Elastic GPU.
+--
+--
+--
+-- /See:/ 'elasticGpuSpecification' smart constructor.
+newtype ElasticGpuSpecification = ElasticGpuSpecification'
+    { _egsType :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticGpuSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'egsType' - The type of Elastic GPU.
+elasticGpuSpecification
+    :: Text -- ^ 'egsType'
+    -> ElasticGpuSpecification
+elasticGpuSpecification pType_ =
+    ElasticGpuSpecification'
+    { _egsType = pType_
+    }
+
+-- | The type of Elastic GPU.
+egsType :: Lens' ElasticGpuSpecification Text
+egsType = lens _egsType (\ s a -> s{_egsType = a});
+
+instance Hashable ElasticGpuSpecification
+
+instance NFData ElasticGpuSpecification
+
+instance ToQuery ElasticGpuSpecification where
+        toQuery ElasticGpuSpecification'{..}
+          = mconcat ["Type" =: _egsType]
+
+-- | Describes an Elastic GPU.
+--
+--
+--
+-- /See:/ 'elasticGpus' smart constructor.
+data ElasticGpus = ElasticGpus'
+    { _egInstanceId       :: !(Maybe Text)
+    , _egElasticGpuType   :: !(Maybe Text)
+    , _egElasticGpuId     :: !(Maybe Text)
+    , _egElasticGpuState  :: !(Maybe ElasticGpuState)
+    , _egElasticGpuHealth :: !(Maybe ElasticGpuHealth)
+    , _egAvailabilityZone :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticGpus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'egInstanceId' - The ID of the instance to which the Elastic GPU is attached.
+--
+-- * 'egElasticGpuType' - The type of Elastic GPU.
+--
+-- * 'egElasticGpuId' - The ID of the Elastic GPU.
+--
+-- * 'egElasticGpuState' - The state of the Elastic GPU.
+--
+-- * 'egElasticGpuHealth' - The status of the Elastic GPU.
+--
+-- * 'egAvailabilityZone' - The Availability Zone in the which the Elastic GPU resides.
+elasticGpus
+    :: ElasticGpus
+elasticGpus =
+    ElasticGpus'
+    { _egInstanceId = Nothing
+    , _egElasticGpuType = Nothing
+    , _egElasticGpuId = Nothing
+    , _egElasticGpuState = Nothing
+    , _egElasticGpuHealth = Nothing
+    , _egAvailabilityZone = Nothing
+    }
+
+-- | The ID of the instance to which the Elastic GPU is attached.
+egInstanceId :: Lens' ElasticGpus (Maybe Text)
+egInstanceId = lens _egInstanceId (\ s a -> s{_egInstanceId = a});
+
+-- | The type of Elastic GPU.
+egElasticGpuType :: Lens' ElasticGpus (Maybe Text)
+egElasticGpuType = lens _egElasticGpuType (\ s a -> s{_egElasticGpuType = a});
+
+-- | The ID of the Elastic GPU.
+egElasticGpuId :: Lens' ElasticGpus (Maybe Text)
+egElasticGpuId = lens _egElasticGpuId (\ s a -> s{_egElasticGpuId = a});
+
+-- | The state of the Elastic GPU.
+egElasticGpuState :: Lens' ElasticGpus (Maybe ElasticGpuState)
+egElasticGpuState = lens _egElasticGpuState (\ s a -> s{_egElasticGpuState = a});
+
+-- | The status of the Elastic GPU.
+egElasticGpuHealth :: Lens' ElasticGpus (Maybe ElasticGpuHealth)
+egElasticGpuHealth = lens _egElasticGpuHealth (\ s a -> s{_egElasticGpuHealth = a});
+
+-- | The Availability Zone in the which the Elastic GPU resides.
+egAvailabilityZone :: Lens' ElasticGpus (Maybe Text)
+egAvailabilityZone = lens _egAvailabilityZone (\ s a -> s{_egAvailabilityZone = a});
+
+instance FromXML ElasticGpus where
+        parseXML x
+          = ElasticGpus' <$>
+              (x .@? "instanceId") <*> (x .@? "elasticGpuType") <*>
+                (x .@? "elasticGpuId")
+                <*> (x .@? "elasticGpuState")
+                <*> (x .@? "elasticGpuHealth")
+                <*> (x .@? "availabilityZone")
+
+instance Hashable ElasticGpus
+
+instance NFData ElasticGpus
 
 -- | Describes a Spot fleet event.
 --
@@ -2280,6 +2485,193 @@ instance Hashable FlowLog
 
 instance NFData FlowLog
 
+-- | Describes an Amazon FPGA image (AFI).
+--
+--
+--
+-- /See:/ 'fpgaImage' smart constructor.
+data FpgaImage = FpgaImage'
+    { _fiShellVersion      :: !(Maybe Text)
+    , _fiPciId             :: !(Maybe PciId)
+    , _fiState             :: !(Maybe FpgaImageState)
+    , _fiOwnerAlias        :: !(Maybe Text)
+    , _fiFpgaImageId       :: !(Maybe Text)
+    , _fiOwnerId           :: !(Maybe Text)
+    , _fiUpdateTime        :: !(Maybe ISO8601)
+    , _fiName              :: !(Maybe Text)
+    , _fiProductCodes      :: !(Maybe [ProductCode])
+    , _fiDescription       :: !(Maybe Text)
+    , _fiCreateTime        :: !(Maybe ISO8601)
+    , _fiTags              :: !(Maybe [Tag])
+    , _fiFpgaImageGlobalId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FpgaImage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fiShellVersion' - The version of the AWS Shell that was used to create the bitstream.
+--
+-- * 'fiPciId' - Information about the PCI bus.
+--
+-- * 'fiState' - Information about the state of the AFI.
+--
+-- * 'fiOwnerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
+--
+-- * 'fiFpgaImageId' - The FPGA image identifier (AFI ID).
+--
+-- * 'fiOwnerId' - The AWS account ID of the AFI owner.
+--
+-- * 'fiUpdateTime' - The time of the most recent update to the AFI.
+--
+-- * 'fiName' - The name of the AFI.
+--
+-- * 'fiProductCodes' - The product codes for the AFI.
+--
+-- * 'fiDescription' - The description of the AFI.
+--
+-- * 'fiCreateTime' - The date and time the AFI was created.
+--
+-- * 'fiTags' - Any tags assigned to the AFI.
+--
+-- * 'fiFpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
+fpgaImage
+    :: FpgaImage
+fpgaImage =
+    FpgaImage'
+    { _fiShellVersion = Nothing
+    , _fiPciId = Nothing
+    , _fiState = Nothing
+    , _fiOwnerAlias = Nothing
+    , _fiFpgaImageId = Nothing
+    , _fiOwnerId = Nothing
+    , _fiUpdateTime = Nothing
+    , _fiName = Nothing
+    , _fiProductCodes = Nothing
+    , _fiDescription = Nothing
+    , _fiCreateTime = Nothing
+    , _fiTags = Nothing
+    , _fiFpgaImageGlobalId = Nothing
+    }
+
+-- | The version of the AWS Shell that was used to create the bitstream.
+fiShellVersion :: Lens' FpgaImage (Maybe Text)
+fiShellVersion = lens _fiShellVersion (\ s a -> s{_fiShellVersion = a});
+
+-- | Information about the PCI bus.
+fiPciId :: Lens' FpgaImage (Maybe PciId)
+fiPciId = lens _fiPciId (\ s a -> s{_fiPciId = a});
+
+-- | Information about the state of the AFI.
+fiState :: Lens' FpgaImage (Maybe FpgaImageState)
+fiState = lens _fiState (\ s a -> s{_fiState = a});
+
+-- | The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
+fiOwnerAlias :: Lens' FpgaImage (Maybe Text)
+fiOwnerAlias = lens _fiOwnerAlias (\ s a -> s{_fiOwnerAlias = a});
+
+-- | The FPGA image identifier (AFI ID).
+fiFpgaImageId :: Lens' FpgaImage (Maybe Text)
+fiFpgaImageId = lens _fiFpgaImageId (\ s a -> s{_fiFpgaImageId = a});
+
+-- | The AWS account ID of the AFI owner.
+fiOwnerId :: Lens' FpgaImage (Maybe Text)
+fiOwnerId = lens _fiOwnerId (\ s a -> s{_fiOwnerId = a});
+
+-- | The time of the most recent update to the AFI.
+fiUpdateTime :: Lens' FpgaImage (Maybe UTCTime)
+fiUpdateTime = lens _fiUpdateTime (\ s a -> s{_fiUpdateTime = a}) . mapping _Time;
+
+-- | The name of the AFI.
+fiName :: Lens' FpgaImage (Maybe Text)
+fiName = lens _fiName (\ s a -> s{_fiName = a});
+
+-- | The product codes for the AFI.
+fiProductCodes :: Lens' FpgaImage [ProductCode]
+fiProductCodes = lens _fiProductCodes (\ s a -> s{_fiProductCodes = a}) . _Default . _Coerce;
+
+-- | The description of the AFI.
+fiDescription :: Lens' FpgaImage (Maybe Text)
+fiDescription = lens _fiDescription (\ s a -> s{_fiDescription = a});
+
+-- | The date and time the AFI was created.
+fiCreateTime :: Lens' FpgaImage (Maybe UTCTime)
+fiCreateTime = lens _fiCreateTime (\ s a -> s{_fiCreateTime = a}) . mapping _Time;
+
+-- | Any tags assigned to the AFI.
+fiTags :: Lens' FpgaImage [Tag]
+fiTags = lens _fiTags (\ s a -> s{_fiTags = a}) . _Default . _Coerce;
+
+-- | The global FPGA image identifier (AGFI ID).
+fiFpgaImageGlobalId :: Lens' FpgaImage (Maybe Text)
+fiFpgaImageGlobalId = lens _fiFpgaImageGlobalId (\ s a -> s{_fiFpgaImageGlobalId = a});
+
+instance FromXML FpgaImage where
+        parseXML x
+          = FpgaImage' <$>
+              (x .@? "shellVersion") <*> (x .@? "pciId") <*>
+                (x .@? "state")
+                <*> (x .@? "ownerAlias")
+                <*> (x .@? "fpgaImageId")
+                <*> (x .@? "ownerId")
+                <*> (x .@? "updateTime")
+                <*> (x .@? "name")
+                <*>
+                (x .@? "productCodes" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "description")
+                <*> (x .@? "createTime")
+                <*>
+                (x .@? "tags" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "fpgaImageGlobalId")
+
+instance Hashable FpgaImage
+
+instance NFData FpgaImage
+
+-- | Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).
+--
+--
+--
+-- /See:/ 'fpgaImageState' smart constructor.
+data FpgaImageState = FpgaImageState'
+    { _fisCode    :: !(Maybe FpgaImageStateCode)
+    , _fisMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FpgaImageState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fisCode' - The state. The following are the possible values:     * @pending@ - AFI bitstream generation is in progress.     * @available@ - The AFI is available for use.     * @failed@ - AFI bitstream generation failed.     * @unavailable@ - The AFI is no longer available for use.
+--
+-- * 'fisMessage' - If the state is @failed@ , this is the error message.
+fpgaImageState
+    :: FpgaImageState
+fpgaImageState =
+    FpgaImageState'
+    { _fisCode = Nothing
+    , _fisMessage = Nothing
+    }
+
+-- | The state. The following are the possible values:     * @pending@ - AFI bitstream generation is in progress.     * @available@ - The AFI is available for use.     * @failed@ - AFI bitstream generation failed.     * @unavailable@ - The AFI is no longer available for use.
+fisCode :: Lens' FpgaImageState (Maybe FpgaImageStateCode)
+fisCode = lens _fisCode (\ s a -> s{_fisCode = a});
+
+-- | If the state is @failed@ , this is the error message.
+fisMessage :: Lens' FpgaImageState (Maybe Text)
+fisMessage = lens _fisMessage (\ s a -> s{_fisMessage = a});
+
+instance FromXML FpgaImageState where
+        parseXML x
+          = FpgaImageState' <$>
+              (x .@? "code") <*> (x .@? "message")
+
+instance Hashable FpgaImageState
+
+instance NFData FpgaImageState
+
 -- | Describes a security group.
 --
 --
@@ -2334,49 +2726,49 @@ instance ToQuery GroupIdentifier where
 --
 -- /See:/ 'historyRecord' smart constructor.
 data HistoryRecord = HistoryRecord'
-    { _hrTimestamp        :: !ISO8601
+    { _hrEventInformation :: !EventInformation
     , _hrEventType        :: !EventType
-    , _hrEventInformation :: !EventInformation
+    , _hrTimestamp        :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'HistoryRecord' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hrTimestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'hrEventInformation' - Information about the event.
 --
 -- * 'hrEventType' - The event type.     * @error@ - Indicates an error with the Spot fleet request.     * @fleetRequestChange@ - Indicates a change in the status or configuration of the Spot fleet request.     * @instanceChange@ - Indicates that an instance was launched or terminated.
 --
--- * 'hrEventInformation' - Information about the event.
+-- * 'hrTimestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 historyRecord
-    :: UTCTime -- ^ 'hrTimestamp'
+    :: EventInformation -- ^ 'hrEventInformation'
     -> EventType -- ^ 'hrEventType'
-    -> EventInformation -- ^ 'hrEventInformation'
+    -> UTCTime -- ^ 'hrTimestamp'
     -> HistoryRecord
-historyRecord pTimestamp_ pEventType_ pEventInformation_ =
+historyRecord pEventInformation_ pEventType_ pTimestamp_ =
     HistoryRecord'
-    { _hrTimestamp = _Time # pTimestamp_
+    { _hrEventInformation = pEventInformation_
     , _hrEventType = pEventType_
-    , _hrEventInformation = pEventInformation_
+    , _hrTimestamp = _Time # pTimestamp_
     }
-
--- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-hrTimestamp :: Lens' HistoryRecord UTCTime
-hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time;
-
--- | The event type.     * @error@ - Indicates an error with the Spot fleet request.     * @fleetRequestChange@ - Indicates a change in the status or configuration of the Spot fleet request.     * @instanceChange@ - Indicates that an instance was launched or terminated.
-hrEventType :: Lens' HistoryRecord EventType
-hrEventType = lens _hrEventType (\ s a -> s{_hrEventType = a});
 
 -- | Information about the event.
 hrEventInformation :: Lens' HistoryRecord EventInformation
 hrEventInformation = lens _hrEventInformation (\ s a -> s{_hrEventInformation = a});
 
+-- | The event type.     * @error@ - Indicates an error with the Spot fleet request.     * @fleetRequestChange@ - Indicates a change in the status or configuration of the Spot fleet request.     * @instanceChange@ - Indicates that an instance was launched or terminated.
+hrEventType :: Lens' HistoryRecord EventType
+hrEventType = lens _hrEventType (\ s a -> s{_hrEventType = a});
+
+-- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+hrTimestamp :: Lens' HistoryRecord UTCTime
+hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time;
+
 instance FromXML HistoryRecord where
         parseXML x
           = HistoryRecord' <$>
-              (x .@ "timestamp") <*> (x .@ "eventType") <*>
-                (x .@ "eventInformation")
+              (x .@ "eventInformation") <*> (x .@ "eventType") <*>
+                (x .@ "timestamp")
 
 instance Hashable HistoryRecord
 
@@ -3946,11 +4338,11 @@ instance NFData ImportInstanceTaskDetails
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
     { _iivdiStatusMessage    :: !(Maybe Text)
     , _iivdiDescription      :: !(Maybe Text)
-    , _iivdiBytesConverted   :: !Integer
     , _iivdiAvailabilityZone :: !Text
+    , _iivdiBytesConverted   :: !Integer
     , _iivdiImage            :: !DiskImageDescription
-    , _iivdiVolume           :: !DiskImageVolumeDescription
     , _iivdiStatus           :: !Text
+    , _iivdiVolume           :: !DiskImageVolumeDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ImportInstanceVolumeDetailItem' with the minimum fields required to make a request.
@@ -3961,31 +4353,31 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
 --
 -- * 'iivdiDescription' - A description of the task.
 --
--- * 'iivdiBytesConverted' - The number of bytes converted so far.
---
 -- * 'iivdiAvailabilityZone' - The Availability Zone where the resulting instance will reside.
+--
+-- * 'iivdiBytesConverted' - The number of bytes converted so far.
 --
 -- * 'iivdiImage' - The image.
 --
--- * 'iivdiVolume' - The volume.
---
 -- * 'iivdiStatus' - The status of the import of this particular disk image.
+--
+-- * 'iivdiVolume' - The volume.
 importInstanceVolumeDetailItem
-    :: Integer -- ^ 'iivdiBytesConverted'
-    -> Text -- ^ 'iivdiAvailabilityZone'
+    :: Text -- ^ 'iivdiAvailabilityZone'
+    -> Integer -- ^ 'iivdiBytesConverted'
     -> DiskImageDescription -- ^ 'iivdiImage'
-    -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
     -> Text -- ^ 'iivdiStatus'
+    -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
     -> ImportInstanceVolumeDetailItem
-importInstanceVolumeDetailItem pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ pStatus_ =
+importInstanceVolumeDetailItem pAvailabilityZone_ pBytesConverted_ pImage_ pStatus_ pVolume_ =
     ImportInstanceVolumeDetailItem'
     { _iivdiStatusMessage = Nothing
     , _iivdiDescription = Nothing
-    , _iivdiBytesConverted = pBytesConverted_
     , _iivdiAvailabilityZone = pAvailabilityZone_
+    , _iivdiBytesConverted = pBytesConverted_
     , _iivdiImage = pImage_
-    , _iivdiVolume = pVolume_
     , _iivdiStatus = pStatus_
+    , _iivdiVolume = pVolume_
     }
 
 -- | The status information or errors related to the disk image.
@@ -3996,35 +4388,35 @@ iivdiStatusMessage = lens _iivdiStatusMessage (\ s a -> s{_iivdiStatusMessage = 
 iivdiDescription :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
 iivdiDescription = lens _iivdiDescription (\ s a -> s{_iivdiDescription = a});
 
--- | The number of bytes converted so far.
-iivdiBytesConverted :: Lens' ImportInstanceVolumeDetailItem Integer
-iivdiBytesConverted = lens _iivdiBytesConverted (\ s a -> s{_iivdiBytesConverted = a});
-
 -- | The Availability Zone where the resulting instance will reside.
 iivdiAvailabilityZone :: Lens' ImportInstanceVolumeDetailItem Text
 iivdiAvailabilityZone = lens _iivdiAvailabilityZone (\ s a -> s{_iivdiAvailabilityZone = a});
+
+-- | The number of bytes converted so far.
+iivdiBytesConverted :: Lens' ImportInstanceVolumeDetailItem Integer
+iivdiBytesConverted = lens _iivdiBytesConverted (\ s a -> s{_iivdiBytesConverted = a});
 
 -- | The image.
 iivdiImage :: Lens' ImportInstanceVolumeDetailItem DiskImageDescription
 iivdiImage = lens _iivdiImage (\ s a -> s{_iivdiImage = a});
 
--- | The volume.
-iivdiVolume :: Lens' ImportInstanceVolumeDetailItem DiskImageVolumeDescription
-iivdiVolume = lens _iivdiVolume (\ s a -> s{_iivdiVolume = a});
-
 -- | The status of the import of this particular disk image.
 iivdiStatus :: Lens' ImportInstanceVolumeDetailItem Text
 iivdiStatus = lens _iivdiStatus (\ s a -> s{_iivdiStatus = a});
+
+-- | The volume.
+iivdiVolume :: Lens' ImportInstanceVolumeDetailItem DiskImageVolumeDescription
+iivdiVolume = lens _iivdiVolume (\ s a -> s{_iivdiVolume = a});
 
 instance FromXML ImportInstanceVolumeDetailItem where
         parseXML x
           = ImportInstanceVolumeDetailItem' <$>
               (x .@? "statusMessage") <*> (x .@? "description") <*>
-                (x .@ "bytesConverted")
-                <*> (x .@ "availabilityZone")
+                (x .@ "availabilityZone")
+                <*> (x .@ "bytesConverted")
                 <*> (x .@ "image")
-                <*> (x .@ "volume")
                 <*> (x .@ "status")
+                <*> (x .@ "volume")
 
 instance Hashable ImportInstanceVolumeDetailItem
 
@@ -4089,8 +4481,8 @@ instance NFData ImportSnapshotTask
 -- /See:/ 'importVolumeTaskDetails' smart constructor.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
     { _ivtdDescription      :: !(Maybe Text)
-    , _ivtdBytesConverted   :: !Integer
     , _ivtdAvailabilityZone :: !Text
+    , _ivtdBytesConverted   :: !Integer
     , _ivtdImage            :: !DiskImageDescription
     , _ivtdVolume           :: !DiskImageVolumeDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -4101,24 +4493,24 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
 --
 -- * 'ivtdDescription' - The description you provided when starting the import volume task.
 --
--- * 'ivtdBytesConverted' - The number of bytes converted so far.
---
 -- * 'ivtdAvailabilityZone' - The Availability Zone where the resulting volume will reside.
+--
+-- * 'ivtdBytesConverted' - The number of bytes converted so far.
 --
 -- * 'ivtdImage' - The image.
 --
 -- * 'ivtdVolume' - The volume.
 importVolumeTaskDetails
-    :: Integer -- ^ 'ivtdBytesConverted'
-    -> Text -- ^ 'ivtdAvailabilityZone'
+    :: Text -- ^ 'ivtdAvailabilityZone'
+    -> Integer -- ^ 'ivtdBytesConverted'
     -> DiskImageDescription -- ^ 'ivtdImage'
     -> DiskImageVolumeDescription -- ^ 'ivtdVolume'
     -> ImportVolumeTaskDetails
-importVolumeTaskDetails pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ =
+importVolumeTaskDetails pAvailabilityZone_ pBytesConverted_ pImage_ pVolume_ =
     ImportVolumeTaskDetails'
     { _ivtdDescription = Nothing
-    , _ivtdBytesConverted = pBytesConverted_
     , _ivtdAvailabilityZone = pAvailabilityZone_
+    , _ivtdBytesConverted = pBytesConverted_
     , _ivtdImage = pImage_
     , _ivtdVolume = pVolume_
     }
@@ -4127,13 +4519,13 @@ importVolumeTaskDetails pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ =
 ivtdDescription :: Lens' ImportVolumeTaskDetails (Maybe Text)
 ivtdDescription = lens _ivtdDescription (\ s a -> s{_ivtdDescription = a});
 
--- | The number of bytes converted so far.
-ivtdBytesConverted :: Lens' ImportVolumeTaskDetails Integer
-ivtdBytesConverted = lens _ivtdBytesConverted (\ s a -> s{_ivtdBytesConverted = a});
-
 -- | The Availability Zone where the resulting volume will reside.
 ivtdAvailabilityZone :: Lens' ImportVolumeTaskDetails Text
 ivtdAvailabilityZone = lens _ivtdAvailabilityZone (\ s a -> s{_ivtdAvailabilityZone = a});
+
+-- | The number of bytes converted so far.
+ivtdBytesConverted :: Lens' ImportVolumeTaskDetails Integer
+ivtdBytesConverted = lens _ivtdBytesConverted (\ s a -> s{_ivtdBytesConverted = a});
 
 -- | The image.
 ivtdImage :: Lens' ImportVolumeTaskDetails DiskImageDescription
@@ -4146,8 +4538,8 @@ ivtdVolume = lens _ivtdVolume (\ s a -> s{_ivtdVolume = a});
 instance FromXML ImportVolumeTaskDetails where
         parseXML x
           = ImportVolumeTaskDetails' <$>
-              (x .@? "description") <*> (x .@ "bytesConverted") <*>
-                (x .@ "availabilityZone")
+              (x .@? "description") <*> (x .@ "availabilityZone")
+                <*> (x .@ "bytesConverted")
                 <*> (x .@ "image")
                 <*> (x .@ "volume")
 
@@ -4161,44 +4553,45 @@ instance NFData ImportVolumeTaskDetails
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _insPublicDNSName         :: !(Maybe Text)
-    , _insPlatform              :: !(Maybe PlatformValues)
-    , _insSecurityGroups        :: !(Maybe [GroupIdentifier])
-    , _insClientToken           :: !(Maybe Text)
-    , _insEnaSupport            :: !(Maybe Bool)
-    , _insSourceDestCheck       :: !(Maybe Bool)
-    , _insVPCId                 :: !(Maybe Text)
-    , _insKeyName               :: !(Maybe Text)
-    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
-    , _insRAMDiskId             :: !(Maybe Text)
-    , _insSubnetId              :: !(Maybe Text)
-    , _insKernelId              :: !(Maybe Text)
-    , _insRootDeviceName        :: !(Maybe Text)
-    , _insSRIOVNetSupport       :: !(Maybe Text)
-    , _insEBSOptimized          :: !(Maybe Bool)
-    , _insStateTransitionReason :: !(Maybe Text)
-    , _insInstanceLifecycle     :: !(Maybe InstanceLifecycleType)
-    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
-    , _insPrivateIPAddress      :: !(Maybe Text)
-    , _insProductCodes          :: !(Maybe [ProductCode])
-    , _insSpotInstanceRequestId :: !(Maybe Text)
-    , _insPrivateDNSName        :: !(Maybe Text)
-    , _insStateReason           :: !(Maybe StateReason)
-    , _insBlockDeviceMappings   :: !(Maybe [InstanceBlockDeviceMapping])
-    , _insPublicIPAddress       :: !(Maybe Text)
-    , _insTags                  :: !(Maybe [Tag])
-    , _insInstanceId            :: !Text
-    , _insImageId               :: !Text
-    , _insAMILaunchIndex        :: !Int
-    , _insInstanceType          :: !InstanceType
-    , _insLaunchTime            :: !ISO8601
-    , _insPlacement             :: !Placement
-    , _insMonitoring            :: !Monitoring
-    , _insArchitecture          :: !ArchitectureValues
-    , _insRootDeviceType        :: !DeviceType
-    , _insVirtualizationType    :: !VirtualizationType
-    , _insHypervisor            :: !HypervisorType
-    , _insState                 :: !InstanceState
+    { _insPublicDNSName          :: !(Maybe Text)
+    , _insPlatform               :: !(Maybe PlatformValues)
+    , _insSecurityGroups         :: !(Maybe [GroupIdentifier])
+    , _insClientToken            :: !(Maybe Text)
+    , _insEnaSupport             :: !(Maybe Bool)
+    , _insSourceDestCheck        :: !(Maybe Bool)
+    , _insElasticGpuAssociations :: !(Maybe [ElasticGpuAssociation])
+    , _insVPCId                  :: !(Maybe Text)
+    , _insKeyName                :: !(Maybe Text)
+    , _insNetworkInterfaces      :: !(Maybe [InstanceNetworkInterface])
+    , _insRAMDiskId              :: !(Maybe Text)
+    , _insSubnetId               :: !(Maybe Text)
+    , _insKernelId               :: !(Maybe Text)
+    , _insRootDeviceName         :: !(Maybe Text)
+    , _insSRIOVNetSupport        :: !(Maybe Text)
+    , _insEBSOptimized           :: !(Maybe Bool)
+    , _insStateTransitionReason  :: !(Maybe Text)
+    , _insInstanceLifecycle      :: !(Maybe InstanceLifecycleType)
+    , _insIAMInstanceProfile     :: !(Maybe IAMInstanceProfile)
+    , _insPrivateIPAddress       :: !(Maybe Text)
+    , _insProductCodes           :: !(Maybe [ProductCode])
+    , _insSpotInstanceRequestId  :: !(Maybe Text)
+    , _insPrivateDNSName         :: !(Maybe Text)
+    , _insStateReason            :: !(Maybe StateReason)
+    , _insBlockDeviceMappings    :: !(Maybe [InstanceBlockDeviceMapping])
+    , _insPublicIPAddress        :: !(Maybe Text)
+    , _insTags                   :: !(Maybe [Tag])
+    , _insInstanceId             :: !Text
+    , _insImageId                :: !Text
+    , _insAMILaunchIndex         :: !Int
+    , _insInstanceType           :: !InstanceType
+    , _insLaunchTime             :: !ISO8601
+    , _insPlacement              :: !Placement
+    , _insMonitoring             :: !Monitoring
+    , _insArchitecture           :: !ArchitectureValues
+    , _insRootDeviceType         :: !DeviceType
+    , _insVirtualizationType     :: !VirtualizationType
+    , _insHypervisor             :: !HypervisorType
+    , _insState                  :: !InstanceState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
@@ -4216,6 +4609,8 @@ data Instance = Instance'
 -- * 'insEnaSupport' - Specifies whether enhanced networking with ENA is enabled.
 --
 -- * 'insSourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means checking is enabled, and @false@ means checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+-- * 'insElasticGpuAssociations' - The Elastic GPU associated with the instance.
 --
 -- * 'insVPCId' - [EC2-VPC] The ID of the VPC in which the instance is running.
 --
@@ -4302,6 +4697,7 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     , _insClientToken = Nothing
     , _insEnaSupport = Nothing
     , _insSourceDestCheck = Nothing
+    , _insElasticGpuAssociations = Nothing
     , _insVPCId = Nothing
     , _insKeyName = Nothing
     , _insNetworkInterfaces = Nothing
@@ -4359,6 +4755,10 @@ insEnaSupport = lens _insEnaSupport (\ s a -> s{_insEnaSupport = a});
 -- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means checking is enabled, and @false@ means checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 insSourceDestCheck :: Lens' Instance (Maybe Bool)
 insSourceDestCheck = lens _insSourceDestCheck (\ s a -> s{_insSourceDestCheck = a});
+
+-- | The Elastic GPU associated with the instance.
+insElasticGpuAssociations :: Lens' Instance [ElasticGpuAssociation]
+insElasticGpuAssociations = lens _insElasticGpuAssociations (\ s a -> s{_insElasticGpuAssociations = a}) . _Default . _Coerce;
 
 -- | [EC2-VPC] The ID of the VPC in which the instance is running.
 insVPCId :: Lens' Instance (Maybe Text)
@@ -4497,6 +4897,9 @@ instance FromXML Instance where
                 <*> (x .@? "clientToken")
                 <*> (x .@? "enaSupport")
                 <*> (x .@? "sourceDestCheck")
+                <*>
+                (x .@? "elasticGpuAssociationSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "vpcId")
                 <*> (x .@? "keyName")
                 <*>
@@ -7025,6 +7428,128 @@ instance Hashable NetworkInterfaceIPv6Address
 
 instance NFData NetworkInterfaceIPv6Address
 
+-- | Describes a permission for a network interface.
+--
+--
+--
+-- /See:/ 'networkInterfacePermission' smart constructor.
+data NetworkInterfacePermission = NetworkInterfacePermission'
+    { _nipPermissionState              :: !(Maybe NetworkInterfacePermissionState)
+    , _nipNetworkInterfacePermissionId :: !(Maybe Text)
+    , _nipNetworkInterfaceId           :: !(Maybe Text)
+    , _nipAWSAccountId                 :: !(Maybe Text)
+    , _nipAWSService                   :: !(Maybe Text)
+    , _nipPermission                   :: !(Maybe InterfacePermissionType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfacePermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nipPermissionState' - Information about the state of the permission.
+--
+-- * 'nipNetworkInterfacePermissionId' - The ID of the network interface permission.
+--
+-- * 'nipNetworkInterfaceId' - The ID of the network interface.
+--
+-- * 'nipAWSAccountId' - The AWS account ID.
+--
+-- * 'nipAWSService' - The AWS service.
+--
+-- * 'nipPermission' - The type of permission.
+networkInterfacePermission
+    :: NetworkInterfacePermission
+networkInterfacePermission =
+    NetworkInterfacePermission'
+    { _nipPermissionState = Nothing
+    , _nipNetworkInterfacePermissionId = Nothing
+    , _nipNetworkInterfaceId = Nothing
+    , _nipAWSAccountId = Nothing
+    , _nipAWSService = Nothing
+    , _nipPermission = Nothing
+    }
+
+-- | Information about the state of the permission.
+nipPermissionState :: Lens' NetworkInterfacePermission (Maybe NetworkInterfacePermissionState)
+nipPermissionState = lens _nipPermissionState (\ s a -> s{_nipPermissionState = a});
+
+-- | The ID of the network interface permission.
+nipNetworkInterfacePermissionId :: Lens' NetworkInterfacePermission (Maybe Text)
+nipNetworkInterfacePermissionId = lens _nipNetworkInterfacePermissionId (\ s a -> s{_nipNetworkInterfacePermissionId = a});
+
+-- | The ID of the network interface.
+nipNetworkInterfaceId :: Lens' NetworkInterfacePermission (Maybe Text)
+nipNetworkInterfaceId = lens _nipNetworkInterfaceId (\ s a -> s{_nipNetworkInterfaceId = a});
+
+-- | The AWS account ID.
+nipAWSAccountId :: Lens' NetworkInterfacePermission (Maybe Text)
+nipAWSAccountId = lens _nipAWSAccountId (\ s a -> s{_nipAWSAccountId = a});
+
+-- | The AWS service.
+nipAWSService :: Lens' NetworkInterfacePermission (Maybe Text)
+nipAWSService = lens _nipAWSService (\ s a -> s{_nipAWSService = a});
+
+-- | The type of permission.
+nipPermission :: Lens' NetworkInterfacePermission (Maybe InterfacePermissionType)
+nipPermission = lens _nipPermission (\ s a -> s{_nipPermission = a});
+
+instance FromXML NetworkInterfacePermission where
+        parseXML x
+          = NetworkInterfacePermission' <$>
+              (x .@? "permissionState") <*>
+                (x .@? "networkInterfacePermissionId")
+                <*> (x .@? "networkInterfaceId")
+                <*> (x .@? "awsAccountId")
+                <*> (x .@? "awsService")
+                <*> (x .@? "permission")
+
+instance Hashable NetworkInterfacePermission
+
+instance NFData NetworkInterfacePermission
+
+-- | Describes the state of a network interface permission.
+--
+--
+--
+-- /See:/ 'networkInterfacePermissionState' smart constructor.
+data NetworkInterfacePermissionState = NetworkInterfacePermissionState'
+    { _nipsState         :: !(Maybe NetworkInterfacePermissionStateCode)
+    , _nipsStatusMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfacePermissionState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nipsState' - The state of the permission.
+--
+-- * 'nipsStatusMessage' - A status message, if applicable.
+networkInterfacePermissionState
+    :: NetworkInterfacePermissionState
+networkInterfacePermissionState =
+    NetworkInterfacePermissionState'
+    { _nipsState = Nothing
+    , _nipsStatusMessage = Nothing
+    }
+
+-- | The state of the permission.
+nipsState :: Lens' NetworkInterfacePermissionState (Maybe NetworkInterfacePermissionStateCode)
+nipsState = lens _nipsState (\ s a -> s{_nipsState = a});
+
+-- | A status message, if applicable.
+nipsStatusMessage :: Lens' NetworkInterfacePermissionState (Maybe Text)
+nipsStatusMessage = lens _nipsStatusMessage (\ s a -> s{_nipsStatusMessage = a});
+
+instance FromXML NetworkInterfacePermissionState
+         where
+        parseXML x
+          = NetworkInterfacePermissionState' <$>
+              (x .@? "state") <*> (x .@? "statusMessage")
+
+instance Hashable NetworkInterfacePermissionState
+
+instance NFData NetworkInterfacePermissionState
+
 -- | Describes the private IPv4 address of a network interface.
 --
 --
@@ -7124,6 +7649,66 @@ instance ToQuery NewDHCPConfiguration where
           = mconcat
               [toQuery (toQueryList "Value" <$> _ndcValues),
                "Key" =: _ndcKey]
+
+-- | Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.
+--
+--
+--
+-- /See:/ 'pciId' smart constructor.
+data PciId = PciId'
+    { _piSubsystemId       :: !(Maybe Text)
+    , _piDeviceId          :: !(Maybe Text)
+    , _piSubsystemVendorId :: !(Maybe Text)
+    , _piVendorId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PciId' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piSubsystemId' - The ID of the subsystem.
+--
+-- * 'piDeviceId' - The ID of the device.
+--
+-- * 'piSubsystemVendorId' - The ID of the vendor for the subsystem.
+--
+-- * 'piVendorId' - The ID of the vendor.
+pciId
+    :: PciId
+pciId =
+    PciId'
+    { _piSubsystemId = Nothing
+    , _piDeviceId = Nothing
+    , _piSubsystemVendorId = Nothing
+    , _piVendorId = Nothing
+    }
+
+-- | The ID of the subsystem.
+piSubsystemId :: Lens' PciId (Maybe Text)
+piSubsystemId = lens _piSubsystemId (\ s a -> s{_piSubsystemId = a});
+
+-- | The ID of the device.
+piDeviceId :: Lens' PciId (Maybe Text)
+piDeviceId = lens _piDeviceId (\ s a -> s{_piDeviceId = a});
+
+-- | The ID of the vendor for the subsystem.
+piSubsystemVendorId :: Lens' PciId (Maybe Text)
+piSubsystemVendorId = lens _piSubsystemVendorId (\ s a -> s{_piSubsystemVendorId = a});
+
+-- | The ID of the vendor.
+piVendorId :: Lens' PciId (Maybe Text)
+piVendorId = lens _piVendorId (\ s a -> s{_piVendorId = a});
+
+instance FromXML PciId where
+        parseXML x
+          = PciId' <$>
+              (x .@? "SubsystemId") <*> (x .@? "DeviceId") <*>
+                (x .@? "SubsystemVendorId")
+                <*> (x .@? "VendorId")
+
+instance Hashable PciId
+
+instance NFData PciId
 
 -- | Describes the VPC peering connection options.
 --
@@ -7242,6 +7827,7 @@ instance ToQuery PeeringConnectionOptionsRequest
 data Placement = Placement'
     { _pAffinity         :: !(Maybe Text)
     , _pHostId           :: !(Maybe Text)
+    , _pSpreadDomain     :: !(Maybe Text)
     , _pAvailabilityZone :: !(Maybe Text)
     , _pTenancy          :: !(Maybe Tenancy)
     , _pGroupName        :: !(Maybe Text)
@@ -7255,6 +7841,8 @@ data Placement = Placement'
 --
 -- * 'pHostId' - The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
 --
+-- * 'pSpreadDomain' - Reserved for future use.
+--
 -- * 'pAvailabilityZone' - The Availability Zone of the instance.
 --
 -- * 'pTenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the 'ImportInstance' command.
@@ -7266,6 +7854,7 @@ placement =
     Placement'
     { _pAffinity = Nothing
     , _pHostId = Nothing
+    , _pSpreadDomain = Nothing
     , _pAvailabilityZone = Nothing
     , _pTenancy = Nothing
     , _pGroupName = Nothing
@@ -7278,6 +7867,10 @@ pAffinity = lens _pAffinity (\ s a -> s{_pAffinity = a});
 -- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the 'ImportInstance' command.
 pHostId :: Lens' Placement (Maybe Text)
 pHostId = lens _pHostId (\ s a -> s{_pHostId = a});
+
+-- | Reserved for future use.
+pSpreadDomain :: Lens' Placement (Maybe Text)
+pSpreadDomain = lens _pSpreadDomain (\ s a -> s{_pSpreadDomain = a});
 
 -- | The Availability Zone of the instance.
 pAvailabilityZone :: Lens' Placement (Maybe Text)
@@ -7295,7 +7888,8 @@ instance FromXML Placement where
         parseXML x
           = Placement' <$>
               (x .@? "affinity") <*> (x .@? "hostId") <*>
-                (x .@? "availabilityZone")
+                (x .@? "spreadDomain")
+                <*> (x .@? "availabilityZone")
                 <*> (x .@? "tenancy")
                 <*> (x .@? "groupName")
 
@@ -7307,6 +7901,7 @@ instance ToQuery Placement where
         toQuery Placement'{..}
           = mconcat
               ["Affinity" =: _pAffinity, "HostId" =: _pHostId,
+               "SpreadDomain" =: _pSpreadDomain,
                "AvailabilityZone" =: _pAvailabilityZone,
                "Tenancy" =: _pTenancy, "GroupName" =: _pGroupName]
 
@@ -7944,34 +8539,34 @@ instance NFData Purchase
 --
 -- /See:/ 'purchaseRequest' smart constructor.
 data PurchaseRequest = PurchaseRequest'
-    { _prPurchaseToken :: !Text
-    , _prInstanceCount :: !Int
+    { _prInstanceCount :: !Int
+    , _prPurchaseToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseRequest' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prPurchaseToken' - The purchase token.
---
 -- * 'prInstanceCount' - The number of instances.
+--
+-- * 'prPurchaseToken' - The purchase token.
 purchaseRequest
-    :: Text -- ^ 'prPurchaseToken'
-    -> Int -- ^ 'prInstanceCount'
+    :: Int -- ^ 'prInstanceCount'
+    -> Text -- ^ 'prPurchaseToken'
     -> PurchaseRequest
-purchaseRequest pPurchaseToken_ pInstanceCount_ =
+purchaseRequest pInstanceCount_ pPurchaseToken_ =
     PurchaseRequest'
-    { _prPurchaseToken = pPurchaseToken_
-    , _prInstanceCount = pInstanceCount_
+    { _prInstanceCount = pInstanceCount_
+    , _prPurchaseToken = pPurchaseToken_
     }
-
--- | The purchase token.
-prPurchaseToken :: Lens' PurchaseRequest Text
-prPurchaseToken = lens _prPurchaseToken (\ s a -> s{_prPurchaseToken = a});
 
 -- | The number of instances.
 prInstanceCount :: Lens' PurchaseRequest Int
 prInstanceCount = lens _prInstanceCount (\ s a -> s{_prInstanceCount = a});
+
+-- | The purchase token.
+prPurchaseToken :: Lens' PurchaseRequest Text
+prPurchaseToken = lens _prPurchaseToken (\ s a -> s{_prPurchaseToken = a});
 
 instance Hashable PurchaseRequest
 
@@ -7980,8 +8575,8 @@ instance NFData PurchaseRequest
 instance ToQuery PurchaseRequest where
         toQuery PurchaseRequest'{..}
           = mconcat
-              ["PurchaseToken" =: _prPurchaseToken,
-               "InstanceCount" =: _prInstanceCount]
+              ["InstanceCount" =: _prInstanceCount,
+               "PurchaseToken" =: _prPurchaseToken]
 
 -- | Describes a recurring charge.
 --
@@ -8095,9 +8690,9 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rslsSecurityGroupIds' - Undocumented member.
+-- * 'rslsSecurityGroupIds' - One or more security group IDs.
 --
--- * 'rslsSecurityGroups' - Undocumented member.
+-- * 'rslsSecurityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
 --
 -- * 'rslsKeyName' - The name of the key pair.
 --
@@ -8115,7 +8710,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
 --
 -- * 'rslsUserData' - The user data to make available to the instances. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
 --
--- * 'rslsMonitoring' - Undocumented member.
+-- * 'rslsMonitoring' - Indicates whether basic or detailed monitoring is enabled for the instance. Default: Disabled
 --
 -- * 'rslsIAMInstanceProfile' - The IAM instance profile.
 --
@@ -8148,11 +8743,11 @@ requestSpotLaunchSpecification =
     , _rslsPlacement = Nothing
     }
 
--- | Undocumented member.
+-- | One or more security group IDs.
 rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
 rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
 rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a}) . _Default . _Coerce;
 
@@ -8188,7 +8783,7 @@ rslsEBSOptimized = lens _rslsEBSOptimized (\ s a -> s{_rslsEBSOptimized = a});
 rslsUserData :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsUserData = lens _rslsUserData (\ s a -> s{_rslsUserData = a});
 
--- | Undocumented member.
+-- | Indicates whether basic or detailed monitoring is enabled for the instance. Default: Disabled
 rslsMonitoring :: Lens' RequestSpotLaunchSpecification (Maybe RunInstancesMonitoringEnabled)
 rslsMonitoring = lens _rslsMonitoring (\ s a -> s{_rslsMonitoring = a});
 
@@ -11452,6 +12047,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     , _sflsEBSOptimized        :: !(Maybe Bool)
     , _sflsUserData            :: !(Maybe Text)
     , _sflsMonitoring          :: !(Maybe SpotFleetMonitoring)
+    , _sflsTagSpecifications   :: !(Maybe [SpotFleetTagSpecification])
     , _sflsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
     , _sflsImageId             :: !(Maybe Text)
     , _sflsAddressingType      :: !(Maybe Text)
@@ -11487,6 +12083,8 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- * 'sflsMonitoring' - Enable or disable monitoring for the instances.
 --
+-- * 'sflsTagSpecifications' - The tags to apply during creation.
+--
 -- * 'sflsIAMInstanceProfile' - The IAM instance profile.
 --
 -- * 'sflsImageId' - The ID of the AMI.
@@ -11512,6 +12110,7 @@ spotFleetLaunchSpecification =
     , _sflsEBSOptimized = Nothing
     , _sflsUserData = Nothing
     , _sflsMonitoring = Nothing
+    , _sflsTagSpecifications = Nothing
     , _sflsIAMInstanceProfile = Nothing
     , _sflsImageId = Nothing
     , _sflsAddressingType = Nothing
@@ -11567,6 +12166,10 @@ sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
 sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
 sflsMonitoring = lens _sflsMonitoring (\ s a -> s{_sflsMonitoring = a});
 
+-- | The tags to apply during creation.
+sflsTagSpecifications :: Lens' SpotFleetLaunchSpecification [SpotFleetTagSpecification]
+sflsTagSpecifications = lens _sflsTagSpecifications (\ s a -> s{_sflsTagSpecifications = a}) . _Default . _Coerce;
+
 -- | The IAM instance profile.
 sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
 sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstanceProfile = a});
@@ -11605,6 +12208,9 @@ instance FromXML SpotFleetLaunchSpecification where
                 <*> (x .@? "ebsOptimized")
                 <*> (x .@? "userData")
                 <*> (x .@? "monitoring")
+                <*>
+                (x .@? "tagSpecificationSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
                 <*> (x .@? "iamInstanceProfile")
                 <*> (x .@? "imageId")
                 <*> (x .@? "addressingType")
@@ -11635,6 +12241,9 @@ instance ToQuery SpotFleetLaunchSpecification where
                "EbsOptimized" =: _sflsEBSOptimized,
                "UserData" =: _sflsUserData,
                "Monitoring" =: _sflsMonitoring,
+               toQuery
+                 (toQueryList "TagSpecificationSet" <$>
+                    _sflsTagSpecifications),
                "IamInstanceProfile" =: _sflsIAMInstanceProfile,
                "ImageId" =: _sflsImageId,
                "AddressingType" =: _sflsAddressingType,
@@ -11687,10 +12296,10 @@ instance ToQuery SpotFleetMonitoring where
 -- /See:/ 'spotFleetRequestConfig' smart constructor.
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
     { _sfrcActivityStatus         :: !(Maybe ActivityStatus)
+    , _sfrcCreateTime             :: !ISO8601
+    , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     , _sfrcSpotFleetRequestId     :: !Text
     , _sfrcSpotFleetRequestState  :: !BatchState
-    , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-    , _sfrcCreateTime             :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpotFleetRequestConfig' with the minimum fields required to make a request.
@@ -11699,31 +12308,39 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 --
 -- * 'sfrcActivityStatus' - The progress of the Spot fleet request. If there is an error, the status is @error@ . After all bids are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot instances are terminating.
 --
--- * 'sfrcSpotFleetRequestId' - The ID of the Spot fleet request.
---
--- * 'sfrcSpotFleetRequestState' - The state of the Spot fleet request.
+-- * 'sfrcCreateTime' - The creation date and time of the request.
 --
 -- * 'sfrcSpotFleetRequestConfig' - Information about the configuration of the Spot fleet request.
 --
--- * 'sfrcCreateTime' - The creation date and time of the request.
+-- * 'sfrcSpotFleetRequestId' - The ID of the Spot fleet request.
+--
+-- * 'sfrcSpotFleetRequestState' - The state of the Spot fleet request.
 spotFleetRequestConfig
-    :: Text -- ^ 'sfrcSpotFleetRequestId'
-    -> BatchState -- ^ 'sfrcSpotFleetRequestState'
+    :: UTCTime -- ^ 'sfrcCreateTime'
     -> SpotFleetRequestConfigData -- ^ 'sfrcSpotFleetRequestConfig'
-    -> UTCTime -- ^ 'sfrcCreateTime'
+    -> Text -- ^ 'sfrcSpotFleetRequestId'
+    -> BatchState -- ^ 'sfrcSpotFleetRequestState'
     -> SpotFleetRequestConfig
-spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ pCreateTime_ =
+spotFleetRequestConfig pCreateTime_ pSpotFleetRequestConfig_ pSpotFleetRequestId_ pSpotFleetRequestState_ =
     SpotFleetRequestConfig'
     { _sfrcActivityStatus = Nothing
+    , _sfrcCreateTime = _Time # pCreateTime_
+    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
     , _sfrcSpotFleetRequestId = pSpotFleetRequestId_
     , _sfrcSpotFleetRequestState = pSpotFleetRequestState_
-    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
-    , _sfrcCreateTime = _Time # pCreateTime_
     }
 
 -- | The progress of the Spot fleet request. If there is an error, the status is @error@ . After all bids are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot instances are terminating.
 sfrcActivityStatus :: Lens' SpotFleetRequestConfig (Maybe ActivityStatus)
 sfrcActivityStatus = lens _sfrcActivityStatus (\ s a -> s{_sfrcActivityStatus = a});
+
+-- | The creation date and time of the request.
+sfrcCreateTime :: Lens' SpotFleetRequestConfig UTCTime
+sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . _Time;
+
+-- | Information about the configuration of the Spot fleet request.
+sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig SpotFleetRequestConfigData
+sfrcSpotFleetRequestConfig = lens _sfrcSpotFleetRequestConfig (\ s a -> s{_sfrcSpotFleetRequestConfig = a});
 
 -- | The ID of the Spot fleet request.
 sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig Text
@@ -11733,22 +12350,13 @@ sfrcSpotFleetRequestId = lens _sfrcSpotFleetRequestId (\ s a -> s{_sfrcSpotFleet
 sfrcSpotFleetRequestState :: Lens' SpotFleetRequestConfig BatchState
 sfrcSpotFleetRequestState = lens _sfrcSpotFleetRequestState (\ s a -> s{_sfrcSpotFleetRequestState = a});
 
--- | Information about the configuration of the Spot fleet request.
-sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig SpotFleetRequestConfigData
-sfrcSpotFleetRequestConfig = lens _sfrcSpotFleetRequestConfig (\ s a -> s{_sfrcSpotFleetRequestConfig = a});
-
--- | The creation date and time of the request.
-sfrcCreateTime :: Lens' SpotFleetRequestConfig UTCTime
-sfrcCreateTime = lens _sfrcCreateTime (\ s a -> s{_sfrcCreateTime = a}) . _Time;
-
 instance FromXML SpotFleetRequestConfig where
         parseXML x
           = SpotFleetRequestConfig' <$>
-              (x .@? "activityStatus") <*>
-                (x .@ "spotFleetRequestId")
+              (x .@? "activityStatus") <*> (x .@ "createTime") <*>
+                (x .@ "spotFleetRequestConfig")
+                <*> (x .@ "spotFleetRequestId")
                 <*> (x .@ "spotFleetRequestState")
-                <*> (x .@ "spotFleetRequestConfig")
-                <*> (x .@ "createTime")
 
 instance Hashable SpotFleetRequestConfig
 
@@ -11769,10 +12377,10 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdValidFrom                        :: !(Maybe ISO8601)
     , _sfrcdReplaceUnhealthyInstances        :: !(Maybe Bool)
     , _sfrcdAllocationStrategy               :: !(Maybe AllocationStrategy)
-    , _sfrcdSpotPrice                        :: !Text
-    , _sfrcdTargetCapacity                   :: !Int
     , _sfrcdIAMFleetRole                     :: !Text
     , _sfrcdLaunchSpecifications             :: !(List1 SpotFleetLaunchSpecification)
+    , _sfrcdSpotPrice                        :: !Text
+    , _sfrcdTargetCapacity                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'SpotFleetRequestConfigData' with the minimum fields required to make a request.
@@ -11797,20 +12405,20 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 --
 -- * 'sfrcdAllocationStrategy' - Indicates how to allocate the target capacity across the Spot pools specified by the Spot fleet request. The default is @lowestPrice@ .
 --
--- * 'sfrcdSpotPrice' - The bid price per unit hour.
---
--- * 'sfrcdTargetCapacity' - The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O.
---
 -- * 'sfrcdIAMFleetRole' - Grants the Spot fleet permission to terminate Spot instances on your behalf when you cancel its Spot fleet request using 'CancelSpotFleetRequests' or when the Spot fleet request expires, if you set @terminateInstancesWithExpiration@ .
 --
 -- * 'sfrcdLaunchSpecifications' - Information about the launch specifications for the Spot fleet request.
+--
+-- * 'sfrcdSpotPrice' - The bid price per unit hour.
+--
+-- * 'sfrcdTargetCapacity' - The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O.
 spotFleetRequestConfigData
-    :: Text -- ^ 'sfrcdSpotPrice'
-    -> Int -- ^ 'sfrcdTargetCapacity'
-    -> Text -- ^ 'sfrcdIAMFleetRole'
+    :: Text -- ^ 'sfrcdIAMFleetRole'
     -> NonEmpty SpotFleetLaunchSpecification -- ^ 'sfrcdLaunchSpecifications'
+    -> Text -- ^ 'sfrcdSpotPrice'
+    -> Int -- ^ 'sfrcdTargetCapacity'
     -> SpotFleetRequestConfigData
-spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSpecifications_ =
+spotFleetRequestConfigData pIAMFleetRole_ pLaunchSpecifications_ pSpotPrice_ pTargetCapacity_ =
     SpotFleetRequestConfigData'
     { _sfrcdClientToken = Nothing
     , _sfrcdExcessCapacityTerminationPolicy = Nothing
@@ -11821,10 +12429,10 @@ spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSp
     , _sfrcdValidFrom = Nothing
     , _sfrcdReplaceUnhealthyInstances = Nothing
     , _sfrcdAllocationStrategy = Nothing
-    , _sfrcdSpotPrice = pSpotPrice_
-    , _sfrcdTargetCapacity = pTargetCapacity_
     , _sfrcdIAMFleetRole = pIAMFleetRole_
     , _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications_
+    , _sfrcdSpotPrice = pSpotPrice_
+    , _sfrcdTargetCapacity = pTargetCapacity_
     }
 
 -- | A unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -11863,14 +12471,6 @@ sfrcdReplaceUnhealthyInstances = lens _sfrcdReplaceUnhealthyInstances (\ s a -> 
 sfrcdAllocationStrategy :: Lens' SpotFleetRequestConfigData (Maybe AllocationStrategy)
 sfrcdAllocationStrategy = lens _sfrcdAllocationStrategy (\ s a -> s{_sfrcdAllocationStrategy = a});
 
--- | The bid price per unit hour.
-sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
-sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
-
--- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O.
-sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
-sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
-
 -- | Grants the Spot fleet permission to terminate Spot instances on your behalf when you cancel its Spot fleet request using 'CancelSpotFleetRequests' or when the Spot fleet request expires, if you set @terminateInstancesWithExpiration@ .
 sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
@@ -11878,6 +12478,14 @@ sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a})
 -- | Information about the launch specifications for the Spot fleet request.
 sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData (NonEmpty SpotFleetLaunchSpecification)
 sfrcdLaunchSpecifications = lens _sfrcdLaunchSpecifications (\ s a -> s{_sfrcdLaunchSpecifications = a}) . _List1;
+
+-- | The bid price per unit hour.
+sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
+sfrcdSpotPrice = lens _sfrcdSpotPrice (\ s a -> s{_sfrcdSpotPrice = a});
+
+-- | The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O.
+sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
+sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity = a});
 
 instance FromXML SpotFleetRequestConfigData where
         parseXML x
@@ -11891,12 +12499,12 @@ instance FromXML SpotFleetRequestConfigData where
                 <*> (x .@? "validFrom")
                 <*> (x .@? "replaceUnhealthyInstances")
                 <*> (x .@? "allocationStrategy")
-                <*> (x .@ "spotPrice")
-                <*> (x .@ "targetCapacity")
                 <*> (x .@ "iamFleetRole")
                 <*>
                 (x .@? "launchSpecifications" .!@ mempty >>=
                    parseXMLList1 "item")
+                <*> (x .@ "spotPrice")
+                <*> (x .@ "targetCapacity")
 
 instance Hashable SpotFleetRequestConfigData
 
@@ -11916,11 +12524,61 @@ instance ToQuery SpotFleetRequestConfigData where
                "ReplaceUnhealthyInstances" =:
                  _sfrcdReplaceUnhealthyInstances,
                "AllocationStrategy" =: _sfrcdAllocationStrategy,
-               "SpotPrice" =: _sfrcdSpotPrice,
-               "TargetCapacity" =: _sfrcdTargetCapacity,
                "IamFleetRole" =: _sfrcdIAMFleetRole,
                toQueryList "LaunchSpecifications"
-                 _sfrcdLaunchSpecifications]
+                 _sfrcdLaunchSpecifications,
+               "SpotPrice" =: _sfrcdSpotPrice,
+               "TargetCapacity" =: _sfrcdTargetCapacity]
+
+-- | The tags for a Spot fleet resource.
+--
+--
+--
+-- /See:/ 'spotFleetTagSpecification' smart constructor.
+data SpotFleetTagSpecification = SpotFleetTagSpecification'
+    { _sftsResourceType :: !(Maybe ResourceType)
+    , _sftsTags         :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotFleetTagSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sftsResourceType' - The type of resource. Currently, the only resource type that is supported is @instance@ .
+--
+-- * 'sftsTags' - The tags.
+spotFleetTagSpecification
+    :: SpotFleetTagSpecification
+spotFleetTagSpecification =
+    SpotFleetTagSpecification'
+    { _sftsResourceType = Nothing
+    , _sftsTags = Nothing
+    }
+
+-- | The type of resource. Currently, the only resource type that is supported is @instance@ .
+sftsResourceType :: Lens' SpotFleetTagSpecification (Maybe ResourceType)
+sftsResourceType = lens _sftsResourceType (\ s a -> s{_sftsResourceType = a});
+
+-- | The tags.
+sftsTags :: Lens' SpotFleetTagSpecification [Tag]
+sftsTags = lens _sftsTags (\ s a -> s{_sftsTags = a}) . _Default . _Coerce;
+
+instance FromXML SpotFleetTagSpecification where
+        parseXML x
+          = SpotFleetTagSpecification' <$>
+              (x .@? "resourceType") <*>
+                (x .@? "tag" .!@ mempty >>=
+                   may (parseXMLList "item"))
+
+instance Hashable SpotFleetTagSpecification
+
+instance NFData SpotFleetTagSpecification
+
+instance ToQuery SpotFleetTagSpecification where
+        toQuery SpotFleetTagSpecification'{..}
+          = mconcat
+              ["ResourceType" =: _sftsResourceType,
+               toQuery (toQueryList "Tag" <$> _sftsTags)]
 
 -- | Describes a Spot instance request.
 --
@@ -12572,6 +13230,47 @@ instance NFData Storage
 instance ToQuery Storage where
         toQuery Storage'{..} = mconcat ["S3" =: _sS3]
 
+-- | Describes a storage location in Amazon S3.
+--
+--
+--
+-- /See:/ 'storageLocation' smart constructor.
+data StorageLocation = StorageLocation'
+    { _slBucket :: !(Maybe Text)
+    , _slKey    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorageLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slBucket' - The name of the S3 bucket.
+--
+-- * 'slKey' - The key.
+storageLocation
+    :: StorageLocation
+storageLocation =
+    StorageLocation'
+    { _slBucket = Nothing
+    , _slKey = Nothing
+    }
+
+-- | The name of the S3 bucket.
+slBucket :: Lens' StorageLocation (Maybe Text)
+slBucket = lens _slBucket (\ s a -> s{_slBucket = a});
+
+-- | The key.
+slKey :: Lens' StorageLocation (Maybe Text)
+slKey = lens _slKey (\ s a -> s{_slKey = a});
+
+instance Hashable StorageLocation
+
+instance NFData StorageLocation
+
+instance ToQuery StorageLocation where
+        toQuery StorageLocation'{..}
+          = mconcat ["Bucket" =: _slBucket, "Key" =: _slKey]
+
 -- | Describes a subnet.
 --
 --
@@ -12907,6 +13606,49 @@ instance FromXML TagDescription where
 instance Hashable TagDescription
 
 instance NFData TagDescription
+
+-- | The tags to apply to a resource when the resource is being created.
+--
+--
+--
+-- /See:/ 'tagSpecification' smart constructor.
+data TagSpecification = TagSpecification'
+    { _tsResourceType :: !(Maybe ResourceType)
+    , _tsTags         :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tsResourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+--
+-- * 'tsTags' - The tags to apply to the resource.
+tagSpecification
+    :: TagSpecification
+tagSpecification =
+    TagSpecification'
+    { _tsResourceType = Nothing
+    , _tsTags = Nothing
+    }
+
+-- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ .
+tsResourceType :: Lens' TagSpecification (Maybe ResourceType)
+tsResourceType = lens _tsResourceType (\ s a -> s{_tsResourceType = a});
+
+-- | The tags to apply to the resource.
+tsTags :: Lens' TagSpecification [Tag]
+tsTags = lens _tsTags (\ s a -> s{_tsTags = a}) . _Default . _Coerce;
+
+instance Hashable TagSpecification
+
+instance NFData TagSpecification
+
+instance ToQuery TagSpecification where
+        toQuery TagSpecification'{..}
+          = mconcat
+              ["ResourceType" =: _tsResourceType,
+               toQuery (toQueryList "Tag" <$> _tsTags)]
 
 -- | Information about the Convertible Reserved Instance offering.
 --
@@ -13801,9 +14543,9 @@ data VPCPeeringConnection = VPCPeeringConnection'
 --
 -- * 'vpcpcStatus' - The status of the VPC peering connection.
 --
--- * 'vpcpcAccepterVPCInfo' - Information about the accepter VPC. CIDR block information is not returned when creating a VPC peering connection, or when describing a VPC peering connection that's in the @initiating-request@ or @pending-acceptance@ state.
+-- * 'vpcpcAccepterVPCInfo' - Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
 --
--- * 'vpcpcRequesterVPCInfo' - Information about the requester VPC.
+-- * 'vpcpcRequesterVPCInfo' - Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
 --
 -- * 'vpcpcExpirationTime' - The time that an unaccepted VPC peering connection will expire.
 --
@@ -13828,11 +14570,11 @@ vpcpcVPCPeeringConnectionId = lens _vpcpcVPCPeeringConnectionId (\ s a -> s{_vpc
 vpcpcStatus :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionStateReason)
 vpcpcStatus = lens _vpcpcStatus (\ s a -> s{_vpcpcStatus = a});
 
--- | Information about the accepter VPC. CIDR block information is not returned when creating a VPC peering connection, or when describing a VPC peering connection that's in the @initiating-request@ or @pending-acceptance@ state.
+-- | Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
 vpcpcAccepterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcAccepterVPCInfo = lens _vpcpcAccepterVPCInfo (\ s a -> s{_vpcpcAccepterVPCInfo = a});
 
--- | Information about the requester VPC.
+-- | Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
 vpcpcRequesterVPCInfo :: Lens' VPCPeeringConnection (Maybe VPCPeeringConnectionVPCInfo)
 vpcpcRequesterVPCInfo = lens _vpcpcRequesterVPCInfo (\ s a -> s{_vpcpcRequesterVPCInfo = a});
 

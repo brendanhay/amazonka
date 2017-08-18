@@ -493,12 +493,12 @@ imageAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf desrsImages) .
+                             (folding (concatOf diirsImages) .
                               iState . to toTextCI)
                        , matchAny
                              "deregistered"
                              AcceptFailure
-                             (folding (concatOf desrsImages) .
+                             (folding (concatOf diirsImages) .
                               iState . to toTextCI)]
     }
 

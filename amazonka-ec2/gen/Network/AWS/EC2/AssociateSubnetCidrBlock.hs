@@ -27,8 +27,8 @@ module Network.AWS.EC2.AssociateSubnetCidrBlock
       associateSubnetCidrBlock
     , AssociateSubnetCidrBlock
     -- * Request Lenses
-    , ascbSubnetId
     , ascbIPv6CidrBlock
+    , ascbSubnetId
 
     -- * Destructuring the Response
     , associateSubnetCidrBlockResponse
@@ -48,34 +48,34 @@ import           Network.AWS.Response
 
 -- | /See:/ 'associateSubnetCidrBlock' smart constructor.
 data AssociateSubnetCidrBlock = AssociateSubnetCidrBlock'
-    { _ascbSubnetId      :: !Text
-    , _ascbIPv6CidrBlock :: !Text
+    { _ascbIPv6CidrBlock :: !Text
+    , _ascbSubnetId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'AssociateSubnetCidrBlock' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ascbSubnetId' - The ID of your subnet.
---
 -- * 'ascbIPv6CidrBlock' - The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
+--
+-- * 'ascbSubnetId' - The ID of your subnet.
 associateSubnetCidrBlock
-    :: Text -- ^ 'ascbSubnetId'
-    -> Text -- ^ 'ascbIPv6CidrBlock'
+    :: Text -- ^ 'ascbIPv6CidrBlock'
+    -> Text -- ^ 'ascbSubnetId'
     -> AssociateSubnetCidrBlock
-associateSubnetCidrBlock pSubnetId_ pIPv6CidrBlock_ =
+associateSubnetCidrBlock pIPv6CidrBlock_ pSubnetId_ =
     AssociateSubnetCidrBlock'
-    { _ascbSubnetId = pSubnetId_
-    , _ascbIPv6CidrBlock = pIPv6CidrBlock_
+    { _ascbIPv6CidrBlock = pIPv6CidrBlock_
+    , _ascbSubnetId = pSubnetId_
     }
-
--- | The ID of your subnet.
-ascbSubnetId :: Lens' AssociateSubnetCidrBlock Text
-ascbSubnetId = lens _ascbSubnetId (\ s a -> s{_ascbSubnetId = a});
 
 -- | The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
 ascbIPv6CidrBlock :: Lens' AssociateSubnetCidrBlock Text
 ascbIPv6CidrBlock = lens _ascbIPv6CidrBlock (\ s a -> s{_ascbIPv6CidrBlock = a});
+
+-- | The ID of your subnet.
+ascbSubnetId :: Lens' AssociateSubnetCidrBlock Text
+ascbSubnetId = lens _ascbSubnetId (\ s a -> s{_ascbSubnetId = a});
 
 instance AWSRequest AssociateSubnetCidrBlock where
         type Rs AssociateSubnetCidrBlock =
@@ -105,8 +105,8 @@ instance ToQuery AssociateSubnetCidrBlock where
               ["Action" =:
                  ("AssociateSubnetCidrBlock" :: ByteString),
                "Version" =: ("2016-11-15" :: ByteString),
-               "SubnetId" =: _ascbSubnetId,
-               "Ipv6CidrBlock" =: _ascbIPv6CidrBlock]
+               "Ipv6CidrBlock" =: _ascbIPv6CidrBlock,
+               "SubnetId" =: _ascbSubnetId]
 
 -- | /See:/ 'associateSubnetCidrBlockResponse' smart constructor.
 data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'

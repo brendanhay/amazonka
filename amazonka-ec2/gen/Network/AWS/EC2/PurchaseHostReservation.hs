@@ -30,8 +30,8 @@ module Network.AWS.EC2.PurchaseHostReservation
     , phrCurrencyCode
     , phrClientToken
     , phrLimitPrice
-    , phrOfferingId
     , phrHostIdSet
+    , phrOfferingId
 
     -- * Destructuring the Response
     , purchaseHostReservationResponse
@@ -57,8 +57,8 @@ data PurchaseHostReservation = PurchaseHostReservation'
     { _phrCurrencyCode :: !(Maybe CurrencyCodeValues)
     , _phrClientToken  :: !(Maybe Text)
     , _phrLimitPrice   :: !(Maybe Text)
-    , _phrOfferingId   :: !Text
     , _phrHostIdSet    :: ![Text]
+    , _phrOfferingId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseHostReservation' with the minimum fields required to make a request.
@@ -71,9 +71,9 @@ data PurchaseHostReservation = PurchaseHostReservation'
 --
 -- * 'phrLimitPrice' - The specified limit is checked against the total upfront cost of the reservation (calculated as the offering's upfront cost multiplied by the host count). If the total upfront cost is greater than the specified price limit, the request will fail. This is used to ensure that the purchase does not exceed the expected upfront cost of the purchase. At this time, the only supported currency is @USD@ . For example, to indicate a limit price of USD 100, specify 100.00.
 --
--- * 'phrOfferingId' - The ID of the offering.
---
 -- * 'phrHostIdSet' - The ID/s of the Dedicated Host/s that the reservation will be associated with.
+--
+-- * 'phrOfferingId' - The ID of the offering.
 purchaseHostReservation
     :: Text -- ^ 'phrOfferingId'
     -> PurchaseHostReservation
@@ -82,8 +82,8 @@ purchaseHostReservation pOfferingId_ =
     { _phrCurrencyCode = Nothing
     , _phrClientToken = Nothing
     , _phrLimitPrice = Nothing
-    , _phrOfferingId = pOfferingId_
     , _phrHostIdSet = mempty
+    , _phrOfferingId = pOfferingId_
     }
 
 -- | The currency in which the @totalUpfrontPrice@ , @LimitPrice@ , and @totalHourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
@@ -98,13 +98,13 @@ phrClientToken = lens _phrClientToken (\ s a -> s{_phrClientToken = a});
 phrLimitPrice :: Lens' PurchaseHostReservation (Maybe Text)
 phrLimitPrice = lens _phrLimitPrice (\ s a -> s{_phrLimitPrice = a});
 
--- | The ID of the offering.
-phrOfferingId :: Lens' PurchaseHostReservation Text
-phrOfferingId = lens _phrOfferingId (\ s a -> s{_phrOfferingId = a});
-
 -- | The ID/s of the Dedicated Host/s that the reservation will be associated with.
 phrHostIdSet :: Lens' PurchaseHostReservation [Text]
 phrHostIdSet = lens _phrHostIdSet (\ s a -> s{_phrHostIdSet = a}) . _Coerce;
+
+-- | The ID of the offering.
+phrOfferingId :: Lens' PurchaseHostReservation Text
+phrOfferingId = lens _phrOfferingId (\ s a -> s{_phrOfferingId = a});
 
 instance AWSRequest PurchaseHostReservation where
         type Rs PurchaseHostReservation =
@@ -141,8 +141,8 @@ instance ToQuery PurchaseHostReservation where
                "CurrencyCode" =: _phrCurrencyCode,
                "ClientToken" =: _phrClientToken,
                "LimitPrice" =: _phrLimitPrice,
-               "OfferingId" =: _phrOfferingId,
-               toQueryList "HostIdSet" _phrHostIdSet]
+               toQueryList "HostIdSet" _phrHostIdSet,
+               "OfferingId" =: _phrOfferingId]
 
 -- | /See:/ 'purchaseHostReservationResponse' smart constructor.
 data PurchaseHostReservationResponse = PurchaseHostReservationResponse'

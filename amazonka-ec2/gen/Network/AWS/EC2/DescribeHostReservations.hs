@@ -103,7 +103,7 @@ instance AWSRequest DescribeHostReservations where
                  DescribeHostReservationsResponse' <$>
                    (x .@? "nextToken") <*>
                      (x .@? "hostReservationSet" .!@ mempty >>=
-                        may (parseXMLList "member"))
+                        may (parseXMLList "item"))
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeHostReservations

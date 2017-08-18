@@ -34,6 +34,9 @@ import Test.AWS.EC2.Internal
 --         , requestRevokeSecurityGroupEgress $
 --             revokeSecurityGroupEgress
 --
+--         , requestCreateNetworkInterfacePermission $
+--             createNetworkInterfacePermission
+--
 --         , requestCreateVPNGateway $
 --             createVPNGateway
 --
@@ -265,6 +268,9 @@ import Test.AWS.EC2.Internal
 --         , requestDescribeVolumesModifications $
 --             describeVolumesModifications
 --
+--         , requestCreateFpgaImage $
+--             createFpgaImage
+--
 --         , requestAllocateAddress $
 --             allocateAddress
 --
@@ -334,6 +340,9 @@ import Test.AWS.EC2.Internal
 --         , requestDeleteNetworkACL $
 --             deleteNetworkACL
 --
+--         , requestDeleteNetworkInterfacePermission $
+--             deleteNetworkInterfacePermission
+--
 --         , requestDeleteVPNGateway $
 --             deleteVPNGateway
 --
@@ -354,6 +363,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestModifyVPCPeeringConnectionOptions $
 --             modifyVPCPeeringConnectionOptions
+--
+--         , requestDescribeFpgaImages $
+--             describeFpgaImages
 --
 --         , requestCopySnapshot $
 --             copySnapshot
@@ -432,6 +444,9 @@ import Test.AWS.EC2.Internal
 --
 --         , requestCancelExportTask $
 --             cancelExportTask
+--
+--         , requestCreateDefaultVPC $
+--             createDefaultVPC
 --
 --         , requestDisassociateVPCCidrBlock $
 --             disassociateVPCCidrBlock
@@ -655,6 +670,9 @@ import Test.AWS.EC2.Internal
 --         , requestUnassignPrivateIPAddresses $
 --             unassignPrivateIPAddresses
 --
+--         , requestDescribeNetworkInterfacePermissions $
+--             describeNetworkInterfacePermissions
+--
 --         , requestDeleteDHCPOptions $
 --             deleteDHCPOptions
 --
@@ -694,6 +712,9 @@ import Test.AWS.EC2.Internal
 --         , requestDescribeImages $
 --             describeImages
 --
+--         , requestDescribeElasticGpus $
+--             describeElasticGpus
+--
 --         , requestRestoreAddressToClassic $
 --             restoreAddressToClassic
 --
@@ -717,6 +738,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseRevokeSecurityGroupEgress $
 --             revokeSecurityGroupEgressResponse
+--
+--         , responseCreateNetworkInterfacePermission $
+--             createNetworkInterfacePermissionResponse
 --
 --         , responseCreateVPNGateway $
 --             createVPNGatewayResponse
@@ -949,6 +973,9 @@ import Test.AWS.EC2.Internal
 --         , responseDescribeVolumesModifications $
 --             describeVolumesModificationsResponse
 --
+--         , responseCreateFpgaImage $
+--             createFpgaImageResponse
+--
 --         , responseAllocateAddress $
 --             allocateAddressResponse
 --
@@ -1018,6 +1045,9 @@ import Test.AWS.EC2.Internal
 --         , responseDeleteNetworkACL $
 --             deleteNetworkACLResponse
 --
+--         , responseDeleteNetworkInterfacePermission $
+--             deleteNetworkInterfacePermissionResponse
+--
 --         , responseDeleteVPNGateway $
 --             deleteVPNGatewayResponse
 --
@@ -1038,6 +1068,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseModifyVPCPeeringConnectionOptions $
 --             modifyVPCPeeringConnectionOptionsResponse
+--
+--         , responseDescribeFpgaImages $
+--             describeFpgaImagesResponse
 --
 --         , responseCopySnapshot $
 --             copySnapshotResponse
@@ -1116,6 +1149,9 @@ import Test.AWS.EC2.Internal
 --
 --         , responseCancelExportTask $
 --             cancelExportTaskResponse
+--
+--         , responseCreateDefaultVPC $
+--             createDefaultVPCResponse
 --
 --         , responseDisassociateVPCCidrBlock $
 --             disassociateVPCCidrBlockResponse
@@ -1339,6 +1375,9 @@ import Test.AWS.EC2.Internal
 --         , responseUnassignPrivateIPAddresses $
 --             unassignPrivateIPAddressesResponse
 --
+--         , responseDescribeNetworkInterfacePermissions $
+--             describeNetworkInterfacePermissionsResponse
+--
 --         , responseDeleteDHCPOptions $
 --             deleteDHCPOptionsResponse
 --
@@ -1378,6 +1417,9 @@ import Test.AWS.EC2.Internal
 --         , responseDescribeImages $
 --             describeImagesResponse
 --
+--         , responseDescribeElasticGpus $
+--             describeElasticGpusResponse
+--
 --         , responseRestoreAddressToClassic $
 --             restoreAddressToClassicResponse
 --
@@ -1407,6 +1449,11 @@ requestRevokeSecurityGroupEgress :: RevokeSecurityGroupEgress -> TestTree
 requestRevokeSecurityGroupEgress = req
     "RevokeSecurityGroupEgress"
     "fixture/RevokeSecurityGroupEgress.yaml"
+
+requestCreateNetworkInterfacePermission :: CreateNetworkInterfacePermission -> TestTree
+requestCreateNetworkInterfacePermission = req
+    "CreateNetworkInterfacePermission"
+    "fixture/CreateNetworkInterfacePermission.yaml"
 
 requestCreateVPNGateway :: CreateVPNGateway -> TestTree
 requestCreateVPNGateway = req
@@ -1793,6 +1840,11 @@ requestDescribeVolumesModifications = req
     "DescribeVolumesModifications"
     "fixture/DescribeVolumesModifications.yaml"
 
+requestCreateFpgaImage :: CreateFpgaImage -> TestTree
+requestCreateFpgaImage = req
+    "CreateFpgaImage"
+    "fixture/CreateFpgaImage.yaml"
+
 requestAllocateAddress :: AllocateAddress -> TestTree
 requestAllocateAddress = req
     "AllocateAddress"
@@ -1908,6 +1960,11 @@ requestDeleteNetworkACL = req
     "DeleteNetworkACL"
     "fixture/DeleteNetworkACL.yaml"
 
+requestDeleteNetworkInterfacePermission :: DeleteNetworkInterfacePermission -> TestTree
+requestDeleteNetworkInterfacePermission = req
+    "DeleteNetworkInterfacePermission"
+    "fixture/DeleteNetworkInterfacePermission.yaml"
+
 requestDeleteVPNGateway :: DeleteVPNGateway -> TestTree
 requestDeleteVPNGateway = req
     "DeleteVPNGateway"
@@ -1942,6 +1999,11 @@ requestModifyVPCPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptions ->
 requestModifyVPCPeeringConnectionOptions = req
     "ModifyVPCPeeringConnectionOptions"
     "fixture/ModifyVPCPeeringConnectionOptions.yaml"
+
+requestDescribeFpgaImages :: DescribeFpgaImages -> TestTree
+requestDescribeFpgaImages = req
+    "DescribeFpgaImages"
+    "fixture/DescribeFpgaImages.yaml"
 
 requestCopySnapshot :: CopySnapshot -> TestTree
 requestCopySnapshot = req
@@ -2072,6 +2134,11 @@ requestCancelExportTask :: CancelExportTask -> TestTree
 requestCancelExportTask = req
     "CancelExportTask"
     "fixture/CancelExportTask.yaml"
+
+requestCreateDefaultVPC :: CreateDefaultVPC -> TestTree
+requestCreateDefaultVPC = req
+    "CreateDefaultVPC"
+    "fixture/CreateDefaultVPC.yaml"
 
 requestDisassociateVPCCidrBlock :: DisassociateVPCCidrBlock -> TestTree
 requestDisassociateVPCCidrBlock = req
@@ -2443,6 +2510,11 @@ requestUnassignPrivateIPAddresses = req
     "UnassignPrivateIPAddresses"
     "fixture/UnassignPrivateIPAddresses.yaml"
 
+requestDescribeNetworkInterfacePermissions :: DescribeNetworkInterfacePermissions -> TestTree
+requestDescribeNetworkInterfacePermissions = req
+    "DescribeNetworkInterfacePermissions"
+    "fixture/DescribeNetworkInterfacePermissions.yaml"
+
 requestDeleteDHCPOptions :: DeleteDHCPOptions -> TestTree
 requestDeleteDHCPOptions = req
     "DeleteDHCPOptions"
@@ -2508,6 +2580,11 @@ requestDescribeImages = req
     "DescribeImages"
     "fixture/DescribeImages.yaml"
 
+requestDescribeElasticGpus :: DescribeElasticGpus -> TestTree
+requestDescribeElasticGpus = req
+    "DescribeElasticGpus"
+    "fixture/DescribeElasticGpus.yaml"
+
 requestRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
 requestRestoreAddressToClassic = req
     "RestoreAddressToClassic"
@@ -2548,6 +2625,13 @@ responseRevokeSecurityGroupEgress = res
     "fixture/RevokeSecurityGroupEgressResponse.proto"
     ec2
     (Proxy :: Proxy RevokeSecurityGroupEgress)
+
+responseCreateNetworkInterfacePermission :: CreateNetworkInterfacePermissionResponse -> TestTree
+responseCreateNetworkInterfacePermission = res
+    "CreateNetworkInterfacePermissionResponse"
+    "fixture/CreateNetworkInterfacePermissionResponse.proto"
+    ec2
+    (Proxy :: Proxy CreateNetworkInterfacePermission)
 
 responseCreateVPNGateway :: CreateVPNGatewayResponse -> TestTree
 responseCreateVPNGateway = res
@@ -3088,6 +3172,13 @@ responseDescribeVolumesModifications = res
     ec2
     (Proxy :: Proxy DescribeVolumesModifications)
 
+responseCreateFpgaImage :: CreateFpgaImageResponse -> TestTree
+responseCreateFpgaImage = res
+    "CreateFpgaImageResponse"
+    "fixture/CreateFpgaImageResponse.proto"
+    ec2
+    (Proxy :: Proxy CreateFpgaImage)
+
 responseAllocateAddress :: AllocateAddressResponse -> TestTree
 responseAllocateAddress = res
     "AllocateAddressResponse"
@@ -3249,6 +3340,13 @@ responseDeleteNetworkACL = res
     ec2
     (Proxy :: Proxy DeleteNetworkACL)
 
+responseDeleteNetworkInterfacePermission :: DeleteNetworkInterfacePermissionResponse -> TestTree
+responseDeleteNetworkInterfacePermission = res
+    "DeleteNetworkInterfacePermissionResponse"
+    "fixture/DeleteNetworkInterfacePermissionResponse.proto"
+    ec2
+    (Proxy :: Proxy DeleteNetworkInterfacePermission)
+
 responseDeleteVPNGateway :: DeleteVPNGatewayResponse -> TestTree
 responseDeleteVPNGateway = res
     "DeleteVPNGatewayResponse"
@@ -3297,6 +3395,13 @@ responseModifyVPCPeeringConnectionOptions = res
     "fixture/ModifyVPCPeeringConnectionOptionsResponse.proto"
     ec2
     (Proxy :: Proxy ModifyVPCPeeringConnectionOptions)
+
+responseDescribeFpgaImages :: DescribeFpgaImagesResponse -> TestTree
+responseDescribeFpgaImages = res
+    "DescribeFpgaImagesResponse"
+    "fixture/DescribeFpgaImagesResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeFpgaImages)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
 responseCopySnapshot = res
@@ -3479,6 +3584,13 @@ responseCancelExportTask = res
     "fixture/CancelExportTaskResponse.proto"
     ec2
     (Proxy :: Proxy CancelExportTask)
+
+responseCreateDefaultVPC :: CreateDefaultVPCResponse -> TestTree
+responseCreateDefaultVPC = res
+    "CreateDefaultVPCResponse"
+    "fixture/CreateDefaultVPCResponse.proto"
+    ec2
+    (Proxy :: Proxy CreateDefaultVPC)
 
 responseDisassociateVPCCidrBlock :: DisassociateVPCCidrBlockResponse -> TestTree
 responseDisassociateVPCCidrBlock = res
@@ -3998,6 +4110,13 @@ responseUnassignPrivateIPAddresses = res
     ec2
     (Proxy :: Proxy UnassignPrivateIPAddresses)
 
+responseDescribeNetworkInterfacePermissions :: DescribeNetworkInterfacePermissionsResponse -> TestTree
+responseDescribeNetworkInterfacePermissions = res
+    "DescribeNetworkInterfacePermissionsResponse"
+    "fixture/DescribeNetworkInterfacePermissionsResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeNetworkInterfacePermissions)
+
 responseDeleteDHCPOptions :: DeleteDHCPOptionsResponse -> TestTree
 responseDeleteDHCPOptions = res
     "DeleteDHCPOptionsResponse"
@@ -4088,6 +4207,13 @@ responseDescribeImages = res
     "fixture/DescribeImagesResponse.proto"
     ec2
     (Proxy :: Proxy DescribeImages)
+
+responseDescribeElasticGpus :: DescribeElasticGpusResponse -> TestTree
+responseDescribeElasticGpus = res
+    "DescribeElasticGpusResponse"
+    "fixture/DescribeElasticGpusResponse.proto"
+    ec2
+    (Proxy :: Proxy DescribeElasticGpus)
 
 responseRestoreAddressToClassic :: RestoreAddressToClassicResponse -> TestTree
 responseRestoreAddressToClassic = res

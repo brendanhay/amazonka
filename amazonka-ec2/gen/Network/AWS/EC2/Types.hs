@@ -83,6 +83,12 @@ module Network.AWS.EC2.Types
     -- * DomainType
     , DomainType (..)
 
+    -- * ElasticGpuState
+    , ElasticGpuState (..)
+
+    -- * ElasticGpuStatus
+    , ElasticGpuStatus (..)
+
     -- * EventCode
     , EventCode (..)
 
@@ -103,6 +109,9 @@ module Network.AWS.EC2.Types
 
     -- * FlowLogsResourceType
     , FlowLogsResourceType (..)
+
+    -- * FpgaImageStateCode
+    , FpgaImageStateCode (..)
 
     -- * GatewayType
     , GatewayType (..)
@@ -140,6 +149,9 @@ module Network.AWS.EC2.Types
     -- * InstanceType
     , InstanceType (..)
 
+    -- * InterfacePermissionType
+    , InterfacePermissionType (..)
+
     -- * ListingState
     , ListingState (..)
 
@@ -157,6 +169,9 @@ module Network.AWS.EC2.Types
 
     -- * NetworkInterfaceAttribute
     , NetworkInterfaceAttribute (..)
+
+    -- * NetworkInterfacePermissionStateCode
+    , NetworkInterfacePermissionStateCode (..)
 
     -- * NetworkInterfaceStatus
     , NetworkInterfaceStatus (..)
@@ -411,15 +426,15 @@ module Network.AWS.EC2.Types
     -- * CancelSpotFleetRequestsErrorItem
     , CancelSpotFleetRequestsErrorItem
     , cancelSpotFleetRequestsErrorItem
-    , csfreiSpotFleetRequestId
     , csfreiError
+    , csfreiSpotFleetRequestId
 
     -- * CancelSpotFleetRequestsSuccessItem
     , CancelSpotFleetRequestsSuccessItem
     , cancelSpotFleetRequestsSuccessItem
-    , csfrsiSpotFleetRequestId
     , csfrsiCurrentSpotFleetRequestState
     , csfrsiPreviousSpotFleetRequestState
+    , csfrsiSpotFleetRequestId
 
     -- * CancelledSpotInstanceRequest
     , CancelledSpotInstanceRequest
@@ -507,14 +522,14 @@ module Network.AWS.EC2.Types
     , diskImageDescription
     , dChecksum
     , dFormat
-    , dSize
     , dImportManifestURL
+    , dSize
 
     -- * DiskImageDetail
     , DiskImageDetail
     , diskImageDetail
-    , didFormat
     , didBytes
+    , didFormat
     , didImportManifestURL
 
     -- * DiskImageVolumeDescription
@@ -552,6 +567,34 @@ module Network.AWS.EC2.Types
     , egressOnlyInternetGateway
     , eoigEgressOnlyInternetGatewayId
     , eoigAttachments
+
+    -- * ElasticGpuAssociation
+    , ElasticGpuAssociation
+    , elasticGpuAssociation
+    , egaElasticGpuId
+    , egaElasticGpuAssociationId
+    , egaElasticGpuAssociationTime
+    , egaElasticGpuAssociationState
+
+    -- * ElasticGpuHealth
+    , ElasticGpuHealth
+    , elasticGpuHealth
+    , eghStatus
+
+    -- * ElasticGpuSpecification
+    , ElasticGpuSpecification
+    , elasticGpuSpecification
+    , egsType
+
+    -- * ElasticGpus
+    , ElasticGpus
+    , elasticGpus
+    , egInstanceId
+    , egElasticGpuType
+    , egElasticGpuId
+    , egElasticGpuState
+    , egElasticGpuHealth
+    , egAvailabilityZone
 
     -- * EventInformation
     , EventInformation
@@ -605,6 +648,29 @@ module Network.AWS.EC2.Types
     , flDeliverLogsPermissionARN
     , flFlowLogId
 
+    -- * FpgaImage
+    , FpgaImage
+    , fpgaImage
+    , fiShellVersion
+    , fiPciId
+    , fiState
+    , fiOwnerAlias
+    , fiFpgaImageId
+    , fiOwnerId
+    , fiUpdateTime
+    , fiName
+    , fiProductCodes
+    , fiDescription
+    , fiCreateTime
+    , fiTags
+    , fiFpgaImageGlobalId
+
+    -- * FpgaImageState
+    , FpgaImageState
+    , fpgaImageState
+    , fisCode
+    , fisMessage
+
     -- * GroupIdentifier
     , GroupIdentifier
     , groupIdentifier
@@ -614,9 +680,9 @@ module Network.AWS.EC2.Types
     -- * HistoryRecord
     , HistoryRecord
     , historyRecord
-    , hrTimestamp
-    , hrEventType
     , hrEventInformation
+    , hrEventType
+    , hrTimestamp
 
     -- * Host
     , Host
@@ -814,11 +880,11 @@ module Network.AWS.EC2.Types
     , importInstanceVolumeDetailItem
     , iivdiStatusMessage
     , iivdiDescription
-    , iivdiBytesConverted
     , iivdiAvailabilityZone
+    , iivdiBytesConverted
     , iivdiImage
-    , iivdiVolume
     , iivdiStatus
+    , iivdiVolume
 
     -- * ImportSnapshotTask
     , ImportSnapshotTask
@@ -831,8 +897,8 @@ module Network.AWS.EC2.Types
     , ImportVolumeTaskDetails
     , importVolumeTaskDetails
     , ivtdDescription
-    , ivtdBytesConverted
     , ivtdAvailabilityZone
+    , ivtdBytesConverted
     , ivtdImage
     , ivtdVolume
 
@@ -845,6 +911,7 @@ module Network.AWS.EC2.Types
     , insClientToken
     , insEnaSupport
     , insSourceDestCheck
+    , insElasticGpuAssociations
     , insVPCId
     , insKeyName
     , insNetworkInterfaces
@@ -1192,6 +1259,22 @@ module Network.AWS.EC2.Types
     , networkInterfaceIPv6Address
     , niiaIPv6Address
 
+    -- * NetworkInterfacePermission
+    , NetworkInterfacePermission
+    , networkInterfacePermission
+    , nipPermissionState
+    , nipNetworkInterfacePermissionId
+    , nipNetworkInterfaceId
+    , nipAWSAccountId
+    , nipAWSService
+    , nipPermission
+
+    -- * NetworkInterfacePermissionState
+    , NetworkInterfacePermissionState
+    , networkInterfacePermissionState
+    , nipsState
+    , nipsStatusMessage
+
     -- * NetworkInterfacePrivateIPAddress
     , NetworkInterfacePrivateIPAddress
     , networkInterfacePrivateIPAddress
@@ -1205,6 +1288,14 @@ module Network.AWS.EC2.Types
     , newDHCPConfiguration
     , ndcValues
     , ndcKey
+
+    -- * PciId
+    , PciId
+    , pciId
+    , piSubsystemId
+    , piDeviceId
+    , piSubsystemVendorId
+    , piVendorId
 
     -- * PeeringConnectionOptions
     , PeeringConnectionOptions
@@ -1225,6 +1316,7 @@ module Network.AWS.EC2.Types
     , placement
     , pAffinity
     , pHostId
+    , pSpreadDomain
     , pAvailabilityZone
     , pTenancy
     , pGroupName
@@ -1316,8 +1408,8 @@ module Network.AWS.EC2.Types
     -- * PurchaseRequest
     , PurchaseRequest
     , purchaseRequest
-    , prPurchaseToken
     , prInstanceCount
+    , prPurchaseToken
 
     -- * RecurringCharge
     , RecurringCharge
@@ -1757,6 +1849,7 @@ module Network.AWS.EC2.Types
     , sflsEBSOptimized
     , sflsUserData
     , sflsMonitoring
+    , sflsTagSpecifications
     , sflsIAMInstanceProfile
     , sflsImageId
     , sflsAddressingType
@@ -1772,10 +1865,10 @@ module Network.AWS.EC2.Types
     , SpotFleetRequestConfig
     , spotFleetRequestConfig
     , sfrcActivityStatus
+    , sfrcCreateTime
+    , sfrcSpotFleetRequestConfig
     , sfrcSpotFleetRequestId
     , sfrcSpotFleetRequestState
-    , sfrcSpotFleetRequestConfig
-    , sfrcCreateTime
 
     -- * SpotFleetRequestConfigData
     , SpotFleetRequestConfigData
@@ -1789,10 +1882,16 @@ module Network.AWS.EC2.Types
     , sfrcdValidFrom
     , sfrcdReplaceUnhealthyInstances
     , sfrcdAllocationStrategy
-    , sfrcdSpotPrice
-    , sfrcdTargetCapacity
     , sfrcdIAMFleetRole
     , sfrcdLaunchSpecifications
+    , sfrcdSpotPrice
+    , sfrcdTargetCapacity
+
+    -- * SpotFleetTagSpecification
+    , SpotFleetTagSpecification
+    , spotFleetTagSpecification
+    , sftsResourceType
+    , sftsTags
 
     -- * SpotInstanceRequest
     , SpotInstanceRequest
@@ -1876,6 +1975,12 @@ module Network.AWS.EC2.Types
     , storage
     , sS3
 
+    -- * StorageLocation
+    , StorageLocation
+    , storageLocation
+    , slBucket
+    , slKey
+
     -- * Subnet
     , Subnet
     , subnet
@@ -1917,6 +2022,12 @@ module Network.AWS.EC2.Types
     , tdResourceType
     , tdKey
     , tdValue
+
+    -- * TagSpecification
+    , TagSpecification
+    , tagSpecification
+    , tsResourceType
+    , tsTags
 
     -- * TargetConfiguration
     , TargetConfiguration
@@ -2222,6 +2333,8 @@ ec2 =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasCode "RequestLimitExceeded" . hasStatus 503) e =
           Just "request_limit_exceeded"
       | has (hasStatus 429) e = Just "too_many_requests"

@@ -94,7 +94,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 --
 -- * 'mSourceDestCheck' - Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
 --
--- * 'mDisableAPITermination' - If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this paramater for Spot Instances.
+-- * 'mDisableAPITermination' - If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
 --
 -- * 'mKernel' - Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 --
@@ -156,7 +156,7 @@ mEnaSupport = lens _mEnaSupport (\ s a -> s{_mEnaSupport = a});
 mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
 
--- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this paramater for Spot Instances.
+-- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
 mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
 

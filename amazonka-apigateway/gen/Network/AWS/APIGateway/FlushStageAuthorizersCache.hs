@@ -56,7 +56,7 @@ data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fsacRestAPIId' - The API identifier of the stage to flush.
+-- * 'fsacRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'fsacStageName' - The name of the stage to flush.
 flushStageAuthorizersCache
@@ -69,7 +69,7 @@ flushStageAuthorizersCache pRestAPIId_ pStageName_ =
     , _fsacStageName = pStageName_
     }
 
--- | The API identifier of the stage to flush.
+-- | The string identifier of the associated 'RestApi' .
 fsacRestAPIId :: Lens' FlushStageAuthorizersCache Text
 fsacRestAPIId = lens _fsacRestAPIId (\ s a -> s{_fsacRestAPIId = a});
 

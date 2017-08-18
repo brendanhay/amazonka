@@ -65,11 +65,11 @@ data GetModels = GetModels'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmsLimit' - The maximum number of models in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'gmsLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gmsPosition' - The position of the next set of results in the 'Models' resource to get information about.
+-- * 'gmsPosition' - The current pagination position in the paged result set.
 --
--- * 'gmsRestAPIId' - The 'RestApi' identifier.
+-- * 'gmsRestAPIId' - The string identifier of the associated 'RestApi' .
 getModels
     :: Text -- ^ 'gmsRestAPIId'
     -> GetModels
@@ -80,15 +80,15 @@ getModels pRestAPIId_ =
     , _gmsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of models in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gmsLimit :: Lens' GetModels (Maybe Int)
 gmsLimit = lens _gmsLimit (\ s a -> s{_gmsLimit = a});
 
--- | The position of the next set of results in the 'Models' resource to get information about.
+-- | The current pagination position in the paged result set.
 gmsPosition :: Lens' GetModels (Maybe Text)
 gmsPosition = lens _gmsPosition (\ s a -> s{_gmsPosition = a});
 
--- | The 'RestApi' identifier.
+-- | The string identifier of the associated 'RestApi' .
 gmsRestAPIId :: Lens' GetModels Text
 gmsRestAPIId = lens _gmsRestAPIId (\ s a -> s{_gmsRestAPIId = a});
 
@@ -145,7 +145,7 @@ data GetModelsResponse = GetModelsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmrsItems' - Gets the current 'Model' resource in the collection.
+-- * 'gmrsItems' - The current page of elements from this collection.
 --
 -- * 'gmrsPosition' - Undocumented member.
 --
@@ -160,7 +160,7 @@ getModelsResponse pResponseStatus_ =
     , _gmrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current 'Model' resource in the collection.
+-- | The current page of elements from this collection.
 gmrsItems :: Lens' GetModelsResponse [Model]
 gmrsItems = lens _gmrsItems (\ s a -> s{_gmrsItems = a}) . _Default . _Coerce;
 

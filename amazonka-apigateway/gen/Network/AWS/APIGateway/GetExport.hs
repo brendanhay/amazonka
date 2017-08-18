@@ -71,7 +71,7 @@ data GetExport = GetExport'
 --
 -- * 'geAccepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 --
--- * 'geRestAPIId' - The identifier of the 'RestApi' to be exported.
+-- * 'geRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'geStageName' - The name of the 'Stage' that will be exported.
 --
@@ -98,7 +98,7 @@ geParameters = lens _geParameters (\ s a -> s{_geParameters = a}) . _Default . _
 geAccepts :: Lens' GetExport (Maybe Text)
 geAccepts = lens _geAccepts (\ s a -> s{_geAccepts = a});
 
--- | The identifier of the 'RestApi' to be exported.
+-- | The string identifier of the associated 'RestApi' .
 geRestAPIId :: Lens' GetExport Text
 geRestAPIId = lens _geRestAPIId (\ s a -> s{_geRestAPIId = a});
 

@@ -64,7 +64,7 @@ data CreateResource = CreateResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crRestAPIId' - The identifier of the 'RestApi' for the resource.
+-- * 'crRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'crParentId' - The parent resource's identifier.
 --
@@ -81,7 +81,7 @@ createResource pRestAPIId_ pParentId_ pPathPart_ =
     , _crPathPart = pPathPart_
     }
 
--- | The identifier of the 'RestApi' for the resource.
+-- | The string identifier of the associated 'RestApi' .
 crRestAPIId :: Lens' CreateResource Text
 crRestAPIId = lens _crRestAPIId (\ s a -> s{_crRestAPIId = a});
 

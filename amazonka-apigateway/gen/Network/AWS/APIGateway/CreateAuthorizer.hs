@@ -96,7 +96,7 @@ data CreateAuthorizer = CreateAuthorizer'
 --
 -- * 'caAuthorizerCredentials' - Specifies the credentials required for the authorizer, if any.
 --
--- * 'caRestAPIId' - The 'RestApi' identifier under which the 'Authorizer' will be created.
+-- * 'caRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'caName' - [Required] The name of the authorizer.
 --
@@ -147,7 +147,7 @@ caAuthType = lens _caAuthType (\ s a -> s{_caAuthType = a});
 caAuthorizerCredentials :: Lens' CreateAuthorizer (Maybe Text)
 caAuthorizerCredentials = lens _caAuthorizerCredentials (\ s a -> s{_caAuthorizerCredentials = a});
 
--- | The 'RestApi' identifier under which the 'Authorizer' will be created.
+-- | The string identifier of the associated 'RestApi' .
 caRestAPIId :: Lens' CreateAuthorizer Text
 caRestAPIId = lens _caRestAPIId (\ s a -> s{_caRestAPIId = a});
 

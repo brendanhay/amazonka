@@ -66,7 +66,7 @@ data GetIntegrationResponse = GetIntegrationResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giiRestAPIId' - Specifies a get integration response request's API identifier.
+-- * 'giiRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'giiResourceId' - Specifies a get integration response request's resource identifier.
 --
@@ -87,7 +87,7 @@ getIntegrationResponse pRestAPIId_ pResourceId_ pHttpMethod_ pStatusCode_ =
     , _giiStatusCode = pStatusCode_
     }
 
--- | Specifies a get integration response request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 giiRestAPIId :: Lens' GetIntegrationResponse Text
 giiRestAPIId = lens _giiRestAPIId (\ s a -> s{_giiRestAPIId = a});
 

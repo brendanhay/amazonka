@@ -61,7 +61,7 @@ data GetStages = GetStages'
 --
 -- * 'gsDeploymentId' - The stages' deployment identifiers.
 --
--- * 'gsRestAPIId' - The stages' API identifiers.
+-- * 'gsRestAPIId' - The string identifier of the associated 'RestApi' .
 getStages
     :: Text -- ^ 'gsRestAPIId'
     -> GetStages
@@ -75,7 +75,7 @@ getStages pRestAPIId_ =
 gsDeploymentId :: Lens' GetStages (Maybe Text)
 gsDeploymentId = lens _gsDeploymentId (\ s a -> s{_gsDeploymentId = a});
 
--- | The stages' API identifiers.
+-- | The string identifier of the associated 'RestApi' .
 gsRestAPIId :: Lens' GetStages Text
 gsRestAPIId = lens _gsRestAPIId (\ s a -> s{_gsRestAPIId = a});
 
@@ -122,7 +122,7 @@ data GetStagesResponse = GetStagesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsrsItem' - An individual 'Stage' resource.
+-- * 'gsrsItem' - The current page of elements from this collection.
 --
 -- * 'gsrsResponseStatus' - -- | The response status code.
 getStagesResponse
@@ -134,7 +134,7 @@ getStagesResponse pResponseStatus_ =
     , _gsrsResponseStatus = pResponseStatus_
     }
 
--- | An individual 'Stage' resource.
+-- | The current page of elements from this collection.
 gsrsItem :: Lens' GetStagesResponse [Stage]
 gsrsItem = lens _gsrsItem (\ s a -> s{_gsrsItem = a}) . _Default . _Coerce;
 

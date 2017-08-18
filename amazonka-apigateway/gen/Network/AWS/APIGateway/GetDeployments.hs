@@ -65,11 +65,11 @@ data GetDeployments = GetDeployments'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdLimit' - The maximum number of 'Deployment' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'gdLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gdPosition' - The position of the current 'Deployment' resource in the collection to get information about.
+-- * 'gdPosition' - The current pagination position in the paged result set.
 --
--- * 'gdRestAPIId' - The identifier of the 'RestApi' resource for the collection of 'Deployment' resources to get information about.
+-- * 'gdRestAPIId' - The string identifier of the associated 'RestApi' .
 getDeployments
     :: Text -- ^ 'gdRestAPIId'
     -> GetDeployments
@@ -80,15 +80,15 @@ getDeployments pRestAPIId_ =
     , _gdRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of 'Deployment' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gdLimit :: Lens' GetDeployments (Maybe Int)
 gdLimit = lens _gdLimit (\ s a -> s{_gdLimit = a});
 
--- | The position of the current 'Deployment' resource in the collection to get information about.
+-- | The current pagination position in the paged result set.
 gdPosition :: Lens' GetDeployments (Maybe Text)
 gdPosition = lens _gdPosition (\ s a -> s{_gdPosition = a});
 
--- | The identifier of the 'RestApi' resource for the collection of 'Deployment' resources to get information about.
+-- | The string identifier of the associated 'RestApi' .
 gdRestAPIId :: Lens' GetDeployments Text
 gdRestAPIId = lens _gdRestAPIId (\ s a -> s{_gdRestAPIId = a});
 
@@ -145,7 +145,7 @@ data GetDeploymentsResponse = GetDeploymentsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdrsItems' - The current page of any 'Deployment' resources in the collection of deployment resources.
+-- * 'gdrsItems' - The current page of elements from this collection.
 --
 -- * 'gdrsPosition' - Undocumented member.
 --
@@ -160,7 +160,7 @@ getDeploymentsResponse pResponseStatus_ =
     , _gdrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any 'Deployment' resources in the collection of deployment resources.
+-- | The current page of elements from this collection.
 gdrsItems :: Lens' GetDeploymentsResponse [Deployment]
 gdrsItems = lens _gdrsItems (\ s a -> s{_gdrsItems = a}) . _Default . _Coerce;
 

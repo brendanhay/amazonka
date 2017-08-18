@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.PutMethod
       putMethod
     , PutMethod
     -- * Request Lenses
+    , putRequestValidatorId
     , putRequestModels
     , putRequestParameters
     , putAuthorizerId
@@ -43,6 +44,7 @@ module Network.AWS.APIGateway.PutMethod
     -- * Response Lenses
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
@@ -65,20 +67,23 @@ import           Network.AWS.Response
 --
 -- /See:/ 'putMethod' smart constructor.
 data PutMethod = PutMethod'
-    { _putRequestModels     :: !(Maybe (Map Text Text))
-    , _putRequestParameters :: !(Maybe (Map Text Bool))
-    , _putAuthorizerId      :: !(Maybe Text)
-    , _putOperationName     :: !(Maybe Text)
-    , _putApiKeyRequired    :: !(Maybe Bool)
-    , _putRestAPIId         :: !Text
-    , _putResourceId        :: !Text
-    , _putHttpMethod        :: !Text
-    , _putAuthorizationType :: !Text
+    { _putRequestValidatorId :: !(Maybe Text)
+    , _putRequestModels      :: !(Maybe (Map Text Text))
+    , _putRequestParameters  :: !(Maybe (Map Text Bool))
+    , _putAuthorizerId       :: !(Maybe Text)
+    , _putOperationName      :: !(Maybe Text)
+    , _putApiKeyRequired     :: !(Maybe Bool)
+    , _putRestAPIId          :: !Text
+    , _putResourceId         :: !Text
+    , _putHttpMethod         :: !Text
+    , _putAuthorizationType  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PutMethod' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'putRequestValidatorId' - The identifier of a 'RequestValidator' for validating the method request.
 --
 -- * 'putRequestModels' - Specifies the 'Model' resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 --
@@ -90,13 +95,13 @@ data PutMethod = PutMethod'
 --
 -- * 'putApiKeyRequired' - Specifies whether the method required a valid 'ApiKey' .
 --
--- * 'putRestAPIId' - The 'RestApi' identifier for the new 'Method' resource.
+-- * 'putRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'putResourceId' - The 'Resource' identifier for the new 'Method' resource.
 --
 -- * 'putHttpMethod' - Specifies the method request's HTTP method type.
 --
--- * 'putAuthorizationType' - Specifies the type of authorization used for the method.
+-- * 'putAuthorizationType' - The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
 putMethod
     :: Text -- ^ 'putRestAPIId'
     -> Text -- ^ 'putResourceId'
@@ -105,7 +110,8 @@ putMethod
     -> PutMethod
 putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     PutMethod'
-    { _putRequestModels = Nothing
+    { _putRequestValidatorId = Nothing
+    , _putRequestModels = Nothing
     , _putRequestParameters = Nothing
     , _putAuthorizerId = Nothing
     , _putOperationName = Nothing
@@ -115,6 +121,10 @@ putMethod pRestAPIId_ pResourceId_ pHttpMethod_ pAuthorizationType_ =
     , _putHttpMethod = pHttpMethod_
     , _putAuthorizationType = pAuthorizationType_
     }
+
+-- | The identifier of a 'RequestValidator' for validating the method request.
+putRequestValidatorId :: Lens' PutMethod (Maybe Text)
+putRequestValidatorId = lens _putRequestValidatorId (\ s a -> s{_putRequestValidatorId = a});
 
 -- | Specifies the 'Model' resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a 'Model' name as the value.
 putRequestModels :: Lens' PutMethod (HashMap Text Text)
@@ -136,7 +146,7 @@ putOperationName = lens _putOperationName (\ s a -> s{_putOperationName = a});
 putApiKeyRequired :: Lens' PutMethod (Maybe Bool)
 putApiKeyRequired = lens _putApiKeyRequired (\ s a -> s{_putApiKeyRequired = a});
 
--- | The 'RestApi' identifier for the new 'Method' resource.
+-- | The string identifier of the associated 'RestApi' .
 putRestAPIId :: Lens' PutMethod Text
 putRestAPIId = lens _putRestAPIId (\ s a -> s{_putRestAPIId = a});
 
@@ -148,7 +158,7 @@ putResourceId = lens _putResourceId (\ s a -> s{_putResourceId = a});
 putHttpMethod :: Lens' PutMethod Text
 putHttpMethod = lens _putHttpMethod (\ s a -> s{_putHttpMethod = a});
 
--- | Specifies the type of authorization used for the method.
+-- | The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
 putAuthorizationType :: Lens' PutMethod Text
 putAuthorizationType = lens _putAuthorizationType (\ s a -> s{_putAuthorizationType = a});
 
@@ -171,7 +181,9 @@ instance ToJSON PutMethod where
         toJSON PutMethod'{..}
           = object
               (catMaybes
-                 [("requestModels" .=) <$> _putRequestModels,
+                 [("requestValidatorId" .=) <$>
+                    _putRequestValidatorId,
+                  ("requestModels" .=) <$> _putRequestModels,
                   ("requestParameters" .=) <$> _putRequestParameters,
                   ("authorizerId" .=) <$> _putAuthorizerId,
                   ("operationName" .=) <$> _putOperationName,

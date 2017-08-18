@@ -67,7 +67,7 @@ data GetSDK = GetSDK'
 --
 -- * 'gsdkParameters' - A key-value map of query string parameters that specify properties of the SDK, depending on the requested @sdkType@ . For @sdkType@ of @objectivec@ , a parameter named @classPrefix@ is required. For @sdkType@ of @android@ , parameters named @groupId@ , @artifactId@ , @artifactVersion@ , and @invokerPackage@ are required.
 --
--- * 'gsdkRestAPIId' - The identifier of the 'RestApi' that the SDK will use.
+-- * 'gsdkRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gsdkStageName' - The name of the 'Stage' that the SDK will use.
 --
@@ -89,7 +89,7 @@ getSDK pRestAPIId_ pStageName_ pSdkType_ =
 gsdkParameters :: Lens' GetSDK (HashMap Text Text)
 gsdkParameters = lens _gsdkParameters (\ s a -> s{_gsdkParameters = a}) . _Default . _Map;
 
--- | The identifier of the 'RestApi' that the SDK will use.
+-- | The string identifier of the associated 'RestApi' .
 gsdkRestAPIId :: Lens' GetSDK Text
 gsdkRestAPIId = lens _gsdkRestAPIId (\ s a -> s{_gsdkRestAPIId = a});
 

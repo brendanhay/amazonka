@@ -69,9 +69,9 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 --
 -- * 'gupkNameQuery' - A query parameter specifying the name of the to-be-returned usage plan keys.
 --
--- * 'gupkLimit' - A query parameter specifying the maximum number usage plan keys returned by the GET request.
+-- * 'gupkLimit' - The maximum number of returned results per page.
 --
--- * 'gupkPosition' - A query parameter specifying the zero-based index specifying the position of a usage plan key.
+-- * 'gupkPosition' - The current pagination position in the paged result set.
 --
 -- * 'gupkUsagePlanId' - The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 getUsagePlanKeys
@@ -89,11 +89,11 @@ getUsagePlanKeys pUsagePlanId_ =
 gupkNameQuery :: Lens' GetUsagePlanKeys (Maybe Text)
 gupkNameQuery = lens _gupkNameQuery (\ s a -> s{_gupkNameQuery = a});
 
--- | A query parameter specifying the maximum number usage plan keys returned by the GET request.
+-- | The maximum number of returned results per page.
 gupkLimit :: Lens' GetUsagePlanKeys (Maybe Int)
 gupkLimit = lens _gupkLimit (\ s a -> s{_gupkLimit = a});
 
--- | A query parameter specifying the zero-based index specifying the position of a usage plan key.
+-- | The current pagination position in the paged result set.
 gupkPosition :: Lens' GetUsagePlanKeys (Maybe Text)
 gupkPosition = lens _gupkPosition (\ s a -> s{_gupkPosition = a});
 
@@ -155,7 +155,7 @@ data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gupkrsItems' - Gets the current item of the usage plan keys collection.
+-- * 'gupkrsItems' - The current page of elements from this collection.
 --
 -- * 'gupkrsPosition' - Undocumented member.
 --
@@ -170,7 +170,7 @@ getUsagePlanKeysResponse pResponseStatus_ =
     , _gupkrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current item of the usage plan keys collection.
+-- | The current page of elements from this collection.
 gupkrsItems :: Lens' GetUsagePlanKeysResponse [UsagePlanKey]
 gupkrsItems = lens _gupkrsItems (\ s a -> s{_gupkrsItems = a}) . _Default . _Coerce;
 

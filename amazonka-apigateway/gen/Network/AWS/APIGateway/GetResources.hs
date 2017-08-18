@@ -29,6 +29,7 @@ module Network.AWS.APIGateway.GetResources
       getResources
     , GetResources
     -- * Request Lenses
+    , grsEmbed
     , grsLimit
     , grsPosition
     , grsRestAPIId
@@ -56,7 +57,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getResources' smart constructor.
 data GetResources = GetResources'
-    { _grsLimit     :: !(Maybe Int)
+    { _grsEmbed     :: !(Maybe [Text])
+    , _grsLimit     :: !(Maybe Int)
     , _grsPosition  :: !(Maybe Text)
     , _grsRestAPIId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -65,30 +67,37 @@ data GetResources = GetResources'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grsLimit' - The maximum number of 'Resource' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'grsEmbed' - A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 --
--- * 'grsPosition' - The position of the next set of results in the current 'Resources' resource to get information about.
+-- * 'grsLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'grsRestAPIId' - The 'RestApi' identifier for the Resource.
+-- * 'grsPosition' - The current pagination position in the paged result set.
+--
+-- * 'grsRestAPIId' - The string identifier of the associated 'RestApi' .
 getResources
     :: Text -- ^ 'grsRestAPIId'
     -> GetResources
 getResources pRestAPIId_ =
     GetResources'
-    { _grsLimit = Nothing
+    { _grsEmbed = Nothing
+    , _grsLimit = Nothing
     , _grsPosition = Nothing
     , _grsRestAPIId = pRestAPIId_
     }
 
--- | The maximum number of 'Resource' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
+grsEmbed :: Lens' GetResources [Text]
+grsEmbed = lens _grsEmbed (\ s a -> s{_grsEmbed = a}) . _Default . _Coerce;
+
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 grsLimit :: Lens' GetResources (Maybe Int)
 grsLimit = lens _grsLimit (\ s a -> s{_grsLimit = a});
 
--- | The position of the next set of results in the current 'Resources' resource to get information about.
+-- | The current pagination position in the paged result set.
 grsPosition :: Lens' GetResources (Maybe Text)
 grsPosition = lens _grsPosition (\ s a -> s{_grsPosition = a});
 
--- | The 'RestApi' identifier for the Resource.
+-- | The string identifier of the associated 'RestApi' .
 grsRestAPIId :: Lens' GetResources Text
 grsRestAPIId = lens _grsRestAPIId (\ s a -> s{_grsRestAPIId = a});
 
@@ -127,7 +136,9 @@ instance ToPath GetResources where
 instance ToQuery GetResources where
         toQuery GetResources'{..}
           = mconcat
-              ["limit" =: _grsLimit, "position" =: _grsPosition]
+              ["embed" =:
+                 toQuery (toQueryList "member" <$> _grsEmbed),
+               "limit" =: _grsLimit, "position" =: _grsPosition]
 
 -- | Represents a collection of 'Resource' resources.
 --
@@ -145,7 +156,7 @@ data GetResourcesResponse = GetResourcesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grrsItems' - Gets the current 'Resource' resource in the collection.
+-- * 'grrsItems' - The current page of elements from this collection.
 --
 -- * 'grrsPosition' - Undocumented member.
 --
@@ -160,7 +171,7 @@ getResourcesResponse pResponseStatus_ =
     , _grrsResponseStatus = pResponseStatus_
     }
 
--- | Gets the current 'Resource' resource in the collection.
+-- | The current page of elements from this collection.
 grrsItems :: Lens' GetResourcesResponse [Resource]
 grrsItems = lens _grrsItems (\ s a -> s{_grrsItems = a}) . _Default . _Coerce;
 

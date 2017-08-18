@@ -66,7 +66,7 @@ data ImportDocumentationParts = ImportDocumentationParts'
 --
 -- * 'idpFailOnWarnings' - A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
--- * 'idpRestAPIId' - [Required] The identifier of an API of the to-be-imported documentation parts.
+-- * 'idpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'idpBody' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from a Swagger file, this is a JSON object.
 importDocumentationParts
@@ -89,7 +89,7 @@ idpMode = lens _idpMode (\ s a -> s{_idpMode = a});
 idpFailOnWarnings :: Lens' ImportDocumentationParts (Maybe Bool)
 idpFailOnWarnings = lens _idpFailOnWarnings (\ s a -> s{_idpFailOnWarnings = a});
 
--- | [Required] The identifier of an API of the to-be-imported documentation parts.
+-- | [Required] The string identifier of the associated 'RestApi' .
 idpRestAPIId :: Lens' ImportDocumentationParts Text
 idpRestAPIId = lens _idpRestAPIId (\ s a -> s{_idpRestAPIId = a});
 

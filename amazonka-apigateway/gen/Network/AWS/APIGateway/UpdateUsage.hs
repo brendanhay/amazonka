@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Grants a temporary extension to the reamining quota of a usage plan associated with a specified API key.
+-- Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.
 --
 --
 module Network.AWS.APIGateway.UpdateUsage
@@ -49,7 +49,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The PATCH request to grant a temporary extension to the reamining quota of a usage plan associated with a specified API key.
+-- | The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.
 --
 --
 --

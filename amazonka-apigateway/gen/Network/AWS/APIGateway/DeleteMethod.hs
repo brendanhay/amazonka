@@ -58,7 +58,7 @@ data DeleteMethod = DeleteMethod'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmmRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
+-- * 'dmmRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'dmmResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
@@ -75,7 +75,7 @@ deleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _dmmHttpMethod = pHttpMethod_
     }
 
--- | The 'RestApi' identifier for the 'Method' resource.
+-- | The string identifier of the associated 'RestApi' .
 dmmRestAPIId :: Lens' DeleteMethod Text
 dmmRestAPIId = lens _dmmRestAPIId (\ s a -> s{_dmmRestAPIId = a});
 

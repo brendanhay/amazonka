@@ -41,7 +41,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The DELETE request to delete a uasge plan of a given plan Id.
+-- | The DELETE request to delete a usage plan of a given plan Id.
 --
 --
 --

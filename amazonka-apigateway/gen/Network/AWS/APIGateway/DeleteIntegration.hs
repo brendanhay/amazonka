@@ -58,7 +58,7 @@ data DeleteIntegration = DeleteIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delRestAPIId' - Specifies a delete integration request's API identifier.
+-- * 'delRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'delResourceId' - Specifies a delete integration request's resource identifier.
 --
@@ -75,7 +75,7 @@ deleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _delHttpMethod = pHttpMethod_
     }
 
--- | Specifies a delete integration request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 delRestAPIId :: Lens' DeleteIntegration Text
 delRestAPIId = lens _delRestAPIId (\ s a -> s{_delRestAPIId = a});
 

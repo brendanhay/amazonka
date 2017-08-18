@@ -58,7 +58,7 @@ data GetDocumentationVersion = GetDocumentationVersion'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdvdRestAPIId' - [Required] The identifier of the API of the to-be-retrieved documentation snapshot.
+-- * 'gdvdRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'gdvdDocumentationVersion' - [Required] The version identifier of the to-be-retrieved documentation snapshot.
 getDocumentationVersion
@@ -71,7 +71,7 @@ getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
     , _gdvdDocumentationVersion = pDocumentationVersion_
     }
 
--- | [Required] The identifier of the API of the to-be-retrieved documentation snapshot.
+-- | [Required] The string identifier of the associated 'RestApi' .
 gdvdRestAPIId :: Lens' GetDocumentationVersion Text
 gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a});
 

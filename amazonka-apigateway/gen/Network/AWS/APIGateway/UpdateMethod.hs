@@ -38,6 +38,7 @@ module Network.AWS.APIGateway.UpdateMethod
     -- * Response Lenses
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
@@ -72,7 +73,7 @@ data UpdateMethod = UpdateMethod'
 --
 -- * 'ummPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'ummRestAPIId' - The 'RestApi' identifier for the 'Method' resource.
+-- * 'ummRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'ummResourceId' - The 'Resource' identifier for the 'Method' resource.
 --
@@ -94,7 +95,7 @@ updateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
 ummPatchOperations :: Lens' UpdateMethod [PatchOperation]
 ummPatchOperations = lens _ummPatchOperations (\ s a -> s{_ummPatchOperations = a}) . _Default . _Coerce;
 
--- | The 'RestApi' identifier for the 'Method' resource.
+-- | The string identifier of the associated 'RestApi' .
 ummRestAPIId :: Lens' UpdateMethod Text
 ummRestAPIId = lens _ummRestAPIId (\ s a -> s{_ummRestAPIId = a});
 

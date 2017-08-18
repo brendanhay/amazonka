@@ -57,7 +57,7 @@ data DeleteAuthorizer = DeleteAuthorizer'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daRestAPIId' - The 'RestApi' identifier for the 'Authorizer' resource.
+-- * 'daRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'daAuthorizerId' - The identifier of the 'Authorizer' resource.
 deleteAuthorizer
@@ -70,7 +70,7 @@ deleteAuthorizer pRestAPIId_ pAuthorizerId_ =
     , _daAuthorizerId = pAuthorizerId_
     }
 
--- | The 'RestApi' identifier for the 'Authorizer' resource.
+-- | The string identifier of the associated 'RestApi' .
 daRestAPIId :: Lens' DeleteAuthorizer Text
 daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a});
 

@@ -62,7 +62,7 @@ data UpdateDocumentationPart = UpdateDocumentationPart'
 --
 -- * 'udpPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udpRestAPIId' - [Required] The identifier of an API of the to-be-updated documentation part.
+-- * 'udpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
 -- * 'udpDocumentationPartId' - [Required] The identifier of the to-be-updated documentation part.
 updateDocumentationPart
@@ -80,7 +80,7 @@ updateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
 udpPatchOperations :: Lens' UpdateDocumentationPart [PatchOperation]
 udpPatchOperations = lens _udpPatchOperations (\ s a -> s{_udpPatchOperations = a}) . _Default . _Coerce;
 
--- | [Required] The identifier of an API of the to-be-updated documentation part.
+-- | [Required] The string identifier of the associated 'RestApi' .
 udpRestAPIId :: Lens' UpdateDocumentationPart Text
 udpRestAPIId = lens _udpRestAPIId (\ s a -> s{_udpRestAPIId = a});
 

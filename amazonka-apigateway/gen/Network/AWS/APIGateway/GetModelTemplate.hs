@@ -59,7 +59,7 @@ data GetModelTemplate = GetModelTemplate'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gmtRestAPIId' - The ID of the 'RestApi' under which the model exists.
+-- * 'gmtRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gmtModelName' - The name of the model for which to generate a template.
 getModelTemplate
@@ -72,7 +72,7 @@ getModelTemplate pRestAPIId_ pModelName_ =
     , _gmtModelName = pModelName_
     }
 
--- | The ID of the 'RestApi' under which the model exists.
+-- | The string identifier of the associated 'RestApi' .
 gmtRestAPIId :: Lens' GetModelTemplate Text
 gmtRestAPIId = lens _gmtRestAPIId (\ s a -> s{_gmtRestAPIId = a});
 

@@ -63,9 +63,9 @@ data GetDomainNames = GetDomainNames'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnLimit' - The maximum number of 'DomainName' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- * 'gdnLimit' - The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 --
--- * 'gdnPosition' - The position of the current domain names to get information about.
+-- * 'gdnPosition' - The current pagination position in the paged result set.
 getDomainNames
     :: GetDomainNames
 getDomainNames =
@@ -74,11 +74,11 @@ getDomainNames =
     , _gdnPosition = Nothing
     }
 
--- | The maximum number of 'DomainName' resources in the collection to get information about. The default limit is 25. It should be an integer between 1 - 500.
+-- | The maximum number of returned results per page. The value is 25 by default and could be between 1 - 500.
 gdnLimit :: Lens' GetDomainNames (Maybe Int)
 gdnLimit = lens _gdnLimit (\ s a -> s{_gdnLimit = a});
 
--- | The position of the current domain names to get information about.
+-- | The current pagination position in the paged result set.
 gdnPosition :: Lens' GetDomainNames (Maybe Text)
 gdnPosition = lens _gdnPosition (\ s a -> s{_gdnPosition = a});
 
@@ -133,7 +133,7 @@ data GetDomainNamesResponse = GetDomainNamesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdnrsItems' - The current page of any 'DomainName' resources in the collection of 'DomainName' resources.
+-- * 'gdnrsItems' - The current page of elements from this collection.
 --
 -- * 'gdnrsPosition' - Undocumented member.
 --
@@ -148,7 +148,7 @@ getDomainNamesResponse pResponseStatus_ =
     , _gdnrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any 'DomainName' resources in the collection of 'DomainName' resources.
+-- | The current page of elements from this collection.
 gdnrsItems :: Lens' GetDomainNamesResponse [DomainName]
 gdnrsItems = lens _gdnrsItems (\ s a -> s{_gdnrsItems = a}) . _Default . _Coerce;
 

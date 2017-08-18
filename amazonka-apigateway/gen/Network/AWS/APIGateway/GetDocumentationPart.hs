@@ -58,9 +58,9 @@ data GetDocumentationPart = GetDocumentationPart'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'getRestAPIId' - [Required] The identifier of an API of the to-be-retrieved documentation part.
+-- * 'getRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
 --
--- * 'getDocumentationPartId' - [Required] The identifier of the to-be-retrieved documentation part.
+-- * 'getDocumentationPartId' - [Required] The string identifier of the associated 'RestApi' .
 getDocumentationPart
     :: Text -- ^ 'getRestAPIId'
     -> Text -- ^ 'getDocumentationPartId'
@@ -71,11 +71,11 @@ getDocumentationPart pRestAPIId_ pDocumentationPartId_ =
     , _getDocumentationPartId = pDocumentationPartId_
     }
 
--- | [Required] The identifier of an API of the to-be-retrieved documentation part.
+-- | [Required] The string identifier of the associated 'RestApi' .
 getRestAPIId :: Lens' GetDocumentationPart Text
 getRestAPIId = lens _getRestAPIId (\ s a -> s{_getRestAPIId = a});
 
--- | [Required] The identifier of the to-be-retrieved documentation part.
+-- | [Required] The string identifier of the associated 'RestApi' .
 getDocumentationPartId :: Lens' GetDocumentationPart Text
 getDocumentationPartId = lens _getDocumentationPartId (\ s a -> s{_getDocumentationPartId = a});
 

@@ -56,7 +56,7 @@ data DeleteModel = DeleteModel'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dRestAPIId' - The 'RestApi' under which the model will be deleted.
+-- * 'dRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'dModelName' - The name of the model to delete.
 deleteModel
@@ -69,7 +69,7 @@ deleteModel pRestAPIId_ pModelName_ =
     , _dModelName = pModelName_
     }
 
--- | The 'RestApi' under which the model will be deleted.
+-- | The string identifier of the associated 'RestApi' .
 dRestAPIId :: Lens' DeleteModel Text
 dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
 

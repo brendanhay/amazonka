@@ -65,7 +65,7 @@ data UpdateDeployment = UpdateDeployment'
 --
 -- * 'udPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- * 'udRestAPIId' - The replacement identifier of the 'RestApi' resource for the 'Deployment' resource to change information about.
+-- * 'udRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'udDeploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
 updateDeployment
@@ -83,7 +83,7 @@ updateDeployment pRestAPIId_ pDeploymentId_ =
 udPatchOperations :: Lens' UpdateDeployment [PatchOperation]
 udPatchOperations = lens _udPatchOperations (\ s a -> s{_udPatchOperations = a}) . _Default . _Coerce;
 
--- | The replacement identifier of the 'RestApi' resource for the 'Deployment' resource to change information about.
+-- | The string identifier of the associated 'RestApi' .
 udRestAPIId :: Lens' UpdateDeployment Text
 udRestAPIId = lens _udRestAPIId (\ s a -> s{_udRestAPIId = a});
 

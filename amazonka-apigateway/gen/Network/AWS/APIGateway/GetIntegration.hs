@@ -70,7 +70,7 @@ data GetIntegration = GetIntegration'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giRestAPIId' - Specifies a get integration request's API identifier.
+-- * 'giRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'giResourceId' - Specifies a get integration request's resource identifier
 --
@@ -87,7 +87,7 @@ getIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
     , _giHttpMethod = pHttpMethod_
     }
 
--- | Specifies a get integration request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 giRestAPIId :: Lens' GetIntegration Text
 giRestAPIId = lens _giRestAPIId (\ s a -> s{_giRestAPIId = a});
 

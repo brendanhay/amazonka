@@ -56,7 +56,7 @@ data DeleteDeployment = DeleteDeployment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddRestAPIId' - The identifier of the 'RestApi' resource for the 'Deployment' resource to delete.
+-- * 'ddRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'ddDeploymentId' - The identifier of the 'Deployment' resource to delete.
 deleteDeployment
@@ -69,7 +69,7 @@ deleteDeployment pRestAPIId_ pDeploymentId_ =
     , _ddDeploymentId = pDeploymentId_
     }
 
--- | The identifier of the 'RestApi' resource for the 'Deployment' resource to delete.
+-- | The string identifier of the associated 'RestApi' .
 ddRestAPIId :: Lens' DeleteDeployment Text
 ddRestAPIId = lens _ddRestAPIId (\ s a -> s{_ddRestAPIId = a});
 

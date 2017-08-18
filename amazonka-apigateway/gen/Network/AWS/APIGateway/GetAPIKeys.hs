@@ -76,9 +76,9 @@ data GetAPIKeys = GetAPIKeys'
 --
 -- * 'gakNameQuery' - The name of queried API keys.
 --
--- * 'gakLimit' - The maximum number of 'ApiKeys' to get information about.
+-- * 'gakLimit' - The maximum number of returned results per page.
 --
--- * 'gakPosition' - The position of the current 'ApiKeys' resource to get information about.
+-- * 'gakPosition' - The current pagination position in the paged result set.
 getAPIKeys
     :: GetAPIKeys
 getAPIKeys =
@@ -102,11 +102,11 @@ gakCustomerId = lens _gakCustomerId (\ s a -> s{_gakCustomerId = a});
 gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
 gakNameQuery = lens _gakNameQuery (\ s a -> s{_gakNameQuery = a});
 
--- | The maximum number of 'ApiKeys' to get information about.
+-- | The maximum number of returned results per page.
 gakLimit :: Lens' GetAPIKeys (Maybe Int)
 gakLimit = lens _gakLimit (\ s a -> s{_gakLimit = a});
 
--- | The position of the current 'ApiKeys' resource to get information about.
+-- | The current pagination position in the paged result set.
 gakPosition :: Lens' GetAPIKeys (Maybe Text)
 gakPosition = lens _gakPosition (\ s a -> s{_gakPosition = a});
 
@@ -167,7 +167,7 @@ data GetAPIKeysResponse = GetAPIKeysResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gakrsItems' - The current page of any 'ApiKey' resources in the collection of 'ApiKey' resources.
+-- * 'gakrsItems' - The current page of elements from this collection.
 --
 -- * 'gakrsWarnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
 --
@@ -185,7 +185,7 @@ getAPIKeysResponse pResponseStatus_ =
     , _gakrsResponseStatus = pResponseStatus_
     }
 
--- | The current page of any 'ApiKey' resources in the collection of 'ApiKey' resources.
+-- | The current page of elements from this collection.
 gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
 gakrsItems = lens _gakrsItems (\ s a -> s{_gakrsItems = a}) . _Default . _Coerce;
 

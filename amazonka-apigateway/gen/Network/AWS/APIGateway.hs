@@ -59,6 +59,12 @@ module Network.AWS.APIGateway
     -- ** GetDeployment
     , module Network.AWS.APIGateway.GetDeployment
 
+    -- ** DeleteGatewayResponse
+    , module Network.AWS.APIGateway.DeleteGatewayResponse
+
+    -- ** UpdateGatewayResponse
+    , module Network.AWS.APIGateway.UpdateGatewayResponse
+
     -- ** CreateUsagePlan
     , module Network.AWS.APIGateway.CreateUsagePlan
 
@@ -67,6 +73,9 @@ module Network.AWS.APIGateway
 
     -- ** GetClientCertificate
     , module Network.AWS.APIGateway.GetClientCertificate
+
+    -- ** PutGatewayResponse
+    , module Network.AWS.APIGateway.PutGatewayResponse
 
     -- ** GetSDKType
     , module Network.AWS.APIGateway.GetSDKType
@@ -79,6 +88,9 @@ module Network.AWS.APIGateway
 
     -- ** GetBasePathMapping
     , module Network.AWS.APIGateway.GetBasePathMapping
+
+    -- ** GetRequestValidators
+    , module Network.AWS.APIGateway.GetRequestValidators
 
     -- ** PutMethodResponse
     , module Network.AWS.APIGateway.PutMethodResponse
@@ -137,6 +149,9 @@ module Network.AWS.APIGateway
     -- ** UpdateResource
     , module Network.AWS.APIGateway.UpdateResource
 
+    -- ** CreateRequestValidator
+    , module Network.AWS.APIGateway.CreateRequestValidator
+
     -- ** ImportDocumentationParts
     , module Network.AWS.APIGateway.ImportDocumentationParts
 
@@ -154,6 +169,9 @@ module Network.AWS.APIGateway
 
     -- ** FlushStageAuthorizersCache
     , module Network.AWS.APIGateway.FlushStageAuthorizersCache
+
+    -- ** GetGatewayResponses
+    , module Network.AWS.APIGateway.GetGatewayResponses
 
     -- ** DeleteModel
     , module Network.AWS.APIGateway.DeleteModel
@@ -199,6 +217,9 @@ module Network.AWS.APIGateway
 
     -- ** TestInvokeMethod
     , module Network.AWS.APIGateway.TestInvokeMethod
+
+    -- ** GetRequestValidator
+    , module Network.AWS.APIGateway.GetRequestValidator
 
     -- ** GetDomainName
     , module Network.AWS.APIGateway.GetDomainName
@@ -293,6 +314,9 @@ module Network.AWS.APIGateway
     -- ** UpdateClientCertificate
     , module Network.AWS.APIGateway.UpdateClientCertificate
 
+    -- ** GetGatewayResponse
+    , module Network.AWS.APIGateway.GetGatewayResponse
+
     -- ** CreateUsagePlanKey
     , module Network.AWS.APIGateway.CreateUsagePlanKey
 
@@ -335,6 +359,12 @@ module Network.AWS.APIGateway
     -- ** UpdateMethod
     , module Network.AWS.APIGateway.UpdateMethod
 
+    -- ** UpdateRequestValidator
+    , module Network.AWS.APIGateway.UpdateRequestValidator
+
+    -- ** DeleteRequestValidator
+    , module Network.AWS.APIGateway.DeleteRequestValidator
+
     -- ** GetSDKTypes
     , module Network.AWS.APIGateway.GetSDKTypes
 
@@ -375,6 +405,9 @@ module Network.AWS.APIGateway
 
     -- ** DocumentationPartType
     , DocumentationPartType (..)
+
+    -- ** GatewayResponseType
+    , GatewayResponseType (..)
 
     -- ** IntegrationType
     , IntegrationType (..)
@@ -488,6 +521,15 @@ module Network.AWS.APIGateway
     , dnCertificateUploadDate
     , dnDistributionDomainName
 
+    -- ** GatewayResponse
+    , GatewayResponse
+    , gatewayResponse
+    , gDefaultResponse
+    , gResponseTemplates
+    , gResponseType
+    , gStatusCode
+    , gResponseParameters
+
     -- ** Integration
     , Integration
     , integration
@@ -517,6 +559,7 @@ module Network.AWS.APIGateway
     , method
     , mMethodResponses
     , mHttpMethod
+    , mRequestValidatorId
     , mRequestModels
     , mRequestParameters
     , mAuthorizerId
@@ -575,6 +618,14 @@ module Network.AWS.APIGateway
     , qsOffset
     , qsPeriod
     , qsLimit
+
+    -- ** RequestValidator
+    , RequestValidator
+    , requestValidator
+    , rvValidateRequestParameters
+    , rvName
+    , rvValidateRequestBody
+    , rvId
 
     -- ** Resource
     , Resource
@@ -678,6 +729,7 @@ import           Network.AWS.APIGateway.CreateDocumentationPart
 import           Network.AWS.APIGateway.CreateDocumentationVersion
 import           Network.AWS.APIGateway.CreateDomainName
 import           Network.AWS.APIGateway.CreateModel
+import           Network.AWS.APIGateway.CreateRequestValidator
 import           Network.AWS.APIGateway.CreateResource
 import           Network.AWS.APIGateway.CreateRestAPI
 import           Network.AWS.APIGateway.CreateStage
@@ -691,11 +743,13 @@ import           Network.AWS.APIGateway.DeleteDeployment
 import           Network.AWS.APIGateway.DeleteDocumentationPart
 import           Network.AWS.APIGateway.DeleteDocumentationVersion
 import           Network.AWS.APIGateway.DeleteDomainName
+import           Network.AWS.APIGateway.DeleteGatewayResponse
 import           Network.AWS.APIGateway.DeleteIntegration
 import           Network.AWS.APIGateway.DeleteIntegrationResponse
 import           Network.AWS.APIGateway.DeleteMethod
 import           Network.AWS.APIGateway.DeleteMethodResponse
 import           Network.AWS.APIGateway.DeleteModel
+import           Network.AWS.APIGateway.DeleteRequestValidator
 import           Network.AWS.APIGateway.DeleteResource
 import           Network.AWS.APIGateway.DeleteRestAPI
 import           Network.AWS.APIGateway.DeleteStage
@@ -722,6 +776,8 @@ import           Network.AWS.APIGateway.GetDocumentationVersions
 import           Network.AWS.APIGateway.GetDomainName
 import           Network.AWS.APIGateway.GetDomainNames
 import           Network.AWS.APIGateway.GetExport
+import           Network.AWS.APIGateway.GetGatewayResponse
+import           Network.AWS.APIGateway.GetGatewayResponses
 import           Network.AWS.APIGateway.GetIntegration
 import           Network.AWS.APIGateway.GetIntegrationResponse
 import           Network.AWS.APIGateway.GetMethod
@@ -729,6 +785,8 @@ import           Network.AWS.APIGateway.GetMethodResponse
 import           Network.AWS.APIGateway.GetModel
 import           Network.AWS.APIGateway.GetModels
 import           Network.AWS.APIGateway.GetModelTemplate
+import           Network.AWS.APIGateway.GetRequestValidator
+import           Network.AWS.APIGateway.GetRequestValidators
 import           Network.AWS.APIGateway.GetResource
 import           Network.AWS.APIGateway.GetResources
 import           Network.AWS.APIGateway.GetRestAPI
@@ -746,6 +804,7 @@ import           Network.AWS.APIGateway.GetUsagePlans
 import           Network.AWS.APIGateway.ImportAPIKeys
 import           Network.AWS.APIGateway.ImportDocumentationParts
 import           Network.AWS.APIGateway.ImportRestAPI
+import           Network.AWS.APIGateway.PutGatewayResponse
 import           Network.AWS.APIGateway.PutIntegration
 import           Network.AWS.APIGateway.PutIntegrationResponse
 import           Network.AWS.APIGateway.PutMethod
@@ -763,11 +822,13 @@ import           Network.AWS.APIGateway.UpdateDeployment
 import           Network.AWS.APIGateway.UpdateDocumentationPart
 import           Network.AWS.APIGateway.UpdateDocumentationVersion
 import           Network.AWS.APIGateway.UpdateDomainName
+import           Network.AWS.APIGateway.UpdateGatewayResponse
 import           Network.AWS.APIGateway.UpdateIntegration
 import           Network.AWS.APIGateway.UpdateIntegrationResponse
 import           Network.AWS.APIGateway.UpdateMethod
 import           Network.AWS.APIGateway.UpdateMethodResponse
 import           Network.AWS.APIGateway.UpdateModel
+import           Network.AWS.APIGateway.UpdateRequestValidator
 import           Network.AWS.APIGateway.UpdateResource
 import           Network.AWS.APIGateway.UpdateRestAPI
 import           Network.AWS.APIGateway.UpdateStage

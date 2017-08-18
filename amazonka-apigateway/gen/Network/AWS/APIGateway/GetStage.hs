@@ -69,7 +69,7 @@ data GetStage = GetStage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gssRestAPIId' - The identifier of the 'RestApi' resource for the 'Stage' resource to get information about.
+-- * 'gssRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'gssStageName' - The name of the 'Stage' resource to get information about.
 getStage
@@ -82,7 +82,7 @@ getStage pRestAPIId_ pStageName_ =
     , _gssStageName = pStageName_
     }
 
--- | The identifier of the 'RestApi' resource for the 'Stage' resource to get information about.
+-- | The string identifier of the associated 'RestApi' .
 gssRestAPIId :: Lens' GetStage Text
 gssRestAPIId = lens _gssRestAPIId (\ s a -> s{_gssRestAPIId = a});
 

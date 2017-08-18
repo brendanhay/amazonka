@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents a put integration.
+-- Sets up a method's integration.
 --
 --
 module Network.AWS.APIGateway.PutIntegration
@@ -65,7 +65,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents a put integration request.
+-- | Sets up a method's integration.
 --
 --
 --
@@ -100,7 +100,7 @@ data PutIntegration = PutIntegration'
 --
 -- * 'pPassthroughBehavior' - Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the @requestTemplates@ property on the Integration resource. There are three valid values: @WHEN_NO_MATCH@ , @WHEN_NO_TEMPLATES@ , and @NEVER@ .      * @WHEN_NO_MATCH@ passes the request body for unmapped content types through to the integration back end without transformation.     * @NEVER@ rejects unmapped content types with an HTTP 415 'Unsupported Media Type' response.     * @WHEN_NO_TEMPLATES@ allows pass-through when the integration has NO content types mapped to templates. However if there is at least one content type defined, unmapped content types will be rejected with the same 415 response.
 --
--- * 'pUri' - Specifies a put integration input's Uniform Resource Identifier (URI). When the integration type is HTTP or AWS, this field is required. For integration with Lambda as an AWS service proxy, this value is of the 'arn:aws:apigateway:<region>:lambda:path/2015-03-31/functions/<functionArn>/invocations' format.
+-- * 'pUri' - Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
 --
 -- * 'pCacheNamespace' - Specifies a put integration input's cache namespace.
 --
@@ -108,7 +108,7 @@ data PutIntegration = PutIntegration'
 --
 -- * 'pCacheKeyParameters' - Specifies a put integration input's cache key parameters.
 --
--- * 'pRestAPIId' - Specifies a put integration request's API identifier.
+-- * 'pRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'pResourceId' - Specifies a put integration request's resource ID.
 --
@@ -158,7 +158,7 @@ pContentHandling = lens _pContentHandling (\ s a -> s{_pContentHandling = a});
 pPassthroughBehavior :: Lens' PutIntegration (Maybe Text)
 pPassthroughBehavior = lens _pPassthroughBehavior (\ s a -> s{_pPassthroughBehavior = a});
 
--- | Specifies a put integration input's Uniform Resource Identifier (URI). When the integration type is HTTP or AWS, this field is required. For integration with Lambda as an AWS service proxy, this value is of the 'arn:aws:apigateway:<region>:lambda:path/2015-03-31/functions/<functionArn>/invocations' format.
+-- | Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the <https://en.wikipedia.org/wiki/Uniform_Resource_Identifier RFC-3986 specification> . For AWS integrations, the URI should be of the form @arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}@ . @Region@ , @subdomain@ and @service@ are used to determine the right endpoint. For AWS services that use the @Action=@ query string parameter, @service_api@ should be a valid action for the desired service. For RESTful AWS service APIs, @path@ is used to indicate that the remaining substring in the URI should be treated as the path to the resource, including the initial @/@ .
 pUri :: Lens' PutIntegration (Maybe Text)
 pUri = lens _pUri (\ s a -> s{_pUri = a});
 
@@ -174,7 +174,7 @@ pIntegrationHTTPMethod = lens _pIntegrationHTTPMethod (\ s a -> s{_pIntegrationH
 pCacheKeyParameters :: Lens' PutIntegration [Text]
 pCacheKeyParameters = lens _pCacheKeyParameters (\ s a -> s{_pCacheKeyParameters = a}) . _Default . _Coerce;
 
--- | Specifies a put integration request's API identifier.
+-- | The string identifier of the associated 'RestApi' .
 pRestAPIId :: Lens' PutIntegration Text
 pRestAPIId = lens _pRestAPIId (\ s a -> s{_pRestAPIId = a});
 

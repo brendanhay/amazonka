@@ -27,6 +27,7 @@ module Network.AWS.APIGateway.GetResource
       getResource
     , GetResource
     -- * Request Lenses
+    , grEmbed
     , grRestAPIId
     , grResourceId
 
@@ -54,7 +55,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getResource' smart constructor.
 data GetResource = GetResource'
-    { _grRestAPIId  :: !Text
+    { _grEmbed      :: !(Maybe [Text])
+    , _grRestAPIId  :: !Text
     , _grResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -62,7 +64,9 @@ data GetResource = GetResource'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRestAPIId' - The 'RestApi' identifier for the resource.
+-- * 'grEmbed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+--
+-- * 'grRestAPIId' - The string identifier of the associated 'RestApi' .
 --
 -- * 'grResourceId' - The identifier for the 'Resource' resource.
 getResource
@@ -71,11 +75,16 @@ getResource
     -> GetResource
 getResource pRestAPIId_ pResourceId_ =
     GetResource'
-    { _grRestAPIId = pRestAPIId_
+    { _grEmbed = Nothing
+    , _grRestAPIId = pRestAPIId_
     , _grResourceId = pResourceId_
     }
 
--- | The 'RestApi' identifier for the resource.
+-- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+grEmbed :: Lens' GetResource [Text]
+grEmbed = lens _grEmbed (\ s a -> s{_grEmbed = a}) . _Default . _Coerce;
+
+-- | The string identifier of the associated 'RestApi' .
 grRestAPIId :: Lens' GetResource Text
 grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
 
@@ -105,4 +114,7 @@ instance ToPath GetResource where
                toBS _grResourceId]
 
 instance ToQuery GetResource where
-        toQuery = const mempty
+        toQuery GetResource'{..}
+          = mconcat
+              ["embed" =:
+                 toQuery (toQueryList "member" <$> _grEmbed)]

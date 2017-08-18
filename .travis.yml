@@ -98,6 +98,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-appstream
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-athena
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-batch
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-budgets
@@ -111,6 +113,8 @@ matrix:
     - env: GHCVER=8.2 LIBRARY=amazonka-cloudfront
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-cloudhsm
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-cloudhsmv2
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-cloudsearch
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
@@ -132,6 +136,8 @@ matrix:
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-codepipeline
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-codestar
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-cognito-identity
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-cognito-idp
@@ -143,6 +149,8 @@ matrix:
     - env: GHCVER=8.2 LIBRARY=amazonka-cur
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-datapipeline
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-dax
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-devicefarm
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
@@ -180,6 +188,10 @@ matrix:
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-glacier
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-glue
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-greengrass
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-health
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-importexport
@@ -200,19 +212,29 @@ matrix:
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-lambda
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-lex-models
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-lex-runtime
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-lightsail
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-marketplace-analytics
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-marketplace-entitlement
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-marketplace-metering
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-mechanicalturk
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-migrationhub
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-ml
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-opsworks
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-opsworks-cm
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-organizations
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-pinpoint
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
@@ -223,6 +245,8 @@ matrix:
     - env: GHCVER=8.2 LIBRARY=amazonka-redshift
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-rekognition
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-resourcegroupstagging
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-route53
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
@@ -259,6 +283,8 @@ matrix:
     - env: GHCVER=8.2 LIBRARY=amazonka-waf
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-waf-regional
+      addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
+    - env: GHCVER=8.2 LIBRARY=amazonka-workdocs
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }
     - env: GHCVER=8.2 LIBRARY=amazonka-workspaces
       addons: { apt: { packages: [ghc-8.2], sources: [hvr-ghc] } }

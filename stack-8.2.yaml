@@ -11,6 +11,7 @@ packages:
   - amazonka-apigateway
   - amazonka-application-autoscaling
   - amazonka-appstream
+  - amazonka-athena
   - amazonka-autoscaling
   - amazonka-batch
   - amazonka-budgets
@@ -19,6 +20,7 @@ packages:
   - amazonka-cloudformation
   - amazonka-cloudfront
   - amazonka-cloudhsm
+  - amazonka-cloudhsmv2
   - amazonka-cloudsearch
   - amazonka-cloudsearch-domains
   - amazonka-cloudtrail
@@ -29,12 +31,14 @@ packages:
   - amazonka-codecommit
   - amazonka-codedeploy
   - amazonka-codepipeline
+  - amazonka-codestar
   - amazonka-cognito-identity
   - amazonka-cognito-idp
   - amazonka-cognito-sync
   - amazonka-config
   - amazonka-cur
   - amazonka-datapipeline
+  - amazonka-dax
   - amazonka-devicefarm
   - amazonka-directconnect
   - amazonka-discovery
@@ -55,6 +59,8 @@ packages:
   - amazonka-emr
   - amazonka-gamelift
   - amazonka-glacier
+  - amazonka-glue
+  - amazonka-greengrass
   - amazonka-health
   - amazonka-iam
   - amazonka-importexport
@@ -66,18 +72,24 @@ packages:
   - amazonka-kinesis-firehose
   - amazonka-kms
   - amazonka-lambda
+  - amazonka-lex-models
   - amazonka-lex-runtime
   - amazonka-lightsail
   - amazonka-marketplace-analytics
+  - amazonka-marketplace-entitlement
   - amazonka-marketplace-metering
+  - amazonka-mechanicalturk
+  - amazonka-migrationhub
   - amazonka-ml
   - amazonka-opsworks
   - amazonka-opsworks-cm
+  - amazonka-organizations
   - amazonka-pinpoint
   - amazonka-polly
   - amazonka-rds
   - amazonka-redshift
   - amazonka-rekognition
+  - amazonka-resourcegroupstagging
   - amazonka-route53
   - amazonka-route53-domains
   - amazonka-s3
@@ -98,6 +110,7 @@ packages:
   - amazonka-swf
   - amazonka-waf
   - amazonka-waf-regional
+  - amazonka-workdocs
   - amazonka-workspaces
   - amazonka-xray
 # END GENERATED

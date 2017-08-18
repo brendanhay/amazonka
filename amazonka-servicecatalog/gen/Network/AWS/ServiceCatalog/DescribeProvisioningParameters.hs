@@ -21,6 +21,8 @@
 -- Provides information about parameters required to provision a specified product in a specified manner. Use this operation to obtain the list of @ProvisioningArtifactParameters@ parameters available to call the 'ProvisionProduct' operation for the specified product.
 --
 --
+-- If the output contains a TagOption key with an empty list of values, there is a TagOption conflict for that key. The end user cannot take action to fix the conflict, and launch is not blocked. In subsequent calls to the @ProvisionProduct@ operation, do not include conflicted TagOption keys as tags. Calls to @ProvisionProduct@ with empty TagOption values cause the error "Parameter validation failed: Missing required parameter in Tags[/N/ ]:/Value/ ". Calls to @ProvisionProduct@ with conflicted TagOption keys automatically tag the provisioned product with the conflicted keys with the value "@sc-tagoption-conflict-portfolioId-productId@ ".
+--
 module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
     (
     -- * Creating a Request
@@ -39,6 +41,7 @@ module Network.AWS.ServiceCatalog.DescribeProvisioningParameters
     , dpprsProvisioningArtifactParameters
     , dpprsUsageInstructions
     , dpprsConstraintSummaries
+    , dpprsTagOptions
     , dpprsResponseStatus
     ) where
 
@@ -67,7 +70,7 @@ data DescribeProvisioningParameters = DescribeProvisioningParameters'
 --
 -- * 'dppsProductId' - The product identifier.
 --
--- * 'dppsProvisioningArtifactId' - The provisioning artifact identifier for this product.
+-- * 'dppsProvisioningArtifactId' - The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 describeProvisioningParameters
     :: Text -- ^ 'dppsProductId'
     -> Text -- ^ 'dppsProvisioningArtifactId'
@@ -92,7 +95,7 @@ dppsPathId = lens _dppsPathId (\ s a -> s{_dppsPathId = a});
 dppsProductId :: Lens' DescribeProvisioningParameters Text
 dppsProductId = lens _dppsProductId (\ s a -> s{_dppsProductId = a});
 
--- | The provisioning artifact identifier for this product.
+-- | The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 dppsProvisioningArtifactId :: Lens' DescribeProvisioningParameters Text
 dppsProvisioningArtifactId = lens _dppsProvisioningArtifactId (\ s a -> s{_dppsProvisioningArtifactId = a});
 
@@ -108,6 +111,7 @@ instance AWSRequest DescribeProvisioningParameters
                    (x .?> "ProvisioningArtifactParameters" .!@ mempty)
                      <*> (x .?> "UsageInstructions" .!@ mempty)
                      <*> (x .?> "ConstraintSummaries" .!@ mempty)
+                     <*> (x .?> "TagOptions" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeProvisioningParameters
@@ -147,6 +151,7 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
     { _dpprsProvisioningArtifactParameters :: !(Maybe [ProvisioningArtifactParameter])
     , _dpprsUsageInstructions              :: !(Maybe [UsageInstruction])
     , _dpprsConstraintSummaries            :: !(Maybe [ConstraintSummary])
+    , _dpprsTagOptions                     :: !(Maybe [TagOptionSummary])
     , _dpprsResponseStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -160,6 +165,8 @@ data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResp
 --
 -- * 'dpprsConstraintSummaries' - The list of constraint summaries that apply to provisioning this product.
 --
+-- * 'dpprsTagOptions' - List of TagOptions associated with the provisioned provisioning parameters.
+--
 -- * 'dpprsResponseStatus' - -- | The response status code.
 describeProvisioningParametersResponse
     :: Int -- ^ 'dpprsResponseStatus'
@@ -169,6 +176,7 @@ describeProvisioningParametersResponse pResponseStatus_ =
     { _dpprsProvisioningArtifactParameters = Nothing
     , _dpprsUsageInstructions = Nothing
     , _dpprsConstraintSummaries = Nothing
+    , _dpprsTagOptions = Nothing
     , _dpprsResponseStatus = pResponseStatus_
     }
 
@@ -183,6 +191,10 @@ dpprsUsageInstructions = lens _dpprsUsageInstructions (\ s a -> s{_dpprsUsageIns
 -- | The list of constraint summaries that apply to provisioning this product.
 dpprsConstraintSummaries :: Lens' DescribeProvisioningParametersResponse [ConstraintSummary]
 dpprsConstraintSummaries = lens _dpprsConstraintSummaries (\ s a -> s{_dpprsConstraintSummaries = a}) . _Default . _Coerce;
+
+-- | List of TagOptions associated with the provisioned provisioning parameters.
+dpprsTagOptions :: Lens' DescribeProvisioningParametersResponse [TagOptionSummary]
+dpprsTagOptions = lens _dpprsTagOptions (\ s a -> s{_dpprsTagOptions = a}) . _Default . _Coerce;
 
 -- | -- | The response status code.
 dpprsResponseStatus :: Lens' DescribeProvisioningParametersResponse Int

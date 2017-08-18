@@ -18,8 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new provisioning artifact for the specified product. This operation will not work with a product that has been shared with you.
+-- Create a new provisioning artifact for the specified product. This operation does not work with a product that has been shared with you.
 --
+--
+-- See the bottom of this topic for an example JSON request.
 --
 module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
     (
@@ -152,7 +154,7 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 --
 -- * 'cparsStatus' - The status of the current request.
 --
--- * 'cparsInfo' - Additional information about the provisioning artifact create request.
+-- * 'cparsInfo' - Additional information about the creation request for the provisioning artifact.
 --
 -- * 'cparsProvisioningArtifactDetail' - The resulting detailed provisioning artifact information.
 --
@@ -172,7 +174,7 @@ createProvisioningArtifactResponse pResponseStatus_ =
 cparsStatus :: Lens' CreateProvisioningArtifactResponse (Maybe RequestStatus)
 cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});
 
--- | Additional information about the provisioning artifact create request.
+-- | Additional information about the creation request for the provisioning artifact.
 cparsInfo :: Lens' CreateProvisioningArtifactResponse (HashMap Text Text)
 cparsInfo = lens _cparsInfo (\ s a -> s{_cparsInfo = a}) . _Default . _Map;
 

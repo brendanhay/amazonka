@@ -277,6 +277,59 @@ instance ToJSON ListRecordHistorySearchFilter where
                  [("Value" .=) <$> _lrhsfValue,
                   ("Key" .=) <$> _lrhsfKey])
 
+-- | The ListTagOptions filters.
+--
+--
+--
+-- /See:/ 'listTagOptionsFilters' smart constructor.
+data ListTagOptionsFilters = ListTagOptionsFilters'
+    { _ltofValue  :: !(Maybe Text)
+    , _ltofActive :: !(Maybe Bool)
+    , _ltofKey    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListTagOptionsFilters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltofValue' - The ListTagOptionsFilters value.
+--
+-- * 'ltofActive' - The ListTagOptionsFilters active state.
+--
+-- * 'ltofKey' - The ListTagOptionsFilters key.
+listTagOptionsFilters
+    :: ListTagOptionsFilters
+listTagOptionsFilters =
+    ListTagOptionsFilters'
+    { _ltofValue = Nothing
+    , _ltofActive = Nothing
+    , _ltofKey = Nothing
+    }
+
+-- | The ListTagOptionsFilters value.
+ltofValue :: Lens' ListTagOptionsFilters (Maybe Text)
+ltofValue = lens _ltofValue (\ s a -> s{_ltofValue = a});
+
+-- | The ListTagOptionsFilters active state.
+ltofActive :: Lens' ListTagOptionsFilters (Maybe Bool)
+ltofActive = lens _ltofActive (\ s a -> s{_ltofActive = a});
+
+-- | The ListTagOptionsFilters key.
+ltofKey :: Lens' ListTagOptionsFilters (Maybe Text)
+ltofKey = lens _ltofKey (\ s a -> s{_ltofKey = a});
+
+instance Hashable ListTagOptionsFilters
+
+instance NFData ListTagOptionsFilters
+
+instance ToJSON ListTagOptionsFilters where
+        toJSON ListTagOptionsFilters'{..}
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _ltofValue,
+                  ("Active" .=) <$> _ltofActive,
+                  ("Key" .=) <$> _ltofKey])
+
 -- | The constraints that the administrator has put on the parameter.
 --
 --
@@ -497,7 +550,7 @@ data ProductViewDetail = ProductViewDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pvdStatus' - Current status of the product.
+-- * 'pvdStatus' - Current status of the product. @AVAILABLE@ - Product is available for use. @CREATING@ - Creation of product started, not ready for use. @FAILED@ - Action on product failed.
 --
 -- * 'pvdProductViewSummary' - The summary metadata about the specified product view.
 --
@@ -514,7 +567,7 @@ productViewDetail =
     , _pvdProductARN = Nothing
     }
 
--- | Current status of the product.
+-- | Current status of the product. @AVAILABLE@ - Product is available for use. @CREATING@ - Creation of product started, not ready for use. @FAILED@ - Action on product failed.
 pvdStatus :: Lens' ProductViewDetail (Maybe RequestStatus)
 pvdStatus = lens _pvdStatus (\ s a -> s{_pvdStatus = a});
 
@@ -580,7 +633,7 @@ data ProductViewSummary = ProductViewSummary'
 --
 -- * 'pvsId' - The product view identifier.
 --
--- * 'pvsType' - The product type. Contact the product administrator for the significance of this value.
+-- * 'pvsType' - The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
 --
 -- * 'pvsSupportEmail' - The email contact information to obtain support for this Product.
 --
@@ -632,7 +685,7 @@ pvsName = lens _pvsName (\ s a -> s{_pvsName = a});
 pvsId :: Lens' ProductViewSummary (Maybe Text)
 pvsId = lens _pvsId (\ s a -> s{_pvsId = a});
 
--- | The product type. Contact the product administrator for the significance of this value.
+-- | The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
 pvsType :: Lens' ProductViewSummary (Maybe ProductType)
 pvsType = lens _pvsType (\ s a -> s{_pvsType = a});
 
@@ -675,7 +728,7 @@ instance NFData ProductViewSummary
 -- /See:/ 'provisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
     { _ppdIdempotencyToken :: !(Maybe Text)
-    , _ppdStatus           :: !(Maybe RecordStatus)
+    , _ppdStatus           :: !(Maybe ProvisionedProductStatus)
     , _ppdARN              :: !(Maybe Text)
     , _ppdCreatedTime      :: !(Maybe POSIX)
     , _ppdStatusMessage    :: !(Maybe Text)
@@ -691,7 +744,7 @@ data ProvisionedProductDetail = ProvisionedProductDetail'
 --
 -- * 'ppdIdempotencyToken' - A token to disambiguate duplicate requests. You can create multiple resources using the same input in multiple requests, provided that you also specify a different idempotency token for each request.
 --
--- * 'ppdStatus' - The current status of the ProvisionedProduct.
+-- * 'ppdStatus' - The current status of the ProvisionedProduct. @AVAILABLE@ - Stable state, ready to perform any operation. The most recent action request succeeded and completed. @UNDER_CHANGE@ - Transitive state, operations performed may or may not have valid results. Wait for an @AVAILABLE@ status before performing operations. @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.  @ERROR@ - Something unexpected happened such that the provisioned product exists but the stack is not running. For example, CloudFormation received an invalid parameter value and could not launch the stack.
 --
 -- * 'ppdARN' - The ARN associated with the ProvisionedProduct object.
 --
@@ -725,8 +778,8 @@ provisionedProductDetail =
 ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
 ppdIdempotencyToken = lens _ppdIdempotencyToken (\ s a -> s{_ppdIdempotencyToken = a});
 
--- | The current status of the ProvisionedProduct.
-ppdStatus :: Lens' ProvisionedProductDetail (Maybe RecordStatus)
+-- | The current status of the ProvisionedProduct. @AVAILABLE@ - Stable state, ready to perform any operation. The most recent action request succeeded and completed. @UNDER_CHANGE@ - Transitive state, operations performed may or may not have valid results. Wait for an @AVAILABLE@ status before performing operations. @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.  @ERROR@ - Something unexpected happened such that the provisioned product exists but the stack is not running. For example, CloudFormation received an invalid parameter value and could not launch the stack.
+ppdStatus :: Lens' ProvisionedProductDetail (Maybe ProvisionedProductStatus)
 ppdStatus = lens _ppdStatus (\ s a -> s{_ppdStatus = a});
 
 -- | The ARN associated with the ProvisionedProduct object.
@@ -795,7 +848,7 @@ data ProvisioningArtifact = ProvisioningArtifact'
 --
 -- * 'paName' - The name of the artifact.
 --
--- * 'paId' - The identifier for the artifact.
+-- * 'paId' - The identifier for the artifact. This is sometimes referred to as the product version.
 --
 -- * 'paDescription' - The text description of the artifact.
 provisioningArtifact
@@ -816,7 +869,7 @@ paCreatedTime = lens _paCreatedTime (\ s a -> s{_paCreatedTime = a}) . mapping _
 paName :: Lens' ProvisioningArtifact (Maybe Text)
 paName = lens _paName (\ s a -> s{_paName = a});
 
--- | The identifier for the artifact.
+-- | The identifier for the artifact. This is sometimes referred to as the product version.
 paId :: Lens' ProvisioningArtifact (Maybe Text)
 paId = lens _paId (\ s a -> s{_paId = a});
 
@@ -858,9 +911,9 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
 --
 -- * 'padName' - The name assigned to the provisioning artifact.
 --
--- * 'padId' - The identifier of the provisioning artifact.
+-- * 'padId' - The identifier of the provisioning artifact. This is sometimes referred to as the product version.
 --
--- * 'padType' - The type of the provisioning artifact.
+-- * 'padType' - The type of the provisioning artifact. The following provisioning artifact types are used by AWS Marketplace products: @MARKETPLACE_AMI@ - AMI products. @MARKETPLACE_CAR@ - CAR (Cluster and AWS Resources) products.
 --
 -- * 'padDescription' - The text description of the provisioning artifact.
 provisioningArtifactDetail
@@ -882,11 +935,11 @@ padCreatedTime = lens _padCreatedTime (\ s a -> s{_padCreatedTime = a}) . mappin
 padName :: Lens' ProvisioningArtifactDetail (Maybe Text)
 padName = lens _padName (\ s a -> s{_padName = a});
 
--- | The identifier of the provisioning artifact.
+-- | The identifier of the provisioning artifact. This is sometimes referred to as the product version.
 padId :: Lens' ProvisioningArtifactDetail (Maybe Text)
 padId = lens _padId (\ s a -> s{_padId = a});
 
--- | The type of the provisioning artifact.
+-- | The type of the provisioning artifact. The following provisioning artifact types are used by AWS Marketplace products: @MARKETPLACE_AMI@ - AMI products. @MARKETPLACE_CAR@ - CAR (Cluster and AWS Resources) products.
 padType :: Lens' ProvisioningArtifactDetail (Maybe ProvisioningArtifactType)
 padType = lens _padType (\ s a -> s{_padType = a});
 
@@ -988,7 +1041,7 @@ instance Hashable ProvisioningArtifactParameter
 
 instance NFData ProvisioningArtifactParameter
 
--- | Provisioning artifact properties.
+-- | Provisioning artifact properties. For example request JSON, see 'CreateProvisioningArtifact' .
 --
 --
 --
@@ -1006,11 +1059,11 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 --
 -- * 'papName' - The name assigned to the provisioning artifact properties.
 --
--- * 'papType' - The type of the provisioning artifact properties.
+-- * 'papType' - The type of the provisioning artifact properties. The following provisioning artifact property types are used by AWS Marketplace products: @MARKETPLACE_AMI@ - AMI products. @MARKETPLACE_CAR@ - CAR (Cluster and AWS Resources) products.
 --
 -- * 'papDescription' - The text description of the provisioning artifact properties.
 --
--- * 'papInfo' - Additional information about the provisioning artifact properties.
+-- * 'papInfo' - Additional information about the provisioning artifact properties. When using this element in a request, you must specify @LoadTemplateFromURL@ . For more information, see 'CreateProvisioningArtifact' .
 provisioningArtifactProperties
     :: ProvisioningArtifactProperties
 provisioningArtifactProperties =
@@ -1025,7 +1078,7 @@ provisioningArtifactProperties =
 papName :: Lens' ProvisioningArtifactProperties (Maybe Text)
 papName = lens _papName (\ s a -> s{_papName = a});
 
--- | The type of the provisioning artifact properties.
+-- | The type of the provisioning artifact properties. The following provisioning artifact property types are used by AWS Marketplace products: @MARKETPLACE_AMI@ - AMI products. @MARKETPLACE_CAR@ - CAR (Cluster and AWS Resources) products.
 papType :: Lens' ProvisioningArtifactProperties (Maybe ProvisioningArtifactType)
 papType = lens _papType (\ s a -> s{_papType = a});
 
@@ -1033,7 +1086,7 @@ papType = lens _papType (\ s a -> s{_papType = a});
 papDescription :: Lens' ProvisioningArtifactProperties (Maybe Text)
 papDescription = lens _papDescription (\ s a -> s{_papDescription = a});
 
--- | Additional information about the provisioning artifact properties.
+-- | Additional information about the provisioning artifact properties. When using this element in a request, you must specify @LoadTemplateFromURL@ . For more information, see 'CreateProvisioningArtifact' .
 papInfo :: Lens' ProvisioningArtifactProperties (HashMap Text Text)
 papInfo = lens _papInfo (\ s a -> s{_papInfo = a}) . _Map;
 
@@ -1049,7 +1102,79 @@ instance ToJSON ProvisioningArtifactProperties where
                   ("Description" .=) <$> _papDescription,
                   Just ("Info" .= _papInfo)])
 
--- | The arameter key/value pairs used to provision a product.
+-- | Stores summary information about a provisioning artifact.
+--
+--
+--
+-- /See:/ 'provisioningArtifactSummary' smart constructor.
+data ProvisioningArtifactSummary = ProvisioningArtifactSummary'
+    { _pasProvisioningArtifactMetadata :: !(Maybe (Map Text Text))
+    , _pasCreatedTime                  :: !(Maybe POSIX)
+    , _pasName                         :: !(Maybe Text)
+    , _pasId                           :: !(Maybe Text)
+    , _pasDescription                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisioningArtifactSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pasProvisioningArtifactMetadata' - The provisioning artifact metadata. This data is used with products created by AWS Marketplace.
+--
+-- * 'pasCreatedTime' - The UTC timestamp of the creation time.
+--
+-- * 'pasName' - The name of the provisioning artifact.
+--
+-- * 'pasId' - The identifier of the provisioning artifact.
+--
+-- * 'pasDescription' - The description of the provisioning artifact.
+provisioningArtifactSummary
+    :: ProvisioningArtifactSummary
+provisioningArtifactSummary =
+    ProvisioningArtifactSummary'
+    { _pasProvisioningArtifactMetadata = Nothing
+    , _pasCreatedTime = Nothing
+    , _pasName = Nothing
+    , _pasId = Nothing
+    , _pasDescription = Nothing
+    }
+
+-- | The provisioning artifact metadata. This data is used with products created by AWS Marketplace.
+pasProvisioningArtifactMetadata :: Lens' ProvisioningArtifactSummary (HashMap Text Text)
+pasProvisioningArtifactMetadata = lens _pasProvisioningArtifactMetadata (\ s a -> s{_pasProvisioningArtifactMetadata = a}) . _Default . _Map;
+
+-- | The UTC timestamp of the creation time.
+pasCreatedTime :: Lens' ProvisioningArtifactSummary (Maybe UTCTime)
+pasCreatedTime = lens _pasCreatedTime (\ s a -> s{_pasCreatedTime = a}) . mapping _Time;
+
+-- | The name of the provisioning artifact.
+pasName :: Lens' ProvisioningArtifactSummary (Maybe Text)
+pasName = lens _pasName (\ s a -> s{_pasName = a});
+
+-- | The identifier of the provisioning artifact.
+pasId :: Lens' ProvisioningArtifactSummary (Maybe Text)
+pasId = lens _pasId (\ s a -> s{_pasId = a});
+
+-- | The description of the provisioning artifact.
+pasDescription :: Lens' ProvisioningArtifactSummary (Maybe Text)
+pasDescription = lens _pasDescription (\ s a -> s{_pasDescription = a});
+
+instance FromJSON ProvisioningArtifactSummary where
+        parseJSON
+          = withObject "ProvisioningArtifactSummary"
+              (\ x ->
+                 ProvisioningArtifactSummary' <$>
+                   (x .:? "ProvisioningArtifactMetadata" .!= mempty) <*>
+                     (x .:? "CreatedTime")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Description"))
+
+instance Hashable ProvisioningArtifactSummary
+
+instance NFData ProvisioningArtifactSummary
+
+-- | The parameter key-value pairs used to provision a product.
 --
 --
 --
@@ -1117,13 +1242,13 @@ data RecordDetail = RecordDetail'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rdStatus' - The status of the ProvisionedProduct object.
+-- * 'rdStatus' - The status of the ProvisionedProduct object. @CREATED@ - Request created but the operation has not yet started. @IN_PROGRESS@ - The requested operation is in-progress. @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback. @SUCCEEDED@ - The requested operation has successfully completed. @FAILED@ - The requested operation has completed but has failed. Investigate using the error messages returned.
 --
 -- * 'rdRecordTags' - List of tags associated with this record.
 --
 -- * 'rdProvisionedProductName' - The user-friendly name of the ProvisionedProduct object.
 --
--- * 'rdProvisioningArtifactId' - The provisioning artifact identifier for this product.
+-- * 'rdProvisioningArtifactId' - The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 --
 -- * 'rdCreatedTime' - The UTC timestamp of the creation time.
 --
@@ -1161,7 +1286,7 @@ recordDetail =
     , _rdProductId = Nothing
     }
 
--- | The status of the ProvisionedProduct object.
+-- | The status of the ProvisionedProduct object. @CREATED@ - Request created but the operation has not yet started. @IN_PROGRESS@ - The requested operation is in-progress. @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback. @SUCCEEDED@ - The requested operation has successfully completed. @FAILED@ - The requested operation has completed but has failed. Investigate using the error messages returned.
 rdStatus :: Lens' RecordDetail (Maybe RecordStatus)
 rdStatus = lens _rdStatus (\ s a -> s{_rdStatus = a});
 
@@ -1173,7 +1298,7 @@ rdRecordTags = lens _rdRecordTags (\ s a -> s{_rdRecordTags = a}) . _Default . _
 rdProvisionedProductName :: Lens' RecordDetail (Maybe Text)
 rdProvisionedProductName = lens _rdProvisionedProductName (\ s a -> s{_rdProvisionedProductName = a});
 
--- | The provisioning artifact identifier for this product.
+-- | The provisioning artifact identifier for this product. This is sometimes referred to as the product version.
 rdProvisioningArtifactId :: Lens' RecordDetail (Maybe Text)
 rdProvisioningArtifactId = lens _rdProvisioningArtifactId (\ s a -> s{_rdProvisioningArtifactId = a});
 
@@ -1375,7 +1500,78 @@ instance Hashable RecordTag
 
 instance NFData RecordTag
 
--- | Key/value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
+-- | Detailed resource information.
+--
+--
+--
+-- /See:/ 'resourceDetail' smart constructor.
+data ResourceDetail = ResourceDetail'
+    { _rARN         :: !(Maybe Text)
+    , _rCreatedTime :: !(Maybe POSIX)
+    , _rName        :: !(Maybe Text)
+    , _rId          :: !(Maybe Text)
+    , _rDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rARN' - ARN of the resource.
+--
+-- * 'rCreatedTime' - Creation time of the resource.
+--
+-- * 'rName' - Name of the resource.
+--
+-- * 'rId' - Identifier of the resource.
+--
+-- * 'rDescription' - Description of the resource.
+resourceDetail
+    :: ResourceDetail
+resourceDetail =
+    ResourceDetail'
+    { _rARN = Nothing
+    , _rCreatedTime = Nothing
+    , _rName = Nothing
+    , _rId = Nothing
+    , _rDescription = Nothing
+    }
+
+-- | ARN of the resource.
+rARN :: Lens' ResourceDetail (Maybe Text)
+rARN = lens _rARN (\ s a -> s{_rARN = a});
+
+-- | Creation time of the resource.
+rCreatedTime :: Lens' ResourceDetail (Maybe UTCTime)
+rCreatedTime = lens _rCreatedTime (\ s a -> s{_rCreatedTime = a}) . mapping _Time;
+
+-- | Name of the resource.
+rName :: Lens' ResourceDetail (Maybe Text)
+rName = lens _rName (\ s a -> s{_rName = a});
+
+-- | Identifier of the resource.
+rId :: Lens' ResourceDetail (Maybe Text)
+rId = lens _rId (\ s a -> s{_rId = a});
+
+-- | Description of the resource.
+rDescription :: Lens' ResourceDetail (Maybe Text)
+rDescription = lens _rDescription (\ s a -> s{_rDescription = a});
+
+instance FromJSON ResourceDetail where
+        parseJSON
+          = withObject "ResourceDetail"
+              (\ x ->
+                 ResourceDetail' <$>
+                   (x .:? "ARN") <*> (x .:? "CreatedTime") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Description"))
+
+instance Hashable ResourceDetail
+
+instance NFData ResourceDetail
+
+-- | Key-value pairs to associate with this provisioning. These tags are entirely discretionary and are propagated to the resources created in the provisioning.
 --
 --
 --
@@ -1391,7 +1587,7 @@ data Tag = Tag'
 --
 -- * 'tagKey' - The @ProvisioningArtifactParameter.TagKey@ parameter from 'DescribeProvisioningParameters' .
 --
--- * 'tagValue' - The esired value for this key.
+-- * 'tagValue' - The desired value for this key.
 tag
     :: Text -- ^ 'tagKey'
     -> Text -- ^ 'tagValue'
@@ -1406,7 +1602,7 @@ tag pKey_ pValue_ =
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
--- | The esired value for this key.
+-- | The desired value for this key.
 tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
@@ -1426,7 +1622,113 @@ instance ToJSON Tag where
                  [Just ("Key" .= _tagKey),
                   Just ("Value" .= _tagValue)])
 
--- | The parameter key/value pair used to update a ProvisionedProduct object. If @UsePreviousValue@ is set to true, @Value@ is ignored and the value for @Key@ is kept as previously set (current value).
+-- | The TagOption details.
+--
+--
+--
+-- /See:/ 'tagOptionDetail' smart constructor.
+data TagOptionDetail = TagOptionDetail'
+    { _todValue  :: !(Maybe Text)
+    , _todActive :: !(Maybe Bool)
+    , _todKey    :: !(Maybe Text)
+    , _todId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagOptionDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'todValue' - The TagOptionDetail value.
+--
+-- * 'todActive' - The TagOptionDetail active state.
+--
+-- * 'todKey' - The TagOptionDetail key.
+--
+-- * 'todId' - The TagOptionDetail identifier.
+tagOptionDetail
+    :: TagOptionDetail
+tagOptionDetail =
+    TagOptionDetail'
+    { _todValue = Nothing
+    , _todActive = Nothing
+    , _todKey = Nothing
+    , _todId = Nothing
+    }
+
+-- | The TagOptionDetail value.
+todValue :: Lens' TagOptionDetail (Maybe Text)
+todValue = lens _todValue (\ s a -> s{_todValue = a});
+
+-- | The TagOptionDetail active state.
+todActive :: Lens' TagOptionDetail (Maybe Bool)
+todActive = lens _todActive (\ s a -> s{_todActive = a});
+
+-- | The TagOptionDetail key.
+todKey :: Lens' TagOptionDetail (Maybe Text)
+todKey = lens _todKey (\ s a -> s{_todKey = a});
+
+-- | The TagOptionDetail identifier.
+todId :: Lens' TagOptionDetail (Maybe Text)
+todId = lens _todId (\ s a -> s{_todId = a});
+
+instance FromJSON TagOptionDetail where
+        parseJSON
+          = withObject "TagOptionDetail"
+              (\ x ->
+                 TagOptionDetail' <$>
+                   (x .:? "Value") <*> (x .:? "Active") <*>
+                     (x .:? "Key")
+                     <*> (x .:? "Id"))
+
+instance Hashable TagOptionDetail
+
+instance NFData TagOptionDetail
+
+-- | The TagOption summary key-value pair.
+--
+--
+--
+-- /See:/ 'tagOptionSummary' smart constructor.
+data TagOptionSummary = TagOptionSummary'
+    { _tosValues :: !(Maybe [Text])
+    , _tosKey    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagOptionSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tosValues' - The TagOptionSummary value.
+--
+-- * 'tosKey' - The TagOptionSummary key.
+tagOptionSummary
+    :: TagOptionSummary
+tagOptionSummary =
+    TagOptionSummary'
+    { _tosValues = Nothing
+    , _tosKey = Nothing
+    }
+
+-- | The TagOptionSummary value.
+tosValues :: Lens' TagOptionSummary [Text]
+tosValues = lens _tosValues (\ s a -> s{_tosValues = a}) . _Default . _Coerce;
+
+-- | The TagOptionSummary key.
+tosKey :: Lens' TagOptionSummary (Maybe Text)
+tosKey = lens _tosKey (\ s a -> s{_tosKey = a});
+
+instance FromJSON TagOptionSummary where
+        parseJSON
+          = withObject "TagOptionSummary"
+              (\ x ->
+                 TagOptionSummary' <$>
+                   (x .:? "Values" .!= mempty) <*> (x .:? "Key"))
+
+instance Hashable TagOptionSummary
+
+instance NFData TagOptionSummary
+
+-- | The parameter key-value pair used to update a ProvisionedProduct object. If @UsePreviousValue@ is set to true, @Value@ is ignored and the value for @Key@ is kept as previously set (current value).
 --
 --
 --

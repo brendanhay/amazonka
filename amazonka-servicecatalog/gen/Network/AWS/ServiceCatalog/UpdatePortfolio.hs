@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified portfolio's details. This operation will not work with a product that has been shared with you.
+-- Updates the specified portfolio's details. This operation does not work with a product that has been shared with you.
 --
 --
 module Network.AWS.ServiceCatalog.UpdatePortfolio

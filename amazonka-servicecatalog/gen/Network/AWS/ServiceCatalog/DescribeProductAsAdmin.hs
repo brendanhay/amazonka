@@ -35,6 +35,8 @@ module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
     , DescribeProductAsAdminResponse
     -- * Response Lenses
     , dpaarsProductViewDetail
+    , dpaarsTagOptions
+    , dpaarsProvisioningArtifactSummaries
     , dpaarsTags
     , dpaarsResponseStatus
     ) where
@@ -85,7 +87,10 @@ instance AWSRequest DescribeProductAsAdmin where
               (\ s h x ->
                  DescribeProductAsAdminResponse' <$>
                    (x .?> "ProductViewDetail") <*>
-                     (x .?> "Tags" .!@ mempty)
+                     (x .?> "TagOptions" .!@ mempty)
+                     <*>
+                     (x .?> "ProvisioningArtifactSummaries" .!@ mempty)
+                     <*> (x .?> "Tags" .!@ mempty)
                      <*> (pure (fromEnum s)))
 
 instance Hashable DescribeProductAsAdmin
@@ -117,9 +122,11 @@ instance ToQuery DescribeProductAsAdmin where
 
 -- | /See:/ 'describeProductAsAdminResponse' smart constructor.
 data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
-    { _dpaarsProductViewDetail :: !(Maybe ProductViewDetail)
-    , _dpaarsTags              :: !(Maybe [Tag])
-    , _dpaarsResponseStatus    :: !Int
+    { _dpaarsProductViewDetail             :: !(Maybe ProductViewDetail)
+    , _dpaarsTagOptions                    :: !(Maybe [TagOptionDetail])
+    , _dpaarsProvisioningArtifactSummaries :: !(Maybe [ProvisioningArtifactSummary])
+    , _dpaarsTags                          :: !(Maybe [Tag])
+    , _dpaarsResponseStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeProductAsAdminResponse' with the minimum fields required to make a request.
@@ -127,6 +134,10 @@ data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
 -- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpaarsProductViewDetail' - Detailed product view information.
+--
+-- * 'dpaarsTagOptions' - List of TagOptions associated with the product.
+--
+-- * 'dpaarsProvisioningArtifactSummaries' - A list of provisioning artifact summaries for the product.
 --
 -- * 'dpaarsTags' - Tags associated with the product.
 --
@@ -137,6 +148,8 @@ describeProductAsAdminResponse
 describeProductAsAdminResponse pResponseStatus_ =
     DescribeProductAsAdminResponse'
     { _dpaarsProductViewDetail = Nothing
+    , _dpaarsTagOptions = Nothing
+    , _dpaarsProvisioningArtifactSummaries = Nothing
     , _dpaarsTags = Nothing
     , _dpaarsResponseStatus = pResponseStatus_
     }
@@ -144,6 +157,14 @@ describeProductAsAdminResponse pResponseStatus_ =
 -- | Detailed product view information.
 dpaarsProductViewDetail :: Lens' DescribeProductAsAdminResponse (Maybe ProductViewDetail)
 dpaarsProductViewDetail = lens _dpaarsProductViewDetail (\ s a -> s{_dpaarsProductViewDetail = a});
+
+-- | List of TagOptions associated with the product.
+dpaarsTagOptions :: Lens' DescribeProductAsAdminResponse [TagOptionDetail]
+dpaarsTagOptions = lens _dpaarsTagOptions (\ s a -> s{_dpaarsTagOptions = a}) . _Default . _Coerce;
+
+-- | A list of provisioning artifact summaries for the product.
+dpaarsProvisioningArtifactSummaries :: Lens' DescribeProductAsAdminResponse [ProvisioningArtifactSummary]
+dpaarsProvisioningArtifactSummaries = lens _dpaarsProvisioningArtifactSummaries (\ s a -> s{_dpaarsProvisioningArtifactSummaries = a}) . _Default . _Coerce;
 
 -- | Tags associated with the product.
 dpaarsTags :: Lens' DescribeProductAsAdminResponse [Tag]

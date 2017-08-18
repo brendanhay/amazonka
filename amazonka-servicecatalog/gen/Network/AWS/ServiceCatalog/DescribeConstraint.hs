@@ -34,10 +34,10 @@ module Network.AWS.ServiceCatalog.DescribeConstraint
     , describeConstraintResponse
     , DescribeConstraintResponse
     -- * Response Lenses
-    , drsStatus
-    , drsConstraintDetail
-    , drsConstraintParameters
-    , drsResponseStatus
+    , desrsStatus
+    , desrsConstraintDetail
+    , desrsConstraintParameters
+    , desrsResponseStatus
     ) where
 
 import           Network.AWS.Lens
@@ -118,48 +118,48 @@ instance ToQuery DescribeConstraint where
 
 -- | /See:/ 'describeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-    { _drsStatus               :: !(Maybe RequestStatus)
-    , _drsConstraintDetail     :: !(Maybe ConstraintDetail)
-    , _drsConstraintParameters :: !(Maybe Text)
-    , _drsResponseStatus       :: !Int
+    { _desrsStatus               :: !(Maybe RequestStatus)
+    , _desrsConstraintDetail     :: !(Maybe ConstraintDetail)
+    , _desrsConstraintParameters :: !(Maybe Text)
+    , _desrsResponseStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'DescribeConstraintResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drsStatus' - The status of the current request.
+-- * 'desrsStatus' - The status of the current request.
 --
--- * 'drsConstraintDetail' - Detailed constraint information.
+-- * 'desrsConstraintDetail' - Detailed constraint information.
 --
--- * 'drsConstraintParameters' - The current parameters associated with the specified constraint.
+-- * 'desrsConstraintParameters' - The current parameters associated with the specified constraint.
 --
--- * 'drsResponseStatus' - -- | The response status code.
+-- * 'desrsResponseStatus' - -- | The response status code.
 describeConstraintResponse
-    :: Int -- ^ 'drsResponseStatus'
+    :: Int -- ^ 'desrsResponseStatus'
     -> DescribeConstraintResponse
 describeConstraintResponse pResponseStatus_ =
     DescribeConstraintResponse'
-    { _drsStatus = Nothing
-    , _drsConstraintDetail = Nothing
-    , _drsConstraintParameters = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { _desrsStatus = Nothing
+    , _desrsConstraintDetail = Nothing
+    , _desrsConstraintParameters = Nothing
+    , _desrsResponseStatus = pResponseStatus_
     }
 
 -- | The status of the current request.
-drsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+desrsStatus :: Lens' DescribeConstraintResponse (Maybe RequestStatus)
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
 
 -- | Detailed constraint information.
-drsConstraintDetail :: Lens' DescribeConstraintResponse (Maybe ConstraintDetail)
-drsConstraintDetail = lens _drsConstraintDetail (\ s a -> s{_drsConstraintDetail = a});
+desrsConstraintDetail :: Lens' DescribeConstraintResponse (Maybe ConstraintDetail)
+desrsConstraintDetail = lens _desrsConstraintDetail (\ s a -> s{_desrsConstraintDetail = a});
 
 -- | The current parameters associated with the specified constraint.
-drsConstraintParameters :: Lens' DescribeConstraintResponse (Maybe Text)
-drsConstraintParameters = lens _drsConstraintParameters (\ s a -> s{_drsConstraintParameters = a});
+desrsConstraintParameters :: Lens' DescribeConstraintResponse (Maybe Text)
+desrsConstraintParameters = lens _desrsConstraintParameters (\ s a -> s{_desrsConstraintParameters = a});
 
 -- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeConstraintResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+desrsResponseStatus :: Lens' DescribeConstraintResponse Int
+desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
 
 instance NFData DescribeConstraintResponse

@@ -252,6 +252,9 @@ module Network.AWS.CodePipeline
     -- ** CreateCustomActionType
     , module Network.AWS.CodePipeline.CreateCustomActionType
 
+    -- ** ListPipelineExecutions
+    , module Network.AWS.CodePipeline.ListPipelineExecutions
+
     -- * Types
 
     -- ** ActionCategory
@@ -536,6 +539,14 @@ module Network.AWS.CodePipeline
     , pePipelineExecutionId
     , peArtifactRevisions
 
+    -- ** PipelineExecutionSummary
+    , PipelineExecutionSummary
+    , pipelineExecutionSummary
+    , pesStatus
+    , pesStartTime
+    , pesPipelineExecutionId
+    , pesLastUpdateTime
+
     -- ** PipelineSummary
     , PipelineSummary
     , pipelineSummary
@@ -624,6 +635,7 @@ import           Network.AWS.CodePipeline.GetPipelineExecution
 import           Network.AWS.CodePipeline.GetPipelineState
 import           Network.AWS.CodePipeline.GetThirdPartyJobDetails
 import           Network.AWS.CodePipeline.ListActionTypes
+import           Network.AWS.CodePipeline.ListPipelineExecutions
 import           Network.AWS.CodePipeline.ListPipelines
 import           Network.AWS.CodePipeline.PollForJobs
 import           Network.AWS.CodePipeline.PollForThirdPartyJobs

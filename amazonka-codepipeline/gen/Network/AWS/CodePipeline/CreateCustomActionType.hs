@@ -69,7 +69,7 @@ data CreateCustomActionType = CreateCustomActionType'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccatSettings' - Undocumented member.
+-- * 'ccatSettings' - Returns information about the settings for an action type.
 --
 -- * 'ccatConfigurationProperties' - The configuration properties for the custom action.
 --
@@ -79,9 +79,9 @@ data CreateCustomActionType = CreateCustomActionType'
 --
 -- * 'ccatVersion' - The version identifier of the custom action.
 --
--- * 'ccatInputArtifactDetails' - Undocumented member.
+-- * 'ccatInputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
 --
--- * 'ccatOutputArtifactDetails' - Undocumented member.
+-- * 'ccatOutputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
 createCustomActionType
     :: ActionCategory -- ^ 'ccatCategory'
     -> Text -- ^ 'ccatProvider'
@@ -100,7 +100,7 @@ createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pO
     , _ccatOutputArtifactDetails = pOutputArtifactDetails_
     }
 
--- | Undocumented member.
+-- | Returns information about the settings for an action type.
 ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
 ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
@@ -120,11 +120,11 @@ ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 ccatVersion :: Lens' CreateCustomActionType Text
 ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
 
--- | Undocumented member.
+-- | The details of the input artifact for the action, such as its commit ID.
 ccatInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatInputArtifactDetails = lens _ccatInputArtifactDetails (\ s a -> s{_ccatInputArtifactDetails = a});
 
--- | Undocumented member.
+-- | The details of the output artifact of the action, such as its commit ID.
 ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
 ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\ s a -> s{_ccatOutputArtifactDetails = a});
 
@@ -191,7 +191,7 @@ data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
 --
 -- * 'ccatrsResponseStatus' - -- | The response status code.
 --
--- * 'ccatrsActionType' - Undocumented member.
+-- * 'ccatrsActionType' - Returns information about the details of an action type.
 createCustomActionTypeResponse
     :: Int -- ^ 'ccatrsResponseStatus'
     -> ActionType -- ^ 'ccatrsActionType'
@@ -206,7 +206,7 @@ createCustomActionTypeResponse pResponseStatus_ pActionType_ =
 ccatrsResponseStatus :: Lens' CreateCustomActionTypeResponse Int
 ccatrsResponseStatus = lens _ccatrsResponseStatus (\ s a -> s{_ccatrsResponseStatus = a});
 
--- | Undocumented member.
+-- | Returns information about the details of an action type.
 ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
 ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});
 

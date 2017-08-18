@@ -63,7 +63,7 @@ data PollForThirdPartyJobs = PollForThirdPartyJobs'
 --
 -- * 'pftpjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 --
--- * 'pftpjActionTypeId' - Undocumented member.
+-- * 'pftpjActionTypeId' - Represents information about an action type.
 pollForThirdPartyJobs
     :: ActionTypeId -- ^ 'pftpjActionTypeId'
     -> PollForThirdPartyJobs
@@ -77,7 +77,7 @@ pollForThirdPartyJobs pActionTypeId_ =
 pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
 pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | Represents information about an action type.
 pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
 pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
 

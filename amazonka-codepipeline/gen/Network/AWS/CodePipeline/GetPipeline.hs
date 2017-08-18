@@ -128,7 +128,7 @@ data GetPipelineResponse = GetPipelineResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gprsPipeline' - Undocumented member.
+-- * 'gprsPipeline' - Represents the structure of actions and stages to be performed in the pipeline.
 --
 -- * 'gprsResponseStatus' - -- | The response status code.
 getPipelineResponse
@@ -140,7 +140,7 @@ getPipelineResponse pResponseStatus_ =
     , _gprsResponseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
+-- | Represents the structure of actions and stages to be performed in the pipeline.
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 

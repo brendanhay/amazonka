@@ -70,7 +70,7 @@ data PutActionRevision = PutActionRevision'
 --
 -- * 'pActionName' - The name of the action that will process the revision.
 --
--- * 'pActionRevision' - Undocumented member.
+-- * 'pActionRevision' - Represents information about the version (or revision) of an action.
 putActionRevision
     :: Text -- ^ 'pPipelineName'
     -> Text -- ^ 'pStageName'
@@ -97,7 +97,7 @@ pStageName = lens _pStageName (\ s a -> s{_pStageName = a});
 pActionName :: Lens' PutActionRevision Text
 pActionName = lens _pActionName (\ s a -> s{_pActionName = a});
 
--- | Undocumented member.
+-- | Represents information about the version (or revision) of an action.
 pActionRevision :: Lens' PutActionRevision ActionRevision
 pActionRevision = lens _pActionRevision (\ s a -> s{_pActionRevision = a});
 

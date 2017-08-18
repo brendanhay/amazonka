@@ -41,7 +41,7 @@ data Destination = Destination'
 --
 -- * 'dTargetARN' - The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).
 --
--- * 'dCreationTime' - The creation time of the destination.
+-- * 'dCreationTime' - The creation time of the destination, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'dArn' - The ARN of this destination.
 --
@@ -66,7 +66,7 @@ destination =
 dTargetARN :: Lens' Destination (Maybe Text)
 dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
--- | The creation time of the destination.
+-- | The creation time of the destination, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 dCreationTime :: Lens' Destination (Maybe Natural)
 dCreationTime = lens _dCreationTime (\ s a -> s{_dCreationTime = a}) . mapping _Nat;
 
@@ -222,9 +222,9 @@ data ExportTaskExecutionInfo = ExportTaskExecutionInfo'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eteiCreationTime' - The creation time of the export task.
+-- * 'eteiCreationTime' - The creation time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
--- * 'eteiCompletionTime' - The completion time of the export task.
+-- * 'eteiCompletionTime' - The completion time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 exportTaskExecutionInfo
     :: ExportTaskExecutionInfo
 exportTaskExecutionInfo =
@@ -233,11 +233,11 @@ exportTaskExecutionInfo =
     , _eteiCompletionTime = Nothing
     }
 
--- | The creation time of the export task.
+-- | The creation time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 eteiCreationTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCreationTime = lens _eteiCreationTime (\ s a -> s{_eteiCreationTime = a}) . mapping _Nat;
 
--- | The completion time of the export task.
+-- | The completion time of the export task, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 eteiCompletionTime :: Lens' ExportTaskExecutionInfo (Maybe Natural)
 eteiCompletionTime = lens _eteiCompletionTime (\ s a -> s{_eteiCompletionTime = a}) . mapping _Nat;
 
@@ -313,7 +313,7 @@ data FilteredLogEvent = FilteredLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'fleIngestionTime' - The time the event was ingested.
+-- * 'fleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'fleLogStreamName' - The name of the log stream this event belongs to.
 --
@@ -333,7 +333,7 @@ filteredLogEvent =
     , _fleEventId = Nothing
     }
 
--- | The time the event was ingested.
+-- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
 fleIngestionTime = lens _fleIngestionTime (\ s a -> s{_fleIngestionTime = a}) . mapping _Nat;
 
@@ -431,7 +431,7 @@ data LogGroup = LogGroup'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lgCreationTime' - The creation time of the log group.
+-- * 'lgCreationTime' - The creation time of the log group, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lgMetricFilterCount' - The number of metric filters.
 --
@@ -454,7 +454,7 @@ logGroup =
     , _lgStoredBytes = Nothing
     }
 
--- | The creation time of the log group.
+-- | The creation time of the log group, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lgCreationTime :: Lens' LogGroup (Maybe Natural)
 lgCreationTime = lens _lgCreationTime (\ s a -> s{_lgCreationTime = a}) . mapping _Nat;
 
@@ -514,7 +514,7 @@ data LogStream = LogStream'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsCreationTime' - The creation time of the stream.
+-- * 'lsCreationTime' - The creation time of the stream, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'lsUploadSequenceToken' - The sequence token.
 --
@@ -526,9 +526,9 @@ data LogStream = LogStream'
 --
 -- * 'lsStoredBytes' - The number of bytes stored.
 --
--- * 'lsLastIngestionTime' - The ingestion time.
+-- * 'lsLastIngestionTime' - The ingestion time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
--- * 'lsLastEventTimestamp' - The time of the last event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- * 'lsLastEventTimestamp' - the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 logStream
     :: LogStream
 logStream =
@@ -543,7 +543,7 @@ logStream =
     , _lsLastEventTimestamp = Nothing
     }
 
--- | The creation time of the stream.
+-- | The creation time of the stream, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lsCreationTime :: Lens' LogStream (Maybe Natural)
 lsCreationTime = lens _lsCreationTime (\ s a -> s{_lsCreationTime = a}) . mapping _Nat;
 
@@ -567,11 +567,11 @@ lsLogStreamName = lens _lsLogStreamName (\ s a -> s{_lsLogStreamName = a});
 lsStoredBytes :: Lens' LogStream (Maybe Natural)
 lsStoredBytes = lens _lsStoredBytes (\ s a -> s{_lsStoredBytes = a}) . mapping _Nat;
 
--- | The ingestion time.
+-- | The ingestion time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 lsLastIngestionTime :: Lens' LogStream (Maybe Natural)
 lsLastIngestionTime = lens _lsLastIngestionTime (\ s a -> s{_lsLastIngestionTime = a}) . mapping _Nat;
 
--- | The time of the last event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
+-- | the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.
 lsLastEventTimestamp :: Lens' LogStream (Maybe Natural)
 lsLastEventTimestamp = lens _lsLastEventTimestamp (\ s a -> s{_lsLastEventTimestamp = a}) . mapping _Nat;
 
@@ -610,7 +610,7 @@ data MetricFilter = MetricFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mfCreationTime' - The creation time of the metric filter.
+-- * 'mfCreationTime' - The creation time of the metric filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'mfFilterName' - The name of the metric filter.
 --
@@ -630,7 +630,7 @@ metricFilter =
     , _mfMetricTransformations = Nothing
     }
 
--- | The creation time of the metric filter.
+-- | The creation time of the metric filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 mfCreationTime :: Lens' MetricFilter (Maybe Natural)
 mfCreationTime = lens _mfCreationTime (\ s a -> s{_mfCreationTime = a}) . mapping _Nat;
 
@@ -807,7 +807,7 @@ data OutputLogEvent = OutputLogEvent'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'oleIngestionTime' - The time the event was ingested.
+-- * 'oleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'oleMessage' - The data contained in the log event.
 --
@@ -821,7 +821,7 @@ outputLogEvent =
     , _oleTimestamp = Nothing
     }
 
--- | The time the event was ingested.
+-- | The time the event was ingested, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
 oleIngestionTime = lens _oleIngestionTime (\ s a -> s{_oleIngestionTime = a}) . mapping _Nat;
 
@@ -963,7 +963,7 @@ data SubscriptionFilter = SubscriptionFilter'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sfCreationTime' - The creation time of the subscription filter.
+-- * 'sfCreationTime' - The creation time of the subscription filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 --
 -- * 'sfFilterName' - The name of the subscription filter.
 --
@@ -989,7 +989,7 @@ subscriptionFilter =
     , _sfRoleARN = Nothing
     }
 
--- | The creation time of the subscription filter.
+-- | The creation time of the subscription filter, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 sfCreationTime :: Lens' SubscriptionFilter (Maybe Natural)
 sfCreationTime = lens _sfCreationTime (\ s a -> s{_sfCreationTime = a}) . mapping _Nat;
 

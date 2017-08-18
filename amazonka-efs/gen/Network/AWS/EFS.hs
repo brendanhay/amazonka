@@ -127,6 +127,8 @@ module Network.AWS.EFS
     -- ** FileSystemDescription
     , FileSystemDescription
     , fileSystemDescription
+    , fsdEncrypted
+    , fsdKMSKeyId
     , fsdName
     , fsdOwnerId
     , fsdCreationToken

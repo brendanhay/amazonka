@@ -37,6 +37,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeDBEngineVersions $
 --             describeDBEngineVersions
 --
+--         , requestStopDBInstance $
+--             stopDBInstance
+--
 --         , requestCopyDBSnapshot $
 --             copyDBSnapshot
 --
@@ -190,6 +193,9 @@ import Test.AWS.RDS.Internal
 --         , requestDescribeEventCategories $
 --             describeEventCategories
 --
+--         , requestStartDBInstance $
+--             startDBInstance
+--
 --         , requestModifyDBClusterParameterGroup $
 --             modifyDBClusterParameterGroup
 --
@@ -300,6 +306,9 @@ import Test.AWS.RDS.Internal
 --
 --         , responseDescribeDBEngineVersions $
 --             describeDBEngineVersionsResponse
+--
+--         , responseStopDBInstance $
+--             stopDBInstanceResponse
 --
 --         , responseCopyDBSnapshot $
 --             copyDBSnapshotResponse
@@ -454,6 +463,9 @@ import Test.AWS.RDS.Internal
 --         , responseDescribeEventCategories $
 --             describeEventCategoriesResponse
 --
+--         , responseStartDBInstance $
+--             startDBInstanceResponse
+--
 --         , responseModifyDBClusterParameterGroup $
 --             dbClusterParameterGroupNameMessage
 --
@@ -572,6 +584,11 @@ requestDescribeDBEngineVersions :: DescribeDBEngineVersions -> TestTree
 requestDescribeDBEngineVersions = req
     "DescribeDBEngineVersions"
     "fixture/DescribeDBEngineVersions.yaml"
+
+requestStopDBInstance :: StopDBInstance -> TestTree
+requestStopDBInstance = req
+    "StopDBInstance"
+    "fixture/StopDBInstance.yaml"
 
 requestCopyDBSnapshot :: CopyDBSnapshot -> TestTree
 requestCopyDBSnapshot = req
@@ -828,6 +845,11 @@ requestDescribeEventCategories = req
     "DescribeEventCategories"
     "fixture/DescribeEventCategories.yaml"
 
+requestStartDBInstance :: StartDBInstance -> TestTree
+requestStartDBInstance = req
+    "StartDBInstance"
+    "fixture/StartDBInstance.yaml"
+
 requestModifyDBClusterParameterGroup :: ModifyDBClusterParameterGroup -> TestTree
 requestModifyDBClusterParameterGroup = req
     "ModifyDBClusterParameterGroup"
@@ -1015,6 +1037,13 @@ responseDescribeDBEngineVersions = res
     "fixture/DescribeDBEngineVersionsResponse.proto"
     rds
     (Proxy :: Proxy DescribeDBEngineVersions)
+
+responseStopDBInstance :: StopDBInstanceResponse -> TestTree
+responseStopDBInstance = res
+    "StopDBInstanceResponse"
+    "fixture/StopDBInstanceResponse.proto"
+    rds
+    (Proxy :: Proxy StopDBInstance)
 
 responseCopyDBSnapshot :: CopyDBSnapshotResponse -> TestTree
 responseCopyDBSnapshot = res
@@ -1372,6 +1401,13 @@ responseDescribeEventCategories = res
     "fixture/DescribeEventCategoriesResponse.proto"
     rds
     (Proxy :: Proxy DescribeEventCategories)
+
+responseStartDBInstance :: StartDBInstanceResponse -> TestTree
+responseStartDBInstance = res
+    "StartDBInstanceResponse"
+    "fixture/StartDBInstanceResponse.proto"
+    rds
+    (Proxy :: Proxy StartDBInstance)
 
 responseModifyDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
 responseModifyDBClusterParameterGroup = res

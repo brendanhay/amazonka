@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the source AWS regions where the current AWS region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
+-- Returns a list of the source AWS regions where the current AWS Region can create a Read Replica or copy a DB snapshot from. This API action supports pagination.
 --
 --
 module Network.AWS.RDS.DescribeSourceRegions
@@ -64,7 +64,7 @@ data DescribeSourceRegions = DescribeSourceRegions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsrRegionName' - The source region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
+-- * 'dsrRegionName' - The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 --
 -- * 'dsrFilters' - This parameter is not currently supported.
 --
@@ -81,7 +81,7 @@ describeSourceRegions =
     , _dsrMaxRecords = Nothing
     }
 
--- | The source region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
+-- | The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
 dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
 dsrRegionName = lens _dsrRegionName (\ s a -> s{_dsrRegionName = a});
 
@@ -148,7 +148,7 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
 --
 -- * 'dsrrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dsrrsSourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current region can get a Read Replica or a DB snapshot from.
+-- * 'dsrrsSourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a Read Replica or a DB snapshot from.
 --
 -- * 'dsrrsResponseStatus' - -- | The response status code.
 describeSourceRegionsResponse
@@ -165,7 +165,7 @@ describeSourceRegionsResponse pResponseStatus_ =
 dsrrsMarker :: Lens' DescribeSourceRegionsResponse (Maybe Text)
 dsrrsMarker = lens _dsrrsMarker (\ s a -> s{_dsrrsMarker = a});
 
--- | A list of SourceRegion instances that contains each source AWS Region that the current region can get a Read Replica or a DB snapshot from.
+-- | A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a Read Replica or a DB snapshot from.
 dsrrsSourceRegions :: Lens' DescribeSourceRegionsResponse [SourceRegion]
 dsrrsSourceRegions = lens _dsrrsSourceRegions (\ s a -> s{_dsrrsSourceRegions = a}) . _Default . _Coerce;
 

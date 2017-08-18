@@ -140,10 +140,12 @@ module Network.AWS.RDS.Types
     , dcHostedZoneId
     , dcDBClusterParameterGroup
     , dcMasterUsername
+    , dcIAMDatabaseAuthenticationEnabled
     , dcDBClusterResourceId
     , dcEarliestRestorableTime
     , dcEngine
     , dcDBClusterARN
+    , dcCloneGroupId
     , dcLatestRestorableTime
     , dcPreferredMaintenanceWindow
     , dcAvailabilityZones
@@ -205,6 +207,7 @@ module Network.AWS.RDS.Types
     , dcsStorageEncrypted
     , dcsDBClusterIdentifier
     , dcsMasterUsername
+    , dcsIAMDatabaseAuthenticationEnabled
     , dcsDBClusterSnapshotARN
     , dcsVPCId
     , dcsDBClusterSnapshotIdentifier
@@ -215,6 +218,7 @@ module Network.AWS.RDS.Types
     , dcsKMSKeyId
     , dcsSnapshotCreateTime
     , dcsAllocatedStorage
+    , dcsSourceDBClusterSnapshotARN
     , dcsClusterCreateTime
     , dcsPercentProgress
     , dcsPort
@@ -256,6 +260,7 @@ module Network.AWS.RDS.Types
     , diDBInstanceARN
     , diMasterUsername
     , diReadReplicaDBInstanceIdentifiers
+    , diIAMDatabaseAuthenticationEnabled
     , diMonitoringRoleARN
     , diIOPS
     , diInstanceCreateTime
@@ -348,6 +353,7 @@ module Network.AWS.RDS.Types
     , dsDBSnapshotARN
     , dsMasterUsername
     , dsSourceRegion
+    , dsIAMDatabaseAuthenticationEnabled
     , dsIOPS
     , dsVPCId
     , dsInstanceCreateTime
@@ -561,6 +567,7 @@ module Network.AWS.RDS.Types
     , OrderableDBInstanceOption
     , orderableDBInstanceOption
     , odioEngineVersion
+    , odioSupportsIAMDatabaseAuthentication
     , odioMultiAZCapable
     , odioEngine
     , odioSupportsIOPS
@@ -729,6 +736,8 @@ rds =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -747,7 +756,7 @@ _PointInTimeRestoreNotEnabledFault :: AsError a => Getting (First ServiceError) 
 _PointInTimeRestoreNotEnabledFault =
     _MatchServiceError rds "PointInTimeRestoreNotEnabled" . hasStatus 400
 
--- | The DB parameter group cannot be deleted because it is in use.
+-- | The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
 --
 --
 _InvalidDBParameterGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError

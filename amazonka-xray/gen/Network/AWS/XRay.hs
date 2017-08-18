@@ -145,6 +145,7 @@ module Network.AWS.XRay
     , sState
     , sStartTime
     , sRoot
+    , sResponseTimeHistogram
     , sDurationHistogram
     , sReferenceId
     , sAccountId

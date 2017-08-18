@@ -21,6 +21,16 @@
 -- Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to @BatchGetTraces@ .
 --
 --
+-- A filter expression can target traced requests that hit specific service nodes or edges, have errors, or come from a known user. For example, the following filter expression targets traces that pass through @api.example.com@ :
+--
+-- @service("api.example.com")@
+--
+-- This filter expression finds traces that have an annotation named @account@ with the value @12345@ :
+--
+-- @annotation.account = "12345"@
+--
+-- For a full list of indexed fields and keywords that you can use in filter expressions, see <http://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html Using Filter Expressions> in the /AWS X-Ray Developer Guide/ .
+--
 module Network.AWS.XRay.GetTraceSummaries
     (
     -- * Creating a Request

@@ -38,6 +38,9 @@ module Network.AWS.Pinpoint.Types
     -- * DefinitionFormat
     , DefinitionFormat (..)
 
+    -- * DeliveryStatus
+    , DeliveryStatus (..)
+
     -- * DimensionType
     , DimensionType (..)
 
@@ -50,6 +53,9 @@ module Network.AWS.Pinpoint.Types
     -- * JobStatus
     , JobStatus (..)
 
+    -- * MessageType
+    , MessageType (..)
+
     -- * RecencyType
     , RecencyType (..)
 
@@ -60,6 +66,7 @@ module Network.AWS.Pinpoint.Types
     , APNSChannelRequest
     , apnsChannelRequest
     , acrPrivateKey
+    , acrEnabled
     , acrCertificate
 
     -- * APNSChannelResponse
@@ -67,12 +74,50 @@ module Network.AWS.Pinpoint.Types
     , apnsChannelResponse
     , acPlatform
     , acLastModifiedDate
+    , acEnabled
     , acIsArchived
     , acApplicationId
     , acVersion
     , acId
     , acCreationDate
     , acLastModifiedBy
+
+    -- * APNSMessage
+    , APNSMessage
+    , apnsMessage
+    , amSubstitutions
+    , amSilentPush
+    , amRawContent
+    , amData
+    , amBody
+    , amCategory
+    , amURL
+    , amSound
+    , amAction
+    , amMediaURL
+    , amBadge
+    , amTitle
+    , amThreadId
+
+    -- * APNSSandboxChannelRequest
+    , APNSSandboxChannelRequest
+    , apnsSandboxChannelRequest
+    , ascrPrivateKey
+    , ascrEnabled
+    , ascrCertificate
+
+    -- * APNSSandboxChannelResponse
+    , APNSSandboxChannelResponse
+    , apnsSandboxChannelResponse
+    , ascPlatform
+    , ascLastModifiedDate
+    , ascEnabled
+    , ascIsArchived
+    , ascApplicationId
+    , ascVersion
+    , ascId
+    , ascCreationDate
+    , ascLastModifiedBy
 
     -- * ActivitiesResponse
     , ActivitiesResponse
@@ -85,6 +130,8 @@ module Network.AWS.Pinpoint.Types
     , aState
     , aStart
     , aCampaignId
+    , aTimezonesCompletedCount
+    , aTimezonesTotalCount
     , aResult
     , aTreatmentId
     , aSuccessfulEndpointCount
@@ -94,6 +141,22 @@ module Network.AWS.Pinpoint.Types
     , aId
     , aScheduledStart
 
+    -- * AddressConfiguration
+    , AddressConfiguration
+    , addressConfiguration
+    , acSubstitutions
+    , acTitleOverride
+    , acContext
+    , acRawContent
+    , acBodyOverride
+    , acChannelType
+
+    -- * ApplicationResponse
+    , ApplicationResponse
+    , applicationResponse
+    , appName
+    , appId
+
     -- * ApplicationSettingsResource
     , ApplicationSettingsResource
     , applicationSettingsResource
@@ -102,11 +165,25 @@ module Network.AWS.Pinpoint.Types
     , asrQuietTime
     , asrApplicationId
 
+    -- * ApplicationsResponse
+    , ApplicationsResponse
+    , applicationsResponse
+    , appNextToken
+    , appItem
+
     -- * AttributeDimension
     , AttributeDimension
     , attributeDimension
     , adValues
     , adAttributeType
+
+    -- * CampaignEmailMessage
+    , CampaignEmailMessage
+    , campaignEmailMessage
+    , cemBody
+    , cemFromAddress
+    , cemHTMLBody
+    , cemTitle
 
     -- * CampaignLimits
     , CampaignLimits
@@ -137,6 +214,13 @@ module Network.AWS.Pinpoint.Types
     , cAdditionalTreatments
     , cSegmentVersion
 
+    -- * CampaignSmsMessage
+    , CampaignSmsMessage
+    , campaignSmsMessage
+    , csmBody
+    , csmMessageType
+    , csmSenderId
+
     -- * CampaignState
     , CampaignState
     , campaignState
@@ -147,6 +231,61 @@ module Network.AWS.Pinpoint.Types
     , campaignsResponse
     , cNextToken
     , cItem
+
+    -- * CreateApplicationRequest
+    , CreateApplicationRequest
+    , createApplicationRequest
+    , carName
+
+    -- * DefaultMessage
+    , DefaultMessage
+    , defaultMessage
+    , dmSubstitutions
+    , dmBody
+
+    -- * DefaultPushNotificationMessage
+    , DefaultPushNotificationMessage
+    , defaultPushNotificationMessage
+    , dpnmSubstitutions
+    , dpnmSilentPush
+    , dpnmData
+    , dpnmBody
+    , dpnmURL
+    , dpnmAction
+    , dpnmTitle
+
+    -- * DirectMessageConfiguration
+    , DirectMessageConfiguration
+    , directMessageConfiguration
+    , dmcAPNSMessage
+    , dmcGCMMessage
+    , dmcDefaultMessage
+    , dmcSMSMessage
+    , dmcDefaultPushNotificationMessage
+
+    -- * EmailChannelRequest
+    , EmailChannelRequest
+    , emailChannelRequest
+    , ecrEnabled
+    , ecrFromAddress
+    , ecrIdentity
+    , ecrRoleARN
+
+    -- * EmailChannelResponse
+    , EmailChannelResponse
+    , emailChannelResponse
+    , ecPlatform
+    , ecLastModifiedDate
+    , ecEnabled
+    , ecFromAddress
+    , ecIsArchived
+    , ecApplicationId
+    , ecVersion
+    , ecId
+    , ecCreationDate
+    , ecLastModifiedBy
+    , ecIdentity
+    , ecRoleARN
 
     -- * EndpointBatchItem
     , EndpointBatchItem
@@ -232,16 +371,28 @@ module Network.AWS.Pinpoint.Types
     , euUserAttributes
     , euUserId
 
+    -- * EventStream
+    , EventStream
+    , eventStream
+    , esLastUpdatedBy
+    , esLastModifiedDate
+    , esDestinationStreamARN
+    , esApplicationId
+    , esExternalId
+    , esRoleARN
+
     -- * GCMChannelRequest
     , GCMChannelRequest
     , gcmChannelRequest
     , gcrAPIKey
+    , gcrEnabled
 
     -- * GCMChannelResponse
     , GCMChannelResponse
     , gcmChannelResponse
     , gcPlatform
     , gcLastModifiedDate
+    , gcEnabled
     , gcCredential
     , gcIsArchived
     , gcApplicationId
@@ -249,6 +400,25 @@ module Network.AWS.Pinpoint.Types
     , gcId
     , gcCreationDate
     , gcLastModifiedBy
+
+    -- * GCMMessage
+    , GCMMessage
+    , gcmMessage
+    , gmSubstitutions
+    , gmSilentPush
+    , gmImageIconURL
+    , gmRawContent
+    , gmData
+    , gmRestrictedPackageName
+    , gmSmallImageIconURL
+    , gmBody
+    , gmURL
+    , gmSound
+    , gmAction
+    , gmCollapseKey
+    , gmImageURL
+    , gmTitle
+    , gmIconReference
 
     -- * ImportJobRequest
     , ImportJobRequest
@@ -302,7 +472,9 @@ module Network.AWS.Pinpoint.Types
     , message
     , mSilentPush
     , mImageIconURL
+    , mRawContent
     , mBody
+    , mImageSmallIconURL
     , mJSONBody
     , mURL
     , mAction
@@ -322,6 +494,30 @@ module Network.AWS.Pinpoint.Types
     , mcAPNSMessage
     , mcGCMMessage
     , mcDefaultMessage
+    , mcSMSMessage
+    , mcEmailMessage
+
+    -- * MessageRequest
+    , MessageRequest
+    , messageRequest
+    , mrContext
+    , mrAddresses
+    , mrMessageConfiguration
+
+    -- * MessageResponse
+    , MessageResponse
+    , messageResponse
+    , mRequestId
+    , mResult
+    , mApplicationId
+
+    -- * MessageResult
+    , MessageResult
+    , messageResult
+    , mrDeliveryStatus
+    , mrStatusMessage
+    , mrUpdatedToken
+    , mrStatusCode
 
     -- * QuietTime
     , QuietTime
@@ -334,6 +530,35 @@ module Network.AWS.Pinpoint.Types
     , recencyDimension
     , rdRecencyType
     , rdDuration
+
+    -- * SMSChannelRequest
+    , SMSChannelRequest
+    , sMSChannelRequest
+    , smscrEnabled
+    , smscrSenderId
+
+    -- * SMSChannelResponse
+    , SMSChannelResponse
+    , sMSChannelResponse
+    , smscPlatform
+    , smscShortCode
+    , smscLastModifiedDate
+    , smscEnabled
+    , smscSenderId
+    , smscIsArchived
+    , smscApplicationId
+    , smscVersion
+    , smscId
+    , smscCreationDate
+    , smscLastModifiedBy
+
+    -- * SMSMessage
+    , SMSMessage
+    , sMSMessage
+    , smsmSubstitutions
+    , smsmBody
+    , smsmMessageType
+    , smsmSenderId
 
     -- * Schedule
     , Schedule
@@ -355,6 +580,7 @@ module Network.AWS.Pinpoint.Types
     , segmentDemographics
     , sdPlatform
     , sdAppVersion
+    , sdChannel
     , sdModel
     , sdMake
     , sdDeviceType
@@ -364,6 +590,7 @@ module Network.AWS.Pinpoint.Types
     , segmentDimensions
     , sdLocation
     , sdDemographic
+    , sdUserAttributes
     , sdBehavior
     , sdAttributes
 
@@ -372,6 +599,7 @@ module Network.AWS.Pinpoint.Types
     , segmentImportResource
     , sirSize
     , sirFormat
+    , sirChannelCounts
     , sirExternalId
     , sirS3URL
     , sirRoleARN
@@ -439,6 +667,13 @@ module Network.AWS.Pinpoint.Types
     , wcrAdditionalTreatments
     , wcrSegmentVersion
 
+    -- * WriteEventStream
+    , WriteEventStream
+    , writeEventStream
+    , wesDestinationStreamARN
+    , wesExternalId
+    , wesRoleARN
+
     -- * WriteSegmentRequest
     , WriteSegmentRequest
     , writeSegmentRequest
@@ -484,6 +719,8 @@ pinpoint =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"
@@ -495,32 +732,32 @@ pinpoint =
       | has (hasStatus 509) e = Just "limit_exceeded"
       | otherwise = Nothing
 
--- | Prism for ForbiddenException' errors.
+-- | Simple message object.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
 _ForbiddenException =
     _MatchServiceError pinpoint "ForbiddenException" . hasStatus 403
 
--- | Prism for NotFoundException' errors.
+-- | Simple message object.
 _NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _NotFoundException =
     _MatchServiceError pinpoint "NotFoundException" . hasStatus 404
 
--- | Prism for TooManyRequestsException' errors.
+-- | Simple message object.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyRequestsException =
     _MatchServiceError pinpoint "TooManyRequestsException" . hasStatus 429
 
--- | Prism for InternalServerErrorException' errors.
+-- | Simple message object.
 _InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerErrorException =
     _MatchServiceError pinpoint "InternalServerErrorException" . hasStatus 500
 
--- | Prism for MethodNotAllowedException' errors.
+-- | Simple message object.
 _MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 _MethodNotAllowedException =
     _MatchServiceError pinpoint "MethodNotAllowedException" . hasStatus 405
 
--- | Prism for BadRequestException' errors.
+-- | Simple message object.
 _BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequestException =
     _MatchServiceError pinpoint "BadRequestException" . hasStatus 400

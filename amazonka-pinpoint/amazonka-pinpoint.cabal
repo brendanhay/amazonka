@@ -40,21 +40,32 @@ library
 
     exposed-modules:
           Network.AWS.Pinpoint
+        , Network.AWS.Pinpoint.CreateApp
         , Network.AWS.Pinpoint.CreateCampaign
         , Network.AWS.Pinpoint.CreateImportJob
         , Network.AWS.Pinpoint.CreateSegment
         , Network.AWS.Pinpoint.DeleteAPNSChannel
+        , Network.AWS.Pinpoint.DeleteAPNSSandboxChannel
+        , Network.AWS.Pinpoint.DeleteApp
         , Network.AWS.Pinpoint.DeleteCampaign
+        , Network.AWS.Pinpoint.DeleteEmailChannel
+        , Network.AWS.Pinpoint.DeleteEventStream
         , Network.AWS.Pinpoint.DeleteGCMChannel
         , Network.AWS.Pinpoint.DeleteSegment
+        , Network.AWS.Pinpoint.DeleteSmsChannel
         , Network.AWS.Pinpoint.GetAPNSChannel
+        , Network.AWS.Pinpoint.GetAPNSSandboxChannel
+        , Network.AWS.Pinpoint.GetApp
         , Network.AWS.Pinpoint.GetApplicationSettings
+        , Network.AWS.Pinpoint.GetApps
         , Network.AWS.Pinpoint.GetCampaign
         , Network.AWS.Pinpoint.GetCampaignActivities
         , Network.AWS.Pinpoint.GetCampaignVersion
         , Network.AWS.Pinpoint.GetCampaignVersions
         , Network.AWS.Pinpoint.GetCampaigns
+        , Network.AWS.Pinpoint.GetEmailChannel
         , Network.AWS.Pinpoint.GetEndpoint
+        , Network.AWS.Pinpoint.GetEventStream
         , Network.AWS.Pinpoint.GetGCMChannel
         , Network.AWS.Pinpoint.GetImportJob
         , Network.AWS.Pinpoint.GetImportJobs
@@ -63,14 +74,20 @@ library
         , Network.AWS.Pinpoint.GetSegmentVersion
         , Network.AWS.Pinpoint.GetSegmentVersions
         , Network.AWS.Pinpoint.GetSegments
+        , Network.AWS.Pinpoint.GetSmsChannel
+        , Network.AWS.Pinpoint.PutEventStream
+        , Network.AWS.Pinpoint.SendMessages
         , Network.AWS.Pinpoint.Types
         , Network.AWS.Pinpoint.UpdateAPNSChannel
+        , Network.AWS.Pinpoint.UpdateAPNSSandboxChannel
         , Network.AWS.Pinpoint.UpdateApplicationSettings
         , Network.AWS.Pinpoint.UpdateCampaign
+        , Network.AWS.Pinpoint.UpdateEmailChannel
         , Network.AWS.Pinpoint.UpdateEndpoint
         , Network.AWS.Pinpoint.UpdateEndpointsBatch
         , Network.AWS.Pinpoint.UpdateGCMChannel
         , Network.AWS.Pinpoint.UpdateSegment
+        , Network.AWS.Pinpoint.UpdateSmsChannel
         , Network.AWS.Pinpoint.Waiters
 
     other-modules:

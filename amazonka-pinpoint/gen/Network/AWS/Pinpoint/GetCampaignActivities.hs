@@ -57,9 +57,9 @@ data GetCampaignActivities = GetCampaignActivities'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcaToken' - Undocumented member.
+-- * 'gcaToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gcaPageSize' - Undocumented member.
+-- * 'gcaPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gcaApplicationId' - Undocumented member.
 --
@@ -76,11 +76,11 @@ getCampaignActivities pApplicationId_ pCampaignId_ =
     , _gcaCampaignId = pCampaignId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcaToken :: Lens' GetCampaignActivities (Maybe Text)
 gcaToken = lens _gcaToken (\ s a -> s{_gcaToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gcaPageSize :: Lens' GetCampaignActivities (Maybe Text)
 gcaPageSize = lens _gcaPageSize (\ s a -> s{_gcaPageSize = a});
 

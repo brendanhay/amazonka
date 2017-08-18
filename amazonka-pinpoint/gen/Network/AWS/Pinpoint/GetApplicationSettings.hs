@@ -31,8 +31,8 @@ module Network.AWS.Pinpoint.GetApplicationSettings
     , getApplicationSettingsResponse
     , GetApplicationSettingsResponse
     -- * Response Lenses
-    , gasrsResponseStatus
-    , gasrsApplicationSettingsResource
+    , gassrsResponseStatus
+    , gassrsApplicationSettingsResource
     ) where
 
 import           Network.AWS.Lens
@@ -95,33 +95,33 @@ instance ToQuery GetApplicationSettings where
 
 -- | /See:/ 'getApplicationSettingsResponse' smart constructor.
 data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
-    { _gasrsResponseStatus              :: !Int
-    , _gasrsApplicationSettingsResource :: !ApplicationSettingsResource
+    { _gassrsResponseStatus              :: !Int
+    , _gassrsApplicationSettingsResource :: !ApplicationSettingsResource
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GetApplicationSettingsResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gasrsResponseStatus' - -- | The response status code.
+-- * 'gassrsResponseStatus' - -- | The response status code.
 --
--- * 'gasrsApplicationSettingsResource' - Undocumented member.
+-- * 'gassrsApplicationSettingsResource' - Undocumented member.
 getApplicationSettingsResponse
-    :: Int -- ^ 'gasrsResponseStatus'
-    -> ApplicationSettingsResource -- ^ 'gasrsApplicationSettingsResource'
+    :: Int -- ^ 'gassrsResponseStatus'
+    -> ApplicationSettingsResource -- ^ 'gassrsApplicationSettingsResource'
     -> GetApplicationSettingsResponse
 getApplicationSettingsResponse pResponseStatus_ pApplicationSettingsResource_ =
     GetApplicationSettingsResponse'
-    { _gasrsResponseStatus = pResponseStatus_
-    , _gasrsApplicationSettingsResource = pApplicationSettingsResource_
+    { _gassrsResponseStatus = pResponseStatus_
+    , _gassrsApplicationSettingsResource = pApplicationSettingsResource_
     }
 
 -- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\ s a -> s{_gasrsResponseStatus = a});
+gassrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
+gassrsResponseStatus = lens _gassrsResponseStatus (\ s a -> s{_gassrsResponseStatus = a});
 
 -- | Undocumented member.
-gasrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
-gasrsApplicationSettingsResource = lens _gasrsApplicationSettingsResource (\ s a -> s{_gasrsApplicationSettingsResource = a});
+gassrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
+gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\ s a -> s{_gassrsApplicationSettingsResource = a});
 
 instance NFData GetApplicationSettingsResponse

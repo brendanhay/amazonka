@@ -57,9 +57,9 @@ data GetCampaignVersions = GetCampaignVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcvToken' - Undocumented member.
+-- * 'gcvToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- * 'gcvPageSize' - Undocumented member.
+-- * 'gcvPageSize' - The number of entries you want on each page in the response.
 --
 -- * 'gcvApplicationId' - Undocumented member.
 --
@@ -76,11 +76,11 @@ getCampaignVersions pApplicationId_ pCampaignId_ =
     , _gcvCampaignId = pCampaignId_
     }
 
--- | Undocumented member.
+-- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 gcvToken :: Lens' GetCampaignVersions (Maybe Text)
 gcvToken = lens _gcvToken (\ s a -> s{_gcvToken = a});
 
--- | Undocumented member.
+-- | The number of entries you want on each page in the response.
 gcvPageSize :: Lens' GetCampaignVersions (Maybe Text)
 gcvPageSize = lens _gcvPageSize (\ s a -> s{_gcvPageSize = a});
 

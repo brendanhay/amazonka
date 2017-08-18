@@ -21,8 +21,6 @@
 -- Deletes a traffic policy.
 --
 --
--- Send a @DELETE@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource.
---
 module Network.AWS.Route53.DeleteTrafficPolicy
     (
     -- * Creating a Request

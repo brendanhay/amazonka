@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a specified health check. Send a @GET@ request to the @/2013-04-01/healthcheck//health check ID/ @ resource. For more information about using the console to perform this operation, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the Amazon Route 53 Developer Guide.
+-- Gets information about a specified health check.
 --
 --
 module Network.AWS.Route53.GetHealthCheck
@@ -44,12 +44,8 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | This action gets information about a specified health check.
+-- | A request to get information about a specified health check.
 --
---
--- Send a @GET@ request to the @//Amazon Route 53 API version/ /gethealthcheckrequest@ resource.
---
--- For information about getting information about a health check using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> in the /Amazon Route 53 Developer Guide/ .
 --
 --
 -- /See:/ 'getHealthCheck' smart constructor.

@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create, change, update, or delete authoritative DNS information on all Amazon Route 53 servers. Send a @POST@ request to:
+-- Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified domain name or subdomain name. For example, you can use @ChangeResourceRecordSets@ to create a resource record set that routes traffic for test.example.com to a web server that has an IP address of 192.0.2.44.
 --
---
--- @/2013-04-01/hostedzone//Amazon Route 53 hosted Zone ID/ /rrset@ resource.
 --
 -- __Change Batches and Transactional Changes__
 --
@@ -57,7 +55,7 @@
 --
 -- __Change Propagation to Amazon Route 53 DNS Servers__
 --
--- When you submit a @ChangeResourceRecordSets@ request, Amazon Route 53 propagates your changes to all of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, @GetChange@ returns a status of @PENDING@ . When propagation is complete, @GetChange@ returns a status of @INSYNC@ . Changes generally propagate to all Amazon Route 53 name servers in a few minutes. In rare circumstances, propagation can take up to 30 minutes. For more information, see 'GetChange' .
+-- When you submit a @ChangeResourceRecordSets@ request, Amazon Route 53 propagates your changes to all of the Amazon Route 53 authoritative DNS servers. While your changes are propagating, @GetChange@ returns a status of @PENDING@ . When propagation is complete, @GetChange@ returns a status of @INSYNC@ . Changes generally propagate to all Amazon Route 53 name servers within 60 seconds. For more information, see 'GetChange' .
 --
 -- __Limits on ChangeResourceRecordSets Requests__
 --

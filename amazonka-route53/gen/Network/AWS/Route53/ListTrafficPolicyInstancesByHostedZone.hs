@@ -21,29 +21,7 @@
 -- Gets information about the traffic policy instances that you created in a specified hosted zone.
 --
 --
--- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance@ resource and include the ID of the hosted zone.
---
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the @MaxItems@ parameter to list them in groups of up to 100.
---
--- The response includes four values that help you navigate from one group of @MaxItems@ traffic policy instances to the next:
---
---     * __IsTruncated__
---
--- If the value of IsTruncated in the response is @true@ , there are more traffic policy instances associated with the current AWS account.
---
--- If @IsTruncated@ is @false@ , this response includes the last traffic policy instance that is associated with the current account.
---
---     * __MaxItems__
---
--- The value that you specified for the @MaxItems@ parameter in the request that produced the current response.
---
---     * __TrafficPolicyInstanceNameMarker__ and __TrafficPolicyInstanceTypeMarker__
---
--- If @IsTruncated@ is @true@ , these two values in the response represent the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. To list more traffic policy instances, make another call to @ListTrafficPolicyInstancesByHostedZone@ , and specify these values in the corresponding request parameters.
---
--- If @IsTruncated@ is @false@ , all three elements are omitted from the response.
---
---
 --
 module Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
     (
@@ -91,13 +69,13 @@ data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHosted
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltpibhzTrafficPolicyInstanceTypeMarker' - For the first request to @ListTrafficPolicyInstancesByHostedZone@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone.
+-- * 'ltpibhzTrafficPolicyInstanceTypeMarker' - If the value of @IsTruncated@ in the previous response is true, you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstances@ request. For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the type of the first traffic policy instance in the next group of traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 --
--- * 'ltpibhzMaxItems' - The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- * 'ltpibhzMaxItems' - The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
 --
--- * 'ltpibhzTrafficPolicyInstanceNameMarker' - For the first request to @ListTrafficPolicyInstancesByHostedZone@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone. If the value of @IsTruncated@ in the previous response was @false@ , omit this value.
+-- * 'ltpibhzTrafficPolicyInstanceNameMarker' - If the value of @IsTruncated@ in the previous response is true, you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstances@ request. For the value of @trafficpolicyinstancename@ , specify the value of @TrafficPolicyInstanceNameMarker@ from the previous response, which is the name of the first traffic policy instance in the next group of traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 --
--- * 'ltpibhzHostedZoneId' - The ID of the hosted zone for which you want to list traffic policy instances.
+-- * 'ltpibhzHostedZoneId' - The ID of the hosted zone that you want to list traffic policy instances for.
 listTrafficPolicyInstancesByHostedZone
     :: ResourceId -- ^ 'ltpibhzHostedZoneId'
     -> ListTrafficPolicyInstancesByHostedZone
@@ -109,19 +87,19 @@ listTrafficPolicyInstancesByHostedZone pHostedZoneId_ =
     , _ltpibhzHostedZoneId = pHostedZoneId_
     }
 
--- | For the first request to @ListTrafficPolicyInstancesByHostedZone@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @TrafficPolicyInstanceTypeMarker@ is the DNS type of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone.
+-- | If the value of @IsTruncated@ in the previous response is true, you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstances@ request. For the value of @trafficpolicyinstancetype@ , specify the value of @TrafficPolicyInstanceTypeMarker@ from the previous response, which is the type of the first traffic policy instance in the next group of traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibhzTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByHostedZone (Maybe RecordType)
 ltpibhzTrafficPolicyInstanceTypeMarker = lens _ltpibhzTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibhzTrafficPolicyInstanceTypeMarker = a});
 
--- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- | The maximum number of traffic policy instances to be included in the response body for this request. If you have more than @MaxItems@ traffic policy instances, the value of the @IsTruncated@ element in the response is @true@ , and the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ represent the first traffic policy instance that Amazon Route 53 will return if you submit another request.
 ltpibhzMaxItems :: Lens' ListTrafficPolicyInstancesByHostedZone (Maybe Text)
 ltpibhzMaxItems = lens _ltpibhzMaxItems (\ s a -> s{_ltpibhzMaxItems = a});
 
--- | For the first request to @ListTrafficPolicyInstancesByHostedZone@ , omit this value. If the value of @IsTruncated@ in the previous response was @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get for this hosted zone. If the value of @IsTruncated@ in the previous response was @false@ , omit this value.
+-- | If the value of @IsTruncated@ in the previous response is true, you have more traffic policy instances. To get more traffic policy instances, submit another @ListTrafficPolicyInstances@ request. For the value of @trafficpolicyinstancename@ , specify the value of @TrafficPolicyInstanceNameMarker@ from the previous response, which is the name of the first traffic policy instance in the next group of traffic policy instances. If the value of @IsTruncated@ in the previous response was @false@ , there are no more traffic policy instances to get.
 ltpibhzTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByHostedZone (Maybe Text)
 ltpibhzTrafficPolicyInstanceNameMarker = lens _ltpibhzTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibhzTrafficPolicyInstanceNameMarker = a});
 
--- | The ID of the hosted zone for which you want to list traffic policy instances.
+-- | The ID of the hosted zone that you want to list traffic policy instances for.
 ltpibhzHostedZoneId :: Lens' ListTrafficPolicyInstancesByHostedZone ResourceId
 ltpibhzHostedZoneId = lens _ltpibhzHostedZoneId (\ s a -> s{_ltpibhzHostedZoneId = a});
 
@@ -188,17 +166,17 @@ data ListTrafficPolicyInstancesByHostedZoneResponse = ListTrafficPolicyInstances
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltpibhzrsTrafficPolicyInstanceTypeMarker' - If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- * 'ltpibhzrsTrafficPolicyInstanceTypeMarker' - If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of traffic policy instances.
 --
--- * 'ltpibhzrsTrafficPolicyInstanceNameMarker' - If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- * 'ltpibhzrsTrafficPolicyInstanceNameMarker' - If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of traffic policy instances.
 --
 -- * 'ltpibhzrsResponseStatus' - -- | The response status code.
 --
 -- * 'ltpibhzrsTrafficPolicyInstances' - A list that contains one @TrafficPolicyInstance@ element for each traffic policy instance that matches the elements in the request.
 --
--- * 'ltpibhzrsIsTruncated' - A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of @MaxItems@ traffic policy instances by calling @ListTrafficPolicyInstancesByHostedZone@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
+-- * 'ltpibhzrsIsTruncated' - A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by submitting another @ListTrafficPolicyInstancesByHostedZone@ request and specifying the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ in the corresponding request parameters.
 --
--- * 'ltpibhzrsMaxItems' - The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByHostedZone@ that produced the current response.
+-- * 'ltpibhzrsMaxItems' - The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicyInstancesByHostedZone@ request that produced the current response.
 listTrafficPolicyInstancesByHostedZoneResponse
     :: Int -- ^ 'ltpibhzrsResponseStatus'
     -> Bool -- ^ 'ltpibhzrsIsTruncated'
@@ -214,11 +192,11 @@ listTrafficPolicyInstancesByHostedZoneResponse pResponseStatus_ pIsTruncated_ pM
     , _ltpibhzrsMaxItems = pMaxItems_
     }
 
--- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS type of the resource record sets that are associated with the first traffic policy instance in the next group of traffic policy instances.
 ltpibhzrsTrafficPolicyInstanceTypeMarker :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse (Maybe RecordType)
 ltpibhzrsTrafficPolicyInstanceTypeMarker = lens _ltpibhzrsTrafficPolicyInstanceTypeMarker (\ s a -> s{_ltpibhzrsTrafficPolicyInstanceTypeMarker = a});
 
--- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of @MaxItems@ traffic policy instances.
+-- | If @IsTruncated@ is @true@ , @TrafficPolicyInstanceNameMarker@ is the name of the first traffic policy instance in the next group of traffic policy instances.
 ltpibhzrsTrafficPolicyInstanceNameMarker :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse (Maybe Text)
 ltpibhzrsTrafficPolicyInstanceNameMarker = lens _ltpibhzrsTrafficPolicyInstanceNameMarker (\ s a -> s{_ltpibhzrsTrafficPolicyInstanceNameMarker = a});
 
@@ -230,11 +208,11 @@ ltpibhzrsResponseStatus = lens _ltpibhzrsResponseStatus (\ s a -> s{_ltpibhzrsRe
 ltpibhzrsTrafficPolicyInstances :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse [TrafficPolicyInstance]
 ltpibhzrsTrafficPolicyInstances = lens _ltpibhzrsTrafficPolicyInstances (\ s a -> s{_ltpibhzrsTrafficPolicyInstances = a}) . _Coerce;
 
--- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of @MaxItems@ traffic policy instances by calling @ListTrafficPolicyInstancesByHostedZone@ again and specifying the values of the @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ elements in the corresponding request parameters.
+-- | A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the next group of traffic policy instances by submitting another @ListTrafficPolicyInstancesByHostedZone@ request and specifying the values of @HostedZoneIdMarker@ , @TrafficPolicyInstanceNameMarker@ , and @TrafficPolicyInstanceTypeMarker@ in the corresponding request parameters.
 ltpibhzrsIsTruncated :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse Bool
 ltpibhzrsIsTruncated = lens _ltpibhzrsIsTruncated (\ s a -> s{_ltpibhzrsIsTruncated = a});
 
--- | The value that you specified for the @MaxItems@ parameter in the call to @ListTrafficPolicyInstancesByHostedZone@ that produced the current response.
+-- | The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicyInstancesByHostedZone@ request that produced the current response.
 ltpibhzrsMaxItems :: Lens' ListTrafficPolicyInstancesByHostedZoneResponse Text
 ltpibhzrsMaxItems = lens _ltpibhzrsMaxItems (\ s a -> s{_ltpibhzrsMaxItems = a});
 

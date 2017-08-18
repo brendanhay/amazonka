@@ -18,10 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve a list of your health checks. Send a @GET@ request to the @/2013-04-01/healthcheck@ resource. The response to this request includes a @HealthChecks@ element with zero or more @HealthCheck@ child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the health check that the list begins with.
+-- Retrieve a list of the health checks that are associated with the current AWS account.
 --
---
--- For information about listing health checks using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover> .
 --
 --
 -- This operation returns paginated results.
@@ -54,7 +52,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a list of your health checks, send a @GET@ request to the @/2013-04-01/healthcheck@ resource. The response to this request includes a @HealthChecks@ element with zero or more @HealthCheck@ child elements. By default, the list of health checks is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the health check that the list begins with.
+-- | A request to retrieve a list of the health checks that are associated with the current AWS account.
 --
 --
 --
@@ -68,9 +66,9 @@ data ListHealthChecks = ListHealthChecks'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhcMarker' - If the response to a @ListHealthChecks@ is more than one page, marker is the health check ID for the first health check on the next page of results. For more information, see 'ListHealthChecksResponse$MaxItems' .
+-- * 'lhcMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more health checks. To get another group, submit another @ListHealthChecks@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first health check that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more health checks to get.
 --
--- * 'lhcMaxItems' - The maximum number of @HealthCheck@ elements you want @ListHealthChecks@ to return on each page of the response body. If the AWS account includes more @HealthCheck@ elements than the value of @maxitems@ , the response is broken into pages. Each page contains the number of @HealthCheck@ elements specified by @maxitems@ . For example, suppose you specify @10@ for @maxitems@ and the current AWS account has @51@ health checks. In the response, @ListHealthChecks@ sets 'ListHealthChecksResponse$IsTruncated' to true and includes the 'ListHealthChecksResponse$NextMarker' element. To access the second and subsequent pages, you resend the @GET@ @ListHealthChecks@ request, add the 'ListHealthChecksResponse$Marker' parameter to the request, and specify the value of the 'ListHealthChecksResponse$NextMarker' element from the previous response. On the last (sixth) page of the response, which contains only one HealthCheck element:     * The value of 'ListHealthChecksResponse$IsTruncated' is @false@ .     * 'ListHealthChecksResponse$NextMarker' is omitted.
+-- * 'lhcMaxItems' - The maximum number of health checks that you want @ListHealthChecks@ to return in response to the current request. Amazon Route 53 returns a maximum of 100 items. If you set @MaxItems@ to a value greater than 100, Amazon Route 53 returns only the first 100 health checks.
 listHealthChecks
     :: ListHealthChecks
 listHealthChecks =
@@ -79,11 +77,11 @@ listHealthChecks =
     , _lhcMaxItems = Nothing
     }
 
--- | If the response to a @ListHealthChecks@ is more than one page, marker is the health check ID for the first health check on the next page of results. For more information, see 'ListHealthChecksResponse$MaxItems' .
+-- | If the value of @IsTruncated@ in the previous response was @true@ , you have more health checks. To get another group, submit another @ListHealthChecks@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first health check that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more health checks to get.
 lhcMarker :: Lens' ListHealthChecks (Maybe Text)
 lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
 
--- | The maximum number of @HealthCheck@ elements you want @ListHealthChecks@ to return on each page of the response body. If the AWS account includes more @HealthCheck@ elements than the value of @maxitems@ , the response is broken into pages. Each page contains the number of @HealthCheck@ elements specified by @maxitems@ . For example, suppose you specify @10@ for @maxitems@ and the current AWS account has @51@ health checks. In the response, @ListHealthChecks@ sets 'ListHealthChecksResponse$IsTruncated' to true and includes the 'ListHealthChecksResponse$NextMarker' element. To access the second and subsequent pages, you resend the @GET@ @ListHealthChecks@ request, add the 'ListHealthChecksResponse$Marker' parameter to the request, and specify the value of the 'ListHealthChecksResponse$NextMarker' element from the previous response. On the last (sixth) page of the response, which contains only one HealthCheck element:     * The value of 'ListHealthChecksResponse$IsTruncated' is @false@ .     * 'ListHealthChecksResponse$NextMarker' is omitted.
+-- | The maximum number of health checks that you want @ListHealthChecks@ to return in response to the current request. Amazon Route 53 returns a maximum of 100 items. If you set @MaxItems@ to a value greater than 100, Amazon Route 53 returns only the first 100 health checks.
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 
@@ -141,15 +139,15 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lhcrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check in the next group of @maxitems@ health checks. Call @ListHealthChecks@ again and specify the value of @NextMarker@ in the marker parameter.
+-- * 'lhcrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check that Amazon Route 53 returns if you submit another @ListHealthChecks@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 --
 -- * 'lhcrsResponseStatus' - -- | The response status code.
 --
 -- * 'lhcrsHealthChecks' - A complex type that contains one @HealthCheck@ element for each health check that is associated with the current AWS account.
 --
--- * 'lhcrsMarker' - For the second and subsequent calls to @ListHealthChecks@ , @Marker@ is the value that you specified for the marker parameter in the previous request.
+-- * 'lhcrsMarker' - For the second and subsequent calls to @ListHealthChecks@ , @Marker@ is the value that you specified for the @marker@ parameter in the previous request.
 --
--- * 'lhcrsIsTruncated' - A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of @maxitems@ health checks by calling @ListHealthChecks@ again and specifying the value of the @NextMarker@ element in the marker parameter. Valid Values: @true@ | @false@
+-- * 'lhcrsIsTruncated' - A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of health checks by submitting another @ListHealthChecks@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 --
 -- * 'lhcrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListHealthChecks@ that produced the current response.
 listHealthChecksResponse
@@ -168,7 +166,7 @@ listHealthChecksResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     , _lhcrsMaxItems = pMaxItems_
     }
 
--- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check in the next group of @maxitems@ health checks. Call @ListHealthChecks@ again and specify the value of @NextMarker@ in the marker parameter.
+-- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first health check that Amazon Route 53 returns if you submit another @ListHealthChecks@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
@@ -180,11 +178,11 @@ lhcrsResponseStatus = lens _lhcrsResponseStatus (\ s a -> s{_lhcrsResponseStatus
 lhcrsHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
 lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a}) . _Coerce;
 
--- | For the second and subsequent calls to @ListHealthChecks@ , @Marker@ is the value that you specified for the marker parameter in the previous request.
+-- | For the second and subsequent calls to @ListHealthChecks@ , @Marker@ is the value that you specified for the @marker@ parameter in the previous request.
 lhcrsMarker :: Lens' ListHealthChecksResponse Text
 lhcrsMarker = lens _lhcrsMarker (\ s a -> s{_lhcrsMarker = a});
 
--- | A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of @maxitems@ health checks by calling @ListHealthChecks@ again and specifying the value of the @NextMarker@ element in the marker parameter. Valid Values: @true@ | @false@
+-- | A flag that indicates whether there are more health checks to be listed. If the response was truncated, you can get the next group of health checks by submitting another @ListHealthChecks@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 lhcrsIsTruncated :: Lens' ListHealthChecksResponse Bool
 lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 

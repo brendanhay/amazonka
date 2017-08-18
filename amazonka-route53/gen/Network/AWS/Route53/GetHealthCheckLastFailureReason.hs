@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- If you want to learn why a health check is currently failing or why it failed most recently (if at all), you can get the failure reason for the most recent failure. Send a @GET@ request to the @//Amazon Route 53 API version/ /healthcheck//health check ID/ /lastfailurereason@ resource.
+-- Gets the reason that a specified health check failed most recently.
 --
 --
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
@@ -44,12 +44,8 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | This action gets the reason that a specified health check failed most recently.
+-- | A request for the reason that a health check failed most recently.
 --
---
--- To get the reason for the last failure of a health check, send a GET request to the /2013-04-01/healthcheck/health check ID/lastfailurereason resource.
---
--- For information about viewing the last failure reason for a health check using the Amazon Route 53 console, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-monitor-view-status.html Viewing Health Check Status and the Reason for Health Check Failures> in the /Amazon Route 53 Developer Guide/ .
 --
 --
 -- /See:/ 'getHealthCheckLastFailureReason' smart constructor.

@@ -23,8 +23,6 @@
 --
 -- /Important:/ To perform the association, the VPC and the private hosted zone must already exist. You can't convert a public hosted zone into a private hosted zone.
 --
--- Send a @POST@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /associatevpc@ resource. The request body must include a document with an @AssociateVPCWithHostedZoneRequest@ element. The response contains a @ChangeInfo@ data type that you can use to track the progress of the request.
---
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request

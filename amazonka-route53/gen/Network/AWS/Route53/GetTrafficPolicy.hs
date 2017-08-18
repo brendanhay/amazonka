@@ -21,8 +21,6 @@
 -- Gets information about a specific traffic policy version.
 --
 --
--- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource.
---
 module Network.AWS.Route53.GetTrafficPolicy
     (
     -- * Creating a Request
@@ -47,7 +45,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | Gets information about a specific traffic policy version. To get the information, send a GET request to the /2013-04-01/trafficpolicy resource, and specify the ID and the version of the traffic policy.
+-- | Gets information about a specific traffic policy version.
 --
 --
 --

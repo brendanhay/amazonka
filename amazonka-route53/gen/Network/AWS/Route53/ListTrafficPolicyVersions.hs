@@ -21,29 +21,7 @@
 -- Gets information about all of the versions for a specified traffic policy.
 --
 --
--- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicy@ resource and specify the ID of the traffic policy for which you want to list versions.
---
--- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policies, you can use the @maxitems@ parameter to list them in groups of up to 100.
---
--- The response includes three values that help you navigate from one group of @maxitems@ traffic policies to the next:
---
---     * __IsTruncated__
---
--- If the value of @IsTruncated@ in the response is @true@ , there are more traffic policy versions associated with the specified traffic policy.
---
--- If @IsTruncated@ is @false@ , this response includes the last traffic policy version that is associated with the specified traffic policy.
---
---     * __TrafficPolicyVersionMarker__
---
--- The ID of the next traffic policy version that is associated with the current AWS account. If you want to list more traffic policies, make another call to @ListTrafficPolicyVersions@ , and specify the value of the @TrafficPolicyVersionMarker@ element in the @TrafficPolicyVersionMarker@ request parameter.
---
--- If @IsTruncated@ is @false@ , Amazon Route 53 omits the @TrafficPolicyVersionMarker@ element from the response.
---
---     * __MaxItems__
---
--- The value that you specified for the @MaxItems@ parameter in the request that produced the current response.
---
---
+-- Traffic policy versions are listed in numerical order by @VersionNumber@ .
 --
 module Network.AWS.Route53.ListTrafficPolicyVersions
     (
@@ -88,9 +66,9 @@ data ListTrafficPolicyVersions = ListTrafficPolicyVersions'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltpvMaxItems' - The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of the @IsTruncated@ element in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version in the next group of @MaxItems@ traffic policy versions.
+-- * 'ltpvMaxItems' - The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Amazon Route 53 will return if you submit another request.
 --
--- * 'ltpvTrafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@ , do not include the @TrafficPolicyVersionMarker@ parameter. If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get the next group of @MaxItems@ traffic policy versions, submit another request to @ListTrafficPolicyVersions@ . For the value of @TrafficPolicyVersionMarker@ , specify the value of the @TrafficPolicyVersionMarker@ element that was returned in the previous response. Traffic policy versions are listed in sequential order.
+-- * 'ltpvTrafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@ , don't include the @TrafficPolicyVersionMarker@ parameter. If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get more traffic policy versions, submit another @ListTrafficPolicyVersions@ request. For the value of @TrafficPolicyVersionMarker@ , specify the value of @TrafficPolicyVersionMarker@ in the previous response.
 --
 -- * 'ltpvId' - Specify the value of @Id@ of the traffic policy for which you want to list all versions.
 listTrafficPolicyVersions
@@ -103,11 +81,11 @@ listTrafficPolicyVersions pId_ =
     , _ltpvId = pId_
     }
 
--- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of the @IsTruncated@ element in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version in the next group of @MaxItems@ traffic policy versions.
+-- | The maximum number of traffic policy versions that you want Amazon Route 53 to include in the response body for this request. If the specified traffic policy has more than @MaxItems@ versions, the value of @IsTruncated@ in the response is @true@ , and the value of the @TrafficPolicyVersionMarker@ element is the ID of the first version that Amazon Route 53 will return if you submit another request.
 ltpvMaxItems :: Lens' ListTrafficPolicyVersions (Maybe Text)
 ltpvMaxItems = lens _ltpvMaxItems (\ s a -> s{_ltpvMaxItems = a});
 
--- | For your first request to @ListTrafficPolicyVersions@ , do not include the @TrafficPolicyVersionMarker@ parameter. If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get the next group of @MaxItems@ traffic policy versions, submit another request to @ListTrafficPolicyVersions@ . For the value of @TrafficPolicyVersionMarker@ , specify the value of the @TrafficPolicyVersionMarker@ element that was returned in the previous response. Traffic policy versions are listed in sequential order.
+-- | For your first request to @ListTrafficPolicyVersions@ , don't include the @TrafficPolicyVersionMarker@ parameter. If you have more traffic policy versions than the value of @MaxItems@ , @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@ versions. To get more traffic policy versions, submit another @ListTrafficPolicyVersions@ request. For the value of @TrafficPolicyVersionMarker@ , specify the value of @TrafficPolicyVersionMarker@ in the previous response.
 ltpvTrafficPolicyVersionMarker :: Lens' ListTrafficPolicyVersions (Maybe Text)
 ltpvTrafficPolicyVersionMarker = lens _ltpvTrafficPolicyVersionMarker (\ s a -> s{_ltpvTrafficPolicyVersionMarker = a});
 
@@ -171,11 +149,11 @@ data ListTrafficPolicyVersionsResponse = ListTrafficPolicyVersionsResponse'
 --
 -- * 'ltpvrsTrafficPolicies' - A list that contains one @TrafficPolicy@ element for each traffic policy version that is associated with the specified traffic policy.
 --
--- * 'ltpvrsIsTruncated' - A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of @maxitems@ traffic policies by calling @ListTrafficPolicyVersions@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
+-- * 'ltpvrsIsTruncated' - A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 --
--- * 'ltpvrsTrafficPolicyVersionMarker' - If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy in the next group of @MaxItems@ traffic policies. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter. This element is present only if @IsTruncated@ is @true@ .
+-- * 'ltpvrsTrafficPolicyVersionMarker' - If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy that Amazon Route 53 will return if you submit another request. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter. This element is present only if @IsTruncated@ is @true@ .
 --
--- * 'ltpvrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListTrafficPolicyVersions@ that produced the current response.
+-- * 'ltpvrsMaxItems' - The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
 listTrafficPolicyVersionsResponse
     :: Int -- ^ 'ltpvrsResponseStatus'
     -> Bool -- ^ 'ltpvrsIsTruncated'
@@ -199,15 +177,15 @@ ltpvrsResponseStatus = lens _ltpvrsResponseStatus (\ s a -> s{_ltpvrsResponseSta
 ltpvrsTrafficPolicies :: Lens' ListTrafficPolicyVersionsResponse [TrafficPolicy]
 ltpvrsTrafficPolicies = lens _ltpvrsTrafficPolicies (\ s a -> s{_ltpvrsTrafficPolicies = a}) . _Coerce;
 
--- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of @maxitems@ traffic policies by calling @ListTrafficPolicyVersions@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
+-- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicyVersions@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
 ltpvrsIsTruncated :: Lens' ListTrafficPolicyVersionsResponse Bool
 ltpvrsIsTruncated = lens _ltpvrsIsTruncated (\ s a -> s{_ltpvrsIsTruncated = a});
 
--- | If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy in the next group of @MaxItems@ traffic policies. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter. This element is present only if @IsTruncated@ is @true@ .
+-- | If @IsTruncated@ is @true@ , the value of @TrafficPolicyVersionMarker@ identifies the first traffic policy that Amazon Route 53 will return if you submit another request. Call @ListTrafficPolicyVersions@ again and specify the value of @TrafficPolicyVersionMarker@ in the @TrafficPolicyVersionMarker@ request parameter. This element is present only if @IsTruncated@ is @true@ .
 ltpvrsTrafficPolicyVersionMarker :: Lens' ListTrafficPolicyVersionsResponse Text
 ltpvrsTrafficPolicyVersionMarker = lens _ltpvrsTrafficPolicyVersionMarker (\ s a -> s{_ltpvrsTrafficPolicyVersionMarker = a});
 
--- | The value that you specified for the @maxitems@ parameter in the call to @ListTrafficPolicyVersions@ that produced the current response.
+-- | The value that you specified for the @maxitems@ parameter in the @ListTrafficPolicyVersions@ request that produced the current response.
 ltpvrsMaxItems :: Lens' ListTrafficPolicyVersionsResponse Text
 ltpvrsMaxItems = lens _ltpvrsMaxItems (\ s a -> s{_ltpvrsMaxItems = a});
 

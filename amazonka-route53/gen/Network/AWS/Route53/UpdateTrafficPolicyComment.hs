@@ -21,10 +21,6 @@
 -- Updates the comment for a specified traffic policy version.
 --
 --
--- Send a @POST@ request to the @/2013-04-01/trafficpolicy/@ resource.
---
--- The request body must include a document with an @UpdateTrafficPolicyCommentRequest@ element.
---
 module Network.AWS.Route53.UpdateTrafficPolicyComment
     (
     -- * Creating a Request
@@ -50,7 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the traffic policy for which you want to update the comment.
+-- | A complex type that contains information about the traffic policy that you want to update the comment for.
 --
 --
 --
@@ -65,9 +61,9 @@ data UpdateTrafficPolicyComment = UpdateTrafficPolicyComment'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'utpcId' - The value of @Id@ for the traffic policy for which you want to update the comment.
+-- * 'utpcId' - The value of @Id@ for the traffic policy that you want to update the comment for.
 --
--- * 'utpcVersion' - The value of @Version@ for the traffic policy for which you want to update the comment.
+-- * 'utpcVersion' - The value of @Version@ for the traffic policy that you want to update the comment for.
 --
 -- * 'utpcComment' - The new comment for the specified traffic policy and version.
 updateTrafficPolicyComment
@@ -82,11 +78,11 @@ updateTrafficPolicyComment pId_ pVersion_ pComment_ =
     , _utpcComment = pComment_
     }
 
--- | The value of @Id@ for the traffic policy for which you want to update the comment.
+-- | The value of @Id@ for the traffic policy that you want to update the comment for.
 utpcId :: Lens' UpdateTrafficPolicyComment Text
 utpcId = lens _utpcId (\ s a -> s{_utpcId = a});
 
--- | The value of @Version@ for the traffic policy for which you want to update the comment.
+-- | The value of @Version@ for the traffic policy that you want to update the comment for.
 utpcVersion :: Lens' UpdateTrafficPolicyComment Natural
 utpcVersion = lens _utpcVersion (\ s a -> s{_utpcVersion = a}) . _Nat;
 

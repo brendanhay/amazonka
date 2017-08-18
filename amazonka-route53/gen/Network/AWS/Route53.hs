@@ -496,6 +496,7 @@ module Network.AWS.Route53
     , rrsHealthCheckId
     , rrsRegion
     , rrsGeoLocation
+    , rrsMultiValueAnswer
     , rrsName
     , rrsType
 

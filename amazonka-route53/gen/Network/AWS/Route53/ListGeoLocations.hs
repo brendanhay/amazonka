@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of supported geo locations. Send a @GET@ request to the @/2013-04-01/geolocations@ resource. The response to this request includes a @GeoLocationDetailsList@ element for each location that Amazon Route 53 supports.
+-- Retrieves a list of supported geo locations.
 --
 --
 -- Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces), the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.
@@ -54,10 +54,8 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To get a list of geographic locations that Amazon Route 53 supports for geolocation, send a @GET@ request to the @//Amazon Route 53 API version/ /geolocations@ resource. The response to this request includes a @GeoLocationDetails@ element for each location that Amazon Route 53 supports.
+-- | A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets.
 --
---
--- Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces), the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.
 --
 --
 -- /See:/ 'listGeoLocations' smart constructor.
@@ -159,11 +157,11 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lglrsNextContinentCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @StartContinentCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- * 'lglrsNextContinentCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @StartContinentCode@ parameter in another @ListGeoLocations@ request.
 --
--- * 'lglrsNextCountryCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @StartCountryCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- * 'lglrsNextCountryCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @StartCountryCode@ parameter in another @ListGeoLocations@ request.
 --
--- * 'lglrsNextSubdivisionCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @StartSubdivisionCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- * 'lglrsNextSubdivisionCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @StartSubdivisionCode@ parameter in another @ListGeoLocations@ request.
 --
 -- * 'lglrsResponseStatus' - -- | The response status code.
 --
@@ -188,15 +186,15 @@ listGeoLocationsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
     , _lglrsMaxItems = pMaxItems_
     }
 
--- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @StartContinentCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @StartContinentCode@ parameter in another @ListGeoLocations@ request.
 lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextContinentCode = lens _lglrsNextContinentCode (\ s a -> s{_lglrsNextContinentCode = a});
 
--- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @StartCountryCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @StartCountryCode@ parameter in another @ListGeoLocations@ request.
 lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextCountryCode = lens _lglrsNextCountryCode (\ s a -> s{_lglrsNextCountryCode = a});
 
--- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @StartSubdivisionCode@ parameter in another @GET@ @ListGeoLocations@ request.
+-- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @StartSubdivisionCode@ parameter in another @ListGeoLocations@ request.
 lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\ s a -> s{_lglrsNextSubdivisionCode = a});
 

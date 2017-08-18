@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a list of your reusable delegation sets, send a @GET@ request to the @/2013-04-01/delegationset@ resource. The response to this request includes a @DelegationSets@ element with zero, one, or multiple @DelegationSet@ child elements. By default, the list of delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the delegation set that the list begins with.
+-- Retrieves a list of the reusable delegation sets that are associated with the current AWS account.
 --
 --
 module Network.AWS.Route53.ListReusableDelegationSets
@@ -49,7 +49,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a list of your reusable delegation sets, send a @GET@ request to the @/2013-04-01/delegationset@ resource. The response to this request includes a @DelegationSets@ element with zero or more @DelegationSet@ child elements. By default, the list of reusable delegation sets is displayed on a single page. You can control the length of the page that is displayed by using the @MaxItems@ parameter. You can use the @Marker@ parameter to control the delegation set that the list begins with.
+-- | A request to get a list of the reusable delegation sets that are associated with the current AWS account.
 --
 --
 --
@@ -63,9 +63,9 @@ data ListReusableDelegationSets = ListReusableDelegationSets'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrdsMarker' - If you're making the second or subsequent call to @ListReusableDelegationSets@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
+-- * 'lrdsMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more reusable delegation sets. To get another group, submit another @ListReusableDelegationSets@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first reusable delegation set that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more reusable delegation sets to get.
 --
--- * 'lrdsMaxItems' - The value that you specified for the @maxitems@ parameter in the request that produced the current response.
+-- * 'lrdsMaxItems' - The number of reusable delegation sets that you want Amazon Route 53 to return in the response to this request. If you specify a value greater than 100, Amazon Route 53 returns only the first 100 reusable delegation sets.
 listReusableDelegationSets
     :: ListReusableDelegationSets
 listReusableDelegationSets =
@@ -74,11 +74,11 @@ listReusableDelegationSets =
     , _lrdsMaxItems = Nothing
     }
 
--- | If you're making the second or subsequent call to @ListReusableDelegationSets@ , the @Marker@ element matches the value that you specified in the @marker@ parameter in the previous request.
+-- | If the value of @IsTruncated@ in the previous response was @true@ , you have more reusable delegation sets. To get another group, submit another @ListReusableDelegationSets@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first reusable delegation set that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more reusable delegation sets to get.
 lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMarker = lens _lrdsMarker (\ s a -> s{_lrdsMarker = a});
 
--- | The value that you specified for the @maxitems@ parameter in the request that produced the current response.
+-- | The number of reusable delegation sets that you want Amazon Route 53 to return in the response to this request. If you specify a value greater than 100, Amazon Route 53 returns only the first 100 reusable delegation sets.
 lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
 lrdsMaxItems = lens _lrdsMaxItems (\ s a -> s{_lrdsMaxItems = a});
 
@@ -131,15 +131,15 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lrdsrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first reusable delegation set in the next group of @maxitems@ reusable delegation sets. Call @ListReusableDelegationSets@ again and specify the value of @NextMarker@ in the @marker@ parameter.
+-- * 'lrdsrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the next reusable delegation set that Amazon Route 53 will return if you submit another @ListReusableDelegationSets@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 --
 -- * 'lrdsrsResponseStatus' - -- | The response status code.
 --
 -- * 'lrdsrsDelegationSets' - A complex type that contains one @DelegationSet@ element for each reusable delegation set that was created by the current AWS account.
 --
--- * 'lrdsrsMarker' - For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
+-- * 'lrdsrsMarker' - For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
 --
--- * 'lrdsrsIsTruncated' - A flag that indicates whether there are more reusable delegation sets to be listed. If the response is truncated, you can get the next group of @maxitems@ reusable delegation sets by calling @ListReusableDelegationSets@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
+-- * 'lrdsrsIsTruncated' - A flag that indicates whether there are more reusable delegation sets to be listed.
 --
 -- * 'lrdsrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListReusableDelegationSets@ that produced the current response.
 listReusableDelegationSetsResponse
@@ -158,7 +158,7 @@ listReusableDelegationSetsResponse pResponseStatus_ pMarker_ pIsTruncated_ pMaxI
     , _lrdsrsMaxItems = pMaxItems_
     }
 
--- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first reusable delegation set in the next group of @maxitems@ reusable delegation sets. Call @ListReusableDelegationSets@ again and specify the value of @NextMarker@ in the @marker@ parameter.
+-- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the next reusable delegation set that Amazon Route 53 will return if you submit another @ListReusableDelegationSets@ request and specify the value of @NextMarker@ in the @marker@ parameter.
 lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
@@ -170,11 +170,11 @@ lrdsrsResponseStatus = lens _lrdsrsResponseStatus (\ s a -> s{_lrdsrsResponseSta
 lrdsrsDelegationSets :: Lens' ListReusableDelegationSetsResponse [DelegationSet]
 lrdsrsDelegationSets = lens _lrdsrsDelegationSets (\ s a -> s{_lrdsrsDelegationSets = a}) . _Coerce;
 
--- | For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the marker parameter in the request that produced the current response.
+-- | For the second and subsequent calls to @ListReusableDelegationSets@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
 lrdsrsMarker :: Lens' ListReusableDelegationSetsResponse Text
 lrdsrsMarker = lens _lrdsrsMarker (\ s a -> s{_lrdsrsMarker = a});
 
--- | A flag that indicates whether there are more reusable delegation sets to be listed. If the response is truncated, you can get the next group of @maxitems@ reusable delegation sets by calling @ListReusableDelegationSets@ again and specifying the value of the @NextMarker@ element in the @marker@ parameter.
+-- | A flag that indicates whether there are more reusable delegation sets to be listed.
 lrdsrsIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
 lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a});
 

@@ -21,8 +21,6 @@
 -- Gets information about a specified traffic policy instance.
 --
 --
--- Send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance@ resource.
---
 module Network.AWS.Route53.GetTrafficPolicyInstance
     (
     -- * Creating a Request
@@ -48,8 +46,6 @@ import           Network.AWS.Route53.Types.Product
 
 -- | Gets information about a specified traffic policy instance.
 --
---
--- To get information about a traffic policy instance, send a @GET@ request to the @//Amazon Route 53 API version/ /trafficpolicyinstance//Id/ @ resource.
 --
 --
 -- /See:/ 'getTrafficPolicyInstance' smart constructor.

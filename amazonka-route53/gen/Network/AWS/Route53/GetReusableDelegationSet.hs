@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the reusable delegation set. Send a @GET@ request to the @/2013-04-01/delegationset//delegation set ID/ @ resource.
+-- Retrieves information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set.
 --
 --
 module Network.AWS.Route53.GetReusableDelegationSet
@@ -44,7 +44,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a @GetReusableDelegationSet@ request.
+-- | A request to get information about a specified reusable delegation set.
 --
 --
 --
@@ -57,7 +57,7 @@ newtype GetReusableDelegationSet = GetReusableDelegationSet'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grdsId' - The ID of the reusable delegation set for which you want to get a list of the name server.
+-- * 'grdsId' - The ID of the reusable delegation set that you want to get a list of name servers for.
 getReusableDelegationSet
     :: ResourceId -- ^ 'grdsId'
     -> GetReusableDelegationSet
@@ -66,7 +66,7 @@ getReusableDelegationSet pId_ =
     { _grdsId = pId_
     }
 
--- | The ID of the reusable delegation set for which you want to get a list of the name server.
+-- | The ID of the reusable delegation set that you want to get a list of name servers for.
 grdsId :: Lens' GetReusableDelegationSet ResourceId
 grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 

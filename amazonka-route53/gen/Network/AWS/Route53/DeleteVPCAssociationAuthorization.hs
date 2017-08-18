@@ -23,8 +23,6 @@
 --
 -- /Important:/ Sending this request only prevents the AWS account that created the VPC from associating the VPC with the Amazon Route 53 hosted zone in the future. If the VPC is already associated with the hosted zone, @DeleteVPCAssociationAuthorization@ won't disassociate the VPC from the hosted zone. If you want to delete an existing association, use @DisassociateVPCFromHostedZone@ .
 --
--- Send a @DELETE@ request to the @/2013-04-01/hostedzone//hosted zone ID/ /deauthorizevpcassociation@ resource. The request body must include a document with a @DeleteVPCAssociationAuthorizationRequest@ element.
---
 module Network.AWS.Route53.DeleteVPCAssociationAuthorization
     (
     -- * Creating a Request

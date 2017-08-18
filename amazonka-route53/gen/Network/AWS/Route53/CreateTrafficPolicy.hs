@@ -21,8 +21,6 @@
 -- Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
 --
 --
--- Send a @POST@ request to the @/2013-04-01/trafficpolicy@ resource. The request body must include a document with a @CreateTrafficPolicyRequest@ element. The response includes the @CreateTrafficPolicyResponse@ element, which contains information about the new traffic policy.
---
 module Network.AWS.Route53.CreateTrafficPolicy
     (
     -- * Creating a Request

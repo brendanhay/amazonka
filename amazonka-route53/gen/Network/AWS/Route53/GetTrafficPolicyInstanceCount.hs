@@ -21,8 +21,6 @@
 -- Gets the number of traffic policy instances that are associated with the current AWS account.
 --
 --
--- To get the number of traffic policy instances, send a @GET@ request to the @/2013-04-01/trafficpolicyinstancecount@ resource.
---
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     (
     -- * Creating a Request

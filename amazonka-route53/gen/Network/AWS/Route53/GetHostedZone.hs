@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the delegation set for a hosted zone, including the four name servers assigned to the hosted zone. Send a @GET@ request to the @//Amazon Route 53 API version/ /hostedzone//hosted zone ID/ @ resource.
+-- Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.
 --
 --
 module Network.AWS.Route53.GetHostedZone
@@ -46,7 +46,7 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | The input for a GetHostedZone request.
+-- | A request to get information about a specified hosted zone.
 --
 --
 --
@@ -59,7 +59,7 @@ newtype GetHostedZone = GetHostedZone'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghzId' - The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.
+-- * 'ghzId' - The ID of the hosted zone that you want to get information about.
 getHostedZone
     :: ResourceId -- ^ 'ghzId'
     -> GetHostedZone
@@ -68,7 +68,7 @@ getHostedZone pId_ =
     { _ghzId = pId_
     }
 
--- | The ID of the hosted zone for which you want to get a list of the name servers in the delegation set.
+-- | The ID of the hosted zone that you want to get information about.
 ghzId :: Lens' GetHostedZone ResourceId
 ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
@@ -99,7 +99,7 @@ instance ToPath GetHostedZone where
 instance ToQuery GetHostedZone where
         toQuery = const mempty
 
--- | A complex type containing the response information for the hosted zone.
+-- | A complex type that contain the response to a @GetHostedZone@ request.
 --
 --
 --
@@ -115,13 +115,13 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ghzrsVPCs' - A complex type that contains information about VPCs associated with the specified hosted zone.
+-- * 'ghzrsVPCs' - A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 --
--- * 'ghzrsDelegationSet' - A complex type that describes the name servers for this hosted zone.
+-- * 'ghzrsDelegationSet' - A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
 --
 -- * 'ghzrsResponseStatus' - -- | The response status code.
 --
--- * 'ghzrsHostedZone' - A complex type that contains general information about the hosted zone.
+-- * 'ghzrsHostedZone' - A complex type that contains general information about the specified hosted zone.
 getHostedZoneResponse
     :: Int -- ^ 'ghzrsResponseStatus'
     -> HostedZone -- ^ 'ghzrsHostedZone'
@@ -134,11 +134,11 @@ getHostedZoneResponse pResponseStatus_ pHostedZone_ =
     , _ghzrsHostedZone = pHostedZone_
     }
 
--- | A complex type that contains information about VPCs associated with the specified hosted zone.
+-- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 ghzrsVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
 ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 
--- | A complex type that describes the name servers for this hosted zone.
+-- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
@@ -146,7 +146,7 @@ ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = 
 ghzrsResponseStatus :: Lens' GetHostedZoneResponse Int
 ghzrsResponseStatus = lens _ghzrsResponseStatus (\ s a -> s{_ghzrsResponseStatus = a});
 
--- | A complex type that contains general information about the hosted zone.
+-- | A complex type that contains general information about the specified hosted zone.
 ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});
 

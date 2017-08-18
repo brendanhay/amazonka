@@ -245,6 +245,7 @@ module Network.AWS.Route53.Types
     , rrsHealthCheckId
     , rrsRegion
     , rrsGeoLocation
+    , rrsMultiValueAnswer
     , rrsName
     , rrsType
 
@@ -336,6 +337,8 @@ route53 =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasCode "Throttling" . hasStatus 400) e =
           Just "request_limit_exceeded"
       | has (hasStatus 429) e = Just "too_many_requests"
@@ -492,7 +495,13 @@ _DelegationSetInUse = _MatchServiceError route53 "DelegationSetInUse"
 _NoSuchDelegationSet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoSuchDelegationSet = _MatchServiceError route53 "NoSuchDelegationSet"
 
--- | The health check you're attempting to create already exists. Amazon Route 53 returns this error when a health check has already been created with the specified value for @CallerReference@ .
+-- | The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:
+--
+--
+--     * The same value for @CallerReference@ as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.
+--
+--     * The same value for @CallerReference@ as a health check that you created and later deleted, regardless of the other settings in the request.
+--
 --
 --
 _HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
@@ -596,7 +605,7 @@ _TooManyHostedZones :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyHostedZones =
     _MatchServiceError route53 "TooManyHostedZones" . hasStatus 400
 
--- | The health check ID for this health check is referenced in the @HealthCheckId@ element in one of the resource record sets in one of the hosted zones that are owned by the current AWS account.
+-- | This error code is not in use.
 --
 --
 _HealthCheckInUse :: AsError a => Getting (First ServiceError) a ServiceError
@@ -610,7 +619,13 @@ _DelegationSetAlreadyCreated :: AsError a => Getting (First ServiceError) a Serv
 _DelegationSetAlreadyCreated =
     _MatchServiceError route53 "DelegationSetAlreadyCreated"
 
--- | You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.
+-- | The cause of this error depends on whether you're trying to create a public or a private hosted zone:
+--
+--
+--     * __Public hosted zone:__ Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone.
+--
+--     * __Private hosted zone:__ You specified an Amazon VPC that you're already using for another hosted zone, and the domain that you specified for one of the hosted zones is a subdomain of the domain that you specified for the other hosted zone. For example, you can't use the same Amazon VPC for the hosted zones for example.com and test.example.com.
+--
 --
 --
 _ConflictingDomainExists :: AsError a => Getting (First ServiceError) a ServiceError

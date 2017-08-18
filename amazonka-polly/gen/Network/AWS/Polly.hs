@@ -54,6 +54,12 @@ module Network.AWS.Polly
     -- ** InvalidNextTokenException
     , _InvalidNextTokenException
 
+    -- ** MarksNotSupportedForFormatException
+    , _MarksNotSupportedForFormatException
+
+    -- ** SsmlMarksNotSupportedForTextTypeException
+    , _SsmlMarksNotSupportedForTextTypeException
+
     -- ** LexiconSizeExceededException
     , _LexiconSizeExceededException
 
@@ -94,6 +100,9 @@ module Network.AWS.Polly
 
     -- ** OutputFormat
     , OutputFormat (..)
+
+    -- ** SpeechMarkType
+    , SpeechMarkType (..)
 
     -- ** TextType
     , TextType (..)

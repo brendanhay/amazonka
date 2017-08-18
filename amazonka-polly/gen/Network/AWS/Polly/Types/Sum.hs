@@ -141,21 +141,24 @@ instance FromJSON LanguageCode where
     parseJSON = parseJSONText "LanguageCode"
 
 data OutputFormat
-    = MP3
+    = JSON
+    | MP3
     | OggVorbis
     | Pcm
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText OutputFormat where
     parser = takeLowerText >>= \case
+        "json" -> pure JSON
         "mp3" -> pure MP3
         "ogg_vorbis" -> pure OggVorbis
         "pcm" -> pure Pcm
         e -> fromTextError $ "Failure parsing OutputFormat from value: '" <> e
-           <> "'. Accepted values: mp3, ogg_vorbis, pcm"
+           <> "'. Accepted values: json, mp3, ogg_vorbis, pcm"
 
 instance ToText OutputFormat where
     toText = \case
+        JSON -> "json"
         MP3 -> "mp3"
         OggVorbis -> "ogg_vorbis"
         Pcm -> "pcm"
@@ -169,22 +172,54 @@ instance ToHeader     OutputFormat
 instance ToJSON OutputFormat where
     toJSON = toJSONText
 
+data SpeechMarkType
+    = Sentence
+    | Ssml
+    | Viseme
+    | Word
+    deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
+
+instance FromText SpeechMarkType where
+    parser = takeLowerText >>= \case
+        "sentence" -> pure Sentence
+        "ssml" -> pure Ssml
+        "viseme" -> pure Viseme
+        "word" -> pure Word
+        e -> fromTextError $ "Failure parsing SpeechMarkType from value: '" <> e
+           <> "'. Accepted values: sentence, ssml, viseme, word"
+
+instance ToText SpeechMarkType where
+    toText = \case
+        Sentence -> "sentence"
+        Ssml -> "ssml"
+        Viseme -> "viseme"
+        Word -> "word"
+
+instance Hashable     SpeechMarkType
+instance NFData       SpeechMarkType
+instance ToByteString SpeechMarkType
+instance ToQuery      SpeechMarkType
+instance ToHeader     SpeechMarkType
+
+instance ToJSON SpeechMarkType where
+    toJSON = toJSONText
+
 data TextType
-    = Ssml
-    | Text
+    = TTSsml
+    | TTText
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
 instance FromText TextType where
     parser = takeLowerText >>= \case
-        "ssml" -> pure Ssml
-        "text" -> pure Text
+        "ssml" -> pure TTSsml
+        "text" -> pure TTText
         e -> fromTextError $ "Failure parsing TextType from value: '" <> e
            <> "'. Accepted values: ssml, text"
 
 instance ToText TextType where
     toText = \case
-        Ssml -> "ssml"
-        Text -> "text"
+        TTSsml -> "ssml"
+        TTText -> "text"
 
 instance Hashable     TextType
 instance NFData       TextType
@@ -242,6 +277,7 @@ data VoiceId
     | Russell
     | Salli
     | Tatyana
+    | Vicki
     | Vitoria
     deriving (Eq,Ord,Read,Show,Enum,Bounded,Data,Typeable,Generic)
 
@@ -293,9 +329,10 @@ instance FromText VoiceId where
         "russell" -> pure Russell
         "salli" -> pure Salli
         "tatyana" -> pure Tatyana
+        "vicki" -> pure Vicki
         "vitoria" -> pure Vitoria
         e -> fromTextError $ "Failure parsing VoiceId from value: '" <> e
-           <> "'. Accepted values: amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, tatyana, vitoria"
+           <> "'. Accepted values: amy, astrid, brian, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kimberly, liv, lotte, mads, maja, marlene, mathieu, maxim, miguel, mizuki, naja, nicole, penelope, raveena, ricardo, ruben, russell, salli, tatyana, vicki, vitoria"
 
 instance ToText VoiceId where
     toText = \case
@@ -345,6 +382,7 @@ instance ToText VoiceId where
         Russell -> "Russell"
         Salli -> "Salli"
         Tatyana -> "Tatyana"
+        Vicki -> "Vicki"
         Vitoria -> "Vitoria"
 
 instance Hashable     VoiceId

@@ -59,6 +59,9 @@ module Network.AWS.DirectoryService
     -- ** SnapshotLimitExceededException
     , _SnapshotLimitExceededException
 
+    -- ** DomainControllerLimitExceededException
+    , _DomainControllerLimitExceededException
+
     -- ** TagLimitExceededException
     , _TagLimitExceededException
 
@@ -70,6 +73,9 @@ module Network.AWS.DirectoryService
 
     -- * Operations
     -- $operations
+
+    -- ** UpdateNumberOfDomainControllers
+    , module Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
 
     -- ** DescribeConditionalForwarders
     , module Network.AWS.DirectoryService.DescribeConditionalForwarders
@@ -146,6 +152,9 @@ module Network.AWS.DirectoryService
     -- ** RestoreFromSnapshot
     , module Network.AWS.DirectoryService.RestoreFromSnapshot
 
+    -- ** DescribeDomainControllers
+    , module Network.AWS.DirectoryService.DescribeDomainControllers
+
     -- ** DescribeSnapshots
     , module Network.AWS.DirectoryService.DescribeSnapshots
 
@@ -195,6 +204,9 @@ module Network.AWS.DirectoryService
 
     -- ** DirectoryType
     , DirectoryType (..)
+
+    -- ** DomainControllerStatus
+    , DomainControllerStatus (..)
 
     -- ** IPRouteStatusMsg
     , IPRouteStatusMsg (..)
@@ -276,6 +288,7 @@ module Network.AWS.DirectoryService
     , ddAccessURL
     , ddShortName
     , ddSize
+    , ddDesiredNumberOfDomainControllers
     , ddRadiusSettings
     , ddLaunchTime
     , ddAlias
@@ -315,6 +328,20 @@ module Network.AWS.DirectoryService
     , dvsdVPCId
     , dvsdSecurityGroupId
     , dvsdAvailabilityZones
+
+    -- ** DomainController
+    , DomainController
+    , domainController
+    , dcStatus
+    , dcDirectoryId
+    , dcVPCId
+    , dcLaunchTime
+    , dcSubnetId
+    , dcAvailabilityZone
+    , dcStatusLastUpdatedDateTime
+    , dcStatusReason
+    , dcDNSIPAddr
+    , dcDomainControllerId
 
     -- ** EventTopic
     , EventTopic
@@ -420,6 +447,7 @@ import           Network.AWS.DirectoryService.DeleteTrust
 import           Network.AWS.DirectoryService.DeregisterEventTopic
 import           Network.AWS.DirectoryService.DescribeConditionalForwarders
 import           Network.AWS.DirectoryService.DescribeDirectories
+import           Network.AWS.DirectoryService.DescribeDomainControllers
 import           Network.AWS.DirectoryService.DescribeEventTopics
 import           Network.AWS.DirectoryService.DescribeSnapshots
 import           Network.AWS.DirectoryService.DescribeTrusts
@@ -439,6 +467,7 @@ import           Network.AWS.DirectoryService.RestoreFromSnapshot
 import           Network.AWS.DirectoryService.StartSchemaExtension
 import           Network.AWS.DirectoryService.Types
 import           Network.AWS.DirectoryService.UpdateConditionalForwarder
+import           Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
 import           Network.AWS.DirectoryService.UpdateRadius
 import           Network.AWS.DirectoryService.VerifyTrust
 import           Network.AWS.DirectoryService.Waiters

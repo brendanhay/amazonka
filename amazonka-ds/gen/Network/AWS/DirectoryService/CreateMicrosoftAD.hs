@@ -75,7 +75,7 @@ data CreateMicrosoftAD = CreateMicrosoftAD'
 --
 -- * 'cmadPassword' - The password for the default administrative user named @Admin@ .
 --
--- * 'cmadVPCSettings' - Undocumented member.
+-- * 'cmadVPCSettings' - Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
 createMicrosoftAD
     :: Text -- ^ 'cmadName'
     -> Text -- ^ 'cmadPassword'
@@ -106,7 +106,7 @@ cmadName = lens _cmadName (\ s a -> s{_cmadName = a});
 cmadPassword :: Lens' CreateMicrosoftAD Text
 cmadPassword = lens _cmadPassword (\ s a -> s{_cmadPassword = a}) . _Sensitive;
 
--- | Undocumented member.
+-- | Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
 cmadVPCSettings :: Lens' CreateMicrosoftAD DirectoryVPCSettings
 cmadVPCSettings = lens _cmadVPCSettings (\ s a -> s{_cmadVPCSettings = a});
 

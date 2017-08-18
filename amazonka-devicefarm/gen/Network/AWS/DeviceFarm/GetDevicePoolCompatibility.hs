@@ -27,6 +27,7 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
       getDevicePoolCompatibility
     , GetDevicePoolCompatibility
     -- * Request Lenses
+    , gdpcTest
     , gdpcAppARN
     , gdpcTestType
     , gdpcDevicePoolARN
@@ -53,7 +54,8 @@ import           Network.AWS.Response
 --
 -- /See:/ 'getDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-    { _gdpcAppARN        :: !(Maybe Text)
+    { _gdpcTest          :: !(Maybe ScheduleRunTest)
+    , _gdpcAppARN        :: !(Maybe Text)
     , _gdpcTestType      :: !(Maybe TestType)
     , _gdpcDevicePoolARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -61,6 +63,8 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
 -- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpcTest' - Information about the uploaded test to be run against the device pool.
 --
 -- * 'gdpcAppARN' - The ARN of the app that is associated with the specified device pool.
 --
@@ -72,10 +76,15 @@ getDevicePoolCompatibility
     -> GetDevicePoolCompatibility
 getDevicePoolCompatibility pDevicePoolARN_ =
     GetDevicePoolCompatibility'
-    { _gdpcAppARN = Nothing
+    { _gdpcTest = Nothing
+    , _gdpcAppARN = Nothing
     , _gdpcTestType = Nothing
     , _gdpcDevicePoolARN = pDevicePoolARN_
     }
+
+-- | Information about the uploaded test to be run against the device pool.
+gdpcTest :: Lens' GetDevicePoolCompatibility (Maybe ScheduleRunTest)
+gdpcTest = lens _gdpcTest (\ s a -> s{_gdpcTest = a});
 
 -- | The ARN of the app that is associated with the specified device pool.
 gdpcAppARN :: Lens' GetDevicePoolCompatibility (Maybe Text)
@@ -119,7 +128,8 @@ instance ToJSON GetDevicePoolCompatibility where
         toJSON GetDevicePoolCompatibility'{..}
           = object
               (catMaybes
-                 [("appArn" .=) <$> _gdpcAppARN,
+                 [("test" .=) <$> _gdpcTest,
+                  ("appArn" .=) <$> _gdpcAppARN,
                   ("testType" .=) <$> _gdpcTestType,
                   Just ("devicePoolArn" .= _gdpcDevicePoolARN)])
 

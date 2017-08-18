@@ -197,6 +197,7 @@ instance FromJSON CurrencyCode where
 
 data DeviceAttribute
     = ARN
+    | AppiumVersion
     | FormFactor
     | Manufacturer
     | Platform
@@ -206,16 +207,18 @@ data DeviceAttribute
 instance FromText DeviceAttribute where
     parser = takeLowerText >>= \case
         "arn" -> pure ARN
+        "appium_version" -> pure AppiumVersion
         "form_factor" -> pure FormFactor
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
         "remote_access_enabled" -> pure RemoteAccessEnabled
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, form_factor, manufacturer, platform, remote_access_enabled"
+           <> "'. Accepted values: arn, appium_version, form_factor, manufacturer, platform, remote_access_enabled"
 
 instance ToText DeviceAttribute where
     toText = \case
         ARN -> "ARN"
+        AppiumVersion -> "APPIUM_VERSION"
         FormFactor -> "FORM_FACTOR"
         Manufacturer -> "MANUFACTURER"
         Platform -> "PLATFORM"
@@ -507,7 +510,8 @@ instance FromJSON RecurringChargeFrequency where
     parseJSON = parseJSONText "RecurringChargeFrequency"
 
 data RuleOperator
-    = Equals
+    = Contains
+    | Equals
     | GreaterThan
     | IN
     | LessThan
@@ -516,16 +520,18 @@ data RuleOperator
 
 instance FromText RuleOperator where
     parser = takeLowerText >>= \case
+        "contains" -> pure Contains
         "equals" -> pure Equals
         "greater_than" -> pure GreaterThan
         "in" -> pure IN
         "less_than" -> pure LessThan
         "not_in" -> pure NotIn
         e -> fromTextError $ "Failure parsing RuleOperator from value: '" <> e
-           <> "'. Accepted values: equals, greater_than, in, less_than, not_in"
+           <> "'. Accepted values: contains, equals, greater_than, in, less_than, not_in"
 
 instance ToText RuleOperator where
     toText = \case
+        Contains -> "CONTAINS"
         Equals -> "EQUALS"
         GreaterThan -> "GREATER_THAN"
         IN -> "IN"

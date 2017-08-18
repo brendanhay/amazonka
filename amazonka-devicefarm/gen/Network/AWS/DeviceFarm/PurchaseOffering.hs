@@ -29,6 +29,7 @@ module Network.AWS.DeviceFarm.PurchaseOffering
     -- * Request Lenses
     , poQuantity
     , poOfferingId
+    , poOfferingPromotionId
 
     -- * Destructuring the Response
     , purchaseOfferingResponse
@@ -51,8 +52,9 @@ import           Network.AWS.Response
 --
 -- /See:/ 'purchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-    { _poQuantity   :: !(Maybe Int)
-    , _poOfferingId :: !(Maybe Text)
+    { _poQuantity            :: !(Maybe Int)
+    , _poOfferingId          :: !(Maybe Text)
+    , _poOfferingPromotionId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'PurchaseOffering' with the minimum fields required to make a request.
@@ -62,12 +64,15 @@ data PurchaseOffering = PurchaseOffering'
 -- * 'poQuantity' - The number of device slots you wish to purchase in an offering request.
 --
 -- * 'poOfferingId' - The ID of the offering.
+--
+-- * 'poOfferingPromotionId' - The ID of the offering promotion to be applied to the purchase.
 purchaseOffering
     :: PurchaseOffering
 purchaseOffering =
     PurchaseOffering'
     { _poQuantity = Nothing
     , _poOfferingId = Nothing
+    , _poOfferingPromotionId = Nothing
     }
 
 -- | The number of device slots you wish to purchase in an offering request.
@@ -77,6 +82,10 @@ poQuantity = lens _poQuantity (\ s a -> s{_poQuantity = a});
 -- | The ID of the offering.
 poOfferingId :: Lens' PurchaseOffering (Maybe Text)
 poOfferingId = lens _poOfferingId (\ s a -> s{_poOfferingId = a});
+
+-- | The ID of the offering promotion to be applied to the purchase.
+poOfferingPromotionId :: Lens' PurchaseOffering (Maybe Text)
+poOfferingPromotionId = lens _poOfferingPromotionId (\ s a -> s{_poOfferingPromotionId = a});
 
 instance AWSRequest PurchaseOffering where
         type Rs PurchaseOffering = PurchaseOfferingResponse
@@ -107,7 +116,9 @@ instance ToJSON PurchaseOffering where
           = object
               (catMaybes
                  [("quantity" .=) <$> _poQuantity,
-                  ("offeringId" .=) <$> _poOfferingId])
+                  ("offeringId" .=) <$> _poOfferingId,
+                  ("offeringPromotionId" .=) <$>
+                    _poOfferingPromotionId])
 
 instance ToPath PurchaseOffering where
         toPath = const "/"

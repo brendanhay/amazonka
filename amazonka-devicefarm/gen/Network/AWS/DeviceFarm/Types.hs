@@ -85,6 +85,8 @@ module Network.AWS.DeviceFarm.Types
     , accountSettings
     , asAwsAccountNumber
     , asMaxJobTimeoutMinutes
+    , asMaxSlots
+    , asTrialMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
     , asDefaultJobTimeoutMinutes
@@ -168,6 +170,8 @@ module Network.AWS.DeviceFarm.Types
     -- * ExecutionConfiguration
     , ExecutionConfiguration
     , executionConfiguration
+    , ecAccountsCleanup
+    , ecAppPackagesCleanup
     , ecJobTimeoutMinutes
 
     -- * IncompatibilityMessage
@@ -229,6 +233,12 @@ module Network.AWS.DeviceFarm.Types
     , oType
     , oDescription
 
+    -- * OfferingPromotion
+    , OfferingPromotion
+    , offeringPromotion
+    , opId
+    , opDescription
+
     -- * OfferingStatus
     , OfferingStatus
     , offeringStatus
@@ -243,6 +253,7 @@ module Network.AWS.DeviceFarm.Types
     , otOfferingStatus
     , otCost
     , otTransactionId
+    , otOfferingPromotionId
     , otCreatedOn
 
     -- * Problem
@@ -389,6 +400,12 @@ module Network.AWS.DeviceFarm.Types
     , tMessage
     , tStarted
 
+    -- * TrialMinutes
+    , TrialMinutes
+    , trialMinutes
+    , tmRemaining
+    , tmTotal
+
     -- * UniqueProblem
     , UniqueProblem
     , uniqueProblem
@@ -438,6 +455,8 @@ deviceFarm =
         , _retryCheck = check
         }
     check e
+      | has (hasCode "ThrottledException" . hasStatus 400) e =
+          Just "throttled_exception"
       | has (hasStatus 429) e = Just "too_many_requests"
       | has (hasCode "ThrottlingException" . hasStatus 400) e =
           Just "throttling_exception"

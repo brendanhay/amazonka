@@ -29,6 +29,8 @@ import           Network.AWS.Prelude
 data AccountSettings = AccountSettings'
     { _asAwsAccountNumber             :: !(Maybe Text)
     , _asMaxJobTimeoutMinutes         :: !(Maybe Int)
+    , _asMaxSlots                     :: !(Maybe (Map Text Int))
+    , _asTrialMinutes                 :: !(Maybe TrialMinutes)
     , _asUnmeteredDevices             :: !(Maybe (Map DevicePlatform Int))
     , _asUnmeteredRemoteAccessDevices :: !(Maybe (Map DevicePlatform Int))
     , _asDefaultJobTimeoutMinutes     :: !(Maybe Int)
@@ -42,6 +44,10 @@ data AccountSettings = AccountSettings'
 --
 -- * 'asMaxJobTimeoutMinutes' - The maximum number of minutes a test run will execute before it times out.
 --
+-- * 'asMaxSlots' - The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an @offering-id:number@ pair, where the @offering-id@ represents one of the IDs returned by the @ListOfferings@ command.
+--
+-- * 'asTrialMinutes' - Information about an AWS account's usage of free trial device minutes.
+--
 -- * 'asUnmeteredDevices' - Returns the unmetered devices you have purchased or want to purchase.
 --
 -- * 'asUnmeteredRemoteAccessDevices' - Returns the unmetered remote access devices you have purchased or want to purchase.
@@ -53,6 +59,8 @@ accountSettings =
     AccountSettings'
     { _asAwsAccountNumber = Nothing
     , _asMaxJobTimeoutMinutes = Nothing
+    , _asMaxSlots = Nothing
+    , _asTrialMinutes = Nothing
     , _asUnmeteredDevices = Nothing
     , _asUnmeteredRemoteAccessDevices = Nothing
     , _asDefaultJobTimeoutMinutes = Nothing
@@ -65,6 +73,14 @@ asAwsAccountNumber = lens _asAwsAccountNumber (\ s a -> s{_asAwsAccountNumber = 
 -- | The maximum number of minutes a test run will execute before it times out.
 asMaxJobTimeoutMinutes :: Lens' AccountSettings (Maybe Int)
 asMaxJobTimeoutMinutes = lens _asMaxJobTimeoutMinutes (\ s a -> s{_asMaxJobTimeoutMinutes = a});
+
+-- | The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an @offering-id:number@ pair, where the @offering-id@ represents one of the IDs returned by the @ListOfferings@ command.
+asMaxSlots :: Lens' AccountSettings (HashMap Text Int)
+asMaxSlots = lens _asMaxSlots (\ s a -> s{_asMaxSlots = a}) . _Default . _Map;
+
+-- | Information about an AWS account's usage of free trial device minutes.
+asTrialMinutes :: Lens' AccountSettings (Maybe TrialMinutes)
+asTrialMinutes = lens _asTrialMinutes (\ s a -> s{_asTrialMinutes = a});
 
 -- | Returns the unmetered devices you have purchased or want to purchase.
 asUnmeteredDevices :: Lens' AccountSettings (HashMap DevicePlatform Int)
@@ -85,6 +101,8 @@ instance FromJSON AccountSettings where
                  AccountSettings' <$>
                    (x .:? "awsAccountNumber") <*>
                      (x .:? "maxJobTimeoutMinutes")
+                     <*> (x .:? "maxSlots" .!= mempty)
+                     <*> (x .:? "trialMinutes")
                      <*> (x .:? "unmeteredDevices" .!= mempty)
                      <*> (x .:? "unmeteredRemoteAccessDevices" .!= mempty)
                      <*> (x .:? "defaultJobTimeoutMinutes"))
@@ -707,21 +725,37 @@ instance NFData DevicePoolCompatibilityResult
 --
 --
 -- /See:/ 'executionConfiguration' smart constructor.
-newtype ExecutionConfiguration = ExecutionConfiguration'
-    { _ecJobTimeoutMinutes :: Maybe Int
+data ExecutionConfiguration = ExecutionConfiguration'
+    { _ecAccountsCleanup    :: !(Maybe Bool)
+    , _ecAppPackagesCleanup :: !(Maybe Bool)
+    , _ecJobTimeoutMinutes  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'ExecutionConfiguration' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'ecAccountsCleanup' - True if account cleanup is enabled at the beginning of the test; otherwise, false.
+--
+-- * 'ecAppPackagesCleanup' - True if app package cleanup is enabled at the beginning of the test; otherwise, false.
+--
 -- * 'ecJobTimeoutMinutes' - The number of minutes a test run will execute before it times out.
 executionConfiguration
     :: ExecutionConfiguration
 executionConfiguration =
     ExecutionConfiguration'
-    { _ecJobTimeoutMinutes = Nothing
+    { _ecAccountsCleanup = Nothing
+    , _ecAppPackagesCleanup = Nothing
+    , _ecJobTimeoutMinutes = Nothing
     }
+
+-- | True if account cleanup is enabled at the beginning of the test; otherwise, false.
+ecAccountsCleanup :: Lens' ExecutionConfiguration (Maybe Bool)
+ecAccountsCleanup = lens _ecAccountsCleanup (\ s a -> s{_ecAccountsCleanup = a});
+
+-- | True if app package cleanup is enabled at the beginning of the test; otherwise, false.
+ecAppPackagesCleanup :: Lens' ExecutionConfiguration (Maybe Bool)
+ecAppPackagesCleanup = lens _ecAppPackagesCleanup (\ s a -> s{_ecAppPackagesCleanup = a});
 
 -- | The number of minutes a test run will execute before it times out.
 ecJobTimeoutMinutes :: Lens' ExecutionConfiguration (Maybe Int)
@@ -735,7 +769,9 @@ instance ToJSON ExecutionConfiguration where
         toJSON ExecutionConfiguration'{..}
           = object
               (catMaybes
-                 [("jobTimeoutMinutes" .=) <$> _ecJobTimeoutMinutes])
+                 [("accountsCleanup" .=) <$> _ecAccountsCleanup,
+                  ("appPackagesCleanup" .=) <$> _ecAppPackagesCleanup,
+                  ("jobTimeoutMinutes" .=) <$> _ecJobTimeoutMinutes])
 
 -- | Represents information about incompatibility.
 --
@@ -751,7 +787,7 @@ data IncompatibilityMessage = IncompatibilityMessage'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'imType' - The type of incompatibility. Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).
+-- * 'imType' - The type of incompatibility. Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 --
 -- * 'imMessage' - A message about the incompatibility.
 incompatibilityMessage
@@ -762,7 +798,7 @@ incompatibilityMessage =
     , _imMessage = Nothing
     }
 
--- | The type of incompatibility. Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).
+-- | The type of incompatibility. Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 imType :: Lens' IncompatibilityMessage (Maybe DeviceAttribute)
 imType = lens _imType (\ s a -> s{_imType = a});
 
@@ -1212,6 +1248,50 @@ instance Hashable Offering
 
 instance NFData Offering
 
+-- | Represents information about an offering promotion.
+--
+--
+--
+-- /See:/ 'offeringPromotion' smart constructor.
+data OfferingPromotion = OfferingPromotion'
+    { _opId          :: !(Maybe Text)
+    , _opDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OfferingPromotion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'opId' - The ID of the offering promotion.
+--
+-- * 'opDescription' - A string describing the offering promotion.
+offeringPromotion
+    :: OfferingPromotion
+offeringPromotion =
+    OfferingPromotion'
+    { _opId = Nothing
+    , _opDescription = Nothing
+    }
+
+-- | The ID of the offering promotion.
+opId :: Lens' OfferingPromotion (Maybe Text)
+opId = lens _opId (\ s a -> s{_opId = a});
+
+-- | A string describing the offering promotion.
+opDescription :: Lens' OfferingPromotion (Maybe Text)
+opDescription = lens _opDescription (\ s a -> s{_opDescription = a});
+
+instance FromJSON OfferingPromotion where
+        parseJSON
+          = withObject "OfferingPromotion"
+              (\ x ->
+                 OfferingPromotion' <$>
+                   (x .:? "id") <*> (x .:? "description"))
+
+instance Hashable OfferingPromotion
+
+instance NFData OfferingPromotion
+
 -- | The status of the offering.
 --
 --
@@ -1280,10 +1360,11 @@ instance NFData OfferingStatus
 --
 -- /See:/ 'offeringTransaction' smart constructor.
 data OfferingTransaction = OfferingTransaction'
-    { _otOfferingStatus :: !(Maybe OfferingStatus)
-    , _otCost           :: !(Maybe MonetaryAmount)
-    , _otTransactionId  :: !(Maybe Text)
-    , _otCreatedOn      :: !(Maybe POSIX)
+    { _otOfferingStatus      :: !(Maybe OfferingStatus)
+    , _otCost                :: !(Maybe MonetaryAmount)
+    , _otTransactionId       :: !(Maybe Text)
+    , _otOfferingPromotionId :: !(Maybe Text)
+    , _otCreatedOn           :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'OfferingTransaction' with the minimum fields required to make a request.
@@ -1296,6 +1377,8 @@ data OfferingTransaction = OfferingTransaction'
 --
 -- * 'otTransactionId' - The transaction ID of the offering transaction.
 --
+-- * 'otOfferingPromotionId' - The ID that corresponds to a device offering promotion.
+--
 -- * 'otCreatedOn' - The date on which an offering transaction was created.
 offeringTransaction
     :: OfferingTransaction
@@ -1304,6 +1387,7 @@ offeringTransaction =
     { _otOfferingStatus = Nothing
     , _otCost = Nothing
     , _otTransactionId = Nothing
+    , _otOfferingPromotionId = Nothing
     , _otCreatedOn = Nothing
     }
 
@@ -1319,6 +1403,10 @@ otCost = lens _otCost (\ s a -> s{_otCost = a});
 otTransactionId :: Lens' OfferingTransaction (Maybe Text)
 otTransactionId = lens _otTransactionId (\ s a -> s{_otTransactionId = a});
 
+-- | The ID that corresponds to a device offering promotion.
+otOfferingPromotionId :: Lens' OfferingTransaction (Maybe Text)
+otOfferingPromotionId = lens _otOfferingPromotionId (\ s a -> s{_otOfferingPromotionId = a});
+
 -- | The date on which an offering transaction was created.
 otCreatedOn :: Lens' OfferingTransaction (Maybe UTCTime)
 otCreatedOn = lens _otCreatedOn (\ s a -> s{_otCreatedOn = a}) . mapping _Time;
@@ -1330,6 +1418,7 @@ instance FromJSON OfferingTransaction where
                  OfferingTransaction' <$>
                    (x .:? "offeringStatus") <*> (x .:? "cost") <*>
                      (x .:? "transactionId")
+                     <*> (x .:? "offeringPromotionId")
                      <*> (x .:? "createdOn"))
 
 instance Hashable OfferingTransaction
@@ -1827,9 +1916,9 @@ data Rule = Rule'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rAttribute' - The rule's stringified attribute. For example, specify the value as @"\"abc\""@ . Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).
+-- * 'rAttribute' - The rule's stringified attribute. For example, specify the value as @"\"abc\""@ . Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 --
--- * 'rOperator' - The rule's operator.     * EQUALS: The equals operator.     * GREATER_THAN: The greater-than operator.     * IN: The in operator.     * LESS_THAN: The less-than operator.     * NOT_IN: The not-in operator.
+-- * 'rOperator' - The rule's operator.     * EQUALS: The equals operator.     * GREATER_THAN: The greater-than operator.     * IN: The in operator.     * LESS_THAN: The less-than operator.     * NOT_IN: The not-in operator.     * CONTAINS: The contains operator.
 --
 -- * 'rValue' - The rule's value.
 rule
@@ -1841,11 +1930,11 @@ rule =
     , _rValue = Nothing
     }
 
--- | The rule's stringified attribute. For example, specify the value as @"\"abc\""@ . Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).
+-- | The rule's stringified attribute. For example, specify the value as @"\"abc\""@ . Allowed values include:     * ARN: The ARN.     * FORM_FACTOR: The form factor (for example, phone or tablet).     * MANUFACTURER: The manufacturer.     * PLATFORM: The platform (for example, Android or iOS).     * REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.     * APPIUM_VERSION: The Appium version for the test.
 rAttribute :: Lens' Rule (Maybe DeviceAttribute)
 rAttribute = lens _rAttribute (\ s a -> s{_rAttribute = a});
 
--- | The rule's operator.     * EQUALS: The equals operator.     * GREATER_THAN: The greater-than operator.     * IN: The in operator.     * LESS_THAN: The less-than operator.     * NOT_IN: The not-in operator.
+-- | The rule's operator.     * EQUALS: The equals operator.     * GREATER_THAN: The greater-than operator.     * IN: The in operator.     * LESS_THAN: The less-than operator.     * NOT_IN: The not-in operator.     * CONTAINS: The contains operator.
 rOperator :: Lens' Rule (Maybe RuleOperator)
 rOperator = lens _rOperator (\ s a -> s{_rOperator = a});
 
@@ -2203,7 +2292,7 @@ data ScheduleRunTest = ScheduleRunTest'
 --
 -- * 'srtTestPackageARN' - The ARN of the uploaded test that will be run.
 --
--- * 'srtParameters' - The test's parameters, such as test framework parameters and fixture settings.
+-- * 'srtParameters' - The test's parameters, such as the following test framework parameters and fixture settings: For Calabash tests:     * profile: A cucumber profile, for example, "my_profile_name".     * tags: You can limit execution to features or scenarios that have (or don't have) certain tags, for example, "@smoke" or "@smoke,~@wip". For Appium tests (all types):     * appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3", "latest", and "default".     * “latest” will run the latest Appium version supported by Device Farm (1.6.3).     * For “default”, Device Farm will choose a compatible version of Appium for the device. The current behavior is to run 1.4.16 on Android devices and iOS 9 and earlier, 1.6.3 for iOS 10 and later.     * This behavior is subject to change. For Fuzz tests (Android only):     * event_count: The number of events, between 1 and 10000, that the UI fuzz test should perform.     * throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between events.     * seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences. For Explorer tests:     * username: A username to use if the Explorer encounters a login form. If not supplied, no username will be inserted.     * password: A password to use if the Explorer encounters a login form. If not supplied, no password will be inserted. For Instrumentation:     * filter: A test filter string. Examples:     * Running a single test case: "com.android.abc.Test1"     * Running a single test: "com.android.abc.Test1#smoke"     * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" For XCTest and XCTestUI:     * filter: A test filter string. Examples:     * Running a single test class: "LoginTests"     * Running a multiple test classes: "LoginTests,SmokeTests"     * Running a single test: "LoginTests/testValid"     * Running multiple tests: "LoginTests/testValid,LoginTests/testInvalid" For UIAutomator:     * filter: A test filter string. Examples:     * Running a single test case: "com.android.abc.Test1"     * Running a single test: "com.android.abc.Test1#smoke"     * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2"
 --
 -- * 'srtFilter' - The test's filter.
 --
@@ -2223,7 +2312,7 @@ scheduleRunTest pType_ =
 srtTestPackageARN :: Lens' ScheduleRunTest (Maybe Text)
 srtTestPackageARN = lens _srtTestPackageARN (\ s a -> s{_srtTestPackageARN = a});
 
--- | The test's parameters, such as test framework parameters and fixture settings.
+-- | The test's parameters, such as the following test framework parameters and fixture settings: For Calabash tests:     * profile: A cucumber profile, for example, "my_profile_name".     * tags: You can limit execution to features or scenarios that have (or don't have) certain tags, for example, "@smoke" or "@smoke,~@wip". For Appium tests (all types):     * appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3", "latest", and "default".     * “latest” will run the latest Appium version supported by Device Farm (1.6.3).     * For “default”, Device Farm will choose a compatible version of Appium for the device. The current behavior is to run 1.4.16 on Android devices and iOS 9 and earlier, 1.6.3 for iOS 10 and later.     * This behavior is subject to change. For Fuzz tests (Android only):     * event_count: The number of events, between 1 and 10000, that the UI fuzz test should perform.     * throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between events.     * seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences. For Explorer tests:     * username: A username to use if the Explorer encounters a login form. If not supplied, no username will be inserted.     * password: A password to use if the Explorer encounters a login form. If not supplied, no password will be inserted. For Instrumentation:     * filter: A test filter string. Examples:     * Running a single test case: "com.android.abc.Test1"     * Running a single test: "com.android.abc.Test1#smoke"     * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2" For XCTest and XCTestUI:     * filter: A test filter string. Examples:     * Running a single test class: "LoginTests"     * Running a multiple test classes: "LoginTests,SmokeTests"     * Running a single test: "LoginTests/testValid"     * Running multiple tests: "LoginTests/testValid,LoginTests/testInvalid" For UIAutomator:     * filter: A test filter string. Examples:     * Running a single test case: "com.android.abc.Test1"     * Running a single test: "com.android.abc.Test1#smoke"     * Running multiple tests: "com.android.abc.Test1,com.android.abc.Test2"
 srtParameters :: Lens' ScheduleRunTest (HashMap Text Text)
 srtParameters = lens _srtParameters (\ s a -> s{_srtParameters = a}) . _Default . _Map;
 
@@ -2497,6 +2586,50 @@ instance FromJSON Test where
 instance Hashable Test
 
 instance NFData Test
+
+-- | Represents information about free trial device minutes for an AWS account.
+--
+--
+--
+-- /See:/ 'trialMinutes' smart constructor.
+data TrialMinutes = TrialMinutes'
+    { _tmRemaining :: !(Maybe Double)
+    , _tmTotal     :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrialMinutes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tmRemaining' - The number of free trial minutes remaining in the account.
+--
+-- * 'tmTotal' - The total number of free trial minutes that the account started with.
+trialMinutes
+    :: TrialMinutes
+trialMinutes =
+    TrialMinutes'
+    { _tmRemaining = Nothing
+    , _tmTotal = Nothing
+    }
+
+-- | The number of free trial minutes remaining in the account.
+tmRemaining :: Lens' TrialMinutes (Maybe Double)
+tmRemaining = lens _tmRemaining (\ s a -> s{_tmRemaining = a});
+
+-- | The total number of free trial minutes that the account started with.
+tmTotal :: Lens' TrialMinutes (Maybe Double)
+tmTotal = lens _tmTotal (\ s a -> s{_tmTotal = a});
+
+instance FromJSON TrialMinutes where
+        parseJSON
+          = withObject "TrialMinutes"
+              (\ x ->
+                 TrialMinutes' <$>
+                   (x .:? "remaining") <*> (x .:? "total"))
+
+instance Hashable TrialMinutes
+
+instance NFData TrialMinutes
 
 -- | A collection of one or more problems, grouped by their result.
 --

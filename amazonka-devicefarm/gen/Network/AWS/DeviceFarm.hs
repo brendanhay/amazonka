@@ -157,6 +157,9 @@ module Network.AWS.DeviceFarm
     -- ** CreateRemoteAccessSession
     , module Network.AWS.DeviceFarm.CreateRemoteAccessSession
 
+    -- ** ListOfferingPromotions
+    , module Network.AWS.DeviceFarm.ListOfferingPromotions
+
     -- ** GetOfferingStatus (Paginated)
     , module Network.AWS.DeviceFarm.GetOfferingStatus
 
@@ -254,6 +257,8 @@ module Network.AWS.DeviceFarm
     , accountSettings
     , asAwsAccountNumber
     , asMaxJobTimeoutMinutes
+    , asMaxSlots
+    , asTrialMinutes
     , asUnmeteredDevices
     , asUnmeteredRemoteAccessDevices
     , asDefaultJobTimeoutMinutes
@@ -337,6 +342,8 @@ module Network.AWS.DeviceFarm
     -- ** ExecutionConfiguration
     , ExecutionConfiguration
     , executionConfiguration
+    , ecAccountsCleanup
+    , ecAppPackagesCleanup
     , ecJobTimeoutMinutes
 
     -- ** IncompatibilityMessage
@@ -398,6 +405,12 @@ module Network.AWS.DeviceFarm
     , oType
     , oDescription
 
+    -- ** OfferingPromotion
+    , OfferingPromotion
+    , offeringPromotion
+    , opId
+    , opDescription
+
     -- ** OfferingStatus
     , OfferingStatus
     , offeringStatus
@@ -412,6 +425,7 @@ module Network.AWS.DeviceFarm
     , otOfferingStatus
     , otCost
     , otTransactionId
+    , otOfferingPromotionId
     , otCreatedOn
 
     -- ** Problem
@@ -558,6 +572,12 @@ module Network.AWS.DeviceFarm
     , tMessage
     , tStarted
 
+    -- ** TrialMinutes
+    , TrialMinutes
+    , trialMinutes
+    , tmRemaining
+    , tmTotal
+
     -- ** UniqueProblem
     , UniqueProblem
     , uniqueProblem
@@ -608,6 +628,7 @@ import           Network.AWS.DeviceFarm.ListDevicePools
 import           Network.AWS.DeviceFarm.ListDevices
 import           Network.AWS.DeviceFarm.ListJobs
 import           Network.AWS.DeviceFarm.ListNetworkProfiles
+import           Network.AWS.DeviceFarm.ListOfferingPromotions
 import           Network.AWS.DeviceFarm.ListOfferings
 import           Network.AWS.DeviceFarm.ListOfferingTransactions
 import           Network.AWS.DeviceFarm.ListProjects
